@@ -356,23 +356,35 @@ if __name__ == "__main__":
     parser.add_argument('--traversals', type=int, default=200, help='Traversals per iteration')
     parser.add_argument('--save-dir', type=str, default='models', help='Directory to save models')
     parser.add_argument('--log-dir', type=str, default='logs/deepcfr', help='Directory for tensorboard logs')
+    parser.add_argument('--checkpoint', type=str, default=None, help='Path to checkpoint to continue training from')
     args = parser.parse_args()
     
-    print(f"Starting Deep CFR training for {args.iterations} iterations")
-    print(f"Using {args.traversals} traversals per iteration")
-    print(f"Logs will be saved to: {args.log_dir}")
-    print(f"Models will be saved to: {args.save_dir}")
-    
-    # Train the Deep CFR agent
-    agent, losses, profits = train_deep_cfr(
-        num_iterations=args.iterations,
-        traversals_per_iteration=args.traversals,
-        num_players=6,
-        player_id=0,
-        save_dir=args.save_dir,
-        log_dir=args.log_dir,
-        verbose=args.verbose
-    )
+    if args.checkpoint:
+        print(f"Continuing training from checkpoint: {args.checkpoint}")
+        agent, losses, profits = continue_training(
+            checkpoint_path=args.checkpoint,
+            additional_iterations=args.iterations,
+            traversals_per_iteration=args.traversals,
+            save_dir=args.save_dir,
+            log_dir=args.log_dir + "_continued",
+            verbose=args.verbose
+        )
+    else:
+        print(f"Starting Deep CFR training for {args.iterations} iterations")
+        print(f"Using {args.traversals} traversals per iteration")
+        print(f"Logs will be saved to: {args.log_dir}")
+        print(f"Models will be saved to: {args.save_dir}")
+        
+        # Train the Deep CFR agent
+        agent, losses, profits = train_deep_cfr(
+            num_iterations=args.iterations,
+            traversals_per_iteration=args.traversals,
+            num_players=6,
+            player_id=0,
+            save_dir=args.save_dir,
+            log_dir=args.log_dir,
+            verbose=args.verbose
+        )
     
     print("\nTraining Summary:")
     print(f"Final loss: {losses[-1]:.6f}")
