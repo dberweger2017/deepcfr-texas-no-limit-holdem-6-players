@@ -157,7 +157,7 @@ After training, the agent achieves:
 - Increasing performance over training iterations
 - Sophisticated betting strategies
 
-![Learning Curve](https://github.com/yourusername/deepcfr-poker/assets/yourusername/learning-curve.png)
+![Learning Curve](https://raw.githubusercontent.com/dberweger2017/deepcfr/refs/heads/main/images/profit.png)
 
 ## Future Work
 
