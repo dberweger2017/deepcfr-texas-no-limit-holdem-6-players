@@ -2,7 +2,7 @@
 
 A deep learning implementation of Counterfactual Regret Minimization (CFR) for No-Limit Texas Hold'em Poker. This project demonstrates advanced reinforcement learning techniques applied to imperfect information games.
 
-![Poker AI](https://github.com/yourusername/deepcfr-poker/assets/yourusername/poker-ai-header.png)
+![Poker AI](https://raw.githubusercontent.com/dberweger2017/deepcfr/refs/heads/main/images/profit.png)
 
 ## Overview
 
