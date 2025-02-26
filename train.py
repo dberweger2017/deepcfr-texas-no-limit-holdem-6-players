@@ -199,6 +199,154 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
     
     return agent, losses, profits
 
+def continue_training(checkpoint_path, additional_iterations=1000, 
+                     traversals_per_iteration=200, save_dir="models", 
+                     log_dir="logs/deepcfr_continued", verbose=False):
+    """
+    Continue training a Deep CFR agent from a saved checkpoint.
+    
+    Args:
+        checkpoint_path: Path to the saved checkpoint
+        additional_iterations: Number of additional iterations to train
+        traversals_per_iteration: Number of traversals per iteration
+        save_dir: Directory to save new models
+        log_dir: Directory for tensorboard logs
+        verbose: Whether to print verbose output
+    """
+    # Import tensorboard
+    from torch.utils.tensorboard import SummaryWriter
+    
+    # Set verbosity
+    set_verbose(verbose)
+    
+    # Create the directories if they don't exist
+    os.makedirs(save_dir, exist_ok=True)
+    os.makedirs(log_dir, exist_ok=True)
+    
+    # Initialize tensorboard writer
+    writer = SummaryWriter(log_dir)
+    
+    # Load the checkpoint
+    print(f"Loading checkpoint from {checkpoint_path}")
+    checkpoint = torch.load(checkpoint_path)
+    
+    # Initialize the agent
+    num_players = 6  # Assuming 6 players as in the original training
+    player_id = 0    # Assuming player_id 0 as in the original training
+    agent = DeepCFRAgent(player_id=player_id, num_players=num_players, 
+                          device='cuda' if torch.cuda.is_available() else 'cpu')
+    
+    # Load the model weights
+    agent.advantage_net.load_state_dict(checkpoint['advantage_net'])
+    agent.strategy_net.load_state_dict(checkpoint['strategy_net'])
+    
+    # Set the iteration count from the checkpoint
+    start_iteration = checkpoint['iteration'] + 1
+    agent.iteration_count = start_iteration - 1
+    
+    # Load the training history if available
+    losses = checkpoint.get('losses', [])
+    profits = checkpoint.get('profits', [])
+    
+    print(f"Loaded model from iteration {start_iteration-1}")
+    print(f"Continuing training for {additional_iterations} more iterations")
+    
+    # Create random agents for the opponents
+    random_agents = [RandomAgent(i) for i in range(num_players)]
+    
+    # Checkpoint frequency
+    checkpoint_frequency = 100  # Save a checkpoint every 100 iterations
+    
+    # Training loop
+    for iteration in range(start_iteration, start_iteration + additional_iterations):
+        agent.iteration_count = iteration
+        start_time = time.time()
+        
+        print(f"Iteration {iteration}/{start_iteration + additional_iterations - 1}")
+        
+        # Run traversals to collect data
+        print("  Collecting data...")
+        for _ in range(traversals_per_iteration):
+            # Create a new poker game
+            state = pkrs.State.from_seed(
+                n_players=num_players,
+                button=random.randint(0, num_players-1),
+                sb=1,
+                bb=2,
+                stake=200.0,
+                seed=random.randint(0, 10000)
+            )
+            
+            # Perform CFR traversal
+            agent.cfr_traverse(state, iteration, random_agents)
+        
+        # Track traversal time
+        traversal_time = time.time() - start_time
+        writer.add_scalar('Time/Traversal', traversal_time, iteration)
+        
+        # Train advantage network
+        print("  Training advantage network...")
+        adv_loss = agent.train_advantage_network()
+        losses.append(adv_loss)
+        print(f"  Advantage network loss: {adv_loss:.6f}")
+        
+        # Log the loss to tensorboard
+        writer.add_scalar('Loss/Advantage', adv_loss, iteration)
+        writer.add_scalar('Memory/Advantage', len(agent.advantage_memory), iteration)
+        
+        # Every few iterations, train the strategy network and evaluate
+        if iteration % 10 == 0 or iteration == start_iteration + additional_iterations - 1:
+            print("  Training strategy network...")
+            strat_loss = agent.train_strategy_network()
+            print(f"  Strategy network loss: {strat_loss:.6f}")
+            writer.add_scalar('Loss/Strategy', strat_loss, iteration)
+            
+            # Evaluate the agent
+            print("  Evaluating agent...")
+            avg_profit = evaluate_against_random(agent, num_games=100, num_players=num_players)
+            profits.append(avg_profit)
+            print(f"  Average profit per game: {avg_profit:.2f}")
+            writer.add_scalar('Performance/Profit', avg_profit, iteration)
+            
+            # Save the model
+            model_path = f"{save_dir}/deep_cfr_iter_{iteration}.pt"
+            agent.save_model(model_path)
+            print(f"  Model saved to {model_path}")
+        
+        # Save checkpoint periodically
+        if iteration % checkpoint_frequency == 0:
+            checkpoint_path = f"{save_dir}/checkpoint_iter_{iteration}.pt"
+            torch.save({
+                'iteration': iteration,
+                'advantage_net': agent.advantage_net.state_dict(),
+                'strategy_net': agent.strategy_net.state_dict(),
+                'losses': losses,
+                'profits': profits
+            }, checkpoint_path)
+            print(f"  Checkpoint saved to {checkpoint_path}")
+        
+        elapsed = time.time() - start_time
+        writer.add_scalar('Time/Iteration', elapsed, iteration)
+        print(f"  Iteration completed in {elapsed:.2f} seconds")
+        print(f"  Advantage memory size: {len(agent.advantage_memory)}")
+        print(f"  Strategy memory size: {len(agent.strategy_memory)}")
+        writer.add_scalar('Memory/Strategy', len(agent.strategy_memory), iteration)
+        
+        # Commit the tensorboard logs
+        writer.flush()
+        print()
+    
+    # Final evaluation
+    print("Final evaluation...")
+    avg_profit = evaluate_against_random(agent, num_games=1000)
+    print(f"Final performance: Average profit per game: {avg_profit:.2f}")
+    writer.add_scalar('Performance/FinalProfit', avg_profit, 0)
+    
+    # Close the tensorboard writer
+    writer.close()
+    
+    return agent, losses, profits
+
 if __name__ == "__main__":
     import argparse
     
