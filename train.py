@@ -347,6 +347,246 @@ def continue_training(checkpoint_path, additional_iterations=1000,
     
     return agent, losses, profits
 
+def train_against_checkpoint(checkpoint_path, additional_iterations=1000, 
+                           traversals_per_iteration=200, save_dir="models", 
+                           log_dir="logs/deepcfr_selfplay", verbose=False):
+    """
+    Train a new Deep CFR agent against a fixed agent loaded from a checkpoint.
+    
+    Args:
+        checkpoint_path: Path to the saved checkpoint to use as an opponent
+        additional_iterations: Number of iterations to train
+        traversals_per_iteration: Number of traversals per iteration
+        save_dir: Directory to save new models
+        log_dir: Directory for tensorboard logs
+        verbose: Whether to print verbose output
+    """
+    from torch.utils.tensorboard import SummaryWriter
+    
+    # Set verbosity
+    set_verbose(verbose)
+    
+    # Create the directories if they don't exist
+    os.makedirs(save_dir, exist_ok=True)
+    os.makedirs(log_dir, exist_ok=True)
+    
+    # Initialize tensorboard writer
+    writer = SummaryWriter(log_dir)
+    
+    print(f"Loading opponent from checkpoint: {checkpoint_path}")
+    
+    # Load the opponent agent from checkpoint
+    opponent_agent = DeepCFRAgent(player_id=0, num_players=6, 
+                                 device='cuda' if torch.cuda.is_available() else 'cpu')
+    opponent_agent.load_model(checkpoint_path)
+    
+    # Create opponent agents for each player position
+    opponent_agents = []
+    for player_pos in range(6):
+        # Create a new agent for each position
+        if player_pos == 0:
+            # For player 0, use the main opponent agent
+            opponent_agents.append(opponent_agent)
+        else:
+            # For other positions, create copies of the opponent
+            pos_agent = DeepCFRAgent(player_id=player_pos, num_players=6,
+                                     device='cuda' if torch.cuda.is_available() else 'cpu')
+            pos_agent.load_model(checkpoint_path)
+            # We need to change the player_id for each agent
+            pos_agent.player_id = player_pos
+            opponent_agents.append(pos_agent)
+    
+    # Initialize the new learning agent
+    learning_agent = DeepCFRAgent(player_id=0, num_players=6, 
+                                  device='cuda' if torch.cuda.is_available() else 'cpu')
+    
+    # For tracking learning progress
+    losses = []
+    profits = []
+    
+    # Checkpoint frequency
+    checkpoint_frequency = 20  # Save more frequently for self-play
+    
+    class AgentWrapper:
+        """Simple wrapper to match the interface expected by the CFR traverse function"""
+        def __init__(self, agent):
+            self.agent = agent
+            self.player_id = agent.player_id
+            
+        def choose_action(self, state):
+            return self.agent.choose_action(state)
+    
+    # Training loop
+    for iteration in range(1, additional_iterations + 1):
+        learning_agent.iteration_count = iteration
+        start_time = time.time()
+        
+        print(f"Self-play Iteration {iteration}/{additional_iterations}")
+        
+        # Run traversals to collect data
+        print("  Collecting data...")
+        for t in range(traversals_per_iteration):
+            # Rotate the button position for fairness
+            button_pos = t % 6
+            
+            # Create a new poker game
+            state = pkrs.State.from_seed(
+                n_players=6,
+                button=button_pos,
+                sb=1,
+                bb=2,
+                stake=200.0,
+                seed=random.randint(0, 10000)
+            )
+            
+            # Set up the opponent agents for this traversal
+            # The learning agent always plays as player 0
+            # We need to wrap the opponents to match the interface
+            opponent_wrappers = [None] * 6
+            for pos in range(6):
+                if pos != 0:  # Not the learning agent's position
+                    # Use the opponent agent for this position
+                    opponent_wrappers[pos] = AgentWrapper(opponent_agents[pos])
+            
+            # Perform CFR traversal with the learning agent as player 0
+            # and opponent agents in other positions
+            learning_agent.cfr_traverse(state, iteration, opponent_wrappers)
+        
+        # Track traversal time
+        traversal_time = time.time() - start_time
+        writer.add_scalar('Time/Traversal', traversal_time, iteration)
+        
+        # Train advantage network
+        print("  Training advantage network...")
+        adv_loss = learning_agent.train_advantage_network()
+        losses.append(adv_loss)
+        print(f"  Advantage network loss: {adv_loss:.6f}")
+        
+        # Log the loss to tensorboard
+        writer.add_scalar('Loss/Advantage', adv_loss, iteration)
+        writer.add_scalar('Memory/Advantage', len(learning_agent.advantage_memory), iteration)
+        
+        # Every few iterations, train the strategy network and evaluate
+        if iteration % 10 == 0 or iteration == additional_iterations:
+            print("  Training strategy network...")
+            strat_loss = learning_agent.train_strategy_network()
+            print(f"  Strategy network loss: {strat_loss:.6f}")
+            writer.add_scalar('Loss/Strategy', strat_loss, iteration)
+            
+            # First evaluate against original checkpoint agent
+            print("  Evaluating against checkpoint agent...")
+            avg_profit_vs_checkpoint = evaluate_against_agent(
+                learning_agent, opponent_agent, num_games=100)
+            print(f"  Average profit vs checkpoint: {avg_profit_vs_checkpoint:.2f}")
+            writer.add_scalar('Performance/ProfitVsCheckpoint', 
+                              avg_profit_vs_checkpoint, iteration)
+            
+            # Also evaluate against random for comparison
+            print("  Evaluating against random agents...")
+            avg_profit_random = evaluate_against_random(
+                learning_agent, num_games=100, num_players=6)
+            profits.append(avg_profit_random)
+            print(f"  Average profit vs random: {avg_profit_random:.2f}")
+            writer.add_scalar('Performance/ProfitVsRandom', 
+                              avg_profit_random, iteration)
+            
+            # Save the model
+            model_path = f"{save_dir}/deep_cfr_selfplay_iter_{iteration}"
+            learning_agent.save_model(model_path)
+            print(f"  Model saved to {model_path}")
+        
+        # Save checkpoint periodically
+        if iteration % checkpoint_frequency == 0:
+            checkpoint_path = f"{save_dir}/selfplay_checkpoint_iter_{iteration}.pt"
+            torch.save({
+                'iteration': iteration,
+                'advantage_net': learning_agent.advantage_net.state_dict(),
+                'strategy_net': learning_agent.strategy_net.state_dict(),
+                'losses': losses,
+                'profits': profits
+            }, checkpoint_path)
+            print(f"  Checkpoint saved to {checkpoint_path}")
+        
+        elapsed = time.time() - start_time
+        writer.add_scalar('Time/Iteration', elapsed, iteration)
+        print(f"  Iteration completed in {elapsed:.2f} seconds")
+        print(f"  Advantage memory size: {len(learning_agent.advantage_memory)}")
+        print(f"  Strategy memory size: {len(learning_agent.strategy_memory)}")
+        writer.add_scalar('Memory/Strategy', len(learning_agent.strategy_memory), iteration)
+        
+        # Commit the tensorboard logs
+        writer.flush()
+        print()
+    
+    # Final evaluation with more games
+    print("Final evaluation...")
+    avg_profit_vs_checkpoint = evaluate_against_agent(
+        learning_agent, opponent_agent, num_games=500)
+    print(f"Final performance vs checkpoint: Average profit per game: {avg_profit_vs_checkpoint:.2f}")
+    writer.add_scalar('Performance/FinalProfitVsCheckpoint', avg_profit_vs_checkpoint, 0)
+    
+    avg_profit_random = evaluate_against_random(learning_agent, num_games=500)
+    print(f"Final performance vs random: Average profit per game: {avg_profit_random:.2f}")
+    writer.add_scalar('Performance/FinalProfitVsRandom', avg_profit_random, 0)
+    
+    writer.close()
+    
+    return learning_agent, losses, profits
+
+def evaluate_against_agent(agent, opponent_agent, num_games=100):
+    """Evaluate the trained agent against an opponent agent."""
+    total_profit = 0
+    
+    class AgentWrapper:
+        def __init__(self, agent, player_id):
+            self.agent = agent
+            self.player_id = player_id
+            
+        def choose_action(self, state):
+            # We need to map the game's current_player to agent's perspective
+            return self.agent.choose_action(state)
+    
+    # Create opponent wrappers for each position
+    opponent_wrappers = []
+    for pos in range(6):
+        if pos == agent.player_id:
+            opponent_wrappers.append(None)  # Will be filled with the main agent
+        else:
+            # Create a copy of the opponent agent for this position
+            pos_agent = DeepCFRAgent(player_id=pos, num_players=6,
+                                     device=opponent_agent.device)
+            pos_agent.advantage_net.load_state_dict(opponent_agent.advantage_net.state_dict())
+            pos_agent.strategy_net.load_state_dict(opponent_agent.strategy_net.state_dict())
+            opponent_wrappers.append(AgentWrapper(pos_agent, pos))
+    
+    for game in range(num_games):
+        # Create a new poker game with rotating button
+        state = pkrs.State.from_seed(
+            n_players=6,
+            button=game % 6,  # Rotate button for fairness
+            sb=1,
+            bb=2,
+            stake=200.0,
+            seed=game
+        )
+        
+        # Play until the game is over
+        while not state.final_state:
+            current_player = state.current_player
+            
+            if current_player == agent.player_id:
+                action = agent.choose_action(state)
+            else:
+                action = opponent_wrappers[current_player].choose_action(state)
+                
+            state = state.apply_action(action)
+        
+        # Add the profit for this game
+        profit = state.players_state[agent.player_id].reward
+        total_profit += profit
+    
+    return total_profit / num_games
+
 if __name__ == "__main__":
     import argparse
     
