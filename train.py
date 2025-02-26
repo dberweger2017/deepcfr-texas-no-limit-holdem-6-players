@@ -200,7 +200,6 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
     return agent, losses, profits
 
 if __name__ == "__main__":
-    # Parse command line arguments
     import argparse
     
     parser = argparse.ArgumentParser(description='Train a Deep CFR agent for poker')
