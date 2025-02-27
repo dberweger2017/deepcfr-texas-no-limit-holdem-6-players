@@ -1,0 +1,7 @@
+torch
+numpy
+matplotlib
+tensorboard
+argparse
+tqdm
+pokers
