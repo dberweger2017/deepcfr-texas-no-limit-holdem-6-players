@@ -1180,7 +1180,7 @@ if __name__ == "__main__":
             additional_iterations=args.iterations,
             traversals_per_iteration=args.traversals,
             save_dir=args.save_dir,
-            log_dir=args.log_dir + "_selfplay_4",
+            log_dir=args.log_dir + "_selfplay",
             verbose=args.verbose
         )
     elif args.checkpoint:
