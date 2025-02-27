@@ -739,6 +739,406 @@ def evaluate_against_agent(agent, opponent_agent, num_games=100):
     
     return evaluate_against_checkpoint_agents(agent, opponent_agents, num_games)
 
+def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
+                           additional_iterations=1000, traversals_per_iteration=200,
+                           save_dir="models", log_dir="logs/deepcfr_mixed",
+                           refresh_interval=1000, num_opponents=5, verbose=False):
+    """
+    Train a Deep CFR agent against opponents randomly selected from a pool of checkpoints.
+    
+    Args:
+        checkpoint_dir: Directory containing checkpoint models
+        training_model_prefix: Prefix for models that should be included in selection pool
+        additional_iterations: Number of iterations to train
+        traversals_per_iteration: Number of traversals per iteration
+        save_dir: Directory to save new models
+        log_dir: Directory for tensorboard logs
+        refresh_interval: How often to refresh the opponent pool (in iterations)
+        num_opponents: Number of opponents to select from the pool
+        verbose: Whether to print verbose output
+    """
+    from torch.utils.tensorboard import SummaryWriter
+    import glob
+    import os
+    import random
+    
+    # Set verbosity
+    set_verbose(verbose)
+    
+    # Create the directories if they don't exist
+    os.makedirs(save_dir, exist_ok=True)
+    os.makedirs(log_dir, exist_ok=True)
+    
+    # Initialize tensorboard writer
+    writer = SummaryWriter(log_dir)
+    
+    # Device configuration
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    
+    # Initialize the learning agent
+    learning_agent = DeepCFRAgent(player_id=0, num_players=6, device=device)
+    
+    # For tracking learning progress
+    losses = []
+    profits = []
+    profits_vs_checkpoints = []
+    
+    # Checkpoint frequency for saving our learning agent
+    checkpoint_frequency = 20
+    
+    # Helper class for agent wrappers
+    class AgentWrapper:
+        """Wrapper to ensure agents receive observations from their own perspective"""
+        def __init__(self, agent):
+            self.agent = agent
+            self.player_id = agent.player_id
+            
+        def choose_action(self, state):
+            # This is critical - the agent views the state from its own perspective
+            return self.agent.choose_action(state)
+    
+    # Save the original cfr_traverse method so we can restore it later
+    original_cfr_traverse = DeepCFRAgent.cfr_traverse
+    
+    # Define a modified cfr_traverse method for mixed checkpoint training
+    def mixed_checkpoints_cfr_traverse(self, state, iteration, opponent_agents, depth=0):
+        """
+        Modified CFR traverse method to ensure proper state perspective for each agent.
+        """
+        # Add recursion depth protection
+        max_depth = 1000
+        if depth > max_depth:
+            if verbose:
+                print(f"WARNING: Max recursion depth reached ({max_depth}). Returning zero value.")
+            return 0
+        
+        if state.final_state:
+            # Return payoff for the trained agent
+            return state.players_state[self.player_id].reward
+        
+        current_player = state.current_player
+        
+        # Debug information for the current state
+        if verbose and depth % 100 == 0:
+            print(f"Depth: {depth}, Player: {current_player}, Stage: {state.stage}")
+        
+        # If it's the trained agent's turn
+        if current_player == self.player_id:
+            legal_action_ids = self.get_legal_action_ids(state)
+            
+            if not legal_action_ids:
+                if verbose:
+                    print(f"WARNING: No legal actions found for player {current_player} at depth {depth}")
+                return 0
+                
+            # Encode state from this agent's perspective
+            state_tensor = torch.FloatTensor(encode_state(state, self.player_id)).to(self.device)
+            
+            # Get advantages from network
+            with torch.no_grad():
+                advantages = self.advantage_net(state_tensor.unsqueeze(0))[0]
+                
+            # Use regret matching to compute strategy
+            advantages_np = advantages.cpu().numpy()
+            advantages_masked = np.zeros(self.num_actions)
+            for a in legal_action_ids:
+                advantages_masked[a] = max(advantages_np[a], 0)
+                
+            # Choose an action based on the strategy
+            if sum(advantages_masked) > 0:
+                strategy = advantages_masked / sum(advantages_masked)
+            else:
+                strategy = np.zeros(self.num_actions)
+                for a in legal_action_ids:
+                    strategy[a] = 1.0 / len(legal_action_ids)
+            
+            # Choose actions and traverse
+            action_values = np.zeros(self.num_actions)
+            for action_id in legal_action_ids:
+                try:
+                    pokers_action = self.action_id_to_pokers_action(action_id, state)
+                    new_state = state.apply_action(pokers_action)
+                    
+                    # Check if the action was valid
+                    if new_state.status != pkrs.StateStatus.Ok:
+                        if verbose:
+                            print(f"WARNING: Invalid action {action_id} at depth {depth}. Status: {new_state.status}")
+                        continue
+                        
+                    action_values[action_id] = self.cfr_traverse(new_state, iteration, opponent_agents, depth + 1)
+                except Exception as e:
+                    if verbose:
+                        print(f"ERROR in traversal for action {action_id}: {e}")
+                    action_values[action_id] = 0
+            
+            # Compute counterfactual regrets and add to memory
+            ev = sum(strategy[a] * action_values[a] for a in legal_action_ids)
+            
+            # Calculate normalization factor
+            max_abs_val = max(abs(max(action_values)), abs(min(action_values)), 1.0)
+            
+            for action_id in legal_action_ids:
+                # Calculate regret
+                regret = action_values[action_id] - ev
+                
+                # Normalize and clip regret
+                normalized_regret = regret / max_abs_val
+                clipped_regret = np.clip(normalized_regret, -10.0, 10.0)
+                
+                # Apply scaling
+                scale_factor = np.sqrt(iteration) if iteration > 1 else 1.0
+                
+                self.advantage_memory.append((
+                    encode_state(state, self.player_id),  # Encode from this agent's perspective
+                    action_id,
+                    clipped_regret * scale_factor
+                ))
+            
+            # Add to strategy memory
+            strategy_full = np.zeros(self.num_actions)
+            for a in legal_action_ids:
+                strategy_full[a] = strategy[a]
+            
+            self.strategy_memory.append((
+                encode_state(state, self.player_id),  # Encode from this agent's perspective
+                strategy_full,
+                iteration
+            ))
+            
+            return ev
+            
+        # If it's another player's turn (checkpoint agent or random agent)
+        else:
+            try:
+                # Let the appropriate opponent agent choose an action
+                if opponent_agents[current_player] is not None:
+                    action = opponent_agents[current_player].choose_action(state)
+                    new_state = state.apply_action(action)
+                    
+                    # Check if the action was valid
+                    if new_state.status != pkrs.StateStatus.Ok:
+                        if verbose:
+                            print(f"WARNING: Opponent agent made invalid action at depth {depth}. Status: {new_state.status}")
+                        return 0
+                        
+                    return self.cfr_traverse(new_state, iteration, opponent_agents, depth + 1)
+                else:
+                    # This should not happen - all opponent positions should have agents
+                    if verbose:
+                        print(f"WARNING: No opponent agent for position {current_player}")
+                    return 0
+            except Exception as e:
+                if verbose:
+                    print(f"ERROR in opponent agent traversal: {e}")
+                return 0
+    
+    # Replace the cfr_traverse method with our mixed checkpoints version
+    DeepCFRAgent.cfr_traverse = mixed_checkpoints_cfr_traverse
+    
+    try:
+        # Function to select random checkpoints from the pool
+        def select_random_checkpoints():
+            # Get all checkpoint files with the specified prefix
+            checkpoint_files = glob.glob(os.path.join(checkpoint_dir, f"{training_model_prefix}*.pt"))
+            
+            if not checkpoint_files:
+                print(f"WARNING: No checkpoint files found with prefix '{training_model_prefix}' in {checkpoint_dir}")
+                # Create random agents as fallback
+                return [RandomAgent(i) for i in range(6)]
+            
+            # Select random checkpoints
+            selected_files = random.sample(checkpoint_files, min(num_opponents, len(checkpoint_files)))
+            print(f"Selected checkpoints: {[os.path.basename(f) for f in selected_files]}")
+            
+            # Create agents from the selected checkpoints
+            selected_agents = []
+            
+            # Always keep a random agent at position 1 (optional, can be modified)
+            random_agent = RandomAgent(1)
+            
+            # Load checkpoint agents for other positions
+            current_pos = 1
+            for checkpoint_file in selected_files:
+                # Skip position 0 as it's reserved for our learning agent
+                if current_pos == 0:
+                    current_pos += 1
+                
+                # Create and load agent
+                checkpoint_agent = DeepCFRAgent(player_id=current_pos, num_players=6, device=device)
+                checkpoint_agent.load_model(checkpoint_file)
+                
+                # Add to list
+                selected_agents.append((current_pos, checkpoint_agent))
+                current_pos += 1
+                if current_pos >= 6:
+                    current_pos = 1  # Wrap around, skipping position 0
+            
+            # Create the full opponent list
+            opponent_agents = [None] * 6  # Initialize with None
+            
+            # Set position 0 to None (will be our learning agent)
+            opponent_agents[0] = None
+            
+            # Set the random agent at position 1
+            opponent_agents[1] = random_agent
+            
+            # Fill in the checkpoint agents
+            for pos, agent in selected_agents:
+                if pos != 1:  # Skip position 1 as it's already the random agent
+                    opponent_agents[pos] = agent
+            
+            # Fill any remaining positions with random agents
+            for i in range(6):
+                if opponent_agents[i] is None and i != 0:
+                    opponent_agents[i] = RandomAgent(i)
+            
+            return opponent_agents
+        
+        # Select initial opponent agents
+        opponent_agents = select_random_checkpoints()
+        
+        # Wrap agents to ensure proper perspective
+        opponent_wrappers = [None] * 6
+        for pos in range(6):
+            if pos != 0 and opponent_agents[pos] is not None:
+                opponent_wrappers[pos] = AgentWrapper(opponent_agents[pos])
+        
+        # Training loop
+        for iteration in range(1, additional_iterations + 1):
+            learning_agent.iteration_count = iteration
+            start_time = time.time()
+            
+            # Refresh opponents at specified intervals
+            if iteration % refresh_interval == 1:
+                print(f"Refreshing opponent pool at iteration {iteration}")
+                opponent_agents = select_random_checkpoints()
+                
+                # Re-wrap agents
+                opponent_wrappers = [None] * 6
+                for pos in range(6):
+                    if pos != 0 and opponent_agents[pos] is not None:
+                        opponent_wrappers[pos] = AgentWrapper(opponent_agents[pos])
+            
+            print(f"Mixed-checkpoint training iteration {iteration}/{additional_iterations}")
+            
+            # Run traversals to collect data
+            print("  Collecting data...")
+            for t in range(traversals_per_iteration):
+                # Rotate the button position for fairness
+                button_pos = t % 6
+                
+                # Create a new poker game
+                state = pkrs.State.from_seed(
+                    n_players=6,
+                    button=button_pos,
+                    sb=1,
+                    bb=2,
+                    stake=200.0,
+                    seed=random.randint(0, 10000)
+                )
+                
+                # Perform CFR traversal
+                learning_agent.cfr_traverse(state, iteration, opponent_wrappers)
+            
+            # Track traversal time
+            traversal_time = time.time() - start_time
+            writer.add_scalar('Time/Traversal', traversal_time, iteration)
+            
+            # Train advantage network
+            print("  Training advantage network...")
+            adv_loss = learning_agent.train_advantage_network()
+            losses.append(adv_loss)
+            print(f"  Advantage network loss: {adv_loss:.6f}")
+            
+            # Log the loss to tensorboard
+            writer.add_scalar('Loss/Advantage', adv_loss, iteration)
+            writer.add_scalar('Memory/Advantage', len(learning_agent.advantage_memory), iteration)
+            
+            # Every few iterations, train the strategy network and evaluate
+            if iteration % 10 == 0 or iteration == additional_iterations:
+                print("  Training strategy network...")
+                strat_loss = learning_agent.train_strategy_network()
+                print(f"  Strategy network loss: {strat_loss:.6f}")
+                writer.add_scalar('Loss/Strategy', strat_loss, iteration)
+                
+                # Evaluate against current opponents
+                print("  Evaluating against current mixed opponents...")
+                avg_profit_vs_mixed = evaluate_against_checkpoint_agents(
+                    learning_agent, opponent_agents, num_games=100)
+                profits_vs_checkpoints.append(avg_profit_vs_mixed)
+                print(f"  Average profit vs mixed opponents: {avg_profit_vs_mixed:.2f}")
+                writer.add_scalar('Performance/ProfitVsMixed', 
+                                avg_profit_vs_mixed, iteration)
+                
+                # Also evaluate against random for baseline comparison
+                print("  Evaluating against random agents...")
+                avg_profit_random = evaluate_against_random(
+                    learning_agent, num_games=100, num_players=6)
+                profits.append(avg_profit_random)
+                print(f"  Average profit vs random: {avg_profit_random:.2f}")
+                writer.add_scalar('Performance/ProfitVsRandom', 
+                                avg_profit_random, iteration)
+                
+                # Save the model
+                model_path = f"{save_dir}/deep_cfr_mixed_iter_{iteration}"
+                learning_agent.save_model(model_path)
+                print(f"  Model saved to {model_path}")
+                
+                # Also save as a training model that can be selected
+                t_model_path = f"{checkpoint_dir}/{training_model_prefix}mixed_iter_{iteration}.pt"
+                torch.save({
+                    'iteration': iteration,
+                    'advantage_net': learning_agent.advantage_net.state_dict(),
+                    'strategy_net': learning_agent.strategy_net.state_dict()
+                }, t_model_path)
+                print(f"  Training model saved to {t_model_path}")
+            
+            # Save checkpoint periodically
+            if iteration % checkpoint_frequency == 0:
+                checkpoint_path = f"{save_dir}/mixed_checkpoint_iter_{iteration}.pt"
+                torch.save({
+                    'iteration': iteration,
+                    'advantage_net': learning_agent.advantage_net.state_dict(),
+                    'strategy_net': learning_agent.strategy_net.state_dict(),
+                    'losses': losses,
+                    'profits': profits,
+                    'profits_vs_checkpoints': profits_vs_checkpoints
+                }, checkpoint_path)
+                print(f"  Checkpoint saved to {checkpoint_path}")
+            
+            elapsed = time.time() - start_time
+            writer.add_scalar('Time/Iteration', elapsed, iteration)
+            print(f"  Iteration completed in {elapsed:.2f} seconds")
+            print(f"  Advantage memory size: {len(learning_agent.advantage_memory)}")
+            print(f"  Strategy memory size: {len(learning_agent.strategy_memory)}")
+            writer.add_scalar('Memory/Strategy', len(learning_agent.strategy_memory), iteration)
+            
+            # Commit the tensorboard logs
+            writer.flush()
+            print()
+        
+        # Final evaluation with more games
+        print("Final evaluation...")
+        
+        # Evaluate against random opponents
+        avg_profit_random = evaluate_against_random(learning_agent, num_games=500)
+        print(f"Final performance vs random: Average profit per game: {avg_profit_random:.2f}")
+        writer.add_scalar('Performance/FinalProfitVsRandom', avg_profit_random, 0)
+        
+        # Evaluate against mixed opponents
+        avg_profit_vs_mixed = evaluate_against_checkpoint_agents(
+            learning_agent, opponent_agents, num_games=500)
+        print(f"Final performance vs mixed opponents: Average profit per game: {avg_profit_vs_mixed:.2f}")
+        writer.add_scalar('Performance/FinalProfitVsMixed', avg_profit_vs_mixed, 0)
+        
+        writer.close()
+        
+        return learning_agent, losses, profits, profits_vs_checkpoints
+    
+    finally:
+        # Restore the original cfr_traverse method to avoid side effects
+        DeepCFRAgent.cfr_traverse = original_cfr_traverse
+
 # For importing model.encode_state in the cfr_traverse method
 from model import encode_state
 
@@ -753,16 +1153,34 @@ if __name__ == "__main__":
     parser.add_argument('--log-dir', type=str, default='logs/deepcfr', help='Directory for tensorboard logs')
     parser.add_argument('--checkpoint', type=str, default=None, help='Path to checkpoint to continue training from')
     parser.add_argument('--self-play', action='store_true', help='Train against checkpoint instead of random agents')
+    parser.add_argument('--mixed', action='store_true', help='Train against mixed checkpoints')
+    parser.add_argument('--checkpoint-dir', type=str, default='models', help='Directory containing checkpoint models')
+    parser.add_argument('--model-prefix', type=str, default='t_', help='Prefix for models to include in selection pool')
+    parser.add_argument('--refresh-interval', type=int, default=1000, help='Interval to refresh opponent pool')
+    parser.add_argument('--num-opponents', type=int, default=5, help='Number of checkpoint opponents to select')
     args = parser.parse_args()
     
-    if args.checkpoint and args.self_play:
+    if args.mixed:
+        print(f"Starting mixed checkpoint training with models from: {args.checkpoint_dir}")
+        agent, losses, profits, profits_vs_checkpoints = train_with_mixed_checkpoints(
+            checkpoint_dir=args.checkpoint_dir,
+            training_model_prefix=args.model_prefix,
+            additional_iterations=args.iterations,
+            traversals_per_iteration=args.traversals,
+            save_dir=args.save_dir,
+            log_dir=args.log_dir + "_mixed",
+            refresh_interval=args.refresh_interval,
+            num_opponents=args.num_opponents,
+            verbose=args.verbose
+        )
+    elif args.checkpoint and args.self_play:
         print(f"Starting self-play training against checkpoint: {args.checkpoint}")
         agent, losses, profits = train_against_checkpoint(
             checkpoint_path=args.checkpoint,
             additional_iterations=args.iterations,
             traversals_per_iteration=args.traversals,
             save_dir=args.save_dir,
-            log_dir=args.log_dir + "_selfplay_3",
+            log_dir=args.log_dir + "_selfplay_4",
             verbose=args.verbose
         )
     elif args.checkpoint:
@@ -795,7 +1213,9 @@ if __name__ == "__main__":
     print("\nTraining Summary:")
     print(f"Final loss: {losses[-1]:.6f}")
     if profits:
-        print(f"Final average profit: {profits[-1]:.2f}")
+        print(f"Final average profit vs random: {profits[-1]:.2f}")
+    if 'profits_vs_checkpoints' in locals() and profits_vs_checkpoints:
+        print(f"Final average profit vs mixed checkpoints: {profits_vs_checkpoints[-1]:.2f}")
     
     print("\nTo view training progress:")
     print(f"Run: tensorboard --logdir={args.log_dir}")
