@@ -273,7 +273,7 @@ python train.py --checkpoint models/checkpoint_iter_1000.pt --self-play --iterat
 Train against a rotating pool of checkpoint opponents:
 
 ```bash
-python train.py --mixed --checkpoint-dir models --model-prefix t_ --refresh-interval 1000 --num-opponents 5 --iterations 1000
+python train.py --mixed --checkpoint-dir models --model-prefix t_ --refresh-interval 1000 --num-opponents 5 --iterations 10000
 ```
 
 Continue an existing agent with mixed checkpoint training:
