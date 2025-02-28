@@ -311,8 +311,7 @@ class RandomAgent:
     def choose_action(self, state):
         """Choose a random legal action."""
         if not state.legal_actions:
-            # Default action if no legal actions (shouldn't happen)
-            return pkrs.Action(pkrs.ActionEnum.Call)
+            raise
         
         # Select a random legal action
         action_enum = random.choice(state.legal_actions)
