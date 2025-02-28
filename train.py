@@ -806,7 +806,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
     profits_vs_checkpoints = []
     
     # Checkpoint frequency for saving our learning agent
-    checkpoint_frequency = 20
+    checkpoint_frequency = 100
     
     # Helper class for agent wrappers
     class AgentWrapper:
@@ -1102,18 +1102,19 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
                                 avg_profit_random, iteration)
                 
                 # Save the model
-                model_path = f"{save_dir}/deep_cfr_mixed_iter_{iteration}"
-                learning_agent.save_model(model_path)
-                print(f"  Model saved to {model_path}")
+                #model_path = f"{save_dir}/deep_cfr_mixed_iter_{iteration}"
+                #learning_agent.save_model(model_path)
+                #print(f"  Model saved to {model_path}")
                 
                 # Also save as a training model that can be selected
-                t_model_path = f"{checkpoint_dir}/{training_model_prefix}mixed_iter_{iteration}.pt"
-                torch.save({
-                    'iteration': iteration,
-                    'advantage_net': learning_agent.advantage_net.state_dict(),
-                    'strategy_net': learning_agent.strategy_net.state_dict()
-                }, t_model_path)
-                print(f"  Training model saved to {t_model_path}")
+                if iteration % 100 == 0:
+                    t_model_path = f"{checkpoint_dir}/{training_model_prefix}mixed_iter_{iteration}.pt"
+                    torch.save({
+                        'iteration': iteration,
+                        'advantage_net': learning_agent.advantage_net.state_dict(),
+                        'strategy_net': learning_agent.strategy_net.state_dict()
+                    }, t_model_path)
+                    print(f"  Training model saved to {t_model_path}")
             
             # Save checkpoint periodically
             if iteration % checkpoint_frequency == 0:
