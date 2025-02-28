@@ -183,9 +183,9 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
             writer.add_scalar('Performance/Profit', avg_profit, iteration)
             
             # Save the model
-            model_path = f"{save_dir}/deep_cfr_iter_{iteration}.pt"
-            agent.save_model(model_path)
-            print(f"  Model saved to {model_path}")
+            #model_path = f"{save_dir}/deep_cfr_iter_{iteration}.pt"
+            #agent.save_model(model_path)
+            #print(f"  Model saved to {model_path}")
         
         # Save checkpoint periodically
         if iteration % checkpoint_frequency == 0:
