@@ -185,5 +185,6 @@ def debug_poker_game(num_games=3):
         total_reward = sum(p.reward for p in state.players_state)
         print(f"Total rewards: {total_reward} (should be approximately 0 for a zero-sum game)")
 
+
 if __name__ == "__main__":
     debug_poker_game(num_games=4)
