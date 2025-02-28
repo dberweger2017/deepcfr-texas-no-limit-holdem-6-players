@@ -11,36 +11,58 @@ from deep_cfr import DeepCFRAgent
 from model import set_verbose
 
 class RandomAgent:
+    """Simple random agent for poker that ensures valid bet sizing."""
     def __init__(self, player_id):
         self.player_id = player_id
+        self.name = f"Player {player_id}"
         
     def choose_action(self, state):
-        """Choose a random legal action."""
+        """Choose a random legal action with a raise amount clamped by the available balance."""
         if not state.legal_actions:
-            # Default action if no legal actions (shouldn't happen)
-            return pkrs.Action(pkrs.ActionEnum.Call)
+            raise ValueError(f"No legal actions available for player {self.player_id}")
         
-        # Select a random legal action
         action_enum = random.choice(state.legal_actions)
         
-        # For raises, select a random amount between min and max
-        if action_enum == pkrs.ActionEnum.Raise:
-            player_state = state.players_state[state.current_player]
-            min_amount = state.min_bet
-            max_amount = player_state.stake  # All-in
-            
-            # Choose between 0.5x pot, 1x pot, or a random amount
-            pot_amounts = [state.pot * 0.5, state.pot]
-            valid_amounts = [amt for amt in pot_amounts if min_amount <= amt <= max_amount]
-            
-            if valid_amounts:
-                amount = random.choice(valid_amounts)
-            else:
-                amount = random.uniform(min_amount, max_amount)
-                
-            return pkrs.Action(action_enum, amount)
-        else:
+        # For non-raise actions, return as is.
+        if action_enum in (pkrs.ActionEnum.Fold, pkrs.ActionEnum.Check, pkrs.ActionEnum.Call):
             return pkrs.Action(action_enum)
+        
+        elif action_enum == pkrs.ActionEnum.Raise:
+            player_state = state.players_state[state.current_player]
+            current_bet = player_state.bet_chips
+            
+            # Compute legal total bet bounds.
+            lower_bound = current_bet + state.min_bet
+            upper_bound = current_bet + player_state.stake  # maximum total bet if all-in.
+            
+            # If the player's remaining stake is less than the required min raise, just call.
+            if player_state.stake < state.min_bet:
+                return pkrs.Action(pkrs.ActionEnum.Call)
+            
+            # Compute candidate total bets using pot-based heuristics.
+            candidate_half = current_bet + state.pot * 0.5
+            candidate_full = current_bet + state.pot
+            
+            candidates = []
+            if lower_bound <= candidate_half <= upper_bound:
+                candidates.append(candidate_half)
+            if lower_bound <= candidate_full <= upper_bound:
+                candidates.append(candidate_full)
+            
+            if candidates:
+                chosen_total = random.choice(candidates)
+            else:
+                chosen_total = random.uniform(lower_bound, upper_bound)
+            
+            # Desired raise is the extra amount over current bet.
+            desired_raise = chosen_total - current_bet
+            
+            # Clamp the raise to the player's available chips.
+            final_raise = min(desired_raise, player_state.stake)
+            
+            return pkrs.Action(action_enum, final_raise)
+        
+        raise ValueError(f"Unexpected action type: {action_enum}")
 
 def evaluate_against_random(agent, num_games=100, num_players=6):
     """Evaluate the trained agent against random opponents."""
