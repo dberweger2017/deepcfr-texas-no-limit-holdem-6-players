@@ -8,14 +8,13 @@ class RandomAgent:
         self.name = f"Player {player_id}"
         
     def choose_action(self, state):
-        """Choose a random legal action with a raise amount that is within legal bounds."""
+        """Choose a random legal action with a raise amount clamped by the available balance."""
         if not state.legal_actions:
             raise ValueError(f"No legal actions available for player {self.player_id}")
         
-        # Pick a random legal action
         action_enum = random.choice(state.legal_actions)
         
-        # For actions that don't require a raise amount, simply return them.
+        # For non-raise actions, return as is.
         if action_enum in (pkrs.ActionEnum.Fold, pkrs.ActionEnum.Check, pkrs.ActionEnum.Call):
             return pkrs.Action(action_enum)
         
@@ -23,35 +22,39 @@ class RandomAgent:
             player_state = state.players_state[state.current_player]
             current_bet = player_state.bet_chips
             
-            # Calculate legal total bet bounds
+            # Compute legal total bet bounds.
             lower_bound = current_bet + state.min_bet
-            upper_bound = current_bet + player_state.stake  # all-in
+            upper_bound = current_bet + player_state.stake  # maximum total bet if all-in.
             
-            # If the player's remaining stake is less than the minimum raise, just call.
+            # If the player's remaining stake is less than the required min raise, just call.
             if player_state.stake < state.min_bet:
                 return pkrs.Action(pkrs.ActionEnum.Call)
             
-            # Candidate total bets based on pot sizing
-            half_pot_total = current_bet + state.pot * 0.5
-            full_pot_total = current_bet + state.pot
+            # Compute candidate total bets using pot-based heuristics.
+            candidate_half = current_bet + state.pot * 0.5
+            candidate_full = current_bet + state.pot
             
             candidates = []
-            if lower_bound <= half_pot_total <= upper_bound:
-                candidates.append(half_pot_total)
-            if lower_bound <= full_pot_total <= upper_bound:
-                candidates.append(full_pot_total)
+            if lower_bound <= candidate_half <= upper_bound:
+                candidates.append(candidate_half)
+            if lower_bound <= candidate_full <= upper_bound:
+                candidates.append(candidate_full)
             
             if candidates:
-                chosen_total_bet = random.choice(candidates)
+                chosen_total = random.choice(candidates)
             else:
-                chosen_total_bet = random.uniform(lower_bound, upper_bound)
+                chosen_total = random.uniform(lower_bound, upper_bound)
             
-            # The additional raise amount is the difference between the chosen total bet and the current bet.
-            additional_raise = chosen_total_bet - current_bet
-            return pkrs.Action(action_enum, additional_raise)
+            # Desired raise is the extra amount over current bet.
+            desired_raise = chosen_total - current_bet
+            
+            # Clamp the raise to the player's available chips.
+            final_raise = min(desired_raise, player_state.stake)
+            
+            return pkrs.Action(action_enum, final_raise)
         
-        # If an unexpected action type is encountered, raise an error.
         raise ValueError(f"Unexpected action type: {action_enum}")
+
 
 def card_to_string(card):
     """Convert a card to a readable string."""
