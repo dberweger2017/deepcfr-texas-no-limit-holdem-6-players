@@ -2,7 +2,7 @@
 
 A deep learning implementation of Counterfactual Regret Minimization (CFR) for No-Limit Texas Hold'em Poker. This project demonstrates advanced reinforcement learning techniques applied to imperfect information games.
 
-![Poker AI](https://raw.githubusercontent.com/dberweger2017/deepcfr/refs/heads/main/images/profit.png)
+![Poker AI](https://raw.githubusercontent.com/dberweger2017/deepcfr/refs/heads/main/images/Screenshot%202025-02-28%20at%2007.34.25.png)
 
 ## Overview
 
@@ -106,13 +106,14 @@ The implementation includes various optimizations:
 - NumPy
 - Matplotlib
 - TensorBoard
-- [Pokers](https://github.com/yourusername/pokers) (custom poker environment)
+- [Pokers](https://github.com/Reinforcement-Poker/pokers) ("Embarrassingly simple" poker environment from Bruno Santidrian and 
+Betagmr)
 
 ## Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/deepcfr-poker.git
+git clone https://github.com/dberweger2017/deepcfr.git
 cd deepcfr-poker
 
 # Install dependencies
@@ -157,7 +158,9 @@ After training, the agent achieves:
 - Increasing performance over training iterations
 - Sophisticated betting strategies
 
-![Learning Curve](https://raw.githubusercontent.com/dberweger2017/deepcfr/refs/heads/main/images/profit.png)
+![Learning Curve](https://raw.githubusercontent.com/dberweger2017/deepcfr/refs/heads/main/images/Screenshot%202025-02-28%20at%2007.34.25.png)
+![Profit v random](https://raw.githubusercontent.com/dberweger2017/deepcfr/refs/heads/main/images/Screenshot%202025-02-28%20at%2007.36.04.png)
+![Profit v itself](https://raw.githubusercontent.com/dberweger2017/deepcfr/refs/heads/main/images/Screenshot%202025-02-28%20at%2007.31.51.png)
 
 ## Future Work
 
