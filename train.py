@@ -64,7 +64,7 @@ class RandomAgent:
         
         raise ValueError(f"Unexpected action type: {action_enum}")
 
-def evaluate_against_random(agent, num_games=100, num_players=6):
+def evaluate_against_random(agent, num_games=500, num_players=6):
     """Evaluate the trained agent against random opponents."""
     random_agents = [RandomAgent(i) for i in range(num_players)]
     
@@ -177,7 +177,7 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
             
             # Evaluate the agent
             print("  Evaluating agent...")
-            avg_profit = evaluate_against_random(agent, num_games=100, num_players=num_players)
+            avg_profit = evaluate_against_random(agent, num_games=500, num_players=num_players)
             profits.append(avg_profit)
             print(f"  Average profit per game: {avg_profit:.2f}")
             writer.add_scalar('Performance/Profit', avg_profit, iteration)
@@ -325,7 +325,7 @@ def continue_training(checkpoint_path, additional_iterations=1000,
             
             # Evaluate the agent
             print("  Evaluating agent...")
-            avg_profit = evaluate_against_random(agent, num_games=100, num_players=num_players)
+            avg_profit = evaluate_against_random(agent, num_games=500, num_players=num_players)
             profits.append(avg_profit)
             print(f"  Average profit per game: {avg_profit:.2f}")
             writer.add_scalar('Performance/Profit', avg_profit, iteration)
@@ -638,7 +638,7 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
                 # Also evaluate against random for comparison
                 print("  Evaluating against random agents...")
                 avg_profit_random = evaluate_against_random(
-                    learning_agent, num_games=100, num_players=6)
+                    learning_agent, num_games=500, num_players=6)
                 profits.append(avg_profit_random)
                 print(f"  Average profit vs random: {avg_profit_random:.2f}")
                 writer.add_scalar('Performance/ProfitVsRandom', 
@@ -1095,7 +1095,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
                 # Also evaluate against random for baseline comparison
                 print("  Evaluating against random agents...")
                 avg_profit_random = evaluate_against_random(
-                    learning_agent, num_games=100, num_players=6)
+                    learning_agent, num_games=500, num_players=6)
                 profits.append(avg_profit_random)
                 print(f"  Average profit vs random: {avg_profit_random:.2f}")
                 writer.add_scalar('Performance/ProfitVsRandom', 
