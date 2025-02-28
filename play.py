@@ -4,6 +4,7 @@ import numpy as np
 import argparse
 import os
 import random
+import glob
 from deep_cfr import DeepCFRAgent
 from model import set_verbose
 
@@ -116,51 +117,56 @@ def get_human_action(state, player_id=0):
         
         print("Invalid action. Please try again.")
 
-def play_against_models(model_paths, player_position=0, initial_stake=200.0, small_blind=1.0, big_blind=2.0, verbose=False):
+def select_random_models(models_dir, num_models=5, model_pattern="*.pt"):
     """
-    Play against a set of AI models.
+    Select random model checkpoint files from a directory.
     
     Args:
-        model_paths: List of paths to model checkpoint files
+        models_dir: Directory containing model checkpoint files
+        num_models: Number of models to select
+        model_pattern: File pattern to match model files
+        
+    Returns:
+        List of paths to selected model files
+    """
+    # Get all model checkpoint files in the directory
+    model_files = glob.glob(os.path.join(models_dir, model_pattern))
+    
+    if not model_files:
+        print(f"No model files found in {models_dir} matching pattern '{model_pattern}'")
+        return []
+    
+    # Select random models
+    selected_models = random.sample(model_files, min(num_models, len(model_files)))
+    return selected_models
+
+def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5, 
+                        player_position=0, initial_stake=200.0, small_blind=1.0, 
+                        big_blind=2.0, verbose=False, shuffle_models=True):
+    """
+    Play against randomly selected AI models from a directory.
+    
+    Args:
+        models_dir: Directory containing model checkpoint files
+        model_pattern: File pattern to match model files
+        num_models: Number of models to select
         player_position: Position of the human player (0-5)
         initial_stake: Starting chip count for all players
         small_blind: Small blind amount
         big_blind: Big blind amount
         verbose: Whether to show detailed output
+        shuffle_models: Whether to select new random models for each game
     """
     set_verbose(verbose)
     
-    # Check if we have enough models
-    if len(model_paths) < 5:
-        print("Warning: Not enough models provided. Using random agents to fill remaining positions.")
+    # Check if models directory exists
+    if models_dir and not os.path.isdir(models_dir):
+        print(f"Warning: Models directory {models_dir} not found.")
+        models_dir = None
     
-    # Load models
+    # Device configuration
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    agents = []
-    
-    # Create agents for each position
-    for i in range(6):
-        if i == player_position:
-            # Human player
-            agents.append(None)
-        else:
-            # Fill with models or random agents
-            model_idx = (i - 1) if i > player_position else i
-            if model_idx < len(model_paths) and model_paths[model_idx] is not None:
-                # Load model
-                try:
-                    agent = DeepCFRAgent(player_id=i, num_players=6, device=device)
-                    agent.load_model(model_paths[model_idx])
-                    agents.append(agent)
-                    print(f"Loaded model for position {i}: {os.path.basename(model_paths[model_idx])}")
-                except Exception as e:
-                    print(f"Error loading model for position {i}: {e}")
-                    print("Using random agent instead")
-                    agents.append(RandomAgent(i))
-            else:
-                # Use random agent
-                agents.append(RandomAgent(i))
-                print(f"Using random agent for position {i}")
+    print(f"Using device: {device}")
     
     # Track game statistics
     num_games = 0
@@ -173,12 +179,47 @@ def play_against_models(model_paths, player_position=0, initial_stake=200.0, sma
             print("\nYou're out of chips! Game over.")
             break
         
-        # Ask if player wants to continue
+        # Ask if player wants to continue after the first game
         if num_games > 0:
             choice = input("\nContinue playing? (y/n): ").strip().lower()
             if choice != 'y':
                 print("Thanks for playing!")
                 break
+        
+        # Select new random models for this game if shuffling is enabled or first game
+        if (shuffle_models or num_games == 0) and models_dir:
+            model_paths = select_random_models(models_dir, num_models, model_pattern)
+            print(f"Selected {len(model_paths)} random models for this game:")
+            for i, path in enumerate(model_paths):
+                print(f"  Model {i+1}: {os.path.basename(path)}")
+        elif not models_dir:
+            model_paths = []
+            print("No models directory specified, using random agents.")
+        
+        # Create agents for each position
+        agents = []
+        for i in range(6):
+            if i == player_position:
+                # Human player
+                agents.append(None)
+            else:
+                # Determine which model to use
+                model_idx = (i - 1) if i > player_position else i
+                if models_dir and model_idx < len(model_paths):
+                    # Load model
+                    try:
+                        agent = DeepCFRAgent(player_id=i, num_players=6, device=device)
+                        agent.load_model(model_paths[model_idx])
+                        agents.append(agent)
+                        print(f"Loaded model for Player {i}: {os.path.basename(model_paths[model_idx])}")
+                    except Exception as e:
+                        print(f"Error loading model for Player {i}: {e}")
+                        print("Using random agent instead")
+                        agents.append(RandomAgent(i))
+                else:
+                    # Use random agent
+                    agents.append(RandomAgent(i))
+                    print(f"Using random agent for Player {i}")
         
         num_games += 1
         print(f"\n--- Game {num_games} ---")
@@ -285,24 +326,27 @@ class RandomAgent:
             return pkrs.Action(action_enum)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Play poker against AI models')
-    parser.add_argument('--models', nargs='+', default=[], help='Paths to model checkpoint files')
+    parser = argparse.ArgumentParser(description='Play poker against random AI models')
+    parser.add_argument('--models-dir', type=str, default=None, help='Directory containing model checkpoint files')
+    parser.add_argument('--model-pattern', type=str, default="*.pt", help='File pattern to match model files')
+    parser.add_argument('--num-models', type=int, default=5, help='Number of models to select')
     parser.add_argument('--position', type=int, default=0, help='Your position at the table (0-5)')
     parser.add_argument('--stake', type=float, default=200.0, help='Initial stake')
     parser.add_argument('--sb', type=float, default=1.0, help='Small blind amount')
     parser.add_argument('--bb', type=float, default=2.0, help='Big blind amount')
     parser.add_argument('--verbose', action='store_true', help='Show detailed output')
+    parser.add_argument('--no-shuffle', action='store_true', help='Do not select new random models for each game')
     args = parser.parse_args()
-    
-    # Fill with None if not enough models provided
-    model_paths = args.models + [None] * (5 - len(args.models))
     
     # Start the game
     play_against_models(
-        model_paths=model_paths,
+        models_dir=args.models_dir,
+        model_pattern=args.model_pattern,
+        num_models=args.num_models,
         player_position=args.position,
         initial_stake=args.stake,
         small_blind=args.sb,
         big_blind=args.bb,
-        verbose=args.verbose
+        verbose=args.verbose,
+        shuffle_models=not args.no_shuffle
     )
