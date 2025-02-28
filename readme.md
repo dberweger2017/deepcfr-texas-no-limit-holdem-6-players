@@ -181,6 +181,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
+- The creators and maintainers of [Reinforcement-Poker/pokers](https://github.com/Reinforcement-Poker/pokers) for providing a straightforward and effective poker environment that really makes the project shine
 - The [Annual Computer Poker Competition](http://www.computerpokercompetition.org/) for inspiration
 - [OpenAI](https://openai.com/) and [DeepMind](https://deepmind.com/) for pioneering work in game AI
 - The PyTorch team for their excellent deep learning framework
