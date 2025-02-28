@@ -32,7 +32,18 @@ def card_to_string(card):
 def display_game_state(state, player_id=0):
     """Display the current game state in a human-readable format."""
     print("\n" + "="*70)
-    print(f"Stage: {state.stage.name}")
+    
+    # Fix for Stage enum - convert to string properly
+    stage_names = {
+        0: "PreFlop",
+        1: "Flop", 
+        2: "Turn", 
+        3: "River", 
+        4: "Showdown"
+    }
+    stage_name = stage_names.get(int(state.stage), str(state.stage))
+    print(f"Stage: {stage_name}")
+    
     print(f"Pot: ${state.pot:.2f}")
     print(f"Button position: Player {state.button}")
     
