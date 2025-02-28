@@ -16,57 +16,43 @@ class RandomAgent:
         action_enum = random.choice(state.legal_actions)
         
         # For fold, check, and call, no amount is needed
-        if action_enum == pkrs.ActionEnum.Fold:
+        if action_enum in (pkrs.ActionEnum.Fold, pkrs.ActionEnum.Check, pkrs.ActionEnum.Call):
             return pkrs.Action(action_enum)
-        elif action_enum == pkrs.ActionEnum.Check:
-            return pkrs.Action(action_enum)
-        elif action_enum == pkrs.ActionEnum.Call:
-            return pkrs.Action(action_enum)
-        # For raises, carefully calculate a valid amount
+        
+        # For raises, calculate a valid additional raise amount.
+        # The environment expects the raise amount to be the extra chips put in on top of the current bet.
         elif action_enum == pkrs.ActionEnum.Raise:
             player_state = state.players_state[state.current_player]
+            current_bet = player_state.bet_chips
+            # Minimum total bet required is current bet plus the min additional bet
+            min_total_bet = current_bet + state.min_bet
+            # Maximum total bet is what the player already bet plus their remaining chips (all-in)
+            max_total_bet = current_bet + player_state.stake
+
+            # If the player's remaining chips are less than the min required raise,
+            # treat the situation as all-in (i.e. simply call)
+            if player_state.stake < state.min_bet:
+                return pkrs.Action(pkrs.ActionEnum.Call)
             
-            # Get the minimum required raise
-            min_raise = state.min_bet
+            # Propose potential total bet amounts based on pot size
+            half_pot_total = current_bet + state.pot * 0.5
+            full_pot_total = current_bet + state.pot
+            valid_total_bets = []
             
-            # Calculate maximum raise based on player's available chips
-            max_raise = player_state.stake
+            if half_pot_total >= min_total_bet:
+                valid_total_bets.append(min(half_pot_total, max_total_bet))
+            if full_pot_total >= min_total_bet:
+                valid_total_bets.append(min(full_pot_total, max_total_bet))
             
-            # If player doesn't have enough chips to meet the minimum raise,
-            # they can still go all-in with whatever they have left
-            if max_raise < min_raise:
-                # Go all-in with their remaining stake
-                return pkrs.Action(action_enum, max_raise)
-            
-            # Calculate potential raise amounts (half pot and full pot)
-            half_pot = state.pot * 0.5
-            full_pot = state.pot
-            
-            # Create a list of valid raise amounts
-            valid_amounts = []
-            
-            # Add half pot if it's a valid amount
-            if half_pot >= min_raise:
-                valid_amounts.append(min(half_pot, max_raise))
-                
-            # Add full pot if it's a valid amount
-            if full_pot >= min_raise:
-                valid_amounts.append(min(full_pot, max_raise))
-                
-            # If we have valid pot-based raise options, choose one randomly
-            if valid_amounts:
-                raise_amount = random.choice(valid_amounts)
+            if valid_total_bets:
+                chosen_total_bet = random.choice(valid_total_bets)
             else:
-                # Otherwise use a random amount between min and max
-                raise_amount = random.uniform(min(min_raise, max_raise), max_raise)
-                
-            # Make sure the final amount is within valid bounds
-            raise_amount = min(raise_amount, max_raise)
+                chosen_total_bet = random.uniform(min_total_bet, max_total_bet)
             
-            # Create and return the raise action
-            return pkrs.Action(action_enum, raise_amount)
+            # The additional raise is the difference between the desired total bet and the current bet.
+            additional_raise = chosen_total_bet - current_bet
+            return pkrs.Action(action_enum, additional_raise)
         
-        # If we get an unexpected action type, raise an exception
         raise ValueError(f"Unexpected action type: {action_enum}")
 
 def card_to_string(card):
@@ -74,7 +60,6 @@ def card_to_string(card):
     suits = {0: "♣", 1: "♦", 2: "♥", 3: "♠"}
     ranks = {0: "2", 1: "3", 2: "4", 3: "5", 4: "6", 5: "7", 6: "8", 
              7: "9", 8: "10", 9: "J", 10: "Q", 11: "K", 12: "A"}
-    
     return f"{ranks[int(card.rank)]}{suits[int(card.suit)]}"
 
 def debug_poker_game(num_games=3):
@@ -129,7 +114,8 @@ def debug_poker_game(num_games=3):
             # Choose action
             try:
                 action = agents[current_player].choose_action(state)
-                print(f"Action chosen: {action.action}" + (f" with amount {action.amount}" if action.action == pkrs.ActionEnum.Raise else ""))
+                action_str = f"Action chosen: {action.action}" + (f" with amount {action.amount}" if action.action == pkrs.ActionEnum.Raise else "")
+                print(action_str)
                 
                 # Apply action
                 new_state = state.apply_action(action)
@@ -199,4 +185,4 @@ def debug_poker_game(num_games=3):
         print(f"Total rewards: {total_reward} (should be approximately 0 for a zero-sum game)")
 
 if __name__ == "__main__":
-    debug_poker_game(num_games=3)
+    debug_poker_game(num_games=4)
