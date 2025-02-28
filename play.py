@@ -304,36 +304,70 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
     print(f"Final balance: ${player_stake:.2f}")
 
 class RandomAgent:
-    """Simple random agent for poker."""
+    """Simple random agent for poker that ensures valid bet sizing."""
     def __init__(self, player_id):
         self.player_id = player_id
         
     def choose_action(self, state):
-        """Choose a random legal action."""
+        """Choose a random legal action with proper bet sizing."""
         if not state.legal_actions:
-            raise
+            raise ValueError(f"No legal actions available for player {self.player_id}")
         
         # Select a random legal action
         action_enum = random.choice(state.legal_actions)
         
-        # For raises, select a random amount between min and max
-        if action_enum == pkrs.ActionEnum.Raise:
-            player_state = state.players_state[state.current_player]
-            min_amount = state.min_bet
-            max_amount = player_state.stake  # All-in
-            
-            # Choose between 0.5x pot, 1x pot, or a random amount
-            pot_amounts = [state.pot * 0.5, state.pot]
-            valid_amounts = [amt for amt in pot_amounts if min_amount <= amt <= max_amount]
-            
-            if valid_amounts:
-                amount = random.choice(valid_amounts)
-            else:
-                amount = random.uniform(min_amount, max_amount)
-                
-            return pkrs.Action(action_enum, amount)
-        else:
+        # For fold, check, and call, no amount is needed
+        if action_enum == pkrs.ActionEnum.Fold:
             return pkrs.Action(action_enum)
+        elif action_enum == pkrs.ActionEnum.Check:
+            return pkrs.Action(action_enum)
+        elif action_enum == pkrs.ActionEnum.Call:
+            return pkrs.Action(action_enum)
+        # For raises, carefully calculate a valid amount
+        elif action_enum == pkrs.ActionEnum.Raise:
+            player_state = state.players_state[state.current_player]
+            
+            # Get the minimum required raise
+            min_raise = state.min_bet
+            
+            # Calculate maximum raise based on player's available chips
+            max_raise = player_state.stake
+            
+            # If player can't even meet the minimum raise, this is an error
+            if max_raise < min_raise:
+                raise ValueError(f"Raise selected as legal action but player {self.player_id} " 
+                                f"doesn't have enough chips. Min: {min_raise}, Available: {max_raise}")
+            
+            # Calculate potential raise amounts (half pot and full pot)
+            half_pot = state.pot * 0.5
+            full_pot = state.pot
+            
+            # Create a list of valid raise amounts
+            valid_amounts = []
+            
+            # Add half pot if it's a valid amount
+            if min_raise <= half_pot <= max_raise:
+                valid_amounts.append(half_pot)
+                
+            # Add full pot if it's a valid amount
+            if min_raise <= full_pot <= max_raise:
+                valid_amounts.append(full_pot)
+                
+            # If we have valid pot-based raise options, choose one randomly
+            if valid_amounts:
+                raise_amount = random.choice(valid_amounts)
+            else:
+                # Otherwise use a random amount between min and max
+                raise_amount = random.uniform(min_raise, max_raise)
+                
+            # Make sure the final amount is within valid bounds
+            raise_amount = max(min_raise, min(raise_amount, max_raise))
+            
+            # Create and return the raise action
+            return pkrs.Action(action_enum, raise_amount)
+        
+        # If we get an unexpected action type, raise an exception
+        raise ValueError(f"Unexpected action type: {action_enum}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Play poker against random AI models')
