@@ -181,7 +181,7 @@ After training, the agent achieves:
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/dberweger2017/deepcfr/blob/main/LICENSE.txt) file for details.
 
-In non-lawyer terms: Do whatever you want with this software. I'm not responsible for what you do with it, and if you use my code or models without making significant modifications, I'd appreciate it if you acknowledged my work.
+In non-lawyer terms: Do whatever you want with this software. If you use my code or models without making significant modifications, I'd appreciate it if you acknowledged my work.
 
 ## Acknowledgments
 
