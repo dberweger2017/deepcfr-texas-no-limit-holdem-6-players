@@ -67,7 +67,6 @@ class RandomAgent:
 def evaluate_against_random(agent, num_games=500, num_players=6):
     """Evaluate the trained agent against random opponents."""
     random_agents = [RandomAgent(i) for i in range(num_players)]
-    
     total_profit = 0
     for game in range(num_games):
         # Create a new poker game
