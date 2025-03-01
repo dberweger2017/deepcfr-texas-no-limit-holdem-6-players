@@ -420,7 +420,7 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
     profits = []
     
     # Checkpoint frequency
-    checkpoint_frequency = 20  # Save more frequently for self-play
+    checkpoint_frequency = 100  # Save more frequently for self-play
     
     class AgentWrapper:
         """Wrapper to ensure agents receive observations from their own perspective"""
@@ -644,9 +644,9 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
                                 avg_profit_random, iteration)
                 
                 # Save the model
-                model_path = f"{save_dir}/deep_cfr_selfplay_iter_{iteration}"
-                learning_agent.save_model(model_path)
-                print(f"  Model saved to {model_path}")
+                #model_path = f"{save_dir}/deep_cfr_selfplay_iter_{iteration}"
+                #learning_agent.save_model(model_path)
+                #print(f"  Model saved to {model_path}")
             
             # Save checkpoint periodically
             if iteration % checkpoint_frequency == 0:
