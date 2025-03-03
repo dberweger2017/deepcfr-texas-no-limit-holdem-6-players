@@ -1,0 +1,3 @@
+1. Trained for 2k iterations with 100 traversals with random opponent
+2. Trained for 10k iterations with 400 traversals with self-play saved all of the models
+3. Trained from scratch a mix training with random opponents from the models trained in step 2 using 400 iters and refreshing models every 1000 iterations for a total of 20k iterations
