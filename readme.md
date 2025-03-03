@@ -335,16 +335,9 @@ This guide will help you play against your trained Deep CFR poker agents using t
 
 To start a poker game against AI opponents, use one of the following scripts:
 
-- `play_against_models.py` - Play against specifically selected models
-- `play_against_random_models.py` - Play against randomly selected models from a directory
+- `play.py` - Play against randomly selected models from a directory
 
 #### Play Commands
-
-##### Playing Against Specific Models
-
-```bash
-python play_against_models.py --models models/model1.pt models/model2.pt models/model3.pt
-```
 
 ##### Playing Against Random Models
 

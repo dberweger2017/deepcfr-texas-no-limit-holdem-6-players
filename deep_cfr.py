@@ -154,6 +154,8 @@ class DeepCFRAgent:
                     # Check if the action was valid
                     if new_state.status != pkrs.StateStatus.Ok:
                         if VERBOSE:
+                            # brak for now
+                            raise f"Error detected of type {new_state.status}"
                             print(f"WARNING: Invalid action {action_id} at depth {depth}. Status: {new_state.status}")
                         continue
                         
@@ -209,6 +211,7 @@ class DeepCFRAgent:
                 # Check if the action was valid
                 if new_state.status != pkrs.StateStatus.Ok:
                     if VERBOSE:
+                        raise f"Error detected of type {new_state.status}"
                         print(f"WARNING: Random agent made invalid action at depth {depth}. Status: {new_state.status}")
                     return 0
                     
