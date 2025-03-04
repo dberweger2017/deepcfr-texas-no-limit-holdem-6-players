@@ -1,1 +1,1 @@
-This was the main model whose output what used in most of the mixed training
+This was the main model whose checkpoint what used to train the first mixed training model
