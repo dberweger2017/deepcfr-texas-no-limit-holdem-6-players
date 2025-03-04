@@ -6,7 +6,7 @@ A deep learning implementation of Counterfactual Regret Minimization (CFR) for N
 
 > **Note:** This project builds on the straightforward and flexible [Pokers](https://github.com/Reinforcement-Poker/pokers) environment—a minimalistic no-limit Texas Hold'em simulator designed for reinforcement learning. Pokers cuts out the fuss by using a simple `new_state = state + action` model, making it really easy to integrate with any framework. While its simplicity is a major plus, it's also a side project that might have some bugs in less-tested areas. If you need rock-solid reliability, you might consider alternatives like RLCard. Huge thanks to the creators of Pokers for their innovative and accessible work!
 
-> **Note** A more comprehensive explanation of this project can be found here: [Deep CFR Poker AI: Solving Imperfect Information Games with Deep Learning](https://medium.com/@davide_95694/mastering-poker-with-deep-cfr-building-an-ai-for-6-player-no-limit-texas-holdem-759d3ed8e600)
+> **Note** A more comprehensive explanation of this project can be found here: [Mastering Poker with Deep CFR: Building an AI for 6-Player No-Limit Texas Hold’em](https://medium.com/@davide_95694/mastering-poker-with-deep-cfr-building-an-ai-for-6-player-no-limit-texas-holdem-759d3ed8e600)
 
 ## Introduction: Why Poker AI Matters
 
