@@ -1,0 +1,1 @@
+All of the models that are mixed are trained from the saved checkpoints of this models training
