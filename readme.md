@@ -445,8 +445,8 @@ After training, the agent achieves:
 - Increasing performance over training iterations
 - Sophisticated betting strategies
 
-![Profit v random](https://raw.githubusercontent.com/dberweger2017/deepcfr/refs/heads/main/images/Screenshot%202025-02-28%20at%2007.36.04.png)
-![Profit v itself](https://raw.githubusercontent.com/dberweger2017/deepcfr/refs/heads/main/images/Screenshot%202025-02-28%20at%2007.31.51.png)
+![Profit v random](https://raw.githubusercontent.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/refs/heads/main/images/first_selfplay/Screenshot%202025-03-04%20at%2014.41.06.png)
+![Profit v random sofisticated models](https://raw.githubusercontent.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/refs/heads/main/images/first_selfplay/Screenshot%202025-03-04%20at%2014.40.58.png)
 
 ## Future Work
 
