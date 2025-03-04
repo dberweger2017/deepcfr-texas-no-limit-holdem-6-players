@@ -82,3 +82,5 @@ The most effective training methodology emerged as a three-stage process:
 This progressive approach mirrors techniques used in cutting-edge AI research and produced a poker AI capable of defeating both random players and trained models. The final model shows promise for competing in real-world low-stakes online poker environments.
 
 The training results highlight the importance of diverse training environments in developing robust AI for imperfect information games. The significant performance improvements achieved through mixed training suggest that exposure to varied strategic approaches is crucial for developing truly strong poker AI.
+
+Im thinking very about possible consequences before publishing the final trained model here. Feel free to dm me in private if you want to discuss this further. Or want to test the model in a private environment.
