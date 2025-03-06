@@ -1,5 +1,5 @@
-/logs
 /models
 /models_om
+/models_mixed_om
 .ds_store
 __pycache__
