@@ -12,7 +12,7 @@ This document outlines planned improvements and enhancements for the Deep CFR Te
 
 ### New Model Architectures design for transformers
 ```mermaid
-flowchart LR
+flowchart TD
     a[Chapter 1] --> b[Chapter 2] --> c[Chapter 3]
     c-->d[Using Ledger]
     c-->e[Using Trezor]
