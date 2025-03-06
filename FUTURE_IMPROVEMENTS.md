@@ -13,11 +13,8 @@ This document outlines planned improvements and enhancements for the Deep CFR Te
 ### New Model Architectures design for transformers
 ```mermaid
 flowchart TD
-    A[State Encoder (Transformer)]
-    B[Value Network (Advantage/Regret)]
-    C[Policy Network (Strategy)]
-    A --> B
-    A --> C
+    A(State Encoder \nTransformer) --> B(Value Network \nAdvantage/Regret)
+    A --> C(Policy Network \nStrategy)
 ```
 
 ## Action Space Refinement
