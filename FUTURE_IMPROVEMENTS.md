@@ -11,19 +11,12 @@ This document outlines planned improvements and enhancements for the Deep CFR Te
 - [ ] **Experiment with Transformer-based architecture**: Test if transformers are more effective than standard feedforward networks for poker
 
 ### New Model Architectures design for transformers
-┌───────────────────┐
-                   │  State Encoder    │
-                   │   (Transformer)   │
-                   └─────────┬─────────┘
-                             │
-                             ▼
-           ┌─────────────────────────────────┐
-           │                                 │
-           ▼                                 ▼
-┌───────────────────┐             ┌───────────────────┐
-│   Value Network   │             │  Policy Network   │
-│ (Advantage/Regret)│             │    (Strategy)     │
-└───────────────────┘             └───────────────────┘
+flowchart TD
+    A[State Encoder (Transformer)]
+    B[Value Network (Advantage/Regret)]
+    C[Policy Network (Strategy)]
+    A --> B
+    A --> C
 
 ## Action Space Refinement
 
