@@ -24,7 +24,6 @@ This document outlines planned improvements and enhancements for the Deep CFR Te
 - [ ] **Parameter Freezing**: Try training strategy network while freezing advantage network and vice versa
 - [ ] **Data Augmentation**: Implement hand translation (suit isomorphisms) to increase effective training data
 - [ ] **Adaptive Sampling**: Focus traversals on more complex/interesting game states
-- [ ] **Multi-GPU Support**: Enable distributed training across multiple GPUs for faster learning
 
 ## Advanced Techniques
 
