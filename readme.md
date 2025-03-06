@@ -1,5 +1,19 @@
 # DeepCFR Poker AI
 
+## Project Update (March 2025)
+
+Due to the success of this project, I'm committing more time and attention to further development. I've outlined two key initiatives:
+
+1. **Release Schedule**: I'll be publishing regular updates with new features and improvements.
+   - v2.1 (April 2025): Expanded bet sizing options and performance optimizations, Opponent modeling capabilities Advanced architectures and training methods
+   - v2.2 (June 2025): Web interface for playing agains the AI, API Endpoints for integration, Export to ONNX format for deployment
+
+2. **Feature Roadmap**: I've created a comprehensive [checklist of upcoming features](./FUTURE_IMPROVEMENTS.md) that I plan to implement, including model architecture enhancements, training improvements, and advanced techniques.
+
+I welcome contributions and feedback from the community as this project continues to evolve!
+
+---
+
 A deep learning implementation of Counterfactual Regret Minimization (CFR) for No-Limit Texas Hold'em Poker. This project demonstrates advanced reinforcement learning techniques applied to imperfect information games.
 
 ![Poker AI](https://raw.githubusercontent.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/refs/heads/main/images/testing_different_iteration_values/Screenshot%202025-03-04%20at%2014.39.24.png)
