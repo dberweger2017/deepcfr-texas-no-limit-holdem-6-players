@@ -131,7 +131,7 @@ class OpponentModelingSystem:
         """
         if opponent_id not in self.opponent_histories or not self.opponent_histories[opponent_id]:
             # Return zero encoding for new opponents
-            return torch.zeros(64, device=self.device)
+            return torch.zeros(64, dtype=torch.float32, device=self.device)
         
         # Prepare batch for the encoder
         histories = self.opponent_histories[opponent_id]
@@ -141,15 +141,23 @@ class OpponentModelingSystem:
         # Pad sequences to the same length
         max_len = max(len(seq) for seq in action_seqs)
         
-        # Pad action sequences
-        padded_actions = torch.zeros(len(histories), max_len, self.action_dim, device=self.device)
+        # Pad action sequences - with explicit dtype
+        padded_actions = torch.zeros(len(histories), max_len, self.action_dim, 
+                                dtype=torch.float32, device=self.device)
         for i, seq in enumerate(action_seqs):
-            padded_actions[i, :len(seq)] = torch.tensor(seq, device=self.device)
+            # Convert to numpy array with explicit dtype first
+            seq_array = np.array(seq, dtype=np.float32)
+            padded_actions[i, :len(seq)] = torch.tensor(seq_array, 
+                                                    dtype=torch.float32, device=self.device)
         
-        # Pad state contexts
-        padded_contexts = torch.zeros(len(histories), max_len, self.state_dim, device=self.device)
+        # Pad state contexts - with explicit dtype
+        padded_contexts = torch.zeros(len(histories), max_len, self.state_dim, 
+                                    dtype=torch.float32, device=self.device)
         for i, context in enumerate(state_contexts):
-            padded_contexts[i, :len(context)] = torch.tensor(context, device=self.device)
+            # Convert to numpy array with explicit dtype first
+            context_array = np.array(context, dtype=np.float32)
+            padded_contexts[i, :len(context)] = torch.tensor(context_array, 
+                                                        dtype=torch.float32, device=self.device)
         
         # Get encoding from the history encoder
         with torch.no_grad():
