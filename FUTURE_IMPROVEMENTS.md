@@ -10,6 +10,21 @@ This document outlines planned improvements and enhancements for the Deep CFR Te
 - [ ] **Add Batch Normalization**: Include batch normalization to stabilize training
 - [ ] **Experiment with Transformer-based architecture**: Test if transformers are more effective than standard feedforward networks for poker
 
+### New Model Architectures design for transformers
+                   ┌───────────────────┐
+                   │  State Encoder    │
+                   │   (Transformer)   │
+                   └─────────┬─────────┘
+                             │
+                             ▼
+           ┌─────────────────────────────────┐
+           │                                 │
+           ▼                                 ▼
+┌───────────────────┐             ┌───────────────────┐
+│   Value Network   │             │  Policy Network   │
+│ (Advantage/Regret)│             │    (Strategy)     │
+└───────────────────┘             └───────────────────┘
+
 ## Action Space Refinement
 
 - [ ] **Continuous Bet Sizing**: Replace discrete bet actions with continuous sizing prediction
