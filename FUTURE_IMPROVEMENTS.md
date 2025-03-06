@@ -18,7 +18,6 @@ flowchart TD
     C[Policy Network (Strategy)]
     A --> B
     A --> C
-```
 
 ## Action Space Refinement
 
