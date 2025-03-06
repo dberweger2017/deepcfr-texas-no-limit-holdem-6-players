@@ -223,7 +223,7 @@ class DeepCFRAgentWithOpponentModeling:
         self.current_game_history[opponent_id]['actions'].append(action_encoded)
         self.current_game_history[opponent_id]['contexts'].append(context)
     
-    def end_game_recording(self, final_state):
+    def end_game_recording(self, state):
         """
         Finalize recording of the current game and add to opponent histories.
         """
@@ -233,7 +233,7 @@ class DeepCFRAgentWithOpponentModeling:
                 continue
             
             # Get the outcome for this opponent
-            outcome = final_state.players_state[opponent_id].reward
+            outcome = state.players_state[opponent_id].reward
             
             # Record to opponent modeling system
             self.opponent_modeling.record_game(
@@ -246,10 +246,10 @@ class DeepCFRAgentWithOpponentModeling:
         # Clear the current game history
         self.current_game_history = {}
 
-    def cfr_traverse(self, state, iteration, random_agents, depth=0):
+    def cfr_traverse(self, state, iteration, opponents, depth=0):
         """
         Traverse the game tree using external sampling MCCFR.
-        Now with opponent modeling integration.
+        Modified to work with both RandomAgent and ModelAgent opponents.
         """
         # Add recursion depth protection
         max_depth = 1000
@@ -322,7 +322,7 @@ class DeepCFRAgentWithOpponentModeling:
                             print(f"WARNING: Invalid action {action_id} at depth {depth}. Status: {new_state.status}")
                         continue
                         
-                    action_values[action_id] = self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
+                    action_values[action_id] = self.cfr_traverse(new_state, iteration, opponents, depth + 1)
                 except Exception as e:
                     if VERBOSE:
                         print(f"ERROR in traversal for action {action_id}: {e}")
@@ -384,11 +384,22 @@ class DeepCFRAgentWithOpponentModeling:
             
             return ev
             
-        # If it's another player's turn (random agent or opponent)
+        # If it's another player's turn (model opponent or random agent)
         else:
             try:
-                # Let the random agent choose an action
-                action = random_agents[current_player].choose_action(state)
+                # Get the opponent object
+                opponent = opponents[current_player]
+                
+                # Handle the case if we have no opponent at this position (shouldn't happen)
+                if opponent is None:
+                    if VERBOSE:
+                        print(f"WARNING: No opponent at position {current_player}, using random action")
+                    # Create a temporary random agent for this position
+                    from train_with_opponent_modeling import RandomAgent
+                    opponent = RandomAgent(current_player)
+                
+                # Let the opponent choose an action
+                action = opponent.choose_action(state)
                 
                 # Record this action for opponent modeling
                 # First, determine which action ID it corresponds to
@@ -414,13 +425,13 @@ class DeepCFRAgentWithOpponentModeling:
                 # Check if the action was valid
                 if new_state.status != pkrs.StateStatus.Ok:
                     if VERBOSE:
-                        print(f"WARNING: Random agent made invalid action at depth {depth}. Status: {new_state.status}")
+                        print(f"WARNING: Opponent made invalid action at depth {depth}. Status: {new_state.status}")
                     return 0
                     
-                return self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
+                return self.cfr_traverse(new_state, iteration, opponents, depth + 1)
             except Exception as e:
                 if VERBOSE:
-                    print(f"ERROR in random agent traversal: {e}")
+                    print(f"ERROR in opponent traversal: {e}")
                 return 0
     
     def train_advantage_network(self, batch_size=128, epochs=3):
