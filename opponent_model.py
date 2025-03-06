@@ -5,7 +5,6 @@ import torch.nn.functional as F
 import numpy as np
 from collections import deque
 
-
 class ActionHistoryEncoder(nn.Module):
     """
     Encodes a sequence of opponent actions using an RNN.
