@@ -18,8 +18,6 @@ flowchart TD
     C[Policy Network (Strategy)]
     A --> B
     A --> C
-pgsql
-Copy
 ```
 
 ## Action Space Refinement
