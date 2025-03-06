@@ -180,7 +180,7 @@ class OpponentModelingSystem:
         for _ in range(epochs):
             # Sample batch of opponent histories
             batch_opponents = np.random.choice(list(self.opponent_histories.keys()), 
-                                              min(batch_size, len(self.opponent_histories)))
+                                            min(batch_size, len(self.opponent_histories)))
             
             all_encodings = []
             all_outcomes = []
@@ -194,9 +194,13 @@ class OpponentModelingSystem:
                 game_idx = np.random.randint(0, len(histories))
                 action_seq, state_context, outcome = histories[game_idx]
                 
-                # Prepare tensors
-                action_tensor = torch.tensor(action_seq, device=self.device).unsqueeze(0)
-                context_tensor = torch.tensor(state_context, device=self.device).unsqueeze(0)
+                # Convert sequences to numpy arrays first
+                action_array = np.array(action_seq, dtype=np.float32)  # Explicitly use float32
+                context_array = np.array(state_context, dtype=np.float32)  # Explicitly use float32
+                
+                # Prepare tensors - make sure to specify the dtype as float32
+                action_tensor = torch.tensor(action_array, dtype=torch.float32, device=self.device).unsqueeze(0)
+                context_tensor = torch.tensor(context_array, dtype=torch.float32, device=self.device).unsqueeze(0)
                 
                 # Get encoding
                 encoding = self.history_encoder(action_tensor, context_tensor)
@@ -208,7 +212,7 @@ class OpponentModelingSystem:
                 
             # Stack encodings and outcomes
             encodings_tensor = torch.cat(all_encodings, dim=0)
-            outcomes_tensor = torch.tensor(all_outcomes, device=self.device)
+            outcomes_tensor = torch.tensor(all_outcomes, dtype=torch.float32, device=self.device)
             
             # Forward pass through opponent model
             predicted_features = self.opponent_model(encodings_tensor)
@@ -227,4 +231,4 @@ class OpponentModelingSystem:
             
             total_loss += loss.item()
         
-        return total_loss / epochs
+        return total_loss / epochs if epochs > 0 else 0.0
