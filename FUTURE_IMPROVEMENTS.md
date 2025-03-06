@@ -13,11 +13,11 @@ This document outlines planned improvements and enhancements for the Deep CFR Te
 ### New Model Architectures design for transformers
 ```mermaid
 flowchart TD
-    a[State Encoder (Transformer)] --> b[Chapter 2] --> c[Chapter 3]
-    c-->d[Using Ledger]
-    c-->e[Using Trezor]
-    d-->f[Chapter 4]
-    e-->f
+    A["State Encoder (Transformer)"]
+    B["Value Network (Advantage/Regret)"]
+    C["Policy Network (Strategy)"]
+    A --> B
+    A --> C
 ```
 
 
