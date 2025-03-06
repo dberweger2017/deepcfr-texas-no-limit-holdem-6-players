@@ -11,7 +11,7 @@ This document outlines planned improvements and enhancements for the Deep CFR Te
 - [ ] **Experiment with Transformer-based architecture**: Test if transformers are more effective than standard feedforward networks for poker
 
 ### New Model Architectures design for transformers
-                   ┌───────────────────┐
+┌───────────────────┐
                    │  State Encoder    │
                    │   (Transformer)   │
                    └─────────┬─────────┘
