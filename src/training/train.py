@@ -29,36 +29,35 @@ class RandomAgent:
         
         elif action_enum == pkrs.ActionEnum.Raise:
             player_state = state.players_state[state.current_player]
-            current_bet = player_state.bet_chips
+            available_stake = player_state.stake
             
-            # Compute legal total bet bounds.
-            lower_bound = current_bet + state.min_bet
-            upper_bound = current_bet + player_state.stake  # maximum total bet if all-in.
+            # Allow all-in even with very small stacks (below minimum bet)
+            if available_stake < state.min_bet:
+                return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
             
-            # If the player's remaining stake is less than the required min raise, just call.
-            if player_state.stake < state.min_bet:
-                return pkrs.Action(pkrs.ActionEnum.Call)
-            
-            # Compute candidate total bets using pot-based heuristics.
-            candidate_half = current_bet + state.pot * 0.5
-            candidate_full = current_bet + state.pot
+            # Compute candidate raise amounts using pot-based heuristics.
+            candidate_half_pot = state.pot * 0.5
+            candidate_full_pot = state.pot
             
             candidates = []
-            if lower_bound <= candidate_half <= upper_bound:
-                candidates.append(candidate_half)
-            if lower_bound <= candidate_full <= upper_bound:
-                candidates.append(candidate_full)
+            # Add half pot if it meets min_bet
+            if candidate_half_pot >= state.min_bet:
+                candidates.append(candidate_half_pot)
+            # Add full pot if it meets min_bet
+            if candidate_full_pot >= state.min_bet:
+                candidates.append(candidate_full_pot)
+            # Always add min_bet as an option
+            if state.min_bet <= available_stake:
+                candidates.append(state.min_bet)
+            # Always add all-in as an option with some small probability
+            if random.random() < 0.1:  # 10% chance to go all-in
+                candidates.append(available_stake)
             
-            if candidates:
-                chosen_total = random.choice(candidates)
-            else:
-                chosen_total = random.uniform(lower_bound, upper_bound)
+            # Choose a random raise amount from candidates
+            chosen_raise = random.choice(candidates)
             
-            # Desired raise is the extra amount over current bet.
-            desired_raise = chosen_total - current_bet
-            
-            # Clamp the raise to the player's available chips.
-            final_raise = min(desired_raise, player_state.stake)
+            # Clamp the raise to the player's available chips
+            final_raise = min(chosen_raise, available_stake)
             
             return pkrs.Action(action_enum, final_raise)
         
