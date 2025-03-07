@@ -2,4 +2,5 @@
 /models_om
 /models_mixed_om
 .ds_store
+.env
 __pycache__

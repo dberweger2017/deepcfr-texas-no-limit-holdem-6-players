@@ -5,3 +5,5 @@ tensorboard
 argparse
 tqdm
 pokers
+python-dotenv
+requests
