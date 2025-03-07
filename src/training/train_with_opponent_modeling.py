@@ -9,6 +9,7 @@ import argparse
 from torch.utils.tensorboard import SummaryWriter
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.model import set_verbose
+from scripts.telegram_notifier import TelegramNotifier
 
 class RandomAgent:
     """Simple random agent for poker (unchanged from original)."""
@@ -56,56 +57,90 @@ class RandomAgent:
         
         raise ValueError(f"Unexpected action type: {action_enum}")
 
-def evaluate_against_random(agent, num_games=500, num_players=6):
+def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, notifier=None):
     """Evaluate the trained agent against random opponents, tracking opponent history."""
     random_agents = [RandomAgent(i) for i in range(num_players)]
     total_profit = 0
-    for game in range(num_games):
-        # Create a new poker game
-        state = pkrs.State.from_seed(
-            n_players=num_players,
-            button=game % num_players,
-            sb=1,
-            bb=2,
-            stake=200.0,
-            seed=game
-        )
-        
-        # Play until the game is over
-        while not state.final_state:
-            current_player = state.current_player
-            
-            if current_player == agent.player_id:
-                # Use opponent modeling for the current opponent
-                action = agent.choose_action(state, opponent_id=current_player)
-            else:
-                action = random_agents[current_player].choose_action(state)
-                
-                # Record this opponent's action
-                if action.action == pkrs.ActionEnum.Fold:
-                    action_id = 0
-                elif action.action == pkrs.ActionEnum.Check or action.action == pkrs.ActionEnum.Call:
-                    action_id = 1
-                elif action.action == pkrs.ActionEnum.Raise:
-                    if action.amount <= state.pot * 0.75:
-                        action_id = 2
-                    else:
-                        action_id = 3
-                else:
-                    action_id = 1
-                    
-                agent.record_opponent_action(state, action_id, current_player)
-                
-            state = state.apply_action(action)
-        
-        # Record end of game
-        agent.end_game_recording(state)
-        
-        # Add the profit for this game
-        profit = state.players_state[agent.player_id].reward
-        total_profit += profit
+    completed_games = 0
+    game_crashes = 0
+    zero_reward_games = 0
     
-    return total_profit / num_games
+    for game in range(num_games):
+        try:
+            # Create a new poker game
+            state = pkrs.State.from_seed(
+                n_players=num_players,
+                button=game % num_players,
+                sb=1,
+                bb=2,
+                stake=200.0,
+                seed=game
+            )
+            
+            # Play until the game is over
+            try:
+                while not state.final_state:
+                    current_player = state.current_player
+                    
+                    if current_player == agent.player_id:
+                        # Use opponent modeling for the current opponent
+                        action = agent.choose_action(state, opponent_id=current_player)
+                    else:
+                        action = random_agents[current_player].choose_action(state)
+                        
+                        # Record this opponent's action
+                        if hasattr(agent, 'record_opponent_action'):
+                            if action.action == pkrs.ActionEnum.Fold:
+                                action_id = 0
+                            elif action.action == pkrs.ActionEnum.Check or action.action == pkrs.ActionEnum.Call:
+                                action_id = 1
+                            elif action.action == pkrs.ActionEnum.Raise:
+                                if action.amount <= state.pot * 0.75:
+                                    action_id = 2
+                                else:
+                                    action_id = 3
+                            else:
+                                action_id = 1
+                                
+                            agent.record_opponent_action(state, action_id, current_player)
+                        
+                    state = state.apply_action(action)
+                
+                # Record end of game
+                if hasattr(agent, 'end_game_recording'):
+                    agent.end_game_recording(state)
+                
+                # Add the profit for this game
+                profit = state.players_state[agent.player_id].reward
+                total_profit += profit
+                completed_games += 1
+                
+                # Check for zero rewards (suspicious)
+                if abs(profit) < 0.001:
+                    zero_reward_games += 1
+            except Exception as e:
+                if notifier and game % 20 == 0:  # Limit notification frequency
+                    notifier.send_message(f"⚠️ <b>GAME ERROR</b>\nIteration: {iteration}, Hand: {game}\nError: {str(e)}")
+                game_crashes += 1
+                
+        except Exception as e:
+            game_crashes += 1
+            if notifier and game % 20 == 0:  # Limit notification frequency
+                notifier.send_message(f"⚠️ <b>GAME SETUP ERROR</b>\nIteration: {iteration}, Game: {game}\nError: {str(e)}")
+    
+    # Report if too many crashes or zero reward games
+    if game_crashes > 0 and notifier:
+        notifier.send_message(f"⚠️ <b>EVALUATION ISSUES</b>\nIteration: {iteration}\nCrashed games: {game_crashes}/{num_games}")
+    
+    if zero_reward_games > 0.2 * completed_games and notifier:
+        notifier.send_message(f"⚠️ <b>SUSPICIOUS REWARDS</b>\nIteration: {iteration}\nZero reward games: {zero_reward_games}/{completed_games}")
+    
+    if completed_games == 0:
+        if notifier:
+            notifier.send_message(f"🚨 <b>CRITICAL ERROR</b>\nIteration: {iteration}\nNo games completed!")
+        return 0
+        
+    return total_profit / completed_games
 
 def train_deep_cfr_with_opponent_modeling(
     num_iterations=1000, 
@@ -126,6 +161,14 @@ def train_deep_cfr_with_opponent_modeling(
     
     # Initialize tensorboard writer
     writer = SummaryWriter(log_dir)
+    
+    # Initialize Telegram notifier
+    try:
+        notifier = TelegramNotifier()
+        notifier.send_message(f"🚀 <b>BASIC OPPONENT MODELING TRAINING STARTED</b>\nDevice: {torch.device('cuda' if torch.cuda.is_available() else 'cpu')}\nIterations: {num_iterations}\nTraversals: {traversals_per_iteration}")
+    except Exception as e:
+        print(f"Warning: Could not initialize Telegram notifier: {e}")
+        notifier = None
     
     # Initialize the agent with opponent modeling
     agent = DeepCFRAgentWithOpponentModeling(
@@ -167,7 +210,12 @@ def train_deep_cfr_with_opponent_modeling(
             )
             
             # Perform CFR traversal with opponent modeling
-            agent.cfr_traverse(state, iteration, random_agents)
+            try:
+                agent.cfr_traverse(state, iteration, random_agents)
+            except Exception as e:
+                print(f"Error in traversal: {e}")
+                if notifier and t % 50 == 0:  # Don't send too many error messages
+                    notifier.send_message(f"⚠️ <b>TRAVERSAL ERROR</b>\nIteration: {iteration}\nError: {str(e)}")
         
         # Track traversal time
         traversal_time = time.time() - start_time
@@ -191,24 +239,42 @@ def train_deep_cfr_with_opponent_modeling(
         # Train opponent modeling periodically
         if iteration % 10 == 0 or iteration == num_iterations:
             print("  Training opponent modeling...")
-            opp_loss = agent.train_opponent_modeling()
-            opponent_model_losses.append(opp_loss)
-            print(f"  Opponent modeling loss: {opp_loss:.6f}")
-            writer.add_scalar('Loss/OpponentModeling', opp_loss, iteration)
+            try:
+                opp_loss = agent.train_opponent_modeling()
+                opponent_model_losses.append(opp_loss)
+                print(f"  Opponent modeling loss: {opp_loss:.6f}")
+                writer.add_scalar('Loss/OpponentModeling', opp_loss, iteration)
+            except Exception as e:
+                print(f"Error training opponent model: {e}")
+                if notifier:
+                    notifier.send_message(f"⚠️ <b>OPPONENT MODEL ERROR</b>\nIteration: {iteration}\nError: {str(e)}")
         
         # Evaluate periodically
         if iteration % 20 == 0 or iteration == num_iterations:
             print("  Evaluating agent...")
-            avg_profit = evaluate_against_random(agent, num_games=200)
+            avg_profit = evaluate_against_random(agent, num_games=200, iteration=iteration, notifier=notifier)
             profits.append(avg_profit)
             print(f"  Average profit per game: {avg_profit:.2f}")
             writer.add_scalar('Performance/Profit', avg_profit, iteration)
+            
+            # Send progress update
+            if notifier:
+                num_opponents = len(agent.opponent_modeling.opponent_histories)
+                notifier.send_training_progress(
+                    iteration=iteration,
+                    profit_vs_models=avg_profit,
+                    profit_vs_random=avg_profit
+                )
         
         # Save checkpoint
         if iteration % checkpoint_frequency == 0 or iteration == num_iterations:
             checkpoint_path = f"{save_dir}/om_checkpoint_iter_{iteration}.pt"
             agent.save_model(checkpoint_path)
             print(f"  Checkpoint saved to {checkpoint_path}")
+            
+            # Add Telegram notification
+            if notifier and iteration % 100 == 0:  # Less frequent notifications
+                notifier.send_message(f"💾 <b>CHECKPOINT SAVED</b> at iteration {iteration}")
         
         # Log memory sizes
         writer.add_scalar('Memory/Advantage', len(agent.advantage_memory), iteration)
@@ -228,9 +294,19 @@ def train_deep_cfr_with_opponent_modeling(
     
     # Final evaluation with more games
     print("Final evaluation...")
-    avg_profit = evaluate_against_random(agent, num_games=1000)
+    avg_profit = evaluate_against_random(agent, num_games=1000, iteration=num_iterations, notifier=notifier)
     print(f"Final performance: Average profit per game: {avg_profit:.2f}")
     writer.add_scalar('Performance/FinalProfit', avg_profit, 0)
+    
+    # Send final notification
+    if notifier:
+        num_opponents = len(agent.opponent_modeling.opponent_histories)
+        notifier.send_message(
+            f"✅ <b>TRAINING COMPLETED</b>\n"
+            f"Total iterations: {num_iterations}\n"
+            f"Final profit: {avg_profit:.2f}\n"
+            f"Tracked opponents: {num_opponents}"
+        )
     
     # Close the tensorboard writer
     writer.close()
