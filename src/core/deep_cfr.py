@@ -52,15 +52,44 @@ class DeepCFRAgent:
                 else:
                     return pkrs.Action(pkrs.ActionEnum.Call)
             elif action_id == 2:  # Raise 0.5x pot
-                bet_amount = min(state.pot * 0.5, state.players_state[state.current_player].stake)
+                player_state = state.players_state[state.current_player]
+                available_stake = player_state.stake
+                
+                # Allow all-in even when below min_bet
+                if available_stake < state.min_bet:
+                    if VERBOSE:
+                        print(f"All-in raise with {available_stake} chips (below min_bet {state.min_bet})")
+                    return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
+                    
+                raise_amount = min(state.pot * 0.5, available_stake)
+                
+                # Ensure minimum bet requirement if player has enough chips
+                if raise_amount < state.min_bet and available_stake >= state.min_bet:
+                    raise_amount = state.min_bet
+                    
                 if VERBOSE:
-                    print(f"Creating raise action (0.5x pot): amount={bet_amount}, pot={state.pot}")
-                return pkrs.Action(pkrs.ActionEnum.Raise, bet_amount)
+                    print(f"Creating raise action (0.5x pot): amount={raise_amount}, pot={state.pot}")
+                return pkrs.Action(pkrs.ActionEnum.Raise, raise_amount)
+                
             elif action_id == 3:  # Raise 1x pot
-                bet_amount = min(state.pot, state.players_state[state.current_player].stake)
+                player_state = state.players_state[state.current_player]
+                available_stake = player_state.stake
+                
+                # Allow all-in even when below min_bet
+                if available_stake < state.min_bet:
+                    if VERBOSE:
+                        print(f"All-in raise with {available_stake} chips (below min_bet {state.min_bet})")
+                    return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
+                    
+                raise_amount = min(state.pot, available_stake)
+                
+                # Ensure minimum bet requirement if player has enough chips
+                if raise_amount < state.min_bet and available_stake >= state.min_bet:
+                    raise_amount = state.min_bet
+                    
                 if VERBOSE:
-                    print(f"Creating raise action (1x pot): amount={bet_amount}, pot={state.pot}")
-                return pkrs.Action(pkrs.ActionEnum.Raise, bet_amount)
+                    print(f"Creating raise action (1x pot): amount={raise_amount}, pot={state.pot}")
+                return pkrs.Action(pkrs.ActionEnum.Raise, raise_amount)
             else:
                 raise ValueError(f"Unknown action ID: {action_id}")
         except Exception as e:
