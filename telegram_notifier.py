@@ -71,14 +71,24 @@ class TelegramNotifier:
         
         return self.send_message(message)
     
-    def alert_state_error(self, iteration, status, state_before):
-        """Send alert about a state error."""
+    # In telegram_notifier.py, update the alert_state_error method:
+
+    def alert_state_error(self, iteration, status, state_before, is_training_agent=False):
+        """Send enhanced alert about a state error with information about which agent caused it."""
         message = f"🚨 <b>STATE ERROR DETECTED</b> 🚨\n\n"
         message += f"Iteration: {iteration}\n"
         message += f"Status: {status}\n"
+        message += f"<b>{'TRAINING AGENT' if is_training_agent else 'OPPONENT MODEL'}</b>\n"
         message += f"Stage: {state_before.stage}\n"
         message += f"Pot: {state_before.pot}\n"
         message += f"Current Player: {state_before.current_player}\n"
+        
+        # Add player stake info
+        player_stake = state_before.players_state[state_before.current_player].stake
+        player_bet = state_before.players_state[state_before.current_player].bet_chips
+        message += f"Player Stake: {player_stake}\n"
+        message += f"Player Current Bet: {player_bet}\n"
+        message += f"Min Bet: {state_before.min_bet}\n"
         message += f"Legal Actions: {state_before.legal_actions}\n"
         
         return self.send_message(message)
