@@ -147,3 +147,30 @@ class TelegramNotifier:
         message += f"Profit vs Random: {profit_vs_random:.2f}\n"
         
         return self.send_message(message)
+
+    def debug_bet_calculation(self, state, action_id, raise_amount, iteration):
+        """Send detailed bet calculation information."""
+        player_state = state.players_state[state.current_player]
+        player_stake = player_state.stake
+        player_bet = player_state.bet_chips
+        
+        message = f"🔍 <b>BET CALCULATION DEBUG</b>\n\n"
+        message += f"Iteration: {iteration}\n"
+        message += f"Player: {state.current_player}\n"
+        message += f"Action ID: {action_id} ({'0.5x pot' if action_id == 2 else '1x pot'})\n\n"
+        
+        message += f"<b>STATE DETAILS:</b>\n"
+        message += f"Stage: {state.stage}\n"
+        message += f"Pot: {state.pot}\n"
+        message += f"Player Stake: {player_stake}\n"
+        message += f"Player Current Bet: {player_bet}\n"
+        message += f"Min Bet: {state.min_bet}\n\n"
+        
+        message += f"<b>BET VALIDATION:</b>\n"
+        message += f"Calculated raise: {raise_amount}\n"
+        message += f"All-in required: {'YES' if player_stake < state.min_bet else 'NO'}\n"
+        message += f"Half pot amount: {state.pot * 0.5}\n"
+        message += f"Full pot amount: {state.pot}\n"
+        message += f"Legal raise range: {state.min_bet} to {player_stake}\n"
+        
+        return self.send_message(message)
