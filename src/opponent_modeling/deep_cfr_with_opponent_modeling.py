@@ -103,73 +103,65 @@ class DeepCFRAgentWithOpponentModeling:
         self.max_regret_seen = 1.0
     
     def action_id_to_pokers_action(self, action_id, state):
-        """Convert our action ID to Pokers action with fixed bet calculation."""
-        try:
-            if action_id == 0:  # Fold
-                return pkrs.Action(pkrs.ActionEnum.Fold)
+    """Convert our action ID to Pokers action with fixed bet calculation."""
+    try:
+        if action_id == 0:  # Fold
+            return pkrs.Action(pkrs.ActionEnum.Fold)
                 
-            elif action_id == 1:  # Check/Call
-                if pkrs.ActionEnum.Check in state.legal_actions:
-                    return pkrs.Action(pkrs.ActionEnum.Check)
-                else:
-                    return pkrs.Action(pkrs.ActionEnum.Call)
-                    
-            elif action_id == 2 or action_id == 3:  # Raise actions
-                if pkrs.ActionEnum.Raise not in state.legal_actions:
-                    return pkrs.Action(pkrs.ActionEnum.Call)
-                
-                # Get current player state
-                player_state = state.players_state[state.current_player]
-                current_bet = player_state.bet_chips
-                available_stake = player_state.stake
-                
-                # Calculate legal bet bounds
-                lower_bound = current_bet + state.min_bet  # Minimum legal total bet
-                upper_bound = current_bet + available_stake  # Maximum possible total bet
-                
-                # If player can't make minimum bet, fall back to call
-                if available_stake < state.min_bet:
-                    return pkrs.Action(pkrs.ActionEnum.Call)
-                
-                # Calculate target raise based on action_id
-                if action_id == 2:  # 0.5x pot
-                    target_amount = state.pot * 0.5
-                else:  # 1x pot
-                    target_amount = state.pot
-                
-                # Calculate total bet (current bet + raise)
-                total_bet = current_bet + target_amount
-                
-                # Ensure bet is within legal bounds
-                if total_bet < lower_bound:
-                    total_bet = lower_bound
-                if total_bet > upper_bound:
-                    total_bet = upper_bound
-                
-                # The actual raise amount is the difference from current bet
-                raise_amount = total_bet - current_bet
-                
-                # Final safety check
-                if raise_amount > available_stake:
-                    raise_amount = available_stake
-                
-                return pkrs.Action(pkrs.ActionEnum.Raise, raise_amount)
-                
-            else:
-                raise ValueError(f"Unknown action ID: {action_id}")
-                
-        except Exception as e:
-            if VERBOSE:
-                print(f"ERROR creating action {action_id}: {e}")
-                print(f"State: current_player={state.current_player}, legal_actions={state.legal_actions}")
-                print(f"Player stake: {state.players_state[state.current_player].stake}")
-            # Fall back to call as safe option
-            if pkrs.ActionEnum.Call in state.legal_actions:
-                return pkrs.Action(pkrs.ActionEnum.Call)
-            elif pkrs.ActionEnum.Check in state.legal_actions:
+        elif action_id == 1:  # Check/Call
+            if pkrs.ActionEnum.Check in state.legal_actions:
                 return pkrs.Action(pkrs.ActionEnum.Check)
             else:
-                return pkrs.Action(pkrs.ActionEnum.Fold)
+                return pkrs.Action(pkrs.ActionEnum.Call)
+                    
+        elif action_id == 2 or action_id == 3:  # Raise actions
+            if pkrs.ActionEnum.Raise not in state.legal_actions:
+                return pkrs.Action(pkrs.ActionEnum.Call)
+            
+            # Get current player state
+            player_state = state.players_state[state.current_player]
+            available_stake = player_state.stake
+            
+            # If player has very few chips, just go all-in with whatever they have
+            if available_stake < state.min_bet:
+                # All-in with remaining chips
+                return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
+            
+            # Calculate target raise based on action_id
+            if action_id == 2:  # 0.5x pot
+                raise_amount = state.pot * 0.5
+            else:  # 1x pot
+                raise_amount = state.pot
+            
+            # Ensure the raise meets minimum bet requirement (if player has enough)
+            if raise_amount < state.min_bet and available_stake >= state.min_bet:
+                raise_amount = state.min_bet
+            
+            # Ensure the player doesn't exceed their available chips
+            if raise_amount > available_stake:
+                raise_amount = available_stake  # All-in
+            
+            if VERBOSE:
+                print(f"Raise calculation: pot={state.pot}, raise_amount={raise_amount}, " 
+                     f"min_bet={state.min_bet}, available={available_stake}")
+            
+            return pkrs.Action(pkrs.ActionEnum.Raise, raise_amount)
+                
+        else:
+            raise ValueError(f"Unknown action ID: {action_id}")
+                
+    except Exception as e:
+        if VERBOSE:
+            print(f"ERROR creating action {action_id}: {e}")
+            print(f"State: current_player={state.current_player}, legal_actions={state.legal_actions}")
+            print(f"Player stake: {state.players_state[state.current_player].stake}")
+        # Fall back to call as safe option
+        if pkrs.ActionEnum.Call in state.legal_actions:
+            return pkrs.Action(pkrs.ActionEnum.Call)
+        elif pkrs.ActionEnum.Check in state.legal_actions:
+            return pkrs.Action(pkrs.ActionEnum.Check)
+        else:
+            return pkrs.Action(pkrs.ActionEnum.Fold)
 
     def get_legal_action_ids(self, state):
         """Get the legal action IDs for the current state."""
@@ -612,36 +604,38 @@ class DeepCFRAgentWithOpponentModeling:
                 
                 # Get current player state
                 player_state = state.players_state[state.current_player]
-                current_bet = player_state.bet_chips
                 available_stake = player_state.stake
                 
-                # Calculate legal bet bounds
-                lower_bound = current_bet + state.min_bet
-                upper_bound = current_bet + available_stake
-                
-                # If the player can't make the minimum raise, just call
+                # If player has very few chips, they can still go all-in
                 if available_stake < state.min_bet:
-                    return pkrs.Action(pkrs.ActionEnum.Call)
+                    # All-in with remaining chips
+                    return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
                 
-                # Calculate pot-based bet sizes (as total bets, not just the raise)
+                # Calculate raise amounts (directly, not as total bets)
                 if action_id == 2:  # Half pot
-                    candidate_total_bet = current_bet + state.pot * 0.5
+                    raise_amount = state.pot * 0.5
                 else:  # Full pot
-                    candidate_total_bet = current_bet + state.pot
+                    raise_amount = state.pot
                 
-                # Ensure bet is within legal bounds
-                if candidate_total_bet < lower_bound:
-                    candidate_total_bet = lower_bound
-                if candidate_total_bet > upper_bound:
-                    candidate_total_bet = upper_bound
+                # Ensure the raise meets minimum bet requirement (if possible)
+                if raise_amount < state.min_bet and available_stake >= state.min_bet:
+                    raise_amount = state.min_bet
                 
-                # Calculate the actual raise amount (the difference)
-                raise_amount = candidate_total_bet - current_bet
-                
-                # Final safety check
-                raise_amount = min(raise_amount, available_stake)
+                # Ensure the player doesn't exceed their available chips
+                if raise_amount > available_stake:
+                    raise_amount = available_stake  # All-in
                 
                 return pkrs.Action(pkrs.ActionEnum.Raise, raise_amount)
+                
+        except Exception as e:
+            print(f"Error in choose_action: {e}")
+            # Default to call as the safest option
+            if pkrs.ActionEnum.Call in state.legal_actions:
+                return pkrs.Action(pkrs.ActionEnum.Call)
+            elif pkrs.ActionEnum.Check in state.legal_actions:
+                return pkrs.Action(pkrs.ActionEnum.Check)
+            else:
+                return pkrs.Action(pkrs.ActionEnum.Fold)
                 
         except Exception as e:
             print(f"Error in choose_action: {e}")
