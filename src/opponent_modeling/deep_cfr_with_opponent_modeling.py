@@ -147,14 +147,14 @@ class DeepCFRAgentWithOpponentModeling:
                 
                 # Periodically send detailed bet calculation to Telegram
                 # (only do this rarely to avoid flooding notifications)
-                if hasattr(self, 'iteration_count') and self.iteration_count % 20 == 0 and random.random() < 0.1:
-                    try:
-                        from scripts.telegram_notifier import TelegramNotifier
-                        notifier = TelegramNotifier()
-                        notifier.debug_bet_calculation(state, action_id, raise_amount, self.iteration_count)
-                    except Exception as e:
-                        if VERBOSE:
-                            print(f"Failed to send Telegram debug: {e}")
+                #if hasattr(self, 'iteration_count') and self.iteration_count % 20 == 0 and random.random() < 0.1:
+                #    try:
+                #        from scripts.telegram_notifier import TelegramNotifier
+                #         notifier = TelegramNotifier()
+                #         notifier.debug_bet_calculation(state, action_id, raise_amount, self.iteration_count)
+                #      except Exception as e:
+                #          if VERBOSE:
+                #              print(f"Failed to send Telegram debug: {e}")
                 
                 # Check if this is an all-in situation
                 if available_stake < min_raise:
