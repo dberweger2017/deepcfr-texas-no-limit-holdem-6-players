@@ -1,0 +1,1 @@
+python train_mixed_with_opponent_modeling.py --checkpoint-dir models_om --model-prefix "*" --iterations 20000 --refresh-interval 1000 --num-opponents 5 --save-dir models_mixed_om2 --log-dir logs/deepcfr_mixed_om
