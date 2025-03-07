@@ -120,12 +120,8 @@ class DeepCFRAgentWithOpponentModeling:
                 
                 # Get current player state
                 player_state = state.players_state[state.current_player]
+                current_bet = player_state.bet_chips
                 available_stake = player_state.stake
-                
-                # If player has very few chips, just go all-in with whatever they have
-                if available_stake < state.min_bet:
-                    # All-in with remaining chips
-                    return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
                 
                 # Calculate target raise based on action_id
                 if action_id == 2:  # 0.5x pot
@@ -133,17 +129,50 @@ class DeepCFRAgentWithOpponentModeling:
                 else:  # 1x pot
                     raise_amount = state.pot
                 
-                # Ensure the raise meets minimum bet requirement (if player has enough)
-                if raise_amount < state.min_bet and available_stake >= state.min_bet:
-                    raise_amount = state.min_bet
+                # Get legal betting limits
+                min_raise = state.min_bet
+                max_raise = available_stake
                 
-                # Ensure the player doesn't exceed their available chips
+                # Log all the critical values before we attempt the raise
+                if VERBOSE:
+                    print(f"\nRAISE CALCULATION DETAILS:")
+                    print(f"  Player ID: {state.current_player}")
+                    print(f"  Action ID: {action_id}")
+                    print(f"  Current bet: {current_bet}")
+                    print(f"  Available stake: {available_stake}")
+                    print(f"  Min bet: {min_raise}")
+                    print(f"  Pot size: {state.pot}")
+                    print(f"  Initial raise calculation: {raise_amount}")
+                    print(f"  Legal raise range: {min_raise} to {max_raise}")
+                
+                # Check if this is an all-in situation
+                if available_stake < min_raise:
+                    if VERBOSE:
+                        print(f"  ALL-IN SITUATION: Stake {available_stake} < Min Bet {min_raise}")
+                    return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
+                
+                # Ensure the raise meets minimum bet requirement
+                if raise_amount < min_raise:
+                    if VERBOSE:
+                        print(f"  Raising to min bet: {min_raise} (original: {raise_amount})")
+                    raise_amount = min_raise
+                
+                # Ensure the player doesn't exceed available stake
                 if raise_amount > available_stake:
-                    raise_amount = available_stake  # All-in
+                    if VERBOSE:
+                        print(f"  Capping raise to available stake: {available_stake}")
+                    raise_amount = available_stake
+                
+                # Final validation check - should never fail at this point
+                if raise_amount > available_stake:
+                    log_msg = (f"ERROR: Calculated raise {raise_amount} > available stake {available_stake}\n"
+                            f"Player: {state.current_player}, Pot: {state.pot}, Min Bet: {min_raise}")
+                    print(log_msg)
+                    # Fall back to call
+                    return pkrs.Action(pkrs.ActionEnum.Call)
                 
                 if VERBOSE:
-                    print(f"Raise calculation: pot={state.pot}, raise_amount={raise_amount}, " 
-                        f"min_bet={state.min_bet}, available={available_stake}")
+                    print(f"  FINAL RAISE AMOUNT: {raise_amount}")
                 
                 return pkrs.Action(pkrs.ActionEnum.Raise, raise_amount)
                     
