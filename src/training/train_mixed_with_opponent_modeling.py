@@ -344,7 +344,7 @@ def train_mixed_with_opponent_modeling(
     import glob
     import os
     import time
-    from telegram_notifier import TelegramNotifier
+    from scripts.telegram_notifier import TelegramNotifier
     import traceback
     
     # Set verbosity
