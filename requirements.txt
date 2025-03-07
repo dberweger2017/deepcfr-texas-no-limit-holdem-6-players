@@ -7,3 +7,5 @@ tqdm
 pokers
 python-dotenv
 requests
+seaborn
+pandas
