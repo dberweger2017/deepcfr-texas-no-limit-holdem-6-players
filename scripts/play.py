@@ -329,17 +329,14 @@ class RandomAgent:
         # For raises, carefully calculate a valid amount
         elif action_enum == pkrs.ActionEnum.Raise:
             player_state = state.players_state[state.current_player]
+            available_stake = player_state.stake
             
             # Get the minimum required raise
             min_raise = state.min_bet
             
-            # Calculate maximum raise based on player's available chips
-            max_raise = player_state.stake
-            
-            # If player can't even meet the minimum raise, this is an error
-            if max_raise < min_raise:
-                raise ValueError(f"Raise selected as legal action but player {self.player_id} " 
-                                f"doesn't have enough chips. Min: {min_raise}, Available: {max_raise}")
+            # Allow all-in even if player has less than min_bet
+            if available_stake < min_raise:
+                return pkrs.Action(action_enum, available_stake)
             
             # Calculate potential raise amounts (half pot and full pot)
             half_pot = state.pot * 0.5
@@ -348,25 +345,29 @@ class RandomAgent:
             # Create a list of valid raise amounts
             valid_amounts = []
             
+            # Always consider minimum bet if it's affordable
+            if min_raise <= available_stake:
+                valid_amounts.append(min_raise)
+                
             # Add half pot if it's a valid amount
-            if min_raise <= half_pot <= max_raise:
+            if min_raise <= half_pot <= available_stake:
                 valid_amounts.append(half_pot)
                 
             # Add full pot if it's a valid amount
-            if min_raise <= full_pot <= max_raise:
+            if min_raise <= full_pot <= available_stake:
                 valid_amounts.append(full_pot)
                 
-            # If we have valid pot-based raise options, choose one randomly
+            # Small chance to go all-in
+            if random.random() < 0.05:  # 5% chance
+                valid_amounts.append(available_stake)
+                
+            # If we have valid raise options, choose one randomly
             if valid_amounts:
                 raise_amount = random.choice(valid_amounts)
             else:
-                # Otherwise use a random amount between min and max
-                raise_amount = random.uniform(min_raise, max_raise)
+                # Fall back to all-in (should be rare with the logic above)
+                raise_amount = available_stake
                 
-            # Make sure the final amount is within valid bounds
-            raise_amount = max(min_raise, min(raise_amount, max_raise))
-            
-            # Create and return the raise action
             return pkrs.Action(action_enum, raise_amount)
         
         # If we get an unexpected action type, raise an exception
