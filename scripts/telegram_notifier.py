@@ -74,7 +74,7 @@ class TelegramNotifier:
     # In telegram_notifier.py, update the alert_state_error method:
 
     def alert_state_error(self, iteration, status, state_before, is_training_agent=False):
-        """Send enhanced alert about a state error with information about which agent caused it."""
+        """Send enhanced alert about a state error with detailed betting information."""
         message = f"🚨 <b>STATE ERROR DETECTED</b> 🚨\n\n"
         message += f"Iteration: {iteration}\n"
         message += f"Status: {status}\n"
@@ -84,12 +84,44 @@ class TelegramNotifier:
         message += f"Current Player: {state_before.current_player}\n"
         
         # Add player stake info
-        player_stake = state_before.players_state[state_before.current_player].stake
-        player_bet = state_before.players_state[state_before.current_player].bet_chips
+        player_state = state_before.players_state[state_before.current_player]
+        player_stake = player_state.stake
+        player_bet = player_state.bet_chips
+        
+        # Add detailed betting information
         message += f"Player Stake: {player_stake}\n"
         message += f"Player Current Bet: {player_bet}\n"
         message += f"Min Bet: {state_before.min_bet}\n"
+        
+        # Calculate acceptable bet ranges
+        if status == pkrs.StateStatus.HighBet:
+            message += f"\n<b>BET VALIDATION DETAILS:</b>\n"
+            message += f"Maximum legal bet: {player_stake}\n"
+            
+            # For all-in situations
+            if player_stake < state_before.min_bet:
+                message += f"All-in required (stake < min bet)\n"
+            else:
+                message += f"Legal bet range: {state_before.min_bet} to {player_stake}\n"
+            
+            # Calculate half pot and pot raises
+            half_pot = state_before.pot * 0.5
+            full_pot = state_before.pot
+            message += f"Half pot raise: {half_pot}\n"
+            message += f"Full pot raise: {full_pot}\n"
+            
+            # Show if these raises would be legal
+            message += f"Half pot raise legal: {'YES' if half_pot <= player_stake else 'NO'}\n"
+            message += f"Full pot raise legal: {'YES' if full_pot <= player_stake else 'NO'}\n"
+            
         message += f"Legal Actions: {state_before.legal_actions}\n"
+        
+        # Add action that caused the error if available
+        if state_before.from_action:
+            action = state_before.from_action.action
+            message += f"\nPrevious action: {action.action}"
+            if action.action == pkrs.ActionEnum.Raise:
+                message += f" {action.amount}"
         
         return self.send_message(message)
     
