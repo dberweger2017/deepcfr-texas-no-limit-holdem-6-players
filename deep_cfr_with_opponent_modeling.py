@@ -103,7 +103,7 @@ class DeepCFRAgentWithOpponentModeling:
         self.max_regret_seen = 1.0
     
     def action_id_to_pokers_action(self, action_id, state):
-        """Convert our action ID to Pokers action with proper bet calculation."""
+        """Convert our action ID to Pokers action with fixed bet calculation."""
         try:
             if action_id == 0:  # Fold
                 return pkrs.Action(pkrs.ActionEnum.Fold)
@@ -124,27 +124,34 @@ class DeepCFRAgentWithOpponentModeling:
                 available_stake = player_state.stake
                 
                 # Calculate legal bet bounds
-                lower_bound = current_bet + state.min_bet
-                upper_bound = current_bet + available_stake
+                lower_bound = current_bet + state.min_bet  # Minimum legal total bet
+                upper_bound = current_bet + available_stake  # Maximum possible total bet
                 
-                # If player can't meet minimum bet, just call
+                # If player can't make minimum bet, fall back to call
                 if available_stake < state.min_bet:
                     return pkrs.Action(pkrs.ActionEnum.Call)
                 
-                # Calculate bet size based on action type
+                # Calculate target raise based on action_id
                 if action_id == 2:  # 0.5x pot
-                    candidate_total_bet = current_bet + state.pot * 0.5
+                    target_amount = state.pot * 0.5
                 else:  # 1x pot
-                    candidate_total_bet = current_bet + state.pot
+                    target_amount = state.pot
+                
+                # Calculate total bet (current bet + raise)
+                total_bet = current_bet + target_amount
                 
                 # Ensure bet is within legal bounds
-                if candidate_total_bet < lower_bound:
-                    candidate_total_bet = lower_bound
-                if candidate_total_bet > upper_bound:
-                    candidate_total_bet = upper_bound
+                if total_bet < lower_bound:
+                    total_bet = lower_bound
+                if total_bet > upper_bound:
+                    total_bet = upper_bound
                 
-                # Calculate the raise amount (difference from current bet)
-                raise_amount = candidate_total_bet - current_bet
+                # The actual raise amount is the difference from current bet
+                raise_amount = total_bet - current_bet
+                
+                # Final safety check
+                if raise_amount > available_stake:
+                    raise_amount = available_stake
                 
                 return pkrs.Action(pkrs.ActionEnum.Raise, raise_amount)
                 
@@ -156,9 +163,11 @@ class DeepCFRAgentWithOpponentModeling:
                 print(f"ERROR creating action {action_id}: {e}")
                 print(f"State: current_player={state.current_player}, legal_actions={state.legal_actions}")
                 print(f"Player stake: {state.players_state[state.current_player].stake}")
-            # Default to call as fallback
+            # Fall back to call as safe option
             if pkrs.ActionEnum.Call in state.legal_actions:
                 return pkrs.Action(pkrs.ActionEnum.Call)
+            elif pkrs.ActionEnum.Check in state.legal_actions:
+                return pkrs.Action(pkrs.ActionEnum.Check)
             else:
                 return pkrs.Action(pkrs.ActionEnum.Fold)
 
