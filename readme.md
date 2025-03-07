@@ -245,8 +245,13 @@ Betagmr)
 git clone https://github.com/dberweger2017/deepcfr.git
 cd deepcfr-poker
 
+# Create a virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+
 # Install dependencies
 pip install -r requirements.txt
+pip install -e .
 
 # Install the poker environment
 pip install pokers
@@ -265,7 +270,7 @@ This guide provides a quick reference for training your Deep Counterfactual Regr
 Train a new agent against random opponents:
 
 ```bash
-python train.py --iterations 1000 --traversals 200
+python -m src.training.train --iterations 1000 --traversals 200
 ```
 
 ##### Continue Training from Checkpoint
@@ -273,7 +278,7 @@ python train.py --iterations 1000 --traversals 200
 Resume training from a saved checkpoint against random opponents:
 
 ```bash
-python train.py --checkpoint models/checkpoint_iter_1000.pt --iterations 1000
+python -m src.training.train --checkpoint models/checkpoint_iter_1000.pt --iterations 1000
 ```
 
 ##### Self-Play Training
@@ -281,7 +286,7 @@ python train.py --checkpoint models/checkpoint_iter_1000.pt --iterations 1000
 Train against a fixed checkpoint opponent:
 
 ```bash
-python train.py --checkpoint models/checkpoint_iter_1000.pt --self-play --iterations 1000
+python -m src.training.train --checkpoint models/checkpoint_iter_1000.pt --self-play --iterations 1000
 ```
 
 ##### Mixed Checkpoint Training
@@ -289,13 +294,13 @@ python train.py --checkpoint models/checkpoint_iter_1000.pt --self-play --iterat
 Train against a rotating pool of checkpoint opponents:
 
 ```bash
-python train.py --mixed --checkpoint-dir models --model-prefix t_ --refresh-interval 1000 --num-opponents 5 --iterations 10000
+python -m src.training.train --mixed --checkpoint-dir models --model-prefix t_ --refresh-interval 1000 --num-opponents 5 --iterations 10000
 ```
 
 Continue an existing agent with mixed checkpoint training:
 
 ```bash
-python train.py --mixed --checkpoint models/checkpoint_iter_1000.pt --checkpoint-dir models --model-prefix t_ --iterations 1000
+python -m src.training.train --mixed --checkpoint models/checkpoint_iter_1000.pt --checkpoint-dir models --model-prefix t_ --iterations 1000
 ```
 
 #### Parameters
