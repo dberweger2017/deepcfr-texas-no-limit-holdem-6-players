@@ -7,8 +7,8 @@ import time
 import os
 import matplotlib.pyplot as plt
 import argparse
-from deep_cfr import DeepCFRAgent
-from model import set_verbose
+from src.core.deep_cfr import DeepCFRAgent
+from src.core.model import set_verbose
 
 class RandomAgent:
     """Simple random agent for poker that ensures valid bet sizing."""
@@ -1162,7 +1162,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
         DeepCFRAgent.cfr_traverse = original_cfr_traverse
 
 # For importing model.encode_state in the cfr_traverse method
-from model import encode_state
+from src.core.model import encode_state
 
 if __name__ == "__main__":
     import argparse

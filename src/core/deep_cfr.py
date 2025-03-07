@@ -6,7 +6,7 @@ import torch.optim as optim
 import numpy as np
 import random
 import pokers as pkrs
-from model import PokerNetwork, encode_state, VERBOSE, set_verbose
+from src.core.model import PokerNetwork, encode_state, VERBOSE, set_verbose
 from collections import deque
 
 class DeepCFRAgent:

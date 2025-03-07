@@ -7,8 +7,8 @@ import random
 import time
 import argparse
 from torch.utils.tensorboard import SummaryWriter
-from deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
-from model import set_verbose
+from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
+from src.core.model import set_verbose
 
 class RandomAgent:
     """Simple random agent for poker (unchanged from original)."""

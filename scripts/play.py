@@ -6,8 +6,8 @@ import argparse
 import os
 import random
 import glob
-from deep_cfr import DeepCFRAgent
-from model import set_verbose
+from src.core.deep_cfr import DeepCFRAgent
+from src.core.model import set_verbose
 
 def get_action_description(action):
     """Convert a pokers action to a human-readable string."""

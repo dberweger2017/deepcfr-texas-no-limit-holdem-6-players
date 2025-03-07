@@ -8,8 +8,8 @@ import time
 import argparse
 import glob
 from torch.utils.tensorboard import SummaryWriter
-from deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
-from model import encode_state, set_verbose
+from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
+from src.core.model import encode_state, set_verbose
 
 class RandomAgent:
     """Simple random agent for poker."""
@@ -69,10 +69,10 @@ class ModelAgent:
         
         # Load the appropriate agent type
         if with_opponent_modeling:
-            from deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
+            from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
             self.agent = DeepCFRAgentWithOpponentModeling(player_id=player_id, device=device)
         else:
-            from deep_cfr import DeepCFRAgent
+            from src.core.deep_cfr import DeepCFRAgent
             self.agent = DeepCFRAgent(player_id=player_id, device=device)
             
         # Load model weights

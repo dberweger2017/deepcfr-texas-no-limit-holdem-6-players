@@ -7,8 +7,8 @@ import numpy as np
 import random
 import pokers as pkrs
 from collections import deque
-from model import encode_state, VERBOSE, set_verbose
-from opponent_model import OpponentModelingSystem
+from src.core.model import encode_state, VERBOSE, set_verbose
+from src.opponent_modeling.opponent_model import OpponentModelingSystem
 
 class EnhancedPokerNetwork(nn.Module):
     """
