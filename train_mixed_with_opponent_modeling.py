@@ -119,14 +119,15 @@ class ModelAgent:
         return pkrs.Action(pkrs.ActionEnum.Raise, sanitized_amount)
 
 def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, notifier=None):
-    """Evaluate the trained agent against a set of opponents with Telegram alerts."""
+    """Evaluate the trained agent against a set of opponents with enhanced error tracking."""
     total_profit = 0
     num_players = 6
     
     # Statistics tracking
     completed_games = 0
     zero_reward_games = 0
-    illegal_actions = 0
+    illegal_actions_by_agent = 0
+    illegal_actions_by_opponents = 0
     state_errors = 0
     game_crashes = 0
     total_actions = 0
@@ -158,8 +159,10 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                     # Choose action
                     if current_player == agent.player_id:
                         action = agent.choose_action(state, opponent_id=current_player)
+                        is_training_agent = True
                     else:
                         action = opponents[current_player].choose_action(state)
+                        is_training_agent = False
                     
                     # Track this action
                     action_desc = f"P{current_player} {action.action}"
@@ -169,18 +172,31 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                     
                     # Check for illegal actions (especially raise amounts)
                     if action.action == pkrs.ActionEnum.Raise:
-                        player_stake = state.players_state[current_player].stake
-                        if action.amount > player_stake:
-                            illegal_actions += 1
+                        player_state = state.players_state[current_player]
+                        current_bet = player_state.bet_chips
+                        available_stake = player_state.stake
+                        
+                        # Check if this would be a legal raise
+                        lower_bound = current_bet + state.min_bet
+                        upper_bound = current_bet + available_stake
+                        
+                        if action.amount > available_stake:
+                            if is_training_agent:
+                                illegal_actions_by_agent += 1
+                            else:
+                                illegal_actions_by_opponents += 1
+                                
                             if notifier:
-                                notifier.alert_illegal_action(
-                                    iteration, 
-                                    current_player,
-                                    f"ILLEGAL RAISE: {action.amount} > {player_stake}",
-                                    state
+                                notifier.send_message(
+                                    f"⚠️ <b>ILLEGAL BET DETECTED</b>\n"
+                                    f"{'OUR AGENT' if is_training_agent else 'OPPONENT'} tried to bet "
+                                    f"{action.amount} with only {available_stake} available\n"
+                                    f"Player: {current_player}, Iteration: {iteration}"
                                 )
-                            # Fix the action to be legal
-                            action = pkrs.Action(pkrs.ActionEnum.Raise, player_stake)
+                                
+                            # This should be fixed by your implementation, but let's double-check
+                            if action.amount > available_stake:
+                                action = pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
                     
                     # Record opponent action for modeling
                     if current_player != agent.player_id and hasattr(agent, 'record_opponent_action'):
@@ -205,11 +221,29 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                     # Check if the action was valid
                     if new_state.status != pkrs.StateStatus.Ok:
                         state_errors += 1
+                        
+                        # Identify which agent caused the error
+                        error_source = "TRAINING AGENT" if is_training_agent else f"OPPONENT (Player {current_player})"
+                        
+                        # Error details for debug
+                        error_details = f"Error Source: {error_source}\n"
+                        if new_state.status == pkrs.StateStatus.HighBet:
+                            player_state = state_before.players_state[current_player]
+                            error_details += f"Player Stake: {player_state.stake}\n"
+                            error_details += f"Current Bet: {player_state.bet_chips}\n"
+                            error_details += f"Min Bet: {state_before.min_bet}\n"
+                            if hasattr(action, 'amount'):
+                                error_details += f"Attempted Raise: {action.amount}\n"
+                        
+                        print(f"STATE ERROR: {new_state.status} by {error_source}")
+                        print(error_details)
+                        
                         if notifier:
                             notifier.alert_state_error(
                                 iteration,
                                 new_state.status,
-                                state_before
+                                state_before,
+                                is_training_agent=is_training_agent
                             )
                         break  # Stop this game
                     
@@ -271,10 +305,12 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
             completed_games
         )
     
-    # Print statistics
+    # Print detailed statistics
     print(f"Games completed: {completed_games}/{num_games} ({completed_games/num_games*100:.1f}%)")
     print(f"Zero reward games: {zero_reward_games}/{completed_games} ({zero_reward_games/max(1,completed_games)*100:.1f}%)")
-    print(f"Illegal actions: {illegal_actions}, State errors: {state_errors}, Game crashes: {game_crashes}")
+    print(f"Illegal actions by AGENT: {illegal_actions_by_agent}")
+    print(f"Illegal actions by OPPONENTS: {illegal_actions_by_opponents}")
+    print(f"State errors: {state_errors}, Game crashes: {game_crashes}")
     print(f"Total actions: {total_actions}, Avg actions per game: {total_actions/max(1,num_games):.1f}")
     
     # Calculate average profit (only from completed games)
