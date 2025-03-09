@@ -1,4 +1,5 @@
 # telegram_notifier.py
+import pokers as pkrs
 import requests
 import traceback
 import time
