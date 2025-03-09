@@ -51,45 +51,44 @@ class DeepCFRAgent:
                     return pkrs.Action(pkrs.ActionEnum.Check)
                 else:
                     return pkrs.Action(pkrs.ActionEnum.Call)
-            elif action_id == 2:  # Raise 0.5x pot
+            elif action_id == 2 or action_id == 3:  # Raise actions
+                if pkrs.ActionEnum.Raise not in state.legal_actions:
+                    if pkrs.ActionEnum.Call in state.legal_actions:
+                        return pkrs.Action(pkrs.ActionEnum.Call)
+                    elif pkrs.ActionEnum.Check in state.legal_actions:
+                        return pkrs.Action(pkrs.ActionEnum.Check)
+                    else:
+                        return pkrs.Action(pkrs.ActionEnum.Fold)
+                
+                # Get current player state
                 player_state = state.players_state[state.current_player]
+                current_bet = player_state.bet_chips
                 available_stake = player_state.stake
                 
-                # Allow all-in even when below min_bet
-                if available_stake < state.min_bet:
+                # Calculate what's needed to call (match the current min_bet)
+                call_amount = state.min_bet - current_bet
+                
+                # If player can't even call, go all-in
+                if available_stake <= call_amount:
                     if VERBOSE:
                         print(f"All-in raise with {available_stake} chips (below min_bet {state.min_bet})")
                     return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
+                
+                # Calculate target raise amount based on action_id
+                if action_id == 2:  # 0.5x pot
+                    additional_amount = state.pot * 0.5
+                else:  # 1x pot
+                    additional_amount = state.pot
                     
-                raise_amount = min(state.pot * 0.5, available_stake)
-                
-                # Ensure minimum bet requirement if player has enough chips
-                if raise_amount < state.min_bet and available_stake >= state.min_bet:
-                    raise_amount = state.min_bet
-                    
-                if VERBOSE:
-                    print(f"Creating raise action (0.5x pot): amount={raise_amount}, pot={state.pot}")
-                return pkrs.Action(pkrs.ActionEnum.Raise, raise_amount)
-                
-            elif action_id == 3:  # Raise 1x pot
-                player_state = state.players_state[state.current_player]
-                available_stake = player_state.stake
-                
-                # Allow all-in even when below min_bet
-                if available_stake < state.min_bet:
-                    if VERBOSE:
-                        print(f"All-in raise with {available_stake} chips (below min_bet {state.min_bet})")
-                    return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
-                    
-                raise_amount = min(state.pot, available_stake)
-                
-                # Ensure minimum bet requirement if player has enough chips
-                if raise_amount < state.min_bet and available_stake >= state.min_bet:
-                    raise_amount = state.min_bet
+                # Ensure the player doesn't exceed available stake
+                if call_amount + additional_amount > available_stake:
+                    additional_amount = available_stake - call_amount
                     
                 if VERBOSE:
-                    print(f"Creating raise action (1x pot): amount={raise_amount}, pot={state.pot}")
-                return pkrs.Action(pkrs.ActionEnum.Raise, raise_amount)
+                    print(f"Creating raise action ({'0.5x pot' if action_id == 2 else '1x pot'}): amount={additional_amount}, pot={state.pot}")
+                
+                return pkrs.Action(pkrs.ActionEnum.Raise, additional_amount)
+                
             else:
                 raise ValueError(f"Unknown action ID: {action_id}")
         except Exception as e:
