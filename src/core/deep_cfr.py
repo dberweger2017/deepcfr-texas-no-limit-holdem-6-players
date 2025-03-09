@@ -6,7 +6,7 @@ import torch.optim as optim
 import numpy as np
 import random
 import pokers as pkrs
-from model import PokerNetwork, encode_state, VERBOSE, set_verbose
+from src.core.model import PokerNetwork, encode_state, VERBOSE, set_verbose
 from collections import deque
 
 class DeepCFRAgent:
@@ -51,16 +51,44 @@ class DeepCFRAgent:
                     return pkrs.Action(pkrs.ActionEnum.Check)
                 else:
                     return pkrs.Action(pkrs.ActionEnum.Call)
-            elif action_id == 2:  # Raise 0.5x pot
-                bet_amount = min(state.pot * 0.5, state.players_state[state.current_player].stake)
+            elif action_id == 2 or action_id == 3:  # Raise actions
+                if pkrs.ActionEnum.Raise not in state.legal_actions:
+                    if pkrs.ActionEnum.Call in state.legal_actions:
+                        return pkrs.Action(pkrs.ActionEnum.Call)
+                    elif pkrs.ActionEnum.Check in state.legal_actions:
+                        return pkrs.Action(pkrs.ActionEnum.Check)
+                    else:
+                        return pkrs.Action(pkrs.ActionEnum.Fold)
+                
+                # Get current player state
+                player_state = state.players_state[state.current_player]
+                current_bet = player_state.bet_chips
+                available_stake = player_state.stake
+                
+                # Calculate what's needed to call (match the current min_bet)
+                call_amount = state.min_bet - current_bet
+                
+                # If player can't even call, go all-in
+                if available_stake <= call_amount:
+                    if VERBOSE:
+                        print(f"All-in raise with {available_stake} chips (below min_bet {state.min_bet})")
+                    return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
+                
+                # Calculate target raise amount based on action_id
+                if action_id == 2:  # 0.5x pot
+                    additional_amount = state.pot * 0.5
+                else:  # 1x pot
+                    additional_amount = state.pot
+                    
+                # Ensure the player doesn't exceed available stake
+                if call_amount + additional_amount > available_stake:
+                    additional_amount = available_stake - call_amount
+                    
                 if VERBOSE:
-                    print(f"Creating raise action (0.5x pot): amount={bet_amount}, pot={state.pot}")
-                return pkrs.Action(pkrs.ActionEnum.Raise, bet_amount)
-            elif action_id == 3:  # Raise 1x pot
-                bet_amount = min(state.pot, state.players_state[state.current_player].stake)
-                if VERBOSE:
-                    print(f"Creating raise action (1x pot): amount={bet_amount}, pot={state.pot}")
-                return pkrs.Action(pkrs.ActionEnum.Raise, bet_amount)
+                    print(f"Creating raise action ({'0.5x pot' if action_id == 2 else '1x pot'}): amount={additional_amount}, pot={state.pot}")
+                
+                return pkrs.Action(pkrs.ActionEnum.Raise, additional_amount)
+                
             else:
                 raise ValueError(f"Unknown action ID: {action_id}")
         except Exception as e:

@@ -7,8 +7,8 @@ import time
 import os
 import matplotlib.pyplot as plt
 import argparse
-from deep_cfr import DeepCFRAgent
-from model import set_verbose
+from src.core.deep_cfr import DeepCFRAgent
+from src.core.model import set_verbose
 
 class RandomAgent:
     """Simple random agent for poker that ensures valid bet sizing."""
@@ -17,7 +17,7 @@ class RandomAgent:
         self.name = f"Player {player_id}"
         
     def choose_action(self, state):
-        """Choose a random legal action with a raise amount clamped by the available balance."""
+        """Choose a random legal action with raise amount correctly calculated."""
         if not state.legal_actions:
             raise ValueError(f"No legal actions available for player {self.player_id}")
         
@@ -30,37 +30,42 @@ class RandomAgent:
         elif action_enum == pkrs.ActionEnum.Raise:
             player_state = state.players_state[state.current_player]
             current_bet = player_state.bet_chips
+            available_stake = player_state.stake
             
-            # Compute legal total bet bounds.
-            lower_bound = current_bet + state.min_bet
-            upper_bound = current_bet + player_state.stake  # maximum total bet if all-in.
+            # Calculate call amount (needed to match current min_bet)
+            call_amount = state.min_bet - current_bet
             
-            # If the player's remaining stake is less than the required min raise, just call.
-            if player_state.stake < state.min_bet:
-                return pkrs.Action(pkrs.ActionEnum.Call)
+            # If player can't even call, go all-in
+            if available_stake <= call_amount:
+                return pkrs.Action(action_enum, available_stake)
             
-            # Compute candidate total bets using pot-based heuristics.
-            candidate_half = current_bet + state.pot * 0.5
-            candidate_full = current_bet + state.pot
+            # Remaining stake after calling
+            remaining_stake = available_stake - call_amount
+            
+            # Compute candidate additional raise amounts
+            candidate_half_pot = state.pot * 0.5
+            candidate_full_pot = state.pot
             
             candidates = []
-            if lower_bound <= candidate_half <= upper_bound:
-                candidates.append(candidate_half)
-            if lower_bound <= candidate_full <= upper_bound:
-                candidates.append(candidate_full)
+            # Add half pot if it's affordable
+            if candidate_half_pot <= remaining_stake:
+                candidates.append(candidate_half_pot)
+            # Add full pot if it's affordable
+            if candidate_full_pot <= remaining_stake:
+                candidates.append(candidate_full_pot)
+            # Add min raise if it's affordable (1 chip more than call)
+            candidates.append(min(1.0, remaining_stake))
+            # Small chance for all-in
+            if random.random() < 0.1:  # 10% chance
+                candidates.append(remaining_stake)
             
-            if candidates:
-                chosen_total = random.choice(candidates)
-            else:
-                chosen_total = random.uniform(lower_bound, upper_bound)
+            # Choose a random additional raise amount
+            additional_raise = random.choice(candidates)
             
-            # Desired raise is the extra amount over current bet.
-            desired_raise = chosen_total - current_bet
+            # Ensure we don't exceed available stake
+            additional_raise = min(additional_raise, remaining_stake)
             
-            # Clamp the raise to the player's available chips.
-            final_raise = min(desired_raise, player_state.stake)
-            
-            return pkrs.Action(action_enum, final_raise)
+            return pkrs.Action(action_enum, additional_raise)
         
         raise ValueError(f"Unexpected action type: {action_enum}")
 
@@ -1162,7 +1167,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
         DeepCFRAgent.cfr_traverse = original_cfr_traverse
 
 # For importing model.encode_state in the cfr_traverse method
-from model import encode_state
+from src.core.model import encode_state
 
 if __name__ == "__main__":
     import argparse

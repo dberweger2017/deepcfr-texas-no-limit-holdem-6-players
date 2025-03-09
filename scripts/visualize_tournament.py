@@ -7,7 +7,7 @@ import os
 import time
 import argparse
 import matplotlib.pyplot as plt
-from deep_cfr import DeepCFRAgent
+from src.core.deep_cfr import DeepCFRAgent
 from collections import defaultdict
 import pandas as pd
 import seaborn as sns
