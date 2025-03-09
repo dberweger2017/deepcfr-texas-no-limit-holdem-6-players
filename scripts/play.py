@@ -312,7 +312,7 @@ class RandomAgent:
         self.player_id = player_id
         
     def choose_action(self, state):
-        """Choose a random legal action with proper bet sizing."""
+        """Choose a random legal action with correctly calculated bet sizing."""
         if not state.legal_actions:
             raise ValueError(f"No legal actions available for player {self.player_id}")
         
@@ -329,49 +329,48 @@ class RandomAgent:
         # For raises, carefully calculate a valid amount
         elif action_enum == pkrs.ActionEnum.Raise:
             player_state = state.players_state[state.current_player]
+            current_bet = player_state.bet_chips
             available_stake = player_state.stake
             
-            # Get the minimum required raise
-            min_raise = state.min_bet
+            # Calculate call amount (needed to match current min_bet)
+            call_amount = state.min_bet - current_bet
             
-            # Allow all-in even if player has less than min_bet
-            if available_stake < min_raise:
+            # If player can't even call, go all-in
+            if available_stake <= call_amount:
                 return pkrs.Action(action_enum, available_stake)
             
-            # Calculate potential raise amounts (half pot and full pot)
-            half_pot = state.pot * 0.5
-            full_pot = state.pot
+            # Remaining stake after calling
+            remaining_stake = available_stake - call_amount
             
-            # Create a list of valid raise amounts
+            # Calculate potential additional raise amounts
+            half_pot_raise = state.pot * 0.5
+            full_pot_raise = state.pot
+            
+            # Create a list of valid additional raise amounts
             valid_amounts = []
             
-            # Always consider minimum bet if it's affordable
-            if min_raise <= available_stake:
-                valid_amounts.append(min_raise)
-                
-            # Add half pot if it's a valid amount
-            if min_raise <= half_pot <= available_stake:
-                valid_amounts.append(half_pot)
-                
-            # Add full pot if it's a valid amount
-            if min_raise <= full_pot <= available_stake:
-                valid_amounts.append(full_pot)
-                
+            # Add a small raise (1 chip) if we can afford it
+            valid_amounts.append(min(1.0, remaining_stake))
+            
+            # Add half pot if affordable
+            if half_pot_raise <= remaining_stake:
+                valid_amounts.append(half_pot_raise)
+            
+            # Add full pot if affordable
+            if full_pot_raise <= remaining_stake:
+                valid_amounts.append(full_pot_raise)
+            
             # Small chance to go all-in
             if random.random() < 0.05:  # 5% chance
-                valid_amounts.append(available_stake)
-                
-            # If we have valid raise options, choose one randomly
-            if valid_amounts:
-                raise_amount = random.choice(valid_amounts)
-            else:
-                # Fall back to all-in (should be rare with the logic above)
-                raise_amount = available_stake
-                
-            return pkrs.Action(action_enum, raise_amount)
-        
-        # If we get an unexpected action type, raise an exception
-        raise ValueError(f"Unexpected action type: {action_enum}")
+                valid_amounts.append(remaining_stake)
+            
+            # Choose a random additional raise amount
+            additional_raise = random.choice(valid_amounts)
+            
+            # Ensure it doesn't exceed available stake
+            additional_raise = min(additional_raise, remaining_stake)
+            
+            return pkrs.Action(action_enum, additional_raise)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Play poker against random AI models')

@@ -18,6 +18,7 @@ class RandomAgent:
         self.name = f"Player {player_id}"
         
     def choose_action(self, state):
+        """Simple random agent for poker with correct bet calculation."""
         if not state.legal_actions:
             raise ValueError(f"No legal actions available for player {self.player_id}")
         
@@ -29,33 +30,39 @@ class RandomAgent:
         elif action_enum == pkrs.ActionEnum.Raise:
             player_state = state.players_state[state.current_player]
             current_bet = player_state.bet_chips
+            available_stake = player_state.stake
             
-            lower_bound = current_bet + state.min_bet
-            upper_bound = current_bet + player_state.stake
+            # Calculate call amount (needed to match current min_bet)
+            call_amount = state.min_bet - current_bet
             
-            if player_state.stake < state.min_bet:
+            # If player can't even call, return Call action
+            if available_stake < call_amount:
                 return pkrs.Action(pkrs.ActionEnum.Call)
             
-            candidate_half = current_bet + state.pot * 0.5
-            candidate_full = current_bet + state.pot
+            # Remaining stake after calling
+            remaining_stake = available_stake - call_amount
+            
+            # Calculate additional raise amounts (the amount beyond calling)
+            additional_half_pot = state.pot * 0.5
+            additional_full_pot = state.pot
             
             candidates = []
-            if lower_bound <= candidate_half <= upper_bound:
-                candidates.append(candidate_half)
-            if lower_bound <= candidate_full <= upper_bound:
-                candidates.append(candidate_full)
+            if additional_half_pot <= remaining_stake:
+                candidates.append(additional_half_pot)
+            if additional_full_pot <= remaining_stake:
+                candidates.append(additional_full_pot)
+                
+            # If no candidates, add a small raise or min bet
+            if not candidates:
+                candidates.append(min(remaining_stake, 1.0))
             
-            if candidates:
-                chosen_total = random.choice(candidates)
-            else:
-                chosen_total = random.uniform(lower_bound, upper_bound)
+            # Select random additional amount
+            additional_amount = random.choice(candidates)
             
-            desired_raise = chosen_total - current_bet
-            final_raise = min(desired_raise, player_state.stake)
+            # Ensure it doesn't exceed available stake
+            additional_amount = min(additional_amount, remaining_stake)
             
-            return pkrs.Action(action_enum, final_raise)
-        
-        raise ValueError(f"Unexpected action type: {action_enum}")
+            return pkrs.Action(action_enum, additional_amount)
 
 class ModelAgent:
     """Wrapper for a DeepCFRAgent or DeepCFRAgentWithOpponentModeling loaded from a checkpoint.
@@ -87,36 +94,32 @@ class ModelAgent:
         if original_action.action != pkrs.ActionEnum.Raise:
             return original_action
             
-        # Calculate legal bet bounds based on the documentation
+        # Calculate legal bet bounds
         player_state = state.players_state[state.current_player]
         current_bet = player_state.bet_chips
         available_stake = player_state.stake
         
-        # Compute legal total bet bounds
-        lower_bound = current_bet + state.min_bet
-        upper_bound = current_bet + available_stake
+        # Calculate call amount (needed to match current min_bet)
+        call_amount = state.min_bet - current_bet
         
-        # If the player can't make the minimum raise, just call
-        if available_stake < state.min_bet:
+        # If the player can't even call, return Call action
+        if available_stake < call_amount:
             return pkrs.Action(pkrs.ActionEnum.Call)
         
-        # Sanitize the raise amount (cap it to legal bounds)
-        original_amount = original_action.amount
+        # Remaining stake after calling
+        remaining_stake = available_stake - call_amount
         
-        # Calculate what the total bet would be
-        total_bet = current_bet + original_amount
+        # Get the original amount (which might be calculated incorrectly by the model)
+        additional_amount = original_action.amount
         
-        # Ensure it's within bounds
-        if total_bet < lower_bound:
-            total_bet = lower_bound
-        if total_bet > upper_bound:
-            total_bet = upper_bound
-            
-        # The raise amount is the difference from current bet
-        sanitized_amount = total_bet - current_bet
+        # Ensure the additional amount doesn't exceed remaining stake
+        additional_amount = min(additional_amount, remaining_stake)
+        
+        # Ensure the additional amount is non-negative
+        additional_amount = max(0, additional_amount)
         
         # Create new action with sanitized amount
-        return pkrs.Action(pkrs.ActionEnum.Raise, sanitized_amount)
+        return pkrs.Action(pkrs.ActionEnum.Raise, additional_amount)
 
 def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, notifier=None):
     """Evaluate the trained agent against a set of opponents with enhanced error tracking."""
