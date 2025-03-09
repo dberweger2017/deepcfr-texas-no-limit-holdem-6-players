@@ -47,10 +47,10 @@ flowchart TD
 
 ## Memory and Opponent Modeling
 
-- [ ] **RNN for Opponent History**: Add a recurrent component to track and exploit player patterns
-- [ ] **Separate Opponent Models**: Maintain models for different opponent types
+- [x] **RNN for Opponent History**: Add a recurrent component to track and exploit player patterns
+- [x] **Separate Opponent Models**: Maintain models for different opponent types
 - [ ] **Efficient Memory Replay**: Prioritize experiences based on surprise value
-- [ ] **Action Sequence Encoding**: Represent betting histories more effectively
+- [x] **Action Sequence Encoding**: Represent betting histories more effectively
 - [ ] **Table Image Modeling**: Factor in how opponents might be perceiving the agent's own play style
 
 ## Evaluation and Analysis
