@@ -5,8 +5,8 @@
 Due to the success of this project, I'm committing more time and attention to further development. I've outlined two key initiatives:
 
 1. **Release Schedule**: I'll be publishing regular updates with new features and improvements.
-   - v2.1 (April 2025): Expanded bet sizing options and performance optimizations, Opponent modeling capabilities Advanced architectures and training methods
-   - v2.2 (June 2025): Web interface for playing agains the AI, API Endpoints for integration, Export to ONNX format for deployment
+   - v2.1 (April 2025): ✅ Fixed bet calculation for stable training, ✅ Implemented opponent modeling capabilities, Expanded bet sizing options and performance optimizations, Advanced architectures and training methods
+   - v2.2 (June 2025): Web interface for playing against the AI, API Endpoints for integration, Export to ONNX format for deployment
 
 2. **Feature Roadmap**: I've created a comprehensive [checklist of upcoming features](./FUTURE_IMPROVEMENTS.md) that I plan to implement, including model architecture enhancements, training improvements, and advanced techniques.
 
@@ -20,7 +20,7 @@ A deep learning implementation of Counterfactual Regret Minimization (CFR) for N
 
 > **Note:** This project builds on the straightforward and flexible [Pokers](https://github.com/Reinforcement-Poker/pokers) environment—a minimalistic no-limit Texas Hold'em simulator designed for reinforcement learning. Pokers cuts out the fuss by using a simple `new_state = state + action` model, making it really easy to integrate with any framework. While its simplicity is a major plus, it's also a side project that might have some bugs in less-tested areas. If you need rock-solid reliability, you might consider alternatives like RLCard. Huge thanks to the creators of Pokers for their innovative and accessible work!
 
-> **Note** A more comprehensive explanation of this project can be found here: [Mastering Poker with Deep CFR: Building an AI for 6-Player No-Limit Texas Hold’em](https://medium.com/@davide_95694/mastering-poker-with-deep-cfr-building-an-ai-for-6-player-no-limit-texas-holdem-759d3ed8e600)
+> **Note** A more comprehensive explanation of this project can be found here: [Mastering Poker with Deep CFR: Building an AI for 6-Player No-Limit Texas Hold'em](https://medium.com/@davide_95694/mastering-poker-with-deep-cfr-building-an-ai-for-6-player-no-limit-texas-holdem-759d3ed8e600)
 
 ## Introduction: Why Poker AI Matters
 
@@ -45,11 +45,11 @@ This repository implements Deep Counterfactual Regret Minimization (Deep CFR), a
 - Sequential decision-making
 - Large state and action spaces
 
-The agent learns by playing against random opponents and self-play, using neural networks to approximate regret values and optimal strategies.
+The agent learns by playing against random opponents, specialized opponents via opponent modeling, and self-play, using neural networks to approximate regret values and optimal strategies.
 
 ## Architecture
 
-The implementation consists of three main components:
+The implementation consists of four main components:
 
 1. **Model Architecture** (`model.py`)
    - Neural network definition
@@ -63,9 +63,17 @@ The implementation consists of three main components:
    - CFR traversal implementation
    - Training procedures
 
-3. **Training Pipeline** (`train.py`)
-   - Training loop implementation
-   - Evaluation against random agents
+3. **Opponent Modeling** (`opponent_modeling/`)
+   - RNN-based action history encoding
+   - Opponent tendency prediction
+   - Adaptive strategy selection
+   - Behavioral pattern exploitation
+
+4. **Training Pipeline** (`training/`)
+   - Basic training implementation (against random agents)
+   - Self-play training (against checkpoints)
+   - Mixed training (against pools of agents)
+   - Opponent modeling training variants
    - Metrics tracking and logging
    - Model checkpointing and saving
 
@@ -115,6 +123,14 @@ flowchart TB
         StratOpt["Adam Optimizer\n(lr=0.0001, weight_decay=1e-5)"]
     end
 
+    subgraph OpponentModeling["Opponent Modeling System"]
+        direction TB
+        HistEnc["Action History Encoder\n(RNN-based)"]
+        OppModel["Opponent Model\n(Tendency Prediction)"]
+        OppMem["Opponent Memory\n(Historical Actions)"]
+        AdaptStrat["Adaptive Strategy"]
+    end
+
     subgraph TrainingPhase["Deep CFR Training Process"]
         direction TB
         CFRTraverse["CFR Traverse\n(MCCFR with external sampling)"]
@@ -137,6 +153,8 @@ flowchart TB
 
     InputState --> PokerNetwork
     PokerNetwork --> DeepCFRAgent
+    InputState --> OpponentModeling
+    OpponentModeling --> DeepCFRAgent
     DeepCFRAgent --> TrainingPhase
     DeepCFRAgent --> ActionSelection
 
@@ -174,11 +192,24 @@ The project uses PyTorch to implement:
 
 - **Advantage Network**: Predicts counterfactual regrets for each action
 - **Strategy Network**: Outputs a probability distribution over actions
+- **Opponent History Encoder**: RNN-based network that processes opponent action sequences
+- **Opponent Model**: Predicts opponent tendencies based on encoded history
 
-Both networks share a similar architecture:
-- Fully connected layers with ReLU activations
+The architecture includes:
+- Fully connected layers with ReLU activations for advantage and strategy
+- GRU-based sequence processing for opponent history encoding
+- Enhanced networks with opponent feature integration
 - Input size determined by state encoding (cards, bets, game state)
 - Output size matching the action space
+
+### Opponent Modeling
+
+The opponent modeling system includes:
+- **Action History Tracking**: Records sequences of actions by each opponent
+- **Context-Aware Encoding**: Pairs actions with game state contexts
+- **RNN-Based Processing**: Uses recurrent networks to identify patterns in play
+- **Adaptive Strategy Selection**: Modifies the agent's strategy based on opponent tendencies
+- **Separate Models Per Opponent**: Maintains individualized models for different opponents
 
 ### State Representation
 
@@ -216,17 +247,20 @@ The training procedure includes:
 - Experience collection in memory buffers
 - Regular network updates
 - Periodic strategy network training
-- Regular evaluation against random opponents
+- Opponent modeling updates
+- Regular evaluation against random and model opponents
 - Progress tracking via TensorBoard
 
 ## Performance Optimizations
 
 The implementation includes various optimizations:
-- Gradient clipping to prevent exploding gradients
-- Huber loss for robust learning with outliers
-- Regret normalization and clipping
-- Linear CFR weighting for faster convergence
-- Efficient memory management
+- **Gradient clipping** to prevent exploding gradients
+- **Huber loss** for robust learning with outliers
+- **Regret normalization and clipping**
+- **Linear CFR weighting** for faster convergence
+- **Efficient memory management**
+- **Fixed bet calculation** for stable training
+- **Enhanced error handling and monitoring**
 
 ## Requirements
 
@@ -303,6 +337,22 @@ Continue an existing agent with mixed checkpoint training:
 python -m src.training.train --mixed --checkpoint models/checkpoint_iter_1000.pt --checkpoint-dir models --model-prefix t_ --iterations 1000
 ```
 
+##### Basic Opponent Modeling Training
+
+Train a new agent with opponent modeling against random opponents:
+
+```bash
+python -m src.training.train_with_opponent_modeling --iterations 1000 --traversals 200 --save-dir models_om --log-dir logs/deepcfr_om
+```
+
+##### Mixed Opponent Modeling Training
+
+Train with opponent modeling against a rotating pool of checkpoint opponents:
+
+```bash
+python -m src.training.train_mixed_with_opponent_modeling --checkpoint-dir models_om --model-prefix "*" --iterations 10000 --traversals 200 --refresh-interval 1000 --num-opponents 5 --save-dir models_mixed_om --log-dir logs/deepcfr_mixed_om
+```
+
 #### Parameters
 
 | Parameter | Description | Default |
@@ -337,6 +387,12 @@ python -m src.training.train --mixed --checkpoint models/checkpoint_iter_1000.pt
 - Prevents overfitting to specific opponent types
 - Provides diverse learning experiences
 - Closest approximation to Nash equilibrium training
+
+##### Opponent Modeling Training
+- Learns to identify and exploit opponent patterns
+- Adapts strategy based on individual opponents
+- Provides more human-like adaptability
+- Best for developing agents that exploit weaknesses
 
 #### Monitoring Training
 
@@ -465,17 +521,19 @@ After training, the agent achieves:
 - Positive expected value against random opponents
 - Increasing performance over training iterations
 - Sophisticated betting strategies
+- Adaptive play against different opponent styles
 
 ![Profit v random](https://raw.githubusercontent.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/refs/heads/main/images/first_selfplay/Screenshot%202025-03-04%20at%2014.41.06.png)
 ![Profit v random sofisticated models](https://raw.githubusercontent.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/refs/heads/main/images/first_selfplay/Screenshot%202025-03-04%20at%2014.40.58.png)
 
 ## Future Work
 
-- Implement opponent modeling
 - Expand the action space with more bet sizing options
 - Experiment with alternative network architectures (CNN, Transformers)
 - Parallel data generation for faster training
 - Develop a more diverse set of evaluation opponents
+- Enhanced opponent clustering for group-based modeling
+- Meta-learning approaches for faster adaptation
 
 ## References
 
