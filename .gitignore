@@ -2,6 +2,7 @@
 /models_om
 /models_mixed_om
 /logs/*.log
+/venv
 .ds_store
 .env
 __pycache__
