@@ -39,15 +39,19 @@ class RandomAgent:
             if available_stake <= call_amount:
                 return pkrs.Action(action_enum, available_stake)
             
-            # Remaining stake after calling
+            # Calculate remaining stake after calling
             remaining_stake = available_stake - call_amount
             
-            # Define minimum raise (at least 1 chip or big blind)
+            # If player can't raise at all, just call
+            if remaining_stake <= 0:
+                return pkrs.Action(pkrs.ActionEnum.Call)
+            
+            # Define minimum raise (typically 1 chip or the big blind)
             min_raise = 1.0
             if hasattr(state, 'bb'):
                 min_raise = state.bb
             
-            # Calculate potential additional raise amounts (ensure minimum raise)
+            # Calculate potential additional raise amounts
             half_pot_raise = max(state.pot * 0.5, min_raise)
             full_pot_raise = max(state.pot, min_raise)
             

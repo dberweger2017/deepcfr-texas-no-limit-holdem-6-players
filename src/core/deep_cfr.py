@@ -68,35 +68,37 @@ class DeepCFRAgent:
                 # Calculate what's needed to call (match the current min_bet)
                 call_amount = state.min_bet - current_bet
                 
-                # If player can't even call, go all-in
+                # Before applying minimum raise enforcement, check if player can call at all
                 if available_stake <= call_amount:
+                    # Player can't even call, so go all-in
                     if VERBOSE:
                         print(f"All-in raise with {available_stake} chips (below min_bet {state.min_bet})")
                     return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
                 
-                # Remaining stake after calling
+                # Check if player can actually afford to raise
                 remaining_stake = available_stake - call_amount
+                if remaining_stake <= 0:
+                    # Can't raise at all, just call
+                    return pkrs.Action(pkrs.ActionEnum.Call)
                 
-                # Calculate target raise amount based on action_id
+                # Calculate target raise amounts
                 if action_id == 2:  # 0.5x pot
                     target_raise = max(state.pot * 0.5, 1.0)  # Ensure minimum 1 chip
                 else:  # 1x pot
                     target_raise = max(state.pot, 1.0)  # Ensure minimum 1 chip
-                    
+                
                 # Ensure we don't exceed available stake
                 additional_amount = min(target_raise, remaining_stake)
                 
-                # Enforce minimum raise (minimum raise is at least 1 chip or the big blind)
+                # Enforce minimum raise, but only if we can afford it
                 min_raise = 1.0
                 if hasattr(state, 'bb'):
                     min_raise = state.bb
                 
-                # Check if our raise meets the minimum raise requirement
                 if additional_amount < min_raise and remaining_stake >= min_raise:
                     additional_amount = min_raise
-                
-                # If we can't meet minimum raise, fall back to call
-                if additional_amount < min_raise:
+                elif additional_amount < min_raise:
+                    # Can't meet minimum raise, fall back to call
                     return pkrs.Action(pkrs.ActionEnum.Call)
                     
                 if VERBOSE:

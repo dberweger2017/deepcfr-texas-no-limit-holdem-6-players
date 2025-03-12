@@ -106,14 +106,21 @@ def get_human_action(state, player_id=0):
             player_state = state.players_state[player_id]
             current_bet = player_state.bet_chips
             available_stake = player_state.stake
-            min_bet = state.min_bet
-            max_bet = player_state.stake
             
             # Calculate call amount
-            call_amount = min_bet - current_bet
+            call_amount = state.min_bet - current_bet
+            
+            # If player can't even call, go all-in
+            if available_stake <= call_amount:
+                return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
             
             # Calculate remaining stake after calling
             remaining_stake = available_stake - call_amount
+            
+            # If player can't raise after calling, just call
+            if remaining_stake <= 0:
+                print("You don't have enough chips to raise. Calling instead.")
+                return pkrs.Action(pkrs.ActionEnum.Call)
             
             # Define minimum raise (typically 1 chip or the big blind)
             min_raise = 1.0
@@ -145,14 +152,14 @@ def get_human_action(state, player_id=0):
             elif action_input == 'm' or action_input == 'r':  # Custom amount
                 while True:
                     try:
-                        amount_str = input(f"Enter raise amount (min: {max(min_bet, min_raise):.2f}, max: {max_bet:.2f}): ")
+                        amount_str = input(f"Enter raise amount (min: {min_raise:.2f}, max: {remaining_stake:.2f}): ")
                         amount = float(amount_str)
                         
                         # Check if amount meets minimum raise
-                        if amount >= min_raise and min_bet <= amount <= max_bet:
+                        if amount >= min_raise and amount <= remaining_stake:
                             return pkrs.Action(pkrs.ActionEnum.Raise, amount)
                         else:
-                            print(f"Amount must be between {max(min_bet, min_raise):.2f} and {max_bet:.2f}")
+                            print(f"Amount must be between {min_raise:.2f} and {remaining_stake:.2f}")
                     except ValueError:
                         print("Please enter a valid number")
         
@@ -368,10 +375,14 @@ class RandomAgent:
             if available_stake <= call_amount:
                 return pkrs.Action(action_enum, available_stake)
             
-            # Remaining stake after calling
+            # Calculate remaining stake after calling
             remaining_stake = available_stake - call_amount
             
-            # Define minimum raise (at least 1 chip or big blind)
+            # If player can't raise at all, just call
+            if remaining_stake <= 0:
+                return pkrs.Action(pkrs.ActionEnum.Call)
+            
+            # Define minimum raise (typically 1 chip or the big blind)
             min_raise = 1.0
             if hasattr(state, 'bb'):
                 min_raise = state.bb
