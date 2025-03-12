@@ -35,34 +35,52 @@ class RandomAgent:
             # Calculate call amount (needed to match current min_bet)
             call_amount = state.min_bet - current_bet
             
-            # If player can't even call, return Call action
-            if available_stake < call_amount:
-                return pkrs.Action(pkrs.ActionEnum.Call)
+            # If player can't even call, go all-in
+            if available_stake <= call_amount:
+                return pkrs.Action(action_enum, available_stake)
             
             # Remaining stake after calling
             remaining_stake = available_stake - call_amount
             
-            # Calculate additional raise amounts (the amount beyond calling)
-            additional_half_pot = state.pot * 0.5
-            additional_full_pot = state.pot
+            # Define minimum raise (at least 1 chip or big blind)
+            min_raise = 1.0
+            if hasattr(state, 'bb'):
+                min_raise = state.bb
             
-            candidates = []
-            if additional_half_pot <= remaining_stake:
-                candidates.append(additional_half_pot)
-            if additional_full_pot <= remaining_stake:
-                candidates.append(additional_full_pot)
-                
-            # If no candidates, add a small raise or min bet
-            if not candidates:
-                candidates.append(min(remaining_stake, 1.0))
+            # Calculate potential additional raise amounts (ensure minimum raise)
+            half_pot_raise = max(state.pot * 0.5, min_raise)
+            full_pot_raise = max(state.pot, min_raise)
             
-            # Select random additional amount
-            additional_amount = random.choice(candidates)
+            # Create a list of valid additional raise amounts
+            valid_amounts = []
+            
+            # Add half pot if affordable
+            if half_pot_raise <= remaining_stake:
+                valid_amounts.append(half_pot_raise)
+            
+            # Add full pot if affordable
+            if full_pot_raise <= remaining_stake:
+                valid_amounts.append(full_pot_raise)
+            
+            # Add minimum raise if none of the above is affordable
+            if not valid_amounts and min_raise <= remaining_stake:
+                valid_amounts.append(min_raise)
+            
+            # Small chance to go all-in
+            if random.random() < 0.05 and remaining_stake > 0:  # 5% chance
+                valid_amounts.append(remaining_stake)
+            
+            # If we can't afford any valid raise, fall back to call
+            if not valid_amounts:
+                return pkrs.Action(pkrs.ActionEnum.Call)
+            
+            # Choose a random additional raise amount
+            additional_raise = random.choice(valid_amounts)
             
             # Ensure it doesn't exceed available stake
-            additional_amount = min(additional_amount, remaining_stake)
+            additional_raise = min(additional_raise, remaining_stake)
             
-            return pkrs.Action(action_enum, additional_amount)
+            return pkrs.Action(action_enum, additional_raise)
 
 class ModelAgent:
     """Wrapper for a DeepCFRAgent or DeepCFRAgentWithOpponentModeling loaded from a checkpoint.

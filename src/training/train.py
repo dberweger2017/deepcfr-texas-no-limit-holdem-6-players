@@ -14,19 +14,23 @@ class RandomAgent:
     """Simple random agent for poker that ensures valid bet sizing."""
     def __init__(self, player_id):
         self.player_id = player_id
-        self.name = f"Player {player_id}"
         
     def choose_action(self, state):
-        """Choose a random legal action with raise amount correctly calculated."""
+        """Choose a random legal action with correctly calculated bet sizing."""
         if not state.legal_actions:
             raise ValueError(f"No legal actions available for player {self.player_id}")
         
+        # Select a random legal action
         action_enum = random.choice(state.legal_actions)
         
-        # For non-raise actions, return as is.
-        if action_enum in (pkrs.ActionEnum.Fold, pkrs.ActionEnum.Check, pkrs.ActionEnum.Call):
+        # For fold, check, and call, no amount is needed
+        if action_enum == pkrs.ActionEnum.Fold:
             return pkrs.Action(action_enum)
-        
+        elif action_enum == pkrs.ActionEnum.Check:
+            return pkrs.Action(action_enum)
+        elif action_enum == pkrs.ActionEnum.Call:
+            return pkrs.Action(action_enum)
+        # For raises, carefully calculate a valid amount
         elif action_enum == pkrs.ActionEnum.Raise:
             player_state = state.players_state[state.current_player]
             current_bet = player_state.bet_chips
@@ -42,32 +46,45 @@ class RandomAgent:
             # Remaining stake after calling
             remaining_stake = available_stake - call_amount
             
-            # Compute candidate additional raise amounts
-            candidate_half_pot = state.pot * 0.5
-            candidate_full_pot = state.pot
+            # Define minimum raise (at least 1 chip or big blind)
+            min_raise = 1.0
+            if hasattr(state, 'bb'):
+                min_raise = state.bb
             
-            candidates = []
-            # Add half pot if it's affordable
-            if candidate_half_pot <= remaining_stake:
-                candidates.append(candidate_half_pot)
-            # Add full pot if it's affordable
-            if candidate_full_pot <= remaining_stake:
-                candidates.append(candidate_full_pot)
-            # Add min raise if it's affordable (1 chip more than call)
-            candidates.append(min(1.0, remaining_stake))
-            # Small chance for all-in
-            if random.random() < 0.1:  # 10% chance
-                candidates.append(remaining_stake)
+            # Calculate potential additional raise amounts
+            half_pot_raise = max(state.pot * 0.5, min_raise)
+            full_pot_raise = max(state.pot, min_raise)
+            
+            # Create a list of valid additional raise amounts
+            valid_amounts = []
+            
+            # Add half pot if affordable
+            if half_pot_raise <= remaining_stake:
+                valid_amounts.append(half_pot_raise)
+            
+            # Add full pot if affordable
+            if full_pot_raise <= remaining_stake:
+                valid_amounts.append(full_pot_raise)
+            
+            # Add minimum raise if none of the above is affordable
+            if not valid_amounts and min_raise <= remaining_stake:
+                valid_amounts.append(min_raise)
+            
+            # Small chance to go all-in
+            if random.random() < 0.05 and remaining_stake > 0:  # 5% chance
+                valid_amounts.append(remaining_stake)
+            
+            # If we can't afford any valid raise, fall back to call
+            if not valid_amounts:
+                return pkrs.Action(pkrs.ActionEnum.Call)
             
             # Choose a random additional raise amount
-            additional_raise = random.choice(candidates)
+            additional_raise = random.choice(valid_amounts)
             
-            # Ensure we don't exceed available stake
+            # Ensure it doesn't exceed available stake
             additional_raise = min(additional_raise, remaining_stake)
             
             return pkrs.Action(action_enum, additional_raise)
-        
-        raise ValueError(f"Unexpected action type: {action_enum}")
 
 def evaluate_against_random(agent, num_games=500, num_players=6):
     """Evaluate the trained agent against random opponents."""

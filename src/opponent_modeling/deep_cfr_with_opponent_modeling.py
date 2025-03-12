@@ -126,29 +126,36 @@ class DeepCFRAgentWithOpponentModeling:
                 # Calculate what's needed to call (match the current min_bet)
                 call_amount = state.min_bet - current_bet
                 
-                # Calculate target total bet based on action_id
-                if action_id == 2:  # 0.5x pot
-                    target_total_bet = current_bet + call_amount + (state.pot * 0.5)
-                else:  # 1x pot
-                    target_total_bet = current_bet + call_amount + state.pot
-                
-                # The additional amount is what goes beyond the min_bet
-                # This is what the Pokers environment expects as the 'amount' parameter
-                if current_bet + available_stake < state.min_bet:
-                    # All-in situation (can't even call)
+                # If player can't even call, go all-in
+                if available_stake <= call_amount:
                     if VERBOSE:
                         print(f"All-in raise with {available_stake} chips (below min_bet {state.min_bet})")
                     return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
                 
-                # Calculate the additional amount beyond the minimum bet
-                additional_amount = target_total_bet - (current_bet + call_amount)
-                additional_amount = max(0, additional_amount)  # Ensure it's positive
+                # Remaining stake after calling
+                remaining_stake = available_stake - call_amount
                 
-                # Make sure the total bet doesn't exceed available chips
-                total_bet = current_bet + call_amount + additional_amount
-                if total_bet > current_bet + available_stake:
-                    additional_amount = available_stake - call_amount
-                    additional_amount = max(0, additional_amount)  # Ensure it's positive
+                # Calculate target raise amounts
+                if action_id == 2:  # 0.5x pot
+                    target_raise = max(state.pot * 0.5, 1.0)  # Ensure minimum 1 chip
+                else:  # 1x pot
+                    target_raise = max(state.pot, 1.0)  # Ensure minimum 1 chip
+                
+                # Ensure we don't exceed available stake
+                additional_amount = min(target_raise, remaining_stake)
+                
+                # Enforce minimum raise (minimum raise is at least 1 chip or the big blind)
+                min_raise = 1.0
+                if hasattr(state, 'bb'):
+                    min_raise = state.bb
+                
+                # Check if our raise meets the minimum raise requirement
+                if additional_amount < min_raise and remaining_stake >= min_raise:
+                    additional_amount = min_raise
+                
+                # If we can't meet minimum raise, fall back to call
+                if additional_amount < min_raise:
+                    return pkrs.Action(pkrs.ActionEnum.Call)
                 
                 if VERBOSE:
                     print(f"\nRAISE CALCULATION DETAILS:")
@@ -445,7 +452,7 @@ class DeepCFRAgentWithOpponentModeling:
                     if VERBOSE:
                         print(f"WARNING: No opponent at position {current_player}, using random action")
                     # Create a temporary random agent for this position
-                    from train_with_opponent_modeling import RandomAgent
+                    from src.training.train_with_opponent_modeling import RandomAgent
                     opponent = RandomAgent(current_player)
                 
                 # Let the opponent choose an action

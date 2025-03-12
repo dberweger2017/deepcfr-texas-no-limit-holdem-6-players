@@ -104,26 +104,55 @@ def get_human_action(state, player_id=0):
         # Process raise shortcuts
         elif action_input in ['r', 'h', 'p', 'm'] and pkrs.ActionEnum.Raise in state.legal_actions:
             player_state = state.players_state[player_id]
+            current_bet = player_state.bet_chips
+            available_stake = player_state.stake
             min_bet = state.min_bet
             max_bet = player_state.stake
             
+            # Calculate call amount
+            call_amount = min_bet - current_bet
+            
+            # Calculate remaining stake after calling
+            remaining_stake = available_stake - call_amount
+            
+            # Define minimum raise (typically 1 chip or the big blind)
+            min_raise = 1.0
+            if hasattr(state, 'bb'):
+                min_raise = state.bb
+                
             if action_input == 'h':  # Half pot
-                bet_amount = min(state.pot * 0.5, max_bet)
+                bet_amount = max(state.pot * 0.5, min_raise)  # Ensure minimum raise
+                bet_amount = min(bet_amount, remaining_stake)  # Ensure we don't exceed stake
+                
+                # If we can't meet minimum raise, fall back to call
+                if bet_amount < min_raise:
+                    print(f"Cannot raise by the minimum required amount. Calling instead.")
+                    return pkrs.Action(pkrs.ActionEnum.Call)
+                    
                 return pkrs.Action(pkrs.ActionEnum.Raise, bet_amount)
             
             elif action_input == 'p':  # Full pot
-                bet_amount = min(state.pot, max_bet)
+                bet_amount = max(state.pot, min_raise)  # Ensure minimum raise
+                bet_amount = min(bet_amount, remaining_stake)  # Ensure we don't exceed stake
+                
+                # If we can't meet minimum raise, fall back to call
+                if bet_amount < min_raise:
+                    print(f"Cannot raise by the minimum required amount. Calling instead.")
+                    return pkrs.Action(pkrs.ActionEnum.Call)
+                    
                 return pkrs.Action(pkrs.ActionEnum.Raise, bet_amount)
             
             elif action_input == 'm' or action_input == 'r':  # Custom amount
                 while True:
                     try:
-                        amount_str = input(f"Enter raise amount (min: {min_bet:.2f}, max: {max_bet:.2f}): ")
+                        amount_str = input(f"Enter raise amount (min: {max(min_bet, min_raise):.2f}, max: {max_bet:.2f}): ")
                         amount = float(amount_str)
-                        if min_bet <= amount <= max_bet:
+                        
+                        # Check if amount meets minimum raise
+                        if amount >= min_raise and min_bet <= amount <= max_bet:
                             return pkrs.Action(pkrs.ActionEnum.Raise, amount)
                         else:
-                            print(f"Amount must be between {min_bet:.2f} and {max_bet:.2f}")
+                            print(f"Amount must be between {max(min_bet, min_raise):.2f} and {max_bet:.2f}")
                     except ValueError:
                         print("Please enter a valid number")
         
@@ -342,15 +371,17 @@ class RandomAgent:
             # Remaining stake after calling
             remaining_stake = available_stake - call_amount
             
+            # Define minimum raise (at least 1 chip or big blind)
+            min_raise = 1.0
+            if hasattr(state, 'bb'):
+                min_raise = state.bb
+            
             # Calculate potential additional raise amounts
-            half_pot_raise = state.pot * 0.5
-            full_pot_raise = state.pot
+            half_pot_raise = max(state.pot * 0.5, min_raise)
+            full_pot_raise = max(state.pot, min_raise)
             
             # Create a list of valid additional raise amounts
             valid_amounts = []
-            
-            # Add a small raise (1 chip) if we can afford it
-            valid_amounts.append(min(1.0, remaining_stake))
             
             # Add half pot if affordable
             if half_pot_raise <= remaining_stake:
@@ -360,9 +391,17 @@ class RandomAgent:
             if full_pot_raise <= remaining_stake:
                 valid_amounts.append(full_pot_raise)
             
+            # Add minimum raise if none of the above is affordable
+            if not valid_amounts and min_raise <= remaining_stake:
+                valid_amounts.append(min_raise)
+            
             # Small chance to go all-in
-            if random.random() < 0.05:  # 5% chance
+            if random.random() < 0.05 and remaining_stake > 0:  # 5% chance
                 valid_amounts.append(remaining_stake)
+            
+            # If we can't afford any valid raise, fall back to call
+            if not valid_amounts:
+                return pkrs.Action(pkrs.ActionEnum.Call)
             
             # Choose a random additional raise amount
             additional_raise = random.choice(valid_amounts)

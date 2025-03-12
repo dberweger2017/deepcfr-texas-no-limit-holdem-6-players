@@ -74,15 +74,30 @@ class DeepCFRAgent:
                         print(f"All-in raise with {available_stake} chips (below min_bet {state.min_bet})")
                     return pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
                 
+                # Remaining stake after calling
+                remaining_stake = available_stake - call_amount
+                
                 # Calculate target raise amount based on action_id
                 if action_id == 2:  # 0.5x pot
-                    additional_amount = state.pot * 0.5
+                    target_raise = max(state.pot * 0.5, 1.0)  # Ensure minimum 1 chip
                 else:  # 1x pot
-                    additional_amount = state.pot
+                    target_raise = max(state.pot, 1.0)  # Ensure minimum 1 chip
                     
-                # Ensure the player doesn't exceed available stake
-                if call_amount + additional_amount > available_stake:
-                    additional_amount = available_stake - call_amount
+                # Ensure we don't exceed available stake
+                additional_amount = min(target_raise, remaining_stake)
+                
+                # Enforce minimum raise (minimum raise is at least 1 chip or the big blind)
+                min_raise = 1.0
+                if hasattr(state, 'bb'):
+                    min_raise = state.bb
+                
+                # Check if our raise meets the minimum raise requirement
+                if additional_amount < min_raise and remaining_stake >= min_raise:
+                    additional_amount = min_raise
+                
+                # If we can't meet minimum raise, fall back to call
+                if additional_amount < min_raise:
+                    return pkrs.Action(pkrs.ActionEnum.Call)
                     
                 if VERBOSE:
                     print(f"Creating raise action ({'0.5x pot' if action_id == 2 else '1x pot'}): amount={additional_amount}, pot={state.pot}")
