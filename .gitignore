@@ -1,6 +1,7 @@
 /models
 /models_om
 /models_mixed_om
+/logs
 /logs/*.log
 /venv
 .ds_store

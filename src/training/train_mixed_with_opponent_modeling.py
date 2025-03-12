@@ -336,7 +336,8 @@ def train_mixed_with_opponent_modeling(
     log_dir="logs/deepcfr_mixed_om",
     player_id=0,
     model_prefix="*",  # Default to include all models
-    verbose=False
+    verbose=False,
+    checkpoint_path=None  # New parameter to continue from checkpoint
 ):
     """
     Train a Deep CFR agent with opponent modeling against a mix of opponents
@@ -374,6 +375,27 @@ def train_mixed_with_opponent_modeling(
         num_players=6,
         device=device
     )
+    
+    # Load from checkpoint if provided
+    starting_iteration = 1
+    if checkpoint_path:
+        print(f"Loading agent from checkpoint: {checkpoint_path}")
+        try:
+            agent.load_model(checkpoint_path)
+            
+            # Extract iteration number from filename if possible
+            try:
+                iteration_str = checkpoint_path.split('iter_')[1].split('.')[0]
+                starting_iteration = int(iteration_str) + 1
+                agent.iteration_count = starting_iteration - 1
+                print(f"Continuing from iteration {starting_iteration}")
+                notifier.send_message(f"📥 <b>LOADED CHECKPOINT</b>\nContinuing from iteration {starting_iteration}")
+            except Exception as e:
+                print(f"Could not determine iteration from checkpoint filename: {e}")
+                print("Starting from iteration 1")
+        except Exception as e:
+            print(f"Error loading checkpoint: {e}")
+            notifier.send_message(f"⚠️ <b>CHECKPOINT LOADING ERROR</b>\n{str(e)}\nStarting from scratch.")
     
     # For tracking progress
     advantage_losses = []
@@ -445,12 +467,12 @@ def train_mixed_with_opponent_modeling(
     opponents = select_random_models()
     
     # Training loop
-    for iteration in range(1, num_iterations + 1):
+    for iteration in range(starting_iteration, num_iterations + 1):
         agent.iteration_count = iteration
         start_time = time.time()
         
         # Refresh opponents at specified intervals
-        if iteration % refresh_interval == 1 and iteration > 1:
+        if iteration % refresh_interval == 1 and iteration > starting_iteration:
             print(f"\n=== Refreshing opponent pool at iteration {iteration} ===")
             notifier.send_message(f"🔄 <b>REFRESHING OPPONENTS</b> at iteration {iteration}")
             opponents = select_random_models()
@@ -636,6 +658,7 @@ if __name__ == "__main__":
     parser.add_argument('--save-dir', type=str, default='models_mixed_om', help='Directory to save models')
     parser.add_argument('--log-dir', type=str, default='logs/deepcfr_mixed_om', help='Directory for logs')
     parser.add_argument('--verbose', action='store_true', help='Enable verbose output')
+    parser.add_argument('--checkpoint', type=str, default=None, help='Path to checkpoint to continue training from')
     args = parser.parse_args()
     
     print(f"Starting mixed opponent training with models from: {args.checkpoint_dir}")
@@ -645,6 +668,9 @@ if __name__ == "__main__":
     print(f"Selecting {args.num_opponents} model opponents for each training phase")
     print(f"Logs will be saved to: {args.log_dir}")
     print(f"Models will be saved to: {args.save_dir}")
+    
+    if args.checkpoint:
+        print(f"Continuing training from checkpoint: {args.checkpoint}")
     
     # Train the agent
     agent, adv_losses, strat_losses, om_losses, profits, profits_vs_models = train_mixed_with_opponent_modeling(
@@ -656,7 +682,8 @@ if __name__ == "__main__":
         save_dir=args.save_dir,
         log_dir=args.log_dir,
         model_prefix=args.model_prefix,
-        verbose=args.verbose
+        verbose=args.verbose,
+        checkpoint_path=args.checkpoint
     )
     
     print("\nTraining Summary:")
