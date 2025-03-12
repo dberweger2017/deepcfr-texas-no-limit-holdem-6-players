@@ -18,22 +18,28 @@ class RandomAgent:
         self.name = f"Player {player_id}"
         
     def choose_action(self, state):
-        """Simple random agent for poker with correct bet calculation."""
+        """Choose a random legal action with correctly calculated bet sizing."""
         if not state.legal_actions:
             raise ValueError(f"No legal actions available for player {self.player_id}")
         
+        # Select a random legal action
         action_enum = random.choice(state.legal_actions)
         
-        if action_enum in (pkrs.ActionEnum.Fold, pkrs.ActionEnum.Check, pkrs.ActionEnum.Call):
+        # For fold, check, and call, no amount is needed
+        if action_enum == pkrs.ActionEnum.Fold:
             return pkrs.Action(action_enum)
-        
+        elif action_enum == pkrs.ActionEnum.Check:
+            return pkrs.Action(action_enum)
+        elif action_enum == pkrs.ActionEnum.Call:
+            return pkrs.Action(action_enum)
+        # For raises, carefully calculate a valid amount
         elif action_enum == pkrs.ActionEnum.Raise:
             player_state = state.players_state[state.current_player]
             current_bet = player_state.bet_chips
             available_stake = player_state.stake
             
             # Calculate call amount (needed to match current min_bet)
-            call_amount = state.min_bet - current_bet
+            call_amount = max(0, state.min_bet - current_bet)
             
             # If player can't even call, go all-in
             if available_stake <= call_amount:

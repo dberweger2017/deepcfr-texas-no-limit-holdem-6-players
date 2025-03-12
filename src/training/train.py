@@ -37,7 +37,7 @@ class RandomAgent:
             available_stake = player_state.stake
             
             # Calculate call amount (needed to match current min_bet)
-            call_amount = state.min_bet - current_bet
+            call_amount = max(0, state.min_bet - current_bet)
             
             # If player can't even call, go all-in
             if available_stake <= call_amount:

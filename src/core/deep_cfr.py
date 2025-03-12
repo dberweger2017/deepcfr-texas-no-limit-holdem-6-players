@@ -59,14 +59,14 @@ class DeepCFRAgent:
                         return pkrs.Action(pkrs.ActionEnum.Check)
                     else:
                         return pkrs.Action(pkrs.ActionEnum.Fold)
-                
+                    
                 # Get current player state
                 player_state = state.players_state[state.current_player]
                 current_bet = player_state.bet_chips
                 available_stake = player_state.stake
                 
                 # Calculate what's needed to call (match the current min_bet)
-                call_amount = state.min_bet - current_bet
+                call_amount = max(0, state.min_bet - current_bet)
                 
                 # Before applying minimum raise enforcement, check if player can call at all
                 if available_stake <= call_amount:
@@ -82,30 +82,31 @@ class DeepCFRAgent:
                     return pkrs.Action(pkrs.ActionEnum.Call)
                 
                 # Calculate target raise amounts
+                pot_size = max(1.0, state.pot)  # Avoid division by zero
                 if action_id == 2:  # 0.5x pot
-                    target_raise = max(state.pot * 0.5, 1.0)  # Ensure minimum 1 chip
+                    target_raise = pot_size * 0.5
                 else:  # 1x pot
-                    target_raise = max(state.pot, 1.0)  # Ensure minimum 1 chip
+                    target_raise = pot_size
+                
+                # Ensure minimum raise
+                min_raise = 1.0
+                if hasattr(state, 'bb'):
+                    min_raise = state.bb
+                    
+                target_raise = max(target_raise, min_raise)
                 
                 # Ensure we don't exceed available stake
                 additional_amount = min(target_raise, remaining_stake)
                 
-                # Enforce minimum raise, but only if we can afford it
-                min_raise = 1.0
-                if hasattr(state, 'bb'):
-                    min_raise = state.bb
-                
-                if additional_amount < min_raise and remaining_stake >= min_raise:
-                    additional_amount = min_raise
-                elif additional_amount < min_raise:
-                    # Can't meet minimum raise, fall back to call
+                # If we can't meet minimum raise, fall back to call
+                if additional_amount < min_raise:
                     return pkrs.Action(pkrs.ActionEnum.Call)
                     
                 if VERBOSE:
                     print(f"Creating raise action ({'0.5x pot' if action_id == 2 else '1x pot'}): amount={additional_amount}, pot={state.pot}")
                 
                 return pkrs.Action(pkrs.ActionEnum.Raise, additional_amount)
-                
+                    
             else:
                 raise ValueError(f"Unknown action ID: {action_id}")
         except Exception as e:
@@ -199,10 +200,10 @@ class DeepCFRAgent:
                     # Check if the action was valid
                     if new_state.status != pkrs.StateStatus.Ok:
                         if VERBOSE:
-                            # brak for now
-                            raise f"Error detected of type {new_state.status}"
                             print(f"WARNING: Invalid action {action_id} at depth {depth}. Status: {new_state.status}")
-                        continue
+                            print(f"Player: {current_player}, Action: {pokers_action.action}, Amount: {pokers_action.amount if pokers_action.action == pkrs.ActionEnum.Raise else 'N/A'}")
+                            print(f"Current bet: {state.players_state[current_player].bet_chips}, Stake: {state.players_state[current_player].stake}")
+                        continue  # Skip this action and try others
                         
                     action_values[action_id] = self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
                 except Exception as e:
