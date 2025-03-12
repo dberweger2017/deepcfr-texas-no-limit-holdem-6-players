@@ -9,3 +9,4 @@ python-dotenv==1.0.1
 requests==2.32.3
 seaborn==0.13.2
 pandas==2.2.2
+PyQt5==5.15.11

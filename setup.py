@@ -16,7 +16,8 @@ setup(
         'python-dotenv',
         'requests',
         'seaborn',
-        'pandas'
+        'pandas',
+        'PyQt5'
     ],
     entry_points={
         'console_scripts': [
