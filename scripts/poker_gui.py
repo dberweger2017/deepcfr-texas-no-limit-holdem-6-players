@@ -551,7 +551,7 @@ class PokerGUI(QMainWindow):
         super().__init__()
         
         # Initialize variables
-        self.agents = []
+        self.agents = None  # Initialize to None instead of empty list
         self.state = None
         self.human_player_id = 0
         self.show_all_cards = False
@@ -583,7 +583,7 @@ class PokerGUI(QMainWindow):
         history_layout = QVBoxLayout()
         history_label = QLabel("Game History")
         history_label.setFont(QFont("Arial", 12, QFont.Bold))
-        self.history_text = QLabel("Welcome to DeepCFR Poker AI! Select 'New Game' to begin.")
+        self.history_text = QLabel("Welcome to DeepCFR Poker AI! Models will be loaded automatically.")
         self.history_text.setWordWrap(True)
         self.history_text.setAlignment(Qt.AlignTop | Qt.AlignLeft)
         self.history_text.setStyleSheet("background-color: #f5f5f5; padding: 8px; border-radius: 5px;")
@@ -713,7 +713,7 @@ class PokerGUI(QMainWindow):
     def start_new_hand(self, stake=200.0, sb=1.0, bb=2.0):
         """Start a new poker hand"""
         # Make sure we have agents loaded
-        if not any(self.agents):
+        if self.agents is None or not any(x is not None for x in self.agents):
             QMessageBox.warning(self, "Warning", "No AI agents loaded. Please select models first.")
             self.show_model_selection()
             return
