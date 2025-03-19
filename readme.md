@@ -526,6 +526,10 @@ After training, the agent achieves:
 ![Profit v random](https://raw.githubusercontent.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/refs/heads/main/images/first_selfplay/Screenshot%202025-03-04%20at%2014.41.06.png)
 ![Profit v random sofisticated models](https://raw.githubusercontent.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/refs/heads/main/images/first_selfplay/Screenshot%202025-03-04%20at%2014.40.58.png)
 
+### Repository Growth
+
+Because apparently every cool GitHub repository needs to show off its star history chart, here's mine too:
+
 ## Future Work
 
 - Expand the action space with more bet sizing options
