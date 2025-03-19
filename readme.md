@@ -530,6 +530,8 @@ After training, the agent achieves:
 
 Because apparently every cool GitHub repository needs to show off its star history chart, here's mine too:
 
+![Repository Growth](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/main/images/repository_growth/star-history-2025319.png?raw=true)
+
 ## Future Work
 
 - Expand the action space with more bet sizing options
