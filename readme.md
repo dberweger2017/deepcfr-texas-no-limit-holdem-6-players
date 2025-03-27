@@ -12,6 +12,51 @@ Due to the success of this project, I'm committing more time and attention to fu
 
 I welcome contributions and feedback from the community as this project continues to evolve!
 
+## Installation
+
+### From PyPI (Recommended)
+
+```bash
+pip install deepcfr-poker
+```
+
+### From GitHub
+
+```bash
+# Clone the repository
+git clone https://github.com/dberweger2017/deepcfr-poker.git
+cd deepcfr-poker
+
+# Install in development mode
+pip install -e .
+```
+
+### Using the Command-Line Tools
+
+After installation, you'll have access to these commands:
+
+- `deepcfr-train` - Train a Deep CFR agent
+- `deepcfr-play` - Play against trained agents
+- `deepcfr-tournament` - Run a tournament between agents
+- `deepcfr-gui` - Launch the poker GUI (if available)
+
+### Using as a Library
+
+```python
+# Import the core components
+from src.core.deep_cfr import DeepCFRAgent
+from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
+
+# Create an agent
+agent = DeepCFRAgent(player_id=0)
+
+# Or with opponent modeling
+agent_om = DeepCFRAgentWithOpponentModeling(player_id=0)
+
+# Load a pre-trained model
+agent.load_model("path/to/model.pt")
+```
+
 ---
 
 A deep learning implementation of Counterfactual Regret Minimization (CFR) for No-Limit Texas Hold'em Poker. This project demonstrates advanced reinforcement learning techniques applied to imperfect information games.
@@ -271,25 +316,6 @@ The implementation includes various optimizations:
 - TensorBoard
 - [Pokers](https://github.com/Reinforcement-Poker/pokers) ("Embarrassingly simple" poker environment from Bruno Santidrian and 
 Betagmr)
-
-## Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/dberweger2017/deepcfr.git
-cd deepcfr-poker
-
-# Create a virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-
-# Install dependencies
-pip install -r requirements.txt
-pip install -e .
-
-# Install the poker environment
-pip install pokers
-```
 
 ## Usage Guides
 
