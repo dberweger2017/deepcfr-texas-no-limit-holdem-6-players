@@ -8,6 +8,7 @@ import random
 import glob
 from src.core.deep_cfr import DeepCFRAgent
 from src.core.model import set_verbose
+from src.utils import log_game_error
 
 def get_action_description(action):
     """Convert a pokers action to a human-readable string."""
@@ -302,9 +303,11 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
                 print(f"Player {current_player} chose: {get_action_description(action)}")
             
             # Apply the action
-            state = state.apply_action(action)
-            if state.status != pkrs.StateStatus.Ok:
-                raise f"State status not OK ({state.status})"
+            new_state = state.apply_action(action)
+            if new_state.status != pkrs.StateStatus.Ok:
+                log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
+                raise ValueError(f"State status not OK ({new_state.status}). Details logged to {log_file}")
+            state = new_state
         
         # Game is over, show results
         print("\n--- Game Over ---")
