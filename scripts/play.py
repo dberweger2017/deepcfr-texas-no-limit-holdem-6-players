@@ -313,8 +313,12 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
         print("Final hands:")
         for i, p in enumerate(state.players_state):
             if p.active:
-                hand = " ".join([card_to_string(card) for card in p.hand])
-                print(f"Player {i}: {hand}")
+                # Check if the hand attribute exists and has cards
+                if hasattr(p, 'hand') and p.hand:
+                    hand = " ".join([card_to_string(card) for card in p.hand])
+                    print(f"Player {i}: {hand}")
+                else:
+                    print(f"Player {i}: Hand data unavailable")
         
         # Show community cards
         community_cards = " ".join([card_to_string(card) for card in state.public_cards])
