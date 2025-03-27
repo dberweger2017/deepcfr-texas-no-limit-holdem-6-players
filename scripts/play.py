@@ -304,7 +304,7 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
             # Apply the action
             state = state.apply_action(action)
             if state.status != pkrs.StateStatus.Ok:
-                raise f"State status not OK ({state.status})"
+                raise RuntimeError(f"State status not OK ({state.status})")
         
         # Game is over, show results
         print("\n--- Game Over ---")
