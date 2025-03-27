@@ -1,0 +1,5 @@
+[console_scripts]
+deepcfr-gui = scripts.poker_gui:main
+deepcfr-play = scripts.play:main
+deepcfr-tournament = scripts.visualize_tournament:main
+deepcfr-train = src.training.train:main
