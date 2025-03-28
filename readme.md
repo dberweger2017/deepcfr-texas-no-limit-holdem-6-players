@@ -556,7 +556,7 @@ After training, the agent achieves:
 
 Because apparently every cool GitHub repository needs to show off its star history chart, here's mine too:
 
-![Repository Growth](https://raw.githubusercontent.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/refs/heads/main/images/repository_growth/star-history-2025323.png)
+[![Star History Chart](https://api.star-history.com/svg?repos=dberweger2017/deepcfr-texas-no-limit-holdem-6-players&type=Date)](https://www.star-history.com/#dberweger2017/deepcfr-texas-no-limit-holdem-6-players&Date)
 
 ## Future Work
 
