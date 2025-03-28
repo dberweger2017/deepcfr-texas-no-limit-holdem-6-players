@@ -8,7 +8,7 @@ import os
 import matplotlib.pyplot as plt
 import argparse
 from src.core.deep_cfr import DeepCFRAgent
-from src.core.model import set_verbose
+from src.core.model import set_verbose, encode_state
 from src.utils.logging import log_game_error
 from src.utils.settings import STRICT_CHECKING, set_strict_checking
 
@@ -192,6 +192,13 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
     losses = []
     profits = []
     
+    # ADDED: Initial evaluation before training begins
+    print("Initial evaluation...")
+    initial_profit = evaluate_against_random(agent, num_games=500, num_players=num_players)
+    profits.append(initial_profit)
+    print(f"Initial average profit per game: {initial_profit:.2f}")
+    writer.add_scalar('Performance/Profit', initial_profit, 0)
+    
     # Checkpoint frequency
     checkpoint_frequency = 100  # Save a checkpoint every 100 iterations
     
@@ -340,6 +347,14 @@ def continue_training(checkpoint_path, additional_iterations=1000,
     # Create random agents for the opponents
     random_agents = [RandomAgent(i) for i in range(num_players)]
     
+    # ADDED: Initial evaluation before continuing training
+    print("Initial evaluation of loaded model...")
+    initial_profit = evaluate_against_random(agent, num_games=500, num_players=num_players)
+    if not profits:  # Only append if profits list is empty
+        profits.append(initial_profit)
+    print(f"Initial average profit per game: {initial_profit:.2f}")
+    writer.add_scalar('Performance/Profit', initial_profit, start_iteration-1)
+    
     # Checkpoint frequency
     checkpoint_frequency = 100  # Save a checkpoint every 100 iterations
     
@@ -483,6 +498,19 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
     # For tracking learning progress
     losses = []
     profits = []
+    
+    # ADDED: Initial evaluation before training begins
+    print("Initial evaluation...")
+    initial_profit_vs_checkpoint = evaluate_against_checkpoint_agents(
+        learning_agent, opponent_agents, num_games=100)
+    print(f"Initial average profit vs checkpoint: {initial_profit_vs_checkpoint:.2f}")
+    writer.add_scalar('Performance/ProfitVsCheckpoint', initial_profit_vs_checkpoint, 0)
+    
+    initial_profit_random = evaluate_against_random(
+        learning_agent, num_games=500, num_players=6)
+    profits.append(initial_profit_random)
+    print(f"Initial average profit vs random: {initial_profit_random:.2f}")
+    writer.add_scalar('Performance/ProfitVsRandom', initial_profit_random, 0)
     
     # Checkpoint frequency
     checkpoint_frequency = 100  # Save more frequently for self-play
@@ -1110,6 +1138,21 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
         # Select initial opponent agents
         opponent_agents = select_random_checkpoints()
         
+        # ADDED: Initial evaluation before training begins
+        print("Initial evaluation...")
+        initial_profit_vs_mixed = evaluate_against_checkpoint_agents(
+            learning_agent, opponent_agents, num_games=100)
+        profits_vs_checkpoints.append(initial_profit_vs_mixed)
+        print(f"Initial average profit vs mixed opponents: {initial_profit_vs_mixed:.2f}")
+        writer.add_scalar('Performance/ProfitVsMixed', initial_profit_vs_mixed, 0)
+        
+        # Also evaluate against random for baseline comparison
+        initial_profit_random = evaluate_against_random(
+            learning_agent, num_games=500, num_players=6)
+        profits.append(initial_profit_random)
+        print(f"Initial average profit vs random: {initial_profit_random:.2f}")
+        writer.add_scalar('Performance/ProfitVsRandom', initial_profit_random, 0)
+        
         # Wrap agents to ensure proper perspective
         opponent_wrappers = [None] * 6
         for pos in range(6):
@@ -1252,9 +1295,6 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
     finally:
         # Restore the original cfr_traverse method to avoid side effects
         DeepCFRAgent.cfr_traverse = original_cfr_traverse
-
-# For importing model.encode_state in the cfr_traverse method
-from src.core.model import encode_state
 
 if __name__ == "__main__":
     import argparse
