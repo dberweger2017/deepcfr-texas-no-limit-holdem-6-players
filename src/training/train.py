@@ -11,6 +11,14 @@ from src.core.deep_cfr import DeepCFRAgent
 from src.core.model import set_verbose
 from src.utils.logging import log_game_error
 
+# Global flag for strict checking mode
+STRICT_CHECKING = False
+
+def set_strict_checking(strict_mode):
+    """Set the global strict checking mode."""
+    global STRICT_CHECKING
+    STRICT_CHECKING = strict_mode
+
 class RandomAgent:
     """Simple random agent for poker that ensures valid bet sizing."""
     def __init__(self, player_id):
@@ -89,7 +97,16 @@ class RandomAgent:
             # Ensure it doesn't exceed available stake
             additional_raise = min(additional_raise, remaining_stake)
             
-            return pkrs.Action(action_enum, additional_raise)
+            action = pkrs.Action(action_enum, additional_raise)
+            
+            # In strict mode, validate the action before returning
+            if STRICT_CHECKING:
+                test_state = state.apply_action(action)
+                if test_state.status != pkrs.StateStatus.Ok:
+                    log_file = log_game_error(state, action, f"Random agent created invalid action: {test_state.status}")
+                    raise ValueError(f"Random agent created invalid action: {test_state.status}. Details logged to {log_file}")
+            
+            return action
 
 def evaluate_against_random(agent, num_games=500, num_players=6):
     """Evaluate the trained agent against random opponents."""
@@ -98,41 +115,51 @@ def evaluate_against_random(agent, num_games=500, num_players=6):
     completed_games = 0
     
     for game in range(num_games):
-        # Create a new poker game
-        state = pkrs.State.from_seed(
-            n_players=num_players,
-            button=game % num_players,  # Rotate button for fairness
-            sb=1,
-            bb=2,
-            stake=200.0,
-            seed=game
-        )
-        
-        # Play until the game is over
-        while not state.final_state:
-            current_player = state.current_player
+        try:
+            # Create a new poker game
+            state = pkrs.State.from_seed(
+                n_players=num_players,
+                button=game % num_players,  # Rotate button for fairness
+                sb=1,
+                bb=2,
+                stake=200.0,
+                seed=game
+            )
             
-            if current_player == agent.player_id:
-                action = agent.choose_action(state)
+            # Play until the game is over
+            while not state.final_state:
+                current_player = state.current_player
+                
+                if current_player == agent.player_id:
+                    action = agent.choose_action(state)
+                else:
+                    action = random_agents[current_player].choose_action(state)
+                
+                # Apply the action with conditional status check
+                new_state = state.apply_action(action)
+                if new_state.status != pkrs.StateStatus.Ok:
+                    log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
+                    if STRICT_CHECKING:
+                        raise ValueError(f"State status not OK ({new_state.status}). Details logged to {log_file}")
+                    else:
+                        print(f"WARNING: State status not OK ({new_state.status}) in game {game}. Details logged to {log_file}")
+                        break  # Skip this game in non-strict mode
+                
+                state = new_state
+            
+            # Only count completed games
+            if state.final_state:
+                # Add the profit for this game
+                profit = state.players_state[agent.player_id].reward
+                total_profit += profit
+                completed_games += 1
+                
+        except Exception as e:
+            if STRICT_CHECKING:
+                raise  # Re-raise the exception in strict mode
             else:
-                action = random_agents[current_player].choose_action(state)
-            
-            # Apply the action with status check
-            new_state = state.apply_action(action)
-            if new_state.status != pkrs.StateStatus.Ok:
-                log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
-                print(f"WARNING: State status not OK ({new_state.status}) in game {game}. Details logged to {log_file}")
-                # Skip this game instead of crashing the entire evaluation
-                break
-            
-            state = new_state
-        
-        # Only count completed games
-        if state.final_state:
-            # Add the profit for this game
-            profit = state.players_state[agent.player_id].reward
-            total_profit += profit
-            completed_games += 1
+                print(f"Error in game {game}: {e}")
+                # Continue with next game in non-strict mode
     
     # Return average profit only for completed games
     if completed_games == 0:
