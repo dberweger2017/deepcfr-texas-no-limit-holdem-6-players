@@ -11,7 +11,7 @@ with open("requirements.txt") as f:
 
 setup(
     name="deepcfr-poker",
-    version="0.2.1",
+    version="0.3.0",
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     install_requires=requirements,
@@ -20,19 +20,19 @@ setup(
             'deepcfr-train=src.training.train:main',
             'deepcfr-play=scripts.play:main',
             'deepcfr-tournament=scripts.visualize_tournament:main',
-            'deepcfr-gui=scripts.poker_gui:main'  # Add if main() exists in poker_gui.py
+            'deepcfr-gui=scripts.poker_gui:main'
         ]
     },
     author="Davide Berweger Gaillard",
-    author_email="your.email@example.com",  # Add your email
+    author_email="davide@davideb.ch",
     description="Deep CFR Poker AI with Opponent Modeling",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/dberweger2017/deepcfr-poker",
+    url="https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players",
     project_urls={
-        "Bug Tracker": "https://github.com/dberweger2017/deepcfr-poker/issues",
-        "Documentation": "https://github.com/dberweger2017/deepcfr-poker#readme",
-        "Source Code": "https://github.com/dberweger2017/deepcfr-poker",
+        "Bug Tracker": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/issues",
+        "Documentation": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players#readme",
+        "Source Code": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players",
     },
     classifiers=[
         "Programming Language :: Python :: 3.8",

@@ -25,4 +25,5 @@ src/training/train_mixed_with_opponent_modeling.py
 src/training/train_with_opponent_modeling.py
 src/utils/__init__.py
 src/utils/logging.py
+src/utils/settings.py
 tests/__init__.py
