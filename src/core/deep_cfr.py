@@ -134,138 +134,149 @@ class DeepCFRAgent:
         return legal_action_ids
 
     def cfr_traverse(self, state, iteration, random_agents, depth=0):
-        """
-        Traverse the game tree using external sampling MCCFR.
-        Returns the expected value for the traverser.
+    """
+    Traverse the game tree using external sampling MCCFR.
+    Returns the expected value for the traverser.
+    
+    Args:
+        state: Current game state
+        iteration: Current training iteration
+        random_agents: List of random agents for other players
+        depth: Current recursion depth
+    """
+    # Add recursion depth protection
+    max_depth = 1000
+    if depth > max_depth:
+        if VERBOSE:
+            print(f"WARNING: Max recursion depth reached ({max_depth}). Returning zero value.")
+        return 0
+    
+    if state.final_state:
+        # Return payoff for the trained agent
+        return state.players_state[self.player_id].reward
+    
+    current_player = state.current_player
+    
+    # Debug information for the current state
+    if VERBOSE and depth % 100 == 0:
+        print(f"Depth: {depth}, Player: {current_player}, Stage: {state.stage}")
+    
+    # If it's the trained agent's turn
+    if current_player == self.player_id:
+        legal_action_ids = self.get_legal_action_ids(state)
         
-        Args:
-            state: Current game state
-            iteration: Current training iteration
-            random_agents: List of random agents for other players
-            depth: Current recursion depth
-        """
-        # Add recursion depth protection
-        max_depth = 1000
-        if depth > max_depth:
+        if not legal_action_ids:
             if VERBOSE:
-                print(f"WARNING: Max recursion depth reached ({max_depth}). Returning zero value.")
+                print(f"WARNING: No legal actions found for player {current_player} at depth {depth}")
             return 0
+            
+        state_tensor = torch.FloatTensor(encode_state(state, self.player_id)).to(self.device)
         
-        if state.final_state:
-            # Return payoff for the trained agent
-            return state.players_state[self.player_id].reward
-        
-        current_player = state.current_player
-        
-        # Debug information for the current state
-        if VERBOSE and depth % 100 == 0:
-            print(f"Depth: {depth}, Player: {current_player}, Stage: {state.stage}")
-        
-        # If it's the trained agent's turn
-        if current_player == self.player_id:
-            legal_action_ids = self.get_legal_action_ids(state)
+        # Get advantages from network
+        with torch.no_grad():
+            advantages = self.advantage_net(state_tensor.unsqueeze(0))[0]
             
-            if not legal_action_ids:
-                if VERBOSE:
-                    print(f"WARNING: No legal actions found for player {current_player} at depth {depth}")
-                return 0
-                
-            state_tensor = torch.FloatTensor(encode_state(state, self.player_id)).to(self.device)
+        # Use regret matching to compute strategy
+        advantages_np = advantages.cpu().numpy()
+        advantages_masked = np.zeros(self.num_actions)
+        for a in legal_action_ids:
+            advantages_masked[a] = max(advantages_np[a], 0)
             
-            # Get advantages from network
-            with torch.no_grad():
-                advantages = self.advantage_net(state_tensor.unsqueeze(0))[0]
-                
-            # Use regret matching to compute strategy
-            advantages_np = advantages.cpu().numpy()
-            advantages_masked = np.zeros(self.num_actions)
-            for a in legal_action_ids:
-                advantages_masked[a] = max(advantages_np[a], 0)
-                
-            # Choose an action based on the strategy
-            if sum(advantages_masked) > 0:
-                strategy = advantages_masked / sum(advantages_masked)
-            else:
-                strategy = np.zeros(self.num_actions)
-                for a in legal_action_ids:
-                    strategy[a] = 1.0 / len(legal_action_ids)
-            
-            # Choose actions and traverse
-            action_values = np.zeros(self.num_actions)
-            for action_id in legal_action_ids:
-                try:
-                    pokers_action = self.action_id_to_pokers_action(action_id, state)
-                    new_state = state.apply_action(pokers_action)
-                    
-                    # Check if the action was valid
-                    if new_state.status != pkrs.StateStatus.Ok:
-                        if VERBOSE:
-                            print(f"WARNING: Invalid action {action_id} at depth {depth}. Status: {new_state.status}")
-                            print(f"Player: {current_player}, Action: {pokers_action.action}, Amount: {pokers_action.amount if pokers_action.action == pkrs.ActionEnum.Raise else 'N/A'}")
-                            print(f"Current bet: {state.players_state[current_player].bet_chips}, Stake: {state.players_state[current_player].stake}")
-                        continue  # Skip this action and try others
-                        
-                    action_values[action_id] = self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
-                except Exception as e:
-                    if VERBOSE:
-                        print(f"ERROR in traversal for action {action_id}: {e}")
-                    action_values[action_id] = 0
-            
-            # Compute counterfactual regrets and add to memory
-            ev = sum(strategy[a] * action_values[a] for a in legal_action_ids)
-            
-            # Calculate normalization factor (max absolute action value)
-            max_abs_val = max(abs(max(action_values)), abs(min(action_values)), 1.0)
-            
-            for action_id in legal_action_ids:
-                # Calculate regret
-                regret = action_values[action_id] - ev
-                
-                # Normalize and clip regret
-                normalized_regret = regret / max_abs_val
-                clipped_regret = np.clip(normalized_regret, -10.0, 10.0)
-                
-                # Apply a more stable scaling (sqrt of iteration instead of linear)
-                scale_factor = np.sqrt(iteration) if iteration > 1 else 1.0
-                
-                self.advantage_memory.append((
-                    encode_state(state, self.player_id),
-                    action_id,
-                    clipped_regret * scale_factor
-                ))
-            
-            # Add to strategy memory
-            strategy_full = np.zeros(self.num_actions)
-            for a in legal_action_ids:
-                strategy_full[a] = strategy[a]
-            
-            self.strategy_memory.append((
-                encode_state(state, self.player_id),
-                strategy_full,
-                iteration  # Keep linear weighting for strategy (this is fine)
-            ))
-            
-            return ev
-            
-        # If it's another player's turn (random agent)
+        # Choose an action based on the strategy
+        if sum(advantages_masked) > 0:
+            strategy = advantages_masked / sum(advantages_masked)
         else:
+            strategy = np.zeros(self.num_actions)
+            for a in legal_action_ids:
+                strategy[a] = 1.0 / len(legal_action_ids)
+        
+        # Choose actions and traverse
+        action_values = np.zeros(self.num_actions)
+        for action_id in legal_action_ids:
             try:
-                # Let the random agent choose an action
-                action = random_agents[current_player].choose_action(state)
-                new_state = state.apply_action(action)
+                pokers_action = self.action_id_to_pokers_action(action_id, state)
+                new_state = state.apply_action(pokers_action)
                 
                 # Check if the action was valid
                 if new_state.status != pkrs.StateStatus.Ok:
-                    if VERBOSE:
-                        raise f"Error detected of type {new_state.status}"
-                        print(f"WARNING: Random agent made invalid action at depth {depth}. Status: {new_state.status}")
-                    return 0
+                    log_file = log_game_error(state, pokers_action, f"State status not OK ({new_state.status})")
+                    if STRICT_CHECKING:
+                        raise ValueError(f"State status not OK ({new_state.status}) during CFR traversal. Details logged to {log_file}")
+                    elif VERBOSE:
+                        print(f"WARNING: Invalid action {action_id} at depth {depth}. Status: {new_state.status}")
+                        print(f"Player: {current_player}, Action: {pokers_action.action}, Amount: {pokers_action.amount if pokers_action.action == pkrs.ActionEnum.Raise else 'N/A'}")
+                        print(f"Current bet: {state.players_state[current_player].bet_chips}, Stake: {state.players_state[current_player].stake}")
+                        print(f"Details logged to {log_file}")
+                    continue  # Skip this action and try others in non-strict mode
                     
-                return self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
+                action_values[action_id] = self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
             except Exception as e:
                 if VERBOSE:
-                    print(f"ERROR in random agent traversal: {e}")
+                    print(f"ERROR in traversal for action {action_id}: {e}")
+                action_values[action_id] = 0
+                if STRICT_CHECKING:
+                    raise  # Re-raise in strict mode
+        
+        # Compute counterfactual regrets and add to memory
+        ev = sum(strategy[a] * action_values[a] for a in legal_action_ids)
+        
+        # Calculate normalization factor (max absolute action value)
+        max_abs_val = max(abs(max(action_values)), abs(min(action_values)), 1.0)
+        
+        for action_id in legal_action_ids:
+            # Calculate regret
+            regret = action_values[action_id] - ev
+            
+            # Normalize and clip regret
+            normalized_regret = regret / max_abs_val
+            clipped_regret = np.clip(normalized_regret, -10.0, 10.0)
+            
+            # Apply a more stable scaling (sqrt of iteration instead of linear)
+            scale_factor = np.sqrt(iteration) if iteration > 1 else 1.0
+            
+            self.advantage_memory.append((
+                encode_state(state, self.player_id),
+                action_id,
+                clipped_regret * scale_factor
+            ))
+        
+        # Add to strategy memory
+        strategy_full = np.zeros(self.num_actions)
+        for a in legal_action_ids:
+            strategy_full[a] = strategy[a]
+        
+        self.strategy_memory.append((
+            encode_state(state, self.player_id),
+            strategy_full,
+            iteration  # Keep linear weighting for strategy (this is fine)
+        ))
+        
+        return ev
+        
+    # If it's another player's turn (random agent)
+    else:
+        try:
+            # Let the random agent choose an action
+            action = random_agents[current_player].choose_action(state)
+            new_state = state.apply_action(action)
+            
+            # Check if the action was valid
+            if new_state.status != pkrs.StateStatus.Ok:
+                log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
+                if STRICT_CHECKING:
+                    raise ValueError(f"State status not OK ({new_state.status}) from random agent. Details logged to {log_file}")
+                if VERBOSE:
+                    print(f"WARNING: Random agent made invalid action at depth {depth}. Status: {new_state.status}")
+                    print(f"Details logged to {log_file}")
                 return 0
+                
+            return self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
+        except Exception as e:
+            if VERBOSE:
+                print(f"ERROR in random agent traversal: {e}")
+            if STRICT_CHECKING:
+                raise  # Re-raise in strict mode
+            return 0
 
     def train_advantage_network(self, batch_size=128, epochs=3):
         """Train the advantage network using collected samples."""
