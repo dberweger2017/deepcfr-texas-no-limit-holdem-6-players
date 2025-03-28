@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import argparse
 from src.core.deep_cfr import DeepCFRAgent
 from src.core.model import set_verbose
+from src.utils.logging import log_game_error
 
 class RandomAgent:
     """Simple random agent for poker that ensures valid bet sizing."""
@@ -94,6 +95,8 @@ def evaluate_against_random(agent, num_games=500, num_players=6):
     """Evaluate the trained agent against random opponents."""
     random_agents = [RandomAgent(i) for i in range(num_players)]
     total_profit = 0
+    completed_games = 0
+    
     for game in range(num_games):
         # Create a new poker game
         state = pkrs.State.from_seed(
@@ -113,14 +116,30 @@ def evaluate_against_random(agent, num_games=500, num_players=6):
                 action = agent.choose_action(state)
             else:
                 action = random_agents[current_player].choose_action(state)
-                
-            state = state.apply_action(action)
+            
+            # Apply the action with status check
+            new_state = state.apply_action(action)
+            if new_state.status != pkrs.StateStatus.Ok:
+                log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
+                print(f"WARNING: State status not OK ({new_state.status}) in game {game}. Details logged to {log_file}")
+                # Skip this game instead of crashing the entire evaluation
+                break
+            
+            state = new_state
         
-        # Add the profit for this game
-        profit = state.players_state[agent.player_id].reward
-        total_profit += profit
+        # Only count completed games
+        if state.final_state:
+            # Add the profit for this game
+            profit = state.players_state[agent.player_id].reward
+            total_profit += profit
+            completed_games += 1
     
-    return total_profit / num_games
+    # Return average profit only for completed games
+    if completed_games == 0:
+        print("WARNING: No games completed during evaluation!")
+        return 0
+    
+    return total_profit / completed_games
 
 def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200, 
                    num_players=6, player_id=0, save_dir="models", 
@@ -722,6 +741,7 @@ def evaluate_against_checkpoint_agents(agent, opponent_agents, num_games=100):
     Each agent will receive and process observations from its own perspective.
     """
     total_profit = 0
+    completed_games = 0
     
     class AgentWrapper:
         def __init__(self, agent):
@@ -757,14 +777,30 @@ def evaluate_against_checkpoint_agents(agent, opponent_agents, num_games=100):
                 action = agent.choose_action(state)
             else:
                 action = opponent_wrappers[current_player].choose_action(state)
-                
-            state = state.apply_action(action)
+            
+            # Apply the action with status check
+            new_state = state.apply_action(action)
+            if new_state.status != pkrs.StateStatus.Ok:
+                log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
+                print(f"WARNING: State status not OK ({new_state.status}) in game {game}. Details logged to {log_file}")
+                # Skip this game instead of crashing the entire evaluation
+                break
+            
+            state = new_state
         
-        # Add the profit for this game
-        profit = state.players_state[agent.player_id].reward
-        total_profit += profit
+        # Only count completed games
+        if state.final_state:
+            # Add the profit for this game
+            profit = state.players_state[agent.player_id].reward
+            total_profit += profit
+            completed_games += 1
     
-    return total_profit / num_games
+    # Return average profit only for completed games
+    if completed_games == 0:
+        print("WARNING: No games completed during evaluation!")
+        return 0
+    
+    return total_profit / completed_games
 
 def evaluate_against_agent(agent, opponent_agent, num_games=100):
     """Evaluate the trained agent against an opponent agent."""
