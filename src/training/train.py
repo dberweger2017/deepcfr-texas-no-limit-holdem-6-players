@@ -1279,7 +1279,11 @@ if __name__ == "__main__":
     parser.add_argument('--model-prefix', type=str, default='t_', help='Prefix for models to include in selection pool')
     parser.add_argument('--refresh-interval', type=int, default=1000, help='Interval to refresh opponent pool')
     parser.add_argument('--num-opponents', type=int, default=5, help='Number of checkpoint opponents to select')
+    parser.add_argument('--strict', action='store_true', help='Enable strict error checking that raises exceptions for invalid game states')
     args = parser.parse_args()
+
+    # Strict training for debug
+    set_strict_checking(args.strict)
     
     if args.mixed:
         print(f"Starting mixed checkpoint training with models from: {args.checkpoint_dir}")
