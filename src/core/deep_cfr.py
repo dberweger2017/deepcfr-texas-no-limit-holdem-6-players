@@ -6,8 +6,9 @@ import torch.optim as optim
 import numpy as np
 import random
 import pokers as pkrs
-from src.core.model import PokerNetwork, encode_state, VERBOSE, set_verbose
 from collections import deque
+from src.core.model import PokerNetwork, encode_state, VERBOSE, set_verbose
+from src.utils.settings import STRICT_CHECKING
 
 class DeepCFRAgent:
     def __init__(self, player_id=0, num_players=6, memory_size=200000, device='cpu'):

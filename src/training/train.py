@@ -10,14 +10,7 @@ import argparse
 from src.core.deep_cfr import DeepCFRAgent
 from src.core.model import set_verbose
 from src.utils.logging import log_game_error
-
-# Global flag for strict checking mode
-STRICT_CHECKING = False
-
-def set_strict_checking(strict_mode):
-    """Set the global strict checking mode."""
-    global STRICT_CHECKING
-    STRICT_CHECKING = strict_mode
+from src.utils.settings import STRICT_CHECKING, set_strict_checking
 
 class RandomAgent:
     """Simple random agent for poker that ensures valid bet sizing."""
