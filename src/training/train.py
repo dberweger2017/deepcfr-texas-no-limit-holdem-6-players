@@ -8,7 +8,9 @@ import os
 import matplotlib.pyplot as plt
 import argparse
 from src.core.deep_cfr import DeepCFRAgent
-from src.core.model import set_verbose
+from src.core.model import set_verbose, encode_state
+from src.utils.logging import log_game_error
+from src.utils.settings import STRICT_CHECKING, set_strict_checking
 
 class RandomAgent:
     """Simple random agent for poker that ensures valid bet sizing."""
@@ -88,39 +90,76 @@ class RandomAgent:
             # Ensure it doesn't exceed available stake
             additional_raise = min(additional_raise, remaining_stake)
             
-            return pkrs.Action(action_enum, additional_raise)
+            action = pkrs.Action(action_enum, additional_raise)
+            
+            # In strict mode, validate the action before returning
+            if STRICT_CHECKING:
+                test_state = state.apply_action(action)
+                if test_state.status != pkrs.StateStatus.Ok:
+                    log_file = log_game_error(state, action, f"Random agent created invalid action: {test_state.status}")
+                    raise ValueError(f"Random agent created invalid action: {test_state.status}. Details logged to {log_file}")
+            
+            return action
 
 def evaluate_against_random(agent, num_games=500, num_players=6):
     """Evaluate the trained agent against random opponents."""
     random_agents = [RandomAgent(i) for i in range(num_players)]
     total_profit = 0
-    for game in range(num_games):
-        # Create a new poker game
-        state = pkrs.State.from_seed(
-            n_players=num_players,
-            button=game % num_players,  # Rotate button for fairness
-            sb=1,
-            bb=2,
-            stake=200.0,
-            seed=game
-        )
-        
-        # Play until the game is over
-        while not state.final_state:
-            current_player = state.current_player
-            
-            if current_player == agent.player_id:
-                action = agent.choose_action(state)
-            else:
-                action = random_agents[current_player].choose_action(state)
-                
-            state = state.apply_action(action)
-        
-        # Add the profit for this game
-        profit = state.players_state[agent.player_id].reward
-        total_profit += profit
+    completed_games = 0
     
-    return total_profit / num_games
+    for game in range(num_games):
+        try:
+            # Create a new poker game
+            state = pkrs.State.from_seed(
+                n_players=num_players,
+                button=game % num_players,  # Rotate button for fairness
+                sb=1,
+                bb=2,
+                stake=200.0,
+                seed=game
+            )
+            
+            # Play until the game is over
+            while not state.final_state:
+                current_player = state.current_player
+                
+                if current_player == agent.player_id:
+                    action = agent.choose_action(state)
+                else:
+                    action = random_agents[current_player].choose_action(state)
+                
+                # Apply the action with conditional status check
+                new_state = state.apply_action(action)
+                if new_state.status != pkrs.StateStatus.Ok:
+                    log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
+                    if STRICT_CHECKING:
+                        raise ValueError(f"State status not OK ({new_state.status}). Details logged to {log_file}")
+                    else:
+                        print(f"WARNING: State status not OK ({new_state.status}) in game {game}. Details logged to {log_file}")
+                        break  # Skip this game in non-strict mode
+                
+                state = new_state
+            
+            # Only count completed games
+            if state.final_state:
+                # Add the profit for this game
+                profit = state.players_state[agent.player_id].reward
+                total_profit += profit
+                completed_games += 1
+                
+        except Exception as e:
+            if STRICT_CHECKING:
+                raise  # Re-raise the exception in strict mode
+            else:
+                print(f"Error in game {game}: {e}")
+                # Continue with next game in non-strict mode
+    
+    # Return average profit only for completed games
+    if completed_games == 0:
+        print("WARNING: No games completed during evaluation!")
+        return 0
+    
+    return total_profit / completed_games
 
 def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200, 
                    num_players=6, player_id=0, save_dir="models", 
@@ -152,6 +191,13 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
     # For tracking learning progress
     losses = []
     profits = []
+    
+    # ADDED: Initial evaluation before training begins
+    print("Initial evaluation...")
+    initial_profit = evaluate_against_random(agent, num_games=500, num_players=num_players)
+    profits.append(initial_profit)
+    print(f"Initial average profit per game: {initial_profit:.2f}")
+    writer.add_scalar('Performance/Profit', initial_profit, 0)
     
     # Checkpoint frequency
     checkpoint_frequency = 100  # Save a checkpoint every 100 iterations
@@ -301,6 +347,14 @@ def continue_training(checkpoint_path, additional_iterations=1000,
     # Create random agents for the opponents
     random_agents = [RandomAgent(i) for i in range(num_players)]
     
+    # ADDED: Initial evaluation before continuing training
+    print("Initial evaluation of loaded model...")
+    initial_profit = evaluate_against_random(agent, num_games=500, num_players=num_players)
+    if not profits:  # Only append if profits list is empty
+        profits.append(initial_profit)
+    print(f"Initial average profit per game: {initial_profit:.2f}")
+    writer.add_scalar('Performance/Profit', initial_profit, start_iteration-1)
+    
     # Checkpoint frequency
     checkpoint_frequency = 100  # Save a checkpoint every 100 iterations
     
@@ -444,6 +498,19 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
     # For tracking learning progress
     losses = []
     profits = []
+    
+    # ADDED: Initial evaluation before training begins
+    print("Initial evaluation...")
+    initial_profit_vs_checkpoint = evaluate_against_checkpoint_agents(
+        learning_agent, opponent_agents, num_games=100)
+    print(f"Initial average profit vs checkpoint: {initial_profit_vs_checkpoint:.2f}")
+    writer.add_scalar('Performance/ProfitVsCheckpoint', initial_profit_vs_checkpoint, 0)
+    
+    initial_profit_random = evaluate_against_random(
+        learning_agent, num_games=500, num_players=6)
+    profits.append(initial_profit_random)
+    print(f"Initial average profit vs random: {initial_profit_random:.2f}")
+    writer.add_scalar('Performance/ProfitVsRandom', initial_profit_random, 0)
     
     # Checkpoint frequency
     checkpoint_frequency = 100  # Save more frequently for self-play
@@ -722,6 +789,7 @@ def evaluate_against_checkpoint_agents(agent, opponent_agents, num_games=100):
     Each agent will receive and process observations from its own perspective.
     """
     total_profit = 0
+    completed_games = 0
     
     class AgentWrapper:
         def __init__(self, agent):
@@ -739,32 +807,58 @@ def evaluate_against_checkpoint_agents(agent, opponent_agents, num_games=100):
             opponent_wrappers[pos] = AgentWrapper(opponent_agents[pos])
     
     for game in range(num_games):
-        # Create a new poker game with rotating button
-        state = pkrs.State.from_seed(
-            n_players=6,
-            button=game % 6,  # Rotate button for fairness
-            sb=1,
-            bb=2,
-            stake=200.0,
-            seed=game + 10000  # Using different seeds than training
-        )
-        
-        # Play until the game is over
-        while not state.final_state:
-            current_player = state.current_player
+        try:
+            # Create a new poker game with rotating button
+            state = pkrs.State.from_seed(
+                n_players=6,
+                button=game % 6,  # Rotate button for fairness
+                sb=1,
+                bb=2,
+                stake=200.0,
+                seed=game + 10000  # Using different seeds than training
+            )
             
-            if current_player == agent.player_id:
-                action = agent.choose_action(state)
-            else:
-                action = opponent_wrappers[current_player].choose_action(state)
+            # Play until the game is over
+            while not state.final_state:
+                current_player = state.current_player
                 
-            state = state.apply_action(action)
-        
-        # Add the profit for this game
-        profit = state.players_state[agent.player_id].reward
-        total_profit += profit
+                if current_player == agent.player_id:
+                    action = agent.choose_action(state)
+                else:
+                    action = opponent_wrappers[current_player].choose_action(state)
+                
+                # Apply the action with conditional status check
+                new_state = state.apply_action(action)
+                if new_state.status != pkrs.StateStatus.Ok:
+                    log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
+                    if STRICT_CHECKING:
+                        raise ValueError(f"State status not OK ({new_state.status}). Details logged to {log_file}")
+                    else:
+                        print(f"WARNING: State status not OK ({new_state.status}) in game {game}. Details logged to {log_file}")
+                        break  # Skip this game in non-strict mode
+                
+                state = new_state
+            
+            # Only count completed games
+            if state.final_state:
+                # Add the profit for this game
+                profit = state.players_state[agent.player_id].reward
+                total_profit += profit
+                completed_games += 1
+                
+        except Exception as e:
+            if STRICT_CHECKING:
+                raise  # Re-raise the exception in strict mode
+            else:
+                print(f"Error in game {game}: {e}")
+                # Continue with next game in non-strict mode
     
-    return total_profit / num_games
+    # Return average profit only for completed games
+    if completed_games == 0:
+        print("WARNING: No games completed during evaluation!")
+        return 0
+    
+    return total_profit / completed_games
 
 def evaluate_against_agent(agent, opponent_agent, num_games=100):
     """Evaluate the trained agent against an opponent agent."""
@@ -1044,6 +1138,21 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
         # Select initial opponent agents
         opponent_agents = select_random_checkpoints()
         
+        # ADDED: Initial evaluation before training begins
+        print("Initial evaluation...")
+        initial_profit_vs_mixed = evaluate_against_checkpoint_agents(
+            learning_agent, opponent_agents, num_games=100)
+        profits_vs_checkpoints.append(initial_profit_vs_mixed)
+        print(f"Initial average profit vs mixed opponents: {initial_profit_vs_mixed:.2f}")
+        writer.add_scalar('Performance/ProfitVsMixed', initial_profit_vs_mixed, 0)
+        
+        # Also evaluate against random for baseline comparison
+        initial_profit_random = evaluate_against_random(
+            learning_agent, num_games=500, num_players=6)
+        profits.append(initial_profit_random)
+        print(f"Initial average profit vs random: {initial_profit_random:.2f}")
+        writer.add_scalar('Performance/ProfitVsRandom', initial_profit_random, 0)
+        
         # Wrap agents to ensure proper perspective
         opponent_wrappers = [None] * 6
         for pos in range(6):
@@ -1187,9 +1296,6 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
         # Restore the original cfr_traverse method to avoid side effects
         DeepCFRAgent.cfr_traverse = original_cfr_traverse
 
-# For importing model.encode_state in the cfr_traverse method
-from src.core.model import encode_state
-
 if __name__ == "__main__":
     import argparse
     
@@ -1206,7 +1312,11 @@ if __name__ == "__main__":
     parser.add_argument('--model-prefix', type=str, default='t_', help='Prefix for models to include in selection pool')
     parser.add_argument('--refresh-interval', type=int, default=1000, help='Interval to refresh opponent pool')
     parser.add_argument('--num-opponents', type=int, default=5, help='Number of checkpoint opponents to select')
+    parser.add_argument('--strict', action='store_true', help='Enable strict error checking that raises exceptions for invalid game states')
     args = parser.parse_args()
+
+    # Strict training for debug
+    set_strict_checking(args.strict)
     
     if args.mixed:
         print(f"Starting mixed checkpoint training with models from: {args.checkpoint_dir}")

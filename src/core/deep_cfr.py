@@ -6,8 +6,9 @@ import torch.optim as optim
 import numpy as np
 import random
 import pokers as pkrs
-from src.core.model import PokerNetwork, encode_state, VERBOSE, set_verbose
 from collections import deque
+from src.core.model import PokerNetwork, encode_state, VERBOSE, set_verbose
+from src.utils.settings import STRICT_CHECKING
 
 class DeepCFRAgent:
     def __init__(self, player_id=0, num_players=6, memory_size=200000, device='cpu'):
@@ -199,17 +200,23 @@ class DeepCFRAgent:
                     
                     # Check if the action was valid
                     if new_state.status != pkrs.StateStatus.Ok:
-                        if VERBOSE:
+                        log_file = log_game_error(state, pokers_action, f"State status not OK ({new_state.status})")
+                        if STRICT_CHECKING:
+                            raise ValueError(f"State status not OK ({new_state.status}) during CFR traversal. Details logged to {log_file}")
+                        elif VERBOSE:
                             print(f"WARNING: Invalid action {action_id} at depth {depth}. Status: {new_state.status}")
                             print(f"Player: {current_player}, Action: {pokers_action.action}, Amount: {pokers_action.amount if pokers_action.action == pkrs.ActionEnum.Raise else 'N/A'}")
                             print(f"Current bet: {state.players_state[current_player].bet_chips}, Stake: {state.players_state[current_player].stake}")
-                        continue  # Skip this action and try others
+                            print(f"Details logged to {log_file}")
+                        continue  # Skip this action and try others in non-strict mode
                         
                     action_values[action_id] = self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
                 except Exception as e:
                     if VERBOSE:
                         print(f"ERROR in traversal for action {action_id}: {e}")
                     action_values[action_id] = 0
+                    if STRICT_CHECKING:
+                        raise  # Re-raise in strict mode
             
             # Compute counterfactual regrets and add to memory
             ev = sum(strategy[a] * action_values[a] for a in legal_action_ids)
@@ -256,15 +263,20 @@ class DeepCFRAgent:
                 
                 # Check if the action was valid
                 if new_state.status != pkrs.StateStatus.Ok:
+                    log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
+                    if STRICT_CHECKING:
+                        raise ValueError(f"State status not OK ({new_state.status}) from random agent. Details logged to {log_file}")
                     if VERBOSE:
-                        raise f"Error detected of type {new_state.status}"
                         print(f"WARNING: Random agent made invalid action at depth {depth}. Status: {new_state.status}")
+                        print(f"Details logged to {log_file}")
                     return 0
                     
                 return self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
             except Exception as e:
                 if VERBOSE:
                     print(f"ERROR in random agent traversal: {e}")
+                if STRICT_CHECKING:
+                    raise  # Re-raise in strict mode
                 return 0
 
     def train_advantage_network(self, batch_size=128, epochs=3):

@@ -9,6 +9,7 @@ import glob
 from src.core.deep_cfr import DeepCFRAgent
 from src.core.model import set_verbose
 from src.utils import log_game_error
+from src.utils.settings import STRICT_CHECKING, set_strict_checking
 
 def get_action_description(action):
     """Convert a pokers action to a human-readable string."""
@@ -306,7 +307,12 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
             new_state = state.apply_action(action)
             if new_state.status != pkrs.StateStatus.Ok:
                 log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
-                raise ValueError(f"State status not OK ({new_state.status}). Details logged to {log_file}")
+                if STRICT_CHECKING:
+                    raise ValueError(f"State status not OK ({new_state.status}). Details logged to {log_file}")
+                else:
+                    print(f"WARNING: State status not OK ({new_state.status}). Details logged to {log_file}")
+                    break  # Skip this game in non-strict mode
+            
             state = new_state
         
         # Game is over, show results
@@ -440,8 +446,11 @@ if __name__ == "__main__":
     parser.add_argument('--bb', type=float, default=2.0, help='Big blind amount')
     parser.add_argument('--verbose', action='store_true', help='Show detailed output')
     parser.add_argument('--no-shuffle', action='store_true', help='Do not select new random models for each game')
+    parser.add_argument('--strict', action='store_true', help='Enable strict error checking that raises exceptions for invalid game states')
     args = parser.parse_args()
     
+    set_strict_checking(args.strict)
+
     # Start the game
     play_against_models(
         models_dir=args.models_dir,
