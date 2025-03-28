@@ -4,6 +4,8 @@
 /logs
 /logs/*.log
 /venv
+/build
+/dist
 .ds_store
 .env
 __pycache__
