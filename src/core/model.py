@@ -12,23 +12,34 @@ def set_verbose(verbose_mode):
     VERBOSE = verbose_mode
 
 class PokerNetwork(nn.Module):
-    def __init__(self, input_size=500, hidden_size=256, num_actions=4):
+    """Poker network with continuous bet sizing capabilities."""
+    def __init__(self, input_size=500, hidden_size=256, num_actions=3):
         super().__init__()
-        # Network architecture
-        self.fc1 = nn.Linear(input_size, hidden_size)
-        self.fc2 = nn.Linear(hidden_size, hidden_size)
-        self.fc3 = nn.Linear(hidden_size, hidden_size)
-        self.fc4 = nn.Linear(hidden_size, hidden_size)
-        self.fc5 = nn.Linear(hidden_size, hidden_size)
-        self.fc6 = nn.Linear(hidden_size, num_actions)
-        
+        # Shared feature extraction layers
+        self.base = nn.Sequential(
+            nn.Linear(input_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.ReLU()
+        )
+        # Action type prediction (fold, check/call, raise)
+        self.action_head = nn.Linear(hidden_size, num_actions)
+        # Continuous bet sizing prediction
+        self.sizing_head = nn.Sequential(
+            nn.Linear(hidden_size, hidden_size // 2),
+            nn.ReLU(),
+            nn.Linear(hidden_size // 2, 1),
+            nn.Sigmoid()  # Output between 0-1
+        )
+    
     def forward(self, x):
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = F.relu(self.fc3(x))
-        x = F.relu(self.fc4(x))
-        x = F.relu(self.fc5(x))
-        return self.fc6(x)
+        features = self.base(x)
+        action_logits = self.action_head(features)
+        # Output between 0.1x and 3x pot
+        bet_size = 0.1 + 2.9 * self.sizing_head(features)
+        return action_logits, bet_size
 
 def encode_state(state, player_id=0):
     """
