@@ -12,27 +12,44 @@ from src.opponent_modeling.opponent_model import OpponentModelingSystem
 
 class EnhancedPokerNetwork(nn.Module):
     """
-    Enhanced network that can incorporate opponent modeling features.
+    Enhanced network that incorporates opponent modeling features
+    and continuous bet sizing.
     """
-    def __init__(self, input_size=500, opponent_feature_size=20, hidden_size=256, num_actions=4):
+    def __init__(self, input_size=500, opponent_feature_size=20, hidden_size=256, num_actions=3):
         super().__init__()
         # Standard game state processing
-        self.fc1 = nn.Linear(input_size, hidden_size)
-        self.fc2 = nn.Linear(hidden_size, hidden_size)
+        self.base_state = nn.Sequential(
+            nn.Linear(input_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.ReLU()
+        )
         
         # Process opponent features
         self.opponent_fc = nn.Linear(opponent_feature_size, hidden_size // 2)
         
-        # Combined processing after opponent features are incorporated
-        self.fc3 = nn.Linear(hidden_size + hidden_size // 2, hidden_size)
-        self.fc4 = nn.Linear(hidden_size, hidden_size)
-        self.fc5 = nn.Linear(hidden_size, hidden_size)
-        self.fc6 = nn.Linear(hidden_size, num_actions)
+        # Combined processing
+        self.combined = nn.Sequential(
+            nn.Linear(hidden_size + hidden_size // 2, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.ReLU()
+        )
+        
+        # Action type prediction (fold, check/call, raise)
+        self.action_head = nn.Linear(hidden_size, num_actions)
+        
+        # Continuous bet sizing prediction
+        self.sizing_head = nn.Sequential(
+            nn.Linear(hidden_size, hidden_size // 2),
+            nn.ReLU(),
+            nn.Linear(hidden_size // 2, 1),
+            nn.Sigmoid()  # Output between 0-1
+        )
         
     def forward(self, state_input, opponent_features=None):
         # Process game state
-        x = F.relu(self.fc1(state_input))
-        x = F.relu(self.fc2(x))
+        x = self.base_state(state_input)
         
         # If opponent features are provided, incorporate them
         if opponent_features is not None:
@@ -44,24 +61,27 @@ class EnhancedPokerNetwork(nn.Module):
             x = torch.cat([x, torch.zeros(batch_size, self.opponent_fc.out_features, device=state_input.device)], dim=1)
         
         # Continue processing the combined features
-        x = F.relu(self.fc3(x))
-        x = F.relu(self.fc4(x))
-        x = F.relu(self.fc5(x))
-        return self.fc6(x)
+        x = self.combined(x)
+        
+        # Output action logits and bet sizing
+        action_logits = self.action_head(x)
+        bet_size = 0.1 + 2.9 * self.sizing_head(x)  # Output between 0.1x and 3x pot
+        
+        return action_logits, bet_size
 
 class DeepCFRAgentWithOpponentModeling:
-    def __init__(self, player_id=0, num_players=6, memory_size=200000, device='cpu'):
+    def __init__(self, player_id=0, num_players=6, memory_size=300000, device='cpu'):
         self.player_id = player_id
         self.num_players = num_players
         self.device = device
         
-        # Define action space (Fold, Check/Call, Raise 0.5x pot, Raise 1x pot)
-        self.num_actions = 4
+        # Define action types (Fold, Check/Call, Raise)
+        self.num_actions = 3
         
         # Calculate input size based on state encoding
         input_size = 52 + 52 + 5 + 1 + num_players + num_players + num_players*4 + 1 + 4 + 5
         
-        # Create advantage network with opponent modeling capabilities
+        # Create advantage network with opponent modeling and bet sizing
         self.advantage_net = EnhancedPokerNetwork(
             input_size=input_size, 
             opponent_feature_size=20, 
@@ -69,10 +89,10 @@ class DeepCFRAgentWithOpponentModeling:
             num_actions=self.num_actions
         ).to(device)
         
-        self.optimizer = optim.Adam(self.advantage_net.parameters(), lr=0.0001, weight_decay=1e-5)
+        self.optimizer = optim.Adam(self.advantage_net.parameters(), lr=0.00005, weight_decay=1e-5)
         
-        # Create memory buffer
-        self.advantage_memory = deque(maxlen=memory_size)
+        # Create prioritized memory buffer
+        self.advantage_memory = PrioritizedMemory(memory_size)
         
         # Strategy network (also with opponent modeling)
         self.strategy_net = EnhancedPokerNetwork(
@@ -82,14 +102,14 @@ class DeepCFRAgentWithOpponentModeling:
             num_actions=self.num_actions
         ).to(device)
         
-        self.strategy_optimizer = optim.Adam(self.strategy_net.parameters(), lr=0.0001, weight_decay=1e-5)
+        self.strategy_optimizer = optim.Adam(self.strategy_net.parameters(), lr=0.00005, weight_decay=1e-5)
         self.strategy_memory = deque(maxlen=memory_size)
         
-        # Initialize opponent modeling system
+        # Initialize opponent modeling system with enhanced features
         self.opponent_modeling = OpponentModelingSystem(
             max_history_per_opponent=20,
-            action_dim=4,
-            state_dim=20,
+            action_dim=4,  # Still tracking 4 discrete actions for history
+            state_dim=25,  # Expanded to include bet sizing features
             device=device
         )
         
@@ -99,8 +119,9 @@ class DeepCFRAgentWithOpponentModeling:
         # For keeping statistics
         self.iteration_count = 0
         
-        # Regret normalization tracker
-        self.max_regret_seen = 1.0
+        # Bet sizing bounds (as multipliers of pot)
+        self.min_bet_size = 0.1
+        self.max_bet_size = 3.0
     
     def action_id_to_pokers_action(self, action_id, state):
         """Convert our action ID to Pokers action with fixed bet calculation."""
