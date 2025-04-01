@@ -1,5 +1,4 @@
 #random_agent.py
-
 import random
 import pokers as pkrs
 from src.utils.settings import STRICT_CHECKING
