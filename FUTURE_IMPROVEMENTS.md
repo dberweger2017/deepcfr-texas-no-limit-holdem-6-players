@@ -6,7 +6,7 @@ This document outlines planned improvements and enhancements for the Deep CFR Te
 
 - [ ] **Attention Mechanisms**: Incorporate attention-based components to help the model focus on important state features
 - [ ] **Residual Connections**: Add residual connections to improve gradient flow for deeper networks
-- [ ] **Separate Value/Policy Networks**: Experiment with more specialized architectures for advantage and strategy networks
+- [x] **Separate Value/Policy Networks**: Experiment with more specialized architectures for advantage and strategy networks
 - [ ] **Add Batch Normalization**: Include batch normalization to stabilize training
 - [ ] **Experiment with Transformer-based architecture**: Test if transformers are more effective than standard feedforward networks for poker
 
@@ -24,7 +24,7 @@ flowchart TD
 
 ## Action Space Refinement
 
-- [ ] **Continuous Bet Sizing**: Replace discrete bet actions with continuous sizing prediction
+- [x] **Continuous Bet Sizing**: Replace discrete bet actions with continuous sizing prediction
 - [ ] **Multi-Stage Action Selection**: First predict action type, then predict sizing in a secondary step
 - [ ] **Expand Raise Options**: Add more granular bet sizes (e.g., 0.3x, 0.7x, 1.5x, 2x pot)
 - [ ] **All-In Awareness**: Add special handling and considerations for all-in decisions
@@ -49,7 +49,7 @@ flowchart TD
 
 - [x] **RNN for Opponent History**: Add a recurrent component to track and exploit player patterns
 - [x] **Separate Opponent Models**: Maintain models for different opponent types
-- [ ] **Efficient Memory Replay**: Prioritize experiences based on surprise value
+- [x] **Efficient Memory Replay**: Prioritize experiences based on surprise value
 - [x] **Action Sequence Encoding**: Represent betting histories more effectively
 - [ ] **Table Image Modeling**: Factor in how opponents might be perceiving the agent's own play style
 

@@ -29,7 +29,7 @@ class PokerNetwork(nn.Module):
         # Continuous bet sizing prediction
         self.sizing_head = nn.Sequential(
             nn.Linear(hidden_size, hidden_size // 2),
-            nn.ReLU(),
+            nn.Tanh(),
             nn.Linear(hidden_size // 2, 1),
             nn.Sigmoid()  # Output between 0-1
         )
