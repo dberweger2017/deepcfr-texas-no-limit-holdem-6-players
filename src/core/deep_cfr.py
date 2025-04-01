@@ -507,15 +507,6 @@ class DeepCFRAgent:
     def train_advantage_network(self, batch_size=128, epochs=3, beta_start=0.4, beta_end=1.0):
         """
         Train the advantage network using prioritized experience replay.
-        
-        Args:
-            batch_size: Size of training batches
-            epochs: Number of training epochs per call
-            beta_start: Initial beta value for importance sampling
-            beta_end: Final beta value to anneal toward
-            
-        Returns:
-            Average training loss
         """
         if len(self.advantage_memory) < batch_size:
             return 0
@@ -524,7 +515,7 @@ class DeepCFRAgent:
         total_loss = 0
         
         # Calculate current beta for importance sampling
-        progress = min(1.0, self.iteration_count / 10000)  # Adjust denominator based on expected training length
+        progress = min(1.0, self.iteration_count / 10000)
         beta = beta_start + progress * (beta_end - beta_start)
         
         for epoch in range(epochs):
@@ -541,7 +532,7 @@ class DeepCFRAgent:
             weight_tensors = torch.FloatTensor(weights).to(self.device)
             
             # Forward pass
-            action_advantages, bet_size_preds = self.advantage_net(state_tensors)
+            action_advantages, bet_size_preds = self.advantage_net(state_tensors, opponent_feature_tensors)
             
             # Compute action type loss (for all actions)
             predicted_regrets = action_advantages.gather(1, action_type_tensors.unsqueeze(1)).squeeze(1)
@@ -550,18 +541,20 @@ class DeepCFRAgent:
             
             # Compute bet sizing loss (only for raise actions)
             raise_mask = (action_type_tensors == 2)
-            if raise_mask.sum() > 0:
-                raise_indices = torch.nonzero(raise_mask).squeeze(1)
-                raise_bet_preds = bet_size_preds[raise_indices]
-                raise_bet_targets = bet_size_tensors[raise_indices]
-                raise_weights = weight_tensors[raise_indices]
+            if torch.any(raise_mask):
+                # Calculate loss for all bet sizes
+                all_bet_losses = F.smooth_l1_loss(bet_size_preds, bet_size_tensors, reduction='none')
                 
-                bet_size_loss = F.smooth_l1_loss(raise_bet_preds, raise_bet_targets, reduction='none')
-                weighted_bet_size_loss = (bet_size_loss.squeeze() * raise_weights).mean()
+                # Only count losses for raise actions, zero out others
+                masked_bet_losses = all_bet_losses * raise_mask.float().unsqueeze(1)
                 
-                # Combine losses with appropriate weighting
-                # Use a slightly smaller weight for bet size loss to prevent it from dominating
-                combined_loss = weighted_action_loss + 0.5 * weighted_bet_size_loss
+                # Calculate weighted average loss
+                raise_count = raise_mask.sum().item()
+                if raise_count > 0:
+                    weighted_bet_size_loss = (masked_bet_losses.squeeze() * weight_tensors).sum() / raise_count
+                    combined_loss = weighted_action_loss + 0.5 * weighted_bet_size_loss
+                else:
+                    combined_loss = weighted_action_loss
             else:
                 combined_loss = weighted_action_loss
             
@@ -569,42 +562,37 @@ class DeepCFRAgent:
             self.optimizer.zero_grad()
             combined_loss.backward()
             
-            # Apply gradient clipping to prevent exploding gradients
+            # Apply gradient clipping
             torch.nn.utils.clip_grad_norm_(self.advantage_net.parameters(), max_norm=0.5)
             
             self.optimizer.step()
             
-            # Update priorities based on the new TD errors
+            # Update priorities based on new losses
             with torch.no_grad():
-                # Calculate errors for priority updates
-                action_errors = action_loss.detach().cpu().numpy()
+                # Calculate new errors for priority updates
+                new_action_errors = F.smooth_l1_loss(predicted_regrets, regret_tensors, reduction='none')
                 
-                # For raise actions, also consider bet sizing errors
-                if raise_mask.sum() > 0:
-                    # Initialize with zeros
-                    bet_errors = np.zeros_like(action_errors)
+                # For raise actions, include bet sizing errors
+                if torch.any(raise_mask):
+                    # Calculate normalized bet size errors for each sample
+                    new_bet_errors = torch.zeros_like(new_action_errors)
                     
-                    # Set bet sizing errors only for raise actions
-                    for i, (idx, is_raise) in enumerate(zip(range(len(raise_mask)), raise_mask)):
-                        if is_raise:
-                            raise_idx = torch.nonzero(raise_mask)[torch.nonzero(raise_mask)[:, 0] == i]
-                            if len(raise_idx) > 0:
-                                bet_err = F.smooth_l1_loss(
-                                    raise_bet_preds[raise_idx], 
-                                    raise_bet_targets[raise_idx], 
-                                    reduction='none'
-                                ).item()
-                                bet_errors[idx] = bet_err
+                    # Only add bet sizing errors for raise actions
+                    raise_indices = torch.where(raise_mask)[0]
+                    for i in raise_indices:
+                        new_bet_errors[i] = F.smooth_l1_loss(
+                            bet_size_preds[i], bet_size_tensors[i], reduction='mean'
+                        )
                     
-                    # Combined error (with smaller weight for bet sizing)
-                    combined_errors = action_errors + 0.5 * bet_errors
+                    # Combined error with smaller weight for bet sizing
+                    combined_errors = new_action_errors + 0.5 * new_bet_errors
                 else:
-                    combined_errors = action_errors
+                    combined_errors = new_action_errors
                 
-                # Update memory priorities with combined errors
+                # Update priorities
+                combined_errors_np = combined_errors.cpu().numpy()
                 for i, idx in enumerate(indices):
-                    # Add small constant to ensure non-zero priority
-                    self.advantage_memory.update_priority(idx, combined_errors[i] + 0.01)
+                    self.advantage_memory.update_priority(idx, combined_errors_np[i] + 0.01)
             
             total_loss += combined_loss.item()
         
