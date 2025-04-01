@@ -18,7 +18,7 @@ class RandomAgent:
         """Choose a random legal action with correctly calculated bet sizing."""
         if not state.legal_actions:
             # This should ideally not happen in a valid game state
-            print(f"WARNING: No legal actions available for player {self.player_id}. Attempting Fold.")
+            # print(f"WARNING: No legal actions available for player {self.player_id}. Attempting Fold.")
             # Attempt Fold as fallback, though it might also be illegal
             return pkrs.Action(pkrs.ActionEnum.Fold)
 
