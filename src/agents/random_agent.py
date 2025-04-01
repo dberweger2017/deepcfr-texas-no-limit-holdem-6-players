@@ -18,7 +18,7 @@ class RandomAgent:
         """Choose a random legal action with correctly calculated bet sizing."""
         if not state.legal_actions:
             # This should ideally not happen in a valid game state
-            # print(f"WARNING: No legal actions available for player {self.player_id}. Attempting Fold.")
+            print(f"WARNING: No legal actions available for player {self.player_id}. Attempting Fold.")
             # Attempt Fold as fallback, though it might also be illegal
             return pkrs.Action(pkrs.ActionEnum.Fold)
 
@@ -42,7 +42,6 @@ class RandomAgent:
             # Calculate call amount (needed to match current min_bet)
             call_amount = max(0, state.min_bet - current_bet)
 
-            # *** CORRECTED LOGIC HERE ***
             # Check if the player can actually make a valid raise beyond the call amount.
             # A raise requires putting in *more* than the call amount.
             # The minimum *additional* amount for a raise is typically the big blind or 1 chip.
@@ -67,16 +66,15 @@ class RandomAgent:
                     return pkrs.Action(pkrs.ActionEnum.Call)
                 else:
                     # Fallback: If Call isn't legal (e.g., already all-in matching bet), Fold.
-                    print(f"RandomAgent WARNING: Cannot Call (not legal), falling back to Fold.")
+                    # print(f"RandomAgent WARNING: Cannot Call (not legal), falling back to Fold.")
                     # Ensure Fold is legal if possible
                     if pkrs.ActionEnum.Fold in state.legal_actions:
                         return pkrs.Action(pkrs.ActionEnum.Fold)
                     else:
                         # Last resort if Fold is also illegal (highly unlikely)
-                        print(f"RandomAgent CRITICAL WARNING: Cannot Call or Fold!")
+                        # print(f"RandomAgent CRITICAL WARNING: Cannot Call or Fold!")
                         # Return Call anyway, let Rust handle the error state
                         return pkrs.Action(pkrs.ActionEnum.Call)
-            # *** END OF CORRECTION ***
 
             # If we reach here, a valid raise *is* possible.
             remaining_stake_after_call = available_stake - call_amount
