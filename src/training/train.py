@@ -53,7 +53,7 @@ class RandomAgent:
             if available_stake <= call_amount + min_raise_increment:
                 # Player cannot make a valid raise (or is all-in just to call).
                 # This action should be treated as a Call.
-                print(f"RandomAgent: Raise chosen, but cannot make valid raise. Switching to Call.")
+                # print(f"RandomAgent: Raise chosen, but cannot make valid raise. Switching to Call.")
                 # Ensure Call is legal before returning it
                 if pkrs.ActionEnum.Call in state.legal_actions:
                     return pkrs.Action(pkrs.ActionEnum.Call)
