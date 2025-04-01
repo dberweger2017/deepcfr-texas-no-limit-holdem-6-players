@@ -175,6 +175,72 @@ class OpponentModelingSystem:
             features = self.opponent_model(encoding.unsqueeze(0)).squeeze(0)
         
         return features.cpu().numpy()
+
+    def extract_state_context(self, state):
+        """
+        Extract a simplified state context for opponent modeling.
+        Returns a compact representation of the current state with bet sizing features.
+        """
+        # For simplicity, we'll use a fixed-size feature vector
+        context = np.zeros(25)  # Expanded to 25 for bet size features
+        
+        # Game stage (one-hot encoded)
+        stage_idx = int(state.stage)
+        if 0 <= stage_idx < 5:
+            context[stage_idx] = 1
+        
+        # Pot size (normalized)
+        initial_stake = max(1.0, state.players_state[0].stake + state.players_state[0].bet_chips)
+        context[5] = state.pot / initial_stake
+        
+        # Number of active players
+        active_count = sum(1 for p in state.players_state if p.active)
+        context[6] = active_count / self.num_players
+        
+        # Position relative to button
+        btn_distance = (state.current_player - state.button) % self.num_players
+        context[7] = btn_distance / self.num_players
+        
+        # Community card count
+        context[8] = len(state.public_cards) / 5
+        
+        # Previous action type and size
+        if state.from_action is not None:
+            prev_action_type = int(state.from_action.action.action)
+            if 0 <= prev_action_type < 4:
+                context[9 + prev_action_type] = 1
+            
+            if prev_action_type == int(pkrs.ActionEnum.Raise):
+                context[13] = state.from_action.action.amount / initial_stake
+        
+        # Min bet relative to pot
+        context[14] = state.min_bet / max(1.0, state.pot)
+        
+        # Player stack sizes
+        avg_stack = sum(p.stake for p in state.players_state) / self.num_players
+        context[15] = state.players_state[state.current_player].stake / max(1.0, avg_stack)
+        
+        # Current bet relative to pot
+        current_bet = state.players_state[state.current_player].bet_chips
+        context[16] = current_bet / max(1.0, state.pot)
+        
+        # Add bet size features
+        if state.from_action is not None and state.from_action.action.action == pkrs.ActionEnum.Raise:
+            # Normalize bet size as a fraction of the pot
+            normalized_bet_size = state.from_action.action.amount / max(1.0, state.pot)
+            context[20] = normalized_bet_size
+            
+            # Add bucketed bet size indicators
+            if normalized_bet_size < 0.5:
+                context[21] = 1  # Small bet (less than half pot)
+            elif normalized_bet_size < 1.0:
+                context[22] = 1  # Medium bet (half to full pot)
+            elif normalized_bet_size < 2.0:
+                context[23] = 1  # Large bet (1-2x pot)
+            else:
+                context[24] = 1  # Very large bet (2x+ pot)
+        
+        return context
     
     def train(self, batch_size=32, epochs=1):
         """
