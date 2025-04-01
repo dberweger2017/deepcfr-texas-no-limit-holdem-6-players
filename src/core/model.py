@@ -34,11 +34,24 @@ class PokerNetwork(nn.Module):
             nn.Sigmoid()  # Output between 0-1
         )
     
-    def forward(self, x):
+    def forward(self, x, opponent_features=None): # NOTE: We are accepting and ignoring opponent_features because not used in train.py but I think keeping the call the same will help with future potencial crossplay.
+        """
+        Forward pass through the network.
+        
+        Args:
+            x: The state representation tensor
+            opponent_features: Optional opponent modeling features (ignored in base class)
+            
+        Returns:
+            Tuple of (action_logits, bet_size_prediction)
+        """
+        # Process base features
         features = self.base(x)
+        
+        # Output action logits and bet sizing
         action_logits = self.action_head(features)
-        # Output between 0.1x and 3x pot
         bet_size = 0.1 + 2.9 * self.sizing_head(features)
+        
         return action_logits, bet_size
 
 def encode_state(state, player_id=0):
