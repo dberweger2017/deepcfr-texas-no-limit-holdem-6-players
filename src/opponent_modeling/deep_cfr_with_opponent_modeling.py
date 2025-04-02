@@ -23,9 +23,9 @@ class EnhancedPokerNetwork(nn.Module):
         # Standard game state processing
         self.base_state = nn.Sequential(
             nn.Linear(input_size, hidden_size),
-            nn.ReLU(),
+            nn.Tanh(),
             nn.Linear(hidden_size, hidden_size),
-            nn.ReLU()
+            nn.Tanh()
         )
         
         # Process opponent features
@@ -34,9 +34,9 @@ class EnhancedPokerNetwork(nn.Module):
         # Combined processing
         self.combined = nn.Sequential(
             nn.Linear(hidden_size + hidden_size // 2, hidden_size),
-            nn.ReLU(),
+            nn.Tanh(),
             nn.Linear(hidden_size, hidden_size),
-            nn.ReLU()
+            nn.Tanh()
         )
         
         # Action type prediction (fold, check/call, raise)
@@ -45,7 +45,7 @@ class EnhancedPokerNetwork(nn.Module):
         # Continuous bet sizing prediction
         self.sizing_head = nn.Sequential(
             nn.Linear(hidden_size, hidden_size // 2),
-            nn.ReLU(),
+            nn.Tanh(),
             nn.Linear(hidden_size // 2, 1),
             nn.Sigmoid()  # Output between 0-1
         )
