@@ -1,3 +1,4 @@
+# scripts/__init__.py
 """
 Standalone scripts for DeepCFR Poker AI.
 """

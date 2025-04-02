@@ -1,4 +1,4 @@
-# deep_cfr_with_opponent_modeling.py
+# src/opponent_modeling/deep_cfr_with_opponent_modeling.py
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -92,7 +92,7 @@ class DeepCFRAgentWithOpponentModeling:
             num_actions=self.num_actions
         ).to(device)
         
-        self.optimizer = optim.Adam(self.advantage_net.parameters(), lr=0.00005, weight_decay=1e-5)
+        self.optimizer = optim.Adam(self.advantage_net.parameters(), lr=1e-6, weight_decay=1e-5)
         
         # Create prioritized memory buffer
         self.advantage_memory = PrioritizedMemory(memory_size)

@@ -1,4 +1,4 @@
-# train.py
+# src/training/train.py
 import pokers as pkrs
 import numpy as np
 import random

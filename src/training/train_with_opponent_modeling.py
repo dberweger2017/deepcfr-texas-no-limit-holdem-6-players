@@ -1,4 +1,4 @@
-# train_with_opponent_modeling.py
+# src/training/train_with_opponent_modeling.py
 import pokers as pkrs
 import torch
 import numpy as np

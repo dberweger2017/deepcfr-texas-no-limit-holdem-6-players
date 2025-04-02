@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-# poker_gui.py - A graphical interface for playing against trained DeepCFR models
-
+# scripts/poker_gui.py
 import sys
 import os
 import random
