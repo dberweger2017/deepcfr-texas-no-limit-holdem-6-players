@@ -577,7 +577,7 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
         
         # If it's the trained agent's turn
         if current_player == self.player_id:
-            legal_action_ids = self.get_legal_action_ids(state)
+            legal_action_ids = self.get_legal_action_types(state)
             
             if not legal_action_ids:
                 if verbose:
@@ -589,13 +589,16 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
             
             # Get advantages from network
             with torch.no_grad():
-                advantages = self.advantage_net(state_tensor.unsqueeze(0))[0]
+                advantages, bet_size_pred = self.advantage_net(state_tensor.unsqueeze(0))
+                advantages = advantages[0].cpu().numpy()
+                bet_size_multiplier = bet_size_pred[0][0].item()
                 
             # Use regret matching to compute strategy
-            advantages_np = advantages.cpu().numpy()
+            # advantages_np = advantages.cpu().numpy()
             advantages_masked = np.zeros(self.num_actions)
-            for a in legal_action_ids:
-                advantages_masked[a] = max(advantages_np[a], 0)
+            advantages_masked = np.maximum(advantages[0], advantages_masked)
+            # for a in legal_action_ids:
+            #     advantages_masked[a] = np.max(advantages_np[a], 0)
                 
             # Choose an action based on the strategy
             if sum(advantages_masked) > 0:
@@ -640,12 +643,35 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
                 
                 # Apply scaling
                 scale_factor = np.sqrt(iteration) if iteration > 1 else 1.0
+                weighted_regret = clipped_regret * scale_factor
                 
-                self.advantage_memory.append((
-                    encode_state(state, self.player_id),  # Encode from this agent's perspective
-                    action_id,
-                    clipped_regret * scale_factor
-                ))
+                # Store in prioritized memory with regret magnitude as priority
+                priority = abs(weighted_regret) + 0.01
+                
+                if action_id == 2:
+                    self.advantage_memory.add(
+                        (encode_state(state, self.player_id), 
+                         np.zeros(20),  # placeholder for opponent features 
+                         action_id, 
+                         bet_size_multiplier, 
+                         weighted_regret),
+                        priority
+                    )
+                else:
+                    self.advantage_memory.add(
+                        (encode_state(state, self.player_id),
+                         np.zeros(20),  # placeholder for opponent features
+                         action_id, 
+                         0.0,  # Default bet size for non-raise actions 
+                         weighted_regret),
+                        priority
+                    )
+
+                # self.advantage_memory.append((
+                #     encode_state(state, self.player_id),  # Encode from this agent's perspective
+                #     action_id,
+                #     clipped_regret * scale_factor
+                # ))
             
             # Add to strategy memory
             strategy_full = np.zeros(self.num_actions)
@@ -653,10 +679,18 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
                 strategy_full[a] = strategy[a]
             
             self.strategy_memory.append((
-                encode_state(state, self.player_id),  # Encode from this agent's perspective
+                encode_state(state, self.player_id),
+                np.zeros(20), 
                 strategy_full,
+                bet_size_multiplier if 2 in legal_action_ids else 0.0, # Encode from this agent's perspective
                 iteration
             ))
+
+            # self.strategy_memory.append((
+            #     encode_state(state, self.player_id),  # Encode from this agent's perspective
+            #     strategy_full,
+            #     iteration
+            # ))
             
             return ev
             
@@ -990,7 +1024,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
         
         # If it's the trained agent's turn
         if current_player == self.player_id:
-            legal_action_ids = self.get_legal_action_ids(state)
+            legal_action_ids = self.get_legal_action_types(state)
             
             if not legal_action_ids:
                 if verbose:
@@ -1001,14 +1035,21 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
             state_tensor = torch.FloatTensor(encode_state(state, self.player_id)).to(self.device)
             
             # Get advantages from network
+
+            # Get advantages from network
             with torch.no_grad():
-                advantages = self.advantage_net(state_tensor.unsqueeze(0))[0]
+                advantages, bet_size_pred = self.advantage_net(state_tensor.unsqueeze(0))
+                advantages = advantages[0].cpu().numpy()
+                bet_size_multiplier = bet_size_pred[0][0].item()
+            # with torch.no_grad():
+            #     advantages = self.advantage_net(state_tensor.unsqueeze(0))[0]
                 
             # Use regret matching to compute strategy
-            advantages_np = advantages.cpu().numpy()
+            # advantages = advantages.cpu().numpy()
             advantages_masked = np.zeros(self.num_actions)
-            for a in legal_action_ids:
-                advantages_masked[a] = max(advantages_np[a], 0)
+            advantages_masked = np.maximum(advantages[0], advantages_masked)
+            # for a in legal_action_ids:
+            #     advantages_masked[a] = max(advantages[a], 0)
                 
             # Choose an action based on the strategy
             if sum(advantages_masked) > 0:
@@ -1053,12 +1094,34 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
                 
                 # Apply scaling
                 scale_factor = np.sqrt(iteration) if iteration > 1 else 1.0
+                weighted_regret = clipped_regret * scale_factor
                 
-                self.advantage_memory.append((
-                    encode_state(state, self.player_id),  # Encode from this agent's perspective
-                    action_id,
-                    clipped_regret * scale_factor
-                ))
+                # Store in prioritized memory with regret magnitude as priority
+                priority = abs(weighted_regret) + 0.01
+
+                if action_id == 2:
+                    self.advantage_memory.add(
+                        (encode_state(state, self.player_id), 
+                         np.zeros(20),  # placeholder for opponent features 
+                         action_id, 
+                         bet_size_multiplier, 
+                         weighted_regret),
+                        priority
+                    )
+                else:
+                    self.advantage_memory.add(
+                        (encode_state(state, self.player_id),
+                         np.zeros(20),  # placeholder for opponent features
+                         action_id, 
+                         0.0,  # Default bet size for non-raise actions 
+                         weighted_regret),
+                        priority
+                    )
+                # self.advantage_memory.append((
+                #     encode_state(state, self.player_id),  # Encode from this agent's perspective
+                #     action_id,
+                #     clipped_regret * scale_factor
+                # ))
             
             # Add to strategy memory
             strategy_full = np.zeros(self.num_actions)
@@ -1066,10 +1129,19 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
                 strategy_full[a] = strategy[a]
             
             self.strategy_memory.append((
-                encode_state(state, self.player_id),  # Encode from this agent's perspective
+                encode_state(state, self.player_id),
+                np.zeros(20), 
                 strategy_full,
+                bet_size_multiplier if 2 in legal_action_ids else 0.0, # Encode from this agent's perspective
                 iteration
             ))
+            
+            # self.strategy_memory.append((
+            #     encode_state(state, self.player_id),
+            #     strategy_full,
+            #     iteration
+            # ))
+
             
             return ev
             
