@@ -4,8 +4,10 @@
 /logs
 /logs/*.log
 /venv
+/.venv
 /build
 /dist
 .ds_store
 .env
 __pycache__
+util.py
