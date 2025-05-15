@@ -4,6 +4,7 @@
 /logs
 /logs/*.log
 /venv
+/.venv
 /build
 /dist
 .ds_store
