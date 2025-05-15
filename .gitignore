@@ -9,3 +9,4 @@
 .ds_store
 .env
 __pycache__
+util.py
