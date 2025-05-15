@@ -140,7 +140,7 @@ class DeepCFRAgent:
         self.advantage_net = PokerNetwork(input_size=input_size, hidden_size=256, num_actions=self.num_actions).to(device)
         
         # Use a smaller learning rate for more stable training
-        self.optimizer = optim.Adam(self.advantage_net.parameters(), lr=0.00005, weight_decay=1e-5)
+        self.optimizer = optim.Adam(self.advantage_net.parameters(), lr=1e-6, weight_decay=1e-5)
         
         # Create prioritized memory buffer
         self.advantage_memory = PrioritizedMemory(memory_size)
@@ -568,6 +568,11 @@ class DeepCFRAgent:
             batch, indices, weights = self.advantage_memory.sample(batch_size, beta=beta)
             states, opponent_features, action_types, bet_sizes, regrets = zip(*batch)
             
+            # [DEBUG 1] Log regret values in memory
+            if self.iteration_count % 10 == 0 and epoch == 0:
+                regret_array = np.array(regrets)
+                print(f"[DEBUG-MEMORY] Regret stats: min={np.min(regret_array):.2f}, max={np.max(regret_array):.2f}, mean={np.mean(regret_array):.2f}")
+            
             # Convert to tensors
             state_tensors = torch.FloatTensor(np.array(states)).to(self.device)
             opponent_feature_tensors = torch.FloatTensor(np.array(opponent_features)).to(self.device)
@@ -579,10 +584,45 @@ class DeepCFRAgent:
             # Forward pass
             action_advantages, bet_size_preds = self.advantage_net(state_tensors, opponent_feature_tensors)
             
+            # [DEBUG 2] Log network raw outputs to identify explosion
+            if self.iteration_count % 10 == 0 and epoch == 0:
+                with torch.no_grad():
+                    max_adv = torch.max(action_advantages).item()
+                    min_adv = torch.min(action_advantages).item()
+                    print(f"[DEBUG-NETWORK] Network outputs: min={min_adv:.2f}, max={max_adv:.2f}")
+            
             # Compute action type loss (for all actions)
             predicted_regrets = action_advantages.gather(1, action_type_tensors.unsqueeze(1)).squeeze(1)
+            
+            # [DEBUG 3] Log gathered predictions
+            if self.iteration_count % 10 == 0 and epoch == 0:
+                with torch.no_grad():
+                    max_pred = torch.max(predicted_regrets).item()
+                    min_pred = torch.min(predicted_regrets).item()
+                    max_target = torch.max(regret_tensors).item()
+                    min_target = torch.min(regret_tensors).item()
+                    print(f"[DEBUG-PRED] Predictions: min={min_pred:.2f}, max={max_pred:.2f}")
+                    print(f"[DEBUG-TARGET] Targets: min={min_target:.2f}, max={max_target:.2f}")
+            
             action_loss = F.smooth_l1_loss(predicted_regrets, regret_tensors, reduction='none')
+            
+            # [DEBUG 4] Log raw loss values before weighting
+            if self.iteration_count % 10 == 0 and epoch == 0:
+                with torch.no_grad():
+                    max_loss = torch.max(action_loss).item()
+                    mean_loss = torch.mean(action_loss).item()
+                    print(f"[DEBUG-LOSS] Raw loss values: max={max_loss:.2f}, mean={mean_loss:.2f}")
+            
             weighted_action_loss = (action_loss * weight_tensors).mean()
+            
+            # [DEBUG 5] Log weighted loss
+            if self.iteration_count % 10 == 0 and epoch == 0:
+                print(f"[DEBUG-WEIGHTED] Weighted action loss: {weighted_action_loss.item():.2f}")
+                
+                # Check for weight outliers
+                max_weight = torch.max(weight_tensors).item()
+                min_weight = torch.min(weight_tensors).item()
+                print(f"[DEBUG-WEIGHTS] Weight range: min={min_weight:.4f}, max={max_weight:.4f}")
             
             # Compute bet sizing loss (only for raise actions)
             raise_mask = (action_type_tensors == 2)
@@ -598,21 +638,70 @@ class DeepCFRAgent:
                 if raise_count > 0:
                     weighted_bet_size_loss = (masked_bet_losses.squeeze() * weight_tensors).sum() / raise_count
                     combined_loss = weighted_action_loss + 0.5 * weighted_bet_size_loss
+                    
+                    # [DEBUG 6] Log bet size loss
+                    if self.iteration_count % 10 == 0 and epoch == 0:
+                        print(f"[DEBUG-BET] Weighted bet size loss: {weighted_bet_size_loss.item():.2f}")
                 else:
                     combined_loss = weighted_action_loss
             else:
                 combined_loss = weighted_action_loss
             
+            # [DEBUG 7] Log final combined loss
+            if self.iteration_count % 10 == 0 and epoch == 0:
+                print(f"[DEBUG-COMBINED] Combined loss before clipping: {combined_loss.item():.2f}")
+            
             # Backward pass and optimize
             self.optimizer.zero_grad()
             combined_loss.backward()
             
-            # Apply gradient clipping
+            # [DEBUG 8] Check for gradient explosion before clipping
+            if self.iteration_count % 10 == 0 and epoch == 0:
+                total_grad_norm = 0
+                max_layer_norm = 0
+                max_layer_name = ""
+                for name, param in self.advantage_net.named_parameters():
+                    if param.grad is not None:
+                        grad_norm = param.grad.norm().item()
+                        total_grad_norm += grad_norm * grad_norm
+                        if grad_norm > max_layer_norm:
+                            max_layer_norm = grad_norm
+                            max_layer_name = name
+                
+                total_grad_norm = np.sqrt(total_grad_norm)
+                print(f"[DEBUG-GRAD] Before clipping - Total grad norm: {total_grad_norm:.2f}")
+                print(f"[DEBUG-GRAD] Largest layer grad: {max_layer_name} = {max_layer_norm:.2f}")
+            
+            # Apply gradient clipping (your existing code)
             torch.nn.utils.clip_grad_norm_(self.advantage_net.parameters(), max_norm=0.5)
+            
+            # [DEBUG 9] Check effect of gradient clipping
+            if self.iteration_count % 10 == 0 and epoch == 0:
+                total_grad_norm = 0
+                for name, param in self.advantage_net.named_parameters():
+                    if param.grad is not None:
+                        grad_norm = param.grad.norm().item()
+                        total_grad_norm += grad_norm * grad_norm
+                
+                total_grad_norm = np.sqrt(total_grad_norm)
+                print(f"[DEBUG-GRAD] After clipping - Total grad norm: {total_grad_norm:.2f}")
             
             self.optimizer.step()
             
-            # Update priorities based on new losses
+            # [DEBUG 10] Check for extreme parameter values after update
+            if self.iteration_count % 50 == 0 and epoch == 0:
+                with torch.no_grad():
+                    max_param_val = -float('inf')
+                    max_param_name = ""
+                    for name, param in self.advantage_net.named_parameters():
+                        param_max = torch.max(torch.abs(param)).item()
+                        if param_max > max_param_val:
+                            max_param_val = param_max
+                            max_param_name = name
+                    
+                    print(f"[DEBUG-PARAMS] Largest parameter value: {max_param_name} = {max_param_val:.2f}")
+            
+            # Update priorities
             with torch.no_grad():
                 # Calculate new errors for priority updates
                 new_action_errors = F.smooth_l1_loss(predicted_regrets, regret_tensors, reduction='none')
@@ -634,7 +723,15 @@ class DeepCFRAgent:
                 else:
                     combined_errors = new_action_errors
                 
-                # Update priorities
+                # [DEBUG 11] Check priority values
+                if self.iteration_count % 10 == 0 and epoch == 0:
+                    combined_errors_np = combined_errors.cpu().numpy()
+                    max_priority = np.max(combined_errors_np) + 0.01
+                    min_priority = np.min(combined_errors_np) + 0.01
+                    mean_priority = np.mean(combined_errors_np) + 0.01
+                    print(f"[DEBUG-PRIORITY] Priorities: min={min_priority:.2f}, max={max_priority:.2f}, mean={mean_priority:.2f}")
+                
+                # Update priorities (your existing code)
                 combined_errors_np = combined_errors.cpu().numpy()
                 for i, idx in enumerate(indices):
                     self.advantage_memory.update_priority(idx, combined_errors_np[i] + 0.01)

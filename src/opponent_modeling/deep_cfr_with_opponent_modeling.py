@@ -1,4 +1,4 @@
-# deep_cfr_with_opponent_modeling.py
+# src/opponent_modeling/deep_cfr_with_opponent_modeling.py
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -23,9 +23,9 @@ class EnhancedPokerNetwork(nn.Module):
         # Standard game state processing
         self.base_state = nn.Sequential(
             nn.Linear(input_size, hidden_size),
-            nn.ReLU(),
+            nn.Tanh(),
             nn.Linear(hidden_size, hidden_size),
-            nn.ReLU()
+            nn.Tanh()
         )
         
         # Process opponent features
@@ -34,9 +34,9 @@ class EnhancedPokerNetwork(nn.Module):
         # Combined processing
         self.combined = nn.Sequential(
             nn.Linear(hidden_size + hidden_size // 2, hidden_size),
-            nn.ReLU(),
+            nn.Tanh(),
             nn.Linear(hidden_size, hidden_size),
-            nn.ReLU()
+            nn.Tanh()
         )
         
         # Action type prediction (fold, check/call, raise)
@@ -45,7 +45,7 @@ class EnhancedPokerNetwork(nn.Module):
         # Continuous bet sizing prediction
         self.sizing_head = nn.Sequential(
             nn.Linear(hidden_size, hidden_size // 2),
-            nn.ReLU(),
+            nn.Tanh(),
             nn.Linear(hidden_size // 2, 1),
             nn.Sigmoid()  # Output between 0-1
         )
@@ -92,7 +92,7 @@ class DeepCFRAgentWithOpponentModeling:
             num_actions=self.num_actions
         ).to(device)
         
-        self.optimizer = optim.Adam(self.advantage_net.parameters(), lr=0.00005, weight_decay=1e-5)
+        self.optimizer = optim.Adam(self.advantage_net.parameters(), lr=1e-6, weight_decay=1e-5)
         
         # Create prioritized memory buffer
         self.advantage_memory = PrioritizedMemory(memory_size)

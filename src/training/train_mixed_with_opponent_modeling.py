@@ -1,4 +1,4 @@
-# train_mixed_with_opponent_modeling.py
+# src/training/train_mixed_with_opponent_modeling.py
 import pokers as pkrs
 import torch
 import numpy as np
@@ -10,87 +10,7 @@ import glob
 from torch.utils.tensorboard import SummaryWriter
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.model import encode_state, set_verbose
-
-class RandomAgent:
-    """Simple random agent for poker."""
-    def __init__(self, player_id):
-        self.player_id = player_id
-        self.name = f"Player {player_id}"
-        
-    def choose_action(self, state):
-        """Choose a random legal action with correctly calculated bet sizing."""
-        if not state.legal_actions:
-            raise ValueError(f"No legal actions available for player {self.player_id}")
-        
-        # Select a random legal action
-        action_enum = random.choice(state.legal_actions)
-        
-        # For fold, check, and call, no amount is needed
-        if action_enum == pkrs.ActionEnum.Fold:
-            return pkrs.Action(action_enum)
-        elif action_enum == pkrs.ActionEnum.Check:
-            return pkrs.Action(action_enum)
-        elif action_enum == pkrs.ActionEnum.Call:
-            return pkrs.Action(action_enum)
-        # For raises, carefully calculate a valid amount
-        elif action_enum == pkrs.ActionEnum.Raise:
-            player_state = state.players_state[state.current_player]
-            current_bet = player_state.bet_chips
-            available_stake = player_state.stake
-            
-            # Calculate call amount (needed to match current min_bet)
-            call_amount = max(0, state.min_bet - current_bet)
-            
-            # If player can't even call, go all-in
-            if available_stake <= call_amount:
-                return pkrs.Action(action_enum, available_stake)
-            
-            # Calculate remaining stake after calling
-            remaining_stake = available_stake - call_amount
-            
-            # If player can't raise at all, just call
-            if remaining_stake <= 0:
-                return pkrs.Action(pkrs.ActionEnum.Call)
-            
-            # Define minimum raise (typically 1 chip or the big blind)
-            min_raise = 1.0
-            if hasattr(state, 'bb'):
-                min_raise = state.bb
-            
-            # Calculate potential additional raise amounts
-            half_pot_raise = max(state.pot * 0.5, min_raise)
-            full_pot_raise = max(state.pot, min_raise)
-            
-            # Create a list of valid additional raise amounts
-            valid_amounts = []
-            
-            # Add half pot if affordable
-            if half_pot_raise <= remaining_stake:
-                valid_amounts.append(half_pot_raise)
-            
-            # Add full pot if affordable
-            if full_pot_raise <= remaining_stake:
-                valid_amounts.append(full_pot_raise)
-            
-            # Add minimum raise if none of the above is affordable
-            if not valid_amounts and min_raise <= remaining_stake:
-                valid_amounts.append(min_raise)
-            
-            # Small chance to go all-in
-            if random.random() < 0.05 and remaining_stake > 0:  # 5% chance
-                valid_amounts.append(remaining_stake)
-            
-            # If we can't afford any valid raise, fall back to call
-            if not valid_amounts:
-                return pkrs.Action(pkrs.ActionEnum.Call)
-            
-            # Choose a random additional raise amount
-            additional_raise = random.choice(valid_amounts)
-            
-            # Ensure it doesn't exceed available stake
-            additional_raise = min(additional_raise, remaining_stake)
-            
-            return pkrs.Action(action_enum, additional_raise)
+from src.agents.random_agent import RandomAgent
 
 class ModelAgent:
     """Wrapper for a DeepCFRAgent or DeepCFRAgentWithOpponentModeling loaded from a checkpoint.
