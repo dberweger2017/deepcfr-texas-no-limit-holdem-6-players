@@ -58,7 +58,7 @@ def patch_training_side_effects(monkeypatch):
     )
 
 
-def assert_replay_memory_shapes(agent):
+def assert_replay_memory_shapes(agent, expected_iteration=1):
     assert len(agent.advantage_memory) > 0
     assert len(agent.strategy_memory) > 0
 
@@ -75,7 +75,7 @@ def assert_replay_memory_shapes(agent):
     assert strategy.shape == (agent.num_actions,)
     assert np.isclose(strategy.sum(), 1.0)
     assert isinstance(float(bet_size), float)
-    assert iteration == 1
+    assert iteration == expected_iteration
 
 
 def test_self_play_training_smoke(tmp_path, monkeypatch):
@@ -127,6 +127,39 @@ def test_mixed_training_smoke(tmp_path, monkeypatch):
     assert profits == [0.0, 0.0]
     assert profits_vs_checkpoints == [0.0, 0.0]
     assert_replay_memory_shapes(agent)
+
+
+def test_mixed_training_can_continue_from_checkpoint(tmp_path, monkeypatch):
+    patch_training_side_effects(monkeypatch)
+    random.seed(0)
+    np.random.seed(0)
+    torch.manual_seed(0)
+
+    checkpoint_dir = tmp_path / "pool"
+    checkpoint_dir.mkdir()
+    write_checkpoint(checkpoint_dir / "t_seed.pt")
+
+    resume_checkpoint = tmp_path / "resume.pt"
+    write_checkpoint(resume_checkpoint)
+
+    agent, losses, profits, profits_vs_checkpoints = train_mod.train_with_mixed_checkpoints(
+        checkpoint_dir=str(checkpoint_dir),
+        training_model_prefix="t_",
+        additional_iterations=1,
+        traversals_per_iteration=1,
+        save_dir=str(tmp_path / "models"),
+        log_dir=str(tmp_path / "logs"),
+        refresh_interval=1000,
+        num_opponents=1,
+        verbose=False,
+        checkpoint_path=str(resume_checkpoint),
+    )
+
+    assert agent.iteration_count == 2
+    assert losses == [0]
+    assert profits[0] == 0.0
+    assert profits_vs_checkpoints[0] == 0.0
+    assert_replay_memory_shapes(agent, expected_iteration=2)
 
 
 def test_save_model_respects_explicit_pt_path(tmp_path):
