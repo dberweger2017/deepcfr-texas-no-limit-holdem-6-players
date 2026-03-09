@@ -8,6 +8,7 @@ import pytest
 
 REGRESSION_TESTS = [
     "tests/test_evaluation_cli.py",
+    "tests/test_training_opponent_modeling_regressions.py",
     "tests/test_state_scenarios.py",
     "tests/test_logging_regressions.py",
     "tests/test_pokers_regressions.py",
