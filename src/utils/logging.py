@@ -47,11 +47,15 @@ def log_game_error(state: pkrs.State, action: pkrs.Action, error_msg: str,
     
     try:
         with open(log_filename, "w") as f:
+            stack_trace = traceback.format_exc()
+            if stack_trace.strip() == "NoneType: None":
+                stack_trace = "No active exception.\n"
+
             # Write error summary
             f.write(f"=== POKER GAME ERROR LOG ===\n")
             f.write(f"Timestamp: {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
             f.write(f"Error: {error_msg}\n\n")
-            f.write(f"Stack trace:\n{traceback.format_exc()}\n\n")
+            f.write(f"Stack trace:\n{stack_trace}\n")
             
             # Write game state information
             f.write(f"=== GAME STATE ===\n")
