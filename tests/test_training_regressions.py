@@ -84,7 +84,8 @@ def test_self_play_training_smoke(tmp_path, monkeypatch):
     np.random.seed(0)
     torch.manual_seed(0)
 
-    checkpoint_path = tmp_path / "checkpoint.pt"
+    checkpoint_path = tmp_path / "phase1" / "checkpoint_iter_1.pt"
+    checkpoint_path.parent.mkdir()
     write_checkpoint(checkpoint_path)
 
     agent, losses, profits = train_mod.train_against_checkpoint(
@@ -96,9 +97,11 @@ def test_self_play_training_smoke(tmp_path, monkeypatch):
         verbose=False,
     )
 
+    assert agent.iteration_count == 2
     assert losses == [0]
     assert profits == [0.0, 0.0]
-    assert_replay_memory_shapes(agent)
+    assert_replay_memory_shapes(agent, expected_iteration=2)
+    assert (tmp_path / "models" / "selfplay_checkpoint_iter_2.pt").exists()
 
 
 def test_mixed_training_smoke(tmp_path, monkeypatch):
@@ -108,12 +111,12 @@ def test_mixed_training_smoke(tmp_path, monkeypatch):
     torch.manual_seed(0)
 
     checkpoint_dir = tmp_path / "pool"
-    checkpoint_dir.mkdir()
-    write_checkpoint(checkpoint_dir / "t_seed.pt")
+    (checkpoint_dir / "phase1").mkdir(parents=True)
+    write_checkpoint(checkpoint_dir / "phase1" / "checkpoint_iter_1.pt")
 
     agent, losses, profits, profits_vs_checkpoints = train_mod.train_with_mixed_checkpoints(
         checkpoint_dir=str(checkpoint_dir),
-        training_model_prefix="t_",
+        training_model_prefix="*checkpoint_iter_",
         additional_iterations=1,
         traversals_per_iteration=1,
         save_dir=str(tmp_path / "models"),
@@ -136,15 +139,16 @@ def test_mixed_training_can_continue_from_checkpoint(tmp_path, monkeypatch):
     torch.manual_seed(0)
 
     checkpoint_dir = tmp_path / "pool"
-    checkpoint_dir.mkdir()
-    write_checkpoint(checkpoint_dir / "t_seed.pt")
+    (checkpoint_dir / "phase1").mkdir(parents=True)
+    write_checkpoint(checkpoint_dir / "phase1" / "checkpoint_iter_1.pt")
 
-    resume_checkpoint = tmp_path / "resume.pt"
+    resume_checkpoint = tmp_path / "resume" / "selfplay_checkpoint_iter_1.pt"
+    resume_checkpoint.parent.mkdir()
     write_checkpoint(resume_checkpoint)
 
     agent, losses, profits, profits_vs_checkpoints = train_mod.train_with_mixed_checkpoints(
         checkpoint_dir=str(checkpoint_dir),
-        training_model_prefix="t_",
+        training_model_prefix="*checkpoint_iter_",
         additional_iterations=1,
         traversals_per_iteration=1,
         save_dir=str(tmp_path / "models"),
@@ -160,6 +164,7 @@ def test_mixed_training_can_continue_from_checkpoint(tmp_path, monkeypatch):
     assert profits[0] == 0.0
     assert profits_vs_checkpoints[0] == 0.0
     assert_replay_memory_shapes(agent, expected_iteration=2)
+    assert (tmp_path / "models" / "mixed_checkpoint_iter_2.pt").exists()
 
 
 def test_save_model_respects_explicit_pt_path(tmp_path):

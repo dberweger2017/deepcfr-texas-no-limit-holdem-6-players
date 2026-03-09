@@ -13,6 +13,7 @@ import torch
 
 from src.agents.random_agent import RandomAgent
 from src.core.deep_cfr import DeepCFRAgent
+from src.utils.checkpoints import find_checkpoints
 from src.utils.logging import apply_action_with_logging
 
 
@@ -39,7 +40,7 @@ def resolve_checkpoint_paths(
         resolved.extend(Path(path) for path in checkpoints)
 
     if checkpoint_dir:
-        resolved.extend(sorted(Path(checkpoint_dir).glob(pattern)))
+        resolved.extend(find_checkpoints(checkpoint_dir, pattern))
 
     unique_paths = []
     seen = set()

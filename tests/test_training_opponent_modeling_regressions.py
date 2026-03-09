@@ -3,6 +3,7 @@ import sys
 import types
 
 import numpy as np
+import pytest
 import torch
 
 
@@ -47,6 +48,7 @@ telegram_stub.TelegramNotifier = DummyNotifier
 sys.modules["scripts.telegram_notifier"] = telegram_stub
 
 import src.training.train_opponent_modeling as train_om_mod
+from src.core.deep_cfr import DeepCFRAgent
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import (
     DeepCFRAgentWithOpponentModeling,
 )
@@ -56,6 +58,21 @@ def write_om_checkpoint(path):
     agent = DeepCFRAgentWithOpponentModeling(player_id=0, num_players=6, device="cpu")
     agent.iteration_count = 1
     agent.save_model(path)
+
+
+def write_standard_checkpoint(path):
+    agent = DeepCFRAgent(player_id=0, num_players=6, device="cpu")
+    agent.iteration_count = 1
+    torch.save(
+        {
+            "iteration": agent.iteration_count,
+            "advantage_net": agent.advantage_net.state_dict(),
+            "strategy_net": agent.strategy_net.state_dict(),
+            "min_bet_size": agent.min_bet_size,
+            "max_bet_size": agent.max_bet_size,
+        },
+        path,
+    )
 
 
 def patch_opponent_model_training_side_effects(monkeypatch):
@@ -77,7 +94,8 @@ def test_opponent_model_self_play_training_smoke(tmp_path, monkeypatch):
     np.random.seed(0)
     torch.manual_seed(0)
 
-    checkpoint_path = tmp_path / "om_checkpoint.pt"
+    checkpoint_path = tmp_path / "phase1" / "checkpoint_iter_1.pt"
+    checkpoint_path.parent.mkdir()
     write_om_checkpoint(checkpoint_path)
 
     (
@@ -96,6 +114,7 @@ def test_opponent_model_self_play_training_smoke(tmp_path, monkeypatch):
         verbose=False,
     )
 
+    assert agent.iteration_count == 2
     assert len(agent.advantage_memory) > 0
     assert len(agent.strategy_memory) > 0
     assert advantage_losses == [0]
@@ -104,6 +123,25 @@ def test_opponent_model_self_play_training_smoke(tmp_path, monkeypatch):
     assert isinstance(float(opponent_model_losses[0]), float)
     assert profits == [0.0, 0.0]
     assert profits_vs_checkpoints == [0.0, 0.0]
+    assert (tmp_path / "models" / "selfplay_checkpoint_iter_2.pt").exists()
+
+
+def test_opponent_model_self_play_rejects_standard_checkpoint(tmp_path, monkeypatch):
+    patch_opponent_model_training_side_effects(monkeypatch)
+
+    checkpoint_path = tmp_path / "phase1" / "checkpoint_iter_1.pt"
+    checkpoint_path.parent.mkdir()
+    write_standard_checkpoint(checkpoint_path)
+
+    with pytest.raises(ValueError, match="Opponent-model self-play requires an opponent-model checkpoint"):
+        train_om_mod.train_against_checkpoint_with_opponent_modeling(
+            checkpoint_path=str(checkpoint_path),
+            additional_iterations=1,
+            traversals_per_iteration=1,
+            save_dir=str(tmp_path / "models"),
+            log_dir=str(tmp_path / "logs"),
+            verbose=False,
+        )
 
 
 def test_train_opponent_modeling_main_dispatches_modes(monkeypatch):

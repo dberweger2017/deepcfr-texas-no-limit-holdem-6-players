@@ -17,11 +17,11 @@ Current status:
 
 What this means in practice:
 
-- Basic random-opponent training works.
-- Continuing training from a checkpoint works.
-- Self-play against a checkpoint works.
-- Mixed checkpoint training works again.
-- Opponent-modeling training scripts are still available, but should be treated as experimental compared with the main training path.
+- Standard Deep CFR now has a clean 3-stage progression: random, self-play, mixed checkpoints.
+- Opponent-modeling training now exposes the same 3-stage CLI progression.
+- `--checkpoint` now consistently means "continue from this checkpoint" across both public training entrypoints.
+- Mixed checkpoint discovery now works recursively, so stage-based subdirectories are supported directly.
+- Opponent modeling is still more experimental in learning quality than the standard track, but the workflow is no longer a separate one-off path.
 
 The Medium article is still useful for background, but the code has evolved. Prefer this README and the current scripts over the article when they differ.
 
@@ -47,7 +47,7 @@ Notes:
 
 - Deep CFR training against random opponents
 - Checkpoint continuation
-- Self-play training against a fixed checkpoint
+- Self-play continuation against a fixed checkpoint snapshot
 - Mixed training against a rotating checkpoint pool
 - Opponent-modeling training with the same 3-stage progression
 - Checkpoint evaluation via CLI
@@ -80,6 +80,13 @@ There are now two clean training tracks:
 - standard Deep CFR: [train.py](./src/training/train.py)
 - opponent-modeling Deep CFR: [train_opponent_modeling.py](./src/training/train_opponent_modeling.py)
 
+The older files:
+
+- [train_with_opponent_modeling.py](./src/training/train_with_opponent_modeling.py)
+- [train_mixed_with_opponent_modeling.py](./src/training/train_mixed_with_opponent_modeling.py)
+
+are now internal implementation modules. Use the two entrypoints above when training from the command line.
+
 Both follow the same 3-stage progression:
 
 1. random opponents
@@ -101,48 +108,73 @@ Shared core flags:
 - `--num-opponents`
 - `--strict`
 
+Flag meaning:
+
+- `--checkpoint` means "continue from this checkpoint"
+- `--checkpoint --self-play` means "continue from this checkpoint and use that same checkpoint as the fixed opponent snapshot"
+- `--checkpoint --mixed` means "continue from this checkpoint while sampling opponents from `--checkpoint-dir`"
+
+Recommended directory layout:
+
+```text
+models/
+  standard/
+    phase1/
+    selfplay/
+    mixed/
+  opponent_modeling/
+    phase1/
+    selfplay/
+    mixed/
+```
+
 ### Phase 1: Train Against Random Opponents
 
 ```bash
-python -m src.training.train --iterations 1000 --traversals 200 --log-dir logs/phase1 --save-dir models/phase1
+python -m src.training.train \
+  --iterations 1000 \
+  --traversals 200 \
+  --log-dir logs/standard/phase1 \
+  --save-dir models/standard/phase1
 ```
 
 ### Continue Training From a Checkpoint
 
 ```bash
 python -m src.training.train \
-  --checkpoint models/phase1/checkpoint_iter_1000.pt \
+  --checkpoint models/standard/phase1/checkpoint_iter_1000.pt \
   --iterations 1000 \
   --traversals 200 \
-  --log-dir logs/continued \
-  --save-dir models/continued
+  --log-dir logs/standard/continued \
+  --save-dir models/standard/continued
 ```
 
 ### Phase 2: Self-Play Against a Fixed Checkpoint
 
 ```bash
 python -m src.training.train \
-  --checkpoint models/phase1/checkpoint_iter_1000.pt \
+  --checkpoint models/standard/phase1/checkpoint_iter_1000.pt \
   --self-play \
   --iterations 2000 \
   --traversals 400 \
-  --log-dir logs/selfplay \
-  --save-dir models/selfplay
+  --log-dir logs/standard/selfplay \
+  --save-dir models/standard/selfplay
 ```
 
 ### Phase 3: Mixed Training Against a Checkpoint Pool
 
 ```bash
 python -m src.training.train \
+  --checkpoint models/standard/selfplay/selfplay_checkpoint_iter_3000.pt \
   --mixed \
-  --checkpoint-dir models \
-  --model-prefix t_ \
+  --checkpoint-dir models/standard \
+  --model-prefix "*checkpoint_iter_" \
   --refresh-interval 1000 \
   --num-opponents 5 \
   --iterations 10000 \
   --traversals 400 \
-  --log-dir logs/mixed \
-  --save-dir models/mixed
+  --log-dir logs/standard/mixed \
+  --save-dir models/standard/mixed
 ```
 
 ### Opponent-Modeling Training
@@ -153,20 +185,20 @@ Stage 1: random opponents
 python -m src.training.train_opponent_modeling \
   --iterations 1000 \
   --traversals 200 \
-  --save-dir models_om \
-  --log-dir logs/deepcfr_om
+  --save-dir models/opponent_modeling/phase1 \
+  --log-dir logs/opponent_modeling/phase1
 ```
 
 Stage 2: self-play against a fixed checkpoint
 
 ```bash
 python -m src.training.train_opponent_modeling \
-  --checkpoint models_om/om_checkpoint_iter_1000.pt \
+  --checkpoint models/opponent_modeling/phase1/checkpoint_iter_1000.pt \
   --self-play \
   --iterations 2000 \
   --traversals 400 \
-  --save-dir models_om_selfplay \
-  --log-dir logs/deepcfr_om_selfplay
+  --save-dir models/opponent_modeling/selfplay \
+  --log-dir logs/opponent_modeling/selfplay
 ```
 
 Stage 3: mixed checkpoint training
@@ -174,20 +206,24 @@ Stage 3: mixed checkpoint training
 ```bash
 python -m src.training.train_opponent_modeling \
   --mixed \
-  --checkpoint-dir models_om \
-  --model-prefix om_checkpoint_iter_ \
+  --checkpoint models/opponent_modeling/selfplay/selfplay_checkpoint_iter_3000.pt \
+  --checkpoint-dir models/opponent_modeling \
+  --model-prefix "*checkpoint_iter_" \
   --iterations 10000 \
   --traversals 200 \
   --refresh-interval 1000 \
   --num-opponents 5 \
-  --save-dir models_mixed_om \
-  --log-dir logs/deepcfr_mixed_om
+  --save-dir models/opponent_modeling/mixed \
+  --log-dir logs/opponent_modeling/mixed
 ```
 
 Notes:
 
-- Opponent-model mixed training can evaluate and train against opponent-model checkpoints and standard checkpoints.
-- Standard mixed training should still use standard checkpoints.
+- Standard mixed training should usually point at `models/standard` so it only samples standard checkpoints.
+- Opponent-model self-play requires an opponent-model checkpoint created by `src.training.train_opponent_modeling`.
+- Opponent-model mixed training can use:
+  - `--checkpoint-dir models/opponent_modeling` for OM-only pools
+  - `--checkpoint-dir models` for a mixed pool containing both standard and opponent-model checkpoints
 
 ### Monitor Training
 
@@ -205,8 +241,8 @@ Example:
 
 ```bash
 python scripts/evaluate_models.py \
-  --checkpoint-dir models \
-  --pattern "*.pt" \
+  --checkpoint-dir models/standard \
+  --pattern "*checkpoint_iter_" \
   --games-random 100 \
   --games-pool 100 \
   --json-out reports/evaluation.json \
@@ -226,7 +262,7 @@ What it reports:
 ### CLI
 
 ```bash
-python scripts/play.py --models-dir models/phase1
+python scripts/play.py --models-dir models/standard/selfplay
 ```
 
 Useful options:
@@ -240,14 +276,14 @@ Useful options:
 ### GUI
 
 ```bash
-python scripts/poker_gui.py --models_folder models/phase1
+python scripts/poker_gui.py --models_folder models/standard/selfplay
 ```
 
 ### Tournament Visualization
 
 ```bash
 python scripts/visualize_tournament.py \
-  --checkpoints models/phase1/checkpoint_iter_1000.pt models/selfplay/checkpoint_iter_2000.pt \
+  --checkpoints models/standard/phase1/checkpoint_iter_1000.pt models/standard/selfplay/selfplay_checkpoint_iter_3000.pt \
   --num-games 100
 ```
 
@@ -267,6 +303,7 @@ What these cover:
   - checkpoint evaluation CLI behavior
 - `tests/test_training_opponent_modeling_regressions.py`
   - opponent-model self-play smoke test
+  - opponent-model self-play rejects standard checkpoints
   - unified OM training CLI dispatch
 - `tests/test_pokers_regressions.py`
   - all-in and legal-action regressions inherited from the `pokers` library

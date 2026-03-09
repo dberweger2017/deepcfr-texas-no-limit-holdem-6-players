@@ -56,7 +56,7 @@ def train_against_checkpoint_with_opponent_modeling(
     player_id=0,
     verbose=False,
 ):
-    """Train an opponent-modeling agent against a fixed checkpoint opponent pool."""
+    """Continue an opponent-modeling agent against a fixed checkpoint opponent pool."""
     from torch.utils.tensorboard import SummaryWriter
 
     try:
@@ -70,6 +70,12 @@ def train_against_checkpoint_with_opponent_modeling(
 
     writer = SummaryWriter(log_dir)
     device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    if not checkpoint_uses_opponent_modeling(checkpoint_path):
+        raise ValueError(
+            "Opponent-model self-play requires an opponent-model checkpoint. "
+            "Use a phase-1 checkpoint created by src.training.train_opponent_modeling."
+        )
 
     notifier = None
     if TelegramNotifier is not None:
@@ -86,6 +92,8 @@ def train_against_checkpoint_with_opponent_modeling(
         num_players=6,
         device=device,
     )
+    learning_agent.load_model(checkpoint_path)
+    starting_iteration = learning_agent.iteration_count + 1
 
     advantage_losses = []
     strategy_losses = []
@@ -104,7 +112,11 @@ def train_against_checkpoint_with_opponent_modeling(
     )
     profits_vs_checkpoints.append(initial_profit_vs_checkpoint)
     print(f"Initial average profit vs checkpoint: {initial_profit_vs_checkpoint:.2f}")
-    writer.add_scalar("Performance/ProfitVsCheckpoint", initial_profit_vs_checkpoint, 0)
+    writer.add_scalar(
+        "Performance/ProfitVsCheckpoint",
+        initial_profit_vs_checkpoint,
+        starting_iteration - 1,
+    )
 
     initial_profit_random = evaluate_against_random(
         learning_agent,
@@ -114,13 +126,14 @@ def train_against_checkpoint_with_opponent_modeling(
     )
     profits.append(initial_profit_random)
     print(f"Initial average profit vs random: {initial_profit_random:.2f}")
-    writer.add_scalar("Performance/ProfitVsRandom", initial_profit_random, 0)
+    writer.add_scalar("Performance/ProfitVsRandom", initial_profit_random, starting_iteration - 1)
 
-    for iteration in range(1, additional_iterations + 1):
+    final_iteration = starting_iteration + additional_iterations - 1
+    for iteration in range(starting_iteration, final_iteration + 1):
         learning_agent.iteration_count = iteration
         start_time = time.time()
 
-        print(f"Self-play iteration {iteration}/{additional_iterations}")
+        print(f"Self-play iteration {iteration}/{final_iteration}")
         print("  Collecting data...")
         for traversal in range(traversals_per_iteration):
             state = pkrs.State.from_seed(
@@ -149,21 +162,21 @@ def train_against_checkpoint_with_opponent_modeling(
         print(f"  Advantage network loss: {adv_loss:.6f}")
         writer.add_scalar("Loss/Advantage", adv_loss, iteration)
 
-        if iteration % 5 == 0 or iteration == additional_iterations:
+        if iteration % 5 == 0 or iteration == final_iteration:
             print("  Training strategy network...")
             strat_loss = learning_agent.train_strategy_network()
             strategy_losses.append(strat_loss)
             print(f"  Strategy network loss: {strat_loss:.6f}")
             writer.add_scalar("Loss/Strategy", strat_loss, iteration)
 
-        if iteration % 10 == 0 or iteration == additional_iterations:
+        if iteration % 10 == 0 or iteration == final_iteration:
             print("  Training opponent modeling...")
             opp_loss = learning_agent.train_opponent_modeling()
             opponent_model_losses.append(opp_loss)
             print(f"  Opponent modeling loss: {opp_loss:.6f}")
             writer.add_scalar("Loss/OpponentModeling", opp_loss, iteration)
 
-        if iteration % 20 == 0 or iteration == additional_iterations:
+        if iteration % 20 == 0 or iteration == final_iteration:
             print("  Evaluating against checkpoint opponents...")
             avg_profit_vs_checkpoint = evaluate_against_opponents(
                 learning_agent,
@@ -187,9 +200,18 @@ def train_against_checkpoint_with_opponent_modeling(
             print(f"  Average profit vs random: {avg_profit_random:.2f}")
             writer.add_scalar("Performance/ProfitVsRandom", avg_profit_random, iteration)
 
-        if iteration % checkpoint_frequency == 0 or iteration == additional_iterations:
-            save_path = f"{save_dir}/om_selfplay_checkpoint_iter_{iteration}.pt"
-            learning_agent.save_model(save_path)
+        if iteration % checkpoint_frequency == 0 or iteration == final_iteration:
+            save_path = f"{save_dir}/selfplay_checkpoint_iter_{iteration}.pt"
+            torch.save(
+                {
+                    "iteration": iteration,
+                    "advantage_net": learning_agent.advantage_net.state_dict(),
+                    "strategy_net": learning_agent.strategy_net.state_dict(),
+                    "history_encoder": learning_agent.opponent_modeling.history_encoder.state_dict(),
+                    "opponent_model": learning_agent.opponent_modeling.opponent_model.state_dict(),
+                },
+                save_path,
+            )
             print(f"  Checkpoint saved to {save_path}")
 
         writer.add_scalar("Memory/Advantage", len(learning_agent.advantage_memory), iteration)
@@ -204,7 +226,7 @@ def train_against_checkpoint_with_opponent_modeling(
     final_profit_random = evaluate_against_random(
         learning_agent,
         num_games=500,
-        iteration=additional_iterations,
+        iteration=final_iteration,
         notifier=notifier,
     )
     print(f"Final performance vs random: Average profit per game: {final_profit_random:.2f}")
@@ -214,7 +236,7 @@ def train_against_checkpoint_with_opponent_modeling(
         learning_agent,
         opponents,
         num_games=500,
-        iteration=additional_iterations,
+        iteration=final_iteration,
         notifier=notifier,
     )
     print(
@@ -248,7 +270,12 @@ def main(argv=None):
     parser.add_argument("--self-play", action="store_true", help="Train against a fixed checkpoint opponent")
     parser.add_argument("--mixed", action="store_true", help="Train against a checkpoint pool")
     parser.add_argument("--checkpoint-dir", type=str, default="models_om", help="Directory containing checkpoint models")
-    parser.add_argument("--model-prefix", type=str, default="om_checkpoint_iter_", help="Prefix or glob fragment for checkpoint selection")
+    parser.add_argument(
+        "--model-prefix",
+        type=str,
+        default="*checkpoint_iter_",
+        help="Checkpoint prefix or glob fragment for selection",
+    )
     parser.add_argument("--refresh-interval", type=int, default=1000, help="Interval to refresh opponent pool")
     parser.add_argument("--num-opponents", type=int, default=5, help="Number of checkpoint opponents to select")
     parser.add_argument("--strict", action="store_true", help="Raise exceptions for invalid game states")
