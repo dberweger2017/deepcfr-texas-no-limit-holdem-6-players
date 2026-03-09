@@ -4,7 +4,7 @@ matplotlib==3.9.0
 tensorboard==2.18.0
 argparse
 tqdm==4.67.0
-pokers @ git+https://github.com/dberweger2017/pokers.git@f11337b694a281323564c0c6dd924d5d1163a28b
+pokers @ git+https://github.com/dberweger2017/pokers.git@b1a48bd2067176cb73f95286d2e8878e3a2eb3d1
 python-dotenv==1.0.1
 requests==2.32.3
 seaborn==0.13.2

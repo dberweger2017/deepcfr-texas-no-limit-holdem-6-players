@@ -41,6 +41,29 @@ REGRESSION_CASES = [
         },
         id="all-in-runout-goes-straight-to-showdown",
     ),
+    pytest.param(
+        {
+            "setup": {
+                "n_players": 3,
+                "button": 0,
+                "sb": 1.0,
+                "bb": 2.0,
+                "stake": 4.0,
+                "seed": 0,
+            },
+            "actions": [
+                (pkrs.ActionEnum.Raise, 2.0),
+                (pkrs.ActionEnum.Call, 0.0),
+            ],
+            "expected": {
+                "stage": pkrs.Stage.Preflop,
+                "status": pkrs.StateStatus.Ok,
+                "final_state": False,
+                "legal_actions": [pkrs.ActionEnum.Fold, pkrs.ActionEnum.Call],
+            },
+        },
+        id="no-raise-when-call-uses-entire-stack",
+    ),
 ]
 
 
