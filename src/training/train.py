@@ -804,7 +804,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
     
     Args:
         checkpoint_dir: Directory containing checkpoint models
-        training_model_prefix: Prefix for models that should be included in selection pool
+        training_model_prefix: Prefix or glob fragment for models in the selection pool
         additional_iterations: Number of iterations to train
         traversals_per_iteration: Number of traversals per iteration
         save_dir: Directory to save new models
@@ -814,7 +814,6 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
         verbose: Whether to print verbose output
     """
     from torch.utils.tensorboard import SummaryWriter
-    import glob
     import os
     import random
     
@@ -994,7 +993,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
                 }, t_model_path)
                 print(f"  Training model saved to {t_model_path}")
 
-        if iteration % checkpoint_frequency == 0:
+        if iteration % checkpoint_frequency == 0 or iteration == starting_iteration + additional_iterations - 1:
             checkpoint_path = f"{save_dir}/mixed_checkpoint_iter_{iteration}.pt"
             torch.save({
                 'iteration': iteration,

@@ -1,4 +1,8 @@
-# src/training/train_with_opponent_modeling.py
+"""Internal opponent-model training implementation.
+
+Use ``python -m src.training.train_opponent_modeling`` as the public CLI entrypoint.
+"""
+
 import pokers as pkrs
 import torch
 import numpy as np
@@ -252,7 +256,7 @@ def train_deep_cfr_with_opponent_modeling(
         
         # Save checkpoint
         if iteration % checkpoint_frequency == 0 or iteration == starting_iteration + num_iterations - 1:
-            checkpoint_path = f"{save_dir}/om_checkpoint_iter_{iteration}.pt"
+            checkpoint_path = f"{save_dir}/checkpoint_iter_{iteration}.pt"
             agent.save_model(checkpoint_path)
             print(f"  Checkpoint saved to {checkpoint_path}")
             

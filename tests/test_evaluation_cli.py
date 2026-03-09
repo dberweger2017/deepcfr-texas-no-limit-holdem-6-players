@@ -70,9 +70,10 @@ def test_evaluation_cli_main_with_checkpoint_dir(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
 
     checkpoint_dir = tmp_path / "models"
-    checkpoint_dir.mkdir()
-    write_checkpoint(checkpoint_dir / "a.pt", iteration=5)
-    write_checkpoint(checkpoint_dir / "b.pt", iteration=6)
+    (checkpoint_dir / "phase1").mkdir(parents=True)
+    (checkpoint_dir / "selfplay").mkdir(parents=True)
+    write_checkpoint(checkpoint_dir / "phase1" / "checkpoint_iter_5.pt", iteration=5)
+    write_checkpoint(checkpoint_dir / "selfplay" / "selfplay_checkpoint_iter_6.pt", iteration=6)
 
     json_path = tmp_path / "results" / "evaluation.json"
     csv_path = tmp_path / "results" / "evaluation.csv"
@@ -82,7 +83,7 @@ def test_evaluation_cli_main_with_checkpoint_dir(tmp_path, monkeypatch):
             "--checkpoint-dir",
             str(checkpoint_dir),
             "--pattern",
-            "*.pt",
+            "*checkpoint_iter_",
             "--games-random",
             "1",
             "--games-pool",
@@ -99,3 +100,9 @@ def test_evaluation_cli_main_with_checkpoint_dir(tmp_path, monkeypatch):
     assert exit_code == 0
     assert json_path.exists()
     assert csv_path.exists()
+
+    json_data = json.loads(json_path.read_text(encoding="utf-8"))
+    assert {entry["name"] for entry in json_data} == {
+        "checkpoint_iter_5.pt",
+        "selfplay_checkpoint_iter_6.pt",
+    }
