@@ -304,6 +304,7 @@ if __name__ == "__main__":
     parser.add_argument('--traversals', type=int, default=200, help='Traversals per iteration')
     parser.add_argument('--save-dir', type=str, default='models_om', help='Directory to save models')
     parser.add_argument('--log-dir', type=str, default='logs/deepcfr_om', help='Directory for logs')
+    parser.add_argument('--checkpoint', type=str, default=None, help='Path to checkpoint to continue training from')
     parser.add_argument('--strict', action='store_true', help='Raise exceptions for invalid game states')
     args = parser.parse_args()
 
@@ -320,7 +321,8 @@ if __name__ == "__main__":
         traversals_per_iteration=args.traversals,
         save_dir=args.save_dir,
         log_dir=args.log_dir,
-        verbose=args.verbose
+        verbose=args.verbose,
+        checkpoint_path=args.checkpoint,
     )
     
     print("\nTraining Summary:")
