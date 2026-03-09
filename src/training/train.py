@@ -793,7 +793,8 @@ def evaluate_against_agent(agent, opponent_agent, num_games=100):
 def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
                            additional_iterations=1000, traversals_per_iteration=200,
                            save_dir="models", log_dir="logs/deepcfr_mixed",
-                           refresh_interval=1000, num_opponents=5, verbose=False):
+                           refresh_interval=1000, num_opponents=5, verbose=False,
+                           checkpoint_path=None):
     """
     Train a Deep CFR agent against opponents randomly selected from a pool of checkpoints.
     
@@ -828,6 +829,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
     
     # Initialize the learning agent
     learning_agent = DeepCFRAgent(player_id=0, num_players=6, device=device)
+    starting_iteration = 1
     
     # For tracking learning progress
     losses = []
@@ -836,6 +838,21 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
     
     # Checkpoint frequency for saving our learning agent
     checkpoint_frequency = 100
+
+    if checkpoint_path:
+        print(f"Loading learning agent from checkpoint: {checkpoint_path}")
+        learning_agent.load_model(checkpoint_path)
+        try:
+            checkpoint_state = torch.load(checkpoint_path, map_location=device)
+            starting_iteration = checkpoint_state.get("iteration", learning_agent.iteration_count) + 1
+            losses = checkpoint_state.get("losses", losses)
+            profits = checkpoint_state.get("profits", profits)
+            profits_vs_checkpoints = checkpoint_state.get(
+                "profits_vs_checkpoints",
+                profits_vs_checkpoints,
+            )
+        except Exception:
+            starting_iteration = learning_agent.iteration_count + 1
 
     def select_random_checkpoints():
         checkpoint_files = glob.glob(os.path.join(checkpoint_dir, f"{training_model_prefix}*.pt"))
@@ -886,20 +903,22 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
     initial_profit_vs_mixed = evaluate_against_checkpoint_agents(
         learning_agent, opponent_agents, num_games=100
     )
-    profits_vs_checkpoints.append(initial_profit_vs_mixed)
+    if not profits_vs_checkpoints:
+        profits_vs_checkpoints.append(initial_profit_vs_mixed)
     print(f"Initial average profit vs mixed opponents: {initial_profit_vs_mixed:.2f}")
-    writer.add_scalar('Performance/ProfitVsMixed', initial_profit_vs_mixed, 0)
+    writer.add_scalar('Performance/ProfitVsMixed', initial_profit_vs_mixed, starting_iteration - 1)
 
     initial_profit_random = evaluate_against_random(
         learning_agent, num_games=500, num_players=6
     )
-    profits.append(initial_profit_random)
+    if not profits:
+        profits.append(initial_profit_random)
     print(f"Initial average profit vs random: {initial_profit_random:.2f}")
-    writer.add_scalar('Performance/ProfitVsRandom', initial_profit_random, 0)
+    writer.add_scalar('Performance/ProfitVsRandom', initial_profit_random, starting_iteration - 1)
 
     opponent_wrappers = wrap_opponents(opponent_agents)
 
-    for iteration in range(1, additional_iterations + 1):
+    for iteration in range(starting_iteration, starting_iteration + additional_iterations):
         learning_agent.iteration_count = iteration
         start_time = time.time()
 
@@ -908,7 +927,10 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
             opponent_agents = select_random_checkpoints()
             opponent_wrappers = wrap_opponents(opponent_agents)
 
-        print(f"Mixed-checkpoint training iteration {iteration}/{additional_iterations}")
+        print(
+            f"Mixed-checkpoint training iteration {iteration}/"
+            f"{starting_iteration + additional_iterations - 1}"
+        )
 
         print("  Collecting data...")
         for t in range(traversals_per_iteration):
@@ -937,7 +959,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
         writer.add_scalar('Loss/Advantage', adv_loss, iteration)
         writer.add_scalar('Memory/Advantage', len(learning_agent.advantage_memory), iteration)
 
-        if iteration % 10 == 0 or iteration == additional_iterations:
+        if iteration % 10 == 0 or iteration == starting_iteration + additional_iterations - 1:
             print("  Training strategy network...")
             strat_loss = learning_agent.train_strategy_network()
             print(f"  Strategy network loss: {strat_loss:.6f}")
@@ -1006,9 +1028,8 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
 
     return learning_agent, losses, profits, profits_vs_checkpoints
 
-if __name__ == "__main__":
-    import argparse
-    
+
+def main(argv=None):
     parser = argparse.ArgumentParser(description='Train a Deep CFR agent for poker')
     parser.add_argument('--verbose', action='store_true', help='Enable verbose output')
     parser.add_argument('--iterations', type=int, default=1000, help='Number of CFR iterations')
@@ -1023,7 +1044,7 @@ if __name__ == "__main__":
     parser.add_argument('--refresh-interval', type=int, default=1000, help='Interval to refresh opponent pool')
     parser.add_argument('--num-opponents', type=int, default=5, help='Number of checkpoint opponents to select')
     parser.add_argument('--strict', action='store_true', help='Enable strict error checking that raises exceptions for invalid game states')
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     # Strict training for debug
     set_strict_checking(args.strict)
@@ -1039,7 +1060,8 @@ if __name__ == "__main__":
             log_dir=args.log_dir + "_mixed",
             refresh_interval=args.refresh_interval,
             num_opponents=args.num_opponents,
-            verbose=args.verbose
+            verbose=args.verbose,
+            checkpoint_path=args.checkpoint,
         )
     elif args.checkpoint and args.self_play:
         print(f"Starting self-play training against checkpoint: {args.checkpoint}")
@@ -1088,3 +1110,7 @@ if __name__ == "__main__":
     print("\nTo view training progress:")
     print(f"Run: tensorboard --logdir={args.log_dir}")
     print("Then open http://localhost:6006 in your browser")
+
+
+if __name__ == "__main__":
+    main()
