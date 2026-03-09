@@ -116,7 +116,8 @@ def train_deep_cfr_with_opponent_modeling(
     player_id=0, 
     save_dir="models", 
     log_dir="logs/deepcfr_opponent_modeling", 
-    verbose=False
+    verbose=False,
+    checkpoint_path=None,
 ):
     """Train a Deep CFR agent with opponent modeling."""
     from torch.utils.tensorboard import SummaryWriter
@@ -146,6 +147,16 @@ def train_deep_cfr_with_opponent_modeling(
         num_players=num_players,
         device='cuda' if torch.cuda.is_available() else 'cpu'
     )
+    starting_iteration = 1
+
+    if checkpoint_path:
+        print(f"Loading agent from checkpoint: {checkpoint_path}")
+        agent.load_model(checkpoint_path)
+        try:
+            checkpoint_state = torch.load(checkpoint_path, map_location=agent.device)
+            starting_iteration = checkpoint_state.get("iteration", agent.iteration_count) + 1
+        except Exception:
+            starting_iteration = agent.iteration_count + 1
     
     # Create random agents for opponents
     random_agents = [RandomAgent(i) for i in range(num_players)]
@@ -160,11 +171,14 @@ def train_deep_cfr_with_opponent_modeling(
     checkpoint_frequency = 50  # Save more frequently due to opponent modeling
     
     # Training loop
-    for iteration in range(1, num_iterations + 1):
+    for iteration in range(starting_iteration, starting_iteration + num_iterations):
         agent.iteration_count = iteration
         start_time = time.time()
         
-        print(f"Iteration {iteration}/{num_iterations}")
+        print(
+            f"Iteration {iteration}/"
+            f"{starting_iteration + num_iterations - 1}"
+        )
         
         # Run traversals to collect data
         print("  Collecting data...")
@@ -199,7 +213,7 @@ def train_deep_cfr_with_opponent_modeling(
         writer.add_scalar('Loss/Advantage', adv_loss, iteration)
         
         # Every few iterations, train the strategy network
-        if iteration % 5 == 0 or iteration == num_iterations:
+        if iteration % 5 == 0 or iteration == starting_iteration + num_iterations - 1:
             print("  Training strategy network...")
             strat_loss = agent.train_strategy_network()
             strategy_losses.append(strat_loss)
@@ -207,7 +221,7 @@ def train_deep_cfr_with_opponent_modeling(
             writer.add_scalar('Loss/Strategy', strat_loss, iteration)
         
         # Train opponent modeling periodically
-        if iteration % 10 == 0 or iteration == num_iterations:
+        if iteration % 10 == 0 or iteration == starting_iteration + num_iterations - 1:
             print("  Training opponent modeling...")
             try:
                 opp_loss = agent.train_opponent_modeling()
@@ -220,7 +234,7 @@ def train_deep_cfr_with_opponent_modeling(
                     notifier.send_message(f"⚠️ <b>OPPONENT MODEL ERROR</b>\nIteration: {iteration}\nError: {str(e)}")
         
         # Evaluate periodically
-        if iteration % 20 == 0 or iteration == num_iterations:
+        if iteration % 20 == 0 or iteration == starting_iteration + num_iterations - 1:
             print("  Evaluating agent...")
             avg_profit = evaluate_against_random(agent, num_games=200, iteration=iteration, notifier=notifier)
             profits.append(avg_profit)
@@ -237,7 +251,7 @@ def train_deep_cfr_with_opponent_modeling(
                 )
         
         # Save checkpoint
-        if iteration % checkpoint_frequency == 0 or iteration == num_iterations:
+        if iteration % checkpoint_frequency == 0 or iteration == starting_iteration + num_iterations - 1:
             checkpoint_path = f"{save_dir}/om_checkpoint_iter_{iteration}.pt"
             agent.save_model(checkpoint_path)
             print(f"  Checkpoint saved to {checkpoint_path}")
