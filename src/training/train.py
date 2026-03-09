@@ -8,7 +8,7 @@ import os
 import argparse
 from src.core.deep_cfr import DeepCFRAgent
 from src.core.model import set_verbose, encode_state
-from src.utils.logging import log_game_error
+from src.utils.logging import apply_action_with_logging
 from src.utils.settings import STRICT_CHECKING, set_strict_checking
 from src.agents.random_agent import RandomAgent
 
@@ -40,14 +40,14 @@ def evaluate_against_random(agent, num_games=500, num_players=6):
                     action = random_agents[current_player].choose_action(state)
                 
                 # Apply the action with conditional status check
-                new_state = state.apply_action(action)
-                if new_state.status != pkrs.StateStatus.Ok:
-                    log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
-                    if STRICT_CHECKING:
-                        raise ValueError(f"State status not OK ({new_state.status}). Details logged to {log_file}")
-                    else:
-                        print(f"WARNING: State status not OK ({new_state.status}) in game {game}. Details logged to {log_file}")
-                        break  # Skip this game in non-strict mode
+                new_state, log_file, status = apply_action_with_logging(
+                    state,
+                    action,
+                    strict=STRICT_CHECKING,
+                )
+                if new_state is None:
+                    print(f"WARNING: State status not OK ({status}) in game {game}. Details logged to {log_file}")
+                    break  # Skip this game in non-strict mode
                 
                 state = new_state
             
@@ -134,21 +134,16 @@ def _cfr_traverse_with_opponents(agent, state, iteration, opponent_agents, depth
                 else:
                     pokers_action = agent.action_type_to_pokers_action(action_type, state)
 
-                new_state = state.apply_action(pokers_action)
-
-                if new_state.status != pkrs.StateStatus.Ok:
-                    log_file = log_game_error(
-                        state, pokers_action, f"State status not OK ({new_state.status})"
-                    )
-                    if STRICT_CHECKING:
-                        raise ValueError(
-                            f"State status not OK ({new_state.status}) during CFR traversal. "
-                            f"Details logged to {log_file}"
-                        )
+                new_state, log_file, status = apply_action_with_logging(
+                    state,
+                    pokers_action,
+                    strict=STRICT_CHECKING,
+                )
+                if new_state is None:
                     if verbose:
                         print(
                             f"WARNING: Invalid action {action_type} at depth {depth}. "
-                            f"Status: {new_state.status}"
+                            f"Status: {status}"
                         )
                         print(
                             f"Player: {current_player}, Action: {pokers_action.action}, "
@@ -218,19 +213,16 @@ def _cfr_traverse_with_opponents(agent, state, iteration, opponent_agents, depth
             return 0
 
         action = opponent_agent.choose_action(state)
-        new_state = state.apply_action(action)
-
-        if new_state.status != pkrs.StateStatus.Ok:
-            log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
-            if STRICT_CHECKING:
-                raise ValueError(
-                    f"State status not OK ({new_state.status}) from opponent agent. "
-                    f"Details logged to {log_file}"
-                )
+        new_state, log_file, status = apply_action_with_logging(
+            state,
+            action,
+            strict=STRICT_CHECKING,
+        )
+        if new_state is None:
             if verbose:
                 print(
                     f"WARNING: Opponent agent made invalid action at depth {depth}. "
-                    f"Status: {new_state.status}"
+                    f"Status: {status}"
                 )
                 print(f"Details logged to {log_file}")
             return 0
@@ -746,14 +738,14 @@ def evaluate_against_checkpoint_agents(agent, opponent_agents, num_games=100):
                     action = opponent_wrappers[current_player].choose_action(state)
                 
                 # Apply the action with conditional status check
-                new_state = state.apply_action(action)
-                if new_state.status != pkrs.StateStatus.Ok:
-                    log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
-                    if STRICT_CHECKING:
-                        raise ValueError(f"State status not OK ({new_state.status}). Details logged to {log_file}")
-                    else:
-                        print(f"WARNING: State status not OK ({new_state.status}) in game {game}. Details logged to {log_file}")
-                        break  # Skip this game in non-strict mode
+                new_state, log_file, status = apply_action_with_logging(
+                    state,
+                    action,
+                    strict=STRICT_CHECKING,
+                )
+                if new_state is None:
+                    print(f"WARNING: State status not OK ({status}) in game {game}. Details logged to {log_file}")
+                    break  # Skip this game in non-strict mode
                 
                 state = new_state
             

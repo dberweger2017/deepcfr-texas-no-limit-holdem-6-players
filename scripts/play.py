@@ -8,7 +8,7 @@ import random
 import glob
 from src.core.deep_cfr import DeepCFRAgent
 from src.core.model import set_verbose
-from src.utils import log_game_error
+from src.utils import apply_action_with_logging
 from src.utils.settings import STRICT_CHECKING, set_strict_checking
 
 def get_action_description(action):
@@ -304,14 +304,14 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
                 print(f"Player {current_player} chose: {get_action_description(action)}")
             
             # Apply the action
-            new_state = state.apply_action(action)
-            if new_state.status != pkrs.StateStatus.Ok:
-                log_file = log_game_error(state, action, f"State status not OK ({new_state.status})")
-                if STRICT_CHECKING:
-                    raise ValueError(f"State status not OK ({new_state.status}). Details logged to {log_file}")
-                else:
-                    print(f"WARNING: State status not OK ({new_state.status}). Details logged to {log_file}")
-                    break  # Skip this game in non-strict mode
+            new_state, log_file, status = apply_action_with_logging(
+                state,
+                action,
+                strict=STRICT_CHECKING,
+            )
+            if new_state is None:
+                print(f"WARNING: State status not OK ({status}). Details logged to {log_file}")
+                break  # Skip this game in non-strict mode
             
             state = new_state
         

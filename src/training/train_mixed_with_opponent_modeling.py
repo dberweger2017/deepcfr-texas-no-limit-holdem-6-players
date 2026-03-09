@@ -10,6 +10,8 @@ import glob
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.model import set_verbose
 from src.agents.random_agent import RandomAgent
+from src.utils.logging import apply_action_with_logging
+from src.utils.settings import STRICT_CHECKING, set_strict_checking
 
 class ModelAgent:
     """Wrapper for a DeepCFRAgent or DeepCFRAgentWithOpponentModeling loaded from a checkpoint.
@@ -164,12 +166,16 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                         agent.record_opponent_action(state, action_id, current_player)
                     
                     # Apply the action
-                    new_state = state.apply_action(action)
+                    new_state, log_file, status = apply_action_with_logging(
+                        state,
+                        action,
+                        strict=STRICT_CHECKING,
+                    )
                     action_count += 1
                     total_actions += 1
                     
                     # Check if the action was valid
-                    if new_state.status != pkrs.StateStatus.Ok:
+                    if new_state is None:
                         state_errors += 1
                         
                         # Identify which agent caused the error
@@ -177,7 +183,7 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                         
                         # Error details for debug
                         error_details = f"Error Source: {error_source}\n"
-                        if new_state.status == pkrs.StateStatus.HighBet:
+                        if status == pkrs.StateStatus.HighBet:
                             player_state = state_before.players_state[current_player]
                             error_details += f"Player Stake: {player_state.stake}\n"
                             error_details += f"Current Bet: {player_state.bet_chips}\n"
@@ -185,13 +191,14 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                             if hasattr(action, 'amount'):
                                 error_details += f"Attempted Raise: {action.amount}\n"
                         
-                        print(f"STATE ERROR: {new_state.status} by {error_source}")
+                        print(f"STATE ERROR: {status} by {error_source}")
                         print(error_details)
+                        print(f"Details logged to {log_file}")
                         
                         if notifier:
                             notifier.alert_state_error(
                                 iteration,
-                                new_state.status,
+                                status,
                                 state_before,
                                 is_training_agent=is_training_agent
                             )
@@ -201,6 +208,8 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                     state = new_state
                     
                 except Exception as e:
+                    if STRICT_CHECKING:
+                        raise
                     print(f"ERROR in game {game}, player {current_player}: {e}")
                     if notifier and game % 10 == 0:  # Don't send too many error messages
                         notifier.send_message(
@@ -238,6 +247,8 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                 game_crashes += 1
                 
         except Exception as e:
+            if STRICT_CHECKING:
+                raise
             game_crashes += 1
             print(f"GAME CRASH: Game {game} crashed with error: {e}")
             if notifier and game % 20 == 0:  # Limit notification frequency
@@ -621,7 +632,10 @@ if __name__ == "__main__":
     parser.add_argument('--log-dir', type=str, default='logs/deepcfr_mixed_om', help='Directory for logs')
     parser.add_argument('--verbose', action='store_true', help='Enable verbose output')
     parser.add_argument('--checkpoint', type=str, default=None, help='Path to checkpoint to continue training from')
+    parser.add_argument('--strict', action='store_true', help='Raise exceptions for invalid game states')
     args = parser.parse_args()
+
+    set_strict_checking(args.strict)
     
     print(f"Starting mixed opponent training with models from: {args.checkpoint_dir}")
     print(f"Training for {args.iterations} iterations")

@@ -7,7 +7,7 @@ import os
 import time
 import traceback
 import pokers as pkrs
-from typing import Callable, Optional, Any
+from typing import Callable, Optional
 
 def card_to_string(card):
     """Convert a poker card to a readable string."""
@@ -43,10 +43,11 @@ def log_game_error(state: pkrs.State, action: pkrs.Action, error_msg: str,
     
     # Create a timestamp for the filename
     timestamp = time.strftime("%Y%m%d-%H%M%S")
-    log_filename = os.path.join(logs_dir, f"poker_error_{timestamp}.txt")
+    microseconds = int((time.time() % 1) * 1_000_000)
+    log_filename = os.path.join(logs_dir, f"poker_error_{timestamp}-{microseconds:06d}.txt")
     
     try:
-        with open(log_filename, "w") as f:
+        with open(log_filename, "w", encoding="utf-8") as f:
             stack_trace = traceback.format_exc()
             if stack_trace.strip() == "NoneType: None":
                 stack_trace = "No active exception.\n"
@@ -106,3 +107,34 @@ def log_game_error(state: pkrs.State, action: pkrs.Action, error_msg: str,
     except Exception as log_error:
         print(f"Failed to write error log: {log_error}")
         return None
+
+
+def apply_action_with_logging(
+    state: pkrs.State,
+    action: pkrs.Action,
+    *,
+    strict: bool = False,
+    error_prefix: str = "State status not OK",
+    card_converter: Callable = None,
+):
+    """
+    Apply an action and log invalid state transitions consistently.
+
+    Returns:
+        Tuple of (new_state_or_none, log_file_or_none, status)
+    """
+    new_state = state.apply_action(action)
+    if new_state.status == pkrs.StateStatus.Ok:
+        return new_state, None, new_state.status
+
+    log_file = log_game_error(
+        state,
+        action,
+        f"{error_prefix} ({new_state.status})",
+        card_converter=card_converter,
+    )
+
+    if strict:
+        raise ValueError(f"{error_prefix} ({new_state.status}). Details logged to {log_file}")
+
+    return None, log_file, new_state.status

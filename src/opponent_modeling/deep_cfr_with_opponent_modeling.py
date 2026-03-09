@@ -16,7 +16,7 @@ from src.core.deep_cfr import (
 )
 from src.agents.random_agent import RandomAgent
 from src.utils.settings import STRICT_CHECKING
-from src.utils.logging import log_game_error
+from src.utils.logging import apply_action_with_logging
 
 class EnhancedPokerNetwork(nn.Module):
     """
@@ -318,17 +318,19 @@ class DeepCFRAgentWithOpponentModeling:
                     else:
                         pokers_action = self.action_type_to_pokers_action(action_type, state)
                     
-                    new_state = state.apply_action(pokers_action)
-                    
+                    new_state, log_file, status = apply_action_with_logging(
+                        state,
+                        pokers_action,
+                        strict=STRICT_CHECKING,
+                    )
+
                     # Check if the action was valid
-                    if new_state.status != pkrs.StateStatus.Ok:
-                        if STRICT_CHECKING:
-                            log_file = log_game_error(state, pokers_action, f"State status not OK ({new_state.status})")
-                            raise ValueError(f"State status not OK ({new_state.status}) during CFR traversal. Details logged to {log_file}")
-                        elif VERBOSE:
-                            print(f"WARNING: Invalid action {action_type} at depth {depth}. Status: {new_state.status}")
+                    if new_state is None:
+                        if VERBOSE:
+                            print(f"WARNING: Invalid action {action_type} at depth {depth}. Status: {status}")
                             print(f"Player: {current_player}, Action: {pokers_action.action}, Amount: {pokers_action.amount if pokers_action.action == pkrs.ActionEnum.Raise else 'N/A'}")
                             print(f"Current bet: {state.players_state[current_player].bet_chips}, Stake: {state.players_state[current_player].stake}")
+                            print(f"Details logged to {log_file}")
                         continue  # Skip this action and try others
                         
                     action_values[action_type] = self.cfr_traverse(new_state, iteration, opponents, depth + 1)
@@ -430,12 +432,17 @@ class DeepCFRAgentWithOpponentModeling:
                 self.record_opponent_action(state, action_id, current_player)
                 
                 # Apply the action
-                new_state = state.apply_action(action)
-                
+                new_state, log_file, status = apply_action_with_logging(
+                    state,
+                    action,
+                    strict=STRICT_CHECKING,
+                )
+
                 # Check if the action was valid
-                if new_state.status != pkrs.StateStatus.Ok:
+                if new_state is None:
                     if VERBOSE:
-                        print(f"WARNING: Opponent made invalid action at depth {depth}. Status: {new_state.status}")
+                        print(f"WARNING: Opponent made invalid action at depth {depth}. Status: {status}")
+                        print(f"Details logged to {log_file}")
                     return 0
                     
                 return self.cfr_traverse(new_state, iteration, opponents, depth + 1)
