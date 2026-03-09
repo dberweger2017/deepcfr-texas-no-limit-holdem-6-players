@@ -9,7 +9,12 @@ import pokers as pkrs
 from collections import deque
 from src.core.model import encode_state, VERBOSE, set_verbose
 from src.opponent_modeling.opponent_model import OpponentModelingSystem
-from src.core.deep_cfr import PrioritizedMemory
+from src.core.deep_cfr import (
+    DeepCFRAgent,
+    PrioritizedMemory,
+    _resolve_model_save_path,
+)
+from src.agents.random_agent import RandomAgent
 from src.utils.settings import STRICT_CHECKING
 from src.utils.logging import log_game_error
 
@@ -126,163 +131,8 @@ class DeepCFRAgentWithOpponentModeling:
         self.min_bet_size = 0.1
         self.max_bet_size = 3.0
     
-    def action_type_to_pokers_action(self, action_type, state, bet_size_multiplier=None):
-        """Convert action type and optional bet size to Pokers action."""
-        # NOTE: This function is identical to the one in DeepCFRAgent.
-        #       Consider refactoring into a shared utility if possible.
-        try:
-            if action_type == 0:  # Fold
-                # Ensure Fold is legal before returning
-                if pkrs.ActionEnum.Fold in state.legal_actions:
-                    return pkrs.Action(pkrs.ActionEnum.Fold)
-                else:
-                    # Fallback if Fold is somehow illegal (shouldn't happen often)
-                    if pkrs.ActionEnum.Check in state.legal_actions:
-                        return pkrs.Action(pkrs.ActionEnum.Check)
-                    elif pkrs.ActionEnum.Call in state.legal_actions:
-                        return pkrs.Action(pkrs.ActionEnum.Call)
-                    else:
-                        # If nothing else is legal, something is very wrong
-                        print("WARNING: No legal actions found, even Fold!")
-                        # Attempt Fold anyway as a last resort
-                        return pkrs.Action(pkrs.ActionEnum.Fold)
-
-            elif action_type == 1:  # Check/Call
-                if pkrs.ActionEnum.Check in state.legal_actions:
-                    return pkrs.Action(pkrs.ActionEnum.Check)
-                elif pkrs.ActionEnum.Call in state.legal_actions:
-                    return pkrs.Action(pkrs.ActionEnum.Call)
-                else:
-                    # Fallback if neither Check nor Call is legal
-                    if pkrs.ActionEnum.Fold in state.legal_actions:
-                        return pkrs.Action(pkrs.ActionEnum.Fold)
-                    else:
-                        print("WARNING: Check/Call chosen but neither is legal!")
-                        # Attempt Check as a last resort if available
-                        return pkrs.Action(pkrs.ActionEnum.Check)
-
-
-            elif action_type == 2:  # Raise
-                # First, check if Raise itself is a legal action type
-                if pkrs.ActionEnum.Raise not in state.legal_actions:
-                    # If Raise is not legal, fall back to Call or Check
-                    if pkrs.ActionEnum.Call in state.legal_actions:
-                        return pkrs.Action(pkrs.ActionEnum.Call)
-                    elif pkrs.ActionEnum.Check in state.legal_actions:
-                        return pkrs.Action(pkrs.ActionEnum.Check)
-                    else:
-                        # If neither Call nor Check is available, Fold
-                        return pkrs.Action(pkrs.ActionEnum.Fold)
-
-                # Get current player state
-                player_state = state.players_state[state.current_player]
-                current_bet = player_state.bet_chips
-                available_stake = player_state.stake
-
-                # Calculate what's needed to call (match the current min_bet)
-                call_amount = max(0, state.min_bet - current_bet)
-
-                # *** CORRECTED LOGIC HERE ***
-                # If player doesn't have enough chips *beyond* the call amount to make a valid raise,
-                # or if they are going all-in just to call, it should be a Call action.
-                # A raise requires putting in *more* than the call amount.
-                # The minimum additional raise amount is typically the big blind or 1 chip.
-                min_raise_increment = 1.0 # A small default
-                if hasattr(state, 'bb'):
-                    min_raise_increment = max(1.0, state.bb) # Usually BB, but at least 1
-
-                if available_stake <= call_amount + min_raise_increment:
-                    # Player cannot make a valid raise (or is all-in just to call).
-                    # This action should be treated as a Call.
-                    if VERBOSE:
-                        print(f"Action type 2 (Raise) chosen, but player cannot make a valid raise. "
-                              f"Stake: {available_stake}, Call Amount: {call_amount}. Switching to Call.")
-                    # Ensure Call is legal before returning it
-                    if pkrs.ActionEnum.Call in state.legal_actions:
-                        return pkrs.Action(pkrs.ActionEnum.Call)
-                    else:
-                        # If Call is not legal (edge case, e.g., already all-in matching bet), Fold.
-                         if VERBOSE:
-                             print(f"WARNING: Cannot Call (not legal), falling back to Fold.")
-                         return pkrs.Action(pkrs.ActionEnum.Fold)
-                # *** END OF CORRECTION ***
-
-                # If we reach here, the player *can* make a valid raise.
-                remaining_stake_after_call = available_stake - call_amount
-
-                # Calculate target raise amount based on pot multiplier
-                pot_size = max(1.0, state.pot) # Avoid division by zero
-                if bet_size_multiplier is None:
-                    # Default to 1x pot if no multiplier provided
-                    bet_size_multiplier = 1.0
-
-                # Ensure multiplier is within bounds
-                bet_size_multiplier = max(self.min_bet_size, min(self.max_bet_size, bet_size_multiplier))
-                target_additional_raise = pot_size * bet_size_multiplier
-
-                # Ensure minimum raise increment is met
-                target_additional_raise = max(target_additional_raise, min_raise_increment)
-
-                # Ensure we don't exceed available stake after calling
-                additional_amount = min(target_additional_raise, remaining_stake_after_call)
-
-                # Final check: Ensure the additional amount is at least the minimum required increment
-                if additional_amount < min_raise_increment:
-                     # This case should be rare due to the check above, but as a safeguard:
-                     if VERBOSE:
-                         print(f"Calculated raise amount {additional_amount} is less than min increment {min_raise_increment}. Falling back to Call.")
-                     if pkrs.ActionEnum.Call in state.legal_actions:
-                         return pkrs.Action(pkrs.ActionEnum.Call)
-                     else:
-                         return pkrs.Action(pkrs.ActionEnum.Fold)
-
-                if VERBOSE:
-                    print(f"\nRAISE CALCULATION DETAILS:")
-                    print(f"  Player ID: {state.current_player}")
-                    print(f"  Action type: {action_type}")
-                    print(f"  Current bet: {current_bet}")
-                    print(f"  Available stake: {available_stake}")
-                    print(f"  Min bet: {state.min_bet}")
-                    print(f"  Call amount: {call_amount}")
-                    print(f"  Pot size: {state.pot}")
-                    print(f"  Bet multiplier: {bet_size_multiplier}x pot")
-                    print(f"  Calculated additional raise amount: {additional_amount}")
-                    print(f"  Total player bet will be: {current_bet + call_amount + additional_amount}")
-
-                # Return the Raise action with the calculated *additional* amount
-                return pkrs.Action(pkrs.ActionEnum.Raise, additional_amount)
-
-            else:
-                raise ValueError(f"Unknown action type: {action_type}")
-
-        except Exception as e:
-            if VERBOSE:
-                print(f"ERROR creating action {action_type}: {e}")
-                print(f"State: current_player={state.current_player}, legal_actions={state.legal_actions}")
-                print(f"Player stake: {state.players_state[state.current_player].stake}")
-            # Fall back to call as safe option
-            if pkrs.ActionEnum.Call in state.legal_actions:
-                return pkrs.Action(pkrs.ActionEnum.Call)
-            elif pkrs.ActionEnum.Check in state.legal_actions:
-                return pkrs.Action(pkrs.ActionEnum.Check)
-            else:
-                return pkrs.Action(pkrs.ActionEnum.Fold)
-
-    def get_legal_action_types(self, state):
-        """Get the legal action types for the current state."""
-        legal_action_types = []
-        
-        # Check each action type
-        if pkrs.ActionEnum.Fold in state.legal_actions:
-            legal_action_types.append(0)
-            
-        if pkrs.ActionEnum.Check in state.legal_actions or pkrs.ActionEnum.Call in state.legal_actions:
-            legal_action_types.append(1)
-            
-        if pkrs.ActionEnum.Raise in state.legal_actions:
-            legal_action_types.append(2)
-        
-        return legal_action_types
+    action_type_to_pokers_action = DeepCFRAgent.action_type_to_pokers_action
+    get_legal_action_types = DeepCFRAgent.get_legal_action_types
     
     def extract_state_context(self, state):
         """
@@ -427,11 +277,8 @@ class DeepCFRAgentWithOpponentModeling:
             # Encode the base state
             state_tensor = torch.FloatTensor(encode_state(state, self.player_id)).to(self.device)
             
-            # Get opponent features for the current opponent
+            opponent_feature_array = np.zeros(20)
             opponent_features = None
-            if current_player != self.player_id:
-                opponent_features = self.opponent_modeling.get_opponent_features(current_player)
-                opponent_features = torch.FloatTensor(opponent_features).to(self.device)
             
             # Get advantages and bet sizing prediction from network
             with torch.no_grad():
@@ -517,7 +364,7 @@ class DeepCFRAgentWithOpponentModeling:
                 if action_type == 2:
                     self.advantage_memory.add(
                         (encode_state(state, self.player_id), 
-                         opponent_features.cpu().numpy() if opponent_features is not None else np.zeros(20),
+                         opponent_feature_array,
                          action_type, 
                          bet_size_multiplier, 
                          weighted_regret),
@@ -526,7 +373,7 @@ class DeepCFRAgentWithOpponentModeling:
                 else:
                     self.advantage_memory.add(
                         (encode_state(state, self.player_id),
-                         opponent_features.cpu().numpy() if opponent_features is not None else np.zeros(20),
+                         opponent_feature_array,
                          action_type, 
                          0.0, 
                          weighted_regret),
@@ -541,7 +388,7 @@ class DeepCFRAgentWithOpponentModeling:
             # Store strategy memory with opponent features if available
             self.strategy_memory.append((
                 encode_state(state, self.player_id),
-                opponent_features.cpu().numpy() if opponent_features is not None else np.zeros(20),
+                opponent_feature_array,
                 strategy_full,
                 bet_size_multiplier if 2 in legal_action_types else 0.0,
                 iteration
@@ -559,8 +406,6 @@ class DeepCFRAgentWithOpponentModeling:
                 if opponent is None:
                     if VERBOSE:
                         print(f"WARNING: No opponent at position {current_player}, using random action")
-                    # Create a temporary random agent for this position
-                    from src.training.train_with_opponent_modeling import RandomAgent
                     opponent = RandomAgent(current_player)
                 
                 # Let the opponent choose an action
@@ -782,17 +627,18 @@ class DeepCFRAgentWithOpponentModeling:
     
     def save_model(self, path_prefix):
         """Save the model to disk, including opponent modeling."""
+        model_path = _resolve_model_save_path(path_prefix, self.iteration_count)
         torch.save({
             'iteration': self.iteration_count,
             'advantage_net': self.advantage_net.state_dict(),
             'strategy_net': self.strategy_net.state_dict(),
             'history_encoder': self.opponent_modeling.history_encoder.state_dict(),
             'opponent_model': self.opponent_modeling.opponent_model.state_dict()
-        }, f"{path_prefix}_iteration_{self.iteration_count}.pt")
+        }, model_path)
         
     def load_model(self, path):
         """Load the model from disk, including opponent modeling if available."""
-        checkpoint = torch.load(path)
+        checkpoint = torch.load(path, map_location=self.device)
         self.iteration_count = checkpoint['iteration']
         self.advantage_net.load_state_dict(checkpoint['advantage_net'])
         self.strategy_net.load_state_dict(checkpoint['strategy_net'])

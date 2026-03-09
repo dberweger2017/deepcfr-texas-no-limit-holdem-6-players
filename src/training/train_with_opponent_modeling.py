@@ -6,8 +6,6 @@ import os
 import random
 import time
 import argparse
-from torch.utils.tensorboard import SummaryWriter
-from scripts.telegram_notifier import TelegramNotifier
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.model import set_verbose
 from src.agents.random_agent import RandomAgent
@@ -39,7 +37,7 @@ def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, no
                     
                     if current_player == agent.player_id:
                         # Use opponent modeling for the current opponent
-                        action = agent.choose_action(state, opponent_id=current_player)
+                        action = agent.choose_action(state, opponent_id=None)
                     else:
                         action = random_agents[current_player].choose_action(state)
                         
@@ -107,6 +105,9 @@ def train_deep_cfr_with_opponent_modeling(
     verbose=False
 ):
     """Train a Deep CFR agent with opponent modeling."""
+    from torch.utils.tensorboard import SummaryWriter
+    from scripts.telegram_notifier import TelegramNotifier
+
     # Set verbosity
     set_verbose(verbose)
     

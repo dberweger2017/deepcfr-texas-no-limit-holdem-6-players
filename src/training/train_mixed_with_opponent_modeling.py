@@ -7,9 +7,8 @@ import random
 import time
 import argparse
 import glob
-from torch.utils.tensorboard import SummaryWriter
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
-from src.core.model import encode_state, set_verbose
+from src.core.model import set_verbose
 from src.agents.random_agent import RandomAgent
 
 class ModelAgent:
@@ -109,7 +108,7 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                     
                     # Choose action
                     if current_player == agent.player_id:
-                        action = agent.choose_action(state, opponent_id=current_player)
+                        action = agent.choose_action(state, opponent_id=None)
                         is_training_agent = True
                     else:
                         action = opponents[current_player].choose_action(state)
@@ -293,11 +292,7 @@ def train_mixed_with_opponent_modeling(
     """
     # Import required modules
     from torch.utils.tensorboard import SummaryWriter
-    import glob
-    import os
-    import time
     from scripts.telegram_notifier import TelegramNotifier
-    import traceback
     
     # Set verbosity
     set_verbose(verbose)
@@ -307,7 +302,11 @@ def train_mixed_with_opponent_modeling(
     os.makedirs(log_dir, exist_ok=True)
     
     # Initialize Telegram notifier (reads from .env file)
-    notifier = TelegramNotifier()
+    try:
+        notifier = TelegramNotifier()
+    except Exception as exc:
+        print(f"Warning: Could not initialize Telegram notifier: {exc}")
+        notifier = None
     
     # Initialize tensorboard writer
     writer = SummaryWriter(log_dir)
@@ -315,7 +314,10 @@ def train_mixed_with_opponent_modeling(
     # Device setup
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print(f"Using device: {device}")
-    notifier.send_message(f"🚀 <b>TRAINING STARTED</b>\nDevice: {device}\nIterations: {num_iterations}\nRefresh interval: {refresh_interval}")
+    if notifier:
+        notifier.send_message(
+            f"🚀 <b>TRAINING STARTED</b>\nDevice: {device}\nIterations: {num_iterations}\nRefresh interval: {refresh_interval}"
+        )
     
     # Initialize the agent with opponent modeling
     agent = DeepCFRAgentWithOpponentModeling(
@@ -337,13 +339,19 @@ def train_mixed_with_opponent_modeling(
                 starting_iteration = int(iteration_str) + 1
                 agent.iteration_count = starting_iteration - 1
                 print(f"Continuing from iteration {starting_iteration}")
-                notifier.send_message(f"📥 <b>LOADED CHECKPOINT</b>\nContinuing from iteration {starting_iteration}")
+                if notifier:
+                    notifier.send_message(
+                        f"📥 <b>LOADED CHECKPOINT</b>\nContinuing from iteration {starting_iteration}"
+                    )
             except Exception as e:
                 print(f"Could not determine iteration from checkpoint filename: {e}")
                 print("Starting from iteration 1")
         except Exception as e:
             print(f"Error loading checkpoint: {e}")
-            notifier.send_message(f"⚠️ <b>CHECKPOINT LOADING ERROR</b>\n{str(e)}\nStarting from scratch.")
+            if notifier:
+                notifier.send_message(
+                    f"⚠️ <b>CHECKPOINT LOADING ERROR</b>\n{str(e)}\nStarting from scratch."
+                )
     
     # For tracking progress
     advantage_losses = []
@@ -363,7 +371,7 @@ def train_mixed_with_opponent_modeling(
         if not checkpoint_files:
             print(f"WARNING: No checkpoint files found matching pattern '{model_prefix}' in {checkpoint_dir}")
             print("Using random agents as opponents")
-            return [RandomAgent(i) for i in range(6) if i != player_id]
+            return [None if i == player_id else RandomAgent(i) for i in range(6)]
         
         # Select random models
         selected_files = random.sample(checkpoint_files, min(num_opponents, len(checkpoint_files)))
@@ -375,7 +383,8 @@ def train_mixed_with_opponent_modeling(
             print(f"  {i+1}. {filename}")
         
         # Log selected opponents to Telegram
-        notifier.send_message(f"📊 <b>SELECTED OPPONENTS</b>\n- " + "\n- ".join(opponent_names))
+        if notifier:
+            notifier.send_message(f"📊 <b>SELECTED OPPONENTS</b>\n- " + "\n- ".join(opponent_names))
         
         # Load the selected models
         model_opponents = []
@@ -422,7 +431,8 @@ def train_mixed_with_opponent_modeling(
         # Refresh opponents at specified intervals
         if iteration % refresh_interval == 1 and iteration > starting_iteration:
             print(f"\n=== Refreshing opponent pool at iteration {iteration} ===")
-            notifier.send_message(f"🔄 <b>REFRESHING OPPONENTS</b> at iteration {iteration}")
+            if notifier:
+                notifier.send_message(f"🔄 <b>REFRESHING OPPONENTS</b> at iteration {iteration}")
             opponents = select_random_models()
         
         print(f"Iteration {iteration}/{num_iterations}")
@@ -446,7 +456,7 @@ def train_mixed_with_opponent_modeling(
             except Exception as e:
                 error_msg = f"Error during traversal: {e}"
                 print(error_msg)
-                if iteration % 100 == 0:  # Don't flood with error messages
+                if notifier and iteration % 100 == 0:  # Don't flood with error messages
                     notifier.send_message(f"⚠️ <b>TRAVERSAL ERROR</b>\n{error_msg}")
                 continue
         
@@ -480,7 +490,8 @@ def train_mixed_with_opponent_modeling(
             except Exception as e:
                 error_msg = f"Error training opponent modeling: {e}"
                 print(error_msg)
-                notifier.send_message(f"⚠️ <b>OPPONENT MODELING ERROR</b>\n{error_msg}")
+                if notifier:
+                    notifier.send_message(f"⚠️ <b>OPPONENT MODELING ERROR</b>\n{error_msg}")
         
         # Evaluate periodically
         if iteration % 20 == 0 or iteration == num_iterations:
@@ -517,13 +528,14 @@ def train_mixed_with_opponent_modeling(
             
             # Check for suspicious zero profit
             if abs(avg_profit_models) < 0.01:
-                notifier.send_message(
-                    f"⚠️ <b>ZERO PROFIT ALERT</b> at iteration {iteration}\n"
-                    f"This suggests games may not be completing properly."
-                )
+                if notifier:
+                    notifier.send_message(
+                        f"⚠️ <b>ZERO PROFIT ALERT</b> at iteration {iteration}\n"
+                        f"This suggests games may not be completing properly."
+                    )
             
             # Send progress update every 100 iterations or if a significant change occurs
-            if iteration % 100 == 0:
+            if notifier and iteration % 100 == 0:
                 notifier.send_training_progress(iteration, avg_profit_models, avg_profit_random)
         
         # Save checkpoint
@@ -534,7 +546,8 @@ def train_mixed_with_opponent_modeling(
             
             # Notify on checkpoint save
             if iteration % 500 == 0:  # Less frequent notifications for checkpoints
-                notifier.send_message(f"💾 <b>CHECKPOINT SAVED</b> at iteration {iteration}")
+                if notifier:
+                    notifier.send_message(f"💾 <b>CHECKPOINT SAVED</b> at iteration {iteration}")
         
         # Log memory sizes
         writer.add_scalar('Memory/Advantage', len(agent.advantage_memory), iteration)
@@ -583,12 +596,13 @@ def train_mixed_with_opponent_modeling(
     writer.add_scalar('Performance/FinalProfitVsModels', avg_profit_models, 0)
     
     # Final notification
-    notifier.send_message(
-        f"✅ <b>TRAINING COMPLETED</b>\n"
-        f"Total iterations: {num_iterations}\n"
-        f"Final profit vs random: {avg_profit_random:.2f}\n"
-        f"Final profit vs models: {avg_profit_models:.2f}"
-    )
+    if notifier:
+        notifier.send_message(
+            f"✅ <b>TRAINING COMPLETED</b>\n"
+            f"Total iterations: {num_iterations}\n"
+            f"Final profit vs random: {avg_profit_random:.2f}\n"
+            f"Final profit vs models: {avg_profit_models:.2f}"
+        )
     
     # Close the tensorboard writer
     writer.close()
