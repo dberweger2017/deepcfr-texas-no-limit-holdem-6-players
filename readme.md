@@ -50,6 +50,7 @@ Notes:
 - Self-play training against a fixed checkpoint
 - Mixed training against a rotating checkpoint pool
 - Opponent-modeling training variants
+- Checkpoint evaluation via CLI
 - CLI play against saved checkpoints or random agents
 - PyQt GUI play
 - Tournament visualization across checkpoints
@@ -152,6 +153,30 @@ tensorboard --logdir=logs
 
 Then open `http://localhost:6006`.
 
+## Evaluating Checkpoints
+
+Use the evaluation CLI to compare checkpoints with fixed seeds instead of editing training scripts by hand.
+
+Example:
+
+```bash
+python scripts/evaluate_models.py \
+  --checkpoint-dir models \
+  --pattern "*.pt" \
+  --games-random 100 \
+  --games-pool 100 \
+  --json-out reports/evaluation.json \
+  --csv-out reports/evaluation.csv
+```
+
+What it reports:
+
+- average profit vs random opponents
+- average profit vs the checkpoint pool
+- completed hands
+- invalid-state counts
+- optional machine-readable JSON / CSV summaries
+
 ## Playing Against the Models
 
 ### CLI
@@ -189,17 +214,24 @@ The repo now includes targeted regression tests for the issues that have caused 
 Run them with:
 
 ```bash
-python3 -m pytest tests/test_pokers_regressions.py tests/test_training_regressions.py -q
+python3 scripts/run_regression_suite.py
 ```
 
 What these cover:
 
+- `tests/test_evaluation_cli.py`
+  - checkpoint evaluation CLI behavior
 - `tests/test_pokers_regressions.py`
   - all-in and legal-action regressions inherited from the `pokers` library
 - `tests/test_training_regressions.py`
   - self-play and mixed-training smoke tests
   - replay-memory shape consistency
   - explicit `.pt` save-path handling
+- `tests/test_logging_regressions.py`
+  - UTF-8 log writing
+  - tournament invalid-state logging
+- `tests/test_state_scenarios.py`
+  - deterministic edge-case hand scenarios
 
 ## Notes on Results
 
