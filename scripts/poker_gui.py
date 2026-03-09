@@ -17,6 +17,7 @@ from PyQt5.QtGui import QPixmap, QIcon, QFont, QColor, QPalette
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.deep_cfr import DeepCFRAgent
 from src.core.model import set_verbose
+from src.utils.logging import apply_action_with_logging
 
 class CardWidget(QLabel):
     """Widget to display a playing card"""
@@ -851,8 +852,13 @@ class PokerGUI(QMainWindow):
             else:
                 self.log_message(f"Player {current_player} {action.action}")
                 
-            # Apply the action with a delay
-            self.state = self.state.apply_action(action)
+            # Apply the action with state validation
+            new_state, log_file, status = apply_action_with_logging(self.state, action)
+            if new_state is None:
+                self._handle_invalid_state(status, log_file)
+                return
+
+            self.state = new_state
             self.update_ui()
             
             # Process end of hand or continue with next player
@@ -891,7 +897,12 @@ class PokerGUI(QMainWindow):
             self.log_message(f"You {action_enum}")
             
         # Apply the action
-        self.state = self.state.apply_action(action)
+        new_state, log_file, status = apply_action_with_logging(self.state, action)
+        if new_state is None:
+            self._handle_invalid_state(status, log_file)
+            return
+
+        self.state = new_state
         self.update_ui()
         
         # Process end of hand or continue with AI turns
@@ -949,6 +960,15 @@ class PokerGUI(QMainWindow):
                 hand_str = f" with {card1} {card2}"
                 
             self.log_message(f"{player_type} {result_str}{hand_str}")
+
+    def _handle_invalid_state(self, status, log_file):
+        """Stop the current hand after an invalid state transition."""
+        details = f" Details logged to {log_file}." if log_file else ""
+        message = f"State status not OK ({status}).{details}"
+        self.log_message(message)
+        self.game_in_progress = False
+        self.table.set_action_buttons_enabled(False)
+        QMessageBox.warning(self, "Invalid Game State", message)
     
     def toggle_show_cards(self):
         """Toggle showing all cards"""

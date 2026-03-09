@@ -9,6 +9,8 @@ import argparse
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.model import set_verbose
 from src.agents.random_agent import RandomAgent
+from src.utils.logging import apply_action_with_logging
+from src.utils.settings import STRICT_CHECKING, set_strict_checking
 
 def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, notifier=None):
     """Evaluate the trained agent against random opponents, tracking opponent history."""
@@ -57,7 +59,15 @@ def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, no
                                 
                             agent.record_opponent_action(state, action_id, current_player)
                         
-                    state = state.apply_action(action)
+                    new_state, log_file, status = apply_action_with_logging(
+                        state,
+                        action,
+                        strict=STRICT_CHECKING,
+                    )
+                    if new_state is None:
+                        print(f"WARNING: State status not OK ({status}) in game {game}. Details logged to {log_file}")
+                        break
+                    state = new_state
                 
                 # Record end of game
                 if hasattr(agent, 'end_game_recording'):
@@ -72,11 +82,15 @@ def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, no
                 if abs(profit) < 0.001:
                     zero_reward_games += 1
             except Exception as e:
+                if STRICT_CHECKING:
+                    raise
                 if notifier and game % 20 == 0:  # Limit notification frequency
                     notifier.send_message(f"⚠️ <b>GAME ERROR</b>\nIteration: {iteration}, Hand: {game}\nError: {str(e)}")
                 game_crashes += 1
                 
         except Exception as e:
+            if STRICT_CHECKING:
+                raise
             game_crashes += 1
             if notifier and game % 20 == 0:  # Limit notification frequency
                 notifier.send_message(f"⚠️ <b>GAME SETUP ERROR</b>\nIteration: {iteration}, Game: {game}\nError: {str(e)}")
@@ -276,7 +290,10 @@ if __name__ == "__main__":
     parser.add_argument('--traversals', type=int, default=200, help='Traversals per iteration')
     parser.add_argument('--save-dir', type=str, default='models_om', help='Directory to save models')
     parser.add_argument('--log-dir', type=str, default='logs/deepcfr_om', help='Directory for logs')
+    parser.add_argument('--strict', action='store_true', help='Raise exceptions for invalid game states')
     args = parser.parse_args()
+
+    set_strict_checking(args.strict)
     
     print(f"Starting Deep CFR training with opponent modeling for {args.iterations} iterations")
     print(f"Using {args.traversals} traversals per iteration")
