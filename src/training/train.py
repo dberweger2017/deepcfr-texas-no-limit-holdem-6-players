@@ -8,6 +8,7 @@ import os
 import argparse
 from src.core.deep_cfr import DeepCFRAgent
 from src.core.model import set_verbose, encode_state
+from src.utils.checkpoints import find_checkpoints
 from src.utils.logging import apply_action_with_logging
 from src.utils.settings import STRICT_CHECKING, set_strict_checking
 from src.agents.random_agent import RandomAgent
@@ -335,7 +336,7 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
             #print(f"  Model saved to {model_path}")
         
         # Save checkpoint periodically
-        if iteration % checkpoint_frequency == 0:
+        if iteration % checkpoint_frequency == 0 or iteration == num_iterations:
             checkpoint_path = f"{save_dir}/checkpoint_iter_{iteration}.pt"
             torch.save({
                 'iteration': iteration,
@@ -494,7 +495,7 @@ def continue_training(checkpoint_path, additional_iterations=1000,
             print(f"  Model saved to {model_path}")
         
         # Save checkpoint periodically
-        if iteration % checkpoint_frequency == 0:
+        if iteration % checkpoint_frequency == 0 or iteration == start_iteration + additional_iterations - 1:
             checkpoint_path = f"{save_dir}/checkpoint_iter_{iteration}.pt"
             torch.save({
                 'iteration': iteration,
@@ -531,7 +532,8 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
                            traversals_per_iteration=200, save_dir="models", 
                            log_dir="logs/deepcfr_selfplay", verbose=False):
     """
-    Train a new Deep CFR agent against a fixed agent loaded from a checkpoint.
+    Continue a Deep CFR agent from a checkpoint while training against a fixed
+    opponent pool loaded from that same checkpoint.
     
     Args:
         checkpoint_path: Path to the saved checkpoint to use as an opponent
@@ -566,13 +568,10 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
         pos_agent.load_model(checkpoint_path)
         opponent_agents.append(pos_agent)
     
-    # Initialize the new learning agent for position 0
+    # Continue the learning agent from the same checkpoint used for the fixed opponents.
     learning_agent = DeepCFRAgent(player_id=0, num_players=6, device=device)
-    
-    # Optionally: initialize learning agent from checkpoint weights
-    # This would give it a better starting point
-    # learning_agent.advantage_net.load_state_dict(opponent_agents[0].advantage_net.state_dict())
-    # learning_agent.strategy_net.load_state_dict(opponent_agents[0].strategy_net.state_dict())
+    learning_agent.load_model(checkpoint_path)
+    starting_iteration = learning_agent.iteration_count + 1
     
     # For tracking learning progress
     losses = []
@@ -583,13 +582,15 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
     initial_profit_vs_checkpoint = evaluate_against_checkpoint_agents(
         learning_agent, opponent_agents, num_games=100)
     print(f"Initial average profit vs checkpoint: {initial_profit_vs_checkpoint:.2f}")
-    writer.add_scalar('Performance/ProfitVsCheckpoint', initial_profit_vs_checkpoint, 0)
+    writer.add_scalar(
+        'Performance/ProfitVsCheckpoint', initial_profit_vs_checkpoint, starting_iteration - 1
+    )
     
     initial_profit_random = evaluate_against_random(
         learning_agent, num_games=500, num_players=6)
     profits.append(initial_profit_random)
     print(f"Initial average profit vs random: {initial_profit_random:.2f}")
-    writer.add_scalar('Performance/ProfitVsRandom', initial_profit_random, 0)
+    writer.add_scalar('Performance/ProfitVsRandom', initial_profit_random, starting_iteration - 1)
     
     # Checkpoint frequency
     checkpoint_frequency = 100  # Save more frequently for self-play
@@ -599,11 +600,12 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
             opponent_wrappers[pos] = _PerspectiveAgentWrapper(opponent_agents[pos])
 
     # Training loop
-    for iteration in range(1, additional_iterations + 1):
+    final_iteration = starting_iteration + additional_iterations - 1
+    for iteration in range(starting_iteration, final_iteration + 1):
         learning_agent.iteration_count = iteration
         start_time = time.time()
 
-        print(f"Self-play Iteration {iteration}/{additional_iterations}")
+        print(f"Self-play Iteration {iteration}/{final_iteration}")
 
         # Run traversals to collect data
         print("  Collecting data...")
@@ -634,7 +636,7 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
         writer.add_scalar('Loss/Advantage', adv_loss, iteration)
         writer.add_scalar('Memory/Advantage', len(learning_agent.advantage_memory), iteration)
 
-        if iteration % 10 == 0 or iteration == additional_iterations:
+        if iteration % 10 == 0 or iteration == final_iteration:
             print("  Training strategy network...")
             strat_loss = learning_agent.train_strategy_network()
             print(f"  Strategy network loss: {strat_loss:.6f}")
@@ -657,12 +659,14 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
             print(f"  Average profit vs random: {avg_profit_random:.2f}")
             writer.add_scalar('Performance/ProfitVsRandom', avg_profit_random, iteration)
 
-        if iteration % checkpoint_frequency == 0:
+        if iteration % checkpoint_frequency == 0 or iteration == final_iteration:
             checkpoint_path = f"{save_dir}/selfplay_checkpoint_iter_{iteration}.pt"
             torch.save({
                 'iteration': iteration,
                 'advantage_net': learning_agent.advantage_net.state_dict(),
                 'strategy_net': learning_agent.strategy_net.state_dict(),
+                'min_bet_size': learning_agent.min_bet_size,
+                'max_bet_size': learning_agent.max_bet_size,
                 'losses': losses,
                 'profits': profits
             }, checkpoint_path)
@@ -790,7 +794,7 @@ def evaluate_against_agent(agent, opponent_agent, num_games=100):
     
     return evaluate_against_checkpoint_agents(agent, opponent_agents, num_games)
 
-def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
+def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpoint_iter_",
                            additional_iterations=1000, traversals_per_iteration=200,
                            save_dir="models", log_dir="logs/deepcfr_mixed",
                            refresh_interval=1000, num_opponents=5, verbose=False,
@@ -855,11 +859,11 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="t_",
             starting_iteration = learning_agent.iteration_count + 1
 
     def select_random_checkpoints():
-        checkpoint_files = glob.glob(os.path.join(checkpoint_dir, f"{training_model_prefix}*.pt"))
+        checkpoint_files = [str(path) for path in find_checkpoints(checkpoint_dir, training_model_prefix)]
 
         if not checkpoint_files:
             print(
-                f"WARNING: No checkpoint files found with prefix '{training_model_prefix}' "
+                f"WARNING: No checkpoint files found matching '{training_model_prefix}' "
                 f"in {checkpoint_dir}"
             )
             return [RandomAgent(i) if i != 0 else None for i in range(6)]
@@ -1040,7 +1044,12 @@ def main(argv=None):
     parser.add_argument('--self-play', action='store_true', help='Train against checkpoint instead of random agents')
     parser.add_argument('--mixed', action='store_true', help='Train against mixed checkpoints')
     parser.add_argument('--checkpoint-dir', type=str, default='models', help='Directory containing checkpoint models')
-    parser.add_argument('--model-prefix', type=str, default='t_', help='Prefix for models to include in selection pool')
+    parser.add_argument(
+        '--model-prefix',
+        type=str,
+        default='*checkpoint_iter_',
+        help='Checkpoint prefix or glob fragment to include in the mixed-opponent pool',
+    )
     parser.add_argument('--refresh-interval', type=int, default=1000, help='Interval to refresh opponent pool')
     parser.add_argument('--num-opponents', type=int, default=5, help='Number of checkpoint opponents to select')
     parser.add_argument('--strict', action='store_true', help='Enable strict error checking that raises exceptions for invalid game states')
