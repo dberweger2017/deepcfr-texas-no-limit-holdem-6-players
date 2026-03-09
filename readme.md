@@ -49,7 +49,7 @@ Notes:
 - Checkpoint continuation
 - Self-play training against a fixed checkpoint
 - Mixed training against a rotating checkpoint pool
-- Opponent-modeling training variants
+- Opponent-modeling training with the same 3-stage progression
 - Checkpoint evaluation via CLI
 - CLI play against saved checkpoints or random agents
 - PyQt GUI play
@@ -74,6 +74,32 @@ This repo no longer uses the older 4-action "half-pot / pot raise" architecture 
 ## Training
 
 All commands below are run from the repository root.
+
+There are now two clean training tracks:
+
+- standard Deep CFR: [train.py](./src/training/train.py)
+- opponent-modeling Deep CFR: [train_opponent_modeling.py](./src/training/train_opponent_modeling.py)
+
+Both follow the same 3-stage progression:
+
+1. random opponents
+2. self-play against a fixed checkpoint
+3. mixed checkpoint training
+
+Shared core flags:
+
+- `--iterations`
+- `--traversals`
+- `--save-dir`
+- `--log-dir`
+- `--checkpoint`
+- `--self-play`
+- `--mixed`
+- `--checkpoint-dir`
+- `--model-prefix`
+- `--refresh-interval`
+- `--num-opponents`
+- `--strict`
 
 ### Phase 1: Train Against Random Opponents
 
@@ -121,22 +147,35 @@ python -m src.training.train \
 
 ### Opponent-Modeling Training
 
-Basic opponent-modeling training:
+Stage 1: random opponents
 
 ```bash
-python -m src.training.train_with_opponent_modeling \
+python -m src.training.train_opponent_modeling \
   --iterations 1000 \
   --traversals 200 \
   --save-dir models_om \
   --log-dir logs/deepcfr_om
 ```
 
-Mixed opponent-modeling training:
+Stage 2: self-play against a fixed checkpoint
 
 ```bash
-python -m src.training.train_mixed_with_opponent_modeling \
+python -m src.training.train_opponent_modeling \
+  --checkpoint models_om/om_checkpoint_iter_1000.pt \
+  --self-play \
+  --iterations 2000 \
+  --traversals 400 \
+  --save-dir models_om_selfplay \
+  --log-dir logs/deepcfr_om_selfplay
+```
+
+Stage 3: mixed checkpoint training
+
+```bash
+python -m src.training.train_opponent_modeling \
+  --mixed \
   --checkpoint-dir models_om \
-  --model-prefix "*" \
+  --model-prefix om_checkpoint_iter_ \
   --iterations 10000 \
   --traversals 200 \
   --refresh-interval 1000 \
@@ -144,6 +183,11 @@ python -m src.training.train_mixed_with_opponent_modeling \
   --save-dir models_mixed_om \
   --log-dir logs/deepcfr_mixed_om
 ```
+
+Notes:
+
+- Opponent-model mixed training can evaluate and train against opponent-model checkpoints and standard checkpoints.
+- Standard mixed training should still use standard checkpoints.
 
 ### Monitor Training
 
@@ -221,10 +265,14 @@ What these cover:
 
 - `tests/test_evaluation_cli.py`
   - checkpoint evaluation CLI behavior
+- `tests/test_training_opponent_modeling_regressions.py`
+  - opponent-model self-play smoke test
+  - unified OM training CLI dispatch
 - `tests/test_pokers_regressions.py`
   - all-in and legal-action regressions inherited from the `pokers` library
 - `tests/test_training_regressions.py`
   - self-play and mixed-training smoke tests
+  - mixed-training continuation from checkpoint
   - replay-memory shape consistency
   - explicit `.pt` save-path handling
 - `tests/test_logging_regressions.py`
