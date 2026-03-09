@@ -1,4 +1,8 @@
-# src/training/train_mixed_with_opponent_modeling.py
+"""Internal mixed-opponent training implementation.
+
+Use ``python -m src.training.train_opponent_modeling --mixed`` as the public CLI entrypoint.
+"""
+
 import pokers as pkrs
 import torch
 import numpy as np
@@ -6,10 +10,10 @@ import os
 import random
 import time
 import argparse
-import glob
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.model import set_verbose
 from src.agents.random_agent import RandomAgent
+from src.utils.checkpoints import find_checkpoints
 from src.utils.logging import apply_action_with_logging
 from src.utils.settings import STRICT_CHECKING, set_strict_checking
 
@@ -299,9 +303,9 @@ def train_mixed_with_opponent_modeling(
     save_dir="models_mixed_om",
     log_dir="logs/deepcfr_mixed_om",
     player_id=0,
-    model_prefix="*",  # Default to include all models
+    model_prefix="*checkpoint_iter_",
     verbose=False,
-    checkpoint_path=None  # New parameter to continue from checkpoint
+    checkpoint_path=None
 ):
     """
     Train a Deep CFR agent with opponent modeling against a mix of opponents
@@ -349,20 +353,14 @@ def train_mixed_with_opponent_modeling(
         print(f"Loading agent from checkpoint: {checkpoint_path}")
         try:
             agent.load_model(checkpoint_path)
-            
-            # Extract iteration number from filename if possible
-            try:
-                iteration_str = checkpoint_path.split('iter_')[1].split('.')[0]
-                starting_iteration = int(iteration_str) + 1
-                agent.iteration_count = starting_iteration - 1
-                print(f"Continuing from iteration {starting_iteration}")
-                if notifier:
-                    notifier.send_message(
-                        f"📥 <b>LOADED CHECKPOINT</b>\nContinuing from iteration {starting_iteration}"
-                    )
-            except Exception as e:
-                print(f"Could not determine iteration from checkpoint filename: {e}")
-                print("Starting from iteration 1")
+            checkpoint_state = torch.load(checkpoint_path, map_location=device)
+            starting_iteration = checkpoint_state.get("iteration", agent.iteration_count) + 1
+            agent.iteration_count = starting_iteration - 1
+            print(f"Continuing from iteration {starting_iteration}")
+            if notifier:
+                notifier.send_message(
+                    f"📥 <b>LOADED CHECKPOINT</b>\nContinuing from iteration {starting_iteration}"
+                )
         except Exception as e:
             print(f"Error loading checkpoint: {e}")
             if notifier:
@@ -383,10 +381,10 @@ def train_mixed_with_opponent_modeling(
     # Function to select random model opponents
     def select_random_models():
         # Find all model checkpoint files
-        checkpoint_files = glob.glob(os.path.join(checkpoint_dir, f"{model_prefix}.pt"))
+        checkpoint_files = [str(path) for path in find_checkpoints(checkpoint_dir, model_prefix)]
         
         if not checkpoint_files:
-            print(f"WARNING: No checkpoint files found matching pattern '{model_prefix}' in {checkpoint_dir}")
+            print(f"WARNING: No checkpoint files found matching '{model_prefix}' in {checkpoint_dir}")
             print("Using random agents as opponents")
             return [None if i == player_id else RandomAgent(i) for i in range(6)]
         
@@ -439,7 +437,8 @@ def train_mixed_with_opponent_modeling(
     opponents = select_random_models()
     
     # Training loop
-    for iteration in range(starting_iteration, num_iterations + 1):
+    final_iteration = starting_iteration + num_iterations - 1
+    for iteration in range(starting_iteration, final_iteration + 1):
         agent.iteration_count = iteration
         start_time = time.time()
         
@@ -487,7 +486,7 @@ def train_mixed_with_opponent_modeling(
         writer.add_scalar('Loss/Advantage', adv_loss, iteration)
         
         # Every few iterations, train the strategy network
-        if iteration % 5 == 0 or iteration == num_iterations:
+        if iteration % 5 == 0 or iteration == final_iteration:
             print("  Training strategy network...")
             strat_loss = agent.train_strategy_network()
             strategy_losses.append(strat_loss)
@@ -495,7 +494,7 @@ def train_mixed_with_opponent_modeling(
             writer.add_scalar('Loss/Strategy', strat_loss, iteration)
         
         # Train opponent modeling periodically
-        if iteration % 10 == 0 or iteration == num_iterations:
+        if iteration % 10 == 0 or iteration == final_iteration:
             print("  Training opponent modeling...")
             try:
                 opp_loss = agent.train_opponent_modeling()
@@ -509,7 +508,7 @@ def train_mixed_with_opponent_modeling(
                     notifier.send_message(f"⚠️ <b>OPPONENT MODELING ERROR</b>\n{error_msg}")
         
         # Evaluate periodically
-        if iteration % 20 == 0 or iteration == num_iterations:
+        if iteration % 20 == 0 or iteration == final_iteration:
             # Evaluate against random agents (baseline)
             print("  Evaluating against random agents...")
             random_opponents = [RandomAgent(i) for i in range(6) if i != player_id]
@@ -554,8 +553,8 @@ def train_mixed_with_opponent_modeling(
                 notifier.send_training_progress(iteration, avg_profit_models, avg_profit_random)
         
         # Save checkpoint
-        if iteration % checkpoint_frequency == 0 or iteration == num_iterations:
-            checkpoint_path = f"{save_dir}/mixed_om_checkpoint_iter_{iteration}.pt"
+        if iteration % checkpoint_frequency == 0 or iteration == final_iteration:
+            checkpoint_path = f"{save_dir}/mixed_checkpoint_iter_{iteration}.pt"
             agent.save_model(checkpoint_path)
             print(f"  Checkpoint saved to {checkpoint_path}")
             
@@ -593,7 +592,7 @@ def train_mixed_with_opponent_modeling(
         agent, 
         test_opponents, 
         num_games=500, 
-        iteration=num_iterations, 
+        iteration=final_iteration, 
         notifier=notifier
     )
     print(f"Final performance vs random: Average profit per game: {avg_profit_random:.2f}")
@@ -604,7 +603,7 @@ def train_mixed_with_opponent_modeling(
         agent, 
         opponents, 
         num_games=500, 
-        iteration=num_iterations, 
+        iteration=final_iteration, 
         notifier=notifier
     )
     print(f"Final performance vs models: Average profit per game: {avg_profit_models:.2f}")
@@ -614,7 +613,7 @@ def train_mixed_with_opponent_modeling(
     if notifier:
         notifier.send_message(
             f"✅ <b>TRAINING COMPLETED</b>\n"
-            f"Total iterations: {num_iterations}\n"
+            f"Final iteration: {final_iteration}\n"
             f"Final profit vs random: {avg_profit_random:.2f}\n"
             f"Final profit vs models: {avg_profit_models:.2f}"
         )
@@ -627,7 +626,7 @@ def train_mixed_with_opponent_modeling(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train a Deep CFR agent with opponent modeling against mixed opponents')
     parser.add_argument('--checkpoint-dir', type=str, required=True, help='Directory containing opponent model checkpoints')
-    parser.add_argument('--model-prefix', type=str, default="*", help='File pattern for selecting model checkpoints')
+    parser.add_argument('--model-prefix', type=str, default="*checkpoint_iter_", help='Checkpoint prefix or glob fragment for model selection')
     parser.add_argument('--iterations', type=int, default=20000, help='Number of CFR iterations')
     parser.add_argument('--traversals', type=int, default=200, help='Traversals per iteration')
     parser.add_argument('--refresh-interval', type=int, default=1000, help='How often to refresh opponent models')
@@ -642,7 +641,7 @@ if __name__ == "__main__":
     set_strict_checking(args.strict)
     
     print(f"Starting mixed opponent training with models from: {args.checkpoint_dir}")
-    print(f"Training for {args.iterations} iterations")
+    print(f"Training for {args.iterations} additional iterations")
     print(f"Using {args.traversals} traversals per iteration")
     print(f"Refreshing opponents every {args.refresh_interval} iterations")
     print(f"Selecting {args.num_opponents} model opponents for each training phase")
