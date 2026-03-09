@@ -11,6 +11,13 @@ from src.core.model import PokerNetwork, encode_state, VERBOSE, set_verbose
 from src.utils.settings import STRICT_CHECKING
 from src.utils.logging import log_game_error
 
+
+def _resolve_model_save_path(path_prefix, iteration):
+    """Accept either a path prefix or an explicit .pt filename."""
+    if str(path_prefix).endswith(".pt"):
+        return str(path_prefix)
+    return f"{path_prefix}_iteration_{iteration}.pt"
+
 class PrioritizedMemory:
     """Enhanced memory buffer with prioritized experience replay."""
     def __init__(self, capacity, alpha=0.6):
@@ -864,17 +871,18 @@ class DeepCFRAgent:
 
     def save_model(self, path_prefix):
         """Save the model to disk."""
+        model_path = _resolve_model_save_path(path_prefix, self.iteration_count)
         torch.save({
             'iteration': self.iteration_count,
             'advantage_net': self.advantage_net.state_dict(),
             'strategy_net': self.strategy_net.state_dict(),
             'min_bet_size': self.min_bet_size,
             'max_bet_size': self.max_bet_size
-        }, f"{path_prefix}_iteration_{self.iteration_count}.pt")
+        }, model_path)
         
     def load_model(self, path):
         """Load the model from disk."""
-        checkpoint = torch.load(path)
+        checkpoint = torch.load(path, map_location=self.device)
         self.iteration_count = checkpoint['iteration']
         self.advantage_net.load_state_dict(checkpoint['advantage_net'])
         self.strategy_net.load_state_dict(checkpoint['strategy_net'])
