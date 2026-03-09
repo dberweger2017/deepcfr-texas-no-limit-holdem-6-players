@@ -86,7 +86,7 @@ def create_checkpoint_pool_opponents(
     checkpoint_path: Path,
     agent_bank: Dict[Path, List[DeepCFRAgent]],
     player_id: int,
-) -> List[object | None]:
+) -> List[Optional[Any]]:
     pool_paths = [path for path in agent_bank if path != checkpoint_path]
     if not pool_paths:
         pool_paths = [checkpoint_path]
@@ -113,7 +113,7 @@ def evaluate_agent(
     bb: float,
     strict: bool,
     label: str,
-) -> Dict[str, float | int]:
+) -> Dict[str, Any]:
     total_profit = 0.0
     completed_games = 0
     invalid_state_games = 0
