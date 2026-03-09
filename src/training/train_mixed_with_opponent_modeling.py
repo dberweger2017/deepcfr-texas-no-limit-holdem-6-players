@@ -13,6 +13,12 @@ from src.agents.random_agent import RandomAgent
 from src.utils.logging import apply_action_with_logging
 from src.utils.settings import STRICT_CHECKING, set_strict_checking
 
+def checkpoint_uses_opponent_modeling(model_path):
+    """Detect whether a checkpoint contains opponent-modeling weights."""
+    checkpoint = torch.load(model_path, map_location="cpu")
+    return "history_encoder" in checkpoint and "opponent_model" in checkpoint
+
+
 class ModelAgent:
     """Wrapper for a DeepCFRAgent or DeepCFRAgentWithOpponentModeling loaded from a checkpoint.
     Only sanitizes the bet amounts without changing decision logic."""
@@ -404,9 +410,7 @@ def train_mixed_with_opponent_modeling(
             if pos == player_id:
                 pos = (pos + 1) % 6
             
-            # Check if this is an opponent modeling checkpoint or regular checkpoint
-            # This is a simplistic way to detect - you might need a more robust method
-            is_om_model = "om" in os.path.basename(file_path).lower()
+            is_om_model = checkpoint_uses_opponent_modeling(file_path)
             
             model_opponents.append(ModelAgent(
                 player_id=pos,
