@@ -1,4 +1,4 @@
-torch==2.5.1
+torch>=2.5.1,<3.0
 numpy==1.26.4
 matplotlib==3.9.0
 tensorboard==2.18.0
@@ -8,5 +8,5 @@ pokers @ git+https://github.com/dberweger2017/pokers.git@b1a48bd2067176cb73f9528
 python-dotenv==1.0.1
 requests==2.32.3
 seaborn==0.13.2
-pandas==2.2.2
+pandas>=2.2.2,<3.0
 PyQt5==5.15.11
