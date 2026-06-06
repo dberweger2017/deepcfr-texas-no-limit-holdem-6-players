@@ -8,6 +8,8 @@ import time
 import argparse
 import matplotlib.pyplot as plt
 from src.core.deep_cfr import DeepCFRAgent
+from src.utils.logging import apply_action_with_logging
+from src.utils.checkpoints import load_checkpoint
 from collections import defaultdict
 import pandas as pd
 import seaborn as sns
@@ -19,7 +21,7 @@ def load_agent_from_checkpoint(checkpoint_path, player_id=0, device='cpu'):
     agent = DeepCFRAgent(player_id=player_id, num_players=6, device=device)
     
     # Load the checkpoint
-    checkpoint = torch.load(checkpoint_path, map_location=device)
+    checkpoint = load_checkpoint(checkpoint_path, map_location=device)
     
     # Load weights into the agent
     agent.advantage_net.load_state_dict(checkpoint['advantage_net'])
@@ -128,7 +130,12 @@ def run_tournament(checkpoint_paths, num_games=100, device='cpu',
             hand_actions.append((current_player, action))
             
             # Apply the action
-            state = state.apply_action(action)
+            state, _, _ = apply_action_with_logging(
+                state,
+                action,
+                strict=True,
+                error_prefix=f"State status not OK during tournament game {game + 1}",
+            )
         
         # Game is over - collect results
         hand_profits = [player.reward for player in state.players_state]

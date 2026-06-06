@@ -1,4 +1,8 @@
-# src/training/train_mixed_with_opponent_modeling.py
+"""Internal mixed-opponent training implementation.
+
+Use ``python -m src.training.train_opponent_modeling --mixed`` as the public CLI entrypoint.
+"""
+
 import pokers as pkrs
 import torch
 import numpy as np
@@ -6,10 +10,19 @@ import os
 import random
 import time
 import argparse
-import glob
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.model import set_verbose
 from src.agents.random_agent import RandomAgent
+from src.utils.checkpoints import checkpoint_uses_opponent_modeling_state, find_checkpoints, load_checkpoint
+from src.utils.logging import apply_action_with_logging
+from src.utils.settings import STRICT_CHECKING, set_strict_checking
+from src.utils.actions import sanitize_action
+
+def checkpoint_uses_opponent_modeling(model_path):
+    """Detect whether a checkpoint contains opponent-modeling weights."""
+    checkpoint = load_checkpoint(model_path, map_location="cpu")
+    return checkpoint_uses_opponent_modeling_state(checkpoint)
+
 
 class ModelAgent:
     """Wrapper for a DeepCFRAgent or DeepCFRAgentWithOpponentModeling loaded from a checkpoint.
@@ -34,39 +47,7 @@ class ModelAgent:
     
     def choose_action(self, state):
         """Choose an action while sanitizing bet amounts to legal values."""
-        # Get the original action from the agent
-        original_action = self.agent.choose_action(state)
-        
-        # Only process Raise actions
-        if original_action.action != pkrs.ActionEnum.Raise:
-            return original_action
-            
-        # Calculate legal bet bounds
-        player_state = state.players_state[state.current_player]
-        current_bet = player_state.bet_chips
-        available_stake = player_state.stake
-        
-        # Calculate call amount (needed to match current min_bet)
-        call_amount = state.min_bet - current_bet
-        
-        # If the player can't even call, return Call action
-        if available_stake < call_amount:
-            return pkrs.Action(pkrs.ActionEnum.Call)
-        
-        # Remaining stake after calling
-        remaining_stake = available_stake - call_amount
-        
-        # Get the original amount (which might be calculated incorrectly by the model)
-        additional_amount = original_action.amount
-        
-        # Ensure the additional amount doesn't exceed remaining stake
-        additional_amount = min(additional_amount, remaining_stake)
-        
-        # Ensure the additional amount is non-negative
-        additional_amount = max(0, additional_amount)
-        
-        # Create new action with sanitized amount
-        return pkrs.Action(pkrs.ActionEnum.Raise, additional_amount)
+        return sanitize_action(state, self.agent.choose_action(state))
 
 def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, notifier=None):
     """Evaluate the trained agent against a set of opponents with enhanced error tracking."""
@@ -146,7 +127,7 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                                 
                             # This should be fixed by your implementation, but let's double-check
                             if action.amount > available_stake:
-                                action = pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
+                                action = sanitize_action(state, action)
                     
                     # Record opponent action for modeling
                     if current_player != agent.player_id and hasattr(agent, 'record_opponent_action'):
@@ -164,12 +145,16 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                         agent.record_opponent_action(state, action_id, current_player)
                     
                     # Apply the action
-                    new_state = state.apply_action(action)
+                    new_state, log_file, status = apply_action_with_logging(
+                        state,
+                        action,
+                        strict=STRICT_CHECKING,
+                    )
                     action_count += 1
                     total_actions += 1
                     
                     # Check if the action was valid
-                    if new_state.status != pkrs.StateStatus.Ok:
+                    if new_state is None:
                         state_errors += 1
                         
                         # Identify which agent caused the error
@@ -177,7 +162,7 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                         
                         # Error details for debug
                         error_details = f"Error Source: {error_source}\n"
-                        if new_state.status == pkrs.StateStatus.HighBet:
+                        if status == pkrs.StateStatus.HighBet:
                             player_state = state_before.players_state[current_player]
                             error_details += f"Player Stake: {player_state.stake}\n"
                             error_details += f"Current Bet: {player_state.bet_chips}\n"
@@ -185,13 +170,14 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                             if hasattr(action, 'amount'):
                                 error_details += f"Attempted Raise: {action.amount}\n"
                         
-                        print(f"STATE ERROR: {new_state.status} by {error_source}")
+                        print(f"STATE ERROR: {status} by {error_source}")
                         print(error_details)
+                        print(f"Details logged to {log_file}")
                         
                         if notifier:
                             notifier.alert_state_error(
                                 iteration,
-                                new_state.status,
+                                status,
                                 state_before,
                                 is_training_agent=is_training_agent
                             )
@@ -201,6 +187,8 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                     state = new_state
                     
                 except Exception as e:
+                    if STRICT_CHECKING:
+                        raise
                     print(f"ERROR in game {game}, player {current_player}: {e}")
                     if notifier and game % 10 == 0:  # Don't send too many error messages
                         notifier.send_message(
@@ -238,6 +226,8 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                 game_crashes += 1
                 
         except Exception as e:
+            if STRICT_CHECKING:
+                raise
             game_crashes += 1
             print(f"GAME CRASH: Game {game} crashed with error: {e}")
             if notifier and game % 20 == 0:  # Limit notification frequency
@@ -282,9 +272,9 @@ def train_mixed_with_opponent_modeling(
     save_dir="models_mixed_om",
     log_dir="logs/deepcfr_mixed_om",
     player_id=0,
-    model_prefix="*",  # Default to include all models
+    model_prefix="*checkpoint_iter_",
     verbose=False,
-    checkpoint_path=None  # New parameter to continue from checkpoint
+    checkpoint_path=None
 ):
     """
     Train a Deep CFR agent with opponent modeling against a mix of opponents
@@ -332,20 +322,14 @@ def train_mixed_with_opponent_modeling(
         print(f"Loading agent from checkpoint: {checkpoint_path}")
         try:
             agent.load_model(checkpoint_path)
-            
-            # Extract iteration number from filename if possible
-            try:
-                iteration_str = checkpoint_path.split('iter_')[1].split('.')[0]
-                starting_iteration = int(iteration_str) + 1
-                agent.iteration_count = starting_iteration - 1
-                print(f"Continuing from iteration {starting_iteration}")
-                if notifier:
-                    notifier.send_message(
-                        f"📥 <b>LOADED CHECKPOINT</b>\nContinuing from iteration {starting_iteration}"
-                    )
-            except Exception as e:
-                print(f"Could not determine iteration from checkpoint filename: {e}")
-                print("Starting from iteration 1")
+            checkpoint_state = load_checkpoint(checkpoint_path, map_location=device)
+            starting_iteration = checkpoint_state.get("iteration", agent.iteration_count) + 1
+            agent.iteration_count = starting_iteration - 1
+            print(f"Continuing from iteration {starting_iteration}")
+            if notifier:
+                notifier.send_message(
+                    f"📥 <b>LOADED CHECKPOINT</b>\nContinuing from iteration {starting_iteration}"
+                )
         except Exception as e:
             print(f"Error loading checkpoint: {e}")
             if notifier:
@@ -366,10 +350,10 @@ def train_mixed_with_opponent_modeling(
     # Function to select random model opponents
     def select_random_models():
         # Find all model checkpoint files
-        checkpoint_files = glob.glob(os.path.join(checkpoint_dir, f"{model_prefix}.pt"))
+        checkpoint_files = [str(path) for path in find_checkpoints(checkpoint_dir, model_prefix)]
         
         if not checkpoint_files:
-            print(f"WARNING: No checkpoint files found matching pattern '{model_prefix}' in {checkpoint_dir}")
+            print(f"WARNING: No checkpoint files found matching '{model_prefix}' in {checkpoint_dir}")
             print("Using random agents as opponents")
             return [None if i == player_id else RandomAgent(i) for i in range(6)]
         
@@ -393,9 +377,7 @@ def train_mixed_with_opponent_modeling(
             if pos == player_id:
                 pos = (pos + 1) % 6
             
-            # Check if this is an opponent modeling checkpoint or regular checkpoint
-            # This is a simplistic way to detect - you might need a more robust method
-            is_om_model = "om" in os.path.basename(file_path).lower()
+            is_om_model = checkpoint_uses_opponent_modeling(file_path)
             
             model_opponents.append(ModelAgent(
                 player_id=pos,
@@ -424,7 +406,8 @@ def train_mixed_with_opponent_modeling(
     opponents = select_random_models()
     
     # Training loop
-    for iteration in range(starting_iteration, num_iterations + 1):
+    final_iteration = starting_iteration + num_iterations - 1
+    for iteration in range(starting_iteration, final_iteration + 1):
         agent.iteration_count = iteration
         start_time = time.time()
         
@@ -472,7 +455,7 @@ def train_mixed_with_opponent_modeling(
         writer.add_scalar('Loss/Advantage', adv_loss, iteration)
         
         # Every few iterations, train the strategy network
-        if iteration % 5 == 0 or iteration == num_iterations:
+        if iteration % 5 == 0 or iteration == final_iteration:
             print("  Training strategy network...")
             strat_loss = agent.train_strategy_network()
             strategy_losses.append(strat_loss)
@@ -480,7 +463,7 @@ def train_mixed_with_opponent_modeling(
             writer.add_scalar('Loss/Strategy', strat_loss, iteration)
         
         # Train opponent modeling periodically
-        if iteration % 10 == 0 or iteration == num_iterations:
+        if iteration % 10 == 0 or iteration == final_iteration:
             print("  Training opponent modeling...")
             try:
                 opp_loss = agent.train_opponent_modeling()
@@ -494,7 +477,7 @@ def train_mixed_with_opponent_modeling(
                     notifier.send_message(f"⚠️ <b>OPPONENT MODELING ERROR</b>\n{error_msg}")
         
         # Evaluate periodically
-        if iteration % 20 == 0 or iteration == num_iterations:
+        if iteration % 20 == 0 or iteration == final_iteration:
             # Evaluate against random agents (baseline)
             print("  Evaluating against random agents...")
             random_opponents = [RandomAgent(i) for i in range(6) if i != player_id]
@@ -539,8 +522,8 @@ def train_mixed_with_opponent_modeling(
                 notifier.send_training_progress(iteration, avg_profit_models, avg_profit_random)
         
         # Save checkpoint
-        if iteration % checkpoint_frequency == 0 or iteration == num_iterations:
-            checkpoint_path = f"{save_dir}/mixed_om_checkpoint_iter_{iteration}.pt"
+        if iteration % checkpoint_frequency == 0 or iteration == final_iteration:
+            checkpoint_path = f"{save_dir}/mixed_checkpoint_iter_{iteration}.pt"
             agent.save_model(checkpoint_path)
             print(f"  Checkpoint saved to {checkpoint_path}")
             
@@ -578,7 +561,7 @@ def train_mixed_with_opponent_modeling(
         agent, 
         test_opponents, 
         num_games=500, 
-        iteration=num_iterations, 
+        iteration=final_iteration, 
         notifier=notifier
     )
     print(f"Final performance vs random: Average profit per game: {avg_profit_random:.2f}")
@@ -589,7 +572,7 @@ def train_mixed_with_opponent_modeling(
         agent, 
         opponents, 
         num_games=500, 
-        iteration=num_iterations, 
+        iteration=final_iteration, 
         notifier=notifier
     )
     print(f"Final performance vs models: Average profit per game: {avg_profit_models:.2f}")
@@ -599,7 +582,7 @@ def train_mixed_with_opponent_modeling(
     if notifier:
         notifier.send_message(
             f"✅ <b>TRAINING COMPLETED</b>\n"
-            f"Total iterations: {num_iterations}\n"
+            f"Final iteration: {final_iteration}\n"
             f"Final profit vs random: {avg_profit_random:.2f}\n"
             f"Final profit vs models: {avg_profit_models:.2f}"
         )
@@ -612,7 +595,7 @@ def train_mixed_with_opponent_modeling(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train a Deep CFR agent with opponent modeling against mixed opponents')
     parser.add_argument('--checkpoint-dir', type=str, required=True, help='Directory containing opponent model checkpoints')
-    parser.add_argument('--model-prefix', type=str, default="*", help='File pattern for selecting model checkpoints')
+    parser.add_argument('--model-prefix', type=str, default="*checkpoint_iter_", help='Checkpoint prefix or glob fragment for model selection')
     parser.add_argument('--iterations', type=int, default=20000, help='Number of CFR iterations')
     parser.add_argument('--traversals', type=int, default=200, help='Traversals per iteration')
     parser.add_argument('--refresh-interval', type=int, default=1000, help='How often to refresh opponent models')
@@ -621,10 +604,13 @@ if __name__ == "__main__":
     parser.add_argument('--log-dir', type=str, default='logs/deepcfr_mixed_om', help='Directory for logs')
     parser.add_argument('--verbose', action='store_true', help='Enable verbose output')
     parser.add_argument('--checkpoint', type=str, default=None, help='Path to checkpoint to continue training from')
+    parser.add_argument('--strict', action='store_true', help='Raise exceptions for invalid game states')
     args = parser.parse_args()
+
+    set_strict_checking(args.strict)
     
     print(f"Starting mixed opponent training with models from: {args.checkpoint_dir}")
-    print(f"Training for {args.iterations} iterations")
+    print(f"Training for {args.iterations} additional iterations")
     print(f"Using {args.traversals} traversals per iteration")
     print(f"Refreshing opponents every {args.refresh_interval} iterations")
     print(f"Selecting {args.num_opponents} model opponents for each training phase")

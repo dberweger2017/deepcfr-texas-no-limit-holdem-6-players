@@ -1,4 +1,8 @@
-# src/training/train_with_opponent_modeling.py
+"""Internal opponent-model training implementation.
+
+Use ``python -m src.training.train_opponent_modeling`` as the public CLI entrypoint.
+"""
+
 import pokers as pkrs
 import torch
 import numpy as np
@@ -9,6 +13,9 @@ import argparse
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.model import set_verbose
 from src.agents.random_agent import RandomAgent
+from src.utils.logging import apply_action_with_logging
+from src.utils.settings import STRICT_CHECKING, set_strict_checking
+from src.utils.checkpoints import load_checkpoint
 
 def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, notifier=None):
     """Evaluate the trained agent against random opponents, tracking opponent history."""
@@ -57,7 +64,15 @@ def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, no
                                 
                             agent.record_opponent_action(state, action_id, current_player)
                         
-                    state = state.apply_action(action)
+                    new_state, log_file, status = apply_action_with_logging(
+                        state,
+                        action,
+                        strict=STRICT_CHECKING,
+                    )
+                    if new_state is None:
+                        print(f"WARNING: State status not OK ({status}) in game {game}. Details logged to {log_file}")
+                        break
+                    state = new_state
                 
                 # Record end of game
                 if hasattr(agent, 'end_game_recording'):
@@ -72,11 +87,15 @@ def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, no
                 if abs(profit) < 0.001:
                     zero_reward_games += 1
             except Exception as e:
+                if STRICT_CHECKING:
+                    raise
                 if notifier and game % 20 == 0:  # Limit notification frequency
                     notifier.send_message(f"⚠️ <b>GAME ERROR</b>\nIteration: {iteration}, Hand: {game}\nError: {str(e)}")
                 game_crashes += 1
                 
         except Exception as e:
+            if STRICT_CHECKING:
+                raise
             game_crashes += 1
             if notifier and game % 20 == 0:  # Limit notification frequency
                 notifier.send_message(f"⚠️ <b>GAME SETUP ERROR</b>\nIteration: {iteration}, Game: {game}\nError: {str(e)}")
@@ -102,7 +121,8 @@ def train_deep_cfr_with_opponent_modeling(
     player_id=0, 
     save_dir="models", 
     log_dir="logs/deepcfr_opponent_modeling", 
-    verbose=False
+    verbose=False,
+    checkpoint_path=None,
 ):
     """Train a Deep CFR agent with opponent modeling."""
     from torch.utils.tensorboard import SummaryWriter
@@ -132,6 +152,16 @@ def train_deep_cfr_with_opponent_modeling(
         num_players=num_players,
         device='cuda' if torch.cuda.is_available() else 'cpu'
     )
+    starting_iteration = 1
+
+    if checkpoint_path:
+        print(f"Loading agent from checkpoint: {checkpoint_path}")
+        agent.load_model(checkpoint_path)
+        try:
+            checkpoint_state = load_checkpoint(checkpoint_path, map_location=agent.device)
+            starting_iteration = checkpoint_state.get("iteration", agent.iteration_count) + 1
+        except Exception:
+            starting_iteration = agent.iteration_count + 1
     
     # Create random agents for opponents
     random_agents = [RandomAgent(i) for i in range(num_players)]
@@ -146,11 +176,14 @@ def train_deep_cfr_with_opponent_modeling(
     checkpoint_frequency = 50  # Save more frequently due to opponent modeling
     
     # Training loop
-    for iteration in range(1, num_iterations + 1):
+    for iteration in range(starting_iteration, starting_iteration + num_iterations):
         agent.iteration_count = iteration
         start_time = time.time()
         
-        print(f"Iteration {iteration}/{num_iterations}")
+        print(
+            f"Iteration {iteration}/"
+            f"{starting_iteration + num_iterations - 1}"
+        )
         
         # Run traversals to collect data
         print("  Collecting data...")
@@ -185,7 +218,7 @@ def train_deep_cfr_with_opponent_modeling(
         writer.add_scalar('Loss/Advantage', adv_loss, iteration)
         
         # Every few iterations, train the strategy network
-        if iteration % 5 == 0 or iteration == num_iterations:
+        if iteration % 5 == 0 or iteration == starting_iteration + num_iterations - 1:
             print("  Training strategy network...")
             strat_loss = agent.train_strategy_network()
             strategy_losses.append(strat_loss)
@@ -193,7 +226,7 @@ def train_deep_cfr_with_opponent_modeling(
             writer.add_scalar('Loss/Strategy', strat_loss, iteration)
         
         # Train opponent modeling periodically
-        if iteration % 10 == 0 or iteration == num_iterations:
+        if iteration % 10 == 0 or iteration == starting_iteration + num_iterations - 1:
             print("  Training opponent modeling...")
             try:
                 opp_loss = agent.train_opponent_modeling()
@@ -206,7 +239,7 @@ def train_deep_cfr_with_opponent_modeling(
                     notifier.send_message(f"⚠️ <b>OPPONENT MODEL ERROR</b>\nIteration: {iteration}\nError: {str(e)}")
         
         # Evaluate periodically
-        if iteration % 20 == 0 or iteration == num_iterations:
+        if iteration % 20 == 0 or iteration == starting_iteration + num_iterations - 1:
             print("  Evaluating agent...")
             avg_profit = evaluate_against_random(agent, num_games=200, iteration=iteration, notifier=notifier)
             profits.append(avg_profit)
@@ -223,8 +256,8 @@ def train_deep_cfr_with_opponent_modeling(
                 )
         
         # Save checkpoint
-        if iteration % checkpoint_frequency == 0 or iteration == num_iterations:
-            checkpoint_path = f"{save_dir}/om_checkpoint_iter_{iteration}.pt"
+        if iteration % checkpoint_frequency == 0 or iteration == starting_iteration + num_iterations - 1:
+            checkpoint_path = f"{save_dir}/checkpoint_iter_{iteration}.pt"
             agent.save_model(checkpoint_path)
             print(f"  Checkpoint saved to {checkpoint_path}")
             
@@ -276,7 +309,11 @@ if __name__ == "__main__":
     parser.add_argument('--traversals', type=int, default=200, help='Traversals per iteration')
     parser.add_argument('--save-dir', type=str, default='models_om', help='Directory to save models')
     parser.add_argument('--log-dir', type=str, default='logs/deepcfr_om', help='Directory for logs')
+    parser.add_argument('--checkpoint', type=str, default=None, help='Path to checkpoint to continue training from')
+    parser.add_argument('--strict', action='store_true', help='Raise exceptions for invalid game states')
     args = parser.parse_args()
+
+    set_strict_checking(args.strict)
     
     print(f"Starting Deep CFR training with opponent modeling for {args.iterations} iterations")
     print(f"Using {args.traversals} traversals per iteration")
@@ -289,7 +326,8 @@ if __name__ == "__main__":
         traversals_per_iteration=args.traversals,
         save_dir=args.save_dir,
         log_dir=args.log_dir,
-        verbose=args.verbose
+        verbose=args.verbose,
+        checkpoint_path=args.checkpoint,
     )
     
     print("\nTraining Summary:")
