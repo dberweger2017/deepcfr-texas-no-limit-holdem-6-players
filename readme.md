@@ -56,6 +56,19 @@ Notes:
 - Tournament visualization across checkpoints
 - Regression tests for known `pokers` and training-path failures
 
+## Current Verification Goal
+
+The main goal of the current training and evaluation examples is to demonstrate that the code works end to end:
+
+1. training fills replay memory and writes checkpoints
+2. checkpoints reload correctly
+3. TensorBoard logs are written
+4. fixed-seed evaluation runs without invalid game states
+5. saved checkpoints can play tournaments against each other
+6. result files and plots are generated without editing scripts by hand
+
+This is a working-code verification milestone, not a claim that the current models are already strong poker agents. Poker quality still needs longer training, variance-aware evaluation, and checkpoint-vs-checkpoint comparisons.
+
 ## Architecture
 
 The current implementation uses:
@@ -107,12 +120,14 @@ Shared core flags:
 - `--refresh-interval`
 - `--num-opponents`
 - `--strict`
+- `--progress-interval`
 
 Flag meaning:
 
 - `--checkpoint` means "continue from this checkpoint"
 - `--checkpoint --self-play` means "continue from this checkpoint and use that same checkpoint as the fixed opponent snapshot"
 - `--checkpoint --mixed` means "continue from this checkpoint while sampling opponents from `--checkpoint-dir`"
+- `--progress-interval` controls compact terminal summaries during Phase 1 training. The default is `100`; use `0` to keep only the progress bar and milestone messages.
 
 Recommended directory layout:
 
@@ -130,6 +145,8 @@ models/
 
 ### Phase 1: Train Against Random Opponents
 
+A 1000-iteration run is useful as a smoke test, but it is not a serious poker-training target. Use it only to verify that the environment, checkpointing, TensorBoard logging, and evaluation scripts work:
+
 ```bash
 python -m src.training.train \
   --iterations 1000 \
@@ -137,6 +154,32 @@ python -m src.training.train \
   --log-dir logs/standard/phase1 \
   --save-dir models/standard/phase1
 ```
+
+A more useful first baseline is a longer Phase 1 run:
+
+```bash
+python -m src.training.train \
+  --iterations 20000 \
+  --traversals 200 \
+  --save-dir models/standard/phase1_20k \
+  --log-dir logs/standard/phase1_20k
+```
+
+For long runs, the trainer uses a `tqdm` progress bar in an interactive terminal and prints compact summaries every `--progress-interval` iterations. To print fewer summaries:
+
+```bash
+python -m src.training.train \
+  --iterations 20000 \
+  --traversals 200 \
+  --save-dir models/standard/phase1_20k \
+  --log-dir logs/standard/phase1_20k \
+  --progress-interval 500
+```
+
+Notes:
+
+- Checkpoints are saved every 100 iterations by default.
+- Replay memory is not saved in checkpoints. Continuing from a checkpoint continues model weights, but starts with fresh replay memory. For a true uninterrupted Phase 1 baseline, run the full target iteration count in one process.
 
 ### Continue Training From a Checkpoint
 
@@ -233,6 +276,12 @@ tensorboard --logdir=logs
 
 Then open `http://localhost:6006`.
 
+For one run only:
+
+```bash
+tensorboard --logdir=logs/standard/phase1_20k
+```
+
 ## Evaluating Checkpoints
 
 Use the evaluation CLI to compare checkpoints with fixed seeds instead of editing training scripts by hand.
@@ -247,6 +296,23 @@ python scripts/evaluate_models.py \
   --games-pool 100 \
   --json-out reports/evaluation.json \
   --csv-out reports/evaluation.csv
+```
+
+For a Phase 1 run, evaluate stable checkpoint slices explicitly while training continues. This avoids accidentally loading a checkpoint file while the training process is writing it:
+
+```bash
+python scripts/evaluate_models.py \
+  --checkpoints \
+    models/standard/phase1_20k/checkpoint_iter_500.pt \
+    models/standard/phase1_20k/checkpoint_iter_1000.pt \
+    models/standard/phase1_20k/checkpoint_iter_1500.pt \
+    models/standard/phase1_20k/checkpoint_iter_2000.pt \
+    models/standard/phase1_20k/checkpoint_iter_2500.pt \
+    models/standard/phase1_20k/checkpoint_iter_3000.pt \
+  --games-random 5000 \
+  --games-pool 1000 \
+  --json-out results/standard_phase1_20k_500_3000.json \
+  --csv-out results/standard_phase1_20k_500_3000.csv
 ```
 
 What it reports:
@@ -286,6 +352,32 @@ python scripts/visualize_tournament.py \
   --checkpoints models/standard/phase1/checkpoint_iter_1000.pt models/standard/selfplay/selfplay_checkpoint_iter_3000.pt \
   --num-games 100
 ```
+
+For checkpoint-vs-checkpoint comparisons during Phase 1:
+
+```bash
+python -m scripts.visualize_tournament \
+  --checkpoints \
+    models/standard/phase1_20k/checkpoint_iter_500.pt \
+    models/standard/phase1_20k/checkpoint_iter_1000.pt \
+    models/standard/phase1_20k/checkpoint_iter_1500.pt \
+    models/standard/phase1_20k/checkpoint_iter_2000.pt \
+    models/standard/phase1_20k/checkpoint_iter_2500.pt \
+    models/standard/phase1_20k/checkpoint_iter_3000.pt \
+  --num-games 1000 \
+  --output-dir results/tournament_phase1_20k_500_to_3000_step500
+```
+
+Tournament output includes raw data plus plots:
+
+- `tournament_data.csv`
+- `cumulative_profit.png`
+- `final_performance.png`
+- `segment_heatmap.png`
+- `stack_sizes_over_time.png`
+- `zero_sum_validation.png`
+
+Use tournament results as a robustness signal, not as the only selection metric. A single six-player table can be noisy; compare it with fixed-seed evaluation versus random opponents and checkpoint pools.
 
 ## Testing and Regression Coverage
 
