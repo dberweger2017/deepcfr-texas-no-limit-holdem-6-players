@@ -12,6 +12,7 @@ Current status:
 
 - The project is source-first and ready to train from the repository.
 - The all-in edge cases in the underlying poker engine are handled by pinning to the patched `pokers` fork in [requirements.txt](./requirements.txt).
+- Six-player all-in side-pot check cycles are normalized in the shared action wrapper, so tournaments and evaluation no longer hang when all remaining active players are all-in.
 - The Phase 2 self-play and Phase 3 mixed-training regressions from issue `#22` have been fixed on `main`.
 - Regression coverage now exists for both poker-engine integration and training-path smoke tests.
 
@@ -204,6 +205,18 @@ python -m src.training.train \
   --save-dir models/standard/selfplay
 ```
 
+Example continuing from a stronger Phase 1 candidate:
+
+```bash
+python -m src.training.train \
+  --checkpoint models/standard/phase1_20k/checkpoint_iter_3000.pt \
+  --self-play \
+  --iterations 10000 \
+  --traversals 400 \
+  --save-dir models/standard/selfplay_from_3000 \
+  --log-dir logs/standard/selfplay_from_3000
+```
+
 ### Phase 3: Mixed Training Against a Checkpoint Pool
 
 ```bash
@@ -368,6 +381,21 @@ python -m scripts.visualize_tournament \
   --output-dir results/tournament_phase1_20k_500_to_3000_step500
 ```
 
+For a larger Phase 1 versus self-play comparison:
+
+```bash
+python -m scripts.visualize_tournament \
+  --checkpoints \
+    models/standard/phase1_20k/checkpoint_iter_3000.pt \
+    models/standard/selfplay_from_3000/selfplay_checkpoint_iter_3500.pt \
+    models/standard/selfplay_from_3000/selfplay_checkpoint_iter_4000.pt \
+    models/standard/selfplay_from_3000/selfplay_checkpoint_iter_4500.pt \
+    models/standard/selfplay_from_3000/selfplay_checkpoint_iter_5000.pt \
+    models/standard/selfplay_from_3000/selfplay_checkpoint_iter_6000.pt \
+  --num-games 10000 \
+  --output-dir results/tournament_selfplay_from_3000_3500_to_6000_10k
+```
+
 Tournament output includes raw data plus plots:
 
 - `tournament_data.csv`
@@ -378,6 +406,8 @@ Tournament output includes raw data plus plots:
 - `zero_sum_validation.png`
 
 Use tournament results as a robustness signal, not as the only selection metric. A single six-player table can be noisy; compare it with fixed-seed evaluation versus random opponents and checkpoint pools.
+
+The tournament script shows a `tqdm` progress bar with the current leader and average actions per hand. It also has `--max-actions-per-hand` to fail clearly if a hand does not terminate.
 
 ## Testing and Regression Coverage
 
@@ -407,6 +437,7 @@ What these cover:
 - `tests/test_logging_regressions.py`
   - UTF-8 log writing
   - tournament invalid-state logging
+  - six-player all-in side-pot check-cycle resolution
 - `tests/test_state_scenarios.py`
   - deterministic edge-case hand scenarios
 
@@ -419,6 +450,30 @@ What is safe to say today:
 - the main training paths run
 - the known training-path bugs from issue `#22` are fixed
 - the all-in legal-action bugs that were breaking games are fixed in the pinned `pokers` fork
+- six-player all-in side-pot check cycles are resolved before they can hang tournament or evaluation loops
+
+Recent local benchmark data from a standard Phase 1 run and a self-play continuation from `checkpoint_iter_3000.pt`:
+
+```text
+10k tournament, fixed six-seat lineup:
+phase1 checkpoint_iter_3000.pt:            +642629.55
+selfplay selfplay_checkpoint_iter_3500.pt:  +27121.85
+selfplay selfplay_checkpoint_iter_4000.pt: -126573.81
+selfplay selfplay_checkpoint_iter_4500.pt: -278549.67
+selfplay selfplay_checkpoint_iter_5000.pt: -183321.37
+selfplay selfplay_checkpoint_iter_6000.pt:  -81306.54
+
+Fixed-seed evaluator:
+checkpoint                         random EV    checkpoint-pool EV
+checkpoint_iter_3000.pt            +32.35       +57.70
+selfplay_checkpoint_iter_3500.pt    +6.51        -7.32
+selfplay_checkpoint_iter_4000.pt    -1.21       -20.03
+selfplay_checkpoint_iter_4500.pt    -9.94       -16.57
+selfplay_checkpoint_iter_5000.pt    -8.28        -9.29
+selfplay_checkpoint_iter_6000.pt    -3.46        -2.07
+```
+
+This specific self-play run did not improve over the Phase 1 `3000` checkpoint by iteration `6000`. The later self-play checkpoints partially recovered versus the worst middle checkpoints, but the Phase 1 anchor still dominated both the tournament and fixed-seed evaluator.
 
 What is still an open research / tuning question:
 
