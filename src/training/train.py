@@ -456,7 +456,8 @@ def continue_training(checkpoint_path, additional_iterations=1000,
 
 def train_against_checkpoint(checkpoint_path, additional_iterations=1000, 
                            traversals_per_iteration=200, save_dir="models", 
-                           log_dir="logs/deepcfr_selfplay", verbose=False, debug_training=False):
+                           log_dir="logs/deepcfr_selfplay", verbose=False, debug_training=False,
+                           progress_interval=100):
     """
     Continue a Deep CFR agent from a checkpoint while training against a fixed
     opponent pool loaded from that same checkpoint.
@@ -528,14 +529,22 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
 
     # Training loop
     final_iteration = starting_iteration + additional_iterations - 1
-    for iteration in range(starting_iteration, final_iteration + 1):
+    progress = tqdm(
+        range(starting_iteration, final_iteration + 1),
+        desc="Self-play",
+        unit="iter",
+        dynamic_ncols=True,
+        disable=not sys.stderr.isatty(),
+    )
+    last_strat_loss = None
+    last_profit_vs_checkpoint = initial_profit_vs_checkpoint
+    last_profit_random = initial_profit_random
+
+    for iteration in progress:
         learning_agent.iteration_count = iteration
         start_time = time.time()
 
-        print(f"Self-play Iteration {iteration}/{final_iteration}")
-
         # Run traversals to collect data
-        print("  Collecting data...")
         for t in range(traversals_per_iteration):
             button_pos = t % 6
 
@@ -555,36 +564,28 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
         traversal_time = time.time() - start_time
         writer.add_scalar('Time/Traversal', traversal_time, iteration)
 
-        print("  Training advantage network...")
         adv_loss = learning_agent.train_advantage_network()
         losses.append(adv_loss)
-        print(f"  Advantage network loss: {adv_loss:.6f}")
 
         writer.add_scalar('Loss/Advantage', adv_loss, iteration)
         writer.add_scalar('Memory/Advantage', len(learning_agent.advantage_memory), iteration)
 
         if iteration % 10 == 0 or iteration == final_iteration:
-            print("  Training strategy network...")
-            strat_loss = learning_agent.train_strategy_network()
-            print(f"  Strategy network loss: {strat_loss:.6f}")
-            writer.add_scalar('Loss/Strategy', strat_loss, iteration)
+            last_strat_loss = learning_agent.train_strategy_network()
+            writer.add_scalar('Loss/Strategy', last_strat_loss, iteration)
 
-            print("  Evaluating against checkpoint agent...")
-            avg_profit_vs_checkpoint = evaluate_against_checkpoint_agents(
+            last_profit_vs_checkpoint = evaluate_against_checkpoint_agents(
                 learning_agent, opponent_agents, num_games=100
             )
-            print(f"  Average profit vs checkpoint: {avg_profit_vs_checkpoint:.2f}")
             writer.add_scalar(
-                'Performance/ProfitVsCheckpoint', avg_profit_vs_checkpoint, iteration
+                'Performance/ProfitVsCheckpoint', last_profit_vs_checkpoint, iteration
             )
 
-            print("  Evaluating against random agents...")
-            avg_profit_random = evaluate_against_random(
+            last_profit_random = evaluate_against_random(
                 learning_agent, num_games=500, num_players=6
             )
-            profits.append(avg_profit_random)
-            print(f"  Average profit vs random: {avg_profit_random:.2f}")
-            writer.add_scalar('Performance/ProfitVsRandom', avg_profit_random, iteration)
+            profits.append(last_profit_random)
+            writer.add_scalar('Performance/ProfitVsRandom', last_profit_random, iteration)
 
         if iteration % checkpoint_frequency == 0 or iteration == final_iteration:
             checkpoint_path = f"{save_dir}/selfplay_checkpoint_iter_{iteration}.pt"
@@ -592,17 +593,37 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
                 standard_checkpoint_state(learning_agent, losses=losses, profits=profits),
                 checkpoint_path,
             )
-            print(f"  Checkpoint saved to {checkpoint_path}")
+            tqdm.write(f"Checkpoint saved: {checkpoint_path}")
 
         elapsed = time.time() - start_time
         writer.add_scalar('Time/Iteration', elapsed, iteration)
-        print(f"  Iteration completed in {elapsed:.2f} seconds")
-        print(f"  Advantage memory size: {len(learning_agent.advantage_memory)}")
-        print(f"  Strategy memory size: {len(learning_agent.strategy_memory)}")
         writer.add_scalar('Memory/Strategy', len(learning_agent.strategy_memory), iteration)
+        progress.set_postfix(
+            adv=f"{adv_loss:.3f}",
+            strat="-" if last_strat_loss is None else f"{last_strat_loss:.3f}",
+            vs_ckpt=f"{last_profit_vs_checkpoint:.2f}",
+            vs_rand=f"{last_profit_random:.2f}",
+            adv_mem=len(learning_agent.advantage_memory),
+            strat_mem=len(learning_agent.strategy_memory),
+        )
+
+        should_report = (
+            progress_interval > 0
+            and (iteration % progress_interval == 0 or iteration == final_iteration)
+        )
+        if should_report:
+            tqdm.write(
+                f"iter {iteration}/{final_iteration} | "
+                f"adv={adv_loss:.4f} | "
+                f"strat={'-' if last_strat_loss is None else f'{last_strat_loss:.4f}'} | "
+                f"vs_ckpt={last_profit_vs_checkpoint:.2f} | "
+                f"vs_random={last_profit_random:.2f} | "
+                f"adv_mem={len(learning_agent.advantage_memory)} | "
+                f"strat_mem={len(learning_agent.strategy_memory)} | "
+                f"{elapsed:.2f}s"
+            )
 
         writer.flush()
-        print()
 
     print("Final evaluation...")
     avg_profit_vs_checkpoint = evaluate_against_checkpoint_agents(
@@ -720,7 +741,8 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
                            additional_iterations=1000, traversals_per_iteration=200,
                            save_dir="models", log_dir="logs/deepcfr_mixed",
                            refresh_interval=1000, num_opponents=5, verbose=False,
-                           checkpoint_path=None, debug_training=False):
+                           checkpoint_path=None, debug_training=False,
+                           progress_interval=100):
     """
     Train a Deep CFR agent against opponents randomly selected from a pool of checkpoints.
     
@@ -844,21 +866,27 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
 
     opponent_wrappers = wrap_opponents(opponent_agents)
 
-    for iteration in range(starting_iteration, starting_iteration + additional_iterations):
+    final_iteration = starting_iteration + additional_iterations - 1
+    progress = tqdm(
+        range(starting_iteration, final_iteration + 1),
+        desc="Mixed training",
+        unit="iter",
+        dynamic_ncols=True,
+        disable=not sys.stderr.isatty(),
+    )
+    last_strat_loss = None
+    last_profit_vs_mixed = initial_profit_vs_mixed
+    last_profit_random = initial_profit_random
+
+    for iteration in progress:
         learning_agent.iteration_count = iteration
         start_time = time.time()
 
         if iteration % refresh_interval == 1:
-            print(f"Refreshing opponent pool at iteration {iteration}")
+            tqdm.write(f"Refreshing opponent pool at iteration {iteration}")
             opponent_agents = select_random_checkpoints()
             opponent_wrappers = wrap_opponents(opponent_agents)
 
-        print(
-            f"Mixed-checkpoint training iteration {iteration}/"
-            f"{starting_iteration + additional_iterations - 1}"
-        )
-
-        print("  Collecting data...")
         for t in range(traversals_per_iteration):
             button_pos = t % 6
             state = pkrs.State.from_seed(
@@ -877,42 +905,34 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
         traversal_time = time.time() - start_time
         writer.add_scalar('Time/Traversal', traversal_time, iteration)
 
-        print("  Training advantage network...")
         adv_loss = learning_agent.train_advantage_network()
         losses.append(adv_loss)
-        print(f"  Advantage network loss: {adv_loss:.6f}")
 
         writer.add_scalar('Loss/Advantage', adv_loss, iteration)
         writer.add_scalar('Memory/Advantage', len(learning_agent.advantage_memory), iteration)
 
-        if iteration % 10 == 0 or iteration == starting_iteration + additional_iterations - 1:
-            print("  Training strategy network...")
-            strat_loss = learning_agent.train_strategy_network()
-            print(f"  Strategy network loss: {strat_loss:.6f}")
-            writer.add_scalar('Loss/Strategy', strat_loss, iteration)
+        if iteration % 10 == 0 or iteration == final_iteration:
+            last_strat_loss = learning_agent.train_strategy_network()
+            writer.add_scalar('Loss/Strategy', last_strat_loss, iteration)
 
-            print("  Evaluating against current mixed opponents...")
-            avg_profit_vs_mixed = evaluate_against_checkpoint_agents(
+            last_profit_vs_mixed = evaluate_against_checkpoint_agents(
                 learning_agent, opponent_agents, num_games=100
             )
-            profits_vs_checkpoints.append(avg_profit_vs_mixed)
-            print(f"  Average profit vs mixed opponents: {avg_profit_vs_mixed:.2f}")
-            writer.add_scalar('Performance/ProfitVsMixed', avg_profit_vs_mixed, iteration)
+            profits_vs_checkpoints.append(last_profit_vs_mixed)
+            writer.add_scalar('Performance/ProfitVsMixed', last_profit_vs_mixed, iteration)
 
-            print("  Evaluating against random agents...")
-            avg_profit_random = evaluate_against_random(
+            last_profit_random = evaluate_against_random(
                 learning_agent, num_games=500, num_players=6
             )
-            profits.append(avg_profit_random)
-            print(f"  Average profit vs random: {avg_profit_random:.2f}")
-            writer.add_scalar('Performance/ProfitVsRandom', avg_profit_random, iteration)
+            profits.append(last_profit_random)
+            writer.add_scalar('Performance/ProfitVsRandom', last_profit_random, iteration)
 
             if iteration % 100 == 0:
                 t_model_path = f"{checkpoint_dir}/{training_model_prefix}mixed_iter_{iteration}.pt"
                 torch.save(standard_checkpoint_state(learning_agent), t_model_path)
-                print(f"  Training model saved to {t_model_path}")
+                tqdm.write(f"Training model saved: {t_model_path}")
 
-        if iteration % checkpoint_frequency == 0 or iteration == starting_iteration + additional_iterations - 1:
+        if iteration % checkpoint_frequency == 0 or iteration == final_iteration:
             checkpoint_path = f"{save_dir}/mixed_checkpoint_iter_{iteration}.pt"
             torch.save(
                 standard_checkpoint_state(
@@ -923,17 +943,37 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
                 ),
                 checkpoint_path,
             )
-            print(f"  Checkpoint saved to {checkpoint_path}")
+            tqdm.write(f"Checkpoint saved: {checkpoint_path}")
 
         elapsed = time.time() - start_time
         writer.add_scalar('Time/Iteration', elapsed, iteration)
-        print(f"  Iteration completed in {elapsed:.2f} seconds")
-        print(f"  Advantage memory size: {len(learning_agent.advantage_memory)}")
-        print(f"  Strategy memory size: {len(learning_agent.strategy_memory)}")
         writer.add_scalar('Memory/Strategy', len(learning_agent.strategy_memory), iteration)
+        progress.set_postfix(
+            adv=f"{adv_loss:.3f}",
+            strat="-" if last_strat_loss is None else f"{last_strat_loss:.3f}",
+            vs_mixed=f"{last_profit_vs_mixed:.2f}",
+            vs_rand=f"{last_profit_random:.2f}",
+            adv_mem=len(learning_agent.advantage_memory),
+            strat_mem=len(learning_agent.strategy_memory),
+        )
+
+        should_report = (
+            progress_interval > 0
+            and (iteration % progress_interval == 0 or iteration == final_iteration)
+        )
+        if should_report:
+            tqdm.write(
+                f"iter {iteration}/{final_iteration} | "
+                f"adv={adv_loss:.4f} | "
+                f"strat={'-' if last_strat_loss is None else f'{last_strat_loss:.4f}'} | "
+                f"vs_mixed={last_profit_vs_mixed:.2f} | "
+                f"vs_random={last_profit_random:.2f} | "
+                f"adv_mem={len(learning_agent.advantage_memory)} | "
+                f"strat_mem={len(learning_agent.strategy_memory)} | "
+                f"{elapsed:.2f}s"
+            )
 
         writer.flush()
-        print()
 
     print("Final evaluation...")
 
@@ -993,6 +1033,7 @@ def main(argv=None):
             verbose=args.verbose,
             checkpoint_path=args.checkpoint,
             debug_training=args.debug_training,
+            progress_interval=args.progress_interval,
         )
     elif args.checkpoint and args.self_play:
         print(f"Starting self-play training against checkpoint: {args.checkpoint}")
@@ -1004,6 +1045,7 @@ def main(argv=None):
             log_dir=args.log_dir + "_selfplay",
             verbose=args.verbose,
             debug_training=args.debug_training,
+            progress_interval=args.progress_interval,
         )
     elif args.checkpoint:
         print(f"Continuing training from checkpoint: {args.checkpoint}")
