@@ -9,6 +9,47 @@ import traceback
 import pokers as pkrs
 from typing import Callable, Optional
 
+ALL_IN_EPSILON = 1e-6
+
+
+def _is_stalled_all_in_check_state(state: pkrs.State) -> bool:
+    """Detect pokers states where all remaining players are all-in but only check cycles."""
+    if state.final_state:
+        return False
+
+    if list(state.legal_actions) != [pkrs.ActionEnum.Check]:
+        return False
+
+    active_players = [player for player in state.players_state if player.active]
+    if len(active_players) < 2:
+        return False
+
+    return all(float(player.stake) <= ALL_IN_EPSILON for player in active_players)
+
+
+def resolve_stalled_all_in_showdown(state: pkrs.State) -> pkrs.State:
+    """
+    Advance a known pokers all-in/check cycle to showdown.
+
+    In six-player side-pot hands, pokers can leave all remaining active players
+    with no chips, only Check legal, and repeated checks do not advance streets.
+    The engine can still settle the hand if we explicitly move through the board.
+    """
+    for _ in range(6):
+        if not _is_stalled_all_in_check_state(state):
+            return state
+
+        if state.stage == pkrs.Stage.Showdown:
+            next_state = state.apply_action(pkrs.Action(pkrs.ActionEnum.Check))
+            if next_state.status != pkrs.StateStatus.Ok:
+                return state
+            state = next_state
+        else:
+            state.to_next_stage()
+
+    return state
+
+
 def card_to_string(card):
     """Convert a poker card to a readable string."""
     suits = {0: "♣", 1: "♦", 2: "♥", 3: "♠"}
@@ -125,6 +166,7 @@ def apply_action_with_logging(
     """
     new_state = state.apply_action(action)
     if new_state.status == pkrs.StateStatus.Ok:
+        new_state = resolve_stalled_all_in_showdown(new_state)
         return new_state, None, new_state.status
 
     log_file = log_game_error(

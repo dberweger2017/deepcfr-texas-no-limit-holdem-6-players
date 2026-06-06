@@ -75,3 +75,36 @@ def test_tournament_logs_invalid_state_before_raising(tmp_path, monkeypatch):
     log_text = log_files[-1].read_text(encoding="utf-8")
     assert "State status not OK during tournament game 1" in log_text
     assert "Action: ActionEnum.Raise" in log_text
+
+
+def test_all_in_side_pot_check_cycle_resolves_to_showdown():
+    state = pkrs.State.from_seed(
+        n_players=6,
+        button=1,
+        sb=1.0,
+        bb=2.0,
+        stake=200.0,
+        seed=61,
+    )
+    actions = [
+        pkrs.Action(pkrs.ActionEnum.Raise, 4.679007411003113),
+        pkrs.Action(pkrs.ActionEnum.Fold),
+        pkrs.Action(pkrs.ActionEnum.Raise, 15.42989415118555),
+        pkrs.Action(pkrs.ActionEnum.Raise, 49.631354041135765),
+        pkrs.Action(pkrs.ActionEnum.Fold),
+        pkrs.Action(pkrs.ActionEnum.Call),
+        pkrs.Action(pkrs.ActionEnum.Call),
+        pkrs.Action(pkrs.ActionEnum.Raise, 128.25974439667556),
+        pkrs.Action(pkrs.ActionEnum.Call),
+        pkrs.Action(pkrs.ActionEnum.Fold),
+        pkrs.Action(pkrs.ActionEnum.Fold),
+    ]
+
+    for action in actions:
+        state, _, status = apply_action_with_logging(state, action, strict=True)
+        assert status == pkrs.StateStatus.Ok
+
+    assert state.final_state
+    assert state.stage == pkrs.Stage.Showdown
+    assert state.legal_actions == []
+    assert abs(sum(player.reward for player in state.players_state)) < 1e-9

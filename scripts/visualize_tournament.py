@@ -6,13 +6,12 @@ import random
 import os
 import time
 import argparse
-import matplotlib.pyplot as plt
 from src.core.deep_cfr import DeepCFRAgent
 from src.utils.logging import apply_action_with_logging
 from src.utils.checkpoints import load_checkpoint
 from collections import defaultdict
 import pandas as pd
-import seaborn as sns
+from tqdm import tqdm
 
 def load_agent_from_checkpoint(checkpoint_path, player_id=0, device='cpu'):
     """Load an agent from a checkpoint file."""
@@ -43,7 +42,8 @@ class AgentWrapper:
         return self.agent.choose_action(state)
 
 def run_tournament(checkpoint_paths, num_games=100, device='cpu',
-                  blinds=(1, 2), stake=200, verbose=False):
+                  blinds=(1, 2), stake=200, verbose=False,
+                  max_actions_per_hand=1000):
     """
     Run a tournament between agents loaded from different checkpoints.
     
@@ -54,6 +54,7 @@ def run_tournament(checkpoint_paths, num_games=100, device='cpu',
         blinds: Tuple of (small blind, big blind) amounts
         stake: Starting stack size for each player
         verbose: Whether to print detailed information
+        max_actions_per_hand: Safety limit for detecting non-terminating hands
         
     Returns:
         DataFrame with stack sizes for each player after each hand
@@ -96,7 +97,16 @@ def run_tournament(checkpoint_paths, num_games=100, device='cpu',
     cumulative_profits = [0] * num_players
     
     # Run the games
-    for game in range(num_games):
+    action_counts = []
+    progress = tqdm(
+        range(num_games),
+        desc="Tournament",
+        unit="hand",
+        mininterval=0.5,
+        disable=verbose,
+    )
+
+    for game in progress:
         # Rotate the button position for fairness
         button_pos = game % num_players
         
@@ -118,7 +128,15 @@ def run_tournament(checkpoint_paths, num_games=100, device='cpu',
         
         # Play until the game is over
         hand_actions = []
+        actions_this_hand = 0
         while not state.final_state:
+            actions_this_hand += 1
+            if actions_this_hand > max_actions_per_hand:
+                raise RuntimeError(
+                    f"Tournament hand {game + 1} exceeded "
+                    f"{max_actions_per_hand} actions without reaching a final state"
+                )
+
             current_player = state.current_player
             
             # Choose an action for the current player
@@ -138,6 +156,7 @@ def run_tournament(checkpoint_paths, num_games=100, device='cpu',
             )
         
         # Game is over - collect results
+        action_counts.append(actions_this_hand)
         hand_profits = [player.reward for player in state.players_state]
         
         # Verify zero-sum (ignoring rake)
@@ -177,6 +196,15 @@ def run_tournament(checkpoint_paths, num_games=100, device='cpu',
             stack_record[f'player_{i}_name'] = agent_names[i]
         
         stack_history.append(stack_record)
+
+        if not verbose:
+            leader_idx = max(range(num_players), key=lambda idx: cumulative_profits[idx])
+            progress.set_postfix(
+                leader=agent_names[leader_idx].split("(", 1)[-1].rstrip(")"),
+                lead=f"{cumulative_profits[leader_idx]:+.1f}",
+                avg_actions=f"{np.mean(action_counts):.1f}",
+                refresh=False,
+            )
     
     # Convert to DataFrame for easier analysis
     results_df = pd.DataFrame(stack_history)
@@ -191,6 +219,9 @@ def run_tournament(checkpoint_paths, num_games=100, device='cpu',
 
 def plot_stack_history(results_df, output_dir="tournament_results"):
     """Generate visualizations from tournament results."""
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
     
@@ -312,6 +343,8 @@ def main():
                       help='Directory to save results and visualizations')
     parser.add_argument('--verbose', action='store_true',
                       help='Print detailed information during the games')
+    parser.add_argument('--max-actions-per-hand', type=int, default=1000,
+                      help='Fail if a hand exceeds this many actions')
     
     args = parser.parse_args()
     
@@ -325,7 +358,8 @@ def main():
         device=device,
         blinds=args.blinds,
         stake=args.stake,
-        verbose=args.verbose
+        verbose=args.verbose,
+        max_actions_per_hand=args.max_actions_per_hand,
     )
     
     # Generate visualizations
