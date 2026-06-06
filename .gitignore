@@ -4,6 +4,7 @@
 /logs
 /logs/*.log
 /smoke_runs
+/results
 /venv
 /.venv
 /build
