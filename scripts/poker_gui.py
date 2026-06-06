@@ -18,6 +18,7 @@ from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWi
 from src.core.deep_cfr import DeepCFRAgent
 from src.core.model import set_verbose
 from src.utils.logging import apply_action_with_logging
+from src.utils.actions import build_raise_action, preset_raise_action, raise_bounds, sanitize_action
 
 class CardWidget(QLabel):
     """Widget to display a playing card"""
@@ -773,27 +774,18 @@ class PokerGUI(QMainWindow):
         
         # Update raise amount limits
         if is_human_turn and pkrs.ActionEnum.Raise in self.state.legal_actions:
-            player_state = self.state.players_state[self.human_player_id]
-            current_bet = player_state.bet_chips
-            available_stake = player_state.stake
-            
-            # Calculate call amount
-            call_amount = self.state.min_bet - current_bet
-            remaining_stake = available_stake - call_amount
-            
-            # Set min and max raise limits
-            min_raise = max(1.0, self.state.bb)
-            max_raise = remaining_stake
-            
-            self.table.update_raise_limits(min_raise, max_raise)
-            
-            # Update buttons for raising half pot and pot
-            half_pot = max(self.state.pot * 0.5, min_raise)
-            full_pot = max(self.state.pot, min_raise)
-            
-            # Only enable if these amounts are within our stake
-            self.table.half_pot_button.setEnabled(half_pot <= max_raise)
-            self.table.pot_button.setEnabled(full_pot <= max_raise)
+            bounds = raise_bounds(self.state)
+            if bounds.can_raise:
+                self.table.update_raise_limits(bounds.min_raise, bounds.max_raise)
+                half_pot = max(self.state.pot * 0.5, bounds.min_raise)
+                full_pot = max(self.state.pot, bounds.min_raise)
+                self.table.half_pot_button.setEnabled(half_pot <= bounds.max_raise)
+                self.table.pot_button.setEnabled(full_pot <= bounds.max_raise)
+            else:
+                self.table.raise_button.setEnabled(False)
+                self.table.raise_amount.setEnabled(False)
+                self.table.half_pot_button.setEnabled(False)
+                self.table.pot_button.setEnabled(False)
     
     def process_human_turn(self):
         """Process human player's turn"""
@@ -845,6 +837,7 @@ class PokerGUI(QMainWindow):
                 action = agent.choose_action(self.state, opponent_id=current_player)
             else:
                 action = agent.choose_action(self.state)
+            action = sanitize_action(self.state, action)
                 
             # Log the action
             if action.action == pkrs.ActionEnum.Raise:
@@ -888,7 +881,10 @@ class PokerGUI(QMainWindow):
             return
             
         # Create the action
-        action = pkrs.Action(action=action_enum, amount=amount)
+        if action_enum == pkrs.ActionEnum.Raise:
+            action = build_raise_action(self.state, amount)
+        else:
+            action = pkrs.Action(action=action_enum, amount=amount)
         
         # Log the action
         if action_enum == pkrs.ActionEnum.Raise:
@@ -921,15 +917,21 @@ class PokerGUI(QMainWindow):
     
     def handle_half_pot(self):
         """Handle half pot button press"""
-        half_pot = max(self.state.pot * 0.5, 1.0)
-        self.table.raise_amount.setValue(min(half_pot, self.table.raise_amount.maximum()))
-        self.human_action(pkrs.ActionEnum.Raise, self.table.raise_amount.value())
+        action = preset_raise_action(self.state, "half_pot")
+        if action.action == pkrs.ActionEnum.Raise:
+            self.table.raise_amount.setValue(action.amount)
+            self.human_action(pkrs.ActionEnum.Raise, action.amount)
+        else:
+            self.human_action(action.action)
     
     def handle_pot(self):
         """Handle pot button press"""
-        full_pot = max(self.state.pot, 1.0)
-        self.table.raise_amount.setValue(min(full_pot, self.table.raise_amount.maximum()))
-        self.human_action(pkrs.ActionEnum.Raise, self.table.raise_amount.value())
+        action = preset_raise_action(self.state, "pot")
+        if action.action == pkrs.ActionEnum.Raise:
+            self.table.raise_amount.setValue(action.amount)
+            self.human_action(pkrs.ActionEnum.Raise, action.amount)
+        else:
+            self.human_action(action.action)
     
     def handle_end_of_hand(self):
         """Handle the end of a hand"""
@@ -1019,55 +1021,14 @@ class RandomAgent:
             return pkrs.Action(action_enum)
         
         elif action_enum == pkrs.ActionEnum.Raise:
-            player_state = state.players_state[state.current_player]
-            current_bet = player_state.bet_chips
-            available_stake = player_state.stake
-            
-            # Calculate call amount
-            call_amount = state.min_bet - current_bet
-            
-            # If player can't even call, go all-in
-            if available_stake <= call_amount:
-                return pkrs.Action(action_enum, available_stake)
-            
-            # Calculate remaining stake after calling
-            remaining_stake = available_stake - call_amount
-            
-            # If player can't raise at all, just call
-            if remaining_stake <= 0:
-                return pkrs.Action(pkrs.ActionEnum.Call)
-            
-            # Define minimum raise (typically 1 chip or the big blind)
-            min_raise = 1.0
-            if hasattr(state, 'bb'):
-                min_raise = state.bb
-            
-            # Choose a raise amount
-            raise_options = [
-                min_raise,  # Minimum raise
-                state.pot * 0.5,  # Half pot
-                state.pot,  # Full pot
-                remaining_stake  # All-in
-            ]
-            
-            # Filter to only affordable raises
-            valid_raises = [r for r in raise_options if r <= remaining_stake]
-            
-            # Choose a raise amount, with higher probability for reasonable bets
-            if not valid_raises:
-                return pkrs.Action(pkrs.ActionEnum.Call)
-                
-            # Weights: favor half-pot and pot-sized bets
-            weights = [0.1, 0.4, 0.4, 0.1]
-            weights = weights[:len(valid_raises)]
-            
-            # Normalize weights
-            total = sum(weights)
-            weights = [w/total for w in weights]
-            
-            # Choose amount
-            amount = random.choices(valid_raises, weights=weights, k=1)[0]
-            return pkrs.Action(action_enum, amount)
+            return preset_raise_action(
+                state,
+                random.choices(
+                    ["min", "half_pot", "pot", "all_in"],
+                    weights=[0.1, 0.4, 0.4, 0.1],
+                    k=1,
+                )[0],
+            )
 
 
 def card_to_string(card):

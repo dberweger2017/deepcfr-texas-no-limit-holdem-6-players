@@ -3,6 +3,7 @@
 /models_mixed_om
 /logs
 /logs/*.log
+/smoke_runs
 /venv
 /.venv
 /build

@@ -13,14 +13,15 @@ import argparse
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.model import set_verbose
 from src.agents.random_agent import RandomAgent
-from src.utils.checkpoints import find_checkpoints
+from src.utils.checkpoints import checkpoint_uses_opponent_modeling_state, find_checkpoints, load_checkpoint
 from src.utils.logging import apply_action_with_logging
 from src.utils.settings import STRICT_CHECKING, set_strict_checking
+from src.utils.actions import sanitize_action
 
 def checkpoint_uses_opponent_modeling(model_path):
     """Detect whether a checkpoint contains opponent-modeling weights."""
-    checkpoint = torch.load(model_path, map_location="cpu")
-    return "history_encoder" in checkpoint and "opponent_model" in checkpoint
+    checkpoint = load_checkpoint(model_path, map_location="cpu")
+    return checkpoint_uses_opponent_modeling_state(checkpoint)
 
 
 class ModelAgent:
@@ -46,39 +47,7 @@ class ModelAgent:
     
     def choose_action(self, state):
         """Choose an action while sanitizing bet amounts to legal values."""
-        # Get the original action from the agent
-        original_action = self.agent.choose_action(state)
-        
-        # Only process Raise actions
-        if original_action.action != pkrs.ActionEnum.Raise:
-            return original_action
-            
-        # Calculate legal bet bounds
-        player_state = state.players_state[state.current_player]
-        current_bet = player_state.bet_chips
-        available_stake = player_state.stake
-        
-        # Calculate call amount (needed to match current min_bet)
-        call_amount = state.min_bet - current_bet
-        
-        # If the player can't even call, return Call action
-        if available_stake < call_amount:
-            return pkrs.Action(pkrs.ActionEnum.Call)
-        
-        # Remaining stake after calling
-        remaining_stake = available_stake - call_amount
-        
-        # Get the original amount (which might be calculated incorrectly by the model)
-        additional_amount = original_action.amount
-        
-        # Ensure the additional amount doesn't exceed remaining stake
-        additional_amount = min(additional_amount, remaining_stake)
-        
-        # Ensure the additional amount is non-negative
-        additional_amount = max(0, additional_amount)
-        
-        # Create new action with sanitized amount
-        return pkrs.Action(pkrs.ActionEnum.Raise, additional_amount)
+        return sanitize_action(state, self.agent.choose_action(state))
 
 def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, notifier=None):
     """Evaluate the trained agent against a set of opponents with enhanced error tracking."""
@@ -158,7 +127,7 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
                                 
                             # This should be fixed by your implementation, but let's double-check
                             if action.amount > available_stake:
-                                action = pkrs.Action(pkrs.ActionEnum.Raise, available_stake)
+                                action = sanitize_action(state, action)
                     
                     # Record opponent action for modeling
                     if current_player != agent.player_id and hasattr(agent, 'record_opponent_action'):
@@ -353,7 +322,7 @@ def train_mixed_with_opponent_modeling(
         print(f"Loading agent from checkpoint: {checkpoint_path}")
         try:
             agent.load_model(checkpoint_path)
-            checkpoint_state = torch.load(checkpoint_path, map_location=device)
+            checkpoint_state = load_checkpoint(checkpoint_path, map_location=device)
             starting_iteration = checkpoint_state.get("iteration", agent.iteration_count) + 1
             agent.iteration_count = starting_iteration - 1
             print(f"Continuing from iteration {starting_iteration}")

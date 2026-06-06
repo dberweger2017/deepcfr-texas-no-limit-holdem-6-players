@@ -10,6 +10,16 @@ from collections import deque
 from src.core.model import PokerNetwork, encode_state, VERBOSE, set_verbose
 from src.utils.settings import STRICT_CHECKING
 from src.utils.logging import apply_action_with_logging
+from src.utils.actions import (
+    action_type_to_pokers_action as map_action_type_to_pokers_action,
+    legal_action_types,
+)
+from src.utils.checkpoints import (
+    AGENT_TYPE_STANDARD,
+    load_checkpoint,
+    standard_checkpoint_state,
+    validate_checkpoint_compatibility,
+)
 
 
 def _resolve_model_save_path(path_prefix, iteration):
@@ -131,6 +141,134 @@ class PrioritizedMemory:
             "size": len(self.buffer)
         }
 
+
+def traverse_agent_turn(
+    agent,
+    state,
+    iteration,
+    recurse_fn,
+    depth=0,
+    verbose=False,
+    opponent_features=None,
+    network_forward_fn=None,
+):
+    """Handle the trained agent's CFR branch and replay-memory writes."""
+    current_player = state.current_player
+    legal_action_types = agent.get_legal_action_types(state)
+
+    if not legal_action_types:
+        if verbose:
+            print(f"WARNING: No legal actions found for player {current_player} at depth {depth}")
+        return 0
+
+    encoded_state = encode_state(state, agent.player_id)
+    state_tensor = torch.FloatTensor(encoded_state).to(agent.device)
+    if opponent_features is None:
+        opponent_feature_array = np.zeros(20, dtype=np.float32)
+    else:
+        opponent_feature_array = np.array(opponent_features, dtype=np.float32)
+    opponent_feature_tensor = torch.FloatTensor(opponent_feature_array).to(agent.device)
+
+    with torch.no_grad():
+        if network_forward_fn is not None:
+            advantages, bet_size_pred = network_forward_fn(
+                state_tensor,
+                opponent_feature_tensor,
+            )
+        else:
+            advantages, bet_size_pred = agent.advantage_net(state_tensor.unsqueeze(0))
+        advantages = advantages[0].cpu().numpy()
+        bet_size_multiplier = bet_size_pred[0][0].item()
+
+    advantages_masked = np.zeros(agent.num_actions)
+    for action_type in legal_action_types:
+        advantages_masked[action_type] = max(advantages[action_type], 0)
+
+    if advantages_masked.sum() > 0:
+        strategy = advantages_masked / advantages_masked.sum()
+    else:
+        strategy = np.zeros(agent.num_actions)
+        for action_type in legal_action_types:
+            strategy[action_type] = 1.0 / len(legal_action_types)
+
+    action_values = np.zeros(agent.num_actions)
+    for action_type in legal_action_types:
+        try:
+            if action_type == 2:
+                pokers_action = agent.action_type_to_pokers_action(
+                    action_type, state, bet_size_multiplier
+                )
+            else:
+                pokers_action = agent.action_type_to_pokers_action(action_type, state)
+
+            new_state, log_file, status = apply_action_with_logging(
+                state,
+                pokers_action,
+                strict=STRICT_CHECKING,
+            )
+            if new_state is None:
+                if verbose:
+                    print(
+                        f"WARNING: Invalid action {action_type} at depth {depth}. "
+                        f"Status: {status}"
+                    )
+                    print(
+                        f"Player: {current_player}, Action: {pokers_action.action}, "
+                        f"Amount: {pokers_action.amount if pokers_action.action == pkrs.ActionEnum.Raise else 'N/A'}"
+                    )
+                    print(
+                        f"Current bet: {state.players_state[current_player].bet_chips}, "
+                        f"Stake: {state.players_state[current_player].stake}"
+                    )
+                    print(f"Details logged to {log_file}")
+                continue
+
+            action_values[action_type] = recurse_fn(new_state, depth + 1)
+        except Exception as exc:
+            if verbose:
+                print(f"ERROR in traversal for action {action_type}: {exc}")
+            action_values[action_type] = 0
+            if STRICT_CHECKING:
+                raise
+
+    ev = sum(strategy[action_type] * action_values[action_type] for action_type in legal_action_types)
+    max_abs_val = max(abs(max(action_values)), abs(min(action_values)), 1.0)
+    for action_type in legal_action_types:
+        regret = action_values[action_type] - ev
+        normalized_regret = regret / max_abs_val
+        clipped_regret = np.clip(normalized_regret, -10.0, 10.0)
+        scale_factor = np.sqrt(iteration) if iteration > 1 else 1.0
+        weighted_regret = clipped_regret * scale_factor
+        priority = abs(weighted_regret) + 0.01
+
+        agent.advantage_memory.add(
+            (
+                encoded_state,
+                opponent_feature_array,
+                action_type,
+                bet_size_multiplier if action_type == 2 else 0.0,
+                weighted_regret,
+            ),
+            priority,
+        )
+
+    strategy_full = np.zeros(agent.num_actions)
+    for action_type in legal_action_types:
+        strategy_full[action_type] = strategy[action_type]
+
+    agent.strategy_memory.append(
+        (
+            encoded_state,
+            opponent_feature_array,
+            strategy_full,
+            bet_size_multiplier if 2 in legal_action_types else 0.0,
+            iteration,
+        )
+    )
+
+    return ev
+
+
 class DeepCFRAgent:
     def __init__(self, player_id=0, num_players=6, memory_size=300000, device='cpu'):
         self.player_id = player_id
@@ -159,6 +297,7 @@ class DeepCFRAgent:
         
         # For keeping statistics
         self.iteration_count = 0
+        self.debug_training = False
         
         # Regret normalization tracker
         self.max_regret_seen = 1.0
@@ -170,155 +309,18 @@ class DeepCFRAgent:
     def action_type_to_pokers_action(self, action_type, state, bet_size_multiplier=None):
         """
         Convert action type and optional bet size to Pokers action.
-        (Refined Raise Logic with Float Safeguard)
         """
-        # Access VERBOSE, assuming it's set globally or accessible (e.g., self.verbose if it's an instance attr)
-        # For this example, I'll assume VERBOSE is a global imported from your model.py or utils
-        # If VERBOSE is an instance variable like self.verbose, use that instead.
-        # from src.core.model import VERBOSE # Make sure this import is at the top of the file or VERBOSE is otherwise in scope
-
         try:
-            if action_type == 0:  # Fold
-                if pkrs.ActionEnum.Fold in state.legal_actions:
-                    return pkrs.Action(pkrs.ActionEnum.Fold)
-                # Fallback logic for Fold
-                if pkrs.ActionEnum.Check in state.legal_actions: return pkrs.Action(pkrs.ActionEnum.Check)
-                if pkrs.ActionEnum.Call in state.legal_actions: return pkrs.Action(pkrs.ActionEnum.Call)
-                if VERBOSE: print(f"DeepCFRAgent WARNING: Fold chosen but no other legal fallback. Returning Fold anyway.")
-                return pkrs.Action(pkrs.ActionEnum.Fold) # Last resort
-
-            elif action_type == 1:  # Check/Call
-                if pkrs.ActionEnum.Check in state.legal_actions:
-                    return pkrs.Action(pkrs.ActionEnum.Check)
-                elif pkrs.ActionEnum.Call in state.legal_actions:
-                    return pkrs.Action(pkrs.ActionEnum.Call)
-                # Fallback logic for Check/Call
-                if pkrs.ActionEnum.Fold in state.legal_actions: return pkrs.Action(pkrs.ActionEnum.Fold)
-                if VERBOSE: print(f"DeepCFRAgent WARNING: Check/Call chosen but neither legal, nor Fold. Returning Check anyway.")
-                return pkrs.Action(pkrs.ActionEnum.Check) # Last resort
-
-            elif action_type == 2:  # Raise
-                if pkrs.ActionEnum.Raise not in state.legal_actions:
-                    # If Raise is not legal, fall back
-                    if VERBOSE: print(f"DeepCFRAgent INFO: Raise (type 2) chosen, but Raise not in legal_actions. Falling back.")
-                    if pkrs.ActionEnum.Call in state.legal_actions: return pkrs.Action(pkrs.ActionEnum.Call)
-                    if pkrs.ActionEnum.Check in state.legal_actions: return pkrs.Action(pkrs.ActionEnum.Check)
-                    return pkrs.Action(pkrs.ActionEnum.Fold)
-
-                player_state = state.players_state[state.current_player]
-                current_bet = player_state.bet_chips        # What player already has in pot this round
-                available_stake = player_state.stake        # Player's remaining chips
-
-                call_amount = max(0.0, state.min_bet - current_bet) # Additional chips needed to call
-
-                min_raise_increment = 1.0
-                if hasattr(state, 'bb') and state.bb is not None and float(state.bb) > 0:
-                    min_raise_increment = max(1.0, float(state.bb))
-                elif state.min_bet > 0 : # If no BB, use min_bet if it implies a raise size
-                     # This part is a bit heuristic if BB is not well-defined.
-                     # The idea is that a raise should be somewhat meaningful.
-                     # If last bet was X, min_raise_increment is often X.
-                     # For simplicity, we'll stick to a small fixed minimum or BB.
-                     # A more robust way might involve looking at the previous raise amount.
-                     min_raise_increment = max(1.0, state.min_bet - current_bet if state.min_bet > current_bet else 1.0)
-
-
-                # --- Initial Check: Can the player make ANY valid raise? ---
-                # A valid raise means calling and then adding at least min_raise_increment.
-                if available_stake < call_amount + min_raise_increment:
-                    if VERBOSE:
-                        print(f"DeepCFRAgent INFO: Raise (type 2) chosen, but cannot make a valid min_raise_increment. "
-                              f"AvailableStake({available_stake:.2f}) < CallAmt({call_amount:.2f}) + MinInc({min_raise_increment:.2f}). Switching to Call.")
-                    if pkrs.ActionEnum.Call in state.legal_actions:
-                        return pkrs.Action(pkrs.ActionEnum.Call)
-                    else:
-                        if VERBOSE: print(f"DeepCFRAgent WARNING: Cannot Call (not legal after failing raise check), falling back to Fold.")
-                        return pkrs.Action(pkrs.ActionEnum.Fold)
-                # --- End Initial Check ---
-
-                remaining_stake_after_call = available_stake - call_amount
-
-                # Get target additional raise from network's bet_size_multiplier
-                pot_size = max(1.0, state.pot)
-
-                if bet_size_multiplier is None:
-                    bet_size_multiplier = 1.0 # Default if not provided
-                else:
-                    bet_size_multiplier = float(bet_size_multiplier)
-                    # Optional: self.adjust_bet_size(state, bet_size_multiplier) if you use it
-
-                bet_size_multiplier = max(self.min_bet_size, min(self.max_bet_size, bet_size_multiplier))
-                network_desired_additional_raise = pot_size * bet_size_multiplier
-
-                # Determine chosen_additional_amount based on network and game rules
-                chosen_additional_amount = network_desired_additional_raise
-                # Clip 1: Cannot raise more than all-in (remaining_stake_after_call)
-                chosen_additional_amount = min(chosen_additional_amount, remaining_stake_after_call)
-                # Clip 2: Must raise at least min_raise_increment
-                chosen_additional_amount = max(chosen_additional_amount, min_raise_increment)
-
-                # Safeguard: If due to clipping (e.g. min_raise_increment was > remaining_stake_after_call,
-                # which shouldn't happen if initial check was correct), ensure it's not > remaining_stake_after_call.
-                # This makes it an all-in if min_raise_increment forces it.
-                if chosen_additional_amount > remaining_stake_after_call:
-                    chosen_additional_amount = remaining_stake_after_call
-                
-                # --- START: FLOAT SAFEGUARD ---
-                total_chips_player_would_commit_this_turn = call_amount + chosen_additional_amount
-                epsilon = 0.00001  # Tolerance for float comparisons
-
-                if total_chips_player_would_commit_this_turn > available_stake + epsilon:
-                    if VERBOSE:
-                        print(f"DeepCFRAgent INFO: Float Safeguard in action_type_to_pokers_action triggered.")
-                        print(f"  Initial chosen_additional_amount: {chosen_additional_amount:.6f}")
-                        print(f"  Total commit ({total_chips_player_would_commit_this_turn:.6f}) > available_stake ({available_stake:.6f})")
-
-                    chosen_additional_amount = available_stake - call_amount
-                    chosen_additional_amount = max(0.0, chosen_additional_amount) # Ensure not negative
-
-                    if VERBOSE:
-                        print(f"  Adjusted chosen_additional_amount: {chosen_additional_amount:.6f}")
-                        print(f"  New total commit: {(call_amount + chosen_additional_amount):.6f}")
-                # --- END: FLOAT SAFEGUARD ---
-
-                # Ensure chosen_additional_amount is not negative after all adjustments
-                chosen_additional_amount = max(0.0, chosen_additional_amount)
-
-                if VERBOSE:
-                    print(f"--- DeepCFRAgent Raise Calculation (FINAL PRE-RETURN) ---")
-                    print(f"  Player ID: {state.current_player}, Stage: {state.stage}")
-                    print(f"  Available Stake: {available_stake:.6f}, Current Bet In Pot: {current_bet:.6f}")
-                    print(f"  State Min Bet (to call): {state.min_bet:.6f}, Pot Size: {state.pot:.6f}")
-                    print(f"  Calculated Call Amount: {call_amount:.6f}")
-                    print(f"  Min Raise Increment: {min_raise_increment:.6f}")
-                    print(f"  Remaining Stake After Call: {remaining_stake_after_call:.6f}")
-                    print(f"  Bet Size Multiplier (from net, raw): {float(bet_size_multiplier) if bet_size_multiplier is not None else 'N/A'}, (used, clipped): {bet_size_multiplier:.6f}")
-                    print(f"  Network Desired Additional Raise (pot * mult): {network_desired_additional_raise:.6f}")
-                    print(f"  Chosen Additional Raise Amount (pre-float-guard): {network_desired_additional_raise:.6f} -> clipped by rules to -> {chosen_additional_amount+epsilon if total_chips_player_would_commit_this_turn > available_stake + epsilon else chosen_additional_amount:.6f}") # Show value before float guard if it triggered
-                    print(f"  Final Chosen Additional Raise Amount (post-float-guard): {chosen_additional_amount:.6f}")
-                    _total_chips_this_action = call_amount + chosen_additional_amount
-                    print(f"  Total Chips for this action (call + additional): {_total_chips_this_action:.6f}")
-                    _is_exact_all_in = abs(_total_chips_this_action - available_stake) < epsilon
-                    print(f"  Is this an exact all-in (post-safeguard)? {_is_exact_all_in}")
-                    if _is_exact_all_in: print(f"    All-in Difference: {(_total_chips_this_action - available_stake):.10f}")
-                    print(f"--------------------------------------------------------------------")
-
-                return pkrs.Action(pkrs.ActionEnum.Raise, chosen_additional_amount)
-
-            else: # Should not be reached if action_type is 0, 1, or 2
-                if VERBOSE: print(f"DeepCFRAgent ERROR: Unknown action type: {action_type}")
-                if pkrs.ActionEnum.Call in state.legal_actions: return pkrs.Action(pkrs.ActionEnum.Call)
-                if pkrs.ActionEnum.Check in state.legal_actions: return pkrs.Action(pkrs.ActionEnum.Check)
-                return pkrs.Action(pkrs.ActionEnum.Fold)
+            return map_action_type_to_pokers_action(
+                action_type,
+                state,
+                bet_size_multiplier=bet_size_multiplier,
+                min_bet_size=self.min_bet_size,
+                max_bet_size=self.max_bet_size,
+            )
 
         except Exception as e:
-            # Ensure VERBOSE is accessible here or handle its absence
-            try:
-                is_verbose = VERBOSE
-            except NameError:
-                is_verbose = False # Default if VERBOSE is not defined in this scope
-
-            if is_verbose: # Or self.verbose if it's an instance attribute
+            if VERBOSE:
                 print(f"DeepCFRAgent CRITICAL ERROR in action_type_to_pokers_action: Type {action_type} for player {self.player_id}: {e}")
                 print(f"  State: current_player={state.current_player}, stage={state.stage}, legal_actions={state.legal_actions}")
                 if hasattr(state, 'players_state') and self.player_id < len(state.players_state):
@@ -385,19 +387,7 @@ class DeepCFRAgent:
 
     def get_legal_action_types(self, state):
         """Get the legal action types for the current state."""
-        legal_action_types = []
-        
-        # Check each action type
-        if pkrs.ActionEnum.Fold in state.legal_actions:
-            legal_action_types.append(0)
-            
-        if pkrs.ActionEnum.Check in state.legal_actions or pkrs.ActionEnum.Call in state.legal_actions:
-            legal_action_types.append(1)
-            
-        if pkrs.ActionEnum.Raise in state.legal_actions:
-            legal_action_types.append(2)
-        
-        return legal_action_types
+        return legal_action_types(state)
 
     def cfr_traverse(self, state, iteration, random_agents, depth=0):
         """
@@ -427,123 +417,19 @@ class DeepCFRAgent:
         
         # If it's the trained agent's turn
         if current_player == self.player_id:
-            legal_action_types = self.get_legal_action_types(state)
-            
-            if not legal_action_types:
-                if VERBOSE:
-                    print(f"WARNING: No legal actions found for player {current_player} at depth {depth}")
-                return 0
-                
-            # Encode the base state
-            state_tensor = torch.FloatTensor(encode_state(state, self.player_id)).to(self.device)
-            
-            # Get advantages and bet sizing prediction from network
-            with torch.no_grad():
-                advantages, bet_size_pred = self.advantage_net(state_tensor.unsqueeze(0))
-                advantages = advantages[0].cpu().numpy()
-                bet_size_multiplier = bet_size_pred[0][0].item()
-            
-            # Use regret matching to compute strategy for action types
-            advantages_masked = np.zeros(self.num_actions)
-            for a in legal_action_types:
-                advantages_masked[a] = max(advantages[a], 0)
-                
-            # Choose an action based on the strategy
-            if sum(advantages_masked) > 0:
-                strategy = advantages_masked / sum(advantages_masked)
-            else:
-                strategy = np.zeros(self.num_actions)
-                for a in legal_action_types:
-                    strategy[a] = 1.0 / len(legal_action_types)
-            
-            # Choose actions and traverse
-            action_values = np.zeros(self.num_actions)
-            for action_type in legal_action_types:
-                try:
-                    # Use the predicted bet size for raise actions
-                    if action_type == 2:  # Raise
-                        pokers_action = self.action_type_to_pokers_action(action_type, state, bet_size_multiplier)
-                    else:
-                        pokers_action = self.action_type_to_pokers_action(action_type, state)
-                    
-                    new_state, log_file, status = apply_action_with_logging(
-                        state,
-                        pokers_action,
-                        strict=STRICT_CHECKING,
-                    )
-
-                    # Check if the action was valid
-                    if new_state is None:
-                        if VERBOSE:
-                            print(f"WARNING: Invalid action {action_type} at depth {depth}. Status: {status}")
-                            print(f"Player: {current_player}, Action: {pokers_action.action}, Amount: {pokers_action.amount if pokers_action.action == pkrs.ActionEnum.Raise else 'N/A'}")
-                            print(f"Current bet: {state.players_state[current_player].bet_chips}, Stake: {state.players_state[current_player].stake}")
-                            print(f"Details logged to {log_file}")
-                        continue  # Skip this action and try others in non-strict mode
-                        
-                    action_values[action_type] = self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
-                except Exception as e:
-                    if VERBOSE:
-                        print(f"ERROR in traversal for action {action_type}: {e}")
-                    action_values[action_type] = 0
-                    if STRICT_CHECKING:
-                        raise  # Re-raise in strict mode
-            
-            # Compute counterfactual regrets and add to memory
-            ev = sum(strategy[a] * action_values[a] for a in legal_action_types)
-            
-            # Calculate normalization factor
-            max_abs_val = max(abs(max(action_values)), abs(min(action_values)), 1.0)
-            
-            for action_type in legal_action_types:
-                # Calculate regret
-                regret = action_values[action_type] - ev
-                
-                # Normalize and clip regret
-                normalized_regret = regret / max_abs_val
-                clipped_regret = np.clip(normalized_regret, -10.0, 10.0)
-                
-                # Apply scaling
-                scale_factor = np.sqrt(iteration) if iteration > 1 else 1.0  # Linear CFR
-                weighted_regret = clipped_regret * scale_factor
-                
-                # Store in prioritized memory with regret magnitude as priority
-                priority = abs(weighted_regret) + 0.01  # Add small constant to ensure non-zero priority
-                
-                # For raise actions, store the bet size multiplier
-                if action_type == 2:
-                    self.advantage_memory.add(
-                        (encode_state(state, self.player_id), 
-                         np.zeros(20),  # placeholder for opponent features 
-                         action_type, 
-                         bet_size_multiplier, 
-                         weighted_regret),
-                        priority
-                    )
-                else:
-                    self.advantage_memory.add(
-                        (encode_state(state, self.player_id),
-                         np.zeros(20),  # placeholder for opponent features
-                         action_type, 
-                         0.0,  # Default bet size for non-raise actions 
-                         weighted_regret),
-                        priority
-                    )
-            
-            # Add to strategy memory
-            strategy_full = np.zeros(self.num_actions)
-            for a in legal_action_types:
-                strategy_full[a] = strategy[a]
-            
-            self.strategy_memory.append((
-                encode_state(state, self.player_id),
-                np.zeros(20),  # placeholder for opponent features
-                strategy_full,
-                bet_size_multiplier if 2 in legal_action_types else 0.0,
-                iteration
-            ))
-            
-            return ev
+            return traverse_agent_turn(
+                self,
+                state,
+                iteration,
+                lambda new_state, next_depth: self.cfr_traverse(
+                    new_state,
+                    iteration,
+                    random_agents,
+                    next_depth,
+                ),
+                depth=depth,
+                verbose=VERBOSE,
+            )
             
         # If it's another player's turn (random agent)
         else:
@@ -591,7 +477,9 @@ class DeepCFRAgent:
             states, opponent_features, action_types, bet_sizes, regrets = zip(*batch)
             
             # [DEBUG 1] Log regret values in memory
-            if self.iteration_count % 10 == 0 and epoch == 0:
+            debug_log = self.debug_training and epoch == 0
+
+            if debug_log and self.iteration_count % 10 == 0:
                 regret_array = np.array(regrets)
                 print(f"[DEBUG-MEMORY] Regret stats: min={np.min(regret_array):.2f}, max={np.max(regret_array):.2f}, mean={np.mean(regret_array):.2f}")
             
@@ -607,7 +495,7 @@ class DeepCFRAgent:
             action_advantages, bet_size_preds = self.advantage_net(state_tensors, opponent_feature_tensors)
             
             # [DEBUG 2] Log network raw outputs to identify explosion
-            if self.iteration_count % 10 == 0 and epoch == 0:
+            if debug_log and self.iteration_count % 10 == 0:
                 with torch.no_grad():
                     max_adv = torch.max(action_advantages).item()
                     min_adv = torch.min(action_advantages).item()
@@ -617,7 +505,7 @@ class DeepCFRAgent:
             predicted_regrets = action_advantages.gather(1, action_type_tensors.unsqueeze(1)).squeeze(1)
             
             # [DEBUG 3] Log gathered predictions
-            if self.iteration_count % 10 == 0 and epoch == 0:
+            if debug_log and self.iteration_count % 10 == 0:
                 with torch.no_grad():
                     max_pred = torch.max(predicted_regrets).item()
                     min_pred = torch.min(predicted_regrets).item()
@@ -629,7 +517,7 @@ class DeepCFRAgent:
             action_loss = F.smooth_l1_loss(predicted_regrets, regret_tensors, reduction='none')
             
             # [DEBUG 4] Log raw loss values before weighting
-            if self.iteration_count % 10 == 0 and epoch == 0:
+            if debug_log and self.iteration_count % 10 == 0:
                 with torch.no_grad():
                     max_loss = torch.max(action_loss).item()
                     mean_loss = torch.mean(action_loss).item()
@@ -638,7 +526,7 @@ class DeepCFRAgent:
             weighted_action_loss = (action_loss * weight_tensors).mean()
             
             # [DEBUG 5] Log weighted loss
-            if self.iteration_count % 10 == 0 and epoch == 0:
+            if debug_log and self.iteration_count % 10 == 0:
                 print(f"[DEBUG-WEIGHTED] Weighted action loss: {weighted_action_loss.item():.2f}")
                 
                 # Check for weight outliers
@@ -662,7 +550,7 @@ class DeepCFRAgent:
                     combined_loss = weighted_action_loss + 0.5 * weighted_bet_size_loss
                     
                     # [DEBUG 6] Log bet size loss
-                    if self.iteration_count % 10 == 0 and epoch == 0:
+                    if debug_log and self.iteration_count % 10 == 0:
                         print(f"[DEBUG-BET] Weighted bet size loss: {weighted_bet_size_loss.item():.2f}")
                 else:
                     combined_loss = weighted_action_loss
@@ -670,7 +558,7 @@ class DeepCFRAgent:
                 combined_loss = weighted_action_loss
             
             # [DEBUG 7] Log final combined loss
-            if self.iteration_count % 10 == 0 and epoch == 0:
+            if debug_log and self.iteration_count % 10 == 0:
                 print(f"[DEBUG-COMBINED] Combined loss before clipping: {combined_loss.item():.2f}")
             
             # Backward pass and optimize
@@ -678,7 +566,7 @@ class DeepCFRAgent:
             combined_loss.backward()
             
             # [DEBUG 8] Check for gradient explosion before clipping
-            if self.iteration_count % 10 == 0 and epoch == 0:
+            if debug_log and self.iteration_count % 10 == 0:
                 total_grad_norm = 0
                 max_layer_norm = 0
                 max_layer_name = ""
@@ -698,7 +586,7 @@ class DeepCFRAgent:
             torch.nn.utils.clip_grad_norm_(self.advantage_net.parameters(), max_norm=0.5)
             
             # [DEBUG 9] Check effect of gradient clipping
-            if self.iteration_count % 10 == 0 and epoch == 0:
+            if debug_log and self.iteration_count % 10 == 0:
                 total_grad_norm = 0
                 for name, param in self.advantage_net.named_parameters():
                     if param.grad is not None:
@@ -711,7 +599,7 @@ class DeepCFRAgent:
             self.optimizer.step()
             
             # [DEBUG 10] Check for extreme parameter values after update
-            if self.iteration_count % 50 == 0 and epoch == 0:
+            if debug_log and self.iteration_count % 50 == 0:
                 with torch.no_grad():
                     max_param_val = -float('inf')
                     max_param_name = ""
@@ -746,7 +634,7 @@ class DeepCFRAgent:
                     combined_errors = new_action_errors
                 
                 # [DEBUG 11] Check priority values
-                if self.iteration_count % 10 == 0 and epoch == 0:
+                if debug_log and self.iteration_count % 10 == 0:
                     combined_errors_np = combined_errors.cpu().numpy()
                     max_priority = np.max(combined_errors_np) + 0.01
                     min_priority = np.min(combined_errors_np) + 0.01
@@ -874,17 +762,16 @@ class DeepCFRAgent:
     def save_model(self, path_prefix):
         """Save the model to disk."""
         model_path = _resolve_model_save_path(path_prefix, self.iteration_count)
-        torch.save({
-            'iteration': self.iteration_count,
-            'advantage_net': self.advantage_net.state_dict(),
-            'strategy_net': self.strategy_net.state_dict(),
-            'min_bet_size': self.min_bet_size,
-            'max_bet_size': self.max_bet_size
-        }, model_path)
+        torch.save(standard_checkpoint_state(self), model_path)
         
     def load_model(self, path):
         """Load the model from disk."""
-        checkpoint = torch.load(path, map_location=self.device)
+        checkpoint = load_checkpoint(path, map_location=self.device)
+        validate_checkpoint_compatibility(
+            checkpoint,
+            expected_agent_type=AGENT_TYPE_STANDARD,
+            expected_num_players=self.num_players,
+        )
         self.iteration_count = checkpoint['iteration']
         self.advantage_net.load_state_dict(checkpoint['advantage_net'])
         self.strategy_net.load_state_dict(checkpoint['strategy_net'])

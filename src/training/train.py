@@ -1,14 +1,13 @@
 # src/training/train.py
 import pokers as pkrs
-import numpy as np
 import random
 import torch
 import time
 import os
 import argparse
-from src.core.deep_cfr import DeepCFRAgent
-from src.core.model import set_verbose, encode_state
-from src.utils.checkpoints import find_checkpoints
+from src.core.deep_cfr import DeepCFRAgent, traverse_agent_turn
+from src.core.model import set_verbose
+from src.utils.checkpoints import find_checkpoints, load_checkpoint, standard_checkpoint_state
 from src.utils.logging import apply_action_with_logging
 from src.utils.settings import STRICT_CHECKING, set_strict_checking
 from src.agents.random_agent import RandomAgent
@@ -99,112 +98,21 @@ def _cfr_traverse_with_opponents(agent, state, iteration, opponent_agents, depth
     current_player = state.current_player
 
     if current_player == agent.player_id:
-        legal_action_types = agent.get_legal_action_types(state)
-
-        if not legal_action_types:
-            if verbose:
-                print(f"WARNING: No legal actions found for player {current_player} at depth {depth}")
-            return 0
-
-        encoded_state = encode_state(state, agent.player_id)
-        state_tensor = torch.FloatTensor(encoded_state).to(agent.device)
-
-        with torch.no_grad():
-            advantages, bet_size_pred = agent.advantage_net(state_tensor.unsqueeze(0))
-            advantages = advantages[0].cpu().numpy()
-            bet_size_multiplier = bet_size_pred[0][0].item()
-
-        advantages_masked = np.zeros(agent.num_actions)
-        for action_type in legal_action_types:
-            advantages_masked[action_type] = max(advantages[action_type], 0)
-
-        if advantages_masked.sum() > 0:
-            strategy = advantages_masked / advantages_masked.sum()
-        else:
-            strategy = np.zeros(agent.num_actions)
-            for action_type in legal_action_types:
-                strategy[action_type] = 1.0 / len(legal_action_types)
-
-        action_values = np.zeros(agent.num_actions)
-        for action_type in legal_action_types:
-            try:
-                if action_type == 2:
-                    pokers_action = agent.action_type_to_pokers_action(
-                        action_type, state, bet_size_multiplier
-                    )
-                else:
-                    pokers_action = agent.action_type_to_pokers_action(action_type, state)
-
-                new_state, log_file, status = apply_action_with_logging(
-                    state,
-                    pokers_action,
-                    strict=STRICT_CHECKING,
-                )
-                if new_state is None:
-                    if verbose:
-                        print(
-                            f"WARNING: Invalid action {action_type} at depth {depth}. "
-                            f"Status: {status}"
-                        )
-                        print(
-                            f"Player: {current_player}, Action: {pokers_action.action}, "
-                            f"Amount: {pokers_action.amount if pokers_action.action == pkrs.ActionEnum.Raise else 'N/A'}"
-                        )
-                        print(
-                            f"Current bet: {state.players_state[current_player].bet_chips}, "
-                            f"Stake: {state.players_state[current_player].stake}"
-                        )
-                        print(f"Details logged to {log_file}")
-                    continue
-
-                action_values[action_type] = _cfr_traverse_with_opponents(
-                    agent, new_state, iteration, opponent_agents, depth + 1, verbose
-                )
-            except Exception as exc:
-                if verbose:
-                    print(f"ERROR in traversal for action {action_type}: {exc}")
-                action_values[action_type] = 0
-                if STRICT_CHECKING:
-                    raise
-
-        ev = sum(strategy[action_type] * action_values[action_type] for action_type in legal_action_types)
-        max_abs_val = max(abs(max(action_values)), abs(min(action_values)), 1.0)
-        opponent_features = np.zeros(20)
-
-        for action_type in legal_action_types:
-            regret = action_values[action_type] - ev
-            normalized_regret = regret / max_abs_val
-            clipped_regret = np.clip(normalized_regret, -10.0, 10.0)
-            scale_factor = np.sqrt(iteration) if iteration > 1 else 1.0
-            weighted_regret = clipped_regret * scale_factor
-            priority = abs(weighted_regret) + 0.01
-
-            agent.advantage_memory.add(
-                (
-                    encoded_state,
-                    opponent_features,
-                    action_type,
-                    bet_size_multiplier if action_type == 2 else 0.0,
-                    weighted_regret,
-                ),
-                priority,
-            )
-
-        strategy_full = np.zeros(agent.num_actions)
-        for action_type in legal_action_types:
-            strategy_full[action_type] = strategy[action_type]
-
-        agent.strategy_memory.append(
-            (
-                encoded_state,
-                opponent_features,
-                strategy_full,
-                bet_size_multiplier if 2 in legal_action_types else 0.0,
+        return traverse_agent_turn(
+            agent,
+            state,
+            iteration,
+            lambda new_state, next_depth: _cfr_traverse_with_opponents(
+                agent,
+                new_state,
                 iteration,
-            )
+                opponent_agents,
+                next_depth,
+                verbose,
+            ),
+            depth=depth,
+            verbose=verbose,
         )
-
-        return ev
 
     try:
         opponent_agent = opponent_agents[current_player]
@@ -240,7 +148,7 @@ def _cfr_traverse_with_opponents(agent, state, iteration, opponent_agents, depth
 
 def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200, 
                    num_players=6, player_id=0, save_dir="models", 
-                   log_dir="logs/deepcfr", verbose=False):
+                   log_dir="logs/deepcfr", verbose=False, debug_training=False):
     """
     Train a Deep CFR agent in a 6-player No-Limit Texas Hold'em game
     against 5 random opponents.
@@ -261,6 +169,7 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
     # Initialize the agent
     agent = DeepCFRAgent(player_id=player_id, num_players=num_players, 
                           device='cuda' if torch.cuda.is_available() else 'cpu')
+    agent.debug_training = debug_training
     
     # Create random agents for the opponents
     random_agents = [RandomAgent(i) for i in range(num_players)]
@@ -338,13 +247,10 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
         # Save checkpoint periodically
         if iteration % checkpoint_frequency == 0 or iteration == num_iterations:
             checkpoint_path = f"{save_dir}/checkpoint_iter_{iteration}.pt"
-            torch.save({
-                'iteration': iteration,
-                'advantage_net': agent.advantage_net.state_dict(),
-                'strategy_net': agent.strategy_net.state_dict(),
-                'losses': losses,
-                'profits': profits
-            }, checkpoint_path)
+            torch.save(
+                standard_checkpoint_state(agent, losses=losses, profits=profits),
+                checkpoint_path,
+            )
             print(f"  Checkpoint saved to {checkpoint_path}")
         
         elapsed = time.time() - start_time
@@ -371,7 +277,7 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
 
 def continue_training(checkpoint_path, additional_iterations=1000, 
                      traversals_per_iteration=200, save_dir="models", 
-                     log_dir="logs/deepcfr_continued", verbose=False):
+                     log_dir="logs/deepcfr_continued", verbose=False, debug_training=False):
     """
     Continue training a Deep CFR agent from a saved checkpoint.
     
@@ -398,7 +304,7 @@ def continue_training(checkpoint_path, additional_iterations=1000,
     
     # Load the checkpoint
     print(f"Loading checkpoint from {checkpoint_path}")
-    checkpoint = torch.load(
+    checkpoint = load_checkpoint(
         checkpoint_path,
         map_location='cuda' if torch.cuda.is_available() else 'cpu',
     )
@@ -408,6 +314,7 @@ def continue_training(checkpoint_path, additional_iterations=1000,
     player_id = 0    # Assuming player_id 0 as in the original training
     agent = DeepCFRAgent(player_id=player_id, num_players=num_players, 
                           device='cuda' if torch.cuda.is_available() else 'cpu')
+    agent.debug_training = debug_training
     
     # Load the model weights
     agent.advantage_net.load_state_dict(checkpoint['advantage_net'])
@@ -497,13 +404,10 @@ def continue_training(checkpoint_path, additional_iterations=1000,
         # Save checkpoint periodically
         if iteration % checkpoint_frequency == 0 or iteration == start_iteration + additional_iterations - 1:
             checkpoint_path = f"{save_dir}/checkpoint_iter_{iteration}.pt"
-            torch.save({
-                'iteration': iteration,
-                'advantage_net': agent.advantage_net.state_dict(),
-                'strategy_net': agent.strategy_net.state_dict(),
-                'losses': losses,
-                'profits': profits
-            }, checkpoint_path)
+            torch.save(
+                standard_checkpoint_state(agent, losses=losses, profits=profits),
+                checkpoint_path,
+            )
             print(f"  Checkpoint saved to {checkpoint_path}")
         
         elapsed = time.time() - start_time
@@ -530,7 +434,7 @@ def continue_training(checkpoint_path, additional_iterations=1000,
 
 def train_against_checkpoint(checkpoint_path, additional_iterations=1000, 
                            traversals_per_iteration=200, save_dir="models", 
-                           log_dir="logs/deepcfr_selfplay", verbose=False):
+                           log_dir="logs/deepcfr_selfplay", verbose=False, debug_training=False):
     """
     Continue a Deep CFR agent from a checkpoint while training against a fixed
     opponent pool loaded from that same checkpoint.
@@ -571,6 +475,7 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
     # Continue the learning agent from the same checkpoint used for the fixed opponents.
     learning_agent = DeepCFRAgent(player_id=0, num_players=6, device=device)
     learning_agent.load_model(checkpoint_path)
+    learning_agent.debug_training = debug_training
     starting_iteration = learning_agent.iteration_count + 1
     
     # For tracking learning progress
@@ -661,15 +566,10 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
 
         if iteration % checkpoint_frequency == 0 or iteration == final_iteration:
             checkpoint_path = f"{save_dir}/selfplay_checkpoint_iter_{iteration}.pt"
-            torch.save({
-                'iteration': iteration,
-                'advantage_net': learning_agent.advantage_net.state_dict(),
-                'strategy_net': learning_agent.strategy_net.state_dict(),
-                'min_bet_size': learning_agent.min_bet_size,
-                'max_bet_size': learning_agent.max_bet_size,
-                'losses': losses,
-                'profits': profits
-            }, checkpoint_path)
+            torch.save(
+                standard_checkpoint_state(learning_agent, losses=losses, profits=profits),
+                checkpoint_path,
+            )
             print(f"  Checkpoint saved to {checkpoint_path}")
 
         elapsed = time.time() - start_time
@@ -798,7 +698,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
                            additional_iterations=1000, traversals_per_iteration=200,
                            save_dir="models", log_dir="logs/deepcfr_mixed",
                            refresh_interval=1000, num_opponents=5, verbose=False,
-                           checkpoint_path=None):
+                           checkpoint_path=None, debug_training=False):
     """
     Train a Deep CFR agent against opponents randomly selected from a pool of checkpoints.
     
@@ -832,6 +732,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
     
     # Initialize the learning agent
     learning_agent = DeepCFRAgent(player_id=0, num_players=6, device=device)
+    learning_agent.debug_training = debug_training
     starting_iteration = 1
     
     # For tracking learning progress
@@ -846,7 +747,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
         print(f"Loading learning agent from checkpoint: {checkpoint_path}")
         learning_agent.load_model(checkpoint_path)
         try:
-            checkpoint_state = torch.load(checkpoint_path, map_location=device)
+            checkpoint_state = load_checkpoint(checkpoint_path, map_location=device)
             starting_iteration = checkpoint_state.get("iteration", learning_agent.iteration_count) + 1
             losses = checkpoint_state.get("losses", losses)
             profits = checkpoint_state.get("profits", profits)
@@ -986,23 +887,20 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
 
             if iteration % 100 == 0:
                 t_model_path = f"{checkpoint_dir}/{training_model_prefix}mixed_iter_{iteration}.pt"
-                torch.save({
-                    'iteration': iteration,
-                    'advantage_net': learning_agent.advantage_net.state_dict(),
-                    'strategy_net': learning_agent.strategy_net.state_dict()
-                }, t_model_path)
+                torch.save(standard_checkpoint_state(learning_agent), t_model_path)
                 print(f"  Training model saved to {t_model_path}")
 
         if iteration % checkpoint_frequency == 0 or iteration == starting_iteration + additional_iterations - 1:
             checkpoint_path = f"{save_dir}/mixed_checkpoint_iter_{iteration}.pt"
-            torch.save({
-                'iteration': iteration,
-                'advantage_net': learning_agent.advantage_net.state_dict(),
-                'strategy_net': learning_agent.strategy_net.state_dict(),
-                'losses': losses,
-                'profits': profits,
-                'profits_vs_checkpoints': profits_vs_checkpoints
-            }, checkpoint_path)
+            torch.save(
+                standard_checkpoint_state(
+                    learning_agent,
+                    losses=losses,
+                    profits=profits,
+                    profits_vs_checkpoints=profits_vs_checkpoints,
+                ),
+                checkpoint_path,
+            )
             print(f"  Checkpoint saved to {checkpoint_path}")
 
         elapsed = time.time() - start_time
@@ -1052,6 +950,7 @@ def main(argv=None):
     parser.add_argument('--refresh-interval', type=int, default=1000, help='Interval to refresh opponent pool')
     parser.add_argument('--num-opponents', type=int, default=5, help='Number of checkpoint opponents to select')
     parser.add_argument('--strict', action='store_true', help='Enable strict error checking that raises exceptions for invalid game states')
+    parser.add_argument('--debug-training', action='store_true', help='Print detailed training diagnostics from network updates')
     args = parser.parse_args(argv)
 
     # Strict training for debug
@@ -1070,6 +969,7 @@ def main(argv=None):
             num_opponents=args.num_opponents,
             verbose=args.verbose,
             checkpoint_path=args.checkpoint,
+            debug_training=args.debug_training,
         )
     elif args.checkpoint and args.self_play:
         print(f"Starting self-play training against checkpoint: {args.checkpoint}")
@@ -1079,7 +979,8 @@ def main(argv=None):
             traversals_per_iteration=args.traversals,
             save_dir=args.save_dir,
             log_dir=args.log_dir + "_selfplay",
-            verbose=args.verbose
+            verbose=args.verbose,
+            debug_training=args.debug_training,
         )
     elif args.checkpoint:
         print(f"Continuing training from checkpoint: {args.checkpoint}")
@@ -1089,7 +990,8 @@ def main(argv=None):
             traversals_per_iteration=args.traversals,
             save_dir=args.save_dir,
             log_dir=args.log_dir + "_continued",
-            verbose=args.verbose
+            verbose=args.verbose,
+            debug_training=args.debug_training,
         )
     else:
         print(f"Starting Deep CFR training for {args.iterations} iterations")
@@ -1105,7 +1007,8 @@ def main(argv=None):
             player_id=0,
             save_dir=args.save_dir,
             log_dir=args.log_dir,
-            verbose=args.verbose
+            verbose=args.verbose,
+            debug_training=args.debug_training,
         )
     
     print("\nTraining Summary:")

@@ -13,6 +13,13 @@ from src.core.deep_cfr import (
     DeepCFRAgent,
     PrioritizedMemory,
     _resolve_model_save_path,
+    traverse_agent_turn,
+)
+from src.utils.checkpoints import (
+    AGENT_TYPE_OPPONENT_MODELING,
+    load_checkpoint,
+    opponent_modeling_checkpoint_state,
+    validate_checkpoint_compatibility,
 )
 from src.agents.random_agent import RandomAgent
 from src.utils.settings import STRICT_CHECKING
@@ -245,6 +252,22 @@ class DeepCFRAgentWithOpponentModeling:
         # Clear the current game history
         self.current_game_history = {}
 
+    def get_table_opponent_features(self):
+        """Average available opponent features into the fixed 20-feature input."""
+        opponent_ids = [
+            opponent_id
+            for opponent_id in range(self.num_players)
+            if opponent_id != self.player_id
+        ]
+        feature_rows = [
+            self.opponent_modeling.get_opponent_features(opponent_id)
+            for opponent_id in opponent_ids
+            if opponent_id in self.opponent_modeling.opponent_histories
+        ]
+        if not feature_rows:
+            return np.zeros(20, dtype=np.float32)
+        return np.mean(np.array(feature_rows, dtype=np.float32), axis=0)
+
     def cfr_traverse(self, state, iteration, opponents, depth=0):
         """
         Traverse the game tree using external sampling MCCFR with continuous bet sizing.
@@ -267,136 +290,25 @@ class DeepCFRAgentWithOpponentModeling:
         
         # If it's the trained agent's turn
         if current_player == self.player_id:
-            legal_action_types = self.get_legal_action_types(state)
-            
-            if not legal_action_types:
-                if VERBOSE:
-                    print(f"WARNING: No legal actions found for player {current_player} at depth {depth}")
-                return 0
-                
-            # Encode the base state
-            state_tensor = torch.FloatTensor(encode_state(state, self.player_id)).to(self.device)
-            
-            opponent_feature_array = np.zeros(20)
-            opponent_features = None
-            
-            # Get advantages and bet sizing prediction from network
-            with torch.no_grad():
-                # Use opponent features if available
-                if opponent_features is not None:
-                    advantages, bet_size_pred = self.advantage_net(
-                        state_tensor.unsqueeze(0), 
-                        opponent_features.unsqueeze(0)
-                    )
-                    advantages = advantages[0].cpu().numpy()
-                    bet_size_multiplier = bet_size_pred[0][0].item()
-                else:
-                    advantages, bet_size_pred = self.advantage_net(state_tensor.unsqueeze(0))
-                    advantages = advantages[0].cpu().numpy()
-                    bet_size_multiplier = bet_size_pred[0][0].item()
-                
-            # Use regret matching to compute strategy for action types
-            advantages_masked = np.zeros(self.num_actions)
-            for a in legal_action_types:
-                advantages_masked[a] = max(advantages[a], 0)
-                
-            # Choose an action based on the strategy
-            if sum(advantages_masked) > 0:
-                strategy = advantages_masked / sum(advantages_masked)
-            else:
-                strategy = np.zeros(self.num_actions)
-                for a in legal_action_types:
-                    strategy[a] = 1.0 / len(legal_action_types)
-            
-            # Choose actions and traverse
-            action_values = np.zeros(self.num_actions)
-            for action_type in legal_action_types:
-                try:
-                    # Use the predicted bet size for raise actions
-                    if action_type == 2:  # Raise
-                        pokers_action = self.action_type_to_pokers_action(action_type, state, bet_size_multiplier)
-                    else:
-                        pokers_action = self.action_type_to_pokers_action(action_type, state)
-                    
-                    new_state, log_file, status = apply_action_with_logging(
-                        state,
-                        pokers_action,
-                        strict=STRICT_CHECKING,
-                    )
-
-                    # Check if the action was valid
-                    if new_state is None:
-                        if VERBOSE:
-                            print(f"WARNING: Invalid action {action_type} at depth {depth}. Status: {status}")
-                            print(f"Player: {current_player}, Action: {pokers_action.action}, Amount: {pokers_action.amount if pokers_action.action == pkrs.ActionEnum.Raise else 'N/A'}")
-                            print(f"Current bet: {state.players_state[current_player].bet_chips}, Stake: {state.players_state[current_player].stake}")
-                            print(f"Details logged to {log_file}")
-                        continue  # Skip this action and try others
-                        
-                    action_values[action_type] = self.cfr_traverse(new_state, iteration, opponents, depth + 1)
-                except Exception as e:
-                    if VERBOSE:
-                        print(f"ERROR in traversal for action {action_type}: {e}")
-                    action_values[action_type] = 0
-                    if STRICT_CHECKING:
-                        raise  # Re-raise in strict mode
-            
-            # Compute counterfactual regrets and add to memory
-            ev = sum(strategy[a] * action_values[a] for a in legal_action_types)
-            
-            # Calculate normalization factor
-            max_abs_val = max(abs(max(action_values)), abs(min(action_values)), 1.0)
-            
-            for action_type in legal_action_types:
-                # Calculate regret
-                regret = action_values[action_type] - ev
-                
-                # Normalize and clip regret
-                normalized_regret = regret / max_abs_val
-                clipped_regret = np.clip(normalized_regret, -10.0, 10.0)
-                
-                # Apply scaling
-                scale_factor = np.sqrt(iteration) if iteration > 1 else 1.0
-                weighted_regret = clipped_regret * scale_factor
-                
-                # Store in prioritized memory with regret magnitude as priority
-                priority = abs(weighted_regret) + 0.01  # Add small constant to ensure non-zero priority
-                
-                # For raise actions, store the bet size multiplier
-                if action_type == 2:
-                    self.advantage_memory.add(
-                        (encode_state(state, self.player_id), 
-                         opponent_feature_array,
-                         action_type, 
-                         bet_size_multiplier, 
-                         weighted_regret),
-                        priority
-                    )
-                else:
-                    self.advantage_memory.add(
-                        (encode_state(state, self.player_id),
-                         opponent_feature_array,
-                         action_type, 
-                         0.0, 
-                         weighted_regret),
-                        priority
-                    )
-            
-            # Add to strategy memory
-            strategy_full = np.zeros(self.num_actions)
-            for a in legal_action_types:
-                strategy_full[a] = strategy[a]
-            
-            # Store strategy memory with opponent features if available
-            self.strategy_memory.append((
-                encode_state(state, self.player_id),
-                opponent_feature_array,
-                strategy_full,
-                bet_size_multiplier if 2 in legal_action_types else 0.0,
-                iteration
-            ))
-            
-            return ev
+            opponent_feature_array = self.get_table_opponent_features()
+            return traverse_agent_turn(
+                self,
+                state,
+                iteration,
+                lambda new_state, next_depth: self.cfr_traverse(
+                    new_state,
+                    iteration,
+                    opponents,
+                    next_depth,
+                ),
+                depth=depth,
+                verbose=VERBOSE,
+                opponent_features=opponent_feature_array,
+                network_forward_fn=lambda state_tensor, opponent_feature_tensor: self.advantage_net(
+                    state_tensor.unsqueeze(0),
+                    opponent_feature_tensor.unsqueeze(0),
+                ),
+            )
             
         # If it's another player's turn (model opponent or random agent)
         else:
@@ -635,17 +547,16 @@ class DeepCFRAgentWithOpponentModeling:
     def save_model(self, path_prefix):
         """Save the model to disk, including opponent modeling."""
         model_path = _resolve_model_save_path(path_prefix, self.iteration_count)
-        torch.save({
-            'iteration': self.iteration_count,
-            'advantage_net': self.advantage_net.state_dict(),
-            'strategy_net': self.strategy_net.state_dict(),
-            'history_encoder': self.opponent_modeling.history_encoder.state_dict(),
-            'opponent_model': self.opponent_modeling.opponent_model.state_dict()
-        }, model_path)
+        torch.save(opponent_modeling_checkpoint_state(self), model_path)
         
     def load_model(self, path):
         """Load the model from disk, including opponent modeling if available."""
-        checkpoint = torch.load(path, map_location=self.device)
+        checkpoint = load_checkpoint(path, map_location=self.device)
+        validate_checkpoint_compatibility(
+            checkpoint,
+            expected_agent_type=AGENT_TYPE_OPPONENT_MODELING,
+            expected_num_players=self.num_players,
+        )
         self.iteration_count = checkpoint['iteration']
         self.advantage_net.load_state_dict(checkpoint['advantage_net'])
         self.strategy_net.load_state_dict(checkpoint['strategy_net'])

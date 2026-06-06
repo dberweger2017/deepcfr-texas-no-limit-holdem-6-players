@@ -22,6 +22,7 @@ from src.training.train_with_opponent_modeling import (
     train_deep_cfr_with_opponent_modeling,
 )
 from src.utils.settings import set_strict_checking
+from src.utils.checkpoints import opponent_modeling_checkpoint_state
 
 
 def _build_random_opponents(player_id):
@@ -203,13 +204,7 @@ def train_against_checkpoint_with_opponent_modeling(
         if iteration % checkpoint_frequency == 0 or iteration == final_iteration:
             save_path = f"{save_dir}/selfplay_checkpoint_iter_{iteration}.pt"
             torch.save(
-                {
-                    "iteration": iteration,
-                    "advantage_net": learning_agent.advantage_net.state_dict(),
-                    "strategy_net": learning_agent.strategy_net.state_dict(),
-                    "history_encoder": learning_agent.opponent_modeling.history_encoder.state_dict(),
-                    "opponent_model": learning_agent.opponent_modeling.opponent_model.state_dict(),
-                },
+                opponent_modeling_checkpoint_state(learning_agent),
                 save_path,
             )
             print(f"  Checkpoint saved to {save_path}")

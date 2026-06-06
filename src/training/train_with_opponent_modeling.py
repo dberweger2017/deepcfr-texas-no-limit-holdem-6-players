@@ -15,6 +15,7 @@ from src.core.model import set_verbose
 from src.agents.random_agent import RandomAgent
 from src.utils.logging import apply_action_with_logging
 from src.utils.settings import STRICT_CHECKING, set_strict_checking
+from src.utils.checkpoints import load_checkpoint
 
 def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, notifier=None):
     """Evaluate the trained agent against random opponents, tracking opponent history."""
@@ -157,7 +158,7 @@ def train_deep_cfr_with_opponent_modeling(
         print(f"Loading agent from checkpoint: {checkpoint_path}")
         agent.load_model(checkpoint_path)
         try:
-            checkpoint_state = torch.load(checkpoint_path, map_location=agent.device)
+            checkpoint_state = load_checkpoint(checkpoint_path, map_location=agent.device)
             starting_iteration = checkpoint_state.get("iteration", agent.iteration_count) + 1
         except Exception:
             starting_iteration = agent.iteration_count + 1
