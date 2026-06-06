@@ -274,6 +274,7 @@ def main(argv=None):
     parser.add_argument("--refresh-interval", type=int, default=1000, help="Interval to refresh opponent pool")
     parser.add_argument("--num-opponents", type=int, default=5, help="Number of checkpoint opponents to select")
     parser.add_argument("--strict", action="store_true", help="Raise exceptions for invalid game states")
+    parser.add_argument("--progress-interval", type=int, default=100, help="Print compact training summaries every N iterations; set 0 to disable")
     args = parser.parse_args(argv)
 
     set_strict_checking(args.strict)
@@ -321,6 +322,7 @@ def main(argv=None):
             log_dir=effective_log_dir,
             verbose=args.verbose,
             checkpoint_path=args.checkpoint,
+            progress_interval=args.progress_interval,
         )
         agent, adv_losses, strat_losses, om_losses, profits = result
         profits_vs_checkpoints = []

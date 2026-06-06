@@ -5,6 +5,8 @@ import torch
 import time
 import os
 import argparse
+import sys
+from tqdm import tqdm
 from src.core.deep_cfr import DeepCFRAgent, traverse_agent_turn
 from src.core.model import set_verbose
 from src.utils.checkpoints import find_checkpoints, load_checkpoint, standard_checkpoint_state
@@ -148,7 +150,8 @@ def _cfr_traverse_with_opponents(agent, state, iteration, opponent_agents, depth
 
 def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200, 
                    num_players=6, player_id=0, save_dir="models", 
-                   log_dir="logs/deepcfr", verbose=False, debug_training=False):
+                   log_dir="logs/deepcfr", verbose=False, debug_training=False,
+                   progress_interval=100):
     """
     Train a Deep CFR agent in a 6-player No-Limit Texas Hold'em game
     against 5 random opponents.
@@ -189,14 +192,21 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
     checkpoint_frequency = 100  # Save a checkpoint every 100 iterations
     
     # Training loop
-    for iteration in range(1, num_iterations + 1):
+    progress = tqdm(
+        range(1, num_iterations + 1),
+        desc="Training",
+        unit="iter",
+        dynamic_ncols=True,
+        disable=not sys.stderr.isatty(),
+    )
+    last_strat_loss = None
+    last_profit = initial_profit
+
+    for iteration in progress:
         agent.iteration_count = iteration
         start_time = time.time()
-        
-        print(f"Iteration {iteration}/{num_iterations}")
-        
+
         # Run traversals to collect data
-        print("  Collecting data...")
         for _ in range(traversals_per_iteration):
             # Create a new poker game
             state = pkrs.State.from_seed(
@@ -216,10 +226,8 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
         writer.add_scalar('Time/Traversal', traversal_time, iteration)
         
         # Train advantage network
-        print("  Training advantage network...")
         adv_loss = agent.train_advantage_network()
         losses.append(adv_loss)
-        print(f"  Advantage network loss: {adv_loss:.6f}")
         
         # Log the loss to tensorboard
         writer.add_scalar('Loss/Advantage', adv_loss, iteration)
@@ -227,17 +235,13 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
         
         # Every few iterations, train the strategy network and evaluate
         if iteration % 10 == 0 or iteration == num_iterations:
-            print("  Training strategy network...")
-            strat_loss = agent.train_strategy_network()
-            print(f"  Strategy network loss: {strat_loss:.6f}")
-            writer.add_scalar('Loss/Strategy', strat_loss, iteration)
+            last_strat_loss = agent.train_strategy_network()
+            writer.add_scalar('Loss/Strategy', last_strat_loss, iteration)
             
             # Evaluate the agent
-            print("  Evaluating agent...")
-            avg_profit = evaluate_against_random(agent, num_games=500, num_players=num_players)
-            profits.append(avg_profit)
-            print(f"  Average profit per game: {avg_profit:.2f}")
-            writer.add_scalar('Performance/Profit', avg_profit, iteration)
+            last_profit = evaluate_against_random(agent, num_games=500, num_players=num_players)
+            profits.append(last_profit)
+            writer.add_scalar('Performance/Profit', last_profit, iteration)
             
             # Save the model
             #model_path = f"{save_dir}/deep_cfr_iter_{iteration}.pt"
@@ -251,18 +255,36 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
                 standard_checkpoint_state(agent, losses=losses, profits=profits),
                 checkpoint_path,
             )
-            print(f"  Checkpoint saved to {checkpoint_path}")
+            tqdm.write(f"Checkpoint saved: {checkpoint_path}")
         
         elapsed = time.time() - start_time
         writer.add_scalar('Time/Iteration', elapsed, iteration)
-        print(f"  Iteration completed in {elapsed:.2f} seconds")
-        print(f"  Advantage memory size: {len(agent.advantage_memory)}")
-        print(f"  Strategy memory size: {len(agent.strategy_memory)}")
         writer.add_scalar('Memory/Strategy', len(agent.strategy_memory), iteration)
+        progress.set_postfix(
+            adv=f"{adv_loss:.3f}",
+            strat="-" if last_strat_loss is None else f"{last_strat_loss:.3f}",
+            profit=f"{last_profit:.2f}",
+            adv_mem=len(agent.advantage_memory),
+            strat_mem=len(agent.strategy_memory),
+        )
+
+        should_report = (
+            progress_interval > 0
+            and (iteration % progress_interval == 0 or iteration == num_iterations)
+        )
+        if should_report:
+            tqdm.write(
+                f"iter {iteration}/{num_iterations} | "
+                f"adv={adv_loss:.4f} | "
+                f"strat={'-' if last_strat_loss is None else f'{last_strat_loss:.4f}'} | "
+                f"profit={last_profit:.2f} | "
+                f"adv_mem={len(agent.advantage_memory)} | "
+                f"strat_mem={len(agent.strategy_memory)} | "
+                f"{elapsed:.2f}s"
+            )
         
         # Commit the tensorboard logs
         writer.flush()
-        print()
     
     # Final evaluation
     print("Final evaluation...")
@@ -951,6 +973,7 @@ def main(argv=None):
     parser.add_argument('--num-opponents', type=int, default=5, help='Number of checkpoint opponents to select')
     parser.add_argument('--strict', action='store_true', help='Enable strict error checking that raises exceptions for invalid game states')
     parser.add_argument('--debug-training', action='store_true', help='Print detailed training diagnostics from network updates')
+    parser.add_argument('--progress-interval', type=int, default=100, help='Print compact training summaries every N iterations; set 0 to disable')
     args = parser.parse_args(argv)
 
     # Strict training for debug
@@ -1009,6 +1032,7 @@ def main(argv=None):
             log_dir=args.log_dir,
             verbose=args.verbose,
             debug_training=args.debug_training,
+            progress_interval=args.progress_interval,
         )
     
     print("\nTraining Summary:")

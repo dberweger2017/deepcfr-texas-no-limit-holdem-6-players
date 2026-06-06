@@ -10,6 +10,8 @@ import os
 import random
 import time
 import argparse
+import sys
+from tqdm import tqdm
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.model import set_verbose
 from src.agents.random_agent import RandomAgent
@@ -123,6 +125,7 @@ def train_deep_cfr_with_opponent_modeling(
     log_dir="logs/deepcfr_opponent_modeling", 
     verbose=False,
     checkpoint_path=None,
+    progress_interval=100,
 ):
     """Train a Deep CFR agent with opponent modeling."""
     from torch.utils.tensorboard import SummaryWriter
@@ -176,17 +179,23 @@ def train_deep_cfr_with_opponent_modeling(
     checkpoint_frequency = 50  # Save more frequently due to opponent modeling
     
     # Training loop
-    for iteration in range(starting_iteration, starting_iteration + num_iterations):
+    final_iteration = starting_iteration + num_iterations - 1
+    progress = tqdm(
+        range(starting_iteration, final_iteration + 1),
+        desc="OM training",
+        unit="iter",
+        dynamic_ncols=True,
+        disable=not sys.stderr.isatty(),
+    )
+    last_strat_loss = None
+    last_opp_loss = None
+    last_profit = None
+
+    for iteration in progress:
         agent.iteration_count = iteration
         start_time = time.time()
-        
-        print(
-            f"Iteration {iteration}/"
-            f"{starting_iteration + num_iterations - 1}"
-        )
-        
+
         # Run traversals to collect data
-        print("  Collecting data...")
         for t in range(traversals_per_iteration):
             # Create a new poker game
             state = pkrs.State.from_seed(
@@ -202,7 +211,7 @@ def train_deep_cfr_with_opponent_modeling(
             try:
                 agent.cfr_traverse(state, iteration, random_agents)
             except Exception as e:
-                print(f"Error in traversal: {e}")
+                tqdm.write(f"Error in traversal: {e}")
                 if notifier and t % 50 == 0:  # Don't send too many error messages
                     notifier.send_message(f"⚠️ <b>TRAVERSAL ERROR</b>\nIteration: {iteration}\nError: {str(e)}")
         
@@ -211,55 +220,47 @@ def train_deep_cfr_with_opponent_modeling(
         writer.add_scalar('Time/Traversal', traversal_time, iteration)
         
         # Train advantage network
-        print("  Training advantage network...")
         adv_loss = agent.train_advantage_network()
         advantage_losses.append(adv_loss)
-        print(f"  Advantage network loss: {adv_loss:.6f}")
         writer.add_scalar('Loss/Advantage', adv_loss, iteration)
         
         # Every few iterations, train the strategy network
-        if iteration % 5 == 0 or iteration == starting_iteration + num_iterations - 1:
-            print("  Training strategy network...")
-            strat_loss = agent.train_strategy_network()
-            strategy_losses.append(strat_loss)
-            print(f"  Strategy network loss: {strat_loss:.6f}")
-            writer.add_scalar('Loss/Strategy', strat_loss, iteration)
+        if iteration % 5 == 0 or iteration == final_iteration:
+            last_strat_loss = agent.train_strategy_network()
+            strategy_losses.append(last_strat_loss)
+            writer.add_scalar('Loss/Strategy', last_strat_loss, iteration)
         
         # Train opponent modeling periodically
-        if iteration % 10 == 0 or iteration == starting_iteration + num_iterations - 1:
-            print("  Training opponent modeling...")
+        if iteration % 10 == 0 or iteration == final_iteration:
             try:
-                opp_loss = agent.train_opponent_modeling()
-                opponent_model_losses.append(opp_loss)
-                print(f"  Opponent modeling loss: {opp_loss:.6f}")
-                writer.add_scalar('Loss/OpponentModeling', opp_loss, iteration)
+                last_opp_loss = agent.train_opponent_modeling()
+                opponent_model_losses.append(last_opp_loss)
+                writer.add_scalar('Loss/OpponentModeling', last_opp_loss, iteration)
             except Exception as e:
-                print(f"Error training opponent model: {e}")
+                tqdm.write(f"Error training opponent model: {e}")
                 if notifier:
                     notifier.send_message(f"⚠️ <b>OPPONENT MODEL ERROR</b>\nIteration: {iteration}\nError: {str(e)}")
         
         # Evaluate periodically
-        if iteration % 20 == 0 or iteration == starting_iteration + num_iterations - 1:
-            print("  Evaluating agent...")
-            avg_profit = evaluate_against_random(agent, num_games=200, iteration=iteration, notifier=notifier)
-            profits.append(avg_profit)
-            print(f"  Average profit per game: {avg_profit:.2f}")
-            writer.add_scalar('Performance/Profit', avg_profit, iteration)
+        if iteration % 20 == 0 or iteration == final_iteration:
+            last_profit = evaluate_against_random(agent, num_games=200, iteration=iteration, notifier=notifier)
+            profits.append(last_profit)
+            writer.add_scalar('Performance/Profit', last_profit, iteration)
             
             # Send progress update
             if notifier:
                 num_opponents = len(agent.opponent_modeling.opponent_histories)
                 notifier.send_training_progress(
                     iteration=iteration,
-                    profit_vs_models=avg_profit,
-                    profit_vs_random=avg_profit
+                    profit_vs_models=last_profit,
+                    profit_vs_random=last_profit
                 )
         
         # Save checkpoint
-        if iteration % checkpoint_frequency == 0 or iteration == starting_iteration + num_iterations - 1:
+        if iteration % checkpoint_frequency == 0 or iteration == final_iteration:
             checkpoint_path = f"{save_dir}/checkpoint_iter_{iteration}.pt"
             agent.save_model(checkpoint_path)
-            print(f"  Checkpoint saved to {checkpoint_path}")
+            tqdm.write(f"Checkpoint saved: {checkpoint_path}")
             
             # Add Telegram notification
             if notifier and iteration % 100 == 0:  # Less frequent notifications
@@ -277,9 +278,30 @@ def train_deep_cfr_with_opponent_modeling(
         
         elapsed = time.time() - start_time
         writer.add_scalar('Time/Iteration', elapsed, iteration)
-        print(f"  Iteration completed in {elapsed:.2f} seconds")
-        print(f"  Tracking data for {num_opponents} unique opponents")
-        print()
+        progress.set_postfix(
+            adv=f"{adv_loss:.3f}",
+            strat="-" if last_strat_loss is None else f"{last_strat_loss:.3f}",
+            om="-" if last_opp_loss is None else f"{last_opp_loss:.3f}",
+            profit="-" if last_profit is None else f"{last_profit:.2f}",
+            opp=num_opponents,
+        )
+
+        should_report = (
+            progress_interval > 0
+            and (iteration % progress_interval == 0 or iteration == final_iteration)
+        )
+        if should_report:
+            tqdm.write(
+                f"iter {iteration}/{final_iteration} | "
+                f"adv={adv_loss:.4f} | "
+                f"strat={'-' if last_strat_loss is None else f'{last_strat_loss:.4f}'} | "
+                f"om={'-' if last_opp_loss is None else f'{last_opp_loss:.4f}'} | "
+                f"profit={'-' if last_profit is None else f'{last_profit:.2f}'} | "
+                f"adv_mem={len(agent.advantage_memory)} | "
+                f"strat_mem={len(agent.strategy_memory)} | "
+                f"opponents={num_opponents} | "
+                f"{elapsed:.2f}s"
+            )
     
     # Final evaluation with more games
     print("Final evaluation...")
@@ -311,6 +333,7 @@ if __name__ == "__main__":
     parser.add_argument('--log-dir', type=str, default='logs/deepcfr_om', help='Directory for logs')
     parser.add_argument('--checkpoint', type=str, default=None, help='Path to checkpoint to continue training from')
     parser.add_argument('--strict', action='store_true', help='Raise exceptions for invalid game states')
+    parser.add_argument('--progress-interval', type=int, default=100, help='Print compact training summaries every N iterations; set 0 to disable')
     args = parser.parse_args()
 
     set_strict_checking(args.strict)
@@ -328,6 +351,7 @@ if __name__ == "__main__":
         log_dir=args.log_dir,
         verbose=args.verbose,
         checkpoint_path=args.checkpoint,
+        progress_interval=args.progress_interval,
     )
     
     print("\nTraining Summary:")
