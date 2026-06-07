@@ -1,34 +1,22 @@
 # DeepCFR Poker AI
 
-Deep CFR for 6-player no-limit Texas Hold'em, built on top of the `pokers` environment and focused on practical training workflows from source.
+Deep CFR for 6-player no-limit Texas Hold'em, built on top of the [`pokers`](https://github.com/Reinforcement-Poker/pokers) environment. The focus here is a training workflow you can actually run from source, not a polished black box.
 
 ![Poker AI](https://raw.githubusercontent.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/refs/heads/main/images/testing_different_iteration_values/Screenshot%202025-03-04%20at%2014.39.24.png)
 
-## Project Update (March 2026)
+## Where things stand (March 2026)
 
-This repo has moved past the March 2025 state described in the original article and early README.
+This repo has come a long way since the March 2025 version described in the original Medium article. If the article and this README ever disagree, trust the README and the current scripts.
 
-Current status:
+The short version: you can clone this, install it, and start training from the repo without fighting the tooling first. The nasty all-in edge cases in the poker engine are handled by pinning a patched `pokers` fork in [requirements.txt](./requirements.txt), and the six-player all-in side-pot check cycles that used to hang tournaments and evaluation are now normalized in the shared action wrapper. The Phase 2 self-play and Phase 3 mixed-training regressions from issue `#22` are fixed on `main`, and there's regression coverage for both the poker-engine integration and the training paths.
 
-- The project is source-first and ready to train from the repository.
-- The all-in edge cases in the underlying poker engine are handled by pinning to the patched `pokers` fork in [requirements.txt](./requirements.txt).
-- Six-player all-in side-pot check cycles are normalized in the shared action wrapper, so tournaments and evaluation no longer hang when all remaining active players are all-in.
-- The Phase 2 self-play and Phase 3 mixed-training regressions from issue `#22` have been fixed on `main`.
-- Regression coverage now exists for both poker-engine integration and training-path smoke tests.
+In practice that means standard Deep CFR has a clean three-stage flow now — random, self-play, mixed — and the opponent-modeling track exposes the same three stages instead of being a separate one-off. `--checkpoint` means the same thing everywhere ("continue from this checkpoint"), mixed checkpoint discovery walks subdirectories recursively, and opponent modeling, while still more experimental on learning quality, at least follows the same workflow as everything else.
 
-What this means in practice:
-
-- Standard Deep CFR now has a clean 3-stage progression: random, self-play, mixed checkpoints.
-- Opponent-modeling training now exposes the same 3-stage CLI progression.
-- `--checkpoint` now consistently means "continue from this checkpoint" across both public training entrypoints.
-- Mixed checkpoint discovery now works recursively, so stage-based subdirectories are supported directly.
-- Opponent modeling is still more experimental in learning quality than the standard track, but the workflow is no longer a separate one-off path.
-
-The Medium article is still useful for background, but the code has evolved. Prefer this README and the current scripts over the article when they differ.
+The Medium article is still good background reading, but the code has moved on.
 
 ## Installation
 
-Recommended workflow: run directly from source.
+Run it from source. That's the path I actually maintain.
 
 ```bash
 git clone https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players.git
@@ -39,98 +27,40 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Notes:
+PyQt5 (for the GUI) is already in `requirements.txt`, so there's nothing extra to install. All the commands below assume you're at the repo root and use `python -m ...` or `python scripts/...`.
 
-- The GUI requires `PyQt5`, which is already included in [requirements.txt](./requirements.txt).
-- The documented commands below use `python -m ...` or `python scripts/...` from the repo root. That is the maintained workflow.
+## What works today
 
-## What Works Today
+Most of the moving pieces are in place: Deep CFR training against random opponents, checkpoint continuation, self-play against a fixed checkpoint snapshot, and mixed training against a rotating checkpoint pool. The opponent-modeling track runs through the same three stages. On top of training you get checkpoint evaluation from the CLI, CLI and PyQt GUI play against saved checkpoints or random agents, tournament visualization across checkpoints, and regression tests for the `pokers` and training-path failures that have bitten this project before.
 
-- Deep CFR training against random opponents
-- Checkpoint continuation
-- Self-play continuation against a fixed checkpoint snapshot
-- Mixed training against a rotating checkpoint pool
-- Opponent-modeling training with the same 3-stage progression
-- Checkpoint evaluation via CLI
-- CLI play against saved checkpoints or random agents
-- PyQt GUI play
-- Tournament visualization across checkpoints
-- Regression tests for known `pokers` and training-path failures
+## What the current examples are meant to prove
 
-## Current Verification Goal
+The training and evaluation examples in this README are here to show the code works end to end, not to claim the models are already strong. Concretely, they demonstrate that training fills replay memory and writes checkpoints, those checkpoints reload correctly, TensorBoard logs get written, fixed-seed evaluation runs without hitting invalid game states, saved checkpoints can play tournaments against each other, and result files and plots get generated without anyone hand-editing scripts.
 
-The main goal of the current training and evaluation examples is to demonstrate that the code works end to end:
-
-1. training fills replay memory and writes checkpoints
-2. checkpoints reload correctly
-3. TensorBoard logs are written
-4. fixed-seed evaluation runs without invalid game states
-5. saved checkpoints can play tournaments against each other
-6. result files and plots are generated without editing scripts by hand
-
-This is a working-code verification milestone, not a claim that the current models are already strong poker agents. Poker quality still needs longer training, variance-aware evaluation, and checkpoint-vs-checkpoint comparisons.
+That's a working-code milestone. Real poker strength still needs longer training, variance-aware evaluation, and careful checkpoint-vs-checkpoint comparison.
 
 ## Architecture
 
-The current implementation uses:
+The setup is a 6-player no-limit Texas Hold'em environment from [`pokers`](https://github.com/Reinforcement-Poker/pokers), fed a fixed-length state encoding that covers hole cards, board cards, stage, pot, positions, player states, min bet, legal actions, and the previous action.
 
-- A 6-player no-limit Texas Hold'em environment from [`pokers`](https://github.com/Reinforcement-Poker/pokers)
-- A fixed-length state encoding including hole cards, board cards, stage, pot, positions, player states, min bet, legal actions, and previous action
-- A shared feed-forward network body with two heads:
-  - action head: `Fold`, `Check/Call`, `Raise`
-  - sizing head: continuous raise sizing in roughly `0.1x` to `3.0x` pot
-- Prioritized replay for advantage training
-- Separate strategy-memory storage for policy updates
-- Optional opponent-modeling variants built around GRU-based action-history encoding
+The network is a shared feed-forward body with two heads: an action head (`Fold`, `Check/Call`, `Raise`) and a sizing head for continuous raise sizing in roughly the `0.1x` to `3.0x` pot range. Advantage training uses prioritized replay, policy updates draw from a separate strategy memory, and the opponent-modeling variants add a GRU-based action-history encoder on top.
 
-This repo no longer uses the older 4-action "half-pot / pot raise" architecture described in earlier versions of the README. The current action model is 3 action types plus continuous raise sizing.
+This is no longer the old 4-action "half-pot / pot raise" model from earlier versions. It's three action types plus continuous sizing.
 
 ## Training
 
-All commands below are run from the repository root.
+Everything below runs from the repo root. There are two clean training tracks: standard Deep CFR in [train.py](./src/training/train.py), and opponent-modeling Deep CFR in [train_opponent_modeling.py](./src/training/train_opponent_modeling.py). The older [train_with_opponent_modeling.py](./src/training/train_with_opponent_modeling.py) and [train_mixed_with_opponent_modeling.py](./src/training/train_mixed_with_opponent_modeling.py) are now internal modules — use the two entrypoints above from the command line.
 
-There are now two clean training tracks:
+Both tracks follow the same three stages: random opponents, then self-play against a fixed checkpoint, then mixed checkpoint training.
 
-- standard Deep CFR: [train.py](./src/training/train.py)
-- opponent-modeling Deep CFR: [train_opponent_modeling.py](./src/training/train_opponent_modeling.py)
-
-The older files:
-
-- [train_with_opponent_modeling.py](./src/training/train_with_opponent_modeling.py)
-- [train_mixed_with_opponent_modeling.py](./src/training/train_mixed_with_opponent_modeling.py)
-
-are now internal implementation modules. Use the two entrypoints above when training from the command line.
-
-Both follow the same 3-stage progression:
-
-1. random opponents
-2. self-play against a fixed checkpoint
-3. mixed checkpoint training
-
-Shared core flags:
-
-- `--iterations`
-- `--traversals`
-- `--save-dir`
-- `--log-dir`
-- `--checkpoint`
-- `--self-play`
-- `--mixed`
-- `--checkpoint-dir`
-- `--model-prefix`
-- `--refresh-interval`
-- `--num-opponents`
-- `--strict`
-- `--progress-interval`
-
-Flag meaning:
+The shared core flags are `--iterations`, `--traversals`, `--save-dir`, `--log-dir`, `--checkpoint`, `--self-play`, `--mixed`, `--checkpoint-dir`, `--model-prefix`, `--refresh-interval`, `--num-opponents`, `--strict`, and `--progress-interval`. A few of them carry specific meaning worth spelling out:
 
 - `--checkpoint` means "continue from this checkpoint"
 - `--checkpoint --self-play` means "continue from this checkpoint and use that same checkpoint as the fixed opponent snapshot"
 - `--checkpoint --mixed` means "continue from this checkpoint while sampling opponents from `--checkpoint-dir`"
-- `--progress-interval` controls compact terminal summaries during Phase 1 training. The default is `100`; use `0` to keep only the progress bar and milestone messages.
+- `--progress-interval` controls the compact terminal summaries during Phase 1. Default is `100`; use `0` to keep only the progress bar and milestone messages.
 
-Recommended directory layout:
+A directory layout that keeps the stages tidy:
 
 ```text
 models/
@@ -144,9 +74,9 @@ models/
     mixed/
 ```
 
-### Phase 1: Train Against Random Opponents
+### Phase 1: train against random opponents
 
-A 1000-iteration run is useful as a smoke test, but it is not a serious poker-training target. Use it only to verify that the environment, checkpointing, TensorBoard logging, and evaluation scripts work:
+A 1000-iteration run is fine as a smoke test, but don't mistake it for real training — use it to confirm the environment, checkpointing, TensorBoard logging, and evaluation scripts all work:
 
 ```bash
 python -m src.training.train \
@@ -156,7 +86,7 @@ python -m src.training.train \
   --save-dir models/standard/phase1
 ```
 
-A more useful first baseline is a longer Phase 1 run:
+A longer Phase 1 run makes a more useful first baseline:
 
 ```bash
 python -m src.training.train \
@@ -166,7 +96,7 @@ python -m src.training.train \
   --log-dir logs/standard/phase1_20k
 ```
 
-For long runs, the trainer uses a `tqdm` progress bar in an interactive terminal and prints compact summaries every `--progress-interval` iterations. To print fewer summaries:
+For long runs the trainer shows a `tqdm` progress bar in an interactive terminal and prints compact summaries every `--progress-interval` iterations. To print fewer:
 
 ```bash
 python -m src.training.train \
@@ -177,12 +107,9 @@ python -m src.training.train \
   --progress-interval 500
 ```
 
-Notes:
+Two things to keep in mind. Checkpoints save every 100 iterations by default. And replay memory isn't stored in checkpoints — continuing from one resumes the model weights but starts with fresh replay memory, so for a true uninterrupted Phase 1 baseline, run the full iteration count in a single process.
 
-- Checkpoints are saved every 100 iterations by default.
-- Replay memory is not saved in checkpoints. Continuing from a checkpoint continues model weights, but starts with fresh replay memory. For a true uninterrupted Phase 1 baseline, run the full target iteration count in one process.
-
-### Continue Training From a Checkpoint
+### Continue training from a checkpoint
 
 ```bash
 python -m src.training.train \
@@ -193,7 +120,7 @@ python -m src.training.train \
   --save-dir models/standard/continued
 ```
 
-### Phase 2: Self-Play Against a Fixed Checkpoint
+### Phase 2: self-play against a fixed checkpoint
 
 ```bash
 python -m src.training.train \
@@ -205,7 +132,7 @@ python -m src.training.train \
   --save-dir models/standard/selfplay
 ```
 
-Example continuing from a stronger Phase 1 candidate:
+Continuing from a stronger Phase 1 candidate instead:
 
 ```bash
 python -m src.training.train \
@@ -217,7 +144,7 @@ python -m src.training.train \
   --log-dir logs/standard/selfplay_from_3000
 ```
 
-### Phase 3: Mixed Training Against a Checkpoint Pool
+### Phase 3: mixed training against a checkpoint pool
 
 ```bash
 python -m src.training.train \
@@ -233,9 +160,11 @@ python -m src.training.train \
   --save-dir models/standard/mixed
 ```
 
-### Opponent-Modeling Training
+### Opponent-modeling training
 
-Stage 1: random opponents
+Same three stages, different entrypoint.
+
+Stage 1, random opponents:
 
 ```bash
 python -m src.training.train_opponent_modeling \
@@ -245,7 +174,7 @@ python -m src.training.train_opponent_modeling \
   --log-dir logs/opponent_modeling/phase1
 ```
 
-Stage 2: self-play against a fixed checkpoint
+Stage 2, self-play against a fixed checkpoint:
 
 ```bash
 python -m src.training.train_opponent_modeling \
@@ -257,7 +186,7 @@ python -m src.training.train_opponent_modeling \
   --log-dir logs/opponent_modeling/selfplay
 ```
 
-Stage 3: mixed checkpoint training
+Stage 3, mixed checkpoint training:
 
 ```bash
 python -m src.training.train_opponent_modeling \
@@ -273,33 +202,23 @@ python -m src.training.train_opponent_modeling \
   --log-dir logs/opponent_modeling/mixed
 ```
 
-Notes:
+A couple of notes on the pools. Standard mixed training should usually point at `models/standard` so it only samples standard checkpoints. Opponent-model self-play needs an opponent-model checkpoint created by `src.training.train_opponent_modeling`. And opponent-model mixed training can either stay OM-only with `--checkpoint-dir models/opponent_modeling`, or draw from a mixed pool of both standard and OM checkpoints with `--checkpoint-dir models`.
 
-- Standard mixed training should usually point at `models/standard` so it only samples standard checkpoints.
-- Opponent-model self-play requires an opponent-model checkpoint created by `src.training.train_opponent_modeling`.
-- Opponent-model mixed training can use:
-  - `--checkpoint-dir models/opponent_modeling` for OM-only pools
-  - `--checkpoint-dir models` for a mixed pool containing both standard and opponent-model checkpoints
-
-### Monitor Training
+### Monitoring
 
 ```bash
 tensorboard --logdir=logs
 ```
 
-Then open `http://localhost:6006`.
-
-For one run only:
+Then open `http://localhost:6006`. For a single run, point it at that run's directory:
 
 ```bash
 tensorboard --logdir=logs/standard/phase1_20k
 ```
 
-## Evaluating Checkpoints
+## Evaluating checkpoints
 
-Use the evaluation CLI to compare checkpoints with fixed seeds instead of editing training scripts by hand.
-
-Example:
+The evaluation CLI compares checkpoints with fixed seeds, so you don't have to hand-edit training scripts to measure progress.
 
 ```bash
 python scripts/evaluate_models.py \
@@ -311,7 +230,7 @@ python scripts/evaluate_models.py \
   --csv-out reports/evaluation.csv
 ```
 
-For a Phase 1 run, evaluate stable checkpoint slices explicitly while training continues. This avoids accidentally loading a checkpoint file while the training process is writing it:
+While a Phase 1 run is still training, evaluate stable checkpoint slices explicitly. Naming the files keeps the evaluator from loading a checkpoint mid-write:
 
 ```bash
 python scripts/evaluate_models.py \
@@ -328,37 +247,25 @@ python scripts/evaluate_models.py \
   --csv-out results/standard_phase1_20k_500_3000.csv
 ```
 
-What it reports:
+It reports average profit versus random opponents, average profit versus the checkpoint pool, completed hands, invalid-state counts, and optional JSON/CSV summaries.
 
-- average profit vs random opponents
-- average profit vs the checkpoint pool
-- completed hands
-- invalid-state counts
-- optional machine-readable JSON / CSV summaries
+## Playing against the models
 
-## Playing Against the Models
-
-### CLI
+CLI:
 
 ```bash
 python scripts/play.py --models-dir models/standard/selfplay
 ```
 
-Useful options:
+Handy options: `--model-pattern "*.pt"` to filter checkpoint files, `--num-models 5` to control how many checkpoint opponents get sampled, `--position 0` to pick your seat, `--no-shuffle` to keep the same sampled models across games, and `--strict` to raise on invalid game states instead of logging and continuing.
 
-- `--model-pattern "*.pt"` to filter checkpoint files
-- `--num-models 5` to control how many checkpoint opponents are sampled
-- `--position 0` to choose your seat
-- `--no-shuffle` to keep the same sampled models across games
-- `--strict` to raise on invalid game states instead of logging and continuing
-
-### GUI
+GUI:
 
 ```bash
 python scripts/poker_gui.py --models_folder models/standard/selfplay
 ```
 
-### Tournament Visualization
+### Tournament visualization
 
 ```bash
 python scripts/visualize_tournament.py \
@@ -366,7 +273,7 @@ python scripts/visualize_tournament.py \
   --num-games 100
 ```
 
-For checkpoint-vs-checkpoint comparisons during Phase 1:
+Comparing checkpoint against checkpoint during Phase 1:
 
 ```bash
 python -m scripts.visualize_tournament \
@@ -381,7 +288,7 @@ python -m scripts.visualize_tournament \
   --output-dir results/tournament_phase1_20k_500_to_3000_step500
 ```
 
-For a larger Phase 1 versus self-play comparison:
+A larger Phase 1 versus self-play comparison:
 
 ```bash
 python -m scripts.visualize_tournament \
@@ -396,63 +303,32 @@ python -m scripts.visualize_tournament \
   --output-dir results/tournament_selfplay_from_3000_3500_to_6000_10k
 ```
 
-Tournament output includes raw data plus plots:
+Each tournament run drops raw data (`tournament_data.csv`) alongside plots: `cumulative_profit.png`, `final_performance.png`, `segment_heatmap.png`, `stack_sizes_over_time.png`, and `zero_sum_validation.png`.
 
-- `tournament_data.csv`
-- `cumulative_profit.png`
-- `final_performance.png`
-- `segment_heatmap.png`
-- `stack_sizes_over_time.png`
-- `zero_sum_validation.png`
+Treat tournament results as a robustness signal, not the only metric. A single six-player table is noisy, so cross-check it against fixed-seed evaluation versus random opponents and the checkpoint pool. The script shows a `tqdm` bar with the current leader and average actions per hand, and `--max-actions-per-hand` makes a non-terminating hand fail loudly instead of hanging.
 
-Use tournament results as a robustness signal, not as the only selection metric. A single six-player table can be noisy; compare it with fixed-seed evaluation versus random opponents and checkpoint pools.
+## Testing and regression coverage
 
-The tournament script shows a `tqdm` progress bar with the current leader and average actions per hand. It also has `--max-actions-per-hand` to fail clearly if a hand does not terminate.
-
-## Testing and Regression Coverage
-
-The repo now includes targeted regression tests for the issues that have caused the most damage recently.
-
-Run them with:
+The repo carries targeted regression tests for the failures that have done the most damage. Run them all with:
 
 ```bash
 python3 scripts/run_regression_suite.py
 ```
 
-What these cover:
+What they cover:
 
-- `tests/test_evaluation_cli.py`
-  - checkpoint evaluation CLI behavior
-- `tests/test_training_opponent_modeling_regressions.py`
-  - opponent-model self-play smoke test
-  - opponent-model self-play rejects standard checkpoints
-  - unified OM training CLI dispatch
-- `tests/test_pokers_regressions.py`
-  - all-in and legal-action regressions inherited from the `pokers` library
-- `tests/test_training_regressions.py`
-  - self-play and mixed-training smoke tests
-  - mixed-training continuation from checkpoint
-  - replay-memory shape consistency
-  - explicit `.pt` save-path handling
-- `tests/test_logging_regressions.py`
-  - UTF-8 log writing
-  - tournament invalid-state logging
-  - six-player all-in side-pot check-cycle resolution
-- `tests/test_state_scenarios.py`
-  - deterministic edge-case hand scenarios
+- `tests/test_evaluation_cli.py` — the checkpoint evaluation CLI
+- `tests/test_training_opponent_modeling_regressions.py` — OM self-play smoke test, OM self-play rejecting standard checkpoints, and the unified OM training CLI dispatch
+- `tests/test_pokers_regressions.py` — all-in and legal-action regressions inherited from `pokers`
+- `tests/test_training_regressions.py` — self-play and mixed-training smoke tests, mixed-training continuation from checkpoint, replay-memory shape consistency, explicit `.pt` save-path handling
+- `tests/test_logging_regressions.py` — UTF-8 log writing, tournament invalid-state logging, six-player all-in side-pot check-cycle resolution
+- `tests/test_state_scenarios.py` — deterministic edge-case hand scenarios
 
-## Notes on Results
+## A note on results
 
-Some older README claims and article screenshots implied a more stable training outcome than the current repo can honestly guarantee.
+Some of the older README claims and article screenshots implied a steadier training outcome than this repo can honestly promise. What's safe to say today is that the main training paths run, the issue `#22` training-path bugs are fixed, the all-in legal-action bugs that were breaking games are fixed in the pinned `pokers` fork, and the six-player all-in side-pot check cycles get resolved before they can hang a tournament or evaluation loop.
 
-What is safe to say today:
-
-- the main training paths run
-- the known training-path bugs from issue `#22` are fixed
-- the all-in legal-action bugs that were breaking games are fixed in the pinned `pokers` fork
-- six-player all-in side-pot check cycles are resolved before they can hang tournament or evaluation loops
-
-Recent local benchmark data from a standard Phase 1 run and a self-play continuation from `checkpoint_iter_3000.pt`:
+Some recent local benchmark numbers, from a standard Phase 1 run and a self-play continuation off `checkpoint_iter_3000.pt`:
 
 ```text
 10k tournament, fixed six-seat lineup:
@@ -473,19 +349,13 @@ selfplay_checkpoint_iter_5000.pt    -8.28        -9.29
 selfplay_checkpoint_iter_6000.pt    -3.46        -2.07
 ```
 
-This specific self-play run did not improve over the Phase 1 `3000` checkpoint by iteration `6000`. The later self-play checkpoints partially recovered versus the worst middle checkpoints, but the Phase 1 anchor still dominated both the tournament and fixed-seed evaluator.
+Read honestly, this self-play run didn't beat the Phase 1 `3000` checkpoint by iteration `6000`. The later self-play checkpoints clawed back some ground against the worst middle ones, but the Phase 1 anchor still won both the tournament and the fixed-seed evaluator.
 
-What is still an open research / tuning question:
+What's still open: the exact profitability numbers versus the article, how robust the learned strategy is across seeds and schedules, and whether the opponent-modeling variants consistently beat the simpler baseline. If reproducibility matters to you, run multiple seeds and compare checkpoints rather than trusting a single training curve.
 
-- exact profitability numbers versus the article
-- how robust the learned strategy is across seeds and training schedules
-- whether opponent-modeling variants outperform the simpler baseline consistently
+## Future work
 
-If you care about reproducibility, run multiple seeds and compare checkpoints rather than relying on a single training curve.
-
-## Future Work
-
-The forward-looking backlog lives in [FUTURE_IMPROVEMENTS.md](./FUTURE_IMPROVEMENTS.md). It has been trimmed to items that still make sense after the recent architecture and training fixes.
+The forward-looking backlog lives in [FUTURE_IMPROVEMENTS.md](./FUTURE_IMPROVEMENTS.md), trimmed down to the items that still make sense after the recent architecture and training fixes.
 
 ## References
 
@@ -495,10 +365,8 @@ The forward-looking backlog lives in [FUTURE_IMPROVEMENTS.md](./FUTURE_IMPROVEME
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE.txt](./LICENSE.txt).
+MIT. See [LICENSE.txt](./LICENSE.txt).
 
 ## Acknowledgments
 
-- The maintainers of [`pokers`](https://github.com/Reinforcement-Poker/pokers)
-- The community members who reported and reproduced training and game-state bugs
-- The PyTorch ecosystem for making iteration on this kind of project practical
+Thanks to the maintainers of [`pokers`](https://github.com/Reinforcement-Poker/pokers), the people who reported and reproduced the training and game-state bugs, and the PyTorch ecosystem for making iteration on something like this practical.
