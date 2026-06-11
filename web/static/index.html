@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rivermind Poker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">♠</span>
+        <div>
+          <h1>Rivermind</h1>
+          <p>6-max No-Limit Hold'em</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="label">Session</span>
+          <strong id="session-profit">$0.00</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Hand</span>
+          <strong id="hand-number">—</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Stage</span>
+          <strong id="stage-label">—</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="table-panel">
+        <div class="table-wrap">
+          <div class="table-felt">
+            <div class="table-center">
+              <div class="pot-display">
+                <span class="label">Pot</span>
+                <strong id="pot-amount">$0</strong>
+              </div>
+              <div id="community-cards" class="community-cards"></div>
+              <div id="hand-result" class="hand-result hidden"></div>
+            </div>
+            <div id="seats" class="seats"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <section class="panel setup-panel" id="setup-panel">
+          <h2>Table setup</h2>
+          <label>
+            Model folder
+            <select id="models-dir"></select>
+          </label>
+          <label>
+            Your seat
+            <select id="hero-seat">
+              <option value="0">Seat 0 (bottom)</option>
+              <option value="1">Seat 1</option>
+              <option value="2">Seat 2</option>
+              <option value="3">Seat 3</option>
+              <option value="4">Seat 4</option>
+              <option value="5">Seat 5</option>
+            </select>
+          </label>
+          <button id="start-session" class="btn primary">Join table</button>
+        </section>
+
+        <section class="panel hidden" id="controls-panel">
+          <h2>Actions</h2>
+          <p id="turn-indicator" class="turn-indicator">Waiting for hand…</p>
+          <div class="action-grid">
+            <button class="btn danger action-btn" data-action="fold">Fold</button>
+            <button class="btn action-btn" data-action="check">Check</button>
+            <button class="btn action-btn" data-action="call">Call</button>
+            <button class="btn action-btn" data-action="min">Min raise</button>
+            <button class="btn action-btn" data-action="half_pot">½ pot</button>
+            <button class="btn action-btn" data-action="pot">Pot</button>
+            <button class="btn action-btn" data-action="all_in">All-in</button>
+          </div>
+          <div class="raise-row">
+            <input id="raise-amount" type="number" min="0" step="1" placeholder="Custom raise" />
+            <button id="raise-submit" class="btn primary">Raise</button>
+          </div>
+          <div class="table-controls">
+            <button id="new-hand" class="btn primary wide">New hand</button>
+            <button id="toggle-reveal" class="btn wide">Reveal cards</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Opponents</h2>
+          <ul id="load-warnings" class="load-warnings hidden"></ul>
+          <ul id="opponents-list" class="opponents-list"></ul>
+        </section>
+
+        <section class="panel log-panel">
+          <h2>Action log</h2>
+          <ul id="action-log" class="action-log"></ul>
+        </section>
+      </aside>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

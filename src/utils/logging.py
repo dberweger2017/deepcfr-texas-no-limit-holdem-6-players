@@ -9,6 +9,8 @@ import traceback
 import pokers as pkrs
 from typing import Callable, Optional
 
+from src.utils.cards import card_to_string
+
 ALL_IN_EPSILON = 1e-6
 
 
@@ -50,15 +52,7 @@ def resolve_stalled_all_in_showdown(state: pkrs.State) -> pkrs.State:
     return state
 
 
-def card_to_string(card):
-    """Convert a poker card to a readable string."""
-    suits = {0: "♣", 1: "♦", 2: "♥", 3: "♠"}
-    ranks = {0: "2", 1: "3", 2: "4", 3: "5", 4: "6", 5: "7", 6: "8", 
-             7: "9", 8: "10", 9: "J", 10: "Q", 11: "K", 12: "A"}
-    
-    return f"{ranks[int(card.rank)]}{suits[int(card.suit)]}"
-
-def log_game_error(state: pkrs.State, action: pkrs.Action, error_msg: str, 
+def log_game_error(state: pkrs.State, action: pkrs.Action, error_msg: str,
                  card_converter: Callable = None) -> Optional[str]:
     """
     Log detailed error information to a file when a game state error occurs.

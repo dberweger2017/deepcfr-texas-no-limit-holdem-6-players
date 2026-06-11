@@ -1,8 +1,15 @@
 """Shared checkpoint discovery helpers for training and evaluation workflows."""
 
+from __future__ import annotations
+
+import logging
+import random
 from pathlib import Path
+from typing import Any, List, Optional, Tuple
 
 import torch
+
+logger = logging.getLogger(__name__)
 
 
 _GLOB_CHARS = "*?[]"
@@ -29,6 +36,73 @@ def find_checkpoints(checkpoint_dir, prefix_or_pattern: str):
     root = Path(checkpoint_dir)
     pattern = checkpoint_pattern(prefix_or_pattern)
     return sorted(path for path in root.glob(f"**/{pattern}") if path.is_file())
+
+
+def find_checkpoint_dirs(checkpoint_root: Path, *, relative_to: Optional[Path] = None) -> List[str]:
+    """Return directories under ``checkpoint_root`` that contain at least one ``.pt`` file."""
+    if not checkpoint_root.exists():
+        return []
+    base = relative_to or checkpoint_root
+    dirs: List[str] = []
+    for path in sorted(checkpoint_root.rglob("*")):
+        if path.is_dir() and any(path.glob("*.pt")):
+            dirs.append(str(path.relative_to(base)))
+    return dirs
+
+
+def select_random_checkpoints_in_dir(models_dir: Path | str, num_models: int = 5) -> List[Path]:
+    """Pick up to ``num_models`` checkpoint files from a single directory (non-recursive)."""
+    root = Path(models_dir)
+    model_files = sorted(root.glob("*.pt"))
+    if not model_files:
+        return []
+    return random.sample(model_files, min(num_models, len(model_files)))
+
+
+def load_play_agent(path: Path | str, seat: int, device: str) -> Tuple[Any, Optional[dict]]:
+    """
+    Load a DeepCFR or opponent-modeling agent for interactive play.
+
+    Returns ``(agent, warning)`` where ``warning`` is set when loading failed and a
+    random fallback agent was used instead.
+    """
+    from src.agents.random_agent import RandomAgent
+    from src.core.deep_cfr import DeepCFRAgent
+    from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
+
+    checkpoint_path = Path(path)
+    model_name = checkpoint_path.name
+    try:
+        checkpoint = load_checkpoint(checkpoint_path, map_location="cpu")
+        if checkpoint_uses_opponent_modeling_state(checkpoint):
+            agent = DeepCFRAgentWithOpponentModeling(player_id=seat, device=device)
+        else:
+            agent = DeepCFRAgent(player_id=seat, num_players=6, device=device)
+        agent.load_model(str(checkpoint_path))
+        agent.model_name = model_name
+        return agent, None
+    except Exception as exc:
+        logger.warning(
+            "Failed to load checkpoint %s for seat %s: %s",
+            checkpoint_path,
+            seat,
+            exc,
+            exc_info=True,
+        )
+        agent = RandomAgent(seat)
+        agent.model_name = f"Random (load failed: {model_name})"
+        warning = {
+            "seat": seat,
+            "checkpoint": model_name,
+            "error": str(exc),
+        }
+        return agent, warning
+
+
+def checkpoint_path_uses_opponent_modeling(path: Path | str) -> bool:
+    """Return whether a checkpoint file on disk is for the OM agent."""
+    checkpoint = load_checkpoint(path, map_location="cpu")
+    return checkpoint_uses_opponent_modeling_state(checkpoint)
 
 
 def load_checkpoint(path, map_location=None):
