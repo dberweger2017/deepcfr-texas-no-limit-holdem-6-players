@@ -20,7 +20,7 @@ setup(
             'deepcfr-train=src.training.train:main',
             'deepcfr-play=scripts.play:main',
             'deepcfr-tournament=scripts.visualize_tournament:main',
-            'deepcfr-gui=scripts.poker_gui:main'
+            'deepcfr-web=scripts.play_web:main',
         ]
     },
     author="Davide Berweger Gaillard",

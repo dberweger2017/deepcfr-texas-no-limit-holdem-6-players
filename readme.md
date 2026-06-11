@@ -27,11 +27,11 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-PyQt5 (for the GUI) is already in `requirements.txt`, so there's nothing extra to install. All the commands below assume you're at the repo root and use `python -m ...` or `python scripts/...`.
+FastAPI and uvicorn (for the web play client) are in `requirements.txt`. All the commands below assume you're at the repo root and use `python -m ...` or `python scripts/...`.
 
 ## What works today
 
-Most of the moving pieces are in place: Deep CFR training against random opponents, checkpoint continuation, self-play against a fixed checkpoint snapshot, and mixed training against a rotating checkpoint pool. The opponent-modeling track runs through the same three stages. On top of training you get checkpoint evaluation from the CLI, CLI and PyQt GUI play against saved checkpoints or random agents, tournament visualization across checkpoints, and regression tests for the `pokers` and training-path failures that have bitten this project before.
+Most of the moving pieces are in place: Deep CFR training against random opponents, checkpoint continuation, self-play against a fixed checkpoint snapshot, and mixed training against a rotating checkpoint pool. The opponent-modeling track runs through the same three stages. On top of training you get checkpoint evaluation from the CLI, terminal and web play against saved checkpoints or random agents, tournament visualization across checkpoints, and regression tests for the `pokers` and training-path failures that have bitten this project before.
 
 ## What the current examples are meant to prove
 
@@ -259,11 +259,15 @@ python scripts/play.py --models-dir models/standard/selfplay
 
 Handy options: `--model-pattern "*.pt"` to filter checkpoint files, `--num-models 5` to control how many checkpoint opponents get sampled, `--position 0` to pick your seat, `--no-shuffle` to keep the same sampled models across games, and `--strict` to raise on invalid game states instead of logging and continuing.
 
-GUI:
+Web client (replaces the old PyQt GUI):
 
 ```bash
-python scripts/poker_gui.py --models_folder models/standard/selfplay
+python scripts/play_web.py
 ```
+
+Open [http://127.0.0.1:8765](http://127.0.0.1:8765), pick a checkpoint folder under `models/`, choose your seat, and play. The server loads up to five random checkpoints from that folder as opponents and surfaces load failures instead of silently falling back.
+
+Handy options: `--host` and `--port` to bind elsewhere, `--reload` for development.
 
 ### Tournament visualization
 
