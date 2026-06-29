@@ -14,7 +14,10 @@ from src.core.deep_cfr import (
     DeepCFRAgent,
     PrioritizedMemory,
     _resolve_model_save_path,
+    linear_cfr_weights,
     traverse_agent_turn,
+    weighted_sample_loss,
+    weighted_strategy_cross_entropy,
 )
 from src.utils.checkpoints import (
     AGENT_TYPE_OPPONENT_MODELING,
@@ -134,6 +137,7 @@ class DeepCFRAgentWithOpponentModeling:
         
         # For keeping statistics
         self.iteration_count = 0
+        self.local_training_iteration = 0
         
         # Bet sizing bounds (as multipliers of pot)
         self.min_bet_size = 0.1
@@ -453,17 +457,21 @@ class DeepCFRAgentWithOpponentModeling:
             opponent_feature_tensors = torch.FloatTensor(np.array(opponent_features)).to(self.device)
             strategy_tensors = torch.FloatTensor(np.array(strategies)).to(self.device)
             bet_size_tensors = torch.FloatTensor(np.array(bet_sizes)).unsqueeze(1).to(self.device)
-            iteration_tensors = torch.FloatTensor(iterations).to(self.device).unsqueeze(1)
+            iteration_tensors = torch.FloatTensor(iterations).to(self.device)
             
             # Weight samples by iteration (Linear CFR)
-            weights = iteration_tensors / torch.sum(iteration_tensors)
+            weights = linear_cfr_weights(iteration_tensors, device=self.device)
             
             # Forward pass with opponent features
             action_logits, bet_size_preds = self.strategy_net(state_tensors, opponent_feature_tensors)
             predicted_strategies = F.softmax(action_logits, dim=1)
             
             # Action type loss (weighted cross-entropy)
-            action_loss = -torch.sum(weights * torch.sum(strategy_tensors * torch.log(predicted_strategies + 1e-8), dim=1))
+            action_loss = weighted_strategy_cross_entropy(
+                strategy_tensors,
+                predicted_strategies,
+                weights,
+            )
             
             # Bet size loss (only for states with raise actions)
             raise_mask = (strategy_tensors[:, 2] > 0)
@@ -473,8 +481,12 @@ class DeepCFRAgentWithOpponentModeling:
                 raise_bet_targets = bet_size_tensors[raise_indices]
                 raise_weights = weights[raise_indices]
                 
-                bet_size_loss = F.mse_loss(raise_bet_preds, raise_bet_targets, reduction='none')
-                weighted_bet_size_loss = torch.sum(raise_weights * bet_size_loss.squeeze())
+                bet_size_loss = F.mse_loss(
+                    raise_bet_preds,
+                    raise_bet_targets,
+                    reduction='none',
+                ).squeeze(1)
+                weighted_bet_size_loss = weighted_sample_loss(bet_size_loss, raise_weights)
                 
                 # Combine losses
                 loss = action_loss + 0.5 * weighted_bet_size_loss  # Less weight on bet sizing to balance learning

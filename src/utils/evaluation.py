@@ -42,7 +42,58 @@ def empty_evaluation_metrics(requested_games: int) -> Dict[str, Any]:
         "zero_reward_games": 0,
         "game_crashes": 0,
         "total_actions": 0,
+        "agent_actions": 0,
+        "agent_fold_actions": 0,
+        "agent_check_call_actions": 0,
+        "agent_raise_actions": 0,
+        "agent_fold_rate": 0.0,
+        "agent_check_call_rate": 0.0,
+        "agent_raise_rate": 0.0,
+        "agent_preflop_actions": 0,
+        "agent_preflop_folds": 0,
+        "agent_preflop_fold_rate": 0.0,
     }
+
+
+def _action_rates(agent_action_counts: Dict[str, int]) -> Dict[str, float]:
+    total = sum(agent_action_counts.values())
+    if total == 0:
+        return {"fold": 0.0, "check_call": 0.0, "raise": 0.0}
+    return {
+        "fold": agent_action_counts["fold"] / total,
+        "check_call": agent_action_counts["check_call"] / total,
+        "raise": agent_action_counts["raise"] / total,
+    }
+
+
+def write_evaluation_diagnostics(writer, metrics: Dict[str, Any], iteration: int, prefix: str):
+    """Write shared action-mix diagnostics to TensorBoard."""
+    if writer is None or iteration is None:
+        return
+    writer.add_scalar(f"{prefix}/FoldRate", metrics["agent_fold_rate"], iteration)
+    writer.add_scalar(f"{prefix}/CheckCallRate", metrics["agent_check_call_rate"], iteration)
+    writer.add_scalar(f"{prefix}/RaiseRate", metrics["agent_raise_rate"], iteration)
+    writer.add_scalar(f"{prefix}/PreflopFoldRate", metrics["agent_preflop_fold_rate"], iteration)
+    writer.add_scalar(f"{prefix}/AgentActions", metrics["agent_actions"], iteration)
+
+
+def print_evaluation_diagnostics(metrics: Dict[str, Any], label: str):
+    """Print compact action diagnostics and a collapse warning when warranted."""
+    if metrics["agent_actions"] == 0:
+        return
+    print(
+        f"{label} action mix: "
+        f"fold={metrics['agent_fold_rate']:.1%}, "
+        f"check-call={metrics['agent_check_call_rate']:.1%}, "
+        f"raise={metrics['agent_raise_rate']:.1%}, "
+        f"preflop_fold={metrics['agent_preflop_fold_rate']:.1%} "
+        f"({metrics['agent_preflop_folds']}/{metrics['agent_preflop_actions']})"
+    )
+    if metrics["agent_preflop_actions"] >= 20 and metrics["agent_preflop_fold_rate"] >= 0.95:
+        print(
+            "WARNING: Agent preflop fold rate is extremely high; "
+            "this checkpoint may be collapsing."
+        )
 
 
 def evaluate_agent_matchup(
@@ -73,6 +124,9 @@ def evaluate_agent_matchup(
     setup_errors = 0
     zero_reward_games = 0
     total_actions = 0
+    agent_action_counts = {"fold": 0, "check_call": 0, "raise": 0}
+    agent_preflop_actions = 0
+    agent_preflop_folds = 0
 
     for game in range(num_games):
         state = None
@@ -91,7 +145,18 @@ def evaluate_agent_matchup(
             while not state.final_state:
                 current_player = state.current_player
                 if current_player == agent.player_id:
+                    is_preflop = state.stage == pkrs.Stage.Preflop
                     action = choose_agent_action(agent, state, opponent_id=None)
+                    if is_preflop:
+                        agent_preflop_actions += 1
+                    if action.action == pkrs.ActionEnum.Fold:
+                        agent_action_counts["fold"] += 1
+                        if is_preflop:
+                            agent_preflop_folds += 1
+                    elif action.action in (pkrs.ActionEnum.Check, pkrs.ActionEnum.Call):
+                        agent_action_counts["check_call"] += 1
+                    elif action.action == pkrs.ActionEnum.Raise:
+                        agent_action_counts["raise"] += 1
                 else:
                     opponent = opponents[current_player]
                     if opponent is None:
@@ -154,7 +219,13 @@ def evaluate_agent_matchup(
                 agent.current_game_history = {}
 
     avg_profit = total_profit / completed_games if completed_games else 0.0
-    return {
+    rates = _action_rates(agent_action_counts)
+    preflop_fold_rate = (
+        agent_preflop_folds / agent_preflop_actions
+        if agent_preflop_actions
+        else 0.0
+    )
+    metrics = {
         "avg_profit": avg_profit,
         "completed_games": completed_games,
         "invalid_state_games": invalid_state_games,
@@ -165,4 +236,17 @@ def evaluate_agent_matchup(
         "zero_reward_games": zero_reward_games,
         "game_crashes": setup_errors + invalid_state_games,
         "total_actions": total_actions,
+        "agent_actions": sum(agent_action_counts.values()),
+        "agent_fold_actions": agent_action_counts["fold"],
+        "agent_check_call_actions": agent_action_counts["check_call"],
+        "agent_raise_actions": agent_action_counts["raise"],
+        "agent_fold_rate": rates["fold"],
+        "agent_check_call_rate": rates["check_call"],
+        "agent_raise_rate": rates["raise"],
+        "agent_preflop_actions": agent_preflop_actions,
+        "agent_preflop_folds": agent_preflop_folds,
+        "agent_preflop_fold_rate": preflop_fold_rate,
     }
+    if print_warnings:
+        print_evaluation_diagnostics(metrics, label)
+    return metrics

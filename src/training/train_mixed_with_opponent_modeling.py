@@ -203,7 +203,9 @@ def train_mixed_with_opponent_modeling(
     # Training loop
     final_iteration = starting_iteration + num_iterations - 1
     for iteration in range(starting_iteration, final_iteration + 1):
+        local_iteration = iteration - starting_iteration + 1
         agent.iteration_count = iteration
+        agent.local_training_iteration = local_iteration
         start_time = time.time()
         
         # Refresh opponents at specified intervals
@@ -230,7 +232,7 @@ def train_mixed_with_opponent_modeling(
             
             # Perform CFR traversal
             try:
-                agent.cfr_traverse(state, iteration, opponents)
+                agent.cfr_traverse(state, local_iteration, opponents)
             except Exception as e:
                 error_msg = f"Error during traversal: {e}"
                 print(error_msg)

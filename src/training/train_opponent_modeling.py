@@ -131,7 +131,9 @@ def train_against_checkpoint_with_opponent_modeling(
 
     final_iteration = starting_iteration + additional_iterations - 1
     for iteration in range(starting_iteration, final_iteration + 1):
+        local_iteration = iteration - starting_iteration + 1
         learning_agent.iteration_count = iteration
+        learning_agent.local_training_iteration = local_iteration
         start_time = time.time()
 
         print(f"Self-play iteration {iteration}/{final_iteration}")
@@ -146,7 +148,7 @@ def train_against_checkpoint_with_opponent_modeling(
                 seed=random.randint(0, 10000),
             )
             try:
-                learning_agent.cfr_traverse(state, iteration, opponents)
+                learning_agent.cfr_traverse(state, local_iteration, opponents)
             except Exception as exc:
                 print(f"Error during traversal: {exc}")
                 if notifier and traversal % 50 == 0:

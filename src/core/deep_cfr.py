@@ -143,6 +143,44 @@ class PrioritizedMemory:
         }
 
 
+def linear_cfr_weights(iterations, device=None):
+    """Return 1D Linear CFR sample weights normalized across a batch."""
+    weights = torch.as_tensor(iterations, dtype=torch.float32, device=device).reshape(-1)
+    if weights.numel() == 0:
+        return weights
+    total_weight = torch.sum(weights)
+    if total_weight <= 0:
+        return torch.full_like(weights, 1.0 / weights.numel())
+    return weights / total_weight
+
+
+def weighted_strategy_cross_entropy(strategy_tensors, predicted_strategies, weights):
+    """Compute weighted soft-label cross entropy without shape broadcasting."""
+    sample_losses = -torch.sum(
+        strategy_tensors * torch.log(predicted_strategies + 1e-8),
+        dim=1,
+    )
+    weights = weights.reshape(-1)
+    if sample_losses.shape != weights.shape:
+        raise ValueError(
+            "strategy sample weights must be 1D and match the batch size: "
+            f"losses={tuple(sample_losses.shape)}, weights={tuple(weights.shape)}"
+        )
+    return torch.sum(weights * sample_losses)
+
+
+def weighted_sample_loss(sample_losses, weights):
+    """Sum a per-sample loss vector with 1D sample weights."""
+    sample_losses = sample_losses.reshape(-1)
+    weights = weights.reshape(-1)
+    if sample_losses.shape != weights.shape:
+        raise ValueError(
+            "sample weights must be 1D and match the loss vector: "
+            f"losses={tuple(sample_losses.shape)}, weights={tuple(weights.shape)}"
+        )
+    return torch.sum(weights * sample_losses)
+
+
 def traverse_agent_turn(
     agent,
     state,
@@ -298,6 +336,7 @@ class DeepCFRAgent:
         
         # For keeping statistics
         self.iteration_count = 0
+        self.local_training_iteration = 0
         self.debug_training = False
         
         # Regret normalization tracker
@@ -468,8 +507,9 @@ class DeepCFRAgent:
         self.advantage_net.train()
         total_loss = 0
         
-        # Calculate current beta for importance sampling
-        progress = min(1.0, self.iteration_count / 10000)
+        # Calculate beta from the local replay run, not the absolute checkpoint number.
+        replay_iteration = self.local_training_iteration or self.iteration_count
+        progress = min(1.0, replay_iteration / 10000)
         beta = beta_start + progress * (beta_end - beta_start)
         
         for epoch in range(epochs):
@@ -679,10 +719,10 @@ class DeepCFRAgent:
             opponent_feature_tensors = torch.FloatTensor(np.array(opponent_features)).to(self.device)
             strategy_tensors = torch.FloatTensor(np.array(strategies)).to(self.device)
             bet_size_tensors = torch.FloatTensor(np.array(bet_sizes)).unsqueeze(1).to(self.device)
-            iteration_tensors = torch.FloatTensor(iterations).to(self.device).unsqueeze(1)
+            iteration_tensors = torch.FloatTensor(iterations).to(self.device)
             
             # Weight samples by iteration (Linear CFR)
-            weights = iteration_tensors / torch.sum(iteration_tensors)
+            weights = linear_cfr_weights(iteration_tensors, device=self.device)
             
             # Forward pass
             action_logits, bet_size_preds = self.strategy_net(state_tensors)
@@ -690,7 +730,11 @@ class DeepCFRAgent:
             
             # Action type loss (weighted cross-entropy)
             # Add small epsilon to prevent log(0)
-            action_loss = -torch.sum(weights * torch.sum(strategy_tensors * torch.log(predicted_strategies + 1e-8), dim=1))
+            action_loss = weighted_strategy_cross_entropy(
+                strategy_tensors,
+                predicted_strategies,
+                weights,
+            )
             
             # Bet size loss (only for states with raise actions)
             raise_mask = (strategy_tensors[:, 2] > 0)
@@ -701,8 +745,12 @@ class DeepCFRAgent:
                 raise_weights = weights[raise_indices]
                 
                 # Use huber loss for bet sizing to be more robust to outliers
-                bet_size_loss = F.smooth_l1_loss(raise_bet_preds, raise_bet_targets, reduction='none')
-                weighted_bet_size_loss = torch.sum(raise_weights * bet_size_loss.squeeze())
+                bet_size_loss = F.smooth_l1_loss(
+                    raise_bet_preds,
+                    raise_bet_targets,
+                    reduction='none',
+                ).squeeze(1)
+                weighted_bet_size_loss = weighted_sample_loss(bet_size_loss, raise_weights)
                 
                 # Combine losses with appropriate weighting
                 combined_loss = action_loss + 0.5 * weighted_bet_size_loss

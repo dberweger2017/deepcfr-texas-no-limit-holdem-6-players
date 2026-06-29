@@ -123,7 +123,9 @@ def train_deep_cfr_with_opponent_modeling(
     last_profit = None
 
     for iteration in progress:
+        local_iteration = iteration - starting_iteration + 1
         agent.iteration_count = iteration
+        agent.local_training_iteration = local_iteration
         start_time = time.time()
 
         # Run traversals to collect data
@@ -140,7 +142,7 @@ def train_deep_cfr_with_opponent_modeling(
             
             # Perform CFR traversal with opponent modeling
             try:
-                agent.cfr_traverse(state, iteration, random_agents)
+                agent.cfr_traverse(state, local_iteration, random_agents)
             except Exception as e:
                 tqdm.write(f"Error in traversal: {e}")
                 if notifier and t % 50 == 0:  # Don't send too many error messages
