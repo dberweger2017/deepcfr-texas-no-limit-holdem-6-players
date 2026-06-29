@@ -7,7 +7,8 @@ import numpy as np
 import random
 import pokers as pkrs
 from collections import deque
-from src.core.model import encode_state, VERBOSE, set_verbose
+from src.core import model as model_settings
+from src.core.model import encode_state, set_verbose
 from src.opponent_modeling.opponent_model import OpponentModelingSystem
 from src.core.deep_cfr import (
     DeepCFRAgent,
@@ -22,7 +23,7 @@ from src.utils.checkpoints import (
     validate_checkpoint_compatibility,
 )
 from src.agents.random_agent import RandomAgent
-from src.utils.settings import STRICT_CHECKING
+from src.utils import settings
 from src.utils.logging import apply_action_with_logging
 
 class EnhancedPokerNetwork(nn.Module):
@@ -276,7 +277,7 @@ class DeepCFRAgentWithOpponentModeling:
         # Add recursion depth protection
         max_depth = 1000
         if depth > max_depth:
-            if VERBOSE:
+            if model_settings.is_verbose():
                 print(f"WARNING: Max recursion depth reached ({max_depth}). Returning zero value.")
             return 0
         
@@ -302,7 +303,7 @@ class DeepCFRAgentWithOpponentModeling:
                     next_depth,
                 ),
                 depth=depth,
-                verbose=VERBOSE,
+                verbose=model_settings.is_verbose(),
                 opponent_features=opponent_feature_array,
                 network_forward_fn=lambda state_tensor, opponent_feature_tensor: self.advantage_net(
                     state_tensor.unsqueeze(0),
@@ -318,7 +319,7 @@ class DeepCFRAgentWithOpponentModeling:
                 
                 # Handle the case if we have no opponent at this position (shouldn't happen)
                 if opponent is None:
-                    if VERBOSE:
+                    if model_settings.is_verbose():
                         print(f"WARNING: No opponent at position {current_player}, using random action")
                     opponent = RandomAgent(current_player)
                 
@@ -347,19 +348,19 @@ class DeepCFRAgentWithOpponentModeling:
                 new_state, log_file, status = apply_action_with_logging(
                     state,
                     action,
-                    strict=STRICT_CHECKING,
+                    strict=settings.is_strict_checking(),
                 )
 
                 # Check if the action was valid
                 if new_state is None:
-                    if VERBOSE:
+                    if model_settings.is_verbose():
                         print(f"WARNING: Opponent made invalid action at depth {depth}. Status: {status}")
                         print(f"Details logged to {log_file}")
                     return 0
                     
                 return self.cfr_traverse(new_state, iteration, opponents, depth + 1)
             except Exception as e:
-                if VERBOSE:
+                if model_settings.is_verbose():
                     print(f"ERROR in opponent traversal: {e}")
                 return 0
     

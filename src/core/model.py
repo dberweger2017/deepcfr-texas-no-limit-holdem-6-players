@@ -9,7 +9,12 @@ VERBOSE = False
 def set_verbose(verbose_mode):
     """Set the global verbosity level"""
     global VERBOSE
-    VERBOSE = verbose_mode
+    VERBOSE = bool(verbose_mode)
+
+
+def is_verbose():
+    """Return the current verbosity setting."""
+    return VERBOSE
 
 class PokerNetwork(nn.Module):
     """Poker network with continuous bet sizing capabilities."""
@@ -66,7 +71,7 @@ def encode_state(state, player_id=0):
     num_players = len(state.players_state)
     
     # Print debug info only if verbose
-    if VERBOSE:
+    if is_verbose():
         print(f"Encoding state: current_player={state.current_player}, stage={state.stage}")
         print(f"Player states: {[(p.player, p.stake, p.bet_chips) for p in state.players_state]}")
         print(f"Pot: {state.pot}")
@@ -94,7 +99,7 @@ def encode_state(state, player_id=0):
     # Get initial stake - prevent division by zero
     initial_stake = state.players_state[0].stake
     if initial_stake <= 0:
-        if VERBOSE:
+        if is_verbose():
             print(f"WARNING: Initial stake is zero or negative: {initial_stake}")
         initial_stake = 1.0  # Use 1.0 as a fallback to prevent division by zero
     

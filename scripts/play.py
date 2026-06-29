@@ -9,8 +9,9 @@ import glob
 from src.core.deep_cfr import DeepCFRAgent
 from src.core.model import set_verbose
 from src.utils import apply_action_with_logging
+from src.utils import settings
 from src.utils.actions import build_raise_action, preset_raise_action, raise_bounds
-from src.utils.settings import STRICT_CHECKING, set_strict_checking
+from src.utils.settings import set_strict_checking
 
 def get_action_description(action):
     """Convert a pokers action to a human-readable string."""
@@ -272,7 +273,7 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
             new_state, log_file, status = apply_action_with_logging(
                 state,
                 action,
-                strict=STRICT_CHECKING,
+                strict=settings.is_strict_checking(),
             )
             if new_state is None:
                 print(f"WARNING: State status not OK ({status}). Details logged to {log_file}")

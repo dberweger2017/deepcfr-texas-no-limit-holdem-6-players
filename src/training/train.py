@@ -9,70 +9,30 @@ import sys
 from tqdm import tqdm
 from src.core.deep_cfr import DeepCFRAgent, traverse_agent_turn
 from src.core.model import set_verbose
+from src.utils import settings
+from src.utils.agents import CheckpointAgent
 from src.utils.checkpoints import find_checkpoints, load_checkpoint, standard_checkpoint_state
 from src.utils.logging import apply_action_with_logging
-from src.utils.settings import STRICT_CHECKING, set_strict_checking
+from src.utils.evaluation import evaluate_agent_matchup
+from src.utils.settings import set_strict_checking
 from src.agents.random_agent import RandomAgent
 
 def evaluate_against_random(agent, num_games=500, num_players=6):
     """Evaluate the trained agent against random opponents."""
     random_agents = [RandomAgent(i) for i in range(num_players)]
-    total_profit = 0
-    completed_games = 0
-    
-    for game in range(num_games):
-        try:
-            # Create a new poker game
-            state = pkrs.State.from_seed(
-                n_players=num_players,
-                button=game % num_players,  # Rotate button for fairness
-                sb=1,
-                bb=2,
-                stake=200.0,
-                seed=game
-            )
-            
-            # Play until the game is over
-            while not state.final_state:
-                current_player = state.current_player
-                
-                if current_player == agent.player_id:
-                    action = agent.choose_action(state)
-                else:
-                    action = random_agents[current_player].choose_action(state)
-                
-                # Apply the action with conditional status check
-                new_state, log_file, status = apply_action_with_logging(
-                    state,
-                    action,
-                    strict=STRICT_CHECKING,
-                )
-                if new_state is None:
-                    print(f"WARNING: State status not OK ({status}) in game {game}. Details logged to {log_file}")
-                    break  # Skip this game in non-strict mode
-                
-                state = new_state
-            
-            # Only count completed games
-            if state.final_state:
-                # Add the profit for this game
-                profit = state.players_state[agent.player_id].reward
-                total_profit += profit
-                completed_games += 1
-                
-        except Exception as e:
-            if STRICT_CHECKING:
-                raise  # Re-raise the exception in strict mode
-            else:
-                print(f"Error in game {game}: {e}")
-                # Continue with next game in non-strict mode
-    
-    # Return average profit only for completed games
-    if completed_games == 0:
+    metrics = evaluate_agent_matchup(
+        agent,
+        random_agents,
+        num_games=num_games,
+        seed_start=0,
+        num_players=num_players,
+        strict=settings.is_strict_checking(),
+        label="evaluation vs random",
+        print_warnings=True,
+    )
+    if metrics["completed_games"] == 0:
         print("WARNING: No games completed during evaluation!")
-        return 0
-    
-    return total_profit / completed_games
+    return metrics["avg_profit"]
 
 
 class _PerspectiveAgentWrapper:
@@ -127,7 +87,7 @@ def _cfr_traverse_with_opponents(agent, state, iteration, opponent_agents, depth
         new_state, log_file, status = apply_action_with_logging(
             state,
             action,
-            strict=STRICT_CHECKING,
+            strict=settings.is_strict_checking(),
         )
         if new_state is None:
             if verbose:
@@ -144,7 +104,7 @@ def _cfr_traverse_with_opponents(agent, state, iteration, opponent_agents, depth
     except Exception as exc:
         if verbose:
             print(f"ERROR in opponent agent traversal: {exc}")
-        if STRICT_CHECKING:
+        if settings.is_strict_checking():
             raise
         return 0
 
@@ -645,77 +605,23 @@ def evaluate_against_checkpoint_agents(agent, opponent_agents, num_games=100):
     Evaluate the trained agent against opponent agents.
     Each agent will receive and process observations from its own perspective.
     """
-    total_profit = 0
-    completed_games = 0
-    
-    class AgentWrapper:
-        def __init__(self, agent):
-            self.agent = agent
-            self.player_id = agent.player_id
-            
-        def choose_action(self, state):
-            # Each agent processes the state from its own perspective
-            return self.agent.choose_action(state)
-    
-    # Wrap checkpoint agents
     opponent_wrappers = [None] * 6
     for pos in range(6):
         if pos != agent.player_id:
-            opponent_wrappers[pos] = AgentWrapper(opponent_agents[pos])
-    
-    for game in range(num_games):
-        try:
-            # Create a new poker game with rotating button
-            state = pkrs.State.from_seed(
-                n_players=6,
-                button=game % 6,  # Rotate button for fairness
-                sb=1,
-                bb=2,
-                stake=200.0,
-                seed=game + 10000  # Using different seeds than training
-            )
-            
-            # Play until the game is over
-            while not state.final_state:
-                current_player = state.current_player
-                
-                if current_player == agent.player_id:
-                    action = agent.choose_action(state)
-                else:
-                    action = opponent_wrappers[current_player].choose_action(state)
-                
-                # Apply the action with conditional status check
-                new_state, log_file, status = apply_action_with_logging(
-                    state,
-                    action,
-                    strict=STRICT_CHECKING,
-                )
-                if new_state is None:
-                    print(f"WARNING: State status not OK ({status}) in game {game}. Details logged to {log_file}")
-                    break  # Skip this game in non-strict mode
-                
-                state = new_state
-            
-            # Only count completed games
-            if state.final_state:
-                # Add the profit for this game
-                profit = state.players_state[agent.player_id].reward
-                total_profit += profit
-                completed_games += 1
-                
-        except Exception as e:
-            if STRICT_CHECKING:
-                raise  # Re-raise the exception in strict mode
-            else:
-                print(f"Error in game {game}: {e}")
-                # Continue with next game in non-strict mode
-    
-    # Return average profit only for completed games
-    if completed_games == 0:
+            opponent_wrappers[pos] = _PerspectiveAgentWrapper(opponent_agents[pos])
+
+    metrics = evaluate_agent_matchup(
+        agent,
+        opponent_wrappers,
+        num_games=num_games,
+        seed_start=10000,
+        strict=settings.is_strict_checking(),
+        label="evaluation vs checkpoint",
+        print_warnings=True,
+    )
+    if metrics["completed_games"] == 0:
         print("WARNING: No games completed during evaluation!")
-        return 0
-    
-    return total_profit / completed_games
+    return metrics["avg_profit"]
 
 def evaluate_against_agent(agent, opponent_agent, num_games=100):
     """Evaluate the trained agent against an opponent agent."""
@@ -818,8 +724,12 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
         selected_agents = []
         current_pos = 1
         for checkpoint_file in selected_files:
-            checkpoint_agent = DeepCFRAgent(player_id=current_pos, num_players=6, device=device)
-            checkpoint_agent.load_model(checkpoint_file)
+            checkpoint_agent = CheckpointAgent(
+                player_id=current_pos,
+                model_path=checkpoint_file,
+                device=device,
+                sanitize_actions=True,
+            )
             selected_agents.append((current_pos, checkpoint_agent))
             current_pos += 1
             if current_pos >= 6:

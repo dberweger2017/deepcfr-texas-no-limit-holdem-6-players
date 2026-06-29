@@ -7,8 +7,9 @@ import numpy as np
 import random
 import pokers as pkrs
 from collections import deque
-from src.core.model import PokerNetwork, encode_state, VERBOSE, set_verbose
-from src.utils.settings import STRICT_CHECKING
+from src.core import model as model_settings
+from src.core.model import PokerNetwork, encode_state, set_verbose
+from src.utils import settings
 from src.utils.logging import apply_action_with_logging
 from src.utils.actions import (
     action_type_to_pokers_action as map_action_type_to_pokers_action,
@@ -204,7 +205,7 @@ def traverse_agent_turn(
             new_state, log_file, status = apply_action_with_logging(
                 state,
                 pokers_action,
-                strict=STRICT_CHECKING,
+                strict=settings.is_strict_checking(),
             )
             if new_state is None:
                 if verbose:
@@ -228,7 +229,7 @@ def traverse_agent_turn(
             if verbose:
                 print(f"ERROR in traversal for action {action_type}: {exc}")
             action_values[action_type] = 0
-            if STRICT_CHECKING:
+            if settings.is_strict_checking():
                 raise
 
     ev = sum(strategy[action_type] * action_values[action_type] for action_type in legal_action_types)
@@ -320,7 +321,7 @@ class DeepCFRAgent:
             )
 
         except Exception as e:
-            if VERBOSE:
+            if model_settings.is_verbose():
                 print(f"DeepCFRAgent CRITICAL ERROR in action_type_to_pokers_action: Type {action_type} for player {self.player_id}: {e}")
                 print(f"  State: current_player={state.current_player}, stage={state.stage}, legal_actions={state.legal_actions}")
                 if hasattr(state, 'players_state') and self.player_id < len(state.players_state):
@@ -405,7 +406,7 @@ class DeepCFRAgent:
         # Add recursion depth protection
         max_depth = 1000
         if depth > max_depth:
-            if VERBOSE:
+            if model_settings.is_verbose():
                 print(f"WARNING: Max recursion depth reached ({max_depth}). Returning zero value.")
             return 0
         
@@ -428,7 +429,7 @@ class DeepCFRAgent:
                     next_depth,
                 ),
                 depth=depth,
-                verbose=VERBOSE,
+                verbose=model_settings.is_verbose(),
             )
             
         # If it's another player's turn (random agent)
@@ -439,21 +440,21 @@ class DeepCFRAgent:
                 new_state, log_file, status = apply_action_with_logging(
                     state,
                     action,
-                    strict=STRICT_CHECKING,
+                    strict=settings.is_strict_checking(),
                 )
 
                 # Check if the action was valid
                 if new_state is None:
-                    if VERBOSE:
+                    if model_settings.is_verbose():
                         print(f"WARNING: Random agent made invalid action at depth {depth}. Status: {status}")
                         print(f"Details logged to {log_file}")
                     return 0
                     
                 return self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
             except Exception as e:
-                if VERBOSE:
+                if model_settings.is_verbose():
                     print(f"ERROR in random agent traversal: {e}")
-                if STRICT_CHECKING:
+                if settings.is_strict_checking():
                     raise  # Re-raise in strict mode
                 return 0
 

@@ -1,7 +1,7 @@
 # src/agents/random_agent.py
 import random
 import pokers as pkrs
-from src.utils.settings import STRICT_CHECKING
+from src.utils import settings
 from src.utils.logging import log_game_error
 from src.utils.actions import preset_raise_action
 
@@ -40,7 +40,7 @@ class RandomAgent:
             )
 
             # Optional: Strict checking (if enabled)
-            if STRICT_CHECKING and action.action == pkrs.ActionEnum.Raise:
+            if settings.is_strict_checking() and action.action == pkrs.ActionEnum.Raise:
                 # Temporarily apply action to check Rust status
                 test_state = state.apply_action(action)
                 if test_state.status != pkrs.StateStatus.Ok:

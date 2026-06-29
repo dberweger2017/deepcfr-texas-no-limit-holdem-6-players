@@ -15,106 +15,37 @@ from tqdm import tqdm
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import DeepCFRAgentWithOpponentModeling
 from src.core.model import set_verbose
 from src.agents.random_agent import RandomAgent
-from src.utils.logging import apply_action_with_logging
-from src.utils.settings import STRICT_CHECKING, set_strict_checking
+from src.utils.evaluation import evaluate_agent_matchup
+from src.utils.settings import set_strict_checking
 from src.utils.checkpoints import load_checkpoint
 
 def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, notifier=None):
     """Evaluate the trained agent against random opponents, tracking opponent history."""
     random_agents = [RandomAgent(i) for i in range(num_players)]
-    total_profit = 0
-    completed_games = 0
-    game_crashes = 0
-    zero_reward_games = 0
-    
-    for game in range(num_games):
-        try:
-            # Create a new poker game
-            state = pkrs.State.from_seed(
-                n_players=num_players,
-                button=game % num_players,
-                sb=1,
-                bb=2,
-                stake=200.0,
-                seed=game
-            )
-            
-            # Play until the game is over
-            try:
-                while not state.final_state:
-                    current_player = state.current_player
-                    
-                    if current_player == agent.player_id:
-                        # Use opponent modeling for the current opponent
-                        action = agent.choose_action(state, opponent_id=None)
-                    else:
-                        action = random_agents[current_player].choose_action(state)
-                        
-                        # Record this opponent's action
-                        if hasattr(agent, 'record_opponent_action'):
-                            if action.action == pkrs.ActionEnum.Fold:
-                                action_id = 0
-                            elif action.action == pkrs.ActionEnum.Check or action.action == pkrs.ActionEnum.Call:
-                                action_id = 1
-                            elif action.action == pkrs.ActionEnum.Raise:
-                                if action.amount <= state.pot * 0.75:
-                                    action_id = 2
-                                else:
-                                    action_id = 3
-                            else:
-                                action_id = 1
-                                
-                            agent.record_opponent_action(state, action_id, current_player)
-                        
-                    new_state, log_file, status = apply_action_with_logging(
-                        state,
-                        action,
-                        strict=STRICT_CHECKING,
-                    )
-                    if new_state is None:
-                        print(f"WARNING: State status not OK ({status}) in game {game}. Details logged to {log_file}")
-                        break
-                    state = new_state
-                
-                # Record end of game
-                if hasattr(agent, 'end_game_recording'):
-                    agent.end_game_recording(state)
-                
-                # Add the profit for this game
-                profit = state.players_state[agent.player_id].reward
-                total_profit += profit
-                completed_games += 1
-                
-                # Check for zero rewards (suspicious)
-                if abs(profit) < 0.001:
-                    zero_reward_games += 1
-            except Exception as e:
-                if STRICT_CHECKING:
-                    raise
-                if notifier and game % 20 == 0:  # Limit notification frequency
-                    notifier.send_message(f"⚠️ <b>GAME ERROR</b>\nIteration: {iteration}, Hand: {game}\nError: {str(e)}")
-                game_crashes += 1
-                
-        except Exception as e:
-            if STRICT_CHECKING:
-                raise
-            game_crashes += 1
-            if notifier and game % 20 == 0:  # Limit notification frequency
-                notifier.send_message(f"⚠️ <b>GAME SETUP ERROR</b>\nIteration: {iteration}, Game: {game}\nError: {str(e)}")
+    metrics = evaluate_agent_matchup(
+        agent,
+        random_agents,
+        num_games=num_games,
+        seed_start=0,
+        num_players=num_players,
+        label="opponent-modeling evaluation vs random",
+        record_opponent_history=True,
+        print_warnings=True,
+    )
     
     # Report if too many crashes or zero reward games
-    if game_crashes > 0 and notifier:
-        notifier.send_message(f"⚠️ <b>EVALUATION ISSUES</b>\nIteration: {iteration}\nCrashed games: {game_crashes}/{num_games}")
+    if metrics["game_crashes"] > 0 and notifier:
+        notifier.send_message(f"⚠️ <b>EVALUATION ISSUES</b>\nIteration: {iteration}\nCrashed games: {metrics['game_crashes']}/{num_games}")
     
-    if zero_reward_games > 0.2 * completed_games and notifier:
-        notifier.send_message(f"⚠️ <b>SUSPICIOUS REWARDS</b>\nIteration: {iteration}\nZero reward games: {zero_reward_games}/{completed_games}")
+    if metrics["zero_reward_games"] > 0.2 * metrics["completed_games"] and notifier:
+        notifier.send_message(f"⚠️ <b>SUSPICIOUS REWARDS</b>\nIteration: {iteration}\nZero reward games: {metrics['zero_reward_games']}/{metrics['completed_games']}")
     
-    if completed_games == 0:
+    if metrics["completed_games"] == 0:
         if notifier:
             notifier.send_message(f"🚨 <b>CRITICAL ERROR</b>\nIteration: {iteration}\nNo games completed!")
         return 0
         
-    return total_profit / completed_games
+    return metrics["avg_profit"]
 
 def train_deep_cfr_with_opponent_modeling(
     num_iterations=1000, 

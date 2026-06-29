@@ -9,4 +9,9 @@ STRICT_CHECKING = False
 def set_strict_checking(strict_mode):
     """Set the global strict checking mode."""
     global STRICT_CHECKING
-    STRICT_CHECKING = strict_mode
+    STRICT_CHECKING = bool(strict_mode)
+
+
+def is_strict_checking():
+    """Return the current strict checking mode."""
+    return STRICT_CHECKING
