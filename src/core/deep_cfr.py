@@ -11,6 +11,13 @@ from src.core import model as model_settings
 from src.core.model import PokerNetwork, encode_state, set_verbose
 from src.utils import settings
 from src.utils.logging import apply_action_with_logging
+from src.utils.traversal_diagnostics import (
+    TraversalDiagnostics,
+    TraversalFailure,
+    fail_traversal,
+    failure_context,
+    record_action_values,
+)
 from src.utils.actions import (
     action_type_to_pokers_action as map_action_type_to_pokers_action,
     legal_action_types,
@@ -198,7 +205,17 @@ def traverse_agent_turn(
     if not legal_action_types:
         if verbose:
             print(f"WARNING: No legal actions found for player {current_player} at depth {depth}")
-        return 0
+        fail_traversal(
+            agent,
+            "no_legal_actions",
+            **failure_context(
+                state=state,
+                depth=depth,
+                iteration=iteration,
+                player_id=agent.player_id,
+                message="Non-terminal state has no legal actions",
+            ),
+        )
 
     encoded_state = encode_state(state, agent.player_id)
     state_tensor = torch.FloatTensor(encoded_state).to(agent.device)
@@ -232,13 +249,21 @@ def traverse_agent_turn(
 
     action_values = np.zeros(agent.num_actions)
     for action_type in legal_action_types:
+        pokers_action = None
         try:
             if action_type == 2:
                 pokers_action = agent.action_type_to_pokers_action(
-                    action_type, state, bet_size_multiplier
+                    action_type,
+                    state,
+                    bet_size_multiplier,
+                    strict=True,
                 )
             else:
-                pokers_action = agent.action_type_to_pokers_action(action_type, state)
+                pokers_action = agent.action_type_to_pokers_action(
+                    action_type,
+                    state,
+                    strict=True,
+                )
 
             new_state, log_file, status = apply_action_with_logging(
                 state,
@@ -260,17 +285,68 @@ def traverse_agent_turn(
                         f"Stake: {state.players_state[current_player].stake}"
                     )
                     print(f"Details logged to {log_file}")
-                continue
+                fail_traversal(
+                    agent,
+                    "agent_invalid_action",
+                    **failure_context(
+                        state=state,
+                        depth=depth,
+                        iteration=iteration,
+                        player_id=agent.player_id,
+                        action_type=action_type,
+                        action=pokers_action,
+                        status=status,
+                        log_file=log_file,
+                    ),
+                )
 
-            action_values[action_type] = recurse_fn(new_state, depth + 1)
+            value = recurse_fn(new_state, depth + 1)
+            if value is None or not np.isfinite(value):
+                fail_traversal(
+                    agent,
+                    "agent_non_finite_action_value",
+                    **failure_context(
+                        state=state,
+                        depth=depth,
+                        iteration=iteration,
+                        player_id=agent.player_id,
+                        action_type=action_type,
+                        action=pokers_action,
+                        message=f"Traversal returned {value}",
+                    ),
+                )
+            action_values[action_type] = float(value)
+        except TraversalFailure:
+            raise
         except Exception as exc:
             if verbose:
                 print(f"ERROR in traversal for action {action_type}: {exc}")
-            action_values[action_type] = 0
-            if settings.is_strict_checking():
-                raise
+            fail_traversal(
+                agent,
+                "agent_action_exception",
+                exception=exc,
+                **failure_context(
+                    state=state,
+                    depth=depth,
+                    iteration=iteration,
+                    player_id=agent.player_id,
+                    action_type=action_type,
+                    action=pokers_action,
+                    message=str(exc),
+                ),
+            )
 
     ev = sum(strategy[action_type] * action_values[action_type] for action_type in legal_action_types)
+    record_action_values(
+        agent,
+        state=state,
+        depth=depth,
+        iteration=iteration,
+        legal_action_types=legal_action_types,
+        action_values=action_values,
+        strategy=strategy,
+        ev=ev,
+    )
     max_abs_val = max(abs(max(action_values)), abs(min(action_values)), 1.0)
     for action_type in legal_action_types:
         regret = action_values[action_type] - ev
@@ -338,6 +414,7 @@ class DeepCFRAgent:
         self.iteration_count = 0
         self.local_training_iteration = 0
         self.debug_training = False
+        self.traversal_diagnostics = TraversalDiagnostics()
         
         # Regret normalization tracker
         self.max_regret_seen = 1.0
@@ -346,7 +423,15 @@ class DeepCFRAgent:
         self.min_bet_size = 0.1
         self.max_bet_size = 3.0
 
-    def action_type_to_pokers_action(self, action_type, state, bet_size_multiplier=None):
+    def action_type_to_pokers_action(
+        self,
+        action_type,
+        state,
+        bet_size_multiplier=None,
+        *,
+        strict=False,
+        fallback_recorder=None,
+    ):
         """
         Convert action type and optional bet size to Pokers action.
         """
@@ -357,6 +442,8 @@ class DeepCFRAgent:
                 bet_size_multiplier=bet_size_multiplier,
                 min_bet_size=self.min_bet_size,
                 max_bet_size=self.max_bet_size,
+                strict=strict,
+                fallback_recorder=fallback_recorder,
             )
 
         except Exception as e:
@@ -370,14 +457,7 @@ class DeepCFRAgent:
                 import traceback
                 traceback.print_exc()
 
-            # Fall back to a safe action
-            if hasattr(state, 'legal_actions'):
-                if pkrs.ActionEnum.Call in state.legal_actions: return pkrs.Action(pkrs.ActionEnum.Call)
-                if pkrs.ActionEnum.Check in state.legal_actions: return pkrs.Action(pkrs.ActionEnum.Check)
-                if pkrs.ActionEnum.Fold in state.legal_actions: return pkrs.Action(pkrs.ActionEnum.Fold)
-            
-            # Absolute last resort if state.legal_actions is not even available or empty
-            return pkrs.Action(pkrs.ActionEnum.Fold)
+            raise
 
     def adjust_bet_size(self, state, base_multiplier):
         """
@@ -446,8 +526,18 @@ class DeepCFRAgent:
         max_depth = 1000
         if depth > max_depth:
             if model_settings.is_verbose():
-                print(f"WARNING: Max recursion depth reached ({max_depth}). Returning zero value.")
-            return 0
+                print(f"WARNING: Max recursion depth reached ({max_depth}). Raising traversal failure.")
+            fail_traversal(
+                self,
+                "max_depth",
+                **failure_context(
+                    state=state,
+                    depth=depth,
+                    iteration=iteration,
+                    player_id=self.player_id,
+                    message=f"Max recursion depth reached ({max_depth})",
+                ),
+            )
         
         if state.final_state:
             # Return payoff for the trained agent
@@ -487,15 +577,38 @@ class DeepCFRAgent:
                     if model_settings.is_verbose():
                         print(f"WARNING: Random agent made invalid action at depth {depth}. Status: {status}")
                         print(f"Details logged to {log_file}")
-                    return 0
+                    fail_traversal(
+                        self,
+                        "opponent_invalid_action",
+                        **failure_context(
+                            state=state,
+                            depth=depth,
+                            iteration=iteration,
+                            player_id=self.player_id,
+                            action=action,
+                            status=status,
+                            log_file=log_file,
+                        ),
+                    )
                     
                 return self.cfr_traverse(new_state, iteration, random_agents, depth + 1)
+            except TraversalFailure:
+                raise
             except Exception as e:
                 if model_settings.is_verbose():
                     print(f"ERROR in random agent traversal: {e}")
-                if settings.is_strict_checking():
-                    raise  # Re-raise in strict mode
-                return 0
+                fail_traversal(
+                    self,
+                    "opponent_exception",
+                    exception=e,
+                    **failure_context(
+                        state=state,
+                        depth=depth,
+                        iteration=iteration,
+                        player_id=self.player_id,
+                        message=str(e),
+                    ),
+                )
 
     def train_advantage_network(self, batch_size=128, epochs=3, beta_start=0.4, beta_end=1.0):
         """
@@ -804,9 +917,18 @@ class DeepCFRAgent:
         
         # Use the predicted bet size for raise actions
         if action_type == 2:  # Raise
-            return self.action_type_to_pokers_action(action_type, state, bet_size_multiplier)
+            return self.action_type_to_pokers_action(
+                action_type,
+                state,
+                bet_size_multiplier,
+                strict=settings.is_strict_checking(),
+            )
         else:
-            return self.action_type_to_pokers_action(action_type, state)
+            return self.action_type_to_pokers_action(
+                action_type,
+                state,
+                strict=settings.is_strict_checking(),
+            )
 
     def save_model(self, path_prefix):
         """Save the model to disk."""

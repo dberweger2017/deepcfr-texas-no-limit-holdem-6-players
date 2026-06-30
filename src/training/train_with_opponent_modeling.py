@@ -28,6 +28,7 @@ def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, no
         num_games=num_games,
         seed_start=0,
         num_players=num_players,
+        strict=True,
         label="opponent-modeling evaluation vs random",
         record_opponent_history=True,
         print_warnings=True,
@@ -43,7 +44,7 @@ def evaluate_against_random(agent, num_games=500, num_players=6, iteration=0, no
     if metrics["completed_games"] == 0:
         if notifier:
             notifier.send_message(f"🚨 <b>CRITICAL ERROR</b>\nIteration: {iteration}\nNo games completed!")
-        return 0
+        raise RuntimeError("No games completed during opponent-modeling evaluation vs random")
         
     return metrics["avg_profit"]
 
@@ -52,8 +53,8 @@ def train_deep_cfr_with_opponent_modeling(
     traversals_per_iteration=200,
     num_players=6, 
     player_id=0, 
-    save_dir="models", 
-    log_dir="logs/deepcfr_opponent_modeling", 
+    save_dir="models/opponent_modeling/phase1",
+    log_dir="logs/opponent_modeling/phase1",
     verbose=False,
     checkpoint_path=None,
     progress_interval=100,
@@ -94,8 +95,10 @@ def train_deep_cfr_with_opponent_modeling(
         try:
             checkpoint_state = load_checkpoint(checkpoint_path, map_location=agent.device)
             starting_iteration = checkpoint_state.get("iteration", agent.iteration_count) + 1
-        except Exception:
-            starting_iteration = agent.iteration_count + 1
+        except Exception as exc:
+            raise RuntimeError(
+                f"Failed to load resume metadata from checkpoint {checkpoint_path}"
+            ) from exc
     
     # Create random agents for opponents
     random_agents = [RandomAgent(i) for i in range(num_players)]
@@ -147,6 +150,8 @@ def train_deep_cfr_with_opponent_modeling(
                 tqdm.write(f"Error in traversal: {e}")
                 if notifier and t % 50 == 0:  # Don't send too many error messages
                     notifier.send_message(f"⚠️ <b>TRAVERSAL ERROR</b>\nIteration: {iteration}\nError: {str(e)}")
+                writer.flush()
+                raise
         
         # Track traversal time
         traversal_time = time.time() - start_time
@@ -173,6 +178,8 @@ def train_deep_cfr_with_opponent_modeling(
                 tqdm.write(f"Error training opponent model: {e}")
                 if notifier:
                     notifier.send_message(f"⚠️ <b>OPPONENT MODEL ERROR</b>\nIteration: {iteration}\nError: {str(e)}")
+                writer.flush()
+                raise
         
         # Evaluate periodically
         if iteration % 20 == 0 or iteration == final_iteration:
@@ -262,8 +269,8 @@ if __name__ == "__main__":
     parser.add_argument('--verbose', action='store_true', help='Enable verbose output')
     parser.add_argument('--iterations', type=int, default=1000, help='Number of CFR iterations')
     parser.add_argument('--traversals', type=int, default=200, help='Traversals per iteration')
-    parser.add_argument('--save-dir', type=str, default='models_om', help='Directory to save models')
-    parser.add_argument('--log-dir', type=str, default='logs/deepcfr_om', help='Directory for logs')
+    parser.add_argument('--save-dir', type=str, default='models/opponent_modeling/phase1', help='Directory to save models')
+    parser.add_argument('--log-dir', type=str, default='logs/opponent_modeling/phase1', help='Directory for logs')
     parser.add_argument('--checkpoint', type=str, default=None, help='Path to checkpoint to continue training from')
     parser.add_argument('--strict', action='store_true', help='Raise exceptions for invalid game states')
     parser.add_argument('--progress-interval', type=int, default=100, help='Print compact training summaries every N iterations; set 0 to disable')

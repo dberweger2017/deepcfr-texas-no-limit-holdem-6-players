@@ -202,9 +202,11 @@ def print_results_table(results: Sequence[dict]) -> None:
         "rand_profit",
         "rand_done",
         "rand_invalid",
+        "rand_sanitized",
         "pool_profit",
         "pool_done",
         "pool_invalid",
+        "pool_sanitized",
     ]
     rows = []
     for result in results:
@@ -215,9 +217,11 @@ def print_results_table(results: Sequence[dict]) -> None:
                 f'{result["vs_random"]["avg_profit"]:.2f}',
                 str(result["vs_random"]["completed_games"]),
                 str(result["vs_random"]["invalid_state_count"]),
+                str(result["vs_random"]["sanitized_actions"]),
                 f'{result["vs_checkpoint_pool"]["avg_profit"]:.2f}',
                 str(result["vs_checkpoint_pool"]["completed_games"]),
                 str(result["vs_checkpoint_pool"]["invalid_state_count"]),
+                str(result["vs_checkpoint_pool"]["sanitized_actions"]),
             ]
         )
 
@@ -256,6 +260,7 @@ def write_csv_results(results: Sequence[dict], output_path: str) -> None:
         "vs_random_non_zero_sum_games",
         "vs_random_setup_errors",
         "vs_random_requested_games",
+        "vs_random_sanitized_actions",
         "vs_checkpoint_pool_avg_profit",
         "vs_checkpoint_pool_completed_games",
         "vs_checkpoint_pool_invalid_state_games",
@@ -263,6 +268,7 @@ def write_csv_results(results: Sequence[dict], output_path: str) -> None:
         "vs_checkpoint_pool_non_zero_sum_games",
         "vs_checkpoint_pool_setup_errors",
         "vs_checkpoint_pool_requested_games",
+        "vs_checkpoint_pool_sanitized_actions",
     ]
 
     with output.open("w", newline="", encoding="utf-8") as handle:
@@ -282,6 +288,7 @@ def write_csv_results(results: Sequence[dict], output_path: str) -> None:
                     "vs_random_non_zero_sum_games": result["vs_random"]["non_zero_sum_games"],
                     "vs_random_setup_errors": result["vs_random"]["setup_errors"],
                     "vs_random_requested_games": result["vs_random"]["requested_games"],
+                    "vs_random_sanitized_actions": result["vs_random"]["sanitized_actions"],
                     "vs_checkpoint_pool_avg_profit": result["vs_checkpoint_pool"]["avg_profit"],
                     "vs_checkpoint_pool_completed_games": result["vs_checkpoint_pool"]["completed_games"],
                     "vs_checkpoint_pool_invalid_state_games": result["vs_checkpoint_pool"]["invalid_state_games"],
@@ -289,6 +296,7 @@ def write_csv_results(results: Sequence[dict], output_path: str) -> None:
                     "vs_checkpoint_pool_non_zero_sum_games": result["vs_checkpoint_pool"]["non_zero_sum_games"],
                     "vs_checkpoint_pool_setup_errors": result["vs_checkpoint_pool"]["setup_errors"],
                     "vs_checkpoint_pool_requested_games": result["vs_checkpoint_pool"]["requested_games"],
+                    "vs_checkpoint_pool_sanitized_actions": result["vs_checkpoint_pool"]["sanitized_actions"],
                 }
             )
 
@@ -302,7 +310,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--games-pool", type=int, default=100, help="Hands to play against the checkpoint pool")
     parser.add_argument("--seed", type=int, default=0, help="Base random seed for reproducible evaluation")
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto", help="Inference device")
-    parser.add_argument("--strict", action="store_true", help="Raise immediately on invalid game states")
+    parser.add_argument("--strict", action="store_true", help="Raise immediately on invalid game states (default)")
+    parser.add_argument("--allow-invalid-games", action="store_true", help="Continue after invalid games and report error counts")
     parser.add_argument("--stake", type=float, default=200.0, help="Initial stake for each player")
     parser.add_argument("--sb", type=float, default=1.0, help="Small blind")
     parser.add_argument("--bb", type=float, default=2.0, help="Big blind")
@@ -314,6 +323,8 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
+    if args.strict and args.allow_invalid_games:
+        parser.error("--strict and --allow-invalid-games cannot be combined")
 
     checkpoint_paths = resolve_checkpoint_paths(args.checkpoints, args.checkpoint_dir, args.pattern)
     results = evaluate_checkpoint_paths(
@@ -322,7 +333,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         games_pool=args.games_pool,
         seed=args.seed,
         device=args.device,
-        strict=args.strict,
+        strict=not args.allow_invalid_games,
         stake=args.stake,
         sb=args.sb,
         bb=args.bb,

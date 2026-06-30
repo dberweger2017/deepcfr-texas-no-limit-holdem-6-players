@@ -30,6 +30,7 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
         opponents,
         num_games=num_games,
         seed_start=10000,
+        strict=True,
         label="opponent-modeling evaluation vs opponents",
         record_opponent_history=True,
         print_warnings=True,
@@ -55,6 +56,8 @@ def evaluate_against_opponents(agent, opponents, num_games=100, iteration=0, not
 
     if completed_games == 0 and notifier:
         notifier.send_message(f"⚠️ <b>CRITICAL ERROR</b>: No games completed in iteration {iteration}")
+    if completed_games == 0:
+        raise RuntimeError("No games completed during opponent-modeling evaluation vs opponents")
 
     return metrics["avg_profit"]
 
@@ -64,12 +67,13 @@ def train_mixed_with_opponent_modeling(
     traversals_per_iteration=200,
     refresh_interval=1000,
     num_opponents=5,
-    save_dir="models_mixed_om",
-    log_dir="logs/deepcfr_mixed_om",
+    save_dir="models/opponent_modeling/mixed",
+    log_dir="logs/opponent_modeling/mixed",
     player_id=0,
     model_prefix="*checkpoint_iter_",
     verbose=False,
-    checkpoint_path=None
+    checkpoint_path=None,
+    allow_random_fallback=False,
 ):
     """
     Train a Deep CFR agent with opponent modeling against a mix of opponents
@@ -129,8 +133,9 @@ def train_mixed_with_opponent_modeling(
             print(f"Error loading checkpoint: {e}")
             if notifier:
                 notifier.send_message(
-                    f"⚠️ <b>CHECKPOINT LOADING ERROR</b>\n{str(e)}\nStarting from scratch."
+                    f"⚠️ <b>CHECKPOINT LOADING ERROR</b>\n{str(e)}"
                 )
+            raise
     
     # For tracking progress
     advantage_losses = []
@@ -148,8 +153,10 @@ def train_mixed_with_opponent_modeling(
         checkpoint_files = [str(path) for path in find_checkpoints(checkpoint_dir, model_prefix)]
         
         if not checkpoint_files:
-            print(f"WARNING: No checkpoint files found matching '{model_prefix}' in {checkpoint_dir}")
-            print("Using random agents as opponents")
+            message = f"No checkpoint files found matching '{model_prefix}' in {checkpoint_dir}"
+            if not allow_random_fallback:
+                raise ValueError(message)
+            print(f"WARNING: {message}. Using random agents as opponents")
             return [None if i == player_id else RandomAgent(i) for i in range(6)]
         
         # Select random models
@@ -238,7 +245,8 @@ def train_mixed_with_opponent_modeling(
                 print(error_msg)
                 if notifier and iteration % 100 == 0:  # Don't flood with error messages
                     notifier.send_message(f"⚠️ <b>TRAVERSAL ERROR</b>\n{error_msg}")
-                continue
+                writer.flush()
+                raise
         
         # Track traversal time
         traversal_time = time.time() - start_time
@@ -272,6 +280,8 @@ def train_mixed_with_opponent_modeling(
                 print(error_msg)
                 if notifier:
                     notifier.send_message(f"⚠️ <b>OPPONENT MODELING ERROR</b>\n{error_msg}")
+                writer.flush()
+                raise
         
         # Evaluate periodically
         if iteration % 20 == 0 or iteration == final_iteration:
@@ -397,11 +407,12 @@ if __name__ == "__main__":
     parser.add_argument('--traversals', type=int, default=200, help='Traversals per iteration')
     parser.add_argument('--refresh-interval', type=int, default=1000, help='How often to refresh opponent models')
     parser.add_argument('--num-opponents', type=int, default=5, help='Number of model opponents to select')
-    parser.add_argument('--save-dir', type=str, default='models_mixed_om', help='Directory to save models')
-    parser.add_argument('--log-dir', type=str, default='logs/deepcfr_mixed_om', help='Directory for logs')
+    parser.add_argument('--save-dir', type=str, default='models/opponent_modeling/mixed', help='Directory to save models')
+    parser.add_argument('--log-dir', type=str, default='logs/opponent_modeling/mixed', help='Directory for logs')
     parser.add_argument('--verbose', action='store_true', help='Enable verbose output')
     parser.add_argument('--checkpoint', type=str, default=None, help='Path to checkpoint to continue training from')
     parser.add_argument('--strict', action='store_true', help='Raise exceptions for invalid game states')
+    parser.add_argument('--allow-random-fallback', action='store_true', help='Use random opponents when the checkpoint pool is empty')
     args = parser.parse_args()
 
     set_strict_checking(args.strict)
@@ -428,7 +439,8 @@ if __name__ == "__main__":
         log_dir=args.log_dir,
         model_prefix=args.model_prefix,
         verbose=args.verbose,
-        checkpoint_path=args.checkpoint
+        checkpoint_path=args.checkpoint,
+        allow_random_fallback=args.allow_random_fallback,
     )
     
     print("\nTraining Summary:")

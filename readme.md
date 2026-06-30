@@ -2,8 +2,6 @@
 
 Deep CFR for 6-player no-limit Texas Hold'em, built on top of the [`pokers`](https://github.com/Reinforcement-Poker/pokers) environment. The focus here is a training workflow you can actually run from source, not a polished black box.
 
-![Poker AI](https://raw.githubusercontent.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/refs/heads/main/images/testing_different_iteration_values/Screenshot%202025-03-04%20at%2014.39.24.png)
-
 ## Where things stand (March 2026)
 
 This repo has come a long way since the March 2025 version described in the original Medium article. If the article and this README ever disagree, trust the README and the current scripts.
@@ -53,12 +51,13 @@ Everything below runs from the repo root. There are two clean training tracks: s
 
 Both tracks follow the same three stages: random opponents, then self-play against a fixed checkpoint, then mixed checkpoint training.
 
-The shared core flags are `--iterations`, `--traversals`, `--save-dir`, `--log-dir`, `--checkpoint`, `--self-play`, `--mixed`, `--checkpoint-dir`, `--model-prefix`, `--refresh-interval`, `--num-opponents`, `--strict`, and `--progress-interval`. A few of them carry specific meaning worth spelling out:
+The shared core flags are `--iterations`, `--traversals`, `--save-dir`, `--log-dir`, `--checkpoint`, `--self-play`, `--mixed`, `--checkpoint-dir`, `--model-prefix`, `--refresh-interval`, `--num-opponents`, `--strict`, `--progress-interval`, and `--checkpoint-interval`. A few of them carry specific meaning worth spelling out:
 
 - `--checkpoint` means "continue from this checkpoint"
 - `--checkpoint --self-play` means "continue from this checkpoint and use that same checkpoint as the fixed opponent snapshot"
 - `--checkpoint --mixed` means "continue from this checkpoint while sampling opponents from `--checkpoint-dir`"
 - `--progress-interval` controls the compact terminal summaries during Phase 1. Default is `100`; use `0` to keep only the progress bar and milestone messages.
+- `--checkpoint-interval` controls checkpoint save cadence. Default is `1000`; use `0` to save only the final checkpoint.
 
 A directory layout that keeps the stages tidy:
 
@@ -93,7 +92,8 @@ python -m src.training.train \
   --iterations 20000 \
   --traversals 200 \
   --save-dir models/standard/phase1_20k \
-  --log-dir logs/standard/phase1_20k
+  --log-dir logs/standard/phase1_20k \
+  --checkpoint-interval 1000
 ```
 
 For long runs the trainer shows a `tqdm` progress bar in an interactive terminal and prints compact summaries every `--progress-interval` iterations. To print fewer:
@@ -107,7 +107,7 @@ python -m src.training.train \
   --progress-interval 500
 ```
 
-Two things to keep in mind. Checkpoints save every 100 iterations by default. And replay memory isn't stored in checkpoints — continuing from one resumes the model weights but starts with fresh replay memory, so for a true uninterrupted Phase 1 baseline, run the full iteration count in a single process.
+Two things to keep in mind. Checkpoints save every 1000 iterations by default. And replay memory isn't stored in checkpoints — continuing from one resumes the model weights but starts with fresh replay memory, so for a true uninterrupted Phase 1 baseline, run the full iteration count in a single process.
 
 ### Continue training from a checkpoint
 

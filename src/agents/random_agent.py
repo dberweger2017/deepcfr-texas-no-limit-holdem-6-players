@@ -3,7 +3,7 @@ import random
 import pokers as pkrs
 from src.utils import settings
 from src.utils.logging import log_game_error
-from src.utils.actions import preset_raise_action
+from src.utils.actions import ActionMappingFailure, preset_raise_action
 
 class RandomAgent:
     """
@@ -19,6 +19,10 @@ class RandomAgent:
         if not state.legal_actions:
             # This should ideally not happen in a valid game state
             print(f"WARNING: No legal actions available for player {self.player_id}. Attempting Fold.")
+            if settings.is_strict_checking():
+                raise ActionMappingFailure(
+                    f"No legal actions available for RandomAgent player {self.player_id}"
+                )
             # Attempt Fold as fallback, though it might also be illegal
             return pkrs.Action(pkrs.ActionEnum.Fold)
 
@@ -45,20 +49,19 @@ class RandomAgent:
                 test_state = state.apply_action(action)
                 if test_state.status != pkrs.StateStatus.Ok:
                     log_file = log_game_error(state, action, f"Random agent created invalid action: {test_state.status}")
-                    # Fallback to Call if the generated Raise is invalid
-                    print(f"RandomAgent STRICT CHECK FAILED: Invalid Raise({action.amount}). Status: {test_state.status}. Falling back to Call. Log: {log_file}")
-                    if pkrs.ActionEnum.Call in state.legal_actions:
-                        return pkrs.Action(pkrs.ActionEnum.Call)
-                    else: # Fallback to Fold if Call isn't legal
-                        if pkrs.ActionEnum.Fold in state.legal_actions:
-                            return pkrs.Action(pkrs.ActionEnum.Fold)
-                        else: # Last resort
-                            return pkrs.Action(pkrs.ActionEnum.Call)
+                    raise ActionMappingFailure(
+                        f"RandomAgent created invalid Raise({action.amount}). "
+                        f"Status: {test_state.status}. Log: {log_file}"
+                    )
 
             return action
         else:
             # Should not happen if action_enum is from legal_actions
             print(f"WARNING: RandomAgent encountered unexpected action enum: {action_enum}. Falling back to Fold.")
+            if settings.is_strict_checking():
+                raise ActionMappingFailure(
+                    f"RandomAgent encountered unexpected action enum: {action_enum}"
+                )
             if pkrs.ActionEnum.Fold in state.legal_actions:
                 return pkrs.Action(pkrs.ActionEnum.Fold)
             else: # Last resort

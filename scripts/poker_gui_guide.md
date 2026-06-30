@@ -43,13 +43,13 @@ python -m scripts.poker_gui --models path/to/model1.pt path/to/model2.pt path/to
 #### Load models from a folder
 
 ```bash
-python -m scripts.poker_gui --models_folder models_mixed_om_v2
+python -m scripts.poker_gui --models_folder models/standard/phase1
 ```
 
 #### Set your position and game parameters
 
 ```bash
-python -m scripts.poker_gui --models_folder models_om --position 2 --stake 100 --sb 0.5 --bb 1
+python -m scripts.poker_gui --models_folder models/opponent_modeling/phase1 --position 2 --stake 100 --sb 0.5 --bb 1
 ```
 
 ### Command Line Options

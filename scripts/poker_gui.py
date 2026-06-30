@@ -445,7 +445,14 @@ class ModelSelectionDialog(QWidget):
         dir_layout = QHBoxLayout()
         self.models_dir_input = QComboBox()
         self.models_dir_input.setEditable(True)
-        self.models_dir_input.addItems(["models", "models_om", "models_mixed_om", "models_mixed_om_v2"])
+        self.models_dir_input.addItems([
+            "models/standard/phase1",
+            "models/standard/selfplay",
+            "models/standard/mixed",
+            "models/opponent_modeling/phase1",
+            "models/opponent_modeling/selfplay",
+            "models/opponent_modeling/mixed",
+        ])
         dir_layout.addWidget(QLabel("Models Directory:"))
         dir_layout.addWidget(self.models_dir_input, 1)
         self.browse_button = QPushButton("Browse...")

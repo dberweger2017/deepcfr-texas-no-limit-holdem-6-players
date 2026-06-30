@@ -1,4 +1,5 @@
 import pokers as pkrs
+import pytest
 import torch
 
 from src.agents import random_agent as random_agent_mod
@@ -14,6 +15,13 @@ from src.utils.agents import (
 )
 from src.utils.evaluation import evaluate_agent_matchup
 from src.utils.settings import is_strict_checking, set_strict_checking
+from src.utils.actions import (
+    ACTION_TYPE_RAISE,
+    ActionMappingFailure,
+    action_type_to_pokers_action,
+    build_raise_action,
+    sanitize_action,
+)
 
 
 class _InvalidApplyResult:
@@ -25,6 +33,19 @@ class _StrictProbeState:
 
     def apply_action(self, action):
         return _InvalidApplyResult()
+
+
+class _CallOnlyState:
+    legal_actions = [pkrs.ActionEnum.Call]
+    pot = 10.0
+
+
+class _CheckAgent:
+    def __init__(self, player_id=0):
+        self.player_id = player_id
+
+    def choose_action(self, state):
+        return pkrs.Action(pkrs.ActionEnum.Check)
 
 
 def test_strict_checking_is_read_after_setter(monkeypatch):
@@ -48,9 +69,40 @@ def test_strict_checking_is_read_after_setter(monkeypatch):
 
     set_strict_checking(True)
     try:
-        assert agent.choose_action(_StrictProbeState()).action == pkrs.ActionEnum.Call
+        with pytest.raises(ActionMappingFailure):
+            agent.choose_action(_StrictProbeState())
     finally:
         set_strict_checking(False)
+
+
+def test_strict_action_mapping_raises_instead_of_fallback(monkeypatch):
+    with pytest.raises(ActionMappingFailure):
+        action_type_to_pokers_action(ACTION_TYPE_RAISE, _CallOnlyState(), strict=True)
+
+    state = pkrs.State.from_seed(
+        n_players=6,
+        button=3,
+        sb=1,
+        bb=2,
+        stake=200.0,
+        seed=0,
+    )
+    monkeypatch.setattr("src.utils.actions._engine_accepts_action", lambda state, action: False)
+    with pytest.raises(ActionMappingFailure):
+        build_raise_action(state, 10.0, strict=True)
+
+
+def test_non_strict_sanitization_records_fallback():
+    events = []
+    action = sanitize_action(
+        _CallOnlyState(),
+        pkrs.Action(pkrs.ActionEnum.Fold),
+        fallback_recorder=lambda **event: events.append(event),
+    )
+
+    assert action.action == pkrs.ActionEnum.Call
+    assert len(events) == 1
+    assert events[0]["reason"] == "Action ActionEnum.Fold is not legal"
 
 
 def test_shared_evaluation_metrics_shape():
@@ -78,6 +130,40 @@ def test_shared_evaluation_metrics_shape():
     }
     assert expected_keys.issubset(metrics)
     assert metrics["requested_games"] == 1
+
+
+def test_strict_evaluation_raises_on_illegal_action():
+    agent = _CheckAgent(player_id=0)
+    opponents = [RandomAgent(i) for i in range(6)]
+
+    with pytest.raises(ActionMappingFailure):
+        evaluate_agent_matchup(
+            agent,
+            opponents,
+            num_games=1,
+            button_start=3,
+            seed_start=0,
+            strict=True,
+            label="strict illegal action",
+        )
+
+
+def test_non_strict_evaluation_reports_sanitized_actions():
+    agent = _CheckAgent(player_id=0)
+    opponents = [RandomAgent(i) for i in range(6)]
+
+    metrics = evaluate_agent_matchup(
+        agent,
+        opponents,
+        num_games=1,
+        button_start=3,
+        seed_start=0,
+        strict=False,
+        label="non-strict illegal action",
+    )
+
+    assert metrics["sanitized_actions"] > 0
+    assert metrics["agent_sanitized_actions"] > 0
 
 
 def test_checkpoint_agent_loader_uses_metadata_not_filename(tmp_path):

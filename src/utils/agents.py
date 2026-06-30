@@ -27,6 +27,8 @@ class CheckpointAgent:
         self.device = device
         self.sanitize_actions = sanitize_actions
         self.name = f"Model Agent {player_id} ({os.path.basename(self.model_path)})"
+        self.sanitized_action_count = 0
+        self.sanitization_events = []
 
         checkpoint = load_checkpoint(self.model_path, map_location=device)
         self.with_opponent_modeling = checkpoint_uses_opponent_modeling_state(checkpoint)
@@ -37,11 +39,33 @@ class CheckpointAgent:
             checkpoint=checkpoint,
         )
 
-    def choose_action(self, state):
+    def choose_action(self, state, *, strict=False, fallback_recorder=None):
         action = self.agent.choose_action(state)
         if self.sanitize_actions:
-            return sanitize_action(state, action)
+            return sanitize_action(
+                state,
+                action,
+                strict=strict,
+                fallback_recorder=fallback_recorder or self._record_sanitization,
+            )
         return action
+
+    def reset_sanitization_stats(self):
+        self.sanitized_action_count = 0
+        self.sanitization_events = []
+
+    def _record_sanitization(self, *, reason, attempted_action, fallback_action):
+        self.sanitized_action_count += 1
+        self.sanitization_events.append(
+            {
+                "reason": reason,
+                "attempted_action": str(getattr(attempted_action, "action", None)),
+                "attempted_amount": getattr(attempted_action, "amount", None),
+                "fallback_action": str(getattr(fallback_action, "action", None)),
+                "fallback_amount": getattr(fallback_action, "amount", None),
+            }
+        )
+        self.sanitization_events = self.sanitization_events[-20:]
 
 
 def checkpoint_uses_opponent_modeling(model_path):

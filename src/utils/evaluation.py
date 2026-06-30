@@ -1,10 +1,12 @@
 """Shared seeded hand-running and evaluation helpers."""
 
+import inspect
 from typing import Any, Dict, Optional, Sequence
 
 import pokers as pkrs
 
 from src.utils import settings
+from src.utils.actions import sanitize_action
 from src.utils.logging import apply_action_with_logging
 
 
@@ -19,14 +21,24 @@ def action_history_id(action: pkrs.Action, pot: float) -> int:
     return 1
 
 
-def choose_agent_action(agent, state, *, opponent_id=None):
+def choose_agent_action(
+    agent,
+    state,
+    *,
+    opponent_id=None,
+    strict=False,
+    fallback_recorder=None,
+):
     """Call an agent's choose_action with optional OM opponent context when supported."""
-    if opponent_id is not None:
-        try:
-            return agent.choose_action(state, opponent_id=opponent_id)
-        except TypeError:
-            pass
-    return agent.choose_action(state)
+    signature = inspect.signature(agent.choose_action)
+    kwargs = {}
+    if opponent_id is not None and "opponent_id" in signature.parameters:
+        kwargs["opponent_id"] = opponent_id
+    if "strict" in signature.parameters:
+        kwargs["strict"] = strict
+    if "fallback_recorder" in signature.parameters:
+        kwargs["fallback_recorder"] = fallback_recorder
+    return agent.choose_action(state, **kwargs)
 
 
 def empty_evaluation_metrics(requested_games: int) -> Dict[str, Any]:
@@ -52,6 +64,9 @@ def empty_evaluation_metrics(requested_games: int) -> Dict[str, Any]:
         "agent_preflop_actions": 0,
         "agent_preflop_folds": 0,
         "agent_preflop_fold_rate": 0.0,
+        "sanitized_actions": 0,
+        "agent_sanitized_actions": 0,
+        "opponent_sanitized_actions": 0,
     }
 
 
@@ -75,6 +90,7 @@ def write_evaluation_diagnostics(writer, metrics: Dict[str, Any], iteration: int
     writer.add_scalar(f"{prefix}/RaiseRate", metrics["agent_raise_rate"], iteration)
     writer.add_scalar(f"{prefix}/PreflopFoldRate", metrics["agent_preflop_fold_rate"], iteration)
     writer.add_scalar(f"{prefix}/AgentActions", metrics["agent_actions"], iteration)
+    writer.add_scalar(f"{prefix}/SanitizedActions", metrics["sanitized_actions"], iteration)
 
 
 def print_evaluation_diagnostics(metrics: Dict[str, Any], label: str):
@@ -93,6 +109,12 @@ def print_evaluation_diagnostics(metrics: Dict[str, Any], label: str):
         print(
             "WARNING: Agent preflop fold rate is extremely high; "
             "this checkpoint may be collapsing."
+        )
+    if metrics["sanitized_actions"]:
+        print(
+            f"WARNING: {label} sanitized {metrics['sanitized_actions']} actions "
+            f"(agent={metrics['agent_sanitized_actions']}, "
+            f"opponents={metrics['opponent_sanitized_actions']})"
         )
 
 
@@ -127,6 +149,21 @@ def evaluate_agent_matchup(
     agent_action_counts = {"fold": 0, "check_call": 0, "raise": 0}
     agent_preflop_actions = 0
     agent_preflop_folds = 0
+    sanitized_actions = 0
+    agent_sanitized_actions = 0
+    opponent_sanitized_actions = 0
+
+    for actor in [agent, *opponents]:
+        if hasattr(actor, "reset_sanitization_stats"):
+            actor.reset_sanitization_stats()
+
+    def record_sanitization(*, reason, attempted_action, fallback_action, actor_role):
+        nonlocal sanitized_actions, agent_sanitized_actions, opponent_sanitized_actions
+        sanitized_actions += 1
+        if actor_role == "agent":
+            agent_sanitized_actions += 1
+        else:
+            opponent_sanitized_actions += 1
 
     for game in range(num_games):
         state = None
@@ -146,7 +183,22 @@ def evaluate_agent_matchup(
                 current_player = state.current_player
                 if current_player == agent.player_id:
                     is_preflop = state.stage == pkrs.Stage.Preflop
-                    action = choose_agent_action(agent, state, opponent_id=None)
+                    action = choose_agent_action(
+                        agent,
+                        state,
+                        opponent_id=None,
+                        strict=strict,
+                        fallback_recorder=lambda **event: record_sanitization(
+                            **event,
+                            actor_role="agent",
+                        ),
+                    )
+                    action = sanitize_action(
+                        state,
+                        action,
+                        strict=strict,
+                        fallback_recorder=lambda **event: record_sanitization(**event, actor_role="agent"),
+                    )
                     if is_preflop:
                         agent_preflop_actions += 1
                     if action.action == pkrs.ActionEnum.Fold:
@@ -161,7 +213,21 @@ def evaluate_agent_matchup(
                     opponent = opponents[current_player]
                     if opponent is None:
                         raise ValueError(f"No opponent configured for player {current_player}")
-                    action = choose_agent_action(opponent, state)
+                    action = choose_agent_action(
+                        opponent,
+                        state,
+                        strict=strict,
+                        fallback_recorder=lambda **event: record_sanitization(
+                            **event,
+                            actor_role="opponent",
+                        ),
+                    )
+                    action = sanitize_action(
+                        state,
+                        action,
+                        strict=strict,
+                        fallback_recorder=lambda **event: record_sanitization(**event, actor_role="opponent"),
+                    )
 
                     if record_opponent_history and hasattr(agent, "record_opponent_action"):
                         agent.record_opponent_action(
@@ -220,6 +286,9 @@ def evaluate_agent_matchup(
 
     avg_profit = total_profit / completed_games if completed_games else 0.0
     rates = _action_rates(agent_action_counts)
+    if strict and num_games > 0 and completed_games == 0:
+        raise RuntimeError(f"{label} completed zero games")
+
     preflop_fold_rate = (
         agent_preflop_folds / agent_preflop_actions
         if agent_preflop_actions
@@ -246,6 +315,9 @@ def evaluate_agent_matchup(
         "agent_preflop_actions": agent_preflop_actions,
         "agent_preflop_folds": agent_preflop_folds,
         "agent_preflop_fold_rate": preflop_fold_rate,
+        "sanitized_actions": sanitized_actions,
+        "agent_sanitized_actions": agent_sanitized_actions,
+        "opponent_sanitized_actions": opponent_sanitized_actions,
     }
     if print_warnings:
         print_evaluation_diagnostics(metrics, label)

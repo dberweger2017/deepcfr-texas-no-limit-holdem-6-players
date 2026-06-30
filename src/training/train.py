@@ -19,6 +19,11 @@ from src.utils.training_diagnostics import (
     format_training_diagnostics,
     write_training_diagnostics,
 )
+from src.utils.traversal_diagnostics import (
+    TraversalFailure,
+    fail_traversal,
+    failure_context,
+)
 from src.utils.settings import set_strict_checking
 from src.agents.random_agent import RandomAgent
 
@@ -38,13 +43,13 @@ def evaluate_against_random(
         num_games=num_games,
         seed_start=0,
         num_players=num_players,
-        strict=settings.is_strict_checking(),
+        strict=True,
         label="evaluation vs random",
         print_warnings=True,
     )
     write_evaluation_diagnostics(writer, metrics, iteration, metric_prefix)
     if metrics["completed_games"] == 0:
-        print("WARNING: No games completed during evaluation!")
+        raise RuntimeError("No games completed during evaluation vs random")
     return metrics["avg_profit"]
 
 
@@ -64,8 +69,18 @@ def _cfr_traverse_with_opponents(agent, state, iteration, opponent_agents, depth
     max_depth = 1000
     if depth > max_depth:
         if verbose:
-            print(f"WARNING: Max recursion depth reached ({max_depth}). Returning zero value.")
-        return 0
+            print(f"WARNING: Max recursion depth reached ({max_depth}). Raising traversal failure.")
+        fail_traversal(
+            agent,
+            "max_depth",
+            **failure_context(
+                state=state,
+                depth=depth,
+                iteration=iteration,
+                player_id=agent.player_id,
+                message=f"Max recursion depth reached ({max_depth})",
+            ),
+        )
 
     if state.final_state:
         return state.players_state[agent.player_id].reward
@@ -94,7 +109,17 @@ def _cfr_traverse_with_opponents(agent, state, iteration, opponent_agents, depth
         if opponent_agent is None:
             if verbose:
                 print(f"WARNING: No opponent agent for position {current_player}")
-            return 0
+            fail_traversal(
+                agent,
+                "opponent_missing",
+                **failure_context(
+                    state=state,
+                    depth=depth,
+                    iteration=iteration,
+                    player_id=agent.player_id,
+                    message=f"No opponent agent for position {current_player}",
+                ),
+            )
 
         action = opponent_agent.choose_action(state)
         new_state, log_file, status = apply_action_with_logging(
@@ -109,17 +134,40 @@ def _cfr_traverse_with_opponents(agent, state, iteration, opponent_agents, depth
                     f"Status: {status}"
                 )
                 print(f"Details logged to {log_file}")
-            return 0
+            fail_traversal(
+                agent,
+                "opponent_invalid_action",
+                **failure_context(
+                    state=state,
+                    depth=depth,
+                    iteration=iteration,
+                    player_id=agent.player_id,
+                    action=action,
+                    status=status,
+                    log_file=log_file,
+                ),
+            )
 
         return _cfr_traverse_with_opponents(
             agent, new_state, iteration, opponent_agents, depth + 1, verbose
         )
+    except TraversalFailure:
+        raise
     except Exception as exc:
         if verbose:
             print(f"ERROR in opponent agent traversal: {exc}")
-        if settings.is_strict_checking():
-            raise
-        return 0
+        fail_traversal(
+            agent,
+            "opponent_exception",
+            exception=exc,
+            **failure_context(
+                state=state,
+                depth=depth,
+                iteration=iteration,
+                player_id=agent.player_id,
+                message=str(exc),
+            ),
+        )
 
 
 def _should_save_checkpoint(iteration, final_iteration, checkpoint_interval):
@@ -140,9 +188,19 @@ def _set_training_iterations(agent, absolute_iteration, local_iteration):
 
 
 def _record_training_diagnostics(writer, agent, iteration):
-    diagnostics = collect_training_diagnostics(agent)
+    diagnostics = collect_training_diagnostics(agent, reset_traversal=True)
     write_training_diagnostics(writer, diagnostics, iteration)
     return diagnostics
+
+
+def _record_traversal_failure_diagnostics(writer, agent, iteration):
+    diagnostics = _record_training_diagnostics(writer, agent, iteration)
+    print(f"Traversal failure diagnostics: {format_training_diagnostics(diagnostics)}")
+    recent_failures = diagnostics["traversal"].get("recent_failures", [])
+    if recent_failures:
+        print(f"Last traversal failure: {recent_failures[-1]}")
+    if writer is not None:
+        writer.flush()
 
 
 def _pool_checkpoint_save_path(checkpoint_dir, pool_save_prefix, iteration):
@@ -156,15 +214,19 @@ def _select_mixed_checkpoint_opponents(
     device,
     player_id=0,
     num_players=6,
+    allow_random_fallback=False,
 ):
     checkpoint_files = [str(path) for path in find_checkpoints(checkpoint_dir, opponent_model_pattern)]
     opponent_seats = [pos for pos in range(num_players) if pos != player_id]
 
     if not checkpoint_files:
-        print(
-            f"WARNING: No checkpoint files found matching '{opponent_model_pattern}' "
+        message = (
+            f"No checkpoint files found matching '{opponent_model_pattern}' "
             f"in {checkpoint_dir}"
         )
+        if not allow_random_fallback:
+            raise ValueError(message)
+        print(f"WARNING: {message}. Using random fallback opponents.")
         return [RandomAgent(i) if i != player_id else None for i in range(num_players)], []
 
     selected_count = min(max(0, num_opponents), len(checkpoint_files), len(opponent_seats))
@@ -263,7 +325,11 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
             )
             
             # Perform CFR traversal
-            agent.cfr_traverse(state, iteration, random_agents)
+            try:
+                agent.cfr_traverse(state, iteration, random_agents)
+            except TraversalFailure:
+                _record_traversal_failure_diagnostics(writer, agent, iteration)
+                raise
         
         # Track traversal time
         traversal_time = time.time() - start_time
@@ -451,7 +517,11 @@ def continue_training(checkpoint_path, additional_iterations=1000,
             )
             
             # Perform CFR traversal
-            agent.cfr_traverse(state, local_iteration, random_agents)
+            try:
+                agent.cfr_traverse(state, local_iteration, random_agents)
+            except TraversalFailure:
+                _record_traversal_failure_diagnostics(writer, agent, iteration)
+                raise
         
         # Track traversal time
         traversal_time = time.time() - start_time
@@ -642,9 +712,13 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
                 seed=random.randint(0, 10000)
             )
 
-            _cfr_traverse_with_opponents(
-                learning_agent, state, local_iteration, opponent_wrappers, verbose=verbose
-            )
+            try:
+                _cfr_traverse_with_opponents(
+                    learning_agent, state, local_iteration, opponent_wrappers, verbose=verbose
+                )
+            except TraversalFailure:
+                _record_traversal_failure_diagnostics(writer, learning_agent, iteration)
+                raise
 
         traversal_time = time.time() - start_time
         writer.add_scalar('Time/Traversal', traversal_time, iteration)
@@ -759,13 +833,13 @@ def evaluate_against_checkpoint_agents(
         opponent_wrappers,
         num_games=num_games,
         seed_start=10000,
-        strict=settings.is_strict_checking(),
+        strict=True,
         label="evaluation vs checkpoint",
         print_warnings=True,
     )
     write_evaluation_diagnostics(writer, metrics, iteration, metric_prefix)
     if metrics["completed_games"] == 0:
-        print("WARNING: No games completed during evaluation!")
+        raise RuntimeError("No games completed during evaluation vs checkpoint")
     return metrics["avg_profit"]
 
 def evaluate_against_agent(agent, opponent_agent, num_games=100):
@@ -797,7 +871,8 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
                            update_opponent_pool=False,
                            pool_save_prefix="pool_checkpoint_iter_",
                            evaluation_interval=10, mixed_eval_games=100,
-                           random_eval_games=500):
+                           random_eval_games=500,
+                           allow_random_fallback=False):
     """
     Train a Deep CFR agent against opponents randomly selected from a pool of checkpoints.
     
@@ -816,6 +891,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
         evaluation_interval: How often to run in-loop evaluations
         mixed_eval_games: Hands for each mixed-opponent evaluation
         random_eval_games: Hands for each random-opponent evaluation
+        allow_random_fallback: Use random opponents if the checkpoint pool is empty
     """
     from torch.utils.tensorboard import SummaryWriter
     import os
@@ -856,8 +932,10 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
                 "profits_vs_checkpoints",
                 profits_vs_checkpoints,
             )
-        except Exception:
-            starting_iteration = learning_agent.iteration_count + 1
+        except Exception as exc:
+            raise RuntimeError(
+                f"Failed to load resume metadata from checkpoint {checkpoint_path}"
+            ) from exc
 
     def select_random_checkpoints():
         opponent_agents, _ = _select_mixed_checkpoint_opponents(
@@ -867,6 +945,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
             device=device,
             player_id=learning_agent.player_id,
             num_players=6,
+            allow_random_fallback=allow_random_fallback,
         )
         return opponent_agents
 
@@ -941,9 +1020,13 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
                 seed=random.randint(0, 10000)
             )
 
-            _cfr_traverse_with_opponents(
-                learning_agent, state, local_iteration, opponent_wrappers, verbose=verbose
-            )
+            try:
+                _cfr_traverse_with_opponents(
+                    learning_agent, state, local_iteration, opponent_wrappers, verbose=verbose
+                )
+            except TraversalFailure:
+                _record_traversal_failure_diagnostics(writer, learning_agent, iteration)
+                raise
 
         traversal_time = time.time() - start_time
         writer.add_scalar('Time/Traversal', traversal_time, iteration)
@@ -1084,6 +1167,7 @@ def main(argv=None):
     parser.add_argument('--random-eval-games', type=int, default=500, help='Hands per random-opponent evaluation')
     parser.add_argument('--update-opponent-pool', action='store_true', help='Also save mixed checkpoints back into the opponent pool')
     parser.add_argument('--pool-save-prefix', type=str, default='pool_checkpoint_iter_', help='Filename prefix for opt-in opponent-pool snapshots')
+    parser.add_argument('--allow-random-fallback', action='store_true', help='Use random opponents when a mixed checkpoint pool is empty')
     args = parser.parse_args(argv)
 
     # Strict training for debug
@@ -1110,6 +1194,7 @@ def main(argv=None):
             evaluation_interval=args.eval_interval,
             mixed_eval_games=args.mixed_eval_games,
             random_eval_games=args.random_eval_games,
+            allow_random_fallback=args.allow_random_fallback,
         )
     elif args.checkpoint and args.self_play:
         print(f"Starting self-play training against checkpoint: {args.checkpoint}")

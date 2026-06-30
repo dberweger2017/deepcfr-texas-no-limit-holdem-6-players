@@ -1,6 +1,7 @@
 import numpy as np
 import pokers as pkrs
 
+from src.agents.random_agent import RandomAgent
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import (
     DeepCFRAgentWithOpponentModeling,
 )
@@ -63,7 +64,7 @@ def test_om_traversal_stores_table_features_in_replay(monkeypatch):
         stake=20.0,
         seed=0,
     )
-    opponents = [None, None, None]
+    opponents = [None, RandomAgent(1), RandomAgent(2)]
 
     agent.cfr_traverse(state, iteration=1, opponents=opponents)
 

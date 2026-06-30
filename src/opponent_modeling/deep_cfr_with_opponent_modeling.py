@@ -25,9 +25,14 @@ from src.utils.checkpoints import (
     opponent_modeling_checkpoint_state,
     validate_checkpoint_compatibility,
 )
-from src.agents.random_agent import RandomAgent
 from src.utils import settings
 from src.utils.logging import apply_action_with_logging
+from src.utils.traversal_diagnostics import (
+    TraversalDiagnostics,
+    TraversalFailure,
+    fail_traversal,
+    failure_context,
+)
 
 class EnhancedPokerNetwork(nn.Module):
     """
@@ -138,6 +143,7 @@ class DeepCFRAgentWithOpponentModeling:
         # For keeping statistics
         self.iteration_count = 0
         self.local_training_iteration = 0
+        self.traversal_diagnostics = TraversalDiagnostics()
         
         # Bet sizing bounds (as multipliers of pot)
         self.min_bet_size = 0.1
@@ -282,8 +288,18 @@ class DeepCFRAgentWithOpponentModeling:
         max_depth = 1000
         if depth > max_depth:
             if model_settings.is_verbose():
-                print(f"WARNING: Max recursion depth reached ({max_depth}). Returning zero value.")
-            return 0
+                print(f"WARNING: Max recursion depth reached ({max_depth}). Raising traversal failure.")
+            fail_traversal(
+                self,
+                "max_depth",
+                **failure_context(
+                    state=state,
+                    depth=depth,
+                    iteration=iteration,
+                    player_id=self.player_id,
+                    message=f"Max recursion depth reached ({max_depth})",
+                ),
+            )
         
         if state.final_state:
             # Record the end of the game for opponent modeling
@@ -324,8 +340,18 @@ class DeepCFRAgentWithOpponentModeling:
                 # Handle the case if we have no opponent at this position (shouldn't happen)
                 if opponent is None:
                     if model_settings.is_verbose():
-                        print(f"WARNING: No opponent at position {current_player}, using random action")
-                    opponent = RandomAgent(current_player)
+                        print(f"WARNING: No opponent at position {current_player}. Raising traversal failure.")
+                    fail_traversal(
+                        self,
+                        "opponent_missing",
+                        **failure_context(
+                            state=state,
+                            depth=depth,
+                            iteration=iteration,
+                            player_id=self.player_id,
+                            message=f"No opponent at position {current_player}",
+                        ),
+                    )
                 
                 # Let the opponent choose an action
                 action = opponent.choose_action(state)
@@ -360,13 +386,38 @@ class DeepCFRAgentWithOpponentModeling:
                     if model_settings.is_verbose():
                         print(f"WARNING: Opponent made invalid action at depth {depth}. Status: {status}")
                         print(f"Details logged to {log_file}")
-                    return 0
+                    fail_traversal(
+                        self,
+                        "opponent_invalid_action",
+                        **failure_context(
+                            state=state,
+                            depth=depth,
+                            iteration=iteration,
+                            player_id=self.player_id,
+                            action=action,
+                            status=status,
+                            log_file=log_file,
+                        ),
+                    )
                     
                 return self.cfr_traverse(new_state, iteration, opponents, depth + 1)
+            except TraversalFailure:
+                raise
             except Exception as e:
                 if model_settings.is_verbose():
                     print(f"ERROR in opponent traversal: {e}")
-                return 0
+                fail_traversal(
+                    self,
+                    "opponent_exception",
+                    exception=e,
+                    **failure_context(
+                        state=state,
+                        depth=depth,
+                        iteration=iteration,
+                        player_id=self.player_id,
+                        message=str(e),
+                    ),
+                )
     
     def train_advantage_network(self, batch_size=128, epochs=3):
         """Train the advantage network using collected samples with opponent modeling."""
@@ -553,9 +604,18 @@ class DeepCFRAgentWithOpponentModeling:
         
         # Use the predicted bet size for raise actions
         if action_type == 2:  # Raise
-            return self.action_type_to_pokers_action(action_type, state, bet_size_multiplier)
+            return self.action_type_to_pokers_action(
+                action_type,
+                state,
+                bet_size_multiplier,
+                strict=settings.is_strict_checking(),
+            )
         else:
-            return self.action_type_to_pokers_action(action_type, state)
+            return self.action_type_to_pokers_action(
+                action_type,
+                state,
+                strict=settings.is_strict_checking(),
+            )
     
     def save_model(self, path_prefix):
         """Save the model to disk, including opponent modeling."""
