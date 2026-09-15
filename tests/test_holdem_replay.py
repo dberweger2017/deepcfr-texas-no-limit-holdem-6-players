@@ -60,6 +60,7 @@ def test_sampling_does_not_change_admission_and_clones_are_independent():
     memory = RoleReservoir(3, 3, 51)
     memory.extend(samples[:5])
     clone = memory.clone()
+    assert clone.fingerprint() == memory.fingerprint()
     before = memory.items, memory.seen, memory._random.getstate()
     batch = memory.sample(100, Random(1))
     assert set(batch) <= set(memory.items)

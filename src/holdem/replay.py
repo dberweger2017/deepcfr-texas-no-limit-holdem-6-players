@@ -1,7 +1,9 @@
 """Uniform role reservoirs with immutable targets and collection provenance."""
 
+import json
 from collections.abc import Sequence
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
+from hashlib import sha256
 from math import fsum, isclose, isfinite
 from random import Random
 
@@ -97,6 +99,20 @@ class RoleReservoir:
 
     def __len__(self) -> int:
         return len(self._items)
+
+    def fingerprint(self) -> str:
+        payload = {
+            "format": "holdem-role-reservoir-v1",
+            "role": self.role,
+            "capacity": self.capacity,
+            "seen": self.seen,
+            "samples": [asdict(item) for item in self._items],
+            "random": self._random.getstate(),
+        }
+        data = json.dumps(
+            payload, sort_keys=True, separators=(",", ":"), allow_nan=False
+        ).encode()
+        return sha256(data).hexdigest()
 
     def clone(self) -> "RoleReservoir":
         result = RoleReservoir(self.role, self.capacity, 0)
