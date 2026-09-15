@@ -6,6 +6,7 @@ import types
 import pokers as pkrs
 import pytest
 
+
 def make_stub(name):
     module = types.ModuleType(name)
     module.__spec__ = importlib.machinery.ModuleSpec(name, loader=None)
@@ -66,7 +67,9 @@ def test_tournament_logs_invalid_state_before_raising(tmp_path, monkeypatch):
         lambda checkpoint_path, player_id=0, device="cpu": DummyInvalidAgent(player_id),
     )
 
-    with pytest.raises(ValueError, match=r"State status not OK during tournament game 1"):
+    with pytest.raises(
+        ValueError, match=r"State status not OK during tournament game 1"
+    ):
         tournament_mod.run_tournament(["dummy.pt"], num_games=1, device="cpu")
 
     log_files = sorted((tmp_path / "logs").glob("poker_error_*.txt"))
@@ -77,7 +80,7 @@ def test_tournament_logs_invalid_state_before_raising(tmp_path, monkeypatch):
     assert "Action: ActionEnum.Raise" in log_text
 
 
-def test_all_in_side_pot_check_cycle_resolves_to_showdown():
+def test_engine_settles_all_ins_without_logging_repair():
     state = pkrs.State.from_seed(
         n_players=6,
         button=1,
@@ -86,21 +89,18 @@ def test_all_in_side_pot_check_cycle_resolves_to_showdown():
         stake=200.0,
         seed=61,
     )
-    actions = [
-        pkrs.Action(pkrs.ActionEnum.Raise, 4.679007411003113),
-        pkrs.Action(pkrs.ActionEnum.Fold),
-        pkrs.Action(pkrs.ActionEnum.Raise, 15.42989415118555),
-        pkrs.Action(pkrs.ActionEnum.Raise, 49.631354041135765),
-        pkrs.Action(pkrs.ActionEnum.Fold),
-        pkrs.Action(pkrs.ActionEnum.Call),
-        pkrs.Action(pkrs.ActionEnum.Call),
-        pkrs.Action(pkrs.ActionEnum.Raise, 128.25974439667556),
-        pkrs.Action(pkrs.ActionEnum.Call),
-        pkrs.Action(pkrs.ActionEnum.Fold),
-        pkrs.Action(pkrs.ActionEnum.Fold),
-    ]
+    from src.utils.actions import build_raise_action
 
-    for action in actions:
+    # The old engine needed logging code to force a showdown here. The engine
+    # now caps calls and settles directly, with no fabricated check actions.
+    for _ in range(6):
+        if state.final_state:
+            break
+        player = state.players_state[state.current_player]
+        if pkrs.ActionEnum.Raise in state.legal_actions:
+            action = build_raise_action(state, player.stake, strict=True)
+        else:
+            action = pkrs.Action(pkrs.ActionEnum.Call)
         state, _, status = apply_action_with_logging(state, action, strict=True)
         assert status == pkrs.StateStatus.Ok
 

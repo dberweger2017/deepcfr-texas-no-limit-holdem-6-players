@@ -1,6 +1,6 @@
 # DeepCFR Poker AI
 
-Deep CFR for 6-player no-limit Texas Hold'em, built on top of the [`pokers`](https://github.com/Reinforcement-Poker/pokers) environment. The focus here is a training workflow you can actually run from source, not a polished black box.
+Deep CFR for 6-player no-limit Texas Hold'em, built on top of the [`pokers`](https://github.com/dberweger2017/pokers) environment. The focus here is a training workflow you can actually run from source, not a polished black box.
 
 ## Development direction
 
@@ -10,11 +10,11 @@ The [roadmap](./ROADMAP.md) sets the implementation order, PR acceptance checks,
 
 The workflows below describe the existing implementation. Passing its tests does not establish complete rules compliance or strong play; the roadmap records the gaps the rewrite must close.
 
-## Where things stand (March 2026)
+## Where things stand (September 2026)
 
 This repo has come a long way since the March 2025 version described in the original Medium article. If the article and this README ever disagree, trust the README and the current scripts.
 
-The short version: you can clone this, install it, and start training from the repo without fighting the tooling first. The nasty all-in edge cases in the poker engine are handled by pinning a patched `pokers` fork in [requirements.txt](./requirements.txt), and the six-player all-in side-pot check cycles that used to hang tournaments and evaluation are now normalized in the shared action wrapper. The Phase 2 self-play and Phase 3 mixed-training regressions from issue `#22` are fixed on `main`, and there's regression coverage for both the poker-engine integration and the training paths.
+The first rules-engine rewrite is in place. The pinned Rust fork now handles integer chips, minimum raises and reopening, short calls, side pots, heads-up order, and automatic all-in runouts. Logging no longer repairs game state. See the [rules profile](docs/rules.md) and [engine audit](docs/engine-audit.md) for evidence and limits. Fair player observations, table sessions, and the learning rewrite remain on the roadmap.
 
 In practice that means standard Deep CFR has a clean three-stage flow now — random, self-play, mixed — and the opponent-modeling track exposes the same three stages instead of being a separate one-off. `--checkpoint` means the same thing everywhere ("continue from this checkpoint"), mixed checkpoint discovery walks subdirectories recursively, and opponent modeling, while still more experimental on learning quality, at least follows the same workflow as everything else.
 
@@ -22,13 +22,13 @@ The Medium article is still good background reading, but the code has moved on.
 
 ## Installation
 
-Run it from source. That's the path I actually maintain.
+Run from source using Python 3.10 or 3.11 and a Rust toolchain. Python 3.11 is the development default; newer Python versions need a separate PyO3 upgrade.
 
 ```bash
 git clone https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players.git
 cd deepcfr-texas-no-limit-holdem-6-players
 
-python3 -m venv .venv
+python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
@@ -47,7 +47,7 @@ That's a working-code milestone. Real poker strength still needs longer training
 
 ## Architecture
 
-The setup is a 6-player no-limit Texas Hold'em environment from [`pokers`](https://github.com/Reinforcement-Poker/pokers), fed a fixed-length state encoding that covers hole cards, board cards, stage, pot, positions, player states, min bet, legal actions, and the previous action.
+The setup is a 6-player no-limit Texas Hold'em environment from [`pokers`](https://github.com/dberweger2017/pokers), fed a fixed-length state encoding that covers hole cards, board cards, stage, pot, positions, player states, min bet, legal actions, and the previous action.
 
 The network is a shared feed-forward body with two heads: an action head (`Fold`, `Check/Call`, `Raise`) and a sizing head for continuous raise sizing in roughly the `0.1x` to `3.0x` pot range. Advantage training uses prioritized replay, policy updates draw from a separate strategy memory, and the opponent-modeling variants add a GRU-based action-history encoder on top.
 
@@ -327,14 +327,15 @@ What they cover:
 
 - `tests/test_evaluation_cli.py` — the checkpoint evaluation CLI
 - `tests/test_training_opponent_modeling_regressions.py` — OM self-play smoke test, OM self-play rejecting standard checkpoints, and the unified OM training CLI dispatch
+- `tests/test_engine_integration.py` — strict sizing and logging adapters over 300 unequal-stack hands with four to six players
 - `tests/test_pokers_regressions.py` — all-in and legal-action regressions inherited from `pokers`
 - `tests/test_training_regressions.py` — self-play and mixed-training smoke tests, mixed-training continuation from checkpoint, replay-memory shape consistency, explicit `.pt` save-path handling
-- `tests/test_logging_regressions.py` — UTF-8 log writing, tournament invalid-state logging, six-player all-in side-pot check-cycle resolution
+- `tests/test_logging_regressions.py` — UTF-8 log writing, tournament invalid-state logging, automatic all-in settlement without logging repair
 - `tests/test_state_scenarios.py` — deterministic edge-case hand scenarios
 
 ## A note on results
 
-Some of the older README claims and article screenshots implied a steadier training outcome than this repo can honestly promise. What's safe to say today is that the main training paths run, the issue `#22` training-path bugs are fixed, the all-in legal-action bugs that were breaking games are fixed in the pinned `pokers` fork, and the six-player all-in side-pot check cycles get resolved before they can hang a tournament or evaluation loop.
+The main training paths run, but the learning algorithm and evaluation still need the work described in the roadmap. The engine now plays a corrected game, so results and checkpoints from the old rules are historical records, not strength benchmarks for this version.
 
 Some recent local benchmark numbers, from a standard Phase 1 run and a self-play continuation off `checkpoint_iter_3000.pt`:
 

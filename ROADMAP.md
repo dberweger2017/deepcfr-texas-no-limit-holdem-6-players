@@ -66,8 +66,10 @@ The items below are proposed PR-sized changes, not existing PR numbers. Split an
 
 ### 1. Establish the rules and a trustworthy environment
 
+**Engine foundation delivered:** [rules profile](docs/rules.md) and [fork audit](docs/engine-audit.md). The repaired Rust engine supplies integer chips, legal betting, side pots, and reference tests. The observation and session gates below remain open.
+
 - [ ] **Specify the game and observation contract.** Add `docs/rules.md`, typed public observations and actions, integer chip units, explicit raise-to semantics, and a compact decision record for the initial rule profile. Add CI for the full test suite, installation, and a headless smoke run.
-- [ ] **Validate betting and settlement.** Port useful regression scenarios, add property-based tests, and compare supported hands with an independent reference implementation. Audit the pinned engine before deciding whether to repair or replace it. Reproduce the raise from 2 to 10: the next full minimum raise-to is 18, not 20 or 11.
+- [x] **Validate betting and settlement.** Port useful regression scenarios, add property-based tests, and compare supported hands with an independent reference implementation. Audit the pinned engine before deciding whether to repair or replace it. Reproduce the raise from 2 to 10: the next full minimum raise-to is 18, not 20 or 11.
 - [ ] **Implement the session lifecycle.** Handle four to six occupied seats, button/blind movement, sit-outs, player replacement, unequal stacks, and top-ups between hands. Keep absent, folded, and all-in players distinct. Record replayable public events.
 
 Cover full and short all-in raises, reopening action, cumulative short raises under the chosen profile, side pots, ties, odd chips, uncalled bets, and players leaving after a hand. Terminal rewards must reconcile with chip movement. With rake enabled, reconcile player losses with house collection rather than expecting a zero-sum player result.

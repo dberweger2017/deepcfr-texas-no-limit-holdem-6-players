@@ -35,14 +35,13 @@ setup(
         "Source Code": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players",
     },
     classifiers=[
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Intended Audience :: Science/Research",
     ],
-    python_requires='>=3.8',
+    python_requires='>=3.10,<3.12',
     include_package_data=True,  # Include non-Python files
 )
