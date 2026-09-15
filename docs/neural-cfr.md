@@ -59,6 +59,8 @@ Each evaluation reports three separate strategies:
 
 These gaps are informative but not additive exploitability components: different errors can sometimes offset each other. An empirical average can outperform the exact played average in a finite sample. Keep the actual neural result even when another diagnostic looks better.
 
+The local batch size is 256. The original paper reports batches of 10,000 for FHP and 20,000 for HULH in [section 5.2](https://proceedings.mlr.press/v97/brown19b/brown19b.pdf). Matching its number of optimizer steps therefore does not match its fitting effort or gradient variance. Batch size and optimizer noise are relevant follow-up variables if a longer fit still leaves a policy gap.
+
 A separate controlled fitting check uses fixed equilibrium policy labels and analytically computed conditional advantages on every information set. It checks model capacity and optimization before self-play. Those labels are created in separate memories and never enter a self-play run.
 
 ## Commands and artifacts
