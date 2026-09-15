@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "campaigns": {
+    "leduc": {
+      "training": {
+        "game": "leduc",
+        "iterations": 480,
+        "training": {
+          "hidden": 64,
+          "traversals": 1024,
+          "advantage_steps": 4000,
+          "strategy_steps": 48000,
+          "batch_size": 256,
+          "capacity": 200000,
+          "learning_rate": 0.001,
+          "seed": 0,
+          "strategy_hidden": 128,
+          "strategy_learning_rate_schedule": "cosine",
+          "strategy_final_learning_rate": 1e-05
+        },
+        "evaluation_interval": 120,
+        "maximum_seconds": 5100,
+        "version": 1,
+        "execution": "cpu-campaign"
+      },
+      "seeds": [
+        401,
+        409,
+        419,
+        421,
+        431,
+        433,
+        439,
+        443
+      ],
+      "maximum_exploitability": 0.15,
+      "maximum_value_error": 0.1,
+      "reference_sha256": "a89e9212fc10abd7cd00a84cd529f37df0c694a25f137fc6fc40005f21517a63",
+      "version": 1
+    },
+    "kuhn": {
+      "training": {
+        "game": "kuhn",
+        "iterations": 100,
+        "training": {
+          "hidden": 64,
+          "traversals": 1024,
+          "advantage_steps": 1000,
+          "strategy_steps": 6000,
+          "batch_size": 256,
+          "capacity": 100000,
+          "learning_rate": 0.001,
+          "seed": 0,
+          "strategy_hidden": 64,
+          "strategy_learning_rate_schedule": "constant",
+          "strategy_final_learning_rate": null
+        },
+        "evaluation_interval": 20,
+        "maximum_seconds": 800,
+        "version": 1,
+        "execution": "cpu-campaign"
+      },
+      "seeds": [
+        401,
+        409,
+        419,
+        421,
+        431,
+        433,
+        439,
+        443
+      ],
+      "maximum_exploitability": 0.03,
+      "maximum_value_error": 0.03,
+      "reference_sha256": "a89e9212fc10abd7cd00a84cd529f37df0c694a25f137fc6fc40005f21517a63",
+      "version": 1
+    }
+  },
+  "comparison": {
+    "game": "leduc",
+    "checkpoint": "final",
+    "schedule": "constant",
+    "maximum_seconds": 600,
+    "replicates": 1
+  },
+  "resources": {
+    "workers": 8,
+    "worker_seconds": 6000,
+    "maximum_seconds": 6600,
+    "rental_seconds": 7200,
+    "retrieval_reserve_seconds": 600,
+    "maximum_usd": 2.5,
+    "maximum_hourly_usd": 1.2,
+    "minimum_vcpus": 16,
+    "minimum_ram_gb": 32
+  },
+  "acceptance": {
+    "final_only": true,
+    "all_seeds_required": true,
+    "paired_regressions_are_vetoes": false
+  }
+}

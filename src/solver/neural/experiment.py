@@ -70,6 +70,7 @@ def provenance(plan: dict) -> dict:
         ROOT / "scripts/run_strategy_study.py",
         ROOT / "scripts/study_worker.py",
         ROOT / "scripts/cpu_pilot.py",
+        ROOT / "scripts/run_neural_readiness.py",
     ]
     source = {
         str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in files
