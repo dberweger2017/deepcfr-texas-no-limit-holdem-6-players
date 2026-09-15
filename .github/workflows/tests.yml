@@ -30,3 +30,5 @@ jobs:
         run: python -m pytest -q
       - name: Check the public observation interface end to end
         run: python -m scripts.check_game --players 6 --hands 20
+      - name: Check sessions with changing lineups and bankrolls
+        run: python -m scripts.check_session --hands 30

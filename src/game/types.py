@@ -95,3 +95,13 @@ def pots_for(players: tuple[Player, ...]) -> tuple[Pot, ...]:
             pots.append(pot)
         previous = cap
     return tuple(pots)
+
+
+@dataclass(frozen=True, slots=True)
+class TableSeat:
+    """Physical table occupancy at the start of a hand, including players dealt out."""
+
+    seat: int
+    player_id: str
+    stack: int
+    status: str

@@ -2,6 +2,7 @@
 
 import inspect
 from typing import Any, Dict, Optional, Sequence
+from uuid import uuid4
 
 import pokers as pkrs
 from src.game.legacy import TrackedState
@@ -139,11 +140,15 @@ def evaluate_agent_matchup(
     label: str = "evaluation",
     record_opponent_history: bool = False,
     print_warnings: bool = False,
+    player_ids: Optional[Sequence[str]] = None,
 ) -> Dict[str, Any]:
     """Play seeded hands and return stable evaluation metrics."""
     if strict is None:
         strict = settings.is_strict_checking()
 
+    if player_ids is None:
+        lineup_id = uuid4().hex
+        player_ids = tuple(f"{lineup_id}/player-{seat}" for seat in range(num_players))
     total_profit = 0.0
     completed_games = 0
     invalid_state_games = 0
@@ -183,6 +188,7 @@ def evaluate_agent_matchup(
                 stake=stake,
                 seed=seed_start + game,
                 hand_id=f"evaluation-{game}",
+                player_ids=player_ids,
                 histories=histories,
             )
 
@@ -293,6 +299,7 @@ def evaluate_agent_matchup(
                 and not state.final_state
             ):
                 agent.current_game_history = {}
+                agent._recording_hand = None
 
     avg_profit = total_profit / completed_games if completed_games else 0.0
     rates = _action_rates(agent_action_counts)

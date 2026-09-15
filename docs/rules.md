@@ -24,6 +24,6 @@ The observation layer adds the named `nlhe-cash-auto-muck-v1` disclosure profile
 
 ## Table sessions and exclusions
 
-Participants and stacks are fixed for a hand. The engine accepts a different lineup and unequal stacks for the next hand, but this project still needs a session manager for occupied seats, public identities, joins, departures, sit-outs, top-ups, and button/blind movement. The session layer must also associate the old opponent model's feature history with public player identities when seats change.
+Participants and stacks are fixed for a hand. The [session manager](sessions.md) now handles occupied physical seats, public identities, bankrolls, joins, departures, sit-outs, top-ups, and button/blind movement. Its `nlhe-moving-button-wait-bb-v1` profile uses a forward-moving button and big-blind-only entry for new or returning players. Changes are accepted only between settled hands. Private records and the old opponent model's feature histories follow public identities when seats change. The session contract specifies heads-up transitions, all-away reopening, buy-in bounds, public spectator records, and replay.
 
 Rake, antes, straddles, multiple runouts, tournament payouts, and live-dealer irregularities are outside this initial profile. Any addition needs a named rule choice and its own checks. The corrected engine is a foundation for training; it does not establish playing strength or make historical checkpoints valid benchmarks for this game.
