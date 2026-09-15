@@ -34,6 +34,7 @@ class Plan:
     evaluation_interval: int = 10
     maximum_seconds: float = 840
     version: int = 1
+    execution: str = "local"
 
     def __post_init__(self):
         if (
@@ -47,12 +48,15 @@ class Plan:
                 raise ValueError(
                     "Iterations and evaluation interval must be positive integers"
                 )
+        limits = {"local": 840, "cpu-campaign": 7200}
+        if self.execution not in limits:
+            raise ValueError("Unknown neural execution profile")
         if (
             type(self.maximum_seconds) not in (int, float)
             or not np.isfinite(self.maximum_seconds)
-            or not 0 < self.maximum_seconds <= 840
+            or not 0 < self.maximum_seconds <= limits[self.execution]
         ):
-            raise ValueError("Local pilot must be bounded by 840 seconds")
+            raise ValueError(f"{self.execution} run exceeds its runtime limit")
 
     @classmethod
     def from_dict(cls, value):
@@ -63,6 +67,9 @@ def provenance(plan: dict) -> dict:
     files = sorted((ROOT / "src/solver").rglob("*.py")) + [
         ROOT / "scripts/check_deep_cfr.py",
         ROOT / "scripts/check_neural_convergence.py",
+        ROOT / "scripts/run_strategy_study.py",
+        ROOT / "scripts/study_worker.py",
+        ROOT / "scripts/cpu_pilot.py",
     ]
     source = {
         str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in files

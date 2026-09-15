@@ -38,7 +38,7 @@ The encoder accepts an immutable `InformationSet`, never a privileged `State`. I
 
 The encoding is injective across the 300 Kuhn/Leduc information sets. It contains no opponent card, undealt board, deck order, random seed, simulator node number, or replay index. Suits are strategically irrelevant in Leduc and remain omitted under the reference game's symmetry convention.
 
-The network has two ReLU hidden layers and three output slots: fold, check/call, raise. The default hidden size is 64. A value network's outputs are advantages; a policy network's outputs are logits. The legal mask excludes unavailable actions from regret matching, softmax, and fitting loss. Final inference probabilities are normalized in float64 for the exact evaluator.
+The network has two ReLU hidden layers and three output slots: fold, check/call, raise. The default hidden size is 64. `hidden` controls advantage-network capacity; optional `strategy_hidden` independently controls strategy capacity and follows `hidden` when omitted. Snapshot recovery and inference loading preserve those separate widths. A value network's outputs are advantages; a policy network's outputs are logits. The legal mask excludes unavailable actions from regret matching, softmax, and fitting loss. Final inference probabilities are normalized in float64 for the exact evaluator.
 
 The small tree lets us cache predictions for every public information set between fits. Replay stores an index into that public feature table, but the index is never a neural input. Collection still samples trajectories and learns only from their samples. This cache and full-tree diagnostics are conveniences for small-game validation; they do not provide a large-game traversal architecture.
 
@@ -74,7 +74,7 @@ python -m scripts.check_deep_cfr --plan configs/solver/neural-leduc-v1.json --ou
 python -m scripts.check_deep_cfr --refit-plan configs/solver/neural-leduc-v1.json --out results/neural-leduc-refit
 ```
 
-Run jobs sequentially. Each command is bounded by at most 840 seconds, checked between traversals and optimizer steps. Small setup, evaluation, and final writes may finish after the last deadline check; this is not an operating-system kill timer. A partial failed iteration cannot be continued. Timeouts/errors remain explicit and do not export a partial policy.
+Run local jobs sequentially. Local plans are bounded by at most 840 seconds, checked between traversals and optimizer steps. Explicit `cpu-campaign` plans permit up to 7,200 seconds under a separately declared rental budget. The [strategy-capacity study](strategy-capacity-study.md) adds process deadlines around independently seeded workers. Small setup, evaluation, and final writes may finish after the inner training deadline; that inner check is not an operating-system kill timer. A partial failed iteration cannot be continued. Timeouts/errors remain explicit and do not export a partial policy.
 
 The [declared validation protocol and results](reports/neural-validation.md) distinguish controlled fitting acceptance from single-seed self-play diagnostics. A pilot's `completed` status means its declared work finished, not that it passed a convergence or strength threshold. Multi-seed convergence thresholds remain a separate gate.
 

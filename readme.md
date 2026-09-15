@@ -67,12 +67,12 @@ The project began as an earlier Deep CFR implementation. We are rebuilding its l
 | Evaluation | Reproducible schedules, separate data splits, paired reports, varied style opponents, and hash-pinned historical models. Professional-strength opponents remain an open requirement. [Benchmark guide](docs/benchmarks.md) |
 | Tabular reference | Kuhn and Leduc CFR checked against exact best responses and independently solved equilibrium values. [Results](docs/reports/tabular-validation.md) |
 | Neural baseline | Separate small-game Deep CFR with uniform reservoirs, weighted fitting, a learned average strategy, and complete training recovery. [Contract](docs/neural-cfr.md) |
-| Neural convergence | Three Kuhn seeds pass. All three Leduc seeds fail the final exploitability limit; the fitted strategy network loses accuracy relative to the collected average strategy. [Results and plots](docs/reports/neural-convergence.md) |
+| Neural convergence | Three earlier Kuhn seeds pass. A new twelve-seed Leduc study improves strategy fitting, but every larger-network recipe still fails on one seed. Fresh confirmation remains unused. [Latest results and plots](docs/reports/strategy-capacity.md) |
 | Full Hold’em learning | Legacy trainers and play interfaces exist. The validated no-limit learning rewrite, substantial training, and professional-level qualification are still ahead. |
 
-**Current blocker:** stable average-strategy fitting in Leduc. Longer fitting reduced training loss without reliably improving playing strength; a wider network helped but still missed the declared limit. We will investigate fitting stability and replay coverage, then run a fresh multi-seed confirmation before moving the learning rewrite into Hold’em.
+**Current blocker:** stable average-strategy fitting in Leduc. After 480 iterations, every seed’s exact played average and replay average meets the exploitability limit, but the best neural recipe still misses on one of twelve seeds: 0.151373 against 0.15. We will inspect fitting errors in individual decision situations using the saved replay, then freeze a revised recipe before fresh confirmation. Milestone 3 remains open; the no-limit learning rewrite comes after it passes.
 
-The [latest report](docs/reports/neural-convergence.md) records 260 passing regression tests and successful deterministic resume checks. Those establish implementation evidence, not professional poker strength.
+The [latest report](docs/reports/strategy-capacity.md) records 271 passing tests, deterministic parallel checks, all twelve training trajectories, and all 144 planned strategy comparisons. Those establish implementation and small-game learning evidence, not professional poker strength.
 
 ## The route to 1.0
 
@@ -85,7 +85,7 @@ The [latest report](docs/reports/neural-convergence.md) records 260 passing regr
 
 The [roadmap](ROADMAP.md) contains the PR-sized work, acceptance checks, and current next task. Completing implementation milestones does not waive the release standard above.
 
-Vast.ai is the planned rental provider. Hardware choice follows profiling and a cost/performance comparison; no particular GPU or rental budget is committed. Larger compute is useful only when it improves the measured training and evaluation workflow.
+Vast.ai remains a candidate for substantial training. Bounded Runpod CPU studies have already measured parallel throughput and tested small-game learning. Future hardware choices follow profiling and a cost/performance comparison; no GPU campaign is committed.
 
 ## Quick start
 
@@ -135,7 +135,7 @@ Use fresh output directories; runners preserve existing results. These commands 
 | [Observations](docs/observations.md) / [sessions](docs/sessions.md) | What the agent can see and how tables change between hands |
 | [Evaluation arena](docs/evaluation.md) / [benchmarks](docs/benchmarks.md) | Schedules, opponents, metrics, and reproducible comparisons |
 | [Tabular solver](docs/solver-reference.md) / [neural solver](docs/neural-cfr.md) | Learning conventions, commands, snapshots, and diagnostics |
-| [Latest convergence report](docs/reports/neural-convergence.md) | All seeds, failures, plots, fitting experiments, and the next decision |
+| [Latest strategy-capacity report](docs/reports/strategy-capacity.md) | All seeds, failures, learning curves, rental costs, and the next decision |
 | [Legacy workflows](docs/legacy-workflows.md) | Existing Hold’em training, checkpoint evaluation, CLI/GUI play, and historical results |
 
 The legacy workflows are retained for experiments and regression coverage. They are separate from the validated small-game solver and are not the 1.0 training recipe.
