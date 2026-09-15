@@ -35,6 +35,8 @@ def make_state(
         min_bet=min_bet,
         pot=pot,
         bb=bb,
+        min_raise=bb,
+        chip_unit=0.01,
     )
 
 
@@ -73,7 +75,7 @@ def test_build_raise_action_clamps_to_remaining_stake():
     assert action.amount == 16.0
 
 
-def test_raise_falls_back_when_call_leaves_less_than_min_raise():
+def test_short_all_in_raise_is_preserved():
     state = make_state(
         [pkrs.ActionEnum.Fold, pkrs.ActionEnum.Call, pkrs.ActionEnum.Raise],
         min_bet=6.0,
@@ -84,7 +86,8 @@ def test_raise_falls_back_when_call_leaves_less_than_min_raise():
 
     action = build_raise_action(state, 10.0)
 
-    assert action.action == pkrs.ActionEnum.Call
+    assert action.action == pkrs.ActionEnum.Raise
+    assert action.amount == 1.0
 
 
 def test_action_type_raise_uses_pot_multiplier_and_sanitizes():
@@ -107,35 +110,20 @@ def test_action_type_raise_uses_pot_multiplier_and_sanitizes():
     assert action.amount == 10.0
 
 
-def test_build_raise_action_steps_down_when_engine_rejects_exact_max():
-    state = make_state(
-        [pkrs.ActionEnum.Fold, pkrs.ActionEnum.Call, pkrs.ActionEnum.Raise],
-        min_bet=2.0,
-        current_bet=0.0,
-        stake=12.0,
-        pot=10.0,
-        bb=2.0,
-    )
-
-    def apply_action(action):
-        status = (
-            pkrs.StateStatus.HighBet
-            if action.action == pkrs.ActionEnum.Raise and action.amount >= 10.0
-            else pkrs.StateStatus.Ok
-        )
-        return types.SimpleNamespace(status=status)
-
-    state.apply_action = apply_action
-
-    action = build_raise_action(state, 1000.0)
-
-    assert action.action == pkrs.ActionEnum.Raise
-    assert action.amount < 10.0
-    assert action.amount >= 2.0
+def test_raise_rounds_to_chip_unit():
+    state = make_state([pkrs.ActionEnum.Call, pkrs.ActionEnum.Raise])
+    action = build_raise_action(state, 4.679007411003113, strict=True)
+    assert action.amount == 4.68
 
 
 def test_sanitize_action_preserves_legal_non_raise_and_fallbacks_illegal():
     state = make_state([pkrs.ActionEnum.Check])
 
-    assert sanitize_action(state, pkrs.Action(pkrs.ActionEnum.Check)).action == pkrs.ActionEnum.Check
-    assert sanitize_action(state, pkrs.Action(pkrs.ActionEnum.Raise, 100.0)).action == pkrs.ActionEnum.Check
+    assert (
+        sanitize_action(state, pkrs.Action(pkrs.ActionEnum.Check)).action
+        == pkrs.ActionEnum.Check
+    )
+    assert (
+        sanitize_action(state, pkrs.Action(pkrs.ActionEnum.Raise, 100.0)).action
+        == pkrs.ActionEnum.Check
+    )

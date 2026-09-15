@@ -12,6 +12,7 @@ REGRESSION_TESTS = [
     "tests/test_state_scenarios.py",
     "tests/test_logging_regressions.py",
     "tests/test_pokers_regressions.py",
+    "tests/test_engine_integration.py",
     "tests/test_training_regressions.py",
 ]
 

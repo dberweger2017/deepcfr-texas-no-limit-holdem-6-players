@@ -1,6 +1,8 @@
 """Shared action helpers for mapping model decisions to legal pokers actions."""
 
 from dataclasses import dataclass
+from decimal import Decimal, ROUND_HALF_UP
+import math
 from typing import Iterable, List, Optional
 
 import pokers as pkrs
@@ -72,7 +74,10 @@ def legal_action_types(state) -> List[int]:
     action_types = []
     if pkrs.ActionEnum.Fold in state.legal_actions:
         action_types.append(ACTION_TYPE_FOLD)
-    if pkrs.ActionEnum.Check in state.legal_actions or pkrs.ActionEnum.Call in state.legal_actions:
+    if (
+        pkrs.ActionEnum.Check in state.legal_actions
+        or pkrs.ActionEnum.Call in state.legal_actions
+    ):
         action_types.append(ACTION_TYPE_CHECK_CALL)
     if pkrs.ActionEnum.Raise in state.legal_actions:
         action_types.append(ACTION_TYPE_RAISE)
@@ -80,16 +85,8 @@ def legal_action_types(state) -> List[int]:
 
 
 def min_raise_increment(state) -> float:
-    """Best available estimate for a valid additional raise amount."""
-    bb = getattr(state, "bb", None)
-    if bb is not None and float(bb) > 0:
-        return max(1.0, float(bb))
-
-    current_player_state = state.players_state[state.current_player]
-    to_call = max(0.0, float(state.min_bet) - float(current_player_state.bet_chips))
-    if float(state.min_bet) > 0:
-        return max(1.0, to_call if to_call > 0 else float(state.min_bet))
-    return 1.0
+    """The engine tracks the last full raise, including short all-in exceptions."""
+    return float(state.min_raise)
 
 
 def raise_bounds(state) -> RaiseBounds:
@@ -101,7 +98,9 @@ def raise_bounds(state) -> RaiseBounds:
     max_raise = max(0.0, available_stake - call_amount)
     return RaiseBounds(
         call_amount=call_amount,
-        min_raise=min_raise_increment(state),
+        min_raise=min(min_raise_increment(state), max_raise)
+        if max_raise > 0
+        else min_raise_increment(state),
         max_raise=max_raise,
         current_bet=current_bet,
         available_stake=available_stake,
@@ -126,46 +125,40 @@ def build_raise_action(
             state.legal_actions,
             strict=strict,
             reason="Raise requested when raise is not legal",
-            attempted_action=pkrs.Action(pkrs.ActionEnum.Raise, additional_amount or 0.0),
+            attempted_action=pkrs.Action(
+                pkrs.ActionEnum.Raise, additional_amount or 0.0
+            ),
             fallback_recorder=fallback_recorder,
         )
 
     bounds = raise_bounds(state)
-    if not bounds.can_raise and not strict:
+    if not bounds.can_raise:
         return safe_fallback_action(
             state.legal_actions,
+            strict=strict,
             reason="Raise requested but computed raise bounds are invalid",
-            attempted_action=pkrs.Action(pkrs.ActionEnum.Raise, additional_amount or 0.0),
             fallback_recorder=fallback_recorder,
         )
 
     if additional_amount is None:
-        additional_amount = bounds.min_raise if bounds.can_raise else bounds.max_raise
+        additional_amount = bounds.min_raise
+    if not math.isfinite(float(additional_amount)):
+        raise ActionMappingFailure("Raise amount must be finite")
 
-    additional_amount = float(additional_amount)
-    if bounds.can_raise:
-        additional_amount = min(max(additional_amount, bounds.min_raise), bounds.max_raise)
-    else:
-        additional_amount = min(max(0.0, additional_amount), bounds.max_raise)
-
-    total_commit = bounds.call_amount + additional_amount
-    epsilon = 1e-5
-    if total_commit > bounds.available_stake + epsilon:
-        additional_amount = max(0.0, bounds.available_stake - bounds.call_amount)
-
-    if additional_amount + epsilon < bounds.min_raise and not strict:
-        return safe_fallback_action(
-            state.legal_actions,
-            reason="Raise requested below the minimum legal raise",
-            attempted_action=pkrs.Action(pkrs.ActionEnum.Raise, additional_amount),
-            fallback_recorder=fallback_recorder,
-        )
-
-    return _validated_raise_or_fallback(
-        state,
-        bounds,
-        additional_amount,
+    unit = Decimal(str(state.chip_unit))
+    amount = Decimal(str(additional_amount))
+    additional_amount = float(
+        (amount / unit).to_integral_value(rounding=ROUND_HALF_UP) * unit
+    )
+    additional_amount = min(max(additional_amount, bounds.min_raise), bounds.max_raise)
+    action = pkrs.Action(pkrs.ActionEnum.Raise, additional_amount)
+    if _engine_accepts_action(state, action):
+        return action
+    return safe_fallback_action(
+        state.legal_actions,
         strict=strict,
+        reason="Engine rejected the rounded raise amount",
+        attempted_action=action,
         fallback_recorder=fallback_recorder,
     )
 
@@ -180,43 +173,6 @@ def _engine_accepts_action(state, action: pkrs.Action) -> bool:
         return apply_action(action).status == pkrs.StateStatus.Ok
     except Exception:
         return False
-
-
-def _validated_raise_or_fallback(
-    state,
-    bounds: RaiseBounds,
-    additional_amount: float,
-    *,
-    strict: bool = False,
-    fallback_recorder=None,
-) -> pkrs.Action:
-    """Return the closest engine-accepted raise, or a non-raise fallback."""
-    candidates = [max(0.0, additional_amount)]
-
-    # Some all-in edges are rejected by the engine at exact float equality.
-    # Try tiny reductions before abandoning the raise decision.
-    for epsilon in (1e-6, 1e-4, 1e-2):
-        stepped_down = additional_amount - epsilon
-        if stepped_down + 1e-9 >= bounds.min_raise:
-            candidates.append(stepped_down)
-
-    if bounds.min_raise not in candidates:
-        candidates.append(bounds.min_raise)
-    if bounds.max_raise not in candidates:
-        candidates.append(bounds.max_raise)
-
-    for candidate in candidates:
-        action = pkrs.Action(pkrs.ActionEnum.Raise, candidate)
-        if _engine_accepts_action(state, action):
-            return action
-
-    return safe_fallback_action(
-        state.legal_actions,
-        strict=strict,
-        reason="No candidate raise amount was accepted by the engine",
-        attempted_action=pkrs.Action(pkrs.ActionEnum.Raise, additional_amount),
-        fallback_recorder=fallback_recorder,
-    )
 
 
 def sanitize_action(
@@ -286,7 +242,9 @@ def action_type_to_pokers_action(
     if action_type == ACTION_TYPE_RAISE:
         if bet_size_multiplier is None:
             bet_size_multiplier = 1.0
-        bet_size_multiplier = max(min_bet_size, min(max_bet_size, float(bet_size_multiplier)))
+        bet_size_multiplier = max(
+            min_bet_size, min(max_bet_size, float(bet_size_multiplier))
+        )
         desired_additional_raise = max(1.0, float(state.pot)) * bet_size_multiplier
         return build_raise_action(
             state,
