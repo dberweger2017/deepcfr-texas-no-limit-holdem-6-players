@@ -5,16 +5,19 @@ from pathlib import Path
 from time import perf_counter
 
 from src.arena.artifacts import manifest, validate_manifest, write_json
+from src.arena.registry import PolicyRegistry
 from src.arena.report import markdown, performance, summarize
 from src.arena.runner import run_schedule
 from src.arena.schedule import Plan, build_schedule, canonical, schedule_document
 
 
-def run(plan: Plan, output: Path) -> dict:
-    inputs = manifest(plan)
+def run(plan: Plan, output: Path, *, registry: PolicyRegistry | None = None) -> dict:
+    registry = registry or PolicyRegistry(plan)
+    inputs = manifest(plan, registry)
     output.mkdir(parents=True, exist_ok=False)
     write_json(output / "manifest.json", inputs)
     write_json(output / "schedule.json", schedule_document(plan))
+    registry.snapshot(output)
     rows, timings = [], []
     started = perf_counter()
     try:
@@ -31,7 +34,10 @@ def run(plan: Plan, output: Path) -> dict:
                 rows.append(row)
                 timings.append(timing)
 
-            run_schedule(plan, build_schedule(plan), emit)
+            with registry.runtime():
+                run_schedule(
+                    plan, build_schedule(plan), emit, factory=registry.make_policy
+                )
     finally:
         report = summarize(plan, rows)
         report["performance"] = performance(timings, perf_counter() - started)
@@ -42,13 +48,16 @@ def run(plan: Plan, output: Path) -> dict:
 
 def reproduce(original: Path, output: Path) -> dict:
     inputs = json.loads((original / "manifest.json").read_text(encoding="utf-8"))
-    plan = validate_manifest(inputs)
+    registry = PolicyRegistry(
+        Plan.from_dict(inputs["plan"]), artifact_dir=original / "models"
+    )
+    plan = validate_manifest(inputs, registry)
     expected_schedule = json.loads(
         (original / "schedule.json").read_text(encoding="utf-8")
     )
     if canonical(expected_schedule) != canonical(schedule_document(plan)):
         raise ValueError("Stored schedule does not match the manifest")
-    result = run(plan, output)
+    result = run(plan, output, registry=registry)
     if result["status"] != "valid":
         raise ValueError("Reproduction did not complete successfully")
     if (original / "hands.jsonl").read_bytes() != (output / "hands.jsonl").read_bytes():

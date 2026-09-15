@@ -9,15 +9,14 @@ from hashlib import sha256
 from importlib import metadata
 from pathlib import Path
 
-from src.arena.heuristics import STYLES
-from src.arena.policies import POLICIES
+from src.arena.registry import PolicyRegistry
 from src.arena.report import CONFIDENCE, MINIMUM_BLOCKS
 from src.arena.schedule import Plan, digest, schedule_document
 from src.game.observation import RULES_PROFILE, SCHEMA_VERSION
 from src.game.session import SESSION_PROFILE
 
 ROOT = Path(__file__).resolve().parents[2]
-ARTIFACT_VERSION = 1
+ARTIFACT_VERSION = 2
 
 
 def git(*args):
@@ -63,25 +62,8 @@ def source_fingerprint() -> str:
     )
 
 
-def policy_fingerprints(plan: Plan) -> dict:
-    source = sha256(
-        (ROOT / "src/arena/policies.py").read_bytes()
-        + (ROOT / "src/game/play.py").read_bytes()
-        + (ROOT / "src/arena/heuristics.py").read_bytes()
-    ).hexdigest()
-    result = {}
-    for name in sorted({plan.candidate, plan.baseline, *plan.opponents}):
-        if name not in POLICIES and name not in STYLES:
-            raise ValueError(f"Unsupported policy: {name}")
-        result[name] = {
-            "kind": "builtin",
-            "implementation_sha256": source,
-            "weights_sha256": None,
-        }
-    return result
-
-
-def manifest(plan: Plan) -> dict:
+def manifest(plan: Plan, registry: PolicyRegistry | None = None) -> dict:
+    registry = registry or PolicyRegistry(plan)
     return {
         "version": ARTIFACT_VERSION,
         "plan": asdict(plan),
@@ -94,9 +76,10 @@ def manifest(plan: Plan) -> dict:
         "revision": git("rev-parse", "HEAD"),
         "dirty": bool(git("status", "--porcelain")),
         "source_sha256": source_fingerprint(),
-        "policies": policy_fingerprints(plan),
+        "policies": registry.fingerprints(),
         "environment": environment(),
         "protocol": {
+            "inference": registry.inference_config,
             "confidence": CONFIDENCE,
             "minimum_blocks": MINIMUM_BLOCKS,
             "interval": "student-t-over-independent-block-means",
@@ -113,11 +96,11 @@ def write_json(path: Path, value):
     )
 
 
-def validate_manifest(value: dict) -> Plan:
+def validate_manifest(value: dict, registry: PolicyRegistry | None = None) -> Plan:
     if value.get("version") != ARTIFACT_VERSION:
         raise ValueError("Unsupported arena manifest version")
     plan = Plan.from_dict(value["plan"])
-    current = manifest(plan)
+    current = manifest(plan, registry)
     for field in (
         "schedule_sha256",
         "source_sha256",
