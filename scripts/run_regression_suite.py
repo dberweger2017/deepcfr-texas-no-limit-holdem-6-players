@@ -12,6 +12,8 @@ REGRESSION_TESTS = [
     "tests/test_arena_runner.py",
     "tests/test_arena_reports.py",
     "tests/test_arena_artifacts.py",
+    "tests/test_arena_opponents.py",
+    "tests/test_frozen_policies.py",
     "tests/test_training_opponent_modeling_regressions.py",
     "tests/test_state_scenarios.py",
     "tests/test_logging_regressions.py",

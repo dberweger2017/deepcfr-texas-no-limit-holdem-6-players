@@ -1,0 +1,50 @@
+{
+  "candidate": "tight_aggressive",
+  "baseline": "check_call",
+  "pool": {
+    "name": "styles-evaluation-v1",
+    "purpose": "evaluation",
+    "members": [
+      "tight_passive",
+      "loose_passive",
+      "tight_aggressive",
+      "loose_aggressive",
+      "pot_pressure"
+    ]
+  },
+  "split": "validation",
+  "scenarios": [
+    {
+      "name": "6-players-100bb",
+      "stacks": [
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000
+      ]
+    },
+    {
+      "name": "5-players-100bb",
+      "stacks": [
+        10000,
+        10000,
+        10000,
+        10000,
+        10000
+      ]
+    },
+    {
+      "name": "4-players-100bb",
+      "stacks": [
+        10000,
+        10000,
+        10000,
+        10000
+      ]
+    }
+  ],
+  "blocks": 128,
+  "root_seed": 630270
+}

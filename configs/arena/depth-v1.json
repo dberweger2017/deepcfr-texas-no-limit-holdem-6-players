@@ -1,0 +1,91 @@
+{
+  "candidate": "tight_aggressive",
+  "baseline": "check_call",
+  "pool": {
+    "name": "styles-evaluation-v1",
+    "purpose": "evaluation",
+    "members": [
+      "tight_passive",
+      "loose_passive",
+      "tight_aggressive",
+      "loose_aggressive",
+      "pot_pressure"
+    ]
+  },
+  "split": "validation",
+  "scenarios": [
+    {
+      "name": "6-players-20bb",
+      "stacks": [
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000
+      ]
+    },
+    {
+      "name": "6-players-200bb",
+      "stacks": [
+        20000,
+        20000,
+        20000,
+        20000,
+        20000,
+        20000
+      ]
+    },
+    {
+      "name": "5-players-20bb",
+      "stacks": [
+        2000,
+        2000,
+        2000,
+        2000,
+        2000
+      ]
+    },
+    {
+      "name": "5-players-200bb",
+      "stacks": [
+        20000,
+        20000,
+        20000,
+        20000,
+        20000
+      ]
+    },
+    {
+      "name": "4-players-20bb",
+      "stacks": [
+        2000,
+        2000,
+        2000,
+        2000
+      ]
+    },
+    {
+      "name": "4-players-200bb",
+      "stacks": [
+        20000,
+        20000,
+        20000,
+        20000
+      ]
+    },
+    {
+      "name": "six-unequal",
+      "stacks": [
+        2000,
+        4000,
+        7500,
+        10000,
+        15000,
+        20000
+      ]
+    }
+  ],
+  "blocks": 64,
+  "root_seed": 902741
+}

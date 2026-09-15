@@ -64,3 +64,20 @@ def test_named_pool_roundtrips_and_cannot_cross_split_purposes():
     assert not set(pool.members).intersection(training.members)
     with pytest.raises(ValueError, match="pool"):
         Plan((Scenario("six"),), pool=training, split="test")
+
+
+def test_committed_suites_have_fixed_pools_and_cover_the_target_tables():
+    import json
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parents[1] / "configs/arena"
+    core = Plan.from_dict(json.loads((root / "core-v1.json").read_text()))
+    depth = Plan.from_dict(json.loads((root / "depth-v1.json").read_text()))
+    sessions = Plan.from_dict(json.loads((root / "sessions-v1.json").read_text()))
+    training = Plan.from_dict(json.loads((root / "training-pool-v1.json").read_text()))
+    assert core.pool == depth.pool == sessions.pool
+    assert not set(core.pool.members).intersection(training.pool.members)
+    for plan in (core, depth, sessions):
+        assert {len(s.stacks) for s in plan.scenarios} == {4, 5, 6}
+    assert {s.stacks[0] // s.big_blind for s in depth.scenarios} == {20, 200}
+    assert all(s.mode == "session" for s in sessions.scenarios)

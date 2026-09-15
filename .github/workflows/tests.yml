@@ -36,3 +36,7 @@ jobs:
         run: |
           python -m scripts.run_arena --plan configs/arena/smoke.json --out results/arena-smoke
           python -m scripts.run_arena --reproduce results/arena-smoke --out results/arena-replay
+      - name: Check and reproduce the benchmark opponent suite
+        run: |
+          python -m scripts.run_arena --plan configs/arena/opponents-smoke.json --out results/opponents-smoke
+          python -m scripts.run_arena --reproduce results/opponents-smoke --out results/opponents-replay

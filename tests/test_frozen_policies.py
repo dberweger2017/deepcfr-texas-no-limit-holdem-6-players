@@ -211,3 +211,53 @@ def test_model_bundles_reproduce_after_original_files_are_removed(tmp_path):
     (tmp_path / f"one/models/{spec.sha256}.pt").write_bytes(b"changed")
     with pytest.raises(ValueError, match="hash"):
         reproduce(tmp_path / "one", tmp_path / "three")
+
+
+def test_independent_seed_provenance_and_unknown_history_are_not_conflated(tmp_path):
+    first = checkpoint(tmp_path, seed=11)
+    second = checkpoint(tmp_path, seed=29)
+    plan = Plan(
+        (Scenario("four", (2000,) * 4),),
+        candidate=first.name,
+        baseline=second.name,
+        models=(first, second),
+        blocks=1,
+    )
+    fingerprints = PolicyRegistry(plan).fingerprints()
+    assert fingerprints[first.name]["training_seed"] == 11
+    assert fingerprints[second.name]["training_seed"] == 29
+    assert (
+        fingerprints[first.name]["weights_sha256"]
+        != fingerprints[second.name]["weights_sha256"]
+    )
+    unknown = checkpoint(tmp_path, training_seed=None)
+    assert (
+        FrozenNetwork(unknown, tmp_path / "fixture-4-7.pt").description["training_seed"]
+        is None
+    )
+
+
+def test_runtime_settings_restore_after_a_policy_failure():
+    before = (
+        torch.get_num_threads(),
+        torch.are_deterministic_algorithms_enabled(),
+        torch.is_deterministic_algorithms_warn_only_enabled(),
+    )
+    with pytest.raises(RuntimeError), inference_runtime():
+        assert torch.get_num_threads() == 1
+        assert torch.are_deterministic_algorithms_enabled()
+        raise RuntimeError("failed inference")
+    assert before == (
+        torch.get_num_threads(),
+        torch.are_deterministic_algorithms_enabled(),
+        torch.is_deterministic_algorithms_warn_only_enabled(),
+    )
+
+
+def test_nonfinite_model_output_fails_without_an_action_fallback(tmp_path):
+    spec = checkpoint(tmp_path)
+    model = FrozenNetwork(spec, tmp_path / "fixture-4-7.pt")
+    with torch.no_grad():
+        model.network.action_head.bias[0] = float("nan")
+    with pytest.raises(ValueError, match="Non-finite policy output"):
+        model.policy(0).choose_action(view())

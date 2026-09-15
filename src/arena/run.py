@@ -40,6 +40,7 @@ def run(plan: Plan, output: Path, *, registry: PolicyRegistry | None = None) -> 
                 )
     finally:
         report = summarize(plan, rows)
+        report["policies"] = inputs["policies"]
         report["performance"] = performance(timings, perf_counter() - started)
         write_json(output / "report.json", report)
         (output / "report.md").write_text(markdown(report), encoding="utf-8")
