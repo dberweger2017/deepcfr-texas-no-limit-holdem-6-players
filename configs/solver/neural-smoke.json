@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "game": "kuhn",
+  "iterations": 2,
+  "evaluation_interval": 1,
+  "maximum_seconds": 60,
+  "training": {
+    "hidden": 16,
+    "traversals": 16,
+    "advantage_steps": 8,
+    "strategy_steps": 12,
+    "batch_size": 16,
+    "capacity": 64,
+    "learning_rate": 0.001,
+    "seed": 7
+  }
+}
