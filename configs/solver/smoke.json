@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "maximum_seconds_per_run": 30,
+  "maximum_total_seconds": 60,
+  "evaluation_interval": 5,
+  "oracle_tolerance": 1e-08,
+  "runs": [
+    {
+      "game": "kuhn",
+      "method": "external",
+      "iterations": 10,
+      "seeds": [
+        7
+      ],
+      "maximum_exploitability": 1,
+      "maximum_value_error": 1
+    }
+  ]
+}
