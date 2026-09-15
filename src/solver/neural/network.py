@@ -2,6 +2,7 @@
 
 from contextlib import contextmanager
 from hashlib import sha256
+from math import cos, pi
 from time import perf_counter
 
 import numpy as np
@@ -117,6 +118,24 @@ def fitting_metrics(model, features, mask, memory, *, strategy):
     }
 
 
+def validate_schedule(kind, start, end, steps):
+    if kind == "constant":
+        if end is not None:
+            raise ValueError("Constant learning rate does not take an endpoint")
+    elif kind == "cosine":
+        if (
+            type(end) not in (int, float)
+            or not np.isfinite(end)
+            or not 0 < end <= start
+            or steps < 2
+        ):
+            raise ValueError(
+                "Cosine decay needs at least two updates and 0 < end <= start"
+            )
+    else:
+        raise ValueError("Learning-rate schedule must be constant or cosine")
+
+
 def fit(
     memory: Reservoir,
     features: torch.Tensor,
@@ -130,7 +149,12 @@ def fit(
     seed: int,
     strategy: bool,
     deadline: float = float("inf"),
+    learning_rate_schedule: str = "constant",
+    final_learning_rate: float | None = None,
 ) -> tuple[Network, dict]:
+    validate_schedule(learning_rate_schedule, learning_rate, final_learning_rate, steps)
+    if not strategy and learning_rate_schedule != "constant":
+        raise ValueError("Advantage fitting uses a constant learning rate")
     if not memory.size:
         raise ValueError("Cannot fit an empty memory")
     model = new_network(hidden, seed)
@@ -142,9 +166,14 @@ def fit(
     targets = torch.from_numpy(memory.targets[: memory.size].copy())
     iterations = torch.from_numpy(memory.iterations[: memory.size].copy()).float()
     model.train()
-    for _ in range(steps):
+    for step in range(steps):
         if perf_counter() >= deadline:
             raise TimeoutError("Neural fitting exceeded the declared deadline")
+        if learning_rate_schedule == "cosine":
+            # Each fresh fit spans both endpoints, before its first and last updates.
+            optimizer.param_groups[0]["lr"] = final_learning_rate + 0.5 * (
+                learning_rate - final_learning_rate
+            ) * (1 + cos(pi * step / (steps - 1)))
         rows = torch.randint(memory.size, (batch_size,), generator=generator)
         selected = ids[rows]
         logits = model(features[selected])
@@ -163,4 +192,9 @@ def fit(
     model.eval().requires_grad_(False)
     metrics = fitting_metrics(model, features, mask, memory, strategy=strategy)
     metrics["steps"] = steps
+    metrics["learning_rate"] = {
+        "schedule": learning_rate_schedule,
+        "first": learning_rate,
+        "last": optimizer.param_groups[0]["lr"],
+    }
     return model, metrics

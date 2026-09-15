@@ -23,7 +23,14 @@ def test_strategy_capacity_and_fit_schedule_do_not_change_collection():
     with deterministic_cpu():
         first = DeepCFR(GameTree("leduc"), config)
         second = DeepCFR(
-            first.tree, replace(config, strategy_hidden=16, strategy_steps=12)
+            first.tree,
+            replace(
+                config,
+                strategy_hidden=16,
+                strategy_steps=12,
+                strategy_learning_rate_schedule="cosine",
+                strategy_final_learning_rate=0.00001,
+            ),
         )
         for _ in range(3):
             first.step()

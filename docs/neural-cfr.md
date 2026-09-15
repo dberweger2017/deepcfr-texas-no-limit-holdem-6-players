@@ -119,3 +119,28 @@ python -m scripts.check_neural_convergence --campaign configs/solver/neural-kuhn
 ```
 
 Campaign seed runs also support `--stop-after N` and `--resume PREVIOUS_SEED_BUNDLE`; use a new output directory for continuation. A campaign resume keeps its original seed, thresholds, and plan. Summaries require every declared seed exactly once, validate source/environment/configuration and training-report hashes, and recompute the final assessment from the retained training result. A paused, failed, or timed-out seed cannot pass. The mean and sample standard deviation are descriptive; acceptance requires every individual seed to meet both final limits. The CLI returns zero for a passed result or an intentional pause, one for a completed failed check, and two for an error.
+
+## Strategy learning-rate schedules
+
+`learning_rate` remains the constant Adam rate for advantage fitting and the
+starting rate for strategy fitting. Strategy fitting also defaults to constant.
+Set `strategy_learning_rate_schedule` to `"cosine"` and
+`strategy_final_learning_rate` to a positive value no larger than the starting
+rate to opt into decay. Cosine fitting requires at least two updates.
+
+For update `k` of `S`, starting at zero, the rate is
+`end + (start - end) * (1 + cos(pi * k / (S - 1))) / 2`.
+The rate is set before the update: the first uses `start` and the last uses
+`end`. Each fresh strategy fit resets the network, Adam, minibatch generator,
+and schedule. Strategy fitting never supplies the traversal policy.
+
+Resolved configuration and snapshots retain both settings. Fit reports record
+the schedule and actual first/last rates. Recovery remains at completed iteration
+boundaries; it does not resume an interrupted optimizer step. Between-iteration
+resume is tested in a new process for both schedules.
+
+The historical fitting study remains pinned to its original solver sources.
+Reproduce it at revision `11f7e71d9288612d4f1b6dda1abd24d5905cc702`;
+its source check intentionally rejects later solver changes. Current tests use
+its frozen recipes as data and compare both minibatch modes with the retained
+diagnostic optimizer. They do not rerun or reinterpret the historical study.

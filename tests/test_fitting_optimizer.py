@@ -1,3 +1,4 @@
+import json
 from copy import deepcopy
 from time import perf_counter
 
@@ -5,7 +6,7 @@ import numpy as np
 import pytest
 import torch
 
-from scripts.fitting.data import load_plan
+from scripts.fitting.data import PLAN
 from scripts.fitting.optimizer import grouped_objective, model_hash, optimize, rate_at
 from scripts.fitting.report import diagnose, screen
 from src.solver.neural.memory import Reservoir
@@ -55,7 +56,7 @@ def test_grouping_preserves_loss_and_parameter_gradients(dtype, atol):
 def test_control_matches_original_and_all_recipes_are_paired():
     solver, memory = problem()
     fixed = {
-        **load_plan()["fixed"],
+        **json.loads(PLAN.read_text())["fixed"],
         "strategy_hidden": 8,
         "steps": 8,
         "evaluation_steps": [2, 8],
@@ -84,7 +85,7 @@ def test_control_matches_original_and_all_recipes_are_paired():
             seed=31,
             strategy=True,
         )
-        for recipe in load_plan()["recipes"]:
+        for recipe in json.loads(PLAN.read_text())["recipes"]:
             observations = []
 
             def observe(step, model, metrics, observations=observations):
@@ -96,6 +97,27 @@ def test_control_matches_original_and_all_recipes_are_paired():
             )
             if recipe["name"] == "minibatch-fixed":
                 assert model_hash(model) == model_hash(original)
+            if recipe["name"] == "minibatch-decay":
+                integrated, metrics = fit(
+                    memory,
+                    solver.features,
+                    solver.mask,
+                    hidden=8,
+                    steps=8,
+                    batch_size=8,
+                    learning_rate=0.001,
+                    iteration=4,
+                    seed=31,
+                    strategy=True,
+                    learning_rate_schedule="cosine",
+                    final_learning_rate=0.00001,
+                )
+                assert model_hash(model) == model_hash(integrated)
+                assert metrics["learning_rate"] == {
+                    "schedule": "cosine",
+                    "first": 0.001,
+                    "last": 0.00001,
+                }
             reports[recipe["name"]] = observations
     assert [m for m in advantages] == [model_hash(m) for m in solver.advantages]
     assert all(
@@ -116,7 +138,7 @@ def test_control_matches_original_and_all_recipes_are_paired():
         reports["minibatch-fixed"][-1][1]["minibatch_indices_sha256"]
         == reports["minibatch-decay"][-1][1]["minibatch_indices_sha256"]
     )
-    decay = load_plan()["recipes"][1]
+    decay = json.loads(PLAN.read_text())["recipes"][1]
     assert rate_at(decay, 0, 48000) == 0.001
     assert rate_at(decay, 47999, 48000) == 0.00001
     assert rate_at(decay, 24000, 48000) < 0.001
@@ -173,7 +195,7 @@ def fake_reports(plan):
 
 
 def test_screen_retains_every_replicate_and_excludes_diagnostic_recipes():
-    plan = load_plan()
+    plan = json.loads(PLAN.read_text())
     rows = fake_reports(plan)
     assert screen(plan, rows)["selected"] == "minibatch-decay"
     for row in rows:
@@ -212,7 +234,7 @@ def test_screen_retains_every_replicate_and_excludes_diagnostic_recipes():
 
 def test_deadline_interrupts_fitting():
     solver, memory = problem()
-    plan = load_plan()
+    plan = json.loads(PLAN.read_text())
     with deterministic_cpu(), pytest.raises(TimeoutError):
         optimize(
             solver,

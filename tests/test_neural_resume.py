@@ -39,8 +39,17 @@ def deterministic_report(report):
     return canonical({k: v for k, v in report.items() if k != "wall_seconds"})
 
 
-def test_cli_resume_in_a_new_process_matches_uninterrupted_training(tmp_path):
+@pytest.mark.parametrize("schedule", ["constant", "cosine"])
+def test_cli_resume_in_a_new_process_matches_uninterrupted_training(tmp_path, schedule):
     spec = plan()
+    spec = replace(
+        spec,
+        training=replace(
+            spec.training,
+            strategy_learning_rate_schedule=schedule,
+            strategy_final_learning_rate=0.00001 if schedule == "cosine" else None,
+        ),
+    )
     config = tmp_path / "plan.json"
     config.write_text(json.dumps(asdict(spec)))
     whole = run(spec, tmp_path / "whole")
