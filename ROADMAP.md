@@ -139,7 +139,7 @@ Start with six-handed 100 BB. Once the pipeline behaves correctly, explicitly tr
 | Baseline campaign | Establish a reproducible 100 BB result and compare seeds | Explicit runtime, storage, and resource limits; resume on interruption |
 | Improvement campaign | Compare one algorithm, model, sizing, or search change | Same arena and a comparable compute budget; retain the baseline |
 
-Vast.ai remains a candidate for substantial training. The owner authorized a **$10 total Runpod CPU budget** on September 15, 2026, after comparing CPU offers. The [bounded CPU pilot](docs/cpu-pilot.md) prepares parallel small-game experiments and frozen-replay fitting diagnostics; it does not authorize a larger training campaign. Before a later rental, present a fresh cost/performance comparison and obtain the owner's campaign budget. The comparison must include:
+Vast.ai remains a candidate for substantial training. The owner authorized a **$10 total Runpod CPU budget** on September 15, 2026, including more cores and longer small-game runs, separate from future GPU funding. The [bounded CPU pilot](docs/cpu-pilot.md) used only a few cents. The [strategy-capacity study](docs/strategy-capacity-study.md) uses the remaining authorization for longer independent trajectories and held-out confirmation. Before a rental beyond that authorization, present a fresh cost/performance comparison and obtain the owner's campaign budget. The comparison must include:
 
 - Measured local time spent in traversal, inference, fitting, and evaluation, and projected CPU, RAM, VRAM, and storage needs.
 - An RTX 5090 offer and suitable alternatives available at the time, including their host CPU allocation, memory, storage, availability, and interruption terms.
