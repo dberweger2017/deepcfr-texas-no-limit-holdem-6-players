@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "game": "leduc",
+  "seed": 11,
+  "iteration": 120,
+  "hidden_sizes": [64, 128],
+  "steps": 24000,
+  "maximum_seconds": 180,
+  "comparison_exploitability": 0.15
+}

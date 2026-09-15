@@ -38,3 +38,11 @@ Snapshots are written at scheduled evaluation boundaries and explicit stops. Kee
 ## Results
 
 Results will be appended after the declared checks and runs.
+
+## Follow-up declared after Leduc seed 11
+
+Seed 11 completed 120 iterations with neural exploitability **0.169868**, above the 0.15 limit. The empirical strategy-memory average was **0.145379** and the exact played average **0.137689**. Final strategy fitting excess MSE was **0.004197**, with 287 of 288 information sets represented in its retained strategy replay. Keep this campaign result as failed.
+
+Before running any refits, declare a separate diagnostic on that seed's final **frozen strategy memory**. Use `neural-strategy-refit-v1.json`: fit hidden sizes 64 and 128 for 24,000 steps each, preserving the original learning rate, batch size, iteration weighting, initialization seed, and minibatch stream. The 64-wide fit isolates additional optimizer steps; the 128-wide fit also changes capacity. Check the loaded baseline against the retained evaluation and hash replay before/after. Record both excess MSE and exact exploitability, including whether each reaches the original seed's 0.15 limit.
+
+This is a diagnosis on the first declared Leduc seed, not a new convergence campaign or a model promotion. There is no best-checkpoint selection, additional self-play, policy export, or change to the original seed's assessment. A result below the limit would motivate a separately declared multi-seed confirmation, not retrospectively pass this campaign. Retain both refits whether they help or hurt. Run the diagnostic once, sequentially after the acceptance seeds, with a 180-second CPU limit and no paid compute.
