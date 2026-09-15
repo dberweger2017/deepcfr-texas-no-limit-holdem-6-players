@@ -68,11 +68,11 @@ class Table:
         object.__setattr__(self, "chip_unit", str(unit))
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True, slots=True, eq=False)
 class Hand:
     table: Table
     events: tuple[PublicEvent, ...]
-    _state: object = field(repr=False, compare=False)
+    _state: pokers.State = field(repr=False)
 
     @classmethod
     def start(cls, table: Table, *, hand_id: str, seed: int) -> "Hand":

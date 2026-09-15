@@ -33,6 +33,8 @@ def choose_agent_action(
     """Call an agent's choose_action with optional OM opponent context when supported."""
     if not isinstance(state, TrackedState):
         raise TypeError("Agent dispatch requires a tracked hand")
+    if getattr(agent, "player_id", state.current_player) != state.current_player:
+        raise ValueError("Agent is assigned to a different seat")
     state = state.observe()
     signature = inspect.signature(agent.choose_action)
     kwargs = {}

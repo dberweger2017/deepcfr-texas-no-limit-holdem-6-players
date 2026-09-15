@@ -18,10 +18,12 @@ Calls never exceed the caller's remaining stack. At settlement, stacks include w
 
 The engine's `State` is a privileged simulator object, containing all hole cards and the deck. Read-only Python fields prevent accidental editing but do not enforce fair information access.
 
-The next implementation step is the immutable player observation described in the [roadmap](../ROADMAP.md#information-available-to-the-agent). It must contain complete observed betting history, the player's own cards, public cards and stacks, legal action bounds, and legitimate card disclosures. It must exclude unrevealed opponent cards, undealt cards, seeds, and future outcomes. The current state-based agent interface has not yet passed this acceptance gate.
+The [player-observation interface](observations.md) now separates policies from the simulator. It supplies immutable snapshots, complete public betting/reveal events, exact integer raise-to bounds, and owner-specific prior records. Existing model calls use a public-only adapter; neither neural agent nor its encoder accepts raw engine state. Counterfactual traversal does not write live opponent history.
+
+The observation layer adds the named `nlhe-cash-auto-muck-v1` disclosure profile: the last river aggressor shows first, otherwise the first live seat left of the button; subsequent hands can be mucked only after they are beaten by tabled cards in every eligible pot. Folded and mucked cards remain hidden from other players. See the interface document for sources, events, retention rules, and unsupported disclosure procedures.
 
 ## Table sessions and exclusions
 
-Participants and stacks are fixed for a hand. The engine accepts a different lineup and unequal stacks for the next hand, but this project still needs a session manager for occupied seats, public identities, joins, departures, sit-outs, top-ups, and button/blind movement. Showdown exposure and mucking events also need an explicit player-visible implementation.
+Participants and stacks are fixed for a hand. The engine accepts a different lineup and unequal stacks for the next hand, but this project still needs a session manager for occupied seats, public identities, joins, departures, sit-outs, top-ups, and button/blind movement. The session layer must also associate the old opponent model's feature history with public player identities when seats change.
 
 Rake, antes, straddles, multiple runouts, tournament payouts, and live-dealer irregularities are outside this initial profile. Any addition needs a named rule choice and its own checks. The corrected engine is a foundation for training; it does not establish playing strength or make historical checkpoints valid benchmarks for this game.

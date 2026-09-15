@@ -545,7 +545,7 @@ class DeepCFRAgentWithOpponentModeling:
         Choose an action for the given state during actual play.
         Fixed to properly handle bet sizing according to poker rules.
         """
-        require_policy_view(state)
+        require_policy_view(state, decision=True)
         legal_action_types = self.get_legal_action_types(state)
         
         if not legal_action_types:

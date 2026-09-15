@@ -13,7 +13,7 @@ class RandomAgent:
         self.name = f"RandomAgent_{player_id}"
 
     def choose_action(self, state):
-        require_policy_view(state)
+        require_policy_view(state, decision=True)
         if not state.legal_actions:
             raise ActionMappingFailure("No legal action for this player")
         action = random.choice(state.legal_actions)

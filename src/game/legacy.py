@@ -39,14 +39,14 @@ class PlayerView:
 
 @dataclass(frozen=True, slots=True)
 class ActionView:
-    action: object
+    action: pokers.ActionEnum
     amount: float
 
 
 @dataclass(frozen=True, slots=True)
 class ActionRecord:
     player: int
-    stage: object
+    stage: pokers.Stage
     action: ActionView
 
 
@@ -57,13 +57,13 @@ class LegacyView:
     public_cards: tuple[Card, ...]
     current_player: int | None
     button: int
-    stage: object
+    stage: pokers.Stage
     pot: float
     min_bet: float
     min_raise: float
     bb: float
     chip_unit: float
-    legal_actions: tuple
+    legal_actions: tuple[pokers.ActionEnum, ...]
     from_action: ActionRecord | None
     final_state: bool
 
@@ -137,11 +137,16 @@ def legacy_view(observation: Observation) -> LegacyView:
     )
 
 
-def require_policy_view(view):
+def require_policy_view(view, *, decision=False):
     if not isinstance(view, LegacyView):
         raise TypeError(
             "Policy calls require a player observation, not simulator state"
         )
+
+    if decision and (
+        view.final_state or view.observation.actor != view.observation.seat
+    ):
+        raise ValueError("Policy needs its own current decision")
 
 
 class TrackedState:
@@ -216,7 +221,10 @@ class TrackedState:
             if history.player_id != identity:
                 raise ValueError("History identity does not match its owner")
             prior.append(history.hands)
-        return cls(Hand._start(table, hand_id or str(uuid4()), raw), tuple(prior))
+        return cls(
+            Hand._start(table, str(uuid4()) if hand_id is None else hand_id, raw),
+            tuple(prior),
+        )
 
     def apply_action(self, action):
         raw = self._hand._state

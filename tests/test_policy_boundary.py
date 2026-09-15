@@ -63,6 +63,15 @@ def test_hidden_cards_do_not_change_model_inputs_or_sampled_actions(n, street):
         views = [s.observe(observer) for s in states]
         inputs = [encode_state(view, observer) for view in views]
         assert np.array_equal(*inputs)
+        with torch.no_grad():
+            outputs = [
+                agent.strategy_net(
+                    torch.as_tensor(encoded, dtype=torch.float32).unsqueeze(0)
+                )
+                for encoded in inputs
+            ]
+        for first_output, second_output in zip(*outputs):
+            torch.testing.assert_close(first_output, second_output, rtol=0, atol=0)
         decisions = []
         for state in states:
             np.random.seed(72)
@@ -168,3 +177,33 @@ def test_headless_runner_keeps_policy_instances_and_histories_separate(n):
             Hand.start(table(n), hand_id="shared", seed=1),
             {identity: shared for identity in policies},
         )
+
+
+def test_own_cards_and_distinct_betting_histories_remain_visible():
+    hand = Hand.start(table(3), hand_id="history", seed=13)
+    raised_first = (
+        hand.apply(Action(ActionKind.RAISE, 4))
+        .apply(Action(ActionKind.CALL))
+        .apply(Action(ActionKind.CALL))
+    )
+    raised_second = (
+        hand.apply(Action(ActionKind.CALL))
+        .apply(Action(ActionKind.RAISE, 4))
+        .apply(Action(ActionKind.CALL))
+        .apply(Action(ActionKind.CALL))
+    )
+    first, second = raised_first.observe(1), raised_second.observe(1)
+    assert first.board == second.board
+    assert first.players == second.players
+    assert first.pots == second.pots
+    assert first.history != second.history
+    assert hand.observe(0).hole_cards != hand.observe(1).hole_cards
+    assert hand.observe(0).player_id != hand.observe(1).player_id
+
+
+def test_dispatch_rejects_an_agent_from_another_seat():
+    state = TrackedState.from_seed(4, 0, 1, 2, 200, 0)
+    with pytest.raises(ValueError, match="different seat"):
+        choose_agent_action(RandomAgent(0), state)
+    with pytest.raises(ValueError, match="current decision"):
+        RandomAgent(0).choose_action(state.observe(0))

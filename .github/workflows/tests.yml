@@ -28,3 +28,5 @@ jobs:
           python -m pip install -r requirements-dev.txt
       - name: Run tests, including headless engine and training smoke tests
         run: python -m pytest -q
+      - name: Check the public observation interface end to end
+        run: python -m scripts.check_game --players 6 --hands 20

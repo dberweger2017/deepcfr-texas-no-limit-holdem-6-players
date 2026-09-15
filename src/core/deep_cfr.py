@@ -888,7 +888,7 @@ class DeepCFRAgent:
 
     def choose_action(self, state):
         """Choose an action for the given state during actual play."""
-        require_policy_view(state)
+        require_policy_view(state, decision=True)
         legal_action_types = self.get_legal_action_types(state)
         
         if not legal_action_types:

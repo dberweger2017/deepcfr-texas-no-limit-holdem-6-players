@@ -211,3 +211,20 @@ def test_disclosure_evaluator_handles_wheels_and_kickers():
     assert hand_value(("Ac", "Ad", "Ks", "Jh", "8c", "4d", "2s")) > hand_value(
         ("Ah", "As", "Qd", "Jh", "8s", "4h", "2c")
     )
+
+
+def test_disclosure_hand_values_agree_with_engine_showdown_results():
+    from src.game.hand import card_name
+
+    for seed in range(1000):
+        hand = call_down(Hand.start(table(2, (2, 2)), hand_id="ranking", seed=seed))
+        players = hand._state.players_state
+        board = tuple(card_name(c) for c in hand._state.public_cards)
+        values = [
+            hand_value(tuple(card_name(c) for c in p.hand) + board) for p in players
+        ]
+        ranked = (values[0] > values[1]) - (values[0] < values[1])
+        paid = (players[0].stake > players[1].stake) - (
+            players[0].stake < players[1].stake
+        )
+        assert ranked == paid, seed

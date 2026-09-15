@@ -12,6 +12,9 @@ from src.game.types import (
     pots_for,
 )
 
+SCHEMA_VERSION = 1
+RULES_PROFILE = "nlhe-cash-auto-muck-v1"
+
 
 @dataclass(frozen=True, slots=True)
 class HandStarted:
@@ -22,6 +25,8 @@ class HandStarted:
     small_blind: int
     big_blind: int
     chip_unit: str
+    schema_version: int = SCHEMA_VERSION
+    rules_profile: str = RULES_PROFILE
 
 
 @dataclass(frozen=True, slots=True)
@@ -129,6 +134,8 @@ def replay(
     if not events or not isinstance(events[0], HandStarted):
         raise ValueError("A replay must start with HandStarted")
     start = events[0]
+    if start.schema_version != SCHEMA_VERSION or start.rules_profile != RULES_PROFILE:
+        raise ValueError("Unsupported observation schema or rules profile")
     if type(seat) is not int or not 0 <= seat < len(start.stacks):
         raise ValueError("Unknown observer seat")
     if any(hand.player_id != start.player_ids[seat] for hand in previous_hands):

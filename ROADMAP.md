@@ -66,9 +66,9 @@ The items below are proposed PR-sized changes, not existing PR numbers. Split an
 
 ### 1. Establish the rules and a trustworthy environment
 
-**Engine foundation delivered:** [rules profile](docs/rules.md) and [fork audit](docs/engine-audit.md). The repaired Rust engine supplies integer chips, legal betting, side pots, and reference tests. The observation and session gates below remain open.
+**Engine foundation delivered:** [rules profile](docs/rules.md) and [fork audit](docs/engine-audit.md). The repaired Rust engine supplies integer chips, legal betting, side pots, and reference tests. The observation boundary is delivered in [PR #42](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/42); the session gate remains open.
 
-- [ ] **Specify the game and observation contract.** Add `docs/rules.md`, typed public observations and actions, integer chip units, explicit raise-to semantics, and a compact decision record for the initial rule profile. Add CI for the full test suite, installation, and a headless smoke run.
+- [x] **Specify the game and observation contract.** Add `docs/rules.md`, typed public observations and actions, integer chip units, explicit raise-to semantics, and a compact decision record for the initial rule profile. Add CI for the full test suite, installation, and a headless smoke run.
 - [x] **Validate betting and settlement.** Port useful regression scenarios, add property-based tests, and compare supported hands with an independent reference implementation. Audit the pinned engine before deciding whether to repair or replace it. Reproduce the raise from 2 to 10: the next full minimum raise-to is 18, not 20 or 11.
 - [ ] **Implement the session lifecycle.** Handle four to six occupied seats, button/blind movement, sit-outs, player replacement, unequal stacks, and top-ups between hands. Keep absent, folded, and all-in players distinct. Record replayable public events.
 
@@ -171,9 +171,10 @@ Infrastructure and correctness PRs can merge without a strength improvement if t
 ## Current position
 
 - **Plan established:** September 2026, based on the review of `af1593a`.
-- **Engine foundation completed:** [fork PR #1](https://github.com/dberweger2017/pokers/pull/1) and [bot PR #40](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/40) are merged. The bot pins the corrected engine and its full suite passes 55 tests. See the [engine audit](docs/engine-audit.md) for rule-validation evidence and limits. Milestone 1 remains open until observations and sessions are implemented.
-- **Remaining gaps:** a privileged state-based agent interface, insufficient public history, fixed-size seat inputs, self-imitation sizing targets, deviations from validated CFR sampling/averaging, and incomplete training/evaluation reproducibility.
-- **Next task:** implement immutable player observations and explicit actions, preserve complete player-visible history, and add hidden-information acceptance tests. Build on the rules profile and CI already delivered; keep the replacement interfaces small. Session lifecycle follows.
+- **Engine foundation completed:** [fork PR #1](https://github.com/dberweger2017/pokers/pull/1) and [bot PR #40](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/40) are merged. The bot pins the corrected engine. See the [engine audit](docs/engine-audit.md) for rule-validation evidence and limits. Milestone 1 remains open until sessions are implemented.
+- **Observation boundary delivered:** [PR #42](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/42) adds immutable observations, complete public events, owner-specific history, explicit actions, and leakage checks. Existing agent calls and human card displays use this boundary. See [the interface contract](docs/observations.md).
+- **Remaining gaps:** session lifecycle and identity handling, limited neural history encoding, fixed-size seat inputs, self-imitation sizing targets, deviations from validated CFR sampling/averaging, and incomplete training/evaluation reproducibility.
+- **Next task:** implement the session lifecycle: occupied seats, joins/departures between hands, sit-outs, button/blind movement, unequal stacks, and top-ups. Keep public identities and private histories attached to their owners when seats change; migrate the old opponent model's seat-based history keys.
 - **Compute direction:** Vast.ai rental, with an RTX 5090 as an initial candidate. Compare cost/performance after profiling; select an offer and campaign budget with the owner before renting.
 - **Owner input needed before large training:** pilot and campaign spending ceilings, permitted unattended runtime, storage retention, and account access method. Confirm a different game profile if the cash-game defaults above do not match the intended table.
 
