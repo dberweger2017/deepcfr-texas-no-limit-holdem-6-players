@@ -144,3 +144,13 @@ Reproduce it at revision `11f7e71d9288612d4f1b6dda1abd24d5905cc702`;
 its source check intentionally rejects later solver changes. Current tests use
 its frozen recipes as data and compare both minibatch modes with the retained
 diagnostic optimizer. They do not rerun or reinterpret the historical study.
+
+## Snapshot-average alternative
+
+The [snapshot-average decision and API](decisions/snapshot-average.md) add a tested
+inference alternative after the failed fresh confirmation. It records the
+correctly aligned advantage-policy history and computes an own-reach-weighted
+average, or samples one network for a whole hand. The existing runners, baseline
+training snapshots and earlier results remain unchanged. The new inference
+archive cannot resume training; archive-aware recovery/provenance and campaign
+reporting are required before a new learning campaign.
