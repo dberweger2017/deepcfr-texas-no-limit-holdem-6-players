@@ -13,6 +13,11 @@ REGRESSION_TESTS = [
     "tests/test_logging_regressions.py",
     "tests/test_pokers_regressions.py",
     "tests/test_engine_integration.py",
+    "tests/test_observations.py",
+    "tests/test_hand_observations.py",
+    "tests/test_policy_boundary.py",
+    "tests/test_observed_cli.py",
+    "tests/test_observed_gui.py",
     "tests/test_training_regressions.py",
 ]
 

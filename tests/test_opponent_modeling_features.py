@@ -1,5 +1,6 @@
 import numpy as np
 import pokers as pkrs
+from src.game.legacy import TrackedState
 
 from src.agents.random_agent import RandomAgent
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import (
@@ -10,7 +11,9 @@ from src.opponent_modeling.deep_cfr_with_opponent_modeling import (
 def test_table_opponent_features_are_zero_without_history():
     agent = DeepCFRAgentWithOpponentModeling(player_id=0, num_players=3, device="cpu")
 
-    assert np.array_equal(agent.get_table_opponent_features(), np.zeros(20, dtype=np.float32))
+    assert np.array_equal(
+        agent.get_table_opponent_features(), np.zeros(20, dtype=np.float32)
+    )
 
 
 def test_table_opponent_features_average_known_opponent_histories(monkeypatch):
@@ -33,7 +36,7 @@ def test_table_opponent_features_average_known_opponent_histories(monkeypatch):
 
 def test_record_opponent_action_stores_action_and_context():
     agent = DeepCFRAgentWithOpponentModeling(player_id=0, num_players=3, device="cpu")
-    state = pkrs.State.from_seed(
+    state = TrackedState.from_seed(
         n_players=3,
         button=0,
         sb=1,
@@ -42,7 +45,9 @@ def test_record_opponent_action_stores_action_and_context():
         seed=0,
     )
 
-    agent.record_opponent_action(state, action_id=2, opponent_id=1)
+    agent.record_opponent_action(
+        state.observe(agent.player_id), action_id=2, opponent_id=1
+    )
 
     history = agent.current_game_history[1]
     assert len(history["actions"]) == 1
@@ -56,7 +61,7 @@ def test_om_traversal_stores_table_features_in_replay(monkeypatch):
     feature_vector = np.full(20, 0.25, dtype=np.float32)
     monkeypatch.setattr(agent, "get_table_opponent_features", lambda: feature_vector)
 
-    state = pkrs.State.from_seed(
+    state = TrackedState.from_seed(
         n_players=3,
         button=0,
         sb=1,

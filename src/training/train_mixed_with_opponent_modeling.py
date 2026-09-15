@@ -4,6 +4,7 @@ Use ``python -m src.training.train_opponent_modeling --mixed`` as the public CLI
 """
 
 import pokers as pkrs
+from src.game.legacy import TrackedState
 import torch
 import numpy as np
 import os
@@ -228,7 +229,7 @@ def train_mixed_with_opponent_modeling(
         print("  Collecting data...")
         for t in range(traversals_per_iteration):
             # Create a new poker game
-            state = pkrs.State.from_seed(
+            state = TrackedState.from_seed(
                 n_players=6,
                 button=random.randint(0, 5),
                 sb=1,

@@ -261,7 +261,7 @@ def action_type_to_pokers_action(
     )
 
 
-def preset_raise_action(state, preset: str) -> pkrs.Action:
+def preset_raise_action(state, preset: str, *, strict: bool = False) -> pkrs.Action:
     """Build a raise action for common UI/random-agent presets."""
     bounds = raise_bounds(state)
     if preset == "min":
@@ -274,7 +274,7 @@ def preset_raise_action(state, preset: str) -> pkrs.Action:
         amount = bounds.max_raise
     else:
         raise ValueError(f"Unknown raise preset: {preset}")
-    return build_raise_action(state, amount)
+    return build_raise_action(state, amount, strict=strict)
 
 
 def _record_fallback(fallback_recorder, *, reason, attempted_action, fallback_action):

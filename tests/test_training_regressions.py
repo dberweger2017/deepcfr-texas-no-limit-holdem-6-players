@@ -4,8 +4,10 @@ import types
 
 import numpy as np
 import pokers as pkrs
+from src.game.legacy import TrackedState
 import pytest
 import torch
+
 
 class DummyWriter:
     def __init__(self, *args, **kwargs):
@@ -61,7 +63,9 @@ def patch_training_side_effects(monkeypatch):
     tensorboard_stub = types.ModuleType("torch.utils.tensorboard")
     tensorboard_stub.SummaryWriter = DummyWriter
     monkeypatch.setitem(sys.modules, "torch.utils.tensorboard", tensorboard_stub)
-    monkeypatch.setattr(train_mod, "evaluate_against_random", lambda *args, **kwargs: 0.0)
+    monkeypatch.setattr(
+        train_mod, "evaluate_against_random", lambda *args, **kwargs: 0.0
+    )
     monkeypatch.setattr(
         train_mod,
         "evaluate_against_checkpoint_agents",
@@ -73,7 +77,9 @@ def assert_replay_memory_shapes(agent, expected_iteration=1):
     assert len(agent.advantage_memory) > 0
     assert len(agent.strategy_memory) > 0
 
-    state, opponent_features, action_type, bet_size, regret = agent.advantage_memory.buffer[0]
+    state, opponent_features, action_type, bet_size, regret = (
+        agent.advantage_memory.buffer[0]
+    )
     assert len(state) > 0
     assert opponent_features.shape == (20,)
     assert action_type in (0, 1, 2)
@@ -125,16 +131,18 @@ def test_mixed_training_smoke(tmp_path, monkeypatch):
     (checkpoint_dir / "phase1").mkdir(parents=True)
     write_checkpoint(checkpoint_dir / "phase1" / "checkpoint_iter_1.pt")
 
-    agent, losses, profits, profits_vs_checkpoints = train_mod.train_with_mixed_checkpoints(
-        checkpoint_dir=str(checkpoint_dir),
-        training_model_prefix="*checkpoint_iter_",
-        additional_iterations=1,
-        traversals_per_iteration=1,
-        save_dir=str(tmp_path / "models"),
-        log_dir=str(tmp_path / "logs"),
-        refresh_interval=1000,
-        num_opponents=1,
-        verbose=False,
+    agent, losses, profits, profits_vs_checkpoints = (
+        train_mod.train_with_mixed_checkpoints(
+            checkpoint_dir=str(checkpoint_dir),
+            training_model_prefix="*checkpoint_iter_",
+            additional_iterations=1,
+            traversals_per_iteration=1,
+            save_dir=str(tmp_path / "models"),
+            log_dir=str(tmp_path / "logs"),
+            refresh_interval=1000,
+            num_opponents=1,
+            verbose=False,
+        )
     )
 
     assert losses == [0]
@@ -157,17 +165,19 @@ def test_mixed_training_can_continue_from_checkpoint(tmp_path, monkeypatch):
     resume_checkpoint.parent.mkdir()
     write_checkpoint(resume_checkpoint)
 
-    agent, losses, profits, profits_vs_checkpoints = train_mod.train_with_mixed_checkpoints(
-        checkpoint_dir=str(checkpoint_dir),
-        training_model_prefix="*checkpoint_iter_",
-        additional_iterations=1,
-        traversals_per_iteration=1,
-        save_dir=str(tmp_path / "models"),
-        log_dir=str(tmp_path / "logs"),
-        refresh_interval=1000,
-        num_opponents=1,
-        verbose=False,
-        checkpoint_path=str(resume_checkpoint),
+    agent, losses, profits, profits_vs_checkpoints = (
+        train_mod.train_with_mixed_checkpoints(
+            checkpoint_dir=str(checkpoint_dir),
+            training_model_prefix="*checkpoint_iter_",
+            additional_iterations=1,
+            traversals_per_iteration=1,
+            save_dir=str(tmp_path / "models"),
+            log_dir=str(tmp_path / "logs"),
+            refresh_interval=1000,
+            num_opponents=1,
+            verbose=False,
+            checkpoint_path=str(resume_checkpoint),
+        )
     )
 
     assert agent.iteration_count == 2
@@ -210,7 +220,7 @@ def test_strategy_weighting_is_1d_and_does_not_broadcast():
 
 def test_traversal_invalid_agent_action_raises_instead_of_zero(monkeypatch):
     agent = DeepCFRAgent(player_id=0, num_players=6, device="cpu")
-    state = pkrs.State.from_seed(
+    state = TrackedState.from_seed(
         n_players=6,
         button=3,
         sb=1,
@@ -236,7 +246,7 @@ def test_traversal_invalid_agent_action_raises_instead_of_zero(monkeypatch):
 
 def test_traversal_records_action_value_diagnostics(monkeypatch):
     agent = DeepCFRAgent(player_id=0, num_players=6, device="cpu")
-    state = pkrs.State.from_seed(
+    state = TrackedState.from_seed(
         n_players=6,
         button=3,
         sb=1,
@@ -268,7 +278,7 @@ def test_traversal_records_action_value_diagnostics(monkeypatch):
 
 def test_opponent_modeling_missing_opponent_raises_traversal_failure():
     agent = DeepCFRAgentWithOpponentModeling(player_id=0, num_players=3, device="cpu")
-    state = pkrs.State.from_seed(
+    state = TrackedState.from_seed(
         n_players=3,
         button=1,
         sb=1,
@@ -283,7 +293,9 @@ def test_opponent_modeling_missing_opponent_raises_traversal_failure():
     assert exc_info.value.reason == "opponent_missing"
 
 
-def test_continue_training_uses_local_replay_iteration_after_high_resume(tmp_path, monkeypatch):
+def test_continue_training_uses_local_replay_iteration_after_high_resume(
+    tmp_path, monkeypatch
+):
     patch_training_side_effects(monkeypatch)
     random.seed(0)
     np.random.seed(0)
@@ -317,7 +329,9 @@ def test_continue_training_uses_local_replay_iteration_after_high_resume(tmp_pat
     assert saved_checkpoint["metadata"]["iteration"] == 5001
 
 
-def test_mixed_resume_keeps_absolute_checkpoint_metadata_but_local_replay(tmp_path, monkeypatch):
+def test_mixed_resume_keeps_absolute_checkpoint_metadata_but_local_replay(
+    tmp_path, monkeypatch
+):
     patch_training_side_effects(monkeypatch)
     random.seed(0)
     np.random.seed(0)
@@ -331,18 +345,20 @@ def test_mixed_resume_keeps_absolute_checkpoint_metadata_but_local_replay(tmp_pa
     resume_checkpoint.parent.mkdir()
     write_checkpoint(resume_checkpoint, iteration=5000)
 
-    agent, losses, profits, profits_vs_checkpoints = train_mod.train_with_mixed_checkpoints(
-        checkpoint_dir=str(checkpoint_dir),
-        training_model_prefix="*checkpoint_iter_",
-        additional_iterations=1,
-        traversals_per_iteration=1,
-        save_dir=str(tmp_path / "models"),
-        log_dir=str(tmp_path / "logs"),
-        refresh_interval=1000,
-        num_opponents=1,
-        verbose=False,
-        checkpoint_path=str(resume_checkpoint),
-        checkpoint_interval=1,
+    agent, losses, profits, profits_vs_checkpoints = (
+        train_mod.train_with_mixed_checkpoints(
+            checkpoint_dir=str(checkpoint_dir),
+            training_model_prefix="*checkpoint_iter_",
+            additional_iterations=1,
+            traversals_per_iteration=1,
+            save_dir=str(tmp_path / "models"),
+            log_dir=str(tmp_path / "logs"),
+            refresh_interval=1000,
+            num_opponents=1,
+            verbose=False,
+            checkpoint_path=str(resume_checkpoint),
+            checkpoint_interval=1,
+        )
     )
 
     assert agent.iteration_count == 5001
@@ -411,7 +427,9 @@ def test_mixed_opponent_selection_rejects_empty_pool_without_opt_in(tmp_path):
     )
 
     assert selected_files == []
-    assert sum(isinstance(opponent, train_mod.RandomAgent) for opponent in opponents) == 5
+    assert (
+        sum(isinstance(opponent, train_mod.RandomAgent) for opponent in opponents) == 5
+    )
 
 
 def test_mixed_training_does_not_write_to_pool_without_opt_in(tmp_path, monkeypatch):
@@ -437,7 +455,9 @@ def test_mixed_training_does_not_write_to_pool_without_opt_in(tmp_path, monkeypa
         checkpoint_interval=1,
     )
 
-    assert sorted(path.name for path in checkpoint_dir.glob("*.pt")) == ["checkpoint_iter_1.pt"]
+    assert sorted(path.name for path in checkpoint_dir.glob("*.pt")) == [
+        "checkpoint_iter_1.pt"
+    ]
 
 
 def test_save_model_respects_explicit_pt_path(tmp_path):
@@ -449,7 +469,9 @@ def test_save_model_respects_explicit_pt_path(tmp_path):
     assert not (tmp_path / "model.pt_iteration_7.pt").exists()
 
     om_model_path = tmp_path / "om_model.pt"
-    om_agent = DeepCFRAgentWithOpponentModeling(player_id=0, num_players=6, device="cpu")
+    om_agent = DeepCFRAgentWithOpponentModeling(
+        player_id=0, num_players=6, device="cpu"
+    )
     om_agent.iteration_count = 3
     om_agent.save_model(om_model_path)
     assert om_model_path.exists()

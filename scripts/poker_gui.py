@@ -5,6 +5,8 @@ import random
 import glob
 import torch
 import pokers as pkrs
+from src.utils.evaluation import choose_agent_action
+from src.game.legacy import TrackedState
 import argparse
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
                             QPushButton, QLabel, QFrame, QSizePolicy, QSlider, QComboBox,
@@ -51,34 +53,9 @@ class CardWidget(QLabel):
             self.setStyleSheet("background-color: transparent; border: none;")
             return
             
-        # Convert rank to text representation
-        rank_map = {
-            pkrs.CardRank.R2: "2",
-            pkrs.CardRank.R3: "3",
-            pkrs.CardRank.R4: "4",
-            pkrs.CardRank.R5: "5",
-            pkrs.CardRank.R6: "6",
-            pkrs.CardRank.R7: "7",
-            pkrs.CardRank.R8: "8",
-            pkrs.CardRank.R9: "9",
-            pkrs.CardRank.RT: "10",
-            pkrs.CardRank.RJ: "J",
-            pkrs.CardRank.RQ: "Q",
-            pkrs.CardRank.RK: "K",
-            pkrs.CardRank.RA: "A",
-        }
-        
-        # Convert suit to symbol with color
-        suit_map = {
-            pkrs.CardSuit.Clubs: ("♣", "black"),
-            pkrs.CardSuit.Diamonds: ("♦", "red"),
-            pkrs.CardSuit.Hearts: ("♥", "red"),
-            pkrs.CardSuit.Spades: ("♠", "black"),
-        }
-        
-        rank_text = rank_map[self.card.rank]
-        suit_text, color = suit_map[self.card.suit]
-        
+        rank_text = ("2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A")[int(self.card.rank)]
+        suit_text, color = (("♣", "black"), ("♦", "red"), ("♥", "red"), ("♠", "black"))[int(self.card.suit)]
+
         self.setText(f"{rank_text}\n{suit_text}")
         self.setStyleSheet(f"""
             QLabel {{
@@ -182,7 +159,7 @@ class PlayerWidget(QGroupBox):
 
     def update_hand(self, hand, show_all=False):
         """Update the player's hand display"""
-        if hand is None:
+        if not hand:
             self.card1.set_card(None)
             self.card2.set_card(None)
             return
@@ -297,7 +274,7 @@ class PokerTable(QWidget):
         # Game controls
         controls_layout = QHBoxLayout()
         self.new_hand_button = QPushButton("New Hand")
-        self.show_cards_button = QPushButton("Show All Cards")
+        self.show_cards_button = QPushButton("Show Tabled Cards")
         controls_layout.addWidget(self.new_hand_button)
         controls_layout.addWidget(self.show_cards_button)
         main_layout.addLayout(controls_layout)
@@ -561,6 +538,7 @@ class PokerGUI(QMainWindow):
         # Initialize variables
         self.agents = None  # Initialize to None instead of empty list
         self.state = None
+        self.hand_histories = {}
         self.human_player_id = 0
         self.show_all_cards = False
         self.game_in_progress = False
@@ -658,6 +636,7 @@ class PokerGUI(QMainWindow):
     
     def load_ai_models(self, models_dir, num_models):
         """Load AI models from the specified directory"""
+        self.hand_histories = {}
         # Clear existing agents
         self.agents = [None] * 6
         
@@ -730,18 +709,19 @@ class PokerGUI(QMainWindow):
         seed = random.randint(0, 10000)
         
         # Create a new poker game
-        self.state = pkrs.State.from_seed(
+        self.state = TrackedState.from_seed(
             n_players=6,
             button=seed % 6,  # Rotate button position
             sb=sb,
             bb=bb,
             stake=stake,
-            seed=seed
+            seed=seed,
+            histories=self.hand_histories,
         )
         
         # Reset UI
         self.show_all_cards = False
-        self.table.show_cards_button.setText("Show All Cards")
+        self.table.show_cards_button.setText("Show Tabled Cards")
         self.update_ui()
         
         # Start the game loop if it's the human's turn first
@@ -766,7 +746,7 @@ class PokerGUI(QMainWindow):
         
         # Update player displays
         self.table.update_players(
-            self.state.players_state,
+            self.state.observe(self.human_player_id).players_state,
             self.state.current_player,
             self.state.button,
             self.show_all_cards
@@ -841,9 +821,9 @@ class PokerGUI(QMainWindow):
         try:
             # For opponent modeling agents, we'll pass the opponent ID
             if isinstance(agent, DeepCFRAgentWithOpponentModeling):
-                action = agent.choose_action(self.state, opponent_id=current_player)
+                action = choose_agent_action(agent, self.state, opponent_id=current_player)
             else:
-                action = agent.choose_action(self.state)
+                action = choose_agent_action(agent, self.state)
             action = sanitize_action(self.state, action)
                 
             # Log the action
@@ -942,13 +922,14 @@ class PokerGUI(QMainWindow):
     
     def handle_end_of_hand(self):
         """Handle the end of a hand"""
+        self.hand_histories = self.state.completed_histories()
         self.game_in_progress = False
         self.table.set_action_buttons_enabled(False)
         
-        # Show all cards
+        # Only the human's cards and publicly tabled hands reach the widgets.
         self.show_all_cards = True
         self.table.update_players(
-            self.state.players_state,
+            self.state.observe(self.human_player_id).players_state,
             self.state.current_player,
             self.state.button,
             self.show_all_cards
@@ -958,7 +939,7 @@ class PokerGUI(QMainWindow):
         self.log_message("--- Hand Complete ---")
         
         # Show all players' hands and results
-        for player in self.state.players_state:
+        for player in self.state.observe(self.human_player_id).players_state:
             player_type = "You" if player.player == self.human_player_id else f"Player {player.player}"
             result_str = f"won ${player.reward:.2f}" if player.reward > 0 else f"lost ${-player.reward:.2f}"
             
@@ -986,12 +967,12 @@ class PokerGUI(QMainWindow):
         if self.show_all_cards:
             self.table.show_cards_button.setText("Hide Cards")
         else:
-            self.table.show_cards_button.setText("Show All Cards")
+            self.table.show_cards_button.setText("Show Tabled Cards")
             
         # Update the UI
         if self.state:
             self.table.update_players(
-                self.state.players_state,
+                self.state.observe(self.human_player_id).players_state,
                 self.state.current_player,
                 self.state.button,
                 self.show_all_cards
