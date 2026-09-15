@@ -127,8 +127,9 @@ corrections. Predictions or the selected bet amount are not branch-payoff labels
 `betting_loss` sums squared errors over all candidates, separately for regret and
 value, then averages over decisions with equal head weights. It validates exact
 observation/candidate alignment, including source records excluded from numerical
-encoding equality. This is an unweighted fitting primitive; reservoir admission,
-iteration weighting, policy freezing and averaging remain collector/trainer work.
+encoding equality. This is an unweighted fitting primitive. The [role trainer](holdem-training.md)
+adds reservoir admission and iteration weights around it; averaging remains
+a separate integration.
 The auxiliary value head shares the encoder with the regret head. Its effect on
 learning must be measured before any strength or convergence claim.
 
@@ -151,6 +152,6 @@ Ruff and `git diff --check` pass. No paid compute or training campaign was run.
 
 The [all-role collector](holdem-collection.md) now freezes the policy profile,
 evaluates each traverser candidate, supplies net-payoff targets and records exact
-executed bets. Replay weighting and role-specific fitting come next; snapshot
-averaging remains a separate integration. Recovery and fresh small-game readiness
+executed bets. The [role trainer](holdem-training.md) supplies replay weighting
+and fitting; snapshot averaging remains a separate integration. Recovery and fresh small-game readiness
 remain required before substantial training.

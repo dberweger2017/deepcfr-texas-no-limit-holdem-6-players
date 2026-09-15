@@ -80,6 +80,7 @@ def test_two_collect_fit_cycles_keep_roles_separate_and_frozen(n, monkeypatch):
 
 def test_later_role_failure_rolls_back_models_memories_and_iteration(monkeypatch):
     trainer = HoldemTrainer(table(4, (10,) * 4), config())
+    trainer.step()
     baseline = state(trainer)
     original_fit = training.fit_role
     completed = []
@@ -98,6 +99,7 @@ def test_later_role_failure_rolls_back_models_memories_and_iteration(monkeypatch
     monkeypatch.setattr(training, "fit_role", original_fit)
     trainer.step()
     fresh = HoldemTrainer(table(4, (10,) * 4), config())
+    fresh.step()
     fresh.step()
     assert state(trainer) == state(fresh)
 

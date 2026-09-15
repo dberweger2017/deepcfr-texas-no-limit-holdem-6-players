@@ -71,9 +71,10 @@ The project began as an earlier Deep CFR implementation. We are rebuilding its l
 | Hold’em decisions | Full current-hand event encoding, variable-seat masks, board reveal stages and a small sequence model. [Contract](docs/holdem-encoding.md) |
 | Hold’em betting | Exact legal bet candidates, per-action regret/value heads and branch-payoff targets. [Contract](docs/holdem-betting.md) |
 | Hold’em collection | External sampling for every role against isolated current policies, with exact action records and reproducible 100 BB checks. [Contract](docs/holdem-collection.md) |
-| Full Hold’em learning | Role-specific fitting, averaging, recovery and substantial training remain ahead. Legacy trainers and play interfaces still exist. |
+| Hold’em fitting | Separate role reservoirs, iteration-weighted model updates and whole-iteration rollback. Two-iteration checks reproduce at 100 BB. [Contract](docs/holdem-training.md) |
+| Full Hold’em learning | Average-strategy play, recovery and substantial training remain ahead. Legacy trainers and play interfaces still exist. |
 
-**Next step:** connect the tested [all-role collector](docs/holdem-collection.md) to separate role reservoirs and iteration-weighted fitting. The collector produces per-bet payoff targets under a fixed policy profile; learning and evaluating bet preferences remain ahead. Before another learning campaign, the snapshot-average path still needs full training/recovery integration and a fresh readiness protocol. The [previous confirmation](docs/reports/neural-readiness.md) remains failed; substantial training requires both a readiness pass and the corrected no-limit pipeline. No model has been promoted.
+**Next step:** retain the policies used by the [collect-and-fit loop](docs/holdem-training.md) and integrate snapshot-average play. Current-policy updates now run reproducibly; average-policy evaluation and complete training recovery remain ahead. Before another learning campaign, the snapshot-average path still needs full training/recovery integration and a fresh readiness protocol. The [previous confirmation](docs/reports/neural-readiness.md) remains failed; substantial training requires both a readiness pass and the corrected no-limit pipeline. No model has been promoted.
 
 The [latest report](docs/reports/neural-readiness.md) records all sixteen fresh-seed runs, eight paired controls, 72 evaluation checkpoints and verified exports. The preceding implementation passed 298 tests. These establish implementation and small-game learning evidence, not professional poker strength.
 
