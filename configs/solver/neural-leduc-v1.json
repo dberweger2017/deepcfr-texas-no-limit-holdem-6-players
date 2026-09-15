@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "game": "leduc",
+  "iterations": 30,
+  "evaluation_interval": 10,
+  "maximum_seconds": 840,
+  "training": {
+    "hidden": 64,
+    "traversals": 1024,
+    "advantage_steps": 500,
+    "strategy_steps": 4000,
+    "batch_size": 256,
+    "capacity": 200000,
+    "learning_rate": 0.001,
+    "seed": 7
+  }
+}

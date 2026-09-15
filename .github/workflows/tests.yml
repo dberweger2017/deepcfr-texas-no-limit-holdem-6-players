@@ -44,3 +44,7 @@ jobs:
         run: |
           python -m scripts.check_solver --plan configs/solver/smoke.json --out results/solver-smoke
           python -m scripts.check_solver --reproduce results/solver-smoke --out results/solver-replay
+      - name: Check and reproduce the neural small-game baseline
+        run: |
+          python -m scripts.check_deep_cfr --plan configs/solver/neural-smoke.json --out results/neural-smoke
+          python -m scripts.check_deep_cfr --reproduce results/neural-smoke --out results/neural-replay

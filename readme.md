@@ -55,6 +55,12 @@ python -m scripts.check_solver --plan configs/solver/smoke.json --out results/so
 python -m scripts.check_solver --reproduce results/solver-smoke --out results/solver-replay
 ```
 
+The [neural Deep CFR baseline](docs/neural-cfr.md) now uses the same small games, with uniform replay reservoirs, alternating advantage fitting, a separately learned average policy, and fitting diagnostics. Its [declared checks](docs/reports/neural-validation.md) distinguish supervised fitting from single-seed self-play pilots. The multi-seed convergence and saved-resume gate remains open.
+
+```bash
+python -m scripts.check_deep_cfr --plan configs/solver/neural-smoke.json --out results/neural-smoke
+```
+
 ## Public observation interface
 
 Policies now receive immutable player views rather than the Rust simulator. The new API uses integer chips and explicit raise-to actions, while a public-only adapter supports the current model feature layout. Folded and mucked cards stay private, including in CLI and GUI results. [Interface documentation](docs/observations.md) covers events, replay, history ownership, showdown choices, and remaining limits.
