@@ -87,7 +87,8 @@ def predict(
             raise FloatingPointError("Non-finite network output")
         if strategy:
             values = strategy_probabilities(values, mask)
-        return values.double().numpy()
+        result = values.double().numpy()
+        return result / result.sum(axis=1, keepdims=True) if strategy else result
 
 
 def fitting_metrics(model, features, mask, memory, *, strategy):
