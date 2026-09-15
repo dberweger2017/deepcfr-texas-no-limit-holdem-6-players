@@ -14,6 +14,8 @@ REGRESSION_TESTS = [
     "tests/test_pokers_regressions.py",
     "tests/test_engine_integration.py",
     "tests/test_observations.py",
+    "tests/test_sessions.py",
+    "tests/test_opponent_modeling_features.py",
     "tests/test_hand_observations.py",
     "tests/test_policy_boundary.py",
     "tests/test_observed_cli.py",

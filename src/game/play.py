@@ -3,11 +3,14 @@
 from collections.abc import Mapping
 from dataclasses import dataclass
 from random import Random
-from typing import Protocol
+from typing import TYPE_CHECKING, Protocol
 
 from src.game.hand import Hand
 from src.game.observation import Observation, ObservedHand
 from src.game.types import Action, ActionKind
+
+if TYPE_CHECKING:
+    from src.game.session import Session
 
 
 class Policy(Protocol):
@@ -84,3 +87,29 @@ def play_hand(
     if not hand.finished:
         raise RuntimeError(f"Hand exceeded {max_decisions} decisions")
     return hand
+
+
+def play_session_hand(
+    session: "Session",
+    policies: Mapping[str, Policy],
+    *,
+    max_decisions: int = 1000,
+) -> None:
+    """Finish a started hand and commit its bankrolls and owner-specific records."""
+    identities = session.participants
+    if not identities or any(identity not in policies for identity in identities):
+        raise ValueError("Start a hand and provide a policy for every participant")
+    if len({id(policies[p]) for p in identities}) != len(identities):
+        raise ValueError(
+            "Each player needs their own policy instance and private memory"
+        )
+    for _ in range(max_decisions):
+        if session.actor is None:
+            session.settle()
+            return
+        identity = session.actor
+        action = policies[identity].choose_action(session.observe(identity))
+        session.apply(identity, action)
+    if session.actor is not None:
+        raise RuntimeError(f"Hand exceeded {max_decisions} decisions")
+    session.settle()

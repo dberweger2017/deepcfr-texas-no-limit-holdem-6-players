@@ -1,8 +1,8 @@
 import numpy as np
 import pokers as pkrs
-from src.game.legacy import TrackedState
 
 from src.agents.random_agent import RandomAgent
+from src.game.legacy import TrackedState
 from src.opponent_modeling.deep_cfr_with_opponent_modeling import (
     DeepCFRAgentWithOpponentModeling,
 )

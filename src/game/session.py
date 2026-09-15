@@ -23,6 +23,10 @@ class SessionEvent:
     big_blind: int = 100
     chip_unit: str = "0.01"
     profile: str = SESSION_PROFILE
+    session_id: str = ""
+    min_buy_in: int = 2000
+    max_buy_in: int = 20000
+    opening: bool = False
 
 
 def replay_session(events: tuple[SessionEvent, ...]) -> SessionEvent:
@@ -87,6 +91,10 @@ class Session:
         return self._events
 
     @property
+    def participants(self) -> tuple[str, ...]:
+        return () if self._hand is None else self._hand.table.player_ids
+
+    @property
     def actor(self) -> str | None:
         if self._hand is None or self._hand.finished:
             return None
@@ -112,7 +120,13 @@ class Session:
                 return player
         raise ValueError("Player is not seated")
 
-    def _record(self, kind: str, hand_events: tuple[PublicEvent, ...] = ()):
+    def _record(
+        self,
+        kind: str,
+        hand_events: tuple[PublicEvent, ...] = (),
+        *,
+        opening: bool = False,
+    ):
         event = SessionEvent(
             kind,
             self.seats,
@@ -124,6 +138,10 @@ class Session:
             self.small_blind,
             self.big_blind,
             self.chip_unit,
+            session_id=self.session_id,
+            min_buy_in=self.min_buy_in,
+            max_buy_in=self.max_buy_in,
+            opening=opening,
         )
         replay_session((event,))
         self._events += (event,)
@@ -181,7 +199,8 @@ class Session:
             raise ValueError(
                 "A returning player must be sitting out with a full big blind"
             )
-        self._seats[player.seat] = replace(player, status="waiting")
+        status = "playing" if self._hands == 0 else "waiting"
+        self._seats[player.seat] = replace(player, status=status)
         self._record("returned")
 
     def move(self, player_id: str, seat: int):
@@ -214,12 +233,17 @@ class Session:
                 )
             self._seat_number(opening_button)
             return playing, opening_button
+        if not playing:
+            if len(waiting) < 2 or opening_button not in waiting:
+                raise ValueError(
+                    "A table with no incumbents needs an explicit new opening button"
+                )
+            self._seat_number(opening_button)
+            return waiting, opening_button
         if opening_button is not None:
             raise ValueError("The session advances the button after the opening hand")
-        if not playing or len(playing) + len(waiting) < 2:
-            raise ValueError(
-                "Not enough continuing players; wait or start a new session"
-            )
+        if len(playing) + len(waiting) < 2:
+            raise ValueError("Not enough players to deal a hand")
         button = self._next(self._button, playing)
         if len(playing) == 1:
             return sorted(playing + [self._next(button, waiting)]), button
@@ -256,7 +280,7 @@ class Session:
         self._hand = hand
         self._button = button
         self._seats = {p.seat: p for p in roster}
-        self._record("hand_started", hand.events)
+        self._record("hand_started", hand.events, opening=opening_button is not None)
 
     def observe(self, player_id: str) -> Observation:
         if self._hand is None:

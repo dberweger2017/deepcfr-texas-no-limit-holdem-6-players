@@ -210,3 +210,130 @@ def test_cashout_cannot_shed_chips_on_return_and_bad_inputs_do_not_change_ledger
         assert session.events == before
     with pytest.raises(FrozenInstanceError):
         session.seats[0].stack = 0
+
+
+def test_policies_only_receive_their_own_session_observations():
+    from src.game.play import play_session_hand
+
+    class Observer:
+        def __init__(self, identity):
+            self.identity = identity
+            self.views = []
+
+        def choose_action(self, view):
+            assert view.player_id == self.identity
+            assert all(h.player_id == self.identity for h in view.previous_hands)
+            self.views.append(view)
+            return Action(
+                ActionKind.CHECK
+                if ActionKind.CHECK in view.legal_actions.kinds
+                else ActionKind.CALL
+            )
+
+    session = table(4)
+    policies = {p.player_id: Observer(p.player_id) for p in session.seats}
+    for index in range(3):
+        session.start_hand(seed=index, opening_button=0 if index == 0 else None)
+        play_session_hand(session, policies)
+    for policy in policies.values():
+        assert len(policy.views[-1].previous_hands) == 2
+
+
+def test_failed_policy_keeps_table_locked_and_preserves_public_trace():
+    from src.game.play import play_session_hand
+
+    class Broken:
+        def choose_action(self, view):
+            raise RuntimeError("broken policy")
+
+    session = table(4)
+    session.start_hand(seed=1, opening_button=0)
+    with pytest.raises(RuntimeError, match="broken policy"):
+        play_session_hand(session, {p.player_id: Broken() for p in session.seats})
+    assert session.hand_active
+    assert session.events[-1].kind == "hand_started"
+    with pytest.raises(ValueError):
+        session.leave("p0")
+    finish(session)
+    assert session.events[-1].kind == "hand_settled"
+
+
+@pytest.mark.parametrize("seed", range(20))
+def test_generated_sessions_conserve_chips_through_lineup_changes(seed):
+    from scripts.check_session import run
+
+    result = run(seed, hands=30)
+    assert result["completed_hands"] == 30
+    assert result["table_chips"] == result["chips_in"] - result["chips_out"]
+    assert 6 in result["participant_counts"]
+    assert all(2 <= count <= 6 for count in result["participant_counts"])
+
+
+def test_waiters_do_not_receive_unrevealed_cards_from_other_players():
+    session = table(4)
+    session.start_hand(seed=1, opening_button=0)
+    finish(session)
+    session.join("watcher", 5, 100)
+    session.start_hand(seed=2)
+    view = session.observe("watcher")
+    assert view.seat == -1 and view.hole_cards == ()
+    assert all(p.shown_cards == () for p in view.players)
+    with pytest.raises(ValueError, match="private cards"):
+        replay(view.history, -1, ("Ac", "Ad"), observer_id="watcher")
+    with pytest.raises(ValueError):
+        replay(view.history, 0, (), observer_id="watcher")
+
+
+def test_every_waiting_seat_eventually_enters_by_posting_the_big_blind():
+    for waiting_seat in range(6):
+        session = table()
+        session.start_hand(seed=1, opening_button=0)
+        finish(session)
+        session.sit_out(f"p{waiting_seat}")
+        session.return_to_play(f"p{waiting_seat}")
+        for hand in range(8):
+            session.start_hand(seed=hand)
+            entered = f"p{waiting_seat}" in session.participants
+            if entered:
+                assert physical_blinds(session)[1] == waiting_seat
+                break
+            finish(session)
+        assert entered
+
+
+def test_all_players_away_requires_an_explicit_new_opening_and_preserves_histories():
+    session = table(4)
+    session.start_hand(seed=1, opening_button=0)
+    cards = session.observe("p0").hole_cards
+    finish(session)
+    for player in session.seats:
+        session.sit_out(player.player_id)
+    for player in session.seats:
+        session.return_to_play(player.player_id)
+    with pytest.raises(ValueError, match="explicit new opening"):
+        session.start_hand(seed=2)
+    session.start_hand(seed=2, opening_button=2)
+    assert physical_blinds(session) == (3, 0)
+    assert session.observe("p0").previous_hands[0].hole_cards == cards
+
+
+def test_returning_identity_recovers_its_own_history_after_cashout():
+    session = table()
+    session.start_hand(seed=1, opening_button=0)
+    cards = session.observe("p3").hole_cards
+    finish(session)
+    chips = session.leave("p3")
+    session.join("p3", 3, chips)
+    session.start_hand(seed=2)
+    assert session.observe("p3").previous_hands[0].hole_cards == cards
+    assert physical_blinds(session)[1] == 3
+
+
+def test_settlement_cannot_be_applied_twice():
+    session = table()
+    session.start_hand(seed=1, opening_button=0)
+    finish(session)
+    before = session.events
+    with pytest.raises(ValueError):
+        session.settle()
+    assert session.events == before

@@ -147,7 +147,7 @@ def replay(
     start = events[0]
     if start.schema_version != SCHEMA_VERSION or start.rules_profile != RULES_PROFILE:
         raise ValueError("Unsupported observation schema or rules profile")
-    spectator = seat == -1 and observer_id is not None
+    spectator = type(seat) is int and seat == -1 and observer_id is not None
     if spectator:
         if (
             observer_id in start.player_ids
