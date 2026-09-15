@@ -1,28 +1,95 @@
 # DeepCFR Poker AI
 
-Deep CFR for 6-player no-limit Texas Hold'em, built on top of the [`pokers`](https://github.com/dberweger2017/pokers) environment. The focus here is a training workflow you can actually run from source, not a polished black box.
+Building a reproducible training system for strong **no-limit Texas Hold’em**, with six-handed play as the main target and support for four- and five-handed tables, changing lineups, and unequal stacks.
 
-## Development direction
+The agent must play by the documented rules and use exactly the game information available to a human in its seat. Deep CFR is our starting point; we will replace algorithms and architecture when measured results justify it.
 
-We are rebuilding toward a strong no-limit Hold'em agent that plays by a documented ruleset and sees exactly the game information available to a human in its seat. Six-handed play is the main target, with four- and five-handed tables, changing lineups, and unequal stacks included in the design.
+**Status: research and redevelopment toward 1.0. No current model has demonstrated professional-level Hold’em strength.**
 
-The [roadmap](./ROADMAP.md) sets the implementation order, PR acceptance checks, training milestones, and model promotion criteria. The first priorities are correct poker rules, a tested boundary between public observations and hidden simulator state, reproducible evaluation, and a validated CFR baseline. Range-aware search and opponent adaptation follow once that foundation works. Backwards compatibility is not required.
+[1.0 release standard](#what-10-means) · [Current progress](#where-we-are) · [Quick start](#quick-start) · [Roadmap](ROADMAP.md) · [Documentation](#documentation)
 
-The workflows below describe the existing implementation. Passing its tests does not establish complete rules compliance or strong play; the roadmap records the gaps the rewrite must close.
+## What 1.0 means
 
-## Where things stand (September 2026)
+**Version 1.0 is earned by demonstrated playing strength.** We will release it only when the code, paired with a documented and repeatable training recipe, produces an agent that meets our **lower-end professional cash-game standard** in the declared benchmark format.
 
-This repo has come a long way since the March 2025 version described in the original Medium article. If the article and this README ever disagree, trust the README and the current scripts.
+A working trainer, completed roadmap, larger network, or long GPU run does not qualify on its own. We must actually train and evaluate qualifying models; “this should become strong with enough training” is not release evidence.
 
-The first rules-engine rewrite is in place. The pinned Rust fork now handles integer chips, minimum raises and reopening, short calls, side pots, heads-up order, and automatic all-in runouts. Logging no longer repairs game state. See the [rules profile](docs/rules.md) and [engine audit](docs/engine-audit.md) for evidence and limits. The [observation interface](docs/observations.md) now keeps engine state out of policy calls and records complete public history. The [session manager](docs/sessions.md) now carries bankrolls and identity-owned histories through changing lineups. The [evaluation arena](docs/evaluation.md) now provides reproducible schedules and paired reports. The [benchmark suites](docs/benchmarks.md) add varied style opponents and hash-pinned historical checkpoints. A validated learning rewrite and competitive trained opponents remain on the roadmap.
+### The playing-strength standard
 
-In practice that means standard Deep CFR has a clean three-stage flow now — random, self-play, mixed — and the opponent-modeling track exposes the same three stages instead of being a separate one-off. `--checkpoint` means the same thing everywhere ("continue from this checkpoint"), mixed checkpoint discovery walks subdirectories recursively, and opponent modeling, while still more experimental on learning quality, at least follows the same workflow as everything else.
+Our target is at least the lower end of professional no-limit cash-game play. For this project, we use a conservative, measurable release test: **demonstrably winning play against a credible reference group representing that level**, under a specified ruleset and resource budget.
 
-The Medium article is still good background reading, but the code has moved on.
+“Lower-end professional” is a project target, not an established numerical poker rating. Before the qualification campaign, we must document the stakes, format, reference-group selection, and evidence that the group represents established winning professionals or comparably strong regulars. A job title, a few winning sessions, or success against our own bots is insufficient.
 
-## Installation
+We will not claim “better than X% of poker players” without defining and measuring the relevant player population. Professional-level evidence applies to the tested format and opponents; it does not imply a universal ranking across cash games, tournaments, stakes, or player pools.
 
-Run from source using Python 3.10 or 3.11 and a Rust toolchain. Python 3.11 is the development default; newer Python versions need a separate PyO3 upgrade.
+### Requirements for the release
+
+| Requirement | Evidence needed for 1.0 |
+| --- | --- |
+| **A credible strength benchmark** | Direct evaluation against the documented human reference group, or an independently validated benchmark demonstrably calibrated to that group in the same format. Our style agents and historical checkpoints alone cannot establish professional strength. |
+| **A statistically supported result** | Positive net win rate in big blinds per 100 hands (BB/100), with the lower bound of a predeclared 95% confidence interval above zero on the primary qualification benchmark. Include the declared rake and all completed hands; use an analysis that accounts for shared deals, sessions, opponents, and repeated measurements. |
+| **A reliable training recipe** | At least three independently seeded training runs under the same declared recipe and compute budget, with per-seed results and all failures retained. Each must meet its predeclared qualification criteria; a lucky seed or the best intermediate checkpoint cannot rescue a failed campaign. |
+| **Fresh confirmation** | Freeze the selected code, model, opponents/selection procedure, and evaluation protocol before the final test. Use held-out opponents or sessions and fresh evaluation data. Choose sample size, meaningful effect target, stopping rules, and scenario limits before looking at the results. An inconclusive result does not qualify. |
+| **Correct and fair play** | Verified legal betting and settlement, consistent chip accounting, no privileged information in decisions, no sharing of private observations between agents, and no silent substitution of invalid actions. |
+| **Supported table conditions** | Separate results for four-, five-, and six-handed starts, changing lineups, and declared unequal-stack scenarios. Publish predeclared regression limits for secondary scenarios; do not hide a failure in an overall average. |
+| **A reproducible release package** | Versioned rules, source, dependencies, training configuration, hardware/runtime/cost record, complete resume support, model hashes and retrieval instructions, and a report sufficient to repeat training and evaluation. A fresh training reproduction must confirm the recipe's quality. |
+
+The primary strength benchmark starts with **six-handed, 100 BB cash play**. The qualification protocol must pin the opponent population, seating, stack/reset policy, rake, decision-time limits, and any search or adaptation allowed during play. Four-/five-handed and other stack-depth results are reported separately; a professional-strength claim extends only to formats that have passed their own qualification checks.
+
+These are **our release requirements**, not a claim that a particular win rate or hand count universally defines a professional player. Exact exploitability is useful in the small games we can solve; we do not have an exact exploitability certificate for full multiplayer no-limit Hold’em.
+
+**The professional reference group and final qualification protocol have not yet been established. Until both the evidence and the implementation meet this standard, the project stays pre-1.0.**
+
+## The game we are building for
+
+| Area | Target |
+| --- | --- |
+| Game | Cash-game no-limit Texas Hold’em, table stakes, standard deck, one board |
+| Players | Six-handed first; four and five players are first-class table configurations |
+| Stacks | Begin with 100 BB; expand to unequal stacks and declared 20–200 BB scenarios |
+| Table lifecycle | Arrivals, departures, sit-outs, and top-ups between hands |
+| Information | Own hole cards, public board and actions, legal betting bounds, public stacks/positions, and legitimately observed opponent history |
+| Current research rules | No rake or antes; the release benchmark must explicitly name its rake/rules profile. Unraked results do not establish profitability after rake. |
+| Interface | A headless agent API, reproducible evaluation, and a way to inspect and replay decisions |
+
+Hidden opponent cards, undealt cards, deck order, simulator seeds, and future outcomes never belong in the agent's input. Training may use simulated payoffs and counterfactual branches to construct learning targets; those targets do not grant extra information during play. Search must infer possible hidden worlds from legitimate observations.
+
+The [rules profile](docs/rules.md), [observation contract](docs/observations.md), and [session contract](docs/sessions.md) define the supported behavior. Tournament payouts/ICM, straddles, multiple runouts, and live audiovisual tells are outside the initial scope.
+
+## Where we are
+
+The project began as an earlier Deep CFR implementation. We are rebuilding its learning and evaluation foundations, retaining useful regression cases and replacing components as their successors pass meaningful checks. Backwards compatibility is not a requirement.
+
+| Area | Current evidence |
+| --- | --- |
+| Rules engine | Maintained Rust [`pokers` fork](https://github.com/dberweger2017/pokers), pinned to an audited revision; integer chips, legal raises, side pots, and settlement checks. [Engine audit](docs/engine-audit.md) |
+| Player information and sessions | Immutable player observations, complete public history, identity-owned records, and changing four-to-six-player lineups. [Observation](docs/observations.md) / [session](docs/sessions.md) contracts |
+| Evaluation | Reproducible schedules, separate data splits, paired reports, varied style opponents, and hash-pinned historical models. Professional-strength opponents remain an open requirement. [Benchmark guide](docs/benchmarks.md) |
+| Tabular reference | Kuhn and Leduc CFR checked against exact best responses and independently solved equilibrium values. [Results](docs/reports/tabular-validation.md) |
+| Neural baseline | Separate small-game Deep CFR with uniform reservoirs, weighted fitting, a learned average strategy, and complete training recovery. [Contract](docs/neural-cfr.md) |
+| Neural convergence | Three Kuhn seeds pass. All three Leduc seeds fail the final exploitability limit; the fitted strategy network loses accuracy relative to the collected average strategy. [Results and plots](docs/reports/neural-convergence.md) |
+| Full Hold’em learning | Legacy trainers and play interfaces exist. The validated no-limit learning rewrite, substantial training, and professional-level qualification are still ahead. |
+
+**Current blocker:** stable average-strategy fitting in Leduc. Longer fitting reduced training loss without reliably improving playing strength; a wider network helped but still missed the declared limit. We will investigate fitting stability and replay coverage, then run a fresh multi-seed confirmation before moving the learning rewrite into Hold’em.
+
+The [latest report](docs/reports/neural-convergence.md) records 260 passing regression tests and successful deterministic resume checks. Those establish implementation evidence, not professional poker strength.
+
+## The route to 1.0
+
+1. **Trust the game and the measurements.** Rules, legal observations, sessions, reproducible evaluation, and independent small-game references.
+2. **Validate the learning algorithm.** Resolve the current neural convergence failures across multiple seeds before scaling.
+3. **Build the no-limit learner.** Represent full decisions and variable seats, learn meaningful bet sizes, train all player roles, and support complete recovery.
+4. **Scale from measured throughput.** Profile collection and fitting, batch work, and run bounded hardware pilots before larger campaigns.
+5. **Improve demonstrated playing strength.** Evaluate range-aware search and opponent adaptation as separate changes against fixed baselines.
+6. **Qualify the release.** Establish the professional reference benchmark, run the declared training and confirmation campaigns, and publish the complete evidence package.
+
+The [roadmap](ROADMAP.md) contains the PR-sized work, acceptance checks, and current next task. Completing implementation milestones does not waive the release standard above.
+
+Vast.ai is the planned rental provider. Hardware choice follows profiling and a cost/performance comparison; no particular GPU or rental budget is committed. Larger compute is useful only when it improves the measured training and evaluation workflow.
+
+## Quick start
+
+Use **Python 3.11**, Git, and a Rust toolchain. The engine is built from the pinned fork. Commands run from the repository root.
 
 ```bash
 git clone https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players.git
@@ -30,384 +97,55 @@ cd deepcfr-texas-no-limit-holdem-6-players
 
 python3.11 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+python -m pip install -r requirements-dev.txt
+python -m pytest -q
 ```
 
-PyQt5 (for the GUI) is already in `requirements.txt`, so there's nothing extra to install. All the commands below assume you're at the repo root and use `python -m ...` or `python scripts/...`.
+For the CPU Torch version used by the current CI and neural reports, install `torch==2.5.1` from the [PyTorch CPU package index](https://download.pytorch.org/whl/cpu) before installing the requirements. The general requirements allow other Torch 2.x versions; exact report reproduction requires matching the recorded runtime.
 
-## Reproducible evaluation
-
-The [evaluation arena](docs/evaluation.md) saves declared schedules, hand-level results, provenance, and paired confidence intervals. It supports independent fixed-stack hands and persistent bankroll sessions, with separate random streams and seat rotations. Versioned four-/five-/six-player suites cover stack depths and sessions, with separate training/evaluation pools and an observation-only adapter for frozen standard checkpoints. The style opponents are exploitable controls; archived models retain their documented limitations.
+Run a short neural check, pause it, and resume in a new process:
 
 ```bash
-python -m scripts.run_arena --plan configs/arena/smoke.json --out results/arena-smoke
-python -m scripts.run_arena --reproduce results/arena-smoke --out results/arena-replay
+python -m scripts.check_deep_cfr \
+  --plan configs/solver/neural-smoke.json \
+  --stop-after 1 --out results/readme-paused
+
+python -m scripts.check_deep_cfr \
+  --resume results/readme-paused --out results/readme-resumed
 ```
 
-See the [benchmark guide](docs/benchmarks.md), [opponent/checkpoint validation](docs/reports/benchmark-validation.md), and [declared sensitivity check](docs/reports/arena-validation.md) for usage and evidence. The existing `scripts.evaluate_models` command remains a legacy evaluator.
-
-## Small-game solver reference
-
-The [Kuhn/Leduc reference](docs/solver-reference.md) validates tabular CFR and external-sampling regret updates against exact best responses and an independent equilibrium solver. It reports exploitability in ante units and retains declared budgets, seeds, average strategies, and reproducible results. These toy-game checks are the first part of the learning rewrite; they do not establish six-player playing strength.
+Run and reproduce a small Hold’em arena schedule:
 
 ```bash
-python -m scripts.check_solver --plan configs/solver/smoke.json --out results/solver-smoke
-python -m scripts.check_solver --reproduce results/solver-smoke --out results/solver-replay
+python -m scripts.run_arena \
+  --plan configs/arena/smoke.json --out results/readme-arena
+
+python -m scripts.run_arena \
+  --reproduce results/readme-arena --out results/readme-arena-replay
 ```
 
-The [neural Deep CFR baseline](docs/neural-cfr.md) uses the same small games, with uniform replay reservoirs, alternating advantage fitting, a separately learned average policy, and complete training snapshots. Fresh-process resume preserves replay and random state. The [multi-seed validation](docs/reports/neural-convergence.md) requires final exploitability and value tolerances for every seed: Kuhn passes, while the Leduc learning gate remains open. The earlier [single-seed pilots](docs/reports/neural-validation.md) remain available for comparison.
+Use fresh output directories; runners preserve existing results. These commands check execution and reproducibility. They do not train or certify a professional-strength model.
 
-```bash
-python -m scripts.check_deep_cfr --plan configs/solver/neural-smoke.json --out results/neural-smoke
-```
+## Documentation
 
-## Public observation interface
+| Read this | For |
+| --- | --- |
+| [Roadmap](ROADMAP.md) | Development order, current blockers, contribution workflow, and compute policy |
+| [Rules](docs/rules.md) / [engine audit](docs/engine-audit.md) | Supported poker rules and verification evidence |
+| [Observations](docs/observations.md) / [sessions](docs/sessions.md) | What the agent can see and how tables change between hands |
+| [Evaluation arena](docs/evaluation.md) / [benchmarks](docs/benchmarks.md) | Schedules, opponents, metrics, and reproducible comparisons |
+| [Tabular solver](docs/solver-reference.md) / [neural solver](docs/neural-cfr.md) | Learning conventions, commands, snapshots, and diagnostics |
+| [Latest convergence report](docs/reports/neural-convergence.md) | All seeds, failures, plots, fitting experiments, and the next decision |
+| [Legacy workflows](docs/legacy-workflows.md) | Existing Hold’em training, checkpoint evaluation, CLI/GUI play, and historical results |
 
-Policies now receive immutable player views rather than the Rust simulator. The new API uses integer chips and explicit raise-to actions, while a public-only adapter supports the current model feature layout. Folded and mucked cards stay private, including in CLI and GUI results. [Interface documentation](docs/observations.md) covers events, replay, history ownership, showdown choices, and remaining limits.
+The legacy workflows are retained for experiments and regression coverage. They are separate from the validated small-game solver and are not the 1.0 training recipe.
 
-Run a short headless check with `python -m scripts.check_game --players 6 --hands 20`. For bankrolls, departures, arrivals, and sit-outs, run `python -m scripts.check_session --hands 30`. This exercises the interface with random policies; it does not measure playing strength.
+## Research foundations
 
-## What works today
+- [Deep Counterfactual Regret Minimization](https://proceedings.mlr.press/v97/brown19b.html) — the original inspiration and starting neural algorithm.
+- [Single Deep CFR](https://arxiv.org/abs/1901.07621) — an alternative approach to strategy averaging that we may compare separately.
+- [Pluribus: Superhuman AI for multiplayer poker](https://doi.org/10.1126/science.aay2400) and [supplementary material](https://noambrown.github.io/papers/19-Science-Superhuman_Supp.pdf) — multiplayer self-play, search, and evaluation against professional players. This project's release criteria are our own; citing that result does not establish equivalent strength here.
 
-Most of the moving pieces are in place: Deep CFR training against random opponents, checkpoint continuation, self-play against a fixed checkpoint snapshot, and mixed training against a rotating checkpoint pool. The opponent-modeling track runs through the same three stages. On top of training you get checkpoint evaluation from the CLI, CLI and PyQt GUI play against saved checkpoints or random agents, tournament visualization across checkpoints, and regression tests for the `pokers` and training-path failures that have bitten this project before.
+## License and acknowledgments
 
-## What the current examples are meant to prove
-
-The training and evaluation examples in this README are here to show the code works end to end, not to claim the models are already strong. Concretely, they demonstrate that training fills replay memory and writes checkpoints, those checkpoints reload correctly, TensorBoard logs get written, fixed-seed evaluation runs without hitting invalid game states, saved checkpoints can play tournaments against each other, and result files and plots get generated without anyone hand-editing scripts.
-
-That's a working-code milestone. Real poker strength still needs longer training, variance-aware evaluation, and careful checkpoint-vs-checkpoint comparison.
-
-## Architecture
-
-The setup is a 6-player no-limit Texas Hold'em environment from [`pokers`](https://github.com/dberweger2017/pokers), fed a fixed-length state encoding that covers hole cards, board cards, stage, pot, positions, player states, min bet, legal actions, and the previous action.
-
-The network is a shared feed-forward body with two heads: an action head (`Fold`, `Check/Call`, `Raise`) and a sizing head for continuous raise sizing in roughly the `0.1x` to `3.0x` pot range. Advantage training uses prioritized replay, policy updates draw from a separate strategy memory, and the opponent-modeling variants add a GRU-based action-history encoder on top.
-
-This is no longer the old 4-action "half-pot / pot raise" model from earlier versions. It's three action types plus continuous sizing.
-
-## Training
-
-Everything below runs from the repo root. There are two clean training tracks: standard Deep CFR in [train.py](./src/training/train.py), and opponent-modeling Deep CFR in [train_opponent_modeling.py](./src/training/train_opponent_modeling.py). The older [train_with_opponent_modeling.py](./src/training/train_with_opponent_modeling.py) and [train_mixed_with_opponent_modeling.py](./src/training/train_mixed_with_opponent_modeling.py) are now internal modules — use the two entrypoints above from the command line.
-
-Both tracks follow the same three stages: random opponents, then self-play against a fixed checkpoint, then mixed checkpoint training.
-
-The shared core flags are `--iterations`, `--traversals`, `--save-dir`, `--log-dir`, `--checkpoint`, `--self-play`, `--mixed`, `--checkpoint-dir`, `--model-prefix`, `--refresh-interval`, `--num-opponents`, `--strict`, `--progress-interval`, and `--checkpoint-interval`. A few of them carry specific meaning worth spelling out:
-
-- `--checkpoint` means "continue from this checkpoint"
-- `--checkpoint --self-play` means "continue from this checkpoint and use that same checkpoint as the fixed opponent snapshot"
-- `--checkpoint --mixed` means "continue from this checkpoint while sampling opponents from `--checkpoint-dir`"
-- `--progress-interval` controls the compact terminal summaries during Phase 1. Default is `100`; use `0` to keep only the progress bar and milestone messages.
-- `--checkpoint-interval` controls checkpoint save cadence. Default is `1000`; use `0` to save only the final checkpoint.
-
-A directory layout that keeps the stages tidy:
-
-```text
-models/
-  standard/
-    phase1/
-    selfplay/
-    mixed/
-  opponent_modeling/
-    phase1/
-    selfplay/
-    mixed/
-```
-
-### Phase 1: train against random opponents
-
-A 1000-iteration run is fine as a smoke test, but don't mistake it for real training — use it to confirm the environment, checkpointing, TensorBoard logging, and evaluation scripts all work:
-
-```bash
-python -m src.training.train \
-  --iterations 1000 \
-  --traversals 200 \
-  --log-dir logs/standard/phase1 \
-  --save-dir models/standard/phase1
-```
-
-A longer Phase 1 run makes a more useful first baseline:
-
-```bash
-python -m src.training.train \
-  --iterations 20000 \
-  --traversals 200 \
-  --save-dir models/standard/phase1_20k \
-  --log-dir logs/standard/phase1_20k \
-  --checkpoint-interval 1000
-```
-
-For long runs the trainer shows a `tqdm` progress bar in an interactive terminal and prints compact summaries every `--progress-interval` iterations. To print fewer:
-
-```bash
-python -m src.training.train \
-  --iterations 20000 \
-  --traversals 200 \
-  --save-dir models/standard/phase1_20k \
-  --log-dir logs/standard/phase1_20k \
-  --progress-interval 500
-```
-
-Two things to keep in mind. Checkpoints save every 1000 iterations by default. And replay memory isn't stored in checkpoints — continuing from one resumes the model weights but starts with fresh replay memory, so for a true uninterrupted Phase 1 baseline, run the full iteration count in a single process.
-
-### Continue training from a checkpoint
-
-```bash
-python -m src.training.train \
-  --checkpoint models/standard/phase1/checkpoint_iter_1000.pt \
-  --iterations 1000 \
-  --traversals 200 \
-  --log-dir logs/standard/continued \
-  --save-dir models/standard/continued
-```
-
-### Phase 2: self-play against a fixed checkpoint
-
-```bash
-python -m src.training.train \
-  --checkpoint models/standard/phase1/checkpoint_iter_1000.pt \
-  --self-play \
-  --iterations 2000 \
-  --traversals 400 \
-  --log-dir logs/standard/selfplay \
-  --save-dir models/standard/selfplay
-```
-
-Continuing from a stronger Phase 1 candidate instead:
-
-```bash
-python -m src.training.train \
-  --checkpoint models/standard/phase1_20k/checkpoint_iter_3000.pt \
-  --self-play \
-  --iterations 10000 \
-  --traversals 400 \
-  --save-dir models/standard/selfplay_from_3000 \
-  --log-dir logs/standard/selfplay_from_3000
-```
-
-### Phase 3: mixed training against a checkpoint pool
-
-```bash
-python -m src.training.train \
-  --checkpoint models/standard/selfplay/selfplay_checkpoint_iter_3000.pt \
-  --mixed \
-  --checkpoint-dir models/standard \
-  --model-prefix "*checkpoint_iter_" \
-  --refresh-interval 1000 \
-  --num-opponents 5 \
-  --iterations 10000 \
-  --traversals 400 \
-  --log-dir logs/standard/mixed \
-  --save-dir models/standard/mixed
-```
-
-### Opponent-modeling training
-
-Same three stages, different entrypoint.
-
-Stage 1, random opponents:
-
-```bash
-python -m src.training.train_opponent_modeling \
-  --iterations 1000 \
-  --traversals 200 \
-  --save-dir models/opponent_modeling/phase1 \
-  --log-dir logs/opponent_modeling/phase1
-```
-
-Stage 2, self-play against a fixed checkpoint:
-
-```bash
-python -m src.training.train_opponent_modeling \
-  --checkpoint models/opponent_modeling/phase1/checkpoint_iter_1000.pt \
-  --self-play \
-  --iterations 2000 \
-  --traversals 400 \
-  --save-dir models/opponent_modeling/selfplay \
-  --log-dir logs/opponent_modeling/selfplay
-```
-
-Stage 3, mixed checkpoint training:
-
-```bash
-python -m src.training.train_opponent_modeling \
-  --mixed \
-  --checkpoint models/opponent_modeling/selfplay/selfplay_checkpoint_iter_3000.pt \
-  --checkpoint-dir models/opponent_modeling \
-  --model-prefix "*checkpoint_iter_" \
-  --iterations 10000 \
-  --traversals 200 \
-  --refresh-interval 1000 \
-  --num-opponents 5 \
-  --save-dir models/opponent_modeling/mixed \
-  --log-dir logs/opponent_modeling/mixed
-```
-
-A couple of notes on the pools. Standard mixed training should usually point at `models/standard` so it only samples standard checkpoints. Opponent-model self-play needs an opponent-model checkpoint created by `src.training.train_opponent_modeling`. And opponent-model mixed training can either stay OM-only with `--checkpoint-dir models/opponent_modeling`, or draw from a mixed pool of both standard and OM checkpoints with `--checkpoint-dir models`.
-
-### Monitoring
-
-```bash
-tensorboard --logdir=logs
-```
-
-Then open `http://localhost:6006`. For a single run, point it at that run's directory:
-
-```bash
-tensorboard --logdir=logs/standard/phase1_20k
-```
-
-## Evaluating checkpoints
-
-The evaluation CLI compares checkpoints with fixed seeds, so you don't have to hand-edit training scripts to measure progress.
-
-```bash
-python scripts/evaluate_models.py \
-  --checkpoint-dir models/standard \
-  --pattern "*checkpoint_iter_" \
-  --games-random 100 \
-  --games-pool 100 \
-  --json-out reports/evaluation.json \
-  --csv-out reports/evaluation.csv
-```
-
-While a Phase 1 run is still training, evaluate stable checkpoint slices explicitly. Naming the files keeps the evaluator from loading a checkpoint mid-write:
-
-```bash
-python scripts/evaluate_models.py \
-  --checkpoints \
-    models/standard/phase1_20k/checkpoint_iter_500.pt \
-    models/standard/phase1_20k/checkpoint_iter_1000.pt \
-    models/standard/phase1_20k/checkpoint_iter_1500.pt \
-    models/standard/phase1_20k/checkpoint_iter_2000.pt \
-    models/standard/phase1_20k/checkpoint_iter_2500.pt \
-    models/standard/phase1_20k/checkpoint_iter_3000.pt \
-  --games-random 5000 \
-  --games-pool 1000 \
-  --json-out results/standard_phase1_20k_500_3000.json \
-  --csv-out results/standard_phase1_20k_500_3000.csv
-```
-
-It reports average profit versus random opponents, average profit versus the checkpoint pool, completed hands, invalid-state counts, and optional JSON/CSV summaries.
-
-## Playing against the models
-
-CLI:
-
-```bash
-python scripts/play.py --models-dir models/standard/selfplay
-```
-
-Handy options: `--model-pattern "*.pt"` to filter checkpoint files, `--num-models 5` to control how many checkpoint opponents get sampled, `--position 0` to pick your seat, `--no-shuffle` to keep the same sampled models across games, and `--strict` to raise on invalid game states instead of logging and continuing.
-
-GUI:
-
-```bash
-python scripts/poker_gui.py --models_folder models/standard/selfplay
-```
-
-### Tournament visualization
-
-```bash
-python scripts/visualize_tournament.py \
-  --checkpoints models/standard/phase1/checkpoint_iter_1000.pt models/standard/selfplay/selfplay_checkpoint_iter_3000.pt \
-  --num-games 100
-```
-
-Comparing checkpoint against checkpoint during Phase 1:
-
-```bash
-python -m scripts.visualize_tournament \
-  --checkpoints \
-    models/standard/phase1_20k/checkpoint_iter_500.pt \
-    models/standard/phase1_20k/checkpoint_iter_1000.pt \
-    models/standard/phase1_20k/checkpoint_iter_1500.pt \
-    models/standard/phase1_20k/checkpoint_iter_2000.pt \
-    models/standard/phase1_20k/checkpoint_iter_2500.pt \
-    models/standard/phase1_20k/checkpoint_iter_3000.pt \
-  --num-games 1000 \
-  --output-dir results/tournament_phase1_20k_500_to_3000_step500
-```
-
-A larger Phase 1 versus self-play comparison:
-
-```bash
-python -m scripts.visualize_tournament \
-  --checkpoints \
-    models/standard/phase1_20k/checkpoint_iter_3000.pt \
-    models/standard/selfplay_from_3000/selfplay_checkpoint_iter_3500.pt \
-    models/standard/selfplay_from_3000/selfplay_checkpoint_iter_4000.pt \
-    models/standard/selfplay_from_3000/selfplay_checkpoint_iter_4500.pt \
-    models/standard/selfplay_from_3000/selfplay_checkpoint_iter_5000.pt \
-    models/standard/selfplay_from_3000/selfplay_checkpoint_iter_6000.pt \
-  --num-games 10000 \
-  --output-dir results/tournament_selfplay_from_3000_3500_to_6000_10k
-```
-
-Each tournament run drops raw data (`tournament_data.csv`) alongside plots: `cumulative_profit.png`, `final_performance.png`, `segment_heatmap.png`, `stack_sizes_over_time.png`, and `zero_sum_validation.png`.
-
-Treat tournament results as a robustness signal, not the only metric. A single six-player table is noisy, so cross-check it against fixed-seed evaluation versus random opponents and the checkpoint pool. The script shows a `tqdm` bar with the current leader and average actions per hand, and `--max-actions-per-hand` makes a non-terminating hand fail loudly instead of hanging.
-
-## Testing and regression coverage
-
-The repo carries targeted regression tests for the failures that have done the most damage. Run them all with:
-
-```bash
-python3 scripts/run_regression_suite.py
-```
-
-What they cover:
-
-- `tests/test_evaluation_cli.py` — the checkpoint evaluation CLI
-- `tests/test_training_opponent_modeling_regressions.py` — OM self-play smoke test, OM self-play rejecting standard checkpoints, and the unified OM training CLI dispatch
-- `tests/test_engine_integration.py` — strict sizing and logging adapters over 300 unequal-stack hands with four to six players
-- `tests/test_pokers_regressions.py` — all-in and legal-action regressions inherited from `pokers`
-- `tests/test_training_regressions.py` — self-play and mixed-training smoke tests, mixed-training continuation from checkpoint, replay-memory shape consistency, explicit `.pt` save-path handling
-- `tests/test_logging_regressions.py` — UTF-8 log writing, tournament invalid-state logging, automatic all-in settlement without logging repair
-- `tests/test_state_scenarios.py` — deterministic edge-case hand scenarios
-
-## A note on results
-
-The main training paths run, but the learning algorithm and evaluation still need the work described in the roadmap. The engine now plays a corrected game, so results and checkpoints from the old rules are historical records, not strength benchmarks for this version.
-
-Some recent local benchmark numbers, from a standard Phase 1 run and a self-play continuation off `checkpoint_iter_3000.pt`:
-
-```text
-10k tournament, fixed six-seat lineup:
-phase1 checkpoint_iter_3000.pt:            +642629.55
-selfplay selfplay_checkpoint_iter_3500.pt:  +27121.85
-selfplay selfplay_checkpoint_iter_4000.pt: -126573.81
-selfplay selfplay_checkpoint_iter_4500.pt: -278549.67
-selfplay selfplay_checkpoint_iter_5000.pt: -183321.37
-selfplay selfplay_checkpoint_iter_6000.pt:  -81306.54
-
-Fixed-seed evaluator:
-checkpoint                         random EV    checkpoint-pool EV
-checkpoint_iter_3000.pt            +32.35       +57.70
-selfplay_checkpoint_iter_3500.pt    +6.51        -7.32
-selfplay_checkpoint_iter_4000.pt    -1.21       -20.03
-selfplay_checkpoint_iter_4500.pt    -9.94       -16.57
-selfplay_checkpoint_iter_5000.pt    -8.28        -9.29
-selfplay_checkpoint_iter_6000.pt    -3.46        -2.07
-```
-
-Read honestly, this self-play run didn't beat the Phase 1 `3000` checkpoint by iteration `6000`. The later self-play checkpoints clawed back some ground against the worst middle ones, but the Phase 1 anchor still won both the tournament and the fixed-seed evaluator.
-
-What's still open: the exact profitability numbers versus the article, how robust the learned strategy is across seeds and schedules, and whether the opponent-modeling variants consistently beat the simpler baseline. If reproducibility matters to you, run multiple seeds and compare checkpoints rather than trusting a single training curve.
-
-## Future work
-
-The development plan lives in [ROADMAP.md](./ROADMAP.md). It replaces the earlier feature backlog with staged PRs, correctness checks, and measured training campaigns.
-
-## References
-
-1. Brown, N., and Sandholm, T. (2019). [Deep Counterfactual Regret Minimization](https://arxiv.org/abs/1811.00164).
-2. Zinkevich, M., Johanson, M., Bowling, M., and Piccione, C. (2008). [Regret Minimization in Games with Incomplete Information](https://papers.nips.cc/paper/3306-regret-minimization-in-games-with-incomplete-information.pdf).
-3. Heinrich, J., and Silver, D. (2016). [Deep Reinforcement Learning from Self-Play in Imperfect-Information Games](https://arxiv.org/abs/1603.01121).
-
-## License
-
-MIT. See [LICENSE.txt](./LICENSE.txt).
-
-## Acknowledgments
-
-Thanks to the maintainers of [`pokers`](https://github.com/Reinforcement-Poker/pokers), the people who reported and reproduced the training and game-state bugs, and the PyTorch ecosystem for making iteration on something like this practical.
+[MIT](LICENSE.txt). Thanks to the original [`pokers` maintainers](https://github.com/Reinforcement-Poker/pokers), contributors who reported and reproduced game/training failures, and the open-source research and tooling behind this work.
