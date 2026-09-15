@@ -9,10 +9,11 @@ from src.game.types import (
     Player,
     Pot,
     Street,
+    TableSeat,
     pots_for,
 )
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 RULES_PROFILE = "nlhe-cash-auto-muck-v1"
 
 
@@ -27,6 +28,10 @@ class HandStarted:
     chip_unit: str
     schema_version: int = SCHEMA_VERSION
     rules_profile: str = RULES_PROFILE
+    seat_numbers: tuple[int, ...] = ()
+    table_seats: tuple[TableSeat, ...] = ()
+    capacity: int | None = None
+    session_profile: str | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -114,6 +119,10 @@ class Observation:
     history: tuple[PublicEvent, ...]
     previous_hands: tuple[ObservedHand, ...]
     finished: bool
+    seat_numbers: tuple[int, ...]
+    table_seats: tuple[TableSeat, ...]
+    capacity: int
+    session_profile: str | None
 
     @property
     def pot(self) -> int:
@@ -130,15 +139,35 @@ def replay(
     seat: int,
     hole_cards: tuple[str, ...],
     previous_hands: tuple[ObservedHand, ...] = (),
+    *,
+    observer_id: str | None = None,
 ) -> Observation:
     if not events or not isinstance(events[0], HandStarted):
         raise ValueError("A replay must start with HandStarted")
     start = events[0]
     if start.schema_version != SCHEMA_VERSION or start.rules_profile != RULES_PROFILE:
         raise ValueError("Unsupported observation schema or rules profile")
-    if type(seat) is not int or not 0 <= seat < len(start.stacks):
-        raise ValueError("Unknown observer seat")
-    if any(hand.player_id != start.player_ids[seat] for hand in previous_hands):
+    spectator = seat == -1 and observer_id is not None
+    if spectator:
+        if (
+            observer_id in start.player_ids
+            or hole_cards
+            or not any(
+                p.player_id == observer_id and p.status != "sitting_out"
+                for p in start.table_seats
+            )
+        ):
+            raise ValueError(
+                "Unknown spectator or private cards supplied for a spectator"
+            )
+        identity = observer_id
+    else:
+        if type(seat) is not int or not 0 <= seat < len(start.stacks):
+            raise ValueError("Unknown observer seat")
+        identity = start.player_ids[seat]
+        if observer_id is not None and observer_id != identity:
+            raise ValueError("Observer identity does not match the seat")
+    if any(hand.player_id != identity for hand in previous_hands):
         raise ValueError("Prior private history belongs to a different player")
     players = tuple(
         Player(i, identity, stack, stack)
@@ -212,7 +241,7 @@ def replay(
             raise TypeError(f"Unexpected event: {type(event).__name__}")
     return Observation(
         start.hand_id,
-        start.player_ids[seat],
+        identity,
         seat,
         tuple(hole_cards),
         board,
@@ -228,4 +257,11 @@ def replay(
         tuple(events),
         tuple(previous_hands),
         finished,
+        start.seat_numbers or tuple(range(len(players))),
+        start.table_seats
+        or tuple(
+            TableSeat(p.seat, p.player_id, p.starting_stack, "playing") for p in players
+        ),
+        start.capacity if start.capacity is not None else len(players),
+        start.session_profile,
     )

@@ -18,7 +18,7 @@ from src.game.observation import (
     replay,
 )
 from src.game.showdown import disclosures
-from src.game.types import Action, ActionKind, LegalActions, Street
+from src.game.types import Action, ActionKind, LegalActions, Street, TableSeat
 
 ENGINE_ACTIONS = {
     ActionKind.FOLD: pokers.ActionEnum.Fold,
@@ -41,6 +41,11 @@ class Table:
     big_blind: int = 100
     chip_unit: str = "0.01"
 
+    seat_numbers: tuple[int, ...] = ()
+    table_seats: tuple[TableSeat, ...] = ()
+    capacity: int | None = None
+    session_profile: str | None = None
+
     def __post_init__(self):
         object.__setattr__(self, "player_ids", tuple(self.player_ids))
         object.__setattr__(self, "stacks", tuple(self.stacks))
@@ -54,6 +59,46 @@ class Table:
             raise ValueError("Player identities must be nonempty and distinct")
         if type(self.button) is not int or not 0 <= self.button < n:
             raise ValueError("Button must name an occupied seat")
+        numbers = tuple(self.seat_numbers) or tuple(range(n))
+        capacity = n if self.capacity is None else self.capacity
+        if (
+            type(capacity) is not int
+            or not n <= capacity <= 10
+            or len(numbers) != n
+            or len(set(numbers)) != n
+            or any(type(s) is not int or not 0 <= s < capacity for s in numbers)
+            or tuple(sorted(numbers)) != numbers
+        ):
+            raise ValueError("Physical seats must preserve clockwise hand order")
+        roster = tuple(self.table_seats) or tuple(
+            TableSeat(s, identity, stack, "playing")
+            for s, identity, stack in zip(numbers, self.player_ids, self.stacks)
+        )
+        expected = tuple(
+            (s, p, v) for s, p, v in zip(numbers, self.player_ids, self.stacks)
+        )
+        actual = tuple(
+            (p.seat, p.player_id, p.stack) for p in roster if p.status == "playing"
+        )
+        if (
+            actual != expected
+            or len({p.seat for p in roster}) != len(roster)
+            or len({p.player_id for p in roster}) != len(roster)
+            or any(
+                type(p.seat) is not int
+                or not 0 <= p.seat < capacity
+                or type(p.stack) is not int
+                or p.stack < 0
+                or not isinstance(p.player_id, str)
+                or not p.player_id
+                or p.status not in {"playing", "waiting", "sitting_out", "busted"}
+                for p in roster
+            )
+        ):
+            raise ValueError("Table roster does not match the hand participants")
+        object.__setattr__(self, "seat_numbers", numbers)
+        object.__setattr__(self, "table_seats", roster)
+        object.__setattr__(self, "capacity", capacity)
         amounts = (*self.stacks, self.small_blind, self.big_blind)
         if any(type(v) is not int or not 0 < v <= 10**12 for v in amounts):
             raise ValueError("Stacks and blinds must be positive integer chips")
@@ -123,6 +168,10 @@ class Hand:
                 table.small_blind,
                 table.big_blind,
                 table.chip_unit,
+                seat_numbers=table.seat_numbers,
+                table_seats=table.table_seats,
+                capacity=table.capacity,
+                session_profile=table.session_profile,
             ),
             BlindPosted(sb, min(table.small_blind, table.stacks[sb])),
             BlindPosted(bb, min(table.big_blind, table.stacks[bb])),
@@ -144,6 +193,13 @@ class Hand:
             raise ValueError("Unknown observer seat")
         cards = tuple(card_name(c) for c in self._state.players_state[seat].hand)
         return replay(self.events, seat, cards, previous_hands)
+
+    def observe_player(
+        self, player_id: str, previous_hands: tuple[ObservedHand, ...] = ()
+    ) -> Observation:
+        if player_id in self.table.player_ids:
+            return self.observe(self.table.player_ids.index(player_id), previous_hands)
+        return replay(self.events, -1, (), previous_hands, observer_id=player_id)
 
     def apply(self, action: Action) -> "Hand":
         if self.finished:
