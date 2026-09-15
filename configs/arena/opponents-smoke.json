@@ -1,0 +1,63 @@
+{
+  "candidate": "tight_aggressive",
+  "baseline": "check_call",
+  "pool": {
+    "name": "styles-evaluation-v1",
+    "purpose": "evaluation",
+    "members": [
+      "tight_passive",
+      "loose_passive",
+      "tight_aggressive",
+      "loose_aggressive",
+      "pot_pressure"
+    ]
+  },
+  "split": "validation",
+  "scenarios": [
+    {
+      "name": "4-player-style-check",
+      "stacks": [
+        2000,
+        4000,
+        6000,
+        8000
+      ]
+    },
+    {
+      "name": "5-player-style-check",
+      "stacks": [
+        2000,
+        4000,
+        6000,
+        8000,
+        10000
+      ]
+    },
+    {
+      "name": "6-player-style-check",
+      "stacks": [
+        2000,
+        4000,
+        6000,
+        8000,
+        10000,
+        12000
+      ]
+    },
+    {
+      "name": "six-style-session",
+      "stacks": [
+        2000,
+        4000,
+        7500,
+        10000,
+        15000,
+        20000
+      ],
+      "mode": "session",
+      "hands_per_rotation": 5
+    }
+  ],
+  "blocks": 2,
+  "root_seed": 580219
+}

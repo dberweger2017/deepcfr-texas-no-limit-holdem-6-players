@@ -1,0 +1,29 @@
+{
+  "scenarios": [
+    {
+      "name": "training-control",
+      "stacks": [
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000
+      ]
+    }
+  ],
+  "candidate": "random",
+  "baseline": "check_call",
+  "pool": {
+    "name": "training-v1",
+    "purpose": "training",
+    "members": [
+      "random",
+      "check_call",
+      "train_pressure"
+    ]
+  },
+  "blocks": 2,
+  "root_seed": 70425,
+  "split": "train"
+}

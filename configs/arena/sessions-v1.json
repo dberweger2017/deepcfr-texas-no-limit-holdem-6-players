@@ -1,0 +1,56 @@
+{
+  "candidate": "tight_aggressive",
+  "baseline": "check_call",
+  "pool": {
+    "name": "styles-evaluation-v1",
+    "purpose": "evaluation",
+    "members": [
+      "tight_passive",
+      "loose_passive",
+      "tight_aggressive",
+      "loose_aggressive",
+      "pot_pressure"
+    ]
+  },
+  "split": "validation",
+  "scenarios": [
+    {
+      "name": "6-player-bankroll",
+      "stacks": [
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000
+      ],
+      "mode": "session",
+      "hands_per_rotation": 20
+    },
+    {
+      "name": "5-player-bankroll",
+      "stacks": [
+        10000,
+        10000,
+        10000,
+        10000,
+        10000
+      ],
+      "mode": "session",
+      "hands_per_rotation": 20
+    },
+    {
+      "name": "4-player-bankroll",
+      "stacks": [
+        10000,
+        10000,
+        10000,
+        10000
+      ],
+      "mode": "session",
+      "hands_per_rotation": 20
+    }
+  ],
+  "blocks": 32,
+  "root_seed": 41479
+}

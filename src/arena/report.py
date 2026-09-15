@@ -184,6 +184,29 @@ def markdown(report: dict) -> str:
         ),
         "",
     ]
+    legacy = {
+        name: details
+        for name, details in report.get("policies", {}).items()
+        if details["kind"] == "legacy-standard-v1"
+    }
+    if legacy:
+        lines += [
+            "## Frozen checkpoint adapters",
+            "",
+            (
+                "These comparisons use legacy absolute-seat features and additional-raise sizing. "
+                "The old training rules and learning algorithm are not validated by loading the weights."
+            ),
+            "",
+        ]
+        for name, details in legacy.items():
+            training_seed = details["training_seed"]
+            provenance = str(training_seed) if training_seed is not None else "unknown"
+            lines.append(
+                f"- `{name}`: {details['num_players']} players, training seed {provenance}, "
+                f"SHA-256 `{details['weights_sha256']}`."
+            )
+        lines.append("")
     for name, item in report["scenarios"].items():
         lines += [
             f"## {name}",

@@ -2,7 +2,7 @@
 
 The arena runs a declared plan, saves the exact schedule before dealing, and compares a candidate against a baseline on paired deal or session blocks. It receives ordinary observation-based policies; it never gives them its seeds, policy labels, checkpoints, or privileged simulator objects.
 
-This PR supplies the measurement infrastructure and three small control policies. Competitive opponent suites and frozen neural checkpoint adapters are the next task. The old `scripts.evaluate_models` command remains a legacy evaluator and does not provide this reproducibility contract.
+The arena includes simple controls, card-aware style opponents, named training/evaluation pools, and frozen standard-network adapters. See [benchmark suites and checkpoint contracts](benchmarks.md) for their configurations and limits. The old `scripts.evaluate_models` command remains a legacy evaluator and does not provide this reproducibility contract.
 
 ## Run and reproduce
 
@@ -43,7 +43,7 @@ The supported controls are:
 | `fold` | Fold whenever legal, otherwise check; deliberately weak |
 | `random` | Existing legal random policy, with its own seeded generator |
 
-The CLI rejects unknown policies. These controls have implementation hashes and no weight files, so their manifest `weights_sha256` is explicitly null. No neural checkpoint is silently loaded or advertised as compatible. A future model adapter must declare and hash its artifact, own its sampling stream, accept only observations, and pass the same reproduction tests.
+These controls have implementation hashes and no weight files, so their manifest `weights_sha256` is explicitly null. Named style policies and explicitly declared checkpoint aliases are also supported; unknown policies fail before dealing. Frozen artifacts are hash-checked and snapshotted before play. [Benchmark documentation](benchmarks.md) defines pool separation, model eligibility, legal decoding, and inference settings.
 
 ## Pairing and seat rotation
 
@@ -83,6 +83,7 @@ These are fixed-budget intervals, not a sequential testing procedure. Decide the
 | File | Contents |
 | --- | --- |
 | `manifest.json` | Plan, schedule hash, source revision and fingerprint, dirty-tree flag, rules/schema versions, policy fingerprints, statistical protocol, Python/platform/package versions, installed engine commit and binary hashes |
+| `models/<sha256>.pt` | Exact verified checkpoint bytes, present only for model policies; used for reproduction |
 | `schedule.json` | Exact blocks, deal seeds, action seeds, opponent selection seeds and selected lineups |
 | `hands.jsonl` | One record per completed or failed attempt: arm/block/rotation/hand, starting configuration, participant identities, net chips, reloads, public event trace, failure detail and record hash |
 | `timings.jsonl` | Per-hand wall time and per-policy-call timings, separated from deterministic results |
@@ -95,4 +96,6 @@ Reproduction checks the source fingerprint, rules, policy fingerprints, complete
 
 The source fingerprint covers tracked and non-ignored Python files and requirements files, including newly added files. Freeze the code before recording an experiment. Compact plans and validation summaries belong in git; raw bundles stay under ignored `results/` or a separate retained artifact location. The arena currently holds report rows in memory and writes full public traces; large-scale streaming summaries and storage compaction should follow profiling.
 
-Timings measure policy calls separately from observation construction and engine work; total wall time includes the runner and artifact writes, but excludes dependency installation and startup. Built-in-policy latency is not a GPU inference benchmark. Neither timings nor the human-readable report alone establish poker strength.
+Timings measure policy calls separately from observation construction and engine work; reported total wall time covers runner execution and per-hand artifact writes. It excludes checkpoint loading, hashing, snapshotting, initial manifest/schedule writes, final report serialization, dependency installation, and startup. Built-in-policy latency is not a GPU inference benchmark. Neither timings nor the human-readable report alone establish poker strength.
+
+The current manifest and schedule schemas are version 2. Version 1 bundles need their original implementation; this change does not preserve their seed derivation or support replaying them with the new schema.

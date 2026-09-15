@@ -1,0 +1,67 @@
+{
+  "candidate": "historical_selfplay_5900",
+  "baseline": "historical_phase1_100",
+  "pool": {
+    "name": "styles-evaluation-v1",
+    "purpose": "evaluation",
+    "members": [
+      "tight_passive",
+      "loose_passive",
+      "tight_aggressive",
+      "loose_aggressive",
+      "pot_pressure"
+    ]
+  },
+  "split": "validation",
+  "models": [
+    {
+      "name": "historical_selfplay_5900",
+      "path": "models/standard/selfplay_from_3000/selfplay_checkpoint_iter_5900.pt",
+      "sha256": "f6ee93507c98f9907f06d7d15376845b436154a701192b1aeb5116d7cc1a8a8e",
+      "format": "legacy-standard-v1"
+    },
+    {
+      "name": "historical_phase1_100",
+      "path": "models/standard/phase1/checkpoint_iter_100.pt",
+      "sha256": "d81e46d728a16d20e5679ee0181041af73c12cfda0c31bdcbe36539071995686",
+      "format": "legacy-standard-v1"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "six-legacy-20bb",
+      "stacks": [
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000
+      ]
+    },
+    {
+      "name": "six-legacy-100bb",
+      "stacks": [
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000
+      ]
+    },
+    {
+      "name": "six-legacy-200bb",
+      "stacks": [
+        20000,
+        20000,
+        20000,
+        20000,
+        20000,
+        20000
+      ]
+    }
+  ],
+  "blocks": 2,
+  "root_seed": 73515
+}
