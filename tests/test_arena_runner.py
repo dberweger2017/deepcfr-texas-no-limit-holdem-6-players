@@ -149,3 +149,13 @@ def test_decision_cap_and_shared_policy_instance_are_failures():
         ]["status"]
         == "failed"
     )
+
+
+def test_private_scenario_labels_do_not_enter_policy_observations():
+    class Observer(CheckCall):
+        def choose_action(self, view):
+            assert "secret-opponent-checkpoint" not in repr(view)
+            return super().choose_action(view)
+
+    plan = Plan((Scenario("secret-opponent-checkpoint", (2000,) * 4),), blocks=1)
+    assert collect(plan, factory=lambda name, seed: Observer())[0]

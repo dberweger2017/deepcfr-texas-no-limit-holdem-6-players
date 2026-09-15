@@ -33,7 +33,17 @@ def _decision(view, policy, timings):
     return action
 
 
-def _fixed(scenario, block, rotation, ids, policies, max_decisions, trace, timings):
+def _fixed(
+    scenario,
+    block,
+    rotation,
+    ids,
+    policies,
+    max_decisions,
+    trace,
+    timings,
+    public_table,
+):
     table = Table(
         ids,
         scenario.stacks,
@@ -44,7 +54,7 @@ def _fixed(scenario, block, rotation, ids, policies, max_decisions, trace, timin
     )
     hand = Hand.start(
         table,
-        hand_id=f"{scenario.name}/{block.index}/{rotation}/0",
+        hand_id=f"{public_table}/{block.index}/{rotation}/0",
         seed=block.deal_seeds[0],
     )
     trace["events"] = public_events(hand.events)
@@ -61,9 +71,9 @@ def _fixed(scenario, block, rotation, ids, policies, max_decisions, trace, timin
     return [p.stack - p.starting_stack for p in final.players], list(ids)
 
 
-def _session(scenario, block, rotation, ids):
+def _session(scenario, block, rotation, ids, public_table):
     session = Session(
-        f"{scenario.name}/{block.index}/{rotation}",
+        f"{public_table}/{block.index}/{rotation}",
         capacity=len(ids),
         small_blind=scenario.small_blind,
         big_blind=scenario.big_blind,
@@ -118,6 +128,7 @@ def run_schedule(
     scenarios = {scenario.name: scenario for scenario in plan.scenarios}
     for block in blocks:
         scenario = scenarios[block.scenario]
+        public_table = f"table-{tuple(scenarios).index(block.scenario)}"
         n = len(scenario.stacks)
         for rotation in range(n):
             # Player 0 is the evaluated identity in both arms. Policy names stay host-side.
@@ -172,10 +183,13 @@ def run_schedule(
                                 plan.max_decisions,
                                 trace,
                                 latency,
+                                public_table,
                             )
                         else:
                             if session is None:
-                                session = _session(scenario, block, rotation, ids)
+                                session = _session(
+                                    scenario, block, rotation, ids, public_table
+                                )
                             net, participants = _session_hand(
                                 session,
                                 scenario,
