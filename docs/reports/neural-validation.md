@@ -14,3 +14,11 @@ This PR implements the small-game neural baseline. The multi-seed convergence an
 The implementation follows Algorithms 1–2 and the linear-weighted losses of [Brown et al., Deep CFR](https://arxiv.org/pdf/1811.00164). The small network and public feature encoding are explicit changes for these toy games. Exact tree enumeration is used for evaluation, caching public network predictions between fits, and diagnostic averages; it does not supply regret or strategy training targets during self-play.
 
 Results will be appended after these checks.
+
+## Follow-up declared after the first pilots
+
+The original Leduc pilot completed at source revision `66dfb6b`, but its final advantage excess MSE was 3.566871 for player 0 and 3.237039 for player 1, despite small controlled-fitting errors. The next diagnostic tests optimizer budget on the **same frozen replay**, without changing self-play results or extending their declared iterations.
+
+Reconstruct `neural-leduc-v1.json` with the same seed, traversals, 30 iterations, and 500-step advantage fits. Strategy evaluation fits may be omitted during reconstruction because their generators are isolated; verify the final baseline fitting records exactly match the retained pilot. Refit each final advantage memory from the same initialization and minibatch stream for **4,000 steps**, changing no other fitting parameter. Hash replay before/after to verify unchanged data. Require each refit's excess MSE to fall to at most **25%** of its 500-step value. Retain the result whether it passes or fails. The command remains capped at 840 seconds and exports no revised playing policy.
+
+This diagnostic was declared before its refits. It does not retrospectively change the first pilot's budget, data, results, or interpretation.

@@ -18,7 +18,7 @@ from src.solver.experiment import ROOT, canonical, write_json
 from src.solver.neural.artifact import save_policy
 from src.solver.neural.encoding import ACTION_SLOT
 from src.solver.neural.memory import Reservoir
-from src.solver.neural.network import deterministic_cpu, fit
+from src.solver.neural.network import deterministic_cpu, fit, stream_seed
 from src.solver.neural.solver import Config, DeepCFR
 from src.solver.sequence_form import solve
 from src.solver.tree import GameTree
@@ -251,6 +251,78 @@ def check_fitting(output: Path) -> dict:
                     write_json(output / "report.json", report)
             report["status"] = (
                 "passed" if all(row["passed"] for row in report["fits"]) else "failed"
+            )
+    except BaseException as exc:
+        report["status"], report["error"] = "error", f"{type(exc).__name__}: {exc}"
+        raise
+    finally:
+        report["wall_seconds"] = perf_counter() - started
+        write_json(output / "report.json", report)
+    return report
+
+
+def check_refit(plan: Plan, output: Path) -> dict:
+    """Reconstruct a pilot's replay, then isolate optimizer budget on frozen targets."""
+    settings = {
+        "kind": "frozen-advantage-refit-v1",
+        "pilot": asdict(plan),
+        "steps": 4000,
+        "maximum_error_fraction": 0.25,
+    }
+    output.mkdir(parents=True, exist_ok=False)
+    write_json(output / "manifest.json", provenance(settings))
+    started = perf_counter()
+    deadline = started + plan.maximum_seconds
+    report = {"status": "running", "comparisons": []}
+    try:
+        with deterministic_cpu():
+            solver = DeepCFR(GameTree(plan.game), plan.training)
+            for _ in range(plan.iterations):
+                solver.step(deadline)
+            report["baseline_fits"] = solver.fits[-2:]
+            for player, memory in enumerate(solver.advantage_memories):
+                data = b"".join(
+                    array[: memory.size].tobytes()
+                    for array in (memory.infos, memory.iterations, memory.targets)
+                )
+                before_hash = sha256(data).hexdigest()
+                _, metrics = fit(
+                    memory,
+                    solver.features,
+                    solver.mask,
+                    hidden=plan.training.hidden,
+                    steps=4000,
+                    batch_size=plan.training.batch_size,
+                    learning_rate=plan.training.learning_rate,
+                    iteration=solver.iterations,
+                    seed=stream_seed(
+                        plan.training.seed, "advantage-fit", solver.iterations, player
+                    ),
+                    strategy=False,
+                    deadline=deadline,
+                )
+                after = b"".join(
+                    array[: memory.size].tobytes()
+                    for array in (memory.infos, memory.iterations, memory.targets)
+                )
+                if sha256(after).hexdigest() != before_hash:
+                    raise ArithmeticError("Refitting mutated the frozen replay")
+                baseline = solver.fits[-2 + player]["excess_mse"]
+                report["comparisons"].append(
+                    {
+                        "player": player,
+                        "memory_sha256": before_hash,
+                        "baseline_steps": plan.training.advantage_steps,
+                        "baseline_excess_mse": baseline,
+                        "refit": metrics,
+                        "passed": metrics["excess_mse"] <= 0.25 * baseline,
+                    }
+                )
+                write_json(output / "report.json", report)
+            report["status"] = (
+                "passed"
+                if all(row["passed"] for row in report["comparisons"])
+                else "failed"
             )
     except BaseException as exc:
         report["status"], report["error"] = "error", f"{type(exc).__name__}: {exc}"

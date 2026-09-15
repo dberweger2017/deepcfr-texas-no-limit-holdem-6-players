@@ -4,7 +4,13 @@ import argparse
 import json
 from pathlib import Path
 
-from src.solver.neural.experiment import Plan, check_fitting, reproduce, run
+from src.solver.neural.experiment import (
+    Plan,
+    check_fitting,
+    check_refit,
+    reproduce,
+    run,
+)
 
 
 def main(argv=None):
@@ -13,11 +19,16 @@ def main(argv=None):
     mode.add_argument("--plan", type=Path)
     mode.add_argument("--reproduce", type=Path)
     mode.add_argument("--fitting-check", action="store_true")
+    mode.add_argument("--refit-plan", type=Path)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(argv)
     try:
         if args.fitting_check:
             report = check_fitting(args.out)
+        elif args.refit_plan:
+            report = check_refit(
+                Plan.from_dict(json.loads(args.refit_plan.read_text())), args.out
+            )
         elif args.reproduce:
             report = reproduce(args.reproduce, args.out)
         else:
