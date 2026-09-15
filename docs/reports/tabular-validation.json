@@ -1,0 +1,342 @@
+{
+  "manifest": {
+    "dirty": false,
+    "environment": {
+      "numpy": "1.26.4",
+      "platform": "macOS-27.0-arm64-arm-64bit",
+      "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]",
+      "scipy": "1.17.1"
+    },
+    "plan": {
+      "evaluation_interval": 1000,
+      "maximum_seconds_per_run": 840,
+      "maximum_total_seconds": 840,
+      "oracle_tolerance": 1e-08,
+      "runs": [
+        {
+          "game": "kuhn",
+          "iterations": 10000,
+          "maximum_exploitability": 0.01,
+          "maximum_value_error": 0.01,
+          "method": "full",
+          "seeds": [
+            0
+          ]
+        },
+        {
+          "game": "leduc",
+          "iterations": 5000,
+          "maximum_exploitability": 0.05,
+          "maximum_value_error": 0.05,
+          "method": "full",
+          "seeds": [
+            0
+          ]
+        },
+        {
+          "game": "kuhn",
+          "iterations": 20000,
+          "maximum_exploitability": 0.03,
+          "maximum_value_error": 0.03,
+          "method": "external",
+          "seeds": [
+            7,
+            19,
+            43
+          ]
+        },
+        {
+          "game": "leduc",
+          "iterations": 50000,
+          "maximum_exploitability": 0.15,
+          "maximum_value_error": 0.1,
+          "method": "external",
+          "seeds": [
+            7,
+            19,
+            43
+          ]
+        }
+      ],
+      "version": 1
+    },
+    "plan_sha256": "e8505250a45ff67b282cf4e45db7be69f55566d871c46b7fc09f43c403836989",
+    "protocol": {
+      "averaging": "uniform-iterations-own-reach-exact",
+      "exploitability": "nash-conv/2",
+      "games": {
+        "kuhn": "kuhn-ante1-v1",
+        "leduc": "leduc-2bet-ante1-v1"
+      },
+      "units": "ante-per-hand",
+      "updates": "simultaneous"
+    },
+    "revision": "20c90feaada5fe7aa1e331616e4230bd6119adae",
+    "source_files": {
+      "scripts/check_solver.py": "ce75a1078dbe299fe107df3832b93794d30ef65bc044ec82f35c32dc2321857e",
+      "src/solver/__init__.py": "64ddcdf823082ad9d7a9aaf34713fc7d2b3fcae8bc1ffa848aafed8381cc516c",
+      "src/solver/cfr.py": "d0ef405b4815c851420d2a5fc708a34275ee3041a632d8d8adcd38ab8879f521",
+      "src/solver/evaluate.py": "e42ea08cb0f2d6e6cafd66d519291a2ea05ae10c8de5429477c998fcde5e512a",
+      "src/solver/experiment.py": "c40501029f23776a82f890ca10b6b18ea2eb5a2d25b2db2c747c2f5b3bd0b14f",
+      "src/solver/games.py": "078d4c93665c32643e4f7cf3118caa1152606d6836aa28f02911f49a71abadbf",
+      "src/solver/sequence_form.py": "d691e66a40c5ca884cf078462e4e485282ac20735cedd4a28736f1f5042a9088",
+      "src/solver/tree.py": "0548db6a5e24b01889cab4ca5cc937970be81d207706bec79ae3b3794724a737"
+    },
+    "source_sha256": "44de66277171610079557d7de69c27cfa4da659b7dc6329bc84d033dd5c1d768",
+    "version": 1
+  },
+  "oracles": {
+    "kuhn": {
+      "evaluation": {
+        "best_response_values": [
+          -0.055555555555555525,
+          0.055555555555555525
+        ],
+        "exploitability": 0.0,
+        "improvements": [
+          0.0,
+          0.0
+        ],
+        "nash_conv": 0.0,
+        "value_player0": -0.055555555555555525
+      },
+      "information_sets": 12,
+      "lower_value": -0.055555555555555525,
+      "maximum_residual": 0.0,
+      "nodes": 58,
+      "upper_value": -0.055555555555555566
+    },
+    "leduc": {
+      "evaluation": {
+        "best_response_values": [
+          -0.08560642407799987,
+          0.08560642407800084
+        ],
+        "exploitability": 4.85722573273506e-16,
+        "improvements": [
+          6.661338147750939e-16,
+          3.0531133177191805e-16
+        ],
+        "nash_conv": 9.71445146547012e-16,
+        "value_player0": -0.08560642407800054
+      },
+      "information_sets": 288,
+      "lower_value": -0.08560642407800041,
+      "maximum_residual": 0.0,
+      "nodes": 9457,
+      "upper_value": -0.08560642407800043
+    }
+  },
+  "runs": [
+    {
+      "completed_iterations": 10000,
+      "final": {
+        "best_response_values": [
+          -0.05434510701682538,
+          0.05898067964677434
+        ],
+        "exploitability": 0.0023177863149744793,
+        "improvements": [
+          0.001201288812446355,
+          0.0034342838175026036
+        ],
+        "iteration": 10000,
+        "nash_conv": 0.004635572629948959,
+        "value_player0": -0.05554639582927173
+      },
+      "game": "kuhn",
+      "method": "full",
+      "name": "kuhn-full-0",
+      "requested_iterations": 10000,
+      "seed": 0,
+      "status": "passed",
+      "strategy_sha256": "86accead3500af5b2171a0d40ee942076daa6fe1c36756e7f9b7162b90a6e0d1",
+      "value_error": 9.159726283791692e-06,
+      "wall_seconds": 1.2176144160039257
+    },
+    {
+      "completed_iterations": 5000,
+      "final": {
+        "best_response_values": [
+          -0.07205111631290917,
+          0.1009583619708676
+        ],
+        "exploitability": 0.014453622828979218,
+        "improvements": [
+          0.01589696979063837,
+          0.013010275867320065
+        ],
+        "iteration": 5000,
+        "nash_conv": 0.028907245657958436,
+        "value_player0": -0.08794808610354754
+      },
+      "game": "leduc",
+      "method": "full",
+      "name": "leduc-full-0",
+      "requested_iterations": 5000,
+      "seed": 0,
+      "status": "passed",
+      "strategy_sha256": "d10a55d2746afc3337713f119a56a8675829d237331a7149da704f1f2ae807f8",
+      "value_error": 0.002341662025547128,
+      "wall_seconds": 6.48781429202063
+    },
+    {
+      "completed_iterations": 20000,
+      "final": {
+        "best_response_values": [
+          -0.0520135132429137,
+          0.0591849143347305
+        ],
+        "exploitability": 0.003585700545908399,
+        "improvements": [
+          0.0034440761202233494,
+          0.0037273249715934487
+        ],
+        "iteration": 20000,
+        "nash_conv": 0.007171401091816798,
+        "value_player0": -0.05545758936313705
+      },
+      "game": "kuhn",
+      "method": "external",
+      "name": "kuhn-external-7",
+      "requested_iterations": 20000,
+      "seed": 7,
+      "status": "passed",
+      "strategy_sha256": "47d2a4e2f1dc60fe2e3fddbe408196a5806cd04fede0b025baa3f9a50ff3cdfc",
+      "value_error": 9.796619241847493e-05,
+      "wall_seconds": 1.3408720000006724
+    },
+    {
+      "completed_iterations": 20000,
+      "final": {
+        "best_response_values": [
+          -0.04587806569187841,
+          0.062321155666896555
+        ],
+        "exploitability": 0.008221544987509072,
+        "improvements": [
+          0.009309503891461401,
+          0.007133586083556742
+        ],
+        "iteration": 20000,
+        "nash_conv": 0.016443089975018144,
+        "value_player0": -0.05518756958333981
+      },
+      "game": "kuhn",
+      "method": "external",
+      "name": "kuhn-external-19",
+      "requested_iterations": 20000,
+      "seed": 19,
+      "status": "passed",
+      "strategy_sha256": "3e567a017a9c2434f768df1b0c5c1d5f396aaa0e98c0a8109c993e10154111ed",
+      "value_error": 0.00036798597221571194,
+      "wall_seconds": 1.3243397920159623
+    },
+    {
+      "completed_iterations": 20000,
+      "final": {
+        "best_response_values": [
+          -0.042897635838855086,
+          0.057295317198583495
+        ],
+        "exploitability": 0.007198840679864205,
+        "improvements": [
+          0.012330762691556252,
+          0.0020669186681721574
+        ],
+        "iteration": 20000,
+        "nash_conv": 0.01439768135972841,
+        "value_player0": -0.05522839853041134
+      },
+      "game": "kuhn",
+      "method": "external",
+      "name": "kuhn-external-43",
+      "requested_iterations": 20000,
+      "seed": 43,
+      "status": "passed",
+      "strategy_sha256": "0c00c9e0c50cafb61c9b92e57506ebb4e3af42b884d4352aa7e41d7884aabbd4",
+      "value_error": 0.0003271570251441869,
+      "wall_seconds": 1.409133583016228
+    },
+    {
+      "completed_iterations": 50000,
+      "final": {
+        "best_response_values": [
+          -0.015674991559117668,
+          0.14453068521964058
+        ],
+        "exploitability": 0.06442784683026145,
+        "improvements": [
+          0.07151261158316835,
+          0.05734308207735456
+        ],
+        "iteration": 50000,
+        "nash_conv": 0.1288556936605229,
+        "value_player0": -0.08718760314228602
+      },
+      "game": "leduc",
+      "method": "external",
+      "name": "leduc-external-7",
+      "requested_iterations": 50000,
+      "seed": 7,
+      "status": "passed",
+      "strategy_sha256": "a576799c7c1a3d0ce7796967bbbfb3f1da5733af8fe8625bc154e8dd0f0f885e",
+      "value_error": 0.0015811790642856066,
+      "wall_seconds": 26.804900208982872
+    },
+    {
+      "completed_iterations": 50000,
+      "final": {
+        "best_response_values": [
+          -0.0211153339869129,
+          0.1511006955504779
+        ],
+        "exploitability": 0.0649926807817825,
+        "improvements": [
+          0.06648063015067152,
+          0.06350473141289348
+        ],
+        "iteration": 50000,
+        "nash_conv": 0.129985361563565,
+        "value_player0": -0.08759596413758441
+      },
+      "game": "leduc",
+      "method": "external",
+      "name": "leduc-external-19",
+      "requested_iterations": 50000,
+      "seed": 19,
+      "status": "passed",
+      "strategy_sha256": "935b9030faf1b9ebb5d435bdeadea2b40582c360c012c454c3b86923bfc5f9f4",
+      "value_error": 0.0019895400595840024,
+      "wall_seconds": 27.4062925420003
+    },
+    {
+      "completed_iterations": 50000,
+      "final": {
+        "best_response_values": [
+          -0.0013274398667098009,
+          0.1566298266780329
+        ],
+        "exploitability": 0.07765119340566155,
+        "improvements": [
+          0.08995224675466162,
+          0.06535014005666148
+        ],
+        "iteration": 50000,
+        "nash_conv": 0.1553023868113231,
+        "value_player0": -0.09127968662137143
+      },
+      "game": "leduc",
+      "method": "external",
+      "name": "leduc-external-43",
+      "requested_iterations": 50000,
+      "seed": 43,
+      "status": "passed",
+      "strategy_sha256": "4134e465c62d7db2823564c6252ce337547f21fd678a2274aebdb7c82e7e3448",
+      "value_error": 0.005673262543371013,
+      "wall_seconds": 27.88269783402211
+    }
+  ],
+  "status": "passed",
+  "wall_seconds": 93.88527587498538
+}

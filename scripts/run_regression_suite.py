@@ -7,6 +7,9 @@ import pytest
 
 
 REGRESSION_TESTS = [
+    "tests/test_reference_games.py",
+    "tests/test_tabular_cfr.py",
+    "tests/test_solver_experiments.py",
     "tests/test_evaluation_cli.py",
     "tests/test_arena_schedule.py",
     "tests/test_arena_runner.py",

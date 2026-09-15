@@ -40,3 +40,7 @@ jobs:
         run: |
           python -m scripts.run_arena --plan configs/arena/opponents-smoke.json --out results/opponents-smoke
           python -m scripts.run_arena --reproduce results/opponents-smoke --out results/opponents-replay
+      - name: Check and reproduce the tabular solver reference
+        run: |
+          python -m scripts.check_solver --plan configs/solver/smoke.json --out results/solver-smoke
+          python -m scripts.check_solver --reproduce results/solver-smoke --out results/solver-replay

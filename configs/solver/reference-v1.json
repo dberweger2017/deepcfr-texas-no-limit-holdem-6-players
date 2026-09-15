@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "maximum_seconds_per_run": 840,
+  "evaluation_interval": 1000,
+  "oracle_tolerance": 1e-08,
+  "runs": [
+    {
+      "game": "kuhn",
+      "method": "full",
+      "iterations": 10000,
+      "seeds": [
+        0
+      ],
+      "maximum_exploitability": 0.01,
+      "maximum_value_error": 0.01
+    },
+    {
+      "game": "leduc",
+      "method": "full",
+      "iterations": 5000,
+      "seeds": [
+        0
+      ],
+      "maximum_exploitability": 0.05,
+      "maximum_value_error": 0.05
+    },
+    {
+      "game": "kuhn",
+      "method": "external",
+      "iterations": 20000,
+      "seeds": [
+        7,
+        19,
+        43
+      ],
+      "maximum_exploitability": 0.03,
+      "maximum_value_error": 0.03
+    },
+    {
+      "game": "leduc",
+      "method": "external",
+      "iterations": 50000,
+      "seeds": [
+        7,
+        19,
+        43
+      ],
+      "maximum_exploitability": 0.15,
+      "maximum_value_error": 0.1
+    }
+  ],
+  "maximum_total_seconds": 840
+}
