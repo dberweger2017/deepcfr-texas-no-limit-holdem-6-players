@@ -123,3 +123,71 @@ intact. Subsequent work must integrate complete archive recovery, provenance and
 reporting before training a new candidate. A new convergence test needs fresh
 seeds and a committed protocol; it may still fail because advantage learning is
 unchanged.
+
+## Implementation and validation
+
+The first implementation is [the snapshot-average module](../../src/solver/neural/average.py).
+Its [20 focused tests](../../tests/test_snapshot_average.py) pass; the complete
+repository suite passes **318 tests**. The checks enumerate all 300 Kuhn/Leduc
+information sets, include a hand-calculated own-reach counterexample, and compare
+four tiny training iterations per game against an otherwise identical recorder-
+free solver. The averaged policies agree with the existing exact diagnostic
+within `1e-6`; replay entries, fitting records, traversal state, global random
+state and current policies remain unchanged. Final fitted baseline policies also
+match. These tiny fixtures use seed 101 and are not a new convergence campaign.
+
+The first full-suite attempt encountered a source-fingerprint mismatch because
+the module was edited during the run. The guard correctly rejected it. The
+complete suite was rerun after source edits stopped and passed; no source check
+was weakened.
+
+### Recording and inference
+
+Create `StrategyArchive(game, hidden)` alongside a fresh `DeepCFR` solver, then
+call `record_iteration(solver, archive, deadline=...)` instead of `solver.step()`.
+The recorder calls the existing step and appends the correctly aligned pair.
+It is bound to that live solver, requires consecutive history and refuses a
+partial failed iteration. The existing runner is not yet wired to this recorder.
+The wrapper still collects the old strategy replay for comparison; removing that
+work is part of the later training integration.
+
+`archive.policy(player)` freezes the current snapshot sequence. It has two query
+paths:
+
+```python
+# Current observation plus this player's earlier decisions in the same hand.
+probabilities = policy.distribution(observation, own_decisions)
+
+# Create once per hand and keep this object for every decision in that hand.
+hand_policy = policy.sample_hand(seed=hand_seed)
+action = hand_policy.choose_action(observation)
+```
+
+`own_decisions` contains `OwnDecision(information, action)` values in observed
+order. Its earlier observations retain the board visible at the time; using the
+current board in an earlier round is rejected. Observations and legal-action
+sets come from the rules engine's public interface. This validator checks the
+query's ownership, structure and matching history; it does not replace the rules
+engine's legal-action generation.
+
+`save_archive(archive, path)` atomically publishes a new immutable file and returns
+its SHA-256. `load_archive(path, digest)` verifies the entire file before
+weights-only CPU loading. Format, feature encoding, averaging/alignment modes,
+iteration counts, player pairs, tensor shapes/dtypes and finite weights are
+checked. A fresh-process round trip passes. Existing files cannot be overwritten
+through the export function.
+
+These are **inference archives**, not complete training checkpoints. Loading one
+does not provide replay, RNG, fitting provenance or a safe continuation of its
+original solver. The recorder rejects extending a loaded archive or attaching it
+to a different live solver. Archive-aware recovery, source/configuration binding
+and campaign reporting must land together before a new learning run.
+
+## What follows
+
+The next PR should implement complete public-history and variable-seat Hold’em
+encoding, with seat/suit symmetry and observation-boundary checks. That advances
+milestone 4 without another small-game sweep. The remaining milestone 3 task is
+archive-aware training/recovery and a prospective readiness protocol after that
+integration is validated. Keep the original failed confirmation unchanged, its
+seeds consumed, and substantial training gated. No rental was used for this PR.

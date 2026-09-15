@@ -66,18 +66,18 @@ The project began as an earlier Deep CFR implementation. We are rebuilding its l
 | Player information and sessions | Immutable player observations, complete public history, identity-owned records, and changing four-to-six-player lineups. [Observation](docs/observations.md) / [session](docs/sessions.md) contracts |
 | Evaluation | Reproducible schedules, separate data splits, paired reports, varied style opponents, and hash-pinned historical models. Professional-strength opponents remain an open requirement. [Benchmark guide](docs/benchmarks.md) |
 | Tabular reference | Kuhn and Leduc CFR checked against exact best responses and independently solved equilibrium values. [Results](docs/reports/tabular-validation.md) |
-| Neural baseline | Separate small-game Deep CFR with uniform reservoirs, weighted fitting, a learned average strategy, and complete training recovery. [Contract](docs/neural-cfr.md) |
+| Neural baseline | Small-game Deep CFR with complete recovery, plus a tested snapshot-average inference alternative. Snapshot-aware training recovery is next for that solver path. [Contract](docs/neural-cfr.md), [snapshot design](docs/decisions/snapshot-average.md) |
 | Neural convergence | Fresh confirmation fails: 7/8 seeds pass in each game, with all value errors within limits. Milestone 3 remains open. [Latest results](docs/reports/neural-readiness.md) |
 | Full Hold’em learning | Legacy trainers and play interfaces exist. The validated no-limit learning rewrite, substantial training, and professional-level qualification are still ahead. |
 
-**Next step:** make a bounded strategy-extraction decision, including a Single Deep CFR design and cost comparison, while beginning full-history/variable-seat Hold’em encoding. The [fresh confirmation](docs/reports/neural-readiness.md) is complete: one seed in each game fails the frozen exploitability gate. All exact played averages pass, but the failed Leduc seed has little margin and its replay average already fails. We will use the saved evidence rather than launch another tuning sweep. The rental is terminated and all artifacts are verified locally. Substantial training requires both a readiness pass and the corrected no-limit pipeline; no model has been promoted.
+**Next step:** implement full-history and variable-seat Hold’em decision encoding. The [snapshot-average foundation](docs/decisions/snapshot-average.md) is now implemented and tested: it preserves the average of retained advantage policies without fitting another policy network. Before another learning campaign, it needs complete training/recovery integration and a fresh readiness protocol. The [previous confirmation](docs/reports/neural-readiness.md) remains failed; substantial training requires both a readiness pass and the corrected no-limit pipeline. No model has been promoted.
 
 The [latest report](docs/reports/neural-readiness.md) records all sixteen fresh-seed runs, eight paired controls, 72 evaluation checkpoints and verified exports. The preceding implementation passed 298 tests. These establish implementation and small-game learning evidence, not professional poker strength.
 
 ## The route to 1.0
 
 1. **Trust the game and the measurements.** Rules, legal observations, sessions, reproducible evaluation, and independent small-game references.
-2. **Validate the learning algorithm.** Resolve the failed confirmation through a bounded strategy-extraction decision and predeclared checks before scaling; avoid open-ended small-game sweeps.
+2. **Validate the learning algorithm.** Integrate the tested snapshot-average path with training recovery and fresh predeclared checks before scaling; avoid open-ended small-game sweeps.
 3. **Build the no-limit learner.** Independent engineering can proceed while the learning gate remains open. Represent full decisions and variable seats, learn meaningful bet sizes, train all player roles, and support complete recovery.
 4. **Scale from measured throughput.** Profile collection and fitting, batch work, and run bounded hardware pilots before larger campaigns.
 5. **Improve demonstrated playing strength.** Evaluate range-aware search and opponent adaptation as separate changes against fixed baselines.
