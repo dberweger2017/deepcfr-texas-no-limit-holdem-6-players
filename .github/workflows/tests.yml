@@ -32,3 +32,7 @@ jobs:
         run: python -m scripts.check_game --players 6 --hands 20
       - name: Check sessions with changing lineups and bankrolls
         run: python -m scripts.check_session --hands 30
+      - name: Run and reproduce fixed-stack and session evaluations
+        run: |
+          python -m scripts.run_arena --plan configs/arena/smoke.json --out results/arena-smoke
+          python -m scripts.run_arena --reproduce results/arena-smoke --out results/arena-replay

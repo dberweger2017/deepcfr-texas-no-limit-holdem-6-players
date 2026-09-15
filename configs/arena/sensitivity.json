@@ -1,0 +1,11 @@
+{
+  "scenarios": [
+    {"name": "four-control", "stacks": [10000, 10000, 10000, 10000]}
+  ],
+  "candidate": "check_call",
+  "baseline": "fold",
+  "opponents": ["check_call", "fold"],
+  "blocks": 128,
+  "root_seed": 49021,
+  "split": "validation"
+}

@@ -1,0 +1,59 @@
+{
+  "control": {
+    "completed_hands": 1024,
+    "outcomes_sha256": "85fd961b6dc9dc260eeda4fc01d74549756cef6b7fcc130b91c262a2d3da1a28",
+    "reproduction": "byte-identical hand records and equal report excluding timings",
+    "result": {
+      "baseline": {
+        "bb_per_100": -31.34765625,
+        "blocks": 128,
+        "ci95": [
+          -33.78618097180756,
+          -28.90913152819244
+        ],
+        "reason": null
+      },
+      "candidate": {
+        "bb_per_100": 36.947265625,
+        "blocks": 128,
+        "ci95": [
+          28.936956053871484,
+          44.957575196128516
+        ],
+        "reason": null
+      },
+      "conclusion": "candidate_better",
+      "paired_difference": {
+        "bb_per_100": 68.294921875,
+        "blocks": 128,
+        "ci95": [
+          61.856913782794365,
+          74.73292996720564
+        ],
+        "reason": null
+      }
+    },
+    "schedule_sha256": "e1e1ba42d0bc07ce2ef117fe5cdcfb4b8a2d18959a2cb31963260b578a57d764"
+  },
+  "engine": {
+    "binaries": {
+      "pokers/pokers.cpython-311-darwin.so": "fa88771c851cdd36cd549f2d024571277e8277d2c48cb091e26baff7cd071d6e"
+    },
+    "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+  },
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "revision": "5f4832cb6e4520c1cc711e8989b7a623e0296f82",
+  "smoke": {
+    "completed_hands": 124,
+    "conclusions": {
+      "five-unequal": "inconclusive",
+      "four-session": "inconclusive",
+      "six-100bb": "inconclusive"
+    },
+    "outcomes_sha256": "4666c43009ea02af21b90469c5c46cef4c8239d748f524e07857ad35644a79cd",
+    "reproduction": "byte-identical hand records and equal report excluding timings",
+    "schedule_sha256": "2de52026650602e366c84658c4e5aecd69e4f8d8fb3922f385b7f5e9e4b1e049"
+  },
+  "source_sha256": "cd5f4fc25109b89c4d1ab2f0f8c8ea1b57b932cdce6cb3378b35e7301642b02e"
+}
