@@ -97,7 +97,7 @@ The old models use a fixed feature layout and additional-raise amounts. `src/gam
 
 Training, evaluation, tournaments, CLI play, and GUI AI turns now use tracked hands and the observation dispatcher. Both neural agent classes and the shared random agent reject raw simulator state. The neural encoder also rejects it. CLI and GUI card displays use the human's view, including at showdown.
 
-The current networks still encode only a subset of the available public history. Richer history encoding, variable-seat models, CFR corrections, and opponent-model improvements remain later roadmap tasks. The information interface is complete enough to supply them; this change does not establish strong play.
+The legacy networks still encode only a subset of the available public history. The replacement [Hold’em decision encoder](holdem-encoding.md) now consumes the complete current-hand event sequence and variable-seat state while preserving exact records in its source observation. Bet candidates, CFR training integration and opponent adaptation remain later tasks; this interface and encoding do not establish strong play.
 
 ## Verification
 
