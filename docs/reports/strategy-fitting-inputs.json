@@ -1,0 +1,279 @@
+{
+  "purpose": "read-only sample coverage audit; no new model fitting",
+  "source_report_sha256": "c573343ddf024c479acd62370f21cc009200efe279e92ae40e6421b1ac4fe860",
+  "iteration": 480,
+  "samples_per_seed": 200000,
+  "weight": "sum of stored iteration numbers",
+  "bands": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      10,
+      99
+    ],
+    [
+      100,
+      null
+    ]
+  ],
+  "runs": [
+    {
+      "seed": 211,
+      "bands": {
+        "absent": {
+          "information_sets": 2,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 10,
+          "weight_fraction": 3.736348812601188e-05
+        },
+        "10-99": {
+          "information_sets": 51,
+          "weight_fraction": 0.012608458190691728
+        },
+        "100+": {
+          "information_sets": 225,
+          "weight_fraction": 0.9873541783211822
+        }
+      }
+    },
+    {
+      "seed": 223,
+      "bands": {
+        "absent": {
+          "information_sets": 4,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 9,
+          "weight_fraction": 7.752342844673392e-05
+        },
+        "10-99": {
+          "information_sets": 48,
+          "weight_fraction": 0.010703176588669231
+        },
+        "100+": {
+          "information_sets": 227,
+          "weight_fraction": 0.989219299982884
+        }
+      }
+    },
+    {
+      "seed": 227,
+      "bands": {
+        "absent": {
+          "information_sets": 3,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 10,
+          "weight_fraction": 6.564353307366844e-05
+        },
+        "10-99": {
+          "information_sets": 53,
+          "weight_fraction": 0.011157233147374974
+        },
+        "100+": {
+          "information_sets": 222,
+          "weight_fraction": 0.9887771233195514
+        }
+      }
+    },
+    {
+      "seed": 229,
+      "bands": {
+        "absent": {
+          "information_sets": 2,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 9,
+          "weight_fraction": 6.447240228502074e-05
+        },
+        "10-99": {
+          "information_sets": 55,
+          "weight_fraction": 0.009493984040131121
+        },
+        "100+": {
+          "information_sets": 222,
+          "weight_fraction": 0.9904415435575838
+        }
+      }
+    },
+    {
+      "seed": 233,
+      "bands": {
+        "absent": {
+          "information_sets": 3,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 10,
+          "weight_fraction": 8.975070477726347e-05
+        },
+        "10-99": {
+          "information_sets": 52,
+          "weight_fraction": 0.009162558441143555
+        },
+        "100+": {
+          "information_sets": 223,
+          "weight_fraction": 0.9907476908540792
+        }
+      }
+    },
+    {
+      "seed": 239,
+      "bands": {
+        "absent": {
+          "information_sets": 1,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 10,
+          "weight_fraction": 1.1942395037147703e-05
+        },
+        "10-99": {
+          "information_sets": 58,
+          "weight_fraction": 0.010289899874129232
+        },
+        "100+": {
+          "information_sets": 219,
+          "weight_fraction": 0.9896981577308336
+        }
+      }
+    },
+    {
+      "seed": 241,
+      "bands": {
+        "absent": {
+          "information_sets": 2,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 13,
+          "weight_fraction": 0.0002280381282240343
+        },
+        "10-99": {
+          "information_sets": 53,
+          "weight_fraction": 0.01106107344539571
+        },
+        "100+": {
+          "information_sets": 220,
+          "weight_fraction": 0.9887108884263802
+        }
+      }
+    },
+    {
+      "seed": 251,
+      "bands": {
+        "absent": {
+          "information_sets": 5,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 8,
+          "weight_fraction": 5.702971019782466e-05
+        },
+        "10-99": {
+          "information_sets": 52,
+          "weight_fraction": 0.010253734512804518
+        },
+        "100+": {
+          "information_sets": 223,
+          "weight_fraction": 0.9896892357769976
+        }
+      }
+    },
+    {
+      "seed": 257,
+      "bands": {
+        "absent": {
+          "information_sets": 1,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 8,
+          "weight_fraction": 4.403977041565021e-05
+        },
+        "10-99": {
+          "information_sets": 54,
+          "weight_fraction": 0.010094374600921902
+        },
+        "100+": {
+          "information_sets": 225,
+          "weight_fraction": 0.9898615856286624
+        }
+      }
+    },
+    {
+      "seed": 263,
+      "bands": {
+        "absent": {
+          "information_sets": 4,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 11,
+          "weight_fraction": 0.0001287085641619638
+        },
+        "10-99": {
+          "information_sets": 52,
+          "weight_fraction": 0.011117003158313333
+        },
+        "100+": {
+          "information_sets": 221,
+          "weight_fraction": 0.9887542882775247
+        }
+      }
+    },
+    {
+      "seed": 269,
+      "bands": {
+        "absent": {
+          "information_sets": 3,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 12,
+          "weight_fraction": 0.00010199632424517757
+        },
+        "10-99": {
+          "information_sets": 53,
+          "weight_fraction": 0.01191088800526535
+        },
+        "100+": {
+          "information_sets": 220,
+          "weight_fraction": 0.9879871156704895
+        }
+      }
+    },
+    {
+      "seed": 271,
+      "bands": {
+        "absent": {
+          "information_sets": 4,
+          "weight_fraction": 0.0
+        },
+        "1-9": {
+          "information_sets": 10,
+          "weight_fraction": 9.672433203378112e-05
+        },
+        "10-99": {
+          "information_sets": 51,
+          "weight_fraction": 0.010635849748389522
+        },
+        "100+": {
+          "information_sets": 223,
+          "weight_fraction": 0.9892674259195767
+        }
+      }
+    }
+  ]
+}
