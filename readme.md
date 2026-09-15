@@ -46,6 +46,15 @@ python -m scripts.run_arena --reproduce results/arena-smoke --out results/arena-
 
 See the [benchmark guide](docs/benchmarks.md), [opponent/checkpoint validation](docs/reports/benchmark-validation.md), and [declared sensitivity check](docs/reports/arena-validation.md) for usage and evidence. The existing `scripts.evaluate_models` command remains a legacy evaluator.
 
+## Small-game solver reference
+
+The [Kuhn/Leduc reference](docs/solver-reference.md) validates tabular CFR and external-sampling regret updates against exact best responses and an independent equilibrium solver. It reports exploitability in ante units and retains declared budgets, seeds, average strategies, and reproducible results. These toy-game checks are the first part of the learning rewrite; they do not establish six-player playing strength.
+
+```bash
+python -m scripts.check_solver --plan configs/solver/smoke.json --out results/solver-smoke
+python -m scripts.check_solver --reproduce results/solver-smoke --out results/solver-replay
+```
+
 ## Public observation interface
 
 Policies now receive immutable player views rather than the Rust simulator. The new API uses integer chips and explicit raise-to actions, while a public-only adapter supports the current model feature layout. Folded and mucked cards stay private, including in CLI and GUI results. [Interface documentation](docs/observations.md) covers events, replay, history ownership, showdown choices, and remaining limits.
