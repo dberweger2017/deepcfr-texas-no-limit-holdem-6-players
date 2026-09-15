@@ -252,3 +252,48 @@ Before the scored run, the implementation PR must demonstrate:
 After these checks pass, execute this frozen design rather than extending the
 previous capacity sweep. If implementation reveals a material design error,
 revise and recommit the protocol **before** looking at scored outcomes.
+
+## Running the experiment
+
+The runner lives in `scripts/fitting/`, separate from the pinned training code.
+The plan's design-time status is retained so its published hash stays unchanged.
+Import checks the archive, each checkpoint, its original provenance and training
+state before exporting read-only diagnostic inputs. It does not relax training
+recovery checks or reinterpret old checkpoints as current training runs.
+
+```sh
+python -m scripts.fitting.run --phase import \
+  --archive results/strategy-capacity-remote-v1.tar.gz \
+  --out results/strategy-fitting-inputs
+python -m scripts.fitting.run --phase smoke \
+  --inputs results/strategy-fitting-inputs \
+  --out results/strategy-fitting-smoke --seconds 120
+```
+
+After the local checks pass, copy the exported inputs to the rented host and
+verify their archive hash. Install `requirements-pilot.txt` under Python 3.11,
+check out the committed runner revision, and run:
+
+```sh
+python -m scripts.fitting.run --phase scored \
+  --inputs results/strategy-fitting-inputs \
+  --out results/strategy-fitting-remote --workers 8 --seconds 2400
+```
+
+The parent runs the original control first, checks projected completion time,
+then measures the first concurrent batch before dispatching the remaining jobs.
+A failed job or insufficient time stops and reaps the workers and leaves an
+inconclusive report. The process deadline does not terminate the rental: retrieval
+and provider shutdown still need to finish within the rental's 60-minute limit.
+
+Each fit writes its source/input manifest, reports at all scheduled steps,
+per-information-set details with hashes, and final weights. The parent verifies
+these artifacts and all twelve original control hashes before screening. Output
+directories must be new; restarting never overwrites an interrupted attempt.
+
+Local implementation validation: **279 tests pass**, including the new gradient,
+control-equivalence, pairing, import-integrity, diagnostic-completeness, and
+screening cases. The single real-input smoke completed all four recipes in
+**13.19 seconds** including worker startup. Smoke results are unscored and were
+not used to change the frozen recipes. All twelve original checkpoints passed
+the archive/provenance import checks.
