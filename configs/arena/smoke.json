@@ -1,0 +1,12 @@
+{
+  "scenarios": [
+    {"name": "six-100bb", "stacks": [10000, 10000, 10000, 10000, 10000, 10000]},
+    {"name": "four-session", "stacks": [2000, 4000, 10000, 20000], "mode": "session", "hands_per_rotation": 5}
+  ],
+  "candidate": "check_call",
+  "baseline": "fold",
+  "opponents": ["check_call", "random"],
+  "blocks": 2,
+  "root_seed": 20260915,
+  "split": "validation"
+}

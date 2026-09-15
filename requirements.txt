@@ -12,3 +12,4 @@ requests==2.32.3
 seaborn==0.13.2
 pandas>=2.3.3,<3.0
 PyQt5==5.15.11
+scipy>=1.11,<2.0
