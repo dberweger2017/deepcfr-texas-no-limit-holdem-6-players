@@ -2,8 +2,9 @@
 
 [PR #59](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/59) connects the [decision encoding](holdem-encoding.md)
 and [bet candidates](holdem-betting.md) to an all-role self-play collector.
-It implements collection, not a training loop: reservoir storage, weighted fitting,
-strategy averaging, training recovery and strength evaluation remain separate work.
+The [training loop](holdem-training.md) now adds role reservoirs and weighted
+fitting. Strategy averaging, training recovery and strength evaluation remain
+separate work.
 The failed small-game readiness gate remains open. No rental or training campaign
 was used for this delivery.
 
@@ -159,8 +160,7 @@ Ruff and `git diff --check` pass.
 
 ## Next task
 
-Connect completed batches to separate role reservoirs and iteration-weighted
-fitting, with explicit uniform initialization and no fitting inside a collection
-phase. Test controlled target fitting and unchanged frozen collection profiles.
-Then integrate complete recovery and the chosen snapshot average, declare fresh
-small-game readiness checks, and pass them before substantial self-play training.
+The [replay and fitting task](holdem-training.md) is delivered, with explicit
+uniform initialization and no fitting inside a collection phase. Next integrate
+snapshot-average play and complete recovery, then declare and pass fresh
+small-game readiness checks before substantial self-play training.
