@@ -1,0 +1,6 @@
+# The small-game pilot does not import the Hold'em engine or desktop UI.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.5.1+cpu; sys_platform == "linux"
+torch==2.5.1; sys_platform != "linux"
+numpy==1.26.4
+scipy==1.17.1
