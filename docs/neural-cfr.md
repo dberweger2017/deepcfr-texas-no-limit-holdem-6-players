@@ -59,6 +59,8 @@ Each evaluation reports three separate strategies:
 
 These gaps are informative but not additive exploitability components: different errors can sometimes offset each other. An empirical average can outperform the exact played average in a finite sample. Keep the actual neural result even when another diagnostic looks better.
 
+The local batch size is 256. The original paper reports batches of 10,000 for FHP and 20,000 for HULH in [section 5.2](https://proceedings.mlr.press/v97/brown19b/brown19b.pdf). Matching its number of optimizer steps therefore does not match its fitting effort or gradient variance. Batch size and optimizer noise are relevant follow-up variables if a longer fit still leaves a policy gap.
+
 A separate controlled fitting check uses fixed equilibrium policy labels and analytically computed conditional advantages on every information set. It checks model capacity and optimization before self-play. Those labels are created in separate memories and never enter a self-play run.
 
 ## Commands and artifacts
@@ -88,4 +90,32 @@ Execution uses one CPU thread with deterministic Torch algorithms and restores p
 
 ## Remaining gate
 
-The baseline has inference exports, not resumable training checkpoints. It must next pass multiple predeclared neural seeds, reservoir/replay persistence and interrupted-resume checks, and neural-versus-tabular comparisons with enough fitting and sampling diagnostics to explain failures. Architecture changes or Single Deep CFR should be evaluated separately. Strong play in six-player no-limit requires the later representation, sizing, self-play, and search work in the roadmap; these small-game checks do not establish that strength.
+The baseline now has complete training snapshots as well as inference exports. Its learning gate requires multiple predeclared neural seeds, reservoir/replay persistence and interrupted-resume checks, and neural-versus-tabular comparisons with enough fitting and sampling diagnostics to explain failures. Architecture changes or Single Deep CFR should be evaluated separately. Strong play in six-player no-limit requires the later representation, sizing, self-play, and search work in the roadmap; these small-game checks do not establish that strength.
+
+## Training checkpoints and convergence campaigns
+
+Training snapshots are separate from inference exports. They contain both advantage networks, the optional fitted strategy network, all retained replay entries and seen counts, reservoir admission generators, the traversal generator, completed iteration count, fitting records, exact diagnostic averages, scheduled evaluations, and recorded elapsed training time. The public information catalog is reconstructed and checked by hash. Replay indices are meaningful only within that catalog.
+
+Snapshots are supported only at a valid completed iteration boundary, after both player updates. Every subsequent advantage/strategy fit initializes a new network and optimizer, so no optimizer state is live across that boundary. An interrupted traversal or fit is discarded and repeated from the previous snapshot. This preserves the existing algorithm rather than attempting to approximate a partially completed update.
+
+```bash
+python -m scripts.check_deep_cfr --plan configs/solver/neural-smoke.json --stop-after 1 --out results/paused
+python -m scripts.check_deep_cfr --resume results/paused --out results/resumed
+```
+
+`--stop-after` is an absolute completed iteration, preceding the plan's final iteration. A paused run exports a training snapshot, not a playing policy. Resume writes to a new directory, preserving the original attempt. It uses the saved plan, remaining recorded budget, replay, random streams, and report prefix. It rejects configuration, source, environment, protocol, or feature-catalog changes. The supported deterministic path is one-thread CPU execution in the same runtime environment; cross-device or cross-version bitwise identity is not promised.
+
+Snapshots are immutable `iteration-NNNNNN.pt` files. A complete file is flushed before atomic publication; `checkpoint.json` is replaced only after publication succeeds. An interrupted write leaves the previous pointer usable. The loader verifies the complete file hash before weights-only CPU decoding and validates tensor shapes/dtypes/finiteness, replay owners and legal targets, probability normalization, sample counts, iteration ranges, and fit-history order. Training snapshots never pass through the observation-only playing-policy API.
+
+The training budget includes recorded compute before the snapshot, so resume does not start another full budget. Snapshot serialization and work lost after the last saved boundary may not be fully represented in its elapsed value; preserve failed attempts when accounting for total resource use. The limit is checked between traversals and optimizer steps, not enforced by an operating-system kill timer. Snapshots are saved at scheduled evaluations and explicit stops. Raw files remain under ignored `results/` and can occupy hundreds of megabytes over a campaign; do not commit them.
+
+The [convergence protocol](reports/neural-convergence.md) declares seeds, budgets, final exploitability/value tolerances, the pinned tabular comparison, and the campaign-scale pause/resume check before training.
+
+```bash
+python -m scripts.check_neural_convergence --campaign configs/solver/neural-kuhn-convergence-v1.json --seed 11 --out results/kuhn-11
+python -m scripts.check_neural_convergence --campaign configs/solver/neural-kuhn-convergence-v1.json --seed 29 --out results/kuhn-29
+python -m scripts.check_neural_convergence --campaign configs/solver/neural-kuhn-convergence-v1.json --seed 47 --out results/kuhn-47
+python -m scripts.check_neural_convergence --campaign configs/solver/neural-kuhn-convergence-v1.json --summarize results/kuhn-11 results/kuhn-29 results/kuhn-47 --out results/kuhn-summary
+```
+
+Campaign seed runs also support `--stop-after N` and `--resume PREVIOUS_SEED_BUNDLE`; use a new output directory for continuation. A campaign resume keeps its original seed, thresholds, and plan. Summaries require every declared seed exactly once, validate source/environment/configuration and training-report hashes, and recompute the final assessment from the retained training result. A paused, failed, or timed-out seed cannot pass. The mean and sample standard deviation are descriptive; acceptance requires every individual seed to meet both final limits. The CLI returns zero for a passed result or an intentional pause, one for a completed failed check, and two for an error.

@@ -1,0 +1,28 @@
+{
+  "training": {
+    "game": "kuhn",
+    "iterations": 100,
+    "training": {
+      "hidden": 64,
+      "traversals": 1024,
+      "advantage_steps": 1000,
+      "strategy_steps": 6000,
+      "batch_size": 256,
+      "capacity": 100000,
+      "learning_rate": 0.001,
+      "seed": 0
+    },
+    "evaluation_interval": 20,
+    "maximum_seconds": 800,
+    "version": 1
+  },
+  "seeds": [
+    11,
+    29,
+    47
+  ],
+  "maximum_exploitability": 0.03,
+  "maximum_value_error": 0.03,
+  "reference_sha256": "a89e9212fc10abd7cd00a84cd529f37df0c694a25f137fc6fc40005f21517a63",
+  "version": 1
+}

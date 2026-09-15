@@ -18,21 +18,37 @@ def main(argv=None):
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--plan", type=Path)
     mode.add_argument("--reproduce", type=Path)
+    mode.add_argument("--resume", type=Path)
     mode.add_argument("--fitting-check", action="store_true")
     mode.add_argument("--refit-plan", type=Path)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--stop-after", type=int)
     args = parser.parse_args(argv)
     try:
+        if args.stop_after is not None and not (args.plan or args.resume):
+            raise ValueError("--stop-after requires --plan or --resume")
         if args.fitting_check:
             report = check_fitting(args.out)
         elif args.refit_plan:
             report = check_refit(
                 Plan.from_dict(json.loads(args.refit_plan.read_text())), args.out
             )
+        elif args.resume:
+            manifest = json.loads((args.resume / "manifest.json").read_text())
+            report = run(
+                Plan.from_dict(manifest["plan"]),
+                args.out,
+                resume=args.resume,
+                stop_after=args.stop_after,
+            )
         elif args.reproduce:
             report = reproduce(args.reproduce, args.out)
         else:
-            report = run(Plan.from_dict(json.loads(args.plan.read_text())), args.out)
+            report = run(
+                Plan.from_dict(json.loads(args.plan.read_text())),
+                args.out,
+                stop_after=args.stop_after,
+            )
     except (
         ValueError,
         TypeError,
@@ -47,7 +63,7 @@ def main(argv=None):
             {"status": report["status"], "report": str(args.out / "report.json")}
         )
     )
-    return 0 if report["status"] in {"completed", "passed"} else 1
+    return 0 if report["status"] in {"completed", "passed", "paused"} else 1
 
 
 if __name__ == "__main__":

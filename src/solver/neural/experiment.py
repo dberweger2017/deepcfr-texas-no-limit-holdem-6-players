@@ -1,6 +1,7 @@
 """Bounded diagnostic pilots for the neural baseline, without model promotion."""
 
 import json
+import os
 import platform
 import subprocess
 import sys
@@ -16,6 +17,7 @@ from src.solver.cfr import regret_delta
 from src.solver.evaluate import evaluate
 from src.solver.experiment import ROOT, canonical, write_json
 from src.solver.neural.artifact import save_policy
+from src.solver.neural.checkpoint import load_training, save_training
 from src.solver.neural.encoding import ACTION_SLOT
 from src.solver.neural.memory import Reservoir
 from src.solver.neural.network import deterministic_cpu, fit, stream_seed
@@ -59,7 +61,8 @@ class Plan:
 
 def provenance(plan: dict) -> dict:
     files = sorted((ROOT / "src/solver").rglob("*.py")) + [
-        ROOT / "scripts/check_deep_cfr.py"
+        ROOT / "scripts/check_deep_cfr.py",
+        ROOT / "scripts/check_neural_convergence.py",
     ]
     source = {
         str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in files
@@ -98,12 +101,20 @@ def provenance(plan: dict) -> dict:
     }
 
 
-def run(plan: Plan, output: Path) -> dict:
+def run(
+    plan: Plan,
+    output: Path,
+    *,
+    resume: Path | None = None,
+    stop_after: int | None = None,
+) -> dict:
+    if stop_after is not None and (
+        type(stop_after) is not int or not 0 < stop_after < plan.iterations
+    ):
+        raise ValueError("Stop iteration must precede the plan's final iteration")
     manifest = provenance(asdict(plan))
-    output.mkdir(parents=True, exist_ok=False)
-    write_json(output / "manifest.json", manifest)
     started = perf_counter()
-    deadline = started + plan.maximum_seconds
+    elapsed = 0.0
     report = {
         "status": "running",
         "completed_iterations": 0,
@@ -111,18 +122,78 @@ def run(plan: Plan, output: Path) -> dict:
         "advantage_fits": [],
     }
     solver = None
+    if resume is not None:
+        descriptor = json.loads((resume / "checkpoint.json").read_text())
+        name = descriptor["file"]
+        if not isinstance(name, str) or Path(name).name != name:
+            raise ValueError("Invalid checkpoint filename")
+        solver, progress = load_training(
+            resume / name, descriptor["sha256"], manifest=manifest
+        )
+        elapsed = progress["elapsed_seconds"]
+        if type(elapsed) not in (int, float) or not np.isfinite(elapsed) or elapsed < 0:
+            raise ValueError("Invalid checkpoint elapsed budget")
+        report = progress["report"]
+        if (
+            solver.tree.game != plan.game
+            or solver.config != plan.training
+            or solver.iterations > plan.iterations
+            or report["completed_iterations"] != solver.iterations
+            or report["advantage_fits"] != solver.fits
+            or (stop_after is not None and stop_after <= solver.iterations)
+        ):
+            raise ValueError("Checkpoint progress does not match the requested plan")
+        expected = list(
+            range(
+                plan.evaluation_interval,
+                solver.iterations + 1,
+                plan.evaluation_interval,
+            )
+        )
+        if solver.iterations == plan.iterations and solver.iterations not in expected:
+            expected.append(solver.iterations)
+        if [row["iteration"] for row in report["evaluations"]] != expected:
+            raise ValueError("Checkpoint evaluation history is incomplete")
+        report["status"] = "running"
+        manifest["resumed_from"] = {
+            "checkpoint_sha256": descriptor["sha256"],
+            "iteration": solver.iterations,
+        }
+    output.mkdir(parents=True, exist_ok=False)
+    write_json(output / "manifest.json", manifest)
+    deadline = started + max(0, plan.maximum_seconds - elapsed)
+
+    def checkpoint():
+        name = f"iteration-{solver.iterations:06d}.pt"
+        digest = save_training(
+            solver,
+            output / name,
+            manifest=manifest,
+            progress={
+                "elapsed_seconds": elapsed + perf_counter() - started,
+                "report": report,
+            },
+        )
+        temporary = output / ".checkpoint.json"
+        write_json(
+            temporary, {"file": name, "sha256": digest, "iteration": solver.iterations}
+        )
+        os.replace(temporary, output / "checkpoint.json")
+
     try:
         with deterministic_cpu():
-            tree = GameTree(plan.game)
-            solver = DeepCFR(tree, plan.training)
-            for _ in range(plan.iterations):
+            if solver is None:
+                solver = DeepCFR(GameTree(plan.game), plan.training)
+            tree = solver.tree
+            while solver.iterations < plan.iterations:
                 solver.step(deadline)
                 report["completed_iterations"] = solver.iterations
                 report["advantage_fits"] = solver.fits
-                if (
+                scheduled = (
                     solver.iterations % plan.evaluation_interval == 0
                     or solver.iterations == plan.iterations
-                ):
+                )
+                if scheduled:
                     metrics = solver.fit_strategy(deadline)
                     policy = solver.average_policy()
                     report["evaluations"].append(
@@ -141,9 +212,15 @@ def run(plan: Plan, output: Path) -> dict:
                             ).hexdigest(),
                         }
                     )
+                if scheduled or solver.iterations == stop_after:
+                    checkpoint()
                     write_json(output / "report.json", report)
-            report["policy_file_sha256"] = save_policy(solver, output / "policy.pt")
-            report["status"] = "completed"
+                if solver.iterations == stop_after:
+                    report["status"] = "paused"
+                    break
+            else:
+                report["policy_file_sha256"] = save_policy(solver, output / "policy.pt")
+                report["status"] = "completed"
     except TimeoutError as exc:
         report["status"], report["error"] = "timed_out", str(exc)
     except BaseException as exc:
@@ -159,7 +236,7 @@ def run(plan: Plan, output: Path) -> dict:
                     solver.advantage_memories + [solver.strategy_memory],
                 )
             }
-        report["wall_seconds"] = perf_counter() - started
+        report["wall_seconds"] = elapsed + perf_counter() - started
         write_json(output / "report.json", report)
     return report
 
