@@ -4,8 +4,8 @@
 representation and a modest sequence encoder for the replacement learner. It
 uses the existing [player observation](observations.md) and [rules profile](rules.md).
 It does not change game behavior or route the legacy trainer through a new model.
-Bet candidates, regret/value heads, self-play and training recovery follow in
-separate tasks. The failed small-game readiness gate remains open.
+The [betting interface](holdem-betting.md) now supplies legal candidates and
+regret/value heads. Self-play and training recovery follow in separate tasks. The failed small-game readiness gate remains open.
 
 ## Input boundary
 
@@ -122,8 +122,8 @@ Batches can mix table sizes and history lengths. Packed sequences exclude paddin
 and preserve batch order. The recurrent calculation processes the full sequence;
 it does not guarantee perfect recall inside a finite learned vector. Its cost
 grows with event count. There is no capacity sweep, trained checkpoint or strength
-claim in this delivery. The next action-candidate layer will supply separate legal
-bet choices and their training targets.
+claim in this delivery. The [action-candidate layer](holdem-betting.md) supplies separate legal bet
+choices and their training targets.
 
 ## Validation
 

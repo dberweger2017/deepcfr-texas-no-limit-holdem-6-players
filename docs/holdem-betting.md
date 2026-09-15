@@ -1,6 +1,6 @@
 # Hold'em bet candidates and learning targets
 
-This is the second engineering task in roadmap milestone 4. It connects the
+[PR #58](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/58) is the second engineering task in roadmap milestone 4. It connects the
 [decision encoder](holdem-encoding.md) to exact legal bets, action-conditioned
 regret/value predictions, and branch-payoff supervision. The legacy trainer is
 unchanged. This is not a trained policy, a complete self-play solver, or a pass of
@@ -145,6 +145,9 @@ invalid inputs and numerical overflow in regret matching. Hidden-deal, suit and
 seat changes preserve outputs on the same inference shape. Mixed batches agree
 within floating-point tolerance; bitwise equality across different batch layouts
 is not promised.
+
+**Validation:** all 42 focused tests and all 405 repository tests pass locally.
+Ruff and `git diff --check` pass. No paid compute or training campaign was run.
 
 The next task is a consistent all-role self-play collector: freeze the policy
 profile during collection, evaluate each traverser's candidate branch, pass its
