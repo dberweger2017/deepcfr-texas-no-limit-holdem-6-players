@@ -48,3 +48,8 @@ jobs:
         run: |
           python -m scripts.check_deep_cfr --plan configs/solver/neural-smoke.json --out results/neural-smoke
           python -m scripts.check_deep_cfr --reproduce results/neural-smoke --out results/neural-replay
+      - name: Resume neural training in a new process
+        run: |
+          python -m scripts.check_deep_cfr --plan configs/solver/neural-smoke.json --stop-after 1 --out results/neural-paused
+          python -m scripts.check_deep_cfr --resume results/neural-paused --out results/neural-resumed
+          cmp results/neural-smoke/policy.pt results/neural-resumed/policy.pt

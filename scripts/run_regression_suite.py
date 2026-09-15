@@ -10,6 +10,8 @@ REGRESSION_TESTS = [
     "tests/test_neural_primitives.py",
     "tests/test_deep_cfr.py",
     "tests/test_neural_experiments.py",
+    "tests/test_neural_resume.py",
+    "tests/test_neural_campaign.py",
     "tests/test_reference_games.py",
     "tests/test_tabular_cfr.py",
     "tests/test_solver_experiments.py",

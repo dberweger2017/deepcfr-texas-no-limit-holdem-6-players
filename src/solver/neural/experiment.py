@@ -61,7 +61,8 @@ class Plan:
 
 def provenance(plan: dict) -> dict:
     files = sorted((ROOT / "src/solver").rglob("*.py")) + [
-        ROOT / "scripts/check_deep_cfr.py"
+        ROOT / "scripts/check_deep_cfr.py",
+        ROOT / "scripts/check_neural_convergence.py",
     ]
     source = {
         str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in files
