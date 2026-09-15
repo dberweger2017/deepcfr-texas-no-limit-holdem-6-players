@@ -41,8 +41,8 @@ Observers who are not acting receive no actionable choices. The public history s
 
 ## What the observation contains
 
-- Its owner and seat, public player identities, hand identifier, button, blinds, and chip denomination.
-- The owner's two hole cards, including after folding or mucking.
+- Its owner and compact hand seat, physical seat mapping, occupied table roster, capacity, public player identities, hand identifier, button, blinds, and chip denomination. See [session seat semantics](sessions.md#observations-and-history-ownership).
+- The owner's two hole cards, including after folding or mucking; an empty tuple for a seated spectator who was dealt out.
 - The board and the street on which each part was dealt.
 - Every player's starting stack, remaining stack, street bet, total contribution, folded/all-in status, and actually tabled cards.
 - Current main/side-pot amounts and eligible seats. Pot amounts are provisional while betting continues; unmatched contributions are marked with a possible refund owner.
@@ -54,7 +54,7 @@ This is an API boundary for the poker program. It is not a sandbox for hostile P
 
 ## Public events and replay
 
-`HandStarted` records schema version 1 and rules profile `nlhe-cash-auto-muck-v1`. A public hand identifier must be independent of the hidden seed. Player identities must name publicly known occupants, not checkpoint names or hidden opponent types.
+`HandStarted` records schema version 2 and rules profile `nlhe-cash-auto-muck-v1`. A public hand identifier must be independent of the hidden seed. Player identities must name publicly known occupants, not checkpoint names or hidden opponent types.
 
 | Event | Meaning |
 | --- | --- |
@@ -89,7 +89,7 @@ Voluntary displays outside this procedure, requests to see a hand, accidental ex
 
 The host commits records only after actual completed hands. `play_hand` accepts per-player histories but does not mutate them. Evaluation and play loops commit completed records outside traversal. CFR terminal payoffs remain learning targets; simulated opponent actions and terminal branches no longer update live opponent history.
 
-The initial retention policy keeps all completed records for a match in memory. The existing UI/CLI starts fresh history when its model lineup is reloaded. There is no disk persistence or eviction policy yet. The next session task owns stable identities across lineup changes, retained histories across sessions, and adapting the old opponent model's seat-based feature keys.
+The initial retention policy keeps all completed records for a match in memory. The existing UI/CLI starts fresh history when its model lineup is reloaded. There is no disk persistence or eviction policy yet. The [session manager](sessions.md) retains identity-owned histories across lineup changes within a session and uses public identity keys for the old opponent model. It adds physical seat mappings and public records for seated spectators; cross-session transfer and disk persistence remain separate work.
 
 ## Existing models and entry points
 

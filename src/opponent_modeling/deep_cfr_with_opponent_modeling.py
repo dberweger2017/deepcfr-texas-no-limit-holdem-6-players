@@ -239,7 +239,9 @@ class DeepCFRAgentWithOpponentModeling:
         if state.final_state or type(action_id) is not int or not 0 <= action_id < 4:
             raise ValueError("Expected an action from an unfinished hand")
         self._recording_hand = hand
-        history = self.current_game_history.setdefault(identity, {"actions": [], "contexts": []})
+        history = self.current_game_history.setdefault(
+            identity, {"actions": [], "contexts": []}
+        )
         action_encoded = np.zeros(4)
         action_encoded[action_id] = 1
         history["actions"].append(action_encoded)
@@ -248,7 +250,9 @@ class DeepCFRAgentWithOpponentModeling:
     def end_game_recording(self, state):
         require_policy_view(state)
         hand = (state.observation.player_id, state.observation.hand_id)
-        if not state.final_state or (self.current_game_history and self._recording_hand != hand):
+        if not state.final_state or (
+            self.current_game_history and self._recording_hand != hand
+        ):
             raise ValueError("Opponent history must settle against the same completed hand")
         seats = {p.player_id: p.seat for p in state.observation.players}
         for identity, history in self.current_game_history.items():
@@ -265,8 +269,10 @@ class DeepCFRAgentWithOpponentModeling:
     def get_table_opponent_features(self, state):
         """Average known identities present in this hand into the legacy fixed input."""
         require_policy_view(state)
-        opponent_ids = [p.player_id for p in state.observation.players
-                        if p.player_id != state.observation.player_id]
+        opponent_ids = [
+            p.player_id for p in state.observation.players
+            if p.player_id != state.observation.player_id
+        ]
         feature_rows = [
             self.opponent_modeling.get_opponent_features(identity)
             for identity in opponent_ids
@@ -306,7 +312,9 @@ class DeepCFRAgentWithOpponentModeling:
         
         # If it's the trained agent's turn
         if current_player == self.player_id:
-            opponent_feature_array = self.get_table_opponent_features(state.observe(self.player_id))
+            opponent_feature_array = self.get_table_opponent_features(
+                state.observe(self.player_id)
+            )
             return traverse_agent_turn(
                 self,
                 state,

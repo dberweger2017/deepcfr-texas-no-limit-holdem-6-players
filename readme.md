@@ -14,7 +14,7 @@ The workflows below describe the existing implementation. Passing its tests does
 
 This repo has come a long way since the March 2025 version described in the original Medium article. If the article and this README ever disagree, trust the README and the current scripts.
 
-The first rules-engine rewrite is in place. The pinned Rust fork now handles integer chips, minimum raises and reopening, short calls, side pots, heads-up order, and automatic all-in runouts. Logging no longer repairs game state. See the [rules profile](docs/rules.md) and [engine audit](docs/engine-audit.md) for evidence and limits. The [observation interface](docs/observations.md) now keeps engine state out of policy calls and records complete public history. Table sessions and the learning rewrite remain on the roadmap.
+The first rules-engine rewrite is in place. The pinned Rust fork now handles integer chips, minimum raises and reopening, short calls, side pots, heads-up order, and automatic all-in runouts. Logging no longer repairs game state. See the [rules profile](docs/rules.md) and [engine audit](docs/engine-audit.md) for evidence and limits. The [observation interface](docs/observations.md) now keeps engine state out of policy calls and records complete public history. The [session manager](docs/sessions.md) now carries bankrolls and identity-owned histories through changing lineups. Reproducible evaluation and the learning rewrite are next on the roadmap.
 
 In practice that means standard Deep CFR has a clean three-stage flow now — random, self-play, mixed — and the opponent-modeling track exposes the same three stages instead of being a separate one-off. `--checkpoint` means the same thing everywhere ("continue from this checkpoint"), mixed checkpoint discovery walks subdirectories recursively, and opponent modeling, while still more experimental on learning quality, at least follows the same workflow as everything else.
 
@@ -39,7 +39,7 @@ PyQt5 (for the GUI) is already in `requirements.txt`, so there's nothing extra t
 
 Policies now receive immutable player views rather than the Rust simulator. The new API uses integer chips and explicit raise-to actions, while a public-only adapter supports the current model feature layout. Folded and mucked cards stay private, including in CLI and GUI results. [Interface documentation](docs/observations.md) covers events, replay, history ownership, showdown choices, and remaining limits.
 
-Run a short headless check with `python -m scripts.check_game --players 6 --hands 20`. This exercises the interface with random policies; it does not measure playing strength.
+Run a short headless check with `python -m scripts.check_game --players 6 --hands 20`. For bankrolls, departures, arrivals, and sit-outs, run `python -m scripts.check_session --hands 30`. This exercises the interface with random policies; it does not measure playing strength.
 
 ## What works today
 

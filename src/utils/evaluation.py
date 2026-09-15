@@ -1,8 +1,8 @@
 """Shared seeded hand-running and evaluation helpers."""
 
-from uuid import uuid4
 import inspect
 from typing import Any, Dict, Optional, Sequence
+from uuid import uuid4
 
 import pokers as pkrs
 from src.game.legacy import TrackedState
