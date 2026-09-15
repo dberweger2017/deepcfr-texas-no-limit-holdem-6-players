@@ -57,6 +57,11 @@ class CardsShown:
 
 
 @dataclass(frozen=True, slots=True)
+class CardsMucked:
+    seat: int
+
+
+@dataclass(frozen=True, slots=True)
 class HandFinished:
     stacks: tuple[int, ...]
     pots: tuple[Pot, ...]
@@ -70,6 +75,7 @@ PublicEvent = (
     | ActionTaken
     | BoardDealt
     | CardsShown
+    | CardsMucked
     | HandFinished
 )
 
@@ -172,6 +178,15 @@ def replay(
                 + (replace(player, shown_cards=event.cards),)
                 + players[event.seat + 1 :]
             )
+        elif isinstance(event, CardsMucked):
+            player = players[event.seat]
+            if player.folded or player.shown_cards:
+                raise ValueError("Only an unshown live hand can be mucked")
+            players = (
+                players[: event.seat]
+                + (replace(player, mucked=True),)
+                + players[event.seat + 1 :]
+            )
         elif isinstance(event, HandFinished):
             if len(event.stacks) != len(players) or sum(event.stacks) != sum(
                 start.stacks
@@ -185,7 +200,7 @@ def replay(
                 street = Street.SHOWDOWN
             actor, legal, finished = None, LegalActions(), True
         else:
-            raise ValueError(f"Unexpected event: {type(event).__name__}")
+            raise TypeError(f"Unexpected event: {type(event).__name__}")
     return Observation(
         start.hand_id,
         start.player_ids[seat],

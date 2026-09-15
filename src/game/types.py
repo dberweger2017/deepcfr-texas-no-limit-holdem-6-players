@@ -26,7 +26,7 @@ class Action:
 
     def __post_init__(self):
         if not isinstance(self.kind, ActionKind):
-            raise ValueError("Expected an ActionKind")
+            raise TypeError("Expected an ActionKind")
         if self.kind == ActionKind.RAISE:
             if type(self.raise_to) is not int or self.raise_to <= 0:
                 raise ValueError("raise_to must be a positive integer chip amount")
@@ -44,9 +44,11 @@ class LegalActions:
     def validate(self, action: Action) -> None:
         if not isinstance(action, Action) or action.kind not in self.kinds:
             raise ValueError("Action is not available at this decision")
-        if action.kind == ActionKind.RAISE:
-            if not self.min_raise_to <= action.raise_to <= self.max_raise_to:
-                raise ValueError("Raise-to amount is outside the legal bounds")
+        if (
+            action.kind == ActionKind.RAISE
+            and not self.min_raise_to <= action.raise_to <= self.max_raise_to
+        ):
+            raise ValueError("Raise-to amount is outside the legal bounds")
 
 
 @dataclass(frozen=True, slots=True)
@@ -59,6 +61,7 @@ class Player:
     contributed: int = 0
     folded: bool = False
     shown_cards: tuple[str, ...] = ()
+    mucked: bool = False
 
     @property
     def all_in(self) -> bool:
