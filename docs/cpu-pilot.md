@@ -9,7 +9,9 @@ verify the final deployment quote. Allow at most four hours for the experiment
 runner and stop earlier when its fixed work is complete. Setup and retrieval
 also consume rental time; stop the rental within five hours of provisioning.
 At the quoted rate, five hours of compute is $1.40, plus disk charges. Do not
-spend the remaining budget automatically or enable automatic account top-ups.
+extend an experiment after inspecting its outcome or enable automatic account
+top-ups. The owner permits further declared CPU experiments within the same $10
+total; a future GPU rental has a separate budget.
 
 The runner starts and stops worker processes. **It does not provision a pod or
 stop Runpod billing.** The operator must copy results back, verify their hashes,
@@ -147,3 +149,9 @@ remain outside Git. Commit a compact report with:
 
 Provider references: [Runpod pricing](https://docs.runpod.io/pods/pricing) and
 [CPU pod storage support](https://www.runpod.io/blog/enhanced-cpu-pods-docker-network).
+
+## Completed pilot
+
+The [result report](reports/cpu-pilot.md) records the September 15 run: 3.63× remote
+parallel throughput, all 15 frozen-replay fitting outcomes, and verified rental
+cleanup. The wider strategy network is the next candidate; milestone 3 remains open.
