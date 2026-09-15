@@ -53,4 +53,9 @@ def reproduce(original: Path, output: Path) -> dict:
         raise ValueError("Reproduction did not complete successfully")
     if (original / "hands.jsonl").read_bytes() != (output / "hands.jsonl").read_bytes():
         raise ValueError("Reproduced outcomes differ; both runs have been retained")
+    original_report = json.loads((original / "report.json").read_text(encoding="utf-8"))
+    summary = {k: v for k, v in result.items() if k != "performance"}
+    original_summary = {k: v for k, v in original_report.items() if k != "performance"}
+    if summary != original_summary:
+        raise ValueError("Reproduced report differs; both runs have been retained")
     return result

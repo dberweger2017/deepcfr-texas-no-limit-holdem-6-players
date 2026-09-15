@@ -31,6 +31,11 @@ def test_bundle_reproduces_exact_outcomes_and_records_environment(tmp_path):
     ).read_bytes()
     value = json.loads((original / "manifest.json").read_text())
     assert value["environment"]["packages"]["pokers"] == "0.2.0"
+    assert (
+        value["environment"]["engine"]["commit"]
+        == "5db20e3d5d6862b32a7402035c1340b622d3b005"
+    )
+    assert value["environment"]["engine"]["binaries"]
     assert len(value["source_sha256"]) == 64
     assert len(value["revision"]) == 40
     assert value["policies"]["fold"]["weights_sha256"] is None
@@ -109,3 +114,14 @@ def test_tampered_schedule_is_rejected_before_running(tmp_path):
     with pytest.raises(ValueError, match="schedule"):
         reproduce(tmp_path / "one", tmp_path / "two")
     assert not (tmp_path / "two").exists()
+
+
+def test_tampered_report_is_detected_by_reproduction(tmp_path):
+    run(plan(), tmp_path / "one")
+    path = tmp_path / "one/report.json"
+    report = json.loads(path.read_text())
+    report["completed_hands"] -= 1
+    path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="report differs"):
+        reproduce(tmp_path / "one", tmp_path / "two")
+    assert (tmp_path / "two/report.json").exists()

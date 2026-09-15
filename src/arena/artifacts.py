@@ -10,6 +10,7 @@ from importlib import metadata
 from pathlib import Path
 
 from src.arena.policies import POLICIES
+from src.arena.report import CONFIDENCE, MINIMUM_BLOCKS
 from src.arena.schedule import Plan, digest, schedule_document
 from src.game.observation import RULES_PROFILE, SCHEMA_VERSION
 from src.game.session import SESSION_PROFILE
@@ -23,7 +24,20 @@ def git(*args):
 
 
 def environment() -> dict:
+    engine = metadata.distribution("pokers")
+    direct = json.loads(engine.read_text("direct_url.json") or "{}")
+    binaries = {
+        str(path): sha256(Path(engine.locate_file(path)).read_bytes()).hexdigest()
+        for path in engine.files or ()
+        if str(path).endswith((".so", ".pyd", ".dylib"))
+    }
+    if not binaries:
+        raise ValueError("Cannot fingerprint the installed poker engine")
     return {
+        "engine": {
+            "commit": direct.get("vcs_info", {}).get("commit_id"),
+            "binaries": binaries,
+        },
         "python": sys.version,
         "implementation": platform.python_implementation(),
         "platform": platform.platform(),
@@ -81,8 +95,8 @@ def manifest(plan: Plan) -> dict:
         "policies": policy_fingerprints(plan),
         "environment": environment(),
         "protocol": {
-            "confidence": 0.95,
-            "minimum_blocks": 30,
+            "confidence": CONFIDENCE,
+            "minimum_blocks": MINIMUM_BLOCKS,
             "interval": "student-t-over-independent-block-means",
             "session_reloads": "restore busted seats to their initial stack before each hand",
             "rate_denominator": "scheduled table hands per arm; includes dealt-out session hands",
