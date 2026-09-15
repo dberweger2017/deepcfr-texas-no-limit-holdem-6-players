@@ -126,7 +126,7 @@ unchanged.
 
 ## Implementation and validation
 
-The first implementation is [the snapshot-average module](../../src/solver/neural/average.py).
+[PR #56](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/56) delivers [the snapshot-average module](../../src/solver/neural/average.py).
 Its [20 focused tests](../../tests/test_snapshot_average.py) pass; the complete
 repository suite passes **318 tests**. The checks enumerate all 300 Kuhn/Leduc
 information sets, include a hand-calculated own-reach counterexample, and compare
