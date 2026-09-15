@@ -2,6 +2,14 @@
 
 Deep CFR for 6-player no-limit Texas Hold'em, built on top of the [`pokers`](https://github.com/Reinforcement-Poker/pokers) environment. The focus here is a training workflow you can actually run from source, not a polished black box.
 
+## Development direction
+
+We are rebuilding toward a strong no-limit Hold'em agent that plays by a documented ruleset and sees exactly the game information available to a human in its seat. Six-handed play is the main target, with four- and five-handed tables, changing lineups, and unequal stacks included in the design.
+
+The [roadmap](./ROADMAP.md) sets the implementation order, PR acceptance checks, training milestones, and model promotion criteria. The first priorities are correct poker rules, a tested boundary between public observations and hidden simulator state, reproducible evaluation, and a validated CFR baseline. Range-aware search and opponent adaptation follow once that foundation works. Backwards compatibility is not required.
+
+The workflows below describe the existing implementation. Passing its tests does not establish complete rules compliance or strong play; the roadmap records the gaps the rewrite must close.
+
 ## Where things stand (March 2026)
 
 This repo has come a long way since the March 2025 version described in the original Medium article. If the article and this README ever disagree, trust the README and the current scripts.
@@ -355,7 +363,7 @@ What's still open: the exact profitability numbers versus the article, how robus
 
 ## Future work
 
-The forward-looking backlog lives in [FUTURE_IMPROVEMENTS.md](./FUTURE_IMPROVEMENTS.md), trimmed down to the items that still make sense after the recent architecture and training fixes.
+The development plan lives in [ROADMAP.md](./ROADMAP.md). It replaces the earlier feature backlog with staged PRs, correctness checks, and measured training campaigns.
 
 ## References
 
