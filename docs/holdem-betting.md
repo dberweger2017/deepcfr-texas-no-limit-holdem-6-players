@@ -149,8 +149,8 @@ is not promised.
 **Validation:** all 42 focused tests and all 405 repository tests pass locally.
 Ruff and `git diff --check` pass. No paid compute or training campaign was run.
 
-The next task is a consistent all-role self-play collector: freeze the policy
-profile during collection, evaluate each traverser's candidate branch, pass its
-net-payoff estimates into this target interface, and record exact executed bets.
-Integrate replay weighting, fitting and snapshot averaging separately. Recovery
-and fresh small-game readiness remain required before substantial training.
+The [all-role collector](holdem-collection.md) now freezes the policy profile,
+evaluates each traverser candidate, supplies net-payoff targets and records exact
+executed bets. Replay weighting and role-specific fitting come next; snapshot
+averaging remains a separate integration. Recovery and fresh small-game readiness
+remain required before substantial training.
