@@ -1,6 +1,6 @@
 # Hold'em decision encoding
 
-This is the first delivery in roadmap milestone 4: a versioned current-hand
+[PR #57](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/57) is the first delivery in roadmap milestone 4: a versioned current-hand
 representation and a modest sequence encoder for the replacement learner. It
 uses the existing [player observation](observations.md) and [rules profile](rules.md).
 It does not change game behavior or route the legacy trainer through a new model.
@@ -131,10 +131,13 @@ The focused checks cover all betting streets at two to six players; physical-sea
 rotation and every suit permutation; hidden-world changes at four/five/six players;
 card order and board-reveal stages; same-pot/different-history examples; exact
 payments and pre-action pot ratios; side pots and effective stacks; distinct seat
-states; chip-unit rescaling; and six-to-five-to-four session transitions.
+states; chip-amount rescaling; and six-to-five-to-four session transitions.
 
 A history longer than 256 events remains intact. Thirty generated unequal-stack
 hands encode every decision without mutating saved observations. Mixed-length
 batches agree with individual inference within floating-point tolerance, and the
 reference model backpropagates finite gradients. Engine-state and malformed/live-
 decision boundary checks fail explicitly. See [the tests](../tests/test_holdem_encoding.py).
+
+All **45 focused tests** and **363 repository tests** pass locally. Ruff and
+`git diff --check` pass. No paid compute or model-training campaign was run.
