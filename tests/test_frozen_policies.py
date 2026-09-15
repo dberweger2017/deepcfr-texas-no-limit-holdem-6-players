@@ -261,3 +261,14 @@ def test_nonfinite_model_output_fails_without_an_action_fallback(tmp_path):
         model.network.action_head.bias[0] = float("nan")
     with pytest.raises(ValueError, match="Non-finite policy output"):
         model.policy(0).choose_action(view())
+
+
+def test_a_pinned_registry_cannot_be_reused_for_a_different_plan(tmp_path):
+    spec = checkpoint(tmp_path)
+    plan = Plan(
+        (Scenario("four", (2000,) * 4),), candidate=spec.name, models=(spec,), blocks=1
+    )
+    registry = PolicyRegistry(plan)
+    with pytest.raises(ValueError, match="different plan"):
+        run(replace(plan, baseline=spec.name), tmp_path / "mismatch", registry=registry)
+    assert not (tmp_path / "mismatch").exists()

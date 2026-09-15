@@ -64,6 +64,8 @@ def source_fingerprint() -> str:
 
 def manifest(plan: Plan, registry: PolicyRegistry | None = None) -> dict:
     registry = registry or PolicyRegistry(plan)
+    if registry.plan != plan:
+        raise ValueError("Policy registry belongs to a different plan")
     return {
         "version": ARTIFACT_VERSION,
         "plan": asdict(plan),
