@@ -13,6 +13,9 @@ few cents already used by PR #49. GPU funding is separate. More cores are intend
 to reduce elapsed time; neither four hours of runtime nor spending the budget is
 a target. No additional payment or automatic account top-up is authorized.
 
+**Completed:** the [results report](reports/strategy-capacity.md) retains all 144
+outcomes. No recipe qualified; confirmation was skipped and the rental terminated.
+
 ## Implementation contract
 
 `Config.strategy_hidden` controls the strategy network's two hidden layers.
