@@ -157,14 +157,22 @@ class Hand:
             paid = view.legal_actions.call_amount
         elif action.kind == ActionKind.RAISE:
             paid = action.raise_to - player.street_bet
-            increment = action.raise_to - int(self._state.min_bet)
+            increment = action.raise_to - self._chips(self._state.min_bet)
         new_state = self._state.apply_action(
-            pokers.Action(ENGINE_ACTIONS[action.kind], increment)
+            pokers.Action(
+                ENGINE_ACTIONS[action.kind], increment * self._state.chip_unit
+            )
         )
         if new_state.status != pokers.StateStatus.Ok:
             raise RuntimeError(
                 f"Engine rejected validated action {action}: {new_state.status}"
             )
+        return self._after_action(action, paid, view, new_state)
+
+    def _chips(self, amount: float) -> int:
+        return round(amount / self._state.chip_unit)
+
+    def _after_action(self, action, paid, view, new_state):
         event = ActionTaken(self.actor, view.street, action, paid)
         return Hand(self.table, self.events + (event,), new_state)._publish_transition(
             len(view.board)
@@ -192,7 +200,7 @@ class Hand:
                 )
             events += (
                 HandFinished(
-                    tuple(int(p.stake) for p in state.players_state),
+                    tuple(self._chips(p.stake) for p in state.players_state),
                     public.pots,
                     showdown,
                 ),
@@ -204,11 +212,14 @@ class Hand:
                 for kind, engine_kind in ENGINE_ACTIONS.items()
                 if engine_kind in state.legal_actions
             )
-            call = min(int(player.stake), max(0, int(state.min_bet - player.bet_chips)))
+            call = min(
+                self._chips(player.stake),
+                max(0, self._chips(state.min_bet - player.bet_chips)),
+            )
             lower = upper = None
             if ActionKind.RAISE in kinds:
-                upper = int(player.bet_chips + player.stake)
-                lower = min(int(state.min_bet + state.min_raise), upper)
+                upper = self._chips(player.bet_chips + player.stake)
+                lower = min(self._chips(state.min_bet + state.min_raise), upper)
             events += (
                 Decision(state.current_player, LegalActions(kinds, call, lower, upper)),
             )

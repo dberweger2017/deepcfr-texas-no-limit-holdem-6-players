@@ -4,6 +4,7 @@ import inspect
 from typing import Any, Dict, Optional, Sequence
 
 import pokers as pkrs
+from src.game.legacy import TrackedState
 
 from src.utils import settings
 from src.utils.actions import sanitize_action
@@ -30,6 +31,9 @@ def choose_agent_action(
     fallback_recorder=None,
 ):
     """Call an agent's choose_action with optional OM opponent context when supported."""
+    if not isinstance(state, TrackedState):
+        raise TypeError("Agent dispatch requires a tracked hand")
+    state = state.observe()
     signature = inspect.signature(agent.choose_action)
     kwargs = {}
     if opponent_id is not None and "opponent_id" in signature.parameters:
@@ -165,16 +169,19 @@ def evaluate_agent_matchup(
         else:
             opponent_sanitized_actions += 1
 
+    histories = {}
     for game in range(num_games):
         state = None
         try:
-            state = pkrs.State.from_seed(
+            state = TrackedState.from_seed(
                 n_players=num_players,
                 button=(button_start + game) % num_players,
                 sb=sb,
                 bb=bb,
                 stake=stake,
                 seed=seed_start + game,
+                hand_id=f"evaluation-{game}",
+                histories=histories,
             )
 
             game_had_invalid_state = False
@@ -231,7 +238,7 @@ def evaluate_agent_matchup(
 
                     if record_opponent_history and hasattr(agent, "record_opponent_action"):
                         agent.record_opponent_action(
-                            state,
+                            state.observe(agent.player_id),
                             action_history_id(action, state.pot),
                             current_player,
                         )
@@ -257,6 +264,7 @@ def evaluate_agent_matchup(
                 state = new_state
 
             if state.final_state:
+                histories = state.completed_histories()
                 completed_games += 1
                 profit = state.players_state[agent.player_id].reward
                 total_profit += profit
@@ -266,7 +274,7 @@ def evaluate_agent_matchup(
                 if zero_sum_delta > 1e-9:
                     non_zero_sum_games += 1
                 if record_opponent_history and hasattr(agent, "end_game_recording"):
-                    agent.end_game_recording(state)
+                    agent.end_game_recording(state.observe(agent.player_id))
             elif game_had_invalid_state:
                 invalid_state_games += 1
         except Exception as exc:

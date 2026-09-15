@@ -6,6 +6,8 @@ import torch.optim as optim
 import numpy as np
 import random
 import pokers as pkrs
+from src.game.legacy import require_policy_view
+from src.utils.evaluation import choose_agent_action
 from collections import deque
 from src.core import model as model_settings
 from src.core.model import PokerNetwork, encode_state, set_verbose
@@ -565,7 +567,7 @@ class DeepCFRAgent:
         else:
             try:
                 # Let the random agent choose an action
-                action = random_agents[current_player].choose_action(state)
+                action = choose_agent_action(random_agents[current_player], state)
                 new_state, log_file, status = apply_action_with_logging(
                     state,
                     action,
@@ -886,6 +888,7 @@ class DeepCFRAgent:
 
     def choose_action(self, state):
         """Choose an action for the given state during actual play."""
+        require_policy_view(state)
         legal_action_types = self.get_legal_action_types(state)
         
         if not legal_action_types:

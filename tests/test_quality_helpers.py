@@ -24,17 +24,6 @@ from src.utils.actions import (
 )
 
 
-class _InvalidApplyResult:
-    status = pkrs.StateStatus.HighBet
-
-
-class _StrictProbeState:
-    legal_actions = [pkrs.ActionEnum.Raise, pkrs.ActionEnum.Call]
-
-    def apply_action(self, action):
-        return _InvalidApplyResult()
-
-
 class _CallOnlyState:
     legal_actions = [pkrs.ActionEnum.Call]
     pot = 10.0
@@ -49,28 +38,28 @@ class _CheckAgent:
 
 
 def test_strict_checking_is_read_after_setter(monkeypatch):
-    set_strict_checking(False)
-    assert not is_strict_checking()
+    from src.game.legacy import TrackedState
 
-    monkeypatch.setattr(random_agent_mod, "log_game_error", lambda *args, **kwargs: "log.txt")
-    monkeypatch.setattr(
-        random_agent_mod,
-        "preset_raise_action",
-        lambda state, preset: pkrs.Action(pkrs.ActionEnum.Raise, 10.0),
-    )
+    seen = []
+
+    def preset(state, name, *, strict):
+        seen.append(strict)
+        return pkrs.Action(pkrs.ActionEnum.Raise, 2)
+
+    monkeypatch.setattr(random_agent_mod, "preset_raise_action", preset)
     monkeypatch.setattr(
         random_agent_mod.random,
         "choice",
-        lambda values: pkrs.ActionEnum.Raise if pkrs.ActionEnum.Raise in values else values[0],
+        lambda values: (
+            pkrs.ActionEnum.Raise if pkrs.ActionEnum.Raise in values else values[0]
+        ),
     )
-
-    agent = RandomAgent(0)
-    assert agent.choose_action(_StrictProbeState()).action == pkrs.ActionEnum.Raise
-
-    set_strict_checking(True)
+    view = TrackedState.from_seed(3, 0, 1, 2, 200, 0).observe()
     try:
-        with pytest.raises(ActionMappingFailure):
-            agent.choose_action(_StrictProbeState())
+        for strict in (False, True):
+            set_strict_checking(strict)
+            RandomAgent(0).choose_action(view)
+        assert seen == [False, True]
     finally:
         set_strict_checking(False)
 
@@ -87,7 +76,9 @@ def test_strict_action_mapping_raises_instead_of_fallback(monkeypatch):
         stake=200.0,
         seed=0,
     )
-    monkeypatch.setattr("src.utils.actions._engine_accepts_action", lambda state, action: False)
+    monkeypatch.setattr(
+        "src.utils.actions._engine_accepts_action", lambda state, action: False
+    )
     with pytest.raises(ActionMappingFailure):
         build_raise_action(state, 10.0, strict=True)
 
@@ -173,11 +164,15 @@ def test_checkpoint_agent_loader_uses_metadata_not_filename(tmp_path):
     standard_agent.save_model(standard_path)
 
     om_path = tmp_path / "plain_checkpoint.pt"
-    om_agent = DeepCFRAgentWithOpponentModeling(player_id=0, num_players=6, device="cpu")
+    om_agent = DeepCFRAgentWithOpponentModeling(
+        player_id=0, num_players=6, device="cpu"
+    )
     om_agent.iteration_count = 4
     om_agent.save_model(om_path)
 
-    loaded_standard = create_agent_for_checkpoint(standard_path, player_id=2, device="cpu")
+    loaded_standard = create_agent_for_checkpoint(
+        standard_path, player_id=2, device="cpu"
+    )
     loaded_om = create_agent_for_checkpoint(om_path, player_id=3, device="cpu")
 
     assert isinstance(loaded_standard, DeepCFRAgent)
@@ -185,7 +180,9 @@ def test_checkpoint_agent_loader_uses_metadata_not_filename(tmp_path):
     assert isinstance(loaded_om, DeepCFRAgentWithOpponentModeling)
     assert loaded_om.player_id == 3
 
-    wrapped_standard = CheckpointAgent(player_id=1, model_path=standard_path, device="cpu")
+    wrapped_standard = CheckpointAgent(
+        player_id=1, model_path=standard_path, device="cpu"
+    )
     wrapped_om = CheckpointAgent(player_id=1, model_path=om_path, device="cpu")
     assert not wrapped_standard.with_opponent_modeling
     assert wrapped_om.with_opponent_modeling

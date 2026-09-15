@@ -1,5 +1,7 @@
 #play.py
 import pokers as pkrs
+from src.utils.evaluation import choose_agent_action
+from src.game.legacy import TrackedState
 import torch
 import numpy as np
 import argparse
@@ -188,6 +190,7 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
     num_games = 0
     total_profit = 0
     player_stake = initial_stake
+    histories = {}
     
     # Main game loop
     while True:
@@ -204,6 +207,7 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
         
         # Select new random models for this game if shuffling is enabled or first game
         if (shuffle_models or num_games == 0) and models_dir:
+            histories = {}
             model_paths = select_random_models(models_dir, num_models, model_pattern)
             print(f"Selected {len(model_paths)} random models for this game:")
             for i, path in enumerate(model_paths):
@@ -245,13 +249,14 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
         button_pos = (num_games - 1) % 6
         
         # Create a new poker game
-        state = pkrs.State.from_seed(
+        state = TrackedState.from_seed(
             n_players=6,
             button=button_pos,
             sb=small_blind,
             bb=big_blind,
             stake=initial_stake,
-            seed=random.randint(0, 10000)
+            seed=random.randint(0, 10000),
+            histories=histories,
         )
         
         # Play until the game is over
@@ -266,7 +271,7 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
             else:
                 # Abbreviated state display for AI turns
                 print(f"\nPlayer {current_player}'s turn")
-                action = agents[current_player].choose_action(state)
+                action = choose_agent_action(agents[current_player], state)
                 print(f"Player {current_player} chose: {get_action_description(action)}")
             
             # Apply the action
@@ -281,19 +286,20 @@ def play_against_models(models_dir=None, model_pattern="*.pt", num_models=5,
             
             state = new_state
         
+        histories = state.completed_histories()
         # Game is over, show results
         print("\n--- Game Over ---")
         
-        # Show all players' hands
+        # Display only cards available to the human player.
         print("Final hands:")
-        for i, p in enumerate(state.players_state):
+        for i, p in enumerate(state.observe(player_position).players_state):
             if p.active:
                 # Check if the hand attribute exists and has cards
                 if hasattr(p, 'hand') and p.hand:
                     hand = " ".join([card_to_string(card) for card in p.hand])
                     print(f"Player {i}: {hand}")
                 else:
-                    print(f"Player {i}: Hand data unavailable")
+                    print(f"Player {i}: Cards not shown")
         
         # Show community cards
         community_cards = " ".join([card_to_string(card) for card in state.public_cards])

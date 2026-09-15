@@ -171,8 +171,8 @@ def replay(
             actor, legal = None, LegalActions()
         elif isinstance(event, CardsShown):
             player = players[event.seat]
-            if player.folded:
-                raise ValueError("Folded cards must stay private")
+            if player.folded or player.mucked:
+                raise ValueError("Folded cards and mucked cards must stay private")
             players = (
                 players[: event.seat]
                 + (replace(player, shown_cards=event.cards),)
@@ -188,8 +188,10 @@ def replay(
                 + players[event.seat + 1 :]
             )
         elif isinstance(event, HandFinished):
-            if len(event.stacks) != len(players) or sum(event.stacks) != sum(
-                start.stacks
+            if (
+                len(event.stacks) != len(players)
+                or any(type(v) is not int or v < 0 for v in event.stacks)
+                or sum(event.stacks) != sum(start.stacks)
             ):
                 raise ValueError("Settlement does not conserve chips")
             players = tuple(

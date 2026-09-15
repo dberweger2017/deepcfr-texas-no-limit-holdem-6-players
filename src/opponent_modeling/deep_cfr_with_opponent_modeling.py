@@ -6,6 +6,8 @@ import torch.optim as optim
 import numpy as np
 import random
 import pokers as pkrs
+from src.game.legacy import require_policy_view
+from src.utils.evaluation import choose_agent_action
 from collections import deque
 from src.core import model as model_settings
 from src.core.model import encode_state, set_verbose
@@ -222,6 +224,7 @@ class DeepCFRAgentWithOpponentModeling:
         """
         Record an action taken by an opponent for later opponent modeling.
         """
+        require_policy_view(state)
         # Initialize history for this opponent if needed
         if opponent_id not in self.current_game_history:
             self.current_game_history[opponent_id] = {
@@ -244,6 +247,7 @@ class DeepCFRAgentWithOpponentModeling:
         """
         Finalize recording of the current game and add to opponent histories.
         """
+        require_policy_view(state)
         for opponent_id, history in self.current_game_history.items():
             # Skip if no actions recorded
             if not history['actions']:
@@ -302,8 +306,6 @@ class DeepCFRAgentWithOpponentModeling:
             )
         
         if state.final_state:
-            # Record the end of the game for opponent modeling
-            self.end_game_recording(state)
             # Return payoff for the trained agent
             return state.players_state[self.player_id].reward
         
@@ -354,25 +356,7 @@ class DeepCFRAgentWithOpponentModeling:
                     )
                 
                 # Let the opponent choose an action
-                action = opponent.choose_action(state)
-                
-                # Record this action for opponent modeling
-                # First, determine which action ID it corresponds to
-                if action.action == pkrs.ActionEnum.Fold:
-                    action_id = 0
-                elif action.action == pkrs.ActionEnum.Check or action.action == pkrs.ActionEnum.Call:
-                    action_id = 1
-                elif action.action == pkrs.ActionEnum.Raise:
-                    # Determine which raise size it's closest to
-                    if action.amount <= state.pot * 0.75:
-                        action_id = 2  # 0.5x pot raise
-                    else:
-                        action_id = 3  # 1x pot raise
-                else:
-                    action_id = 1  # Default to call if unrecognized
-                
-                # Record the action
-                self.record_opponent_action(state, action_id, current_player)
+                action = choose_agent_action(opponent, state)
                 
                 # Apply the action
                 new_state, log_file, status = apply_action_with_logging(
@@ -561,6 +545,7 @@ class DeepCFRAgentWithOpponentModeling:
         Choose an action for the given state during actual play.
         Fixed to properly handle bet sizing according to poker rules.
         """
+        require_policy_view(state)
         legal_action_types = self.get_legal_action_types(state)
         
         if not legal_action_types:

@@ -4,6 +4,7 @@ import random
 import time
 
 import pokers as pkrs
+from src.game.legacy import TrackedState
 import torch
 
 from src.agents.random_agent import RandomAgent
@@ -139,7 +140,7 @@ def train_against_checkpoint_with_opponent_modeling(
         print(f"Self-play iteration {iteration}/{final_iteration}")
         print("  Collecting data...")
         for traversal in range(traversals_per_iteration):
-            state = pkrs.State.from_seed(
+            state = TrackedState.from_seed(
                 n_players=6,
                 button=traversal % 6,
                 sb=1,

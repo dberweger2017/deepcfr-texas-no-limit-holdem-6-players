@@ -1,5 +1,7 @@
 # src/training/train.py
 import pokers as pkrs
+from src.utils.evaluation import choose_agent_action
+from src.game.legacy import TrackedState
 import random
 import torch
 import time
@@ -121,7 +123,7 @@ def _cfr_traverse_with_opponents(agent, state, iteration, opponent_agents, depth
                 ),
             )
 
-        action = opponent_agent.choose_action(state)
+        action = choose_agent_action(opponent_agent, state)
         new_state, log_file, status = apply_action_with_logging(
             state,
             action,
@@ -315,7 +317,7 @@ def train_deep_cfr(num_iterations=1000, traversals_per_iteration=200,
         # Run traversals to collect data
         for _ in range(traversals_per_iteration):
             # Create a new poker game
-            state = pkrs.State.from_seed(
+            state = TrackedState.from_seed(
                 n_players=num_players,
                 button=random.randint(0, num_players-1),
                 sb=1,
@@ -507,7 +509,7 @@ def continue_training(checkpoint_path, additional_iterations=1000,
         print("  Collecting data...")
         for _ in range(traversals_per_iteration):
             # Create a new poker game
-            state = pkrs.State.from_seed(
+            state = TrackedState.from_seed(
                 n_players=num_players,
                 button=random.randint(0, num_players-1),
                 sb=1,
@@ -703,7 +705,7 @@ def train_against_checkpoint(checkpoint_path, additional_iterations=1000,
         for t in range(traversals_per_iteration):
             button_pos = t % 6
 
-            state = pkrs.State.from_seed(
+            state = TrackedState.from_seed(
                 n_players=6,
                 button=button_pos,
                 sb=1,
@@ -1011,7 +1013,7 @@ def train_with_mixed_checkpoints(checkpoint_dir, training_model_prefix="*checkpo
 
         for t in range(traversals_per_iteration):
             button_pos = t % 6
-            state = pkrs.State.from_seed(
+            state = TrackedState.from_seed(
                 n_players=6,
                 button=button_pos,
                 sb=1,

@@ -1,5 +1,7 @@
 # visualize_tournament.py
 import pokers as pkrs
+from src.utils.evaluation import choose_agent_action
+from src.game.legacy import TrackedState
 import numpy as np
 import torch
 import random
@@ -106,6 +108,7 @@ def run_tournament(checkpoint_paths, num_games=100, device='cpu',
         disable=verbose,
     )
 
+    histories = {}
     for game in progress:
         # Rotate the button position for fairness
         button_pos = game % num_players
@@ -115,15 +118,16 @@ def run_tournament(checkpoint_paths, num_games=100, device='cpu',
         
         # Create a new poker game with current stacks
         # Note: In a real continuous tournament, we'd use the current stacks
-        # But pokers.State.from_seed requires all players to have the same stake
-        # So we'll use the fixed stake and track profits separately
-        state = pkrs.State.from_seed(
+        # This benchmark resets stacks each hand and tracks profits separately.
+        state = TrackedState.from_seed(
             n_players=num_players,
             button=button_pos,
             sb=blinds[0],
             bb=blinds[1],
             stake=stake,
-            seed=game  # Use game number as seed for reproducibility
+            seed=game,
+            histories=histories,
+            hand_id=f"tournament-{game}",
         )
         
         # Play until the game is over
@@ -140,7 +144,7 @@ def run_tournament(checkpoint_paths, num_games=100, device='cpu',
             current_player = state.current_player
             
             # Choose an action for the current player
-            action = wrapped_agents[current_player].choose_action(state)
+            action = choose_agent_action(wrapped_agents[current_player], state)
             
             # Record the action
             if verbose:
@@ -157,6 +161,7 @@ def run_tournament(checkpoint_paths, num_games=100, device='cpu',
         
         # Game is over - collect results
         action_counts.append(actions_this_hand)
+        histories = state.completed_histories()
         hand_profits = [player.reward for player in state.players_state]
         
         # Verify zero-sum (ignoring rake)

@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
+from src.game.legacy import TrackedState, require_policy_view
 
 VERBOSE = False
 
@@ -67,6 +68,11 @@ def encode_state(state, player_id=0):
         state: The Pokers state
         player_id: The ID of the player for whom we're encoding
     """
+    if isinstance(state, TrackedState):
+        state = state.observe(player_id)
+    require_policy_view(state)
+    if state.observation.seat != player_id:
+        raise ValueError("The observation belongs to a different seat")
     encoded = []
     num_players = len(state.players_state)
     

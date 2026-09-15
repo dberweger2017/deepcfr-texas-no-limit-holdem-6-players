@@ -4,6 +4,7 @@ Use ``python -m src.training.train_opponent_modeling`` as the public CLI entrypo
 """
 
 import pokers as pkrs
+from src.game.legacy import TrackedState
 import torch
 import numpy as np
 import os
@@ -134,7 +135,7 @@ def train_deep_cfr_with_opponent_modeling(
         # Run traversals to collect data
         for t in range(traversals_per_iteration):
             # Create a new poker game
-            state = pkrs.State.from_seed(
+            state = TrackedState.from_seed(
                 n_players=num_players,
                 button=random.randint(0, num_players-1),
                 sb=1,
