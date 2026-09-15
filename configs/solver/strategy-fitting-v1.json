@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "name": "strategy-fitting-v1",
+  "status": "design; runner not implemented",
+  "purpose": "Frozen-replay diagnosis and candidate screening; no model promotion",
+  "source": {
+    "archive": "results/strategy-capacity-remote-v1.tar.gz",
+    "archive_sha256": "145fc401314bfa5f1a187d6fd8afccb59014dfc0647cc7a49f8e64b2610349b8",
+    "report": "docs/reports/strategy-capacity.json",
+    "report_sha256": "c573343ddf024c479acd62370f21cc009200efe279e92ae40e6421b1ac4fe860",
+    "training_revision": "3856e1b10ff69ac5351890e265c535af1146ce18",
+    "training_source_sha256": "9e599c378a311a989bf6dbf0e8de2531ea180a3338c7e049b03a4ac57e1e0884",
+    "game": "leduc",
+    "iteration": 480,
+    "inputs": [
+      {
+        "seed": 211,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-000/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "a692720fcf61a151fbe46a2b56a1fa758b7ac1a97ec4098b0994e5ac14bbc117",
+        "study_report_sha256": "005509902f6741a630dc6b6ddb1154e37b9b05ffcc20a1574b5c671973603abe",
+        "original_control_policy_sha256": "e62b0facd42303e3b02b5d7aa72feb7da5a7e008f4fd9933dbb526f5e9bac683"
+      },
+      {
+        "seed": 223,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-001/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "786c92a66061c48ffff3913a8bc04a082dd4d60c24eb724ed5ee74d3d2ac7bdc",
+        "study_report_sha256": "b2ded340cbfa7d9755a1fe5c98d69aec728a0a72a0a4920a285d4a5f0748d837",
+        "original_control_policy_sha256": "f8642d204065190242a872b16e2befe8eb632fe93c3729a49353de61c5bf453e"
+      },
+      {
+        "seed": 227,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-002/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "b8831731190c87216d0a4474016fd860edceaa94572c5511ba4eff68e4e5cbd6",
+        "study_report_sha256": "6ba593bfaf95f3952a9275019a7fbae7d65478dae985ec7b26050fb9aed2e32d",
+        "original_control_policy_sha256": "d5b4f6bb29513c0c629ee10c44a0337744e045cf1d4278a51710ef5d292fd7a5"
+      },
+      {
+        "seed": 229,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-003/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "7ac8a45a9300cfbc0a77e88b02bb14e0b64d1fe55852dd62f2092d44143f5b23",
+        "study_report_sha256": "f2d63589320d49c41bf76a015d2ca2ce7f75d7eef53c4d34e1f3204203da668f",
+        "original_control_policy_sha256": "da54cb08a6a3b2a2c4253fc726f0665cdc690e01ee39156e1aa0ce235b585b5b"
+      },
+      {
+        "seed": 233,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-004/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "58598287a7ef9ce35f73cac0a20c8d7317f26d07fe667b812b7a1848c761f066",
+        "study_report_sha256": "9a19738012d7eae126417cef2e5df369fc5bceb8a41f950dcc83d0c14df9c883",
+        "original_control_policy_sha256": "e82f97ac3c122b70a50d77e361fec5836295d7d2dfca23d88f619234ba694290"
+      },
+      {
+        "seed": 239,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-005/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "59fb8436fc5d0233c2e823ba38faae60d7f1b2448f2f100e29b9fdc84209c7d8",
+        "study_report_sha256": "94ae23a439874d950e19f01f5e02689eda51323304237a8a379052d5e41e2f3c",
+        "original_control_policy_sha256": "09715110381c8cca1e9a4c1f4cecead6f7c22eaf1107e2bca8020fd8a7620cd6"
+      },
+      {
+        "seed": 241,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-006/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "6e578e2e9a938b5e928eca6461f698b7df06d273bf7bb7ffcfc73c5a9ac7e01f",
+        "study_report_sha256": "c0d03578f47e0ac757973579d1fec0f4a7885ae4009b45dac848f26fe12af8c0",
+        "original_control_policy_sha256": "01d4b8507b2b8d9899c1c8d0c25e9c5e068f2e5672f1633d928e14b44f8c2ce3"
+      },
+      {
+        "seed": 251,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-007/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "dd073ad173a6325062ba0249ebc1ca807484de214e5909d5654a0b7269ff9521",
+        "study_report_sha256": "f5e38690fc6db978afba1d54329a04ae98a35e1aa7674e91290f7620e18c78a4",
+        "original_control_policy_sha256": "5d95e2a21160923dae2b3ff17dfd0473291d3445f3ae32f62c47782e21a194e8"
+      },
+      {
+        "seed": 257,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-008/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "cc941a1b39babc014e2c49c75a5f29a11765bdcca811b95d7cbc152ea9c78aaa",
+        "study_report_sha256": "48ae6b8353926eb0b32f90b0957a8ccf9e01e8fb6395543e6817a6b20ddb60d7",
+        "original_control_policy_sha256": "d24c6fa981d8c332eeb776cad0eec5c227612ad8f107bf6cd4f94e6fe7b70afb"
+      },
+      {
+        "seed": 263,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-009/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "57338ab50dcddd67f762c979801e0d80c6afb48645f404afa3b2cff7f3004a67",
+        "study_report_sha256": "9cd6b88d59fca27492267e6e02519d56cc6fd47bf2728842e27edda8b9c22f4d",
+        "original_control_policy_sha256": "b904da5e5258cab0fe40322849d898c890683506e502f8de597fd122eaa52a77"
+      },
+      {
+        "seed": 269,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-010/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "2bf25a6a2375cab2f70a60c2671344121557edc3c72bd0d0d2224786e6fc1e70",
+        "study_report_sha256": "5935f57b1339ce373307be8993c005b1f98a9e99bfe39efd2c53ac92986b4508",
+        "original_control_policy_sha256": "94cf0dc5d34f4f6224dd86a4cba6514a94270f2f96fb09256ebe883d48f8d04a"
+      },
+      {
+        "seed": 271,
+        "checkpoint": "strategy-capacity-exploration/seeds/job-011/study/baseline/training/iteration-000480.pt",
+        "checkpoint_sha256": "9e2442a6463f5a4231e012b885df6492212f86b3e746d010448fa8e4e3ac95dc",
+        "study_report_sha256": "52bfdc2387bbc5f6502bc2711f97365632157a098170de95c025224b8512ed6e",
+        "original_control_policy_sha256": "142df881e57ffcf4c064a0273f19b80b151a065aedec924e69bc090bc1acaf0a"
+      }
+    ]
+  },
+  "fixed": {
+    "strategy_hidden": 128,
+    "steps": 48000,
+    "evaluation_steps": [
+      12000,
+      24000,
+      48000
+    ],
+    "batch_size": 256,
+    "optimizer": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "epsilon": 1e-08,
+    "weight_decay": 0,
+    "gradient_clip_norm": 1,
+    "dtype": "float32",
+    "threads_per_worker": 1,
+    "target_weights": "original replay iteration weights; no rebalance",
+    "initialization": "fresh network; no warm start"
+  },
+  "fit_replicates": [
+    0,
+    1,
+    2
+  ],
+  "random_streams": {
+    "replicate_0": "stream_seed(collection_seed, \"strategy-fit\", 480, 0)",
+    "replicates_1_2": "stream_seed(collection_seed, \"strategy-fitting-v1\", 480, replicate)",
+    "minibatches": "stream_seed(fit_seed, \"minibatches\")"
+  },
+  "recipes": [
+    {
+      "name": "minibatch-fixed",
+      "objective": "sampled-original",
+      "learning_rate": {
+        "kind": "constant",
+        "value": 0.001
+      },
+      "eligible_for_confirmation": true
+    },
+    {
+      "name": "minibatch-decay",
+      "objective": "sampled-original",
+      "learning_rate": {
+        "kind": "cosine",
+        "start": 0.001,
+        "end": 1e-05
+      },
+      "eligible_for_confirmation": true
+    },
+    {
+      "name": "exact-fixed",
+      "objective": "grouped-full-replay",
+      "learning_rate": {
+        "kind": "constant",
+        "value": 0.001
+      },
+      "eligible_for_confirmation": false
+    },
+    {
+      "name": "exact-decay",
+      "objective": "grouped-full-replay",
+      "learning_rate": {
+        "kind": "cosine",
+        "start": 0.001,
+        "end": 1e-05
+      },
+      "eligible_for_confirmation": false
+    }
+  ],
+  "diagnostics": {
+    "sample_count_bands": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        10,
+        99
+      ],
+      [
+        100,
+        null
+      ]
+    ],
+    "hybrid_policy_checks": "replace each observed count band separately with its replay means; diagnostics only, never training or promotion",
+    "retain_every_information_set": true,
+    "preserve_absent_targets_as_null": true
+  },
+  "screen": {
+    "final_step": 48000,
+    "maximum_exploitability": 0.15,
+    "maximum_value_error": 0.1,
+    "requires_all_collection_seeds_and_fit_replicates": true,
+    "maximum_paired_regression_against_minibatch_fixed": 0.005,
+    "ranking": [
+      "worst_exploitability",
+      "mean_exploitability",
+      "recipe_name"
+    ],
+    "select_fit_replicate": false,
+    "minimum_complete_fits": 144
+  },
+  "confirmation": {
+    "run_in_this_experiment": false,
+    "reserved_seeds": [
+      401,
+      409,
+      419,
+      421,
+      431,
+      433,
+      439,
+      443
+    ],
+    "next_gate": "Freeze an integrated production recipe and an end-to-end protocol before using these seeds; original Leduc and Kuhn limits remain."
+  },
+  "resources": {
+    "maximum_new_spend_usd": 2,
+    "total_original_cpu_budget_usd": 10,
+    "conservative_prior_spend_usd": 1.22,
+    "remaining_after_full_diagnostic_ceiling_usd": 6.78,
+    "maximum_rental_seconds": 3600,
+    "transfer_shutdown_reserve_usd": 0.25,
+    "maximum_workers": 8,
+    "per_fit_seconds": 180,
+    "local_one_job_at_a_time": true,
+    "local_smoke_maximum_seconds": 120,
+    "local_smoke_steps_per_recipe": 1000,
+    "local_maximum_seconds": 840,
+    "maximum_ram_gb": 16,
+    "maximum_temporary_disk_gb": 20,
+    "persistent_storage": false,
+    "gpu": false,
+    "incomplete_plan_result": "inconclusive; no silent retries or reduced seed set"
+  }
+}
