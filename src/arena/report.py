@@ -7,7 +7,7 @@ from statistics import mean, stdev
 import numpy as np
 from scipy.stats import t
 
-from src.arena.schedule import Plan, digest
+from src.arena.schedule import Plan, digest, schedule_document
 
 MINIMUM_BLOCKS = 30
 CONFIDENCE = 0.95
@@ -76,6 +76,11 @@ def summarize(plan: Plan, rows: list[dict]) -> dict:
     )
     result = {
         "status": "valid" if valid else "invalid",
+        "candidate_policy": plan.candidate,
+        "baseline_policy": plan.baseline,
+        "opponent_pool": list(plan.opponents),
+        "split": plan.split,
+        "schedule_sha256": digest(schedule_document(plan)),
         "requested_hands": len(expected),
         "attempted_hands": len(rows),
         "completed_hands": completed,
@@ -162,6 +167,10 @@ def markdown(report: dict) -> str:
         "# Evaluation report",
         "",
         f"Run status: **{report['status']}**.",
+        "",
+        f"Candidate: `{report['candidate_policy']}`. Baseline: `{report['baseline_policy']}`. Split: `{report['split']}`.",
+        "",
+        f"Opponent pool: {report['opponent_pool']}. Full inputs and environment: [manifest.json](manifest.json).",
         "",
         (
             f"Completed {report['completed_hands']} of {report['requested_hands']} scheduled hands "
