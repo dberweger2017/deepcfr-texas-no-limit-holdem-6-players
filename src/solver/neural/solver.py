@@ -17,6 +17,7 @@ from src.solver.neural.network import (
     predict,
     regret_matching,
     stream_seed,
+    validate_schedule,
 )
 from src.solver.tree import GameTree
 
@@ -32,6 +33,8 @@ class Config:
     learning_rate: float = 0.001
     seed: int = 0
     strategy_hidden: int | None = None
+    strategy_learning_rate_schedule: str = "constant"
+    strategy_final_learning_rate: float | None = None
 
     def __post_init__(self):
         for value in (
@@ -61,6 +64,12 @@ class Config:
             or self.learning_rate <= 0
         ):
             raise ValueError("Learning rate must be finite and positive")
+        validate_schedule(
+            self.strategy_learning_rate_schedule,
+            self.learning_rate,
+            self.strategy_final_learning_rate,
+            self.strategy_steps,
+        )
 
     @property
     def strategy_width(self) -> int:
@@ -196,6 +205,12 @@ class DeepCFR:
             ),
             strategy=strategy,
             deadline=deadline,
+            learning_rate_schedule=(
+                config.strategy_learning_rate_schedule if strategy else "constant"
+            ),
+            final_learning_rate=config.strategy_final_learning_rate
+            if strategy
+            else None,
         )
 
     def step(self, deadline=float("inf")):

@@ -7,6 +7,7 @@ import pytest
 import torch
 
 from scripts.fitting.data import (
+    PLAN,
     digest,
     export_inputs,
     import_checkpoint,
@@ -57,7 +58,7 @@ def bundle(tmp_path):
     archive = tmp_path / "input.tar.gz"
     with tarfile.open(archive, "w:gz") as tar:
         tar.add(checkpoint, arcname="original.pt")
-    plan = load_plan()
+    plan = json.loads(PLAN.read_text())
     plan["source"].update(
         report=str(report), archive_sha256=digest(archive), inputs=[spec], iteration=2
     )
@@ -122,3 +123,8 @@ def test_export_is_readonly_and_changed_inputs_fail_before_fitting(bundle, tmp_p
     failed = json.loads((tmp_path / "failed/report.json").read_text())
     assert failed["status"] == "error" and failed["evaluations"] == []
     assert not (tmp_path / "failed/model.pt").exists()
+
+
+def test_historical_study_requires_its_original_solver_sources():
+    with pytest.raises(ValueError, match="Historical source interpretation changed"):
+        load_plan()
