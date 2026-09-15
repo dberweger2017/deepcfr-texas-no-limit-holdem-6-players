@@ -8,7 +8,7 @@ import torch
 
 from src.solver.games import new_game
 from src.solver.neural.artifact import load_policy
-from src.solver.neural.experiment import Plan, reproduce, run
+from src.solver.neural.experiment import Plan, check_refit, reproduce, run
 from src.solver.neural.solver import Config
 
 
@@ -82,6 +82,21 @@ def test_source_changes_prevent_a_reproduction_claim(tmp_path):
     path.write_text(json.dumps(data))
     with pytest.raises(ValueError, match="source_sha256"):
         reproduce(tmp_path / "one", tmp_path / "bad")
+
+
+def test_refit_reconstructs_the_pilot_without_changing_replay(tmp_path):
+    plan = small_plan()
+    pilot = run(plan, tmp_path / "pilot")
+    result = check_refit(plan, tmp_path / "refit")
+    assert result["baseline_fits"] == pilot["advantage_fits"][-2:]
+    assert len(result["comparisons"]) == 2
+    for baseline, comparison in zip(result["baseline_fits"], result["comparisons"]):
+        assert comparison["refit"]["steps"] == 4000
+        assert comparison["baseline_steps"] == plan.training.advantage_steps
+        for field in ("sample_noise_mse", "seen_samples", "stored_samples"):
+            assert comparison["refit"][field] == baseline[field]
+        assert len(comparison["memory_sha256"]) == 64
+    assert not (tmp_path / "refit/policy.pt").exists()
 
 
 def test_loader_rejects_nonfinite_weights_even_with_a_matching_file_hash(tmp_path):
