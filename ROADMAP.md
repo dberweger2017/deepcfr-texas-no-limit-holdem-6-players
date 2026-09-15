@@ -158,9 +158,10 @@ Infrastructure and correctness PRs can merge without a strength improvement if t
 
 ## How we work
 
-- Use one coherent change per PR and keep `main` usable. A rewrite can proceed in small pieces behind explicit interfaces; avoid a long-lived branch that replaces everything at once.
+- Work on a branch and open one PR per coherent roadmap task. A task may contain several small commits. Keep `main` usable. A rewrite can proceed in small pieces behind explicit interfaces; avoid a long-lived branch that replaces everything at once.
 - Use short descriptive branches such as `codex/poker-rules`, `codex/public-observations`, and `codex/reservoir-memory`. Commit messages describe the actual change: `Track the last full raise`, `Keep hidden cards out of agent observations`, or `Resume training with replay state`.
-- Write direct PR descriptions: the problem, resulting behavior, relevant design choice, and evidence. Use ordinary names and concise comments that explain reasons or invariants. Remove dead paths and duplication instead of adding compatibility scaffolding we do not need.
+- Commit and push after each completed subtask so progress is backed up and reviewable. Each commit should represent a meaningful change; do not accumulate an entire task locally or create noise commits for individual edits.
+- Write direct PR descriptions: the problem, resulting behavior, relevant design choice, and evidence. Use ordinary names and plain language. Add comments for development decisions, constraints, or non-obvious invariants; let clear code express routine Python operations. Do not narrate each line. Remove dead paths and duplication instead of adding compatibility scaffolding we do not need.
 - Prefer small modules, typed boundaries, explicit data ownership, deterministic examples, and tests of real behavior. Keep logging separate from game transitions, and benchmark reports separate from training logic.
 - Before merging, review the diff against its milestone, run the relevant checks, resolve review findings, and record validation. Never bypass branch protection or failing required checks. An independent review is particularly useful for rules, information access, and regret mathematics; unresolved correctness questions block dependent training.
 - Routine implementation choices, fixes, refactors, tests, documentation, and short local experiments can proceed autonomously. Routine PRs can be merged when their acceptance checks pass and there are no unresolved findings. Summarize meaningful results and decisions rather than asking for approval at every step.
@@ -170,9 +171,9 @@ Infrastructure and correctness PRs can merge without a strength improvement if t
 ## Current position
 
 - **Plan established:** September 2026, based on the review of `af1593a`.
-- **Implementation milestones completed:** none. The existing full suite passes 50 tests; these do not establish rule completeness or playing strength.
-- **Known reasons for the rewrite:** incorrect raise bounds, insufficient public history, fixed-size seat inputs, self-imitation sizing targets, deviations from validated CFR sampling/averaging, and incomplete training/evaluation reproducibility.
-- **Next PR:** specify the rules and observation contract, add CI, and codify the minimum-raise and hidden-information acceptance cases. Keep the replacement implementation minimal until these contracts are clear.
+- **Engine foundation completed:** [fork PR #1](https://github.com/dberweger2017/pokers/pull/1) and [bot PR #40](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/40) are merged. The bot pins the corrected engine and its full suite passes 55 tests. See the [engine audit](docs/engine-audit.md) for rule-validation evidence and limits. Milestone 1 remains open until observations and sessions are implemented.
+- **Remaining gaps:** a privileged state-based agent interface, insufficient public history, fixed-size seat inputs, self-imitation sizing targets, deviations from validated CFR sampling/averaging, and incomplete training/evaluation reproducibility.
+- **Next task:** implement immutable player observations and explicit actions, preserve complete player-visible history, and add hidden-information acceptance tests. Build on the rules profile and CI already delivered; keep the replacement interfaces small. Session lifecycle follows.
 - **Compute direction:** Vast.ai rental, with an RTX 5090 as an initial candidate. Compare cost/performance after profiling; select an offer and campaign budget with the owner before renting.
 - **Owner input needed before large training:** pilot and campaign spending ceilings, permitted unattended runtime, storage retention, and account access method. Confirm a different game profile if the cash-game defaults above do not match the intended table.
 
