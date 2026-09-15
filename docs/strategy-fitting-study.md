@@ -1,13 +1,15 @@
-# Strategy fitting: next experiment
+# Strategy fitting: experiment protocol
+
+**Completed:** [results](reports/strategy-fitting.md). All 144 fits completed; no recipe qualified under the full screen.
 
 **Decision:** diagnose fitting on the twelve saved Leduc replays before collecting
 more training data. Spend at most **$2 of the remaining CPU budget**, and keep the
 fresh confirmation seeds unused during this experiment. Milestone 3 stays open.
 
-This is the design for the next run. The [machine-readable plan](../configs/solver/strategy-fitting-v1.json)
-pins its inputs and settings; its runner still needs to be implemented and
-validated. It is not a configuration for the existing study CLI. No rental or
-new model fitting was started to prepare this design.
+The [machine-readable plan](../configs/solver/strategy-fitting-v1.json) pins the
+inputs and settings declared before implementation. The isolated runner is now
+implemented and validated; see the execution instructions below. The original
+design PR performed no rental or new model fitting.
 
 ## What we need to learn
 
