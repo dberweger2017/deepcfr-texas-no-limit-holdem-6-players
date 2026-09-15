@@ -18,6 +18,7 @@ def small_plan(**kwargs):
         2,
         Config(
             hidden=8,
+            strategy_hidden=16,
             traversals=8,
             advantage_steps=3,
             strategy_steps=4,

@@ -31,6 +31,7 @@ class Config:
     capacity: int = 100_000
     learning_rate: float = 0.001
     seed: int = 0
+    strategy_hidden: int | None = None
 
     def __post_init__(self):
         for value in (
@@ -47,6 +48,11 @@ class Config:
                 )
         if self.hidden > 512 or self.capacity > 1_000_000 or self.batch_size > 8192:
             raise ValueError("Configuration exceeds the small-game reference limits")
+        if self.strategy_hidden is not None and (
+            type(self.strategy_hidden) is not int
+            or not 1 <= self.strategy_hidden <= 512
+        ):
+            raise ValueError("Strategy width must be an integer between 1 and 512")
         if type(self.seed) is not int or self.seed < 0:
             raise ValueError("Seed must be a nonnegative integer")
         if (
@@ -55,6 +61,10 @@ class Config:
             or self.learning_rate <= 0
         ):
             raise ValueError("Learning rate must be finite and positive")
+
+    @property
+    def strategy_width(self) -> int:
+        return self.hidden if self.strategy_hidden is None else self.strategy_hidden
 
 
 def collect(tree, policy, player, iteration, choose, advantage, strategy):
@@ -173,7 +183,7 @@ class DeepCFR:
             memory,
             self.features,
             self.mask,
-            hidden=config.hidden,
+            hidden=config.strategy_width if strategy else config.hidden,
             steps=config.strategy_steps if strategy else config.advantage_steps,
             batch_size=config.batch_size,
             learning_rate=config.learning_rate,

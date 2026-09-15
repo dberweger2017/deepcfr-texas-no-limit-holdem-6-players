@@ -59,7 +59,7 @@ def load_policy(path: Path, digest: str, *, player: int, seed: int) -> Policy:
         for value in weights.values()
     ):
         raise ValueError("Policy weights must be finite float32 tensors")
-    model = new_network(config.hidden, 0)
+    model = new_network(config.strategy_width, 0)
     model.load_state_dict(weights, strict=True)
     model.eval().requires_grad_(False)
     return Policy(payload["game"], player, model, seed)

@@ -94,7 +94,7 @@ def restore(data: dict) -> DeepCFR:
     if data["catalog_sha256"] != catalog_hash(solver):
         raise ValueError("Checkpoint public information catalog differs")
 
-    def network(weights):
+    def network(weights, hidden):
         if not isinstance(weights, dict) or any(
             not isinstance(t, torch.Tensor)
             or t.dtype != torch.float32
@@ -102,7 +102,7 @@ def restore(data: dict) -> DeepCFR:
             for t in weights.values()
         ):
             raise ValueError("Invalid checkpoint network weights")
-        net = new_network(config.hidden, 0)
+        net = new_network(hidden, 0)
         net.load_state_dict(weights, strict=True)
         return net.eval().requires_grad_(False)
 
@@ -110,8 +110,14 @@ def restore(data: dict) -> DeepCFR:
         raise ValueError(
             "Checkpoint must contain two advantage networks and three memories"
         )
-    solver.advantages = [network(weights) for weights in data["advantages"]]
-    solver.strategy = None if data["strategy"] is None else network(data["strategy"])
+    solver.advantages = [
+        network(weights, config.hidden) for weights in data["advantages"]
+    ]
+    solver.strategy = (
+        None
+        if data["strategy"] is None
+        else network(data["strategy"], config.strategy_width)
+    )
     solver.traversal_random.setstate(data["traversal_random"])
     for owner, (memory, saved) in enumerate(
         zip(solver.advantage_memories + [solver.strategy_memory], data["memories"])

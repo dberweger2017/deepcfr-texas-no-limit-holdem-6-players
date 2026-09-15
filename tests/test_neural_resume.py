@@ -23,6 +23,7 @@ def plan(game="kuhn"):
         4,
         Config(
             hidden=8,
+            strategy_hidden=16,
             traversals=12,
             advantage_steps=4,
             strategy_steps=6,
