@@ -116,15 +116,15 @@ def build_schedule(plan: Plan) -> tuple[Block, ...]:
 
             def seed(stream, *extra, name=scenario.name, block_index=index):
                 return stream_seed(
-                    plan.root_seed, plan.split, stream, scenario.name, index, *extra
+                    plan.root_seed, plan.split, stream, name, block_index, *extra
                 )
 
             opponent_seed = seed("opponent")
             selection = Random(opponent_seed)
             result.append(
                 Block(
-                    name,
-                    block_index,
+                    scenario.name,
+                    index,
                     index % n,
                     tuple(
                         seed("deal", hand)
