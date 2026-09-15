@@ -140,7 +140,8 @@ class DeepCFRAgentWithOpponentModeling:
         )
         
         # For tracking game history during play
-        self.current_game_history = {}  # Maps opponent_id -> (actions, contexts)
+        self.current_game_history = {}
+        self._recording_hand = None
         
         # For keeping statistics
         self.iteration_count = 0
@@ -220,64 +221,56 @@ class DeepCFRAgentWithOpponentModeling:
         
         return context
     
-    def record_opponent_action(self, state, action_id, opponent_id):
-        """
-        Record an action taken by an opponent for later opponent modeling.
-        """
+    @staticmethod
+    def _opponent_identity(state, opponent_id):
         require_policy_view(state)
-        # Initialize history for this opponent if needed
-        if opponent_id not in self.current_game_history:
-            self.current_game_history[opponent_id] = {
-                'actions': [],
-                'contexts': []
-            }
-        
-        # Convert action to one-hot encoding
-        action_encoded = np.zeros(4)  # Use original 4 action encoding for history
-        action_encoded[action_id] = 1
-        
-        # Get state context
-        context = self.extract_state_context(state)
-        
-        # Record action and context
-        self.current_game_history[opponent_id]['actions'].append(action_encoded)
-        self.current_game_history[opponent_id]['contexts'].append(context)
-    
-    def end_game_recording(self, state):
-        """
-        Finalize recording of the current game and add to opponent histories.
-        """
-        require_policy_view(state)
-        for opponent_id, history in self.current_game_history.items():
-            # Skip if no actions recorded
-            if not history['actions']:
-                continue
-            
-            # Get the outcome for this opponent
-            outcome = state.players_state[opponent_id].reward
-            
-            # Record to opponent modeling system
-            self.opponent_modeling.record_game(
-                opponent_id=opponent_id,
-                action_sequence=history['actions'],
-                state_contexts=history['contexts'],
-                outcome=outcome
-            )
-        
-        # Clear the current game history
-        self.current_game_history = {}
+        identities = tuple(p.player_id for p in state.observation.players)
+        if type(opponent_id) is int and 0 <= opponent_id < len(identities):
+            return identities[opponent_id]
+        if isinstance(opponent_id, str) and opponent_id in identities:
+            return opponent_id
+        raise ValueError("Opponent must identify a participant in this hand")
 
-    def get_table_opponent_features(self):
-        """Average available opponent features into the fixed 20-feature input."""
-        opponent_ids = [
-            opponent_id
-            for opponent_id in range(self.num_players)
-            if opponent_id != self.player_id
-        ]
+    def record_opponent_action(self, state, action_id, opponent_id):
+        identity = self._opponent_identity(state, opponent_id)
+        hand = (state.observation.player_id, state.observation.hand_id)
+        if self.current_game_history and self._recording_hand != hand:
+            raise ValueError("Finish or discard the previous hand before recording another")
+        if state.final_state or type(action_id) is not int or not 0 <= action_id < 4:
+            raise ValueError("Expected an action from an unfinished hand")
+        self._recording_hand = hand
+        history = self.current_game_history.setdefault(identity, {"actions": [], "contexts": []})
+        action_encoded = np.zeros(4)
+        action_encoded[action_id] = 1
+        history["actions"].append(action_encoded)
+        history["contexts"].append(self.extract_state_context(state))
+
+    def end_game_recording(self, state):
+        require_policy_view(state)
+        hand = (state.observation.player_id, state.observation.hand_id)
+        if not state.final_state or (self.current_game_history and self._recording_hand != hand):
+            raise ValueError("Opponent history must settle against the same completed hand")
+        seats = {p.player_id: p.seat for p in state.observation.players}
+        for identity, history in self.current_game_history.items():
+            if history["actions"]:
+                self.opponent_modeling.record_game(
+                    opponent_id=identity,
+                    action_sequence=history["actions"],
+                    state_contexts=history["contexts"],
+                    outcome=state.players_state[seats[identity]].reward,
+                )
+        self.current_game_history = {}
+        self._recording_hand = None
+
+    def get_table_opponent_features(self, state):
+        """Average known identities present in this hand into the legacy fixed input."""
+        require_policy_view(state)
+        opponent_ids = [p.player_id for p in state.observation.players
+                        if p.player_id != state.observation.player_id]
         feature_rows = [
-            self.opponent_modeling.get_opponent_features(opponent_id)
-            for opponent_id in opponent_ids
-            if opponent_id in self.opponent_modeling.opponent_histories
+            self.opponent_modeling.get_opponent_features(identity)
+            for identity in opponent_ids
+            if identity in self.opponent_modeling.opponent_histories
         ]
         if not feature_rows:
             return np.zeros(20, dtype=np.float32)
@@ -313,7 +306,7 @@ class DeepCFRAgentWithOpponentModeling:
         
         # If it's the trained agent's turn
         if current_player == self.player_id:
-            opponent_feature_array = self.get_table_opponent_features()
+            opponent_feature_array = self.get_table_opponent_features(state.observe(self.player_id))
             return traverse_agent_turn(
                 self,
                 state,
@@ -563,7 +556,9 @@ class DeepCFRAgentWithOpponentModeling:
         # Get opponent features if available
         opponent_features = None
         if opponent_id is not None:
-            opponent_features = self.opponent_modeling.get_opponent_features(opponent_id)
+            opponent_features = self.opponent_modeling.get_opponent_features(
+                self._opponent_identity(state, opponent_id)
+            )
             opponent_features = torch.FloatTensor(opponent_features).unsqueeze(0).to(self.device)
         
         with torch.no_grad():
