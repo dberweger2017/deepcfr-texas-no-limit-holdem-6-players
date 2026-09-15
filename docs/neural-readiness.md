@@ -161,3 +161,12 @@ passes, close milestone 3 and proceed with the corrected Hold'em learner.
 Otherwise preserve the outcome and make a bounded architectural decision,
 including Single Deep CFR. Independent Hold'em engineering can continue in either
 case; substantial training remains gated.
+
+## Implementation validation
+
+PR #54 passes all **298 local tests**. The checks cover constant/cosine weight
+equivalence with the retained diagnostic optimizer, actual Adam update endpoints,
+fit-local reset, replay/advantage isolation, fresh-process training recovery, the
+paired control against independent end-to-end training, six serial smoke jobs
+across both games, and failure/resource accounting. These are implementation
+checks only; the reserved-seed readiness campaign has not run.

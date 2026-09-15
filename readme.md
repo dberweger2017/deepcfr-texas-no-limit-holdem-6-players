@@ -70,14 +70,14 @@ The project began as an earlier Deep CFR implementation. We are rebuilding its l
 | Neural convergence | Three earlier Kuhn seeds pass. Decayed fitting passes the absolute Leduc limits in 36/36 replay fits but fails one paired-regression check. Fresh confirmation remains unused. [Latest results](docs/reports/strategy-fitting.md) |
 | Full Hold’em learning | Legacy trainers and play interfaces exist. The validated no-limit learning rewrite, substantial training, and professional-level qualification are still ahead. |
 
-**Next step:** integrate explicit cosine learning-rate decay for strategy fitting, then run one frozen end-to-end confirmation on fresh seeds. The latest 144-fit Leduc study passes the absolute limits with decay but fails an additional paired-regression rule; that historical result remains failed. The [decision record](docs/decisions/strategy-fitting-next.md) explicitly separates the next readiness test from that earlier selection screen while retaining the original absolute limits. Independent Hold’em engineering can proceed while confirmation is pending; substantial training requires both the readiness pass and the corrected no-limit pipeline.
+**Next step:** run the [frozen end-to-end confirmation](docs/neural-readiness.md) on fresh seeds. Strategy learning-rate decay and its recovery checks are implemented; the runner preserves all paired comparisons under a $2.50 / two-hour rental ceiling. The latest 144-fit Leduc study passes the absolute limits with decay but fails an additional paired-regression rule; that historical result remains failed. The [decision record](docs/decisions/strategy-fitting-next.md) explicitly separates the next readiness test from that earlier selection screen while retaining the original absolute limits. Independent Hold’em engineering can proceed while confirmation is pending; substantial training requires both the readiness pass and the corrected no-limit pipeline.
 
 The [latest report](docs/reports/strategy-fitting.md) records 279 passing tests, all 144 fits and 432 checkpoints, exact reproduction of twelve historical controls, and the failed selection screen. Those establish implementation and small-game learning evidence, not professional poker strength.
 
 ## The route to 1.0
 
 1. **Trust the game and the measurements.** Rules, legal observations, sessions, reproducible evaluation, and independent small-game references.
-2. **Validate the learning algorithm.** Integrate the diagnosed fitting change and run one fresh, predeclared confirmation before scaling; avoid open-ended small-game sweeps.
+2. **Validate the learning algorithm.** Run the frozen fresh-seed confirmation of the integrated fitting change before scaling; avoid open-ended small-game sweeps.
 3. **Build the no-limit learner.** Independent engineering can overlap the confirmation work. Represent full decisions and variable seats, learn meaningful bet sizes, train all player roles, and support complete recovery.
 4. **Scale from measured throughput.** Profile collection and fitting, batch work, and run bounded hardware pilots before larger campaigns.
 5. **Improve demonstrated playing strength.** Evaluate range-aware search and opponent adaptation as separate changes against fixed baselines.
