@@ -5,9 +5,10 @@ from dataclasses import asdict, dataclass
 from hashlib import sha256
 from random import Random
 
+from src.arena.catalog import Checkpoint, OpponentPool
 from src.game.hand import Table
 
-SCHEDULE_VERSION = 1
+SCHEDULE_VERSION = 2
 SPLITS = {"train": 0, "validation": 1, "test": 2}
 STREAMS = {"deal", "action", "opponent", "training"}
 
@@ -66,15 +67,31 @@ class Plan:
     scenarios: tuple[Scenario, ...]
     candidate: str = "check_call"
     baseline: str = "fold"
-    opponents: tuple[str, ...] = ("check_call",)
+    opponents: tuple[str, ...] | None = None
     blocks: int = 100
     root_seed: int = 0
     split: str = "validation"
     max_decisions: int = 1000
+    models: tuple[Checkpoint, ...] = ()
+    pool: OpponentPool | None = None
 
     def __post_init__(self):
         object.__setattr__(self, "scenarios", tuple(self.scenarios))
-        object.__setattr__(self, "opponents", tuple(self.opponents))
+        members = (
+            self.opponents
+            if self.opponents is not None
+            else (self.pool.members if self.pool else ("check_call",))
+        )
+        object.__setattr__(self, "opponents", tuple(members))
+        object.__setattr__(self, "models", tuple(self.models))
+        if len({m.name for m in self.models}) != len(self.models):
+            raise ValueError("Checkpoint policy names must be distinct")
+        if self.pool:
+            purpose = "training" if self.split == "train" else "evaluation"
+            if self.pool.purpose != purpose or self.opponents != self.pool.members:
+                raise ValueError(
+                    "The declared pool must match the split purpose and opponent list"
+                )
         if not self.scenarios or len({s.name for s in self.scenarios}) != len(
             self.scenarios
         ):
@@ -93,7 +110,12 @@ class Plan:
     @classmethod
     def from_dict(cls, value: dict) -> "Plan":
         return cls(
-            **{**value, "scenarios": tuple(Scenario(**s) for s in value["scenarios"])}
+            **{
+                **value,
+                "scenarios": tuple(Scenario(**s) for s in value["scenarios"]),
+                "models": tuple(Checkpoint(**m) for m in value.get("models", ())),
+                "pool": OpponentPool(**value["pool"]) if value.get("pool") else None,
+            }
         )
 
 

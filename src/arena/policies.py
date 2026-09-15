@@ -1,5 +1,6 @@
-"""Small controls for validating the arena, not a competitive opponent pool."""
+"""Legal baseline policies with distinct, deliberately simple tendencies."""
 
+from src.arena.heuristics import STYLES, StylePolicy
 from src.game.observation import Observation
 from src.game.play import RandomPolicy
 from src.game.types import Action, ActionKind
@@ -32,6 +33,8 @@ POLICIES = {
 
 
 def make_policy(name: str, seed: int):
+    if name in STYLES:
+        return StylePolicy(STYLES[name], seed)
     if name not in POLICIES:
         raise ValueError(f"Unknown arena policy: {name}")
     return POLICIES[name](seed)

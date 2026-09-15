@@ -9,6 +9,7 @@ from hashlib import sha256
 from importlib import metadata
 from pathlib import Path
 
+from src.arena.heuristics import STYLES
 from src.arena.policies import POLICIES
 from src.arena.report import CONFIDENCE, MINIMUM_BLOCKS
 from src.arena.schedule import Plan, digest, schedule_document
@@ -66,10 +67,11 @@ def policy_fingerprints(plan: Plan) -> dict:
     source = sha256(
         (ROOT / "src/arena/policies.py").read_bytes()
         + (ROOT / "src/game/play.py").read_bytes()
+        + (ROOT / "src/arena/heuristics.py").read_bytes()
     ).hexdigest()
     result = {}
     for name in sorted({plan.candidate, plan.baseline, *plan.opponents}):
-        if name not in POLICIES:
+        if name not in POLICIES and name not in STYLES:
             raise ValueError(f"Unsupported policy: {name}")
         result[name] = {
             "kind": "builtin",
