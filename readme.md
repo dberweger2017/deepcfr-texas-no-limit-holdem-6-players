@@ -14,7 +14,7 @@ The workflows below describe the existing implementation. Passing its tests does
 
 This repo has come a long way since the March 2025 version described in the original Medium article. If the article and this README ever disagree, trust the README and the current scripts.
 
-The first rules-engine rewrite is in place. The pinned Rust fork now handles integer chips, minimum raises and reopening, short calls, side pots, heads-up order, and automatic all-in runouts. Logging no longer repairs game state. See the [rules profile](docs/rules.md) and [engine audit](docs/engine-audit.md) for evidence and limits. The [observation interface](docs/observations.md) now keeps engine state out of policy calls and records complete public history. The [session manager](docs/sessions.md) now carries bankrolls and identity-owned histories through changing lineups. Reproducible evaluation and the learning rewrite are next on the roadmap.
+The first rules-engine rewrite is in place. The pinned Rust fork now handles integer chips, minimum raises and reopening, short calls, side pots, heads-up order, and automatic all-in runouts. Logging no longer repairs game state. See the [rules profile](docs/rules.md) and [engine audit](docs/engine-audit.md) for evidence and limits. The [observation interface](docs/observations.md) now keeps engine state out of policy calls and records complete public history. The [session manager](docs/sessions.md) now carries bankrolls and identity-owned histories through changing lineups. The [evaluation arena](docs/evaluation.md) now provides reproducible schedules and paired reports. Competitive opponent suites and the learning rewrite remain on the roadmap.
 
 In practice that means standard Deep CFR has a clean three-stage flow now — random, self-play, mixed — and the opponent-modeling track exposes the same three stages instead of being a separate one-off. `--checkpoint` means the same thing everywhere ("continue from this checkpoint"), mixed checkpoint discovery walks subdirectories recursively, and opponent modeling, while still more experimental on learning quality, at least follows the same workflow as everything else.
 
@@ -34,6 +34,17 @@ pip install -r requirements.txt
 ```
 
 PyQt5 (for the GUI) is already in `requirements.txt`, so there's nothing extra to install. All the commands below assume you're at the repo root and use `python -m ...` or `python scripts/...`.
+
+## Reproducible evaluation
+
+The [evaluation arena](docs/evaluation.md) saves declared schedules, hand-level results, provenance, and paired confidence intervals. It supports independent fixed-stack hands and persistent bankroll sessions, with separate random streams and seat rotations. Its initial controls validate the measurement pipeline; frozen model adapters and a competitive opponent pool are next.
+
+```bash
+python -m scripts.run_arena --plan configs/arena/smoke.json --out results/arena-smoke
+python -m scripts.run_arena --reproduce results/arena-smoke --out results/arena-replay
+```
+
+See the [declared sensitivity check](docs/reports/arena-validation.md) for validation evidence. The existing `scripts.evaluate_models` command remains a legacy evaluator.
 
 ## Public observation interface
 
