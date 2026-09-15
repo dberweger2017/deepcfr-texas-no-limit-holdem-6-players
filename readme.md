@@ -67,12 +67,12 @@ The project began as an earlier Deep CFR implementation. We are rebuilding its l
 | Evaluation | Reproducible schedules, separate data splits, paired reports, varied style opponents, and hash-pinned historical models. Professional-strength opponents remain an open requirement. [Benchmark guide](docs/benchmarks.md) |
 | Tabular reference | Kuhn and Leduc CFR checked against exact best responses and independently solved equilibrium values. [Results](docs/reports/tabular-validation.md) |
 | Neural baseline | Separate small-game Deep CFR with uniform reservoirs, weighted fitting, a learned average strategy, and complete training recovery. [Contract](docs/neural-cfr.md) |
-| Neural convergence | Three earlier Kuhn seeds pass. A new twelve-seed Leduc study improves strategy fitting, but every larger-network recipe still fails on one seed. Fresh confirmation remains unused. [Latest results and plots](docs/reports/strategy-capacity.md) |
+| Neural convergence | Three earlier Kuhn seeds pass. Decayed fitting passes the absolute Leduc limits in 36/36 replay fits but fails one paired-regression check. Fresh confirmation remains unused. [Latest results](docs/reports/strategy-fitting.md) |
 | Full Hold’em learning | Legacy trainers and play interfaces exist. The validated no-limit learning rewrite, substantial training, and professional-level qualification are still ahead. |
 
-**Current blocker:** stable average-strategy fitting in Leduc. After 480 iterations, every seed’s exact played average and replay average meets the exploitability limit, but the best neural recipe still misses on one of twelve seeds: 0.151373 against 0.15. We will inspect fitting errors in individual decision situations using the saved replay, then freeze a revised recipe before fresh confirmation. Milestone 3 remains open; the no-limit learning rewrite comes after it passes.
+**Current blocker:** resolving the strategy-fitting selection rule before fresh confirmation. In the latest 144-fit Leduc experiment, decaying the learning rate passes the absolute strength limits in all 36 fits, but one paired regression exceeds the predeclared guardrail. Exact-gradient diagnostics fit the replay closely and pass the absolute limits, but are not eligible production recipes. No candidate was selected and no confirmation seeds were used. Milestone 3 remains open; the next task is a bounded algorithm/protocol decision, not another network-size sweep.
 
-The [latest report](docs/reports/strategy-capacity.md) records 271 passing tests, deterministic parallel checks, all twelve training trajectories, and all 144 planned strategy comparisons. Those establish implementation and small-game learning evidence, not professional poker strength.
+The [latest report](docs/reports/strategy-fitting.md) records 279 passing tests, all 144 fits and 432 checkpoints, exact reproduction of twelve historical controls, and the failed selection screen. Those establish implementation and small-game learning evidence, not professional poker strength.
 
 ## The route to 1.0
 
