@@ -1,0 +1,1123 @@
+[
+  {
+    "bundle": "results/opponents-validation",
+    "counts": {
+      "completed_hands": 180,
+      "failed_hands": 0,
+      "invalid_actions": 0,
+      "requested_hands": 180,
+      "status": "valid"
+    },
+    "dirty": false,
+    "environment": {
+      "engine": {
+        "binaries": {
+          "pokers/pokers.cpython-311-darwin.so": "fa88771c851cdd36cd549f2d024571277e8277d2c48cb091e26baff7cd071d6e"
+        },
+        "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+      },
+      "implementation": "CPython",
+      "machine": "arm64",
+      "packages": {
+        "Jinja2": "3.1.6",
+        "Markdown": "3.10.2",
+        "MarkupSafe": "3.0.3",
+        "PyQt5": "5.15.11",
+        "PyQt5-Qt5": "5.15.19",
+        "PyQt5_sip": "12.18.0",
+        "Pygments": "2.20.0",
+        "Werkzeug": "3.1.8",
+        "absl-py": "2.4.0",
+        "argparse": "1.4.0",
+        "certifi": "2026.5.20",
+        "charset-normalizer": "3.4.7",
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "filelock": "3.29.1",
+        "fonttools": "4.63.0",
+        "fsspec": "2026.4.0",
+        "grpcio": "1.81.0",
+        "idna": "3.18",
+        "iniconfig": "2.3.0",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.9.0",
+        "maturin": "1.15.0",
+        "mpmath": "1.3.0",
+        "networkx": "3.6.1",
+        "numpy": "1.26.4",
+        "packaging": "26.2",
+        "pandas": "2.2.2",
+        "pillow": "12.2.0",
+        "pip": "26.1",
+        "pluggy": "1.6.0",
+        "pokerkit": "0.7.5",
+        "pokers": "0.2.0",
+        "protobuf": "7.35.0",
+        "pyparsing": "3.3.2",
+        "pytest": "9.0.3",
+        "python-dateutil": "2.9.0.post0",
+        "python-dotenv": "1.0.1",
+        "pytz": "2026.2",
+        "requests": "2.32.3",
+        "ruff": "0.16.7",
+        "scipy": "1.17.1",
+        "seaborn": "0.13.2",
+        "setuptools": "80.10.2",
+        "six": "1.17.0",
+        "sympy": "1.13.1",
+        "tensorboard": "2.18.0",
+        "tensorboard-data-server": "0.7.2",
+        "torch": "2.5.1",
+        "tqdm": "4.67.0",
+        "typing_extensions": "4.15.0",
+        "tzdata": "2026.2",
+        "urllib3": "2.7.0"
+      },
+      "platform": "macOS-27.0-arm64-arm-64bit",
+      "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]"
+    },
+    "outcomes_sha256": "8e9d9087d398e9e73ce4711b542e9142946116f8d38966cd72d9692dfaa31f93",
+    "performance": {
+      "arms": {
+        "baseline": {
+          "decisions": 319,
+          "mean_action_ms": 0.0010108238386813562,
+          "p95_action_ms": 0.0016333098756149383
+        },
+        "candidate": {
+          "decisions": 97,
+          "mean_action_ms": 0.007810568876238059,
+          "p95_action_ms": 0.02619161969050764
+        }
+      },
+      "wall_seconds": 0.5407574160199147
+    },
+    "plan": {
+      "baseline": "check_call",
+      "blocks": 2,
+      "candidate": "tight_aggressive",
+      "max_decisions": 1000,
+      "models": [],
+      "opponents": [
+        "tight_passive",
+        "loose_passive",
+        "tight_aggressive",
+        "loose_aggressive",
+        "pot_pressure"
+      ],
+      "pool": {
+        "members": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "name": "styles-evaluation-v1",
+        "purpose": "evaluation"
+      },
+      "root_seed": 580219,
+      "scenarios": [
+        {
+          "big_blind": 100,
+          "chip_unit": "0.01",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "4-player-style-check",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            4000,
+            6000,
+            8000
+          ]
+        },
+        {
+          "big_blind": 100,
+          "chip_unit": "0.01",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "5-player-style-check",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            4000,
+            6000,
+            8000,
+            10000
+          ]
+        },
+        {
+          "big_blind": 100,
+          "chip_unit": "0.01",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "6-player-style-check",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            4000,
+            6000,
+            8000,
+            10000,
+            12000
+          ]
+        },
+        {
+          "big_blind": 100,
+          "chip_unit": "0.01",
+          "hands_per_rotation": 5,
+          "mode": "session",
+          "name": "six-style-session",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            4000,
+            7500,
+            10000,
+            15000,
+            20000
+          ]
+        }
+      ],
+      "split": "validation"
+    },
+    "policies": {
+      "check_call": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "loose_aggressive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "loose_passive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "pot_pressure": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "tight_aggressive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "tight_passive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      }
+    },
+    "revision": "af0912430b5d4cd3219da98ffec9f3f48c85ad1f",
+    "scenarios": {
+      "4-player-style-check": {
+        "comparison": {
+          "baseline": {
+            "bb_per_100": 259.375,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "candidate": {
+            "bb_per_100": 0.0,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "conclusion": "inconclusive",
+          "paired_difference": {
+            "bb_per_100": -259.375,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "counts": {
+          "baseline": {
+            "completed": 8,
+            "dealt_in": 8
+          },
+          "candidate": {
+            "completed": 8,
+            "dealt_in": 8
+          }
+        },
+        "initial_players": 4,
+        "mode": "fixed",
+        "starting_stacks_bb": [
+          20.0,
+          40.0,
+          60.0,
+          80.0
+        ]
+      },
+      "5-player-style-check": {
+        "comparison": {
+          "baseline": {
+            "bb_per_100": -175.0,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "candidate": {
+            "bb_per_100": -15.0,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "conclusion": "inconclusive",
+          "paired_difference": {
+            "bb_per_100": 160.0,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "counts": {
+          "baseline": {
+            "completed": 10,
+            "dealt_in": 10
+          },
+          "candidate": {
+            "completed": 10,
+            "dealt_in": 10
+          }
+        },
+        "initial_players": 5,
+        "mode": "fixed",
+        "starting_stacks_bb": [
+          20.0,
+          40.0,
+          60.0,
+          80.0,
+          100.0
+        ]
+      },
+      "6-player-style-check": {
+        "comparison": {
+          "baseline": {
+            "bb_per_100": 10.416666666666668,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "candidate": {
+            "bb_per_100": -4.166666666666666,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "conclusion": "inconclusive",
+          "paired_difference": {
+            "bb_per_100": -14.583333333333334,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "counts": {
+          "baseline": {
+            "completed": 12,
+            "dealt_in": 12
+          },
+          "candidate": {
+            "completed": 12,
+            "dealt_in": 12
+          }
+        },
+        "initial_players": 6,
+        "mode": "fixed",
+        "starting_stacks_bb": [
+          20.0,
+          40.0,
+          60.0,
+          80.0,
+          100.0,
+          120.0
+        ]
+      },
+      "six-style-session": {
+        "comparison": {
+          "baseline": {
+            "bb_per_100": -961.25,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "candidate": {
+            "bb_per_100": -2.5,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "conclusion": "inconclusive",
+          "paired_difference": {
+            "bb_per_100": 958.75,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "counts": {
+          "baseline": {
+            "completed": 60,
+            "dealt_in": 55
+          },
+          "candidate": {
+            "completed": 60,
+            "dealt_in": 60
+          }
+        },
+        "initial_players": 6,
+        "mode": "session",
+        "starting_stacks_bb": [
+          20.0,
+          40.0,
+          75.0,
+          100.0,
+          150.0,
+          200.0
+        ]
+      }
+    },
+    "schedule_sha256": "3f5c47abc04a28df1df2eef736e46f897008922bf3c3182ca0533abdf8698cac",
+    "source_sha256": "a3508d8c655ecee58f40a22d1ec1d5976ca797c306e44eb341c2d6a7838ee82b"
+  },
+  {
+    "bundle": "results/historical-validation",
+    "counts": {
+      "completed_hands": 72,
+      "failed_hands": 0,
+      "invalid_actions": 0,
+      "requested_hands": 72,
+      "status": "valid"
+    },
+    "dirty": false,
+    "environment": {
+      "engine": {
+        "binaries": {
+          "pokers/pokers.cpython-311-darwin.so": "fa88771c851cdd36cd549f2d024571277e8277d2c48cb091e26baff7cd071d6e"
+        },
+        "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+      },
+      "implementation": "CPython",
+      "machine": "arm64",
+      "packages": {
+        "Jinja2": "3.1.6",
+        "Markdown": "3.10.2",
+        "MarkupSafe": "3.0.3",
+        "PyQt5": "5.15.11",
+        "PyQt5-Qt5": "5.15.19",
+        "PyQt5_sip": "12.18.0",
+        "Pygments": "2.20.0",
+        "Werkzeug": "3.1.8",
+        "absl-py": "2.4.0",
+        "argparse": "1.4.0",
+        "certifi": "2026.5.20",
+        "charset-normalizer": "3.4.7",
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "filelock": "3.29.1",
+        "fonttools": "4.63.0",
+        "fsspec": "2026.4.0",
+        "grpcio": "1.81.0",
+        "idna": "3.18",
+        "iniconfig": "2.3.0",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.9.0",
+        "maturin": "1.15.0",
+        "mpmath": "1.3.0",
+        "networkx": "3.6.1",
+        "numpy": "1.26.4",
+        "packaging": "26.2",
+        "pandas": "2.2.2",
+        "pillow": "12.2.0",
+        "pip": "26.1",
+        "pluggy": "1.6.0",
+        "pokerkit": "0.7.5",
+        "pokers": "0.2.0",
+        "protobuf": "7.35.0",
+        "pyparsing": "3.3.2",
+        "pytest": "9.0.3",
+        "python-dateutil": "2.9.0.post0",
+        "python-dotenv": "1.0.1",
+        "pytz": "2026.2",
+        "requests": "2.32.3",
+        "ruff": "0.16.7",
+        "scipy": "1.17.1",
+        "seaborn": "0.13.2",
+        "setuptools": "80.10.2",
+        "six": "1.17.0",
+        "sympy": "1.13.1",
+        "tensorboard": "2.18.0",
+        "tensorboard-data-server": "0.7.2",
+        "torch": "2.5.1",
+        "tqdm": "4.67.0",
+        "typing_extensions": "4.15.0",
+        "tzdata": "2026.2",
+        "urllib3": "2.7.0"
+      },
+      "platform": "macOS-27.0-arm64-arm-64bit",
+      "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]"
+    },
+    "outcomes_sha256": "2b59bfd42c3190896632fd0f0c1d03d8f4045e5d31a703c6c429917f683d674b",
+    "performance": {
+      "arms": {
+        "baseline": {
+          "decisions": 78,
+          "mean_action_ms": 0.2307291676212723,
+          "p95_action_ms": 0.5247311913990415
+        },
+        "candidate": {
+          "decisions": 43,
+          "mean_action_ms": 0.5119835374454512,
+          "p95_action_ms": 0.4526331089437008
+        }
+      },
+      "wall_seconds": 0.28878462497959845
+    },
+    "plan": {
+      "baseline": "historical_phase1_100",
+      "blocks": 2,
+      "candidate": "historical_selfplay_5900",
+      "max_decisions": 1000,
+      "models": [
+        {
+          "format": "legacy-standard-v1",
+          "name": "historical_selfplay_5900",
+          "path": "models/standard/selfplay_from_3000/selfplay_checkpoint_iter_5900.pt",
+          "sha256": "f6ee93507c98f9907f06d7d15376845b436154a701192b1aeb5116d7cc1a8a8e"
+        },
+        {
+          "format": "legacy-standard-v1",
+          "name": "historical_phase1_100",
+          "path": "models/standard/phase1/checkpoint_iter_100.pt",
+          "sha256": "d81e46d728a16d20e5679ee0181041af73c12cfda0c31bdcbe36539071995686"
+        }
+      ],
+      "opponents": [
+        "tight_passive",
+        "loose_passive",
+        "tight_aggressive",
+        "loose_aggressive",
+        "pot_pressure"
+      ],
+      "pool": {
+        "members": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "name": "styles-evaluation-v1",
+        "purpose": "evaluation"
+      },
+      "root_seed": 73515,
+      "scenarios": [
+        {
+          "big_blind": 100,
+          "chip_unit": "0.01",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "six-legacy-20bb",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000
+          ]
+        },
+        {
+          "big_blind": 100,
+          "chip_unit": "0.01",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "six-legacy-100bb",
+          "small_blind": 50,
+          "stacks": [
+            10000,
+            10000,
+            10000,
+            10000,
+            10000,
+            10000
+          ]
+        },
+        {
+          "big_blind": 100,
+          "chip_unit": "0.01",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "six-legacy-200bb",
+          "small_blind": 50,
+          "stacks": [
+            20000,
+            20000,
+            20000,
+            20000,
+            20000,
+            20000
+          ]
+        }
+      ],
+      "split": "validation"
+    },
+    "policies": {
+      "historical_phase1_100": {
+        "encoding": "legacy-absolute-seat-v1",
+        "hidden_size": 256,
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "input_size": 156,
+        "iteration": 100,
+        "kind": "legacy-standard-v1",
+        "max_bet_size": 3.0,
+        "min_bet_size": 0.1,
+        "num_players": 6,
+        "sampling": "masked-softmax-private-python-rng-v1",
+        "training_seed": null,
+        "weights_sha256": "d81e46d728a16d20e5679ee0181041af73c12cfda0c31bdcbe36539071995686"
+      },
+      "historical_selfplay_5900": {
+        "encoding": "legacy-absolute-seat-v1",
+        "hidden_size": 256,
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "input_size": 156,
+        "iteration": 5900,
+        "kind": "legacy-standard-v1",
+        "max_bet_size": 3.0,
+        "min_bet_size": 0.1,
+        "num_players": 6,
+        "sampling": "masked-softmax-private-python-rng-v1",
+        "training_seed": null,
+        "weights_sha256": "f6ee93507c98f9907f06d7d15376845b436154a701192b1aeb5116d7cc1a8a8e"
+      },
+      "loose_aggressive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "loose_passive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "pot_pressure": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "tight_aggressive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "tight_passive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      }
+    },
+    "revision": "af0912430b5d4cd3219da98ffec9f3f48c85ad1f",
+    "scenarios": {
+      "six-legacy-100bb": {
+        "comparison": {
+          "baseline": {
+            "bb_per_100": -187.33333333333334,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "candidate": {
+            "bb_per_100": -73.25000000000001,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "conclusion": "inconclusive",
+          "paired_difference": {
+            "bb_per_100": 114.08333333333334,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "counts": {
+          "baseline": {
+            "completed": 12,
+            "dealt_in": 12
+          },
+          "candidate": {
+            "completed": 12,
+            "dealt_in": 12
+          }
+        },
+        "initial_players": 6,
+        "mode": "fixed",
+        "starting_stacks_bb": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "six-legacy-200bb": {
+        "comparison": {
+          "baseline": {
+            "bb_per_100": -70.83333333333334,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "candidate": {
+            "bb_per_100": -51.666666666666664,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "conclusion": "inconclusive",
+          "paired_difference": {
+            "bb_per_100": 19.166666666666686,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "counts": {
+          "baseline": {
+            "completed": 12,
+            "dealt_in": 12
+          },
+          "candidate": {
+            "completed": 12,
+            "dealt_in": 12
+          }
+        },
+        "initial_players": 6,
+        "mode": "fixed",
+        "starting_stacks_bb": [
+          200.0,
+          200.0,
+          200.0,
+          200.0,
+          200.0,
+          200.0
+        ]
+      },
+      "six-legacy-20bb": {
+        "comparison": {
+          "baseline": {
+            "bb_per_100": -475.0,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "candidate": {
+            "bb_per_100": 17.75,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "conclusion": "inconclusive",
+          "paired_difference": {
+            "bb_per_100": 492.75,
+            "blocks": 2,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "counts": {
+          "baseline": {
+            "completed": 12,
+            "dealt_in": 12
+          },
+          "candidate": {
+            "completed": 12,
+            "dealt_in": 12
+          }
+        },
+        "initial_players": 6,
+        "mode": "fixed",
+        "starting_stacks_bb": [
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0
+        ]
+      }
+    },
+    "schedule_sha256": "57722cbe4c313a7c4759936213c8ce8b3c3fb1ce06a4360580790ad7aaea11cd",
+    "source_sha256": "a3508d8c655ecee58f40a22d1ec1d5976ca797c306e44eb341c2d6a7838ee82b"
+  },
+  {
+    "bundle": "results/core-v1-baseline",
+    "counts": {
+      "completed_hands": 3840,
+      "failed_hands": 0,
+      "invalid_actions": 0,
+      "requested_hands": 3840,
+      "status": "valid"
+    },
+    "dirty": false,
+    "environment": {
+      "engine": {
+        "binaries": {
+          "pokers/pokers.cpython-311-darwin.so": "fa88771c851cdd36cd549f2d024571277e8277d2c48cb091e26baff7cd071d6e"
+        },
+        "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+      },
+      "implementation": "CPython",
+      "machine": "arm64",
+      "packages": {
+        "Jinja2": "3.1.6",
+        "Markdown": "3.10.2",
+        "MarkupSafe": "3.0.3",
+        "PyQt5": "5.15.11",
+        "PyQt5-Qt5": "5.15.19",
+        "PyQt5_sip": "12.18.0",
+        "Pygments": "2.20.0",
+        "Werkzeug": "3.1.8",
+        "absl-py": "2.4.0",
+        "argparse": "1.4.0",
+        "certifi": "2026.5.20",
+        "charset-normalizer": "3.4.7",
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "filelock": "3.29.1",
+        "fonttools": "4.63.0",
+        "fsspec": "2026.4.0",
+        "grpcio": "1.81.0",
+        "idna": "3.18",
+        "iniconfig": "2.3.0",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.9.0",
+        "maturin": "1.15.0",
+        "mpmath": "1.3.0",
+        "networkx": "3.6.1",
+        "numpy": "1.26.4",
+        "packaging": "26.2",
+        "pandas": "2.2.2",
+        "pillow": "12.2.0",
+        "pip": "26.1",
+        "pluggy": "1.6.0",
+        "pokerkit": "0.7.5",
+        "pokers": "0.2.0",
+        "protobuf": "7.35.0",
+        "pyparsing": "3.3.2",
+        "pytest": "9.0.3",
+        "python-dateutil": "2.9.0.post0",
+        "python-dotenv": "1.0.1",
+        "pytz": "2026.2",
+        "requests": "2.32.3",
+        "ruff": "0.16.7",
+        "scipy": "1.17.1",
+        "seaborn": "0.13.2",
+        "setuptools": "80.10.2",
+        "six": "1.17.0",
+        "sympy": "1.13.1",
+        "tensorboard": "2.18.0",
+        "tensorboard-data-server": "0.7.2",
+        "torch": "2.5.1",
+        "tqdm": "4.67.0",
+        "typing_extensions": "4.15.0",
+        "tzdata": "2026.2",
+        "urllib3": "2.7.0"
+      },
+      "platform": "macOS-27.0-arm64-arm-64bit",
+      "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]"
+    },
+    "outcomes_sha256": "0a2096dcadda8ab44ae3f263ef77a2bb302b48bb30e686c5dee26d073860a9dd",
+    "performance": {
+      "arms": {
+        "baseline": {
+          "decisions": 8030,
+          "mean_action_ms": 0.0009949463315233865,
+          "p95_action_ms": 0.001500011421740055
+        },
+        "candidate": {
+          "decisions": 2499,
+          "mean_action_ms": 0.011529384048416368,
+          "p95_action_ms": 0.0704580161254853
+        }
+      },
+      "wall_seconds": 12.44264295900939
+    },
+    "plan": {
+      "baseline": "check_call",
+      "blocks": 128,
+      "candidate": "tight_aggressive",
+      "max_decisions": 1000,
+      "models": [],
+      "opponents": [
+        "tight_passive",
+        "loose_passive",
+        "tight_aggressive",
+        "loose_aggressive",
+        "pot_pressure"
+      ],
+      "pool": {
+        "members": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "name": "styles-evaluation-v1",
+        "purpose": "evaluation"
+      },
+      "root_seed": 630270,
+      "scenarios": [
+        {
+          "big_blind": 100,
+          "chip_unit": "0.01",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "6-players-100bb",
+          "small_blind": 50,
+          "stacks": [
+            10000,
+            10000,
+            10000,
+            10000,
+            10000,
+            10000
+          ]
+        },
+        {
+          "big_blind": 100,
+          "chip_unit": "0.01",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "5-players-100bb",
+          "small_blind": 50,
+          "stacks": [
+            10000,
+            10000,
+            10000,
+            10000,
+            10000
+          ]
+        },
+        {
+          "big_blind": 100,
+          "chip_unit": "0.01",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "4-players-100bb",
+          "small_blind": 50,
+          "stacks": [
+            10000,
+            10000,
+            10000,
+            10000
+          ]
+        }
+      ],
+      "split": "validation"
+    },
+    "policies": {
+      "check_call": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "loose_aggressive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "loose_passive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "pot_pressure": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "tight_aggressive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      },
+      "tight_passive": {
+        "implementation_sha256": "6d0b3d4d567e69a154befc1fd9697cb0f06c7eeef51708bcf80e9c1dcc2c4c93",
+        "kind": "builtin",
+        "weights_sha256": null
+      }
+    },
+    "revision": "af0912430b5d4cd3219da98ffec9f3f48c85ad1f",
+    "scenarios": {
+      "4-players-100bb": {
+        "comparison": {
+          "baseline": {
+            "bb_per_100": -526.986328125,
+            "blocks": 128,
+            "ci95": [
+              -812.8822485893115,
+              -241.09040766068847
+            ],
+            "reason": null
+          },
+          "candidate": {
+            "bb_per_100": 19.23828125,
+            "blocks": 128,
+            "ci95": [
+              -58.61712654254394,
+              97.09368904254394
+            ],
+            "reason": null
+          },
+          "conclusion": "candidate_better",
+          "paired_difference": {
+            "bb_per_100": 546.224609375,
+            "blocks": 128,
+            "ci95": [
+              251.6425974415497,
+              840.8066213084503
+            ],
+            "reason": null
+          }
+        },
+        "counts": {
+          "baseline": {
+            "completed": 512,
+            "dealt_in": 512
+          },
+          "candidate": {
+            "completed": 512,
+            "dealt_in": 512
+          }
+        },
+        "initial_players": 4,
+        "mode": "fixed",
+        "starting_stacks_bb": [
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "5-players-100bb": {
+        "comparison": {
+          "baseline": {
+            "bb_per_100": -894.76875,
+            "blocks": 128,
+            "ci95": [
+              -1234.2242074577107,
+              -555.3132925422892
+            ],
+            "reason": null
+          },
+          "candidate": {
+            "bb_per_100": 44.3359375,
+            "blocks": 128,
+            "ci95": [
+              -76.45907120197732,
+              165.13094620197734
+            ],
+            "reason": null
+          },
+          "conclusion": "candidate_better",
+          "paired_difference": {
+            "bb_per_100": 939.1046875,
+            "blocks": 128,
+            "ci95": [
+              557.3203841265079,
+              1320.888990873492
+            ],
+            "reason": null
+          }
+        },
+        "counts": {
+          "baseline": {
+            "completed": 640,
+            "dealt_in": 640
+          },
+          "candidate": {
+            "completed": 640,
+            "dealt_in": 640
+          }
+        },
+        "initial_players": 5,
+        "mode": "fixed",
+        "starting_stacks_bb": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      },
+      "6-players-100bb": {
+        "comparison": {
+          "baseline": {
+            "bb_per_100": -904.3567708333334,
+            "blocks": 128,
+            "ci95": [
+              -1280.7807209884322,
+              -527.9328206782346
+            ],
+            "reason": null
+          },
+          "candidate": {
+            "bb_per_100": 83.33333333333334,
+            "blocks": 128,
+            "ci95": [
+              -40.474723742737254,
+              207.14139040940393
+            ],
+            "reason": null
+          },
+          "conclusion": "candidate_better",
+          "paired_difference": {
+            "bb_per_100": 987.6901041666666,
+            "blocks": 128,
+            "ci95": [
+              557.6693263268942,
+              1417.710882006439
+            ],
+            "reason": null
+          }
+        },
+        "counts": {
+          "baseline": {
+            "completed": 768,
+            "dealt_in": 768
+          },
+          "candidate": {
+            "completed": 768,
+            "dealt_in": 768
+          }
+        },
+        "initial_players": 6,
+        "mode": "fixed",
+        "starting_stacks_bb": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      }
+    },
+    "schedule_sha256": "adc5afbd0d6da1b870edb57262e719accb767577cefb1c1982321be9a117cb24",
+    "source_sha256": "a3508d8c655ecee58f40a22d1ec1d5976ca797c306e44eb341c2d6a7838ee82b"
+  }
+]
