@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "iteration": 256,
+  "maximum_seconds_per_seed": 900,
+  "maximum_total_seconds": 2700,
+  "fit": {"width": 32, "steps": 64, "batch_size": 32, "learning_rate": 0.001, "diagnostic_samples": 128},
+  "checkpoints": [
+    {"seed": 307, "sha256": "e09f7bb9bb2acba9bdda326ab940136f273c9e605bf15c45e5e87c8e80c824dd"},
+    {"seed": 311, "sha256": "4360010a0871b6907549d0d9c2fe785dafe9617c95bc535b7ee8721122ef9167"},
+    {"seed": 313, "sha256": "16151f293d5c35d0cb9ffb437eb6f327aaab311d0c017b2be46896f6963d2444"}
+  ]
+}

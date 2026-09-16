@@ -87,7 +87,14 @@ def fit_role(
     iteration: int,
     seed: int,
     deadline: float = float("inf"),
+    gradient_clip: float | None = 1.0,
 ) -> tuple[BettingNetwork, FitMetrics]:
+    if gradient_clip is not None and (
+        type(gradient_clip) not in (int, float)
+        or not isfinite(gradient_clip)
+        or gradient_clip <= 0
+    ):
+        raise ValueError("Gradient clipping must be positive and finite, or None")
     if (
         not memory
         or type(seed) is not int
@@ -135,11 +142,13 @@ def fit_role(
             error.backward()
             norm = float(
                 torch.nn.utils.clip_grad_norm_(
-                    model.parameters(), 1, error_if_nonfinite=True
+                    model.parameters(),
+                    float("inf") if gradient_clip is None else gradient_clip,
+                    error_if_nonfinite=True,
                 )
             )
             max_norm = max(max_norm, norm)
-            clipped += norm > 1
+            clipped += gradient_clip is not None and norm > gradient_clip
             optimizer.step()
         model.eval().requires_grad_(False)
         with torch.no_grad():
