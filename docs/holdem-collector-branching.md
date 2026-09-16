@@ -39,3 +39,16 @@ For each case retain four views:
 Count own decision records by street, unique own observations per traversal, executions that put the acting player all-in, whether the hero has any postflop decision, and natural-hand terminal outcomes. Keep public execution records with own-decision provenance sufficient to audit the accounting; never feed simulator-only data to the policy. More branch records are not automatically broader coverage. Baseline changes cannot change frozen-policy visitation; additional branching cannot create a decision after the traverser is all-in.
 
 If the primary screen fails, retain the result and do not start a bigger branching sweep. If coverage is the limiting issue, the next collector proposal must explicitly define its target policy distribution and any importance corrections before online training. No silent opponent-policy smoothing or replay reweighting is authorized by this experiment.
+
+## Implementation and verification
+
+`collect_outcome(..., branch_first=True, branch_second=True)` enables the diagnostic. Its per-path expansion counter decreases only at a traverser decision. Returning to another branch restores that branch's counter and own sampling prefix. The default remains `branch_second=False`, and the production sampled-replay converter rejects experimental second-branch traversals.
+
+At an expanded decision, each candidate's estimate is its child's estimate with inclusion probability one. Their policy-weighted mean backs up to the parent. At later sampled decisions the existing fixed-baseline estimator and inverse own-prefix correction apply. Expanding a decision therefore removes that local action-selection randomness without changing the expected conditional values or counterfactual updates. Exact enumeration checks all updates, including those after a third and fourth own decision; pre-change fingerprints check both original default modes.
+
+```bash
+python -m scripts.check_collector_branching --out results/collector-branching
+python -m scripts.check_collector_branching --verify results/collector-branching
+```
+
+Use a new output directory. `samples.jsonl` retains every estimate, cost and paired execution hash. `coverage.jsonl` retains the balanced schedule, collector decision/execution records and complete natural public hand histories. `coverage-progress.json` retains completed-profile summaries if a later stage fails. The verifier checks artifact hashes, sample moments, schedule completeness and the decision screen, then replays natural actions through the engine to verify payments, all-ins, public histories and chip settlement. Input policy and critic artifacts remain separately hash-pinned; no fitting or new checkpoint is produced.
