@@ -1,0 +1,105 @@
+{
+  "source_revision": "f85a3e3",
+  "cases": [
+    {
+      "players": 2,
+      "seed": 3,
+      "sha256": "948c77ff654e9756135ccd9b59a735135490aada0b32b4ea766430f3ab3d4e49"
+    },
+    {
+      "players": 2,
+      "seed": 7,
+      "sha256": "136c794c0dc0c40cb76e87fbbf75f5d9979191323691082f076dc9a442f3815a"
+    },
+    {
+      "players": 2,
+      "seed": 17,
+      "sha256": "1100a09a0a9ad382301b951873c758cd20b3ea90a78f6a16e95de62685015d34"
+    },
+    {
+      "players": 2,
+      "seed": 29,
+      "sha256": "dbb8732bbce710e233e8c019d17a8de4f9b417ce3a86742025729669ba14d11c"
+    },
+    {
+      "players": 2,
+      "seed": 41,
+      "sha256": "96cb93bce629fdc700a10fc0001c4118681a14ec1c9fef2632a13d13a5b1be4e"
+    },
+    {
+      "players": 4,
+      "seed": 3,
+      "sha256": "a979c605650e58a286a2eac293c6186aa0c8185ad219fe4963bd33553a836c81"
+    },
+    {
+      "players": 4,
+      "seed": 7,
+      "sha256": "78e76203d899f44e3e0d39e1b1666d59aff2bb7b5a3539ee2c4ea82bacb71a30"
+    },
+    {
+      "players": 4,
+      "seed": 17,
+      "sha256": "8aaa04bf5878be8a516c1719bf73b25bcaeaa0b2e35c574382dc8f2c66262111"
+    },
+    {
+      "players": 4,
+      "seed": 29,
+      "sha256": "8181877c4e37fd677c94acb516b6cbcdc07f67e5365c756a4772f06a71dc7464"
+    },
+    {
+      "players": 4,
+      "seed": 41,
+      "sha256": "7986e17914ecf328e96cfd4eee6644905c8f01e62ab57830f4e832b6f78cd81e"
+    },
+    {
+      "players": 5,
+      "seed": 3,
+      "sha256": "5c2150982721728dc0a05fd616645a6b2c86db851825d2a435d1046ac219293a"
+    },
+    {
+      "players": 5,
+      "seed": 7,
+      "sha256": "cce7d2119eb8fdf5df6d4a6682f418d94c8865b164956e660452ee2c40d42f90"
+    },
+    {
+      "players": 5,
+      "seed": 17,
+      "sha256": "c2f5b5a6873c7d3ec59ea98a9dd90ec68a5ea9e5b13ee62b6fb2aeac460c8f28"
+    },
+    {
+      "players": 5,
+      "seed": 29,
+      "sha256": "74eba95bfa5e32f73ccf830ef0ce1c2e9291b64130fc638518ed4810b70b27e9"
+    },
+    {
+      "players": 5,
+      "seed": 41,
+      "sha256": "8c3f4ffc6899ecc20c3fbaab9f20c83a702565d76c5f85347e67289d05791403"
+    },
+    {
+      "players": 6,
+      "seed": 3,
+      "sha256": "1f9fa6b21811cd8e22232511b14aa4ad2f480057646f77254585ffe7e7b230c4"
+    },
+    {
+      "players": 6,
+      "seed": 7,
+      "sha256": "99352a7543f5553806e5a5a6769af043dad143f08e8345a1219177b9ed31a51f"
+    },
+    {
+      "players": 6,
+      "seed": 17,
+      "sha256": "cd2bc01978a90e2e0032653348fba9b9666dd687587b316c89576a50f9f24426"
+    },
+    {
+      "players": 6,
+      "seed": 29,
+      "sha256": "4263b60a74202b3db3a7c65d7f43ac45cade479bf9e47ff1f33e14a9ffaf3f7b"
+    },
+    {
+      "players": 6,
+      "seed": 41,
+      "sha256": "31d385b7c0f2f584815092086bb547ec5cd72a07db5d61095dc7d5847f570761"
+    }
+  ]
+}

@@ -1,12 +1,14 @@
 """Default cash-game disclosure: show in order, muck hands already beaten."""
 
 from collections import Counter
+from functools import lru_cache
 from itertools import combinations
 
 from src.game.observation import ActionTaken, CardsMucked, CardsShown
 from src.game.types import ActionKind, Street
 
 
+@lru_cache(maxsize=8192)
 def hand_value(cards: tuple[str, ...]) -> tuple[int, ...]:
     def five(hand):
         ranks = sorted(("23456789TJQKA".index(c[0]) + 2 for c in hand), reverse=True)
