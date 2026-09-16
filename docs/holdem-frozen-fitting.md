@@ -1,5 +1,7 @@
 # Frozen Hold'em fitting diagnosis
 
+**Completed:** all 72 declared fits finished within the local budget. See the [results](reports/holdem-frozen-fitting.md); the protocol below is retained unchanged.
+
 ## Question and fixed comparison
 
 The longer six-player experiment clipped every optimizer step and barely changed
