@@ -1,5 +1,10 @@
 # Snapshot training and fresh readiness
 
+**Completed September 16, 2026:** all eight seeds in each game pass. See the
+[full results and artifact audit](reports/snapshot-readiness.md). The protocol
+below is retained as declared before the run; these confirmation seeds are now
+consumed, not a fresh test set for another experiment.
+
 ## Decision
 
 Train the existing small-game Deep CFR solver with a complete archive of the
