@@ -13,22 +13,22 @@ The recipe uses the validated sampled Deep CFR variant: first-own-decision expan
 | Setting | Value |
 | --- | --- |
 | Independent training seeds | 307, 311, 313 |
-| Iterations | 128 per seed |
-| Collection | 32 roots per role per iteration; 24,576 roots per seed |
+| Iterations | 512 per seed |
+| Collection | 32 roots per role per iteration; 98,304 roots per seed |
 | Sampler | First-decision expansion; exploration 0.5; frozen baseline |
 | Model width | 32, unchanged from the pipeline pilot |
 | Fitting | Fresh role models/Adam; 64 steps, batch 32, LR 0.001 |
 | Replay | 4,096 records per role, with the full admitted-stream count retained |
-| Recovery checkpoints | Every 16 iterations and the final boundary |
-| Played-policy exports and evaluations | Iterations 32, 64, 96, 128 |
+| Recovery checkpoints | Every 64 iterations and the final boundary |
+| Played-policy exports and evaluations | Iterations 128, 256, 384, 512 |
 | Evaluation schedule | 256 independent blocks per suite; fixed validation seed 91891 |
 | Iteration ceiling | 250,000 visited nodes / 180 seconds |
 | Per-seed process ceiling | 3 hours including evaluation and checkpoint work |
 | Intended execution | Three independent processes, one seed each; one Torch thread per process |
 
-This is 8× as many roots per iteration and 4× as many fit steps (with twice the minibatch size) as the pilot, over 128 rather than 6 iterations. Keep this one recipe fixed. Do not select the best seed or stop early because a plotted result looks good. Retain failure records and the last complete checkpoint if any limit is reached. Positive win rate is not an entry requirement, completion criterion or reason to extend the budget.
+This is 8× as many roots per iteration and 4× as many fit steps (with twice the minibatch size) as the pilot, over 512 rather than 6 iterations. Keep this one recipe fixed. Do not select the best seed or stop early because a plotted result looks good. Retain failure records and the last complete checkpoint if any limit is reached. Positive win rate is not an entry requirement, completion criterion or reason to extend the budget.
 
-**Initial planning estimate: 2–4 hours elapsed for the three seeds in parallel, including evaluation and artifact handling.** This is a provision, not a measured remote ETA. The local calibration below refines the estimate; a rented host's first completed iterations must refine it again, with growing replay/archive costs reported. The three-hour child-process limit is a ceiling, not a promised completion time.
+**Initial planning estimate: 2–4 hours elapsed for the three seeds in parallel, including evaluation and artifact handling.** This is a provision, not a measured remote ETA. The [local calibration](reports/holdem-longer-calibration.md) measures 7.38–10.74 seconds per early iteration and 9.99 seconds for its first checkpoint. This supports increasing the initial 128-iteration proposal to 512 before any campaign seed is used; a rented host's first completed iterations must refine it again, with growing replay/archive costs reported. The three-hour child-process limit is a ceiling, not a promised completion time.
 
 **Rental envelope:** at most four hours from provisioning to termination and **$3.50 total**, including setup, evaluation, retrieval and retained storage charges, within the existing $7.33 CPU allowance. Choose an offer only after verifying its current price and CPU/RAM allocation; no rental was created by this plan. Allow at least three independent workers and enough measured RAM headroom. Retrieve and hash-check artifacts before termination; keep no billable storage afterwards. GPU spending remains separate. If the current offer or measured throughput cannot fit these limits, shorten the declared work or present a revised budget before launching the main campaign; do not silently extend an active run.
 
@@ -68,11 +68,11 @@ Each job writes:
 - `artifacts.jsonl`: exact model/checkpoint paths, hashes, iterations and training seeds. Full recovery checkpoints retain replay/counters/RNG; smaller average-policy exports are the models used for play and cross-version comparisons.
 - Existing iteration reports retain both-head fitting losses, maximum importance weights/regret updates, pre-clipping gradient norms and clipped-step counts. Loss includes estimator noise and is not a playing-strength metric.
 
-Peak RSS is process-wide high-water memory, not current live tensor memory. Archive storage and replay size grow; six-iteration throughput is not a guarantee about iteration 128. Retain all seeds and scheduled checkpoints, with source/dependency manifests and these measurements. Store artifacts separately from Git and include retrieval instructions and hashes in the campaign report.
+Peak RSS is process-wide high-water memory, not current live tensor memory. Archive storage and replay size grow; six-iteration throughput is not a guarantee about iteration 512. Retain all seeds and scheduled checkpoints, with source/dependency manifests and these measurements. Store artifacts separately from Git and include retrieval instructions and hashes in the campaign report.
 
 ## Comparing v0.5, v0.6, v0.7 and later
 
-Keep the final policy export for **every training seed** at each version. Give it a readable alias plus source revision, training recipe, training seed, iteration and SHA-256. A version name alone must never identify mutable model bytes. The generic arena accepts `format: "holdem-average-v1"` alongside the legacy adapter, so any two compatible saved models can be candidate/baseline/opponents in a standard `scripts.run_arena` plan.
+Keep the final policy export for **every training seed** at each version. Give it a readable alias plus source revision, training recipe, training seed, iteration and SHA-256. A version name alone must never identify mutable model bytes. If a future network or observation schema changes, retain its older inference adapter or isolated runtime with the saved source and dependencies; do not reinterpret old weights under new semantics. The generic arena accepts `format: "holdem-average-v1"` alongside the legacy adapter, so any two compatible saved models can be candidate/baseline/opponents in a standard `scripts.run_arena` plan.
 
 Keep benchmark rules, stack sizes, opponent pool, seat/deal schedule and decision limits fixed when plotting progress. Preserve the original anchor as newer models join the comparison bank; changing the pool creates a new benchmark version, not a comparable continuation of the old curve. Run new and old models on the same deals for paired uncertainty, include all seeds, and report regressions as well as gains. A direct multiplayer matchup is a useful diagnostic and can be non-transitive; it is not a universal rating.
 

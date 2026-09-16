@@ -36,9 +36,9 @@
     "sampler": "first-decision",
     "exploration": 0.5
   },
-  "iterations": 128,
-  "save_every": 16,
-  "evaluate_every": 32,
+  "iterations": 512,
+  "save_every": 64,
+  "evaluate_every": 128,
   "blocks": 256,
   "evaluation_seed": 91891,
   "opponents": [
