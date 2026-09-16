@@ -9,6 +9,7 @@ from zipfile import ZipFile, ZipInfo
 import torch
 
 from src.arena.schedule import canonical
+from src.game.observation import RULES_PROFILE, SCHEMA_VERSION
 from src.holdem.actions import SCHEMA as ACTION_SCHEMA
 from src.holdem.average import AveragePolicy
 from src.holdem.betting import BettingNetwork
@@ -22,6 +23,8 @@ from src.solver.neural.checkpoint import atomic_write
 TRAINING = "holdem-training-v1"
 INFERENCE = "holdem-average-v1"
 CONTRACT = {
+    "rules": RULES_PROFILE,
+    "observation": SCHEMA_VERSION,
     "decision": DECISION_SCHEMA,
     "actions": ACTION_SCHEMA,
     "average": "linear-own-reach-collection-profiles-v1",

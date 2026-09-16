@@ -141,14 +141,28 @@ def test_sampled_players_survive_departures_and_replacement():
     from tests.test_sessions import table as session_table
 
     session = session_table()
-    average = AveragePolicy((FrozenProfile([None] * 6),))
+
+    class FoldProfile:
+        capacity = 6
+
+        def distribution(self, candidates):
+            kind = (
+                ActionKind.CHECK
+                if Action(ActionKind.CHECK) in candidates.actions
+                else ActionKind.FOLD
+            )
+            return tuple(float(a.kind == kind) for a in candidates.actions)
+
+    average = AveragePolicy((FoldProfile(),))
     players = {p.player_id: average.player(i) for i, p in enumerate(session.seats)}
     counts = []
     for hand_index in range(4):
         for occupant in session.seats:
             if occupant.stack < 20:
                 session.top_up(occupant.player_id, 100)
-        session.start_hand(seed=10 + hand_index)
+        session.start_hand(
+            seed=10 + hand_index, opening_button=0 if hand_index == 0 else None
+        )
         counts.append(len(session.participants))
         while session.actor is not None:
             owner = session.actor
@@ -166,4 +180,7 @@ def test_sampled_players_survive_departures_and_replacement():
             session.join("replacement", 3, 100)
             players["replacement"] = average.player(98)
     assert counts[:3] == [6, 5, 4]
-    assert session.chips_in - session.chips_out == sum(p.stack for p in session.seats)
+    from src.game.session import replay_session
+
+    restored = replay_session(session.events)
+    assert restored.chips_in - restored.chips_out == sum(p.stack for p in session.seats)
