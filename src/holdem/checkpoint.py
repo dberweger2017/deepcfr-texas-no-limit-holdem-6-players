@@ -10,7 +10,7 @@ from zipfile import ZipFile, ZipInfo
 import torch
 
 from src.arena.schedule import canonical
-from src.game.observation import RULES_PROFILE, SCHEMA_VERSION
+from src.game.observation import RULES_PROFILE, SCHEMA_VERSION, ActionTaken
 from src.holdem.actions import SCHEMA as ACTION_SCHEMA
 from src.holdem.average import AveragePolicy
 from src.holdem.betting import BettingNetwork
@@ -18,6 +18,7 @@ from src.holdem.encoding import SCHEMA as DECISION_SCHEMA
 from src.holdem.policy import FrozenProfile
 from src.holdem.records import pack, unpack
 from src.holdem.replay import ReplaySample, RoleReservoir, SampledReplaySample
+from src.holdem.sampled_collection import expansion_depth
 from src.holdem.training import (
     HoldemTrainer,
     IterationReport,
@@ -300,6 +301,17 @@ def load_training(path: Path, digest: str, *, manifest: dict) -> HoldemTrainer:
             s.roots != reports[s.iteration - 1].roots[role] for s in items
         ):
             raise ValueError("Replay root normalization differs from its iteration")
+        if sampled:
+            depth = expansion_depth(trainer.config.sampler)
+            for item in items:
+                decision = item.target
+                view = decision.candidates.decision.source
+                own_decisions = sum(
+                    isinstance(event, ActionTaken) and event.seat == view.seat
+                    for event in view.history
+                )
+                if (decision.sampled_action is None) != (own_decisions < depth):
+                    raise ValueError("Replay expansion differs from configured sampler")
         if memory.fingerprint() != saved["fingerprint"]:
             raise ValueError("Replay fingerprint mismatch")
         if seen != sum(r.roles[role].new_samples for r in reports):

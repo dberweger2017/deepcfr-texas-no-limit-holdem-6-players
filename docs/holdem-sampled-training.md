@@ -6,6 +6,14 @@ The [variance comparison](reports/holdem-variance.md) supports a bounded trainin
 
 For each scheduled traverser root, expand every legal candidate at the first own decision; sample one continuation at subsequent own decisions with `(1 - exploration) * policy + exploration / action_count`. Opponents sample their frozen policies. Baseline values come from the traverser's frozen public-observation value head; the initial uniform profile uses zero. Whole roots and phases either complete or fail. Limits never become synthetic payoffs.
 
+## Optional second-decision expansion
+
+`training.sampler: "second-decision"` expands the first two own decisions on each path, then uses the same exploration mixture and frozen baseline. The [branching diagnostic](reports/holdem-collector-branching.md) supports testing this mode in fresh training; it does not establish stronger play. First-decision remains the default.
+
+Replay admission checks each decision against the number of preceding own actions on that branch. Expanded edges have inclusion probability one. The objective below is unchanged: extra records enter the admitted-stream count, while the denominator remains scheduled roots, including empty roots. Checkpoints retain the sampler in the closed configuration record; loading checks the stored decisions' expansion depth against that setting. Both modes retain the same snapshot alignment and fresh-per-fit optimizer semantics.
+
+Per-iteration timing records additionally contain `collection_coverage`: physical role, position relative to the button, scheduled roots, roots with at least one postflop decision, record counts by street and visited nodes. These counters are observations of collection, not independent samples or inputs to learning. More records from one root do not imply broader experience.
+
 ## Replay and objective
 
 Sampled replay stores conditional value/regret estimates, own sampling reach, action inclusion probabilities, baseline values, collection provenance and the number of scheduled roots for that role and iteration. It cannot mix with complete-branch replay. Iteration reports preserve scheduled root counts even when roots produce no decisions; inactive physical seats have zero roots.

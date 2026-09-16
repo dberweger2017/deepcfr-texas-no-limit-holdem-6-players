@@ -1,5 +1,6 @@
 """Transactional collect-and-fit iterations with collection-aligned strategy archives."""
 
+from collections import Counter
 from dataclasses import dataclass, field, replace
 from math import isfinite
 from time import perf_counter
@@ -13,6 +14,7 @@ from src.holdem.policy import FrozenProfile
 from src.holdem.replay import RoleReservoir, split_collection
 from src.holdem.sampled_collection import (
     collect_sampled_phase,
+    expansion_depth,
     split_sampled_collection,
 )
 from src.holdem.timing import measure, peak_rss_bytes
@@ -55,14 +57,9 @@ class SampledTrainConfig(TrainConfig):
 
     def __post_init__(self):
         TrainConfig.__post_init__(self)
-        if (
-            self.sampler != "first-decision"
-            or type(self.exploration) not in (int, float)
-            or not 0 < self.exploration <= 1
-        ):
-            raise ValueError(
-                "Expected first-decision sampling with positive exploration"
-            )
+        expansion_depth(self.sampler)
+        if type(self.exploration) not in (int, float) or not 0 < self.exploration <= 1:
+            raise ValueError("Expected positive exploration for sampled training")
 
 
 @dataclass(frozen=True, slots=True)
@@ -186,7 +183,11 @@ class HoldemTrainer:
                 traversals_per_player=config.traversals_per_player,
                 max_nodes=config.max_nodes,
                 max_seconds=remaining,
-                **({"exploration": config.exploration} if sampled else {}),
+                **(
+                    {"exploration": config.exploration, "sampler": config.sampler}
+                    if sampled
+                    else {}
+                ),
             )
         if (
             batch.table != table
@@ -196,6 +197,36 @@ class HoldemTrainer:
             or batch.traversals_per_player != config.traversals_per_player
         ):
             raise ValueError("Collection does not belong to this training iteration")
+        if sampled and batch.sampler != config.sampler:
+            raise ValueError("Collection uses another sampler")
+        timing["collection_coverage"] = []
+        for seat, role in enumerate(table.seat_numbers):
+            traversals = [t for t in batch.traversals if t.root.seat == seat]
+            records = [t.decisions if sampled else t.targets for t in traversals]
+            counts = Counter(
+                d.candidates.decision.source.street.value
+                for targets in records
+                for d in targets
+            )
+            timing["collection_coverage"].append(
+                {
+                    "role": role,
+                    "position_from_button": (seat - table.button) % len(table.stacks),
+                    "roots": len(traversals),
+                    "roots_with_postflop": sum(
+                        any(
+                            d.candidates.decision.source.street.value != "preflop"
+                            for d in targets
+                        )
+                        for targets in records
+                    ),
+                    "records_by_street": {
+                        street: counts[street]
+                        for street in ("preflop", "flop", "turn", "river")
+                    },
+                    "nodes": sum(t.nodes for t in traversals),
+                }
+            )
         with measure(timing, "replay_seconds"):
             samples = (
                 split_sampled_collection(batch) if sampled else split_collection(batch)
