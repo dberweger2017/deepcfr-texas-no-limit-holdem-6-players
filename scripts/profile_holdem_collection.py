@@ -34,19 +34,7 @@ def traversal_digest(result):
     return digest.hexdigest()
 
 
-def profile_root(
-    run,
-    job,
-    iteration,
-    traverser,
-    sample,
-    max_nodes,
-    max_seconds,
-    out,
-    *,
-    instrument=False,
-):
-    out.mkdir(parents=True, exist_ok=False)
+def load_root(run, job, iteration, traverser, sample):
     manifest = json.loads((run / "manifest.json").read_text())
     marker = json.loads((run / job / f"training-{iteration}.json").read_text())
     checkpoint = run / job / f"training-{iteration}.pt"
@@ -71,6 +59,27 @@ def profile_root(
         hand_id=f"collection-{next_iteration}-{seat}-{sample}",
         seed=collection_seed(config.seed, next_iteration, seat, sample, "deal"),
     )
+    return trainer, hand, marker, manifest
+
+
+def profile_root(
+    run,
+    job,
+    iteration,
+    traverser,
+    sample,
+    max_nodes,
+    max_seconds,
+    out,
+    *,
+    instrument=False,
+):
+    out.mkdir(parents=True, exist_ok=False)
+    trainer, hand, marker, manifest = load_root(run, job, iteration, traverser, sample)
+    config = trainer.config
+    next_iteration = iteration + 1
+    table = hand.table
+    seat = table.seat_numbers[traverser]
     profile = trainer.current_profile()
     profiler = cProfile.Profile() if instrument else None
     report = {
