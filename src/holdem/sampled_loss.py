@@ -65,3 +65,37 @@ def sampled_betting_loss(
     if not torch.isfinite(loss):
         raise FloatingPointError("Non-finite sampled regression loss")
     return loss
+
+
+def sampled_replay_loss(scores, samples, *, iteration, population):
+    """Estimate the linearly weighted mean of scheduled per-iteration root sums."""
+    from src.holdem.replay import SampledReplaySample
+
+    if (
+        type(iteration) is not int
+        or iteration < 1
+        or not samples
+        or len(scores) != len(samples)
+        or type(population) is not int
+        or population < 1
+    ):
+        raise ValueError("Invalid sampled replay batch or population")
+    if any(
+        type(s) is not SampledReplaySample or not 1 <= s.iteration <= iteration
+        for s in samples
+    ):
+        raise ValueError("Expected sampled replay from completed iterations")
+    total_weight = iteration * (iteration + 1) / 2
+    terms = [
+        sampled_betting_loss(
+            [score],
+            [s.target],
+            roots=s.roots,
+            iteration_weight=s.iteration / total_weight,
+        )
+        for score, s in zip(scores, samples)
+    ]
+    result = torch.stack(terms).sum() * (population / len(samples))
+    if not torch.isfinite(result):
+        raise FloatingPointError("Non-finite sampled replay loss")
+    return result

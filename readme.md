@@ -4,9 +4,17 @@ Building a reproducible training system for strong **no-limit Texas Hold’em**,
 
 The agent must play by the documented rules and use exactly the game information available to a human in its seat. Deep CFR is our starting point; we will replace algorithms and architecture when measured results justify it.
 
-**Status: research and redevelopment toward 1.0. No current model has demonstrated professional-level Hold’em strength.**
+**Status: building v0.5, a reproducible research release, on the way to v1.0. No current model has demonstrated professional-level Hold’em strength.**
 
-[1.0 release standard](#what-10-means) · [Current progress](#where-we-are) · [Quick start](#quick-start) · [Roadmap](ROADMAP.md) · [Documentation](#documentation)
+[Release plan](#release-plan) · [1.0 strength standard](#what-10-means) · [Current progress](#where-we-are) · [Quick start](#quick-start) · [Roadmap](ROADMAP.md) · [Documentation](#documentation)
+
+## Release plan
+
+The next release is **v0.5**, followed by **v1.0**. The rebuilt system belongs to the 1.0 roadmap.
+
+**v0.5 is a research release.** It should let someone train, interrupt and resume a run, export a playable model, and reproduce its evaluation. It ships with a documented longer training experiment: fixed settings and budgets, multiple seeds, learning curves, throughput and memory measurements, model artifacts, and every failure or weak result. Legal play and the player-information boundary remain mandatory. Professional strength, positive win rate, and completion of search or adaptation are not v0.5 requirements.
+
+We can run longer exploratory training once the implementation, recovery and resource checks pass. Weak or inconclusive poker results are useful data; they do not block the next budgeted experiment. We will use that evidence to choose improvements for v1.0 instead of repeatedly tuning small diagnostics. A research checkpoint is clearly labelled as such; publishing it does not certify professional strength.
 
 ## What 1.0 means
 
@@ -71,10 +79,10 @@ The project began as an earlier Deep CFR implementation. We are rebuilding its l
 | Hold’em decisions | Full current-hand event encoding, variable-seat masks, board reveal stages and a small sequence model. [Contract](docs/holdem-encoding.md) |
 | Hold’em betting | Exact legal bet candidates, per-action regret/value heads and branch-payoff targets. [Contract](docs/holdem-betting.md) |
 | Hold’em collection | External sampling for every role against isolated current policies, with exact action records and reproducible 100 BB checks. [Contract](docs/holdem-collection.md) |
-| Hold’em fitting | Separate role reservoirs, iteration-weighted model updates and whole-iteration rollback. Two-iteration checks reproduce at 100 BB. [Contract](docs/holdem-training.md) |
+| Hold’em fitting | Separate role reservoirs and whole-iteration rollback, with explicit sampled replay/root normalization and verified recovery. [Reference contract](docs/holdem-training.md), [sampled trainer](docs/holdem-sampled-training.md) |
 | Hold’em baseline pipeline | Averaged play, full iteration-boundary recovery, deterministic button rotation and a multi-seed training/arena runner. [Contract](docs/holdem-baseline.md), [first report](docs/reports/holdem-baseline.md). Substantial learning and strength remain unproven. |
 
-**Next step:** integrate the selected sampler as an opt-in training path, verify replay weighting and recovery, then run a bounded Hold'em pilot. The [variance comparison](docs/reports/holdem-variance.md) verifies the expected training gradient and finds that expanding the first decision reduces measured noise per unit of work. Rare-update uncertainty remains, especially on the difficult unequal-stack root. Step 4's baseline pipeline is implemented, while its meaningful multi-seed learning gate remains open. [Small-game snapshot readiness](docs/reports/snapshot-readiness.md) has passed. No Hold'em model has been promoted.
+**Next step: longer exploratory Hold’em training for v0.5.** The [sampled pilot](docs/reports/holdem-sampled-pilot.md) completes all 12 jobs in 165 seconds, and all saved checkpoints and final evaluations verify. The opt-in sampler includes correctly weighted replay and complete recovery. Poker comparisons remain inconclusive, and gradient clipping is active throughout. We will gather longer learning curves with independent seeds and fixed evaluations; a winning pilot is not a prerequisite. Small-game readiness is passed, while meaningful Hold’em learning and professional strength remain unproven.
 
 ## The route to 1.0
 

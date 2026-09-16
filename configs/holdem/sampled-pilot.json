@@ -1,0 +1,91 @@
+{
+  "seeds": [
+    211,
+    223,
+    227
+  ],
+  "scenarios": [
+    {
+      "name": "four-100bb",
+      "stacks": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "small_blind": 1,
+      "big_blind": 2,
+      "chip_unit": "1"
+    },
+    {
+      "name": "five-100bb",
+      "stacks": [
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "small_blind": 1,
+      "big_blind": 2,
+      "chip_unit": "1"
+    },
+    {
+      "name": "six-100bb",
+      "stacks": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "small_blind": 1,
+      "big_blind": 2,
+      "chip_unit": "1"
+    },
+    {
+      "name": "six-unequal",
+      "stacks": [
+        40,
+        80,
+        120,
+        200,
+        300,
+        400
+      ],
+      "small_blind": 1,
+      "big_blind": 2,
+      "chip_unit": "1"
+    }
+  ],
+  "training": {
+    "seed": 0,
+    "capacity": 256,
+    "traversals_per_player": 4,
+    "max_nodes": 50000,
+    "max_seconds": 60,
+    "fit": {
+      "width": 32,
+      "steps": 16,
+      "batch_size": 16,
+      "learning_rate": 0.001,
+      "diagnostic_samples": 32
+    },
+    "sampler": "first-decision",
+    "exploration": 0.5
+  },
+  "iterations": 6,
+  "save_every": 3,
+  "evaluate_every": 3,
+  "blocks": 30,
+  "evaluation_seed": 91861,
+  "opponents": [
+    "tight_passive",
+    "loose_passive",
+    "tight_aggressive",
+    "loose_aggressive",
+    "pot_pressure"
+  ],
+  "max_seconds": 1200
+}

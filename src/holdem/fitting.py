@@ -9,7 +9,8 @@ from time import perf_counter
 import torch
 
 from src.holdem.betting import ActionScores, BettingNetwork, betting_loss
-from src.holdem.replay import ReplaySample, RoleReservoir
+from src.holdem.replay import ReplaySample, RoleReservoir, SampledReplaySample
+from src.holdem.sampled_loss import sampled_replay_loss
 from src.solver.neural.network import deterministic_cpu, stream_seed
 
 
@@ -41,6 +42,12 @@ class FitMetrics:
     diagnostic_samples: int
     loss_before: float
     loss_after: float
+
+
+@dataclass(frozen=True, slots=True)
+class SampledFitMetrics(FitMetrics):
+    max_gradient_norm: float
+    clipped_steps: int
 
 
 def weighted_betting_loss(
@@ -109,12 +116,16 @@ def fit_role(
         optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
 
         def loss(samples):
-            return weighted_betting_loss(
-                model([s.target.candidates for s in samples]), samples, iteration
-            )
+            scores = model([s.target.candidates for s in samples])
+            if isinstance(samples[0], SampledReplaySample):
+                return sampled_replay_loss(
+                    scores, samples, iteration=iteration, population=memory.seen
+                )
+            return weighted_betting_loss(scores, samples, iteration)
 
         with torch.no_grad():
             before = float(loss(fixed))
+        max_norm, clipped = 0.0, 0
         for _ in range(config.steps):
             if perf_counter() >= deadline:
                 raise TimeoutError("Role fitting exceeded the iteration deadline")
@@ -122,13 +133,22 @@ def fit_role(
             error = loss(samples)
             optimizer.zero_grad(set_to_none=True)
             error.backward()
-            torch.nn.utils.clip_grad_norm_(
-                model.parameters(), 1, error_if_nonfinite=True
+            norm = float(
+                torch.nn.utils.clip_grad_norm_(
+                    model.parameters(), 1, error_if_nonfinite=True
+                )
             )
+            max_norm = max(max_norm, norm)
+            clipped += norm > 1
             optimizer.step()
         model.eval().requires_grad_(False)
         with torch.no_grad():
             after = float(loss(fixed))
         if perf_counter() >= deadline:
             raise TimeoutError("Role fitting exceeded the iteration deadline")
-    return model, FitMetrics(config.steps, len(fixed), before, after)
+    metrics = (
+        SampledFitMetrics(config.steps, len(fixed), before, after, max_norm, clipped)
+        if isinstance(memory.items[0], SampledReplaySample)
+        else FitMetrics(config.steps, len(fixed), before, after)
+    )
+    return model, metrics

@@ -1,4 +1,4 @@
-"""Diagnostic outcome sampling; records are not compatible with training replay."""
+"""Outcome traversal estimates; sampled replay supplies their training normalization."""
 
 from dataclasses import dataclass, field
 from math import fsum, isfinite, isnan

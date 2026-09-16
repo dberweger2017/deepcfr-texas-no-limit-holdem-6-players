@@ -3,6 +3,7 @@
 import json
 from hashlib import sha256
 from io import BytesIO
+from math import isfinite
 from pathlib import Path
 from zipfile import ZipFile, ZipInfo
 
@@ -16,11 +17,18 @@ from src.holdem.betting import BettingNetwork
 from src.holdem.encoding import SCHEMA as DECISION_SCHEMA
 from src.holdem.policy import FrozenProfile
 from src.holdem.records import pack, unpack
-from src.holdem.replay import RoleReservoir
-from src.holdem.training import HoldemTrainer, _State
+from src.holdem.replay import ReplaySample, RoleReservoir, SampledReplaySample
+from src.holdem.training import (
+    HoldemTrainer,
+    IterationReport,
+    SampledIterationReport,
+    SampledTrainConfig,
+    _State,
+)
 from src.solver.neural.checkpoint import atomic_write
 
 TRAINING = "holdem-training-v1"
+SAMPLED_TRAINING = "holdem-sampled-training-v1"
 INFERENCE = "holdem-average-v1"
 CONTRACT = {
     "rules": RULES_PROFILE,
@@ -127,7 +135,8 @@ def _load(path, digest, kind):
         return value
 
     payload = decode(record)
-    if payload.get("format") != kind or payload.get("contract") != CONTRACT:
+    kinds = (kind,) if isinstance(kind, str) else kind
+    if payload.get("format") not in kinds or payload.get("contract") != CONTRACT:
         raise ValueError("Unsupported artifact format or contract")
     return payload
 
@@ -166,7 +175,9 @@ def save_training(trainer: HoldemTrainer, path: Path, *, manifest: dict) -> str:
     return _save(
         path,
         {
-            "format": TRAINING,
+            "format": SAMPLED_TRAINING
+            if isinstance(trainer.config, SampledTrainConfig)
+            else TRAINING,
             "manifest": manifest,
             "table": pack(trainer.table),
             "config": pack(trainer.config),
@@ -192,10 +203,13 @@ def save_training(trainer: HoldemTrainer, path: Path, *, manifest: dict) -> str:
 
 
 def load_training(path: Path, digest: str, *, manifest: dict) -> HoldemTrainer:
-    data = _load(path, digest, TRAINING)
+    data = _load(path, digest, (TRAINING, SAMPLED_TRAINING))
     if canonical(data["manifest"]) != canonical(manifest):
         raise ValueError("Training provenance differs from the checkpoint")
     trainer = HoldemTrainer(unpack(data["table"]), unpack(data["config"]))
+    sampled = isinstance(trainer.config, SampledTrainConfig)
+    if sampled != (data["format"] == SAMPLED_TRAINING):
+        raise ValueError("Sampler configuration disagrees with artifact format")
     iteration, reports = data["iteration"], unpack(data["reports"])
     if type(iteration) is not int or iteration < 0 or data["optimizer"] is not None:
         raise ValueError("Invalid iteration boundary")
@@ -219,6 +233,27 @@ def load_training(path: Path, digest: str, *, manifest: dict) -> HoldemTrainer:
     ):
         raise ValueError("Network width differs from the training configuration")
     for index, report in enumerate(reports):
+        expected_type = SampledIterationReport if sampled else IterationReport
+        if type(report) is not expected_type:
+            raise ValueError("Report belongs to another sampler")
+        if sampled:
+            roots = tuple(
+                trainer.config.traversals_per_player
+                if r in trainer.table.seat_numbers
+                else 0
+                for r in range(current.capacity)
+            )
+            if (
+                report.roots != roots
+                or any(type(n) is not int for n in report.roots)
+                or type(report.terminals) is not int
+                or report.terminals < sum(roots)
+                or any(
+                    not isfinite(v) or v < 0
+                    for v in (report.max_inverse_reach, report.max_regret_update_bb)
+                )
+            ):
+                raise ValueError("Invalid sampled root counts or tail diagnostics")
         following = archive[index + 1] if index + 1 < iteration else current
         if (
             report.iteration != index + 1
@@ -250,6 +285,9 @@ def load_training(path: Path, digest: str, *, manifest: dict) -> HoldemTrainer:
             or len(items) != min(seen, memory.capacity)
         ):
             raise ValueError("Replay size differs from reservoir counters")
+        expected_sample = SampledReplaySample if sampled else ReplaySample
+        if any(type(s) is not expected_sample for s in items):
+            raise ValueError("Replay belongs to another sampler")
         memory.extend(items)
         memory.seen = seen
         memory._random.setstate(saved["random"])
@@ -258,6 +296,10 @@ def load_training(path: Path, digest: str, *, manifest: dict) -> HoldemTrainer:
             for s in items
         ):
             raise ValueError("Replay sample disagrees with its collection generation")
+        if sampled and any(
+            s.roots != reports[s.iteration - 1].roots[role] for s in items
+        ):
+            raise ValueError("Replay root normalization differs from its iteration")
         if memory.fingerprint() != saved["fingerprint"]:
             raise ValueError("Replay fingerprint mismatch")
         if seen != sum(r.roles[role].new_samples for r in reports):
