@@ -1,0 +1,1206 @@
+{
+  "purpose": "early resource pilot; no strength ranking",
+  "arms": [
+    {
+      "arm": "first",
+      "manifest": {
+        "contract": {
+          "actions": "holdem-bets-v1",
+          "average": "linear-own-reach-collection-profiles-v1",
+          "decision": "holdem-decision-v1",
+          "observation": 2,
+          "resume": "completed-iterations-fresh-adam-per-role-v1",
+          "rules": "nlhe-cash-auto-muck-v1"
+        },
+        "dirty": true,
+        "environment": {
+          "engine": {
+            "binaries": {
+              "pokers/pokers.cpython-311-darwin.so": "fa88771c851cdd36cd549f2d024571277e8277d2c48cb091e26baff7cd071d6e"
+            },
+            "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+          },
+          "implementation": "CPython",
+          "machine": "arm64",
+          "packages": {
+            "Jinja2": "3.1.6",
+            "Markdown": "3.10.2",
+            "MarkupSafe": "3.0.3",
+            "PyQt5": "5.15.11",
+            "PyQt5-Qt5": "5.15.19",
+            "PyQt5_sip": "12.18.0",
+            "Pygments": "2.20.0",
+            "Werkzeug": "3.1.8",
+            "absl-py": "2.4.0",
+            "argparse": "1.4.0",
+            "certifi": "2026.5.20",
+            "charset-normalizer": "3.4.7",
+            "contourpy": "1.3.3",
+            "cycler": "0.12.1",
+            "filelock": "3.29.1",
+            "fonttools": "4.63.0",
+            "fsspec": "2026.4.0",
+            "grpcio": "1.81.0",
+            "idna": "3.18",
+            "iniconfig": "2.3.0",
+            "kiwisolver": "1.5.0",
+            "matplotlib": "3.9.0",
+            "maturin": "1.15.0",
+            "mpmath": "1.3.0",
+            "networkx": "3.6.1",
+            "numpy": "1.26.4",
+            "packaging": "26.2",
+            "pandas": "2.2.2",
+            "pillow": "12.2.0",
+            "pip": "26.1",
+            "pluggy": "1.6.0",
+            "pokerkit": "0.7.5",
+            "pokers": "0.2.0",
+            "protobuf": "7.35.0",
+            "pyparsing": "3.3.2",
+            "pytest": "9.0.3",
+            "python-dateutil": "2.9.0.post0",
+            "python-dotenv": "1.0.1",
+            "pytz": "2026.2",
+            "requests": "2.32.3",
+            "ruff": "0.16.7",
+            "scipy": "1.17.1",
+            "seaborn": "0.13.2",
+            "setuptools": "80.10.2",
+            "six": "1.17.0",
+            "sympy": "1.13.1",
+            "tensorboard": "2.18.0",
+            "tensorboard-data-server": "0.7.2",
+            "torch": "2.5.1",
+            "tqdm": "4.67.0",
+            "typing_extensions": "4.15.0",
+            "tzdata": "2026.2",
+            "urllib3": "2.7.0"
+          },
+          "platform": "macOS-27.0-arm64-arm-64bit",
+          "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]"
+        },
+        "format": "holdem-baseline-experiment-v2",
+        "observation_schema": 2,
+        "plan": {
+          "benchmarks": [
+            "random"
+          ],
+          "blocks": 8,
+          "evaluate_every": 4,
+          "evaluation_seed": 91907,
+          "iterations": 4,
+          "max_seconds": 450,
+          "opponents": [
+            "tight_passive",
+            "loose_passive",
+            "tight_aggressive",
+            "loose_aggressive",
+            "pot_pressure"
+          ],
+          "reference": null,
+          "save_every": 2,
+          "scenarios": [
+            {
+              "big_blind": 2,
+              "chip_unit": "1",
+              "hands_per_rotation": 1,
+              "mode": "fixed",
+              "name": "six-100bb",
+              "small_blind": 1,
+              "stacks": [
+                200,
+                200,
+                200,
+                200,
+                200,
+                200
+              ]
+            }
+          ],
+          "seeds": [
+            701
+          ],
+          "training": {
+            "capacity": 4096,
+            "exploration": 0.5,
+            "fit": {
+              "batch_size": 32,
+              "diagnostic_samples": 128,
+              "learning_rate": 0.001,
+              "steps": 64,
+              "width": 32
+            },
+            "max_nodes": 250000,
+            "max_seconds": 180,
+            "rotate_button": true,
+            "sampler": "first-decision",
+            "seed": 0,
+            "traversals_per_player": 32
+          }
+        },
+        "purpose": "implementation report; no model promotion or readiness claim",
+        "revision": "010334e65c1420d444684dfac0020b99ca58032d",
+        "rules": "nlhe-cash-auto-muck-v1",
+        "source_sha256": "866c994f37e085a3b1ada33e6f02748102f0ad32ee586df994faf003822ccd9a"
+      },
+      "runtime": {
+        "seconds": 48.855175042001065
+      },
+      "timing": [
+        {
+          "archive_profiles": 1,
+          "collection_coverage": [
+            {
+              "nodes": 1344,
+              "position_from_button": 0,
+              "records_by_street": {
+                "flop": 17,
+                "preflop": 131
+              },
+              "role": 0,
+              "roots": 32,
+              "roots_with_postflop": 12
+            },
+            {
+              "nodes": 954,
+              "position_from_button": 1,
+              "records_by_street": {
+                "flop": 11,
+                "preflop": 88,
+                "turn": 3
+              },
+              "role": 1,
+              "roots": 32,
+              "roots_with_postflop": 7
+            },
+            {
+              "nodes": 608,
+              "position_from_button": 2,
+              "records_by_street": {
+                "flop": 6,
+                "preflop": 56
+              },
+              "role": 2,
+              "roots": 32,
+              "roots_with_postflop": 5
+            },
+            {
+              "nodes": 2730,
+              "position_from_button": 3,
+              "records_by_street": {
+                "flop": 9,
+                "preflop": 286
+              },
+              "role": 3,
+              "roots": 32,
+              "roots_with_postflop": 7
+            },
+            {
+              "nodes": 2105,
+              "position_from_button": 4,
+              "records_by_street": {
+                "flop": 10,
+                "preflop": 213,
+                "turn": 1
+              },
+              "role": 4,
+              "roots": 32,
+              "roots_with_postflop": 7
+            },
+            {
+              "nodes": 1702,
+              "position_from_button": 5,
+              "records_by_street": {
+                "flop": 10,
+                "preflop": 175
+              },
+              "role": 5,
+              "roots": 32,
+              "roots_with_postflop": 9
+            }
+          ],
+          "collection_seconds": 2.03120362496702,
+          "fitting_seconds": 5.36916808411479,
+          "iteration": 1,
+          "new_records": 1016,
+          "nodes": 9443,
+          "peak_process_rss_bytes": 464617472,
+          "replay_seconds": 0.38570804306073114,
+          "replay_seen": 1016,
+          "replay_stored": 1016,
+          "status": "complete",
+          "total_seconds": 7.820342999999411
+        },
+        {
+          "archive_profiles": 2,
+          "collection_coverage": [
+            {
+              "nodes": 352,
+              "position_from_button": 5,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 0,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 320,
+              "position_from_button": 0,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 1,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 288,
+              "position_from_button": 1,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 2,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 256,
+              "position_from_button": 2,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 3,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 2006,
+              "position_from_button": 3,
+              "records_by_street": {
+                "preflop": 257
+              },
+              "role": 4,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 384,
+              "position_from_button": 4,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 5,
+              "roots": 32,
+              "roots_with_postflop": 0
+            }
+          ],
+          "collection_seconds": 2.0401255000033416,
+          "fitting_seconds": 4.617648084007669,
+          "iteration": 2,
+          "new_records": 417,
+          "nodes": 3606,
+          "peak_process_rss_bytes": 466812928,
+          "replay_seconds": 0.11815050098812208,
+          "replay_seen": 1433,
+          "replay_stored": 1433,
+          "status": "complete",
+          "total_seconds": 6.797361791948788
+        },
+        {
+          "archive_profiles": 3,
+          "collection_coverage": [
+            {
+              "nodes": 384,
+              "position_from_button": 4,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 0,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 352,
+              "position_from_button": 5,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 1,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 320,
+              "position_from_button": 0,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 2,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 288,
+              "position_from_button": 1,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 3,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 256,
+              "position_from_button": 2,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 4,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 2163,
+              "position_from_button": 3,
+              "records_by_street": {
+                "preflop": 256
+              },
+              "role": 5,
+              "roots": 32,
+              "roots_with_postflop": 0
+            }
+          ],
+          "collection_seconds": 2.850043041049503,
+          "fitting_seconds": 4.534319458063692,
+          "iteration": 3,
+          "new_records": 416,
+          "nodes": 3763,
+          "peak_process_rss_bytes": 663552000,
+          "replay_seconds": 0.12754233402665704,
+          "replay_seen": 1849,
+          "replay_stored": 1849,
+          "status": "complete",
+          "total_seconds": 7.5346320000244305
+        },
+        {
+          "archive_profiles": 4,
+          "collection_coverage": [
+            {
+              "nodes": 2571,
+              "position_from_button": 3,
+              "records_by_street": {
+                "flop": 2,
+                "preflop": 262
+              },
+              "role": 0,
+              "roots": 32,
+              "roots_with_postflop": 1
+            },
+            {
+              "nodes": 1107,
+              "position_from_button": 4,
+              "records_by_street": {
+                "preflop": 110
+              },
+              "role": 1,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 1151,
+              "position_from_button": 5,
+              "records_by_street": {
+                "flop": 1,
+                "preflop": 122
+              },
+              "role": 2,
+              "roots": 32,
+              "roots_with_postflop": 1
+            },
+            {
+              "nodes": 763,
+              "position_from_button": 0,
+              "records_by_street": {
+                "flop": 1,
+                "preflop": 85
+              },
+              "role": 3,
+              "roots": 32,
+              "roots_with_postflop": 1
+            },
+            {
+              "nodes": 579,
+              "position_from_button": 1,
+              "records_by_street": {
+                "flop": 1,
+                "preflop": 53
+              },
+              "role": 4,
+              "roots": 32,
+              "roots_with_postflop": 1
+            },
+            {
+              "nodes": 388,
+              "position_from_button": 2,
+              "records_by_street": {
+                "flop": 1,
+                "preflop": 33
+              },
+              "role": 5,
+              "roots": 32,
+              "roots_with_postflop": 1
+            }
+          ],
+          "collection_seconds": 4.043108333018608,
+          "fitting_seconds": 5.951394583913498,
+          "iteration": 4,
+          "new_records": 671,
+          "nodes": 6559,
+          "peak_process_rss_bytes": 663552000,
+          "replay_seconds": 0.22966883302433416,
+          "replay_seen": 2520,
+          "replay_stored": 2520,
+          "status": "complete",
+          "total_seconds": 10.274359292001463
+        }
+      ],
+      "checkpoints": [
+        {
+          "bytes": 20554049,
+          "iteration": 2,
+          "seconds": 4.565866124990862
+        },
+        {
+          "bytes": 35328770,
+          "iteration": 4,
+          "seconds": 8.178266041970346
+        }
+      ],
+      "artifacts": [
+        {
+          "iteration": 2,
+          "kind": "training",
+          "path": "training-2.pt",
+          "sha256": "d5bc175ee9d9a36c26e4b30898bc687cc503e94c657fe79d65e0731314dbfd65",
+          "training_seed": 701
+        },
+        {
+          "iteration": 4,
+          "kind": "training",
+          "path": "training-4.pt",
+          "sha256": "14a74219f275860782b5e94079ac68b53c6cf15028671db3caddc32f5851c6f7",
+          "training_seed": 701
+        },
+        {
+          "iteration": 4,
+          "kind": "holdem-average-v1",
+          "path": "average-4.pt",
+          "sha256": "dacd7ef1a5c8f3c8ab9fcfb0b730af17c31a51f45b7244215fc434cbccc5af48",
+          "training_seed": 701
+        }
+      ],
+      "curve": [
+        {
+          "benchmark": "random",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -87.50000000000003,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            },
+            "candidate": {
+              "bb_per_100": 1191.6666666666667,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 1279.1666666666667,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            }
+          },
+          "completed_hands": 96,
+          "invalid_actions": 0,
+          "iteration": 4,
+          "policy_sha256": "dacd7ef1a5c8f3c8ab9fcfb0b730af17c31a51f45b7244215fc434cbccc5af48",
+          "scenario": "six-100bb",
+          "training_seed": 701
+        },
+        {
+          "benchmark": "styles",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -688.5416666666666,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            },
+            "candidate": {
+              "bb_per_100": -1656.25,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": -967.7083333333334,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            }
+          },
+          "completed_hands": 96,
+          "invalid_actions": 0,
+          "iteration": 4,
+          "policy_sha256": "dacd7ef1a5c8f3c8ab9fcfb0b730af17c31a51f45b7244215fc434cbccc5af48",
+          "scenario": "six-100bb",
+          "training_seed": 701
+        }
+      ]
+    },
+    {
+      "arm": "second",
+      "manifest": {
+        "contract": {
+          "actions": "holdem-bets-v1",
+          "average": "linear-own-reach-collection-profiles-v1",
+          "decision": "holdem-decision-v1",
+          "observation": 2,
+          "resume": "completed-iterations-fresh-adam-per-role-v1",
+          "rules": "nlhe-cash-auto-muck-v1"
+        },
+        "dirty": true,
+        "environment": {
+          "engine": {
+            "binaries": {
+              "pokers/pokers.cpython-311-darwin.so": "fa88771c851cdd36cd549f2d024571277e8277d2c48cb091e26baff7cd071d6e"
+            },
+            "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+          },
+          "implementation": "CPython",
+          "machine": "arm64",
+          "packages": {
+            "Jinja2": "3.1.6",
+            "Markdown": "3.10.2",
+            "MarkupSafe": "3.0.3",
+            "PyQt5": "5.15.11",
+            "PyQt5-Qt5": "5.15.19",
+            "PyQt5_sip": "12.18.0",
+            "Pygments": "2.20.0",
+            "Werkzeug": "3.1.8",
+            "absl-py": "2.4.0",
+            "argparse": "1.4.0",
+            "certifi": "2026.5.20",
+            "charset-normalizer": "3.4.7",
+            "contourpy": "1.3.3",
+            "cycler": "0.12.1",
+            "filelock": "3.29.1",
+            "fonttools": "4.63.0",
+            "fsspec": "2026.4.0",
+            "grpcio": "1.81.0",
+            "idna": "3.18",
+            "iniconfig": "2.3.0",
+            "kiwisolver": "1.5.0",
+            "matplotlib": "3.9.0",
+            "maturin": "1.15.0",
+            "mpmath": "1.3.0",
+            "networkx": "3.6.1",
+            "numpy": "1.26.4",
+            "packaging": "26.2",
+            "pandas": "2.2.2",
+            "pillow": "12.2.0",
+            "pip": "26.1",
+            "pluggy": "1.6.0",
+            "pokerkit": "0.7.5",
+            "pokers": "0.2.0",
+            "protobuf": "7.35.0",
+            "pyparsing": "3.3.2",
+            "pytest": "9.0.3",
+            "python-dateutil": "2.9.0.post0",
+            "python-dotenv": "1.0.1",
+            "pytz": "2026.2",
+            "requests": "2.32.3",
+            "ruff": "0.16.7",
+            "scipy": "1.17.1",
+            "seaborn": "0.13.2",
+            "setuptools": "80.10.2",
+            "six": "1.17.0",
+            "sympy": "1.13.1",
+            "tensorboard": "2.18.0",
+            "tensorboard-data-server": "0.7.2",
+            "torch": "2.5.1",
+            "tqdm": "4.67.0",
+            "typing_extensions": "4.15.0",
+            "tzdata": "2026.2",
+            "urllib3": "2.7.0"
+          },
+          "platform": "macOS-27.0-arm64-arm-64bit",
+          "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]"
+        },
+        "format": "holdem-baseline-experiment-v2",
+        "observation_schema": 2,
+        "plan": {
+          "benchmarks": [
+            "random"
+          ],
+          "blocks": 8,
+          "evaluate_every": 4,
+          "evaluation_seed": 91907,
+          "iterations": 4,
+          "max_seconds": 450,
+          "opponents": [
+            "tight_passive",
+            "loose_passive",
+            "tight_aggressive",
+            "loose_aggressive",
+            "pot_pressure"
+          ],
+          "reference": null,
+          "save_every": 2,
+          "scenarios": [
+            {
+              "big_blind": 2,
+              "chip_unit": "1",
+              "hands_per_rotation": 1,
+              "mode": "fixed",
+              "name": "six-100bb",
+              "small_blind": 1,
+              "stacks": [
+                200,
+                200,
+                200,
+                200,
+                200,
+                200
+              ]
+            }
+          ],
+          "seeds": [
+            701
+          ],
+          "training": {
+            "capacity": 4096,
+            "exploration": 0.5,
+            "fit": {
+              "batch_size": 32,
+              "diagnostic_samples": 128,
+              "learning_rate": 0.001,
+              "steps": 64,
+              "width": 32
+            },
+            "max_nodes": 250000,
+            "max_seconds": 180,
+            "rotate_button": true,
+            "sampler": "second-decision",
+            "seed": 0,
+            "traversals_per_player": 32
+          }
+        },
+        "purpose": "implementation report; no model promotion or readiness claim",
+        "revision": "010334e65c1420d444684dfac0020b99ca58032d",
+        "rules": "nlhe-cash-auto-muck-v1",
+        "source_sha256": "866c994f37e085a3b1ada33e6f02748102f0ad32ee586df994faf003822ccd9a"
+      },
+      "runtime": {
+        "seconds": 51.898671542003285
+      },
+      "timing": [
+        {
+          "archive_profiles": 1,
+          "collection_coverage": [
+            {
+              "nodes": 1766,
+              "position_from_button": 0,
+              "records_by_street": {
+                "flop": 26,
+                "preflop": 138,
+                "river": 1,
+                "turn": 5
+              },
+              "role": 0,
+              "roots": 32,
+              "roots_with_postflop": 14
+            },
+            {
+              "nodes": 1193,
+              "position_from_button": 1,
+              "records_by_street": {
+                "flop": 24,
+                "preflop": 90,
+                "river": 1,
+                "turn": 3
+              },
+              "role": 1,
+              "roots": 32,
+              "roots_with_postflop": 10
+            },
+            {
+              "nodes": 779,
+              "position_from_button": 2,
+              "records_by_street": {
+                "flop": 19,
+                "preflop": 62,
+                "river": 2,
+                "turn": 3
+              },
+              "role": 2,
+              "roots": 32,
+              "roots_with_postflop": 7
+            },
+            {
+              "nodes": 4701,
+              "position_from_button": 3,
+              "records_by_street": {
+                "flop": 65,
+                "preflop": 378,
+                "turn": 9
+              },
+              "role": 3,
+              "roots": 32,
+              "roots_with_postflop": 25
+            },
+            {
+              "nodes": 3564,
+              "position_from_button": 4,
+              "records_by_street": {
+                "flop": 49,
+                "preflop": 286,
+                "river": 1,
+                "turn": 5
+              },
+              "role": 4,
+              "roots": 32,
+              "roots_with_postflop": 21
+            },
+            {
+              "nodes": 2602,
+              "position_from_button": 5,
+              "records_by_street": {
+                "flop": 25,
+                "preflop": 232,
+                "turn": 2
+              },
+              "role": 5,
+              "roots": 32,
+              "roots_with_postflop": 13
+            }
+          ],
+          "collection_seconds": 2.9654771250206977,
+          "fitting_seconds": 5.474229626066517,
+          "iteration": 1,
+          "new_records": 1426,
+          "nodes": 14605,
+          "peak_process_rss_bytes": 513851392,
+          "replay_seconds": 0.5860078739351593,
+          "replay_seen": 1426,
+          "replay_stored": 1426,
+          "status": "complete",
+          "total_seconds": 9.073697833984625
+        },
+        {
+          "archive_profiles": 2,
+          "collection_coverage": [
+            {
+              "nodes": 416,
+              "position_from_button": 5,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 0,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 384,
+              "position_from_button": 0,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 1,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 352,
+              "position_from_button": 1,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 2,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 320,
+              "position_from_button": 2,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 3,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 2208,
+              "position_from_button": 3,
+              "records_by_street": {
+                "preflop": 256
+              },
+              "role": 4,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 2270,
+              "position_from_button": 4,
+              "records_by_street": {
+                "preflop": 256
+              },
+              "role": 5,
+              "roots": 32,
+              "roots_with_postflop": 0
+            }
+          ],
+          "collection_seconds": 3.0210764589719474,
+          "fitting_seconds": 4.892985959013458,
+          "iteration": 2,
+          "new_records": 640,
+          "nodes": 5950,
+          "peak_process_rss_bytes": 513851392,
+          "replay_seconds": 0.19676204293500632,
+          "replay_seen": 2066,
+          "replay_stored": 2066,
+          "status": "complete",
+          "total_seconds": 8.135237750015222
+        },
+        {
+          "archive_profiles": 3,
+          "collection_coverage": [
+            {
+              "nodes": 384,
+              "position_from_button": 4,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 0,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 352,
+              "position_from_button": 5,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 1,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 320,
+              "position_from_button": 0,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 2,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 288,
+              "position_from_button": 1,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 3,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 256,
+              "position_from_button": 2,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 4,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 2254,
+              "position_from_button": 3,
+              "records_by_street": {
+                "preflop": 257
+              },
+              "role": 5,
+              "roots": 32,
+              "roots_with_postflop": 0
+            }
+          ],
+          "collection_seconds": 2.070861500047613,
+          "fitting_seconds": 4.520935042004567,
+          "iteration": 3,
+          "new_records": 417,
+          "nodes": 3854,
+          "peak_process_rss_bytes": 824950784,
+          "replay_seconds": 0.12010920798638836,
+          "replay_seen": 2483,
+          "replay_stored": 2483,
+          "status": "complete",
+          "total_seconds": 6.733498833957128
+        },
+        {
+          "archive_profiles": 4,
+          "collection_coverage": [
+            {
+              "nodes": 2208,
+              "position_from_button": 3,
+              "records_by_street": {
+                "preflop": 256
+              },
+              "role": 0,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 384,
+              "position_from_button": 4,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 1,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 352,
+              "position_from_button": 5,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 2,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 320,
+              "position_from_button": 0,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 3,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 288,
+              "position_from_button": 1,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 4,
+              "roots": 32,
+              "roots_with_postflop": 0
+            },
+            {
+              "nodes": 256,
+              "position_from_button": 2,
+              "records_by_street": {
+                "preflop": 32
+              },
+              "role": 5,
+              "roots": 32,
+              "roots_with_postflop": 0
+            }
+          ],
+          "collection_seconds": 2.0343491249950603,
+          "fitting_seconds": 4.456496291968506,
+          "iteration": 4,
+          "new_records": 416,
+          "nodes": 3808,
+          "peak_process_rss_bytes": 824950784,
+          "replay_seconds": 0.19912220706464723,
+          "replay_seen": 2899,
+          "replay_stored": 2899,
+          "status": "complete",
+          "total_seconds": 6.7111487909569405
+        }
+      ],
+      "checkpoints": [
+        {
+          "bytes": 31281032,
+          "iteration": 2,
+          "seconds": 7.246075917035341
+        },
+        {
+          "bytes": 42081610,
+          "iteration": 4,
+          "seconds": 9.39434858399909
+        }
+      ],
+      "artifacts": [
+        {
+          "iteration": 2,
+          "kind": "training",
+          "path": "training-2.pt",
+          "sha256": "45e04f6b2287b9a9a6e4852397b1f9c3e38a22008a4976ca100e121231f57412",
+          "training_seed": 701
+        },
+        {
+          "iteration": 4,
+          "kind": "training",
+          "path": "training-4.pt",
+          "sha256": "7e11c847a2b3b1dd1237a49fdd172d73ffa7a87ad311d442773d16365c7cbe57",
+          "training_seed": 701
+        },
+        {
+          "iteration": 4,
+          "kind": "holdem-average-v1",
+          "path": "average-4.pt",
+          "sha256": "ea69e0fa795426ca9904e5eab477f5a253e129dcfc80fa259f5ca3ed74eefedc",
+          "training_seed": 701
+        }
+      ],
+      "curve": [
+        {
+          "benchmark": "random",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -87.50000000000003,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            },
+            "candidate": {
+              "bb_per_100": 777.0833333333333,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 864.5833333333333,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            }
+          },
+          "completed_hands": 96,
+          "invalid_actions": 0,
+          "iteration": 4,
+          "policy_sha256": "ea69e0fa795426ca9904e5eab477f5a253e129dcfc80fa259f5ca3ed74eefedc",
+          "scenario": "six-100bb",
+          "training_seed": 701
+        },
+        {
+          "benchmark": "styles",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -688.5416666666666,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            },
+            "candidate": {
+              "bb_per_100": -2169.7916666666665,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": -1481.25,
+              "blocks": 8,
+              "ci95": null,
+              "reason": "too_few_blocks"
+            }
+          },
+          "completed_hands": 96,
+          "invalid_actions": 0,
+          "iteration": 4,
+          "policy_sha256": "ea69e0fa795426ca9904e5eab477f5a253e129dcfc80fa259f5ca3ed74eefedc",
+          "scenario": "six-100bb",
+          "training_seed": 701
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "verified": true,
+    "seconds": 45.70958233397687,
+    "arms": [
+      {
+        "arm": "first",
+        "reproduced": [
+          "training-4.pt",
+          "average-4.pt",
+          "evaluation-4.json",
+          "evaluation-4-random.json",
+          "outcomes-4.json",
+          "outcomes-4-random.json"
+        ],
+        "hashes": {
+          "runtime.json": "3e9b0f9352b05ef7f78e5de9b8c3d555bdccd02e647d0aa7667c453193fdd7ae",
+          "result.json": "463d891ef3de103607045cb565af7fd0cb26a2f2b3ae0efef800d0f48f2f78f1",
+          "manifest.json": "0cdc31023e8551304ad13bc81dc81ec7708d7306b63a72a267a02dc3f65f0984",
+          "scenario-0-seed-701/checkpoint-timing.jsonl": "fef65d9c413c159a91dd49d7e7935f647668380dd15ab6a2b3f2839a5af3c47c",
+          "scenario-0-seed-701/timing-4-random.json": "4b831aaf3c020265f1cc5d5cae92edc464a1075f1e2f224365b0f419dc76b506",
+          "scenario-0-seed-701/learning-curve.json": "bea4ac6b944adb920c79c055f1b3919dd9b0256ae470c2df8275ca28cedc507c",
+          "scenario-0-seed-701/evaluation-4-random.json": "9d2d0f98b4171e51943fdb0cfe655c46a1d3a48f8c7b909635bd77628c9db7da",
+          "scenario-0-seed-701/evaluation-4.json": "9b50898bfb1443dfcc0d0c6beafd794adfb95c2f032b609d9bfbc5577bb062ed",
+          "scenario-0-seed-701/result.json": "5530451fddd717541979b35878238fdb0caa2b7aaf49958d1006f61353c62fa4",
+          "scenario-0-seed-701/artifacts.jsonl": "7bee87a79e4db7f1524f69ed1b457394e23b62475c2d1f3a44a8596085d5269e",
+          "scenario-0-seed-701/training-timing.jsonl": "29634ea1f77eb47548085adfe993f1d1d1a829af366d5deeea44c7c466b61250",
+          "scenario-0-seed-701/average-4.pt": "dacd7ef1a5c8f3c8ab9fcfb0b730af17c31a51f45b7244215fc434cbccc5af48",
+          "scenario-0-seed-701/outcomes-4.json": "ff614d12cb657a500ec8144dbdd760392473cbeffdc03aa86b33e9ac7e5b0595",
+          "scenario-0-seed-701/training-2.pt": "d5bc175ee9d9a36c26e4b30898bc687cc503e94c657fe79d65e0731314dbfd65",
+          "scenario-0-seed-701/timing-4.json": "a09800423e51c3aff95bd0aafced7583ea3caf9c3414c70f158403ef9257aa5c",
+          "scenario-0-seed-701/outcomes-4-random.json": "246bc571935866be6a825ce79ad81ca3c9ee8b773c3b61e8458c489d0c93e035",
+          "scenario-0-seed-701/iteration-reports.jsonl": "2c4e4543b877a8e6dd1961acae7539a0fd983d27b84a6dc9e7a64b442bacfed6",
+          "scenario-0-seed-701/training-2.json": "bed5bf8f93d94b50cdd9966d3fe33bd7a1464645e0fcb62d7dedef9cc6c4ec7f",
+          "scenario-0-seed-701/training-4.pt": "14a74219f275860782b5e94079ac68b53c6cf15028671db3caddc32f5851c6f7",
+          "scenario-0-seed-701/training-4.json": "de944de08899aedfcc3db1244bc86c5fab98ea0d7c7adc6811abc3311a60d888"
+        }
+      },
+      {
+        "arm": "second",
+        "reproduced": [
+          "training-4.pt",
+          "average-4.pt",
+          "evaluation-4.json",
+          "evaluation-4-random.json",
+          "outcomes-4.json",
+          "outcomes-4-random.json"
+        ],
+        "hashes": {
+          "runtime.json": "2f674573db19edaf2e639344d52264ea4a6189dfabf3d7a1dc322800139dfd7f",
+          "result.json": "df451c1418c43b3bfcded4f73216454f05fd5ea98e71b922707adab6774b1e18",
+          "manifest.json": "711cc7669ed053f0cf3ac0d579922ccb8f77c10ea4134bd096248bd63ef86467",
+          "scenario-0-seed-701/checkpoint-timing.jsonl": "e7b3d3ec8fd8b306d4cfa7e5e6713c046e90230c7817d79ab69df577acf80bba",
+          "scenario-0-seed-701/timing-4-random.json": "01cb22f3e48ef40886f86edf5b47d6bc4a3b796696b0e1283efe347bee38e97f",
+          "scenario-0-seed-701/learning-curve.json": "66646c6eb945526ecdccf349c0dd630029b8cfc83dfd025e09f42dd40dc6aecb",
+          "scenario-0-seed-701/evaluation-4-random.json": "5a7946b0829a702b023b85917ace4d4d25d4f271a20f67af99fcb4f9d4ad5a10",
+          "scenario-0-seed-701/evaluation-4.json": "56120de6ffe64c0fc7613077103ac5dbf91089071a7fa717b419d880a1486d64",
+          "scenario-0-seed-701/result.json": "c27e92355eced10e5f9f8d6a8480fd7944fd81b6b90236313af3b500245f90ba",
+          "scenario-0-seed-701/artifacts.jsonl": "c0213be6eb34ac142b1a031d76461db3ac3ba56eff805c7a92462fc8619a603f",
+          "scenario-0-seed-701/training-timing.jsonl": "4e237b1944d199933e3a70425f73dab75418912f5a5dff3c9fa70fb212f05bdd",
+          "scenario-0-seed-701/average-4.pt": "ea69e0fa795426ca9904e5eab477f5a253e129dcfc80fa259f5ca3ed74eefedc",
+          "scenario-0-seed-701/outcomes-4.json": "7d680684ad42f8ff58baa46e9ba7131b1ede37701f31670f0c61de5c0dd25e3b",
+          "scenario-0-seed-701/training-2.pt": "45e04f6b2287b9a9a6e4852397b1f9c3e38a22008a4976ca100e121231f57412",
+          "scenario-0-seed-701/timing-4.json": "cf2e5d223928e1f79fe8372243b6676404cac8a56d2e0e5e39754a73e8363541",
+          "scenario-0-seed-701/outcomes-4-random.json": "e87f01e900547f91e2c03ee386268cd8d099ff4a87b8405a2db12851dc98728e",
+          "scenario-0-seed-701/iteration-reports.jsonl": "07ddb3f95b96adfa01259446909808928d298586b2b2157874f7dd168242038e",
+          "scenario-0-seed-701/training-2.json": "1967c022e739d4a9514570f5f27f47a05a992bf3853e43ecfb2618329d0f3154",
+          "scenario-0-seed-701/training-4.pt": "7e11c847a2b3b1dd1237a49fdd172d73ffa7a87ad311d442773d16365c7cbe57",
+          "scenario-0-seed-701/training-4.json": "773c3ac78562012e38daceafbc85279c1ae097ecf70107f237b9094f5da36b1d"
+        }
+      }
+    ]
+  }
+}

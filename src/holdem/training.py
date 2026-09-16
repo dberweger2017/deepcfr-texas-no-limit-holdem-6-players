@@ -220,7 +220,10 @@ class HoldemTrainer:
                         )
                         for targets in records
                     ),
-                    "records_by_street": dict(counts),
+                    "records_by_street": {
+                        street: counts[street]
+                        for street in ("preflop", "flop", "turn", "river")
+                    },
                     "nodes": sum(t.nodes for t in traversals),
                 }
             )

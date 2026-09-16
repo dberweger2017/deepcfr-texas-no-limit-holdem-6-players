@@ -336,6 +336,10 @@ def test_checkpoint_rejects_relabelled_expansion(tmp_path, sampler):
     )
     trainer.step()
     coverage = trainer.last_timing["collection_coverage"]
+    assert all(
+        set(c["records_by_street"]) == {"preflop", "flop", "turn", "river"}
+        for c in coverage
+    )
     assert sum(c["roots"] for c in coverage) == 4
     assert sum(sum(c["records_by_street"].values()) for c in coverage) == sum(
         r.new_samples for r in trainer.reports[0].roles
