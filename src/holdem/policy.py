@@ -4,13 +4,15 @@ from collections.abc import Sequence
 from copy import deepcopy
 from dataclasses import dataclass
 from hashlib import sha256
+from random import Random
 
 import torch
 
 from src.holdem.actions import SCHEMA as ACTION_SCHEMA
-from src.holdem.actions import BetCandidates
+from src.holdem.actions import BetCandidates, bet_candidates
 from src.holdem.betting import BettingNetwork
 from src.holdem.encoding import SCHEMA as DECISION_SCHEMA
+from src.solver.neural.network import stream_seed
 
 FORMAT = "holdem-current-profile-v1"
 
@@ -75,6 +77,9 @@ class FrozenProfile:
         ):
             raise RuntimeError("The collection policy profile changed")
 
+    def player(self, seed: int) -> "CurrentPlayer":
+        return CurrentPlayer(self, seed)
+
     def _model(self, candidates: BetCandidates) -> BettingNetwork | None:
         if not isinstance(candidates, BetCandidates):
             raise TypeError("A current policy accepts public bet candidates only")
@@ -103,3 +108,16 @@ class FrozenProfile:
         ):
             raise FloatingPointError("Invalid frozen action values")
         return tuple(values.tolist())
+
+
+class CurrentPlayer:
+    """Play one fixed profile through the same action stream as averaged play."""
+
+    def __init__(self, profile: FrozenProfile, seed: int):
+        self._profile = profile
+        self._actions = Random(stream_seed(seed, "holdem-snapshot-actions"))
+
+    def choose_action(self, view):
+        candidates = bet_candidates(view)
+        probabilities = self._profile.distribution(candidates)
+        return self._actions.choices(candidates.actions, weights=probabilities)[0]
