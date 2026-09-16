@@ -1,5 +1,7 @@
 # Sampling variance and regression results
 
+[PR #68](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/68)
+
 ## Decision
 
 **Advance first-decision expansion with a frozen value baseline to a separate opt-in training/recovery pilot.** It passes the predeclared diagnostic screen on all four roots. The value baseline alone fails the difficult-root improvement requirement. The training default remains external sampling; no model was fitted or promoted here.
