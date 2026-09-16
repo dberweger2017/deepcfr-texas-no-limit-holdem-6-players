@@ -198,6 +198,8 @@ Infrastructure and correctness PRs can merge without a strength improvement if t
 
 ## Current position
 
+- **Frozen-replay diagnosis prepared:** the [protocol](docs/holdem-frozen-fitting.md) compares clip norm 1 versus unclipped fitting at 64/256 steps on iteration-256 replay from all six roles of seeds 307/311/313. The local run is capped at 45 minutes, one seed at a time, with unchanged production defaults. It diagnoses empirical fitting; current-versus-average play and any online confirmation are separate steps. The completed longer-run report remains due.
+
 - **Repository cleanup:** [PR #63](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/63) retires the old trainers, opponent model, desktop UI, notifier and obsolete package/release entrypoints. [Repository layout](docs/repository-layout.md) lists current commands and the preserved historical adapter. Rules, observation/session tests and research artifacts remain. This maintenance change does not close a learning gate.
 
 - **Plan established:** September 2026, based on the review of `af1593a`.
