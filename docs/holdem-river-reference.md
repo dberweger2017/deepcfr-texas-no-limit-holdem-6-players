@@ -93,3 +93,15 @@ world, nonfinite result, broken accounting, mutation or resource limit; retain
 partial results and mark unattempted cells. No outcome-dependent retries or
 extensions. Commit compact reports and hashes; keep raw samples and model files
 locally. Subsequent online training needs its own declared comparison.
+
+## Execution
+
+```bash
+python -m scripts.check_river_learning --plan configs/holdem/river-reference.json --out results/river-reference
+```
+
+One diagnostic network fits all training contexts, including both hero positions;
+this does not pool production role replay or change production ownership. Public
+hand identifiers do not encode the hero holding. The card probes vary hero cards
+with the board, betting prefix and opponent assignments held fixed. Per-decision
+predictions retain this comparison alongside aggregate errors.
