@@ -15,6 +15,7 @@ from src.holdem.sampled_collection import (
     collect_sampled_phase,
     split_sampled_collection,
 )
+from src.holdem.timing import measure, peak_rss_bytes
 from src.solver.neural.network import stream_seed
 
 
@@ -108,6 +109,7 @@ class HoldemTrainer:
         ):
             raise ValueError("Provide a supported table and training configuration")
         self.table, self.config = table, config
+        self.last_timing = None
         self._state = _State(
             0,
             (None,) * table.capacity,
@@ -140,6 +142,24 @@ class HoldemTrainer:
         return AveragePolicy(self._state.archive)
 
     def step(self) -> IterationReport:
+        timing = {"iteration": self.iteration + 1, "status": "failed"}
+        self.last_timing = timing
+        with measure(timing, "total_seconds"):
+            try:
+                report = self._step(timing)
+                timing.update(
+                    status="complete",
+                    nodes=report.nodes,
+                    new_records=sum(r.new_samples for r in report.roles),
+                    replay_seen=sum(m.seen for m in self.memories),
+                    replay_stored=sum(len(m) for m in self.memories),
+                    archive_profiles=len(self._state.archive),
+                )
+                return report
+            finally:
+                timing["peak_process_rss_bytes"] = peak_rss_bytes()
+
+    def _step(self, timing) -> IterationReport:
         config, old = self.config, self._state
         iteration = old.iteration + 1
         deadline = perf_counter() + config.max_seconds
@@ -157,16 +177,17 @@ class HoldemTrainer:
         )
         sampled = isinstance(config, SampledTrainConfig)
         collector = collect_sampled_phase if sampled else collect_phase
-        batch = collector(
-            table,
-            profile,
-            iteration=iteration,
-            seed=config.seed,
-            traversals_per_player=config.traversals_per_player,
-            max_nodes=config.max_nodes,
-            max_seconds=remaining,
-            **({"exploration": config.exploration} if sampled else {}),
-        )
+        with measure(timing, "collection_seconds"):
+            batch = collector(
+                table,
+                profile,
+                iteration=iteration,
+                seed=config.seed,
+                traversals_per_player=config.traversals_per_player,
+                max_nodes=config.max_nodes,
+                max_seconds=remaining,
+                **({"exploration": config.exploration} if sampled else {}),
+            )
         if (
             batch.table != table
             or batch.iteration != iteration
@@ -175,22 +196,25 @@ class HoldemTrainer:
             or batch.traversals_per_player != config.traversals_per_player
         ):
             raise ValueError("Collection does not belong to this training iteration")
-        samples = (
-            split_sampled_collection(batch) if sampled else split_collection(batch)
-        )
-        memories = tuple(memory.clone() for memory in old.memories)
+        with measure(timing, "replay_seconds"):
+            samples = (
+                split_sampled_collection(batch) if sampled else split_collection(batch)
+            )
+            memories = tuple(memory.clone() for memory in old.memories)
         models, updates = list(old.models), []
         for role, memory in enumerate(memories):
-            memory.extend(samples[role])
+            with measure(timing, "replay_seconds"):
+                memory.extend(samples[role])
             metrics = None
             if len(memory) and role in self.table.seat_numbers:
-                models[role], metrics = fit_role(
-                    memory,
-                    config.fit,
-                    iteration=iteration,
-                    seed=config.seed,
-                    deadline=deadline,
-                )
+                with measure(timing, "fitting_seconds"):
+                    models[role], metrics = fit_role(
+                        memory,
+                        config.fit,
+                        iteration=iteration,
+                        seed=config.seed,
+                        deadline=deadline,
+                    )
             updates.append(
                 RoleUpdate(role, len(samples[role]), memory.seen, len(memory), metrics)
             )

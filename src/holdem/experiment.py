@@ -6,7 +6,9 @@ from pathlib import Path
 from time import perf_counter
 
 from src.arena.artifacts import environment, git, source_fingerprint, write_json
+from src.arena.catalog import Checkpoint
 from src.arena.policies import make_policy
+from src.arena.registry import ROOT, load_frozen
 from src.arena.report import performance, summarize
 from src.arena.runner import run_schedule
 from src.arena.schedule import Plan, Scenario, build_schedule, canonical, digest
@@ -25,7 +27,7 @@ from src.holdem.training import HoldemTrainer, SampledTrainConfig, TrainConfig
 from src.solver.neural.checkpoint import atomic_write
 from src.solver.neural.network import deterministic_cpu
 
-FORMAT = "holdem-baseline-experiment-v1"
+FORMAT = "holdem-baseline-experiment-v2"
 
 
 @dataclass(frozen=True)
@@ -40,6 +42,8 @@ class Experiment:
     evaluation_seed: int
     opponents: tuple[str, ...]
     max_seconds: float
+    benchmarks: tuple[str, ...] = ()
+    reference: Checkpoint | None = None
 
     def __post_init__(self):
         if (
@@ -70,6 +74,23 @@ class Experiment:
             raise ValueError(
                 "Training scenarios require four to six fixed-stack players"
             )
+        if len(set(self.benchmarks)) != len(self.benchmarks) or not set(
+            self.benchmarks
+        ) <= {"random", "previous", "crossplay"}:
+            raise ValueError("Choose distinct random, previous or crossplay benchmarks")
+        if bool(set(self.benchmarks) & {"previous", "crossplay"}) != (
+            self.reference is not None
+        ):
+            raise ValueError(
+                "An archived comparison needs exactly one pinned reference"
+            )
+        if self.reference is not None and self.reference.name in {
+            "snapshot_average",
+            "uniform_candidates",
+            "random",
+            *self.opponents,
+        }:
+            raise ValueError("Reference name shadows another evaluation policy")
         for name in self.opponents:
             make_policy(name, 0)
         for scenario in self.scenarios:
@@ -102,6 +123,10 @@ class Experiment:
             **{
                 **data,
                 "seeds": tuple(data["seeds"]),
+                "benchmarks": tuple(data.get("benchmarks", ())),
+                "reference": Checkpoint(**data["reference"])
+                if data.get("reference")
+                else None,
                 "opponents": tuple(data["opponents"]),
                 "scenarios": tuple(Scenario(**s) for s in data["scenarios"]),
                 "training": (
@@ -139,16 +164,75 @@ def _verify_manifest(saved, current):
             raise ValueError(f"Experiment reproduction mismatch: {key}")
 
 
-def evaluate(trainer, scenario, plan, out, provenance, deadline):
+def _append(path, record):
+    with path.open("a", encoding="utf-8") as stream:
+        stream.write(canonical(record) + "\n")
+
+
+def _artifact(trainer, out, path, checksum, kind):
+    _append(
+        out / "artifacts.jsonl",
+        {
+            "kind": kind,
+            "path": path.name,
+            "sha256": checksum,
+            "iteration": trainer.iteration,
+            "training_seed": trainer.config.seed,
+        },
+    )
+
+
+def _learning_curve(out, reports):
+    path = out / "learning-curve.json"
+    existing = json.loads(path.read_text()) if path.exists() else []
+    updates = []
+    for benchmark, report in reports.items():
+        for scenario, values in report["scenarios"].items():
+            updates.append(
+                {
+                    "iteration": report["iteration"],
+                    "benchmark": benchmark,
+                    "scenario": scenario,
+                    "training_seed": report["training_seed"],
+                    "policy_sha256": report["policy_sha256"],
+                    "comparison": values["comparison"],
+                    "completed_hands": report["completed_hands"],
+                    "invalid_actions": report["invalid_actions"],
+                }
+            )
+
+    def key(row):
+        return row["iteration"], row["benchmark"], row["scenario"]
+
+    merged = {key(row): row for row in (*existing, *updates)}
+    write_json(path, [merged[k] for k in sorted(merged)])
+
+
+def evaluate(trainer, scenario, plan, out, provenance, deadline, reference=None):
     from src.holdem.average import AveragePolicy
     from src.holdem.policy import FrozenProfile
 
     artifact = out / f"average-{trainer.iteration}.pt"
     artifact_hash = save_policy(trainer, artifact, manifest=provenance)
+    _artifact(trainer, out, artifact, artifact_hash, "holdem-average-v1")
     policy, _ = load_policy(artifact, artifact_hash)
     uniform = AveragePolicy((FrozenProfile([None] * trainer.table.capacity),))
-    arena = plan.arena(scenario)
-    rows, timings = [], []
+    primary = plan.arena(scenario)
+    suites = [("styles", primary)]
+    for name in plan.benchmarks:
+        if name == "random":
+            arena = replace(primary, opponents=("random",))
+        else:
+            if reference is None:
+                raise ValueError("Missing pinned reference for archived comparison")
+            arena = replace(
+                primary,
+                baseline=reference.spec.name,
+                opponents=(reference.spec.name,)
+                if name == "crossplay"
+                else plan.opponents,
+            )
+        suites.append((name, arena))
 
     class BoundedPolicy:
         def __init__(self, inner):
@@ -160,46 +244,75 @@ def evaluate(trainer, scenario, plan, out, provenance, deadline):
             return self.inner.choose_action(view)
 
     def factory(name, seed):
-        if name == arena.candidate:
+        if name == "snapshot_average":
             selected = policy.player(seed)
-        elif name == arena.baseline:
+        elif name == "uniform_candidates":
             selected = uniform.player(seed)
+        elif reference is not None and name == reference.spec.name:
+            selected = reference.policy(seed)
         else:
             selected = make_policy(name, seed)
         return BoundedPolicy(selected)
 
-    started = perf_counter()
-    with deterministic_cpu():
-        valid = run_schedule(
-            arena,
-            build_schedule(arena),
-            lambda row, timing: (rows.append(row), timings.append(timing)),
-            factory=factory,
-        )
-    report = summarize(arena, rows)
-    report.update(
-        iteration=trainer.iteration,
-        training_seed=trainer.config.seed,
-        archive_profiles=policy.fingerprints,
-        policy_sha256=artifact_hash,
-    )
-    write_json(out / f"evaluation-{trainer.iteration}.json", report)
-    write_json(out / f"outcomes-{trainer.iteration}.json", rows)
-    write_json(
-        out / f"timing-{trainer.iteration}.json",
-        performance(timings, perf_counter() - started),
-    )
-    if not valid or report["status"] != "valid":
-        raise RuntimeError(
-            "Evaluation failed; retained incomplete report, no strength estimate"
-        )
-    return report
+    reports = {}
+    for name, arena in suites:
+        rows, timings = [], []
+        suffix = str(trainer.iteration) + (f"-{name}" if name != "styles" else "")
+        started = perf_counter()
+        try:
+            with deterministic_cpu():
+                valid = run_schedule(
+                    arena,
+                    build_schedule(arena),
+                    lambda row, timing, rows=rows, timings=timings: (
+                        rows.append(row),
+                        timings.append(timing),
+                    ),
+                    factory=factory,
+                )
+        finally:
+            report = summarize(arena, rows)
+            report.update(
+                iteration=trainer.iteration,
+                training_seed=trainer.config.seed,
+                archive_profiles=policy.fingerprints,
+                policy_sha256=artifact_hash,
+            )
+            if reference is not None and name in ("previous", "crossplay"):
+                report["reference"] = reference.description
+            write_json(out / f"evaluation-{suffix}.json", report)
+            write_json(out / f"outcomes-{suffix}.json", rows)
+            write_json(
+                out / f"timing-{suffix}.json",
+                performance(timings, perf_counter() - started),
+            )
+        if not valid or report["status"] != "valid":
+            raise RuntimeError(
+                "Evaluation failed; retained incomplete report, no strength estimate"
+            )
+        reports[name] = report
+    _learning_curve(out, reports)
+    result = reports.pop("styles")
+    if reports:
+        result["benchmarks"] = reports
+        write_json(out / f"evaluation-{trainer.iteration}.json", result)
+    return result
 
 
 def _checkpoint(trainer, directory, provenance):
     iteration = trainer.iteration
     path = directory / f"training-{iteration}.pt"
+    started = perf_counter()
     fingerprint = save_training(trainer, path, manifest=provenance)
+    _artifact(trainer, directory, path, fingerprint, "training")
+    _append(
+        directory / "checkpoint-timing.jsonl",
+        {
+            "iteration": iteration,
+            "seconds": perf_counter() - started,
+            "bytes": path.stat().st_size,
+        },
+    )
     record = {"iteration": iteration, "sha256": fingerprint}
     atomic_write(directory / f"training-{iteration}.json", canonical(record).encode())
 
@@ -248,6 +361,20 @@ def _run(
     write_json(out / "manifest.json", provenance)
     started = perf_counter()
     deadline = started + plan.max_seconds
+    reference = None
+    if plan.reference is not None:
+        spec = plan.reference
+        path = (
+            previous / "models" / f"{spec.sha256}.pt" if previous else ROOT / spec.path
+        )
+        reference = load_frozen(spec, path)
+        if any(len(s.stacks) != reference.players for s in plan.scenarios):
+            raise ValueError(
+                "Archived reference must support every training table size"
+            )
+        (out / "models").mkdir()
+        (out / "models" / f"{spec.sha256}.pt").write_bytes(reference.data)
+        write_json(out / "reference.json", reference.description)
     summaries = []
     target = stop_after or plan.iterations
     for scenario in plan.scenarios:
@@ -256,6 +383,10 @@ def _run(
             name = f"scenario-{plan.scenarios.index(scenario)}-seed-{seed}"
             directory = out / name
             directory.mkdir()
+            if resume and (resume / name / "learning-curve.json").exists():
+                (directory / "learning-curve.json").write_bytes(
+                    (resume / name / "learning-curve.json").read_bytes()
+                )
             table = Table(
                 tuple(f"player-{i}" for i in range(len(scenario.stacks))),
                 scenario.stacks,
@@ -280,19 +411,40 @@ def _run(
                     raise TimeoutError(
                         "Insufficient remaining budget for another iteration"
                     )
-                trainer.step()
+                trainer.last_timing = None
+                try:
+                    trainer.step()
+                finally:
+                    if trainer.last_timing is not None:
+                        _append(
+                            directory / "training-timing.jsonl", trainer.last_timing
+                        )
                 if iteration % plan.save_every == 0 or iteration == target:
                     _checkpoint(trainer, directory, provenance)
                 if iteration % plan.evaluate_every == 0 or iteration == plan.iterations:
                     evaluations.append(
                         evaluate(
-                            trainer, scenario, plan, directory, provenance, deadline
+                            trainer,
+                            scenario,
+                            plan,
+                            directory,
+                            provenance,
+                            deadline,
+                            reference,
                         )
                     )
             # A recovered final boundary still needs an exported, evaluated policy.
             if trainer.iteration == plan.iterations and not evaluations:
                 evaluations.append(
-                    evaluate(trainer, scenario, plan, directory, provenance, deadline)
+                    evaluate(
+                        trainer,
+                        scenario,
+                        plan,
+                        directory,
+                        provenance,
+                        deadline,
+                        reference,
+                    )
                 )
             result = {
                 "scenario": scenario.name,
