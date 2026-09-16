@@ -1,6 +1,6 @@
 """Public hand events and their player-specific replay."""
 
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
 
 from src.game.types import (
     Action,
@@ -169,10 +169,13 @@ def replay(
             raise ValueError("Observer identity does not match the seat")
     if any(hand.player_id != identity for hand in previous_hands):
         raise ValueError("Prior private history belongs to a different player")
-    players = tuple(
-        Player(i, identity, stack, stack)
-        for i, (identity, stack) in enumerate(zip(start.player_ids, start.stacks))
-    )
+    # Reconstruct locally, then publish immutable players once at the boundary.
+    stacks = list(start.stacks)
+    street_bets = [0] * len(stacks)
+    contributed = [0] * len(stacks)
+    folded = [False] * len(stacks)
+    shown_cards = [()] * len(stacks)
+    mucked = [False] * len(stacks)
     board = ()
     street = Street.PREFLOP
     actor = None
@@ -182,63 +185,61 @@ def replay(
         if finished:
             raise ValueError("Events cannot follow settlement")
         if isinstance(event, (BlindPosted, ActionTaken)):
-            player = players[event.seat]
+            acting = event.seat
             paid = event.amount if isinstance(event, BlindPosted) else event.paid
-            if not 0 <= paid <= player.stack:
+            if not 0 <= paid <= stacks[acting]:
                 raise ValueError("Event overdraws a stack")
-            folded = player.folded or (
+            folded[acting] = folded[acting] or (
                 isinstance(event, ActionTaken) and event.action.kind == ActionKind.FOLD
             )
-            updated = replace(
-                player,
-                stack=player.stack - paid,
-                street_bet=player.street_bet + paid,
-                contributed=player.contributed + paid,
-                folded=folded,
-            )
-            players = players[: event.seat] + (updated,) + players[event.seat + 1 :]
+            stacks[acting] -= paid
+            street_bets[acting] += paid
+            contributed[acting] += paid
             actor, legal = None, LegalActions()
         elif isinstance(event, Decision):
             actor, legal = event.seat, event.legal_actions
         elif isinstance(event, BoardDealt):
             street = event.street
             board += event.cards
-            players = tuple(replace(p, street_bet=0) for p in players)
+            street_bets = [0] * len(stacks)
             actor, legal = None, LegalActions()
         elif isinstance(event, CardsShown):
-            player = players[event.seat]
-            if player.folded or player.mucked:
+            if folded[event.seat] or mucked[event.seat]:
                 raise ValueError("Folded cards and mucked cards must stay private")
-            players = (
-                players[: event.seat]
-                + (replace(player, shown_cards=event.cards),)
-                + players[event.seat + 1 :]
-            )
+            shown_cards[event.seat] = event.cards
         elif isinstance(event, CardsMucked):
-            player = players[event.seat]
-            if player.folded or player.shown_cards:
+            if folded[event.seat] or shown_cards[event.seat]:
                 raise ValueError("Only an unshown live hand can be mucked")
-            players = (
-                players[: event.seat]
-                + (replace(player, mucked=True),)
-                + players[event.seat + 1 :]
-            )
+            mucked[event.seat] = True
         elif isinstance(event, HandFinished):
             if (
-                len(event.stacks) != len(players)
+                len(event.stacks) != len(stacks)
                 or any(type(v) is not int or v < 0 for v in event.stacks)
                 or sum(event.stacks) != sum(start.stacks)
             ):
                 raise ValueError("Settlement does not conserve chips")
-            players = tuple(
-                replace(p, stack=stack, street_bet=0, contributed=0)
-                for p, stack in zip(players, event.stacks)
-            )
+            stacks = list(event.stacks)
+            street_bets = [0] * len(stacks)
+            contributed = [0] * len(stacks)
             if event.showdown:
                 street = Street.SHOWDOWN
             actor, legal, finished = None, LegalActions(), True
         else:
             raise TypeError(f"Unexpected event: {type(event).__name__}")
+    players = tuple(
+        Player(
+            i,
+            identity,
+            start.stacks[i],
+            stacks[i],
+            street_bets[i],
+            contributed[i],
+            folded[i],
+            shown_cards[i],
+            mucked[i],
+        )
+        for i, identity in enumerate(start.player_ids)
+    )
     return Observation(
         start.hand_id,
         identity,

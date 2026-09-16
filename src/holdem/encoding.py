@@ -1,6 +1,7 @@
 """Versioned current-hand features; exact public records remain alongside them."""
 
 from dataclasses import dataclass, field
+from functools import lru_cache
 from itertools import permutations
 
 from src.game.observation import (
@@ -87,6 +88,7 @@ def _legal(kinds) -> tuple[int, ...]:
     return tuple(int(kind in kinds) for kind in ACTIONS)
 
 
+@lru_cache(maxsize=4096)
 def _canonical_cards(
     groups: tuple[tuple[str, ...], ...],
 ) -> tuple[tuple[int, ...], ...]:
@@ -112,6 +114,50 @@ def _canonical_cards(
         for mapping in permutations(range(4))
     )
     return tuple(tuple(int(card in group) for card in range(52)) for group in canonical)
+
+
+# Sibling branches share immutable event prefixes. Bound retention across hands.
+@lru_cache(maxsize=16_384)
+def _event_features(event, who, street, pot_before, bb, revealed):
+    kinds = ()
+    paid = target = call = minimum = maximum = small_blind = 0
+    if isinstance(event, HandStarted):
+        small_blind = event.small_blind
+    elif isinstance(event, BlindPosted):
+        paid = event.amount
+    elif isinstance(event, Decision):
+        kinds = event.legal_actions.kinds
+        call = event.legal_actions.call_amount
+        minimum = event.legal_actions.min_raise_to or 0
+        maximum = event.legal_actions.max_raise_to or 0
+    elif isinstance(event, ActionTaken):
+        if event.street != street:
+            raise ValueError("Action street disagrees with the revealed board")
+        paid, target = event.paid, event.action.raise_to or 0
+        kinds = (event.action.kind,)
+    scale = max(pot_before, bb)
+    amounts = (
+        pot_before / bb,
+        paid / bb,
+        paid / scale,
+        target / bb,
+        target / scale,
+        call / bb,
+        minimum / bb,
+        maximum / bb,
+        call / scale,
+        minimum / scale,
+        maximum / scale,
+        small_blind / bb,
+    )
+    return (
+        _one_hot(type(event), EVENTS)
+        + who
+        + _one_hot(street, STREETS)
+        + _legal(kinds)
+        + amounts
+        + revealed
+    )
 
 
 def encode_decision(observation: Observation) -> DecisionInput:
@@ -244,53 +290,19 @@ def encode_decision(observation: Observation) -> DecisionInput:
             raise ValueError(
                 "A live decision cannot include settlement or showdown events"
             )
-        who, kinds, revealed = (0,) * SEATS, (), (0,) * 52
-        paid = target = call = minimum = maximum = small_blind = 0
+        who, revealed = (0,) * SEATS, (0,) * 52
         if isinstance(event, HandStarted):
-            who, small_blind = actor(event.button), event.small_blind
-        elif isinstance(event, BlindPosted):
-            who, paid = actor(event.seat), event.amount
-        elif isinstance(event, Decision):
-            who, kinds = actor(event.seat), event.legal_actions.kinds
-            call = event.legal_actions.call_amount
-            minimum = event.legal_actions.min_raise_to or 0
-            maximum = event.legal_actions.max_raise_to or 0
-        elif isinstance(event, ActionTaken):
-            if event.street != street:
-                raise ValueError("Action street disagrees with the revealed board")
-            who, paid, target = (
-                actor(event.seat),
-                event.paid,
-                event.action.raise_to or 0,
-            )
-            kinds = (event.action.kind,)
+            who = actor(event.button)
+        elif isinstance(event, (BlindPosted, Decision, ActionTaken)):
+            who = actor(event.seat)
         elif isinstance(event, BoardDealt):
             street = event.street
             revealed = cards[STREETS.index(street)]
-        scale = max(pot_before, bb)
-        amounts = (
-            pot_before / bb,
-            paid / bb,
-            paid / scale,
-            target / bb,
-            target / scale,
-            call / bb,
-            minimum / bb,
-            maximum / bb,
-            call / scale,
-            minimum / scale,
-            maximum / scale,
-            small_blind / bb,
-        )
-        history.append(
-            _one_hot(type(event), EVENTS)
-            + who
-            + _one_hot(street, STREETS)
-            + _legal(kinds)
-            + amounts
-            + revealed
-        )
-        pot_before += paid
+        history.append(_event_features(event, who, street, pot_before, bb, revealed))
+        if isinstance(event, BlindPosted):
+            pot_before += event.amount
+        elif isinstance(event, ActionTaken):
+            pot_before += event.paid
     return DecisionInput(
         view, context, cards, tuple(seats), tuple(pots), tuple(history)
     )
