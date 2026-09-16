@@ -34,3 +34,18 @@ The primary screen is full-game postflop variance × seconds, including training
 Passing supports proposing an online integration comparison, not production promotion. Failing closes this prototype without another fitting sweep: use the retained error and cost evidence to choose controlled additional branching or a focused representation probe. No claim about poker strength, Nash convergence, full-game variance reduction, or coverage improvement follows from a successful restricted reference alone.
 
 Stop on non-finite values, illegal actions, broken accounting, changed frozen policies/baselines, recovery mismatch, resource exhaustion or leaked player information. Retain raw JSONL, checkpoints with hashes, configuration, source/environment provenance and a complete or explicitly failed report under an ignored results directory; commit compact reports.
+
+## Running and auditing
+
+From the repository root, with the retained hash-pinned training checkpoint and its original manifest available:
+
+```bash
+python -m scripts.check_persistent_critic --out results/persistent-critic
+python -m scripts.check_persistent_critic --verify results/persistent-critic
+```
+
+The output directory must not exist. `fit-phases.jsonl` preserves each completed phase even if a later phase fails. `samples.jsonl` contains all replicate-level estimates and execution hashes; `coverage.jsonl` contains the separate collection/arena visitation records. Phase checkpoints retain the complete critic recovery state. The verifier checks artifact hashes, recomputes sampling moments and the cost screen, and reloads every checkpoint. The experiment additionally verifies one further Adam update from each original and recovered phase state; tests cover fresh-process continuation.
+
+The full-stack probe roots are first-to-act postflop positions after a six-way limped/check-through prefix, with a 6 BB pot. Their buttons rotate over the four evaluation roots. This is a deliberately narrow starting distribution; it does not cover all natural raise histories or facing-bet roots. The separate coverage measurement rotates physical seats while keeping the hero on the button in both distributions. It is a button-position comparison, not a balanced sample of all relative positions.
+
+Wall times include the implementation's frozen-state integrity checks and use a fixed baseline evaluation order. The historical-head wrapper checks its policy and value source separately even when both refer to the same profile. These overheads, local contention and cache order limit fine-grained cost conclusions; retain variance × nodes alongside timings. No claim of a production throughput advantage should be based on this screen alone.

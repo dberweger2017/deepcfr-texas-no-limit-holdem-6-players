@@ -287,6 +287,12 @@ def test_study_runs_all_arms_and_retains_failure(monkeypatch, tmp_path):
     assert all(p["recovery_verified"] for f in report["fits"] for p in f["phases"])
     assert len(report["artifacts"]) == 11
     assert report["coverage"]["hands_per_distribution"] == 2
+    verification = study.verify(tmp_path / "success")
+    assert verification["verified"] and verification["checkpoints"] == 8
+    raw = tmp_path / "success/samples.jsonl"
+    raw.write_text(raw.read_text() + "\n")
+    with pytest.raises(ValueError, match="Artifact hash"):
+        study.verify(tmp_path / "success")
     with pytest.raises(CollectionLimitExceeded):
         study.run({**plan, "max_seconds": 0}, tmp_path / "failed")
     failure = json.loads((tmp_path / "failed/report.json").read_text())

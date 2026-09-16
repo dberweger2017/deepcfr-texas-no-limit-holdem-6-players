@@ -2,7 +2,7 @@
 
 import argparse
 import json
-from collections import Counter
+from collections import Counter, defaultdict
 from copy import deepcopy
 from dataclasses import asdict
 from hashlib import sha256
@@ -599,14 +599,92 @@ def run(plan, out):
     return report
 
 
+def verify(out):
+    report = json.loads((out / "report.json").read_text())
+    if report["status"] != "completed":
+        raise ValueError("Only a completed study can pass verification")
+    if digest(report["plan"]) != report["plan_sha256"]:
+        raise ValueError("Study plan hash mismatch")
+    for name, expected in report["artifacts"].items():
+        if sha256((out / name).read_bytes()).hexdigest() != expected:
+            raise ValueError(f"Artifact hash mismatch: {name}")
+    grouped, paired = defaultdict(list), defaultdict(list)
+    for line in (out / "samples.jsonl").read_text().splitlines():
+        row = json.loads(line)
+        grouped[row["suite"], row["context"], row["seed"], row["arm"]].append(row)
+        paired[row["suite"], row["context"], row["seed"], row["replicate"]].append(row)
+    if len(grouped) != report["expected_sampling_cells"] or len(
+        report["sampling"]
+    ) != len(grouped):
+        raise ValueError("Incomplete sampling cells")
+    for rows in paired.values():
+        arms = {r["arm"] for r in rows}
+        expected = {"zero", "accounting", "historical", "learned"}
+        if rows[0]["suite"] == "river-reference":
+            expected.add("oracle")
+        if (
+            arms != expected
+            or len(rows) != len(expected)
+            or len(
+                {
+                    (r["path_sha256"], r["nodes"], r["world"], r["action_seed"])
+                    for r in rows
+                }
+            )
+            != 1
+        ):
+            raise ValueError("Paired traversal mismatch")
+    for cell in report["sampling"]:
+        rows = grouped[cell["suite"], cell["context"], cell["seed"], cell["arm"]]
+        if len(rows) != report["plan"]["replicates"] or len(
+            {r["replicate"] for r in rows}
+        ) != len(rows):
+            raise ValueError("Incomplete or duplicate replicates")
+        for key, value in moments(rows).items():
+            if not np.allclose(value, cell[key], rtol=1e-12, atol=1e-12):
+                raise ValueError(f"Sampling summary mismatch: {key}")
+    if len(report["fits"]) != report["expected_fits"]:
+        raise ValueError("Incomplete critic fits")
+    for fit in report["fits"]:
+        if len(fit["phases"]) != 2:
+            raise ValueError("Incomplete fitting phases")
+        for phase in fit["phases"]:
+            critic = PersistentCritic.load(
+                out / phase["checkpoint"], phase["checkpoint_sha256"]
+            )
+            if (
+                model_digest(critic.model) != phase["model_sha256"]
+                or critic.steps != phase["steps_total"]
+                or not phase["recovery_verified"]
+            ):
+                raise ValueError("Checkpoint disagrees with phase report")
+    if (
+        cost_screen(report["plan"], report["fits"], report["sampling"])
+        != report["screen"]
+    ):
+        raise ValueError("Cost screen does not reproduce")
+    return {
+        "verified": True,
+        "sampling_cells": len(grouped),
+        "paired_replicates": len(paired),
+        "checkpoints": len(report["fits"]) * 2,
+        "screen_pass": report["screen"]["pass"],
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--plan", type=Path, default=Path("configs/holdem/persistent-critic.json")
     )
-    parser.add_argument("--out", type=Path, required=True)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--out", type=Path)
+    mode.add_argument("--verify", type=Path)
     args = parser.parse_args()
-    run(json.loads(args.plan.read_text()), args.out)
+    if args.verify:
+        print(json.dumps(verify(args.verify), indent=2))
+    else:
+        run(json.loads(args.plan.read_text()), args.out)
 
 
 if __name__ == "__main__":
