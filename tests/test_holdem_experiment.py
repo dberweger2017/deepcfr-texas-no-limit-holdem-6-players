@@ -111,6 +111,10 @@ def test_failed_iteration_can_resume_from_last_committed_boundary(
     monkeypatch.setattr(HoldemTrainer, "step", fail)
     with pytest.raises(RuntimeError, match="interrupted"):
         run(plan(), tmp_path / "interrupted")
+    failure = json.loads((tmp_path / "interrupted" / "failure.json").read_text())
+    assert failure["error_type"] == "RuntimeError"
+    assert failure["unfinished_jobs"] == ["scenario-0-seed-7"]
+    assert failure["completed_jobs"] == []
     monkeypatch.setattr(HoldemTrainer, "step", original)
     resumed = run(plan(), tmp_path / "resumed", resume=tmp_path / "interrupted")
     full = run(plan(), tmp_path / "full")

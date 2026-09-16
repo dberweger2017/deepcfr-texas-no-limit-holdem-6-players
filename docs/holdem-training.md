@@ -4,8 +4,9 @@
 roles → publish models** iteration. It uses the existing
 [external-sampling collector](holdem-collection.md), [betting targets](holdem-betting.md)
 and [decision inputs](holdem-encoding.md). This is a tested training loop, not a
-validated competitive agent. Snapshot-average play, persistence, fresh small-game
-readiness and substantial training remain ahead.
+validated competitive agent. [PR #61](holdem-baseline.md) adds averaged play,
+persistence and the arena runner. Fresh small-game readiness and substantial
+training remain ahead.
 
 ## Replay ownership and admission
 
@@ -82,7 +83,8 @@ noisy fit is not silently retried or extended because its diagnostic worsened.
 `HoldemTrainer` starts every physical role with an explicit uniform policy and an
 empty reservoir. A step proceeds as follows:
 
-1. Freeze the current profile and collect all scheduled traversals. No fitting
+1. Rotate the button for this iteration (unless explicitly disabled), freeze the
+   current profile and collect all scheduled traversals. No fitting
    happens during collection.
 2. Validate the completed batch against the trainer's table, seed, iteration,
    traversal count and frozen profile, then separate its targets by physical role.
@@ -90,7 +92,8 @@ empty reservoir. A step proceeds as follows:
 4. Fit each active role with a nonempty staged memory. Other roles retain their
    prior model; a role that has never received a target remains uniform.
 5. Check the original frozen profile, the newly fitted models and the deadline,
-   then publish the models, memories, iteration counter and report in one state
+   then publish the models, memories, collection-profile archive, iteration counter
+   and report in one state
    replacement.
 
 A role can legitimately finish a traversal without acting. No extra deals are
@@ -126,10 +129,9 @@ report = trainer.step()
 current_policy = trainer.current_profile()
 ```
 
-`current_profile()` returns an isolated current regret-matched policy, **not the
-average playing strategy**. This API has no save/load or resume operation. The
-in-memory transaction is not a crash-safe checkpoint. Snapshot retention and
-complete recovery must precede any substantial run or model promotion.
+`current_profile()` returns an isolated current regret-matched policy.
+`average_policy()` returns the collection-aligned playing mixture. Complete
+checkpoint/resume and inference export are documented in the [baseline contract](holdem-baseline.md).
 
 ## Validation
 
@@ -160,10 +162,10 @@ readiness and competitive evaluation have not been established by these tests.
 **Validation:** all 42 focused tests and all 475 repository tests pass locally.
 Ruff and `git diff --check` pass. No paid compute or training campaign was used.
 
-## Next task
+## Following work
 
-Retain the policies actually used for collection and integrate snapshot-average
-play for the no-limit learner, with correct own-reach weighting and fixed-per-hand
-snapshot sampling. Then checkpoint the complete training and average state and
-verify interrupted/uninterrupted equivalence. Integrate the small-game snapshot
-path and freeze fresh readiness checks before substantial self-play training.
+Averaged play, recovery and the first arena report are delivered in
+[PR #61](holdem-baseline.md). Complete small-game snapshot recovery and fresh
+readiness checks before substantial Hold’em training. The historical validation
+counts above describe PR #60; current baseline evidence is in the
+[first report](reports/holdem-baseline.md).

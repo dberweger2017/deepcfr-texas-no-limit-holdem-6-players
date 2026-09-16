@@ -84,7 +84,8 @@ python -m scripts.train_holdem --resume results/holdem-paused --out results/hold
 ```
 
 Use a fresh output directory. After a failure, resume the failed directory in the
-same way. Completed job checkpoints are reused; evaluation is regenerated where
+same way. `failure.json` records the exception, elapsed time and completed,
+unfinished and unattempted jobs; it is diagnostic metadata, never recovery state. Completed job checkpoints are reused; evaluation is regenerated where
 needed. Historical intermediate evaluation files remain in the original run;
 recovery's result summarizes the final boundary. The final result, weights,
 replay, archive and hand outcomes must match uninterrupted execution. Timing is
@@ -121,3 +122,7 @@ short-run comparison only. Two iterations cannot establish convergence or useful
 capacity. The small-game readiness gate remains failed until a fresh declared
 confirmation passes; substantial Hold'em training and professional-strength
 claims remain gated.
+
+The [first recorded run](reports/holdem-baseline.md) is incomplete: ten jobs
+completed, one hit its collection limit twice and one was not attempted. All
+completed results are inconclusive; the bounded check did not pass in full.

@@ -222,7 +222,7 @@ def _restore(directory, provenance):
     return trainer
 
 
-def run(
+def _run(
     plan: Experiment,
     out: Path,
     *,
@@ -321,3 +321,45 @@ def run(
     write_json(out / "result.json", result)
     write_json(out / "runtime.json", {"seconds": perf_counter() - started})
     return result
+
+
+def run(
+    plan: Experiment,
+    out: Path,
+    *,
+    resume: Path | None = None,
+    reproduce: Path | None = None,
+    stop_after: int | None = None,
+):
+    """Keep a machine-readable failure beside any committed recovery artifacts."""
+    existed = out.exists()
+    started = perf_counter()
+    try:
+        return _run(
+            plan, out, resume=resume, reproduce=reproduce, stop_after=stop_after
+        )
+    except Exception as error:
+        if not existed and out.is_dir():
+            completed = sorted(out.glob("*/result.json"))
+            directories = [
+                out / f"scenario-{index}-seed-{seed}"
+                for index, _ in enumerate(plan.scenarios)
+                for seed in plan.seeds
+            ]
+            unfinished = [
+                d
+                for d in directories
+                if d.is_dir() and not (d / "result.json").exists()
+            ]
+            record = {
+                "status": "failed",
+                "error_type": type(error).__name__,
+                "error": str(error),
+                "elapsed_seconds": perf_counter() - started,
+                "completed_jobs": [p.parent.name for p in completed],
+                "unfinished_jobs": [d.name for d in unfinished],
+                "unattempted_jobs": [d.name for d in directories if not d.exists()],
+                "promoted": False,
+            }
+            atomic_write(out / "failure.json", canonical(record).encode())
+        raise

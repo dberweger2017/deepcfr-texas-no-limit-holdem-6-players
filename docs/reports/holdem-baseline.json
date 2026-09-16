@@ -1,0 +1,772 @@
+{
+  "interpretation": "Implementation evidence only. No convergence, readiness or strength pass.",
+  "jobs": [
+    {
+      "archive": [
+        "811ec95fbbbd3c8d1d9fee3787c6fad27846d55400a9253da3a9807d495abdca",
+        "44a4633a58b100ad8471bf60a9c2ed16cf97749bd4c7756a508f844c06947018"
+      ],
+      "checkpoint": "a0b0fc7c2fbb9ad3ee48284477f9a056dab7857d5a7c6dbcceeea54f252082a9",
+      "comparison": {
+        "baseline": {
+          "bb_per_100": -1458.75,
+          "blocks": 30,
+          "ci95": [
+            -2340.2205608087124,
+            -577.2794391912876
+          ],
+          "reason": null
+        },
+        "candidate": {
+          "bb_per_100": -1701.6666666666667,
+          "blocks": 30,
+          "ci95": [
+            -2583.0311845246765,
+            -820.3021488086571
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive",
+        "paired_difference": {
+          "bb_per_100": -242.91666666666666,
+          "blocks": 30,
+          "ci95": [
+            -944.5994736064986,
+            458.7661402731653
+          ],
+          "reason": null
+        }
+      },
+      "hands": 240,
+      "invalid_actions": 0,
+      "nodes": [
+        1457,
+        71
+      ],
+      "outcomes_sha256": "5e18998c63fdd578e22f214c5a35ef44709062f1a87e2a85325d5c932d119396",
+      "policy_sha256": "ad1f7e363d661852f76ebe51b061d9a83f0fed914a5c076c5fba10f67281f206",
+      "profile": "ca99e008338d319adf1e5c525954b7762b8748811aab04cc9ad18c3f6ed74378",
+      "replay": [
+        "fd5652c729be5db873d70d8369a4f41eeeae2841377f39df501e55752f42b3eb",
+        "49dcf9c402b03e61bbe1a5ec6841340570458c40862d7786bbe92e48e22a4ad6",
+        "317a6115c070c34173fd1b11fc79ffc0462eeba6c04d68fe6a517ab109668df6",
+        "4e24058b7db84318d3459a2b741f7905db59ba9e49faceb6abfab8385ee205cc"
+      ],
+      "scenario": "four-100bb",
+      "seed": 101,
+      "status": "completed"
+    },
+    {
+      "archive": [
+        "811ec95fbbbd3c8d1d9fee3787c6fad27846d55400a9253da3a9807d495abdca",
+        "33d73724af4949f76cb5447c8761e7cb4bb10bf10d93664628189b5fefd9af54"
+      ],
+      "checkpoint": "137b493e469433be76037ad8471750d8e1532d56fb1628d19dce0f362ee22253",
+      "comparison": {
+        "baseline": {
+          "bb_per_100": -1458.75,
+          "blocks": 30,
+          "ci95": [
+            -2340.2205608087124,
+            -577.2794391912876
+          ],
+          "reason": null
+        },
+        "candidate": {
+          "bb_per_100": -1122.5,
+          "blocks": 30,
+          "ci95": [
+            -2016.4558884119679,
+            -228.54411158803202
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive",
+        "paired_difference": {
+          "bb_per_100": 336.25,
+          "blocks": 30,
+          "ci95": [
+            -270.1440450855281,
+            942.6440450855281
+          ],
+          "reason": null
+        }
+      },
+      "hands": 240,
+      "invalid_actions": 0,
+      "nodes": [
+        5597,
+        3608
+      ],
+      "outcomes_sha256": "948d8e84ac688aeee9099895fad8ebd4492711b7ec883d72772a13964674d8e4",
+      "policy_sha256": "70e01d946b4654887d070a0c7ee4e6cf7a8b1e8b733d6026c71b655071094995",
+      "profile": "4191594ab2f832748bb91809f9a68b18d6412391f8859f15276d66922b07c7c6",
+      "replay": [
+        "e774ec1d01457c4b90fc281d35395b6d4d11c6b4c14a83404159d826117b2395",
+        "4e36b77276ce9a16e62f4dc048a3c0d28c8422f0c41f2c21ad7f67c8a6171550",
+        "9388910d24079604094d2935fb90b974f4d71baa5e08926eaa7f37cad3286773",
+        "d072afc2db9ffa83fd5e777640de74ffa261d484505abe30c36f93a4bb01ef91"
+      ],
+      "scenario": "four-100bb",
+      "seed": 103,
+      "status": "completed"
+    },
+    {
+      "archive": [
+        "811ec95fbbbd3c8d1d9fee3787c6fad27846d55400a9253da3a9807d495abdca",
+        "337b3bf2f051784a2d48d3d37853b095ca0f6e924de256ed3a1a785748395d57"
+      ],
+      "checkpoint": "d8073e75c017f005a91ffac57a22ffeb6e922891212090222da830e4d3397a3b",
+      "comparison": {
+        "baseline": {
+          "bb_per_100": -1458.75,
+          "blocks": 30,
+          "ci95": [
+            -2340.2205608087124,
+            -577.2794391912876
+          ],
+          "reason": null
+        },
+        "candidate": {
+          "bb_per_100": -1555.0,
+          "blocks": 30,
+          "ci95": [
+            -2574.9885003096715,
+            -535.0114996903284
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive",
+        "paired_difference": {
+          "bb_per_100": -96.25,
+          "blocks": 30,
+          "ci95": [
+            -751.900773015696,
+            559.400773015696
+          ],
+          "reason": null
+        }
+      },
+      "hands": 240,
+      "invalid_actions": 0,
+      "nodes": [
+        1754,
+        267
+      ],
+      "outcomes_sha256": "de9f248970de7b12a0631bb976a26d02cf5053ee62bb7be1b47cf20fd44fe1da",
+      "policy_sha256": "5001fa088178e413dd677c90e15f26e71ff086f37c55929d15e1006a454327e3",
+      "profile": "256cd22175d9cdfc280ffd72ca7e7506564cf397822965c65379b8bf04f3d442",
+      "replay": [
+        "77fcab4b5cb04848a91c9648eec24900eebcbc10a1da2c38857d045d250dc476",
+        "d6b82c28a8724641dd6a6b7bc9871f19b1acbeff71d0458bd2ef74041fdf1254",
+        "5c379e53dda10ad4efe12fd92d6ac0cbf66297208bd4f40911f28658acd68d7a",
+        "a3095c55ef53a68ec335e3ad22fb798df3b206b39ce6e2aaf8bf69dbd8e2677b"
+      ],
+      "scenario": "four-100bb",
+      "seed": 107,
+      "status": "completed"
+    },
+    {
+      "archive": [
+        "1921319bd554f5e442a9d29b2fef85b2ed9a80f1d7d1f2e826dd4d0322e42230",
+        "67a0ede62a429799ef8f195e465fda0c71d47fd6a308ae950110a06e75ad5267"
+      ],
+      "checkpoint": "8bcd957fa86c5d156ba190ed0ee5f98ec47175c9de6e7b13d176d8e08d479fc3",
+      "comparison": {
+        "baseline": {
+          "bb_per_100": -1250.3333333333333,
+          "blocks": 30,
+          "ci95": [
+            -2354.95038946636,
+            -145.71627720030665
+          ],
+          "reason": null
+        },
+        "candidate": {
+          "bb_per_100": -1000.3333333333334,
+          "blocks": 30,
+          "ci95": [
+            -2376.70558095468,
+            376.0389142880134
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive",
+        "paired_difference": {
+          "bb_per_100": 250.0,
+          "blocks": 30,
+          "ci95": [
+            -569.7434170659218,
+            1069.7434170659217
+          ],
+          "reason": null
+        }
+      },
+      "hands": 300,
+      "invalid_actions": 0,
+      "nodes": [
+        993,
+        137
+      ],
+      "outcomes_sha256": "0c1fd8d14eac21df6c5c1e3a91755130ebc0afb5f06858ede924026b051b1f2a",
+      "policy_sha256": "44d08733832f670497c07fd0f1de4723a4fe0d4c0b0facd9eae9ed4e212f2eb0",
+      "profile": "680416ad6dedc6321392ae91902215607c5d456b2a32a00788e5bbbddb5bf563",
+      "replay": [
+        "101860d9a342152254b65501b76626193b8b9db1df3c5b3707bc8abbc440b9fd",
+        "faf97ef8271c3344e5afd1294184a96f7d903a3c19b739f7a81004eb837ca0be",
+        "e82c254cef527621c93c8386369fc942a9edf81142b6ba4129da093894e91cec",
+        "b778337bc811fc0cae5b174cd8082c744b41295f984a673050f8754126dd9a94",
+        "6ac580b23d529420241a35de90c52ffc063c512d4d1586ddc9dab2d1ed141b6f"
+      ],
+      "scenario": "five-100bb",
+      "seed": 101,
+      "status": "completed"
+    },
+    {
+      "archive": [
+        "1921319bd554f5e442a9d29b2fef85b2ed9a80f1d7d1f2e826dd4d0322e42230",
+        "946dd9c0d5b132ee51996bd961f0c657e14c0b1fad70992cf597f26fd41df36e"
+      ],
+      "checkpoint": "d4b6798abdb75c476a43197856e8c04142fc7f6bf5c31b14a8e305435faa0bd2",
+      "comparison": {
+        "baseline": {
+          "bb_per_100": -1250.3333333333333,
+          "blocks": 30,
+          "ci95": [
+            -2354.95038946636,
+            -145.71627720030665
+          ],
+          "reason": null
+        },
+        "candidate": {
+          "bb_per_100": -1299.0,
+          "blocks": 30,
+          "ci95": [
+            -2257.4394708405684,
+            -340.56052915943167
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive",
+        "paired_difference": {
+          "bb_per_100": -48.666666666666664,
+          "blocks": 30,
+          "ci95": [
+            -656.257034350911,
+            558.9237010175777
+          ],
+          "reason": null
+        }
+      },
+      "hands": 300,
+      "invalid_actions": 0,
+      "nodes": [
+        791,
+        96
+      ],
+      "outcomes_sha256": "dd732724464c71818fb614b8be600466a94ee6d1b27f83133c8eb0f345915f86",
+      "policy_sha256": "ff26526ba795f5e7bfb0ddbf39e41ac67b247ef6d4ca1ee6665cf70dd410a5c4",
+      "profile": "adb638f870e7c78847a96ab2ce6785d8516be55bb060a048dc7f53dc14a5d5d5",
+      "replay": [
+        "1e2bc5bb34d38bfa5adae620b40f82f81b41abac7178bde909da59bd774763c5",
+        "bff77c56a89e30a8e8db45974a1f9efbcd31be05db1996716489c600c380c645",
+        "3174afc300754f83554f49d70e04d02bb88b89fbb069963c28554a751d312221",
+        "762b1db9925913282a49d3495be3c5a3528c20441dddb6a5ceb462bb5b49df21",
+        "adc3440ad3f1d9296e8a5ff18a331199c334d4c7ebf581a231058c278a0be2bd"
+      ],
+      "scenario": "five-100bb",
+      "seed": 103,
+      "status": "completed"
+    },
+    {
+      "archive": [
+        "1921319bd554f5e442a9d29b2fef85b2ed9a80f1d7d1f2e826dd4d0322e42230",
+        "8075781c0a243af1bac71006ebeff40a88f71cc70eb8629322f37f92aa209d6e"
+      ],
+      "checkpoint": "dfbebf14277cb4f6111b02c70bf0c203d3488c486f66bad397da480bf9fd7e46",
+      "comparison": {
+        "baseline": {
+          "bb_per_100": -1250.3333333333333,
+          "blocks": 30,
+          "ci95": [
+            -2354.95038946636,
+            -145.71627720030665
+          ],
+          "reason": null
+        },
+        "candidate": {
+          "bb_per_100": -1282.3333333333333,
+          "blocks": 30,
+          "ci95": [
+            -2390.81582547814,
+            -173.85084118852615
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive",
+        "paired_difference": {
+          "bb_per_100": -32.0,
+          "blocks": 30,
+          "ci95": [
+            -678.4106932011395,
+            614.4106932011395
+          ],
+          "reason": null
+        }
+      },
+      "hands": 300,
+      "invalid_actions": 0,
+      "nodes": [
+        436,
+        1534
+      ],
+      "outcomes_sha256": "20f1a9d64a665203dfb135246cb2d5fe875590582454df679273f78e23c2318f",
+      "policy_sha256": "22ec64ae5b4c9d8aa232824620fe87e871c0dec4d239c6fd361e324593cddd8b",
+      "profile": "16dc7fe9220ff33fe8c73a106c5700d766eb3287db82ba5118ec326bf21b4adc",
+      "replay": [
+        "8d90d5bcaf618d83e02d9ba42c1faec306f39dc35edd6e344c4e570a9e38f7ff",
+        "fb1f37c258abab14e5dbc3991a9e29d3545e7ae7312349283409d7f7be6e054d",
+        "d567bd4d3731239dfc516b6c53819d41f32731faa9434d4c93d1a723b4115de6",
+        "4a24a0498d75679d3164d3101c35948310eab423bb3fad1cccc4de726ad86ce0",
+        "c2f476e4c631879e3afa574cc4fb76aa319869234a9d7a16d8f2b0fc68a7822d"
+      ],
+      "scenario": "five-100bb",
+      "seed": 107,
+      "status": "completed"
+    },
+    {
+      "archive": [
+        "b6c0f1f03fa2396a66c63286168e7698effa01c19002c0195fef7cc539002882",
+        "1860627346315595bc0ee86e4d14b6c29935854241ca408b46ca529bfcf6e5e5"
+      ],
+      "checkpoint": "e3c12560ffa98163108bbd16c8f58fefc3e3cef76ec5290db9925b20986d315b",
+      "comparison": {
+        "baseline": {
+          "bb_per_100": -1266.6666666666667,
+          "blocks": 30,
+          "ci95": [
+            -2233.523974115644,
+            -299.80935921768946
+          ],
+          "reason": null
+        },
+        "candidate": {
+          "bb_per_100": -1331.9444444444446,
+          "blocks": 30,
+          "ci95": [
+            -2291.555755150884,
+            -372.33313373800513
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive",
+        "paired_difference": {
+          "bb_per_100": -65.27777777777779,
+          "blocks": 30,
+          "ci95": [
+            -663.0014205211997,
+            532.4458649656441
+          ],
+          "reason": null
+        }
+      },
+      "hands": 360,
+      "invalid_actions": 0,
+      "nodes": [
+        548,
+        243
+      ],
+      "outcomes_sha256": "165215a52183f5d46788b4f83f7287b7299f54bce51f2f379d31c23cf8793b4b",
+      "policy_sha256": "69a43a0511b24b5a55e8ab65687b84b24c4c7c53e3614ec3bba95c17042d473b",
+      "profile": "91371b4d210eb9cdcff39663b91fc6d5cf8ac872e513bed207845abc46793e8b",
+      "replay": [
+        "c9fd3e0f20f685f583d3ce593bfcb96960434a62693a93e357de2834b4bb1ef5",
+        "66226be0994e9bbe417c29849f79f6d6d9f9c50273f432a4c40d2169a81cb3b0",
+        "5e273673729dd8ffd8b59dfa5ad53278b1ddd4f04887d22cba7df9e581934a40",
+        "1696753d8e46abac0f71b621052a98f327b1e6dd86f6aadd24a88ca3f26808e3",
+        "6c6ad2683da94f1e68fa8a01da6079df37e29440c840aa8251f7bfdd6d96ac97",
+        "4f7865c9f53301926ff3373aee4df18d43d7e6fc9a330c085338f13ca2e1b63e"
+      ],
+      "scenario": "six-100bb",
+      "seed": 101,
+      "status": "completed"
+    },
+    {
+      "archive": [
+        "b6c0f1f03fa2396a66c63286168e7698effa01c19002c0195fef7cc539002882",
+        "d5dd0ac8a534d0cd57275f15e5c7fa6182ac7c7936c07e7d4599220cf609c804"
+      ],
+      "checkpoint": "c106c3a2098848d66b884021ce6224a7f7d7403a94a79a88c5fea693584e91e0",
+      "comparison": {
+        "baseline": {
+          "bb_per_100": -1266.6666666666667,
+          "blocks": 30,
+          "ci95": [
+            -2233.523974115644,
+            -299.80935921768946
+          ],
+          "reason": null
+        },
+        "candidate": {
+          "bb_per_100": -1310.2777777777778,
+          "blocks": 30,
+          "ci95": [
+            -2463.3140379645915,
+            -157.24151759096412
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive",
+        "paired_difference": {
+          "bb_per_100": -43.61111111111113,
+          "blocks": 30,
+          "ci95": [
+            -724.9254968960449,
+            637.7032746738228
+          ],
+          "reason": null
+        }
+      },
+      "hands": 360,
+      "invalid_actions": 0,
+      "nodes": [
+        899,
+        136
+      ],
+      "outcomes_sha256": "632c98a237bcf27c4234a17f8e75d30130beca0b683330a13c4c9d49331daeb5",
+      "policy_sha256": "7f450fc089f311d255a1397c03b73b0274f01b9fce484181d3cb3be4be718b23",
+      "profile": "ee3f90dc2a806e52a71ecb917712d4e5f82cacded4368045acc452a0b2a4b964",
+      "replay": [
+        "a295c54f951c2bc23c8d23e4d574373ef3b21879a270dbcaac15b8892be9b2cb",
+        "a0a50c15406a51c3bdc0969252727375db7b767961105e50a22342f41ae5e585",
+        "3ee5b8999bee7c8da0d3fd159a183e2532097c445e44775b8b20613730165c66",
+        "30bd11d2053a22f94013ab52af3d4d02f5391cadda1f9a1136f70b90d231cba5",
+        "5e7f3263dfc7424a6c0a29595314836b8e1811b8e783fcf274b5c7a63e133cdb",
+        "fdcc9fb521bc15c3b84deceb05797c7ceb00318a107651fc3ca499259c5803d6"
+      ],
+      "scenario": "six-100bb",
+      "seed": 103,
+      "status": "completed"
+    },
+    {
+      "archive": [
+        "b6c0f1f03fa2396a66c63286168e7698effa01c19002c0195fef7cc539002882",
+        "3e288615f9de06d4a4b6a2a4743f544bf6856b452af6c65c0119a21d608a9a8a"
+      ],
+      "checkpoint": "f5ece3f5fcee5a49e40ea421a67d6546c2339d73da238b6828b221ba9bac8f2c",
+      "comparison": {
+        "baseline": {
+          "bb_per_100": -1266.6666666666667,
+          "blocks": 30,
+          "ci95": [
+            -2233.523974115644,
+            -299.80935921768946
+          ],
+          "reason": null
+        },
+        "candidate": {
+          "bb_per_100": -893.3333333333334,
+          "blocks": 30,
+          "ci95": [
+            -1945.708179639581,
+            159.04151297291435
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive",
+        "paired_difference": {
+          "bb_per_100": 373.3333333333333,
+          "blocks": 30,
+          "ci95": [
+            -189.6562826127095,
+            936.3229492793762
+          ],
+          "reason": null
+        }
+      },
+      "hands": 360,
+      "invalid_actions": 0,
+      "nodes": [
+        510,
+        437
+      ],
+      "outcomes_sha256": "75b1df307674cb94960f51dee4c45eaeeadca58455ff3b571e4e1f75672b0ed0",
+      "policy_sha256": "c3f860b3ba6b0698f711ab59e8e5e632033bf2e23a39512c831a43c5c264f760",
+      "profile": "4b8f05930a235e1eccf5b64fede21d695e8caaef70e1030de2f2183a339bba05",
+      "replay": [
+        "92dc421f52ef26b5f79a04648f37f51c48438a7195a20bb9e90e16ab9bfdc616",
+        "ecc6418e87a911b0a2153c7ed78c3b0171e2171077a1bf42d07d357fad94018f",
+        "e25531774304f9ca7b6a9d5187c3885e661c3446302853891884ba4f92eb8092",
+        "b38aed15efd417485f722204a9f3eb435a629b779ae231d343078d5a04ce8b2f",
+        "8a70641e69f7cbf1ce4b63144de9b53c29bb6358c5566557654b6d63f2c1dcf3",
+        "9f6a15fb5d3954786603c863cdca52df727f924f7155e66c10089cbaee0b20d8"
+      ],
+      "scenario": "six-100bb",
+      "seed": 107,
+      "status": "completed"
+    },
+    {
+      "archive": [
+        "b6c0f1f03fa2396a66c63286168e7698effa01c19002c0195fef7cc539002882",
+        "3f2cd17ea40ff5606a7a72299f7c9fccc6175c03610af98c60833d35d741a470"
+      ],
+      "checkpoint": "13ba5201c1ed51954b536289655d8438ed890172c3b206aa38a6940e826374f7",
+      "comparison": {
+        "baseline": {
+          "bb_per_100": -902.5,
+          "blocks": 30,
+          "ci95": [
+            -1547.232636878689,
+            -257.7673631213112
+          ],
+          "reason": null
+        },
+        "candidate": {
+          "bb_per_100": -775.0,
+          "blocks": 30,
+          "ci95": [
+            -1477.9604477715798,
+            -72.03955222842012
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive",
+        "paired_difference": {
+          "bb_per_100": 127.5,
+          "blocks": 30,
+          "ci95": [
+            -306.9932800469398,
+            561.9932800469398
+          ],
+          "reason": null
+        }
+      },
+      "hands": 360,
+      "invalid_actions": 0,
+      "nodes": [
+        849,
+        853
+      ],
+      "outcomes_sha256": "a0d2a6dee1a43d4bfbabc853ce39fb2585f153130db038f4c938e521ec884a43",
+      "policy_sha256": "7a087bb868d27062f43c7c8b3d0a3ab314cd13b17ee2f0186e70fe44ebb6a5f7",
+      "profile": "15c1aa17947abceb43159a30ab7798bd8bd3c67090ea2be909fb2b05219a89be",
+      "replay": [
+        "eced442904e0441f5463c32eea6f517961873046689559759382becc5dcdad26",
+        "55335b734013d800fe421057c3f446cb5f189d9a2d04e37384296a892a84ccd0",
+        "77729b3b2e7f23bb175e578da7d7e0af0210a8715dbafdc5d857d895fab00e8a",
+        "09124e1c0ed0b0703fd9abbe41e6dae08413bad69d92d1dc3c447536b98b5920",
+        "098ccbb08a8dacff88fb558a6dcb2b61b229625218f9486695a77202bdaf66b1",
+        "463a8492fe0c86d62182bb739a3665f4af057554e18bbead63935274261213b5"
+      ],
+      "scenario": "six-unequal",
+      "seed": 101,
+      "status": "completed"
+    },
+    {
+      "attempted_iteration": 2,
+      "checkpoint": "acd341bb5cdfd9d3809e2f0948f51ee754ab56f3108f7c7a25f04836ce708cfc",
+      "error_type": "CollectionLimitExceeded",
+      "initial_nodes": 33691,
+      "iteration_committed": 1,
+      "retry_nodes": 39150,
+      "scenario": "six-unequal",
+      "seed": 103,
+      "status": "collection_limit",
+      "traverser": 4
+    },
+    {
+      "scenario": "six-unequal",
+      "seed": 107,
+      "status": "unattempted"
+    }
+  ],
+  "manifest": {
+    "contract": {
+      "actions": "holdem-bets-v1",
+      "average": "linear-own-reach-collection-profiles-v1",
+      "decision": "holdem-decision-v1",
+      "observation": 2,
+      "resume": "completed-iterations-fresh-adam-per-role-v1",
+      "rules": "nlhe-cash-auto-muck-v1"
+    },
+    "dirty": false,
+    "environment": {
+      "engine": {
+        "binaries": {
+          "pokers/pokers.cpython-311-darwin.so": "fa88771c851cdd36cd549f2d024571277e8277d2c48cb091e26baff7cd071d6e"
+        },
+        "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+      },
+      "implementation": "CPython",
+      "machine": "arm64",
+      "packages": {
+        "Jinja2": "3.1.6",
+        "Markdown": "3.10.2",
+        "MarkupSafe": "3.0.3",
+        "PyQt5": "5.15.11",
+        "PyQt5-Qt5": "5.15.19",
+        "PyQt5_sip": "12.18.0",
+        "Pygments": "2.20.0",
+        "Werkzeug": "3.1.8",
+        "absl-py": "2.4.0",
+        "argparse": "1.4.0",
+        "certifi": "2026.5.20",
+        "charset-normalizer": "3.4.7",
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "filelock": "3.29.1",
+        "fonttools": "4.63.0",
+        "fsspec": "2026.4.0",
+        "grpcio": "1.81.0",
+        "idna": "3.18",
+        "iniconfig": "2.3.0",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.9.0",
+        "maturin": "1.15.0",
+        "mpmath": "1.3.0",
+        "networkx": "3.6.1",
+        "numpy": "1.26.4",
+        "packaging": "26.2",
+        "pandas": "2.2.2",
+        "pillow": "12.2.0",
+        "pip": "26.1",
+        "pluggy": "1.6.0",
+        "pokerkit": "0.7.5",
+        "pokers": "0.2.0",
+        "protobuf": "7.35.0",
+        "pyparsing": "3.3.2",
+        "pytest": "9.0.3",
+        "python-dateutil": "2.9.0.post0",
+        "python-dotenv": "1.0.1",
+        "pytz": "2026.2",
+        "requests": "2.32.3",
+        "ruff": "0.16.7",
+        "scipy": "1.17.1",
+        "seaborn": "0.13.2",
+        "setuptools": "80.10.2",
+        "six": "1.17.0",
+        "sympy": "1.13.1",
+        "tensorboard": "2.18.0",
+        "tensorboard-data-server": "0.7.2",
+        "torch": "2.5.1",
+        "tqdm": "4.67.0",
+        "typing_extensions": "4.15.0",
+        "tzdata": "2026.2",
+        "urllib3": "2.7.0"
+      },
+      "platform": "macOS-27.0-arm64-arm-64bit",
+      "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]"
+    },
+    "format": "holdem-baseline-experiment-v1",
+    "observation_schema": 2,
+    "plan": {
+      "blocks": 30,
+      "evaluate_every": 2,
+      "evaluation_seed": 91826,
+      "iterations": 2,
+      "max_seconds": 900,
+      "opponents": [
+        "tight_passive",
+        "loose_passive",
+        "tight_aggressive",
+        "loose_aggressive",
+        "pot_pressure"
+      ],
+      "save_every": 1,
+      "scenarios": [
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "four-100bb",
+          "small_blind": 1,
+          "stacks": [
+            200,
+            200,
+            200,
+            200
+          ]
+        },
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "five-100bb",
+          "small_blind": 1,
+          "stacks": [
+            200,
+            200,
+            200,
+            200,
+            200
+          ]
+        },
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "six-100bb",
+          "small_blind": 1,
+          "stacks": [
+            200,
+            200,
+            200,
+            200,
+            200,
+            200
+          ]
+        },
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "six-unequal",
+          "small_blind": 1,
+          "stacks": [
+            40,
+            80,
+            120,
+            200,
+            300,
+            400
+          ]
+        }
+      ],
+      "seeds": [
+        101,
+        103,
+        107
+      ],
+      "training": {
+        "capacity": 128,
+        "fit": {
+          "batch_size": 8,
+          "diagnostic_samples": 16,
+          "learning_rate": 0.001,
+          "steps": 8,
+          "width": 16
+        },
+        "max_nodes": 50000,
+        "max_seconds": 60,
+        "rotate_button": true,
+        "seed": 0,
+        "traversals_per_player": 1
+      }
+    },
+    "purpose": "implementation report; no model promotion or readiness claim",
+    "revision": "863de626f865709c3dc6ccb4ac233fbba3a3b697",
+    "rules": "nlhe-cash-auto-muck-v1",
+    "source_sha256": "e0bcb392ec4e185975f5521eee72b75e56fa380799006f7be45b4f952ef5e496"
+  },
+  "promoted": false,
+  "recovery": {
+    "completed_reports_identical": 10,
+    "failed_iteration_retried_under_same_limits": true,
+    "retry_failed": true
+  },
+  "status": "incomplete"
+}
