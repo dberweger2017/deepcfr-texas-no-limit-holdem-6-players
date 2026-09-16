@@ -81,3 +81,37 @@ Use validation curves for development. Freeze a new final-test protocol and oppo
 ## Local cost calibration
 
 Before measuring, freeze [longer-calibration.json](../configs/holdem/longer-calibration.json): seed 997 (outside the campaign), four iterations at the exact larger training settings, one final evaluation of all four suites with 30 blocks, and a **15-minute local ceiling**. No rental and no tuning from poker outcomes. Retain the entire result and failure if it stops. Use stage times, peak RSS and artifact bytes to refine the time/storage estimate; the actual campaign seeds remain untouched.
+
+## Live dashboard and access
+
+Install `requirements-monitoring.txt` alongside the training dependencies. A separate
+process reads the trainer's saved files and flushes TensorBoard events every five
+seconds. It does not load checkpoints, sample actions, or change trainer randomness.
+
+```bash
+python -m scripts.monitor_holdem \
+  --runs results/longer-05-seed-307 results/longer-05-seed-311 results/longer-05-seed-313 \
+  --logdir results/tensorboard-longer-05
+tensorboard --logdir results/tensorboard-longer-05 --host 127.0.0.1 --port 6006
+```
+
+Run the monitor alongside training and TensorBoard in another process. Each seed has
+its own run. `timing` shows stage seconds, nodes, replay size, archive growth, peak
+RSS bytes and failure flags. `training` shows each role's fitting losses, gradients,
+clipping and sampling diagnostics from the appended `iteration-reports.jsonl`.
+`checkpoint` shows saved bytes and serialization time. `poker` shows all four fixed
+benchmarks, BB/100 and paired differences; `ci95/0` and `ci95/1` are the lower and
+upper confidence bounds. These poker plots update at iterations 128/256/384/512,
+not after every iteration. Loss is not playing strength.
+
+The monitor stops after every input run has a result or failure file. Restart it
+with a **fresh log directory** to rebuild events from retained records; `--once`
+imports an archived run. Keep event files with the other artifacts. If the monitor
+fails, training continues; inspect its process/log independently. A stalled graph
+alone does not establish that training stopped.
+
+Keep TensorBoard bound to localhost and use the pod's SSH connection with
+`-L 6006:127.0.0.1:6006`, then open `http://localhost:6006`. Share the pod ID,
+SSH host/port/user and key filename with the owner after provisioning; no account
+API key or private key belongs in Git or in the dashboard. Access ends when the
+rental is terminated; retained events can be reopened locally afterwards.
