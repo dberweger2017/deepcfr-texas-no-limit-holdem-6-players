@@ -75,14 +75,31 @@ class FrozenProfile:
         ):
             raise RuntimeError("The collection policy profile changed")
 
-    def distribution(self, candidates: BetCandidates) -> tuple[float, ...]:
+    def _model(self, candidates: BetCandidates) -> BettingNetwork | None:
         if not isinstance(candidates, BetCandidates):
             raise TypeError("A current policy accepts public bet candidates only")
         view = candidates.decision.source
         if view.capacity != self.capacity or view.actor != view.seat or view.finished:
             raise ValueError("Decision does not belong to this profile's live table")
-        model = self._models[view.seat_numbers[view.seat]]
+        return self._models[view.seat_numbers[view.seat]]
+
+    def distribution(self, candidates: BetCandidates) -> tuple[float, ...]:
+        model = self._model(candidates)
         if model is None:
             return (1 / len(candidates.actions),) * len(candidates.actions)
         with torch.inference_mode():
             return tuple(model([candidates])[0].probabilities().tolist())
+
+    def action_values(self, candidates: BetCandidates) -> tuple[float, ...]:
+        """Frozen own-seat value predictions in BB, never another role's payoff."""
+        model = self._model(candidates)
+        if model is None:
+            return (0.0,) * len(candidates.actions)
+        with torch.inference_mode():
+            values = model([candidates])[0].values
+        if (
+            values.shape != (len(candidates.actions),)
+            or not torch.isfinite(values).all()
+        ):
+            raise FloatingPointError("Invalid frozen action values")
+        return tuple(values.tolist())
