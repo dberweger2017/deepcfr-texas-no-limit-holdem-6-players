@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "seeds": [
+    307,
+    311,
+    313
+  ],
+  "blocks": 1024,
+  "evaluation_seed": 120913,
+  "maximum_seconds_per_seed": 900,
+  "maximum_total_seconds": 2700,
+  "material_bb100": 100,
+  "opponents": [
+    "tight_passive",
+    "loose_passive",
+    "tight_aggressive",
+    "loose_aggressive",
+    "pot_pressure"
+  ],
+  "fitting_report": "docs/reports/holdem-frozen-fitting.json",
+  "fitting_report_sha256": "021b169dc89eebd7acd578296b20ab5d5445cdcae99d51799768b91363374247"
+}
