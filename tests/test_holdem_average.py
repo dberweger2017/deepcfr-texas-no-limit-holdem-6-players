@@ -135,3 +135,35 @@ def test_distribution_depends_only_on_visible_world():
     assert policy.distribution(view) == policy.distribution(equivalent)
     with pytest.raises(ValueError):
         policy.distribution(replace(view, capacity=5))
+
+
+def test_sampled_players_survive_departures_and_replacement():
+    from tests.test_sessions import table as session_table
+
+    session = session_table()
+    average = AveragePolicy((FrozenProfile([None] * 6),))
+    players = {p.player_id: average.player(i) for i, p in enumerate(session.seats)}
+    counts = []
+    for hand_index in range(4):
+        for occupant in session.seats:
+            if occupant.stack < 20:
+                session.top_up(occupant.player_id, 100)
+        session.start_hand(seed=10 + hand_index)
+        counts.append(len(session.participants))
+        while session.actor is not None:
+            owner = session.actor
+            view = session.observe(owner)
+            action = players[owner].choose_action(view)
+            view.legal_actions.validate(action)
+            session.apply(owner, action)
+        session.settle()
+        if hand_index == 0:
+            session.leave("p5")
+        elif hand_index == 1:
+            session.leave("p4")
+        elif hand_index == 2:
+            session.leave("p3")
+            session.join("replacement", 3, 100)
+            players["replacement"] = average.player(98)
+    assert counts[:3] == [6, 5, 4]
+    assert session.chips_in - session.chips_out == sum(p.stack for p in session.seats)

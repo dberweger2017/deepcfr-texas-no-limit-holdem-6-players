@@ -179,3 +179,19 @@ def test_sparse_table_updates_only_its_physical_roles():
         else:
             assert all(s.role == role for s in memory.items)
             assert report.roles[role].new_samples > 0
+
+
+def test_training_rotates_button_without_changing_physical_roles(monkeypatch):
+    trainer = HoldemTrainer(table(4, (10,) * 4), config())
+    seen = []
+    original = training.collect_phase
+
+    def collect(current, *args, **kwargs):
+        seen.append((current.button, current.seat_numbers))
+        return original(current, *args, **kwargs)
+
+    monkeypatch.setattr(training, "collect_phase", collect)
+    trainer.step()
+    trainer.step()
+    assert seen == [(0, (0, 1, 2, 3)), (1, (0, 1, 2, 3))]
+    assert trainer.table.button == 0

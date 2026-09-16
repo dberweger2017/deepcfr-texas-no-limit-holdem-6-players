@@ -1,6 +1,6 @@
 """Transactional collect-and-fit iterations with collection-aligned strategy archives."""
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from math import isfinite
 from time import perf_counter
 
@@ -22,6 +22,7 @@ class TrainConfig:
     max_nodes: int = 50_000
     max_seconds: float = 60
     fit: FitConfig = field(default_factory=FitConfig)
+    rotate_button: bool = True
 
     def __post_init__(self):
         if any(
@@ -36,6 +37,7 @@ class TrainConfig:
             or self.seed < 0
             or not isfinite(self.max_seconds)
             or self.max_seconds <= 0
+            or type(self.rotate_button) is not bool
             or not isinstance(self.fit, FitConfig)
         ):
             raise ValueError("Invalid seed, time budget or fitting configuration")
@@ -116,8 +118,16 @@ class HoldemTrainer:
         remaining = deadline - perf_counter()
         if remaining <= 0:
             raise TimeoutError("Iteration deadline expired before collection")
+        table = (
+            replace(
+                self.table,
+                button=(self.table.button + iteration - 1) % len(self.table.stacks),
+            )
+            if config.rotate_button
+            else self.table
+        )
         batch = collect_phase(
-            self.table,
+            table,
             profile,
             iteration=iteration,
             seed=config.seed,
@@ -126,7 +136,7 @@ class HoldemTrainer:
             max_seconds=remaining,
         )
         if (
-            batch.table != self.table
+            batch.table != table
             or batch.iteration != iteration
             or batch.seed != config.seed
             or batch.profile != profile.fingerprint
