@@ -2,7 +2,7 @@
 
 The arena runs a declared plan, saves the exact schedule before dealing, and compares a candidate against a baseline on paired deal or session blocks. It receives ordinary observation-based policies; it never gives them its seeds, policy labels, checkpoints, or privileged simulator objects.
 
-The arena includes simple controls, card-aware style opponents, named training/evaluation pools, and frozen standard-network adapters. See [benchmark suites and checkpoint contracts](benchmarks.md) for their configurations and limits. The old `scripts.evaluate_models` command remains a legacy evaluator and does not provide this reproducibility contract.
+The arena includes simple controls, card-aware style opponents, named training/evaluation pools, and frozen standard-network adapters. See [benchmark suites and checkpoint contracts](benchmarks.md) for their configurations and limits. The old `scripts.evaluate_models` command has been retired.
 
 ## Run and reproduce
 
@@ -31,7 +31,7 @@ A successful run exits 0. A run with a failed hand exits 1 and saves an invalid 
 
 A plan declares candidate, baseline, opponent pool, root seed, split, independent block count, decision cap, and named scenarios. Each scenario specifies integer stacks, blinds, denomination, and either `fixed` or `session` mode. See the committed JSON plans for examples.
 
-`stream_seed` derives separate streams for deals, policy sampling, opponent selection, and future training work. Split prefixes reserve non-overlapping 64-bit seed ranges for `train`, `validation`, and `test`. Distinct seeds are not a mathematical guarantee of different card permutations. The separation applies to plans using this API; legacy training scripts must adopt it before their data can be claimed disjoint from these schedules.
+`stream_seed` derives separate streams for deals, policy sampling, opponent selection, and future training work. Split prefixes reserve non-overlapping 64-bit seed ranges for `train`, `validation`, and `test`. Distinct seeds are not a mathematical guarantee of different card permutations. The separation applies to plans using this API; historical checkpoints with unknown training provenance cannot claim disjoint data.
 
 Adding blocks preserves the earlier blocks. Adding a differently named scenario does not change an existing scenario's random streams. Changing the candidate, baseline, or opponent pool does not change deal or action seeds. Opponents are sampled uniformly with replacement from the declared pool, once per block; each instance owns its own private memory and generator.
 

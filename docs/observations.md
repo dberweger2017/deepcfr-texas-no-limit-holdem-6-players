@@ -89,24 +89,32 @@ Voluntary displays outside this procedure, requests to see a hand, accidental ex
 
 The host commits records only after actual completed hands. `play_hand` accepts per-player histories but does not mutate them. Evaluation and play loops commit completed records outside traversal. CFR terminal payoffs remain learning targets; simulated opponent actions and terminal branches no longer update live opponent history.
 
-The initial retention policy keeps all completed records for a match in memory. The existing UI/CLI starts fresh history when its model lineup is reloaded. There is no disk persistence or eviction policy yet. The [session manager](sessions.md) retains identity-owned histories across lineup changes within a session and uses public identity keys for the old opponent model. It adds physical seat mappings and public records for seated spectators; cross-session transfer and disk persistence remain separate work.
+The initial retention policy keeps completed match records in memory. The
+[session manager](sessions.md) retains identity-owned histories across lineup
+changes and public records for seated spectators. Cross-session transfer, disk
+persistence and a bounded retention policy remain separate work.
 
-## Existing models and entry points
+## Policy inputs
 
-The old models use a fixed feature layout and additional-raise amounts. `src/game/legacy.py` bridges that layout using a `LegacyView` built only from an observation; its `observation` field retains the complete history for future encoders. The view contains no simulator object or transition method. The adapter does not promise checkpoint compatibility or preserve the old game's bugs.
+The [Hold'em encoder](holdem-encoding.md) consumes the complete current-hand event
+sequence and variable-seat state. Collection, fitting and snapshot-average play
+use this representation. Prior-hand opponent adaptation remains milestone 7.
 
-Training, evaluation, tournaments, CLI play, and GUI AI turns now use tracked hands and the observation dispatcher. Both neural agent classes and the shared random agent reject raw simulator state. The neural encoder also rejects it. CLI and GUI card displays use the human's view, including at showdown.
-
-The legacy networks still encode only a subset of the available public history. The replacement [Hold’em decision encoder](holdem-encoding.md) now consumes the complete current-hand event sequence and variable-seat state while preserving exact records in its source observation. Bet candidates, CFR training integration and opponent adaptation remain later tasks; this interface and encoding do not establish strong play.
+Historical standard checkpoints use `src/arena/historical.py`, a read-only
+encoder and network retained for benchmark comparisons. It accepts an
+`Observation` directly and preserves the old fixed feature layout. It has no
+simulator adapter, training loop or transition API. Its feature limitation does
+not apply to the current Hold'em learner. The old trainers and UI have been
+removed; Git history retains their implementation.
 
 ## Verification
 
 The tests cover:
 
-- Alternate hidden deals with the same visible history before the flop, on the flop, and on the turn, at four-, five-, and six-player tables. Observations, encoded inputs, neural outputs, and seeded actions agree for both neural agent types.
+- Alternate hidden deals with the same visible history before the flop, on the flop, and on the turn, at four-, five-, and six-player tables. Observations, encoded inputs, neural outputs, and seeded actions agree for historical arena policies and the current Hold'em policy.
 - Distinct betting histories remaining distinguishable even when stacks, board, and pot match.
 - Public replay and chip accounting over 300 generated unequal-stack hands.
 - Legal raise-to bounds, branch immutability, player-specific prior records, and rejection of raw-state policy calls.
 - Showdown order, side-pot disclosure, muck privacy, and no contested payouts to mucked hands; the disclosure evaluator is also compared with 1,000 Rust-engine showdown results.
 - Counterfactual traversal leaving live opponent histories unchanged, plus real evaluation hands entering only their owner's retained record.
-- Headless execution and offscreen rendering of private/tabled cards.
+- Headless execution with private and legitimately tabled cards in the correct player observations.

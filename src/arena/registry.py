@@ -50,8 +50,7 @@ class PolicyRegistry:
             "src/arena/heuristics.py",
             "src/game/play.py",
             "src/arena/frozen.py",
-            "src/core/model.py",
-            "src/game/legacy.py",
+            "src/arena/historical.py",
         )
         implementation = sha256(
             b"".join((ROOT / path).read_bytes() for path in paths)

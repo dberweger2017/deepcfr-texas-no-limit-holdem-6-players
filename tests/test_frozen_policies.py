@@ -9,14 +9,12 @@ import torch
 
 from src.arena.catalog import Checkpoint
 from src.arena.frozen import FrozenNetwork, inference_runtime
+from src.arena.historical import PokerNetwork, encode_observation
 from src.arena.registry import PolicyRegistry
 from src.arena.run import reproduce, run
 from src.arena.schedule import Plan, Scenario
-from src.core.model import PokerNetwork
 from src.game.hand import Hand, Table
-from src.game.legacy import legacy_view
 from src.game.types import Action, ActionKind, Street
-from src.utils.actions import action_type_to_pokers_action
 from tests.test_hand_observations import DECK, table
 
 
@@ -85,21 +83,13 @@ def test_frozen_distribution_preserves_legacy_sizing_and_masks_actions(tmp_path)
     current = view()
     actions = policy.distribution(current)
     assert sum(probability for _, probability in actions) == pytest.approx(1)
-    legacy = legacy_view(current)
-    from src.core.model import encode_state
 
     with torch.inference_mode():
-        logits, sizing = model.network(
-            torch.tensor(encode_state(legacy, 0), dtype=torch.float32).unsqueeze(0)
+        logits, _ = model.network(
+            torch.tensor(encode_observation(current), dtype=torch.float32).unsqueeze(0)
         )
     expected = torch.softmax(logits[0].double(), dim=0).tolist()
     assert [p for _, p in actions] == pytest.approx(expected)
-    raise_action = next(a for a, _ in actions if a.kind == ActionKind.RAISE)
-    old = action_type_to_pokers_action(
-        2, legacy, bet_size_multiplier=sizing.item(), strict=True
-    )
-    wager = current.players[current.seat].street_bet + current.legal_actions.call_amount
-    assert raise_action.raise_to == wager + round(old.amount / legacy.chip_unit)
     for action, _ in actions:
         current.legal_actions.validate(action)
     with pytest.raises(TypeError):
@@ -272,3 +262,39 @@ def test_a_pinned_registry_cannot_be_reused_for_a_different_plan(tmp_path):
     with pytest.raises(ValueError, match="different plan"):
         run(replace(plan, baseline=spec.name), tmp_path / "mismatch", registry=registry)
     assert not (tmp_path / "mismatch").exists()
+
+
+def test_historical_encoding_matches_retained_pre_cleanup_features():
+    from pathlib import Path
+
+    cases = json.loads(
+        (Path(__file__).parent / "fixtures/historical-encoding.json").read_text()
+    )
+    for case in cases:
+        players = case["players"]
+        hand = Hand.start(
+            Table(
+                tuple(f"p{i}" for i in range(players)),
+                tuple(case["stacks"]),
+                button=case["seed"] % players,
+            ),
+            hand_id="legacy-fixture",
+            seed=case["seed"],
+        )
+        for step in case["steps"]:
+            features = encode_observation(hand.observe(hand.actor))
+            assert sha256(features.tobytes()).hexdigest() == step["sha256"]
+            action = step["action"]
+            hand = hand.apply(Action(ActionKind(action["kind"]), action["raise_to"]))
+        assert hand.finished
+
+
+def test_historical_sizing_rounds_half_chips_up(tmp_path):
+    spec = checkpoint(tmp_path)
+    model = FrozenNetwork(spec, tmp_path / "fixture-4-7.pt")
+    with torch.no_grad():
+        for parameter in model.network.sizing_head.parameters():
+            parameter.zero_()
+    actions = model.policy(1).distribution(view())
+    raised = next(action for action, _ in actions if action.kind == ActionKind.RAISE)
+    assert raised.raise_to == 333
