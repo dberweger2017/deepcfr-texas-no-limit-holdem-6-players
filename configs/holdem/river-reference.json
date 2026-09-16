@@ -1,0 +1,19 @@
+{
+  "format": "holdem-river-reference-v1",
+  "seeds": [421, 431, 433],
+  "replicates": 32,
+  "fit_steps": 1024,
+  "width": 32,
+  "learning_rate": 0.001,
+  "gradient_clip": 1.0,
+  "exploration": 0.5,
+  "max_seconds": 900,
+  "max_tree_nodes": 20000,
+  "control_blocks": 64,
+  "root_seed": 160927,
+  "boards": [
+    {"board": ["Ac", "Kd", "7h", "4s", "2c"], "hands": [["Ah", "As"], ["7c", "7d"], ["Qh", "Jh"], ["5h", "6h"]], "split": "train"},
+    {"board": ["9c", "8c", "7d", "3h", "2s"], "hands": [["Tc", "Jc"], ["7c", "7h"], ["Ac", "Kd"], ["Td", "6h"]], "split": "train"},
+    {"board": ["Qs", "Js", "8d", "5c", "2h"], "hands": [["Qc", "Qd"], ["8c", "8h"], ["Ac", "Kd"], ["9c", "Tc"]], "split": "validation"}
+  ]
+}

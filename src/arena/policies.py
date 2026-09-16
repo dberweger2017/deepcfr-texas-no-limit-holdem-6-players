@@ -25,10 +25,22 @@ class Fold:
         )
 
 
+class CheckFold:
+    """Never pay voluntarily, including when folding a free check is legal."""
+
+    def choose_action(self, view: Observation) -> Action:
+        return Action(
+            ActionKind.CHECK
+            if ActionKind.CHECK in view.legal_actions.kinds
+            else ActionKind.FOLD
+        )
+
+
 POLICIES = {
     "random": RandomPolicy,
     "check_call": lambda seed: CheckCall(),
     "fold": lambda seed: Fold(),
+    "check_fold": lambda seed: CheckFold(),
 }
 
 
