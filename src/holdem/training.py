@@ -1,10 +1,11 @@
-"""Transactional collect-and-fit iterations; averaging and persistence follow separately."""
+"""Transactional collect-and-fit iterations with collection-aligned strategy archives."""
 
 from dataclasses import dataclass, field
 from math import isfinite
 from time import perf_counter
 
 from src.game.hand import Table
+from src.holdem.average import AveragePolicy
 from src.holdem.betting import BettingNetwork
 from src.holdem.collection import collect_phase
 from src.holdem.fitting import FitConfig, FitMetrics, fit_role
@@ -64,6 +65,7 @@ class _State:
     models: tuple[BettingNetwork | None, ...]
     memories: tuple[RoleReservoir, ...]
     reports: tuple[IterationReport, ...] = ()
+    archive: tuple[FrozenProfile, ...] = ()
 
 
 class HoldemTrainer:
@@ -102,6 +104,9 @@ class HoldemTrainer:
 
     def current_profile(self) -> FrozenProfile:
         return FrozenProfile(self._state.models)
+
+    def average_policy(self) -> AveragePolicy:
+        return AveragePolicy(self._state.archive)
 
     def step(self) -> IterationReport:
         config, old = self.config, self._state
@@ -158,6 +163,10 @@ class HoldemTrainer:
         )
         # Publish once: failed admission or fitting cannot leave a mixed policy generation.
         self._state = _State(
-            iteration, tuple(models), memories, old.reports + (report,)
+            iteration,
+            tuple(models),
+            memories,
+            old.reports + (report,),
+            old.archive + (profile,),
         )
         return report
