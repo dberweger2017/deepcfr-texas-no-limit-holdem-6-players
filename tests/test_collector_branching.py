@@ -85,6 +85,20 @@ def test_second_expansion_preserves_all_expected_updates(
         branch_first=True,
         branch_second=True,
     )
+    import torch
+
+    from src.holdem.betting import betting_loss
+    from tests.test_holdem_sampled_loss import full_tree, gradient, predictions
+
+    _, records = full_tree(hand, profile, hero)
+    parameter = torch.tensor([0.7, -0.3, 1.1], dtype=torch.float64, requires_grad=True)
+    loss = sum(
+        reach * betting_loss([predictions(t.candidates, parameter)], [t])
+        for t, reach in records.values()
+    )
+    expected_gradient = torch.autograd.grad(loss, parameter)[0]
+    actual_gradient = sum(p * gradient(s.decisions) for p, s in samples)
+    torch.testing.assert_close(actual_gradient, expected_gradient, atol=1e-10, rtol=0)
     mean, _ = moments(samples, True)
     assert fsum(p * s.value_bb for p, s in samples) == pytest.approx(value, abs=1e-10)
     for history, values in expected.items():
@@ -106,7 +120,7 @@ def test_second_expansion_preserves_all_expected_updates(
                 assert set(decision.inclusion_probabilities) == {1.0}
 
 
-def test_second_branch_is_explicit_and_rejected_by_current_trainer():
+def test_second_branch_requires_matching_phase_configuration():
     hand = river()
     profile = FrozenProfile([None] * 2)
     kwargs = {

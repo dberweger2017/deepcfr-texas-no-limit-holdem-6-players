@@ -1,4 +1,4 @@
-"""Complete first-decision branching phases and typed replay admission."""
+"""Complete sampled phases with explicit own-decision expansion and replay admission."""
 
 from dataclasses import dataclass
 from math import isclose, isfinite, prod
@@ -27,6 +27,13 @@ class SampledCollection:
     profile: str
     traversals: tuple[OutcomeTraversal, ...]
     exploration: float
+    sampler: str = "first-decision"
+
+
+def expansion_depth(sampler):
+    if sampler not in ("first-decision", "second-decision"):
+        raise ValueError("Choose first-decision or second-decision sampling")
+    return 1 if sampler == "first-decision" else 2
 
 
 def collect_sampled_phase(
@@ -39,7 +46,9 @@ def collect_sampled_phase(
     max_nodes=50_000,
     max_seconds=60,
     exploration=0.5,
+    sampler="first-decision",
 ):
+    depth = expansion_depth(sampler)
     if not isinstance(table, Table) or not isinstance(profile, FrozenProfile):
         raise TypeError("Collection needs a table and frozen profile")
     if table.capacity != profile.capacity:
@@ -78,6 +87,7 @@ def collect_sampled_phase(
                 exploration=exploration,
                 baseline="frozen",
                 branch_first=True,
+                branch_second=depth == 2,
                 max_nodes=remaining,
                 deadline=deadline,
             )
@@ -92,17 +102,20 @@ def collect_sampled_phase(
         profile.fingerprint,
         tuple(traversals),
         exploration,
+        sampler,
     )
 
 
 def split_sampled_collection(batch):
     if not isinstance(batch, SampledCollection):
         raise TypeError("Expected a sampled collection")
+    depth = expansion_depth(batch.sampler)
     converted = []
     for traversal in batch.traversals:
         if (
             traversal.schema != FORMAT
-            or traversal.branch_second
+            or type(traversal.branch_second) is not bool
+            or traversal.branch_second != (depth == 2)
             or traversal.baseline != "frozen"
             or traversal.branch_first is not True
             or traversal.exploration != batch.exploration
@@ -111,10 +124,6 @@ def split_sampled_collection(batch):
         by_history = {
             d.candidates.decision.source.history: d for d in traversal.decisions
         }
-        if sum(d.sampled_action is None for d in traversal.decisions) != bool(
-            by_history
-        ):
-            raise ValueError("Expected one expanded first decision per nonempty root")
         for decision in traversal.decisions:
             history = decision.candidates.decision.source.history
             expected_q = (
@@ -144,15 +153,21 @@ def split_sampled_collection(batch):
                 raise ValueError("Sampled decisions disagree with executed branches")
             for edge in edges:
                 record_execution(edge.candidates, edge.index, edge.event)
-            prefix = prod(
-                by_history[
-                    e.candidates.decision.source.history
-                ].inclusion_probabilities[e.index]
+            own_prefix = [
+                e
                 for e in traversal.executions
                 if e.event.seat == traversal.root.seat
                 and len(e.candidates.decision.source.history) < len(history)
                 and history[: len(e.candidates.decision.source.history) + 1]
                 == e.candidates.decision.source.history + (e.event,)
+            ]
+            if (decision.sampled_action is None) != (len(own_prefix) < depth):
+                raise ValueError("Expanded decision disagrees with the sampler")
+            prefix = prod(
+                by_history[
+                    e.candidates.decision.source.history
+                ].inclusion_probabilities[e.index]
+                for e in own_prefix
             )
             if not isclose(decision.own_sample_reach, prefix, rel_tol=1e-12, abs_tol=0):
                 raise ValueError("Own sampling reach disagrees with executed history")

@@ -51,9 +51,10 @@ def config(**kwargs):
     )
 
 
+@pytest.mark.parametrize("sampler", ["first-decision", "second-decision"])
 @pytest.mark.parametrize("players", [4, 5, 6])
-def test_sampled_resume_and_export(tmp_path, players):
-    trainer = HoldemTrainer(table(players, (200,) * players), config())
+def test_sampled_resume_and_export(tmp_path, players, sampler):
+    trainer = HoldemTrainer(table(players, (200,) * players), config(sampler=sampler))
     report = trainer.step()
     assert report.roots == (1,) * players
     assert report.terminals >= players
@@ -82,8 +83,9 @@ def test_sampled_resume_and_export(tmp_path, players):
     )
 
 
-def test_resume_matches_fresh_process_bytes(tmp_path):
-    trainer = HoldemTrainer(table(4, (20,) * 4), config())
+@pytest.mark.parametrize("sampler", ["first-decision", "second-decision"])
+def test_resume_matches_fresh_process_bytes(tmp_path, sampler):
+    trainer = HoldemTrainer(table(4, (20,) * 4), config(sampler=sampler))
     trainer.step()
     paused = tmp_path / "paused.pt"
     digest = save_training(trainer, paused, manifest={})
@@ -197,14 +199,15 @@ def test_sampled_checkpoint_rejects_corrupt_normalization(tmp_path, damage):
         load_training(path, digest, manifest={})
 
 
-@pytest.fixture
-def phase():
+@pytest.fixture(params=["first-decision", "second-decision"])
+def phase(request):
     return collect_sampled_phase(
         table(4, (20,) * 4),
         FrozenProfile([None] * 4),
         iteration=1,
         seed=31,
         traversals_per_player=2,
+        sampler=request.param,
     )
 
 
@@ -215,6 +218,7 @@ def test_replay_types_cannot_mix_and_phase_is_reproducible(phase):
         iteration=1,
         seed=31,
         traversals_per_player=2,
+        sampler=phase.sampler,
     )
     item = split_sampled_collection(phase)[0][0]
     memory = RoleReservoir(0, 2, 0)
@@ -314,11 +318,34 @@ def test_mixed_iterations_and_uniform_reservoir_match_direct_gradient(phase):
     assert not torch.allclose(gradient(records, 2), expected)
 
 
-def test_plan_preserves_sampler_on_roundtrip():
+@pytest.mark.parametrize("sampler", ["first-decision", "second-decision"])
+def test_plan_preserves_sampler_on_roundtrip(sampler):
     from pathlib import Path
 
     plan = json.loads(Path("configs/holdem/baseline-check.json").read_text())
-    plan["training"].update(sampler="first-decision", exploration=0.5)
+    plan["training"].update(sampler=sampler, exploration=0.5)
     parsed = Experiment.from_dict(plan)
     assert isinstance(parsed.training, SampledTrainConfig)
     assert Experiment.from_dict(asdict(parsed)) == parsed
+
+
+@pytest.mark.parametrize("sampler", ["first-decision", "second-decision"])
+def test_checkpoint_rejects_relabelled_expansion(tmp_path, sampler):
+    trainer = HoldemTrainer(
+        table(4, (20,) * 4), replace(config(sampler=sampler), capacity=128)
+    )
+    trainer.step()
+    coverage = trainer.last_timing["collection_coverage"]
+    assert sum(c["roots"] for c in coverage) == 4
+    assert sum(sum(c["records_by_street"].values()) for c in coverage) == sum(
+        r.new_samples for r in trainer.reports[0].roles
+    )
+    assert {c["position_from_button"] for c in coverage} == set(range(4))
+    path = tmp_path / "state.pt"
+    data = _load(path, save_training(trainer, path, manifest={}), SAMPLED_TRAINING)
+    data["config"]["fields"]["sampler"] = (
+        "second-decision" if sampler == "first-decision" else "first-decision"
+    )
+    path.unlink()
+    with pytest.raises(ValueError, match="Replay expansion"):
+        load_training(path, _save(path, data), manifest={})
