@@ -55,6 +55,7 @@ class OutcomeTraversal:
     baseline: str
     branch_first: bool
     schema: str = FORMAT
+    branch_second: bool = False
 
 
 @dataclass
@@ -68,7 +69,7 @@ class _Frame:
     baseline: tuple[float, ...]
     updating: bool
     expand: bool
-    may_expand: bool
+    branches_left: int
     values: list[float] = field(default_factory=list)
 
 
@@ -82,10 +83,11 @@ def collect_outcome(
     exploration: float,
     baseline: str = "zero",
     branch_first: bool = False,
+    branch_second: bool = False,
     max_nodes: int = 10_000,
     deadline: float = float("inf"),
 ) -> OutcomeTraversal:
-    """Sample paths, optionally expanding the first own decision, with frozen baselines."""
+    """Sample paths with frozen baselines and at most two expanded own decisions."""
     if not isinstance(hand, Hand) or not isinstance(profile, FrozenProfile):
         raise TypeError("Sampling needs a Hand and an isolated FrozenProfile")
     if type(traverser) is not int or not 0 <= traverser < len(hand.table.stacks):
@@ -100,11 +102,13 @@ def collect_outcome(
         raise ValueError("Exploration must be in (0, 1]")
     if baseline not in ("zero", "frozen") or type(branch_first) is not bool:
         raise ValueError("Choose zero/frozen baseline and a boolean branching flag")
+    if type(branch_second) is not bool or (branch_second and not branch_first):
+        raise ValueError("Second-decision branching requires first-decision branching")
     profile.assert_unchanged()
     root = hand.observe(traverser)
     random = Random(action_seed)
     frames, executions, decisions = [], [], []
-    reach, may_expand = 1.0, branch_first
+    reach, branches_left = 1.0, int(branch_first) + int(branch_second)
     nodes = terminals = 0
 
     def descend(frame):
@@ -120,7 +124,7 @@ def collect_outcome(
                 frame.candidates, index, child.events[len(frame.hand.events)]
             )
         )
-        return child, prefix, frame.may_expand and not frame.updating
+        return child, prefix, max(0, frame.branches_left - int(frame.updating))
 
     with deterministic_cpu():
         while True:
@@ -138,7 +142,7 @@ def collect_outcome(
                 candidates = bet_candidates(hand.observe(hand.actor))
                 policy = profile.distribution(candidates)
                 updating = hand.actor == traverser
-                expand = updating and may_expand
+                expand = updating and branches_left > 0
                 sampling = (
                     tuple(
                         (1 - exploration) * p + exploration / len(policy)
@@ -169,17 +173,17 @@ def collect_outcome(
                     bases,
                     updating,
                     expand,
-                    may_expand,
+                    branches_left,
                 )
                 frames.append(frame)
-                hand, reach, may_expand = descend(frame)
+                hand, reach, branches_left = descend(frame)
                 continue
 
             while frames:
                 frame = frames[-1]
                 frame.values.append(value)
                 if len(frame.values) < len(frame.indices):
-                    hand, reach, may_expand = descend(frame)
+                    hand, reach, branches_left = descend(frame)
                     break
                 frames.pop()
                 if not frame.updating:
@@ -227,4 +231,5 @@ def collect_outcome(
                     terminals,
                     baseline,
                     branch_first,
+                    branch_second=branch_second,
                 )

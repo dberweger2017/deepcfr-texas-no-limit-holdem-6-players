@@ -1,0 +1,32 @@
+[
+  {
+    "branch_first": false,
+    "seed": 7,
+    "sha256": "8ed2b3f8cf86be934ee7d2fbc5cb33f69610bb5031fbdb9995fd4ff463ad58e2"
+  },
+  {
+    "branch_first": false,
+    "seed": 11,
+    "sha256": "4c0a6f35a1e1393d212f909042a7fff9d7cbd8781ed6501ac2b07cd166d2f31d"
+  },
+  {
+    "branch_first": false,
+    "seed": 19,
+    "sha256": "a7da12638c6e8659a7900536059bf8a2f95490333e07aa161ab61bcb54fdfe87"
+  },
+  {
+    "branch_first": true,
+    "seed": 7,
+    "sha256": "6dbd5610020d47e8021d5d5b30d80a2f2fe357822b553c3fc7232b678fcc2bff"
+  },
+  {
+    "branch_first": true,
+    "seed": 11,
+    "sha256": "f10bca5267e526d8e4739d3b2d3aa5ff82f6c0ce5df05288bb36a02b9151f5a2"
+  },
+  {
+    "branch_first": true,
+    "seed": 19,
+    "sha256": "1c7a36776c043f44f10df4b75c1d672853b9d96a13e2ba873c4f7d7a7f8c3e7c"
+  }
+]

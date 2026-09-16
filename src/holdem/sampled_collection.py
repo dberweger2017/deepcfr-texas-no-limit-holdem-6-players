@@ -102,6 +102,7 @@ def split_sampled_collection(batch):
     for traversal in batch.traversals:
         if (
             traversal.schema != FORMAT
+            or traversal.branch_second
             or traversal.baseline != "frozen"
             or traversal.branch_first is not True
             or traversal.exploration != batch.exploration

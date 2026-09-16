@@ -1,0 +1,77 @@
+{
+  "format": "holdem-collector-branching-study-v1",
+  "sampling_seeds": [
+    601,
+    607,
+    613
+  ],
+  "root_seed": 160930,
+  "river_replicates": 16,
+  "full_replicates": 8,
+  "full_roots_per_street": 4,
+  "coverage_iterations": [
+    0,
+    32,
+    128,
+    256
+  ],
+  "coverage_blocks": 2,
+  "exploration": 0.5,
+  "max_tree_nodes": 20000,
+  "max_seconds": 900,
+  "required_ratio": 0.75,
+  "maximum_street_ratio": 1.25,
+  "river_plan": "configs/holdem/river-reference.json",
+  "probe_plan": {
+    "format": "holdem-persistent-critic-study-v1",
+    "seeds": [
+      503,
+      509,
+      521
+    ],
+    "width": 32,
+    "learning_rate": 0.001,
+    "gradient_clip": 1.0,
+    "replay_capacity": 4096,
+    "batch_size": 32,
+    "fit_steps_per_phase": 128,
+    "river_rollouts_per_phase": 256,
+    "full_rollouts_per_phase": 64,
+    "full_evaluation_roots_per_street": 4,
+    "replicates": 32,
+    "exploration": 0.5,
+    "max_seconds": 900,
+    "max_tree_nodes": 20000,
+    "coverage_hands": 96,
+    "root_seed": 160929,
+    "amortization_traversals": 100000,
+    "required_cost_variance_ratio": 0.75,
+    "maximum_street_ratio": 1.25,
+    "river_plan": "configs/holdem/river-reference.json",
+    "historical_checkpoint": "results/frozen-fitting/inputs/training-307.pt",
+    "historical_manifest": "results/frozen-fitting/inputs/manifest-307.json",
+    "historical_sha256": "e09f7bb9bb2acba9bdda326ab940136f273c9e605bf15c45e5e87c8e80c824dd"
+  },
+  "historical_checkpoint": "results/frozen-fitting/inputs/training-307.pt",
+  "historical_manifest": "results/frozen-fitting/inputs/manifest-307.json",
+  "historical_sha256": "e09f7bb9bb2acba9bdda326ab940136f273c9e605bf15c45e5e87c8e80c824dd",
+  "critic_seed": 503,
+  "critics": {
+    "river-reference": {
+      "path": "results/persistent-critic/river-reference-503-phase-2.pt",
+      "sha256": "14f69a8bf3eff2cf9f752211e4a1dc010744f59b61c4fb23d6afb8296b219db9"
+    },
+    "full-flop": {
+      "path": "results/persistent-critic/full-flop-503-phase-2.pt",
+      "sha256": "fda029531b160304d35a125aea9fd4a31a0e7c788ea8072e63f2ce3eacba7e39"
+    },
+    "full-turn": {
+      "path": "results/persistent-critic/full-turn-503-phase-2.pt",
+      "sha256": "18aa2c4416e1904dc7bbd455a453373b92b58a4a84b1f9a28a9d0499b0518d6f"
+    },
+    "full-river": {
+      "path": "results/persistent-critic/full-river-503-phase-2.pt",
+      "sha256": "9fea697d06a68fdec4a6c3fc89a31cff31aede97d40a72bddf86ef5d6811be40"
+    }
+  }
+}
