@@ -26,7 +26,7 @@ Use a new output directory. A node/time limit produces `status=collection_limit`
 and preserves the exception and measurements; it does not return partial samples.
 For completed roots, the report includes node, terminal, target and execution
 counts, net BB value and a digest of the full public records and learning targets.
-Digest construction is outside the collection timing. Neither root value nor
+`collection_seconds` excludes setup and digest construction; `total_seconds` adds digest construction but also excludes setup. Neither root value nor
 collection speed is an arena win rate.
 
 Add `--instrument` to save `collection.prof`, readable with Python's `pstats`.
