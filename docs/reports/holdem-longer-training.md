@@ -76,7 +76,7 @@ All **589,824 optimizer steps** were clipped at norm 1. Median sampled diagnosti
 | 311 | 30099.48 | 9078484.88 |
 | 313 | 149883.73 | 47402757.32 |
 
-These large regret updates are importance-corrected estimator values, not physical hand winnings. All completed fits stayed finite. More samples, different fitting budgets, estimator variance and representation remain distinct hypotheses. This report does not convert owner-supplied opinions about replay street counts or gradient direction into verified measurements.
+These large regret updates are importance-corrected estimator values, not physical hand winnings. All completed fits stayed finite. More samples, different fitting budgets, estimator variance and representation remain distinct hypotheses. Replay street coverage and gradient alignment require separate measurements.
 
 ## Resources and cost
 
