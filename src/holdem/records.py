@@ -27,10 +27,17 @@ from src.game.types import (
 )
 from src.holdem.actions import BetCandidates
 from src.holdem.encoding import DecisionInput
-from src.holdem.fitting import FitConfig, FitMetrics
-from src.holdem.replay import ReplaySample
+from src.holdem.fitting import FitConfig, FitMetrics, SampledFitMetrics
+from src.holdem.outcome_sampling import SampledDecision
+from src.holdem.replay import ReplaySample, SampledReplaySample
 from src.holdem.targets import CandidateTargets
-from src.holdem.training import IterationReport, RoleUpdate, TrainConfig
+from src.holdem.training import (
+    IterationReport,
+    RoleUpdate,
+    SampledIterationReport,
+    SampledTrainConfig,
+    TrainConfig,
+)
 
 TYPES = {
     t.__name__: t
@@ -55,11 +62,16 @@ TYPES = {
         DecisionInput,
         FitConfig,
         FitMetrics,
+        SampledFitMetrics,
         ReplaySample,
         CandidateTargets,
         IterationReport,
         RoleUpdate,
         TrainConfig,
+        SampledTrainConfig,
+        SampledIterationReport,
+        SampledDecision,
+        SampledReplaySample,
     )
 }
 ENUMS = {t.__name__: t for t in (ActionKind, Street)}

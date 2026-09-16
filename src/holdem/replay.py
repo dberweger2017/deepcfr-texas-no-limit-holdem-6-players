@@ -9,6 +9,7 @@ from random import Random
 
 from src.holdem.actions import bet_candidates
 from src.holdem.collection import FORMAT, Collection, collection_seed
+from src.holdem.outcome_sampling import SampledDecision
 from src.holdem.targets import CandidateTargets
 
 
@@ -77,6 +78,52 @@ class ReplaySample:
             )
 
 
+@dataclass(frozen=True, slots=True)
+class SampledReplaySample:
+    role: int
+    iteration: int
+    profile: str
+    action_seed: int
+    target_index: int
+    target: SampledDecision
+    roots: int
+
+    def validate(self) -> None:
+        d = self.target
+        if not isinstance(d, SampledDecision) or not _positive(self.roots):
+            raise ValueError("Expected a sampled decision and scheduled root count")
+        reach = d.own_sample_reach
+        if not 0 < reach <= 1 or not isfinite(1 / reach):
+            raise ValueError("Invalid own sampling reach")
+        count = len(d.candidates.actions)
+        if any(
+            type(v) is not tuple or len(v) != count or any(not isfinite(x) for x in v)
+            for v in (d.baselines_bb, d.inclusion_probabilities)
+        ):
+            raise ValueError("Invalid baseline or inclusion probabilities")
+        q = d.inclusion_probabilities
+        if d.sampled_action is None:
+            if q != (1.0,) * count or reach != 1:
+                raise ValueError("Only the first own decision may be expanded")
+        elif (
+            type(d.sampled_action) is not int
+            or not 0 <= d.sampled_action < count
+            or min(q) <= 0
+            or not isclose(fsum(q), 1, rel_tol=0, abs_tol=1e-9)
+        ):
+            raise ValueError("Invalid sampled action or inclusion probabilities")
+        ReplaySample(
+            self.role,
+            self.iteration,
+            self.profile,
+            self.action_seed,
+            self.target_index,
+            CandidateTargets(d.candidates, d.policy, d.values_bb, d.regrets_bb),
+        ).validate()
+        if any(not isfinite(r) for r in d.regret_updates_bb):
+            raise ValueError("Non-finite importance-corrected regret")
+
+
 class RoleReservoir:
     def __init__(self, role: int, capacity: int, seed: int):
         if (
@@ -90,11 +137,11 @@ class RoleReservoir:
                 "Provide a physical role, positive capacity and nonnegative seed"
             )
         self.role, self.capacity, self.seen = role, capacity, 0
-        self._items: list[ReplaySample] = []
+        self._items: list[ReplaySample | SampledReplaySample] = []
         self._random = Random(seed)
 
     @property
-    def items(self) -> tuple[ReplaySample, ...]:
+    def items(self) -> tuple[ReplaySample | SampledReplaySample, ...]:
         return tuple(self._items)
 
     def __len__(self) -> int:
@@ -121,8 +168,11 @@ class RoleReservoir:
         result._random.setstate(self._random.getstate())
         return result
 
-    def extend(self, samples: Sequence[ReplaySample]) -> None:
+    def extend(self, samples: Sequence[ReplaySample | SampledReplaySample]) -> None:
         samples = tuple(samples)
+        kinds = {type(s) for s in (*self._items[:1], *samples)}
+        if not kinds <= {ReplaySample, SampledReplaySample} or len(kinds) > 1:
+            raise ValueError("Cannot mix sampled and complete-branch replay")
         for sample in samples:
             sample.validate()
             if sample.role != self.role:
@@ -136,7 +186,9 @@ class RoleReservoir:
                 if slot < self.capacity:
                     self._items[slot] = sample
 
-    def sample(self, count: int, random: Random) -> tuple[ReplaySample, ...]:
+    def sample(
+        self, count: int, random: Random
+    ) -> tuple[ReplaySample | SampledReplaySample, ...]:
         if not _positive(count) or not self._items:
             raise ValueError(
                 "Sampling needs a positive batch size and a nonempty memory"

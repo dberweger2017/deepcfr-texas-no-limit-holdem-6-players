@@ -9,7 +9,7 @@ import pytest
 from src.arena.schedule import Scenario
 from src.holdem.experiment import Experiment, run
 from src.holdem.fitting import FitConfig
-from src.holdem.training import TrainConfig
+from src.holdem.training import SampledTrainConfig, TrainConfig
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -44,9 +44,18 @@ def invoke(*args):
     )
 
 
-def test_fresh_process_training_resume_and_reproduction_match(tmp_path):
+@pytest.mark.parametrize("sampled", [False, True])
+def test_fresh_process_training_resume_and_reproduction_match(tmp_path, sampled):
+    selected = plan()
+    if sampled:
+        selected = replace(
+            selected,
+            training=SampledTrainConfig(
+                **asdict(selected.training) | {"fit": selected.training.fit}
+            ),
+        )
     config = tmp_path / "plan.json"
-    config.write_text(json.dumps(asdict(plan())))
+    config.write_text(json.dumps(asdict(selected)))
     full, paused, resumed, reproduced = [
         tmp_path / n for n in ("full", "paused", "resumed", "reproduced")
     ]

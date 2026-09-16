@@ -21,7 +21,7 @@ from src.holdem.checkpoint import (
 )
 from src.holdem.collection import collection_seed
 from src.holdem.fitting import FitConfig
-from src.holdem.training import HoldemTrainer, TrainConfig
+from src.holdem.training import HoldemTrainer, SampledTrainConfig, TrainConfig
 from src.solver.neural.checkpoint import atomic_write
 from src.solver.neural.network import deterministic_cpu
 
@@ -104,7 +104,9 @@ class Experiment:
                 "seeds": tuple(data["seeds"]),
                 "opponents": tuple(data["opponents"]),
                 "scenarios": tuple(Scenario(**s) for s in data["scenarios"]),
-                "training": TrainConfig(
+                "training": (
+                    SampledTrainConfig if "sampler" in data["training"] else TrainConfig
+                )(
                     **{
                         **data["training"],
                         "fit": FitConfig(**data["training"]["fit"]),

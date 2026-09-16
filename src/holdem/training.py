@@ -11,6 +11,10 @@ from src.holdem.collection import collect_phase
 from src.holdem.fitting import FitConfig, FitMetrics, fit_role
 from src.holdem.policy import FrozenProfile
 from src.holdem.replay import RoleReservoir, split_collection
+from src.holdem.sampled_collection import (
+    collect_sampled_phase,
+    split_sampled_collection,
+)
 from src.solver.neural.network import stream_seed
 
 
@@ -44,6 +48,23 @@ class TrainConfig:
 
 
 @dataclass(frozen=True, slots=True)
+class SampledTrainConfig(TrainConfig):
+    sampler: str = "first-decision"
+    exploration: float = 0.5
+
+    def __post_init__(self):
+        TrainConfig.__post_init__(self)
+        if (
+            self.sampler != "first-decision"
+            or type(self.exploration) not in (int, float)
+            or not 0 < self.exploration <= 1
+        ):
+            raise ValueError(
+                "Expected first-decision sampling with positive exploration"
+            )
+
+
+@dataclass(frozen=True, slots=True)
 class RoleUpdate:
     role: int
     new_samples: int
@@ -59,6 +80,14 @@ class IterationReport:
     fitted_profile: str
     nodes: int
     roles: tuple[RoleUpdate, ...]
+
+
+@dataclass(frozen=True, slots=True)
+class SampledIterationReport(IterationReport):
+    roots: tuple[int, ...]
+    terminals: int
+    max_inverse_reach: float
+    max_regret_update_bb: float
 
 
 @dataclass(frozen=True, slots=True)
@@ -126,7 +155,9 @@ class HoldemTrainer:
             if config.rotate_button
             else self.table
         )
-        batch = collect_phase(
+        sampled = isinstance(config, SampledTrainConfig)
+        collector = collect_sampled_phase if sampled else collect_phase
+        batch = collector(
             table,
             profile,
             iteration=iteration,
@@ -134,6 +165,7 @@ class HoldemTrainer:
             traversals_per_player=config.traversals_per_player,
             max_nodes=config.max_nodes,
             max_seconds=remaining,
+            **({"exploration": config.exploration} if sampled else {}),
         )
         if (
             batch.table != table
@@ -143,7 +175,9 @@ class HoldemTrainer:
             or batch.traversals_per_player != config.traversals_per_player
         ):
             raise ValueError("Collection does not belong to this training iteration")
-        samples = split_collection(batch)
+        samples = (
+            split_sampled_collection(batch) if sampled else split_collection(batch)
+        )
         memories = tuple(memory.clone() for memory in old.memories)
         models, updates = list(old.models), []
         for role, memory in enumerate(memories):
@@ -164,12 +198,30 @@ class HoldemTrainer:
         fitted = FrozenProfile(models)
         if perf_counter() >= deadline:
             raise TimeoutError("Iteration deadline expired before publication")
-        report = IterationReport(
+        report_type = SampledIterationReport if sampled else IterationReport
+        details = {}
+        if sampled:
+            decisions = [d for t in batch.traversals for d in t.decisions]
+            details = {
+                "roots": tuple(
+                    config.traversals_per_player if r in table.seat_numbers else 0
+                    for r in range(table.capacity)
+                ),
+                "terminals": sum(t.terminals for t in batch.traversals),
+                "max_inverse_reach": max(
+                    (1 / d.own_sample_reach for d in decisions), default=0
+                ),
+                "max_regret_update_bb": max(
+                    (abs(r) for d in decisions for r in d.regret_updates_bb), default=0
+                ),
+            }
+        report = report_type(
             iteration,
             profile.fingerprint,
             fitted.fingerprint,
             sum(t.nodes for t in batch.traversals),
             tuple(updates),
+            **details,
         )
         # Publish once: failed admission or fitting cannot leave a mixed policy generation.
         self._state = _State(
