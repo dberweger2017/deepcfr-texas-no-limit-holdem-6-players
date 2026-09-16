@@ -127,7 +127,7 @@ an available learned baseline, and these are shallow river trees.
 ### Costs and limits of the oracle
 
 Exact enumeration took 11.79 seconds; sampling took about 45.20 seconds across all
-arms; fitting took about 53.95 seconds. The full run also includes control play,
+arms; fitting took about 54.09 seconds. The full run also includes control play,
 serialization and artifact publication. Oracle construction is charged separately
 and its tables are queried in memory. No persistent critic was trained, and its
 training/inference overhead has not been measured.

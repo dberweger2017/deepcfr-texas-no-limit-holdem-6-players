@@ -29110,5 +29110,9 @@
       "target_rms_bb": 3.7211685076945145
     }
   ],
-  "verification": "Raw samples, all artifact hashes, paired paths, moments, arena outcome digests/accounting/blind bounds and all six reloaded-model predictions verified independently after execution."
+  "verification": "Raw samples, all artifact hashes, paired paths, moments, arena outcome digests/accounting/blind bounds and all six reloaded-model predictions verified independently after execution.",
+  "verification_artifacts": {
+    "verification.txt": "c1373dc8140c163deeced002036f6e8b47fbefdcb150768f53487143f62f0970",
+    "verify.py": "b6c6b48f64c871188b337164c7c2d13d63131a0ed245b19c3ff7c237aa5a18ae"
+  }
 }
