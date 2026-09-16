@@ -2,6 +2,7 @@
 
 import argparse
 import json
+from dataclasses import replace
 from pathlib import Path
 
 from src.holdem.experiment import Experiment, run
@@ -15,6 +16,9 @@ def main():
     inputs.add_argument("--reproduce", type=Path)
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--stop-after", type=int)
+    parser.add_argument(
+        "--seed", type=int, help="Run one seed from a declared plan in this process"
+    )
     args = parser.parse_args()
     previous = args.resume or args.reproduce
     data = (
@@ -22,8 +26,13 @@ def main():
         if previous
         else json.loads(args.plan.read_text())
     )
+    plan = Experiment.from_dict(data)
+    if args.seed is not None:
+        if previous or args.seed not in plan.seeds:
+            parser.error("--seed must select a declared seed from --plan")
+        plan = replace(plan, seeds=(args.seed,))
     result = run(
-        Experiment.from_dict(data),
+        plan,
         args.out,
         resume=args.resume,
         reproduce=args.reproduce,

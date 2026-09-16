@@ -11,6 +11,16 @@ from src.arena.schedule import Plan
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def load_frozen(spec, path):
+    if spec.format == "holdem-average-v1":
+        from src.arena.snapshots import FrozenAverage
+
+        return FrozenAverage(spec, path)
+    from src.arena.frozen import FrozenNetwork
+
+    return FrozenNetwork(spec, path)
+
+
 class PolicyRegistry:
     def __init__(self, plan: Plan, *, artifact_dir: Path | None = None):
         self.plan = plan
@@ -22,12 +32,10 @@ class PolicyRegistry:
                 raise ValueError(
                     "Checkpoint names must be used and cannot shadow built-in policies"
                 )
-            from src.arena.frozen import FrozenNetwork
-
             path = (
                 artifact_dir / f"{spec.sha256}.pt" if artifact_dir else ROOT / spec.path
             )
-            model = FrozenNetwork(spec, path)
+            model = load_frozen(spec, path)
             for scenario in plan.scenarios:
                 if scenario.mode != "fixed" or len(scenario.stacks) != model.players:
                     raise ValueError(
@@ -51,6 +59,12 @@ class PolicyRegistry:
             "src/game/play.py",
             "src/arena/frozen.py",
             "src/arena/historical.py",
+            "src/arena/snapshots.py",
+            "src/arena/registry.py",
+            *(
+                str(p.relative_to(ROOT))
+                for p in sorted((ROOT / "src/holdem").glob("*.py"))
+            ),
         )
         implementation = sha256(
             b"".join((ROOT / path).read_bytes() for path in paths)

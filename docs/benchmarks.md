@@ -1,6 +1,6 @@
 # Benchmark opponents and frozen checkpoints
 
-The arena now has a fixed set of legal style opponents, versioned evaluation plans, and an inference-only adapter for archived standard networks. These are controls and historical comparisons. They do not establish competitive poker strength or validate the old trainer.
+The arena has fixed legal style opponents, versioned evaluation plans, and hash-pinned adapters for current Hold’em snapshot averages and archived standard networks. These are controls and historical comparisons. They do not establish competitive poker strength or validate the old trainer.
 
 Read [evaluation.md](evaluation.md) for paired schedules, block-level uncertainty, failure handling, and the strict reproduction contract. The [validation report](reports/benchmark-validation.md) records the declared checks and results.
 
@@ -45,6 +45,14 @@ python -m scripts.run_arena --plan configs/arena/core-v1.json --out results/core
 
 For a new candidate, copy a plan and declare the candidate, artifact, budget, seeds, primary comparison, and scenario regression limits before execution. Six-player checkpoint plans must contain only six-player fixed-hand scenarios. Historical models remain tied to their original player count. The current Hold'em encoder supports variable occupancy, while experiments train and report each table-size scenario separately.
 
+## Current Hold’em models and release comparisons
+
+Declare current played-policy exports with `format: "holdem-average-v1"` in a plan's `models` list. The same `name`, `path` and SHA-256 fields used below apply. An alias can be the candidate, paired baseline or one of the opponents. The adapter loads the complete snapshot average, preserves its training seed/source revision, and creates a separate per-hand sampler for every seat. It accepts supported fixed tables matching the export's physical capacity; sparse training layouts are rejected by this arena adapter.
+
+The [longer training plan](holdem-longer-training.md) evaluates random play, the style pool, a paired archived-model comparison, and crossplay with five archived copies. It writes per-checkpoint learning curves, raw outcomes, runtime/memory measurements and an artifact index. Benchmark opponents are evaluation-only; self-play still trains against the current collection profile.
+
+Retain every seed's final export and recovery checkpoint for v0.5, v0.6 and later. Preserve the original benchmark/anchor while adding newer models, and compare old and new on the same deals with fixed rule and compute records. Refer to exact hashes rather than overwriting a model behind a version name. The run bundle snapshots verified model bytes; reproduction reads those snapshots even if the original source file is gone. Keep every bundle segment from a resumed campaign: its copied learning curve includes earlier evaluations, while older checkpoint files remain in the earlier segment.
+
 ## Frozen standard networks
 
 A plan's `models` list declares policy aliases. Each entry has `name`, `path`, `sha256`, and `format: "legacy-standard-v1"`. The alias can appear as candidate, baseline, or opponent. Use [historical-smoke.json](../configs/arena/historical-smoke.json) as a complete example. Relative model paths resolve from the repository root, not the plan's directory. Absolute paths also work.
@@ -65,4 +73,4 @@ Reports identify artifact hashes, dimensions, adapter encoding/sampling versions
 
 The archived files referenced by `historical-smoke.json` are available in the owner's local `models/standard` archive, not in a fresh checkout. Obtain those exact files from that archive at the paths in the plan, or retain the generated bundle for reproduction; there is no automatic download. The reported hashes are the identity check. CI uses small synthetic checkpoint fixtures so it does not depend on private local archives.
 
-Loading an old checkpoint proves that the adapter can execute its policy under today's rules and information boundary. It does not establish the correctness of its original training game, seat coverage, regret updates, or strategy averaging. Multi-seed training evidence and the small-game solver checks remain ahead of us.
+Loading an old checkpoint proves that the adapter can execute its policy under today's rules and information boundary. It does not establish the correctness of its original training game, seat coverage, regret updates, or strategy averaging. The small-game checks now pass; competitive multi-seed Hold’em evidence remains open.

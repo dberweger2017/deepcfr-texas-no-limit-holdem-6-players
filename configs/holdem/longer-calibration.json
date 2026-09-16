@@ -1,0 +1,61 @@
+{
+  "seeds": [
+    997
+  ],
+  "scenarios": [
+    {
+      "name": "six-100bb",
+      "stacks": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "small_blind": 1,
+      "big_blind": 2,
+      "chip_unit": "1"
+    }
+  ],
+  "training": {
+    "seed": 0,
+    "capacity": 4096,
+    "traversals_per_player": 32,
+    "max_nodes": 250000,
+    "max_seconds": 180,
+    "fit": {
+      "width": 32,
+      "steps": 64,
+      "batch_size": 32,
+      "learning_rate": 0.001,
+      "diagnostic_samples": 128
+    },
+    "sampler": "first-decision",
+    "exploration": 0.5
+  },
+  "iterations": 4,
+  "save_every": 4,
+  "evaluate_every": 4,
+  "blocks": 30,
+  "evaluation_seed": 91891,
+  "opponents": [
+    "tight_passive",
+    "loose_passive",
+    "tight_aggressive",
+    "loose_aggressive",
+    "pot_pressure"
+  ],
+  "max_seconds": 900,
+  "benchmarks": [
+    "random",
+    "previous",
+    "crossplay"
+  ],
+  "reference": {
+    "name": "pilot-six-211",
+    "path": "results/sampled-pilot/scenario-2-seed-211/average-6.pt",
+    "sha256": "ad6f568542366afb05912bbefd34c768b9081d70f72baad4e6b72238ffd0f024",
+    "format": "holdem-average-v1"
+  }
+}
