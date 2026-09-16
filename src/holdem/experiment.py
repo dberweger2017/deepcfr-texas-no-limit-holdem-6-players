@@ -419,6 +419,9 @@ def _run(
                         _append(
                             directory / "training-timing.jsonl", trainer.last_timing
                         )
+                _append(
+                    directory / "iteration-reports.jsonl", asdict(trainer.reports[-1])
+                )
                 if iteration % plan.save_every == 0 or iteration == target:
                     _checkpoint(trainer, directory, provenance)
                 if iteration % plan.evaluate_every == 0 or iteration == plan.iterations:
