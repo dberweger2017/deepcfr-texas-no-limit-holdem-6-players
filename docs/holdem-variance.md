@@ -36,3 +36,22 @@ Commit this protocol before measurements. No rental or optimizer training; all i
 ## Decision rule
 
 Any expectation/gradient failure blocks integration. A candidate is eligible for a separate opt-in training/recovery pilot only if every cell completes, its cost-adjusted gradient variance is at least 20% lower on the difficult root and no more than 25% worse on any fixed-stack root. Also report the absolute tail magnitudes and sensitivity to the largest gradient sample; a fragile result is insufficient for a broad training campaign. These point-estimate limits are a diagnostic screen, not a promotion test. If neither qualifies, preserve that outcome and identify the dominant remaining source before fitting a model. Do not silently lower the limits or choose a different baseline after seeing results.
+
+## Commands and records
+
+```bash
+python -m scripts.compare_holdem_variance \
+  --run results/holdem-baseline-v1 --job scenario-3-seed-103 \
+  --traverser 4 --arm first-frozen --replicates 64 \
+  --out results/sampling-variance/scenario-3-seed-103-first-frozen
+```
+
+Use `single-zero` or `single-frozen` with 256 replicates for the controls. The command defaults to the declared 50,000 nodes / 60 seconds. Each cell needs a new output directory. `report.json` contains completed replicate summaries and provenance; `mean-gradient.npy` contains the mean parameter-gradient vector, in the named parameter order recorded in the report. Invalid cells have no mean-gradient artifact or aggregate estimates. The deadline includes collection, gradients and per-replicate bookkeeping; the separate timing fields exclude bookkeeping. Unexpected exceptions retain an error report and propagate to the caller.
+
+`collect_outcome` now identifies records as `holdem-outcome-sampling-diagnostic-v2`: action inclusion probabilities may all be one at an expanded decision, whose `sampled_action` is `None`. Conditional regrets and update mass are distinct properties. The result records the baseline, branching mode and actual terminal count. Zero-baseline single paths preserve the previous draws and values; this remains a diagnostic interface, separate from complete-branch training records.
+
+```bash
+python -m pytest -q tests/test_holdem_sampled_loss.py \
+  tests/test_holdem_outcome_sampling.py tests/test_holdem_policy.py \
+  tests/test_holdem_variance_comparison.py tests/test_holdem_sampling_comparison.py
+```

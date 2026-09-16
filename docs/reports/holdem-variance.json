@@ -1,0 +1,1787 @@
+{
+  "archive": {
+    "bytes": 450685,
+    "path": "results/sampling-variance.tar.gz",
+    "sha256": "068c17d27d5b6eee2a1cd58210b1a661005f6015c68ee34ac9d7c2e6d71f33c5"
+  },
+  "cells": [
+    {
+      "arm": "first-frozen",
+      "attempted_replicates": 64,
+      "baseline": "frozen",
+      "branch_first": true,
+      "cell_seconds": 1.418590041983407,
+      "checkpoint_sha256": "f35bd13b3173bdd02d0b39e3229e82bd66be9bf05a1e3a5b9cefffc9d1c54fa8",
+      "collection_seconds": 1.2002430037246086,
+      "completed_collection_nodes": 2846,
+      "completed_replicates": 64,
+      "decisions": 512,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 265440.06129684614,
+        "largest_sample_variance_fraction": 0.03171709780718552,
+        "mean_norm": 191316.16476610163,
+        "trace_sample_covariance": 2871341924.9800014,
+        "trace_without_largest_sample": 2825114377.6673374,
+        "variance_seconds_per_replicate": 62565684.7345456
+      },
+      "gradient_seconds": 0.1942979209125042,
+      "iteration": 2,
+      "job": "scenario-0-seed-101",
+      "max_abs_baseline_bb": 14.041675567626953,
+      "max_abs_conditional_target_bb": 269.1622219334046,
+      "max_abs_update_bb": 269.1622219334046,
+      "max_inverse_own_reach": 1.0,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "9aaf378449fd72bc871cab62a409be3a972864631375b28e784fa226440bb7ea",
+      "physical_role": 0,
+      "process_peak_rss_bytes": 322797568,
+      "profile_sha256": "44a4633a58b100ad8471bf60a9c2ed16cf97749bd4c7756a508f844c06947018",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-0-seed-101-first-frozen/report.json",
+        "sha256": "a6434550739332ea50eee4b4bccb76b31d0096efbfe4d3f57dab16d447c4f6ae"
+      },
+      "requested_replicates": 64,
+      "root_value_bb": {
+        "mean": 87.0078125,
+        "sample_variance": 1215.4324776785713,
+        "standard_error": 4.357881648660009
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 4,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 576,
+      "traverser": 0
+    },
+    {
+      "arm": "single-frozen",
+      "attempted_replicates": 256,
+      "baseline": "frozen",
+      "branch_first": false,
+      "cell_seconds": 1.1572853329707868,
+      "checkpoint_sha256": "f35bd13b3173bdd02d0b39e3229e82bd66be9bf05a1e3a5b9cefffc9d1c54fa8",
+      "collection_seconds": 0.8023132090456784,
+      "completed_collection_nodes": 1374,
+      "completed_replicates": 256,
+      "decisions": 346,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 678068.5983675283,
+        "largest_sample_variance_fraction": 0.012341018517162345,
+        "mean_norm": 178113.4718272138,
+        "trace_sample_covariance": 88133563827.45108,
+        "trace_without_largest_sample": 87388606301.14023,
+        "variance_seconds_per_replicate": 391467312.08429885
+      },
+      "gradient_seconds": 0.3347749505774118,
+      "iteration": 2,
+      "job": "scenario-0-seed-101",
+      "max_abs_baseline_bb": 14.041675567626953,
+      "max_abs_conditional_target_bb": 4839.549833685161,
+      "max_abs_update_bb": 4844.919994801284,
+      "max_inverse_own_reach": 18.0,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "9e32ac1c0afe50649d3785807fb66a38e4af738ea2facbd16d1c095f1d6a8b6a",
+      "physical_role": 0,
+      "process_peak_rss_bytes": 321912832,
+      "profile_sha256": "44a4633a58b100ad8471bf60a9c2ed16cf97749bd4c7756a508f844c06947018",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-0-seed-101-single-frozen/report.json",
+        "sha256": "85c55b7193eeb49e8a5061397c1951948326a5f10c54400d72e1f374d9530a07"
+      },
+      "requested_replicates": 256,
+      "root_value_bb": {
+        "mean": 81.62193986773491,
+        "sample_variance": 6526.004346765728,
+        "standard_error": 5.048980538638827
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 4,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0
+    },
+    {
+      "arm": "single-zero",
+      "attempted_replicates": 256,
+      "baseline": "zero",
+      "branch_first": false,
+      "cell_seconds": 1.1042825839831494,
+      "checkpoint_sha256": "f35bd13b3173bdd02d0b39e3229e82bd66be9bf05a1e3a5b9cefffc9d1c54fa8",
+      "collection_seconds": 0.7288613767013885,
+      "completed_collection_nodes": 1374,
+      "completed_replicates": 256,
+      "decisions": 346,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 680299.8916369369,
+        "largest_sample_variance_fraction": 0.012281893260505331,
+        "mean_norm": 178224.37963511242,
+        "trace_sample_covariance": 89910827054.1806,
+        "trace_without_largest_sample": 89156183967.32692,
+        "variance_seconds_per_replicate": 380776378.75986147
+      },
+      "gradient_seconds": 0.3553100869175978,
+      "iteration": 2,
+      "job": "scenario-0-seed-101",
+      "max_abs_baseline_bb": 0.0,
+      "max_abs_conditional_target_bb": 4824.0,
+      "max_abs_update_bb": 4824.0,
+      "max_inverse_own_reach": 18.0,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "b4fb690e2254d2b5f97f582587a9f8c868489d8b8ddf53f3232c48dc10e1f54e",
+      "physical_role": 0,
+      "process_peak_rss_bytes": 322240512,
+      "profile_sha256": "44a4633a58b100ad8471bf60a9c2ed16cf97749bd4c7756a508f844c06947018",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-0-seed-101-single-zero/report.json",
+        "sha256": "6c1df2dcc75b6c35ea4bb845285bc17f4394215274863ab17756d9a2a9d83be8"
+      },
+      "requested_replicates": 256,
+      "root_value_bb": {
+        "mean": 81.99492187499999,
+        "sample_variance": 8156.814836856616,
+        "standard_error": 5.644692901874393
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 4,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0
+    },
+    {
+      "arm": "first-frozen",
+      "attempted_replicates": 64,
+      "baseline": "frozen",
+      "branch_first": true,
+      "cell_seconds": 1.6821460420032963,
+      "checkpoint_sha256": "0c896e042c574d9bfe26526aa454c9b0886086757b41397c3cf233b05c8142bb",
+      "collection_seconds": 1.4420466250157915,
+      "completed_collection_nodes": 2704,
+      "completed_replicates": 64,
+      "decisions": 384,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 322549.49742553465,
+        "largest_sample_variance_fraction": 0.026627320387628415,
+        "mean_norm": 240827.70339600285,
+        "trace_sample_covariance": 4390565337.41737,
+        "trace_without_largest_sample": 4342586288.583774,
+        "variance_seconds_per_replicate": 113705600.55973825
+      },
+      "gradient_seconds": 0.21540700033074245,
+      "iteration": 2,
+      "job": "scenario-1-seed-101",
+      "max_abs_baseline_bb": 9.719498634338379,
+      "max_abs_conditional_target_bb": 408.1446804404259,
+      "max_abs_update_bb": 408.1446804404259,
+      "max_inverse_own_reach": 1.0,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "26b883ca84abfd09f45a3f42bcd06fb118f623b206c7e876f9798c12d2eac770",
+      "physical_role": 0,
+      "process_peak_rss_bytes": 311951360,
+      "profile_sha256": "67a0ede62a429799ef8f195e465fda0c71d47fd6a308ae950110a06e75ad5267",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-1-seed-101-first-frozen/report.json",
+        "sha256": "e22f1fb75fc2de3f53eda4a111a456d484be3461224bb929368ac88d158464e0"
+      },
+      "requested_replicates": 64,
+      "root_value_bb": {
+        "mean": 176.125,
+        "sample_variance": 1885.7619047619048,
+        "standard_error": 5.42817001962031
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 5,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 448,
+      "traverser": 0
+    },
+    {
+      "arm": "single-frozen",
+      "attempted_replicates": 256,
+      "baseline": "frozen",
+      "branch_first": false,
+      "cell_seconds": 1.7907916250405833,
+      "checkpoint_sha256": "0c896e042c574d9bfe26526aa454c9b0886086757b41397c3cf233b05c8142bb",
+      "collection_seconds": 1.2960975656169467,
+      "completed_collection_nodes": 1896,
+      "completed_replicates": 256,
+      "decisions": 355,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 858198.7851140904,
+        "largest_sample_variance_fraction": 0.011443030063418536,
+        "mean_norm": 246328.99590498937,
+        "trace_sample_covariance": 149325915968.61948,
+        "trace_without_largest_sample": 148198345003.34836,
+        "variance_seconds_per_replicate": 1027954567.123855
+      },
+      "gradient_seconds": 0.4661977966898121,
+      "iteration": 2,
+      "job": "scenario-1-seed-101",
+      "max_abs_baseline_bb": 9.719498634338379,
+      "max_abs_conditional_target_bb": 5624.816579689583,
+      "max_abs_update_bb": 5625.768715550503,
+      "max_inverse_own_reach": 14.0,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "b1066b5ff715958b4cc731746a594bee647189837f3ec8c4f5c69745ef40b4a7",
+      "physical_role": 0,
+      "process_peak_rss_bytes": 311754752,
+      "profile_sha256": "67a0ede62a429799ef8f195e465fda0c71d47fd6a308ae950110a06e75ad5267",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-1-seed-101-single-frozen/report.json",
+        "sha256": "85b86631f626849b7ff6c37c111d8f9e72c1fc4bed306319b26764577e6bb29a"
+      },
+      "requested_replicates": 256,
+      "root_value_bb": {
+        "mean": 167.82549209147692,
+        "sample_variance": 24855.963544311606,
+        "standard_error": 9.853608861476449
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 5,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0
+    },
+    {
+      "arm": "single-zero",
+      "attempted_replicates": 256,
+      "baseline": "zero",
+      "branch_first": false,
+      "cell_seconds": 1.567589999991469,
+      "checkpoint_sha256": "0c896e042c574d9bfe26526aa454c9b0886086757b41397c3cf233b05c8142bb",
+      "collection_seconds": 1.1256299951346591,
+      "completed_collection_nodes": 1896,
+      "completed_replicates": 256,
+      "decisions": 355,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 859279.4769475005,
+        "largest_sample_variance_fraction": 0.011417667874268195,
+        "mean_norm": 246146.44073554192,
+        "trace_sample_covariance": 150723632194.06146,
+        "trace_without_largest_sample": 149589344702.0508,
+        "variance_seconds_per_replicate": 908781316.7764384
+      },
+      "gradient_seconds": 0.41791041527176276,
+      "iteration": 2,
+      "job": "scenario-1-seed-101",
+      "max_abs_baseline_bb": 0.0,
+      "max_abs_conditional_target_bb": 5618.666666666667,
+      "max_abs_update_bb": 5618.666666666667,
+      "max_inverse_own_reach": 14.0,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "dd88701e8f2da5f1b589314876c8bfac25c8267d46e16ecafb6dcc96e234f252",
+      "physical_role": 0,
+      "process_peak_rss_bytes": 313802752,
+      "profile_sha256": "67a0ede62a429799ef8f195e465fda0c71d47fd6a308ae950110a06e75ad5267",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-1-seed-101-single-zero/report.json",
+        "sha256": "9074ce4fbb0c9fa6d474f4f726226b77aad4ccaea81f83f4e0f5bb5dac194866"
+      },
+      "requested_replicates": 256,
+      "root_value_bb": {
+        "mean": 167.14208984375,
+        "sample_variance": 27459.344498458562,
+        "standard_error": 10.356788326846491
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 5,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0
+    },
+    {
+      "arm": "first-frozen",
+      "attempted_replicates": 64,
+      "baseline": "frozen",
+      "branch_first": true,
+      "cell_seconds": 2.613391708000563,
+      "checkpoint_sha256": "8243c43e8580a15a6a482f346f15c7c0213f41e65e72d5477d7204d5b33572eb",
+      "collection_seconds": 2.2914707050658762,
+      "completed_collection_nodes": 3543,
+      "completed_replicates": 64,
+      "decisions": 431,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 323787.11611166125,
+        "largest_sample_variance_fraction": 0.12540509660472846,
+        "mean_norm": 45214.1169983361,
+        "trace_sample_covariance": 14911666538.304321,
+        "trace_without_largest_sample": 13252017032.232882,
+        "variance_seconds_per_replicate": 601160116.9038159
+      },
+      "gradient_seconds": 0.2886733306804672,
+      "iteration": 2,
+      "job": "scenario-2-seed-101",
+      "max_abs_baseline_bb": 3.072824716567993,
+      "max_abs_conditional_target_bb": 2466.9402063687644,
+      "max_abs_update_bb": 2473.179652174314,
+      "max_inverse_own_reach": 8.0,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "68dfb9b42ceb08018cb423aac700f16c0ebbcc267667e437c60ca699e346e48d",
+      "physical_role": 0,
+      "process_peak_rss_bytes": 284377088,
+      "profile_sha256": "1860627346315595bc0ee86e4d14b6c29935854241ca408b46ca529bfcf6e5e5",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-2-seed-101-first-frozen/report.json",
+        "sha256": "5470f2384cfc872ad79aa5828d12f092d3f2a3bfdccd53f9166fc1175dcb1008"
+      },
+      "requested_replicates": 64,
+      "root_value_bb": {
+        "mean": -48.09375,
+        "sample_variance": 7535.800595238095,
+        "standard_error": 10.851123642305216
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 448,
+      "traverser": 0
+    },
+    {
+      "arm": "single-frozen",
+      "attempted_replicates": 256,
+      "baseline": "frozen",
+      "branch_first": false,
+      "cell_seconds": 1.9854783329647034,
+      "checkpoint_sha256": "8243c43e8580a15a6a482f346f15c7c0213f41e65e72d5477d7204d5b33572eb",
+      "collection_seconds": 1.5105615377542563,
+      "completed_collection_nodes": 2455,
+      "completed_replicates": 256,
+      "decisions": 361,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 2953467.9255478326,
+        "largest_sample_variance_fraction": 0.1767440035622358,
+        "mean_norm": 63885.02262031626,
+        "trace_sample_covariance": 196433017044.77124,
+        "trace_without_largest_sample": 162351331067.00674,
+        "variance_seconds_per_replicate": 1501946831.0007918
+      },
+      "gradient_seconds": 0.44684050453361124,
+      "iteration": 2,
+      "job": "scenario-2-seed-101",
+      "max_abs_baseline_bb": 2.995534658432007,
+      "max_abs_conditional_target_bb": 6236.674217161537,
+      "max_abs_update_bb": 37330.33037394285,
+      "max_inverse_own_reach": 140.0,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "14036cf83059799de0bdd1726d45584d60d2365d3ce4bf06ef7e26d3c38b0e44",
+      "physical_role": 0,
+      "process_peak_rss_bytes": 279904256,
+      "profile_sha256": "1860627346315595bc0ee86e4d14b6c29935854241ca408b46ca529bfcf6e5e5",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-2-seed-101-single-frozen/report.json",
+        "sha256": "3f349c04ede872e9a84a56c2e462964fdeef6e203dd9acfb73deb049b0be443f"
+      },
+      "requested_replicates": 256,
+      "root_value_bb": {
+        "mean": -69.32259396178415,
+        "sample_variance": 12986.74919901024,
+        "standard_error": 7.122463693037245
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0
+    },
+    {
+      "arm": "single-zero",
+      "attempted_replicates": 256,
+      "baseline": "zero",
+      "branch_first": false,
+      "cell_seconds": 1.9547663750126958,
+      "checkpoint_sha256": "8243c43e8580a15a6a482f346f15c7c0213f41e65e72d5477d7204d5b33572eb",
+      "collection_seconds": 1.4633355865371414,
+      "completed_collection_nodes": 2455,
+      "completed_replicates": 256,
+      "decisions": 361,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 2948525.96921136,
+        "largest_sample_variance_fraction": 0.1751072675674852,
+        "mean_norm": 63972.730088489414,
+        "trace_sample_covariance": 197624848994.51843,
+        "trace_without_largest_sample": 163661109957.99652,
+        "variance_seconds_per_replicate": 1486375151.1828418
+      },
+      "gradient_seconds": 0.4620904954499565,
+      "iteration": 2,
+      "job": "scenario-2-seed-101",
+      "max_abs_baseline_bb": 0.0,
+      "max_abs_conditional_target_bb": 6216.0,
+      "max_abs_update_bb": 37520.0,
+      "max_inverse_own_reach": 140.0,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "9998db21c926f103cd1a382451937d1327dc2c4cde4cd1dc6a7d6405f34ea322",
+      "physical_role": 0,
+      "process_peak_rss_bytes": 279494656,
+      "profile_sha256": "1860627346315595bc0ee86e4d14b6c29935854241ca408b46ca529bfcf6e5e5",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-2-seed-101-single-zero/report.json",
+        "sha256": "4ce98d76c8391b4cec70454fe6f65e6ece61c071e49755bb24a5af53ebd3a0df"
+      },
+      "requested_replicates": 256,
+      "root_value_bb": {
+        "mean": -69.40185546875,
+        "sample_variance": 12931.374337230009,
+        "standard_error": 7.107262553529645
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0
+    },
+    {
+      "arm": "first-frozen",
+      "attempted_replicates": 64,
+      "baseline": "frozen",
+      "branch_first": true,
+      "cell_seconds": 2.9926197919994593,
+      "checkpoint_sha256": "acd341bb5cdfd9d3809e2f0948f51ee754ab56f3108f7c7a25f04836ce708cfc",
+      "collection_seconds": 2.67063195531955,
+      "completed_collection_nodes": 5004,
+      "completed_replicates": 64,
+      "decisions": 602,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 24785265.804234304,
+        "largest_sample_variance_fraction": 0.26080325830385653,
+        "mean_norm": 2789081.558743548,
+        "trace_sample_covariance": 34681303465247.492,
+        "trace_without_largest_sample": 26049795334113.31,
+        "variance_seconds_per_replicate": 1598252013228.2935
+      },
+      "gradient_seconds": 0.27874187513953075,
+      "iteration": 2,
+      "job": "scenario-3-seed-103",
+      "max_abs_baseline_bb": 12.638656616210938,
+      "max_abs_conditional_target_bb": 2438.7349684238434,
+      "max_abs_update_bb": 160802.32207025675,
+      "max_inverse_own_reach": 280.0,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "9dcf650f1d8b329283eff6f2dc606b3b879559e0d89e033b01ab9e957ad17e93",
+      "physical_role": 4,
+      "process_peak_rss_bytes": 307527680,
+      "profile_sha256": "24f0123ee59473c4c8fd17d0d243d9dba74f1172dc038990420742b834bf2936",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-3-seed-103-first-frozen/report.json",
+        "sha256": "68d90e9131136d8444533c569415b20a773cc5cb9e22a47447a573f2a980e558"
+      },
+      "requested_replicates": 64,
+      "root_value_bb": {
+        "mean": -87.375,
+        "sample_variance": 1699.2063492063492,
+        "standard_error": 5.152678837881244
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          40,
+          80,
+          120,
+          200,
+          300,
+          400
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 40,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 80,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 120,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 300,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 400,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 576,
+      "traverser": 4
+    },
+    {
+      "arm": "single-frozen",
+      "attempted_replicates": 256,
+      "baseline": "frozen",
+      "branch_first": false,
+      "cell_seconds": 1.8183734159683809,
+      "checkpoint_sha256": "acd341bb5cdfd9d3809e2f0948f51ee754ab56f3108f7c7a25f04836ce708cfc",
+      "collection_seconds": 1.3988082543364726,
+      "completed_collection_nodes": 2092,
+      "completed_replicates": 256,
+      "decisions": 367,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 2839084066.9450607,
+        "largest_sample_variance_fraction": 0.9967874208936869,
+        "mean_norm": 12054642.027798122,
+        "trace_sample_covariance": 3.1566184255389284e+16,
+        "trace_without_largest_sample": 101808111500977.39,
+        "variance_seconds_per_replicate": 220706990063248.28
+      },
+      "gradient_seconds": 0.3911131691420451,
+      "iteration": 2,
+      "job": "scenario-3-seed-103",
+      "max_abs_baseline_bb": 12.636430740356445,
+      "max_abs_conditional_target_bb": 3497.7823195219225,
+      "max_abs_update_bb": 7895551.3873061435,
+      "max_inverse_own_reach": 60480.00000000001,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "4e5df85876bc845313393f1c3e6a36e8d6c1fd67e9b64edb88170bc62facf7d7",
+      "physical_role": 4,
+      "process_peak_rss_bytes": 305020928,
+      "profile_sha256": "24f0123ee59473c4c8fd17d0d243d9dba74f1172dc038990420742b834bf2936",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-3-seed-103-single-frozen/report.json",
+        "sha256": "36a7838bf0ef0931ea508c39f76c6b60e7ded46d77bc88faf93cb73df29ffbbd"
+      },
+      "requested_replicates": 256,
+      "root_value_bb": {
+        "mean": -90.39513446092604,
+        "sample_variance": 10869.13308961252,
+        "standard_error": 6.515945912244738
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          40,
+          80,
+          120,
+          200,
+          300,
+          400
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 40,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 80,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 120,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 300,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 400,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 4
+    },
+    {
+      "arm": "single-zero",
+      "attempted_replicates": 256,
+      "baseline": "zero",
+      "branch_first": false,
+      "cell_seconds": 1.6798187079839408,
+      "checkpoint_sha256": "acd341bb5cdfd9d3809e2f0948f51ee754ab56f3108f7c7a25f04836ce708cfc",
+      "collection_seconds": 1.2591353352181613,
+      "completed_collection_nodes": 2092,
+      "completed_replicates": 256,
+      "decisions": 367,
+      "dirty": true,
+      "exploration": 0.5,
+      "gradient": {
+        "largest_norm": 2912822423.2626085,
+        "largest_sample_variance_fraction": 0.9970630126935353,
+        "mean_norm": 12358758.241445575,
+        "trace_sample_covariance": 3.3218184377972784e+16,
+        "trace_without_largest_sample": 97945485806249.33,
+        "variance_seconds_per_replicate": 214324666864396.44
+      },
+      "gradient_seconds": 0.392583918699529,
+      "iteration": 2,
+      "job": "scenario-3-seed-103",
+      "max_abs_baseline_bb": 0.0,
+      "max_abs_conditional_target_bb": 3712.677890764006,
+      "max_abs_update_bb": 8696308.015298348,
+      "max_inverse_own_reach": 60480.00000000001,
+      "max_nodes": 50000,
+      "max_seconds": 60,
+      "mean_gradient_sha256": "44d2f386b99db6eabdfb1b1d94c629fafff50b12806ca76ea1b4787afd7d8a78",
+      "physical_role": 4,
+      "process_peak_rss_bytes": 305790976,
+      "profile_sha256": "24f0123ee59473c4c8fd17d0d243d9dba74f1172dc038990420742b834bf2936",
+      "raw_report": {
+        "path": "results/sampling-variance/scenario-3-seed-103-single-zero/report.json",
+        "sha256": "817c6bc9e478169f330b888f52aaf415a1bf490c6d3def61edb614e0c806b6cf"
+      },
+      "requested_replicates": 256,
+      "root_value_bb": {
+        "mean": -89.85234375,
+        "sample_variance": 9456.820229779412,
+        "standard_error": 6.077886476611408
+      },
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          40,
+          80,
+          120,
+          200,
+          300,
+          400
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 40,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 80,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 120,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 300,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 400,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 4
+    }
+  ],
+  "checkpoint_manifest": {
+    "contract": {
+      "actions": "holdem-bets-v1",
+      "average": "linear-own-reach-collection-profiles-v1",
+      "decision": "holdem-decision-v1",
+      "observation": 2,
+      "resume": "completed-iterations-fresh-adam-per-role-v1",
+      "rules": "nlhe-cash-auto-muck-v1"
+    },
+    "dirty": false,
+    "environment": {
+      "engine": {
+        "binaries": {
+          "pokers/pokers.cpython-311-darwin.so": "fa88771c851cdd36cd549f2d024571277e8277d2c48cb091e26baff7cd071d6e"
+        },
+        "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+      },
+      "implementation": "CPython",
+      "machine": "arm64",
+      "packages": {
+        "Jinja2": "3.1.6",
+        "Markdown": "3.10.2",
+        "MarkupSafe": "3.0.3",
+        "PyQt5": "5.15.11",
+        "PyQt5-Qt5": "5.15.19",
+        "PyQt5_sip": "12.18.0",
+        "Pygments": "2.20.0",
+        "Werkzeug": "3.1.8",
+        "absl-py": "2.4.0",
+        "argparse": "1.4.0",
+        "certifi": "2026.5.20",
+        "charset-normalizer": "3.4.7",
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "filelock": "3.29.1",
+        "fonttools": "4.63.0",
+        "fsspec": "2026.4.0",
+        "grpcio": "1.81.0",
+        "idna": "3.18",
+        "iniconfig": "2.3.0",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.9.0",
+        "maturin": "1.15.0",
+        "mpmath": "1.3.0",
+        "networkx": "3.6.1",
+        "numpy": "1.26.4",
+        "packaging": "26.2",
+        "pandas": "2.2.2",
+        "pillow": "12.2.0",
+        "pip": "26.1",
+        "pluggy": "1.6.0",
+        "pokerkit": "0.7.5",
+        "pokers": "0.2.0",
+        "protobuf": "7.35.0",
+        "pyparsing": "3.3.2",
+        "pytest": "9.0.3",
+        "python-dateutil": "2.9.0.post0",
+        "python-dotenv": "1.0.1",
+        "pytz": "2026.2",
+        "requests": "2.32.3",
+        "ruff": "0.16.7",
+        "scipy": "1.17.1",
+        "seaborn": "0.13.2",
+        "setuptools": "80.10.2",
+        "six": "1.17.0",
+        "sympy": "1.13.1",
+        "tensorboard": "2.18.0",
+        "tensorboard-data-server": "0.7.2",
+        "torch": "2.5.1",
+        "tqdm": "4.67.0",
+        "typing_extensions": "4.15.0",
+        "tzdata": "2026.2",
+        "urllib3": "2.7.0"
+      },
+      "platform": "macOS-27.0-arm64-arm-64bit",
+      "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]"
+    },
+    "format": "holdem-baseline-experiment-v1",
+    "observation_schema": 2,
+    "plan": {
+      "blocks": 30,
+      "evaluate_every": 2,
+      "evaluation_seed": 91826,
+      "iterations": 2,
+      "max_seconds": 900,
+      "opponents": [
+        "tight_passive",
+        "loose_passive",
+        "tight_aggressive",
+        "loose_aggressive",
+        "pot_pressure"
+      ],
+      "save_every": 1,
+      "scenarios": [
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "four-100bb",
+          "small_blind": 1,
+          "stacks": [
+            200,
+            200,
+            200,
+            200
+          ]
+        },
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "five-100bb",
+          "small_blind": 1,
+          "stacks": [
+            200,
+            200,
+            200,
+            200,
+            200
+          ]
+        },
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "six-100bb",
+          "small_blind": 1,
+          "stacks": [
+            200,
+            200,
+            200,
+            200,
+            200,
+            200
+          ]
+        },
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "six-unequal",
+          "small_blind": 1,
+          "stacks": [
+            40,
+            80,
+            120,
+            200,
+            300,
+            400
+          ]
+        }
+      ],
+      "seeds": [
+        101,
+        103,
+        107
+      ],
+      "training": {
+        "capacity": 128,
+        "fit": {
+          "batch_size": 8,
+          "diagnostic_samples": 16,
+          "learning_rate": 0.001,
+          "steps": 8,
+          "width": 16
+        },
+        "max_nodes": 50000,
+        "max_seconds": 60,
+        "rotate_button": true,
+        "seed": 0,
+        "traversals_per_player": 1
+      }
+    },
+    "purpose": "implementation report; no model promotion or readiness claim",
+    "revision": "863de626f865709c3dc6ccb4ac233fbba3a3b697",
+    "rules": "nlhe-cash-auto-muck-v1",
+    "source_sha256": "e0bcb392ec4e185975f5521eee72b75e56fa380799006f7be45b4f952ef5e496"
+  },
+  "checks": [
+    {
+      "control_reproduced_replicates": 256,
+      "cost_adjusted_variance_ratios": {
+        "first-frozen": 0.1643108349796114,
+        "single-frozen": 1.0280766715605005,
+        "single-zero": 1.0
+      },
+      "job": "scenario-0-seed-101",
+      "ratios_without_each_arms_largest_gradient_sample": {
+        "first-frozen": 0.16303387337426228,
+        "single-frozen": 1.0280151304217342,
+        "single-zero": 1.0
+      },
+      "single_arms_share_paths": true
+    },
+    {
+      "control_reproduced_replicates": 256,
+      "cost_adjusted_variance_ratios": {
+        "first-frozen": 0.12511877000626104,
+        "single-frozen": 1.1311352336887153,
+        "single-zero": 1.0
+      },
+      "job": "scenario-1-seed-101",
+      "ratios_without_each_arms_largest_gradient_sample": {
+        "first-frozen": 0.12468986949553088,
+        "single-frozen": 1.1311062142890975,
+        "single-zero": 1.0
+      },
+      "single_arms_share_paths": true
+    },
+    {
+      "control_reproduced_replicates": 256,
+      "cost_adjusted_variance_ratios": {
+        "first-frozen": 0.4044470983152665,
+        "single-frozen": 1.0104762783511,
+        "single-zero": 1.0
+      },
+      "job": "scenario-2-seed-101",
+      "ratios_without_each_arms_largest_gradient_sample": {
+        "first-frozen": 0.43402383991332616,
+        "single-frozen": 1.0084713111213106,
+        "single-zero": 1.0
+      },
+      "single_arms_share_paths": true
+    },
+    {
+      "control_reproduced_replicates": 256,
+      "cost_adjusted_variance_ratios": {
+        "first-frozen": 0.007457153843330176,
+        "single-frozen": 1.0297787617833554,
+        "single-zero": 1.0
+      },
+      "job": "scenario-3-seed-103",
+      "ratios_without_each_arms_largest_gradient_sample": {
+        "first-frozen": 1.8996494810043891,
+        "single-frozen": 1.1264079102243045,
+        "single-zero": 1.0
+      },
+      "single_arms_share_paths": true
+    }
+  ],
+  "environment": {
+    "engine": {
+      "binaries": {
+        "pokers/pokers.cpython-311-darwin.so": "fa88771c851cdd36cd549f2d024571277e8277d2c48cb091e26baff7cd071d6e"
+      },
+      "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+    },
+    "implementation": "CPython",
+    "machine": "arm64",
+    "packages": {
+      "Jinja2": "3.1.6",
+      "Markdown": "3.10.2",
+      "MarkupSafe": "3.0.3",
+      "PyQt5": "5.15.11",
+      "PyQt5-Qt5": "5.15.19",
+      "PyQt5_sip": "12.18.0",
+      "Pygments": "2.20.0",
+      "Werkzeug": "3.1.8",
+      "absl-py": "2.4.0",
+      "argparse": "1.4.0",
+      "certifi": "2026.5.20",
+      "charset-normalizer": "3.4.7",
+      "contourpy": "1.3.3",
+      "cycler": "0.12.1",
+      "filelock": "3.29.1",
+      "fonttools": "4.63.0",
+      "fsspec": "2026.4.0",
+      "grpcio": "1.81.0",
+      "idna": "3.18",
+      "iniconfig": "2.3.0",
+      "kiwisolver": "1.5.0",
+      "matplotlib": "3.9.0",
+      "maturin": "1.15.0",
+      "mpmath": "1.3.0",
+      "networkx": "3.6.1",
+      "numpy": "1.26.4",
+      "packaging": "26.2",
+      "pandas": "2.2.2",
+      "pillow": "12.2.0",
+      "pip": "26.1",
+      "pluggy": "1.6.0",
+      "pokerkit": "0.7.5",
+      "pokers": "0.2.0",
+      "protobuf": "7.35.0",
+      "pyparsing": "3.3.2",
+      "pytest": "9.0.3",
+      "python-dateutil": "2.9.0.post0",
+      "python-dotenv": "1.0.1",
+      "pytz": "2026.2",
+      "requests": "2.32.3",
+      "ruff": "0.16.7",
+      "scipy": "1.17.1",
+      "seaborn": "0.13.2",
+      "setuptools": "80.10.2",
+      "six": "1.17.0",
+      "sympy": "1.13.1",
+      "tensorboard": "2.18.0",
+      "tensorboard-data-server": "0.7.2",
+      "torch": "2.5.1",
+      "tqdm": "4.67.0",
+      "typing_extensions": "4.15.0",
+      "tzdata": "2026.2",
+      "urllib3": "2.7.0"
+    },
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]"
+  },
+  "gradient_parameters": [
+    {
+      "name": "encoder.context.0.weight",
+      "shape": [
+        16,
+        406
+      ]
+    },
+    {
+      "name": "encoder.context.0.bias",
+      "shape": [
+        16
+      ]
+    },
+    {
+      "name": "encoder.event.0.weight",
+      "shape": [
+        16,
+        83
+      ]
+    },
+    {
+      "name": "encoder.event.0.bias",
+      "shape": [
+        16
+      ]
+    },
+    {
+      "name": "encoder.history.weight_ih_l0",
+      "shape": [
+        48,
+        16
+      ]
+    },
+    {
+      "name": "encoder.history.weight_hh_l0",
+      "shape": [
+        48,
+        16
+      ]
+    },
+    {
+      "name": "encoder.history.bias_ih_l0",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.history.bias_hh_l0",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.combine.0.weight",
+      "shape": [
+        16,
+        32
+      ]
+    },
+    {
+      "name": "encoder.combine.0.bias",
+      "shape": [
+        16
+      ]
+    },
+    {
+      "name": "action.0.weight",
+      "shape": [
+        16,
+        27
+      ]
+    },
+    {
+      "name": "action.0.bias",
+      "shape": [
+        16
+      ]
+    },
+    {
+      "name": "regret.weight",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "name": "regret.bias",
+      "shape": [
+        1
+      ]
+    },
+    {
+      "name": "value.weight",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "name": "value.bias",
+      "shape": [
+        1
+      ]
+    }
+  ],
+  "implementation_commit": "d0929f23fde726a73c0273dcabc9a93ca1526948",
+  "kind": "holdem-variance-summary-v1",
+  "protocol_commit": "034f9f8",
+  "screen": {
+    "first-frozen": {
+      "eligible_for_opt_in_pilot": true,
+      "strength_promotion": false
+    },
+    "single-frozen": {
+      "eligible_for_opt_in_pilot": false,
+      "strength_promotion": false
+    }
+  },
+  "source_sha256": "d02974f0f079f422a6ef758726d250c8ecc523e7d0316837b5d44100f4881bf6"
+}
