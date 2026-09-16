@@ -1,5 +1,7 @@
 # Hold’em sampling comparison
 
+[PR #67](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/67)
+
 ## Decision
 
 **Outcome sampling removes the observed branching bottleneck, but this raw estimator is not ready for neural training.** All eight sampled-path cells complete. The difficult unequal-stack root still defeats external sampling, while the sampled alternatives generate very large late-decision correction weights. Keep the training default unchanged.
