@@ -8012,8 +8012,8 @@
   "rental_cost_usd": 0,
   "artifact_archive": {
     "path": "results/sampled-pilot.tar.gz",
-    "bytes": 138929851,
-    "sha256": "df816ebcd63045a70030475602778e67c6b8b3373ea5ee675ff3e79c541c1a5c"
+    "bytes": 138909769,
+    "sha256": "4fa85d4a1a648239498ff8b56027e5e3c9aabf2c04cea112f532ea035f07e716"
   },
   "peak_rss_bytes": 457474048,
   "hardware": {

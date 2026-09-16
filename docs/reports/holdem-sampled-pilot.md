@@ -73,10 +73,10 @@ All 24 saved training checkpoints and corresponding inference exports were loade
 
 The manifest marks the workspace dirty because the unrelated untracked `.claude/` directory remained present. All training implementation and configuration changes were committed before measurements; the manifest also pins source bytes and the installed environment.
 
-The local retained archive is `results/sampled-pilot.tar.gz` (138,929,851 bytes), SHA-256:
+The local retained archive is `results/sampled-pilot.tar.gz` (138,909,769 bytes), SHA-256:
 
 ```text
-df816ebcd63045a70030475602778e67c6b8b3373ea5ee675ff3e79c541c1a5c
+4fa85d4a1a648239498ff8b56027e5e3c9aabf2c04cea112f532ea035f07e716
 ```
 
 It contains all checkpoints, policy exports, per-hand outcomes, manifests, reports, test logs, timing logs, verification outputs (including the initial helper failure), and reproduction helpers. Large model files remain outside Git. The [compact JSON report](holdem-sampled-pilot.json) retains every iteration’s diagnostics, every evaluation summary and artifact hashes. To inspect the retained run, extract the archive into a separate directory. To repeat training, check out the source revision and use a fresh output directory with the protocol command.
