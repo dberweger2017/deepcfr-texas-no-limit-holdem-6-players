@@ -1,10 +1,11 @@
-"""Transactional collect-and-fit iterations; averaging and persistence follow separately."""
+"""Transactional collect-and-fit iterations with collection-aligned strategy archives."""
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from math import isfinite
 from time import perf_counter
 
 from src.game.hand import Table
+from src.holdem.average import AveragePolicy
 from src.holdem.betting import BettingNetwork
 from src.holdem.collection import collect_phase
 from src.holdem.fitting import FitConfig, FitMetrics, fit_role
@@ -21,6 +22,7 @@ class TrainConfig:
     max_nodes: int = 50_000
     max_seconds: float = 60
     fit: FitConfig = field(default_factory=FitConfig)
+    rotate_button: bool = True
 
     def __post_init__(self):
         if any(
@@ -35,6 +37,7 @@ class TrainConfig:
             or self.seed < 0
             or not isfinite(self.max_seconds)
             or self.max_seconds <= 0
+            or type(self.rotate_button) is not bool
             or not isinstance(self.fit, FitConfig)
         ):
             raise ValueError("Invalid seed, time budget or fitting configuration")
@@ -64,6 +67,7 @@ class _State:
     models: tuple[BettingNetwork | None, ...]
     memories: tuple[RoleReservoir, ...]
     reports: tuple[IterationReport, ...] = ()
+    archive: tuple[FrozenProfile, ...] = ()
 
 
 class HoldemTrainer:
@@ -103,6 +107,9 @@ class HoldemTrainer:
     def current_profile(self) -> FrozenProfile:
         return FrozenProfile(self._state.models)
 
+    def average_policy(self) -> AveragePolicy:
+        return AveragePolicy(self._state.archive)
+
     def step(self) -> IterationReport:
         config, old = self.config, self._state
         iteration = old.iteration + 1
@@ -111,8 +118,16 @@ class HoldemTrainer:
         remaining = deadline - perf_counter()
         if remaining <= 0:
             raise TimeoutError("Iteration deadline expired before collection")
+        table = (
+            replace(
+                self.table,
+                button=(self.table.button + iteration - 1) % len(self.table.stacks),
+            )
+            if config.rotate_button
+            else self.table
+        )
         batch = collect_phase(
-            self.table,
+            table,
             profile,
             iteration=iteration,
             seed=config.seed,
@@ -121,7 +136,7 @@ class HoldemTrainer:
             max_seconds=remaining,
         )
         if (
-            batch.table != self.table
+            batch.table != table
             or batch.iteration != iteration
             or batch.seed != config.seed
             or batch.profile != profile.fingerprint
@@ -158,6 +173,10 @@ class HoldemTrainer:
         )
         # Publish once: failed admission or fitting cannot leave a mixed policy generation.
         self._state = _State(
-            iteration, tuple(models), memories, old.reports + (report,)
+            iteration,
+            tuple(models),
+            memories,
+            old.reports + (report,),
+            old.archive + (profile,),
         )
         return report

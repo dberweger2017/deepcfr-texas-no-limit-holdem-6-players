@@ -72,11 +72,9 @@ The project began as an earlier Deep CFR implementation. We are rebuilding its l
 | Hold’em betting | Exact legal bet candidates, per-action regret/value heads and branch-payoff targets. [Contract](docs/holdem-betting.md) |
 | Hold’em collection | External sampling for every role against isolated current policies, with exact action records and reproducible 100 BB checks. [Contract](docs/holdem-collection.md) |
 | Hold’em fitting | Separate role reservoirs, iteration-weighted model updates and whole-iteration rollback. Two-iteration checks reproduce at 100 BB. [Contract](docs/holdem-training.md) |
-| Full Hold’em learning | Average-strategy play, recovery and substantial training remain ahead. Legacy trainers and play interfaces still exist. |
+| Hold’em baseline pipeline | Averaged play, full iteration-boundary recovery, deterministic button rotation and a multi-seed training/arena runner. [Contract](docs/holdem-baseline.md), [first report](docs/reports/holdem-baseline.md). Substantial learning and strength remain unproven; legacy play interfaces still exist. |
 
-**Next step:** retain the policies used by the [collect-and-fit loop](docs/holdem-training.md) and integrate snapshot-average play. Current-policy updates now run reproducibly; average-policy evaluation and complete training recovery remain ahead. Before another learning campaign, the snapshot-average path still needs full training/recovery integration and a fresh readiness protocol. The [previous confirmation](docs/reports/neural-readiness.md) remains failed; substantial training requires both a readiness pass and the corrected no-limit pipeline. No model has been promoted.
-
-The [latest report](docs/reports/neural-readiness.md) records all sixteen fresh-seed runs, eight paired controls, 72 evaluation checkpoints and verified exports. The preceding implementation passed 298 tests. These establish implementation and small-game learning evidence, not professional poker strength.
+**Next step:** finish snapshot-aware recovery on the small-game solver and declare fresh readiness checks, then establish meaningful Hold’em learning before scaling. Step 4's engineering now supports collection → fitting → averaged play → evaluation and exact recovery. The [first Hold’em report](docs/reports/holdem-baseline.md) is deliberately a short implementation check across three seeds per scenario: ten jobs completed, one hit its collection limit and one was not attempted. The [previous small-game confirmation](docs/reports/neural-readiness.md) remains failed; substantial training still requires readiness. No model has been promoted.
 
 ## The route to 1.0
 
