@@ -16,7 +16,15 @@ import numpy as np
 from src.solver.cfr import regret_delta
 from src.solver.evaluate import evaluate
 from src.solver.experiment import ROOT, canonical, write_json
+from src.solver.neural import snapshot_training
 from src.solver.neural.artifact import save_policy
+from src.solver.neural.average import (
+    StrategyArchive,
+    load_archive,
+    record_iteration,
+    save_archive,
+    tabulate,
+)
 from src.solver.neural.checkpoint import load_training, save_training
 from src.solver.neural.encoding import ACTION_SLOT
 from src.solver.neural.memory import Reservoir
@@ -35,10 +43,13 @@ class Plan:
     maximum_seconds: float = 840
     version: int = 1
     execution: str = "local"
+    average: str = "network"
+    checkpoint_interval: int | None = None
 
     def __post_init__(self):
         if (
-            self.game not in {"kuhn", "leduc"}
+            self.average not in {"network", "snapshots"}
+            or self.game not in {"kuhn", "leduc"}
             or type(self.version) is not int
             or self.version != 1
         ):
@@ -48,6 +59,10 @@ class Plan:
                 raise ValueError(
                     "Iterations and evaluation interval must be positive integers"
                 )
+        if self.checkpoint_interval is not None and (
+            type(self.checkpoint_interval) is not int or self.checkpoint_interval < 1
+        ):
+            raise ValueError("Checkpoint interval must be a positive integer")
         limits = {"local": 840, "cpu-campaign": 7200}
         if self.execution not in limits:
             raise ValueError("Unknown neural execution profile")
@@ -71,6 +86,7 @@ def provenance(plan: dict) -> dict:
         ROOT / "scripts/study_worker.py",
         ROOT / "scripts/cpu_pilot.py",
         ROOT / "scripts/run_neural_readiness.py",
+        ROOT / "scripts/run_snapshot_readiness.py",
     ]
     source = {
         str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in files
@@ -130,14 +146,20 @@ def run(
         "advantage_fits": [],
     }
     solver = None
+    archive = None
     if resume is not None:
         descriptor = json.loads((resume / "checkpoint.json").read_text())
         name = descriptor["file"]
         if not isinstance(name, str) or Path(name).name != name:
             raise ValueError("Invalid checkpoint filename")
-        solver, progress = load_training(
-            resume / name, descriptor["sha256"], manifest=manifest
-        )
+        if plan.average == "snapshots":
+            solver, archive, progress = snapshot_training.load_training(
+                resume / name, descriptor["sha256"], manifest=manifest
+            )
+        else:
+            solver, progress = load_training(
+                resume / name, descriptor["sha256"], manifest=manifest
+            )
         elapsed = progress["elapsed_seconds"]
         if type(elapsed) not in (int, float) or not np.isfinite(elapsed) or elapsed < 0:
             raise ValueError("Invalid checkpoint elapsed budget")
@@ -173,8 +195,10 @@ def run(
 
     def checkpoint():
         name = f"iteration-{solver.iterations:06d}.pt"
-        digest = save_training(
-            solver,
+        save = save_training if archive is None else snapshot_training.save_training
+        args = (solver,) if archive is None else (solver, archive)
+        digest = save(
+            *args,
             output / name,
             manifest=manifest,
             progress={
@@ -192,9 +216,14 @@ def run(
         with deterministic_cpu():
             if solver is None:
                 solver = DeepCFR(GameTree(plan.game), plan.training)
+                if plan.average == "snapshots":
+                    archive = StrategyArchive(plan.game, plan.training.hidden)
             tree = solver.tree
             while solver.iterations < plan.iterations:
-                solver.step(deadline)
+                if archive is None:
+                    solver.step(deadline)
+                else:
+                    record_iteration(solver, archive, deadline)
                 report["completed_iterations"] = solver.iterations
                 report["advantage_fits"] = solver.fits
                 scheduled = (
@@ -202,8 +231,20 @@ def run(
                     or solver.iterations == plan.iterations
                 )
                 if scheduled:
-                    metrics = solver.fit_strategy(deadline)
-                    policy = solver.average_policy()
+                    if archive is None:
+                        metrics = solver.fit_strategy(deadline)
+                        policy = solver.average_policy()
+                    else:
+                        metrics = None
+                        exported = output / f"average-{solver.iterations:06d}.pt"
+                        checksum = save_archive(archive, exported)
+                        policy = tabulate(load_archive(exported, checksum), tree)
+                        if not np.allclose(
+                            policy, solver.played_average(), atol=1e-12, rtol=0
+                        ):
+                            raise ArithmeticError(
+                                "Exported average differs from recorded play"
+                            )
                     report["evaluations"].append(
                         {
                             "iteration": solver.iterations,
@@ -220,14 +261,23 @@ def run(
                             ).hexdigest(),
                         }
                     )
-                if scheduled or solver.iterations == stop_after:
+                save_scheduled = (
+                    plan.checkpoint_interval is not None
+                    and solver.iterations % plan.checkpoint_interval == 0
+                )
+                if scheduled or save_scheduled or solver.iterations == stop_after:
                     checkpoint()
                     write_json(output / "report.json", report)
                 if solver.iterations == stop_after:
                     report["status"] = "paused"
                     break
             else:
-                report["policy_file_sha256"] = save_policy(solver, output / "policy.pt")
+                report["policy_file_sha256"] = (
+                    save_policy(solver, output / "policy.pt")
+                    if archive is None
+                    else save_archive(archive, output / "policy.pt")
+                )
+                report["average_kind"] = plan.average
                 report["status"] = "completed"
     except TimeoutError as exc:
         report["status"], report["error"] = "timed_out", str(exc)
