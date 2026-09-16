@@ -269,13 +269,17 @@ def record_iteration(
     # Player 1 contributes before its update; player 0 contributes after its update.
     previous_player1 = solver.advantages[1]
     solver.step(deadline)
-    archive.append(solver.iterations, (solver.advantages[0], previous_player1))
+    try:
+        archive.append(solver.iterations, (solver.advantages[0], previous_player1))
+    except BaseException:
+        solver.failed = True
+        raise
 
 
-def save_archive(archive: StrategyArchive, path: Path) -> str:
+def archive_state(archive: StrategyArchive) -> dict:
     if not archive.iterations:
         raise ValueError("Cannot export an empty strategy archive")
-    payload = {
+    return {
         "format": FORMAT,
         "encoding": "public-small-game-48-v1",
         "weighting": "linear-own-reach",
@@ -287,8 +291,11 @@ def save_archive(archive: StrategyArchive, path: Path) -> str:
             [model.state_dict() for model in pair] for pair in archive._snapshots
         ],
     }
+
+
+def save_archive(archive: StrategyArchive, path: Path) -> str:
     data = BytesIO()
-    torch.save(payload, data)
+    torch.save(archive_state(archive), data)
     return atomic_write(path, data.getvalue())
 
 
@@ -297,6 +304,10 @@ def load_archive(path: Path, digest: str) -> StrategyArchive:
     if sha256(data).hexdigest() != digest:
         raise ValueError("Strategy archive hash mismatch")
     payload = torch.load(BytesIO(data), map_location="cpu", weights_only=True)
+    return restore_archive(payload)
+
+
+def restore_archive(payload: dict) -> StrategyArchive:
     if (
         not isinstance(payload, dict)
         or payload.get("format") != FORMAT
@@ -321,3 +332,37 @@ def load_archive(path: Path, digest: str) -> StrategyArchive:
             tuple(_copy_network(weights, archive.hidden) for weights in pair)
         )
     return archive
+
+
+def tabulate(archive: StrategyArchive, tree) -> np.ndarray:
+    """Evaluate the exported mixture in batches over public information sets."""
+    if archive.game != tree.game or not archive.iterations:
+        raise ValueError("Archive and evaluation game must match")
+    features = torch.from_numpy(
+        np.stack([encode(info) for info in tree.information_sets])
+    )
+    masks = torch.from_numpy(
+        np.stack([legal_mask(info) for info in tree.information_sets])
+    )
+    totals = np.zeros(len(tree.information_sets))
+    summed = np.zeros(tree.mask.shape)
+    for iteration, pair in enumerate(archive._snapshots, 1):
+        probabilities = np.zeros(masks.shape)
+        for player, model in enumerate(pair):
+            rows = tree.owners == player
+            probabilities[rows] = _probabilities(model, features[rows], masks[rows])
+        for index, info in enumerate(tree.information_sets):
+            own_reach = 1.0
+            for prior, action in tree.own_sequences[index]:
+                slot = ACTION_SLOT[tree.information_sets[prior].actions[action]]
+                own_reach *= probabilities[prior, slot]
+            weight = iteration * own_reach
+            totals[index] += weight
+            summed[index, : len(info.actions)] += (
+                weight * probabilities[index, [ACTION_SLOT[a] for a in info.actions]]
+            )
+    result = tree.mask / tree.mask.sum(axis=1, keepdims=True)
+    reached = totals > 0
+    result[reached] = summed[reached] / totals[reached, None]
+    tree.validate_policy(result)
+    return result
