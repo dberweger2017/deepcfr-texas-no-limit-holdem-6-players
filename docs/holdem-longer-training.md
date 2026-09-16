@@ -1,5 +1,7 @@
 # Longer Hold'em training and release comparisons
 
+**Completed:** see the [three-seed results](reports/holdem-longer-training.md). All seeds reached 512 iterations and recovery verified; useful playing strength remains unproven. Estimates and budget figures below are the original pre-run protocol, retained unchanged.
+
 ## What trains
 
 This is real neural counterfactual-regret self-play on **six-player no-limit Texas Hold'em**, 100 BB starting stacks, the documented no-rake cash rules, and complete player-visible current-hand history. All six physical roles collect and fit; opponents in training are the frozen current self-play profile. Evaluation opponents never supply training targets.
