@@ -8,6 +8,13 @@ Playing strength is the measure of progress. A successful training run, a lower 
 
 We are willing to replace the engine integration, learning algorithm, models, training scripts, and checkpoint formats. Backwards compatibility is not a requirement. Preserve useful regression scenarios and experiment records; retire old code as its replacement passes the relevant checks.
 
+## Release milestones
+
+- **v0.5 — reproducible research release.** Deliver a usable train/resume/export/evaluate workflow and a documented longer Hold'em experiment with multiple seeds, fixed evaluation checkpoints, resource measurements, retrievable artifacts and all failures retained. Correct rules, legal observations and verified recovery are required. There is no minimum win rate or professional-strength gate; search and adaptation can follow later.
+- **v1.0 — demonstrated lower-end professional standard.** Meet the [README qualification requirements](README.md#what-10-means), including independent training seeds and a credible professional reference benchmark. The redevelopment targets 1.0, not 2.0.
+
+**Experiment gate:** once the sampled trainer passes correctness/recovery checks and a short end-to-end resource pilot, move to longer budgeted training. A positive or statistically significant poker result is not a prerequisite. Keep numerical failures, unbounded costs and invalid play as blockers; preserve weak or inconclusive results as evidence. Milestone 4's learning exit and default-model promotion criteria describe evidence to obtain, not a ban on exploratory training or v0.5 publication. Use the measured pilot to set runtime, seed count, checkpoint cadence and spending before starting; no new budget is implied by this release plan.
+
 ## Initial scope
 
 These defaults let development proceed without waiting on every implementation decision. Changes to the target game or resource budget need an explicit decision.
