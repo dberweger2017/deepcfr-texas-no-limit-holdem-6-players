@@ -1,0 +1,1959 @@
+{
+  "archive": {
+    "bytes": 73982,
+    "path": "results/sampling-comparison.tar.gz",
+    "sha256": "f2d0bbc7dea25ef1c2bb554405ee754126f2c7d89a98a1f47918b989b916720f"
+  },
+  "cells": [
+    {
+      "arm": "external",
+      "attempted_replicates": 32,
+      "checkpoint_sha256": "f35bd13b3173bdd02d0b39e3229e82bd66be9bf05a1e3a5b9cefffc9d1c54fa8",
+      "collection_seconds": 0.5653903339989483,
+      "completed_nodes": 1645,
+      "completed_nodes_exclude_failed_attempt": false,
+      "completed_replicates": 32,
+      "decisions": 256,
+      "dirty": true,
+      "exploration": null,
+      "iteration": 2,
+      "job": "scenario-0-seed-101",
+      "max_abs_update_bb": 207.0,
+      "max_inverse_own_reach": 1.0,
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 307953664,
+      "profile_sha256": "44a4633a58b100ad8471bf60a9c2ed16cf97749bd4c7756a508f844c06947018",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-0-seed-101-external/report.json",
+        "sha256": "38507c94cfceb708bb5aeeba758a1da1a7e690a17f4d3c2184525ab679d0247c"
+      },
+      "requested_replicates": 32,
+      "root_action_values_bb": [
+        {
+          "mean": 0.0,
+          "sample_variance": 0.0,
+          "standard_error": 0.0
+        },
+        {
+          "mean": 182.34375,
+          "sample_variance": 1556.8941532258063,
+          "standard_error": 6.975166111879089
+        },
+        {
+          "mean": 188.5625,
+          "sample_variance": 1117.7701612903227,
+          "standard_error": 5.910187606186676
+        },
+        {
+          "mean": 188.5625,
+          "sample_variance": 1117.7701612903227,
+          "standard_error": 5.910187606186676
+        },
+        {
+          "mean": 185.453125,
+          "sample_variance": 1347.312247983871,
+          "standard_error": 6.488721580519229
+        },
+        {
+          "mean": 194.78125,
+          "sample_variance": 598.8054435483871,
+          "standard_error": 4.325814387012819
+        },
+        {
+          "mean": 188.5625,
+          "sample_variance": 1117.7701612903227,
+          "standard_error": 5.910187606186676
+        },
+        {
+          "mean": 191.671875,
+          "sample_variance": 868.2678931451613,
+          "standard_error": 5.208970307151529
+        },
+        {
+          "mean": 91.671875,
+          "sample_variance": 868.2678931451613,
+          "standard_error": 5.208970307151529
+        }
+      ],
+      "root_actions": [
+        {
+          "kind": "fold",
+          "raise_to": null
+        },
+        {
+          "kind": "call",
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "raise_to": 4
+        },
+        {
+          "kind": "raise",
+          "raise_to": 5
+        },
+        {
+          "kind": "raise",
+          "raise_to": 6
+        },
+        {
+          "kind": "raise",
+          "raise_to": 7
+        },
+        {
+          "kind": "raise",
+          "raise_to": 8
+        },
+        {
+          "kind": "raise",
+          "raise_to": 12
+        },
+        {
+          "kind": "raise",
+          "raise_to": 200
+        }
+      ],
+      "root_sampled_action_counts": null,
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 4,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 512,
+      "traverser": 0,
+      "value_bb": {
+        "mean": 91.671875,
+        "sample_variance": 868.2678931451613,
+        "standard_error": 5.208970307151529
+      }
+    },
+    {
+      "arm": "outcome-half",
+      "attempted_replicates": 256,
+      "checkpoint_sha256": "f35bd13b3173bdd02d0b39e3229e82bd66be9bf05a1e3a5b9cefffc9d1c54fa8",
+      "collection_seconds": 0.6620463340077549,
+      "completed_nodes": 1374,
+      "completed_nodes_exclude_failed_attempt": false,
+      "completed_replicates": 256,
+      "decisions": 346,
+      "dirty": true,
+      "exploration": 0.5,
+      "iteration": 2,
+      "job": "scenario-0-seed-101",
+      "max_abs_update_bb": 4824.0,
+      "max_inverse_own_reach": 18.0,
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 310706176,
+      "profile_sha256": "44a4633a58b100ad8471bf60a9c2ed16cf97749bd4c7756a508f844c06947018",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-0-seed-101-outcome-half/report.json",
+        "sha256": "8099c21c6304f396de44fbd0857e8728c980b289cbc93aa8dbe0064e2ff3fe0e"
+      },
+      "requested_replicates": 256,
+      "root_action_values_bb": [
+        {
+          "mean": 0.0,
+          "sample_variance": 0.0,
+          "standard_error": 0.0
+        },
+        {
+          "mean": 235.640625,
+          "sample_variance": 1062631.4625,
+          "standard_error": 64.42751081945215
+        },
+        {
+          "mean": 160.265625,
+          "sample_variance": 727555.0036764706,
+          "standard_error": 53.310521786146616
+        },
+        {
+          "mean": 179.109375,
+          "sample_variance": 812393.5566176471,
+          "standard_error": 56.333048297936834
+        },
+        {
+          "mean": 197.953125,
+          "sample_variance": 896519.1507352941,
+          "standard_error": 59.17793450737988
+        },
+        {
+          "mean": 226.3125,
+          "sample_variance": 998969.7529411765,
+          "standard_error": 62.46779648287965
+        },
+        {
+          "mean": 131.90625,
+          "sample_variance": 621343.6147058824,
+          "standard_error": 49.26584511550424
+        },
+        {
+          "mean": 113.0625,
+          "sample_variance": 534719.1176470588,
+          "standard_error": 45.70280684278399
+        },
+        {
+          "mean": 81.99492187499999,
+          "sample_variance": 8156.814836856616,
+          "standard_error": 5.644692901874393
+        }
+      ],
+      "root_actions": [
+        {
+          "kind": "fold",
+          "raise_to": null
+        },
+        {
+          "kind": "call",
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "raise_to": 4
+        },
+        {
+          "kind": "raise",
+          "raise_to": 5
+        },
+        {
+          "kind": "raise",
+          "raise_to": 6
+        },
+        {
+          "kind": "raise",
+          "raise_to": 7
+        },
+        {
+          "kind": "raise",
+          "raise_to": 8
+        },
+        {
+          "kind": "raise",
+          "raise_to": 12
+        },
+        {
+          "kind": "raise",
+          "raise_to": 200
+        }
+      ],
+      "root_sampled_action_counts": [
+        20,
+        15,
+        12,
+        14,
+        16,
+        14,
+        11,
+        8,
+        146
+      ],
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 4,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0,
+      "value_bb": {
+        "mean": 81.99492187499999,
+        "sample_variance": 8156.814836856616,
+        "standard_error": 5.644692901874393
+      }
+    },
+    {
+      "arm": "outcome-uniform",
+      "attempted_replicates": 256,
+      "checkpoint_sha256": "f35bd13b3173bdd02d0b39e3229e82bd66be9bf05a1e3a5b9cefffc9d1c54fa8",
+      "collection_seconds": 0.7260864160489291,
+      "completed_nodes": 1490,
+      "completed_nodes_exclude_failed_attempt": false,
+      "completed_replicates": 256,
+      "decisions": 457,
+      "dirty": true,
+      "exploration": 1.0,
+      "iteration": 2,
+      "job": "scenario-0-seed-101",
+      "max_abs_update_bb": 3618.0,
+      "max_inverse_own_reach": 9.0,
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 309706752,
+      "profile_sha256": "44a4633a58b100ad8471bf60a9c2ed16cf97749bd4c7756a508f844c06947018",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-0-seed-101-outcome-uniform/report.json",
+        "sha256": "571429e544653a52fa983faeb8fa03f1cec7b07fa69d161865c72535ab62986f"
+      },
+      "requested_replicates": 256,
+      "root_action_values_bb": [
+        {
+          "mean": 0.0,
+          "sample_variance": 0.0,
+          "standard_error": 0.0
+        },
+        {
+          "mean": 134.47265625,
+          "sample_variance": 431780.22670036764,
+          "standard_error": 41.068741282736084
+        },
+        {
+          "mean": 205.13671875,
+          "sample_variance": 664353.1145680147,
+          "standard_error": 50.94241213155603
+        },
+        {
+          "mean": 211.9921875,
+          "sample_variance": 724878.6038602941,
+          "standard_error": 53.212376815260505
+        },
+        {
+          "mean": 134.33203125,
+          "sample_variance": 456971.3755974265,
+          "standard_error": 42.249786223452624
+        },
+        {
+          "mean": 197.859375,
+          "sample_variance": 679360.6389705882,
+          "standard_error": 51.51458527425859
+        },
+        {
+          "mean": 134.47265625,
+          "sample_variance": 431780.22670036764,
+          "standard_error": 41.068741282736084
+        },
+        {
+          "mean": 176.73046875,
+          "sample_variance": 597730.19765625,
+          "standard_error": 48.32063311458912
+        },
+        {
+          "mean": 85.4296875,
+          "sample_variance": 70443.63033088236,
+          "standard_error": 16.58826184324353
+        }
+      ],
+      "root_actions": [
+        {
+          "kind": "fold",
+          "raise_to": null
+        },
+        {
+          "kind": "call",
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "raise_to": 4
+        },
+        {
+          "kind": "raise",
+          "raise_to": 5
+        },
+        {
+          "kind": "raise",
+          "raise_to": 6
+        },
+        {
+          "kind": "raise",
+          "raise_to": 7
+        },
+        {
+          "kind": "raise",
+          "raise_to": 8
+        },
+        {
+          "kind": "raise",
+          "raise_to": 12
+        },
+        {
+          "kind": "raise",
+          "raise_to": 200
+        }
+      ],
+      "root_sampled_action_counts": [
+        27,
+        23,
+        36,
+        35,
+        20,
+        26,
+        26,
+        35,
+        28
+      ],
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 4,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0,
+      "value_bb": {
+        "mean": 85.4296875,
+        "sample_variance": 70443.63033088236,
+        "standard_error": 16.58826184324353
+      }
+    },
+    {
+      "arm": "external",
+      "attempted_replicates": 32,
+      "checkpoint_sha256": "0c896e042c574d9bfe26526aa454c9b0886086757b41397c3cf233b05c8142bb",
+      "collection_seconds": 0.636382416007109,
+      "completed_nodes": 1514,
+      "completed_nodes_exclude_failed_attempt": false,
+      "completed_replicates": 32,
+      "decisions": 192,
+      "dirty": true,
+      "exploration": null,
+      "iteration": 2,
+      "job": "scenario-1-seed-101",
+      "max_abs_update_bb": 314.0,
+      "max_inverse_own_reach": 1.0,
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 300695552,
+      "profile_sha256": "67a0ede62a429799ef8f195e465fda0c71d47fd6a308ae950110a06e75ad5267",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-1-seed-101-external/report.json",
+        "sha256": "8936ae8fa92dddf69a3a977fb0a7acf27cdcca5b4fb092dc4e385238f0509f2d"
+      },
+      "requested_replicates": 32,
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 5,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 384,
+      "traverser": 0,
+      "value_bb": {
+        "mean": 182.34375,
+        "sample_variance": 1556.8941532258063,
+        "standard_error": 6.975166111879089
+      }
+    },
+    {
+      "arm": "outcome-half",
+      "attempted_replicates": 256,
+      "checkpoint_sha256": "0c896e042c574d9bfe26526aa454c9b0886086757b41397c3cf233b05c8142bb",
+      "collection_seconds": 1.0615457500098273,
+      "completed_nodes": 1896,
+      "completed_nodes_exclude_failed_attempt": false,
+      "completed_replicates": 256,
+      "decisions": 355,
+      "dirty": true,
+      "exploration": 0.5,
+      "iteration": 2,
+      "job": "scenario-1-seed-101",
+      "max_abs_update_bb": 5618.666666666667,
+      "max_inverse_own_reach": 14.0,
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 300007424,
+      "profile_sha256": "67a0ede62a429799ef8f195e465fda0c71d47fd6a308ae950110a06e75ad5267",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-1-seed-101-outcome-half/report.json",
+        "sha256": "921992ba505533a0975f47803b71284896c4e2a8c2804069ae49e25e5c0cd91d"
+      },
+      "requested_replicates": 256,
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 5,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0,
+      "value_bb": {
+        "mean": 167.14208984375,
+        "sample_variance": 27459.344498458562,
+        "standard_error": 10.356788326846491
+      }
+    },
+    {
+      "arm": "outcome-uniform",
+      "attempted_replicates": 256,
+      "checkpoint_sha256": "0c896e042c574d9bfe26526aa454c9b0886086757b41397c3cf233b05c8142bb",
+      "collection_seconds": 1.0799139169976115,
+      "completed_nodes": 1988,
+      "completed_nodes_exclude_failed_attempt": false,
+      "completed_replicates": 256,
+      "decisions": 445,
+      "dirty": true,
+      "exploration": 1.0,
+      "iteration": 2,
+      "job": "scenario-1-seed-101",
+      "max_abs_update_bb": 10290.0,
+      "max_inverse_own_reach": 21.0,
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 302202880,
+      "profile_sha256": "67a0ede62a429799ef8f195e465fda0c71d47fd6a308ae950110a06e75ad5267",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-1-seed-101-outcome-uniform/report.json",
+        "sha256": "afe0ea28d85831815426f3aa365947e499b662c565a5336e743e82ac80a87051"
+      },
+      "requested_replicates": 256,
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 5,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0,
+      "value_bb": {
+        "mean": 178.814453125,
+        "sample_variance": 206894.08994715073,
+        "standard_error": 28.42850750313948
+      }
+    },
+    {
+      "arm": "external",
+      "attempted_replicates": 32,
+      "checkpoint_sha256": "8243c43e8580a15a6a482f346f15c7c0213f41e65e72d5477d7204d5b33572eb",
+      "collection_seconds": 1.2587577500380576,
+      "completed_nodes": 2574,
+      "completed_nodes_exclude_failed_attempt": false,
+      "completed_replicates": 32,
+      "decisions": 273,
+      "dirty": true,
+      "exploration": null,
+      "iteration": 2,
+      "job": "scenario-2-seed-101",
+      "max_abs_update_bb": 329.0,
+      "max_inverse_own_reach": 1.0,
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 271958016,
+      "profile_sha256": "1860627346315595bc0ee86e4d14b6c29935854241ca408b46ca529bfcf6e5e5",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-2-seed-101-external/report.json",
+        "sha256": "d59e64217d388cfca791a90519dde9d42fb6e4c55d40bd44d05333bd4cae66f5"
+      },
+      "requested_replicates": 32,
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 551,
+      "traverser": 0,
+      "value_bb": {
+        "mean": -61.375,
+        "sample_variance": 6676.225806451613,
+        "standard_error": 14.444101095312678
+      }
+    },
+    {
+      "arm": "outcome-half",
+      "attempted_replicates": 256,
+      "checkpoint_sha256": "8243c43e8580a15a6a482f346f15c7c0213f41e65e72d5477d7204d5b33572eb",
+      "collection_seconds": 1.4319292090367526,
+      "completed_nodes": 2455,
+      "completed_nodes_exclude_failed_attempt": false,
+      "completed_replicates": 256,
+      "decisions": 361,
+      "dirty": true,
+      "exploration": 0.5,
+      "iteration": 2,
+      "job": "scenario-2-seed-101",
+      "max_abs_update_bb": 37520.0,
+      "max_inverse_own_reach": 140.0,
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 267173888,
+      "profile_sha256": "1860627346315595bc0ee86e4d14b6c29935854241ca408b46ca529bfcf6e5e5",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-2-seed-101-outcome-half/report.json",
+        "sha256": "9f896b969b1769e8197aad11c11d32da3224e2ff607b7d4b27707e0ff7ce21e7"
+      },
+      "requested_replicates": 256,
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0,
+      "value_bb": {
+        "mean": -69.40185546875,
+        "sample_variance": 12931.374337230009,
+        "standard_error": 7.107262553529645
+      }
+    },
+    {
+      "arm": "outcome-uniform",
+      "attempted_replicates": 256,
+      "checkpoint_sha256": "8243c43e8580a15a6a482f346f15c7c0213f41e65e72d5477d7204d5b33572eb",
+      "collection_seconds": 1.5209685000008903,
+      "completed_nodes": 2660,
+      "completed_nodes_exclude_failed_attempt": false,
+      "completed_replicates": 256,
+      "decisions": 443,
+      "dirty": true,
+      "exploration": 1.0,
+      "iteration": 2,
+      "job": "scenario-2-seed-101",
+      "max_abs_update_bb": 16128.0,
+      "max_inverse_own_reach": 63.0,
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 262307840,
+      "profile_sha256": "1860627346315595bc0ee86e4d14b6c29935854241ca408b46ca529bfcf6e5e5",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-2-seed-101-outcome-uniform/report.json",
+        "sha256": "640017e7e4460f4d562468ad0527b7ae9a3daf29a86f0e39f0bdafabbb10b5a4"
+      },
+      "requested_replicates": 256,
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 200,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 0,
+      "value_bb": {
+        "mean": -75.947265625,
+        "sample_variance": 60159.02171798407,
+        "standard_error": 15.329585075463564
+      }
+    },
+    {
+      "arm": "external",
+      "attempted_replicates": 1,
+      "checkpoint_sha256": "acd341bb5cdfd9d3809e2f0948f51ee754ab56f3108f7c7a25f04836ce708cfc",
+      "collection_seconds": 30.064615832990967,
+      "completed_nodes": 0,
+      "completed_nodes_exclude_failed_attempt": true,
+      "completed_replicates": 0,
+      "dirty": true,
+      "error": "CollectionLimitExceeded: Collection aborted at collection-2-4-0, traverser 4, action seed 6590471198939685217, after 33945 nodes; no batch returned",
+      "exploration": null,
+      "iteration": 2,
+      "job": "scenario-3-seed-103",
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 441106432,
+      "profile_sha256": "24f0123ee59473c4c8fd17d0d243d9dba74f1172dc038990420742b834bf2936",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-3-seed-103-external/report.json",
+        "sha256": "fea03449897a6da0fc88654467b50636f0219a6d7e33229c7dd7795da5ac5f93"
+      },
+      "requested_replicates": 32,
+      "sample": 0,
+      "status": "invalid",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          40,
+          80,
+          120,
+          200,
+          300,
+          400
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 40,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 80,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 120,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 300,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 400,
+            "status": "playing"
+          }
+        ]
+      },
+      "traverser": 4
+    },
+    {
+      "arm": "outcome-half",
+      "attempted_replicates": 256,
+      "checkpoint_sha256": "acd341bb5cdfd9d3809e2f0948f51ee754ab56f3108f7c7a25f04836ce708cfc",
+      "collection_seconds": 1.1659569160547107,
+      "completed_nodes": 2092,
+      "completed_nodes_exclude_failed_attempt": false,
+      "completed_replicates": 256,
+      "decisions": 367,
+      "dirty": true,
+      "exploration": 0.5,
+      "iteration": 2,
+      "job": "scenario-3-seed-103",
+      "max_abs_update_bb": 8696308.015298348,
+      "max_inverse_own_reach": 60480.00000000001,
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 293928960,
+      "profile_sha256": "24f0123ee59473c4c8fd17d0d243d9dba74f1172dc038990420742b834bf2936",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-3-seed-103-outcome-half/report.json",
+        "sha256": "40865e4a5a32cd25e83ad84fd712bfb232b1b0ee32c7fd40de8b966e0bb3dc9e"
+      },
+      "requested_replicates": 256,
+      "root_action_values_bb": [
+        {
+          "mean": 0.0,
+          "sample_variance": 0.0,
+          "standard_error": 0.0
+        },
+        {
+          "mean": 68.43899589900425,
+          "sample_variance": 130925.18415711478,
+          "standard_error": 22.61474078148431
+        },
+        {
+          "mean": 68.0261424961783,
+          "sample_variance": 163754.59139067784,
+          "standard_error": 25.291626531716684
+        },
+        {
+          "mean": 77.34173993582688,
+          "sample_variance": 180144.7797171076,
+          "standard_error": 26.52716618430909
+        },
+        {
+          "mean": 126.88648919159283,
+          "sample_variance": 286274.26287208457,
+          "standard_error": 33.44037738040766
+        },
+        {
+          "mean": 37.882036613575806,
+          "sample_variance": 64002.107509304245,
+          "standard_error": 15.811648631885914
+        },
+        {
+          "mean": 88.25188539464551,
+          "sample_variance": 172965.97663138082,
+          "standard_error": 25.993236547539272
+        },
+        {
+          "mean": 73.546958332887,
+          "sample_variance": 181731.55902020543,
+          "standard_error": 26.64374039850031
+        },
+        {
+          "mean": -89.85234375,
+          "sample_variance": 9456.820229779412,
+          "standard_error": 6.077886476611408
+        }
+      ],
+      "root_actions": [
+        {
+          "kind": "fold",
+          "raise_to": null
+        },
+        {
+          "kind": "call",
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "raise_to": 4
+        },
+        {
+          "kind": "raise",
+          "raise_to": 5
+        },
+        {
+          "kind": "raise",
+          "raise_to": 6
+        },
+        {
+          "kind": "raise",
+          "raise_to": 7
+        },
+        {
+          "kind": "raise",
+          "raise_to": 8
+        },
+        {
+          "kind": "raise",
+          "raise_to": 12
+        },
+        {
+          "kind": "raise",
+          "raise_to": 300
+        }
+      ],
+      "root_sampled_action_counts": [
+        15,
+        12,
+        12,
+        10,
+        21,
+        7,
+        16,
+        13,
+        150
+      ],
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          40,
+          80,
+          120,
+          200,
+          300,
+          400
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 40,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 80,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 120,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 300,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 400,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 4,
+      "value_bb": {
+        "mean": -89.85234375,
+        "sample_variance": 9456.820229779412,
+        "standard_error": 6.077886476611408
+      }
+    },
+    {
+      "arm": "outcome-uniform",
+      "attempted_replicates": 256,
+      "checkpoint_sha256": "acd341bb5cdfd9d3809e2f0948f51ee754ab56f3108f7c7a25f04836ce708cfc",
+      "collection_seconds": 1.539991082972847,
+      "completed_nodes": 2623,
+      "completed_nodes_exclude_failed_attempt": false,
+      "completed_replicates": 256,
+      "decisions": 592,
+      "dirty": true,
+      "exploration": 1.0,
+      "iteration": 2,
+      "job": "scenario-3-seed-103",
+      "max_abs_update_bb": 164574144.00000003,
+      "max_inverse_own_reach": 345744.0000000001,
+      "max_nodes": 50000,
+      "max_seconds": 30,
+      "process_peak_rss_bytes": 294453248,
+      "profile_sha256": "24f0123ee59473c4c8fd17d0d243d9dba74f1172dc038990420742b834bf2936",
+      "raw_report": {
+        "path": "results/sampling-comparison/scenario-3-seed-103-outcome-uniform/report.json",
+        "sha256": "4e2e13f3e218ffe557ac635c37e92e30a6e57b34b20e739b388d71fcc611d4c1"
+      },
+      "requested_replicates": 256,
+      "root_action_values_bb": [
+        {
+          "mean": 0.0,
+          "sample_variance": 0.0,
+          "standard_error": 0.0
+        },
+        {
+          "mean": 60.35587224581679,
+          "sample_variance": 166746.21405019157,
+          "standard_error": 25.52160650573472
+        },
+        {
+          "mean": 90.60750872948489,
+          "sample_variance": 210235.09157092762,
+          "standard_error": 28.657125230018032
+        },
+        {
+          "mean": 84.46835575300638,
+          "sample_variance": 153595.19732766325,
+          "standard_error": 24.494514478984566
+        },
+        {
+          "mean": 59.57484103189483,
+          "sample_variance": 124940.81245874919,
+          "standard_error": 22.091854803682487
+        },
+        {
+          "mean": 40.92509246972493,
+          "sample_variance": 75673.21766811161,
+          "standard_error": 17.19297840736331
+        },
+        {
+          "mean": 43.06779446849362,
+          "sample_variance": 73701.06504036959,
+          "standard_error": 16.967462547886875
+        },
+        {
+          "mean": 92.50748555336646,
+          "sample_variance": 212821.9394871243,
+          "standard_error": 28.832892694309727
+        },
+        {
+          "mean": -73.0546875,
+          "sample_variance": 66888.365625,
+          "standard_error": 16.164240725213673
+        }
+      ],
+      "root_actions": [
+        {
+          "kind": "fold",
+          "raise_to": null
+        },
+        {
+          "kind": "call",
+          "raise_to": null
+        },
+        {
+          "kind": "raise",
+          "raise_to": 4
+        },
+        {
+          "kind": "raise",
+          "raise_to": 5
+        },
+        {
+          "kind": "raise",
+          "raise_to": 6
+        },
+        {
+          "kind": "raise",
+          "raise_to": 7
+        },
+        {
+          "kind": "raise",
+          "raise_to": 8
+        },
+        {
+          "kind": "raise",
+          "raise_to": 12
+        },
+        {
+          "kind": "raise",
+          "raise_to": 300
+        }
+      ],
+      "root_sampled_action_counts": [
+        32,
+        21,
+        29,
+        30,
+        32,
+        31,
+        26,
+        31,
+        24
+      ],
+      "sample": 0,
+      "status": "completed",
+      "table": {
+        "big_blind": 2,
+        "button": 1,
+        "capacity": 6,
+        "chip_unit": "1",
+        "player_ids": [
+          "player-0",
+          "player-1",
+          "player-2",
+          "player-3",
+          "player-4",
+          "player-5"
+        ],
+        "seat_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "session_profile": null,
+        "small_blind": 1,
+        "stacks": [
+          40,
+          80,
+          120,
+          200,
+          300,
+          400
+        ],
+        "table_seats": [
+          {
+            "player_id": "player-0",
+            "seat": 0,
+            "stack": 40,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-1",
+            "seat": 1,
+            "stack": 80,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-2",
+            "seat": 2,
+            "stack": 120,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-3",
+            "seat": 3,
+            "stack": 200,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-4",
+            "seat": 4,
+            "stack": 300,
+            "status": "playing"
+          },
+          {
+            "player_id": "player-5",
+            "seat": 5,
+            "stack": 400,
+            "status": "playing"
+          }
+        ]
+      },
+      "terminals": 256,
+      "traverser": 4,
+      "value_bb": {
+        "mean": -73.0546875,
+        "sample_variance": 66888.365625,
+        "standard_error": 16.164240725213673
+      }
+    }
+  ],
+  "checkpoint_manifest": {
+    "contract": {
+      "actions": "holdem-bets-v1",
+      "average": "linear-own-reach-collection-profiles-v1",
+      "decision": "holdem-decision-v1",
+      "observation": 2,
+      "resume": "completed-iterations-fresh-adam-per-role-v1",
+      "rules": "nlhe-cash-auto-muck-v1"
+    },
+    "dirty": false,
+    "environment": {
+      "engine": {
+        "binaries": {
+          "pokers/pokers.cpython-311-darwin.so": "fa88771c851cdd36cd549f2d024571277e8277d2c48cb091e26baff7cd071d6e"
+        },
+        "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+      },
+      "implementation": "CPython",
+      "machine": "arm64",
+      "packages": {
+        "Jinja2": "3.1.6",
+        "Markdown": "3.10.2",
+        "MarkupSafe": "3.0.3",
+        "PyQt5": "5.15.11",
+        "PyQt5-Qt5": "5.15.19",
+        "PyQt5_sip": "12.18.0",
+        "Pygments": "2.20.0",
+        "Werkzeug": "3.1.8",
+        "absl-py": "2.4.0",
+        "argparse": "1.4.0",
+        "certifi": "2026.5.20",
+        "charset-normalizer": "3.4.7",
+        "contourpy": "1.3.3",
+        "cycler": "0.12.1",
+        "filelock": "3.29.1",
+        "fonttools": "4.63.0",
+        "fsspec": "2026.4.0",
+        "grpcio": "1.81.0",
+        "idna": "3.18",
+        "iniconfig": "2.3.0",
+        "kiwisolver": "1.5.0",
+        "matplotlib": "3.9.0",
+        "maturin": "1.15.0",
+        "mpmath": "1.3.0",
+        "networkx": "3.6.1",
+        "numpy": "1.26.4",
+        "packaging": "26.2",
+        "pandas": "2.2.2",
+        "pillow": "12.2.0",
+        "pip": "26.1",
+        "pluggy": "1.6.0",
+        "pokerkit": "0.7.5",
+        "pokers": "0.2.0",
+        "protobuf": "7.35.0",
+        "pyparsing": "3.3.2",
+        "pytest": "9.0.3",
+        "python-dateutil": "2.9.0.post0",
+        "python-dotenv": "1.0.1",
+        "pytz": "2026.2",
+        "requests": "2.32.3",
+        "ruff": "0.16.7",
+        "scipy": "1.17.1",
+        "seaborn": "0.13.2",
+        "setuptools": "80.10.2",
+        "six": "1.17.0",
+        "sympy": "1.13.1",
+        "tensorboard": "2.18.0",
+        "tensorboard-data-server": "0.7.2",
+        "torch": "2.5.1",
+        "tqdm": "4.67.0",
+        "typing_extensions": "4.15.0",
+        "tzdata": "2026.2",
+        "urllib3": "2.7.0"
+      },
+      "platform": "macOS-27.0-arm64-arm-64bit",
+      "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]"
+    },
+    "format": "holdem-baseline-experiment-v1",
+    "observation_schema": 2,
+    "plan": {
+      "blocks": 30,
+      "evaluate_every": 2,
+      "evaluation_seed": 91826,
+      "iterations": 2,
+      "max_seconds": 900,
+      "opponents": [
+        "tight_passive",
+        "loose_passive",
+        "tight_aggressive",
+        "loose_aggressive",
+        "pot_pressure"
+      ],
+      "save_every": 1,
+      "scenarios": [
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "four-100bb",
+          "small_blind": 1,
+          "stacks": [
+            200,
+            200,
+            200,
+            200
+          ]
+        },
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "five-100bb",
+          "small_blind": 1,
+          "stacks": [
+            200,
+            200,
+            200,
+            200,
+            200
+          ]
+        },
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "six-100bb",
+          "small_blind": 1,
+          "stacks": [
+            200,
+            200,
+            200,
+            200,
+            200,
+            200
+          ]
+        },
+        {
+          "big_blind": 2,
+          "chip_unit": "1",
+          "hands_per_rotation": 1,
+          "mode": "fixed",
+          "name": "six-unequal",
+          "small_blind": 1,
+          "stacks": [
+            40,
+            80,
+            120,
+            200,
+            300,
+            400
+          ]
+        }
+      ],
+      "seeds": [
+        101,
+        103,
+        107
+      ],
+      "training": {
+        "capacity": 128,
+        "fit": {
+          "batch_size": 8,
+          "diagnostic_samples": 16,
+          "learning_rate": 0.001,
+          "steps": 8,
+          "width": 16
+        },
+        "max_nodes": 50000,
+        "max_seconds": 60,
+        "rotate_button": true,
+        "seed": 0,
+        "traversals_per_player": 1
+      }
+    },
+    "purpose": "implementation report; no model promotion or readiness claim",
+    "revision": "863de626f865709c3dc6ccb4ac233fbba3a3b697",
+    "rules": "nlhe-cash-auto-muck-v1",
+    "source_sha256": "e0bcb392ec4e185975f5521eee72b75e56fa380799006f7be45b4f952ef5e496"
+  },
+  "environment": {
+    "engine": {
+      "binaries": {
+        "pokers/pokers.cpython-311-darwin.so": "fa88771c851cdd36cd549f2d024571277e8277d2c48cb091e26baff7cd071d6e"
+      },
+      "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+    },
+    "implementation": "CPython",
+    "machine": "arm64",
+    "packages": {
+      "Jinja2": "3.1.6",
+      "Markdown": "3.10.2",
+      "MarkupSafe": "3.0.3",
+      "PyQt5": "5.15.11",
+      "PyQt5-Qt5": "5.15.19",
+      "PyQt5_sip": "12.18.0",
+      "Pygments": "2.20.0",
+      "Werkzeug": "3.1.8",
+      "absl-py": "2.4.0",
+      "argparse": "1.4.0",
+      "certifi": "2026.5.20",
+      "charset-normalizer": "3.4.7",
+      "contourpy": "1.3.3",
+      "cycler": "0.12.1",
+      "filelock": "3.29.1",
+      "fonttools": "4.63.0",
+      "fsspec": "2026.4.0",
+      "grpcio": "1.81.0",
+      "idna": "3.18",
+      "iniconfig": "2.3.0",
+      "kiwisolver": "1.5.0",
+      "matplotlib": "3.9.0",
+      "maturin": "1.15.0",
+      "mpmath": "1.3.0",
+      "networkx": "3.6.1",
+      "numpy": "1.26.4",
+      "packaging": "26.2",
+      "pandas": "2.2.2",
+      "pillow": "12.2.0",
+      "pip": "26.1",
+      "pluggy": "1.6.0",
+      "pokerkit": "0.7.5",
+      "pokers": "0.2.0",
+      "protobuf": "7.35.0",
+      "pyparsing": "3.3.2",
+      "pytest": "9.0.3",
+      "python-dateutil": "2.9.0.post0",
+      "python-dotenv": "1.0.1",
+      "pytz": "2026.2",
+      "requests": "2.32.3",
+      "ruff": "0.16.7",
+      "scipy": "1.17.1",
+      "seaborn": "0.13.2",
+      "setuptools": "80.10.2",
+      "six": "1.17.0",
+      "sympy": "1.13.1",
+      "tensorboard": "2.18.0",
+      "tensorboard-data-server": "0.7.2",
+      "torch": "2.5.1",
+      "tqdm": "4.67.0",
+      "typing_extensions": "4.15.0",
+      "tzdata": "2026.2",
+      "urllib3": "2.7.0"
+    },
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]"
+  },
+  "exact_uniform_river": [
+    {
+      "arm": "external",
+      "enumerated_sampling_outcomes": 4,
+      "exact_value_bb": 0.5555555555555555,
+      "expected_nodes": 3.9999999999999996,
+      "max_update_expectation_error": 5.551115123125783e-17,
+      "mean_value_bb": 0.5555555555555556,
+      "sum_update_variances": 1.3842592592592593,
+      "traverser": 0,
+      "value_variance": 0.10570987654320987
+    },
+    {
+      "arm": "outcome-half",
+      "enumerated_sampling_outcomes": 7,
+      "exact_value_bb": 0.5555555555555555,
+      "expected_nodes": 2.7777777777777777,
+      "max_update_expectation_error": 5.551115123125783e-17,
+      "mean_value_bb": 0.5555555555555556,
+      "sum_update_variances": 2.814814814814815,
+      "traverser": 0,
+      "value_variance": 0.9691358024691358
+    },
+    {
+      "arm": "outcome-uniform",
+      "enumerated_sampling_outcomes": 7,
+      "exact_value_bb": 0.5555555555555555,
+      "expected_nodes": 2.7777777777777777,
+      "max_update_expectation_error": 5.551115123125783e-17,
+      "mean_value_bb": 0.5555555555555556,
+      "sum_update_variances": 2.814814814814815,
+      "traverser": 0,
+      "value_variance": 0.9691358024691358
+    },
+    {
+      "arm": "external",
+      "enumerated_sampling_outcomes": 6,
+      "exact_value_bb": -0.5555555555555555,
+      "expected_nodes": 6.666666666666666,
+      "max_update_expectation_error": 5.551115123125783e-17,
+      "mean_value_bb": -0.5555555555555555,
+      "sum_update_variances": 1.7453703703703702,
+      "traverser": 1,
+      "value_variance": 0.2862654320987654
+    },
+    {
+      "arm": "outcome-half",
+      "enumerated_sampling_outcomes": 7,
+      "exact_value_bb": -0.5555555555555555,
+      "expected_nodes": 2.7777777777777777,
+      "max_update_expectation_error": 1.6653345369377348e-16,
+      "mean_value_bb": -0.5555555555555556,
+      "sum_update_variances": 10.592592592592592,
+      "traverser": 1,
+      "value_variance": 0.9691358024691358
+    },
+    {
+      "arm": "outcome-uniform",
+      "enumerated_sampling_outcomes": 7,
+      "exact_value_bb": -0.5555555555555555,
+      "expected_nodes": 2.7777777777777777,
+      "max_update_expectation_error": 1.6653345369377348e-16,
+      "mean_value_bb": -0.5555555555555556,
+      "sum_update_variances": 10.592592592592592,
+      "traverser": 1,
+      "value_variance": 0.9691358024691358
+    }
+  ],
+  "implementation_commit": "ee43c8bae00981adb23a420b41f5c06e25e05ea1",
+  "kind": "holdem-sampling-comparison-summary-v1",
+  "protocol_commit": "670dd53",
+  "source_sha256": "0625b44225d32826a90a2c556ec195f86dc7152c7cd2907d417eeb264fac69ba"
+}

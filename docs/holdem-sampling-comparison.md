@@ -32,3 +32,23 @@ Committed before measurements. No fitting, rentals, reserved evaluation seeds, o
 ## Decision rule
 
 Exact expectation checks must pass before the saved-root comparison. Report resource completion and variance together; a fast path is not equivalent to a full external traversal. Do not rank playing strength. If outcome sampling is computationally practical but has large correction weights/variance, recommend a variance-reduction comparison or a carefully weighted integration pilot before substantial training. If it fails correctness or resource limits, preserve the failure and keep the existing sampler.
+
+## Reproduce a cell
+
+```bash
+python -m scripts.compare_holdem_sampling \
+  --run results/holdem-baseline-v1 \
+  --job scenario-3-seed-103 --iteration 1 --traverser 4 \
+  --arm outcome-half --replicates 256 \
+  --max-nodes 50000 --max-seconds 30 \
+  --out results/sampling-comparison/scenario-3-seed-103-outcome-half
+```
+
+Use `external` with 32 replicates or `outcome-uniform` with 256 for the other arms. Use scenarios 0/1/2, seed 101 and traverser 0 for the other roots. Output directories must be new; existing results are never overwritten. Each report contains all completed replicate summaries and the attempted count. Only a fully completed cell gets aggregate estimates. The shared root loader verifies the original checkpoint bytes and manifest without rewriting or resuming the checkpoint.
+
+Exact expectation and failure-handling checks run with:
+
+```bash
+python -m pytest -q tests/test_holdem_outcome_sampling.py \
+  tests/test_holdem_sampling_comparison.py tests/test_holdem_profiling.py
+```
