@@ -3,10 +3,12 @@
 [PR #59](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/59) connects the [decision encoding](holdem-encoding.md)
 and [bet candidates](holdem-betting.md) to an all-role self-play collector.
 The [training loop](holdem-training.md) now adds role reservoirs and weighted
-fitting. Strategy averaging, training recovery and strength evaluation remain
-separate work.
-The failed small-game readiness gate remains open. No rental or training campaign
-was used for this delivery.
+fitting. The [baseline pipeline](holdem-baseline.md) adds strategy averaging, recovery
+and fixed-arena evaluation; useful learning remains unproven.
+The subsequent [snapshot readiness report](reports/snapshot-readiness.md) passes
+the small-game gate. No rental or training campaign was used for this collector
+delivery. [Collection profiling](holdem-collection-performance.md) documents its
+current performance checks and remaining branching cost.
 
 ## Frozen current policies
 
@@ -122,9 +124,9 @@ failed seeds: completion-dependent filtering can bias the training distribution.
 Profile integrity is checked before and after collection. Engine errors and
 invalid actions propagate rather than triggering a substitute action.
 
-This is not resume support. There is no reservoir, optimizer, snapshot archive,
-atomic training checkpoint or inference export in this collector. Those remain
-required before substantial training.
+This collector does not own resume state. The [trainer](holdem-baseline.md) now
+provides role reservoirs, snapshot archives, completed-iteration checkpoints and
+separate inference exports.
 
 ## Reproducible local check
 
@@ -160,7 +162,7 @@ Ruff and `git diff --check` pass.
 
 ## Next task
 
-The [replay and fitting task](holdem-training.md) is delivered, with explicit
-uniform initialization and no fitting inside a collection phase. Next integrate
-snapshot-average play and complete recovery, then declare and pass fresh
-small-game readiness checks before substantial self-play training.
+Collection, fitting, averaged play and recovery are implemented; small-game
+readiness is passed. The [performance report](reports/holdem-collection-performance.md)
+retains the difficult unequal-stack failure. Compare a bounded-work traversal
+design before declaring a meaningful Hold'em learning campaign.

@@ -119,9 +119,10 @@ best-checkpoint selection, no hyperparameter selection, and no promotion rule:
 Acceptance requires legal completed evaluations, exact reproduction, and
 interrupted/uninterrupted agreement. BB/100 and 95% intervals describe this
 short-run comparison only. Two iterations cannot establish convergence or useful
-capacity. The small-game readiness gate remains failed until a fresh declared
-confirmation passes; substantial Hold'em training and professional-strength
-claims remain gated.
+capacity. The subsequent [snapshot confirmation](reports/snapshot-readiness.md) passes the
+small-game gate. The [collection profile](reports/holdem-collection-performance.md)
+still blocks a defensible larger training budget; professional strength remains
+unproven.
 
 The [first recorded run](reports/holdem-baseline.md) is incomplete: ten jobs
 completed, one hit its collection limit twice and one was not attempted. All
