@@ -82,7 +82,9 @@ The project began as an earlier Deep CFR implementation. We are rebuilding its l
 | Hold’em fitting | Separate role reservoirs and whole-iteration rollback, with explicit sampled replay/root normalization and verified recovery. [Reference contract](docs/holdem-training.md), [sampled trainer](docs/holdem-sampled-training.md) |
 | Hold’em baseline pipeline | Averaged play, full iteration-boundary recovery, deterministic button rotation and a multi-seed training/arena runner. [Contract](docs/holdem-baseline.md), [first report](docs/reports/holdem-baseline.md). Substantial learning and strength remain unproven. |
 
-**Next step: the longer v0.5 experiment.** The [committed plan](docs/holdem-longer-training.md) trains three six-handed 100 BB seeds for 512 iterations each, with scheduled checkpoints and random/style/archived-model comparisons. The [cost calibration](docs/reports/holdem-longer-calibration.md) completes and reproduces; provisional elapsed time is 2–4 hours with three processes in parallel. Runtime, memory, clipping and learning curves are recorded. The main campaign has not started. Small-game readiness is passed, while meaningful Hold’em learning and professional strength remain unproven.
+**The longer v0.5 experiment is complete.** All three six-handed 100 BB seeds reached 512 iterations, with 147,456 scheduled evaluation hands, zero invalid actions and verified checkpoint recovery. The [report](docs/reports/holdem-longer-training.md) retains every seed and learning curve. All 48 paired comparisons are inconclusive; the final policies lose heavily against the style pool. This is research evidence, not demonstrated strength or a release announcement.
+
+**Next step: diagnose fitting before another longer run.** Compare clipping and fitting budgets on frozen replay, then compare current-policy and snapshot-average play. All model artifacts are retained locally; public hosting and v0.5 release packaging remain ahead. Small-game readiness is passed, while meaningful Hold’em learning and the v1.0 professional standard remain unproven.
 
 ## The route to 1.0
 
