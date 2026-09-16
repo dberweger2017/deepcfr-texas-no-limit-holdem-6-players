@@ -66,21 +66,21 @@ The project began as an earlier Deep CFR implementation. We are rebuilding its l
 | Player information and sessions | Immutable player observations, complete public history, identity-owned records, and changing four-to-six-player lineups. [Observation](docs/observations.md) / [session](docs/sessions.md) contracts |
 | Evaluation | Reproducible schedules, separate data splits, paired reports, varied style opponents, and hash-pinned historical models. Professional-strength opponents remain an open requirement. [Benchmark guide](docs/benchmarks.md) |
 | Tabular reference | Kuhn and Leduc CFR checked against exact best responses and independently solved equilibrium values. [Results](docs/reports/tabular-validation.md) |
-| Neural baseline | Small-game Deep CFR with complete snapshot-average training recovery and verified inference exports. Fresh learning confirmation is pending. [Contract](docs/neural-cfr.md), [snapshot design](docs/decisions/snapshot-average.md) |
-| Neural convergence | Fresh confirmation fails: 7/8 seeds pass in each game, with all value errors within limits. Milestone 3 remains open. [Latest results](docs/reports/neural-readiness.md) |
+| Neural baseline | Small-game Deep CFR with complete snapshot-average training recovery and verified inference exports. Fresh snapshot readiness passes in both games. [Contract](docs/neural-cfr.md), [snapshot design](docs/decisions/snapshot-average.md) |
+| Neural convergence | Snapshot confirmation passes: 8/8 seeds in each game meet the original exploitability and value-error limits. Milestone 3 is complete. [Latest results](docs/reports/snapshot-readiness.md) |
 | Hold’em decisions | Full current-hand event encoding, variable-seat masks, board reveal stages and a small sequence model. [Contract](docs/holdem-encoding.md) |
 | Hold’em betting | Exact legal bet candidates, per-action regret/value heads and branch-payoff targets. [Contract](docs/holdem-betting.md) |
 | Hold’em collection | External sampling for every role against isolated current policies, with exact action records and reproducible 100 BB checks. [Contract](docs/holdem-collection.md) |
 | Hold’em fitting | Separate role reservoirs, iteration-weighted model updates and whole-iteration rollback. Two-iteration checks reproduce at 100 BB. [Contract](docs/holdem-training.md) |
 | Hold’em baseline pipeline | Averaged play, full iteration-boundary recovery, deterministic button rotation and a multi-seed training/arena runner. [Contract](docs/holdem-baseline.md), [first report](docs/reports/holdem-baseline.md). Substantial learning and strength remain unproven. |
 
-**Next step:** run the committed [snapshot readiness checks](docs/snapshot-readiness.md), then establish meaningful Hold’em learning before scaling. Step 4's engineering now supports collection → fitting → averaged play → evaluation and exact recovery. The [first Hold’em report](docs/reports/holdem-baseline.md) is deliberately a short implementation check across three seeds per scenario: ten jobs completed, one hit its collection limit and one was not attempted. The [previous small-game confirmation](docs/reports/neural-readiness.md) remains failed; substantial training still requires readiness. No model has been promoted.
+**Next step:** profile the Hold'em collection deadline, then establish a meaningful multi-seed learning baseline before scaling. Step 4's engineering supports collection → fitting → averaged play → evaluation and exact recovery. Its [first report](docs/reports/holdem-baseline.md) remains a short implementation check: ten jobs completed, one hit its collection limit and one was not attempted. The [snapshot readiness report](docs/reports/snapshot-readiness.md) closes the small-game gate; the [previous neural-average confirmation](docs/reports/neural-readiness.md) remains failed. Hold'em learning and playing strength remain unproven. No model has been promoted.
 
 ## The route to 1.0
 
 1. **Trust the game and the measurements.** Rules, legal observations, sessions, reproducible evaluation, and independent small-game references.
-2. **Validate the learning algorithm.** Confirm the snapshot-average path with fresh predeclared learning checks before scaling; avoid open-ended small-game sweeps.
-3. **Build the no-limit learner.** Independent engineering can proceed while the learning gate remains open. Represent full decisions and variable seats, learn meaningful bet sizes, train all player roles, and support complete recovery.
+2. **Validate the learning algorithm.** The snapshot-average path passes fresh predeclared small-game checks; preserve that evidence and move to Hold’em.
+3. **Build the no-limit learner.** The full-decision, variable-seat pipeline and complete recovery are implemented. Establish meaningful all-role learning and bet preferences against fixed benchmarks.
 4. **Scale from measured throughput.** Profile collection and fitting, batch work, and run bounded hardware pilots before larger campaigns.
 5. **Improve demonstrated playing strength.** Evaluate range-aware search and opponent adaptation as separate changes against fixed baselines.
 6. **Qualify the release.** Establish the professional reference benchmark, run the declared training and confirmation campaigns, and publish the complete evidence package.
@@ -137,7 +137,7 @@ Use fresh output directories; runners preserve existing results. These commands 
 | [Observations](docs/observations.md) / [sessions](docs/sessions.md) | What the agent can see and how tables change between hands |
 | [Evaluation arena](docs/evaluation.md) / [benchmarks](docs/benchmarks.md) | Schedules, opponents, metrics, and reproducible comparisons |
 | [Tabular solver](docs/solver-reference.md) / [neural solver](docs/neural-cfr.md) | Learning conventions, commands, snapshots, and diagnostics |
-| [Latest strategy-capacity report](docs/reports/strategy-capacity.md) | All seeds, failures, learning curves, rental costs, and the next decision |
+| [Snapshot readiness results](docs/reports/snapshot-readiness.md) | All seeds, artifact verification, rental cost, limitations and the next decision |
 | [Repository layout](docs/repository-layout.md) | Supported commands, retained historical opponents and retired workflows |
 
 The old trainers, desktop UI and experimental opponent model have been retired. Use the current headless commands from a source checkout; release packaging and a new play interface follow the roadmap. Historical standard checkpoints remain read-only arena opponents.
