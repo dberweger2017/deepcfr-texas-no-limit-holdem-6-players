@@ -1,5 +1,7 @@
 # Frozen Hold'em policy comparison
 
+**Completed:** see the [three-seed results](reports/holdem-policy-comparison.md). All twelve comparisons finished; no fitting recipe is promoted. The pre-run protocol below remains unchanged.
+
 ## Questions
 
 The [fitting study](reports/holdem-frozen-fitting.md) found small empirical loss

@@ -84,7 +84,7 @@ The project began as an earlier Deep CFR implementation. We are rebuilding its l
 
 **The longer v0.5 experiment is complete.** All three six-handed 100 BB seeds reached 512 iterations, with 147,456 scheduled evaluation hands, zero invalid actions and verified checkpoint recovery. The [report](docs/reports/holdem-longer-training.md) retains every seed and learning curve. All 48 paired comparisons are inconclusive; the final policies lose heavily against the style pool. This is research evidence, not demonstrated strength or a release announcement.
 
-**The local fitting diagnosis is also complete.** All 72 [frozen-replay fits](docs/reports/holdem-frozen-fitting.md) finished. More fitting without clipping produced modest empirical improvements, with role regressions; no default changed. **Next: compare current-policy and snapshot-average play** before choosing another longer training recipe. All model artifacts are retained locally; public hosting and v0.5 release packaging remain ahead. Small-game readiness is passed, while meaningful Hold’em learning and the v1.0 professional standard remain unproven.
+**The fitting and policy diagnoses are complete.** The [paired policy comparison](docs/reports/holdem-policy-comparison.md) shows substantial decision changes but no consistent improvement across training seeds. Current-versus-average play remains inconclusive. **Next: improve training-target quality**, starting with a separate persistent value-baseline prototype and a controlled variance/coverage comparison. All artifacts remain local; public hosting and v0.5 release packaging are still ahead. No production model has been promoted, and the v1.0 professional standard remains unproven.
 
 ## The route to 1.0
 
