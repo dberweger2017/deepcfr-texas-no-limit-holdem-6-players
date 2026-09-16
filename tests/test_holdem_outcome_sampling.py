@@ -180,7 +180,7 @@ def test_neural_paths_are_reproducible_and_keep_public_policy_inputs(n):
         assert view.seat == view.actor == e.event.seat
         view.legal_actions.validate(e.event.action)
     for d in first.decisions:
-        assert min(d.sampling_policy) > 0
+        assert min(d.inclusion_probabilities) > 0
         assert fsum(
             p * v for p, v in zip(d.policy, d.regret_updates_bb)
         ) == pytest.approx(0)

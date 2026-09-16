@@ -101,20 +101,16 @@ def test_profile_queries_use_only_the_owners_public_candidate_input(n):
         deck[i] = DECK[j]
     alternate = Hand.from_deck(table(n), hand_id="private", deck=tuple(deck))
     profile = FrozenProfile([BettingNetwork(8) for _ in range(n)])
-    expected = profile.distribution(bet_candidates(view))
-    assert (
-        profile.distribution(bet_candidates(alternate.observe(alternate.actor)))
-        == expected
-    )
-    assert (
-        profile.distribution(
-            bet_candidates(change_suits(view, dict(zip("cdhs", "hsdc"))))
+    for query in (profile.distribution, profile.action_values):
+        expected = query(bet_candidates(view))
+        assert query(bet_candidates(alternate.observe(alternate.actor))) == expected
+        assert (
+            query(bet_candidates(change_suits(view, dict(zip("cdhs", "hsdc")))))
+            == expected
         )
-        == expected
-    )
-    for invalid in (hand, hand._state, view):
-        with pytest.raises(TypeError):
-            profile.distribution(invalid)
+        for invalid in (hand, hand._state, view):
+            with pytest.raises(TypeError):
+                query(invalid)
 
 
 def test_internal_weight_or_mode_changes_are_detected():
@@ -141,3 +137,30 @@ def test_profile_rejects_missing_roles_and_nonfinite_models():
     hand = Hand.start(table(4), hand_id="wrong-capacity", seed=9)
     with pytest.raises(ValueError, match="table"):
         FrozenProfile([None] * 6).distribution(bet_candidates(hand.observe(hand.actor)))
+
+
+def test_baseline_values_follow_physical_ownership_and_are_frozen():
+    config = replace(
+        table(4),
+        seat_numbers=(0, 2, 3, 5),
+        capacity=6,
+        table_seats=tuple(
+            TableSeat(s, f"player-{p}", 200, "playing")
+            for p, s in enumerate((0, 2, 3, 5))
+        ),
+    )
+    hand = Hand.start(config, hand_id="values", seed=3)
+    candidates = bet_candidates(hand.observe(hand.actor))
+    models = [folding_model() for _ in range(6)]
+    with torch.no_grad():
+        for seat, model in enumerate(models):
+            model.value.bias.fill_(seat + 10)
+    profile = FrozenProfile(models)
+    assert profile.action_values(candidates) == (15.0,) * len(candidates.actions)
+    with torch.no_grad():
+        models[5].value.bias.add_(100)
+    assert profile.action_values(candidates) == (15.0,) * len(candidates.actions)
+    assert FrozenProfile([None] * 6).action_values(candidates) == (0.0,) * len(
+        candidates.actions
+    )
+    profile.assert_unchanged()
