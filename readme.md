@@ -4,9 +4,17 @@ Building a reproducible training system for strong **no-limit Texas Hold’em**,
 
 The agent must play by the documented rules and use exactly the game information available to a human in its seat. Deep CFR is our starting point; we will replace algorithms and architecture when measured results justify it.
 
-**Status: research and redevelopment toward 1.0. No current model has demonstrated professional-level Hold’em strength.**
+**Status: building v0.5, a reproducible research release, on the way to v1.0. No current model has demonstrated professional-level Hold’em strength.**
 
-[1.0 release standard](#what-10-means) · [Current progress](#where-we-are) · [Quick start](#quick-start) · [Roadmap](ROADMAP.md) · [Documentation](#documentation)
+[Release plan](#release-plan) · [1.0 strength standard](#what-10-means) · [Current progress](#where-we-are) · [Quick start](#quick-start) · [Roadmap](ROADMAP.md) · [Documentation](#documentation)
+
+## Release plan
+
+The next release is **v0.5**, followed by **v1.0**. The rebuilt system is the path to 1.0, not a separate 2.0 release.
+
+**v0.5 is a research release.** It should let someone train, interrupt and resume a run, export a playable model, and reproduce its evaluation. It ships with a documented longer training experiment: fixed settings and budgets, multiple seeds, learning curves, throughput and memory measurements, model artifacts, and every failure or weak result. Legal play and the player-information boundary remain mandatory. Professional strength, positive win rate, and completion of search or adaptation are not v0.5 requirements.
+
+We can run longer exploratory training once the implementation, recovery and resource checks pass. Weak or inconclusive poker results are useful data; they do not block the next budgeted experiment. We will use that evidence to choose improvements for v1.0 instead of repeatedly tuning small diagnostics. A research checkpoint is clearly labelled as such; publishing it does not certify professional strength.
 
 ## What 1.0 means
 
