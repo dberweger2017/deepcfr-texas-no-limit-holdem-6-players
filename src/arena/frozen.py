@@ -12,8 +12,7 @@ import numpy as np
 import torch
 
 from src.arena.catalog import Checkpoint
-from src.core.model import PokerNetwork, encode_state
-from src.game.legacy import legacy_view
+from src.arena.historical import PokerNetwork, encode_observation
 from src.game.observation import Observation
 from src.game.types import Action, ActionKind
 
@@ -145,8 +144,7 @@ class FrozenPolicy:
             raise ValueError("Policy needs its own current decision")
         if len(view.players) != self._model.players:
             raise ValueError("Checkpoint does not support this player count")
-        legacy = legacy_view(view)
-        encoded = encode_state(legacy, view.seat).astype(np.float32)
+        encoded = encode_observation(view)
         if not np.isfinite(encoded).all():
             raise ValueError("Non-finite policy input")
         with torch.inference_mode():
@@ -173,7 +171,7 @@ class FrozenPolicy:
             )
             unit = Decimal(view.chip_unit)
             # Preserve the old additional-raise convention and its one-unit pot floor.
-            desired = Decimal(str(max(1.0, legacy.pot) * multiplier))
+            desired = Decimal(str(max(1.0, view.pot * float(unit)) * multiplier))
             additional = int((desired / unit).to_integral_value(rounding=ROUND_HALF_UP))
             wager = view.players[view.seat].street_bet + legal.call_amount
             target = min(

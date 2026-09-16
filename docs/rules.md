@@ -10,7 +10,7 @@ The engine stores integer chips. The Python interface expresses amounts in table
 
 The current integration uses the engine's **additional raise** convention: match the outstanding wager, then add the action's amount. A raise from 2 to 10 has amount 8; the following minimum raise-to is 18. `state.min_raise` supplies the last full increment. A smaller increase is permitted only as an exact all-in. A legal-action list alone does not establish that an arbitrary raise size is legal.
 
-The legacy sizing adapter rounds to the nearest chip, with half chips rounded upward, and clamps to the legal amount bounds. It validates that exact amount once. It no longer retries smaller epsilon-adjusted wagers or silently turns an engine rejection into a different raise. Strict runs fail when the requested action type is unavailable or the engine rejects the mapped amount. The replacement typed action interface will use explicit raise-to targets.
+The current typed action interface uses explicit integer raise-to targets and rejects amounts outside the legal bounds. Historical checkpoint inference preserves its old sizing convention: round to the nearest chip, with half chips rounded upward, then clamp to the legal bounds. The hand interface validates the final action once; it does not retry or silently substitute a different action.
 
 Calls never exceed the caller's remaining stack. At settlement, stacks include winnings and refunds; reward is final stack minus initial stack. Committed chips and pot are then zero. Logging records failed transitions and does not change game rules or fabricate check actions.
 
@@ -18,12 +18,12 @@ Calls never exceed the caller's remaining stack. At settlement, stacks include w
 
 The engine's `State` is a privileged simulator object, containing all hole cards and the deck. Read-only Python fields prevent accidental editing but do not enforce fair information access.
 
-The [player-observation interface](observations.md) now separates policies from the simulator. It supplies immutable snapshots, complete public betting/reveal events, exact integer raise-to bounds, and owner-specific prior records. Existing model calls use a public-only adapter; neither neural agent nor its encoder accepts raw engine state. Counterfactual traversal does not write live opponent history.
+The [player-observation interface](observations.md) now separates policies from the simulator. It supplies immutable snapshots, complete public betting/reveal events, exact integer raise-to bounds, and owner-specific prior records. Current policies and the historical checkpoint encoder accept public observations, never raw engine state. Counterfactual traversal does not write live opponent history.
 
 The observation layer adds the named `nlhe-cash-auto-muck-v1` disclosure profile: the last river aggressor shows first, otherwise the first live seat left of the button; subsequent hands can be mucked only after they are beaten by tabled cards in every eligible pot. Folded and mucked cards remain hidden from other players. See the interface document for sources, events, retention rules, and unsupported disclosure procedures.
 
 ## Table sessions and exclusions
 
-Participants and stacks are fixed for a hand. The [session manager](sessions.md) now handles occupied physical seats, public identities, bankrolls, joins, departures, sit-outs, top-ups, and button/blind movement. Its `nlhe-moving-button-wait-bb-v1` profile uses a forward-moving button and big-blind-only entry for new or returning players. Changes are accepted only between settled hands. Private records and the old opponent model's feature histories follow public identities when seats change. The session contract specifies heads-up transitions, all-away reopening, buy-in bounds, public spectator records, and replay.
+Participants and stacks are fixed for a hand. The [session manager](sessions.md) now handles occupied physical seats, public identities, bankrolls, joins, departures, sit-outs, top-ups, and button/blind movement. Its `nlhe-moving-button-wait-bb-v1` profile uses a forward-moving button and big-blind-only entry for new or returning players. Changes are accepted only between settled hands. Private records follow public identities when seats change. The session contract specifies heads-up transitions, all-away reopening, buy-in bounds, public spectator records, and replay.
 
 Rake, antes, straddles, multiple runouts, tournament payouts, and live-dealer irregularities are outside this initial profile. Any addition needs a named rule choice and its own checks. The corrected engine is a foundation for training; it does not establish playing strength or make historical checkpoints valid benchmarks for this game.

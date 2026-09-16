@@ -1,0 +1,444 @@
+[
+  {
+    "players": 4,
+    "seed": 17,
+    "stacks": [
+      400,
+      1200,
+      2000,
+      5000
+    ],
+    "steps": [
+      {
+        "sha256": "7c918f16dc5e7f6923d0d0b7766d7dbc59dfb573c0bf8f201a16b5bdd496b5d7",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "c62ce4c6544f7337585a2d31a07ffd2a275979f844ddbc739ae81100fedcb428",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "01dd9b38301a601badf8267b7f8bf2899870121967e8790bbd39aeb237fd9e18",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "0c7bf08cff921e970d6e9c3ef9f2c2d3cfc434b365cc0b7254bd02d8849a8cc2",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      }
+    ]
+  },
+  {
+    "players": 4,
+    "seed": 61,
+    "stacks": [
+      400,
+      1200,
+      2000,
+      5000
+    ],
+    "steps": [
+      {
+        "sha256": "dac8961f012d6b6c72f4858d59c96f321b8d3d1485ee970ffa0793dd19080f90",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "b881b08b4dc84b73f735b76f0326d11914aedbd05afc359e5202ee16af6c4cad",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "edf5ba719c1328ae38b1342e8dd1dff1085bf78576d8be33d1da9fcc4ef9b85d",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "6c16f73053963141f90cb4f341bb5b604f476d58ff7f785fe8c55b879d8ac77e",
+        "action": {
+          "kind": "raise",
+          "raise_to": 5000
+        }
+      },
+      {
+        "sha256": "b6a9c3852b063b01fea14bedd9733d054b4650b4c1b7cf3295dabd86e1b2c889",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "122de9c03e98d7392953979448b635ec0d1c286cef300339d30f3996714f9f83",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      }
+    ]
+  },
+  {
+    "players": 5,
+    "seed": 17,
+    "stacks": [
+      400,
+      1200,
+      2000,
+      5000,
+      10000
+    ],
+    "steps": [
+      {
+        "sha256": "a451e8a28e6c30da435e01f5f429416a866596d5aaa80252203cdb053b98a353",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "5e0833abbecf43b2c7f9fe84c736a0be89d685043753b85b7b33fd17ae1e6d1d",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "efe2ac249e618d0396632870e3f8d98e3dde4ff643f6026c5357c910038e23b5",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "21201deb0cfc390b280e79fb55c43e8f46e6db7548965384b123e454ac1f846e",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "ec8c2051bb3996890227a03e49db6f615e160681e293a678d91733028af5cf71",
+        "action": {
+          "kind": "check",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "85313770f4b4d3ba67abeb35968f5907601b39f7755f4ae5d22c8613d127395a",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      }
+    ]
+  },
+  {
+    "players": 5,
+    "seed": 61,
+    "stacks": [
+      400,
+      1200,
+      2000,
+      5000,
+      10000
+    ],
+    "steps": [
+      {
+        "sha256": "d93a847abab80b743f2c56d91941d5313fcdcf498c424a2f78bbad5035208e47",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "f179575f47c6f1b7167cafab35e8e05631a5c5cb810a8f841ce29f80e534e947",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "1b1ae2a91f4df741e17cc94faf3bfacc5cce3ddf11d0a8213f418b661ca93948",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "477d1530214bc2a6468d993fa93adb979d03ca94116f59ff9bea1c9b6a66b0ca",
+        "action": {
+          "kind": "raise",
+          "raise_to": 2000
+        }
+      },
+      {
+        "sha256": "53f825c48b097d56050a3be2809e5aea75bc13765b895e351e4af28e6fe022f1",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "f1a18a008f7f856317e14cd770fe997fa45b2fa6bd797f0ad97f053b5fa19f32",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "146551f9b4312de0a54d4745c424401b74649437367285c9459076e8cea0ece4",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "6311b4cc3ed7d57c5802fe1d437be140b2057d6faa1c6457f4d1b3cd4449686f",
+        "action": {
+          "kind": "raise",
+          "raise_to": 100
+        }
+      },
+      {
+        "sha256": "a466a94f075374f284b64d751f70ec8e67e8cd997878a01be1687d96cec3119f",
+        "action": {
+          "kind": "raise",
+          "raise_to": 8000
+        }
+      },
+      {
+        "sha256": "ed82d09e4f3fa62dd31775a57ee8f9316d5130ddc530ab39cd2590d4174814ec",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      }
+    ]
+  },
+  {
+    "players": 6,
+    "seed": 17,
+    "stacks": [
+      400,
+      1200,
+      2000,
+      5000,
+      10000,
+      20000
+    ],
+    "steps": [
+      {
+        "sha256": "84d363f490a5978e58cb5d99ef7e34e9c6796efe9c60a24b536bc6506c122427",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "aeeeca396a055e89e66b4646cc2a22ba1928b45c65a9f6474b42fe83a1e5b6e5",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "2ce1b46cfd4bb22f630e46e7568261c878c9b42469324629a0b56db6dd749c7e",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "9e0d267a6b7a21e88e67a1b078ab96f4ec13e5af81236d1387613af6fc8b9f06",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "7a1ee3ef4a311d698403ab32ec7a32c59be89733548e2a58bc3d3bed7d56f11c",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "d28792a366d60087ba14e69ffa629bcc0ebe955efbdbf4b284545f8f8acfc675",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "b467867b36bcf256700dd3f1479d1ac8f551a58f1f5cf5425e2ba4f59d3eeebc",
+        "action": {
+          "kind": "check",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "66b38fc70f202b4b440c58395eb7d6f5d4b9420323046d38ab05a9fb81cf55ec",
+        "action": {
+          "kind": "check",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "b87d3d199fcda95649efa5223e9939e6720cb5e1add31ffd9599c71710991a88",
+        "action": {
+          "kind": "check",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "e6892f66b2d08a007e45770bc358ce2bdfadd08c7181ecebd00e4c343cd3cf4c",
+        "action": {
+          "kind": "raise",
+          "raise_to": 100
+        }
+      },
+      {
+        "sha256": "575295cc00457525e8a9d61d7ff594426038478ddfe577e238b9171796b5e366",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      }
+    ]
+  },
+  {
+    "players": 6,
+    "seed": 61,
+    "stacks": [
+      400,
+      1200,
+      2000,
+      5000,
+      10000,
+      20000
+    ],
+    "steps": [
+      {
+        "sha256": "a2d5ed6c3ebf788979f9c6833e86de88b1c32d0c5ed70fed071b08208317d329",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "24401df70e525dff356778cd91d4c6644375bbc7d39d4b6f324431d855f6174a",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "a3c5da526d8e0435e27a1b527d01f83703155c25ac2ae43c90c7a1e099216610",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "cb7e754792ab3105752aba401b9f9ffe0137c387ebc0810f0ed39f516e095235",
+        "action": {
+          "kind": "raise",
+          "raise_to": 1200
+        }
+      },
+      {
+        "sha256": "44c52999f0ce0fe702c1dfd671ee705c28b75447e69356bd29667c6436d8c758",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "6e651eb04d9de4ed6e6f722aee111f0a709a3969c5c0185b97cbb1e99f7872a6",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "aaf8c02763e4c2a99f7939e1ba2fc8e7c23cb65298f7e18ba7aa79fead65af65",
+        "action": {
+          "kind": "raise",
+          "raise_to": 2300
+        }
+      },
+      {
+        "sha256": "4d0ebb1211b3da293b009f3e0b7c88f06c9c0705fe0f6c958428fe59d51f9799",
+        "action": {
+          "kind": "raise",
+          "raise_to": 3400
+        }
+      },
+      {
+        "sha256": "6a73d83745a1f2694412f84b6c26b2fb19043e5a170ffd9ab363eae2a1f831d2",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "716ccc104ad644c4a7243d0e9277f1d00da064cf100c37780b2e13592d440e0d",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "e847168011529ca5f82b4d32bc7827be85626bf567a6866544270971260d1b8f",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "dd1ab777e470d589951b5367656383463ff2589e5350edfc77497612fd406e94",
+        "action": {
+          "kind": "raise",
+          "raise_to": 100
+        }
+      },
+      {
+        "sha256": "3aace34ac42f17fe44591cc8a6021f20358afd827dcff49683e91663a78703de",
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "8f534492fc0b47c6687ea7697573c316f6caee3f95db09626c335fa00bd454d7",
+        "action": {
+          "kind": "check",
+          "raise_to": null
+        }
+      },
+      {
+        "sha256": "e868911f37b253a83a7e53da6a25b38d66ea8d9b9caf1f22ec77317ba508eb41",
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        }
+      }
+    ]
+  }
+]

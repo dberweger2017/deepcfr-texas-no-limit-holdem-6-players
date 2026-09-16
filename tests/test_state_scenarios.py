@@ -5,13 +5,8 @@ This complements the smoke tests by replaying specific action sequences that
 have broken in the past.
 """
 
-from pathlib import Path
-
 import pokers as pkrs
 import pytest
-
-from src.utils.logging import apply_action_with_logging
-
 
 SCENARIO_CASES = [
     pytest.param(
@@ -79,46 +74,7 @@ def test_deterministic_state_scenarios(case):
     assert state.legal_actions == case["expected_legal_actions"]
 
 
-def test_high_bet_scenario_is_logged(tmp_path, monkeypatch):
-    monkeypatch.chdir(tmp_path)
-    state = pkrs.State.from_seed(
-        n_players=6,
-        button=0,
-        sb=1,
-        bb=2,
-        stake=200.0,
-        seed=0,
-    )
-
-    new_state, log_file, status = apply_action_with_logging(
-        state,
-        pkrs.Action(pkrs.ActionEnum.Raise, 1000.0),
-        strict=False,
-    )
-
-    assert new_state is None
-    assert status == pkrs.StateStatus.HighBet
-    assert log_file is not None
-    assert Path(log_file).exists()
-
-
-def test_high_bet_strict_mode_raises_and_logs(tmp_path, monkeypatch):
-    monkeypatch.chdir(tmp_path)
-    state = pkrs.State.from_seed(
-        n_players=6,
-        button=0,
-        sb=1,
-        bb=2,
-        stake=200.0,
-        seed=0,
-    )
-
-    with pytest.raises(ValueError, match=r"State status not OK \(StateStatus.HighBet\)"):
-        apply_action_with_logging(
-            state,
-            pkrs.Action(pkrs.ActionEnum.Raise, 1000.0),
-            strict=True,
-        )
-
-    log_files = sorted((tmp_path / "logs").glob("poker_error_*.txt"))
-    assert log_files
+def test_engine_rejects_a_raise_beyond_the_stack():
+    state = pkrs.State.from_seed(6, 0, 1, 2, 200, 0)
+    result = state.apply_action(pkrs.Action(pkrs.ActionEnum.Raise, 1000))
+    assert result.status == pkrs.StateStatus.HighBet

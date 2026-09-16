@@ -20,7 +20,7 @@ They use only their own cards, the public board, and the legal betting context. 
 
 `training-v1` contains `random`, `check_call`, and a separate `train_pressure` preset. The committed training and evaluation pools have disjoint policy names. The pressure presets share an implementation, so this is not a claim of independent opponent families. A pool records its name, purpose, and exact members in the plan. Training pools require split `train`; evaluation pools require `validation` or `test`. An explicit `opponents` list must match the declared pool.
 
-This enforcement applies to arena plans. The legacy trainer does not yet consume this catalog. Ad hoc plans without a named pool remain supported. Do not relabel evaluation opponents as training opponents or tune against a final-test schedule. Changes to a published pool or benchmark should receive a new version; manifests also pin implementation bytes and resolved members.
+This enforcement applies to arena plans. Ad hoc plans without a named pool remain supported. Do not relabel evaluation opponents as training opponents or tune against a final-test schedule. Changes to a published pool or benchmark should receive a new version; manifests also pin implementation bytes and resolved members.
 
 ## Committed suites
 
@@ -43,7 +43,7 @@ python -m scripts.run_arena --reproduce results/style-check --out results/style-
 python -m scripts.run_arena --plan configs/arena/core-v1.json --out results/core-baseline
 ```
 
-For a new candidate, copy a plan and declare the candidate, artifact, budget, seeds, primary comparison, and scenario regression limits before execution. Six-player checkpoint plans must contain only six-player fixed-hand scenarios. Train and evaluate separate four-/five-player artifacts until the replacement model explicitly supports variable player counts.
+For a new candidate, copy a plan and declare the candidate, artifact, budget, seeds, primary comparison, and scenario regression limits before execution. Six-player checkpoint plans must contain only six-player fixed-hand scenarios. Historical models remain tied to their original player count. The current Hold'em encoder supports variable occupancy, while experiments train and report each table-size scenario separately.
 
 ## Frozen standard networks
 

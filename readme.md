@@ -72,7 +72,7 @@ The project began as an earlier Deep CFR implementation. We are rebuilding its l
 | Hold’em betting | Exact legal bet candidates, per-action regret/value heads and branch-payoff targets. [Contract](docs/holdem-betting.md) |
 | Hold’em collection | External sampling for every role against isolated current policies, with exact action records and reproducible 100 BB checks. [Contract](docs/holdem-collection.md) |
 | Hold’em fitting | Separate role reservoirs, iteration-weighted model updates and whole-iteration rollback. Two-iteration checks reproduce at 100 BB. [Contract](docs/holdem-training.md) |
-| Hold’em baseline pipeline | Averaged play, full iteration-boundary recovery, deterministic button rotation and a multi-seed training/arena runner. [Contract](docs/holdem-baseline.md), [first report](docs/reports/holdem-baseline.md). Substantial learning and strength remain unproven; legacy play interfaces still exist. |
+| Hold’em baseline pipeline | Averaged play, full iteration-boundary recovery, deterministic button rotation and a multi-seed training/arena runner. [Contract](docs/holdem-baseline.md), [first report](docs/reports/holdem-baseline.md). Substantial learning and strength remain unproven. |
 
 **Next step:** run the committed [snapshot readiness checks](docs/snapshot-readiness.md), then establish meaningful Hold’em learning before scaling. Step 4's engineering now supports collection → fitting → averaged play → evaluation and exact recovery. The [first Hold’em report](docs/reports/holdem-baseline.md) is deliberately a short implementation check across three seeds per scenario: ten jobs completed, one hit its collection limit and one was not attempted. The [previous small-game confirmation](docs/reports/neural-readiness.md) remains failed; substantial training still requires readiness. No model has been promoted.
 
@@ -138,9 +138,9 @@ Use fresh output directories; runners preserve existing results. These commands 
 | [Evaluation arena](docs/evaluation.md) / [benchmarks](docs/benchmarks.md) | Schedules, opponents, metrics, and reproducible comparisons |
 | [Tabular solver](docs/solver-reference.md) / [neural solver](docs/neural-cfr.md) | Learning conventions, commands, snapshots, and diagnostics |
 | [Latest strategy-capacity report](docs/reports/strategy-capacity.md) | All seeds, failures, learning curves, rental costs, and the next decision |
-| [Legacy workflows](docs/legacy-workflows.md) | Existing Hold’em training, checkpoint evaluation, CLI/GUI play, and historical results |
+| [Repository layout](docs/repository-layout.md) | Supported commands, retained historical opponents and retired workflows |
 
-The legacy workflows are retained for experiments and regression coverage. They are separate from the validated small-game solver and are not the 1.0 training recipe.
+The old trainers, desktop UI and experimental opponent model have been retired. Use the current headless commands from a source checkout; release packaging and a new play interface follow the roadmap. Historical standard checkpoints remain read-only arena opponents.
 
 ## Research foundations
 

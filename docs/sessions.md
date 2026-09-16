@@ -72,7 +72,7 @@ Observation schema **2** adds `seat_numbers`, `table_seats`, `capacity`, and `se
 
 Settlement stores records by **identity**, including public spectator records for present players dealt out. Moving seats, leaving, and rejoining with the same identity preserves that owner's legitimate records. Replacing an occupant with another identity supplies no previous occupant's private history. Records retain all completed observed hands in memory for the lifetime of the session. Disk persistence, cross-session identity/history transfer, and retention limits are separate work.
 
-The old opponent model also resolves hand seats to public identities before recording actions or looking up features. It averages only known opponents present in the current hand. Recording and settlement must refer to the same hand and observing player. Existing evaluation calls allocate a fresh public lineup by default; callers may supply `player_ids` to deliberately retain known identities. Counterfactual traversal still cannot append live history.
+The retired opponent model is no longer a consumer of these records. Future adaptation must use public identities, retain only observed information, and keep counterfactual traversal separate from live history.
 
 ## Public journal and replay
 
