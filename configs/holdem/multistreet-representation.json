@@ -1,0 +1,57 @@
+{
+  "format": "holdem-multistreet-representation-v1",
+  "context_seed": 20260917,
+  "seeds": [911, 919, 929],
+  "variants": [
+    "scaled_baseline",
+    "learned_separate_card_branch",
+    "explicit_visible_features"
+  ],
+  "durations": [1024, 2048, 4096],
+  "range_templates": [
+    ["Ac", "Ad", "Kh", "Ks", "Qc", "Jh", "9d", "8s", "5c", "4d"],
+    ["As", "Kd", "Qh", "Qs", "Tc", "9c", "7d", "6h", "3s", "2d"]
+  ],
+  "forbidden_flop_plans": [
+    "configs/holdem/representation.json",
+    "configs/holdem/card-diversity.json"
+  ],
+  "world_samples": 4,
+  "deals_per_sample": 1,
+  "max_tree_nodes": 100000,
+  "max_reference_seconds": 5400,
+  "max_fit_seconds": 3600,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "gradient_clip": 1.0,
+  "minimum_relative_cost_gain": 0.1,
+  "minimum_absolute_cost_gain_bb": 0.02,
+  "allowed_relative_rmse_increase": 0.02,
+  "reference_se_multiplier": 2.0,
+  "contexts": [
+    {"split": "train", "street": "flop", "board": ["3s", "8c", "As"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "train", "street": "turn", "board": ["3s", "8c", "As", "4c"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "train", "street": "river", "board": ["3s", "8c", "As", "4c", "5c"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "train", "street": "flop", "board": ["3s", "8c", "As"], "holding": ["2c", "3c"], "facing": true},
+    {"split": "train", "street": "turn", "board": ["3s", "8c", "As", "4c"], "holding": ["2c", "3c"], "facing": true},
+    {"split": "train", "street": "river", "board": ["3s", "8c", "As", "4c", "5c"], "holding": ["2c", "3c"], "facing": true},
+    {"split": "tuning", "street": "flop", "board": ["Jd", "Tc", "Ks"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "tuning", "street": "turn", "board": ["Jd", "Tc", "Ks", "4c"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "tuning", "street": "river", "board": ["Jd", "Tc", "Ks", "4c", "5c"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "tuning", "street": "flop", "board": ["Jd", "Tc", "Ks"], "holding": ["2c", "3c"], "facing": true},
+    {"split": "tuning", "street": "turn", "board": ["Jd", "Tc", "Ks", "4c"], "holding": ["2c", "3c"], "facing": true},
+    {"split": "tuning", "street": "river", "board": ["Jd", "Tc", "Ks", "4c", "5c"], "holding": ["2c", "3c"], "facing": true},
+    {"split": "validation", "street": "flop", "board": ["4s", "Ts", "Qs"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "validation", "street": "turn", "board": ["4s", "Ts", "Qs", "4c"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "validation", "street": "river", "board": ["4s", "Ts", "Qs", "4c", "5c"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "validation", "street": "flop", "board": ["4s", "Ts", "Qs"], "holding": ["2c", "3c"], "facing": true},
+    {"split": "validation", "street": "turn", "board": ["4s", "Ts", "Qs", "4c"], "holding": ["2c", "3c"], "facing": true},
+    {"split": "validation", "street": "river", "board": ["4s", "Ts", "Qs", "4c", "5c"], "holding": ["2c", "3c"], "facing": true},
+    {"split": "test", "street": "flop", "board": ["Td", "Ad", "9s"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "test", "street": "turn", "board": ["Td", "Ad", "9s", "4c"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "test", "street": "river", "board": ["Td", "Ad", "9s", "4c", "5c"], "holding": ["2c", "3c"], "facing": false},
+    {"split": "test", "street": "flop", "board": ["Td", "Ad", "9s"], "holding": ["2c", "3c"], "facing": true},
+    {"split": "test", "street": "turn", "board": ["Td", "Ad", "9s", "4c"], "holding": ["2c", "3c"], "facing": true},
+    {"split": "test", "street": "river", "board": ["Td", "Ad", "9s", "4c", "5c"], "holding": ["2c", "3c"], "facing": true}
+  ]
+}
