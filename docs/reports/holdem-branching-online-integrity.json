@@ -1,0 +1,1742 @@
+{
+  "analysis_reproduction": {
+    "absolute_tolerance": 1e-09,
+    "float_differences": 6,
+    "matches_with_float_tolerance": true,
+    "maximum_difference": 1.7053025658242404e-13,
+    "nonfloat_differences": 0
+  },
+  "archive": {
+    "archive_bytes": 14041643443,
+    "archive_sha256": "06dbb252d64aefeecba1f586b23a10faa262755eb8bf0ea60207078d57cf23a9",
+    "campaign_average_exports": 24,
+    "campaign_training_checkpoints": 48,
+    "catalog_artifacts": 90,
+    "extracted_bytes": 1502852350,
+    "inventoried_files": 528,
+    "members": 597,
+    "seconds": 75.27284097671509,
+    "verified": true
+  },
+  "execution": {
+    "elapsed": 6320.581515073776,
+    "jobs": [
+      {
+        "complete": true,
+        "exit_code": 0,
+        "name": "branching-online-first-719"
+      },
+      {
+        "complete": true,
+        "exit_code": 0,
+        "name": "branching-online-first-727"
+      },
+      {
+        "complete": true,
+        "exit_code": 0,
+        "name": "branching-online-first-733"
+      },
+      {
+        "complete": true,
+        "exit_code": 0,
+        "name": "branching-online-second-719"
+      },
+      {
+        "complete": true,
+        "exit_code": 0,
+        "name": "branching-online-second-727"
+      },
+      {
+        "complete": true,
+        "exit_code": 0,
+        "name": "branching-online-second-733"
+      }
+    ],
+    "utc": "2026-09-17T01:11:38.371263+00:00"
+  },
+  "file_inventory_sha256": "4c5f659427e28c40eba8bf9804afdc01f805573a0f2835673ce84cad7ec44796",
+  "format": "holdem-branching-integrity-v1",
+  "host_admission_amendment": {
+    "amended_gate_passed": true,
+    "amendment_commit": "2e9937f",
+    "deadline_remaining_seconds": 13142.276485681534,
+    "growth_multiplier": 1.3,
+    "original_gate_passed": false,
+    "other_work_allowance_seconds": 2700,
+    "projected_remaining_seconds": 11065.654777431488,
+    "timestamp": 1789601177.723515,
+    "worst_early_seconds": 6435.119059562683
+  },
+  "host_calibration": {
+    "cgroup_limit_bytes": 32000000000,
+    "complete": true,
+    "host_elapsed_seconds": 85.39272403717041,
+    "jobs": [
+      {
+        "complete": true,
+        "exit_code": 0,
+        "iterations": 4,
+        "mean_iteration_seconds": 8.64712667837739,
+        "name": "branching-host-first-701",
+        "peak_process_rss_bytes": 672874496,
+        "projected_512_seconds": 4427.328859329224
+      },
+      {
+        "complete": true,
+        "exit_code": 0,
+        "iterations": 4,
+        "mean_iteration_seconds": 8.672751657664776,
+        "name": "branching-host-first-703",
+        "peak_process_rss_bytes": 686899200,
+        "projected_512_seconds": 4440.448848724365
+      },
+      {
+        "complete": true,
+        "exit_code": 0,
+        "iterations": 4,
+        "mean_iteration_seconds": 9.696789190173149,
+        "name": "branching-host-first-709",
+        "peak_process_rss_bytes": 667987968,
+        "projected_512_seconds": 4964.756065368652
+      },
+      {
+        "complete": true,
+        "exit_code": 0,
+        "iterations": 4,
+        "mean_iteration_seconds": 11.99883583188057,
+        "name": "branching-host-second-701",
+        "peak_process_rss_bytes": 838438912,
+        "projected_512_seconds": 6143.403945922852
+      },
+      {
+        "complete": true,
+        "exit_code": 0,
+        "iterations": 4,
+        "mean_iteration_seconds": 12.568591913208365,
+        "name": "branching-host-second-703",
+        "peak_process_rss_bytes": 811929600,
+        "projected_512_seconds": 6435.119059562683
+      },
+      {
+        "complete": true,
+        "exit_code": 0,
+        "iterations": 4,
+        "mean_iteration_seconds": 10.7294344548136,
+        "name": "branching-host-second-709",
+        "peak_process_rss_bytes": 800333824,
+        "projected_512_seconds": 5493.470440864563
+      }
+    ],
+    "memory_pass": true,
+    "passed": false,
+    "peak_cgroup_rss_bytes": 3219439616,
+    "peak_cgroup_usage_bytes": 4880060416,
+    "rate_pass": false
+  },
+  "host_memory": {
+    "allocation_failures": 0,
+    "memory_limit_bytes": 32000000000,
+    "oom_control": "oom_kill_disable 0\nunder_oom 0\noom_kill 0\n",
+    "peak_cgroup_bytes": 32000000000
+  },
+  "manifests": {
+    "branching-online-first-719": {
+      "contract": {
+        "actions": "holdem-bets-v1",
+        "average": "linear-own-reach-collection-profiles-v1",
+        "decision": "holdem-decision-v1",
+        "observation": 2,
+        "resume": "completed-iterations-fresh-adam-per-role-v1",
+        "rules": "nlhe-cash-auto-muck-v1"
+      },
+      "dirty": false,
+      "environment": {
+        "engine": {
+          "binaries": {
+            "pokers/pokers.cpython-311-x86_64-linux-gnu.so": "5ad438e9f2746ccf0622f9d69386dcf71ecaa663759878c85ebe0338ba4da1ea"
+          },
+          "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+        },
+        "implementation": "CPython",
+        "machine": "x86_64",
+        "packages": {
+          "Jinja2": "3.1.6",
+          "Markdown": "3.10.3",
+          "MarkupSafe": "3.0.3",
+          "Pygments": "2.21.0",
+          "Werkzeug": "3.1.8",
+          "absl-py": "2.5.0",
+          "filelock": "3.32.3",
+          "fsspec": "2026.7.0",
+          "grpcio": "1.84.0",
+          "iniconfig": "2.3.0",
+          "mpmath": "1.3.0",
+          "networkx": "3.6.1",
+          "numpy": "1.26.4",
+          "packaging": "26.3",
+          "pillow": "12.3.0",
+          "pluggy": "1.6.0",
+          "pokers": "0.2.0",
+          "protobuf": "7.36.1",
+          "pytest": "9.0.3",
+          "scipy": "1.17.1",
+          "setuptools": "84.0.0",
+          "sympy": "1.13.1",
+          "tensorboard": "2.21.0",
+          "tensorboard-data-server": "0.7.2",
+          "torch": "2.5.1+cpu",
+          "typing_extensions": "4.16.0"
+        },
+        "platform": "Linux-6.8.0-40-generic-x86_64-with-glibc2.31",
+        "python": "3.11.16 (main, Sep  1 2026, 14:18:37) [Clang 22.1.3 ]"
+      },
+      "format": "holdem-baseline-experiment-v2",
+      "observation_schema": 2,
+      "plan": {
+        "benchmarks": [
+          "random"
+        ],
+        "blocks": 256,
+        "evaluate_every": 128,
+        "evaluation_seed": 91919,
+        "iterations": 512,
+        "max_seconds": 10800,
+        "opponents": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "reference": null,
+        "save_every": 64,
+        "scenarios": [
+          {
+            "big_blind": 2,
+            "chip_unit": "1",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "six-100bb",
+            "small_blind": 1,
+            "stacks": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ]
+          }
+        ],
+        "seeds": [
+          719
+        ],
+        "training": {
+          "capacity": 4096,
+          "exploration": 0.5,
+          "fit": {
+            "batch_size": 32,
+            "diagnostic_samples": 128,
+            "learning_rate": 0.001,
+            "steps": 64,
+            "width": 32
+          },
+          "max_nodes": 250000,
+          "max_seconds": 180,
+          "rotate_button": true,
+          "sampler": "first-decision",
+          "seed": 0,
+          "traversals_per_player": 32
+        }
+      },
+      "purpose": "implementation report; no model promotion or readiness claim",
+      "revision": "d19ddc14a7ddd7b1f4529f8208be362c622035b1",
+      "rules": "nlhe-cash-auto-muck-v1",
+      "source_sha256": "037708c973517ac8514079ae95dc874e93bdd1a2476700c2bfee722d5a05fa7c"
+    },
+    "branching-online-first-727": {
+      "contract": {
+        "actions": "holdem-bets-v1",
+        "average": "linear-own-reach-collection-profiles-v1",
+        "decision": "holdem-decision-v1",
+        "observation": 2,
+        "resume": "completed-iterations-fresh-adam-per-role-v1",
+        "rules": "nlhe-cash-auto-muck-v1"
+      },
+      "dirty": false,
+      "environment": {
+        "engine": {
+          "binaries": {
+            "pokers/pokers.cpython-311-x86_64-linux-gnu.so": "5ad438e9f2746ccf0622f9d69386dcf71ecaa663759878c85ebe0338ba4da1ea"
+          },
+          "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+        },
+        "implementation": "CPython",
+        "machine": "x86_64",
+        "packages": {
+          "Jinja2": "3.1.6",
+          "Markdown": "3.10.3",
+          "MarkupSafe": "3.0.3",
+          "Pygments": "2.21.0",
+          "Werkzeug": "3.1.8",
+          "absl-py": "2.5.0",
+          "filelock": "3.32.3",
+          "fsspec": "2026.7.0",
+          "grpcio": "1.84.0",
+          "iniconfig": "2.3.0",
+          "mpmath": "1.3.0",
+          "networkx": "3.6.1",
+          "numpy": "1.26.4",
+          "packaging": "26.3",
+          "pillow": "12.3.0",
+          "pluggy": "1.6.0",
+          "pokers": "0.2.0",
+          "protobuf": "7.36.1",
+          "pytest": "9.0.3",
+          "scipy": "1.17.1",
+          "setuptools": "84.0.0",
+          "sympy": "1.13.1",
+          "tensorboard": "2.21.0",
+          "tensorboard-data-server": "0.7.2",
+          "torch": "2.5.1+cpu",
+          "typing_extensions": "4.16.0"
+        },
+        "platform": "Linux-6.8.0-40-generic-x86_64-with-glibc2.31",
+        "python": "3.11.16 (main, Sep  1 2026, 14:18:37) [Clang 22.1.3 ]"
+      },
+      "format": "holdem-baseline-experiment-v2",
+      "observation_schema": 2,
+      "plan": {
+        "benchmarks": [
+          "random"
+        ],
+        "blocks": 256,
+        "evaluate_every": 128,
+        "evaluation_seed": 91919,
+        "iterations": 512,
+        "max_seconds": 10800,
+        "opponents": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "reference": null,
+        "save_every": 64,
+        "scenarios": [
+          {
+            "big_blind": 2,
+            "chip_unit": "1",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "six-100bb",
+            "small_blind": 1,
+            "stacks": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ]
+          }
+        ],
+        "seeds": [
+          727
+        ],
+        "training": {
+          "capacity": 4096,
+          "exploration": 0.5,
+          "fit": {
+            "batch_size": 32,
+            "diagnostic_samples": 128,
+            "learning_rate": 0.001,
+            "steps": 64,
+            "width": 32
+          },
+          "max_nodes": 250000,
+          "max_seconds": 180,
+          "rotate_button": true,
+          "sampler": "first-decision",
+          "seed": 0,
+          "traversals_per_player": 32
+        }
+      },
+      "purpose": "implementation report; no model promotion or readiness claim",
+      "revision": "d19ddc14a7ddd7b1f4529f8208be362c622035b1",
+      "rules": "nlhe-cash-auto-muck-v1",
+      "source_sha256": "037708c973517ac8514079ae95dc874e93bdd1a2476700c2bfee722d5a05fa7c"
+    },
+    "branching-online-first-733": {
+      "contract": {
+        "actions": "holdem-bets-v1",
+        "average": "linear-own-reach-collection-profiles-v1",
+        "decision": "holdem-decision-v1",
+        "observation": 2,
+        "resume": "completed-iterations-fresh-adam-per-role-v1",
+        "rules": "nlhe-cash-auto-muck-v1"
+      },
+      "dirty": false,
+      "environment": {
+        "engine": {
+          "binaries": {
+            "pokers/pokers.cpython-311-x86_64-linux-gnu.so": "5ad438e9f2746ccf0622f9d69386dcf71ecaa663759878c85ebe0338ba4da1ea"
+          },
+          "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+        },
+        "implementation": "CPython",
+        "machine": "x86_64",
+        "packages": {
+          "Jinja2": "3.1.6",
+          "Markdown": "3.10.3",
+          "MarkupSafe": "3.0.3",
+          "Pygments": "2.21.0",
+          "Werkzeug": "3.1.8",
+          "absl-py": "2.5.0",
+          "filelock": "3.32.3",
+          "fsspec": "2026.7.0",
+          "grpcio": "1.84.0",
+          "iniconfig": "2.3.0",
+          "mpmath": "1.3.0",
+          "networkx": "3.6.1",
+          "numpy": "1.26.4",
+          "packaging": "26.3",
+          "pillow": "12.3.0",
+          "pluggy": "1.6.0",
+          "pokers": "0.2.0",
+          "protobuf": "7.36.1",
+          "pytest": "9.0.3",
+          "scipy": "1.17.1",
+          "setuptools": "84.0.0",
+          "sympy": "1.13.1",
+          "tensorboard": "2.21.0",
+          "tensorboard-data-server": "0.7.2",
+          "torch": "2.5.1+cpu",
+          "typing_extensions": "4.16.0"
+        },
+        "platform": "Linux-6.8.0-40-generic-x86_64-with-glibc2.31",
+        "python": "3.11.16 (main, Sep  1 2026, 14:18:37) [Clang 22.1.3 ]"
+      },
+      "format": "holdem-baseline-experiment-v2",
+      "observation_schema": 2,
+      "plan": {
+        "benchmarks": [
+          "random"
+        ],
+        "blocks": 256,
+        "evaluate_every": 128,
+        "evaluation_seed": 91919,
+        "iterations": 512,
+        "max_seconds": 10800,
+        "opponents": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "reference": null,
+        "save_every": 64,
+        "scenarios": [
+          {
+            "big_blind": 2,
+            "chip_unit": "1",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "six-100bb",
+            "small_blind": 1,
+            "stacks": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ]
+          }
+        ],
+        "seeds": [
+          733
+        ],
+        "training": {
+          "capacity": 4096,
+          "exploration": 0.5,
+          "fit": {
+            "batch_size": 32,
+            "diagnostic_samples": 128,
+            "learning_rate": 0.001,
+            "steps": 64,
+            "width": 32
+          },
+          "max_nodes": 250000,
+          "max_seconds": 180,
+          "rotate_button": true,
+          "sampler": "first-decision",
+          "seed": 0,
+          "traversals_per_player": 32
+        }
+      },
+      "purpose": "implementation report; no model promotion or readiness claim",
+      "revision": "d19ddc14a7ddd7b1f4529f8208be362c622035b1",
+      "rules": "nlhe-cash-auto-muck-v1",
+      "source_sha256": "037708c973517ac8514079ae95dc874e93bdd1a2476700c2bfee722d5a05fa7c"
+    },
+    "branching-online-second-719": {
+      "contract": {
+        "actions": "holdem-bets-v1",
+        "average": "linear-own-reach-collection-profiles-v1",
+        "decision": "holdem-decision-v1",
+        "observation": 2,
+        "resume": "completed-iterations-fresh-adam-per-role-v1",
+        "rules": "nlhe-cash-auto-muck-v1"
+      },
+      "dirty": false,
+      "environment": {
+        "engine": {
+          "binaries": {
+            "pokers/pokers.cpython-311-x86_64-linux-gnu.so": "5ad438e9f2746ccf0622f9d69386dcf71ecaa663759878c85ebe0338ba4da1ea"
+          },
+          "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+        },
+        "implementation": "CPython",
+        "machine": "x86_64",
+        "packages": {
+          "Jinja2": "3.1.6",
+          "Markdown": "3.10.3",
+          "MarkupSafe": "3.0.3",
+          "Pygments": "2.21.0",
+          "Werkzeug": "3.1.8",
+          "absl-py": "2.5.0",
+          "filelock": "3.32.3",
+          "fsspec": "2026.7.0",
+          "grpcio": "1.84.0",
+          "iniconfig": "2.3.0",
+          "mpmath": "1.3.0",
+          "networkx": "3.6.1",
+          "numpy": "1.26.4",
+          "packaging": "26.3",
+          "pillow": "12.3.0",
+          "pluggy": "1.6.0",
+          "pokers": "0.2.0",
+          "protobuf": "7.36.1",
+          "pytest": "9.0.3",
+          "scipy": "1.17.1",
+          "setuptools": "84.0.0",
+          "sympy": "1.13.1",
+          "tensorboard": "2.21.0",
+          "tensorboard-data-server": "0.7.2",
+          "torch": "2.5.1+cpu",
+          "typing_extensions": "4.16.0"
+        },
+        "platform": "Linux-6.8.0-40-generic-x86_64-with-glibc2.31",
+        "python": "3.11.16 (main, Sep  1 2026, 14:18:37) [Clang 22.1.3 ]"
+      },
+      "format": "holdem-baseline-experiment-v2",
+      "observation_schema": 2,
+      "plan": {
+        "benchmarks": [
+          "random"
+        ],
+        "blocks": 256,
+        "evaluate_every": 128,
+        "evaluation_seed": 91919,
+        "iterations": 512,
+        "max_seconds": 10800,
+        "opponents": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "reference": null,
+        "save_every": 64,
+        "scenarios": [
+          {
+            "big_blind": 2,
+            "chip_unit": "1",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "six-100bb",
+            "small_blind": 1,
+            "stacks": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ]
+          }
+        ],
+        "seeds": [
+          719
+        ],
+        "training": {
+          "capacity": 4096,
+          "exploration": 0.5,
+          "fit": {
+            "batch_size": 32,
+            "diagnostic_samples": 128,
+            "learning_rate": 0.001,
+            "steps": 64,
+            "width": 32
+          },
+          "max_nodes": 250000,
+          "max_seconds": 180,
+          "rotate_button": true,
+          "sampler": "second-decision",
+          "seed": 0,
+          "traversals_per_player": 32
+        }
+      },
+      "purpose": "implementation report; no model promotion or readiness claim",
+      "revision": "d19ddc14a7ddd7b1f4529f8208be362c622035b1",
+      "rules": "nlhe-cash-auto-muck-v1",
+      "source_sha256": "037708c973517ac8514079ae95dc874e93bdd1a2476700c2bfee722d5a05fa7c"
+    },
+    "branching-online-second-727": {
+      "contract": {
+        "actions": "holdem-bets-v1",
+        "average": "linear-own-reach-collection-profiles-v1",
+        "decision": "holdem-decision-v1",
+        "observation": 2,
+        "resume": "completed-iterations-fresh-adam-per-role-v1",
+        "rules": "nlhe-cash-auto-muck-v1"
+      },
+      "dirty": false,
+      "environment": {
+        "engine": {
+          "binaries": {
+            "pokers/pokers.cpython-311-x86_64-linux-gnu.so": "5ad438e9f2746ccf0622f9d69386dcf71ecaa663759878c85ebe0338ba4da1ea"
+          },
+          "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+        },
+        "implementation": "CPython",
+        "machine": "x86_64",
+        "packages": {
+          "Jinja2": "3.1.6",
+          "Markdown": "3.10.3",
+          "MarkupSafe": "3.0.3",
+          "Pygments": "2.21.0",
+          "Werkzeug": "3.1.8",
+          "absl-py": "2.5.0",
+          "filelock": "3.32.3",
+          "fsspec": "2026.7.0",
+          "grpcio": "1.84.0",
+          "iniconfig": "2.3.0",
+          "mpmath": "1.3.0",
+          "networkx": "3.6.1",
+          "numpy": "1.26.4",
+          "packaging": "26.3",
+          "pillow": "12.3.0",
+          "pluggy": "1.6.0",
+          "pokers": "0.2.0",
+          "protobuf": "7.36.1",
+          "pytest": "9.0.3",
+          "scipy": "1.17.1",
+          "setuptools": "84.0.0",
+          "sympy": "1.13.1",
+          "tensorboard": "2.21.0",
+          "tensorboard-data-server": "0.7.2",
+          "torch": "2.5.1+cpu",
+          "typing_extensions": "4.16.0"
+        },
+        "platform": "Linux-6.8.0-40-generic-x86_64-with-glibc2.31",
+        "python": "3.11.16 (main, Sep  1 2026, 14:18:37) [Clang 22.1.3 ]"
+      },
+      "format": "holdem-baseline-experiment-v2",
+      "observation_schema": 2,
+      "plan": {
+        "benchmarks": [
+          "random"
+        ],
+        "blocks": 256,
+        "evaluate_every": 128,
+        "evaluation_seed": 91919,
+        "iterations": 512,
+        "max_seconds": 10800,
+        "opponents": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "reference": null,
+        "save_every": 64,
+        "scenarios": [
+          {
+            "big_blind": 2,
+            "chip_unit": "1",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "six-100bb",
+            "small_blind": 1,
+            "stacks": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ]
+          }
+        ],
+        "seeds": [
+          727
+        ],
+        "training": {
+          "capacity": 4096,
+          "exploration": 0.5,
+          "fit": {
+            "batch_size": 32,
+            "diagnostic_samples": 128,
+            "learning_rate": 0.001,
+            "steps": 64,
+            "width": 32
+          },
+          "max_nodes": 250000,
+          "max_seconds": 180,
+          "rotate_button": true,
+          "sampler": "second-decision",
+          "seed": 0,
+          "traversals_per_player": 32
+        }
+      },
+      "purpose": "implementation report; no model promotion or readiness claim",
+      "revision": "d19ddc14a7ddd7b1f4529f8208be362c622035b1",
+      "rules": "nlhe-cash-auto-muck-v1",
+      "source_sha256": "037708c973517ac8514079ae95dc874e93bdd1a2476700c2bfee722d5a05fa7c"
+    },
+    "branching-online-second-733": {
+      "contract": {
+        "actions": "holdem-bets-v1",
+        "average": "linear-own-reach-collection-profiles-v1",
+        "decision": "holdem-decision-v1",
+        "observation": 2,
+        "resume": "completed-iterations-fresh-adam-per-role-v1",
+        "rules": "nlhe-cash-auto-muck-v1"
+      },
+      "dirty": false,
+      "environment": {
+        "engine": {
+          "binaries": {
+            "pokers/pokers.cpython-311-x86_64-linux-gnu.so": "5ad438e9f2746ccf0622f9d69386dcf71ecaa663759878c85ebe0338ba4da1ea"
+          },
+          "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+        },
+        "implementation": "CPython",
+        "machine": "x86_64",
+        "packages": {
+          "Jinja2": "3.1.6",
+          "Markdown": "3.10.3",
+          "MarkupSafe": "3.0.3",
+          "Pygments": "2.21.0",
+          "Werkzeug": "3.1.8",
+          "absl-py": "2.5.0",
+          "filelock": "3.32.3",
+          "fsspec": "2026.7.0",
+          "grpcio": "1.84.0",
+          "iniconfig": "2.3.0",
+          "mpmath": "1.3.0",
+          "networkx": "3.6.1",
+          "numpy": "1.26.4",
+          "packaging": "26.3",
+          "pillow": "12.3.0",
+          "pluggy": "1.6.0",
+          "pokers": "0.2.0",
+          "protobuf": "7.36.1",
+          "pytest": "9.0.3",
+          "scipy": "1.17.1",
+          "setuptools": "84.0.0",
+          "sympy": "1.13.1",
+          "tensorboard": "2.21.0",
+          "tensorboard-data-server": "0.7.2",
+          "torch": "2.5.1+cpu",
+          "typing_extensions": "4.16.0"
+        },
+        "platform": "Linux-6.8.0-40-generic-x86_64-with-glibc2.31",
+        "python": "3.11.16 (main, Sep  1 2026, 14:18:37) [Clang 22.1.3 ]"
+      },
+      "format": "holdem-baseline-experiment-v2",
+      "observation_schema": 2,
+      "plan": {
+        "benchmarks": [
+          "random"
+        ],
+        "blocks": 256,
+        "evaluate_every": 128,
+        "evaluation_seed": 91919,
+        "iterations": 512,
+        "max_seconds": 10800,
+        "opponents": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "reference": null,
+        "save_every": 64,
+        "scenarios": [
+          {
+            "big_blind": 2,
+            "chip_unit": "1",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "six-100bb",
+            "small_blind": 1,
+            "stacks": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ]
+          }
+        ],
+        "seeds": [
+          733
+        ],
+        "training": {
+          "capacity": 4096,
+          "exploration": 0.5,
+          "fit": {
+            "batch_size": 32,
+            "diagnostic_samples": 128,
+            "learning_rate": 0.001,
+            "steps": 64,
+            "width": 32
+          },
+          "max_nodes": 250000,
+          "max_seconds": 180,
+          "rotate_button": true,
+          "sampler": "second-decision",
+          "seed": 0,
+          "traversals_per_player": 32
+        }
+      },
+      "purpose": "implementation report; no model promotion or readiness claim",
+      "revision": "d19ddc14a7ddd7b1f4529f8208be362c622035b1",
+      "rules": "nlhe-cash-auto-muck-v1",
+      "source_sha256": "037708c973517ac8514079ae95dc874e93bdd1a2476700c2bfee722d5a05fa7c"
+    }
+  },
+  "models": {
+    "artifacts": [
+      {
+        "iteration": 64,
+        "kind": "training",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/training-64.pt",
+        "sha256": "5588ed00cb7fa2b696aceefd2a90a446cf75426154f640530e6b1f5a44244fc6",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "training",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/training-128.pt",
+        "sha256": "a61a9fed7131bff86576357b2bd3a9739716c5eb4e662104b7944454df7f29ac",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/average-128.pt",
+        "sha256": "9abcb35deba345bea9f8855c4f41dadacf74c52a31b66c1ea1b0e2d3834480bc",
+        "verified": true
+      },
+      {
+        "iteration": 192,
+        "kind": "training",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/training-192.pt",
+        "sha256": "e7a94f917723749fd0b8e36203e41d8af7b3df64a051a55d5cd9514394e14697",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "training",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/training-256.pt",
+        "sha256": "5196224ec4a48c808fa7d182add5517ddcf69026c52930d2504b0940cbe8281c",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/average-256.pt",
+        "sha256": "ed9545da4918cc752af190aac156746bcf25d876f7f3efc4f31fb089f9fac0f4",
+        "verified": true
+      },
+      {
+        "iteration": 320,
+        "kind": "training",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/training-320.pt",
+        "sha256": "68985626dc50e7f88aac6a4ad7e3b526fb46d1081115942265958b8dca4d33d5",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "training",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/training-384.pt",
+        "sha256": "97c5799e2828d80d26d87f332b19b8f439685147064c42a532ab5febbab02642",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/average-384.pt",
+        "sha256": "68d0ffb01113c73f3f068a79becdf53ea0d4e2214937fde1f47a03ed91a57342",
+        "verified": true
+      },
+      {
+        "iteration": 448,
+        "kind": "training",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/training-448.pt",
+        "sha256": "590f48d2fabad7fe664581f30c42c2ba9cf41ff606cb966bdf104da234997be2",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "training",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/training-512.pt",
+        "sha256": "180ac82c4cb64d6bbe24e053303c040f26b14ce493078d56baf369d38a7db9e7",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-719/scenario-0-seed-719/average-512.pt",
+        "sha256": "631a932fba9487e7d1ebba666801414081058f60ca97892d59cffc238e596ccb",
+        "verified": true
+      },
+      {
+        "iteration": 64,
+        "kind": "training",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/training-64.pt",
+        "sha256": "11492f66b273a0fdf8b5277123bb1f7171da36ce21aedf67eaaabb0efe29d67e",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "training",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/training-128.pt",
+        "sha256": "6b589804f1492def6874774c82ba6d4521f12651c94907aa95452a6c008ef33d",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/average-128.pt",
+        "sha256": "f24c95768fe31b2e3cdcb4d873c315ab7924edf0313dc670857df68d7e0e80e7",
+        "verified": true
+      },
+      {
+        "iteration": 192,
+        "kind": "training",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/training-192.pt",
+        "sha256": "792a401128ba0daa33c627a9625476d04f5525d771964ef1bb1726aa57ae1544",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "training",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/training-256.pt",
+        "sha256": "8f39c3ca512a6cc9d505e3aac7facbad62ac41707a22a309f17028a89fa4786c",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/average-256.pt",
+        "sha256": "6ea13afa34c02c4aa3ac2799ef46de31cae13fe62cbf6e9dcd6027cfc12f101f",
+        "verified": true
+      },
+      {
+        "iteration": 320,
+        "kind": "training",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/training-320.pt",
+        "sha256": "0fcbe2baf826599314ce60f629ac4579bc1201f2ec2d02d814b47105ab882118",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "training",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/training-384.pt",
+        "sha256": "d1f9426d4cf53c2302b26d437437c9f9a29e98cc594d9cee2cf3fa7a585a5bad",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/average-384.pt",
+        "sha256": "70ef5ab72ba739208c14b9e4ef250f652553eddcf0eb73ce583d33bf369cd5e7",
+        "verified": true
+      },
+      {
+        "iteration": 448,
+        "kind": "training",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/training-448.pt",
+        "sha256": "862480aa18e2d76c75bf181c918c0aae5a8563acc130003700a0ad42ab4768ce",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "training",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/training-512.pt",
+        "sha256": "8810cfb0d0634f001f91daf3e4c476b28272a1e44091965e9d77c880c2fec8bd",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-727/scenario-0-seed-727/average-512.pt",
+        "sha256": "e896cd3fd9623024dedccaca7e3af13dbee1022c9bea01f56ff8b6df8da32cef",
+        "verified": true
+      },
+      {
+        "iteration": 64,
+        "kind": "training",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/training-64.pt",
+        "sha256": "99196e7018e6284fc069ac47ba48494f4930f7e03af5c3561789fd32dd2db037",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "training",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/training-128.pt",
+        "sha256": "2b3e77bcc9a4d7ee585b224618b0a222c7d9c1ec6641528292801d0b8c74de56",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/average-128.pt",
+        "sha256": "7d86bcd46090e8ce80e1459d814386642b23b2209f73fc0ba844a651a2d964df",
+        "verified": true
+      },
+      {
+        "iteration": 192,
+        "kind": "training",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/training-192.pt",
+        "sha256": "87ec2464e19cad74194e513eed575cdf462a4f0ca952268356f2add9800cb83d",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "training",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/training-256.pt",
+        "sha256": "f5903069c77d3ad1260f6661a12a75764d9b7c2d5a02ea36bcd539cfd49db704",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/average-256.pt",
+        "sha256": "9bfcec546706cec1f5d4ef471b90dd7c3269f152304cc3cfab352bd42730429d",
+        "verified": true
+      },
+      {
+        "iteration": 320,
+        "kind": "training",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/training-320.pt",
+        "sha256": "06450bbc13d3433c7415f14e3a406104d17040dce4aaf8be744cf1b822182636",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "training",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/training-384.pt",
+        "sha256": "7ec88605aeda62410091d1c747ff1b0556726c6feed68dd48251b776449c0f9b",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/average-384.pt",
+        "sha256": "36d699461755c0e7bee0006cba06665026172378875d7c8df2e8f877e02d6f90",
+        "verified": true
+      },
+      {
+        "iteration": 448,
+        "kind": "training",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/training-448.pt",
+        "sha256": "0cfd9b3a30deff7c9de7a48bbf8b8802f5d16afba8222a4688c5c371a73eeb21",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "training",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/training-512.pt",
+        "sha256": "ef125eda2d0eddd1cd2cbea10818f357690caa07f7c822edd8cb08a5abbec71c",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-first-733/scenario-0-seed-733/average-512.pt",
+        "sha256": "4b24b546aa689475897bf6b6d004fb061c8d3cf412bce825582dcedb371f32e9",
+        "verified": true
+      },
+      {
+        "iteration": 64,
+        "kind": "training",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/training-64.pt",
+        "sha256": "83a3908602426ab358e0a90ead5b9f90da89bc1cbea260d65522c3083ec4cf60",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "training",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/training-128.pt",
+        "sha256": "78a4693959f3a8c73b6d761b025694b2a14842bc57b0e47d18ff5520f5cae7c1",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/average-128.pt",
+        "sha256": "3866d62e6a80859dfec93ba00b7acd64beb6e34c56ca8be387c4ef12d0f3a123",
+        "verified": true
+      },
+      {
+        "iteration": 192,
+        "kind": "training",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/training-192.pt",
+        "sha256": "6b86cc49dc68222e4eaa947cb23a9153055a552324fe3c3eb6c2ac3fca42cd72",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "training",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/training-256.pt",
+        "sha256": "cb18fb63024eaee25b9ec908d7e6a0cdcb33c3110da56af1389ff5e09e4a7f76",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/average-256.pt",
+        "sha256": "f96caf9fa775a2d05d3cd6ed880fd9c4021a94db88121805be3816ffe3c31a30",
+        "verified": true
+      },
+      {
+        "iteration": 320,
+        "kind": "training",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/training-320.pt",
+        "sha256": "c74075d0d0d8d04250d736d6ccff23e650152097ab8c77adc5045839be59ad5d",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "training",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/training-384.pt",
+        "sha256": "ed7ad2831ce4b11afa83a0ed29e8b9f030c9f2c94f31a3d377ed157bf45df044",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/average-384.pt",
+        "sha256": "5976ff43b834f3481ff49bbf6e0f9e3143892fbfc4a5165ce8c5ea491ea5693a",
+        "verified": true
+      },
+      {
+        "iteration": 448,
+        "kind": "training",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/training-448.pt",
+        "sha256": "06b0c85b5e7f3593f89e10ba46e2a3c9e0a0d75c5bc94c0c2910dac46f627520",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "training",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/training-512.pt",
+        "sha256": "91d3be69d5157ca637bf2217bb1e37ca47d5ec8c4b8048dceb3b4546c14ffff8",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-719/scenario-0-seed-719/average-512.pt",
+        "sha256": "819e4ca2a20a1bfcc1109ade0622c17a0d97d1702715f2a06e924e240c1f7e20",
+        "verified": true
+      },
+      {
+        "iteration": 64,
+        "kind": "training",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/training-64.pt",
+        "sha256": "8d810be44ccf5bc2565597b71f87f0dfdc77a8bc39bc19694be7fbe882aad517",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "training",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/training-128.pt",
+        "sha256": "2c0b4975cfd24b603de1a0d1d7adac05207eff00b5858d205333cc2e5e4c17c9",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/average-128.pt",
+        "sha256": "b559c99802c6fd7d35468e175f4dfbb9363cb51a97732aa62f4f6ac348326886",
+        "verified": true
+      },
+      {
+        "iteration": 192,
+        "kind": "training",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/training-192.pt",
+        "sha256": "aa419bb752ca987930d38d6a31c1457a7e1f343fb8657ec8a02dfef56b051b52",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "training",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/training-256.pt",
+        "sha256": "ea3b257198609022fe78005f91d426c38c29a026a899d7fb119d3b8cdf3dcc2b",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/average-256.pt",
+        "sha256": "09d6074bee4ecc8209efd71da4b4e8cce0912a25c23f3c34cf47d93e646b1066",
+        "verified": true
+      },
+      {
+        "iteration": 320,
+        "kind": "training",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/training-320.pt",
+        "sha256": "647e51b7407550ee91af3c5fe4ae218eb3a80cb60725ce4d0b342db7e64832cb",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "training",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/training-384.pt",
+        "sha256": "69bda60ede2a01ec350332d66141d7cb725421f4415fa495a0a4d2257bb77840",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/average-384.pt",
+        "sha256": "ab53ce0a9befef454f0eb57d24855c2bc513868e84ae4a55cc95070c46a6cbdb",
+        "verified": true
+      },
+      {
+        "iteration": 448,
+        "kind": "training",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/training-448.pt",
+        "sha256": "0552fa24b59ab72cdb1f4e1e47d35df2118f1524deee0c20045d18662dee0290",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "training",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/training-512.pt",
+        "sha256": "1261fa050c1206f8612009bef0d6811188a9bb200f12788a2dd82c2f45676b59",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-727/scenario-0-seed-727/average-512.pt",
+        "sha256": "878ae1aa6ae02bfbe6d3ea9c21182d7b3da868d44cf76748343e375f1debfd65",
+        "verified": true
+      },
+      {
+        "iteration": 64,
+        "kind": "training",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/training-64.pt",
+        "sha256": "fe8c352c3bd17aaba491cefc9e11acd3616e1ad53182ebcf390f9236e6aaa4af",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "training",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/training-128.pt",
+        "sha256": "8abbfaf961bc7629ecc3f44a7b1b0f2f70b348f8cb8e3fe802a44372adfd6058",
+        "verified": true
+      },
+      {
+        "iteration": 128,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/average-128.pt",
+        "sha256": "0f5aa41d3df950caa7d4de9b44bca43280020154d52de34491190d6a861f3ccf",
+        "verified": true
+      },
+      {
+        "iteration": 192,
+        "kind": "training",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/training-192.pt",
+        "sha256": "549c9ef18eefe40052b1898bbb040f1237680b9f77e28c9b76a183ca2eb6d522",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "training",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/training-256.pt",
+        "sha256": "5ed2dc79818a0e2a9e7ca8fd3407294f7812394dd798fae2e163315c9f570422",
+        "verified": true
+      },
+      {
+        "iteration": 256,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/average-256.pt",
+        "sha256": "42c2b688a0c271d41db9dd30f40c1eff0cd742b2086e071b7bc52951c0ea658a",
+        "verified": true
+      },
+      {
+        "iteration": 320,
+        "kind": "training",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/training-320.pt",
+        "sha256": "d733e2c5236118a068946432b4fbea4e7ae2da4d5d0e527638925e2dd7059a98",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "training",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/training-384.pt",
+        "sha256": "2b4ef397c685b1e8f65fb1be31d423d0b638eb50d76e127eda570f8f288b8edf",
+        "verified": true
+      },
+      {
+        "iteration": 384,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/average-384.pt",
+        "sha256": "805c5a961c5a52641cc4b747ce7ea83f6b22b9b3b56782574992ffc63d159185",
+        "verified": true
+      },
+      {
+        "iteration": 448,
+        "kind": "training",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/training-448.pt",
+        "sha256": "64574556df8fcc598caa3c02d43110cfa63ed77622e78d59284f6117a35f4c0a",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "training",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/training-512.pt",
+        "sha256": "cfedb6bebc3944ea226eacd08179a0ad3124974394d786ed984b8bc1b8cadeda",
+        "verified": true
+      },
+      {
+        "iteration": 512,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-online-second-733/scenario-0-seed-733/average-512.pt",
+        "sha256": "3f83eab2d5398dfd9e1fe3c09a4764d0b1aa50443b5d9b0d8ac55c4ae791a1f6",
+        "verified": true
+      },
+      {
+        "iteration": 2,
+        "kind": "training",
+        "path": "results/branching-host-first-701/scenario-0-seed-701/training-2.pt",
+        "sha256": "80af4b384fcddf10b7524b9dd211f5b90e243628f450daa6f7ccb1cff5cee88e",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "training",
+        "path": "results/branching-host-first-701/scenario-0-seed-701/training-4.pt",
+        "sha256": "6c4c0c4ea49c06942252c6e5d661c8188460b4d1c68f77793247305e8cb901f6",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-host-first-701/scenario-0-seed-701/average-4.pt",
+        "sha256": "3994d3e247f9d6c08500e1053fefb12919c5b7d55fbf8776837528b05c150c0c",
+        "verified": true
+      },
+      {
+        "iteration": 2,
+        "kind": "training",
+        "path": "results/branching-host-first-703/scenario-0-seed-703/training-2.pt",
+        "sha256": "8ba706a84b62c7905644f0e36252909b863560454fc3488915c1c468e2a48071",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "training",
+        "path": "results/branching-host-first-703/scenario-0-seed-703/training-4.pt",
+        "sha256": "fc66d2076de318d248ec16f966ca3490610182ebe414eb454a481cf519cfdbb8",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-host-first-703/scenario-0-seed-703/average-4.pt",
+        "sha256": "79bcb44f53ba31eda4fdfe94c923fc9093f20b7df5e18d7debb32551319a80e8",
+        "verified": true
+      },
+      {
+        "iteration": 2,
+        "kind": "training",
+        "path": "results/branching-host-first-709/scenario-0-seed-709/training-2.pt",
+        "sha256": "7db38abe24a167adcf349ac9d9f1b5a474b11dd03e3514fb0ce435ac7cacfc59",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "training",
+        "path": "results/branching-host-first-709/scenario-0-seed-709/training-4.pt",
+        "sha256": "8bf89bd5dced67e4f1a2ec7b68c92b7694a784cf6074afd897c6f986eb894e40",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-host-first-709/scenario-0-seed-709/average-4.pt",
+        "sha256": "b14917c387fdc29e4beb30747497c829084ce795400b67583bb99b12634ff6aa",
+        "verified": true
+      },
+      {
+        "iteration": 2,
+        "kind": "training",
+        "path": "results/branching-host-second-701/scenario-0-seed-701/training-2.pt",
+        "sha256": "c62019233986d4e1319825b571fef5bfab4a72c83665ad7bfa180d2dee63e638",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "training",
+        "path": "results/branching-host-second-701/scenario-0-seed-701/training-4.pt",
+        "sha256": "ffb431d7a76f051424d027949abb9d3fc3d3536d1d598be0793def70e6e4b626",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-host-second-701/scenario-0-seed-701/average-4.pt",
+        "sha256": "0c67605d0169b72ef426fc8a1d55a83978b6f3de4a92187f7a5e81a300a7c8fb",
+        "verified": true
+      },
+      {
+        "iteration": 2,
+        "kind": "training",
+        "path": "results/branching-host-second-703/scenario-0-seed-703/training-2.pt",
+        "sha256": "594dcd886f789e3c064de3523c58f473554f36ac433c273f4206717be27795d6",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "training",
+        "path": "results/branching-host-second-703/scenario-0-seed-703/training-4.pt",
+        "sha256": "09ecbe52fe44d8e5ee75b9556fe5841559cf8b9a0ffd861a2af57948f438b8e8",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-host-second-703/scenario-0-seed-703/average-4.pt",
+        "sha256": "9ae360a709902f73dea0ae7951e094bb857317012e12e4d46fc5516e385587fa",
+        "verified": true
+      },
+      {
+        "iteration": 2,
+        "kind": "training",
+        "path": "results/branching-host-second-709/scenario-0-seed-709/training-2.pt",
+        "sha256": "46f141b4c4d7a35237dfa7d82b4ebeeee8f6f6787f0f752f0949619259ef5405",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "training",
+        "path": "results/branching-host-second-709/scenario-0-seed-709/training-4.pt",
+        "sha256": "2d178fbf2bfc2098c6334efae201ebe8ab4b9565487f974666227aa72f061850",
+        "verified": true
+      },
+      {
+        "iteration": 4,
+        "kind": "holdem-average-v1",
+        "path": "results/branching-host-second-709/scenario-0-seed-709/average-4.pt",
+        "sha256": "f9428d4924f7714f850c299144ede9f83bcf16fa62756d09d643ee822c1656e1",
+        "verified": true
+      }
+    ],
+    "verified": true
+  },
+  "recovery": {
+    "jobs": [
+      {
+        "additional_training_iterations": 0,
+        "exit_code": 0,
+        "files": [
+          {
+            "file": "training-512.pt",
+            "matched": true,
+            "original_sha256": "180ac82c4cb64d6bbe24e053303c040f26b14ce493078d56baf369d38a7db9e7",
+            "recovered_sha256": "180ac82c4cb64d6bbe24e053303c040f26b14ce493078d56baf369d38a7db9e7"
+          },
+          {
+            "file": "average-512.pt",
+            "matched": true,
+            "original_sha256": "631a932fba9487e7d1ebba666801414081058f60ca97892d59cffc238e596ccb",
+            "recovered_sha256": "631a932fba9487e7d1ebba666801414081058f60ca97892d59cffc238e596ccb"
+          },
+          {
+            "file": "evaluation-512.json",
+            "matched": true,
+            "original_sha256": "b9ff971d8b27845dc1e92cdcd3841500b1ff7e1f8e8d3fb1e09327dc8e3e742b",
+            "recovered_sha256": "b9ff971d8b27845dc1e92cdcd3841500b1ff7e1f8e8d3fb1e09327dc8e3e742b"
+          },
+          {
+            "file": "evaluation-512-random.json",
+            "matched": true,
+            "original_sha256": "47fede3d1fa8a5aef248459bb73f8a2e11d5c86b2ebd60de0c1fdada77565c85",
+            "recovered_sha256": "47fede3d1fa8a5aef248459bb73f8a2e11d5c86b2ebd60de0c1fdada77565c85"
+          },
+          {
+            "file": "outcomes-512.json",
+            "matched": true,
+            "original_sha256": "4e8b6073882f17acd7e6a650bd28dc5f738c3fbffb924953923dcd0c7e9ffdf1",
+            "recovered_sha256": "4e8b6073882f17acd7e6a650bd28dc5f738c3fbffb924953923dcd0c7e9ffdf1"
+          },
+          {
+            "file": "outcomes-512-random.json",
+            "matched": true,
+            "original_sha256": "992a54ff19b81bac9587ba1a13fabd75c8d0e386da98e39bdc5cb57f76e42079",
+            "recovered_sha256": "992a54ff19b81bac9587ba1a13fabd75c8d0e386da98e39bdc5cb57f76e42079"
+          }
+        ],
+        "name": "branching-online-first-719",
+        "status": "verified"
+      },
+      {
+        "additional_training_iterations": 0,
+        "exit_code": 0,
+        "files": [
+          {
+            "file": "training-512.pt",
+            "matched": true,
+            "original_sha256": "8810cfb0d0634f001f91daf3e4c476b28272a1e44091965e9d77c880c2fec8bd",
+            "recovered_sha256": "8810cfb0d0634f001f91daf3e4c476b28272a1e44091965e9d77c880c2fec8bd"
+          },
+          {
+            "file": "average-512.pt",
+            "matched": true,
+            "original_sha256": "e896cd3fd9623024dedccaca7e3af13dbee1022c9bea01f56ff8b6df8da32cef",
+            "recovered_sha256": "e896cd3fd9623024dedccaca7e3af13dbee1022c9bea01f56ff8b6df8da32cef"
+          },
+          {
+            "file": "evaluation-512.json",
+            "matched": true,
+            "original_sha256": "3e1ec4d8ad89ddbfd9658cd0435282e579dea6ca03dd1ffbc0eeb3f74f76eefe",
+            "recovered_sha256": "3e1ec4d8ad89ddbfd9658cd0435282e579dea6ca03dd1ffbc0eeb3f74f76eefe"
+          },
+          {
+            "file": "evaluation-512-random.json",
+            "matched": true,
+            "original_sha256": "fe26e460d807a124ab2e75fb69036eeb72184868d09e87ab1808270cf62b2493",
+            "recovered_sha256": "fe26e460d807a124ab2e75fb69036eeb72184868d09e87ab1808270cf62b2493"
+          },
+          {
+            "file": "outcomes-512.json",
+            "matched": true,
+            "original_sha256": "8502cbc7747b2f3120867841a562703a8c5390c6f4ee26d60a3743c556f9e738",
+            "recovered_sha256": "8502cbc7747b2f3120867841a562703a8c5390c6f4ee26d60a3743c556f9e738"
+          },
+          {
+            "file": "outcomes-512-random.json",
+            "matched": true,
+            "original_sha256": "c971bba141757910fe8666dde80d0b391a8d17485f869ba80cbcc94653ae82df",
+            "recovered_sha256": "c971bba141757910fe8666dde80d0b391a8d17485f869ba80cbcc94653ae82df"
+          }
+        ],
+        "name": "branching-online-first-727",
+        "status": "verified"
+      },
+      {
+        "additional_training_iterations": 0,
+        "exit_code": 0,
+        "files": [
+          {
+            "file": "training-512.pt",
+            "matched": true,
+            "original_sha256": "ef125eda2d0eddd1cd2cbea10818f357690caa07f7c822edd8cb08a5abbec71c",
+            "recovered_sha256": "ef125eda2d0eddd1cd2cbea10818f357690caa07f7c822edd8cb08a5abbec71c"
+          },
+          {
+            "file": "average-512.pt",
+            "matched": true,
+            "original_sha256": "4b24b546aa689475897bf6b6d004fb061c8d3cf412bce825582dcedb371f32e9",
+            "recovered_sha256": "4b24b546aa689475897bf6b6d004fb061c8d3cf412bce825582dcedb371f32e9"
+          },
+          {
+            "file": "evaluation-512.json",
+            "matched": true,
+            "original_sha256": "18a4d36bd10ecf558f9b12ca7cdcf428e7d22742e34e4e3d38da7efe94ca6804",
+            "recovered_sha256": "18a4d36bd10ecf558f9b12ca7cdcf428e7d22742e34e4e3d38da7efe94ca6804"
+          },
+          {
+            "file": "evaluation-512-random.json",
+            "matched": true,
+            "original_sha256": "10526e998d45ceb326a128a8b7bce468901b8ae30d0d8718f8c90a41a36794e6",
+            "recovered_sha256": "10526e998d45ceb326a128a8b7bce468901b8ae30d0d8718f8c90a41a36794e6"
+          },
+          {
+            "file": "outcomes-512.json",
+            "matched": true,
+            "original_sha256": "b7539956b3dd55fed016a1cdf880f1d6b17c01706df87bf83a64332facade8ac",
+            "recovered_sha256": "b7539956b3dd55fed016a1cdf880f1d6b17c01706df87bf83a64332facade8ac"
+          },
+          {
+            "file": "outcomes-512-random.json",
+            "matched": true,
+            "original_sha256": "618a120605ea436c7306e709379b55c8410d14c8f1ddc90b9c1f6329bbd2a3be",
+            "recovered_sha256": "618a120605ea436c7306e709379b55c8410d14c8f1ddc90b9c1f6329bbd2a3be"
+          }
+        ],
+        "name": "branching-online-first-733",
+        "status": "verified"
+      },
+      {
+        "additional_training_iterations": 0,
+        "exit_code": 0,
+        "files": [
+          {
+            "file": "training-512.pt",
+            "matched": true,
+            "original_sha256": "91d3be69d5157ca637bf2217bb1e37ca47d5ec8c4b8048dceb3b4546c14ffff8",
+            "recovered_sha256": "91d3be69d5157ca637bf2217bb1e37ca47d5ec8c4b8048dceb3b4546c14ffff8"
+          },
+          {
+            "file": "average-512.pt",
+            "matched": true,
+            "original_sha256": "819e4ca2a20a1bfcc1109ade0622c17a0d97d1702715f2a06e924e240c1f7e20",
+            "recovered_sha256": "819e4ca2a20a1bfcc1109ade0622c17a0d97d1702715f2a06e924e240c1f7e20"
+          },
+          {
+            "file": "evaluation-512.json",
+            "matched": true,
+            "original_sha256": "c1a0d325574641925924b4f0e2990c87f4f883b0449f2390b5e4ae74b9c4e6ae",
+            "recovered_sha256": "c1a0d325574641925924b4f0e2990c87f4f883b0449f2390b5e4ae74b9c4e6ae"
+          },
+          {
+            "file": "evaluation-512-random.json",
+            "matched": true,
+            "original_sha256": "e85bcd03f0292f257ce6612e81178bbb61c7fe987d849d13a4f35bacd2e401da",
+            "recovered_sha256": "e85bcd03f0292f257ce6612e81178bbb61c7fe987d849d13a4f35bacd2e401da"
+          },
+          {
+            "file": "outcomes-512.json",
+            "matched": true,
+            "original_sha256": "0f69500d362b2b154514452a2b6647fa1c209119195eaee86f4a4de7fc881f86",
+            "recovered_sha256": "0f69500d362b2b154514452a2b6647fa1c209119195eaee86f4a4de7fc881f86"
+          },
+          {
+            "file": "outcomes-512-random.json",
+            "matched": true,
+            "original_sha256": "51229d9c8e2570346bd0151367ba1e9823963626916ca720a35bd4a1f92334c6",
+            "recovered_sha256": "51229d9c8e2570346bd0151367ba1e9823963626916ca720a35bd4a1f92334c6"
+          }
+        ],
+        "name": "branching-online-second-719",
+        "status": "verified"
+      },
+      {
+        "additional_training_iterations": 0,
+        "exit_code": 0,
+        "files": [
+          {
+            "file": "training-512.pt",
+            "matched": true,
+            "original_sha256": "1261fa050c1206f8612009bef0d6811188a9bb200f12788a2dd82c2f45676b59",
+            "recovered_sha256": "1261fa050c1206f8612009bef0d6811188a9bb200f12788a2dd82c2f45676b59"
+          },
+          {
+            "file": "average-512.pt",
+            "matched": true,
+            "original_sha256": "878ae1aa6ae02bfbe6d3ea9c21182d7b3da868d44cf76748343e375f1debfd65",
+            "recovered_sha256": "878ae1aa6ae02bfbe6d3ea9c21182d7b3da868d44cf76748343e375f1debfd65"
+          },
+          {
+            "file": "evaluation-512.json",
+            "matched": true,
+            "original_sha256": "511b3fb17b3ba75bd939f9eff9a0dcff2ac838291bb5fef42777b11da7c4c7d4",
+            "recovered_sha256": "511b3fb17b3ba75bd939f9eff9a0dcff2ac838291bb5fef42777b11da7c4c7d4"
+          },
+          {
+            "file": "evaluation-512-random.json",
+            "matched": true,
+            "original_sha256": "ada294445ef7347884205b8cfc768871b24eb1a4a0eae069b7df508b27dde953",
+            "recovered_sha256": "ada294445ef7347884205b8cfc768871b24eb1a4a0eae069b7df508b27dde953"
+          },
+          {
+            "file": "outcomes-512.json",
+            "matched": true,
+            "original_sha256": "c2306877fe19bd48b205161fccbe1b9f65ce3262fe3a85a5fd316735e9f41f52",
+            "recovered_sha256": "c2306877fe19bd48b205161fccbe1b9f65ce3262fe3a85a5fd316735e9f41f52"
+          },
+          {
+            "file": "outcomes-512-random.json",
+            "matched": true,
+            "original_sha256": "eb77cc8e819e0313f48561d5233399218313771d451848c1dd2e983368569225",
+            "recovered_sha256": "eb77cc8e819e0313f48561d5233399218313771d451848c1dd2e983368569225"
+          }
+        ],
+        "name": "branching-online-second-727",
+        "status": "verified"
+      },
+      {
+        "additional_training_iterations": 0,
+        "exit_code": 0,
+        "files": [
+          {
+            "file": "training-512.pt",
+            "matched": true,
+            "original_sha256": "cfedb6bebc3944ea226eacd08179a0ad3124974394d786ed984b8bc1b8cadeda",
+            "recovered_sha256": "cfedb6bebc3944ea226eacd08179a0ad3124974394d786ed984b8bc1b8cadeda"
+          },
+          {
+            "file": "average-512.pt",
+            "matched": true,
+            "original_sha256": "3f83eab2d5398dfd9e1fe3c09a4764d0b1aa50443b5d9b0d8ac55c4ae791a1f6",
+            "recovered_sha256": "3f83eab2d5398dfd9e1fe3c09a4764d0b1aa50443b5d9b0d8ac55c4ae791a1f6"
+          },
+          {
+            "file": "evaluation-512.json",
+            "matched": true,
+            "original_sha256": "a17ce684b7b897e2eebde4977bdfe6b69348f12647e2f80b3311593b2fc64d60",
+            "recovered_sha256": "a17ce684b7b897e2eebde4977bdfe6b69348f12647e2f80b3311593b2fc64d60"
+          },
+          {
+            "file": "evaluation-512-random.json",
+            "matched": true,
+            "original_sha256": "c5322127da92d1a146d7b97c408bba20e7feac1bacacd42cabe3756ab0f0c7cb",
+            "recovered_sha256": "c5322127da92d1a146d7b97c408bba20e7feac1bacacd42cabe3756ab0f0c7cb"
+          },
+          {
+            "file": "outcomes-512.json",
+            "matched": true,
+            "original_sha256": "47e69ab9dc52bf116a5a1de0b00dd4b80027b60960589073a62d73b07304a7f5",
+            "recovered_sha256": "47e69ab9dc52bf116a5a1de0b00dd4b80027b60960589073a62d73b07304a7f5"
+          },
+          {
+            "file": "outcomes-512-random.json",
+            "matched": true,
+            "original_sha256": "d31efa702e882470672927a8c7ab85a6c5870cab974733fc99d33e9764208d63",
+            "recovered_sha256": "d31efa702e882470672927a8c7ab85a6c5870cab974733fc99d33e9764208d63"
+          }
+        ],
+        "name": "branching-online-second-733",
+        "status": "verified"
+      }
+    ],
+    "seconds": 1401.0487565994263
+  },
+  "rental": {
+    "conservative_cost_usd": 1.8,
+    "estimated_cost_usd": 1.7669094461122226,
+    "pod_terminated_utc": "2026-09-17T02:11:25.056940+00:00",
+    "remaining_cpu_authorization_usd": 4.33,
+    "rental_started_utc": "2026-09-16T23:05:20Z",
+    "retained_billable_storage": false,
+    "state": "terminated_storage_deleted",
+    "volume_deleted_confirmed_utc": "2026-09-17T02:27:59.632833+00:00"
+  }
+}
