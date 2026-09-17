@@ -354,6 +354,8 @@ def verify(out):
     report = json.loads((out / "report.json").read_text())
     if report["status"] != "completed":
         raise ValueError("Only completed runs can be verified")
+    if digest(report["plan"]) != report["plan_sha256"]:
+        raise ValueError("Plan fingerprint does not reproduce")
     if source_fingerprint() != report["source_sha256"]:
         raise ValueError("The recorded source fingerprint changed")
     for name, expected in report["artifacts"].items():
@@ -361,6 +363,12 @@ def verify(out):
             raise ValueError(f"Artifact changed: {name}")
     targets = torch.load(out / "targets.pt", weights_only=False)
     serial = json.loads((out / "contexts.json").read_text())
+    if digest(serial) != report["contexts_sha256"]:
+        raise ValueError("Context fingerprint does not reproduce")
+    if json.loads((out / "duration-selection.json").read_text()) != report["duration_selection"]:
+        raise ValueError("Saved duration selection differs from report")
+    if json.loads((out / "qualification.json").read_text()) != report["qualification"]:
+        raise ValueError("Saved qualification differs from report")
     records = {
         split: [
             {
@@ -433,6 +441,17 @@ def verify(out):
             row["paired_gain_standard_error_bb"] = 0.0 if row["variant"] == baseline else _paired_gain_se(
                 models[row["variant"], row["seed"]], models[baseline, row["seed"]], records["validation"]
             )
+        expected_validation_roster = {
+            (variant, seed, durations["durations"][variant])
+            for variant in report["plan"]["variants"]
+            for seed in report["plan"]["seeds"]
+        }
+        actual_validation_roster = {
+            (row["variant"], row["seed"], row["duration"])
+            for row in report["validation"]
+        }
+        if len(report["validation"]) != len(actual_validation_roster) or actual_validation_roster != expected_validation_roster:
+            raise ValueError("Validation roster differs from selected recipes")
         for actual, expected in zip(validation_inputs, report["validation"], strict=True):
             if digest(actual) != digest(expected):
                 raise ValueError("Reloaded validation predictions differ")
@@ -444,6 +463,17 @@ def verify(out):
         if digest(qualification) != digest(report["qualification"]):
             raise ValueError("Qualification does not reproduce")
         selected = [baseline, *qualification["eligible"]]
+        expected_test_roster = {
+            (variant, seed, durations["durations"][variant])
+            for variant in selected
+            for seed in report["plan"]["seeds"]
+        }
+        actual_test_roster = {
+            (row["variant"], row["seed"], row["duration"])
+            for row in report["test"]
+        }
+        if len(report["test"]) != len(actual_test_roster) or actual_test_roster != expected_test_roster:
+            raise ValueError("Sealed-test roster differs from selected recipes")
         for expected in report["test"]:
             if expected["variant"] not in selected:
                 raise ValueError("Test contains an unqualified architecture")

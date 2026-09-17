@@ -223,3 +223,11 @@ def test_small_runner_freezes_duration_before_validation_and_reloads(tmp_path, s
     with pytest.raises(ValueError, match="Artifact changed"):
         runner.verify(out)
     model_path.write_bytes(original)
+    report_path = out / "report.json"
+    report_bytes = report_path.read_bytes()
+    tampered = json.loads(report_bytes)
+    tampered["test"].append(dict(tampered["test"][0]))
+    report_path.write_text(json.dumps(tampered))
+    with pytest.raises(ValueError, match="Sealed-test roster"):
+        runner.verify(out)
+    report_path.write_bytes(report_bytes)
