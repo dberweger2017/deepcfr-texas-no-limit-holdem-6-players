@@ -76,55 +76,62 @@ def contexts(plan):
         deals = [random.sample(available, 10) for _ in range(2)]
         for hand_index, hero_cards in enumerate(spec["hands"]):
             for facing in (False, True):
-                hero = 2 if facing else 1
                 name = f"board-{board_index}/hand-{hand_index}/{'facing' if facing else 'open'}"
-                worlds, assignments = [], []
-                for deal in deals:
-                    hands = [None] * 6
-                    hands[hero] = tuple(hero_cards)
-                    for index, seat in enumerate(s for s in range(6) if s != hero):
-                        hands[seat] = tuple(deal[2 * index : 2 * index + 2])
-                    order = (1, 2, 3, 4, 5, 0)
-                    prefix = tuple(
-                        hands[s][r] for r in range(2) for s in order
-                    ) + tuple(spec["board"])
-                    deck = prefix + tuple(c for c in DECK if c not in prefix)
-                    table = Table(
-                        tuple(f"player-{i}" for i in range(6)),
-                        (4,) * 6,
-                        small_blind=1,
-                        big_blind=2,
-                        chip_unit="1",
-                    )
-                    node = Hand.from_deck(
-                        table,
-                        hand_id=f"river-{board_index}/{'facing' if facing else 'open'}",
-                        deck=deck,
-                    )
-                    while node.observe(node.actor).street != Street.RIVER:
-                        view = node.observe(node.actor)
-                        kind = (
-                            ActionKind.CHECK
-                            if ActionKind.CHECK in view.legal_actions.kinds
-                            else ActionKind.CALL
-                        )
-                        node = node.apply(Action(kind))
-                    if facing:
-                        node = node.apply(Action(ActionKind.RAISE, 2))
-                    if node.actor != hero or any(
-                        p.folded for p in node.observe(hero).players
-                    ):
-                        raise ValueError("Invalid multiway river prefix")
-                    if tuple(node.observe(hero).board) != tuple(spec["board"]):
-                        raise ValueError("Deck does not reproduce the declared board")
-                    worlds.append(node)
-                    assignments.append(tuple(hands))
-                if worlds[0].observe(hero) != worlds[1].observe(hero):
-                    raise ValueError("Hidden worlds expose different hero observations")
                 result.append(
-                    Context(name, spec["split"], tuple(worlds), tuple(assignments))
+                    river_context(
+                        name, spec["split"], spec["board"], hero_cards, deals, facing
+                    )
                 )
     return tuple(result)
+
+
+def river_context(name, split, board, hero_cards, deals, facing):
+    """Build the same legal shallow river for an explicit equally weighted range."""
+    hero = 2 if facing else 1
+    worlds, assignments = [], []
+    for deal in deals:
+        hands = [None] * 6
+        hands[hero] = tuple(hero_cards)
+        for index, seat in enumerate(s for s in range(6) if s != hero):
+            hands[seat] = tuple(deal[2 * index : 2 * index + 2])
+        order = (1, 2, 3, 4, 5, 0)
+        prefix = tuple(hands[s][r] for r in range(2) for s in order) + tuple(board)
+        if len(prefix) != 17 or len(set(prefix)) != 17 or not set(prefix) <= set(DECK):
+            raise ValueError("Incompatible reference cards")
+        deck = prefix + tuple(c for c in DECK if c not in prefix)
+        table = Table(
+            tuple(f"player-{i}" for i in range(6)),
+            (4,) * 6,
+            small_blind=1,
+            big_blind=2,
+            chip_unit="1",
+        )
+        # The public identifier carries neither the holding nor a hidden-world index.
+        node = Hand.from_deck(
+            table,
+            hand_id=name.split("/hand-")[0].replace("board-", "river-")
+            + ("/facing" if facing else "/open"),
+            deck=deck,
+        )
+        while node.observe(node.actor).street != Street.RIVER:
+            view = node.observe(node.actor)
+            kind = (
+                ActionKind.CHECK
+                if ActionKind.CHECK in view.legal_actions.kinds
+                else ActionKind.CALL
+            )
+            node = node.apply(Action(kind))
+        if facing:
+            node = node.apply(Action(ActionKind.RAISE, 2))
+        if node.actor != hero or any(p.folded for p in node.observe(hero).players):
+            raise ValueError("Invalid multiway river prefix")
+        if tuple(node.observe(hero).board) != tuple(board):
+            raise ValueError("Deck does not reproduce the declared board")
+        worlds.append(node)
+        assignments.append(tuple(hands))
+    if not worlds or any(w.observe(hero) != worlds[0].observe(hero) for w in worlds):
+        raise ValueError("Hidden worlds must share one hero observation")
+    return Context(name, split, tuple(worlds), tuple(assignments))
 
 
 @dataclass(frozen=True)
