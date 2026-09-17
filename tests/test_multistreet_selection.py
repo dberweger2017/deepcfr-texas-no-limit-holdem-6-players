@@ -83,3 +83,39 @@ def test_validation_cannot_change_selected_duration(plan):
     rows[-1]["duration"] = 4096
     with pytest.raises(ValueError, match="selected duration"):
         qualify(rows, dict.fromkeys(plan["variants"], 2048), plan)
+
+
+def test_paired_noise_excludes_between_context_variation(monkeypatch):
+    import torch
+    from scripts import check_multistreet_representation as runner
+
+    candidate, baseline = object(), object()
+    monkeypatch.setattr(
+        runner, "model_policy",
+        lambda model, target: torch.tensor(
+            [1.0, 0.0] if model is candidate else [0.0, 1.0], dtype=torch.float64
+        ),
+    )
+    rows = [
+        {"target": None, "street": "flop", "group": "a", "world_action_values_bb": values}
+        for values in ([[1, 0], [1, 0]], [[10, 0], [10, 0]])
+    ]
+    assert runner._paired_gain_se(candidate, baseline, rows) == 0
+
+
+def test_paired_noise_weights_contexts_equally_despite_different_sample_counts(monkeypatch):
+    import torch
+    from scripts import check_multistreet_representation as runner
+
+    candidate, baseline = object(), object()
+    monkeypatch.setattr(
+        runner, "model_policy",
+        lambda model, target: torch.tensor(
+            [1.0, 0.0] if model is candidate else [0.0, 1.0], dtype=torch.float64
+        ),
+    )
+    rows = [
+        {"target": None, "street": "flop", "group": "a", "world_action_values_bb": values}
+        for values in ([[0, 0], [2, 0]], [[0, 0], [2, 0], [0, 0], [2, 0]])
+    ]
+    assert runner._paired_gain_se(candidate, baseline, rows) == pytest.approx((1 / 3) ** 0.5)
