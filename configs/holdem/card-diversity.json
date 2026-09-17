@@ -1,0 +1,42 @@
+{
+  "format": "holdem-card-diversity-v1",
+  "prior_board_plan": "configs/holdem/representation.json",
+  "fresh_board_seed": 20260917,
+  "context_seed": 271019,
+  "seeds": [907, 911, 919],
+  "variants": ["original", "scaled", "cards", "features"],
+  "training_board_counts": [16, 48],
+  "board_counts": {"train": 48, "validation": 8, "test": 8},
+  "hands_per_board": 6,
+  "range_templates": [
+    ["Ac", "Ad", "Kh", "Ks", "Qc", "Jh", "9d", "8s", "5c", "4d"],
+    ["As", "Kd", "Qh", "Qs", "Tc", "9c", "7d", "6h", "3s", "2d"]
+  ],
+  "fit_steps": 1024,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "gradient_clip": 1.0,
+  "measure_steps": [0, 128, 512, 1024],
+  "calibration_steps": 8,
+  "calibration_seed": 809,
+  "max_reference_seconds": 3600,
+  "max_fit_seconds": 1200,
+  "max_tree_nodes": 20000,
+  "minimum_relative_cost_gain": 0.1,
+  "minimum_absolute_cost_gain_bb": 0.02,
+  "allowed_relative_rmse_increase": 0.02,
+  "training_relative_rmse_limit": 0.20,
+  "projection_allowance": 1.5,
+  "test_comparisons": [
+    {
+      "name": "board-diversity",
+      "baseline": {"arm": "train16", "variant": "scaled"},
+      "candidate": {"arm": "train48", "variant": "scaled"}
+    },
+    {
+      "name": "visible-card-control",
+      "baseline": {"arm": "train48", "variant": "scaled"},
+      "candidate": {"arm": "train48", "variant": "features"}
+    }
+  ]
+}

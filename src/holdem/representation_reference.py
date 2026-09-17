@@ -90,6 +90,7 @@ def specifications(plan):
                     {
                         "name": f"board-{index}/hand-{hand_index}/{'facing' if facing else 'open'}",
                         "board_index": index,
+                        "board_group": spec.get("board_group", index),
                         "split": spec["split"],
                         "board": board,
                         "holding": holding,
