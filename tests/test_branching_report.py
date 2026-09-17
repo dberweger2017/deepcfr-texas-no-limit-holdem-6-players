@@ -1,12 +1,15 @@
+import json
 from dataclasses import replace
 
 import pytest
 
 from scripts.report_holdem_branching import (
     decision_counts,
+    evaluation_rows,
     family_interval,
     paired_rates,
 )
+from src.arena.report import summarize
 from src.arena.schedule import Plan, Scenario, digest
 
 
@@ -25,7 +28,7 @@ def outcomes(plan, changes=None):
                     "candidate_chips": (changes[block] if changes else 0)
                     if arm == "candidate"
                     else -1,
-                    "big_blind": 2,
+                    "big_blind": plan.scenarios[0].big_blind,
                     "participants": ["player-0"],
                     "opponents": ["random"],
                 }
@@ -74,6 +77,46 @@ def test_missing_rotations_and_altered_controls_are_rejected():
 def test_small_or_constant_samples_do_not_claim_certainty():
     assert family_interval([1] * 256) is None
     assert family_interval(list(range(8))) is None
+
+
+def test_self_consistent_hash_does_not_override_game_units():
+    plan = Plan((Scenario("six"),), blocks=32)
+    rows = outcomes(plan)
+    changed = outcomes(plan)
+    changed[0]["big_blind"] = 1
+    changed[0]["outcome_sha256"] = digest(
+        {k: v for k, v in changed[0].items() if k != "outcome_sha256"}
+    )
+    with pytest.raises(ValueError, match="chip units"):
+        paired_rates(plan, rows, changed)
+
+
+def test_evaluation_must_reference_the_scheduled_export(tmp_path):
+    plan = Plan((Scenario("six"),), blocks=32)
+    rows = outcomes(plan)
+    saved = {
+        **summarize(plan, rows),
+        "iteration": 512,
+        "training_seed": 719,
+        "policy_sha256": "expected-model",
+    }
+    (tmp_path / "outcomes-512.json").write_text(json.dumps(rows))
+    (tmp_path / "evaluation-512.json").write_text(json.dumps(saved))
+    (tmp_path / "artifacts.jsonl").write_text(
+        json.dumps(
+            {"iteration": 512, "kind": "holdem-average-v1", "sha256": "expected-model"}
+        )
+        + "\n"
+    )
+    assert evaluation_rows(tmp_path, plan, 512, "styles", 719) == rows
+    for key, value in (
+        ("policy_sha256", "another-model"),
+        ("training_seed", 733),
+        ("iteration", 128),
+    ):
+        (tmp_path / "evaluation-512.json").write_text(json.dumps({**saved, key: value}))
+        with pytest.raises(ValueError, match="scheduled model"):
+            evaluation_rows(tmp_path, plan, 512, "styles", 719)
 
 
 def test_actions_track_rotated_hero_and_include_all_in_calls():

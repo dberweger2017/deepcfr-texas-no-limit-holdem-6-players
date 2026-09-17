@@ -33,6 +33,9 @@ def paired_rates(plan, first, second):
     for rows in (first, second):
         if summarize(plan, rows)["status"] != "valid":
             raise ValueError("Incomplete or altered arena outcomes")
+        blinds = {scenario.name: scenario.big_blind for scenario in plan.scenarios}
+        if any(row["big_blind"] != blinds[row["scenario"]] for row in rows):
+            raise ValueError("Outcome chip units differ from the declared game")
     controls = [
         sorted(
             (r for r in rows if r["arm"] == "baseline"),
@@ -168,6 +171,28 @@ def training_summary(job):
     }
 
 
+def evaluation_rows(job, arena, iteration, suite, seed):
+    suffix = str(iteration) + ("-random" if suite == "random" else "")
+    rows = read(job / f"outcomes-{suffix}.json")
+    saved = read(job / f"evaluation-{suffix}.json")
+    rebuilt = summarize(arena, rows)
+    if any(saved[k] != v for k, v in rebuilt.items()):
+        raise ValueError("Saved evaluation does not match its outcomes")
+    exports = [
+        entry
+        for entry in lines(job / "artifacts.jsonl")
+        if entry["iteration"] == iteration and entry["kind"] == "holdem-average-v1"
+    ]
+    if (
+        len(exports) != 1
+        or saved["policy_sha256"] != exports[0]["sha256"]
+        or saved["training_seed"] != seed
+        or saved["iteration"] != iteration
+    ):
+        raise ValueError("Evaluation does not identify the scheduled model")
+    return rows
+
+
 def report(root):
     plans = {
         arm: Experiment.from_dict(
@@ -205,15 +230,10 @@ def report(root):
                 arena = plans["first"].arena(plans["first"].scenarios[0])
                 if suite == "random":
                     arena = replace(arena, opponents=("random",))
-                suffix = str(iteration) + ("-random" if suite == "random" else "")
                 outcomes, behavior = [], {}
                 for arm in ARMS:
                     job = jobs[f"{arm}-{seed}"]
-                    rows = read(job / f"outcomes-{suffix}.json")
-                    saved = read(job / f"evaluation-{suffix}.json")
-                    rebuilt = summarize(arena, rows)
-                    if any(saved[k] != v for k, v in rebuilt.items()):
-                        raise ValueError("Saved evaluation does not match its outcomes")
+                    rows = evaluation_rows(job, arena, iteration, suite, seed)
                     outcomes.append(rows)
                     behavior[arm] = decision_counts(rows)
                 item = {
