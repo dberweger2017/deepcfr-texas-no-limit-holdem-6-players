@@ -4,7 +4,7 @@ PR #83 delivers the bounded implementation and smoke evidence for the next
 reliable-target representation task. No broad fit campaign or model promotion
 was run.
 
-The committed end-to-end smoke used one training seed, two independent hidden
+The earlier orchestration smoke used one training seed, two independent hidden
 world draws per context, and 1/2-step checkpoints for the three architecture
 arms. It materialized one facing river context for each train, tuning,
 validation, and test split. Duration selection chose the earliest checkpoint
@@ -49,7 +49,7 @@ contexts in the frozen plan with two worlds per context, seed 991, and short
 [the source archive](../../results/multistreet-source-310258a.tar.gz).
 
 The report records revision `310258a3b428cf643f082dcaf5c8afaff13bc25d`, source
-fingerprint `380146b2ccef45b6f194470574e9e4c776b6aeb26207b0d4d1f6fbf6dcd37394`,
+fingerprint `380146b2ccef45b6f194470574e9e4c776b6aeb26207b0d1d4f6fbf6dcd37394`,
 plan hash `c5022e068a346c7286922cf00c887693ea536a7b81454e6196790febb83881ef`,
 and context hash `f5feaa4ad35cbe61f5801233dda7a368214dda28611b42437d4c54f30f250806`.
 The source archive SHA-256 is `b8c36e3fbf60637d3ed40d31794f76d58398eacb70277c3272b2d7fd6af21b82`.
@@ -60,5 +60,9 @@ seed (validation gain 0.1275 BB, paired reference SE 0.0334 BB, lower bound
 0.0606 BB); explicit features did not (gain 0). The sealed test therefore ran
 the baseline and learned-card arm once. Test paired SE for the learned arm was
 0.0208 BB. This is bounded one-seed, two-world integration evidence, not a
-multi-seed claim or production promotion; it requires independent confirmation
-before any architecture decision.
+multi-seed claim or production promotion. These numbers exercise the
+qualification logic; one or two optimizer updates cannot support an
+architecture decision.
+
+An accidental duplicate pilot was interrupted and retained under
+`results/multistreet-pilot`; none of its partial work enters this report.
