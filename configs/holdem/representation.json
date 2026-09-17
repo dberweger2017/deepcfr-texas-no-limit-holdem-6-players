@@ -1,0 +1,301 @@
+{
+  "format": "holdem-representation-v1",
+  "context_seed": 271019,
+  "seeds": [
+    811,
+    821,
+    823
+  ],
+  "variants": [
+    "original",
+    "scaled",
+    "wide",
+    "deep",
+    "cards"
+  ],
+  "hands_per_board": 6,
+  "range_templates": [
+    [
+      "Ac",
+      "Ad",
+      "Kh",
+      "Ks",
+      "Qc",
+      "Jh",
+      "9d",
+      "8s",
+      "5c",
+      "4d"
+    ],
+    [
+      "As",
+      "Kd",
+      "Qh",
+      "Qs",
+      "Tc",
+      "9c",
+      "7d",
+      "6h",
+      "3s",
+      "2d"
+    ]
+  ],
+  "boards": [
+    {
+      "split": "train",
+      "cards": [
+        "Ac",
+        "Kd",
+        "7h",
+        "4s",
+        "2c"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "9c",
+        "8c",
+        "7d",
+        "3h",
+        "2s"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "Kh",
+        "Kd",
+        "9s",
+        "6c",
+        "3d"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "Ah",
+        "Jh",
+        "8h",
+        "5c",
+        "2d"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "Tc",
+        "9d",
+        "8s",
+        "7h",
+        "2c"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "Qc",
+        "Qd",
+        "4h",
+        "4s",
+        "9c"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "6c",
+        "5c",
+        "4c",
+        "Kd",
+        "Qh"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "As",
+        "Td",
+        "6h",
+        "3c",
+        "2s"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "Jc",
+        "Js",
+        "Jh",
+        "8d",
+        "3s"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "Kd",
+        "Qd",
+        "Jd",
+        "7c",
+        "4h"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "8h",
+        "8s",
+        "7c",
+        "6d",
+        "5h"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "Qh",
+        "Th",
+        "9h",
+        "4h",
+        "2c"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "7c",
+        "6d",
+        "5h",
+        "4s",
+        "3c"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "Ad",
+        "Qs",
+        "9c",
+        "5d",
+        "2h"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "Ts",
+        "Td",
+        "7h",
+        "7c",
+        "4d"
+      ]
+    },
+    {
+      "split": "train",
+      "cards": [
+        "Ks",
+        "Js",
+        "8s",
+        "6d",
+        "3h"
+      ]
+    },
+    {
+      "split": "validation",
+      "cards": [
+        "Kc",
+        "Qh",
+        "8d",
+        "6s",
+        "2h"
+      ]
+    },
+    {
+      "split": "validation",
+      "cards": [
+        "9h",
+        "9s",
+        "5c",
+        "5d",
+        "Ac"
+      ]
+    },
+    {
+      "split": "validation",
+      "cards": [
+        "Ad",
+        "Td",
+        "7d",
+        "4c",
+        "3h"
+      ]
+    },
+    {
+      "split": "validation",
+      "cards": [
+        "Jh",
+        "Tc",
+        "9s",
+        "8d",
+        "2h"
+      ]
+    },
+    {
+      "split": "test",
+      "cards": [
+        "Qs",
+        "Js",
+        "8d",
+        "5c",
+        "2h"
+      ]
+    },
+    {
+      "split": "test",
+      "cards": [
+        "Qc",
+        "Qs",
+        "6d",
+        "6h",
+        "3c"
+      ]
+    },
+    {
+      "split": "test",
+      "cards": [
+        "Kc",
+        "Tc",
+        "8c",
+        "5d",
+        "4h"
+      ]
+    },
+    {
+      "split": "test",
+      "cards": [
+        "Th",
+        "9s",
+        "8d",
+        "7c",
+        "3h"
+      ]
+    }
+  ],
+  "fit_steps": 1024,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "gradient_clip": 1.0,
+  "measure_steps": [
+    0,
+    128,
+    512,
+    1024
+  ],
+  "max_reference_seconds": 1800,
+  "max_fit_seconds": 1800,
+  "max_tree_nodes": 20000,
+  "minimum_relative_cost_gain": 0.1,
+  "minimum_absolute_cost_gain_bb": 0.02,
+  "allowed_relative_rmse_increase": 0.02
+}
