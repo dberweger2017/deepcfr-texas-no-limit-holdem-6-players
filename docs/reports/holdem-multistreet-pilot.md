@@ -38,3 +38,27 @@ card-diversity plans, and paired reference-noise screening. Its four flop
 families and four-world defaults are pilot configuration, not evidence of
 generalization. The next task should broaden families only after the reference
 cost and continuation policy are reviewed.
+
+## Retained all-street integration pilot
+
+After the bounded smoke, a committed-source integration pilot ran all 24
+contexts in the frozen plan with two worlds per context, seed 991, and short
+1/2-step checkpoints. It completed in 100.446 seconds and passed a fresh
+`--verify` reload. The retained artifacts are [the integration report](../../results/multistreet-integration/report.json),
+[the integration plan](../../results/multistreet-integration-plan.json), and
+[the source archive](../../results/multistreet-source-310258a.tar.gz).
+
+The report records revision `310258a3b428cf643f082dcaf5c8afaff13bc25d`, source
+fingerprint `380146b2ccef45b6f194470574e9e4c776b6aeb26207b0d4d1f6fbf6dcd37394`,
+plan hash `c5022e068a346c7286922cf00c887693ea536a7b81454e6196790febb83881ef`,
+and context hash `f5feaa4ad35cbe61f5801233dda7a368214dda28611b42437d4c54f30f250806`.
+The source archive SHA-256 is `b8c36e3fbf60637d3ed40d31794f76d58398eacb70277c3272b2d7fd6af21b82`.
+
+Duration selection chose baseline 1, learned separate card branch 2, and
+explicit visible features 1. The learned card branch qualified on this one
+seed (validation gain 0.1275 BB, paired reference SE 0.0334 BB, lower bound
+0.0606 BB); explicit features did not (gain 0). The sealed test therefore ran
+the baseline and learned-card arm once. Test paired SE for the learned arm was
+0.0208 BB. This is bounded one-seed, two-world integration evidence, not a
+multi-seed claim or production promotion; it requires independent confirmation
+before any architecture decision.
