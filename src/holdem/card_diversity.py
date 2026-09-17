@@ -47,7 +47,11 @@ def expanded_plan(plan, *, base_dir=Path(".")):
 def training_targets(records, board_count):
     """Return the nested training prefix and the shared held-out contexts."""
 
-    train = [r["target"] for r in records if r["board_group"] < board_count]
+    train = [
+        r["target"]
+        for r in records
+        if r["split"] == "train" and r["board_group"] < board_count
+    ]
     validation = [r["target"] for r in records if r["split"] == "validation"]
     test = [r["target"] for r in records if r["split"] == "test"]
     if len(train) != board_count * 2 * 6:

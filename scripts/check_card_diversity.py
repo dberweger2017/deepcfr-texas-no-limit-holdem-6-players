@@ -129,6 +129,23 @@ def _test_comparisons(results, plan):
     return comparisons
 
 
+def _confirm_comparisons(validation, test):
+    validation_by_name = {row["name"]: row for row in validation}
+    confirmed = []
+    for row in test:
+        name = row["name"]
+        validation_row = validation_by_name[name]
+        validation_passed = all(validation_row["seed_passes"])
+        confirmed.append(
+            {
+                **row,
+                "validation_passed": validation_passed,
+                "confirmed": validation_passed and row["passed"],
+            }
+        )
+    return confirmed
+
+
 def run(plan, out):
     out.mkdir(parents=False, exist_ok=False)
     report = {
@@ -228,9 +245,12 @@ def run(plan, out):
                             **evaluate(model, test_targets),
                         }
                     )
-            report["test_comparisons"] = _test_comparisons(
-                report["test"], materialized
+            report["test_comparisons"] = _confirm_comparisons(
+                report["validation"],
+                _test_comparisons(report["test"], materialized),
             )
+            # This field describes sealed-test criteria only; confirmation also
+            # requires the separately reported validation criterion above.
             report["test_passed"] = all(
                 comparison["passed"] for comparison in report["test_comparisons"]
             )
@@ -340,7 +360,9 @@ def verify(out):
                 raise ValueError("Reloaded test predictions differ")
     if _validation_comparisons(report["fits"], materialized) != report["validation"]:
         raise ValueError("Validation comparison does not reproduce")
-    if _test_comparisons(report["test"], materialized) != report["test_comparisons"]:
+    if _confirm_comparisons(
+        report["validation"], _test_comparisons(report["test"], materialized)
+    ) != report["test_comparisons"]:
         raise ValueError("Sealed test comparison does not reproduce")
     return {"status": "verified", "fits": len(report["fits"]), "test": len(report["test"])}
 

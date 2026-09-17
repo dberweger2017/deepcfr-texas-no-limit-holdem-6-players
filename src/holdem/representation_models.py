@@ -18,7 +18,6 @@ from src.holdem.encoding import (
     SEAT_FIELDS,
     STREETS,
 )
-from src.holdem.model import DecisionEncoder
 from src.holdem.visible_features import FEATURE_SIZE, visible_card_features
 
 VARIANTS = ("original", "scaled", "wide", "deep", "cards")
@@ -88,10 +87,10 @@ class CardContext(nn.Module):
 class VisibleDecisionEncoder(nn.Module):
     """Keep the production encoder contract and add deterministic visible cards."""
 
-    def __init__(self, width):
+    def __init__(self, base):
         super().__init__()
-        self.base = DecisionEncoder(width)
-        self.visible = nn.Sequential(nn.Linear(FEATURE_SIZE, width), nn.ReLU())
+        self.base = base
+        self.visible = nn.Sequential(nn.Linear(FEATURE_SIZE, base.width), nn.ReLU())
 
     def forward(self, decisions):
         contexts = self.base(decisions)
@@ -128,7 +127,7 @@ class RepresentationNetwork(BettingNetwork):
         if variant == "cards":
             self.encoder.context = CardContext()
         if variant == "features":
-            self.encoder = VisibleDecisionEncoder(width)
+            self.encoder = VisibleDecisionEncoder(self.encoder)
 
     def forward(self, batch):
         transformed = (

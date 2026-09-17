@@ -44,8 +44,11 @@ The primary validation/test comparisons are fixed before fitting:
 The other original/cards curves are descriptive. A primary candidate must lower
 validation decision cost by at least 0.02 BB and 10% on every seed, stay within
 0.02 relative regret RMSE of its baseline, and have training relative RMSE at
-most 0.20. The sealed test evaluates only the predeclared primary arms once;
-there is no outcome-driven replacement.
+most 0.20. The sealed test always evaluates the three predeclared primary arms
+(`scaled16`, `scaled48`, and `features48`) once, regardless of validation
+outcomes; there is no outcome-driven replacement. A comparison is confirmed
+only when both its validation and sealed-test checks pass. Validation and test
+results are reported separately.
 
 ## Cost and checks
 
