@@ -18,8 +18,11 @@ from src.holdem.encoding import (
     SEAT_FIELDS,
     STREETS,
 )
+from src.holdem.model import DecisionEncoder
+from src.holdem.visible_features import FEATURE_SIZE, visible_card_features
 
 VARIANTS = ("original", "scaled", "wide", "deep", "cards")
+DIVERSITY_VARIANTS = ("features",)
 
 
 def scale_fields(values, names):
@@ -82,11 +85,39 @@ class CardContext(nn.Module):
         return self.combine(torch.cat((card, context), dim=1))
 
 
+class VisibleDecisionEncoder(nn.Module):
+    """Keep the production encoder contract and add deterministic visible cards."""
+
+    def __init__(self, width):
+        super().__init__()
+        self.base = DecisionEncoder(width)
+        self.visible = nn.Sequential(nn.Linear(FEATURE_SIZE, width), nn.ReLU())
+
+    def forward(self, decisions):
+        contexts = self.base(decisions)
+        features = contexts.new_tensor(
+            [
+                visible_card_features(
+                    decision.source.hole_cards, decision.source.board
+                )
+                for decision in decisions
+            ]
+        )
+        return torch.relu(contexts + self.visible(features))
+
+
 class RepresentationNetwork(BettingNetwork):
     def __init__(self, variant):
-        if variant not in VARIANTS:
+        if variant not in VARIANTS + DIVERSITY_VARIANTS:
             raise ValueError("Unknown diagnostic architecture")
-        width = {"original": 32, "scaled": 32, "wide": 64, "deep": 48, "cards": 64}[
+        width = {
+            "original": 32,
+            "scaled": 32,
+            "wide": 64,
+            "deep": 48,
+            "cards": 64,
+            "features": 32,
+        }[
             variant
         ]
         super().__init__(width)
@@ -96,6 +127,8 @@ class RepresentationNetwork(BettingNetwork):
             self.action.append(Residual(width, width))
         if variant == "cards":
             self.encoder.context = CardContext()
+        if variant == "features":
+            self.encoder = VisibleDecisionEncoder(width)
 
     def forward(self, batch):
         transformed = (
