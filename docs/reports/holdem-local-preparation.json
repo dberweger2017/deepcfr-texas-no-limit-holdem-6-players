@@ -1,0 +1,18 @@
+{
+  "purpose": "Preparation check using the already-trained timing pilot; zero optimizer steps",
+  "checkpoint_iteration": 4,
+  "recovery": {
+    "training_sha256": "0a372cafe564355578f4ebab4c707f4f352a6314a214f0c5e4b0e6d957dbc3b4",
+    "policy_sha256": "18888a53a2fb3ec2f70e566ad5141069ab892af2637c2bba9876817dec22419e",
+    "matching": true
+  },
+  "arena": {
+    "status": "valid",
+    "split": "test",
+    "blocks": 30,
+    "completed_hands": 360,
+    "invalid_actions": 0
+  },
+  "unit_checks": "22 focused tests; runner, arena reports and schedules",
+  "campaign_started": false
+}

@@ -142,3 +142,15 @@ recovery hashes, the frozen test plan, raw outcomes and adjusted endpoint report
 Following completion, update this PR and the roadmap with every result, measured
 cost and artifact hashes before considering merge. A human-play UI is separate
 release work; these are exports for the existing headless policy interface.
+
+## Preparation validation
+
+[Recorded checks](reports/holdem-local-preparation.json): 22 focused tests pass,
+including watchdog expiry, worker failure, no launch with an exhausted allowance,
+no second seed after a first-seed failure, final-test split and adjusted intervals.
+The already-trained four-iteration pilot was loaded in a fresh process; its full
+checkpoint and average export reproduced byte for byte. A 30-block test-split
+smoke completed 360 hands with zero invalid actions. This verification performed
+no optimizer steps and is not a campaign-seed or playing-strength result. Lint and
+diff whitespace checks pass. Full CI is required before launch; no campaign is
+launched by CI.
