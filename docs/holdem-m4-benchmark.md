@@ -33,3 +33,15 @@ compact measurements and logs to the M1 and verify their hashes. Leave the
 remote original artifacts intact; do not copy unrelated tens of GB of previous
 research data. Revise only host/runtime estimates in PR #86 after measurement;
 the scientific plan stays frozen. Future full training needs the owner's go.
+
+## Same-host verification
+
+The four-iteration comparison completed with equal integer workload counts but
+different fitted/replay fingerprints across M1 and M4. Floating-point fitting
+metrics differ; the platform and Python build also differ, so bitwise equivalence
+across these two machines is not assumed. Before launching the full batch,
+reproduce the four-iteration M4 run in a fresh process with a separate 600-second
+cap, and resume the completed 32-iteration checkpoint without further optimizer
+steps under a 300-second cap. Require same-host result and checkpoint/export
+hash agreement. These are verification runs, not new seeds or outcome-based
+retries. Run them after the timed benchmark to avoid CPU contention.
