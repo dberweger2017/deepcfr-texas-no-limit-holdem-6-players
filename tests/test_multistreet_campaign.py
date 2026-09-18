@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 
+from src.holdem.actions import bet_candidates
 from src.holdem.multistreet_campaign import (
     NESTED_WORLD_COUNTS,
     ReferenceCache,
@@ -10,11 +11,9 @@ from src.holdem.multistreet_campaign import (
     campaign_plan,
     paired_action_difference_se,
 )
-from src.holdem.multistreet_reference import build_context
+from src.holdem.multistreet_reference import MultiStreetReference, build_context
 from src.holdem.representation_reference import range_support
 from src.holdem.targets import CandidateTargets
-from src.holdem.actions import bet_candidates
-from src.holdem.multistreet_reference import MultiStreetReference
 
 
 def _strata(matrix):
@@ -46,7 +45,9 @@ def test_calibration_retains_eight_trace_and_freezes_at_minimum():
     values = [[0.0, 0.0] for _ in range(128)]
     result = calibrate_world_counts(_strata(values), precision_bb=0.1)
     assert result["minimum_n"] == 16
-    assert set(row["n"] for row in result["decisions"]["flop:open"]["trace"]) == set(NESTED_WORLD_COUNTS)
+    assert {row["n"] for row in result["decisions"]["flop:open"]["trace"]} == set(
+        NESTED_WORLD_COUNTS
+    )
     assert result["decisions"]["flop:open"]["n"] == 16
     assert result["unresolved"] == []
 
@@ -56,7 +57,9 @@ def test_calibration_marks_unresolved_at_128_without_aborting():
     result = calibrate_world_counts(_strata(values), precision_bb=0.0001)
     assert all(row["n"] == 128 for row in result["decisions"].values())
     assert set(result["unresolved"]) == set(result["decisions"])
-    assert all(row["status"] == "unresolved_at_maximum" for row in result["decisions"].values())
+    assert all(
+        row["status"] == "unresolved_at_maximum" for row in result["decisions"].values()
+    )
 
 
 def test_calibration_rejects_missing_stratum():
@@ -77,8 +80,12 @@ def test_calibration_requires_current_and_larger_prefixes_to_pass():
     assert result["decisions"]["flop:open"]["n"] == 64
 
 
-def test_reference_cache_rejects_world_or_action_identity_changes(tmp_path, monkeypatch):
-    support = range_support((("Ac", "Ad", "Kh", "Ks", "Qc", "Jh", "9d", "8s", "5c", "4d"),))
+def test_reference_cache_rejects_world_or_action_identity_changes(
+    tmp_path, monkeypatch
+):
+    support = range_support(
+        (("Ac", "Ad", "Kh", "Ks", "Qc", "Jh", "9d", "8s", "5c", "4d"),)
+    )
     context = build_context(
         name="cache",
         split="train",
@@ -106,7 +113,10 @@ def test_reference_cache_rejects_world_or_action_identity_changes(tmp_path, monk
         len(context.worlds),
         0.01,
     )
-    monkeypatch.setattr("src.holdem.multistreet_campaign.enumerate_reference", lambda *args, **kwargs: fake)
+    monkeypatch.setattr(
+        "src.holdem.multistreet_campaign.enumerate_reference",
+        lambda *args, **kwargs: fake,
+    )
     cache = ReferenceCache(
         tmp_path,
         source_sha256="source",

@@ -6,10 +6,9 @@ turn.  Each context contains complete, independently sampled worlds; the
 trainer only receives the common observation at the requested street.
 """
 
+import json
 from dataclasses import dataclass
 from hashlib import sha256
-from itertools import permutations
-import json
 from math import fsum
 from pathlib import Path
 from random import Random
@@ -22,9 +21,8 @@ from src.game.types import Action, ActionKind, Street
 from src.holdem.actions import bet_candidates
 from src.holdem.encoding import _canonical_cards
 from src.holdem.representation_reference import range_support
-from src.holdem.river_reference import DECK, ReferenceProfile, check_deadline
+from src.holdem.river_reference import DECK, check_deadline
 from src.holdem.targets import CandidateTargets
-
 
 STREET_NAMES = {"flop": Street.FLOP, "turn": Street.TURN, "river": Street.RIVER}
 
@@ -158,7 +156,6 @@ def build_context(
         raise ValueError("Hero holding and visible board must be disjoint")
     rng = Random(seed)
     worlds, assignments, world_seeds = [], [], []
-    used = 0
     try:
         deals = compatible_visible_deals(support, board, hero)
     except ValueError as error:
@@ -177,7 +174,6 @@ def build_context(
         worlds.append(hand)
         assignments.append(tuple(hands))
         world_seeds.append(draw_index)
-        used += 1
     if not worlds:
         raise ValueError("No compatible sampled hidden worlds")
     first = worlds[0].observe(hero_seat)
@@ -219,7 +215,7 @@ def enumerate_reference(context, profile, *, max_nodes, deadline):
         nodes = 0
         root_values = None
 
-        def visit(node, reach):
+        def visit(node, reach, root=root):
             nonlocal nodes, root_values
             check_deadline(deadline)
             nodes += 1

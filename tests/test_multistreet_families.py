@@ -22,7 +22,9 @@ def test_frozen_families_reproduce_and_keep_every_descendant_compatible():
     keys = [flop_key(family["flop"]) for family in families]
     assert len(set(keys)) == 48
     assert not set(keys) & forbidden
-    assert {split: sum(row["split"] == split for row in families) for split in SPLIT_COUNTS} == SPLIT_COUNTS
+    assert {
+        split: sum(row["split"] == split for row in families) for split in SPLIT_COUNTS
+    } == SPLIT_COUNTS
     for family in families:
         board = family["flop"] + family["continuation"]
         assert len({tuple(sorted(holding)) for holding in family["holdings"]}) == 4

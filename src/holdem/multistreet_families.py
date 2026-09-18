@@ -69,8 +69,13 @@ def generate_families(plan, *, base_dir=Path(".")):
     else:
         raise ValueError("Could not draw enough compatible fresh board families")
     rng.shuffle(families)
-    split_labels = [split for split, count in SPLIT_COUNTS.items() for _ in range(count)]
-    return [dict(family, split=split) for family, split in zip(families, split_labels, strict=True)]
+    split_labels = [
+        split for split, count in SPLIT_COUNTS.items() for _ in range(count)
+    ]
+    return [
+        dict(family, split=split)
+        for family, split in zip(families, split_labels, strict=True)
+    ]
 
 
 def family_summary(families):
@@ -85,6 +90,8 @@ def family_summary(families):
             "families": len(rows),
             "flop_suits": {str(k): v for k, v in sorted(suit_counts.items())},
             "flop_distinct_ranks": {str(k): v for k, v in sorted(rank_counts.items())},
-            "distinct_holdings": len({tuple(sorted(hand)) for row in rows for hand in row["holdings"]}),
+            "distinct_holdings": len(
+                {tuple(sorted(hand)) for row in rows for hand in row["holdings"]}
+            ),
         }
     return result

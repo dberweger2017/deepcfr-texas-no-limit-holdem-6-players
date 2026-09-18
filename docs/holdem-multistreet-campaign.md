@@ -18,7 +18,8 @@ The diagnostic does not promote a model on playing-strength evidence.
 
 ## Calibration
 
-Calibration uses a fixed training-only subset covering all six
+Calibration uses the first twelve shuffled training families, with one holding
+per family rotated through the four holding indices, covering all six
 `street:situation` strata. The same predetermined world stream is nested at
 8, 16, 32, 64, and 128 worlds. For each context, every legal action is
 evaluated in every world. Sufficiency uses within-world paired differences
@@ -48,7 +49,7 @@ situation, multiplied by the declared context count and calibrated world
 counts, then padded for retry and cache/setup overhead. The paid ceiling is
 $10 including rental, storage, setup, and retrieval. The current live quote
 for the planned host is 32 vCPU / 64 GB at $1.12 per hour; the orchestration
-uses one Torch thread per job and can run up to nine jobs in parallel when the
+uses one Torch thread per job with 32 reference processes and up to nine fit processes when the
 host memory check permits it. No GPU or new algorithm is part of this
 campaign.
 
@@ -65,3 +66,24 @@ python -m scripts.check_multistreet_campaign \
 Completed per-context cache batches survive interruption. `--verify` checks
 the campaign manifest, every cache hash and provenance field, every fit
 checkpoint, selection record, qualification record, and sealed-test reload.
+
+## Recovery and host admission
+
+The first remote invocation uses `--calibrate-only`. Its manifest records the
+72-context calibration, per-stratum frozen world budgets, measured worker
+seconds and the projected production-reference work. Review this estimate
+against the remaining rental allowance, then continue with `--resume`. This
+resumes the same experiment and its independent production streams.
+
+Reference entries survive per context/profile. Completed model fits survive
+as complete arms; an interrupted arm restarts deterministically from its
+initial seed. `status.json` reports the current phase and completion counts.
+An interrupted reference phase retains its completed cache entries. A completed
+run is verified on resume instead of selecting a new checkpoint or test roster.
+The process supervisor and separate provider watchdog enforce the rental
+ceiling even when a scientific phase fails.
+
+Calibration precision is conditional on these training contexts. The 128-world
+cap does not guarantee accurate reference values, and unresolved strata remain
+marked in the final report. A positive result here supports a subsequent online
+self-play comparison; it does not establish full-game playing strength.

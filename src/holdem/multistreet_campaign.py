@@ -10,9 +10,7 @@ from __future__ import annotations
 import json
 import os
 import tempfile
-from collections.abc import Callable, Mapping, Sequence
-from concurrent.futures import ThreadPoolExecutor
-from dataclasses import dataclass
+from collections.abc import Mapping, Sequence
 from hashlib import sha256
 from math import isfinite
 from pathlib import Path
@@ -26,11 +24,9 @@ from src.holdem.actions import bet_candidates
 from src.holdem.multistreet_reference import (
     MultiStreetContext,
     enumerate_reference,
-    split_specs,
 )
 from src.holdem.river_reference import ReferenceProfile
 from src.holdem.targets import CandidateTargets
-
 
 STREETS = ("flop", "turn", "river")
 SITUATIONS = ("open", "facing")
@@ -56,7 +52,9 @@ def _atomic_bytes(path: Path, payload: bytes) -> str:
 
 
 def _atomic_json(path: Path, value: Mapping[str, Any]) -> str:
-    payload = (json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n").encode()
+    payload = (
+        json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n"
+    ).encode()
     return _atomic_bytes(path, payload)
 
 
@@ -78,7 +76,9 @@ def campaign_plan(plan: Mapping[str, Any]) -> dict[str, Any]:
 
     families = plan.get("families")
     holdings = plan.get("holdings")
-    if not isinstance(families, list) or (holdings is not None and not isinstance(holdings, list)):
+    if not isinstance(families, list) or (
+        holdings is not None and not isinstance(holdings, list)
+    ):
         # Already-expanded plans are useful in tests and for archived reruns.
         if "contexts" in plan:
             return dict(plan)
@@ -117,7 +117,10 @@ def campaign_plan(plan: Mapping[str, Any]) -> dict[str, Any]:
                             "facing": facing == "facing",
                         }
                     )
-    counts = {split: sum(row["split"] == split for row in contexts) for split in ("train", "tuning", "validation", "test")}
+    counts = {
+        split: sum(row["split"] == split for row in contexts)
+        for split in ("train", "tuning", "validation", "test")
+    }
     if counts != {"train": 576, "tuning": 192, "validation": 192, "test": 192}:
         raise ValueError(f"unexpected campaign split counts: {counts}")
     expanded = dict(plan)
@@ -154,14 +157,6 @@ def paired_action_difference_se(values: Sequence[Sequence[float]], n: int) -> fl
     return float(np.max(np.abs(standard_errors)))
 
 
-@dataclass(frozen=True)
-class CalibrationDecision:
-    n: int
-    status: str
-    aggregate_se_bb: float
-    strata: tuple[str, ...]
-
-
 def calibrate_world_counts(
     strata: Mapping[str, Sequence[Sequence[Sequence[float]]]],
     *,
@@ -182,9 +177,13 @@ def calibrate_world_counts(
     allowed = tuple(n for n in trace_counts if n >= minimum_n)
     if not allowed or allowed[-1] != maximum_n or 8 not in trace_counts:
         raise ValueError("minimum/maximum counts must select nested standard counts")
+    if multiplier <= 0 or not isfinite(multiplier):
+        raise ValueError("multiplier must be positive and finite")
     if precision_bb <= 0 or not isfinite(precision_bb):
         raise ValueError("precision_bb must be positive and finite")
-    if set(strata) != {f"{street}:{situation}" for street in STREETS for situation in SITUATIONS}:
+    if set(strata) != {
+        f"{street}:{situation}" for street in STREETS for situation in SITUATIONS
+    }:
         raise ValueError("calibration must cover six street/situation strata")
     decisions = {}
     for name in sorted(strata):
@@ -192,40 +191,27 @@ def calibrate_world_counts(
         if not contexts:
             raise ValueError(f"calibration stratum {name} is empty")
         for values in contexts:
-            # A caller may provide the two frozen-profile matrices as a pair;
-            # combine them using the declared 1:2 continuation schedule before
-            # forming within-world action contrasts.  No profile difference is
-            # ever used as a precision estimate.
-            if len(values) == 2 and np.asarray(values[0]).ndim == 2 and np.asarray(values[1]).ndim == 2:
-                values = [
-                    [(a + 2 * b) / 3 for a, b in zip(row_a, row_b, strict=True)]
-                    for row_a, row_b in zip(values[0], values[1], strict=True)
-                ]
             _validate_nested(values, maximum_n)
         traces = []
         for n in trace_counts:
-            normalized = []
-            for values in contexts:
-                if len(values) == 2 and np.asarray(values[0]).ndim == 2 and np.asarray(values[1]).ndim == 2:
-                    values = [
-                        [(a + 2 * b) / 3 for a, b in zip(row_a, row_b, strict=True)]
-                        for row_a, row_b in zip(values[0], values[1], strict=True)
-                    ]
-                normalized.append(values)
-            context_se = [paired_action_difference_se(values, n) for values in normalized]
+            context_se = [paired_action_difference_se(values, n) for values in contexts]
             aggregate = float(np.percentile(context_se, 90))
             bound = multiplier * aggregate
-            traces.append({
-                "n": n,
-                "context_worst_pair_se_bb": context_se,
-                "context_worst_pair_se_p90_bb": aggregate,
-                "bound_bb": bound,
-            })
+            traces.append(
+                {
+                    "n": n,
+                    "context_worst_pair_se_bb": context_se,
+                    "context_worst_pair_se_p90_bb": aggregate,
+                    "bound_bb": bound,
+                }
+            )
         chosen = next(
             (
                 n
                 for n in allowed
-                if all(row["bound_bb"] <= precision_bb for row in traces if row["n"] >= n)
+                if all(
+                    row["bound_bb"] <= precision_bb for row in traces if row["n"] >= n
+                )
             ),
             None,
         )
@@ -245,7 +231,9 @@ def calibrate_world_counts(
         "multiplier": multiplier,
         "aggregation": "p90 across contexts of each context's worst unordered action-pair paired SE; equal strata in report",
         "decisions": decisions,
-        "unresolved": [name for name, row in decisions.items() if row["status"] != "resolved"],
+        "unresolved": [
+            name for name, row in decisions.items() if row["status"] != "resolved"
+        ],
     }
 
 
@@ -291,7 +279,21 @@ class ReferenceCache:
         }
 
     def path(self, context: MultiStreetContext, profile: str) -> Path:
-        key = digest({"name": context.name, "split": context.split, "street": context.street, "facing": context.facing, "profile": profile, "plan": self.plan_sha256, "stream_namespace": self.stream_namespace, "stream_seed": self.stream_seed, "stream_key": self.stream_key, "selected_n": self.selected_n, "worlds": len(context.worlds)})
+        key = digest(
+            {
+                "name": context.name,
+                "split": context.split,
+                "street": context.street,
+                "facing": context.facing,
+                "profile": profile,
+                "plan": self.plan_sha256,
+                "stream_namespace": self.stream_namespace,
+                "stream_seed": self.stream_seed,
+                "stream_key": self.stream_key,
+                "selected_n": self.selected_n,
+                "worlds": len(context.worlds),
+            }
+        )
         return self.root / f"{key}.json"
 
     def load(self, context: MultiStreetContext, profile: str) -> dict[str, Any] | None:
@@ -299,28 +301,61 @@ class ReferenceCache:
         if not path.exists():
             return None
         value = json.loads(path.read_text())
-        if value.get("source_sha256") != self.source_sha256 or value.get("plan_sha256") != self.plan_sha256:
+        if (
+            value.get("source_sha256") != self.source_sha256
+            or value.get("plan_sha256") != self.plan_sha256
+        ):
             raise ValueError(f"cache provenance mismatch: {path}")
         if value.get("profile") != profile or value.get("context") != context.name:
             raise ValueError(f"cache identity mismatch: {path}")
-        if value.get("stream_namespace") != self.stream_namespace or value.get("stream_seed") != self.stream_seed or value.get("stream_key") != self.stream_key or value.get("selected_n") != self.selected_n:
+        if (
+            value.get("stream_namespace") != self.stream_namespace
+            or value.get("stream_seed") != self.stream_seed
+            or value.get("stream_key") != self.stream_key
+            or value.get("selected_n") != self.selected_n
+        ):
             raise ValueError(f"cache stream mismatch: {path}")
         if value.get("world_fingerprint") != self._world_fingerprint(context):
             raise ValueError(f"cache world fingerprint mismatch: {path}")
-        if value.get("worlds") != len(context.worlds) or len(value.get("world_action_values_bb", ())) != len(context.worlds):
+        if value.get("worlds") != len(context.worlds) or len(
+            value.get("world_action_values_bb", ())
+        ) != len(context.worlds):
             raise ValueError(f"cache world count mismatch: {path}")
-        expected_actions = [repr(action) for action in bet_candidates(context.worlds[0].observe(context.hero_seat)).actions]
+        expected_actions = [
+            repr(action)
+            for action in bet_candidates(
+                context.worlds[0].observe(context.hero_seat)
+            ).actions
+        ]
         if value.get("target", {}).get("actions") != expected_actions:
             raise ValueError(f"cache action ordering mismatch: {path}")
-        if value.get("sha256") != sha256(json.dumps({k: v for k, v in value.items() if k != "sha256"}, sort_keys=True, allow_nan=False).encode()).hexdigest():
+        if (
+            value.get("sha256")
+            != sha256(
+                json.dumps(
+                    {k: v for k, v in value.items() if k != "sha256"},
+                    sort_keys=True,
+                    allow_nan=False,
+                ).encode()
+            ).hexdigest()
+        ):
             raise ValueError(f"cache content hash mismatch: {path}")
         return value
 
-    def get_or_compute(self, context: MultiStreetContext, profile: str, *, max_nodes: int, deadline: float) -> dict[str, Any]:
+    def get_or_compute(
+        self,
+        context: MultiStreetContext,
+        profile: str,
+        *,
+        max_nodes: int,
+        deadline: float,
+    ) -> dict[str, Any]:
         cached = self.load(context, profile)
         if cached is not None:
             return cached
-        reference = enumerate_reference(context, ReferenceProfile(profile), max_nodes=max_nodes, deadline=deadline)
+        reference = enumerate_reference(
+            context, ReferenceProfile(profile), max_nodes=max_nodes, deadline=deadline
+        )
         value = {
             "format": "multistreet-reference-cache-v1",
             "source_sha256": self.source_sha256,
@@ -337,7 +372,9 @@ class ReferenceCache:
             "world_seeds": list(context.world_seeds),
             "world_fingerprint": self._world_fingerprint(context),
             "worlds": reference.worlds,
-            "world_action_values_bb": [list(row) for row in reference.world_action_values_bb],
+            "world_action_values_bb": [
+                list(row) for row in reference.world_action_values_bb
+            ],
             "action_standard_error_bb": list(reference.action_standard_error_bb),
             "uncertainty_status": reference.uncertainty_status,
             "nodes": reference.nodes,
@@ -345,15 +382,23 @@ class ReferenceCache:
             "target": _serial_target(reference.target),
         }
         identity = dict(value)
-        value["sha256"] = sha256(json.dumps(identity, sort_keys=True, allow_nan=False).encode()).hexdigest()
+        value["sha256"] = sha256(
+            json.dumps(identity, sort_keys=True, allow_nan=False).encode()
+        ).hexdigest()
         _atomic_json(self.path(context, profile), value)
         return value
 
 
-def build_cached_rows(plan, cache, *, deadline, context_filter=None, reference_workers=1, progress=None):
+def build_cached_rows(
+    plan, cache, *, deadline, context_filter=None, reference_workers=1, progress=None
+):
     from src.holdem.multistreet_collection import collect_rows
 
     return collect_rows(
-        plan, cache, deadline=deadline, context_filter=context_filter,
-        reference_workers=reference_workers, progress=progress,
+        plan,
+        cache,
+        deadline=deadline,
+        context_filter=context_filter,
+        reference_workers=reference_workers,
+        progress=progress,
     )
