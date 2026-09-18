@@ -47,8 +47,9 @@ Invalid or stale entries are rejected before fitting.
 The reference budget is estimated from measured pilot seconds by street and
 situation, multiplied by the declared context count and calibrated world
 counts, then padded for retry and cache/setup overhead. The paid ceiling is
-$10 including rental, storage, setup, and retrieval. The current live quote
-for the planned host is 32 vCPU / 64 GB at $1.12 per hour; the orchestration
+$10 including rental, storage, setup, and retrieval. The rented host has 32 vCPU / 64 GB at $0.96 per hour, with about
+$0.003 per hour for disk and network storage. The quoted 5 GHz pool was
+unavailable at deployment; the selected 3 GHz pool reports an AMD EPYC 9654. The orchestration
 uses one Torch thread per job with 32 reference processes and up to nine fit processes when the
 host memory check permits it. No GPU or new algorithm is part of this
 campaign.

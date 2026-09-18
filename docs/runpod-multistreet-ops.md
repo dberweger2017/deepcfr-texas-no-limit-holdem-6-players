@@ -7,8 +7,9 @@ reference caches, fitting, checkpoints, and scientific reports.
 
 The wrapper never contacts Runpod and never reads provider credentials. A
 separate provider watchdog must be armed after provisioning and must terminate
-the specific pod independently of SSH. Do not put pod IDs, API keys, or private
-keys in the repository or the campaign archive.
+the specific pod independently of SSH. Keep API keys and private keys out of the repository and campaign archive.
+Record pod and volume identifiers in the private operations manifest for
+retrieval and billing cleanup.
 
 ## Runner contract
 
