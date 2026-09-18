@@ -12,8 +12,9 @@ import pytest
 from scripts import m4_parallel_takeover as takeover
 
 
+@pytest.mark.parametrize('existing_second', [False, True])
 @pytest.mark.parametrize('exceed_memory', [False, True])
-def test_handoff_preserves_existing_worker_and_enforces_combined_limit(tmp_path, monkeypatch, exceed_memory):
+def test_handoff_preserves_existing_worker_and_enforces_combined_limit(tmp_path, monkeypatch, exceed_memory, existing_second):
     out = tmp_path
     worker_script = out/'fake_worker.py'
     worker_script.write_text('''import json, pathlib, sys, time
@@ -27,13 +28,16 @@ while not (out.parent/'release').exists():
     parent_script = out/'fake_parent.py'
     parent_script.write_text('''import pathlib, subprocess, sys, time
 p = subprocess.Popen([sys.executable, sys.argv[1], sys.argv[2]], start_new_session=True)
+if sys.argv[4] == 'True':
+    q = subprocess.Popen([sys.executable, sys.argv[1], str(pathlib.Path(sys.argv[2]).parent/'seed-2026091803')], start_new_session=True)
+    pathlib.Path(sys.argv[3]+'.second').write_text(str(q.pid))
 pathlib.Path(sys.argv[3]).write_text(str(p.pid))
 p.wait()
 pathlib.Path(sys.argv[3]+'.duplicate').write_text('bad')
 ''')
     pid_file = out/'worker.pid'
     parent = subprocess.Popen([sys.executable, str(parent_script), str(worker_script),
-                               str(out/'seed-2026091802'), str(pid_file)])
+                               str(out/'seed-2026091802'), str(pid_file), str(existing_second)])
     original_process = takeover.process
     real_sleep = time.sleep
     worker = None
@@ -44,6 +48,10 @@ pathlib.Path(sys.argv[3]+'.duplicate').write_text('bad')
             assert time.monotonic() < deadline
             real_sleep(.02)
         worker = int(pid_file.read_text())
+        if existing_second:
+            second = int(Path(str(pid_file)+'.second').read_text())
+            (out/'parallel-handoff.json').write_text(json.dumps({'state': 'previous'}))
+            (out/'seed-2026091803.json').write_text(json.dumps({'pid': second, 'status': 'running'}))
         (out/'manifest.json').write_text(json.dumps({'source_sha256': 'same'}))
         (out/'status.json').write_text('{}')
         (out/'seed-2026091802.json').write_text(json.dumps({'pid': worker, 'status': 'running'}))
@@ -53,11 +61,13 @@ pathlib.Path(sys.argv[3]+'.duplicate').write_text('bad')
         def observed(pid):
             row = original_process(pid)
             if row and pid == parent.pid:
-                row['command'] = '-m scripts.local_fullgame --plan test'
+                row['command'] = 'm4_parallel_takeover.py' if existing_second else '-m scripts.local_fullgame --plan test'
             if row and pid == worker:
                 row['command'] = '--seed 2026091802'
-            if row and exceed_memory:
-                row['rss'] = 5*takeover.GIB
+            if row and pid == second:
+                row['command'] = '--seed 2026091803'
+            if row and (exceed_memory or existing_second):
+                row['rss'] = (7 if exceed_memory and existing_second else 5)*takeover.GIB
             return row
         monkeypatch.setattr(takeover, 'process', observed)
         def short_sleep(seconds):
@@ -77,9 +87,9 @@ pathlib.Path(sys.argv[3]+'.duplicate').write_text('bad')
         monkeypatch.setattr(takeover, 'guarded_run', verify)
         if exceed_memory:
             with pytest.raises(RuntimeError, match='combined_process_memory_limit'):
-                takeover.run(out, parent.pid, worker)
+                takeover.run(out, parent.pid, worker, second, 12 if existing_second else 9)
         else:
-            takeover.run(out, parent.pid, worker)
+            takeover.run(out, parent.pid, worker, second, 12 if existing_second else 9)
         record = json.loads((out/'parallel-handoff.json').read_text())
         second = record['second_worker_pid']
         assert record['existing_worker_pid'] == worker
