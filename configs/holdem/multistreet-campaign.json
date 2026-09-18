@@ -8,7 +8,7 @@
   "calibration_multiplier": 1.0,
   "calibration_min_worlds": 16,
   "calibration_max_worlds": 128,
-  "calibration_contexts_per_stratum": 4,
+  "calibration_contexts_per_stratum": 12,
   "seeds": [
     941,
     947,
@@ -60,6 +60,8 @@
   "max_tree_nodes": 100000,
   "max_reference_seconds": 14400,
   "max_fit_seconds": 14400,
+  "reference_workers": 9,
+  "fit_workers": 9,
   "batch_size": 32,
   "learning_rate": 0.001,
   "gradient_clip": 1.0,
