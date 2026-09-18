@@ -1,6 +1,7 @@
 # Local full-game training with more work per iteration
 
-**Running on the M4 after owner authorization and successful host benchmarks.**
+**Completed on the M4. Neither seed passed the declared competence check; no model is promoted.**
+See the [completed campaign report](reports/holdem-local-fullgame.md).
 The [M4 report](reports/holdem-m4-benchmark.md) records that admission. The separate
 Runpod representation campaign in PR #85 is unchanged.
 
@@ -207,7 +208,7 @@ each with its 95% interval. Poker points
 arrive every 64 iterations; they are preliminary validation, not final-test
 results. The second seed has no poker point until its first scheduled evaluation.
 
-The reader was deployed from `e93263e` to ignored
+The initial three-chart reader was deployed from `e93263e`; the four-chart update is recorded at `a35a063`. The reader was copied to ignored
 `results/monitor_holdem_simple.py` and launched with `--simple` against the two
 seed directories. Events live in `results/tensorboard-local-fullgame-simple-v2`;
 monitor and TensorBoard logs/PIDs use the `results/local-fullgame-` prefix.
