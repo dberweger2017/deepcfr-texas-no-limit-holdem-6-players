@@ -1,0 +1,19 @@
+{
+  "prepared_utc": "2026-09-18T16:54:50.755033+00:00",
+  "revision": "2b6bff36e4c092e22934604e7186a2e8661545ee",
+  "free_bytes": 42929569792,
+  "ci_passed_runner_revision": "7b4e237",
+  "benchmark_verified": true,
+  "owner_authorized": true,
+  "host": "m4",
+  "remote_checkout": "/Users/dberweger/Local/deepcfr-training",
+  "remote_output": "results/local-fullgame",
+  "supervisor_pid": 38456,
+  "initial_worker_pid": 38464,
+  "active_seed": 2026091802,
+  "queued_seed": 2026091803,
+  "initial_completed_iterations": 3,
+  "prelaunch_focused_tests": 23,
+  "status": "running_at_launch_verification",
+  "promoted": false
+}

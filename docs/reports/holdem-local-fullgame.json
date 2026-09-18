@@ -1,0 +1,1071 @@
+{
+  "recorded_utc": "2026-09-18T19:39:12.416086+00:00",
+  "status": {
+    "state": "complete",
+    "phase": "verification_and_final_test",
+    "seeds": [
+      2026091802,
+      2026091803
+    ],
+    "promoted": false,
+    "active_seeds": [],
+    "combined_rss_bytes": 0
+  },
+  "manifest": {
+    "revision": "2b6bff36e4c092e22934604e7186a2e8661545ee",
+    "source_sha256": "6c2fff928ca528132ce0278a812c5fe96a4c243dddf337362d07b7a37971ec1d",
+    "environment": {
+      "engine": {
+        "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+        "binaries": {
+          "pokers/pokers.cpython-311-darwin.so": "0700ac54783869030559782e58064ff1e229e8b0b950297845beaa143f7d95bd"
+        }
+      },
+      "python": "3.11.14 (main, Oct  9 2025, 16:16:55) [Clang 17.0.0 (clang-1700.6.3.2)]",
+      "implementation": "CPython",
+      "platform": "macOS-26.6-arm64-arm-64bit",
+      "machine": "arm64",
+      "packages": {
+        "tensorboard": "2.21.0",
+        "packaging": "26.3",
+        "protobuf": "7.36.2",
+        "iniconfig": "2.3.0",
+        "Pygments": "2.21.0",
+        "networkx": "3.6.1",
+        "filelock": "4.0.0",
+        "numpy": "1.26.4",
+        "fsspec": "2026.7.0",
+        "grpcio": "1.84.0",
+        "absl-py": "2.5.0",
+        "setuptools": "80.10.2",
+        "mpmath": "1.3.0",
+        "torch": "2.5.1",
+        "Jinja2": "3.1.6",
+        "Markdown": "3.10.3",
+        "pytest": "9.0.3",
+        "MarkupSafe": "3.0.3",
+        "Werkzeug": "3.1.8",
+        "pluggy": "1.6.0",
+        "sympy": "1.13.1",
+        "typing_extensions": "4.16.0",
+        "tensorboard-data-server": "0.7.2",
+        "scipy": "1.17.0",
+        "pillow": "12.3.0",
+        "pip": "26.0",
+        "pokers": "0.2.0"
+      }
+    }
+  },
+  "plan": {
+    "seeds": [
+      2026091802,
+      2026091803
+    ],
+    "scenarios": [
+      {
+        "name": "six-100bb",
+        "stacks": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "small_blind": 1,
+        "big_blind": 2,
+        "chip_unit": "1"
+      }
+    ],
+    "training": {
+      "seed": 0,
+      "capacity": 4096,
+      "traversals_per_player": 128,
+      "max_nodes": 1000000,
+      "max_seconds": 600,
+      "fit": {
+        "width": 32,
+        "steps": 256,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "diagnostic_samples": 128
+      },
+      "sampler": "first-decision",
+      "exploration": 0.5
+    },
+    "iterations": 256,
+    "save_every": 64,
+    "evaluate_every": 64,
+    "blocks": 1024,
+    "evaluation_seed": 2026091810,
+    "opponents": [
+      "tight_passive",
+      "loose_passive",
+      "tight_aggressive",
+      "loose_aggressive",
+      "pot_pressure"
+    ],
+    "max_seconds": 21600,
+    "benchmarks": [
+      "random"
+    ]
+  },
+  "final_test": {
+    "seeds": [
+      {
+        "seed": 2026091802,
+        "endpoints": {
+          "candidate": {
+            "blocks": 4096,
+            "bb_per_100": 40.810139973958336,
+            "ci95": [
+              -69.7006749442898,
+              151.32095489220646
+            ],
+            "reason": null,
+            "familywise_interval": [
+              -100.04136475996444,
+              181.66164470788112
+            ]
+          },
+          "paired_difference": {
+            "blocks": 4096,
+            "bb_per_100": 142.645263671875,
+            "ci95": [
+              23.313343102891835,
+              261.97718424085815
+            ],
+            "reason": null,
+            "familywise_interval": [
+              -9.449176925312088,
+              294.7397042690621
+            ]
+          }
+        },
+        "competence_check_passed": false,
+        "promoted": false
+      },
+      {
+        "seed": 2026091803,
+        "endpoints": {
+          "candidate": {
+            "blocks": 4096,
+            "bb_per_100": -0.6876627604166705,
+            "ci95": [
+              -109.7053618290026,
+              108.33003630816926
+            ],
+            "reason": null,
+            "familywise_interval": [
+              -139.63611742342493,
+              138.26079190259162
+            ]
+          },
+          "paired_difference": {
+            "blocks": 4096,
+            "bb_per_100": 101.1474609375,
+            "ci95": [
+              -24.23440377052995,
+              226.52932564552995
+            ],
+            "reason": null,
+            "familywise_interval": [
+              -58.657932982864594,
+              260.9528548578646
+            ]
+          }
+        },
+        "competence_check_passed": false,
+        "promoted": false
+      }
+    ],
+    "promoted": false,
+    "competence_check_passed": false
+  },
+  "free_disk_bytes": 22813798400,
+  "seeds": [
+    {
+      "seed": 2026091802,
+      "worker": {
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.train_holdem",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-training/results/local-fullgame/plan.json",
+          "--seed",
+          "2026091802",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/local-fullgame/seed-2026091802"
+        ],
+        "limit_seconds": 21600,
+        "status": "complete",
+        "pid": 38464,
+        "seconds": 5550.557775207999,
+        "rss_bytes": 0,
+        "peak_sampled_rss_bytes": 5199822848,
+        "supervisor_pid": 42576,
+        "adopted": true,
+        "returncode": null
+      },
+      "result": {
+        "complete": true,
+        "format": "holdem-baseline-experiment-v2",
+        "jobs": [
+          {
+            "current_profile": "d3e3a772e4d267a4ae232a92b1a9216272183efce00697cd2ebad08a37534f76",
+            "iteration": 256,
+            "replay": [
+              "5f55ab6fb6c2377b4c1b3c2269069b66e93b6831c8cc8bdaf1eaecc08585a571",
+              "9afcd01f5ca0130713215ef15851be720a42b2283c702d9370e3084cecab5ac2",
+              "a1a8fcf05975d7ed2b31b375031fcf596c658f4d553ebe4724700e6647de1edc",
+              "37dcaf63f245e9bbefd46cedb9e6a33678cecd624e69058d690d53ac13fd8ff1",
+              "ff9035617d75b0df5c92e75c9d4fec80d1e07a57fa490ab5d72373dfe75e4c94",
+              "3b11f8c2f0cc33ac011b54de1b448fd9c54c573c6808d9e37e937bb1747b01b5"
+            ],
+            "scenario": "six-100bb",
+            "seed": 2026091802,
+            "iteration_reports_count": 256,
+            "iteration_reports_path": "seed-2026091802/scenario-0-seed-2026091802/iteration-reports.jsonl",
+            "archive_profiles_count": 256
+          }
+        ],
+        "promoted": false
+      },
+      "recovery": {
+        "training_sha256": "4ba2f73d41da024495f1474e2a9bcfe8cf614ca1b55b7a4f6d25ec83861b7301",
+        "policy_sha256": "a8ffd040b48e383b19561ec4b2306e54e20c347e3aedafbe57657c75da8aafca",
+        "matching": true
+      },
+      "verification_worker": {
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.local_fullgame",
+          "--verify-job",
+          "/Users/dberweger/Local/deepcfr-training/results/local-fullgame/seed-2026091802",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/local-fullgame/final-2026091802"
+        ],
+        "limit_seconds": 1800.0,
+        "status": "complete",
+        "pid": 48569,
+        "seconds": 210.6082629589946,
+        "rss_bytes": 5290295296,
+        "peak_sampled_rss_bytes": 5290295296,
+        "returncode": 0
+      },
+      "validation": [
+        {
+          "benchmark": "random",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": 35.79101562500001,
+              "blocks": 1024,
+              "ci95": [
+                -145.4735512290541,
+                217.0555824790541
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": 45.499674479166664,
+              "blocks": 1024,
+              "ci95": [
+                -177.33141524443528,
+                268.3307642027686
+              ],
+              "reason": null
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 9.708658854166654,
+              "blocks": 1024,
+              "ci95": [
+                -222.8482865520588,
+                242.2656042603921
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 64,
+          "policy_sha256": "6ee15c0ba01d631f18a2ae85aca61055ca60ec1c7edaabc8bbc44029b294a599",
+          "scenario": "six-100bb",
+          "training_seed": 2026091802
+        },
+        {
+          "benchmark": "styles",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -1262.1337890625,
+              "blocks": 1024,
+              "ci95": [
+                -1418.239368492152,
+                -1106.028209632848
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": -1118.3837890625,
+              "blocks": 1024,
+              "ci95": [
+                -1290.6800895391873,
+                -946.0874885858127
+              ],
+              "reason": null
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 143.75,
+              "blocks": 1024,
+              "ci95": [
+                -21.264303534988386,
+                308.76430353498836
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 64,
+          "policy_sha256": "6ee15c0ba01d631f18a2ae85aca61055ca60ec1c7edaabc8bbc44029b294a599",
+          "scenario": "six-100bb",
+          "training_seed": 2026091802
+        },
+        {
+          "benchmark": "random",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": 35.79101562500001,
+              "blocks": 1024,
+              "ci95": [
+                -145.4735512290541,
+                217.0555824790541
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": 125.74055989583331,
+              "blocks": 1024,
+              "ci95": [
+                -102.55187112625742,
+                354.03299091792405
+              ],
+              "reason": null
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 89.94954427083331,
+              "blocks": 1024,
+              "ci95": [
+                -143.63979001580282,
+                323.53887855746945
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 128,
+          "policy_sha256": "2a40e80afedc358e24d7a525ec699c6131a53ee276ec91c7b37bc079563f3a0c",
+          "scenario": "six-100bb",
+          "training_seed": 2026091802
+        },
+        {
+          "benchmark": "styles",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -1262.1337890625,
+              "blocks": 1024,
+              "ci95": [
+                -1418.239368492152,
+                -1106.028209632848
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": -1110.0179036458333,
+              "blocks": 1024,
+              "ci95": [
+                -1284.396900867149,
+                -935.6389064245175
+              ],
+              "reason": null
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 152.11588541666666,
+              "blocks": 1024,
+              "ci95": [
+                -6.4214938150124965,
+                310.65326464834584
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 128,
+          "policy_sha256": "2a40e80afedc358e24d7a525ec699c6131a53ee276ec91c7b37bc079563f3a0c",
+          "scenario": "six-100bb",
+          "training_seed": 2026091802
+        },
+        {
+          "benchmark": "random",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": 35.79101562500001,
+              "blocks": 1024,
+              "ci95": [
+                -145.4735512290541,
+                217.0555824790541
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": 143.00130208333334,
+              "blocks": 1024,
+              "ci95": [
+                -83.88020730080049,
+                369.88281146746715
+              ],
+              "reason": null
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 107.21028645833333,
+              "blocks": 1024,
+              "ci95": [
+                -134.12167391889955,
+                348.54224683556623
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 192,
+          "policy_sha256": "bebf4967a6afffb49b92bb70cda2fd20dd92259b7e68cef09a415204334d1e17",
+          "scenario": "six-100bb",
+          "training_seed": 2026091802
+        },
+        {
+          "benchmark": "styles",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -1262.1337890625,
+              "blocks": 1024,
+              "ci95": [
+                -1418.239368492152,
+                -1106.028209632848
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": -1042.7083333333333,
+              "blocks": 1024,
+              "ci95": [
+                -1207.7734589252668,
+                -877.6432077413998
+              ],
+              "reason": null
+            },
+            "conclusion": "candidate_better",
+            "paired_difference": {
+              "bb_per_100": 219.42545572916666,
+              "blocks": 1024,
+              "ci95": [
+                62.684954121301274,
+                376.16595733703207
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 192,
+          "policy_sha256": "bebf4967a6afffb49b92bb70cda2fd20dd92259b7e68cef09a415204334d1e17",
+          "scenario": "six-100bb",
+          "training_seed": 2026091802
+        },
+        {
+          "benchmark": "random",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": 35.79101562500001,
+              "blocks": 1024,
+              "ci95": [
+                -145.4735512290541,
+                217.0555824790541
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": 115.46223958333333,
+              "blocks": 1024,
+              "ci95": [
+                -109.48084708619062,
+                340.40532625285726
+              ],
+              "reason": null
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 79.67122395833331,
+              "blocks": 1024,
+              "ci95": [
+                -164.8139325541519,
+                324.15638047081853
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 256,
+          "policy_sha256": "a8ffd040b48e383b19561ec4b2306e54e20c347e3aedafbe57657c75da8aafca",
+          "scenario": "six-100bb",
+          "training_seed": 2026091802
+        },
+        {
+          "benchmark": "styles",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -1262.1337890625,
+              "blocks": 1024,
+              "ci95": [
+                -1418.239368492152,
+                -1106.028209632848
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": -1056.1116536458333,
+              "blocks": 1024,
+              "ci95": [
+                -1219.081792991942,
+                -893.1415142997246
+              ],
+              "reason": null
+            },
+            "conclusion": "candidate_better",
+            "paired_difference": {
+              "bb_per_100": 206.02213541666666,
+              "blocks": 1024,
+              "ci95": [
+                52.87092226815514,
+                359.1733485651782
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 256,
+          "policy_sha256": "a8ffd040b48e383b19561ec4b2306e54e20c347e3aedafbe57657c75da8aafca",
+          "scenario": "six-100bb",
+          "training_seed": 2026091802
+        }
+      ],
+      "checkpoints": [
+        {
+          "bytes": 346891157,
+          "iteration": 64,
+          "seconds": 58.383845916978316
+        },
+        {
+          "bytes": 389889024,
+          "iteration": 128,
+          "seconds": 60.26803691699752
+        },
+        {
+          "bytes": 436219986,
+          "iteration": 192,
+          "seconds": 64.3251822500024
+        },
+        {
+          "bytes": 477866086,
+          "iteration": 256,
+          "seconds": 63.329078624985414
+        }
+      ],
+      "metrics": {
+        "iterations": 256,
+        "collection_seconds": 2416.336608042009,
+        "fitting_seconds": 2459.478055646614,
+        "replay_seconds": 169.7977398171497,
+        "total_iteration_seconds": 5065.394163825025,
+        "roots": 196608,
+        "roots_with_postflop": 8550,
+        "records_by_street": {
+          "preflop": 664917,
+          "flop": 15367,
+          "turn": 1805,
+          "river": 341
+        },
+        "replay_stored": 24576,
+        "replay_seen": 682430,
+        "fit_count": 1536,
+        "optimizer_steps": 393216,
+        "clipped_steps": 393216,
+        "median_loss_after_over_before": 0.9974399994889863,
+        "max_gradient_norm": 5964176384.0,
+        "max_inverse_reach": 176400.00000000003,
+        "max_corrected_regret_bb": 35809200.00000001
+      }
+    },
+    {
+      "seed": 2026091803,
+      "worker": {
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.train_holdem",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-training/results/local-fullgame/plan.json",
+          "--seed",
+          "2026091803",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/local-fullgame/seed-2026091803"
+        ],
+        "limit_seconds": 21600,
+        "pid": 42398,
+        "seconds": 5553.790534666012,
+        "rss_bytes": 0,
+        "peak_sampled_rss_bytes": 5705154560,
+        "status": "complete",
+        "supervisor_pid": 42576,
+        "adopted": true,
+        "returncode": null
+      },
+      "result": {
+        "complete": true,
+        "format": "holdem-baseline-experiment-v2",
+        "jobs": [
+          {
+            "current_profile": "b72efc7d41ac29f176def9266a9005e1847990cbdaa2e93b3f46002ee458bb9b",
+            "iteration": 256,
+            "replay": [
+              "8f216746696142b9e4e6ed831215d3891166d249f90297ee07f5f5d48b999deb",
+              "3e6f2e2f776f204663834bdd586580ba2c4bffb4d349262eec4b449ccba97b34",
+              "22ac842fd03074159ab1c4e3e1e14332495fad54bd24ef907f10abc422438939",
+              "82c19e91b50106e0f9fb2651fd6f05c46179a5685544b533fc7f13f65ec16717",
+              "c8269d77afe9a13125327b98982d78dbbb53c9dcd1d7cb2fb00ba78104c2dfd5",
+              "d9af04a229604ea6146259ef501391e09ffed0ad6be09f59a703a0ef01757daa"
+            ],
+            "scenario": "six-100bb",
+            "seed": 2026091803,
+            "iteration_reports_count": 256,
+            "iteration_reports_path": "seed-2026091803/scenario-0-seed-2026091803/iteration-reports.jsonl",
+            "archive_profiles_count": 256
+          }
+        ],
+        "promoted": false
+      },
+      "recovery": {
+        "training_sha256": "4ab893786a3751efdeac1f3be66c16df6a69517bd179adc69871e08226820b4d",
+        "policy_sha256": "6701a14c7e95ec02c69eee082f5ea8a943ddeaff632f593eb7f7a09496a4c107",
+        "matching": true
+      },
+      "verification_worker": {
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.local_fullgame",
+          "--verify-job",
+          "/Users/dberweger/Local/deepcfr-training/results/local-fullgame/seed-2026091803",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/local-fullgame/final-2026091803"
+        ],
+        "limit_seconds": 1589.3917370410054,
+        "status": "complete",
+        "pid": 48771,
+        "seconds": 210.61361170798773,
+        "rss_bytes": 5491441664,
+        "peak_sampled_rss_bytes": 5491441664,
+        "returncode": 0
+      },
+      "validation": [
+        {
+          "benchmark": "random",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": 35.79101562500001,
+              "blocks": 1024,
+              "ci95": [
+                -145.4735512290541,
+                217.0555824790541
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": 86.46647135416667,
+              "blocks": 1024,
+              "ci95": [
+                -134.95361813063045,
+                307.88656083896376
+              ],
+              "reason": null
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 50.67545572916665,
+              "blocks": 1024,
+              "ci95": [
+                -191.46966672458097,
+                292.8205781829143
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 64,
+          "policy_sha256": "6af6dcdf52b99eedb2d9f03d8775ca20cdba6577299cfc35fa6c490417b0c943",
+          "scenario": "six-100bb",
+          "training_seed": 2026091803
+        },
+        {
+          "benchmark": "styles",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -1262.1337890625,
+              "blocks": 1024,
+              "ci95": [
+                -1418.239368492152,
+                -1106.028209632848
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": -843.7418619791666,
+              "blocks": 1024,
+              "ci95": [
+                -1001.3327755022141,
+                -686.1509484561192
+              ],
+              "reason": null
+            },
+            "conclusion": "candidate_better",
+            "paired_difference": {
+              "bb_per_100": 418.3919270833333,
+              "blocks": 1024,
+              "ci95": [
+                258.72791939280427,
+                578.0559347738624
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 64,
+          "policy_sha256": "6af6dcdf52b99eedb2d9f03d8775ca20cdba6577299cfc35fa6c490417b0c943",
+          "scenario": "six-100bb",
+          "training_seed": 2026091803
+        },
+        {
+          "benchmark": "random",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": 35.79101562500001,
+              "blocks": 1024,
+              "ci95": [
+                -145.4735512290541,
+                217.0555824790541
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": 135.24576822916666,
+              "blocks": 1024,
+              "ci95": [
+                -85.69662256356284,
+                356.1881590218961
+              ],
+              "reason": null
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 99.45475260416666,
+              "blocks": 1024,
+              "ci95": [
+                -150.8204907980641,
+                349.7299960063974
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 128,
+          "policy_sha256": "b8dbe529bd50dfca4e2da1d1870a77dc07bc7dc83839efced20b3fb9de110b1a",
+          "scenario": "six-100bb",
+          "training_seed": 2026091803
+        },
+        {
+          "benchmark": "styles",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -1262.1337890625,
+              "blocks": 1024,
+              "ci95": [
+                -1418.239368492152,
+                -1106.028209632848
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": -880.2327473958334,
+              "blocks": 1024,
+              "ci95": [
+                -1033.8134603049093,
+                -726.6520344867575
+              ],
+              "reason": null
+            },
+            "conclusion": "candidate_better",
+            "paired_difference": {
+              "bb_per_100": 381.9010416666667,
+              "blocks": 1024,
+              "ci95": [
+                217.92906743927347,
+                545.8730158940599
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 128,
+          "policy_sha256": "b8dbe529bd50dfca4e2da1d1870a77dc07bc7dc83839efced20b3fb9de110b1a",
+          "scenario": "six-100bb",
+          "training_seed": 2026091803
+        },
+        {
+          "benchmark": "random",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": 35.79101562500001,
+              "blocks": 1024,
+              "ci95": [
+                -145.4735512290541,
+                217.0555824790541
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": 268.0094401041667,
+              "blocks": 1024,
+              "ci95": [
+                41.54603111124146,
+                494.4728490970919
+              ],
+              "reason": null
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 232.21842447916666,
+              "blocks": 1024,
+              "ci95": [
+                -17.273698426222154,
+                481.71054738455547
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 192,
+          "policy_sha256": "979f0b80c796ed52dae8f7362767e75a77d4590f242cae35d6281c79b0ef3749",
+          "scenario": "six-100bb",
+          "training_seed": 2026091803
+        },
+        {
+          "benchmark": "styles",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -1262.1337890625,
+              "blocks": 1024,
+              "ci95": [
+                -1418.239368492152,
+                -1106.028209632848
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": -826.9938151041666,
+              "blocks": 1024,
+              "ci95": [
+                -986.1575640365887,
+                -667.8300661717445
+              ],
+              "reason": null
+            },
+            "conclusion": "candidate_better",
+            "paired_difference": {
+              "bb_per_100": 435.1399739583333,
+              "blocks": 1024,
+              "ci95": [
+                268.9634419858054,
+                601.3165059308612
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 192,
+          "policy_sha256": "979f0b80c796ed52dae8f7362767e75a77d4590f242cae35d6281c79b0ef3749",
+          "scenario": "six-100bb",
+          "training_seed": 2026091803
+        },
+        {
+          "benchmark": "random",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": 35.79101562500001,
+              "blocks": 1024,
+              "ci95": [
+                -145.4735512290541,
+                217.0555824790541
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": 283.06477864583337,
+              "blocks": 1024,
+              "ci95": [
+                55.99072307081087,
+                510.13883422085587
+              ],
+              "reason": null
+            },
+            "conclusion": "inconclusive",
+            "paired_difference": {
+              "bb_per_100": 247.27376302083334,
+              "blocks": 1024,
+              "ci95": [
+                -5.064859980953514,
+                499.61238602262017
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 256,
+          "policy_sha256": "6701a14c7e95ec02c69eee082f5ea8a943ddeaff632f593eb7f7a09496a4c107",
+          "scenario": "six-100bb",
+          "training_seed": 2026091803
+        },
+        {
+          "benchmark": "styles",
+          "comparison": {
+            "baseline": {
+              "bb_per_100": -1262.1337890625,
+              "blocks": 1024,
+              "ci95": [
+                -1418.239368492152,
+                -1106.028209632848
+              ],
+              "reason": null
+            },
+            "candidate": {
+              "bb_per_100": -869.62890625,
+              "blocks": 1024,
+              "ci95": [
+                -1014.6165018081867,
+                -724.6413106918133
+              ],
+              "reason": null
+            },
+            "conclusion": "candidate_better",
+            "paired_difference": {
+              "bb_per_100": 392.5048828125,
+              "blocks": 1024,
+              "ci95": [
+                234.1932784233526,
+                550.8164872016474
+              ],
+              "reason": null
+            }
+          },
+          "completed_hands": 12288,
+          "invalid_actions": 0,
+          "iteration": 256,
+          "policy_sha256": "6701a14c7e95ec02c69eee082f5ea8a943ddeaff632f593eb7f7a09496a4c107",
+          "scenario": "six-100bb",
+          "training_seed": 2026091803
+        }
+      ],
+      "checkpoints": [
+        {
+          "bytes": 354256350,
+          "iteration": 64,
+          "seconds": 63.95206908299588
+        },
+        {
+          "bytes": 396093175,
+          "iteration": 128,
+          "seconds": 59.09393995901337
+        },
+        {
+          "bytes": 434195887,
+          "iteration": 192,
+          "seconds": 61.61306258299737
+        },
+        {
+          "bytes": 481322839,
+          "iteration": 256,
+          "seconds": 62.461999541003024
+        }
+      ],
+      "metrics": {
+        "iterations": 256,
+        "collection_seconds": 2412.2373407549458,
+        "fitting_seconds": 2471.7558784882713,
+        "replay_seconds": 172.37887910188874,
+        "total_iteration_seconds": 5074.719109168189,
+        "roots": 196608,
+        "roots_with_postflop": 12647,
+        "records_by_street": {
+          "preflop": 669991,
+          "flop": 33181,
+          "turn": 7886,
+          "river": 2590
+        },
+        "replay_stored": 24576,
+        "replay_seen": 713648,
+        "fit_count": 1536,
+        "optimizer_steps": 393216,
+        "clipped_steps": 393216,
+        "median_loss_after_over_before": 0.995677848552274,
+        "max_gradient_norm": 372036992.0,
+        "max_inverse_reach": 319999.9999999999,
+        "max_corrected_regret_bb": 106255789.82202327
+      }
+    }
+  ],
+  "local_final_report_verification": [
+    {
+      "seed": 2026091802,
+      "report_matches_raw_outcomes": true,
+      "adjusted_endpoints_match": true,
+      "status": "valid",
+      "completed_hands": 49152,
+      "invalid_actions": 0
+    },
+    {
+      "seed": 2026091803,
+      "report_matches_raw_outcomes": true,
+      "adjusted_endpoints_match": true,
+      "status": "valid",
+      "completed_hands": 49152,
+      "invalid_actions": 0
+    }
+  ],
+  "artifact_inventory": "holdem-local-fullgame-artifacts.json"
+}

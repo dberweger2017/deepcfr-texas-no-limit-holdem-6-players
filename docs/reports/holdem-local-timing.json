@@ -1,0 +1,9 @@
+{
+  "runtime": {
+    "seconds": 160.54024616698734
+  },
+  "training_seconds": 113.14236704201903,
+  "peak_training_rss_bytes": 882835456,
+  "iterations": 4,
+  "purpose": "Timing only; tiny poker evaluations are not strength evidence."
+}
