@@ -6,8 +6,11 @@ import json
 import os
 import sys
 import time
+
+import pytest
 from pathlib import Path
 
+from scripts import runpod_multistreet
 from scripts.runpod_multistreet import EXIT_DEADLINE, build_parser, run
 
 
@@ -55,7 +58,15 @@ def test_parallel_workers_record_exit_and_provenance(tmp_path: Path):
         assert (tmp_path / f"ops/worker-{worker:03d}/result-{seed}").read_text() == "ok"
 
 
-def test_deadline_terminates_workers_and_keeps_retrieval_ready(tmp_path: Path):
+@pytest.fixture
+def cached_provenance(monkeypatch):
+    # Deadline tests exercise process cleanup; network-mounted Git metadata can
+    # consume their entire short budget before a worker has even started.
+    provenance = runpod_multistreet.host_provenance()
+    monkeypatch.setattr(runpod_multistreet, "host_provenance", lambda: provenance)
+
+
+def test_deadline_terminates_workers_and_keeps_retrieval_ready(tmp_path: Path, cached_provenance):
     parser = build_parser()
     args = parser.parse_args(
         [
@@ -65,9 +76,9 @@ def test_deadline_terminates_workers_and_keeps_retrieval_ready(tmp_path: Path):
             "--workers",
             "1",
             "--max-runtime-seconds",
-            "1.1",
+            "3",
             "--retrieval-reserve-seconds",
-            "0.8",
+            "1",
             "--term-grace-seconds",
             "0.1",
             "--poll-seconds",
@@ -84,7 +95,7 @@ def test_deadline_terminates_workers_and_keeps_retrieval_ready(tmp_path: Path):
     assert record["returncode"] != 0
 
 
-def test_deadline_kills_child_that_ignores_term(tmp_path: Path):
+def test_deadline_kills_child_that_ignores_term(tmp_path: Path, cached_provenance):
     parser = build_parser()
     args = parser.parse_args(
         [
@@ -94,9 +105,9 @@ def test_deadline_kills_child_that_ignores_term(tmp_path: Path):
             "--workers",
             "1",
             "--max-runtime-seconds",
-            "1.1",
+            "3",
             "--retrieval-reserve-seconds",
-            "0.8",
+            "1",
             "--term-grace-seconds",
             "0.1",
             "--poll-seconds",
@@ -117,6 +128,14 @@ def test_deadline_kills_child_that_ignores_term(tmp_path: Path):
             os.kill(pid, 0)
         except ProcessLookupError:
             break
+        # Container PID 1 may leave a killed orphan waiting to be reaped.
+        stat = Path(f"/proc/{pid}/stat")
+        try:
+            if stat.read_text().rsplit(")", 1)[1].split()[0] == "Z":
+                break
+        except FileNotFoundError:
+            if sys.platform == "linux":
+                break
         time.sleep(0.05)
     else:
         raise AssertionError(f"detached child {pid} survived deadline cleanup")
