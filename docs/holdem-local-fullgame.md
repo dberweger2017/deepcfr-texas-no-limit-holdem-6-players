@@ -224,3 +224,12 @@ files every 15 seconds. The browser's reload button refreshes the visible view.
 The reader never loads model checkpoints or changes training. Sixteen focused
 monitor/supervisor tests pass, including real event files and the four-chart
 layout. Both runs and their charts were verified in the browser.
+
+## Updated v0.5 target
+
+On September 18 the owner set reliable profitability against the scripted
+opponent pool as the v0.5 playing-strength goal; see the roadmap's release
+criteria. This running campaign retains its declared training, validation and
+random-opponent final test. Its scripted-pool curves are validation evidence,
+not the fresh confirmation required by the updated release goal. Losing less
+than the untrained control does not satisfy that goal.
