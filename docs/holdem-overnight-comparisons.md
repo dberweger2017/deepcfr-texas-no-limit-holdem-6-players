@@ -60,7 +60,7 @@ Change only:
 {"training": {"sampler": "second-decision"}}
 ```
 
-This is a conceptual override, not a complete runnable configuration. The
+The complete runnable configuration is `configs/holdem/continuous-m4-branching.json`. The
 existing implementation expands the traverser's first two own decisions and
 uses the established corrected estimator afterward. Keep all existing legal
 bet sizes, payoff conventions and information boundaries.
@@ -228,9 +228,8 @@ apply, with the earlier RAM admission limits superseded by that decision:
 4. Preserve reports and compressed raw outcomes for every evaluation. Pin the
    1,024 checkpoint and export for all three arms before rolling retention can
    delete them, in addition to the latest two recovery boundaries. Include
-   those pinned files in output limits. This requires retention support or a
-   verified archival mechanism; it is not provided by the present two-file
-   rolling policy. If the control boundary is already retired, do not claim
+   those pinned files in output limits. The supervisor now hard-links these published artifacts under `pinned/1024`
+   before the two-file rolling policy can retire the original paths. If the control boundary is already retired, do not claim
    checkpoint recovery or a new policy probe for that boundary is possible.
 5. Give both new arms the baseline's owner-stopped continuous lifecycle, with
    no performance-triggered restart or automatic promotion. Existing resource
@@ -240,3 +239,28 @@ apply, with the earlier RAM admission limits superseded by that decision:
 The source and telemetry should make a stop or incomplete result explicit.
 A useful overnight experiment can fail its learning hypothesis; losing its
 artifacts or confusing a partial run with a completed comparison is avoidable.
+
+## Implementation and validation
+
+The comparison workers use a separate clean M4 worktree at revision `f83237d`;
+the baseline worker remains on `5cd7e0b`. The changes affect supervision and
+artifact retention, not the learner. Configurations differ from the baseline
+only in their declared sampler or replay capacity. There are no RAM limits;
+RSS is still recorded. The baseline supervisor adopts the original worker PID
+without resetting its learned state or iteration counter.
+
+Twenty focused checks passed locally before the added adoption test; all five
+continuous-run tests, including adoption, then passed locally and on the M4.
+Production-size, one-iteration pilots use separate seed 2026091997 and run
+alongside the baseline. Their checkpoint recovery is checked by loading and
+re-saving to the same SHA-256. These pilots do not establish long-run memory
+or disk requirements. At launch, about 21 GiB free allows roughly 9 GiB growth
+above the existing 12 GiB floor. With growing archives, disk protection may
+stop the batch before iteration 1,024; reaching that boundary is not promised.
+
+The [verified launch snapshot](reports/holdem-continuous-m4-comparisons-launch.json)
+records all three active workers at 21:37 UTC: baseline iteration 59, branching
+iteration 1, and larger replay iteration 2. The baseline worker PID is unchanged.
+The comparison monitor writes under `tensorboard-m4-continuous/comparisons`;
+its first attempt to reuse the existing log directory was rejected, then
+restarted with that separate subdirectory. Training was unaffected.

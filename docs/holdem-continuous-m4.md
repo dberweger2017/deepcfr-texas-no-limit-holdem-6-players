@@ -2,7 +2,7 @@
 
 The owner authorized one baseline training run with no fixed iteration or elapsed
 limit, until explicitly stopped, with the existing four-chart TensorBoard view.
-Future modified agents are separate runs; this authorization starts only one.
+The owner subsequently authorized the two comparison runs described below.
 
 The [recipe](../configs/holdem/continuous-m4.json) uses fresh seed 2026091901,
 uniform bootstrap, six players at 100 BB, width 32, Adam 0.001, norm-1 clipping,
@@ -22,13 +22,14 @@ random opponents on the same 1,024-block validation schedule as the completed
 M4 campaign. These are monitoring results, not new held-out release evidence.
 There is no automatic final test, promotion, restart, or additional seed launch.
 
-## Planned comparison agents
+## Comparison agents
 
 The [two overnight comparison designs](holdem-overnight-comparisons.md) specify
 second-decision collection and a fourfold replay increase as separate arms.
-They are documentation only: neither additional M4 worker is launched, and
-the running control remains unchanged. Resource admission and preservation of
-the main comparison checkpoint are required before later implementation.
+Both now have runnable configurations in `configs/holdem/continuous-m4-branching.json`
+and `configs/holdem/continuous-m4-replay.json`. They start fresh on seed 2026091901.
+The running control keeps its original worker and scientific source revision;
+its supervisor is replaced to remove the RAM cap and pin the comparison boundary.
 
 ## Storage and resource protection
 
