@@ -65,8 +65,11 @@ python -m scripts.check_multistreet_campaign \
 ```
 
 Completed per-context cache batches survive interruption. `--verify` checks
-the campaign manifest, every cache hash and provenance field, every fit
+the campaign manifest, cache file hashes and recorded source, every fit
 checkpoint, selection record, qualification record, and sealed-test reload.
+The strict cache loader also reconstructs world and action provenance when
+references are loaded. Rental acceptance includes a separate fresh-process
+pass through that loader for every calibration and production context.
 
 ## Recovery and host admission
 
@@ -75,6 +78,10 @@ The first remote invocation uses `--calibrate-only`. Its manifest records the
 seconds and the projected production-reference work. Review this estimate
 against the remaining rental allowance, then continue with `--resume`. This
 resumes the same experiment and its independent production streams.
+`--max-reference-seconds` bounds reference work in the current invocation;
+the rental driver subtracts earlier calibration time when assigning the next
+allowance. The outer supervisor and independent provider cutoff cap total
+paid time across invocations. Zero and non-finite timeouts are rejected.
 
 Reference entries survive per context/profile. Completed model fits survive
 as complete arms; an interrupted arm restarts deterministically from its

@@ -2,6 +2,7 @@
 
 import argparse
 import json
+from math import isfinite
 import os
 from collections import Counter
 from hashlib import sha256
@@ -120,6 +121,13 @@ def run(
     started = perf_counter()
     out, cache_root = Path(out).resolve(), Path(cache_root).resolve()
     expanded = campaign_plan(plan)
+    reference_seconds = (
+        expanded["max_reference_seconds"]
+        if deadline_seconds is None
+        else deadline_seconds
+    )
+    if not isfinite(reference_seconds) or reference_seconds <= 0:
+        raise ValueError("Reference timeout must be positive and finite")
     counts = _validate_contexts(expanded)
     source = source_fingerprint()
     identity = {"source_sha256": source, "plan_sha256": digest(expanded)}
@@ -156,7 +164,7 @@ def run(
         )
         _atomic_json(manifest_path, manifest)
     cache_root.mkdir(parents=True, exist_ok=True)
-    deadline = perf_counter() + (deadline_seconds or expanded["max_reference_seconds"])
+    deadline = perf_counter() + reference_seconds
 
     def status(phase, completed=0, total=0, row=None):
         record = {

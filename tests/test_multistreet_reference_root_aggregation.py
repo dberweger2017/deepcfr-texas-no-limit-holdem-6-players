@@ -106,8 +106,9 @@ def support():
         ("turn", ("Ac", "Kd", "7h", "4s")),
     ],
 )
+@pytest.mark.parametrize("facing", [False, True])
 def test_root_only_reference_matches_original_infoset_accumulator(
-    support, street, board
+    support, street, board, facing
 ):
     context = build_context(
         name=f"root-aggregation-{street}",
@@ -119,7 +120,7 @@ def test_root_only_reference_matches_original_infoset_accumulator(
         samples=2,
         deals_per_sample=1,
         seed=173,
-        facing=True,
+        facing=facing,
     )
     profile = ReferenceProfile("increasing")
     expected = _original_enumerate_reference(
