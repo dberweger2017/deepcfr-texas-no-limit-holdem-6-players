@@ -1,0 +1,1515 @@
+{
+  "format": "holdem-multistreet-campaign-v1",
+  "context_seed": 20260918,
+  "stream_namespace": "campaign-plan",
+  "calibration_seed": 2026091801,
+  "production_seed": 2026091802,
+  "calibration_precision_bb": 0.1,
+  "calibration_multiplier": 1.0,
+  "calibration_min_worlds": 16,
+  "calibration_max_worlds": 128,
+  "calibration_contexts_per_stratum": 12,
+  "seeds": [
+    941,
+    947,
+    953
+  ],
+  "variants": [
+    "scaled_baseline",
+    "learned_separate_card_branch",
+    "explicit_visible_features"
+  ],
+  "durations": [
+    1024,
+    2048,
+    4096
+  ],
+  "range_templates": [
+    [
+      "Ac",
+      "Ad",
+      "Kh",
+      "Ks",
+      "Qc",
+      "Jh",
+      "9d",
+      "8s",
+      "5c",
+      "4d"
+    ],
+    [
+      "As",
+      "Kd",
+      "Qh",
+      "Qs",
+      "Tc",
+      "9c",
+      "7d",
+      "6h",
+      "3s",
+      "2d"
+    ]
+  ],
+  "forbidden_flop_plans": [
+    "configs/holdem/representation.json",
+    "configs/holdem/card-diversity.json",
+    "configs/holdem/multistreet-representation.json"
+  ],
+  "world_samples": 128,
+  "deals_per_sample": 1,
+  "max_tree_nodes": 100000,
+  "max_reference_seconds": 21600,
+  "max_fit_seconds": 5400,
+  "reference_workers": 32,
+  "fit_workers": 9,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "gradient_clip": 1.0,
+  "minimum_relative_cost_gain": 0.1,
+  "minimum_absolute_cost_gain_bb": 0.02,
+  "allowed_relative_rmse_increase": 0.02,
+  "reference_se_multiplier": 2.0,
+  "families": [
+    {
+      "flop": [
+        "Ah",
+        "9h",
+        "Qd"
+      ],
+      "continuation": [
+        "9d",
+        "8c"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Ad"
+        ],
+        [
+          "Qc",
+          "Qh"
+        ],
+        [
+          "8d",
+          "8h"
+        ],
+        [
+          "Tc",
+          "3c"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "3s",
+        "3c",
+        "2c"
+      ],
+      "continuation": [
+        "9d",
+        "Qh"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "3d",
+          "3h"
+        ],
+        [
+          "2d",
+          "2h"
+        ],
+        [
+          "9c",
+          "9h"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "8s",
+        "8h",
+        "Jd"
+      ],
+      "continuation": [
+        "Ah",
+        "Th"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "8c",
+          "8d"
+        ],
+        [
+          "Jc",
+          "Jh"
+        ],
+        [
+          "Ac",
+          "Ad"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "4s",
+        "5s",
+        "Ks"
+      ],
+      "continuation": [
+        "Qh",
+        "Qd"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "4c",
+          "4d"
+        ],
+        [
+          "5c",
+          "5d"
+        ],
+        [
+          "Kc",
+          "Kd"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "Js",
+        "6h",
+        "Jc"
+      ],
+      "continuation": [
+        "Kc",
+        "Jh"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "6c",
+          "6d"
+        ],
+        [
+          "Kd",
+          "Kh"
+        ],
+        [
+          "Ac",
+          "5c"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "6h",
+        "Kh",
+        "Qc"
+      ],
+      "continuation": [
+        "Ah",
+        "Ac"
+      ],
+      "holdings": [
+        [
+          "6c",
+          "6d"
+        ],
+        [
+          "Tc",
+          "9c"
+        ],
+        [
+          "9d",
+          "4d"
+        ],
+        [
+          "Ks",
+          "2s"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "Jh",
+        "9s",
+        "Qs"
+      ],
+      "continuation": [
+        "Js",
+        "6s"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Jc",
+          "Jd"
+        ],
+        [
+          "9c",
+          "9d"
+        ],
+        [
+          "Qc",
+          "Qd"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "Qd",
+        "Ts",
+        "Ah"
+      ],
+      "continuation": [
+        "8h",
+        "4d"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Qc",
+          "Qh"
+        ],
+        [
+          "Tc",
+          "Td"
+        ],
+        [
+          "Ac",
+          "Ad"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "Qh",
+        "8d",
+        "8s"
+      ],
+      "continuation": [
+        "7h",
+        "4s"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Qc",
+          "Qd"
+        ],
+        [
+          "8c",
+          "8h"
+        ],
+        [
+          "7c",
+          "7d"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "5s",
+        "2s",
+        "Qh"
+      ],
+      "continuation": [
+        "Qs",
+        "2d"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "5c",
+          "5d"
+        ],
+        [
+          "2c",
+          "2h"
+        ],
+        [
+          "Ac",
+          "Qc"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "Jd",
+        "Kd",
+        "Td"
+      ],
+      "continuation": [
+        "Ad",
+        "2d"
+      ],
+      "holdings": [
+        [
+          "Jc",
+          "Jh"
+        ],
+        [
+          "Kc",
+          "Kh"
+        ],
+        [
+          "Tc",
+          "Th"
+        ],
+        [
+          "Ac",
+          "Ah"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "9c",
+        "7s",
+        "4c"
+      ],
+      "continuation": [
+        "3h",
+        "Kc"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "9d",
+          "9h"
+        ],
+        [
+          "7c",
+          "7d"
+        ],
+        [
+          "4d",
+          "4h"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "Ks",
+        "Th",
+        "4h"
+      ],
+      "continuation": [
+        "8d",
+        "7c"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Kc",
+          "Kd"
+        ],
+        [
+          "Tc",
+          "Td"
+        ],
+        [
+          "4c",
+          "4d"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "3h",
+        "Ks",
+        "4c"
+      ],
+      "continuation": [
+        "Jd",
+        "Jc"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "3c",
+          "3d"
+        ],
+        [
+          "Kc",
+          "Kd"
+        ],
+        [
+          "4d",
+          "4h"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "4c",
+        "8c",
+        "3d"
+      ],
+      "continuation": [
+        "Ks",
+        "5s"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "4d",
+          "4h"
+        ],
+        [
+          "8d",
+          "8h"
+        ],
+        [
+          "3c",
+          "3h"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "5d",
+        "Ad",
+        "Jd"
+      ],
+      "continuation": [
+        "4c",
+        "Ac"
+      ],
+      "holdings": [
+        [
+          "5c",
+          "5h"
+        ],
+        [
+          "Jc",
+          "Jh"
+        ],
+        [
+          "4d",
+          "4h"
+        ],
+        [
+          "6c",
+          "Kc"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "Td",
+        "3s",
+        "7s"
+      ],
+      "continuation": [
+        "Qc",
+        "Kc"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Tc",
+          "Th"
+        ],
+        [
+          "3c",
+          "3d"
+        ],
+        [
+          "7c",
+          "7d"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "Qc",
+        "Ah",
+        "Qd"
+      ],
+      "continuation": [
+        "7c",
+        "7s"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Ac",
+          "Ad"
+        ],
+        [
+          "7d",
+          "7h"
+        ],
+        [
+          "Jc",
+          "Ac"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "9d",
+        "6s",
+        "Td"
+      ],
+      "continuation": [
+        "Ad",
+        "6d"
+      ],
+      "holdings": [
+        [
+          "9c",
+          "9h"
+        ],
+        [
+          "6c",
+          "6h"
+        ],
+        [
+          "Tc",
+          "Th"
+        ],
+        [
+          "Ac",
+          "Ah"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "Jh",
+        "9h",
+        "4d"
+      ],
+      "continuation": [
+        "9s",
+        "7s"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Jc",
+          "Jd"
+        ],
+        [
+          "4c",
+          "4h"
+        ],
+        [
+          "7c",
+          "7d"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "2s",
+        "Kd",
+        "Td"
+      ],
+      "continuation": [
+        "6h",
+        "Kh"
+      ],
+      "holdings": [
+        [
+          "2c",
+          "2d"
+        ],
+        [
+          "Tc",
+          "Th"
+        ],
+        [
+          "6c",
+          "6d"
+        ],
+        [
+          "Qc",
+          "9c"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "7d",
+        "Qc",
+        "8s"
+      ],
+      "continuation": [
+        "3s",
+        "8d"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "7c",
+          "7h"
+        ],
+        [
+          "Qd",
+          "Qh"
+        ],
+        [
+          "8c",
+          "8h"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "Jh",
+        "2h",
+        "As"
+      ],
+      "continuation": [
+        "9s",
+        "5d"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Jc",
+          "Jd"
+        ],
+        [
+          "2c",
+          "2d"
+        ],
+        [
+          "Ac",
+          "Ad"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "3h",
+        "7s",
+        "Kc"
+      ],
+      "continuation": [
+        "5s",
+        "4s"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "3c",
+          "3d"
+        ],
+        [
+          "7c",
+          "7d"
+        ],
+        [
+          "5c",
+          "5d"
+        ]
+      ],
+      "split": "train"
+    },
+    {
+      "flop": [
+        "3d",
+        "8c",
+        "Qd"
+      ],
+      "continuation": [
+        "8h",
+        "6d"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "3c",
+          "3h"
+        ],
+        [
+          "8d",
+          "8s"
+        ],
+        [
+          "Qc",
+          "Qh"
+        ]
+      ],
+      "split": "tuning"
+    },
+    {
+      "flop": [
+        "5d",
+        "8c",
+        "8h"
+      ],
+      "continuation": [
+        "Ac",
+        "9c"
+      ],
+      "holdings": [
+        [
+          "5c",
+          "5h"
+        ],
+        [
+          "8d",
+          "8s"
+        ],
+        [
+          "Ad",
+          "Ah"
+        ],
+        [
+          "9d",
+          "9h"
+        ]
+      ],
+      "split": "tuning"
+    },
+    {
+      "flop": [
+        "Js",
+        "Jc",
+        "4h"
+      ],
+      "continuation": [
+        "5c",
+        "Ad"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Jd",
+          "Jh"
+        ],
+        [
+          "4c",
+          "4d"
+        ],
+        [
+          "5d",
+          "5h"
+        ]
+      ],
+      "split": "tuning"
+    },
+    {
+      "flop": [
+        "Qs",
+        "7c",
+        "4c"
+      ],
+      "continuation": [
+        "9d",
+        "2c"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Qc",
+          "Qd"
+        ],
+        [
+          "7d",
+          "7h"
+        ],
+        [
+          "4d",
+          "4h"
+        ]
+      ],
+      "split": "tuning"
+    },
+    {
+      "flop": [
+        "4h",
+        "7s",
+        "6d"
+      ],
+      "continuation": [
+        "3d",
+        "Jc"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "4c",
+          "4d"
+        ],
+        [
+          "7c",
+          "7d"
+        ],
+        [
+          "6c",
+          "6h"
+        ]
+      ],
+      "split": "tuning"
+    },
+    {
+      "flop": [
+        "Qd",
+        "2c",
+        "Kc"
+      ],
+      "continuation": [
+        "4c",
+        "Td"
+      ],
+      "holdings": [
+        [
+          "2d",
+          "2h"
+        ],
+        [
+          "4d",
+          "4h"
+        ],
+        [
+          "Tc",
+          "Th"
+        ],
+        [
+          "9c",
+          "5c"
+        ]
+      ],
+      "split": "tuning"
+    },
+    {
+      "flop": [
+        "2c",
+        "3s",
+        "4h"
+      ],
+      "continuation": [
+        "Js",
+        "Ks"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "2d",
+          "2h"
+        ],
+        [
+          "3c",
+          "3d"
+        ],
+        [
+          "4c",
+          "4d"
+        ]
+      ],
+      "split": "tuning"
+    },
+    {
+      "flop": [
+        "Kc",
+        "Td",
+        "6s"
+      ],
+      "continuation": [
+        "Th",
+        "9c"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Tc",
+          "Ts"
+        ],
+        [
+          "6c",
+          "6d"
+        ],
+        [
+          "9d",
+          "9h"
+        ]
+      ],
+      "split": "tuning"
+    },
+    {
+      "flop": [
+        "Qh",
+        "5d",
+        "Jd"
+      ],
+      "continuation": [
+        "Js",
+        "9h"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Qc",
+          "Qd"
+        ],
+        [
+          "5c",
+          "5h"
+        ],
+        [
+          "Jc",
+          "Jh"
+        ]
+      ],
+      "split": "validation"
+    },
+    {
+      "flop": [
+        "7c",
+        "4h",
+        "As"
+      ],
+      "continuation": [
+        "Jd",
+        "3c"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "7d",
+          "7h"
+        ],
+        [
+          "4c",
+          "4d"
+        ],
+        [
+          "Ac",
+          "Ad"
+        ]
+      ],
+      "split": "validation"
+    },
+    {
+      "flop": [
+        "8c",
+        "8s",
+        "7c"
+      ],
+      "continuation": [
+        "8d",
+        "Qs"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "7d",
+          "7h"
+        ],
+        [
+          "9c",
+          "Ac"
+        ],
+        [
+          "9d",
+          "Td"
+        ]
+      ],
+      "split": "validation"
+    },
+    {
+      "flop": [
+        "Th",
+        "7d",
+        "6d"
+      ],
+      "continuation": [
+        "Jc",
+        "3d"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Tc",
+          "Td"
+        ],
+        [
+          "7c",
+          "7h"
+        ],
+        [
+          "6c",
+          "6h"
+        ]
+      ],
+      "split": "validation"
+    },
+    {
+      "flop": [
+        "9h",
+        "Jh",
+        "Kc"
+      ],
+      "continuation": [
+        "5s",
+        "8h"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "9c",
+          "9d"
+        ],
+        [
+          "Jc",
+          "Jd"
+        ],
+        [
+          "Kd",
+          "Kh"
+        ]
+      ],
+      "split": "validation"
+    },
+    {
+      "flop": [
+        "Jh",
+        "Js",
+        "Qd"
+      ],
+      "continuation": [
+        "7s",
+        "9d"
+      ],
+      "holdings": [
+        [
+          "Jc",
+          "Jd"
+        ],
+        [
+          "Qc",
+          "Qh"
+        ],
+        [
+          "7c",
+          "7d"
+        ],
+        [
+          "9c",
+          "9h"
+        ]
+      ],
+      "split": "validation"
+    },
+    {
+      "flop": [
+        "6s",
+        "7c",
+        "Qd"
+      ],
+      "continuation": [
+        "9c",
+        "Kd"
+      ],
+      "holdings": [
+        [
+          "6c",
+          "6d"
+        ],
+        [
+          "7d",
+          "7h"
+        ],
+        [
+          "Qc",
+          "Qh"
+        ],
+        [
+          "Kc",
+          "Kh"
+        ]
+      ],
+      "split": "validation"
+    },
+    {
+      "flop": [
+        "6d",
+        "5s",
+        "4d"
+      ],
+      "continuation": [
+        "Ks",
+        "3d"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "6c",
+          "6h"
+        ],
+        [
+          "5c",
+          "5d"
+        ],
+        [
+          "4c",
+          "4h"
+        ]
+      ],
+      "split": "validation"
+    },
+    {
+      "flop": [
+        "8d",
+        "Jc",
+        "6c"
+      ],
+      "continuation": [
+        "Qs",
+        "5c"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "8c",
+          "8h"
+        ],
+        [
+          "Jd",
+          "Jh"
+        ],
+        [
+          "6d",
+          "6h"
+        ]
+      ],
+      "split": "test"
+    },
+    {
+      "flop": [
+        "Kc",
+        "6d",
+        "4s"
+      ],
+      "continuation": [
+        "3h",
+        "3d"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Kd",
+          "Kh"
+        ],
+        [
+          "6c",
+          "6h"
+        ],
+        [
+          "4c",
+          "4d"
+        ]
+      ],
+      "split": "test"
+    },
+    {
+      "flop": [
+        "8h",
+        "Kh",
+        "6s"
+      ],
+      "continuation": [
+        "Ac",
+        "5h"
+      ],
+      "holdings": [
+        [
+          "8c",
+          "8d"
+        ],
+        [
+          "Kc",
+          "Kd"
+        ],
+        [
+          "6c",
+          "6d"
+        ],
+        [
+          "Ad",
+          "Ah"
+        ]
+      ],
+      "split": "test"
+    },
+    {
+      "flop": [
+        "Qs",
+        "7c",
+        "2d"
+      ],
+      "continuation": [
+        "9h",
+        "6d"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Qc",
+          "Qd"
+        ],
+        [
+          "7d",
+          "7h"
+        ],
+        [
+          "2c",
+          "2h"
+        ]
+      ],
+      "split": "test"
+    },
+    {
+      "flop": [
+        "Td",
+        "7d",
+        "6s"
+      ],
+      "continuation": [
+        "As",
+        "5h"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "Tc",
+          "Th"
+        ],
+        [
+          "7c",
+          "7h"
+        ],
+        [
+          "6c",
+          "6d"
+        ]
+      ],
+      "split": "test"
+    },
+    {
+      "flop": [
+        "5d",
+        "5c",
+        "Qh"
+      ],
+      "continuation": [
+        "6s",
+        "3h"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "5h",
+          "5s"
+        ],
+        [
+          "Qc",
+          "Qd"
+        ],
+        [
+          "6c",
+          "6d"
+        ]
+      ],
+      "split": "test"
+    },
+    {
+      "flop": [
+        "9s",
+        "Ah",
+        "3c"
+      ],
+      "continuation": [
+        "Jd",
+        "4c"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "9c",
+          "9d"
+        ],
+        [
+          "Ac",
+          "Ad"
+        ],
+        [
+          "3d",
+          "3h"
+        ]
+      ],
+      "split": "test"
+    },
+    {
+      "flop": [
+        "7d",
+        "3d",
+        "Jd"
+      ],
+      "continuation": [
+        "7c",
+        "4d"
+      ],
+      "holdings": [
+        [
+          "Ac",
+          "Kd"
+        ],
+        [
+          "7h",
+          "7s"
+        ],
+        [
+          "3c",
+          "3h"
+        ],
+        [
+          "Jc",
+          "Jh"
+        ]
+      ],
+      "split": "test"
+    }
+  ],
+  "family_seed": 2026091803
+}

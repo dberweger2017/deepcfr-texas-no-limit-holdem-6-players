@@ -6,9 +6,9 @@ turn.  Each context contains complete, independently sampled worlds; the
 trainer only receives the common observation at the requested street.
 """
 
-from dataclasses import dataclass
-from itertools import permutations
 import json
+from dataclasses import dataclass
+from hashlib import sha256
 from math import fsum
 from pathlib import Path
 from random import Random
@@ -21,9 +21,8 @@ from src.game.types import Action, ActionKind, Street
 from src.holdem.actions import bet_candidates
 from src.holdem.encoding import _canonical_cards
 from src.holdem.representation_reference import range_support
-from src.holdem.river_reference import DECK, ReferenceProfile, check_deadline
+from src.holdem.river_reference import DECK, check_deadline
 from src.holdem.targets import CandidateTargets
-
 
 STREET_NAMES = {"flop": Street.FLOP, "turn": Street.TURN, "river": Street.RIVER}
 
@@ -157,7 +156,6 @@ def build_context(
         raise ValueError("Hero holding and visible board must be disjoint")
     rng = Random(seed)
     worlds, assignments, world_seeds = [], [], []
-    used = 0
     try:
         deals = compatible_visible_deals(support, board, hero)
     except ValueError as error:
@@ -176,7 +174,6 @@ def build_context(
         worlds.append(hand)
         assignments.append(tuple(hands))
         world_seeds.append(draw_index)
-        used += 1
     if not worlds:
         raise ValueError("No compatible sampled hidden worlds")
     first = worlds[0].observe(hero_seat)
@@ -211,15 +208,18 @@ def enumerate_reference(context, profile, *, max_nodes, deadline):
 
     started = perf_counter()
     hero = context.worlds[0].actor
-    totals, candidates_by_view = {}, {}
     per_world = []
     total_nodes = 0
+    root_mass = 0.0
+    root_sums = None
+    root_candidates = None
+    root_weight = 1.0 / len(context.worlds)
     for root in context.worlds:
         nodes = 0
         root_values = None
 
-        def visit(node, reach):
-            nonlocal nodes, root_values
+        def visit(node, reach, root=root):
+            nonlocal nodes, root_values, root_candidates
             check_deadline(deadline)
             nodes += 1
             if nodes > max_nodes:
@@ -236,24 +236,29 @@ def enumerate_reference(context, profile, *, max_nodes, deadline):
             )
             if node is root and node.actor == hero:
                 root_values = values
-            if node.actor == hero:
-                if view in candidates_by_view and candidates_by_view[view].actions != candidates.actions:
-                    raise ValueError("One information set has inconsistent actions")
-                candidates_by_view[view] = candidates
-                weight = reach / len(context.worlds)
-                mass, sums = totals.setdefault(view, [0.0, np.zeros(len(values))])
-                totals[view][0] = mass + weight
-                sums += weight * np.asarray(values)
+                if root_candidates is None:
+                    root_candidates = candidates
+                elif root_candidates.actions != candidates.actions:
+                    raise ValueError("One root information set has inconsistent actions")
             return fsum(p * value for p, value in zip(probs, values))
 
         visit(root, 1.0)
         if root_values is None:
             raise ValueError("Reference root was not a hero decision")
         per_world.append(tuple(root_values))
+        # Only the root information set contributes to the returned target.
+        # Accumulating non-root hero information sets is both unnecessary and
+        # very costly for the 128-world campaign.  Keep the update order and
+        # arithmetic identical to the old root entry in ``totals``.
+        root_mass += root_weight
+        if root_sums is None:
+            root_sums = np.zeros(len(root_values))
+        root_sums += root_weight * np.asarray(root_values)
         total_nodes += nodes
-    root_view = context.worlds[0].observe(hero)
-    candidates = candidates_by_view[root_view]
-    values = tuple(totals[root_view][1] / totals[root_view][0])
+    if root_candidates is None or root_sums is None:
+        raise ValueError("Reference root was not a hero decision")
+    values = tuple(root_sums / root_mass)
+    candidates = root_candidates
     probs = profile.distribution(candidates)
     center = fsum(p * v for p, v in zip(probs, values))
     target = CandidateTargets(candidates, probs, values, tuple(v - center for v in values))
@@ -276,8 +281,8 @@ def enumerate_reference(context, profile, *, max_nodes, deadline):
     )
 
 
-def split_specs(plan):
-    """Materialize contexts while enforcing whole-flop-family splits."""
+def _iter_specs(plan, context_filter=None):
+    """Yield contexts while enforcing whole-flop-family splits."""
 
     support = range_support(plan["range_templates"])
     forbidden = set()
@@ -290,10 +295,26 @@ def split_specs(plan):
             from src.holdem.card_diversity import expanded_plan
 
             boards = expanded_plan(source)["boards"]
-        forbidden.update(flop_key(tuple(row["cards"])) for row in boards)
+        # Prior diagnostics use boards, contexts, or materialized campaign
+        # families.  Treat every representation as an ancestor exclusion.
+        forbidden.update(
+            flop_key(tuple(row.get("cards", row.get("board", row.get("flop")))))
+            for row in boards
+        )
+        forbidden.update(
+            flop_key(tuple(row["board"]))
+            for row in source.get("contexts", ())
+            if "board" in row
+        )
+        forbidden.update(
+            flop_key(tuple(row["flop"]))
+            for row in source.get("families", ())
+            if "flop" in row
+        )
     groups = {}
-    result = []
     for index, row in enumerate(plan["contexts"]):
+        if context_filter is not None and not context_filter(row, index):
+            continue
         board = tuple(row["board"])
         key = flop_key(board)
         if key in forbidden:
@@ -301,6 +322,15 @@ def split_specs(plan):
         previous = groups.setdefault(key, row["split"])
         if previous != row["split"]:
             raise ValueError("A flop ancestor must stay in one split")
+        if "stream_namespace" in plan:
+            seed_material = (
+                f"{plan['stream_namespace']}|{plan['context_seed']}|{row['street']}|"
+                f"{index}|{bool(row.get('facing', False))}"
+            ).encode()
+            context_seed = int.from_bytes(sha256(seed_material).digest(), "big")
+        else:
+            # Preserve the pilot's historical seed sequence exactly.
+            context_seed = int(plan["context_seed"]) + index
         context = build_context(
             name=f"{row['street']}-{index}",
             split=row["split"],
@@ -308,10 +338,29 @@ def split_specs(plan):
             board=board,
             holding=tuple(row["holding"]),
             support=support,
-            samples=int(row.get("world_samples", plan.get("world_samples", 4))),
+            samples=int(
+                row.get(
+                    "world_samples",
+                    plan.get("world_samples_by_stratum", {}).get(
+                        f"{row['street']}:{'facing' if row.get('facing', False) else 'open'}",
+                        plan.get("world_samples", 4),
+                    ),
+                )
+            ),
             deals_per_sample=int(row.get("deals_per_sample", plan.get("deals_per_sample", 2))),
-            seed=int(plan["context_seed"]) + index,
+            seed=context_seed,
             facing=bool(row.get("facing", False)),
         )
-        result.append((context, key))
-    return tuple(result)
+        yield context, key
+
+
+def iter_specs(plan, context_filter=None):
+    """Stream context construction without retaining all hidden worlds."""
+
+    return _iter_specs(plan, context_filter=context_filter)
+
+
+def split_specs(plan, context_filter=None):
+    """Materialize contexts for legacy callers and small diagnostics."""
+
+    return tuple(_iter_specs(plan, context_filter=context_filter))

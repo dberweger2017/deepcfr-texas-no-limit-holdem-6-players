@@ -1,23 +1,26 @@
 """Run the frozen, bounded flop/turn/river representation diagnostic."""
 
 import argparse
-import copy
 import json
 from hashlib import sha256
 from pathlib import Path
 from random import Random
 from time import perf_counter
 
-import torch
 import numpy as np
+import torch
 
 from src.arena.artifacts import environment, git, source_fingerprint, write_json
 from src.arena.schedule import digest
 from src.holdem.betting import betting_loss
-from src.holdem.multistreet_models import VARIANTS, make_model
+from src.holdem.multistreet_models import make_model
 from src.holdem.multistreet_reference import enumerate_reference, split_specs
 from src.holdem.multistreet_selection import choose_durations, qualify
-from src.holdem.river_reference import ReferenceProfile, combine_targets, prediction_metrics
+from src.holdem.river_reference import (
+    ReferenceProfile,
+    combine_targets,
+    prediction_metrics,
+)
 from src.solver.neural.network import deterministic_cpu
 
 
@@ -178,8 +181,15 @@ def _reference_rows(plan, deadline):
     return rows
 
 
-def run(plan, out):
-    out.mkdir(parents=True, exist_ok=False)
+def run(plan, out, *, reference_rows=None, fit_workers=1, resume=False, progress=None):
+    if resume and (out / "report.json").exists():
+        previous = json.loads((out / "report.json").read_text())
+        if previous["plan_sha256"] != digest(plan) or previous["source_sha256"] != source_fingerprint():
+            raise ValueError("Cannot resume a changed fitting plan or source")
+        if previous["status"] == "completed":
+            verify(out)
+            return previous
+    out.mkdir(parents=True, exist_ok=resume)
     started = perf_counter()
     report = {
         "format": plan["format"],
@@ -196,7 +206,7 @@ def run(plan, out):
     reference_deadline = perf_counter() + plan["max_reference_seconds"]
     write_json(out / "report.json", report)
     try:
-        rows = _reference_rows(plan, reference_deadline)
+        rows = _reference_rows(plan, reference_deadline) if reference_rows is None else list(reference_rows)
     except Exception as error:
         report["status"] = "failed_reference"
         report["error"] = repr(error)
@@ -217,7 +227,7 @@ def run(plan, out):
         out / "targets.pt",
     )
     report["contexts_sha256"] = digest(serial)
-    report["worlds"] = sum(len(row["worlds"]) for row in rows)
+    report["worlds"] = sum(row.get("world_count", len(row.get("worlds", ()))) for row in rows)
     by_split = {split: [row for row in rows if row["split"] == split] for split in ("train", "tuning", "validation", "test")}
     if any(not row["uncertainty"] or "insufficient_worlds" in row["uncertainty"] for row in rows):
         report["status"] = "failed_uncertainty"
@@ -232,20 +242,25 @@ def run(plan, out):
                 for key in ("train", "tuning")
             }
             deadline = perf_counter() + plan["max_fit_seconds"]
-            for seed in plan["seeds"]:
-                for variant in plan["variants"]:
-                    measurements, checkpoints = fit_arm(variant, seed, targets, plan, deadline)
-                    for measurement in measurements:
-                        for split in ("train", "tuning"):
-                            metric = measurement["metrics"][split]
-                            metric["weighted_decision_cost_bb"] = _weighted_cost(metric, by_split[split])
-                            metric["per_street_decision_cost_bb"] = _breakdown(metric, by_split[split], "street")
-                            metric["per_situation_decision_cost_bb"] = _breakdown(metric, by_split[split], "situation")
-                        step = measurement["duration"]
-                        path = out / f"{variant}-{seed}-{step}.pt"
-                        torch.save(checkpoints[step], path)
-                        measurement["sha256"] = sha256(path.read_bytes()).hexdigest()
-                        report["fits"].append(measurement)
+            from src.holdem.multistreet_fitting import fit_all
+
+            completed_fits = fit_all(
+                targets, plan, deadline, cache_dir=out / ".fit-cache",
+                identity=digest({"plan": digest(plan), "source": report["source_sha256"], "contexts": report["contexts_sha256"]}),
+                workers=fit_workers, progress=progress,
+            )
+            for seed, variant, measurements, checkpoints in completed_fits:
+                for measurement in measurements:
+                    for split in ("train", "tuning"):
+                        metric = measurement["metrics"][split]
+                        metric["weighted_decision_cost_bb"] = _weighted_cost(metric, by_split[split])
+                        metric["per_street_decision_cost_bb"] = _breakdown(metric, by_split[split], "street")
+                        metric["per_situation_decision_cost_bb"] = _breakdown(metric, by_split[split], "situation")
+                    step = measurement["duration"]
+                    path = out / f"{variant}-{seed}-{step}.pt"
+                    torch.save(checkpoints[step], path)
+                    measurement["sha256"] = sha256(path.read_bytes()).hexdigest()
+                    report["fits"].append(measurement)
 
             tuning_rows = [
                 {
