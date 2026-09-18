@@ -41,11 +41,12 @@ class Monitor:
             if source == "training-timing.jsonl":
                 values = {"progress/completed_iterations": row["iteration"],
                           "speed/seconds_per_iteration": row["total_seconds"]}
-            elif source == "curve" and row["benchmark"] == "random":
+            elif source == "curve" and row["benchmark"] in ("random", "styles"):
                 estimate = row["comparison"]["candidate"]
-                values = {"poker/random_bb_per_100": estimate["bb_per_100"]}
+                benchmark = row["benchmark"]
+                values = {f"poker/{benchmark}_bb_per_100": estimate["bb_per_100"]}
                 if estimate["ci95"] is not None:
-                    values.update(zip(("poker/ci95_lower", "poker/ci95_upper"), estimate["ci95"]))
+                    values.update(zip((f"poker/{benchmark}_ci95_lower", f"poker/{benchmark}_ci95_upper"), estimate["ci95"]))
             else:
                 self.seen.add(identity)
                 return
@@ -58,8 +59,11 @@ class Monitor:
                         "Seconds per iteration": ["Multiline", ["speed/seconds_per_iteration"]],
                     },
                     "Poker validation": {
+                        "Profit vs scripted opponents (BB per 100 hands, 95% interval)": [
+                            "Margin", ["poker/styles_bb_per_100", "poker/styles_ci95_lower", "poker/styles_ci95_upper"]
+                        ],
                         "Profit vs random (BB per 100 hands, 95% interval)": [
-                            "Margin", ["poker/random_bb_per_100", "poker/ci95_lower", "poker/ci95_upper"]
+                            "Margin", ["poker/random_bb_per_100", "poker/random_ci95_lower", "poker/random_ci95_upper"]
                         ],
                     },
                 })
@@ -109,7 +113,7 @@ def main():
     parser.add_argument("--runs", type=Path, nargs="+", required=True)
     parser.add_argument("--logdir", type=Path, required=True)
     parser.add_argument("--once", action="store_true")
-    parser.add_argument("--simple", action="store_true", help="Three charts: progress, speed, and random-opponent validation with uncertainty")
+    parser.add_argument("--simple", action="store_true", help="Four charts: progress, speed, and random/scripted validation with uncertainty")
     args = parser.parse_args()
     if len({r.name for r in args.runs}) != len(args.runs):
         parser.error("Run directories must have distinct names")

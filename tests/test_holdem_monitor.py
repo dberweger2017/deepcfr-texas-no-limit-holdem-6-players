@@ -84,7 +84,7 @@ def test_monitor_exports_evaluation_intervals_and_real_events(tmp_path):
     )
 
 
-def test_simple_monitor_has_three_charts_and_retains_uncertainty(tmp_path):
+def test_simple_monitor_has_four_charts_and_retains_uncertainty(tmp_path):
     pytest.importorskip("tensorboard")
     from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
     from torch.utils.tensorboard import SummaryWriter
@@ -95,16 +95,22 @@ def test_simple_monitor_has_three_charts_and_retains_uncertainty(tmp_path):
     monitor.emit("seed", "curve", 64,
                  {"iteration": 64, "benchmark": "random", "comparison": {
                      "candidate": {"bb_per_100": 42, "ci95": [-10, 94]}}}, "poker")
+    monitor.emit("seed", "curve", 64,
+                 {"iteration": 64, "benchmark": "styles", "comparison": {
+                     "candidate": {"bb_per_100": -1100, "ci95": [-1300, -900]}}}, "poker")
     monitor.emit("seed", "iteration-reports.jsonl", 0,
                  {"iteration": 64, "irrelevant": 1000}, "training")
     monitor.close()
     events = EventAccumulator(str(tmp_path / "seed")).Reload()
     assert set(events.Tags()["scalars"]) == {
         "progress/completed_iterations", "speed/seconds_per_iteration",
-        "poker/random_bb_per_100", "poker/ci95_lower", "poker/ci95_upper",
+        "poker/random_bb_per_100", "poker/random_ci95_lower", "poker/random_ci95_upper",
+        "poker/styles_bb_per_100", "poker/styles_ci95_lower", "poker/styles_ci95_upper",
     }
-    assert events.Scalars("poker/ci95_lower")[0].value == -10
+    assert events.Scalars("poker/random_ci95_lower")[0].value == -10
+    assert events.Scalars("poker/styles_bb_per_100")[0].value == -1100
+    assert events.Scalars("poker/styles_ci95_upper")[0].value == -900
     from tensorboard.plugins.custom_scalar import layout_pb2
     layout = layout_pb2.Layout.FromString(
         events.Tensors("custom_scalars__config__")[0].tensor_proto.string_val[0])
-    assert sum(len(category.chart) for category in layout.category) == 3
+    assert sum(len(category.chart) for category in layout.category) == 4

@@ -200,15 +200,16 @@ launch, and termination of both workers on a combined memory violation.
 
 ## Simple live TensorBoard
 
-The owner's requested three-chart dashboard is running on the M4, with one run
+The owner's requested four-chart dashboard is running on the M4, with one run
 per seed: completed iterations (target 256), seconds per iteration, and validation
-profit against random opponents in BB/100 with its 95% interval. Poker points
+profit against random opponents and against the scripted style pool in BB/100,
+each with its 95% interval. Poker points
 arrive every 64 iterations; they are preliminary validation, not final-test
 results. The second seed has no poker point until its first scheduled evaluation.
 
 The reader was deployed from `e93263e` to ignored
 `results/monitor_holdem_simple.py` and launched with `--simple` against the two
-seed directories. Events live in `results/tensorboard-local-fullgame-simple`;
+seed directories. Events live in `results/tensorboard-local-fullgame-simple-v2`;
 monitor and TensorBoard logs/PIDs use the `results/local-fullgame-` prefix.
 TensorBoard listens only on the M4's `127.0.0.1:6006`. On the controlling Mac,
 an SSH tunnel exposes [the dashboard](http://127.0.0.1:16006/#custom_scalars).
@@ -221,5 +222,5 @@ ssh -N -L 127.0.0.1:16006:127.0.0.1:6006 m4
 The reader polls saved records every five seconds; TensorBoard reloads its event
 files every 15 seconds. The browser's reload button refreshes the visible view.
 The reader never loads model checkpoints or changes training. Sixteen focused
-monitor/supervisor tests pass, including real event files and the three-chart
+monitor/supervisor tests pass, including real event files and the four-chart
 layout. Both runs and their charts were verified in the browser.
