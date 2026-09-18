@@ -1,0 +1,53 @@
+{
+  "seeds": [
+    2026091804
+  ],
+  "scenarios": [
+    {
+      "name": "six-100bb",
+      "stacks": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "small_blind": 1,
+      "big_blind": 2,
+      "chip_unit": "1"
+    }
+  ],
+  "training": {
+    "seed": 0,
+    "capacity": 4096,
+    "traversals_per_player": 128,
+    "max_nodes": 1000000,
+    "max_seconds": 120,
+    "fit": {
+      "width": 32,
+      "steps": 256,
+      "batch_size": 32,
+      "learning_rate": 0.001,
+      "diagnostic_samples": 128
+    },
+    "sampler": "first-decision",
+    "exploration": 0.5
+  },
+  "iterations": 32,
+  "save_every": 16,
+  "evaluate_every": 32,
+  "blocks": 8,
+  "evaluation_seed": 2026091810,
+  "opponents": [
+    "tight_passive",
+    "loose_passive",
+    "tight_aggressive",
+    "loose_aggressive",
+    "pot_pressure"
+  ],
+  "max_seconds": 900,
+  "benchmarks": [
+    "random"
+  ]
+}
