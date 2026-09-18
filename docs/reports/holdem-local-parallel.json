@@ -1,0 +1,47 @@
+{
+  "checked_utc": "2026-09-18T17:49:39.504271+00:00",
+  "handoff": {
+    "state": "transferred",
+    "supervisor_pid": 42576,
+    "old_supervisor_pid": 42389,
+    "existing_worker_pid": 38464,
+    "authorization": "Owner requested concurrent planned seeds",
+    "combined_rss_limit_bytes": 12884901888,
+    "source_sha256": "6c2fff928ca528132ce0278a812c5fe96a4c243dddf337362d07b7a37971ec1d",
+    "utc": "2026-09-18T17:49:20Z",
+    "second_worker_pid": 42398,
+    "first_elapsed_seconds": 3269
+  },
+  "status": {
+    "state": "running",
+    "phase": "concurrent_training",
+    "seeds": [],
+    "promoted": false,
+    "active_seeds": [
+      2026091802,
+      2026091803
+    ],
+    "combined_rss_bytes": 2639904768
+  },
+  "workers": [
+    {
+      "seed": 2026091802,
+      "pid": 38464,
+      "iteration": 161,
+      "rss_bytes": 1727070208,
+      "elapsed_seconds": 3284.0852360409917,
+      "status": "running"
+    },
+    {
+      "seed": 2026091803,
+      "pid": 42398,
+      "iteration": 7,
+      "rss_bytes": 912834560,
+      "elapsed_seconds": 125.09256270801416,
+      "status": "running"
+    }
+  ],
+  "processes": "38464     1  99.4 1680480\n42398     1  98.4 891440\n",
+  "git_revision": "2b6bff36e4c092e22934604e7186a2e8661545ee",
+  "git_status": ""
+}
