@@ -14,7 +14,7 @@ or change the production default model.
 
 The [executable plan](../configs/holdem/local-fullgame.json) declares six players,
 100 BB stacks, blinds 1/2 integer chips, no rake or antes, and seeds
-**2026091802 and 2026091803**. Run the seeds sequentially, one CPU thread each,
+**2026091802 and 2026091803**. Run the two seeds concurrently, one CPU thread each,
 from uniform bootstrap. Both must be retained regardless of results.
 
 | Setting | Earlier longer run | This batch |
@@ -69,7 +69,9 @@ termination escalates to kill after five more seconds. Limits are wall-clock
 allowances, not promises that both jobs finish.
 
 Before launch require 20 GiB free. During every worker, stop if free space falls
-below 12 GiB, output exceeds 8 GiB, or worker RSS exceeds 7 GiB. The worker uses
+below 12 GiB, output exceeds 8 GiB, or worker RSS exceeds 7 GiB.
+Concurrent training also stops if combined worker RSS exceeds 12 GiB, as
+authorized by the owner on September 18. The worker uses
 one Torch thread and does not spawn collection subprocesses. Limits are sampled,
 so transient growth between checks is possible. Source and environment are
 recorded; source must be committed and the worktree clean. Output directories
@@ -169,3 +171,29 @@ seed 2026091803 is queued. This is a launch snapshot, not a live status or a res
 Source remains pinned on the M4 while the batch runs. Check
 `results/local-fullgame/status.json` there for current state. The laptop must stay
 powered and awake; keep its lid open for unattended execution.
+
+## Concurrent execution — September 18, 17:49 UTC
+
+At the owner's request, both declared seeds now train concurrently. The
+[handoff record](reports/holdem-local-parallel.json) verifies unchanged worker
+PIDs: seed 2026091802 continued without a restart, and seed 2026091803 began at
+17:47 UTC. At 17:49 UTC they had completed iterations 161 and 7, respectively,
+using about 2.5 GiB combined RSS and approximately one CPU core each.
+
+The [handoff supervisor](../scripts/m4_parallel_takeover.py) first stops the old
+coordinator, validates and preserves its records, then replaces only that
+coordinator. The existing training process groups continue. The original
+coordinator cannot launch a duplicate seed. A second handoff raised the combined
+RSS ceiling from 9 to the owner's requested 12 GiB; both workers again continued
+unchanged. Existing per-worker six-hour elapsed allowances and 7 GiB ceilings
+remain; final verification and testing still run sequentially within the shared
+30-minute allowance. An adopted worker's completion is verified through its
+completed result artifact because it is no longer a child whose exit code can
+be collected.
+
+The remote training checkout stays clean at `2b6bff3`. Only the separately
+recorded supervisor is deployed under ignored `results/`; the trainer source
+fingerprint is checked before handoff. Supervisor implementation is recorded
+at `ae51c76`. Thirteen focused tests pass, including real subprocess handoffs
+with one or two existing workers, prevention of the old parent's duplicate
+launch, and termination of both workers on a combined memory violation.
