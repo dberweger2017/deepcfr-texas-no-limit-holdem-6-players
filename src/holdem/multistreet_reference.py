@@ -208,15 +208,18 @@ def enumerate_reference(context, profile, *, max_nodes, deadline):
 
     started = perf_counter()
     hero = context.worlds[0].actor
-    totals, candidates_by_view = {}, {}
     per_world = []
     total_nodes = 0
+    root_mass = 0.0
+    root_sums = None
+    root_candidates = None
+    root_weight = 1.0 / len(context.worlds)
     for root in context.worlds:
         nodes = 0
         root_values = None
 
         def visit(node, reach, root=root):
-            nonlocal nodes, root_values
+            nonlocal nodes, root_values, root_candidates
             check_deadline(deadline)
             nodes += 1
             if nodes > max_nodes:
@@ -233,24 +236,29 @@ def enumerate_reference(context, profile, *, max_nodes, deadline):
             )
             if node is root and node.actor == hero:
                 root_values = values
-            if node.actor == hero:
-                if view in candidates_by_view and candidates_by_view[view].actions != candidates.actions:
-                    raise ValueError("One information set has inconsistent actions")
-                candidates_by_view[view] = candidates
-                weight = reach / len(context.worlds)
-                mass, sums = totals.setdefault(view, [0.0, np.zeros(len(values))])
-                totals[view][0] = mass + weight
-                sums += weight * np.asarray(values)
+                if root_candidates is None:
+                    root_candidates = candidates
+                elif root_candidates.actions != candidates.actions:
+                    raise ValueError("One root information set has inconsistent actions")
             return fsum(p * value for p, value in zip(probs, values))
 
         visit(root, 1.0)
         if root_values is None:
             raise ValueError("Reference root was not a hero decision")
         per_world.append(tuple(root_values))
+        # Only the root information set contributes to the returned target.
+        # Accumulating non-root hero information sets is both unnecessary and
+        # very costly for the 128-world campaign.  Keep the update order and
+        # arithmetic identical to the old root entry in ``totals``.
+        root_mass += root_weight
+        if root_sums is None:
+            root_sums = np.zeros(len(root_values))
+        root_sums += root_weight * np.asarray(root_values)
         total_nodes += nodes
-    root_view = context.worlds[0].observe(hero)
-    candidates = candidates_by_view[root_view]
-    values = tuple(totals[root_view][1] / totals[root_view][0])
+    if root_candidates is None or root_sums is None:
+        raise ValueError("Reference root was not a hero decision")
+    values = tuple(root_sums / root_mass)
+    candidates = root_candidates
     probs = profile.distribution(candidates)
     center = fsum(p * v for p, v in zip(probs, values))
     target = CandidateTargets(candidates, probs, values, tuple(v - center for v in values))
