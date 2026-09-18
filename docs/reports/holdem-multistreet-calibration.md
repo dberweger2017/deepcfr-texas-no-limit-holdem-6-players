@@ -84,3 +84,43 @@ precision results exactly and its measured memory/runtime to fit the remaining
 rental allowance. The scientific source for that repetition is `c273427`.
 The external driver reserves 90 minutes for fitting and 45 minutes before the
 provider cutoff for completion, retrieval and shutdown.
+
+## Completed optimized calibration and revised time allocation
+
+The optimized collector completed all 72 contexts in 1,774.26 seconds
+(29.57 minutes). Its complete calibration decision/trace dictionary exactly
+matches the original, including all four unresolved strata. Sampled cgroup
+usage peaked at 7.46 GB; conservatively scaling that whole measurement from
+12 to 32 heavy contexts gives 19.89 GB, below the 48 GB admission limit.
+Production projects to 420,019.28 worker-seconds, or 19,688.40 elapsed seconds
+at 32 workers with the 1.5 allowance (5.47 hours).
+
+The initial automatic runtime gate failed. Its six-hour cumulative reference
+allowance left 17,504.44 seconds after both calibrations, less than the padded
+projection. The original 90-minute fitting reserve also exceeded the remaining
+combined work allowance. That failed admission record is retained.
+
+Before any production reference collection or model selection, a timing-only
+probe ran all nine 128-step fitting jobs concurrently. It used only the 72
+training-split calibration contexts, repeated to match the actual 576/192
+training/metric row counts; no tuning, validation or test context was opened.
+Weights and quality metrics from this probe are not campaign candidates.
+The slowest fit took 23.36 seconds. Scaling to 4,096 steps with a 1.5 allowance
+and another 300 seconds for overhead projects to 1,421.18 seconds (23.69
+minutes). This projection supports a 30-minute fitting reserve, subject to the
+unchanged absolute shutdown deadline.
+
+The revised operations allocation permits seven hours of cumulative reference
+work, including both calibrations, leaving 21,104.44 seconds for production.
+That is still below the configured six-hour limit for a single reference
+invocation. Production's 19,688.40-second padded estimate fits this allowance;
+production plus the separate 1,800-second fitting reserve must also fit the
+remaining time before 20:10 UTC. The driver checks both conditions immediately
+before launch.
+
+The $10 all-in campaign ceiling, provider cutoff at 20:55 UTC, and 45-minute
+completion/retrieval reserve are unchanged. The original failed gate is not
+relabelled as passed. Models, seeds, contexts, reference world counts,
+checkpoint selection and sealed-test rules are unchanged. This amendment
+reallocates time within the already authorized rental; it does not add a new
+experiment or increase spending authority.
