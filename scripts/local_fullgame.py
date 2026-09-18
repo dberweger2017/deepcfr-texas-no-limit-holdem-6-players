@@ -21,7 +21,15 @@ def write_json(path, value):
 
 
 def used_bytes(directory):
-    return sum(p.stat().st_size for p in directory.rglob("*") if p.is_file())
+    total = 0
+    for path in directory.rglob("*"):
+        try:
+            if path.is_file():
+                total += path.stat().st_size
+        except FileNotFoundError:
+            # Atomic checkpoint publication can rename a file during this scan.
+            continue
+    return total
 
 
 def resource_failure(elapsed, limit, rss, free, stored):
@@ -69,7 +77,13 @@ def guarded_run(command, output, *, seconds, poll_seconds=5):
                     shutil.disk_usage(output.parent).free,
                     used_bytes(output.parent),
                 )
-                record.update(seconds=elapsed, rss_bytes=rss)
+                record.update(
+                    seconds=elapsed,
+                    rss_bytes=rss,
+                    peak_sampled_rss_bytes=max(
+                        record.get("peak_sampled_rss_bytes", 0), rss
+                    ),
+                )
                 if reason:
                     raise RuntimeError(reason)
                 write_json(output.with_suffix(".json"), record)

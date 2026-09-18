@@ -144,3 +144,23 @@ def test_campaign_failure_prevents_second_seed(tmp_path, monkeypatch):
     status = json.loads((tmp_path / "campaign/status.json").read_text())
     assert status["state"] == "failed"
     assert status["seeds"] == []
+
+
+def test_disk_monitor_tolerates_atomic_rename(tmp_path):
+    from scripts.local_fullgame import used_bytes
+
+    stable = tmp_path / "published.json"
+    stable.write_bytes(b"12345")
+
+    class RenamedFile:
+        def is_file(self):
+            return True
+
+        def stat(self):
+            raise FileNotFoundError("renamed before stat")
+
+    class Directory:
+        def rglob(self, pattern):
+            return iter((stable, RenamedFile()))
+
+    assert used_bytes(Directory()) == 5
