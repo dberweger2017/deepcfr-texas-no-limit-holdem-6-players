@@ -52,8 +52,8 @@ uses one Torch thread per job and can run up to nine jobs in parallel when the
 host memory check permits it. No GPU or new algorithm is part of this
 campaign.
 
-Run locally for a tiny calibration/verification smoke first. The full run is
-started only after the owner reviews the manifest and live estimate:
+Run locally for a tiny calibration/verification smoke first, then use the
+same manifest and measured estimate to drive the authorized paid run:
 
 ```bash
 python -m scripts.check_multistreet_campaign \

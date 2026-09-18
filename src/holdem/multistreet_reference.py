@@ -323,7 +323,7 @@ def _iter_specs(plan, context_filter=None):
                 f"{plan['stream_namespace']}|{plan['context_seed']}|{row['street']}|"
                 f"{index}|{bool(row.get('facing', False))}"
             ).encode()
-            context_seed = int.from_bytes(sha256(seed_material).digest()[:8], "big") % (2**31)
+            context_seed = int.from_bytes(sha256(seed_material).digest(), "big")
         else:
             # Preserve the pilot's historical seed sequence exactly.
             context_seed = int(plan["context_seed"]) + index

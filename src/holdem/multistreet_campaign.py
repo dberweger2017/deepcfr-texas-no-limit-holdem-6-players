@@ -21,6 +21,7 @@ from typing import Any
 import numpy as np
 
 from src.arena.schedule import digest
+from src.game.hand import card_name
 from src.holdem.actions import bet_candidates
 from src.holdem.multistreet_reference import (
     MultiStreetContext,
@@ -277,6 +278,14 @@ class ReferenceCache:
         return {
             "visible_observation_sha256": sha256(observation.encode()).hexdigest(),
             "assignments_sha256": digest(context.assignments),
+            # Decks and assignments are privileged cache provenance. They are
+            # never passed to model inputs or held-out metric code.
+            "world_decks_sha256": digest(
+                [
+                    tuple(card_name(card) for card in world._state.deck)
+                    for world in context.worlds
+                ]
+            ),
             "world_seeds": list(context.world_seeds),
             "worlds": len(context.worlds),
         }
