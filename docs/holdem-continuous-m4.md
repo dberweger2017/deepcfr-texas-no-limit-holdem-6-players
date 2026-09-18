@@ -41,13 +41,17 @@ state. Retain every evaluation report, learning curve and timing record; compres
 raw outcomes losslessly to `.json.gz`, checking decompressed SHA-256 before
 removing the uncompressed copy. The completed PR #86 artifacts are untouched.
 
-Supervision polls every five seconds. Stop on worker RSS over 7 GiB, combined
-continuous-worker RSS over 12 GiB, less than 12 GiB free disk, or this run's output
-over 8 GiB. Require 20 GiB free at launch. Resource or phase failure stops the
+Supervision polls every five seconds. Following the owner's explicit request,
+RSS is measured but has no per-worker or aggregate cap. Stop on less than
+12 GiB free disk or this run's output over 8 GiB. Require 20 GiB free at launch. Resource or phase failure stops the
 worker and preserves its previous published checkpoint; it does not silently
 restart. Sampling between checks and growing policy archives mean a genuinely
 infinite run on finite hardware is impossible. These safeguards may stop it
-before the owner does. Every future parallel job must join this resource policy.
+before the owner does. Every parallel job uses the same disk and phase protections.
+The supervisor pins iteration 1,024 checkpoint/export files with hard links,
+so rolling retirement cannot remove the main comparison. Pinned files count
+toward the output limit. A verified existing worker can be adopted using
+`--attach-worker PID`; this changes supervision without restarting training.
 
 ## Start, inspect and stop
 

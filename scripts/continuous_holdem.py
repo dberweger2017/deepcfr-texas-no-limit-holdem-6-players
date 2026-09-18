@@ -23,6 +23,57 @@ from src.holdem.training import HoldemTrainer
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def pin_comparison(out, iteration=1024):
+    """Hard links preserve published comparison artifacts without copying bytes."""
+    for directory in out.glob('scenario-*'):
+        target = directory / 'pinned' / str(iteration)
+        marker = directory / f'training-{iteration}.json'
+        if marker.exists():
+            target.mkdir(parents=True, exist_ok=True)
+            for path in (marker.with_suffix('.pt'), marker):
+                if not (target/path.name).exists():
+                    try:
+                        os.link(path, target/path.name)
+                    except FileExistsError:
+                        pass
+        # Exports are atomically published by save_average; metadata stays in place.
+        export = directory / f'average-{iteration}.pt'
+        if export.exists():
+            target.mkdir(parents=True, exist_ok=True)
+            if not (target/export.name).exists():
+                try:
+                    os.link(export, target/export.name)
+                except FileExistsError:
+                    pass
+
+
+class AttachedWorker:
+    """Supervise an existing worker without restarting its training state."""
+
+    def __init__(self, pid, out):
+        command = subprocess.check_output(['ps', '-p', str(pid), '-o', 'command='], text=True)
+        if '-m scripts.continuous_holdem --worker' not in command or str(out) not in command:
+            raise ValueError('PID does not match the requested continuous worker')
+        self.pid, self.out, self.returncode = pid, out, None
+
+    def poll(self):
+        if self.returncode is None:
+            state = subprocess.run(['ps', '-p', str(self.pid), '-o', 'stat='],
+                                   capture_output=True, text=True)
+            if state.returncode or state.stdout.strip().startswith('Z'):
+                status = json.loads((self.out/'status.json').read_text())
+                self.returncode = 0 if status.get('state') == 'stopped' else 1
+        return self.returncode
+
+    def wait(self, timeout=None):
+        start = time.monotonic()
+        while self.poll() is None:
+            if timeout is not None and time.monotonic()-start >= timeout:
+                raise subprocess.TimeoutExpired('attached worker', timeout)
+            time.sleep(0.1)
+        return self.returncode
+
+
 def compact_outputs(directory, keep=2):
     """Retire only this run's older recovery files after publishing a new one."""
     markers = sorted(directory.glob('training-*.json'),
@@ -92,6 +143,7 @@ def worker(plan_path, out, stop_after=None):
     def checkpoint():
         status('running', 'checkpoint', phase_deadline_unix=time.time()+1800)
         _checkpoint(trainer, directory, provenance)
+        pin_comparison(out)
         compact_outputs(directory)
     try:
         while not stopped and not (out/'STOP').exists():
@@ -112,6 +164,7 @@ def worker(plan_path, out, stop_after=None):
             if iteration % plan.evaluate_every == 0 and not stopped and not (out/'STOP').exists():
                 status('running', 'evaluation', phase_deadline_unix=time.time()+1830)
                 evaluate(trainer, scenario, plan, directory, provenance, time.perf_counter()+1800)
+                pin_comparison(out)
                 compact_outputs(directory)
             if stop_after is not None and iteration >= stop_after:
                 stopped = True
@@ -126,21 +179,24 @@ def worker(plan_path, out, stop_after=None):
         raise
 
 
-def supervise(plan, out, stop_after=None):
-    if out.exists():
+def supervise(plan, out, stop_after=None, attach_worker=None):
+    if out.exists() and attach_worker is None:
         raise ValueError('Use a new output directory')
-    if shutil.disk_usage(out.parent).free < 20*GIB:
+    if attach_worker is None and shutil.disk_usage(out.parent).free < 20*GIB:
         raise RuntimeError('Need 20 GiB free at launch')
     command = [sys.executable, '-m', 'scripts.continuous_holdem', '--worker',
                '--plan', str(plan), '--out', str(out)]
     if stop_after is not None:
         command += ['--stop-after', str(stop_after)]
     record_path = out.with_name(out.name+'-supervisor.json')
-    log_path = out.with_name(out.name+'-worker.log')
+    log_path = out.with_name(out.name+('-adopt.log' if attach_worker else '-worker.log'))
     with log_path.open('xb') as log:
-        child = subprocess.Popen(command, cwd=ROOT, stdout=log, stderr=log, start_new_session=True)
+        child = (AttachedWorker(attach_worker, out) if attach_worker is not None else
+                 subprocess.Popen(command, cwd=ROOT, stdout=log, stderr=log, start_new_session=True))
         record = {'state': 'running', 'supervisor_pid': os.getpid(), 'worker_pid': child.pid,
-                  'command': command, 'iteration_limit': None, 'wall_time_limit': None}
+                  'command': command, 'iteration_limit': None, 'wall_time_limit': None,
+                  'memory_limit_bytes': None, 'attached_worker': attach_worker,
+                  'pinned_iteration': 1024}
         write_json(record_path, record)
         def stop(signum, frame):
             if out.exists():
@@ -164,8 +220,7 @@ def supervise(plan, out, stop_after=None):
                 free = shutil.disk_usage(out.parent).free
                 stored = used_bytes(out) if out.exists() else 0
                 state = json.loads((out/'status.json').read_text()) if (out/'status.json').exists() else {}
-                if rss > 7*GIB or combined > 12*GIB:
-                    raise RuntimeError('memory_limit')
+                pin_comparison(out)
                 if free < 12*GIB or stored > 8*GIB:
                     raise RuntimeError('disk_limit')
                 if time.time() > state.get('phase_deadline_unix', float('inf')):
@@ -201,13 +256,19 @@ def main():
     p.add_argument('--plan', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--worker', action='store_true')
+    p.add_argument('--attach-worker', type=int, help='Adopt a verified existing worker PID')
     p.add_argument('--stop-after', type=int, help='Finite boundary for verification only')
     args=p.parse_args()
     if args.stop_after is not None and args.stop_after < 1:
         p.error('stop-after must be positive')
     out=args.out.resolve()
     out.parent.mkdir(parents=True, exist_ok=True)
-    (worker if args.worker else supervise)(args.plan.resolve(), out, args.stop_after)
+    if args.worker:
+        if args.attach_worker is not None:
+            p.error('worker and attach-worker are mutually exclusive')
+        worker(args.plan.resolve(), out, args.stop_after)
+    else:
+        supervise(args.plan.resolve(), out, args.stop_after, args.attach_worker)
 
 
 if __name__ == '__main__':

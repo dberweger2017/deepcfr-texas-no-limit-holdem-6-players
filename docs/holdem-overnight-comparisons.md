@@ -2,8 +2,9 @@
 
 ## Decision and status
 
-**Design only. Neither additional job has been implemented or launched on the
-M4 by this change.** The running [continuous baseline](holdem-continuous-m4.md)
+**Launch authorized by the owner.** The owner subsequently requested both
+comparison runs alongside the control and explicitly removed RAM caps.
+Memory remains measured; disk and phase protections remain enforced. The running [continuous baseline](holdem-continuous-m4.md)
 remains unchanged. This document defines two poker training agents, not two
 coding agents. The next implementation must satisfy the admission checks below
 before starting them.
@@ -210,18 +211,15 @@ Possible outcomes:
 
 ## Launch admission, retention and stopping
 
-No M4 command, job creation, baseline stop or supervisor change is authorized
-by this documentation edit. A later implementation/launch step must:
+The owner has now authorized implementation and launch. The following checks
+apply, with the earlier RAM admission limits superseded by that decision:
 
 1. Generate complete validated configs, verify one-setting diffs against the
    running control, and use a separate pilot seed for bounded resource checks.
    Confirm recovery for both proposed configurations before the long run.
-2. Measure all three workers together. Keep the current 12 GiB aggregate RSS
-   ceiling, 7 GiB per-worker ceiling, phase deadlines and free-disk protections.
+2. Measure all three workers together. Record aggregate RSS without a RAM cap; retain phase deadlines and free-disk protections.
    Do not assume three simultaneous workers fit because two previous workers
-   did. If admission fails, queue the larger-replay arm; do not raise the
-   limits or allow one candidate to kill the existing baseline through the
-   shared guard. A launch coordinator must account for all workers before
+   did. If disk admission fails, queue the larger-replay arm. A launch coordinator must account for all workers before
    admitting additional ones.
 3. Reserve disk for the combined expected outputs, temporary checkpoint writes
    and compression. The existing 20 GiB free-at-launch check per job is not a
