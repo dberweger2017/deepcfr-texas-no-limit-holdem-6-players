@@ -72,6 +72,13 @@ TensorBoard URL, `http://127.0.0.1:16006/#custom_scalars`.
 
 ## Verification
 
+Launched on the M4 on September 18, 2026 at approximately 21:19 UTC from clean
+revision `5cd7e0bd15e374b7b4afec5c184a0716744d0110`. The [launch snapshot](reports/holdem-continuous-m4-launch.json)
+confirms two completed iterations and an active supervised worker. All 17 focused
+tests passed locally and on the M4; a separate supervised three-iteration smoke
+stopped normally. TensorBoard lists the new baseline alongside both completed
+seeds. The first scheduled playing-strength evaluation is at iteration 64.
+
 The bounded three-iteration smoke uses a separate seed and tiny fitting budgets.
 It verifies successful stop, two retained recovery checkpoints/exports, all six
 compressed outcome files, all six learning-curve entries and byte-identical
