@@ -1,6 +1,6 @@
 # Local full-game training with more work per iteration
 
-**The owner authorized launch on the M4 after successful host benchmarks.**
+**Running on the M4 after owner authorization and successful host benchmarks.**
 The [M4 report](reports/holdem-m4-benchmark.md) records that admission. The separate
 Runpod representation campaign in PR #85 is unchanged.
 
@@ -157,3 +157,15 @@ smoke completed 360 hands with zero invalid actions. This verification performed
 no optimizer steps and is not a campaign-seed or playing-strength result. Lint and
 diff whitespace checks pass. Full CI is required before launch; no campaign is
 launched by CI.
+
+## Launch status — September 18, 2026
+
+The [launch record](reports/holdem-local-launch.json) pins revision `2b6bff3`, with
+full CI passed for its unchanged runner implementation at `7b4e237`. The M4 also
+passed all 23 focused checks after updating to that source. Training started at
+16:54 UTC / 18:54 Madrid under a persistent `nohup`/`caffeinate` supervisor, with
+about 40 GiB free. Seed 2026091802 completed its first three iterations normally;
+seed 2026091803 is queued. This is a launch snapshot, not a live status or a result.
+Source remains pinned on the M4 while the batch runs. Check
+`results/local-fullgame/status.json` there for current state. The laptop must stay
+powered and awake; keep its lid open for unattended execution.
