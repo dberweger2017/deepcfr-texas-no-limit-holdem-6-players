@@ -25,7 +25,8 @@ def scalars(value, prefix):
 
 
 class Monitor:
-    def __init__(self, roots, logdir, writer_factory):
+    def __init__(self, roots, logdir, writer_factory, *, simple=False):
+        self.simple = simple
         self.roots = roots
         self.logdir = logdir
         self.writer_factory = writer_factory
@@ -36,13 +37,38 @@ class Monitor:
         identity = (job, source, index, json.dumps(row, sort_keys=True))
         if identity in self.seen:
             return
+        if self.simple:
+            if source == "training-timing.jsonl":
+                values = {"progress/completed_iterations": row["iteration"],
+                          "speed/seconds_per_iteration": row["total_seconds"]}
+            elif source == "curve" and row["benchmark"] == "random":
+                estimate = row["comparison"]["candidate"]
+                values = {"poker/random_bb_per_100": estimate["bb_per_100"]}
+                if estimate["ci95"] is not None:
+                    values.update(zip(("poker/ci95_lower", "poker/ci95_upper"), estimate["ci95"]))
+            else:
+                self.seen.add(identity)
+                return
         if job not in self.writers:
             self.writers[job] = self.writer_factory(str(self.logdir / job))
+            if self.simple:
+                self.writers[job].add_custom_scalars({
+                    "Training": {
+                        "Completed iterations": ["Multiline", ["progress/completed_iterations"]],
+                        "Seconds per iteration": ["Multiline", ["speed/seconds_per_iteration"]],
+                    },
+                    "Poker validation": {
+                        "Profit vs random (BB per 100 hands, 95% interval)": [
+                            "Margin", ["poker/random_bb_per_100", "poker/ci95_lower", "poker/ci95_upper"]
+                        ],
+                    },
+                })
         writer = self.writers[job]
         step = row["iteration"]
-        for tag, value in scalars(row, prefix):
+        measurements = values.items() if self.simple else scalars(row, prefix)
+        for tag, value in measurements:
             writer.add_scalar(tag, value, step)
-        if "status" in row:
+        if not self.simple and "status" in row:
             writer.add_scalar(f"{prefix}/failed", row["status"] != "complete", step)
         writer.flush()
         self.seen.add(identity)
@@ -83,6 +109,7 @@ def main():
     parser.add_argument("--runs", type=Path, nargs="+", required=True)
     parser.add_argument("--logdir", type=Path, required=True)
     parser.add_argument("--once", action="store_true")
+    parser.add_argument("--simple", action="store_true", help="Three charts: progress, speed, and random-opponent validation with uncertainty")
     args = parser.parse_args()
     if len({r.name for r in args.runs}) != len(args.runs):
         parser.error("Run directories must have distinct names")
@@ -90,7 +117,7 @@ def main():
 
     # A restart rebuilds from source records into a new directory, without duplicate events.
     args.logdir.mkdir(parents=True, exist_ok=False)
-    monitor = Monitor(args.runs, args.logdir, SummaryWriter)
+    monitor = Monitor(args.runs, args.logdir, SummaryWriter, simple=args.simple)
     try:
         while True:
             finished = monitor.poll()

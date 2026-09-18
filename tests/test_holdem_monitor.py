@@ -82,3 +82,29 @@ def test_monitor_exports_evaluation_intervals_and_real_events(tmp_path):
         events.Scalars("poker/random/six-100bb/comparison/candidate/ci95/0")[0].value
         == -10
     )
+
+
+def test_simple_monitor_has_three_charts_and_retains_uncertainty(tmp_path):
+    pytest.importorskip("tensorboard")
+    from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+    from torch.utils.tensorboard import SummaryWriter
+
+    monitor = Monitor([], tmp_path, SummaryWriter, simple=True)
+    monitor.emit("seed", "training-timing.jsonl", 0,
+                 {"iteration": 64, "total_seconds": 20, "nodes": 100}, "timing")
+    monitor.emit("seed", "curve", 64,
+                 {"iteration": 64, "benchmark": "random", "comparison": {
+                     "candidate": {"bb_per_100": 42, "ci95": [-10, 94]}}}, "poker")
+    monitor.emit("seed", "iteration-reports.jsonl", 0,
+                 {"iteration": 64, "irrelevant": 1000}, "training")
+    monitor.close()
+    events = EventAccumulator(str(tmp_path / "seed")).Reload()
+    assert set(events.Tags()["scalars"]) == {
+        "progress/completed_iterations", "speed/seconds_per_iteration",
+        "poker/random_bb_per_100", "poker/ci95_lower", "poker/ci95_upper",
+    }
+    assert events.Scalars("poker/ci95_lower")[0].value == -10
+    from tensorboard.plugins.custom_scalar import layout_pb2
+    layout = layout_pb2.Layout.FromString(
+        events.Tensors("custom_scalars__config__")[0].tensor_proto.string_val[0])
+    assert sum(len(category.chart) for category in layout.category) == 3
