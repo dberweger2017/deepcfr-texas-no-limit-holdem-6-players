@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
+import time
 from pathlib import Path
 
 from scripts.runpod_multistreet import EXIT_DEADLINE, build_parser, run
@@ -80,6 +82,44 @@ def test_deadline_terminates_workers_and_keeps_retrieval_ready(tmp_path: Path):
     record = json.loads((tmp_path / "ops/worker-000.json").read_text())
     assert record["termination_reason"] == "work_deadline"
     assert record["returncode"] != 0
+
+
+def test_deadline_kills_child_that_ignores_term(tmp_path: Path):
+    parser = build_parser()
+    args = parser.parse_args(
+        [
+            "run",
+            "--out",
+            str(tmp_path / "ops"),
+            "--workers",
+            "1",
+            "--max-runtime-seconds",
+            "1.1",
+            "--retrieval-reserve-seconds",
+            "0.8",
+            "--term-grace-seconds",
+            "0.1",
+            "--poll-seconds",
+            "0.02",
+        ]
+    )
+    child_pid = tmp_path / "ops/child.pid"
+    code = (
+        "import pathlib,signal,subprocess,sys,time; "
+        f"p=subprocess.Popen([sys.executable,'-c',\"import signal,time; signal.signal(signal.SIGTERM, signal.SIG_IGN); time.sleep(20)\"]); "
+        f"pathlib.Path({str(child_pid)!r}).write_text(str(p.pid)); "
+        "signal.signal(signal.SIGTERM, lambda *_: sys.exit(0)); time.sleep(20)"
+    )
+    assert run(args, [sys.executable, "-c", code]) == EXIT_DEADLINE
+    pid = int(child_pid.read_text())
+    for _ in range(20):
+        try:
+            os.kill(pid, 0)
+        except ProcessLookupError:
+            break
+        time.sleep(0.05)
+    else:
+        raise AssertionError(f"detached child {pid} survived deadline cleanup")
 
 
 def test_resume_skips_verified_completed_worker(tmp_path: Path):

@@ -13,17 +13,20 @@ keys in the repository or the campaign archive.
 ## Runner contract
 
 The command after `--` is an argv template, not a shell string. Supported
-placeholders are `{worker}`, `{seed}`, and `{out}`. The stratified campaign
-runner should accept the following stable interface:
+placeholders are `{worker}`, `{seed}`, and `{out}`. The current campaign entry
+point is `scripts.check_multistreet_campaign`; it owns the three frozen seeds
+`941`, `947`, and `953` from the plan:
 
 ```text
-python -m scripts.stratified_campaign \
-  --plan PLAN.json --seed SEED --out OUTPUT [--resume]
+python -m scripts.check_multistreet_campaign \
+  --plan PLAN.json --out OUTPUT --cache CACHE
 ```
 
-It should publish its own `status.json` and final `report.json` below the
-worker output. The wrapper records the exact expanded argv and does not import
-or infer scientific settings.
+The runner publishes its campaign manifest and fit report below the worker
+output. The wrapper records the exact expanded argv and does not import or
+infer scientific settings. The runner is the owner of internal reference
+parallelism and the nine fit jobs; the wrapper launches one orchestration
+process so those jobs share one cache and one scientific manifest.
 
 ## Remote setup and launch
 
@@ -50,8 +53,10 @@ uv pip install --python .venv/bin/python -r requirements-dev.txt
 .venv/bin/python -m pytest tests/test_runpod_multistreet.py -q
 ```
 
-For the 32-vCPU/64-GB candidate, run three independent seed workers with one
-thread each. A seven-hour wrapper envelope leaves one hour for retrieval; an
+For the 32-vCPU/64-GB candidate, launch one orchestration worker. The runner
+should use the declared internal reference and fit parallelism on that host; a
+per-seed wrapper fan-out would duplicate the reference cache and violate the
+campaign's shared-work contract. A seven-hour wrapper envelope leaves one hour for retrieval; an
 independent eight-hour provider cutoff leaves additional shutdown headroom.
 Recalculate these values from the final quote before provisioning.
 
@@ -59,21 +64,21 @@ Recalculate these values from the final quote before provisioning.
 cd /workspace/poker
 .venv/bin/python -m scripts.runpod_multistreet run \
   --out results/runpod-multistreet-ops \
-  --seeds 911,919,929 \
-  --workers 3 \
+  --workers 1 \
   --max-runtime-seconds 25200 \
   --retrieval-reserve-seconds 3600 \
-  -- python -m scripts.stratified_campaign \
+  -- python -m scripts.check_multistreet_campaign \
     --plan configs/holdem/multistreet-campaign.json \
-    --seed '{seed}' --out '{out}'
+    --out '{out}/campaign' --cache '{out}/reference-cache'
 ```
 
 The shell only supplies the argv template; the wrapper launches the child
-without a shell. If the scientific runner stops partway through, rerun the
-same command with `--resume` after checking its own status files. Completed
-workers with exit code zero are skipped; failed or incomplete workers are
-started again in their existing declared output location only if the runner's
-resume contract permits it.
+without a shell. Reference construction resumes from the stable cache path.
+The scientific runner must provide its own fit-boundary resume flag before a
+partial fit is resumed; the wrapper does not invent or pass one. If the
+runner's status is complete, rerunning with `--resume` on the wrapper skips
+the completed orchestration worker. Incomplete workers are restarted only
+after the runner's own resume contract permits it.
 
 ## Status and exit behavior
 

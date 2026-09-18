@@ -106,25 +106,89 @@ def _expand(command: list[str], *, worker: int, seed: int | None, out: Path) -> 
     return _safe_command(expanded)
 
 
+def _descendant_pids(root: int) -> set[int]:
+    """Find descendants that escaped the root process group on Linux."""
+
+    parents: dict[int, list[int]] = {}
+    proc = Path("/proc")
+    try:
+        entries = list(proc.iterdir())
+    except OSError:
+        return set()
+    for entry in entries:
+        if not entry.name.isdigit():
+            continue
+        try:
+            stat = (entry / "stat").read_text(encoding="utf-8")
+            # The executable name can contain spaces and parentheses.  The
+            # parent PID is the fourth field after the closing name marker.
+            parent_field = stat.rsplit(") ", 1)[1].split()[1]
+            parents.setdefault(int(parent_field), []).append(int(entry.name))
+        except (OSError, IndexError, ValueError):
+            continue
+    found: set[int] = set()
+    queue = list(parents.get(root, ()))
+    while queue:
+        pid = queue.pop()
+        if pid in found or pid == root:
+            continue
+        found.add(pid)
+        queue.extend(parents.get(pid, ()))
+    return found
+
+
+def _signal_process_tree(root: int, signum: signal.Signals) -> set[int]:
+    """Signal the process group and descendants that created a new session."""
+
+    descendants = _descendant_pids(root)
+    try:
+        os.killpg(root, signum)
+    except ProcessLookupError:
+        pass
+    for pid in descendants:
+        try:
+            os.kill(pid, signum)
+        except ProcessLookupError:
+            pass
+    return descendants
+
+
+def _pid_alive(pid: int) -> bool:
+    try:
+        os.kill(pid, 0)
+    except (ProcessLookupError, PermissionError):
+        return False
+    return True
+
+
 def _terminate(process: subprocess.Popen[str], *, grace_seconds: float) -> str:
     """Terminate a process group and return the action taken."""
 
-    if process.poll() is not None:
-        return "already_exited"
-    try:
-        os.killpg(process.pid, signal.SIGTERM)
-    except ProcessLookupError:
-        return "already_exited"
+    descendants = _signal_process_tree(process.pid, signal.SIGTERM)
     try:
         process.wait(timeout=max(0.0, grace_seconds))
-        return "sigterm"
     except subprocess.TimeoutExpired:
+        pass
+    # Always probe and kill the group after the grace window.  The leader may
+    # have obeyed SIGTERM while a multiprocessing child ignored it.  Calling
+    # killpg after wait is safe for this wrapper because each worker starts a
+    # fresh session whose process-group ID is its leader PID.
+    lingering = any(_pid_alive(pid) for pid in descendants)
+    try:
+        os.killpg(process.pid, signal.SIGKILL)
+        lingering = True
+    except ProcessLookupError:
+        pass
+    # Reuse the captured descendant set: a detached child can be re-parented
+    # as soon as the scientific parent exits.
+    for pid in descendants:
         try:
-            os.killpg(process.pid, signal.SIGKILL)
+            os.kill(pid, signal.SIGKILL)
         except ProcessLookupError:
-            return "sigterm"
+            pass
+    if process.poll() is None:
         process.wait()
-        return "sigkill"
+    return "sigkill" if lingering else "sigterm"
 
 
 def _parse_seeds(value: str | None) -> list[int | None]:
