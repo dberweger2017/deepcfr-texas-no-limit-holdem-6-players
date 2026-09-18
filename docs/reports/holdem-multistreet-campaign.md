@@ -123,6 +123,92 @@ production used independent streams; alternative actions within a context
 shared worlds. Per-context worst-pair errors can be much larger than the SE of
 an average paired model difference. These measure different quantities.
 
+## Independent-reference stability audit
+
+A supplementary audit, proposed before campaign completion, compares the saved
+calibration and production streams for their 72 overlapping training contexts.
+It uses the optimized calibration cache (identical numerical results to the
+original) and the frozen production world budgets. River calibration is truncated
+to its first 32 or 16 worlds, so both batches use the same N. No new worlds,
+model fits, validation choices or sealed comparisons were added.
+
+The table reports the combined 1:2 profile targets used for learning. A means
+calibration and B means production. RMSE pools action entries within each
+stratum; policy and cost summaries weight its 12 contexts equally.
+
+| Stratum | Q RMSE BB | Regret RMSE BB | Mean policy TV | Top-action agreement | Cost of A policy on B, BB | Cost of B policy on A, BB |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Flop/open | 0.12873 | 0.08107 | 0.01058 | 12/12 | 0.00000 | 0.00341 |
+| Flop/facing | 0.32686 | 0.23761 | 0.00000 | 12/12 | 0.00000 | 0.00000 |
+| Turn/open | 0.12078 | 0.07597 | 0.00126 | 12/12 | 0.00137 | 0.00149 |
+| Turn/facing | 0.13167 | 0.09547 | 0.00000 | 12/12 | 0.00000 | 0.00000 |
+| River/open | 0.24032 | 0.15033 | 0.00044 | 12/12 | 0.00127 | 0.00142 |
+| River/facing | 0.17334 | 0.12612 | 0.00000 | 12/12 | 0.00000 | 0.00000 |
+
+Best-action sets agree in **72/72 contexts**. Mean policy TV is 0.00205;
+the largest individual TV is 0.12691. Cross-batch costs average 0.00044 BB
+(A on B) and 0.00105 BB (B on A); the largest individual cross-batch cost is
+0.04096 BB. Within-batch costs average 0.00041 and 0.00069 BB respectively.
+Thus differing numerical estimates usually preserve the strategically relevant
+action ordering in this overlap. Flop/open pairwise sign agreement is 97.22%;
+the other five strata have 100% agreement.
+
+The JSON retains each individual profile, pooled Q/regret correlations,
+tie-aware rankings, within-batch costs and signed policy comparisons evaluated
+on the **same** Q batch. Ties use absolute tolerance 1e-12. Regret matching
+need not be greedy, so even identical reference policies can incur nonzero
+cost relative to the best single action. Maximizing noisy Q estimates also
+can inflate decision cost. Neither quantity is exploitability.
+
+The individual profiles are not identical to their combined target. Uniform
+turn/open has best-action agreement in 11/12 contexts and mean TV 0.06193.
+Uniform river/open has cross-batch costs around 0.095–0.096 BB, but its
+within-batch costs are also around 0.094–0.097 BB and mean TV is only 0.00020.
+That is a concrete example of non-greedy regret-matched policy cost, rather
+than evidence that the two reference batches imply very different decisions.
+
+These are descriptive results on twelve training families shared across
+streets, not 72 independent families. Calibration helped select world budgets;
+this is not an independent post-selection precision guarantee. The audit does
+not certify held-out contexts, and it examines the controlled reference builder,
+not the production self-play sampler's noisy replay targets.
+
+**Interpretation:** strategically unstable labels are a weak explanation for
+the model failures on this audited training overlap. Generalization and data
+coverage deserve priority in interpreting the benchmark; we have not established
+which is the main full-game bottleneck. The earlier river-only feature advantage
+did not reproduce consistently in this larger multi-street comparison.
+
+Reproduce locally from the retained cache with:
+
+```bash
+python -m scripts.audit_multistreet_reference_stability
+```
+
+The output is `results/multistreet-reference-stability.json`. It reads saved
+training references and preserves the original campaign's source fingerprints.
+The output SHA-256 is
+`4d6e8442324f7ff3d9062a9114dbdcf327de6b11b631b79ed733dfb7fd24f8fc`.
+Eleven focused audit tests cover signed policy costs, frozen-prefix truncation,
+pooled error aggregation, cache tampering, source/stream mismatches and a missing
+campaign context. The audit plus full-game experiment/reproduction subset passed
+all 20 tests after the audit source was frozen.
+
+## Decision and next task
+
+Retain all three architectures and the frozen protocol as controls. Do not
+promote the two successful card-branch seeds while ignoring the third, increase
+fitting duration across the board, or spend another rental merely to repeat this
+comparison. The current narrow benchmark does not justify abandoning neural CFR.
+
+The next bounded task is to locate the expensive generalization errors using
+saved training, tuning and validation records: action margins, visible hand/board
+structure and coverage of those structures in training. Keep the sealed candidate
+models closed. Use that analysis to select one targeted data or representation
+change and predeclare a fresh confirmation comparison. Full-game replay noise
+and postflop coverage remain separate open problems; this audit does not clear
+them. Another paid campaign needs its own measured cost and decision rule.
+
 ## Operations and artifact recovery
 
 The rental used 32 vCPU and 64 GB RAM in Runpod's 3 GHz pool (reported AMD EPYC
