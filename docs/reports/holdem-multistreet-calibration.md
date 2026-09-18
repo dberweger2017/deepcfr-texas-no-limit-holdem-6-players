@@ -58,3 +58,29 @@ contamination. It identified three operational hardening issues:
 
 No model has been fitted or promoted. Final resource admission and results
 will be recorded after the optimization checks.
+
+## Collector equivalence and resource check
+
+Commit `6fcfb3957dbbd4f7cd987fc5bdcac99216edfb15` retains only the root
+statistics needed by this benchmark. Local tests compare the complete returned
+reference, including node counts, with the original enumerator on open and
+facing flop/turn contexts. All eight optimization/timeout checks pass; the
+preceding reference/invariance checks passed 25 tests.
+
+A fresh process on the rental then recomputed the first eight worlds of one
+original calibration context in each of the six strata, under both profiles.
+All twelve comparisons exactly matched saved per-world values and the derived
+root value/regret targets. The process completed in 110.19 seconds and peaked
+at 201.00 MiB RSS. Its unopened-flop profiles each traversed 264,248 nodes in
+40.50 and 41.06 seconds. The original full-stream timings for those profiles
+were 8.48 and 8.07 seconds per world, versus 5.06 and 5.13 in this small check;
+the different concurrency means this is an admission estimate, not a controlled
+speedup claim.
+
+Using these timings gives a preliminary 325,665.62 worker-second production
+projection, or 4.24 hours at 32 workers with a 1.5 allowance. Full admission
+still requires the repeated 72-context calibration to reproduce the original
+precision results exactly and its measured memory/runtime to fit the remaining
+rental allowance. The scientific source for that repetition is `c273427`.
+The external driver reserves 90 minutes for fitting and 45 minutes before the
+provider cutoff for completion, retrieval and shutdown.
