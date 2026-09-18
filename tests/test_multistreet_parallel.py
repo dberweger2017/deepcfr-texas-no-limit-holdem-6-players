@@ -13,6 +13,7 @@ from src.arena.schedule import digest
 from src.holdem.actions import bet_candidates
 from src.holdem.multistreet_campaign import ReferenceCache
 from src.holdem.multistreet_collection import collect_rows
+from src.holdem.multistreet_fitting import fit_all
 from src.holdem.multistreet_reference import build_context
 from src.holdem.representation_reference import range_support
 from src.holdem.targets import CandidateTargets
@@ -64,8 +65,8 @@ def _fit_fixture():
     target = CandidateTargets(
         candidates,
         tuple(1 / count for _ in candidates.actions),
-        tuple(0.0 for _ in candidates.actions),
-        tuple(0.0 for _ in candidates.actions),
+        tuple(float(i) for i in range(count)),
+        tuple(i - (count - 1) / 2 for i in range(count)),
     )
     rows = [
         {
@@ -79,8 +80,8 @@ def _fit_fixture():
             "uncertainty": ["estimated", "estimated"],
             "action_se": [0.0] * count,
             "world_action_values_bb": [
-                tuple(0.0 for _ in candidates.actions),
-                tuple(0.0 for _ in candidates.actions),
+                tuple(float(i) for i in range(count)),
+                tuple(float(i) for i in range(count)),
             ],
         }
         for split in ("train", "tuning", "validation", "test")
@@ -89,7 +90,7 @@ def _fit_fixture():
         "format": "tiny-multistreet-fit-v1",
         "durations": [1, 2],
         "variants": ["scaled_baseline"],
-        "seeds": [1],
+        "seeds": [1, 2],
         "batch_size": 2,
         "learning_rate": 0.001,
         "gradient_clip": 1.0,
@@ -134,8 +135,11 @@ def test_serial_and_spawn_reference_rows_match(tmp_path: Path):
 
 def test_fit_process_seed_equivalence_and_completed_cache_resume(tmp_path: Path):
     plan, rows = _fit_fixture()
-    targets = {split: [row["target"] for row in rows if row["split"] == split] for split in ("train", "tuning")}
-    serial = __import__("src.holdem.multistreet_fitting", fromlist=["fit_all"]).fit_all(
+    targets = {
+        split: [row["target"] for row in rows if row["split"] == split]
+        for split in ("train", "tuning")
+    }
+    serial = fit_all(
         targets,
         plan,
         deadline=10**9,
@@ -143,7 +147,7 @@ def test_fit_process_seed_equivalence_and_completed_cache_resume(tmp_path: Path)
         identity="tiny-fit",
         workers=1,
     )
-    parallel = __import__("src.holdem.multistreet_fitting", fromlist=["fit_all"]).fit_all(
+    parallel = fit_all(
         targets,
         plan,
         deadline=10**9,
@@ -151,17 +155,19 @@ def test_fit_process_seed_equivalence_and_completed_cache_resume(tmp_path: Path)
         identity="tiny-fit",
         workers=2,
     )
-    assert [(row[0], row[1]) for row in serial] == [(row[0], row[1]) for row in parallel]
+    assert [(row[0], row[1]) for row in serial] == [
+        (row[0], row[1]) for row in parallel
+    ]
     for left, right in zip(serial, parallel, strict=True):
         assert left[2] == right[2]
         for step in left[3]:
             for name in left[3][step]:
                 assert torch.equal(left[3][step][name], right[3][step][name])
 
-    resumed = __import__("src.holdem.multistreet_fitting", fromlist=["fit_all"]).fit_all(
+    resumed = fit_all(
         targets,
         plan,
-        deadline=10**9,
+        deadline=0,
         cache_dir=tmp_path / "parallel-fit",
         identity="tiny-fit",
         workers=2,
@@ -169,7 +175,9 @@ def test_fit_process_seed_equivalence_and_completed_cache_resume(tmp_path: Path)
     assert resumed[0][2] == parallel[0][2]
 
 
-def test_completed_fit_resume_rejects_changed_plan_or_source(tmp_path: Path, monkeypatch):
+def test_completed_fit_resume_rejects_changed_plan_or_source(
+    tmp_path: Path, monkeypatch
+):
     plan, rows = _fit_fixture()
     out = tmp_path / "fit"
     assert pilot.run(plan, out, reference_rows=rows)["status"] == "completed"
