@@ -1,0 +1,189 @@
+{
+  "purpose": "M4 resource benchmark; no playing-strength inference",
+  "environment": {
+    "environment": {
+      "engine": {
+        "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+        "binaries": {
+          "pokers/pokers.cpython-311-darwin.so": "0700ac54783869030559782e58064ff1e229e8b0b950297845beaa143f7d95bd"
+        }
+      },
+      "python": "3.11.14 (main, Oct  9 2025, 16:16:55) [Clang 17.0.0 (clang-1700.6.3.2)]",
+      "implementation": "CPython",
+      "platform": "macOS-26.6-arm64-arm-64bit",
+      "machine": "arm64",
+      "packages": {
+        "tensorboard": "2.21.0",
+        "packaging": "26.3",
+        "protobuf": "7.36.2",
+        "iniconfig": "2.3.0",
+        "Pygments": "2.21.0",
+        "networkx": "3.6.1",
+        "filelock": "4.0.0",
+        "numpy": "1.26.4",
+        "fsspec": "2026.7.0",
+        "grpcio": "1.84.0",
+        "absl-py": "2.5.0",
+        "setuptools": "80.10.2",
+        "mpmath": "1.3.0",
+        "torch": "2.5.1",
+        "Jinja2": "3.1.6",
+        "Markdown": "3.10.3",
+        "pytest": "9.0.3",
+        "MarkupSafe": "3.0.3",
+        "Werkzeug": "3.1.8",
+        "pluggy": "1.6.0",
+        "sympy": "1.13.1",
+        "typing_extensions": "4.16.0",
+        "tensorboard-data-server": "0.7.2",
+        "scipy": "1.17.0",
+        "pillow": "12.3.0",
+        "pip": "26.0",
+        "pokers": "0.2.0"
+      }
+    },
+    "revision": "5e4ee376a24d138b070bac520d1e9b013647fe9e",
+    "source_sha256": "81bfaf9c9279f714cd7a6e8e9f8517f97685b0c77ab3fb3f3a2f18fd72e3fdb4",
+    "host": "machdep.cpu.brand_string: Apple M4\nhw.memsize: 17179869184\nhw.ncpu: 10\n",
+    "started": "2026-09-18T16:34:01.260221+00:00"
+  },
+  "four_iterations": {
+    "seed": 2026091801,
+    "iterations": 4,
+    "runtime_seconds": 98.31234804200358,
+    "stage_seconds": {
+      "collection_seconds": 24.436460582975997,
+      "fitting_seconds": 39.41101950095617,
+      "replay_seconds": 2.731123251025565,
+      "total_seconds": 66.88623066799482
+    },
+    "last_eight_iteration_mean_seconds": 16.721557666998706,
+    "last_eight_iteration_median_seconds": 16.489710792011465,
+    "maximum_recorded_training_rss_bytes": 912457728,
+    "final_stored_records": 9941,
+    "checkpoints": [
+      {
+        "bytes": 129997497,
+        "iteration": 4,
+        "seconds": 22.763589625013992
+      }
+    ]
+  },
+  "sustained32": {
+    "seed": 2026091804,
+    "iterations": 32,
+    "runtime_seconds": 735.1129755829752,
+    "stage_seconds": {
+      "collection_seconds": 275.04513987500104,
+      "fitting_seconds": 299.33531787712127,
+      "replay_seconds": 20.21175808738917,
+      "total_seconds": 596.7052515409887
+    },
+    "last_eight_iteration_mean_seconds": 18.508113859246805,
+    "last_eight_iteration_median_seconds": 18.467874353998923,
+    "maximum_recorded_training_rss_bytes": 4266639360,
+    "final_stored_records": 24576,
+    "checkpoints": [
+      {
+        "bytes": 316592924,
+        "iteration": 16,
+        "seconds": 57.054778999998234
+      },
+      {
+        "bytes": 330669377,
+        "iteration": 32,
+        "seconds": 58.521534375002375
+      }
+    ]
+  },
+  "cross_machine_comparison": {
+    "integer_workload_matches": true,
+    "per_role_record_counts_match": true,
+    "current_profile_matches": false,
+    "archive_profiles_match": false,
+    "replay_fingerprints_match": false,
+    "m1_runtime_seconds": 160.54024616698734,
+    "m4_runtime_seconds": 98.31234804200358,
+    "observed_overall_speedup": 1.6329611627055955
+  },
+  "verification": {
+    "state": "complete",
+    "training_steps_added": 6144,
+    "active": null,
+    "matching_files": 12
+  },
+  "same_host_hash_checks": [
+    {
+      "original": "repeat4/scenario-0-seed-2026091801/training-4.pt",
+      "recovered": "reproduced4/scenario-0-seed-2026091801/training-4.pt",
+      "sha256": "dbe60726c76bcb6acc65b12bfe95e4fc652d3229d098c8cf5e84a0836b651952",
+      "matching": true
+    },
+    {
+      "original": "repeat4/scenario-0-seed-2026091801/average-4.pt",
+      "recovered": "reproduced4/scenario-0-seed-2026091801/average-4.pt",
+      "sha256": "6f61bcec82c8993575ebbc5e15140e4be2517c790b7d661139efca3ab3d9fd39",
+      "matching": true
+    },
+    {
+      "original": "repeat4/scenario-0-seed-2026091801/evaluation-4.json",
+      "recovered": "reproduced4/scenario-0-seed-2026091801/evaluation-4.json",
+      "sha256": "95b1df0dea2a2666d83d4ecd1b451d6fd2bae3cc16b0491a6594ecd3eed20c81",
+      "matching": true
+    },
+    {
+      "original": "repeat4/scenario-0-seed-2026091801/evaluation-4-random.json",
+      "recovered": "reproduced4/scenario-0-seed-2026091801/evaluation-4-random.json",
+      "sha256": "2a35d824eee4039c241cec273f4d3374a6def50b48e73741833c3e636d51330e",
+      "matching": true
+    },
+    {
+      "original": "repeat4/scenario-0-seed-2026091801/outcomes-4.json",
+      "recovered": "reproduced4/scenario-0-seed-2026091801/outcomes-4.json",
+      "sha256": "445b50314129cf7f0f4a26081aecc5a93936d0d617b98048a5bbfbaaec2be586",
+      "matching": true
+    },
+    {
+      "original": "repeat4/scenario-0-seed-2026091801/outcomes-4-random.json",
+      "recovered": "reproduced4/scenario-0-seed-2026091801/outcomes-4-random.json",
+      "sha256": "5e3997a9c81a4aab9cdab9a9c4cdba9d024a104968c3bf3bb350da991ca8d9ed",
+      "matching": true
+    },
+    {
+      "original": "sustained32/scenario-0-seed-2026091804/training-32.pt",
+      "recovered": "resumed32/scenario-0-seed-2026091804/training-32.pt",
+      "sha256": "3cd1a5e0d1657664079f82dabf4daf4450bff8516ab5f882b342eb297daab333",
+      "matching": true
+    },
+    {
+      "original": "sustained32/scenario-0-seed-2026091804/average-32.pt",
+      "recovered": "resumed32/scenario-0-seed-2026091804/average-32.pt",
+      "sha256": "fc3d2dc3a990af86a476f0ff7c894cec3ab31ddd8bf8e36062ef7144c4cdfb1b",
+      "matching": true
+    },
+    {
+      "original": "sustained32/scenario-0-seed-2026091804/evaluation-32.json",
+      "recovered": "resumed32/scenario-0-seed-2026091804/evaluation-32.json",
+      "sha256": "2421a686c3b74b7375452b6dae76de8315a0795d61ce315f2e2793f545c20c72",
+      "matching": true
+    },
+    {
+      "original": "sustained32/scenario-0-seed-2026091804/evaluation-32-random.json",
+      "recovered": "resumed32/scenario-0-seed-2026091804/evaluation-32-random.json",
+      "sha256": "f12e33870a6b118688f690d0b85d4f127a7814a7d836bb62d563fa0c183ed27d",
+      "matching": true
+    },
+    {
+      "original": "sustained32/scenario-0-seed-2026091804/outcomes-32.json",
+      "recovered": "resumed32/scenario-0-seed-2026091804/outcomes-32.json",
+      "sha256": "5740cf220b7e985ac1d90138688c7ebb0e22c181a8b16445247a11f070fa05d1",
+      "matching": true
+    },
+    {
+      "original": "sustained32/scenario-0-seed-2026091804/outcomes-32-random.json",
+      "recovered": "resumed32/scenario-0-seed-2026091804/outcomes-32-random.json",
+      "sha256": "b0e6957e2ac2b822d8527b6242e6510cab36e2bb082bffadc71c13359b839265",
+      "matching": true
+    }
+  ]
+}

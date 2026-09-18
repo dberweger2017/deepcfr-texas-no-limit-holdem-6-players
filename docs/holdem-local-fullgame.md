@@ -1,8 +1,8 @@
 # Local full-game training with more work per iteration
 
-**Prepared, not launched. The owner requires a final go before training.**
-No scheduler, background training process or automatic start is installed by this
-PR. The separate Runpod representation campaign in PR #85 is unchanged.
+**The owner authorized launch on the M4 after successful host benchmarks.**
+The [M4 report](reports/holdem-m4-benchmark.md) records that admission. The separate
+Runpod representation campaign in PR #85 is unchanged.
 
 ## Purpose and fixed recipe
 
@@ -55,9 +55,10 @@ training RSS. Saving the fourth checkpoint took 34.25 seconds and wrote
 selection. The raw pilot remains under the original checkout's ignored
 `results/local-training-proposal-20260918/timing-run/` directory.
 
-This is an Apple M1 with 16 GiB RAM. Estimate 3–5 hours per seed; early measurements
-do not bound mature replay, serialization or archive costs. Earlier completed
-512-iteration jobs used about 5 GB peak process memory.
+The original pilot used an Apple M1 with 16 GiB RAM and suggested 3–5 hours per
+seed. The subsequent [M4 benchmark](reports/holdem-m4-benchmark.md) supports using
+the M4 instead, with 2–3 hours per seed and unchanged six-hour ceilings. Earlier
+completed 512-iteration jobs used about 5 GB peak process memory.
 
 ## Runtime and storage limits
 
@@ -76,7 +77,8 @@ are new and never overwritten. Any worker failure stops the batch; completed
 artifacts and the failure reason remain. No result-based retries or extensions.
 A resource failure is an incomplete batch, not evidence against the learner.
 
-Recheck free space alongside PR #85 retrieval immediately before launch. Do not
+Recheck M4 free space immediately before launch. PR #85 retrieval remains on
+the M1 and does not share the M4 output volume. Do not
 delete other experiments to make room. There is no paid compute and no change
 to the Runpod budget. Interrupted jobs require an explicit reviewed continuation,
 not an automatic restart with another fresh time allowance.
@@ -120,12 +122,13 @@ sampling extremes, clipped steps, fitting metrics and stage timings already
 emitted by the trainer. Preserve hand outcomes and learning curves. This PR does
 not add a diagnostic sweep or change the original checkpoint schedule.
 
-## Launch only after the owner's final go
+## Authorized M4 launch
 
-From the committed campaign worktree with the supported Python environment:
+The owner gave the conditional go on September 18; host checks passed. From the
+committed M4 checkout with its `.venv` environment:
 
 ```sh
-python -m scripts.local_fullgame \
+.venv/bin/python -m scripts.local_fullgame \
   --plan configs/holdem/local-fullgame.json \
   --out results/local-fullgame
 ```
