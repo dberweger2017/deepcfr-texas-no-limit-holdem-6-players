@@ -22,6 +22,14 @@ random opponents on the same 1,024-block validation schedule as the completed
 M4 campaign. These are monitoring results, not new held-out release evidence.
 There is no automatic final test, promotion, restart, or additional seed launch.
 
+## Planned comparison agents
+
+The [two overnight comparison designs](holdem-overnight-comparisons.md) specify
+second-decision collection and a fourfold replay increase as separate arms.
+They are documentation only: neither additional M4 worker is launched, and
+the running control remains unchanged. Resource admission and preservation of
+the main comparison checkpoint are required before later implementation.
+
 ## Storage and resource protection
 
 Keep the latest two complete recovery checkpoints and latest two policy exports.
