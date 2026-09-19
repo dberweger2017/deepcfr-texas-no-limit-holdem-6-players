@@ -1,0 +1,342 @@
+{
+  "started_utc": "2026-09-19T11:25:18.734086+00:00",
+  "revision": "2c23594ca843af4fad207d36d1b833a82002d58e",
+  "free_bytes_before": 39862779904,
+  "arms": {
+    "current-4k": {
+      "supervisor_pid": 56214,
+      "out": "/Users/dberweger/Local/deepcfr-training/results/day-current-4k-2026091902",
+      "config": {
+        "seeds": [
+          2026091902
+        ],
+        "scenarios": [
+          {
+            "name": "six-100bb",
+            "stacks": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ],
+            "small_blind": 1,
+            "big_blind": 2,
+            "chip_unit": "1"
+          }
+        ],
+        "training": {
+          "seed": 0,
+          "capacity": 4096,
+          "traversals_per_player": 128,
+          "max_nodes": 1000000,
+          "max_seconds": 600,
+          "fit": {
+            "width": 32,
+            "steps": 256,
+            "batch_size": 32,
+            "learning_rate": 0.001,
+            "diagnostic_samples": 128,
+            "architecture": "current"
+          },
+          "sampler": "first-decision",
+          "exploration": 0.5
+        },
+        "save_every": 64,
+        "evaluate_every": 64,
+        "blocks": 1024,
+        "evaluation_seed": 2026091910,
+        "opponents": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "benchmarks": [
+          "random"
+        ],
+        "campaign": {
+          "iterations": 1024,
+          "evaluate_at": [
+            64,
+            128,
+            256,
+            512,
+            768,
+            1024
+          ],
+          "random_at": [
+            256,
+            512,
+            1024
+          ],
+          "final_blocks": 2048,
+          "final_seed": 2026091920,
+          "output_limit_gib": 16
+        }
+      },
+      "status": {
+        "state": "running",
+        "phase": "training",
+        "seed": 2026091902,
+        "iteration": 2,
+        "pid": 56240,
+        "updated_unix": 1789817157.239289,
+        "phase_deadline_unix": 1789817787.239285
+      },
+      "supervisor": {
+        "state": "running",
+        "supervisor_pid": 56214,
+        "worker_pid": 56240,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-day-training/configs/holdem/day-current-4k.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/day-current-4k-2026091902"
+        ],
+        "iteration_limit": 1024,
+        "wall_time_limit": null,
+        "output_limit_bytes": 17179869184,
+        "memory_limit_bytes": null,
+        "attached_worker": null,
+        "pinned_iteration": 1024,
+        "rss_bytes": 900743168,
+        "combined_rss_bytes": 2723266560,
+        "free_bytes": 39864647680,
+        "stored_bytes": 9047,
+        "peak_rss_bytes": 900743168
+      },
+      "process": "56240  99.9 880048 00:52"
+    },
+    "current-16k": {
+      "supervisor_pid": 56215,
+      "out": "/Users/dberweger/Local/deepcfr-training/results/day-current-16k-2026091902",
+      "config": {
+        "seeds": [
+          2026091902
+        ],
+        "scenarios": [
+          {
+            "name": "six-100bb",
+            "stacks": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ],
+            "small_blind": 1,
+            "big_blind": 2,
+            "chip_unit": "1"
+          }
+        ],
+        "training": {
+          "seed": 0,
+          "capacity": 16384,
+          "traversals_per_player": 128,
+          "max_nodes": 1000000,
+          "max_seconds": 600,
+          "fit": {
+            "width": 32,
+            "steps": 256,
+            "batch_size": 32,
+            "learning_rate": 0.001,
+            "diagnostic_samples": 128,
+            "architecture": "current"
+          },
+          "sampler": "first-decision",
+          "exploration": 0.5
+        },
+        "save_every": 64,
+        "evaluate_every": 64,
+        "blocks": 1024,
+        "evaluation_seed": 2026091910,
+        "opponents": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "benchmarks": [
+          "random"
+        ],
+        "campaign": {
+          "iterations": 1024,
+          "evaluate_at": [
+            64,
+            128,
+            256,
+            512,
+            768,
+            1024
+          ],
+          "random_at": [
+            256,
+            512,
+            1024
+          ],
+          "final_blocks": 2048,
+          "final_seed": 2026091920,
+          "output_limit_gib": 16
+        }
+      },
+      "status": {
+        "state": "running",
+        "phase": "training",
+        "seed": 2026091902,
+        "iteration": 2,
+        "pid": 56239,
+        "updated_unix": 1789817157.219916,
+        "phase_deadline_unix": 1789817787.2199109
+      },
+      "supervisor": {
+        "state": "running",
+        "supervisor_pid": 56215,
+        "worker_pid": 56239,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-day-training/configs/holdem/day-current-16k.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/day-current-16k-2026091902"
+        ],
+        "iteration_limit": 1024,
+        "wall_time_limit": null,
+        "output_limit_bytes": 17179869184,
+        "memory_limit_bytes": null,
+        "attached_worker": null,
+        "pinned_iteration": 1024,
+        "rss_bytes": 900661248,
+        "combined_rss_bytes": 2723479552,
+        "free_bytes": 39864619008,
+        "stored_bytes": 9047,
+        "peak_rss_bytes": 900661248
+      },
+      "process": "56239  99.8 879760 00:52"
+    },
+    "paper-16k": {
+      "supervisor_pid": 56216,
+      "out": "/Users/dberweger/Local/deepcfr-training/results/day-paper-16k-2026091902",
+      "config": {
+        "seeds": [
+          2026091902
+        ],
+        "scenarios": [
+          {
+            "name": "six-100bb",
+            "stacks": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ],
+            "small_blind": 1,
+            "big_blind": 2,
+            "chip_unit": "1"
+          }
+        ],
+        "training": {
+          "seed": 0,
+          "capacity": 16384,
+          "traversals_per_player": 128,
+          "max_nodes": 1000000,
+          "max_seconds": 600,
+          "fit": {
+            "width": 64,
+            "steps": 256,
+            "batch_size": 32,
+            "learning_rate": 0.001,
+            "diagnostic_samples": 128,
+            "architecture": "paper"
+          },
+          "sampler": "first-decision",
+          "exploration": 0.5
+        },
+        "save_every": 64,
+        "evaluate_every": 64,
+        "blocks": 1024,
+        "evaluation_seed": 2026091910,
+        "opponents": [
+          "tight_passive",
+          "loose_passive",
+          "tight_aggressive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "benchmarks": [
+          "random"
+        ],
+        "campaign": {
+          "iterations": 1024,
+          "evaluate_at": [
+            64,
+            128,
+            256,
+            512,
+            768,
+            1024
+          ],
+          "random_at": [
+            256,
+            512,
+            1024
+          ],
+          "final_blocks": 2048,
+          "final_seed": 2026091920,
+          "output_limit_gib": 16
+        }
+      },
+      "status": {
+        "state": "running",
+        "phase": "training",
+        "seed": 2026091902,
+        "iteration": 2,
+        "pid": 56238,
+        "updated_unix": 1789817163.601866,
+        "phase_deadline_unix": 1789817793.601862
+      },
+      "supervisor": {
+        "state": "running",
+        "supervisor_pid": 56216,
+        "worker_pid": 56238,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-day-training/configs/holdem/day-paper-16k.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/day-paper-16k-2026091902"
+        ],
+        "iteration_limit": 1024,
+        "wall_time_limit": null,
+        "output_limit_bytes": 17179869184,
+        "memory_limit_bytes": null,
+        "attached_worker": null,
+        "pinned_iteration": 1024,
+        "rss_bytes": 921862144,
+        "combined_rss_bytes": 2723479552,
+        "free_bytes": 39864627200,
+        "stored_bytes": 9042,
+        "peak_rss_bytes": 921862144
+      },
+      "process": "56238 100.0 900256 00:53"
+    }
+  },
+  "monitor_pid": 56219,
+  "verified_utc": "2026-09-19T11:26:12.994406+00:00"
+}

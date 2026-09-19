@@ -1,0 +1,239 @@
+{
+  "checked_utc": "2026-09-19T11:22:18.922809+00:00",
+  "arms": {
+    "current-4k": {
+      "status": {
+        "state": "stopped",
+        "phase": "idle",
+        "seed": 2026091995,
+        "iteration": 4,
+        "pid": 55746,
+        "updated_unix": 1789816921.2720551,
+        "reason": "requested_stop"
+      },
+      "parameter_count_per_role": 25602,
+      "checkpoint_bytes": 13526288,
+      "export_bytes": 1926352,
+      "recovery_exact": true,
+      "export_distribution_exact": true,
+      "iteration_seconds": [
+        18.34508304198971,
+        16.975153417006368,
+        18.630490291980095,
+        19.108083957980853
+      ],
+      "first_fitted_fingerprint": "da86a8f4f3db074ce159421a154c1086596e7cbf5e559f1245c550d55b514625",
+      "first_fit_losses": [
+        {
+          "loss_before": 1627572.25,
+          "loss_after": 1558084.0
+        },
+        {
+          "loss_before": 890402.5625,
+          "loss_after": 848312.9375
+        },
+        {
+          "loss_before": 1979041.375,
+          "loss_after": 1717747.375
+        },
+        {
+          "loss_before": 4265567.0,
+          "loss_after": 4231623.5
+        },
+        {
+          "loss_before": 8492763.0,
+          "loss_after": 8844175.0
+        },
+        {
+          "loss_before": 1173211.125,
+          "loss_after": 1174428.0
+        }
+      ],
+      "supervisor": {
+        "state": "stopped",
+        "supervisor_pid": 55738,
+        "worker_pid": 55746,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-training/results/day-pilot-current-4k-plan.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/day-pilot-current-4k",
+          "--stop-after",
+          "4"
+        ],
+        "iteration_limit": 1024,
+        "wall_time_limit": null,
+        "output_limit_bytes": 17179869184,
+        "memory_limit_bytes": null,
+        "attached_worker": null,
+        "pinned_iteration": 1024,
+        "rss_bytes": 1821442048,
+        "combined_rss_bytes": 4858527744,
+        "free_bytes": 30531096576,
+        "stored_bytes": 14603,
+        "peak_rss_bytes": 1821442048,
+        "returncode": 0
+      }
+    },
+    "current-16k": {
+      "status": {
+        "state": "stopped",
+        "phase": "idle",
+        "seed": 2026091995,
+        "iteration": 4,
+        "pid": 55749,
+        "updated_unix": 1789816921.517637,
+        "reason": "requested_stop"
+      },
+      "parameter_count_per_role": 25602,
+      "checkpoint_bytes": 13518013,
+      "export_bytes": 1926352,
+      "recovery_exact": true,
+      "export_distribution_exact": true,
+      "iteration_seconds": [
+        18.368540291005047,
+        17.000185334007256,
+        18.660064583003987,
+        19.116693584015593
+      ],
+      "first_fitted_fingerprint": "da86a8f4f3db074ce159421a154c1086596e7cbf5e559f1245c550d55b514625",
+      "first_fit_losses": [
+        {
+          "loss_before": 1627572.25,
+          "loss_after": 1558084.0
+        },
+        {
+          "loss_before": 890402.5625,
+          "loss_after": 848312.9375
+        },
+        {
+          "loss_before": 1979041.375,
+          "loss_after": 1717747.375
+        },
+        {
+          "loss_before": 4265567.0,
+          "loss_after": 4231623.5
+        },
+        {
+          "loss_before": 8492763.0,
+          "loss_after": 8844175.0
+        },
+        {
+          "loss_before": 1173211.125,
+          "loss_after": 1174428.0
+        }
+      ],
+      "supervisor": {
+        "state": "stopped",
+        "supervisor_pid": 55739,
+        "worker_pid": 55749,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-training/results/day-pilot-current-16k-plan.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/day-pilot-current-16k",
+          "--stop-after",
+          "4"
+        ],
+        "iteration_limit": 1024,
+        "wall_time_limit": null,
+        "output_limit_bytes": 17179869184,
+        "memory_limit_bytes": null,
+        "attached_worker": null,
+        "pinned_iteration": 1024,
+        "rss_bytes": 1696235520,
+        "combined_rss_bytes": 4679254016,
+        "free_bytes": 30531076096,
+        "stored_bytes": 14605,
+        "peak_rss_bytes": 1755561984,
+        "returncode": 0
+      }
+    },
+    "paper-16k": {
+      "status": {
+        "state": "stopped",
+        "phase": "idle",
+        "seed": 2026091995,
+        "iteration": 4,
+        "pid": 55750,
+        "updated_unix": 1789816938.707071,
+        "reason": "requested_stop"
+      },
+      "parameter_count_per_role": 172866,
+      "checkpoint_bytes": 28854852,
+      "export_bytes": 12616059,
+      "recovery_exact": true,
+      "export_distribution_exact": true,
+      "iteration_seconds": [
+        19.084135041979607,
+        20.965181832987582,
+        24.160981959023047,
+        26.760205917002168
+      ],
+      "first_fitted_fingerprint": "ba9a7afa33e983959c6369c33fa6d1b5cd133a02c3564731c10aaab4e8551f0d",
+      "first_fit_losses": [
+        {
+          "loss_before": 1626112.625,
+          "loss_after": 1500691.375
+        },
+        {
+          "loss_before": 890996.6875,
+          "loss_after": 813843.75
+        },
+        {
+          "loss_before": 1979684.75,
+          "loss_after": 1680674.75
+        },
+        {
+          "loss_before": 4259510.0,
+          "loss_after": 4212876.5
+        },
+        {
+          "loss_before": 8455975.0,
+          "loss_after": 7710015.5
+        },
+        {
+          "loss_before": 1169321.5,
+          "loss_after": 1114042.25
+        }
+      ],
+      "supervisor": {
+        "state": "stopped",
+        "supervisor_pid": 55740,
+        "worker_pid": 55750,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-training/results/day-pilot-paper-16k-plan.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/day-pilot-paper-16k",
+          "--stop-after",
+          "4"
+        ],
+        "iteration_limit": 1024,
+        "wall_time_limit": null,
+        "output_limit_bytes": 17179869184,
+        "memory_limit_bytes": null,
+        "attached_worker": null,
+        "pinned_iteration": 1024,
+        "rss_bytes": 2102657024,
+        "combined_rss_bytes": 2102657024,
+        "free_bytes": 30503927808,
+        "stored_bytes": 14588,
+        "peak_rss_bytes": 2102657024,
+        "returncode": 0
+      }
+    }
+  }
+}

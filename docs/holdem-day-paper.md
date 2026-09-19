@@ -75,3 +75,40 @@ storage-accounting and finite campaign tests pass, plus separate-seed M4 pilots
 with the actual learning budgets. Record parameter counts, fitting loss before/
 after, checkpoint sizes and estimated final storage. Runtime is measured, not
 promised to finish during daylight.
+
+## Verified launch — September 19
+
+[PR #89](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/89)
+launched all three workers from clean revision `2c23594`.
+The [launch record](reports/holdem-day-paper-launch.json) freezes their configs
+and PIDs; the [pilot report](reports/holdem-day-paper-pilot.json) contains
+measured timing, recovery and fitting results. All 747 repository tests passed
+locally in 287 seconds. Nine focused architecture/continuous/storage tests
+passed on the M4. Each production-budget pilot completed four iterations on
+separate seed 2026091995, then passed byte-identical checkpoint recovery and
+exact exported-policy distribution checks. A/B first fitted profile hashes
+match; all six paper first fits reduced diagnostic loss, with a combined
+7.3% reduction. This is a learning-plumbing check, not playing strength.
+
+The controls average 18.3 seconds per early iteration; paper averages 22.7.
+Linear early-cost estimates give 5.2 and 6.5 training hours respectively,
+excluding evaluation and checkpoint time. Costs can grow with the archive.
+There are 25,602 parameters per control role and 172,866 per paper role.
+At 1,024 iterations, their raw six-role float32 archives are approximately
+0.59 and 3.96 GiB. Reserving three archive copies across all arms allows about
+15.4 GiB for overlapping rolling checkpoint/export publication; allow another
+2 GiB for compressed replay, metadata and evaluation output. These are storage
+estimates, not a RAM reservation. Peak RAM can exceed steady-state training RSS
+during serialization, and there is no owner-imposed RAM cap.
+
+On a complete old 16K replay checkpoint, JSON record compression reduced
+1,281,410,158 bytes to 124,590,398 bytes in a streaming measurement. To restore
+space, only the 8.8 GiB duplicate M4 transfer archive was removed after its
+SHA-256 matched the local archive and the recorded overnight digest. Original
+M4 overnight folders and the local archive remain intact. Free disk was about
+37 GiB before launch, above the estimated batch peak plus the 12 GiB floor.
+
+TensorBoard uses the existing port 6006/tunnel 16006, with the new monitor
+writing under `tensorboard-m4-continuous/daytime`. First validation points arrive
+at iteration 64. Training stops at 1,024 and the frozen fresh-deal scripted
+evaluation runs automatically before recording completion.
