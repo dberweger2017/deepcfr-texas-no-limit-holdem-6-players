@@ -51,7 +51,7 @@ class AttachedWorker:
     """Supervise an existing worker without restarting its training state."""
 
     def __init__(self, pid, out):
-        command = subprocess.check_output(['ps', '-p', str(pid), '-o', 'command='], text=True)
+        command = subprocess.check_output(['ps', '-ww', '-p', str(pid), '-o', 'command='], text=True)
         if '-m scripts.continuous_holdem --worker' not in command or str(out) not in command:
             raise ValueError('PID does not match the requested continuous worker')
         self.pid, self.out, self.returncode = pid, out, None
@@ -214,7 +214,7 @@ def supervise(plan, out, stop_after=None, attach_worker=None):
                 if measured.returncode and child.poll() is None:
                     raise RuntimeError('Cannot measure worker RSS')
                 rss = int(measured.stdout.strip() or 0)*1024
-                all_processes = subprocess.check_output(['ps','-axo','rss=,command='],text=True)
+                all_processes = subprocess.check_output(['ps','-ww','-axo','rss=,command='],text=True)
                 combined = sum(int(line.split(None,1)[0])*1024 for line in all_processes.splitlines()
                                if '-m scripts.continuous_holdem --worker' in line)
                 free = shutil.disk_usage(out.parent).free

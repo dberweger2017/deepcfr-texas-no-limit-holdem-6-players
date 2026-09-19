@@ -60,6 +60,9 @@ def test_pinned_comparison_survives_retirement(tmp_path):
 def test_adopt_worker_without_restart(tmp_path):
     import time
 
+    tmp_path = tmp_path / ("long-worker-directory-" * 8)
+    tmp_path.mkdir()
+
     root = Path(__file__).resolve().parents[1]
     recipe = json.loads((root/'configs/holdem/continuous-m4.json').read_text())
     recipe.update(seeds=[2026091998], blocks=2, save_every=64, evaluate_every=64)
