@@ -98,3 +98,19 @@ def test_adopt_worker_without_restart(tmp_path):
         if child.poll() is None:
             child.kill()
             child.wait()
+
+
+def test_output_budget_counts_pinned_hard_links_once(tmp_path):
+    import os
+    from scripts.local_fullgame import used_bytes
+
+    checkpoint = tmp_path / 'checkpoint.pt'
+    checkpoint.write_bytes(b'x' * 1024)
+    pinned = tmp_path / 'pinned'
+    pinned.mkdir()
+    os.link(checkpoint, pinned / checkpoint.name)
+    assert used_bytes(tmp_path) == 1024
+    checkpoint.unlink()
+    assert used_bytes(tmp_path) == 1024
+    (tmp_path / 'another.pt').write_bytes(b'x' * 1024)
+    assert used_bytes(tmp_path) == 2048
