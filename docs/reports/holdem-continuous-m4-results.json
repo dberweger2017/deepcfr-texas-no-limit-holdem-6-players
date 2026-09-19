@@ -1,0 +1,711 @@
+{
+  "arms": {
+    "baseline": {
+      "status": {
+        "state": "stopped",
+        "phase": "idle",
+        "seed": 2026091901,
+        "iteration": 1685,
+        "pid": 54309,
+        "updated_unix": 1789811243.810972,
+        "reason": "requested_stop"
+      },
+      "supervisor": {
+        "state": "stopped",
+        "supervisor_pid": 55640,
+        "worker_pid": 54309,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-training/configs/holdem/continuous-m4.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/baseline-continuous-2026091901"
+        ],
+        "iteration_limit": null,
+        "wall_time_limit": null,
+        "memory_limit_bytes": null,
+        "attached_worker": 54309,
+        "pinned_iteration": 1024,
+        "rss_bytes": 3141779456,
+        "combined_rss_bytes": 7344062464,
+        "free_bytes": 37648375808,
+        "stored_bytes": 6944509922,
+        "peak_rss_bytes": 7503593472,
+        "returncode": 0
+      },
+      "evaluations": {
+        "64": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -847.2819010416666,
+            "ci95": [
+              -1001.2271421556659,
+              -693.3366599276674
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2045,
+          "preflop_all_in_hands": 2267,
+          "hands": 6144,
+          "outcomes_sha256": "e66a36e868701b2f1f6957668b0c55175241b55b5ebc5f13ac9748b6808d3c26",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "256": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -958.6100260416666,
+            "ci95": [
+              -1134.947731306231,
+              -782.2723207771023
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2501,
+          "preflop_all_in_hands": 2728,
+          "hands": 6144,
+          "outcomes_sha256": "292865420a01ae78461f087bd841357a5c9c5ff111f4f5e9e413860fdf1a738c",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "512": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -905.126953125,
+            "ci95": [
+              -1067.7391260704499,
+              -742.51478017955
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2029,
+          "preflop_all_in_hands": 2256,
+          "hands": 6144,
+          "outcomes_sha256": "5f3b914d4a33381c2cc28e8586d9b6bd710e62516ad5d54be9ce7b9198179991",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "960": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -900.2278645833334,
+            "ci95": [
+              -1056.2492313174987,
+              -744.206497849168
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 1857,
+          "preflop_all_in_hands": 2101,
+          "hands": 6144,
+          "outcomes_sha256": "ff467b803c2ca96efc5df759cee6d88e6e322a182ccbba1a0773feeace07add9",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "1024": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -905.5419921875,
+            "ci95": [
+              -1064.268690765748,
+              -746.8152936092521
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 1870,
+          "preflop_all_in_hands": 2135,
+          "hands": 6144,
+          "outcomes_sha256": "cee07bcfb2cb92b1c40e6f1a1cfd6bf15d7cc0fba267104cb71d76d9be6e1c04",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "1600": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -971.2158203125,
+            "ci95": [
+              -1134.3104978167962,
+              -808.1211428082038
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2148,
+          "preflop_all_in_hands": 2385,
+          "hands": 6144,
+          "outcomes_sha256": "66d57204e761085202df73c71c69ea2a0214a7e26fcd25784b432177f1704f65",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "1664": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -1029.8177083333333,
+            "ci95": [
+              -1187.4626517927497,
+              -872.1727648739168
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2114,
+          "preflop_all_in_hands": 2385,
+          "hands": 6144,
+          "outcomes_sha256": "a85f94cd4437f92530b8016dc4c67af93e1510f872cc98eb2e4a199b4175c9ce",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        }
+      },
+      "first_1024": {
+        "roots": 786432,
+        "nodes": 28206083,
+        "training_seconds": 25848.01378275061,
+        "collection_seconds": 12821.47722173488,
+        "fitting_seconds": 11928.798503057624,
+        "postflop_root_fraction": 0.12196858723958333,
+        "postflop_record_fraction": 0.08256635557654085,
+        "max_regret_update_bb": 204961940.859375,
+        "clipped_steps": 1572864,
+        "fitting_steps": 1572864
+      }
+    },
+    "branching": {
+      "status": {
+        "state": "stopped",
+        "phase": "idle",
+        "seed": 2026091901,
+        "iteration": 1659,
+        "pid": 55855,
+        "updated_unix": 1789811250.3224452,
+        "reason": "requested_stop"
+      },
+      "supervisor": {
+        "state": "stopped",
+        "supervisor_pid": 55848,
+        "worker_pid": 55855,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-comparisons/configs/holdem/continuous-m4-branching.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/branching-continuous-2026091901"
+        ],
+        "iteration_limit": null,
+        "wall_time_limit": null,
+        "memory_limit_bytes": null,
+        "attached_worker": null,
+        "pinned_iteration": 1024,
+        "rss_bytes": 3837296640,
+        "combined_rss_bytes": 8094728192,
+        "free_bytes": 39044034560,
+        "stored_bytes": 6685262771,
+        "peak_rss_bytes": 7242514432,
+        "returncode": 0
+      },
+      "evaluations": {
+        "64": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -1280.7779947916667,
+            "ci95": [
+              -1461.3320373533697,
+              -1100.2239522299637
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2418,
+          "preflop_all_in_hands": 2824,
+          "hands": 6144,
+          "outcomes_sha256": "728700fe32abcebb259a02785d91b4e7a2159c88acfac1ebc586394b05fece35",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "256": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -1007.0638020833334,
+            "ci95": [
+              -1175.4892716423626,
+              -838.6383325243041
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2106,
+          "preflop_all_in_hands": 2397,
+          "hands": 6144,
+          "outcomes_sha256": "7570016bd72338c0e7ff6e119364d25aba6346ef08aa4631ffe6d4629831af73",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "512": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -1104.8665364583333,
+            "ci95": [
+              -1281.5401485952339,
+              -928.1929243214328
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2777,
+          "preflop_all_in_hands": 3035,
+          "hands": 6144,
+          "outcomes_sha256": "966b108ad87a2d61fb2a74d54725fa80087c8cf522fbc0c0b164f64fdb538be8",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "960": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -1127.2623697916667,
+            "ci95": [
+              -1308.3591145963546,
+              -946.1656249869789
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2871,
+          "preflop_all_in_hands": 3133,
+          "hands": 6144,
+          "outcomes_sha256": "81c6fb15a04c02ec8b70291253b57fbfca922b1f3d5db16cfa6f0313ed4b9e99",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "1024": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -1173.5188802083333,
+            "ci95": [
+              -1357.3956140251746,
+              -989.6421463914919
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2792,
+          "preflop_all_in_hands": 3031,
+          "hands": 6144,
+          "outcomes_sha256": "05db1a7250b2c5cee6095d667e32aeebdf9a16d32033b26f31bba3701293079d",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "1600": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -1221.826171875,
+            "ci95": [
+              -1403.0703791856338,
+              -1040.5819645643662
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2687,
+          "preflop_all_in_hands": 2954,
+          "hands": 6144,
+          "outcomes_sha256": "121131374bd6fad4bf32734ce4cd87895064db0eea2fe54d0342db32ad9bbfde",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        }
+      },
+      "first_1024": {
+        "roots": 786432,
+        "nodes": 27104554,
+        "training_seconds": 24673.6139145185,
+        "collection_seconds": 11521.385577236564,
+        "fitting_seconds": 12229.107859177515,
+        "postflop_root_fraction": 0.047826131184895836,
+        "postflop_record_fraction": 0.053374527594434854,
+        "max_regret_update_bb": 54451306.39648436,
+        "clipped_steps": 1572864,
+        "fitting_steps": 1572864
+      }
+    },
+    "replay": {
+      "status": {
+        "state": "failed",
+        "phase": "evaluation",
+        "seed": 2026091901,
+        "iteration": 1024,
+        "pid": 55856,
+        "updated_unix": 1789799093.39416,
+        "phase_deadline_unix": 1789800923.394114,
+        "error": "RuntimeError('disk_limit')"
+      },
+      "supervisor": {
+        "state": "failed",
+        "supervisor_pid": 55849,
+        "worker_pid": 55856,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-comparisons/configs/holdem/continuous-m4-replay.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/replay-continuous-2026091901"
+        ],
+        "iteration_limit": null,
+        "wall_time_limit": null,
+        "memory_limit_bytes": null,
+        "attached_worker": null,
+        "pinned_iteration": 1024,
+        "rss_bytes": 1186136064,
+        "combined_rss_bytes": 5156667392,
+        "free_bytes": 39796867072,
+        "stored_bytes": 8497313438,
+        "peak_rss_bytes": 6094618624,
+        "error": "RuntimeError('disk_limit')"
+      },
+      "evaluations": {
+        "64": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -872.4446614583334,
+            "ci95": [
+              -1031.2583403787696,
+              -713.6309825378971
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2387,
+          "preflop_all_in_hands": 2604,
+          "hands": 6144,
+          "outcomes_sha256": "a284606a207d790a3f2f99da33379ca680db9b693680b7c032525da64f98e457",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "256": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -803.4749348958334,
+            "ci95": [
+              -947.6909355827938,
+              -659.2589342088729
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 1871,
+          "preflop_all_in_hands": 2075,
+          "hands": 6144,
+          "outcomes_sha256": "4eccbccc02f4b59781b0e1450ffa81a95f66fcefca222f82098065b8a407938d",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "512": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -781.25,
+            "ci95": [
+              -931.3613782633761,
+              -631.1386217366239
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 1786,
+          "preflop_all_in_hands": 2013,
+          "hands": 6144,
+          "outcomes_sha256": "6e967d8da1d2e32fb3c7e3a0a65f7b2ad7ddef147a25ce01c1b05483b5da59be",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "960": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -791.7561848958334,
+            "ci95": [
+              -941.784121736933,
+              -641.7282480547337
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 2029,
+          "preflop_all_in_hands": 2209,
+          "hands": 6144,
+          "outcomes_sha256": "786027be99ce748176c0cb95a21600566ace1285f6dd3d82c809514846723214",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        },
+        "1024": {
+          "estimate": {
+            "blocks": 1024,
+            "bb_per_100": -714.1927083333334,
+            "ci95": [
+              -867.9606595434032,
+              -560.4247571232636
+            ],
+            "reason": null
+          },
+          "first_action_shoves": 1987,
+          "preflop_all_in_hands": 2179,
+          "hands": 6144,
+          "outcomes_sha256": "879fbff4150503ae8214fe25dddf8afa3e4e07ad258ae8b8385311c554c02d49",
+          "schedule_sha256": "243b2ac53831d8e06059aca2d79c46b76bb2b557d1577aa2d97a6828e9ec012e",
+          "control_outcomes_sha256": "6f71f2c54cee62ba28f3fa44c92341b79a45f4d2ccbea4bf93d8847f74a2e138"
+        }
+      },
+      "first_1024": {
+        "roots": 786432,
+        "nodes": 25423420,
+        "training_seconds": 24212.20080614646,
+        "collection_seconds": 11478.154996924335,
+        "fitting_seconds": 11694.71215281618,
+        "postflop_root_fraction": 0.07680765787760417,
+        "postflop_record_fraction": 0.05914044132969074,
+        "max_regret_update_bb": 867190285.3580476,
+        "clipped_steps": 1572864,
+        "fitting_steps": 1572864
+      }
+    }
+  },
+  "paired": {
+    "branching": {
+      "256": {
+        "candidate": {
+          "blocks": 1024,
+          "bb_per_100": -1007.0638020833334,
+          "ci95": [
+            -1175.4892716423626,
+            -838.6383325243041
+          ],
+          "reason": null
+        },
+        "baseline": {
+          "blocks": 1024,
+          "bb_per_100": -958.6100260416666,
+          "ci95": [
+            -1134.947731306231,
+            -782.2723207771023
+          ],
+          "reason": null
+        },
+        "paired_difference": {
+          "blocks": 1024,
+          "bb_per_100": -48.453776041666664,
+          "ci95": [
+            -231.11191679510543,
+            134.20436471177212
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive"
+      },
+      "512": {
+        "candidate": {
+          "blocks": 1024,
+          "bb_per_100": -1104.8665364583333,
+          "ci95": [
+            -1281.5401485952339,
+            -928.1929243214328
+          ],
+          "reason": null
+        },
+        "baseline": {
+          "blocks": 1024,
+          "bb_per_100": -905.126953125,
+          "ci95": [
+            -1067.7391260704499,
+            -742.51478017955
+          ],
+          "reason": null
+        },
+        "paired_difference": {
+          "blocks": 1024,
+          "bb_per_100": -199.73958333333334,
+          "ci95": [
+            -375.9159694846519,
+            -23.563197182014818
+          ],
+          "reason": null
+        },
+        "conclusion": "baseline_better"
+      },
+      "960": {
+        "candidate": {
+          "blocks": 1024,
+          "bb_per_100": -1127.2623697916667,
+          "ci95": [
+            -1308.3591145963546,
+            -946.1656249869789
+          ],
+          "reason": null
+        },
+        "baseline": {
+          "blocks": 1024,
+          "bb_per_100": -900.2278645833334,
+          "ci95": [
+            -1056.2492313174987,
+            -744.206497849168
+          ],
+          "reason": null
+        },
+        "paired_difference": {
+          "blocks": 1024,
+          "bb_per_100": -227.03450520833334,
+          "ci95": [
+            -394.72231138290977,
+            -59.34669903375689
+          ],
+          "reason": null
+        },
+        "conclusion": "baseline_better"
+      },
+      "1024": {
+        "candidate": {
+          "blocks": 1024,
+          "bb_per_100": -1173.5188802083333,
+          "ci95": [
+            -1357.3956140251746,
+            -989.6421463914919
+          ],
+          "reason": null
+        },
+        "baseline": {
+          "blocks": 1024,
+          "bb_per_100": -905.5419921875,
+          "ci95": [
+            -1064.268690765748,
+            -746.8152936092521
+          ],
+          "reason": null
+        },
+        "paired_difference": {
+          "blocks": 1024,
+          "bb_per_100": -267.9768880208333,
+          "ci95": [
+            -424.1504517032158,
+            -111.80332433845078
+          ],
+          "reason": null
+        },
+        "conclusion": "baseline_better"
+      }
+    },
+    "replay": {
+      "256": {
+        "candidate": {
+          "blocks": 1024,
+          "bb_per_100": -803.4749348958334,
+          "ci95": [
+            -947.6909355827938,
+            -659.2589342088729
+          ],
+          "reason": null
+        },
+        "baseline": {
+          "blocks": 1024,
+          "bb_per_100": -958.6100260416666,
+          "ci95": [
+            -1134.947731306231,
+            -782.2723207771023
+          ],
+          "reason": null
+        },
+        "paired_difference": {
+          "blocks": 1024,
+          "bb_per_100": 155.13509114583334,
+          "ci95": [
+            -16.800680108274577,
+            327.07086239994123
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive"
+      },
+      "512": {
+        "candidate": {
+          "blocks": 1024,
+          "bb_per_100": -781.25,
+          "ci95": [
+            -931.3613782633761,
+            -631.1386217366239
+          ],
+          "reason": null
+        },
+        "baseline": {
+          "blocks": 1024,
+          "bb_per_100": -905.126953125,
+          "ci95": [
+            -1067.7391260704499,
+            -742.51478017955
+          ],
+          "reason": null
+        },
+        "paired_difference": {
+          "blocks": 1024,
+          "bb_per_100": 123.876953125,
+          "ci95": [
+            -46.93838920605785,
+            294.6922954560579
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive"
+      },
+      "960": {
+        "candidate": {
+          "blocks": 1024,
+          "bb_per_100": -791.7561848958334,
+          "ci95": [
+            -941.784121736933,
+            -641.7282480547337
+          ],
+          "reason": null
+        },
+        "baseline": {
+          "blocks": 1024,
+          "bb_per_100": -900.2278645833334,
+          "ci95": [
+            -1056.2492313174987,
+            -744.206497849168
+          ],
+          "reason": null
+        },
+        "paired_difference": {
+          "blocks": 1024,
+          "bb_per_100": 108.47167968749999,
+          "ci95": [
+            -53.464323137522896,
+            270.40768251252285
+          ],
+          "reason": null
+        },
+        "conclusion": "inconclusive"
+      },
+      "1024": {
+        "candidate": {
+          "blocks": 1024,
+          "bb_per_100": -714.1927083333334,
+          "ci95": [
+            -867.9606595434032,
+            -560.4247571232636
+          ],
+          "reason": null
+        },
+        "baseline": {
+          "blocks": 1024,
+          "bb_per_100": -905.5419921875,
+          "ci95": [
+            -1064.268690765748,
+            -746.8152936092521
+          ],
+          "reason": null
+        },
+        "paired_difference": {
+          "blocks": 1024,
+          "bb_per_100": 191.34928385416666,
+          "ci95": [
+            25.08436139355831,
+            357.614206314775
+          ],
+          "reason": null
+        },
+        "conclusion": "candidate_better"
+      }
+    }
+  },
+  "scope": "Exploratory single-seed validation; rotations clustered within deal blocks."
+}

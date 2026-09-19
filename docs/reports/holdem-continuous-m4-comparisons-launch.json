@@ -1,0 +1,117 @@
+{
+  "checked_utc": "2026-09-18T21:37:40.819364+00:00",
+  "baseline_training_revision": "5cd7e0bd15e374b7b4afec5c184a0716744d0110",
+  "comparison_and_supervision_revision": "f83237df110b6cee87a7615fcc80bb41b59a7a58",
+  "m4_continuous_tests_passed": 5,
+  "production_pilots_recovery": "Both separate-seed one-iteration production-size checkpoints load and re-save to identical SHA-256",
+  "runs": {
+    "baseline": {
+      "status": {
+        "state": "running",
+        "phase": "training",
+        "seed": 2026091901,
+        "iteration": 59,
+        "pid": 54309,
+        "updated_unix": 1789767459.530587,
+        "phase_deadline_unix": 1789768089.5305831
+      },
+      "supervisor": {
+        "state": "running",
+        "supervisor_pid": 55640,
+        "worker_pid": 54309,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-training/configs/holdem/continuous-m4.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/baseline-continuous-2026091901"
+        ],
+        "iteration_limit": null,
+        "wall_time_limit": null,
+        "memory_limit_bytes": null,
+        "attached_worker": 54309,
+        "pinned_iteration": 1024,
+        "rss_bytes": 1302347776,
+        "combined_rss_bytes": 3397402624,
+        "free_bytes": 22261555200,
+        "stored_bytes": 165071,
+        "peak_rss_bytes": 1302347776
+      }
+    },
+    "branching": {
+      "status": {
+        "state": "running",
+        "phase": "training",
+        "seed": 2026091901,
+        "iteration": 1,
+        "pid": 55855,
+        "updated_unix": 1789767445.714554,
+        "phase_deadline_unix": 1789768075.71455
+      },
+      "supervisor": {
+        "state": "running",
+        "supervisor_pid": 55848,
+        "worker_pid": 55855,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-comparisons/configs/holdem/continuous-m4-branching.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/branching-continuous-2026091901"
+        ],
+        "iteration_limit": null,
+        "wall_time_limit": null,
+        "memory_limit_bytes": null,
+        "attached_worker": null,
+        "pinned_iteration": 1024,
+        "rss_bytes": 1180827648,
+        "combined_rss_bytes": 3396206592,
+        "free_bytes": 22261559296,
+        "stored_bytes": 5985,
+        "peak_rss_bytes": 1180827648
+      }
+    },
+    "replay": {
+      "status": {
+        "state": "running",
+        "phase": "training",
+        "seed": 2026091901,
+        "iteration": 2,
+        "pid": 55856,
+        "updated_unix": 1789767457.5096052,
+        "phase_deadline_unix": 1789768087.509601
+      },
+      "supervisor": {
+        "state": "running",
+        "supervisor_pid": 55849,
+        "worker_pid": 55856,
+        "command": [
+          "/Users/dberweger/Local/deepcfr-training/.venv/bin/python",
+          "-m",
+          "scripts.continuous_holdem",
+          "--worker",
+          "--plan",
+          "/Users/dberweger/Local/deepcfr-comparisons/configs/holdem/continuous-m4-replay.json",
+          "--out",
+          "/Users/dberweger/Local/deepcfr-training/results/replay-continuous-2026091901"
+        ],
+        "iteration_limit": null,
+        "wall_time_limit": null,
+        "memory_limit_bytes": null,
+        "attached_worker": null,
+        "pinned_iteration": 1024,
+        "rss_bytes": 913162240,
+        "combined_rss_bytes": 3396206592,
+        "free_bytes": 22261563392,
+        "stored_bytes": 5991,
+        "peak_rss_bytes": 913162240
+      }
+    }
+  }
+}
