@@ -9,10 +9,10 @@ historical; it does not authorize another launch.
 
 **Launch authorized by the owner.** The owner subsequently requested both
 comparison runs alongside the control and explicitly removed RAM caps.
-Memory remains measured; disk and phase protections remain enforced. The running [continuous baseline](holdem-continuous-m4.md)
-remains unchanged. This document defines two poker training agents, not two
-coding agents. The next implementation must satisfy the admission checks below
-before starting them.
+Memory was measured; disk and phase protections remained enforced. The
+[continuous baseline](holdem-continuous-m4.md) kept its learning recipe. The
+following records the predeclared designs and admission conditions for the
+completed three-arm run.
 
 Use the baseline as the control and change one training setting in each new
 arm. Do not combine the changes yet:

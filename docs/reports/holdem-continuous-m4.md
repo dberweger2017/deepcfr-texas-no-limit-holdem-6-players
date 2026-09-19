@@ -64,6 +64,13 @@ completed random evaluation at that boundary; its last one, at 960, is +44.17
 
 ## Did longer training help?
 
+![Training curves and first-action shove rates](holdem-continuous-m4.png)
+
+The vertical line marks the predeclared 1,024 comparison. These are correlated
+validation curves, not independent tests; the action-rate panel uses the
+explicitly audited checkpoints.
+
+
 | Iteration | Baseline styles BB/100 | Branching | Larger replay |
 | --- | ---: | ---: | ---: |
 | 64 | −847.28 | −1,280.78 | −872.44 |
