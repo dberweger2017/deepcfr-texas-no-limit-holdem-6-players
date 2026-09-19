@@ -111,6 +111,9 @@ def compact_outputs(directory, keep=2):
 
 def worker(plan_path, out, stop_after=None):
     recipe = json.loads(plan_path.read_text())
+    campaign = recipe.pop('campaign', None)
+    limit = campaign['iterations'] if campaign else None
+    keep = 1 if campaign else 2
     plan = Experiment.from_dict({**recipe, 'iterations': 1, 'max_seconds': 1800})
     if len(plan.seeds) != 1 or len(plan.scenarios) != 1 or plan.reference:
         raise ValueError('Continuous baseline needs one seed/scenario and no reference')
@@ -118,9 +121,9 @@ def worker(plan_path, out, stop_after=None):
     provenance = manifest(plan)
     provenance.pop('plan')
     provenance.update(format='holdem-continuous-v1', recipe=recipe,
-                      iteration_limit=None, wall_time_limit=None,
+                      iteration_limit=limit, wall_time_limit=None, campaign=campaign,
                       stop_after_for_verification=stop_after,
-                      retention={'recovery_checkpoints': 2, 'policy_exports': 2,
+                      retention={'recovery_checkpoints': keep, 'policy_exports': keep,
                                  'outcomes': 'all retained losslessly compressed'})
     write_json(out/'manifest.json', provenance)
     seed, scenario = plan.seeds[0], plan.scenarios[0]
@@ -137,6 +140,13 @@ def worker(plan_path, out, stop_after=None):
     signal.signal(signal.SIGTERM, stop)
     signal.signal(signal.SIGINT, stop)
     evaluation_deals = {d for b in build_schedule(plan.arena(scenario)) for d in b.deal_seeds}
+    if campaign:
+        final_plan = replace(plan, blocks=campaign['final_blocks'],
+                             evaluation_seed=campaign['final_seed'], benchmarks=())
+        final_deals = {d for b in build_schedule(final_plan.arena(scenario)) for d in b.deal_seeds}
+        if evaluation_deals & final_deals:
+            raise ValueError('Validation/final deal overlap')
+        evaluation_deals |= final_deals
     def status(state, phase, **extra):
         write_json(out/'status.json', dict(state=state, phase=phase, seed=seed,
                    iteration=trainer.iteration, pid=os.getpid(), updated_unix=time.time(), **extra))
@@ -144,9 +154,9 @@ def worker(plan_path, out, stop_after=None):
         status('running', 'checkpoint', phase_deadline_unix=time.time()+1800)
         _checkpoint(trainer, directory, provenance)
         pin_comparison(out)
-        compact_outputs(directory)
+        compact_outputs(directory, keep=keep)
     try:
-        while not stopped and not (out/'STOP').exists():
+        while not stopped and not (out/'STOP').exists() and (limit is None or trainer.iteration < limit):
             iteration = trainer.iteration+1
             if any(collection_seed(seed, iteration, role, sample, 'deal') in evaluation_deals
                    for role in range(len(scenario.stacks))
@@ -161,17 +171,30 @@ def worker(plan_path, out, stop_after=None):
             _append(directory/'iteration-reports.jsonl', asdict(trainer.reports[-1]))
             if iteration % plan.save_every == 0:
                 checkpoint()
-            if iteration % plan.evaluate_every == 0 and not stopped and not (out/'STOP').exists():
+            evaluate_now = (iteration in campaign['evaluate_at'] if campaign else iteration % plan.evaluate_every == 0)
+            if evaluate_now and not stopped and not (out/'STOP').exists():
                 status('running', 'evaluation', phase_deadline_unix=time.time()+1830)
-                evaluate(trainer, scenario, plan, directory, provenance, time.perf_counter()+1800)
+                evaluation_plan = (replace(plan, benchmarks=plan.benchmarks if iteration in campaign['random_at'] else ())
+                                   if campaign else plan)
+                evaluate(trainer, scenario, evaluation_plan, directory, provenance, time.perf_counter()+1800)
                 pin_comparison(out)
-                compact_outputs(directory)
+                compact_outputs(directory, keep=keep)
             if stop_after is not None and iteration >= stop_after:
                 stopped = True
         if trainer.iteration and not (directory/f'training-{trainer.iteration}.json').exists():
             checkpoint()
-        status('stopped', 'idle', reason='requested_stop')
-        write_json(out/'result.json', {'complete': False, 'stopped': True,
+        complete = bool(campaign and trainer.iteration == limit and not stopped and not (out/'STOP').exists())
+        if complete:
+            status('running', 'final_evaluation', phase_deadline_unix=time.time()+3630)
+            final_directory = directory/'final'
+            final_directory.mkdir()
+            original = directory/f'average-{limit}.pt'
+            os.link(original, final_directory/original.name)
+            evaluate(trainer, scenario, final_plan, final_directory, provenance,
+                     time.perf_counter()+3600, reuse_export=True)
+            compact_outputs(final_directory, keep=1)
+        status('complete' if complete else 'stopped', 'idle', reason='iteration_limit' if complete else 'requested_stop')
+        write_json(out/'result.json', {'complete': complete, 'stopped': not complete,
                    'iteration': trainer.iteration, 'promoted': False})
     except BaseException as exc:
         status('failed', 'idle', error=repr(exc))
@@ -180,6 +203,8 @@ def worker(plan_path, out, stop_after=None):
 
 
 def supervise(plan, out, stop_after=None, attach_worker=None):
+    campaign = json.loads(plan.read_text()).get('campaign')
+    output_limit = (campaign['output_limit_gib'] if campaign else 8)*GIB
     if out.exists() and attach_worker is None:
         raise ValueError('Use a new output directory')
     if attach_worker is None and shutil.disk_usage(out.parent).free < 20*GIB:
@@ -194,7 +219,8 @@ def supervise(plan, out, stop_after=None, attach_worker=None):
         child = (AttachedWorker(attach_worker, out) if attach_worker is not None else
                  subprocess.Popen(command, cwd=ROOT, stdout=log, stderr=log, start_new_session=True))
         record = {'state': 'running', 'supervisor_pid': os.getpid(), 'worker_pid': child.pid,
-                  'command': command, 'iteration_limit': None, 'wall_time_limit': None,
+                  'command': command, 'iteration_limit': campaign['iterations'] if campaign else None, 'wall_time_limit': None,
+                  'output_limit_bytes': output_limit,
                   'memory_limit_bytes': None, 'attached_worker': attach_worker,
                   'pinned_iteration': 1024}
         write_json(record_path, record)
@@ -221,7 +247,7 @@ def supervise(plan, out, stop_after=None, attach_worker=None):
                 stored = used_bytes(out) if out.exists() else 0
                 state = json.loads((out/'status.json').read_text()) if (out/'status.json').exists() else {}
                 pin_comparison(out)
-                if free < 12*GIB or stored > 8*GIB:
+                if free < 12*GIB or stored > output_limit:
                     raise RuntimeError('disk_limit')
                 if time.time() > state.get('phase_deadline_unix', float('inf')):
                     raise RuntimeError('phase_deadline')

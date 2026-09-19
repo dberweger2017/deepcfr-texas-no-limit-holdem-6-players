@@ -25,6 +25,8 @@ def _fingerprint(models: tuple[BettingNetwork | None, ...]) -> str:
             digest.update(b"uniform-candidates")
             continue
         digest.update(f"width-{model.encoder.width}".encode())
+        if model.architecture != "current":
+            digest.update(f"architecture-{model.architecture}".encode())
         for name, value in sorted(model.state_dict().items()):
             digest.update(f"{name}/{tuple(value.shape)}/{value.dtype}/".encode())
             digest.update(value.detach().cpu().numpy().tobytes())

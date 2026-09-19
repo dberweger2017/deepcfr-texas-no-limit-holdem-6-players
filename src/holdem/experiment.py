@@ -1,6 +1,7 @@
 """Bounded training and frozen-arena reports with independent save/evaluation cadence."""
 
 import json
+import hashlib
 from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 from time import perf_counter
@@ -208,12 +209,16 @@ def _learning_curve(out, reports):
     write_json(path, [merged[k] for k in sorted(merged)])
 
 
-def evaluate(trainer, scenario, plan, out, provenance, deadline, reference=None):
+def evaluate(trainer, scenario, plan, out, provenance, deadline, reference=None, reuse_export=False):
     from src.holdem.average import AveragePolicy
     from src.holdem.policy import FrozenProfile
 
     artifact = out / f"average-{trainer.iteration}.pt"
-    artifact_hash = save_policy(trainer, artifact, manifest=provenance)
+    if reuse_export:
+        with artifact.open("rb") as source:
+            artifact_hash = hashlib.file_digest(source, "sha256").hexdigest()
+    else:
+        artifact_hash = save_policy(trainer, artifact, manifest=provenance)
     _artifact(trainer, out, artifact, artifact_hash, "holdem-average-v1")
     policy, _ = load_policy(artifact, artifact_hash)
     uniform = AveragePolicy((FrozenProfile([None] * trainer.table.capacity),))
