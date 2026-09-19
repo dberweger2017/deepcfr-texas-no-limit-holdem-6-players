@@ -1,5 +1,10 @@
 # Two overnight comparisons against the continuous baseline
 
+**Completed and stopped September 19, 2026.** The [results](reports/holdem-continuous-m4.md)
+retain all three arms and the replay storage failure. The protocol below is
+historical; it does not authorize another launch.
+
+
 ## Decision and status
 
 **Launch authorized by the owner.** The owner subsequently requested both

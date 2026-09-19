@@ -1,5 +1,10 @@
 # Continuous M4 baseline
 
+**Completed and stopped September 19, 2026.** See the
+[overnight results](reports/holdem-continuous-m4.md). All three workers are stopped;
+the launch commands below are historical instructions, not pending work.
+
+
 The owner authorized one baseline training run with no fixed iteration or elapsed
 limit, until explicitly stopped, with the existing four-chart TensorBoard view.
 The owner subsequently authorized the two comparison runs described below.
@@ -51,7 +56,8 @@ infinite run on finite hardware is impossible. These safeguards may stop it
 before the owner does. Every parallel job uses the same disk and phase protections.
 The supervisor pins iteration 1,024 checkpoint/export files with hard links,
 so rolling retirement cannot remove the main comparison. Pinned files count
-toward the output limit. A verified existing worker can be adopted using
+toward the output limit once per unique inode. The closeout fixed double
+counting of hard links that had prematurely stopped the larger-replay arm. A verified existing worker can be adopted using
 `--attach-worker PID`; this changes supervision without restarting training.
 
 ## Start, inspect and stop
