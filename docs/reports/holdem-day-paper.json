@@ -1875,5 +1875,28 @@
  "format": "holdem-day-paper-batch-v1",
  "recovery_note": "The paper-16k worker was stopped by the free-disk guard during its iteration-1024 evaluation. All 1,024 training iterations, the checkpoint and the frozen export were retained; the missing validation and final evaluations were reconstructed from the frozen export with no training. See completion.json in the run directory and section 3 of docs/reports/holdem-day-paper.md.",
  "scope": "Final record of the PR #89 three-arm daytime batch: current-4k, current-16k and paper-16k, seed 2026091902, 1,024 iterations each, fresh 2,048-block final suite, Bonferroni-adjusted 97.5% intervals. Exploratory single-seed evidence; no model promotion.",
+ "uniform_control_behaviour": {
+  "fresh_final_suite": {
+   "blocks": 2048,
+   "control_outcomes_digest_identical_across_all_three_arms": true,
+   "first_action_shove_fraction": 0.1125,
+   "hands": 12288,
+   "iteration": 1024,
+   "preflop_all_in_fraction": 0.1864,
+   "rotations": 6
+  },
+  "note": "The uniform-candidate control is a deterministic function of the deal schedule, so it is identical across arms on a given schedule and differs between schedules. Comparisons of trained-arm behaviour must use the control measured on the same schedule.",
+  "validation_schedule": {
+   "blocks": 1024,
+   "first_action_shove_fraction": 0.0942,
+   "hands": 6144,
+   "iterations_measured": [
+    256,
+    512
+   ],
+   "preflop_all_in_fraction": 0.1646,
+   "rotations": 6
+  }
+ },
  "validation": {}
 }
