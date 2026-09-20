@@ -177,9 +177,16 @@ on the reused schedule mid-run:
 At iteration 256 the same measurement had separated them sharply (`current-4k`
 45.56% shoves against `current-16k` 30.73%); by the analysis point the three arms
 had converged to nearly identical preflop commitment. Preflop all-in hands still
-carry roughly 80% of the total loss in every arm. The uniform control, measured on
-the same deals, shoves on 9.42% of its first actions and commits preflop in
-16.46%.
+carry roughly 80% of the total loss in every arm.
+
+The uniform-candidate control is a deterministic function of the deal schedule, so
+its behaviour must be read on the same schedule as the arms it is compared with.
+On the fresh 2,048-block suite it shoves on **11.25%** of its first actions and
+commits preflop in **18.64%** of hands, identical across all three arms (same
+control-outcomes digest). On the reused 1,024-block validation schedule it shoves
+on 9.42% and commits preflop in 16.46%. Training therefore moves every arm well
+away from the uniform prior toward hyper-aggression, not toward it: the three
+trained arms shove 34.29–37.05% and commit preflop in 36.68–39.93%.
 
 These groups are selected by each policy's own choices, so the split is
 descriptive and not a causal estimate of what banning all-ins would recover.
