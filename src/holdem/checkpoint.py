@@ -5,7 +5,7 @@ from hashlib import sha256
 from io import BytesIO
 from math import isfinite
 from pathlib import Path
-from zipfile import ZipFile, ZipInfo
+from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 
 import torch
 
@@ -50,6 +50,7 @@ def _profile_state(profile):
             if model is None
             else {
                 "width": model.encoder.width,
+                **({"architecture": model.architecture} if model.architecture != "current" else {}),
                 "weights": model.state_dict(),
             }
             for model in profile._models
@@ -75,7 +76,7 @@ def _restore_profile(data):
         ):
             raise ValueError("Invalid model weights")
         with torch.random.fork_rng(devices=[]), torch.device("cpu"):
-            model = BettingNetwork(width).float()
+            model = BettingNetwork(width, item.get("architecture", "current")).float()
         model.load_state_dict(weights, strict=True)
         models.append(model)
     profile = FrozenProfile(models)
@@ -107,7 +108,7 @@ def _save(path, payload):
     data = BytesIO()
     with ZipFile(data, "w") as archive:
         # Fixed metadata and canonical records make bytes independent of Python aliases.
-        archive.writestr(ZipInfo("records.json"), header)
+        archive.writestr(ZipInfo("records.json"), header, compress_type=ZIP_DEFLATED, compresslevel=1)
         archive.writestr(ZipInfo("weights.pt"), weights.getvalue())
     return atomic_write(Path(path), data.getvalue())
 
@@ -228,7 +229,8 @@ def load_training(path: Path, digest: str, *, manifest: dict) -> HoldemTrainer:
     if (archive[0].fingerprint if archive else current.fingerprint) != initial:
         raise ValueError("Training archive is missing uniform bootstrap")
     if any(
-        model is not None and model.encoder.width != trainer.config.fit.width
+        model is not None and (model.encoder.width != trainer.config.fit.width
+                               or model.architecture != trainer.config.fit.architecture)
         for profile in (*archive, current)
         for model in profile._models
     ):
