@@ -33,3 +33,7 @@ python -m scripts.evaluate_blueprint_search \
 ```
 
 The implementation and plan can be reviewed before 0.4 finishes. The comparison results and decision belong in this PR after the final checkpoint has been fixed. No other training recipe or 0.4 artifact is changed.
+
+## Preliminary inference check
+
+A local inference-only check loaded the earlier 5,834,622-entry blueprint checkpoint in 33.63 seconds, with 4.62 GiB peak process RSS. One six-player flop decision under the fixed 12-world, 96-candidate, one-second configuration completed search in 0.294 seconds without fallback. This single hand on a much smaller table checks the execution path; it does not predict completion rate or playing strength for the final 0.4 checkpoint. The paired comparison above is still pending.
