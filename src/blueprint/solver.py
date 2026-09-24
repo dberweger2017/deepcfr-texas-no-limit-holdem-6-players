@@ -315,7 +315,7 @@ class BlueprintTrainer:
         finally:
             if executor is not None:
                 executor.shutdown(cancel_futures=True)
-        new_entries = len(deltas.keys() - self.nodes.keys())
+        new_entries = sum(key not in self.nodes for key in deltas)
         if len(self.nodes) + new_entries > self.config.max_entries:
             raise CollectionLimitExceeded("Blueprint iteration reached its entry bound")
         for delta in deltas.values():
