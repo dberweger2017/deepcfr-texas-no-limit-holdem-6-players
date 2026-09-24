@@ -1,0 +1,35 @@
+{
+  "source_nodes": 45157550,
+  "source_iteration": 8733,
+  "source_sha256": "94d41c737d0e8f41a548d58c64dd219dfb9593459c80d7a7382569bf6963e33a",
+  "entry_milestones": [6000000, 12000000, 24000000, 36000000],
+  "evaluations": {
+    "random": {
+      "scenarios": [{"name": "six-handed-100bb", "stacks": [10000, 10000, 10000, 10000, 10000, 10000]}],
+      "candidate": "blueprint_live",
+      "baseline": "blueprint_uniform",
+      "opponents": ["random"],
+      "blocks": 1024,
+      "root_seed": 2026092404,
+      "split": "validation"
+    },
+    "styles": {
+      "scenarios": [{"name": "six-handed-100bb", "stacks": [10000, 10000, 10000, 10000, 10000, 10000]}],
+      "candidate": "blueprint_live",
+      "baseline": "blueprint_uniform",
+      "opponents": ["tight_passive", "loose_aggressive", "pot_pressure"],
+      "blocks": 512,
+      "root_seed": 2026092405,
+      "split": "validation"
+    }
+  },
+  "confirmation": {
+    "scenarios": [{"name": "six-handed-100bb", "stacks": [10000, 10000, 10000, 10000, 10000, 10000]}],
+    "candidate": "blueprint_live",
+    "baseline": "blueprint_uniform",
+    "opponents": ["random"],
+    "blocks": 4096,
+    "root_seed": 2026092410,
+    "split": "test"
+  }
+}
