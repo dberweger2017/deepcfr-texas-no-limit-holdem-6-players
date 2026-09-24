@@ -28,8 +28,25 @@ nproc > results/blueprint-runpod-hardware/nproc.txt
 uname -a > results/blueprint-runpod-hardware/uname.txt
 df -h > results/blueprint-runpod-hardware/filesystems.txt
 lsblk > results/blueprint-runpod-hardware/block-devices.txt
-cat /sys/fs/cgroup/cpu.max > results/blueprint-runpod-hardware/cpu-quota.txt
-cat /sys/fs/cgroup/memory.max > results/blueprint-runpod-hardware/memory-limit.txt
+if test -r /sys/fs/cgroup/cpu.max; then
+  cat /sys/fs/cgroup/cpu.max > results/blueprint-runpod-hardware/cpu-quota.txt
+else
+  if test -r /sys/fs/cgroup/cpu,cpuacct/cpu.cfs_quota_us; then
+    cat /sys/fs/cgroup/cpu,cpuacct/cpu.cfs_quota_us > results/blueprint-runpod-hardware/cpu-quota.txt
+    cat /sys/fs/cgroup/cpu,cpuacct/cpu.cfs_period_us > results/blueprint-runpod-hardware/cpu-period.txt
+  else
+    printf 'Unavailable in container\n' > results/blueprint-runpod-hardware/cpu-quota.txt
+  fi
+fi
+if test -r /sys/fs/cgroup/memory.max; then
+  cat /sys/fs/cgroup/memory.max > results/blueprint-runpod-hardware/memory-limit.txt
+else
+  if test -r /sys/fs/cgroup/memory/memory.limit_in_bytes; then
+    cat /sys/fs/cgroup/memory/memory.limit_in_bytes > results/blueprint-runpod-hardware/memory-limit.txt
+  else
+    printf 'Unavailable in container\n' > results/blueprint-runpod-hardware/memory-limit.txt
+  fi
+fi
 ```
 
 ```bash
