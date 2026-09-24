@@ -5,6 +5,7 @@
 /logs/*.log
 /smoke_runs
 /results
+/papers/
 /venv
 /.venv
 /.venv-pilot
