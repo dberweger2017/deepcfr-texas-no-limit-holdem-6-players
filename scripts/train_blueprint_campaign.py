@@ -177,6 +177,7 @@ def main(argv=None):
         signum: signal.signal(signum, request_stop)
         for signum in (signal.SIGINT, signal.SIGTERM)
     }
+    checkpoint_hash = None
     try:
         checkpoint_hash = save_boundary(measure=True)
         for _ in range(trainer.iteration, plan["iterations"]):
@@ -184,7 +185,7 @@ def main(argv=None):
             total_nodes += report.nodes
             phase_nodes += report.nodes
             total_step_seconds += report.elapsed_seconds
-            last_worker_rss = report.worker_rss_sum_bytes
+            last_worker_rss = max(last_worker_rss, report.worker_rss_sum_bytes)
             if interrupted:
                 stop_reason = "signal"
             elif monotonic() - started >= args.max_wall_seconds:
@@ -200,6 +201,13 @@ def main(argv=None):
                 checkpoint_hash = save_boundary(measure=bool(milestone or stop_reason or trainer.iteration == plan["iterations"]))
             if stop_reason:
                 break
+    except Exception as exc:
+        write_json(args.out / "failure.json", {
+            "iteration": trainer.iteration, "entries": len(trainer.nodes),
+            "checkpoint_sha256": checkpoint_hash,
+            "error": f"{type(exc).__name__}: {exc}",
+        })
+        raise
     finally:
         for signum, handler in old_handlers.items():
             signal.signal(signum, handler)
@@ -214,7 +222,15 @@ def main(argv=None):
         if last_evaluated_iteration != trainer.iteration:
             checkpoint_hash = save_boundary(measure=True)
             result["checkpoint_sha256"] = checkpoint_hash
-        final = evaluate(trainer, confirmation)
+        try:
+            final = evaluate(trainer, confirmation)
+        except Exception as exc:
+            write_json(args.out / "failure.json", {
+                "iteration": trainer.iteration, "entries": len(trainer.nodes),
+                "checkpoint_sha256": checkpoint_hash,
+                "error": f"{type(exc).__name__}: {exc}",
+            })
+            raise
         write_json(args.out / "evaluations" / f"iteration-{trainer.iteration}-random-final.json", final)
         scenario = final["report"]["scenarios"][confirmation.scenarios[0].name]
         _append(args.out / "evaluation.jsonl", {
@@ -227,6 +243,11 @@ def main(argv=None):
             "schedule_sha256": final["report"]["schedule_sha256"],
         })
         if final["report"]["status"] != "valid":
+            write_json(args.out / "failure.json", {
+                "iteration": trainer.iteration, "entries": len(trainer.nodes),
+                "checkpoint_sha256": checkpoint_hash,
+                "error": "Invalid final random arena evaluation",
+            })
             raise RuntimeError("Invalid final random arena evaluation")
     write_json(args.out / "result.json", result)
     print(json.dumps(result, sort_keys=True))

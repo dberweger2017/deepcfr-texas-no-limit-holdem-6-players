@@ -25,7 +25,7 @@ class Monitor:
                 self._emit_progress(row) if filename == "progress.jsonl" else self._emit_evaluation(row)
                 self.seen[filename] += 1
         self.writer.flush()
-        return (self.run / "result.json").exists()
+        return (self.run / "result.json").exists() or (self.run / "failure.json").exists()
 
     def _emit_progress(self, row):
         step = row["iteration"]
