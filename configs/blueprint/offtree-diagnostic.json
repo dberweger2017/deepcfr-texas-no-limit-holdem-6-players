@@ -1,0 +1,22 @@
+{
+  "evaluations": {
+    "random": {
+      "scenarios": [{"name": "six-handed-100bb", "stacks": [10000, 10000, 10000, 10000, 10000, 10000]}],
+      "candidate": "blueprint_live",
+      "baseline": "blueprint_uniform",
+      "opponents": ["random"],
+      "blocks": 64,
+      "root_seed": 2026092412,
+      "split": "validation"
+    },
+    "styles": {
+      "scenarios": [{"name": "six-handed-100bb", "stacks": [10000, 10000, 10000, 10000, 10000, 10000]}],
+      "candidate": "blueprint_live",
+      "baseline": "blueprint_uniform",
+      "opponents": ["tight_passive", "loose_aggressive", "pot_pressure"],
+      "blocks": 64,
+      "root_seed": 2026092413,
+      "split": "validation"
+    }
+  }
+}
