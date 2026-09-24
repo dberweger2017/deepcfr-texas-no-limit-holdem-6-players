@@ -6,6 +6,7 @@ from hashlib import sha256
 from pathlib import Path
 
 from scripts.monitor_blueprint import Monitor
+from scripts.confirm_blueprint_04 import main as confirm
 from scripts.train_blueprint_campaign import main
 from src.arena.catalog import Checkpoint
 from src.blueprint.abstraction import choices, information_key
@@ -73,6 +74,13 @@ def test_campaign_keeps_checkpoints_and_street_coverage(tmp_path):
     before = dict(writer.values)
     assert monitor.poll()
     assert writer.values == before
+    assert confirm([
+        "--campaign", str(campaign_path),
+        "--checkpoint", str(output / "checkpoint.json.gz"),
+        "--expected-sha256", progress[-1]["checkpoint_sha256"],
+        "--out", str(tmp_path / "confirmation"),
+    ]) == 0
+    assert json.loads((tmp_path / "confirmation" / "result.json").read_text())["report"]["status"] == "valid"
 
 
 def test_live_evaluator_uses_the_same_current_strategy_as_export(tmp_path):

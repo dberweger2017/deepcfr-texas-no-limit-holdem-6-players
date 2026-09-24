@@ -15,7 +15,7 @@ The campaign configuration is [checkpoint-04-campaign.json](../configs/blueprint
 - For each benchmark, count **actual candidate decisions** by street, trained versus uniform-fallback lookup, and fold/check/call/raise choice. Chart preflop and flop trained fraction and sample count prominently; retain turn and river counts too. Do not infer strength from lookup coverage alone.
 - Record total traversal nodes, iteration, table entries, RSS, checkpoint size/time, nodes/step-second, and wall time. TensorBoard reads append-only progress and evaluation logs. A private TensorBoard server exposes the dashboard through SSH tunneling.
 
-The validation deals are reused for trend comparison. Do not repeatedly choose a final model from these deals and call the result held out. A separate 4,096-block random **test** schedule is frozen in the campaign configuration. Run it only when the final checkpoint is chosen, using `--confirm-final`; a continuation segment omits that flag. A positive trend means improvement over broad work intervals, not that every noisy checkpoint increases. Checkpoint 0.4 is earned only if the final fresh random result has a positive lower 95% bound and the validation series supports improvement; otherwise retain the campaign as evidence of the architecture or resource limit.
+The validation deals are reused for trend comparison. Do not repeatedly choose a final model from these deals and call the result held out. A separate 4,096-block random **test** schedule is frozen in the campaign configuration. Run [confirm_blueprint_04.py](../scripts/confirm_blueprint_04.py) only after choosing the final checkpoint; it verifies the declared checkpoint hash before opening those deals. A positive trend means improvement over broad work intervals, not that every noisy checkpoint increases. Checkpoint 0.4 is earned only if the final fresh random result has a positive lower 95% bound and the validation series supports improvement; otherwise retain the campaign as evidence of the architecture or resource limit.
 
 ## Execution and recovery
 
@@ -38,5 +38,15 @@ tensorboard --logdir TENSORBOARD_DIRECTORY --host 127.0.0.1 --port 6006
 ```
 
 Run the monitor and TensorBoard server separately while training proceeds. For a continuation, use the previous `checkpoint.json.gz` as the source, a **new** output directory, and pass `--starting-nodes` from the previous `result.json`. This preserves cumulative work on the chart. Training exits with code 2 after a guarded stop; that is a recoverable boundary. A failed evaluation or illegal action is a correctness failure. Before any resumption, verify the checkpoint hash, inspect the stop reason and resource trend, and preserve the earlier output directory.
+
+After choosing the final checkpoint, run the sealed test once on a host that can load that checkpoint:
+
+```sh
+python -m scripts.confirm_blueprint_04 \
+  --campaign configs/blueprint/checkpoint-04-campaign.json \
+  --checkpoint CHOSEN_CHECKPOINT \
+  --expected-sha256 CHOSEN_CHECKPOINT_SHA256 \
+  --out FINAL_TEST_DIRECTORY
+```
 
 If random profit remains flat while entries and trained lookup rates grow, inspect action choices and the learned strategy. If entries grow but held-out lookup rates stay flat, prioritize a better public-history abstraction or coverage mechanism. If profit rises at the memory limit, continue the same seed on a larger-RAM host after sizing the next segment. Changes to the learning recipe create a new comparison, not an invisible continuation of this seed.

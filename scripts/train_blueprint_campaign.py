@@ -53,7 +53,6 @@ def main(argv=None):
     parser.add_argument("--checkpoint-seconds", type=float, default=3600)
     parser.add_argument("--workers", type=int, default=1)
     parser.add_argument("--starting-nodes", type=int)
-    parser.add_argument("--confirm-final", action="store_true")
     args = parser.parse_args(argv)
     if args.workers < 1 or any(
         not isfinite(value) or value <= 0
@@ -75,9 +74,6 @@ def main(argv=None):
     evaluations = {name: Plan.from_dict(value) for name, value in campaign["evaluations"].items()}
     if set(evaluations) != {"random", "styles"}:
         parser.error("Campaign requires random and styles evaluations")
-    confirmation = Plan.from_dict(campaign["confirmation"])
-    if confirmation.split != "test" or confirmation.opponents != ("random",):
-        parser.error("Confirmation must use fresh test-split random deals")
     table_data = plan["table"]
     table = Table(
         tuple(table_data["player_ids"]), tuple(table_data["stacks"]),
@@ -111,7 +107,7 @@ def main(argv=None):
         "execution": {
             "max_wall_seconds": args.max_wall_seconds, "max_rss_gib": args.max_rss_gib,
             "min_free_gib": args.min_free_gib, "checkpoint_seconds": args.checkpoint_seconds,
-            "workers": args.workers, "confirm_final": args.confirm_final,
+            "workers": args.workers,
             "starting_nodes": starting_nodes,
         },
     })
@@ -218,37 +214,6 @@ def main(argv=None):
         "checkpoint_sha256": checkpoint_hash,
         "peak_rss_bytes": _rss_bytes(),
     }
-    if args.confirm_final:
-        if last_evaluated_iteration != trainer.iteration:
-            checkpoint_hash = save_boundary(measure=True)
-            result["checkpoint_sha256"] = checkpoint_hash
-        try:
-            final = evaluate(trainer, confirmation)
-        except Exception as exc:
-            write_json(args.out / "failure.json", {
-                "iteration": trainer.iteration, "entries": len(trainer.nodes),
-                "checkpoint_sha256": checkpoint_hash,
-                "error": f"{type(exc).__name__}: {exc}",
-            })
-            raise
-        write_json(args.out / "evaluations" / f"iteration-{trainer.iteration}-random-final.json", final)
-        scenario = final["report"]["scenarios"][confirmation.scenarios[0].name]
-        _append(args.out / "evaluation.jsonl", {
-            "iteration": trainer.iteration, "entries": len(trainer.nodes),
-            "checkpoint_sha256": checkpoint_hash, "benchmark": "random_final",
-            "status": final["report"]["status"],
-            "completed_hands": final["report"]["completed_hands"],
-            "comparison": scenario["comparison"],
-            "coverage": final["coverage"],
-            "schedule_sha256": final["report"]["schedule_sha256"],
-        })
-        if final["report"]["status"] != "valid":
-            write_json(args.out / "failure.json", {
-                "iteration": trainer.iteration, "entries": len(trainer.nodes),
-                "checkpoint_sha256": checkpoint_hash,
-                "error": "Invalid final random arena evaluation",
-            })
-            raise RuntimeError("Invalid final random arena evaluation")
     write_json(args.out / "result.json", result)
     print(json.dumps(result, sort_keys=True))
     return 0 if result["status"] == "complete" else 2
