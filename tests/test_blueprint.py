@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from scripts.train_blueprint import main as train_blueprint
+from scripts.check_blueprint_history_coverage import main as compare_history_coverage
 from src.arena.catalog import Checkpoint
 from src.blueprint.abstraction import (
     SCHEMA,
@@ -111,6 +112,70 @@ def test_summary_checkpoint_recovers_and_exports_its_own_schema(tmp_path):
     hand = Hand.start(_table(), hand_id="summary-play", seed=37)
     view = hand.observe(hand.actor)
     view.legal_actions.validate(frozen.policy(3).choose_action(view))
+
+
+def test_history_coverage_probe_checks_both_keys_on_same_decisions(tmp_path):
+    table = _table()
+    base = PilotConfig(seed=11, raise_cap=0, max_nodes=5000, max_seconds=10)
+    reference = BlueprintTrainer(table, base)
+    summary = BlueprintTrainer(table, replace(base, abstraction=SUMMARY_SCHEMA))
+    reference.step()
+    summary.step()
+    reference_path = tmp_path / "reference.json.gz"
+    summary_path = tmp_path / "summary.json.gz"
+    uniform_path = tmp_path / "uniform.json.gz"
+    export_policy(reference, reference_path)
+    export_policy(summary, summary_path)
+    export_policy(BlueprintTrainer(table, base), uniform_path)
+    plan_path = tmp_path / "plan.json"
+    plan_path.write_text(
+        dumps(
+            {
+                "scenarios": [
+                    {
+                        "name": "two-player",
+                        "stacks": [200, 200],
+                        "small_blind": 1,
+                        "big_blind": 2,
+                        "chip_unit": "1",
+                    }
+                ],
+                "candidate": "blueprint",
+                "baseline": "blueprint_uniform",
+                "opponents": ["check_call"],
+                "blocks": 2,
+                "root_seed": 33,
+                "split": "validation",
+            }
+        )
+    )
+    out = tmp_path / "comparison"
+    assert (
+        compare_history_coverage(
+            [
+                "--reference",
+                str(reference_path),
+                "--summary",
+                str(summary_path),
+                "--uniform",
+                str(uniform_path),
+                "--plan",
+                str(plan_path),
+                "--out",
+                str(out),
+            ]
+        )
+        == 0
+    )
+    result = loads((out / "result.json").read_text())
+    assert result["status"] == "valid"
+    assert result["invalid_actions"] == 0
+    assert sum(x["decisions"] for x in result["held_out_lookups"].values()) > 0
+    assert all(
+        0 <= x["reference_trained"] <= x["decisions"]
+        and 0 <= x["summary_trained"] <= x["decisions"]
+        for x in result["held_out_lookups"].values()
+    )
 
 
 def test_complete_iteration_recovers_and_exports_playable_policy(tmp_path):
