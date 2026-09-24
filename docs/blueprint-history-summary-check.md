@@ -1,0 +1,15 @@
+# One public-history abstraction check
+
+The [RunPod sizing result](reports/blueprint-runpod-sizing-v1.md) found that the 5.83-million-entry blueprint hits only about 24% of preflop and 7–9% of flop decisions against a different opponent pool. Its key includes the entire ordered action history. This check changes only that key, then measures whether the same scale of training work reaches more held-out decisions. It is one architecture choice before a serious memory-backed campaign, not a short-run poker-strength gate.
+
+## Candidate and compatibility
+
+`blueprint-abstraction-summary-v1` retains the acting player's card bucket, seat and street, folded/all-in flags, legal abstract action labels, current pot band and effective-stack-to-pot band. For each street it keeps capped raise/call/check counts and the last raiser with a size bucket; on the current street it also keeps the last two public actions. It drops older exact action sequences. Every input is visible to the acting player. The existing `blueprint-abstraction-v1` key and old checkpoint/export behavior remain the default; artifacts carry their schema, and a v1 checkpoint cannot silently resume as the summary candidate.
+
+## Single M4 comparison
+
+Use the always-on M4, not the 16-GB local Mac. Train the six-player, 100-BB candidate from scratch with [the fixed plan](../configs/blueprint/history-summary-v1.json): seed `2026092402`, four roots per seat, raise cap two, 8,733 complete iterations, at most eight million entries. This matches the source M4 slice's roots and iteration boundary; report actual total traversal nodes, since changed policies can visit different numbers of nodes. Use one worker, a 90-minute wall ceiling, 10-GiB process RSS guard, 30-GiB free-disk guard and 15-minute atomic checkpoints. Preserve a valid checkpoint if a guard stops the run. No rental is needed.
+
+From its final checkpoint, export current and average policies and run `scripts.check_blueprint_scale learning` with the same frozen 128-block three-style validation plan and uniform abstract-menu control used on RunPod. Use the original `blueprint-abstraction-v1` result in the [RunPod report](reports/blueprint-runpod-sizing-v1.md) as the reference. Record fresh decision lookups by street, export and inference memory, card sensitivity, legality, and paired BB/100 uncertainty. If the number of traversal nodes differs materially, describe that difference before attributing coverage changes to the key. Do not select a model by the small arena win rate.
+
+The candidate is useful for the main run if it markedly improves preflop and flop trained-lookup coverage at similar work without an invalid action, numerical/recovery failure, or a clear regression against the uniform control. Low turn/river counts remain a warning, but the 8,733-iteration pilot need not solve them. If the summary key fails this check, keep v1 as the reference and choose a different targeted representation or sampling fix before paying for a multi-day run. The main campaign's work target, two seeds, resource ceiling and host are declared after this one comparison, not extrapolated from the Pluribus paper's core-hours.

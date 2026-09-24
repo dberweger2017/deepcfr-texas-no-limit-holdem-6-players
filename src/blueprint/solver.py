@@ -11,7 +11,13 @@ from os import getpid
 from random import Random
 from time import perf_counter
 
-from src.blueprint.abstraction import SCHEMA, Choice, choices, information_key
+from src.blueprint.abstraction import (
+    SCHEMA,
+    SUPPORTED_SCHEMAS,
+    Choice,
+    choices,
+    information_key,
+)
 from src.game.hand import Hand, Table
 from src.game.observation import Observation
 
@@ -49,6 +55,7 @@ class PilotConfig:
     max_nodes: int = 30_000
     max_entries: int = 100_000
     max_seconds: float = 300.0
+    abstraction: str = SCHEMA
 
     def __post_init__(self):
         if (
@@ -62,6 +69,7 @@ class PilotConfig:
             )
             or not isfinite(self.max_seconds)
             or not 0 < self.max_seconds <= 900
+            or self.abstraction not in SUPPORTED_SCHEMAS
         ):
             raise ValueError("Invalid bounded blueprint pilot configuration")
 
@@ -72,11 +80,12 @@ class FrozenTable:
 
     entries: dict[str, tuple[tuple[str, ...], tuple[float, ...]]]
     raise_cap: int
+    abstraction: str = SCHEMA
 
     def distribution(
         self, view: Observation, menu: tuple[Choice, ...]
     ) -> tuple[float, ...]:
-        key = information_key(view, menu)
+        key = information_key(view, menu, schema=self.abstraction)
         saved = self.entries.get(key)
         if saved is None:
             return (1.0 / len(menu),) * len(menu)
@@ -163,7 +172,7 @@ def _collect_root(
             return (player.stack - player.starting_stack) / hand.table.big_blind
         view = hand.observe(hand.actor)
         menu = choices(view, raise_cap=config.raise_cap)
-        key = information_key(view, menu)
+        key = information_key(view, menu, schema=config.abstraction)
         policy, trained = _distribution(frozen_nodes, key, menu)
         label = f"{view.street.value}:{'trained' if trained else 'fallback'}"
         coverage[label] = coverage.get(label, 0) + 1
@@ -242,6 +251,7 @@ class BlueprintTrainer:
                 for key, node in self.nodes.items()
             },
             self.config.raise_cap,
+            self.config.abstraction,
         )
 
     def step(self, *, workers: int = 1) -> IterationReport:
@@ -352,4 +362,5 @@ class BlueprintTrainer:
             perf_counter() - started,
             sum(worker_peaks.values()),
             coverage,
+            self.config.abstraction,
         )

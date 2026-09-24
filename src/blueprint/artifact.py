@@ -11,7 +11,12 @@ from os import fsync, replace
 from pathlib import Path
 from random import Random
 
-from src.blueprint.abstraction import SCHEMA, choices, information_key
+from src.blueprint.abstraction import (
+    SCHEMA,
+    SUPPORTED_SCHEMAS,
+    choices,
+    information_key,
+)
 from src.blueprint.solver import (
     FORMAT,
     BlueprintTrainer,
@@ -45,9 +50,29 @@ def _read(path: Path) -> dict:
     if (
         not isinstance(document, dict)
         or document.get("format") != FORMAT
-        or document.get("abstraction") != SCHEMA
     ):
         raise ValueError("Unknown blueprint artifact format")
+    _checked_schema(document)
+    return document
+
+
+def _checked_schema(document: dict) -> str:
+    schema = document.get("abstraction")
+    config = document.get("config")
+    if (
+        schema not in SUPPORTED_SCHEMAS
+        or not isinstance(config, dict)
+        or config.get("abstraction", SCHEMA) != schema
+    ):
+        raise ValueError("Unknown blueprint abstraction schema")
+    return schema
+
+
+def _config(config: PilotConfig) -> dict:
+    document = asdict(config)
+    if config.abstraction == SCHEMA:
+        # Keep existing v1 checkpoint and export bytes reproducible.
+        del document["abstraction"]
     return document
 
 
@@ -65,11 +90,11 @@ def _table(table: Table) -> dict:
 def save_training(trainer: BlueprintTrainer, path: Path) -> str:
     header = {
         "format": FORMAT,
-        "abstraction": SCHEMA,
+        "abstraction": trainer.config.abstraction,
         "kind": "training",
         "checkpoint_format": "jsonl-v2",
         "table": _table(trainer.table),
-        "config": asdict(trainer.config),
+        "config": _config(trainer.config),
         "iteration": trainer.iteration,
     }
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -106,9 +131,9 @@ def load_training(path: Path) -> BlueprintTrainer:
         if (
             not isinstance(document, dict)
             or document.get("format") != FORMAT
-            or document.get("abstraction") != SCHEMA
         ):
             raise ValueError("Unknown blueprint artifact format")
+        _checked_schema(document)
         if document.get("checkpoint_format") == "jsonl-v2":
             rows = (loads(line) for line in source)
         elif "checkpoint_format" not in document:
@@ -179,10 +204,10 @@ def export_policy(
         path,
         {
             "format": FORMAT,
-            "abstraction": SCHEMA,
+            "abstraction": trainer.config.abstraction,
             "kind": "inference",
             "table": _table(trainer.table),
-            "config": asdict(trainer.config),
+            "config": _config(trainer.config),
             "iteration": trainer.iteration,
             "strategy": strategy,
             "entries": entries,
@@ -201,6 +226,7 @@ class FrozenBlueprint:
             raise ValueError("Training checkpoints are not arena policies")
         self.players = len(document["table"]["stacks"])
         self.raise_cap = document["config"]["raise_cap"]
+        self.abstraction = document["abstraction"]
         self.entries = {}
         for key, row in document["entries"].items():
             names, probabilities = row
@@ -222,7 +248,7 @@ class FrozenBlueprint:
             "iteration": document["iteration"],
             "training_seed": document["config"]["seed"],
             "strategy": document["strategy"],
-            "abstraction": SCHEMA,
+            "abstraction": self.abstraction,
             "entries": len(self.entries),
         }
 
@@ -233,7 +259,7 @@ class FrozenBlueprint:
         if view.capacity != self.players:
             raise ValueError("Blueprint table size differs from the evaluation table")
         menu = choices(view, raise_cap=self.raise_cap)
-        key = information_key(view, menu)
+        key = information_key(view, menu, schema=self.abstraction)
         saved = self.entries.get(key)
         if saved is None:
             return menu, (1 / len(menu),) * len(menu), False
