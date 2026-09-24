@@ -6,7 +6,7 @@ import resource
 import shutil
 import signal
 import sys
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from math import isfinite
 from pathlib import Path
 from time import monotonic
@@ -71,8 +71,17 @@ def main(argv=None):
     trainer = (
         load_training(args.resume) if args.resume else BlueprintTrainer(table, config)
     )
-    if trainer.table != table or trainer.config != config:
+    if trainer.table != table or (
+        trainer.config != config
+        and (
+            config.max_entries < trainer.config.max_entries
+            or replace(trainer.config, max_entries=config.max_entries) != config
+        )
+    ):
         parser.error("Resume checkpoint differs from the frozen pilot plan")
+    # The entry ceiling is an operational stop bound, not a learning parameter.
+    # A measured increase can resume the same seed without changing its policy.
+    trainer.config = config
     if trainer.iteration > target:
         parser.error("Resume checkpoint is beyond the requested stopping point")
     args.out.mkdir(parents=True, exist_ok=False)
