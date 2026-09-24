@@ -156,6 +156,7 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
             break
         report = summarize(plan, rows)
         street_counts = sum((p.by_street for p in players), Counter())
+        search_latencies = [value for p in players for value in p.search_seconds]
         telemetry = {
             "search_attempts": sum(p.attempts for p in players),
             "search_completed": sum(p.completed for p in players),
@@ -171,6 +172,9 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
             "decision_seconds_p50": _percentile(candidate_latencies, 0.5),
             "decision_seconds_p95": _percentile(candidate_latencies, 0.95),
             "decision_seconds_max": max(candidate_latencies, default=None),
+            "search_seconds_p50": _percentile(search_latencies, 0.5),
+            "search_seconds_p95": _percentile(search_latencies, 0.95),
+            "search_seconds_max": max(search_latencies, default=None),
             "peak_process_rss_bytes": _rss_bytes(),
         }
         reports[name] = {"report": report, "telemetry": telemetry, "plan": asdict(plan)}

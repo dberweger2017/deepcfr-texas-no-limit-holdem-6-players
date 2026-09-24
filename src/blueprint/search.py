@@ -228,6 +228,7 @@ class SearchPlayer:
         self.completed = 0
         self.fallbacks = 0
         self.by_street = Counter()
+        self.search_seconds = []
 
     def choose_action(self, view: Observation) -> Action:
         menu, probabilities, _ = self.blueprint.distribution(view)
@@ -236,7 +237,8 @@ class SearchPlayer:
             return fallback
         self.attempts += 1
         self.by_street[(view.street.value, "attempts")] += 1
-        deadline = monotonic() + self.config.max_seconds
+        started = monotonic()
+        deadline = started + self.config.max_seconds
         try:
             ranges = public_ranges(
                 self.blueprint, view, self.search_random,
@@ -264,8 +266,10 @@ class SearchPlayer:
             view.legal_actions.validate(selected.action)
             self.completed += 1
             self.by_street[(view.street.value, "completed")] += 1
+            self.search_seconds.append(monotonic() - started)
             return selected.action
         except (TimeoutError, SearchUnavailable):
             self.fallbacks += 1
             self.by_street[(view.street.value, "fallbacks")] += 1
+            self.search_seconds.append(monotonic() - started)
             return fallback

@@ -113,6 +113,7 @@ def test_search_is_legal_and_hidden_world_independent():
     first.legal_actions.validate(action)
     assert action == right.choose_action(second)
     assert left.completed == right.completed == 1
+    assert len(left.search_seconds) == len(right.search_seconds) == 1
 
 
 @pytest.mark.parametrize("street", [Street.TURN, Street.RIVER])
@@ -167,3 +168,4 @@ def test_paired_search_comparison_loads_one_pinned_checkpoint(tmp_path):
     assert report["report"]["completed_hands"] == 12
     assert report["telemetry"]["search_attempts"] > 0
     assert report["telemetry"]["search_completed"] > 0
+    assert report["telemetry"]["search_seconds_p95"] is not None
