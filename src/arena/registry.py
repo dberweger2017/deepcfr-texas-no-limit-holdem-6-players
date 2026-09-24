@@ -12,6 +12,10 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def load_frozen(spec, path):
+    if spec.format == "holdem-blueprint-v1":
+        from src.blueprint.artifact import FrozenBlueprint
+
+        return FrozenBlueprint(spec, path)
     if spec.format == "holdem-average-v1":
         from src.arena.snapshots import FrozenAverage
 
@@ -32,8 +36,11 @@ class PolicyRegistry:
                 raise ValueError(
                     "Checkpoint names must be used and cannot shadow built-in policies"
                 )
+            suffix = ".json.gz" if spec.format == "holdem-blueprint-v1" else ".pt"
             path = (
-                artifact_dir / f"{spec.sha256}.pt" if artifact_dir else ROOT / spec.path
+                artifact_dir / f"{spec.sha256}{suffix}"
+                if artifact_dir
+                else ROOT / spec.path
             )
             model = load_frozen(spec, path)
             for scenario in plan.scenarios:
@@ -61,6 +68,10 @@ class PolicyRegistry:
             "src/arena/historical.py",
             "src/arena/snapshots.py",
             "src/arena/registry.py",
+            *(
+                str(p.relative_to(ROOT))
+                for p in sorted((ROOT / "src/blueprint").glob("*.py"))
+            ),
             *(
                 str(p.relative_to(ROOT))
                 for p in sorted((ROOT / "src/holdem").glob("*.py"))
@@ -103,4 +114,7 @@ class PolicyRegistry:
             target = output / "models"
             target.mkdir()
             for model in self.models.values():
-                (target / f"{model.spec.sha256}.pt").write_bytes(model.data)
+                suffix = (
+                    ".json.gz" if model.spec.format == "holdem-blueprint-v1" else ".pt"
+                )
+                (target / f"{model.spec.sha256}{suffix}").write_bytes(model.data)

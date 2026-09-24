@@ -20,7 +20,11 @@ class Checkpoint:
             r"[a-f0-9]{64}", self.sha256
         ):
             raise ValueError("Pin a checkpoint with its lowercase SHA-256 digest")
-        if self.format not in {"legacy-standard-v1", "holdem-average-v1"}:
+        if self.format not in {
+            "legacy-standard-v1",
+            "holdem-average-v1",
+            "holdem-blueprint-v1",
+        }:
             raise ValueError("Unsupported checkpoint adapter")
 
 

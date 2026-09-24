@@ -1,0 +1,29 @@
+{
+  "name": "blueprint-plumbing-v1",
+  "iterations": 2,
+  "table": {
+    "player_ids": ["player-0", "player-1", "player-2", "player-3", "player-4", "player-5"],
+    "stacks": [10000, 10000, 10000, 10000, 10000, 10000],
+    "button": 0,
+    "small_blind": 50,
+    "big_blind": 100,
+    "chip_unit": "0.01"
+  },
+  "trainer": {
+    "seed": 20260924,
+    "raise_cap": 2,
+    "roots_per_seat": 1,
+    "max_nodes": 30000,
+    "max_entries": 100000,
+    "max_seconds": 300
+  },
+  "evaluation": {
+    "scenarios": [{"name": "six-handed-100bb", "stacks": [10000, 10000, 10000, 10000, 10000, 10000]}],
+    "candidate": "blueprint",
+    "baseline": "check_call",
+    "opponents": ["tight_passive", "loose_aggressive", "pot_pressure"],
+    "blocks": 2,
+    "root_seed": 2026092401,
+    "split": "validation"
+  }
+}
