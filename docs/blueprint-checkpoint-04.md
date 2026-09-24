@@ -50,3 +50,16 @@ python -m scripts.confirm_blueprint_04 \
 ```
 
 If random profit remains flat while entries and trained lookup rates grow, inspect action choices and the learned strategy. If entries grow but held-out lookup rates stay flat, prioritize a better public-history abstraction or coverage mechanism. If profit rises at the memory limit, continue the same seed on a larger-RAM host after sizing the next segment. Changes to the learning recipe create a new comparison, not an invisible continuation of this seed.
+
+## Exploratory mixed-table comparison
+
+After choosing the final checkpoint and completing its sealed random test, play one separate 3,000-hand six-seat cash table. Seat two independent copies of the chosen current blueprint policy, two independently seeded random policies, one tight-passive scripted policy, and one loose-aggressive scripted policy. Use deal seed `2026092411`, which is separate from the validation and sealed-test schedules. Rotate the button one seat each hand. Reset all players to 100 BB at the start of every hand so all six participate throughout; add each hand's net result to a cumulative ledger. Report each player's cumulative net BB at 1,000, 2,000, and 3,000 hands, plus the two-player group totals. The ledger must sum to zero at every hand.
+
+This is a descriptive comparison with one lineup and one deal seed. It is neither a tournament with eliminations nor an independent strength gate. Put its table and, if useful, a cumulative-balance plot at the end of the campaign report. Retain the JSON with balances every 100 hands and the chosen checkpoint hash. Run it on the existing pod only after training has stopped and the final checkpoint is fixed; do not start another rental or extend the training segment for it.
+
+```sh
+python -m scripts.blueprint_mixed_table \
+  --checkpoint CHOSEN_CHECKPOINT \
+  --expected-sha256 CHOSEN_CHECKPOINT_SHA256 \
+  --out MIXED_TABLE_DIRECTORY
+```
