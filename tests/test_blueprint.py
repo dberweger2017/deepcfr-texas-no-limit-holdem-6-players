@@ -176,6 +176,10 @@ def test_history_coverage_probe_checks_both_keys_on_same_decisions(tmp_path):
         and 0 <= x["summary_trained"] <= x["decisions"]
         for x in result["held_out_lookups"].values()
     )
+    assert all(
+        x["distinct_summary_keys"] > 0 and x["distinct_reference_keys"] > 0
+        for x in result["key_merging"].values()
+    )
 
 
 def test_complete_iteration_recovers_and_exports_playable_policy(tmp_path):

@@ -14,7 +14,7 @@ from src.arena.catalog import Checkpoint
 from src.arena.registry import PolicyRegistry
 from src.arena.run import run
 from src.arena.schedule import Plan
-from src.blueprint.abstraction import SCHEMA, SUMMARY_SCHEMA
+from src.blueprint.abstraction import SCHEMA, SUMMARY_SCHEMA, information_key
 from src.blueprint.artifact import FrozenBlueprint
 from src.blueprint.solver import FORMAT
 
@@ -94,6 +94,7 @@ def main(argv=None) -> int:
         raise MemoryError("Frozen policies exceed the comparison RSS cap")
 
     counts: dict[str, dict[str, int]] = {}
+    merged: dict[str, dict[str, set[str]]] = {}
     original = reference.distribution
 
     def measured(view):
@@ -110,6 +111,11 @@ def main(argv=None) -> int:
         street["decisions"] += 1
         street["reference_trained"] += int(reference_hit)
         street["summary_trained"] += int(summary_hit)
+        summary_key = information_key(view, menu, schema=SUMMARY_SCHEMA)
+        reference_key = information_key(view, menu, schema=SCHEMA)
+        merged.setdefault(view.street.value, {}).setdefault(summary_key, set()).add(
+            reference_key
+        )
         return menu, probabilities, reference_hit
 
     reference.distribution = measured
@@ -122,6 +128,19 @@ def main(argv=None) -> int:
             "invalid_actions": report["invalid_actions"],
             "sha256": hashes,
             "held_out_lookups": counts,
+            "key_merging": {
+                street: {
+                    "distinct_reference_keys": len(set().union(*groups.values())),
+                    "distinct_summary_keys": len(groups),
+                    "summary_keys_merging_histories": sum(
+                        len(sources) > 1 for sources in groups.values()
+                    ),
+                    "max_reference_keys_per_summary": max(
+                        map(len, groups.values()), default=0
+                    ),
+                }
+                for street, groups in merged.items()
+            },
             "peak_rss_bytes": _rss_bytes(),
         },
     )
