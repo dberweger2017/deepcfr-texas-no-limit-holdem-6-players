@@ -1,13 +1,18 @@
 """A campaign retains evaluated milestones and emits inspectable dashboard data."""
 
 import json
+from collections import Counter
+from hashlib import sha256
 from pathlib import Path
 
 from scripts.monitor_blueprint import Monitor
 from scripts.train_blueprint_campaign import main
-from src.blueprint.artifact import save_training
-from src.blueprint.solver import BlueprintTrainer, PilotConfig
-from src.game.hand import Table
+from src.arena.catalog import Checkpoint
+from src.blueprint.abstraction import choices, information_key
+from src.blueprint.artifact import FrozenBlueprint, export_policy, save_training
+from src.blueprint.evaluation import _TablePolicy
+from src.blueprint.solver import BlueprintTrainer, Node, PilotConfig
+from src.game.hand import Hand, Table
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -28,6 +33,7 @@ def test_campaign_keeps_checkpoints_and_street_coverage(tmp_path):
     plan["iterations"] = 1
     campaign = json.loads((ROOT / "configs/blueprint/checkpoint-04-campaign.json").read_text())
     campaign["source_nodes"] = 0
+    campaign["source_iteration"] = 0
     campaign["entry_milestones"] = [1]
     for evaluation in campaign["evaluations"].values():
         evaluation["blocks"] = 1
@@ -39,6 +45,8 @@ def test_campaign_keeps_checkpoints_and_street_coverage(tmp_path):
     table = Table(tuple(plan["table"]["player_ids"]), tuple(plan["table"]["stacks"]))
     source = tmp_path / "source.json.gz"
     save_training(BlueprintTrainer(table, PilotConfig(**plan["trainer"])), source)
+    campaign["source_sha256"] = sha256(source.read_bytes()).hexdigest()
+    campaign_path.write_text(json.dumps(campaign))
     output = tmp_path / "run"
 
     assert main([
@@ -65,3 +73,22 @@ def test_campaign_keeps_checkpoints_and_street_coverage(tmp_path):
     before = dict(writer.values)
     assert monitor.poll()
     assert writer.values == before
+
+
+def test_live_evaluator_uses_the_same_current_strategy_as_export(tmp_path):
+    table = Table(tuple(f"player-{i}" for i in range(6)), (10000,) * 6)
+    trainer = BlueprintTrainer(table, PilotConfig())
+    hand = Hand.start(table, hand_id="comparison", seed=17)
+    view = hand.observe(hand.actor)
+    menu = choices(view, raise_cap=trainer.config.raise_cap)
+    key = information_key(view, menu, schema=trainer.config.abstraction)
+    names = tuple(item.name for item in menu)
+    trainer.nodes[key] = Node(names, [5.0] + [0.0] * (len(names) - 1), [0.0] * len(names), 1)
+    path = tmp_path / "policy.json.gz"
+    digest = export_policy(trainer, path)
+    frozen = FrozenBlueprint(Checkpoint("blueprint", str(path), digest, "holdem-blueprint-v1"), path)
+    live_policy = _TablePolicy(trainer, 41, Counter(), uniform=False)
+    frozen_policy = frozen.policy(41)
+    assert [live_policy.choose_action(view) for _ in range(20)] == [
+        frozen_policy.choose_action(view) for _ in range(20)
+    ]

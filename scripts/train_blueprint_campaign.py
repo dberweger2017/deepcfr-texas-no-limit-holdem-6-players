@@ -86,6 +86,12 @@ def main(argv=None):
     )
     config = PilotConfig(**plan["trainer"])
     trainer = load_training(args.resume)
+    source_hash = _hash(args.resume)
+    if args.starting_nodes is None and (
+        trainer.iteration != campaign["source_iteration"]
+        or source_hash != campaign["source_sha256"]
+    ):
+        parser.error("Initial source checkpoint does not match the frozen campaign")
     if trainer.table != table or (
         trainer.config != config
         and (config.max_entries < trainer.config.max_entries
@@ -101,7 +107,7 @@ def main(argv=None):
     write_json(args.out / "manifest.json", {
         "plan": plan, "campaign": campaign, "revision": git("rev-parse", "HEAD"),
         "dirty": bool(git("status", "--porcelain")), "environment": environment(),
-        "resumed_from": str(args.resume), "source_sha256": _hash(args.resume),
+        "resumed_from": str(args.resume), "source_sha256": source_hash,
         "execution": {
             "max_wall_seconds": args.max_wall_seconds, "max_rss_gib": args.max_rss_gib,
             "min_free_gib": args.min_free_gib, "checkpoint_seconds": args.checkpoint_seconds,
