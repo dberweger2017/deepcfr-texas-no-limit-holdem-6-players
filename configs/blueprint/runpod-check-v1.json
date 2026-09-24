@@ -1,0 +1,14 @@
+{
+  "scenarios": [
+    {
+      "name": "six-handed-100bb",
+      "stacks": [10000, 10000, 10000, 10000, 10000, 10000]
+    }
+  ],
+  "candidate": "blueprint",
+  "baseline": "blueprint_uniform",
+  "opponents": ["tight_passive", "loose_aggressive", "pot_pressure"],
+  "blocks": 128,
+  "root_seed": 2026092404,
+  "split": "validation"
+}
