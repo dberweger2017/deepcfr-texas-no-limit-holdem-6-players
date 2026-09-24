@@ -1,9 +1,12 @@
 """Behavioral checks for the first tabular Hold'em blueprint path."""
 
 from dataclasses import asdict, replace
+from json import dumps, loads
+from pathlib import Path
 
 import pytest
 
+from scripts.train_blueprint import main as train_blueprint
 from src.arena.catalog import Checkpoint
 from src.blueprint.abstraction import choices, information_key
 from src.blueprint.artifact import (
@@ -93,3 +96,109 @@ def test_failed_bounded_iteration_publishes_nothing():
         trainer.step()
     assert trainer.iteration == 0
     assert trainer.nodes == {}
+
+
+def test_iteration_borrows_current_policy_without_copying_table(monkeypatch):
+    trainer = BlueprintTrainer(_table(), PilotConfig(raise_cap=0, max_nodes=5000))
+    monkeypatch.setattr(
+        BlueprintTrainer,
+        "frozen",
+        lambda self: pytest.fail("step copied the full policy table"),
+    )
+    assert trainer.step().iteration == 1
+
+
+def test_worker_count_preserves_complete_iteration_and_checkpoint(tmp_path):
+    config = PilotConfig(
+        seed=13, raise_cap=0, roots_per_seat=2, max_nodes=5000, max_seconds=30
+    )
+    serial = BlueprintTrainer(_table(), config)
+    parallel = BlueprintTrainer(_table(), config)
+    for _ in range(2):
+        one = serial.step(workers=1)
+        many = parallel.step(workers=2)
+        assert (one.nodes, one.terminals, one.entries) == (
+            many.nodes,
+            many.terminals,
+            many.entries,
+        )
+        assert one.coverage == many.coverage
+        assert sum(one.coverage.values()) == one.nodes - one.terminals
+    assert save_training(serial, tmp_path / "serial.json.gz") == save_training(
+        parallel, tmp_path / "parallel.json.gz"
+    )
+
+
+def test_parallel_failure_keeps_previous_iteration():
+    trainer = BlueprintTrainer(_table(), PilotConfig(raise_cap=0, max_nodes=1))
+    with pytest.raises(CollectionLimitExceeded):
+        trainer.step(workers=2)
+    assert trainer.iteration == 0
+    assert trainer.nodes == {}
+
+
+def test_sparse_checkpoints_keep_exact_iteration_resume(tmp_path):
+    plan = loads(
+        (Path(__file__).parents[1] / "configs/blueprint/pilot-v1.json").read_text()
+    )
+    plan["iterations"] = 3
+    plan["evaluation"]["blocks"] = 1
+    plan_path = tmp_path / "plan.json"
+    plan_path.write_text(dumps(plan))
+    paused = tmp_path / "paused"
+    resumed = tmp_path / "resumed"
+    uninterrupted = tmp_path / "uninterrupted"
+
+    assert (
+        train_blueprint(
+            [
+                "--plan",
+                str(plan_path),
+                "--out",
+                str(paused),
+                "--max-wall-seconds",
+                "0.0001",
+                "--checkpoint-seconds",
+                "9999",
+            ]
+        )
+        == 2
+    )
+    assert loads((paused / "result.json").read_text())["iteration"] == 1
+    assert loads((paused / "checkpoints.json").read_text())[0]["iteration"] == 1
+    assert (
+        train_blueprint(
+            [
+                "--plan",
+                str(plan_path),
+                "--out",
+                str(resumed),
+                "--resume",
+                str(paused / "checkpoint.json.gz"),
+                "--checkpoint-seconds",
+                "9999",
+            ]
+        )
+        == 0
+    )
+    assert (
+        train_blueprint(
+            [
+                "--plan",
+                str(plan_path),
+                "--out",
+                str(uninterrupted),
+                "--checkpoint-seconds",
+                "9999",
+            ]
+        )
+        == 0
+    )
+    assert (
+        loads((uninterrupted / "result.json").read_text())["checkpoint_sha256"]
+        == loads((resumed / "result.json").read_text())["checkpoint_sha256"]
+    )
+    assert [
+        row["iteration"]
+        for row in loads((uninterrupted / "checkpoints.json").read_text())
+    ] == [1, 3]

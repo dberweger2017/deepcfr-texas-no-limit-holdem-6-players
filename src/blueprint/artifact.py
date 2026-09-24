@@ -1,11 +1,13 @@
 """Portable, hash-pinned blueprint checkpoints and observation-only play."""
 
 from dataclasses import asdict
-from gzip import compress, decompress
+from gzip import GzipFile, compress, decompress
+from gzip import open as gzip_open
 from hashlib import sha256
+from io import TextIOWrapper
 from json import dumps, loads
 from math import isfinite
-from os import replace
+from os import fsync, replace
 from pathlib import Path
 from random import Random
 
@@ -61,23 +63,66 @@ def _table(table: Table) -> dict:
 
 
 def save_training(trainer: BlueprintTrainer, path: Path) -> str:
-    document = {
+    header = {
         "format": FORMAT,
         "abstraction": SCHEMA,
         "kind": "training",
+        "checkpoint_format": "jsonl-v2",
         "table": _table(trainer.table),
         "config": asdict(trainer.config),
         "iteration": trainer.iteration,
-        "nodes": {
-            key: [node.names, node.regrets, node.average, node.visits]
-            for key, node in trainer.nodes.items()
-        },
     }
-    return _write(path, document)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_name(path.name + ".tmp")
+    with temporary.open("wb") as raw:
+        with (
+            GzipFile(fileobj=raw, mode="wb", mtime=0, filename="") as zipped,
+            TextIOWrapper(zipped, encoding="utf-8") as output,
+        ):
+            output.write(dumps(header, sort_keys=True, separators=(",", ":")) + "\n")
+            for key in sorted(trainer.nodes):
+                node = trainer.nodes[key]
+                output.write(
+                    dumps(
+                        [key, node.names, node.regrets, node.average, node.visits],
+                        separators=(",", ":"),
+                        allow_nan=False,
+                    )
+                    + "\n"
+                )
+        raw.flush()
+        fsync(raw.fileno())
+    replace(temporary, path)
+    digest = sha256()
+    with path.open("rb") as saved:
+        for chunk in iter(lambda: saved.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def load_training(path: Path) -> BlueprintTrainer:
-    document = _read(path)
+    with gzip_open(path, "rt", encoding="utf-8") as source:
+        document = loads(source.readline())
+        if (
+            not isinstance(document, dict)
+            or document.get("format") != FORMAT
+            or document.get("abstraction") != SCHEMA
+        ):
+            raise ValueError("Unknown blueprint artifact format")
+        if document.get("checkpoint_format") == "jsonl-v2":
+            rows = (loads(line) for line in source)
+        elif "checkpoint_format" not in document:
+            rows = (
+                ([key, *row] for key, row in document["nodes"].items())
+                if document.get("kind") == "training"
+                else ()
+            )
+        else:
+            raise ValueError("Unknown blueprint checkpoint format")
+        return _load_training_document(document, rows)
+
+
+def _load_training_document(document: dict, rows) -> BlueprintTrainer:
     if document.get("kind") != "training":
         raise ValueError("An inference export cannot resume training")
     table_data = document["table"]
@@ -94,8 +139,7 @@ def load_training(path: Path) -> BlueprintTrainer:
     if type(iteration) is not int or iteration < 0:
         raise ValueError("Invalid blueprint iteration")
     trainer.iteration = iteration
-    for key, row in document["nodes"].items():
-        names, regrets, average, visits = row
+    for key, names, regrets, average, visits in rows:
         if (
             not isinstance(key, str)
             or len(key) != 32
