@@ -4,7 +4,7 @@
 
 Get a six-player, 100 BB, no-rake bot that reliably earns chips against the existing scripted style pool. That is the repository's v0.5 strength target. A stronger human-reference claim is a later v1.0 target. We will take ideas from Pluribus where they help, but the result matters more than reproducing its architecture.
 
-The [first M4 pilot](reports/blueprint-pilot-v1.md) established legal play, exact resume, and a working arena. Its two iterations visited only 408 abstract information sets; at a fixed first preflop decision just 2/169 hand classes had trained entries. Its 332 MiB peak memory says little about a useful training run. The current trainer also copies the full regret table each iteration and compresses a checkpoint every iteration. Fix those scaling costs before using throughput from a longer run to choose hardware.
+The [first M4 pilot](reports/blueprint-pilot-v1.md) established legal play, exact resume, and a working arena. Its two iterations visited only 408 abstract information sets; at a fixed first preflop decision just 2/169 hand classes had trained entries. Its 332 MiB peak memory said little about a useful training run. [Trainer scaling](blueprint-scaling.md) removed the full-table iteration copy and per-iteration compression. The [one-hour M4 slice](reports/blueprint-m4-slice-v1.md) now supplies measured growth and throughput for the next hardware decision.
 
 ## Route to the first serious campaign
 

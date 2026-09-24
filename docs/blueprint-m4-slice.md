@@ -38,3 +38,5 @@ The [amended plan](../configs/blueprint/m4-slice-v1-entry-cap-amendment.json) ra
 ```
 
 This amendment responds to a measured limit, not an early poker result. Preserve both artifact directories and include both phases in the final resource report.
+
+The completed measurements and retained checkpoint hashes are in the [M4 slice report](reports/blueprint-m4-slice-v1.md).
