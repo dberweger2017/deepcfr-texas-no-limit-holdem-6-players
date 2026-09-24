@@ -58,6 +58,21 @@ def _manifest(args, source_hash: str) -> dict:
     }
 
 
+def _count_held_out_lookups(blueprint) -> dict:
+    """Count real arena queries without changing their returned decisions."""
+    counts: dict[str, dict[str, int]] = {}
+    distribution = blueprint.distribution
+
+    def measured(view):
+        menu, probabilities, trained = distribution(view)
+        street = counts.setdefault(view.street.value, {"trained": 0, "fallback": 0})
+        street["trained" if trained else "fallback"] += 1
+        return menu, probabilities, trained
+
+    blueprint.distribution = measured
+    return counts
+
+
 def _worker(args) -> int:
     if args.workers < 1 or args.steps < 1:
         raise ValueError("Workers and steps must be positive")
@@ -189,6 +204,7 @@ def _learning(args) -> int:
         plan = Plan.from_dict({**plan_data, "models": [asdict(spec) for spec in specs]})
         registry = PolicyRegistry(plan, artifact_dir=models_dir)
         probe = preflop_first_action(registry.models["blueprint"], table)
+        held_out_lookups = _count_held_out_lookups(registry.models["blueprint"])
         report = run(plan, args.out / strategy, registry=registry)
         results[strategy] = {
             "status": report["status"],
@@ -196,6 +212,7 @@ def _learning(args) -> int:
             "invalid_actions": report["invalid_actions"],
             "comparison": report["scenarios"][plan.scenarios[0].name]["comparison"],
             "preflop_probe": probe,
+            "held_out_lookups": held_out_lookups,
             "arena_wall_seconds": report["performance"]["wall_seconds"],
             "peak_rss_bytes": _rss_bytes(),
         }

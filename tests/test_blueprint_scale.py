@@ -88,3 +88,4 @@ def test_worker_measurements_and_learning_check_from_one_checkpoint(tmp_path):
         assert result["completed_hands"] == 8
         assert result["invalid_actions"] == 0
         assert result["preflop_probe"]["hand_classes"] == 169
+        assert sum(sum(street.values()) for street in result["held_out_lookups"].values()) > 0
