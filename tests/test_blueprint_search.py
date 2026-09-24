@@ -115,6 +115,23 @@ def test_search_is_legal_and_hidden_world_independent():
     assert left.completed == right.completed == 1
 
 
+@pytest.mark.parametrize("street", [Street.TURN, Street.RIVER])
+def test_search_completes_on_later_streets(street):
+    hand = _postflop_hand()
+    while hand.observe(hand.actor).street != street:
+        view = hand.observe(hand.actor)
+        kind = ActionKind.CHECK if ActionKind.CHECK in view.legal_actions.kinds else ActionKind.CALL
+        hand = hand.apply(Action(kind))
+    view = hand.observe(hand.actor)
+    player = SearchPlayer(
+        UniformBlueprint(), 59,
+        SearchConfig(max_seconds=5, worlds=1, range_samples=8, styles=("blueprint",)),
+    )
+    view.legal_actions.validate(player.choose_action(view))
+    assert player.completed == 1
+    assert player.by_street[(street.value, "completed")] == 1
+
+
 def test_time_limit_uses_unchanged_blueprint_action():
     view = _facing_off_menu_bet().observe(0)
     search = SearchPlayer(UniformBlueprint(), 12, SearchConfig(max_seconds=1e-9))
