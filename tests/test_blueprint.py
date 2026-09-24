@@ -166,11 +166,14 @@ def test_sparse_checkpoints_keep_exact_iteration_resume(tmp_path):
     )
     assert loads((paused / "result.json").read_text())["iteration"] == 1
     assert loads((paused / "checkpoints.json").read_text())[0]["iteration"] == 1
+    plan["trainer"]["max_entries"] = 2 * plan["trainer"]["max_entries"]
+    expanded_path = tmp_path / "expanded-plan.json"
+    expanded_path.write_text(dumps(plan))
     assert (
         train_blueprint(
             [
                 "--plan",
-                str(plan_path),
+                str(expanded_path),
                 "--out",
                 str(resumed),
                 "--resume",
@@ -185,7 +188,7 @@ def test_sparse_checkpoints_keep_exact_iteration_resume(tmp_path):
         train_blueprint(
             [
                 "--plan",
-                str(plan_path),
+                str(expanded_path),
                 "--out",
                 str(uninterrupted),
                 "--checkpoint-seconds",
