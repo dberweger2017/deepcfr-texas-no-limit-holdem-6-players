@@ -1,0 +1,20 @@
+{
+  "name": "blueprint-checkpoint-04-training",
+  "iterations": 200000,
+  "table": {
+    "player_ids": ["player-0", "player-1", "player-2", "player-3", "player-4", "player-5"],
+    "stacks": [10000, 10000, 10000, 10000, 10000, 10000],
+    "button": 0,
+    "small_blind": 50,
+    "big_blind": 100,
+    "chip_unit": "0.01"
+  },
+  "trainer": {
+    "seed": 2026092402,
+    "raise_cap": 2,
+    "roots_per_seat": 4,
+    "max_nodes": 50000,
+    "max_entries": 100000000,
+    "max_seconds": 900
+  }
+}
