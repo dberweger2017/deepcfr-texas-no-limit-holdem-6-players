@@ -11,6 +11,31 @@ class Monitor:
         self.run = run
         self.writer = writer
         self.seen = {"progress.jsonl": 0, "evaluation.jsonl": 0}
+        if hasattr(writer, "add_custom_scalars"):
+            writer.add_custom_scalars({
+                "Poker profit": {
+                    "Random BB/100 with 95% interval": ["Margin", [
+                        "poker/random/candidate_bb_per_100",
+                        "poker/random/candidate_ci95_lower",
+                        "poker/random/candidate_ci95_upper",
+                    ]],
+                    "Scripted BB/100 with 95% interval": ["Margin", [
+                        "poker/styles/candidate_bb_per_100",
+                        "poker/styles/candidate_ci95_lower",
+                        "poker/styles/candidate_ci95_upper",
+                    ]],
+                },
+                "Trained decision coverage": {
+                    "Random preflop and flop": ["Multiline", [
+                        "coverage/random/preflop/trained_fraction",
+                        "coverage/random/flop/trained_fraction",
+                    ]],
+                    "Scripted preflop and flop": ["Multiline", [
+                        "coverage/styles/preflop/trained_fraction",
+                        "coverage/styles/flop/trained_fraction",
+                    ]],
+                },
+            })
 
     def poll(self):
         for filename in self.seen:
