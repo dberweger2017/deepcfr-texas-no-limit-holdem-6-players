@@ -185,6 +185,19 @@ class FrozenBlueprint:
     def policy(self, seed: int):
         return _Player(self, seed)
 
+    def distribution(self, view):
+        if view.capacity != self.players:
+            raise ValueError("Blueprint table size differs from the evaluation table")
+        menu = choices(view, raise_cap=self.raise_cap)
+        key = information_key(view, menu)
+        saved = self.entries.get(key)
+        if saved is None:
+            return menu, (1 / len(menu),) * len(menu), False
+        names, probabilities = saved
+        if names != tuple(item.name for item in menu):
+            raise ValueError("Blueprint action labels differ from the observation")
+        return menu, probabilities, True
+
 
 class _Player:
     def __init__(self, blueprint: FrozenBlueprint, seed: int):
@@ -192,15 +205,5 @@ class _Player:
         self.random = Random(seed)
 
     def choose_action(self, view):
-        if view.capacity != self.blueprint.players:
-            raise ValueError("Blueprint table size differs from the evaluation table")
-        menu = choices(view, raise_cap=self.blueprint.raise_cap)
-        key = information_key(view, menu)
-        saved = self.blueprint.entries.get(key)
-        if saved is None:
-            probabilities = (1 / len(menu),) * len(menu)
-        else:
-            names, probabilities = saved
-            if names != tuple(item.name for item in menu):
-                raise ValueError("Blueprint action labels differ from the observation")
+        menu, probabilities, _ = self.blueprint.distribution(view)
         return self.random.choices(menu, weights=probabilities, k=1)[0].action

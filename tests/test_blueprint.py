@@ -12,6 +12,7 @@ from src.blueprint.artifact import (
     load_training,
     save_training,
 )
+from src.blueprint.diagnostics import preflop_first_action
 from src.blueprint.solver import BlueprintTrainer, CollectionLimitExceeded, PilotConfig
 from src.game.hand import Hand, Table
 from src.game.types import ActionKind
@@ -71,13 +72,17 @@ def test_complete_iteration_recovers_and_exports_playable_policy(tmp_path):
     assert resumed.iteration == 2
     export = tmp_path / "policy.json.gz"
     digest = export_policy(resumed, export)
-    policy = FrozenBlueprint(
+    frozen = FrozenBlueprint(
         Checkpoint("blueprint", str(export), digest, "holdem-blueprint-v1"),
         export,
-    ).policy(3)
+    )
+    policy = frozen.policy(3)
     hand = Hand.start(table, hand_id="arena-test", seed=37)
     view = hand.observe(hand.actor)
     view.legal_actions.validate(policy.choose_action(view))
+    probe = preflop_first_action(frozen, table)
+    assert probe["hand_classes"] == 169
+    assert probe["trained_infosets"] + probe["unseen_infosets"] == 169
     with pytest.raises(ValueError, match="cannot resume"):
         load_training(export)
 

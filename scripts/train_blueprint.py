@@ -10,7 +10,13 @@ from src.arena.catalog import Checkpoint
 from src.arena.registry import PolicyRegistry
 from src.arena.run import run
 from src.arena.schedule import Plan
-from src.blueprint.artifact import export_policy, load_training, save_training
+from src.blueprint.artifact import (
+    FrozenBlueprint,
+    export_policy,
+    load_training,
+    save_training,
+)
+from src.blueprint.diagnostics import preflop_first_action
 from src.blueprint.solver import BlueprintTrainer, PilotConfig
 from src.game.hand import Table
 
@@ -81,6 +87,9 @@ def main(argv=None):
             ],
         }
     )
+    frozen = FrozenBlueprint(eval_plan.models[0], models_dir / f"{policy_hash}.json.gz")
+    diagnostic = preflop_first_action(frozen, trainer.table)
+    write_json(args.out / "card_probe.json", diagnostic)
     evaluation = run(
         eval_plan,
         args.out / "evaluation",
@@ -93,6 +102,8 @@ def main(argv=None):
         "policy_sha256": policy_hash,
         "evaluation_status": evaluation["status"],
         "completed_hands": evaluation["completed_hands"],
+        "preflop_trained_classes": diagnostic["trained_infosets"],
+        "preflop_distinct_distributions": diagnostic["distinct_distributions"],
         "strength_claim": False,
     }
     write_json(args.out / "result.json", result)
