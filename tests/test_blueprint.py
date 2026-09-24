@@ -7,8 +7,14 @@ from pathlib import Path
 import pytest
 
 from scripts.train_blueprint import main as train_blueprint
+from scripts.check_blueprint_history_coverage import main as compare_history_coverage
 from src.arena.catalog import Checkpoint
-from src.blueprint.abstraction import choices, information_key
+from src.blueprint.abstraction import (
+    SCHEMA,
+    SUMMARY_SCHEMA,
+    choices,
+    information_key,
+)
 from src.blueprint.artifact import (
     FrozenBlueprint,
     export_policy,
@@ -54,6 +60,125 @@ def test_abstract_policy_uses_only_visible_cards_and_legal_actions():
     )
     assert all(
         item.action.kind != ActionKind.RAISE for item in choices(view, raise_cap=0)
+    )
+
+
+def test_summary_key_preserves_visible_cards_and_old_key_identity():
+    hand = Hand.start(_table(6), hand_id="visible-test", seed=17)
+    view = hand.observe(hand.actor)
+    menu = choices(view)
+    assert information_key(view, menu) == "8706c97cf0899a8944820fb6a8a6d5e6"
+    assert information_key(view, menu, schema=SCHEMA) == information_key(view, menu)
+    assert information_key(view, menu, schema=SUMMARY_SCHEMA) != information_key(
+        view, menu
+    )
+    strong = replace(view, hole_cards=("As", "Ah"))
+    equivalent = replace(view, hole_cards=("Ac", "Ad"))
+    weak = replace(view, hole_cards=("7c", "2d"))
+    assert information_key(strong, choices(strong), schema=SUMMARY_SCHEMA) == (
+        information_key(equivalent, choices(equivalent), schema=SUMMARY_SCHEMA)
+    )
+    assert information_key(strong, choices(strong), schema=SUMMARY_SCHEMA) != (
+        information_key(weak, choices(weak), schema=SUMMARY_SCHEMA)
+    )
+
+
+def test_summary_checkpoint_recovers_and_exports_its_own_schema(tmp_path):
+    config = PilotConfig(
+        seed=11,
+        raise_cap=0,
+        max_nodes=5000,
+        max_seconds=10,
+        abstraction=SUMMARY_SCHEMA,
+    )
+    trainer = BlueprintTrainer(_table(), config)
+    assert trainer.step().schema == SUMMARY_SCHEMA
+    checkpoint = tmp_path / "summary-checkpoint.json.gz"
+    save_training(trainer, checkpoint)
+    resumed = load_training(checkpoint)
+    assert resumed.config == config
+    trainer.step()
+    resumed.step()
+    assert save_training(trainer, tmp_path / "direct.json.gz") == save_training(
+        resumed, tmp_path / "resumed.json.gz"
+    )
+    export = tmp_path / "summary-policy.json.gz"
+    digest = export_policy(resumed, export)
+    frozen = FrozenBlueprint(
+        Checkpoint("blueprint", str(export), digest, "holdem-blueprint-v1"),
+        export,
+    )
+    assert frozen.abstraction == SUMMARY_SCHEMA
+    hand = Hand.start(_table(), hand_id="summary-play", seed=37)
+    view = hand.observe(hand.actor)
+    view.legal_actions.validate(frozen.policy(3).choose_action(view))
+
+
+def test_history_coverage_probe_checks_both_keys_on_same_decisions(tmp_path):
+    table = _table()
+    base = PilotConfig(seed=11, raise_cap=0, max_nodes=5000, max_seconds=10)
+    reference = BlueprintTrainer(table, base)
+    summary = BlueprintTrainer(table, replace(base, abstraction=SUMMARY_SCHEMA))
+    reference.step()
+    summary.step()
+    reference_path = tmp_path / "reference.json.gz"
+    summary_path = tmp_path / "summary.json.gz"
+    uniform_path = tmp_path / "uniform.json.gz"
+    export_policy(reference, reference_path)
+    export_policy(summary, summary_path)
+    export_policy(BlueprintTrainer(table, base), uniform_path)
+    plan_path = tmp_path / "plan.json"
+    plan_path.write_text(
+        dumps(
+            {
+                "scenarios": [
+                    {
+                        "name": "two-player",
+                        "stacks": [200, 200],
+                        "small_blind": 1,
+                        "big_blind": 2,
+                        "chip_unit": "1",
+                    }
+                ],
+                "candidate": "blueprint",
+                "baseline": "blueprint_uniform",
+                "opponents": ["check_call"],
+                "blocks": 2,
+                "root_seed": 33,
+                "split": "validation",
+            }
+        )
+    )
+    out = tmp_path / "comparison"
+    assert (
+        compare_history_coverage(
+            [
+                "--reference",
+                str(reference_path),
+                "--summary",
+                str(summary_path),
+                "--uniform",
+                str(uniform_path),
+                "--plan",
+                str(plan_path),
+                "--out",
+                str(out),
+            ]
+        )
+        == 0
+    )
+    result = loads((out / "result.json").read_text())
+    assert result["status"] == "valid"
+    assert result["invalid_actions"] == 0
+    assert sum(x["decisions"] for x in result["held_out_lookups"].values()) > 0
+    assert all(
+        0 <= x["reference_trained"] <= x["decisions"]
+        and 0 <= x["summary_trained"] <= x["decisions"]
+        for x in result["held_out_lookups"].values()
+    )
+    assert all(
+        x["distinct_summary_keys"] > 0 and x["distinct_reference_keys"] > 0
+        for x in result["key_merging"].values()
     )
 
 

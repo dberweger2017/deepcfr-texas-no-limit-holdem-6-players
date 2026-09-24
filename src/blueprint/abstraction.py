@@ -15,6 +15,8 @@ from src.game.showdown import hand_value
 from src.game.types import Action, ActionKind, Street
 
 SCHEMA = "blueprint-abstraction-v1"
+SUMMARY_SCHEMA = "blueprint-abstraction-summary-v1"
+SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA)
 RANKS = "23456789TJQKA"
 
 
@@ -122,25 +124,82 @@ def _history(view: Observation) -> tuple[tuple, ...]:
     return tuple(result)
 
 
-def information_key(view: Observation, menu: tuple[Choice, ...]) -> str:
+def _band(value: float, thresholds: tuple[float, ...]) -> int:
+    return sum(value >= threshold for threshold in thresholds)
+
+
+def _summary_history(view: Observation) -> tuple:
+    """Bound long histories while keeping street, aggression and pot context."""
+    pot = 0
+    remaining = list(view.history[0].stacks)
+    per_street: dict[Street, list[tuple]] = {}
+    for event in view.history:
+        if isinstance(event, BlindPosted):
+            pot += event.amount
+            remaining[event.seat] -= event.amount
+        elif isinstance(event, ActionTaken):
+            label = event.action.kind.value
+            if event.action.kind == ActionKind.RAISE:
+                size = _band(event.paid / max(pot, view.big_blind), (0.5, 1.5, 3.0))
+                label = ("raise", size, event.paid == remaining[event.seat])
+            per_street.setdefault(event.street, []).append(
+                ((event.seat - view.button) % len(view.players), label)
+            )
+            pot += event.paid
+            remaining[event.seat] -= event.paid
+
+    street_summaries = []
+    streets = (Street.PREFLOP, Street.FLOP, Street.TURN, Street.RIVER)
+    for street in streets[: streets.index(view.street) + 1]:
+        actions = per_street.get(street, [])
+        raises = [item for item in actions if isinstance(item[1], tuple)]
+        calls = sum(item[1] == "call" for item in actions)
+        checks = sum(item[1] == "check" for item in actions)
+        street_summaries.append(
+            (
+                min(len(raises), 3),
+                min(calls, 3),
+                min(checks, 3),
+                raises[-1] if raises else None,
+                tuple(actions[-2:]) if street == view.street else (),
+            )
+        )
+    opponent_stacks = [
+        amount
+        for seat, amount in enumerate(remaining)
+        if seat != view.seat and not view.players[seat].folded
+    ]
+    effective = min(remaining[view.seat], max(opponent_stacks, default=0))
+    return (
+        tuple(street_summaries),
+        _band(pot / view.big_blind, (4, 8, 16, 32, 64, 128)),
+        _band(effective / max(pot, view.big_blind), (0.5, 1, 2, 4, 8)),
+    )
+
+
+def information_key(
+    view: Observation, menu: tuple[Choice, ...], *, schema: str = SCHEMA
+) -> str:
     """Stable abstract infoset; action labels are part of the key."""
     if view.finished or view.actor != view.seat or not menu:
         raise ValueError("An infoset needs the acting player's live observation")
     if not isinstance(view.history[0], HandStarted):
         raise TypeError("Missing public hand start")
+    if schema not in SUPPORTED_SCHEMAS:
+        raise ValueError("Unknown blueprint abstraction schema")
     cards = (
         _preflop(view.hole_cards)
         if view.street == Street.PREFLOP
         else _postflop(view.hole_cards, view.board)
     )
     payload = (
-        SCHEMA,
+        schema,
         len(view.players),
         (view.seat - view.button) % len(view.players),
         view.street.value,
         cards,
         tuple((p.folded, p.all_in) for p in view.players),
-        _history(view),
+        _history(view) if schema == SCHEMA else _summary_history(view),
         tuple(item.name for item in menu),
     )
     return blake2b(
