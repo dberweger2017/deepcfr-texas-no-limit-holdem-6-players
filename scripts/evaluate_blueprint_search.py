@@ -65,6 +65,7 @@ def _percentile(values, fraction):
 
 
 def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict:
+    started = monotonic()
     if not isinstance(expected_sha256, str) or len(expected_sha256) != 64:
         raise ValueError("A full expected checkpoint SHA-256 is required")
     actual = _sha256(checkpoint)
@@ -90,6 +91,10 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
         raise ValueError("Search comparisons need fixed, paired validation plans")
     trainer = load_training(checkpoint)
     blueprint = LiveBlueprint(trainer)
+    if monotonic() - started >= limits["max_wall_seconds"]:
+        raise CampaignLimitExceeded("Checkpoint load reached the wall limit")
+    if _rss_bytes() >= limits["max_rss_gib"] * 1024**3:
+        raise CampaignLimitExceeded("Checkpoint load reached the RSS limit")
     if any(
         len(s.stacks) != trainer.table.capacity
         for plan in plans.values() for s in plan.scenarios
@@ -107,7 +112,6 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
         "environment": environment(),
     })
     reports = {}
-    started = monotonic()
     stop_reason = None
     for name, plan in plans.items():
         rows = []
