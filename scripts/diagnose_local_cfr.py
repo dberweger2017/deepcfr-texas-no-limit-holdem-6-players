@@ -1,7 +1,6 @@
 """Measure local CFR on frozen eligible flop observations, without arena play."""
 
 import argparse
-import gc
 import json
 import os
 import resource
@@ -159,7 +158,6 @@ def _measure(blueprint, view, case: dict, targeted: bool, plan: dict) -> dict:
         "peak_process_rss_bytes": _rss_bytes(),
     }
     del solver
-    gc.collect()
     return result
 
 
