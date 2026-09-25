@@ -210,6 +210,7 @@ def run(plan: dict, cases_path: Path, checkpoint: Path, out: Path) -> dict:
     if out.exists():
         raise FileExistsError(out)
     limits = plan["execution"]
+    out.parent.mkdir(parents=True, exist_ok=True)
     if shutil.disk_usage(out.parent).free < limits["min_free_gib"] * 1024**3:
         raise RuntimeError("M4 free-disk guard failed")
     started = monotonic()
