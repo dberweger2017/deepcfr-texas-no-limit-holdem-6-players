@@ -1,7 +1,7 @@
 """Local CFR keeps private information private and updates regrets correctly."""
 
 from collections import Counter
-from itertools import permutations
+from itertools import combinations, permutations
 from random import Random
 from time import monotonic
 
@@ -12,7 +12,8 @@ from src.blueprint.abstraction import choices
 from src.blueprint.artifact import save_training
 from src.blueprint.local_cfr import (
     LocalCFRConfig, LocalCFRPlayer, _LocalSolver, _eligible, _flop_root,
-    _publish, _record_delta, _root_ranges, _sample_holes, _world,
+    _external_sampling_cycle, _publish, _record_delta, _root_ranges,
+    _sample_holes, _world,
 )
 from src.blueprint.search import DECK
 from src.blueprint.solver import BlueprintTrainer, PilotConfig
@@ -74,6 +75,67 @@ def test_linear_regret_update_matches_enumerated_three_player_hidden_game():
     assert node.policy() == (1.0, 0.0)
 
 
+def test_shared_external_sampling_core_converges_in_three_player_private_game():
+    # Three private ranks are dealt without replacement. Each seat chooses a
+    # hidden bit; matching its private rank is a strict best response even
+    # though the neighboring seats' hidden choices also affect the payoff.
+    # This runs the production cycle, delta publication and regret matching,
+    # and checks the resulting strategy against the enumerated pure solution.
+    nodes = {}
+    random = Random(907)
+
+    def visit(world, traverser, deltas, weight, seat=0, actions=(), own_reach=1.0):
+        if seat == 3:
+            mine = actions[traverser]
+            correct = world[traverser] % 2
+            neighbors = (actions[(traverser + 1) % 3], actions[(traverser - 1) % 3])
+            return (2 if mine == correct else 0) + sum(
+                0.25 if mine == other else -0.25 for other in neighbors
+            )
+        key = (seat, world[seat])  # No opponent rank or hidden choice.
+        node = nodes.get(key)
+        policy = node.policy() if node is not None else (0.5, 0.5)
+        if seat != traverser:
+            chosen = random.choices((0, 1), weights=policy, k=1)[0]
+            return visit(world, traverser, deltas, weight, seat + 1,
+                         actions + (chosen,), own_reach)
+        values = tuple(
+            visit(world, traverser, deltas, weight, seat + 1,
+                  actions + (choice,), own_reach * policy[choice])
+            for choice in (0, 1)
+        )
+        return _record_delta(deltas, key, ("0", "1"), policy, values,
+                             weight, own_reach)
+
+    deals = tuple(permutations((0, 1, 2)))
+    for cycle in range(1, 1001):
+        deltas = _external_sampling_cycle(
+            (0, 1, 2), cycle, lambda _: random.choice(deals), visit,
+        )
+        _publish(nodes, deltas)
+    assert set(nodes) == set((seat, rank) for seat in range(3) for rank in range(3))
+    for (seat, rank), node in nodes.items():
+        assert node.average_policy()[rank % 2] > 0.98, (seat, rank, node)
+
+
+def test_eligibility_requires_three_players_at_flop_root():
+    table = Table(tuple(f"player-{seat}" for seat in range(6)), (10_000,) * 6)
+    hand = Hand.from_deck(table, hand_id="four-way-root", deck=DECK)
+    while hand.observe(hand.actor).street == Street.PREFLOP:
+        view = hand.observe(hand.actor)
+        live = sum(not player.folded for player in view.players)
+        kind = (ActionKind.FOLD if live > 4 and ActionKind.FOLD in view.legal_actions.kinds
+                else ActionKind.CHECK if ActionKind.CHECK in view.legal_actions.kinds
+                else ActionKind.CALL)
+        hand = hand.apply(Action(kind))
+    root = hand.observe(hand.actor)
+    assert sum(not player.folded for player in root.players) == 4
+    hand = hand.apply(Action(ActionKind.FOLD))
+    current = hand.observe(hand.actor)
+    assert sum(not player.folded for player in current.players) == 3
+    assert not _eligible(current)
+
+
 def test_flop_root_has_all_six_public_ranges_and_collision_free_worlds():
     view = _three_way_flop().observe(1)
     root_events, _ = _flop_root(view)
@@ -82,6 +144,10 @@ def test_flop_root_has_all_six_public_ranges_and_collision_free_worlds():
         monotonic() + 5, Counter(),
     )
     assert set(ranges) == set(range(6))
+    assert len(ranges[view.seat]) == len(tuple(combinations(
+        (card for card in DECK if card not in view.board), 2,
+    )))
+    assert any(set(pair) == set(view.hole_cards) for pair, _ in ranges[view.seat])
     for seat in ranges:
         assert sum(weight for _, weight in ranges[seat]) == pytest.approx(1)
         assert all(not set(pair).intersection(view.board) for pair, _ in ranges[seat])
@@ -125,6 +191,12 @@ def test_leaf_choice_ignores_hole_card_deal_order():
     )
     alternate = replay(view.history, view.seat, view.hole_cards[::-1])
     assert solver._leaf_key(view) == solver._leaf_key(alternate)
+    menu = solver._menu(view)
+    assert solver._action_key(view, menu) == solver._action_key(alternate, menu)
+    other_pair = next(pair for pair, _ in solver.root_ranges[view.seat]
+                      if set(pair) != set(view.hole_cards))
+    other = replay(view.history, view.seat, other_pair)
+    assert solver._action_key(view, menu) != solver._action_key(other, menu)
 
 
 def test_decision_after_second_flop_raise_delegates_to_rollout_search():

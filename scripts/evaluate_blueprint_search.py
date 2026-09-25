@@ -99,6 +99,24 @@ def _log_progress(writer, name, scenario, rates, players, step):
             writer.add_scalar(f"{prefix}/{arm}_solver_cycles_median", _percentile(cycles, 0.5), step)
             writer.add_scalar(f"{prefix}/{arm}_solver_nodes", sum(p.nodes for p in group), step)
             writer.add_scalar(f"{prefix}/{arm}_solver_leaf_choices", sum(p.leaf_choices for p in group), step)
+            for cycle in (16, 32, 64, 128):
+                snapshots = [snapshot for player in group
+                             for attempt in getattr(player, "attempt_records", ())
+                             for snapshot in attempt["diagnostics"]
+                             if snapshot["cycle"] == cycle]
+                if not snapshots:
+                    continue
+                for key in ("target_l1_from_previous", "mean_positive_regret",
+                            "max_positive_regret", "action_infosets", "leaf_infosets"):
+                    values = [snapshot[key] for snapshot in snapshots
+                              if snapshot[key] is not None]
+                    if values:
+                        writer.add_scalar(f"{prefix}/{arm}/cycle_{cycle}/{key}",
+                                          sum(values) / len(values), step)
+                for index, style in enumerate(("blueprint", "fold", "call", "raise")):
+                    writer.add_scalar(f"{prefix}/{arm}/cycle_{cycle}/leaf_{style}",
+                                      sum(snapshot["leaf_style_mean_policy"][index]
+                                          for snapshot in snapshots) / len(snapshots), step)
     paired = estimate([a - b for a, b in zip(rates["candidate"], rates["baseline"], strict=True)])
     writer.add_scalar(f"{prefix}/paired_bb_per_100", paired["bb_per_100"], step)
     if paired["ci95"] is not None:
@@ -308,6 +326,20 @@ def run(
                 "solver_nodes": sum(getattr(p, "nodes", 0) for p in group),
                 "solver_leaf_choices": sum(getattr(p, "leaf_choices", 0) for p in group),
                 "solver_range_updates": sum(getattr(p, "range_updates", 0) for p in group),
+                "solver_diagnostics": {
+                    str(cycle): {
+                        key: (
+                            sum(values) / len(values) if values else None
+                        )
+                        for key in ("target_l1_from_previous", "mean_positive_regret",
+                                    "max_positive_regret", "action_infosets", "leaf_infosets")
+                        for values in [[snapshot[key] for p in group
+                                        for record in getattr(p, "attempt_records", ())
+                                        for snapshot in record["diagnostics"]
+                                        if snapshot["cycle"] == cycle and snapshot[key] is not None]]
+                    }
+                    for cycle in (16, 32, 64, 128)
+                } if any(hasattr(p, "attempt_records") for p in group) else None,
                 "delegated_search_attempts": sum(getattr(getattr(p, "other", None), "attempts", 0) for p in group),
                 "delegated_search_fallbacks": sum(getattr(getattr(p, "other", None), "fallbacks", 0) for p in group),
             }

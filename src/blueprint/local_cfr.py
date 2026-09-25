@@ -13,7 +13,7 @@ from math import fsum
 from random import Random
 from time import monotonic
 
-from src.blueprint.abstraction import Choice, choices, information_key
+from src.blueprint.abstraction import Choice, choices
 from src.blueprint.search import (
     DECK, STYLES, SearchConfig, SearchPlayer, SearchUnavailable,
     _observed_likelihood, _rollout,
@@ -31,6 +31,7 @@ class LocalCFRConfig:
     min_cycles: int = 32
     max_cycles: int = 128
     max_nodes: int = 200_000
+    targeted_traversal: bool = True
 
     def __post_init__(self):
         if not 0 < self.max_seconds <= 60:
@@ -40,6 +41,8 @@ class LocalCFRConfig:
                 raise ValueError(f"Local CFR needs a positive {name}")
         if self.range_samples > 1326 or self.max_cycles < self.min_cycles:
             raise ValueError("Invalid local CFR sample or cycle bounds")
+        if type(self.targeted_traversal) is not bool:
+            raise ValueError("targeted_traversal must be a boolean")
 
 
 @dataclass(slots=True)
@@ -68,7 +71,7 @@ class _Delta:
 def _record_delta(
     deltas: dict[tuple, _Delta], key: tuple, names: tuple[str, ...],
     policy: tuple[float, ...], values: tuple[float, ...],
-    weight: int, own_reach: float,
+    weight: float, own_reach: float,
 ) -> float:
     """Stage one external-sampling regret update; publish only full cycles."""
     expected = fsum(p * value for p, value in zip(policy, values, strict=True))
@@ -99,6 +102,16 @@ def _publish(nodes: dict[tuple, _Node], deltas: dict[tuple, _Delta]) -> None:
         node.visits += delta.visits
 
 
+def _external_sampling_cycle(
+    players: tuple[int, ...], cycle: int, draw_world, visit,
+) -> dict[tuple, _Delta]:
+    """One simultaneous, linearly weighted pass through every player role."""
+    deltas: dict[tuple, _Delta] = {}
+    for traverser in players:
+        visit(draw_world(traverser), traverser, deltas, cycle)
+    return deltas
+
+
 def _flop_root(view: Observation) -> tuple[tuple, tuple[ActionTaken, ...]]:
     for index, event in enumerate(view.history):
         if isinstance(event, BoardDealt) and event.street == Street.FLOP:
@@ -125,6 +138,14 @@ def _eligible(view: Observation) -> bool:
     live = tuple(player.seat for player in view.players if not player.folded)
     if len(live) != 3 or view.seat not in live:
         return False
+    try:
+        root_events, _ = _flop_root(view)
+        root = replay(root_events, view.seat, view.hole_cards)
+    except ValueError:
+        return False
+    root_live = tuple(player.seat for player in root.players if not player.folded)
+    if len(root_live) != 3 or any(root.players[seat].all_in for seat in root_live):
+        return False
     return all(
         pot.refund_to is not None or pot.eligible_seats == live
         for pot in view.pots
@@ -141,7 +162,11 @@ def _root_ranges(
     result = {}
     for seat in range(len(view.players)):
         weighted = []
-        for pair in random.sample(pairs, min(samples, len(pairs))):
+        # The hero range is the complete public support.  Sampling it after
+        # looking at the real hand would make its support private-information
+        # dependent; exhaustive enumeration also guarantees target coverage.
+        candidate_pairs = pairs if seat == view.seat else random.sample(pairs, min(samples, len(pairs)))
+        for pair in candidate_pairs:
             if monotonic() >= deadline:
                 raise TimeoutError("Root range construction exceeded the decision limit")
             probability = 1.0
@@ -220,20 +245,23 @@ class _LocalSolver:
         self.leaf_choices = 0
         self.cycles = 0
         self.range_updates = 0
+        self.diagnostics: list[dict] = []
         self.root_events, self.past_actions = _flop_root(view)
-        self.live = tuple(player.seat for player in view.players if not player.folded)
+        root_view = replay(self.root_events, view.seat, view.hole_cards)
+        self.live = tuple(player.seat for player in root_view.players if not player.folded)
         self.root_ranges = _root_ranges(
             blueprint, view, self.root_events, random, config.range_samples, deadline, coverage,
         )
+        self.hero_actual_prior = next(
+            weight for pair, weight in self.root_ranges[view.seat]
+            if set(pair) == set(view.hole_cards)
+        )
         self.current_ranges = self.root_ranges
         self.observed_raises = {}
-        self.hero_past_actions = {}
         for index, event in enumerate(view.history):
             if isinstance(event, ActionTaken) and event.street == Street.FLOP:
                 if event.action.kind == ActionKind.RAISE:
                     self.observed_raises[view.history[:index]] = event.action
-                if event.seat == view.seat:
-                    self.hero_past_actions[view.history[:index]] = event.action
 
     def _check(self):
         self.sampled_nodes += 1
@@ -249,7 +277,12 @@ class _LocalSolver:
         return menu
 
     def _action_key(self, view: Observation, menu: tuple[Choice, ...]) -> tuple:
-        return ("action", view.seat, information_key(view, menu), _public_history(view))
+        # Current-street information is lossless.  The blueprint's card
+        # buckets are only used by the continuation policy.
+        return ("action", view.seat, tuple(sorted(view.hole_cards)),
+                view.board, _public_history(view),
+                tuple((item.name, item.action.kind.value, item.action.raise_to)
+                      for item in menu))
 
     def _leaf_key(self, view: Observation) -> tuple:
         # No opponent hand, future deck, or another player's continuation choice
@@ -267,7 +300,7 @@ class _LocalSolver:
 
     def _leaf(
         self, hand: Hand, traverser: int, deltas: dict[tuple, _Delta],
-        weight: int, random: Random, own_reach: float,
+        weight: float, random: Random, own_reach: float,
         index: int = 0, styles: tuple[str, ...] = (),
     ) -> float:
         self._check()
@@ -300,7 +333,7 @@ class _LocalSolver:
 
     def _visit(
         self, hand: Hand, traverser: int, deltas: dict[tuple, _Delta],
-        weight: int, random: Random, own_reach: float,
+        weight: float, random: Random, own_reach: float,
     ) -> float:
         self._check()
         if hand.finished:
@@ -314,11 +347,6 @@ class _LocalSolver:
         if view.street != Street.FLOP or raises >= 2:
             return self._leaf(hand, traverser, deltas, weight, random, own_reach)
         menu = self._menu(view)
-        frozen = self.hero_past_actions.get(view.history)
-        if frozen is not None and hand.actor == self.view.seat \
-                and view.hole_cards == self.view.hole_cards:
-            return self._visit(hand.apply(frozen), traverser, deltas,
-                               weight, random, own_reach)
         names = tuple(item.name for item in menu)
         key = self._action_key(view, menu)
         policy = self._policy(key, names)
@@ -340,6 +368,21 @@ class _LocalSolver:
         if hand.events != self.view.history:
             raise RuntimeError("A sampled current world did not reproduce the observation")
         return hand
+
+    def _observed_opponent_reach(self, holes) -> float:
+        """Counterfactual reach of the observed flop path for hero updates."""
+        reach = 1.0
+        for index, event in enumerate(self.view.history):
+            if not isinstance(event, ActionTaken) or event.street != Street.FLOP \
+                    or event.seat == self.view.seat:
+                continue
+            prior = replay(self.view.history[:index], event.seat, holes[event.seat])
+            menu = self._menu(prior)
+            policy = self._policy(self._action_key(prior, menu),
+                                  tuple(item.name for item in menu))
+            reach *= fsum(probability for item, probability in zip(menu, policy, strict=True)
+                          if item.action == event.action)
+        return reach
 
     def _update_current_ranges(self) -> None:
         """Condition the public root on observed flop actions using average play."""
@@ -380,22 +423,32 @@ class _LocalSolver:
         target_key = self._action_key(self.view, target_menu)
         target_names = tuple(item.name for item in target_menu)
         while self.cycles < self.config.max_cycles:
-            deltas: dict[tuple, _Delta] = {}
             cycle = self.cycles + 1
             try:
-                for traverser in self.live:
-                    forced = (traverser, self.view.hole_cards) if traverser == self.view.seat else None
-                    holes = _sample_holes(self.root_ranges, self.random, forced)
-                    root = _world(self.view, self.root_events, holes, self.random)
-                    self._visit(root, traverser, deltas, cycle,
+                def draw_world(_traverser):
+                    holes = _sample_holes(self.root_ranges, self.random)
+                    return _world(self.view, self.root_events, holes, self.random)
+
+                def visit(root, traverser, deltas, weight):
+                    self._visit(root, traverser, deltas, weight,
                                 Random(self.random.getrandbits(64)), 1.0)
-                # The observed public path may be rare under current strategies.
-                # A separate targeted traversal trains its actual hero infoset.
-                holes = _sample_holes(
-                    self.current_ranges, self.random, (self.view.seat, self.view.hole_cards),
+
+                deltas = _external_sampling_cycle(
+                    self.live, cycle, draw_world, visit,
                 )
-                self._visit(self._observed_world(holes), self.view.seat, deltas,
-                            cycle, Random(self.random.getrandbits(64)), 1.0)
+                if self.config.targeted_traversal:
+                    # Stratify the rare actual-hand/current-path stratum.
+                    # Opponent actions before the target are forced, so restore
+                    # their counterfactual reach in the regret weight.  Hero's
+                    # own earlier actions do not enter counterfactual reach.
+                    holes = _sample_holes(
+                        self.root_ranges, self.random,
+                        (self.view.seat, self.view.hole_cards),
+                    )
+                    weight = cycle * self.hero_actual_prior * self._observed_opponent_reach(holes)
+                    if weight > 0:
+                        self._visit(self._observed_world(holes), self.view.seat, deltas,
+                                    weight, Random(self.random.getrandbits(64)), 1.0)
             except TimeoutError:
                 if self.cycles < self.config.min_cycles:
                     raise
@@ -404,6 +457,30 @@ class _LocalSolver:
                 self.final_strategy = self._policy(target_key, target_names)
             _publish(self.nodes, deltas)
             self.cycles = cycle
+            if cycle in (16, 32, 64, 128):
+                policy = self._policy(target_key, target_names)
+                previous = self.diagnostics[-1]["target_policy"] if self.diagnostics else None
+                positive = [max(0.0, regret) for node in self.nodes.values()
+                            for regret in node.regrets]
+                leaf_policies = [node.policy() for key, node in self.nodes.items()
+                                 if key[0] == "leaf"]
+                self.diagnostics.append({
+                    "cycle": cycle,
+                    "target_policy": list(policy),
+                    "target_names": list(target_names),
+                    "target_l1_from_previous": (
+                        fsum(abs(a - b) for a, b in zip(policy, previous, strict=True))
+                        if previous is not None else None
+                    ),
+                    "mean_positive_regret": fsum(positive) / len(positive) if positive else 0.0,
+                    "max_positive_regret": max(positive, default=0.0),
+                    "action_infosets": sum(key[0] == "action" for key in self.nodes),
+                    "leaf_infosets": len(leaf_policies),
+                    "leaf_style_mean_policy": [
+                        fsum(policy[index] for policy in leaf_policies) / len(leaf_policies)
+                        if leaf_policies else 0.0 for index in range(len(STYLES))
+                    ],
+                })
             if self.cycles % 8 == 0 and self.past_actions:
                 try:
                     self._update_current_ranges()
@@ -483,5 +560,8 @@ class LocalCFRPlayer:
                 "nodes": solver.sampled_nodes if solver is not None else 0,
                 "leaf_choices": solver.leaf_choices if solver is not None else 0,
                 "range_updates": solver.range_updates if solver is not None else 0,
+                "root_range_sizes": ({str(seat): len(rows) for seat, rows in solver.root_ranges.items()}
+                                     if solver is not None else None),
+                "diagnostics": solver.diagnostics if solver is not None else [],
                 "seconds": elapsed,
             })
