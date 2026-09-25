@@ -125,6 +125,61 @@ def test_shared_external_sampling_core_converges_in_three_player_private_game():
         assert node.average_policy()[rank % 2] > 0.98, (seat, rank, node)
 
 
+def test_shared_external_sampling_core_approaches_mixed_rps_equilibrium():
+    # Private rank rotates the meaning of each action. Each player receives
+    # its RPS result against both neighbors, making this a three-player
+    # constant-sum game with the independently known uniform equilibrium.
+    deals = tuple(permutations((0, 1, 2)))
+    names = ("rock", "paper", "scissors")
+
+    def train(targeted):
+        random = Random(1307)
+        nodes = {}
+
+        def visit(world, traverser, deltas, weight, seat=0, actions=(), own_reach=1.0):
+            if seat == 3:
+                effective = tuple((choice + rank) % 3
+                                  for choice, rank in zip(actions, world, strict=True))
+                mine = effective[traverser]
+                return sum(((mine - effective[other]) % 3 == 1) -
+                           ((effective[other] - mine) % 3 == 1)
+                           for other in range(3) if other != traverser)
+            key = (seat, world[seat])
+            node = nodes.get(key)
+            policy = node.policy() if node is not None else (1 / 3,) * 3
+            if seat != traverser:
+                choice = random.choices(range(3), weights=policy, k=1)[0]
+                return visit(world, traverser, deltas, weight, seat + 1,
+                             actions + (choice,), own_reach)
+            values = tuple(
+                visit(world, traverser, deltas, weight, seat + 1,
+                      actions + (choice,), own_reach * policy[choice])
+                for choice in range(3)
+            )
+            return _record_delta(deltas, key, names, policy, values, weight, own_reach)
+
+        for cycle in range(1, 5001):
+            deltas = _external_sampling_cycle(
+                (0, 1, 2), cycle, lambda _: random.choice(deals), visit,
+            )
+            if targeted:
+                # The actual rank-0 stratum has prior mass 1/3. The extra
+                # pass is weighted by that mass as in the Hold'em pilot.
+                world = random.choice(tuple(deal for deal in deals if deal[0] == 0))
+                visit(world, 0, deltas, cycle / 3)
+            _publish(nodes, deltas)
+        return nodes
+
+    ordinary = train(False)
+    targeted = train(True)
+    errors = [max(abs(probability - 1 / 3)
+                  for node in nodes.values()
+                  for probability in node.average_policy())
+              for nodes in (ordinary, targeted)]
+    assert errors[0] < 0.12, errors
+    assert errors[1] < 0.2, errors
+
+
 def test_eligibility_requires_three_players_at_flop_root():
     table = Table(tuple(f"player-{seat}" for seat in range(6)), (10_000,) * 6)
     hand = Hand.from_deck(table, hand_id="four-way-root", deck=DECK)
@@ -200,6 +255,22 @@ def test_observed_off_menu_raise_is_available_at_its_exact_size():
     assert Action(ActionKind.RAISE, target) in [item.action for item in solver._menu(first)]
     assert any(isinstance(event, ActionTaken) and event.action.raise_to == target
                for event in view.history)
+
+
+def test_targeted_pass_restores_observed_opponent_reach():
+    hand = _three_way_flop()
+    prior = hand.observe(hand.actor)
+    hand = hand.apply(Action(ActionKind.CHECK))
+    view = hand.observe(hand.actor)
+    solver = _LocalSolver(
+        UniformBlueprint(), view, Random(3), LocalCFRConfig(range_samples=8),
+        monotonic() + 5, Counter(),
+    )
+    holes = _sample_holes(solver.root_ranges, Random(5),
+                          (view.seat, view.hole_cards))
+    assert solver._observed_opponent_reach(holes) == pytest.approx(
+        1 / len(choices(prior))
+    )
 
 
 def test_leaf_choice_ignores_hole_card_deal_order():
