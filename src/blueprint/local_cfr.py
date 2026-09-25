@@ -444,6 +444,7 @@ class LocalCFRPlayer:
         started = monotonic()
         solver = None
         status = "fallback"
+        reason = None
         try:
             solver = _LocalSolver(
                 self.blueprint, view, self.search_random, self.config,
@@ -457,9 +458,10 @@ class LocalCFRPlayer:
             self.cycles.append(solver.cycles)
             status = "completed"
             return action
-        except (TimeoutError, SearchUnavailable):
+        except (TimeoutError, SearchUnavailable) as exc:
             self.fallbacks += 1
             self.by_street[("flop", "fallbacks")] += 1
+            reason = f"{type(exc).__name__}: {exc}"
             return fallback
         finally:
             elapsed = monotonic() - started
@@ -470,6 +472,7 @@ class LocalCFRPlayer:
             self.search_seconds.append(elapsed)
             self.attempt_records.append({
                 "status": status,
+                "reason": reason,
                 "cycles": solver.cycles if solver is not None else 0,
                 "nodes": solver.sampled_nodes if solver is not None else 0,
                 "leaf_choices": solver.leaf_choices if solver is not None else 0,

@@ -145,6 +145,7 @@ def test_timeout_uses_seeded_blueprint_fallback():
     assert player.choose_action(view) == expected
     assert player.attempts == player.fallbacks == 1
     assert player.completed == 0
+    assert player.attempt_records[0]["reason"].startswith("TimeoutError:")
 
 
 def test_paired_runner_accepts_local_candidate_and_corrected_baseline(tmp_path):
