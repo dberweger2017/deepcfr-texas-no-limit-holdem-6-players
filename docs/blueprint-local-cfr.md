@@ -63,6 +63,8 @@ continuation coverage in #105. The 12M checkpoint is one training lineage,
 and the paired arena is exploratory rather than an independent-seed strength
 confirmation.
 
+After the construction review, run the [frozen short M4 smoke](../configs/blueprint/local-cfr-frontier-smoke.json) on the same 12M checkpoint: eight scripted and four random blocks with new validation roots 2026093001/2026093002, a 15-minute wall cap, 10.5-GiB process RSS cap, and the existing five-second decision cap. Its purpose is to check legality, completion, timing, memory, and saved artifact replay after the sampling and eligibility changes. The small number of blocks does not support a strength claim. Preserve the earlier full-arena report under its original source revision.
+
 ## Execution and acceptance
 
 Run the focused tests and a small six-seat smoke first. The M4 run has a
