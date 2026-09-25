@@ -1,5 +1,6 @@
 """Search samples only compatible hidden worlds and returns legal actions."""
 
+import json
 from random import Random
 from time import monotonic
 
@@ -204,7 +205,11 @@ def test_paired_search_comparison_loads_one_pinned_checkpoint(tmp_path, baseline
     with pytest.raises(ValueError, match="hash mismatch"):
         run(checkpoint, "0" * 64, config, tmp_path / "wrong")
     assert not (tmp_path / "wrong").exists()
-    result = run(checkpoint, digest, config, tmp_path / "comparison")
+    with_tensorboard = baseline == "blueprint_search_original"
+    result = run(
+        checkpoint, digest, config, tmp_path / "comparison",
+        tensorboard=with_tensorboard,
+    )
     assert result["status"] == "valid"
     report = result["comparisons"]["random"]
     assert report["report"]["completed_hands"] == 12
@@ -214,5 +219,12 @@ def test_paired_search_comparison_loads_one_pinned_checkpoint(tmp_path, baseline
     assert report["telemetry"]["candidate"]["lookup_coverage"]["range"]
     if baseline == "blueprint_search_original":
         assert report["telemetry"]["baseline"]["search_attempts"] > 0
+        from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+
+        events = next((tmp_path / "comparison" / "tensorboard").glob("events.out.tfevents.*"))
+        accumulator = EventAccumulator(str(events)).Reload()
+        assert "random/six/paired_bb_per_100" in accumulator.Tags()["scalars"]
+        checksums = json.loads((tmp_path / "comparison" / "checksums.json").read_text())
+        assert any(path.startswith("tensorboard/") for path in checksums)
     else:
         assert report["telemetry"]["baseline"]["search_attempts"] == 0

@@ -15,7 +15,7 @@ from time import monotonic
 
 from src.arena.artifacts import environment, git, write_json
 from src.arena.policies import make_policy
-from src.arena.report import summarize
+from src.arena.report import estimate, summarize
 from src.arena.runner import run_schedule
 from src.arena.schedule import Plan, build_schedule, digest
 from src.blueprint.artifact import load_training
@@ -65,7 +65,35 @@ def _percentile(values, fraction):
     return ordered[min(len(ordered) - 1, int(fraction * (len(ordered) - 1)))]
 
 
-def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict:
+def _log_progress(writer, name, scenario, rates, players, step):
+    prefix = f"{name}/{scenario}"
+    for arm in ("candidate", "baseline"):
+        value = estimate(rates[arm])
+        writer.add_scalar(f"{prefix}/{arm}_bb_per_100", value["bb_per_100"], step)
+        if value["ci95"] is not None:
+            writer.add_scalar(f"{prefix}/{arm}_ci95_lower", value["ci95"][0], step)
+            writer.add_scalar(f"{prefix}/{arm}_ci95_upper", value["ci95"][1], step)
+        group = players[arm]
+        writer.add_scalar(f"{prefix}/{arm}_search_attempts", sum(p.attempts for p in group), step)
+        writer.add_scalar(f"{prefix}/{arm}_search_fallbacks", sum(p.fallbacks for p in group), step)
+        latencies = [value for p in group for value in p.search_seconds]
+        if latencies:
+            writer.add_scalar(
+                f"{prefix}/{arm}_search_p95_seconds", _percentile(latencies, 0.95), step,
+            )
+    paired = estimate([a - b for a, b in zip(rates["candidate"], rates["baseline"], strict=True)])
+    writer.add_scalar(f"{prefix}/paired_bb_per_100", paired["bb_per_100"], step)
+    if paired["ci95"] is not None:
+        writer.add_scalar(f"{prefix}/paired_ci95_lower", paired["ci95"][0], step)
+        writer.add_scalar(f"{prefix}/paired_ci95_upper", paired["ci95"][1], step)
+    writer.add_scalar(f"{prefix}/peak_rss_gib", _rss_bytes() / 1024**3, step)
+    writer.flush()
+
+
+def run(
+    checkpoint: Path, expected_sha256: str, config: dict, out: Path,
+    *, tensorboard: bool = False,
+) -> dict:
     started = monotonic()
     if not isinstance(expected_sha256, str) or len(expected_sha256) != 64:
         raise ValueError("A full expected checkpoint SHA-256 is required")
@@ -107,12 +135,18 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
     ):
         raise ValueError("Comparison table size differs from the checkpoint")
     out.mkdir(parents=True, exist_ok=False)
+    writer = None
+    if tensorboard:
+        from torch.utils.tensorboard import SummaryWriter
+
+        writer = SummaryWriter(str(out / "tensorboard"))
     write_json(out / "manifest.json", {
         "checkpoint": str(checkpoint),
         "checkpoint_sha256": actual,
         "checkpoint_iteration": trainer.iteration,
         "checkpoint_entries": len(trainer.nodes),
         "comparison": config,
+        "tensorboard_every_blocks": 64 if tensorboard else None,
         "revision": git("rev-parse", "HEAD"),
         "dirty": bool(git("status", "--porcelain")),
         "environment": environment(),
@@ -123,6 +157,12 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
         rows = []
         candidate_latencies = []
         players = {"candidate": [], "baseline": []}
+        block_rows = {}
+        rates = {
+            scenario.name: {"candidate": [], "baseline": []}
+            for scenario in plan.scenarios
+        }
+        scenarios = {scenario.name: scenario for scenario in plan.scenarios}
 
         def factory(policy_name, seed):
             if policy_name == "blueprint_search":
@@ -148,6 +188,27 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
             compact["outcome_sha256"] = digest(compact)
             _append(out / f"{name}-hands.jsonl", compact)
             rows.append(compact)
+            if writer is not None:
+                scenario = scenarios[row["scenario"]]
+                key = (row["scenario"], row["block"])
+                group = block_rows.setdefault(key, [])
+                group.append(compact)
+                expected = 2 * len(scenario.stacks) * scenario.hands_per_rotation
+                if len(group) == expected:
+                    if all(item["status"] == "completed" for item in group):
+                        for arm in ("candidate", "baseline"):
+                            outcomes = [
+                                item["candidate_chips"] for item in group if item["arm"] == arm
+                            ]
+                            rates[scenario.name][arm].append(
+                                100 * sum(outcomes) / (len(outcomes) * scenario.big_blind)
+                            )
+                        step = len(rates[scenario.name]["candidate"])
+                        if step % 64 == 0 or step == plan.blocks:
+                            _log_progress(
+                                writer, name, scenario.name, rates[scenario.name], players, step,
+                            )
+                    del block_rows[key]
             if row["arm"] == "candidate":
                 candidate_latencies.extend(
                     item["seconds"] for item in timing["decisions"]
@@ -222,9 +283,11 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
         ) else "failed",
     }
     write_json(out / "result.json", result)
+    if writer is not None:
+        writer.close()
     write_json(out / "checksums.json", {
-        path.name: _sha256(path)
-        for path in sorted(out.iterdir()) if path.is_file()
+        str(path.relative_to(out)): _sha256(path)
+        for path in sorted(out.rglob("*")) if path.is_file()
     })
     return result
 
@@ -235,10 +298,11 @@ def main(argv=None):
     parser.add_argument("--expected-sha256", required=True)
     parser.add_argument("--plan", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--tensorboard", action="store_true")
     args = parser.parse_args(argv)
     result = run(
         args.checkpoint, args.expected_sha256,
-        json.loads(args.plan.read_text()), args.out,
+        json.loads(args.plan.read_text()), args.out, tensorboard=args.tensorboard,
     )
     print(json.dumps({"status": result["status"], "out": str(args.out)}))
     return 0 if result["status"] == "valid" else 2
