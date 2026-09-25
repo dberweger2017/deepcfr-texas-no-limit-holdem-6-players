@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from scripts.blueprint_mixed_table import PLAYER_IDS, main, run
+from scripts.blueprint_mixed_table import PLAYER_IDS, SHOWCASE_LINEUPS, main, run
 from src.blueprint.artifact import save_training
 from src.blueprint.solver import BlueprintTrainer, PilotConfig
 from src.game.hand import Table
@@ -62,3 +62,28 @@ def test_mixed_table_requires_pinned_checkpoint(tmp_path: Path):
     result = json.loads((output / "result.json").read_text())
     assert result["checkpoint_sha256"] == digest
     assert result["samples"][0]["hand"] == 1
+
+
+def test_showcase_suite_tracks_every_lineup_and_reconciles_cash(tmp_path: Path):
+    checkpoint = tmp_path / "checkpoint.json.gz"
+    digest = save_training(_trainer(), checkpoint)
+    output = tmp_path / "suite"
+    assert main([
+        "--checkpoint", str(checkpoint),
+        "--expected-sha256", digest,
+        "--out", str(output),
+        "--hands", "12",
+        "--seed", "931",
+        "--suite",
+    ]) == 0
+    suite = json.loads((output / "suite.json").read_text())
+    assert len(suite["tables"]) == 9
+    assert [row["deal_seed"] for row in suite["tables"]] == list(range(931, 940))
+    assert {row["name"].removesuffix("-1") for row in suite["tables"]} >= set(SHOWCASE_LINEUPS)
+    for entry in suite["tables"]:
+        result = json.loads((output / entry["file"]).read_text())
+        assert result["checkpoint_sha256"] == digest
+        assert result["deal_seed"] == entry["deal_seed"]
+        assert result["samples"][-1]["hand"] == 12
+        assert sum(result["samples"][-1]["net_bb"].values()) == 0
+        assert sum(result["samples"][-1]["group_net_bb"].values()) == 0
