@@ -117,6 +117,20 @@ def test_observed_off_menu_raise_is_available_at_its_exact_size():
                for event in view.history)
 
 
+def test_decision_after_second_flop_raise_delegates_to_rollout_search():
+    hand = _three_way_flop()
+    for _ in range(2):
+        view = hand.observe(hand.actor)
+        hand = hand.apply(Action(ActionKind.RAISE, view.legal_actions.min_raise_to))
+    view = hand.observe(hand.actor)
+    assert view.street == Street.FLOP
+    assert not _eligible(view)
+    player = LocalCFRPlayer(UniformBlueprint(), 7)
+    view.legal_actions.validate(player.choose_action(view))
+    assert player.attempts == 0
+    assert player.other.attempts == 1
+
+
 def test_local_player_is_legal_and_independent_of_unseen_deal():
     first = _three_way_flop().observe(1)
     alternate = list(DECK)

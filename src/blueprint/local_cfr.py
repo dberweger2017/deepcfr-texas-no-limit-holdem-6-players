@@ -117,6 +117,11 @@ def _eligible(view: Observation) -> bool:
         return False
     if any(player.all_in for player in view.players):
         return False
+    if sum(
+        isinstance(event, ActionTaken) and event.street == Street.FLOP
+        and event.action.kind == ActionKind.RAISE for event in view.history
+    ) >= 2:
+        return False
     live = tuple(player.seat for player in view.players if not player.folded)
     if len(live) != 3 or view.seat not in live:
         return False

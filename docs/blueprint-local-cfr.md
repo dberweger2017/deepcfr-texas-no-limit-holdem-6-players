@@ -10,7 +10,8 @@ uses the saved 12M-entry six-player blueprint, SHA-256
 No table training or 58M checkpoint load is part of this PR.
 
 The candidate solves only flop decisions with exactly three nonfolded players
-able to act, no all-in participant, and one common pot eligibility set. It
+able to act, no all-in participant, fewer than two prior flop raises, and one
+common pot eligibility set. It
 delegates all other situations to the corrected search from PR #105. The
 baseline always uses that corrected search. Both arms use the same frozen
 blueprint and paired six-seat deal, opponent, and seat-rotation schedule.
