@@ -1,0 +1,34 @@
+# Corrected three-player flop local CFR retest
+
+This is the fresh-schedule follow-up within draft PR #106. The [frozen correction protocol](../blueprint-local-cfr-correction.md) used the same saved 12M-entry checkpoint and corrected rollout-search baseline as the [first pilot](blueprint-local-cfr-m4.md). Source revision `8e3878f306cf17c359d5f2dccc13126fdc985126` had a clean worktree at run start. The new validation roots were 2026092901 and 2026092902. No paid host or 58M checkpoint was used.
+
+## Results
+
+| Opponents | Blocks / hands | Local CFR BB/100 | Corrected search BB/100 | Paired difference BB/100 |
+| --- | ---: | ---: | ---: | ---: |
+| Scripted pool | 128 / 1,536 | −389.76 [−676.65, −102.87] | −389.37 [−669.62, −109.12] | **−0.39 [−86.68, +85.90]** |
+| Random | 64 / 768 | −196.05 [−892.53, +500.43] | −183.68 [−896.07, +528.71] | **−12.37 [−121.87, +97.13]** |
+
+Intervals are 95% block-level intervals; both paired intervals include zero. The local arm still loses to the scripted pool. These are fresh validation schedules and are not directly comparable to the first pilot's +41.57 BB/100 scripted point estimate, since both deals and eligibility changed. There is no strength or model-promotion claim.
+
+The declared operational gate passed: **84/84** eligible flop attempts completed all **128** per-player cycles, with no fallback, a **4.32-second** maximum against the five-second limit, and **7.23 GiB** peak process RSS against 10.5 GiB. All **2,304** paired hands completed with zero invalid actions. The earlier schedule had 97 eligible attempts; because the schedules differ, this does not measure the effect of the stricter root check. The solver sampled 1,768,491 traversal nodes and 676,222 leaf choices across both suites; 944 average-policy range updates were recorded. The local arm delegated 537 scripted and 56 random decisions to corrected search without fallback.
+
+## What the correctness pass established
+
+The flop root now has exactly three players able to act. All 1,176 board-compatible two-card hero holdings enter the public root range without selecting support from the actual cards, and actual observed off-policy actions retain small nonzero likelihood. Ordinary per-player traversals sample hero from that range. Current-flop action information sets use exact cards, board, public betting history, and legal menu. The observed current-path pass restores the reach probability of earlier opponent actions in its regret weight. Legal actions, collision-free sampling, exact public replay, unseen-deal invariance, and observed off-menu raises have focused tests.
+
+The shared cycle, regret, and publication code converged toward the known pure solution in a three-player private-rank game. On a private-rank three-player mixed RPS game, 5,000 cycles gave maximum average-policy distance from the known uniform component of **0.062** for ordinary sampling and **0.128** with an extra prior-weighted actual-rank traversal. That controlled example shows the targeted schedule can change finite-cycle behavior. The Hold'em targeted pass also conditions on a finite sampled range and collision rejection, so the retest is a bounded heuristic rather than a proof of unbiased external-sampling MCCFR or equilibrium convergence. Average-policy posterior ranges were recomputed 944 times for audit, but targeted worlds drew from the public root range to avoid counting observed actions twice; those posterior ranges did not drive the current decision.
+
+## Solver stability and continuation limits
+
+In the scripted suite, the mean post-update target-policy L1 movement from cycle 64 to 128 was **0.794** on a 0–2 scale; **50 of 78** attempts moved by more than 0.5. Mean distinct action information sets rose from **202** at cycle 64 to **370** at 128, and leaf information sets from **619** to **1,172**. The strategy was still changing appreciably at the cap. Positive-regret magnitudes were also logged, but they increase with linear iteration weighting and are not a normalized convergence diagnostic. The per-attempt 16/32/64/128 action distributions and leaf-style distributions are retained in the solver-attempt rows and TensorBoard events. The action played uses the final cycle's pre-update policy.
+
+Only **49,241 of 1,811,548 scripted continuation lookup calls (2.72%)** used a trained blueprint entry; random-opponent coverage was 5,443 of 154,352 (3.53%). This is a serious continuation-model weakness. It does not mean 97.28% of distinct leaf states or actions were uniformly random: these are repeated lookup calls, and the fold/call/raise continuation styles multiply preferred abstract-action weights by five even when the underlying blueprint entry is untrained. The effect of continuation quality on strength remains unisolated.
+
+## Verification and retained artifacts
+
+A second M4 run at the same source revision produced byte-identical `styles-hands.jsonl` and `random-hands.jsonl` files, with SHA-256 values `18ea2f10b00728f3ef2d4ad958778cc7e66350fd79db4356ccdcef72456a780f` and `61609813e92ae40afbb505bee10fe4ad4e31ca8ca945c735bb5319f14176d639`. Both runs were valid. Every saved file matches its checksum manifest, and all 2,304 compact hand-row digests match independently in each run. The primary and replay checksum-manifest hashes are `7374ba45bc03855d4bc8700befb9175b7836aa76a7bfd0c65cea5ce0cfca4084` and `96ed585c45b791f75017d2a7392868a663348419db6c7aee2854ca92462040a8`.
+
+Raw hands, solver-attempt rows, manifest, checksums, and TensorBoard events remain on the M4 under `~/Local/blueprint-local-cfr/results/local-cfr-m4-corrected-20260925/`; the replay is in the matching `-replay` directory. Hash-verified copies are in the ignored `results/` directories of this PR worktree. TensorBoard logged interim rates and solver telemetry every eight completed blocks, plus the five-minute progress cadence at block boundaries. The focused local-CFR test suite passed 13 tests, including the paired runner; the M4 source revision passed its focused suite before the arena run. The mixed-strategy test was added after the run and changes no production code.
+
+**Decision:** the corrected Python implementation remains feasible in the five-second M4 envelope, but it did not improve full-game performance in the fresh comparison and its target policy is not stable by 128 cycles. Keep PR #106 draft. Resolve targeted-traversal bias or establish an acceptable controlled approximation and improve continuation values before treating this as the validated architecture or considering a larger checkpoint.
