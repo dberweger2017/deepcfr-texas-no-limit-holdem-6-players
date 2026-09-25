@@ -1,0 +1,278 @@
+{
+  "artifacts": {
+    "final_checksums_sha256": "b29332efdad1102c29485a994035954e869d26758311d138a6869e00894d7927",
+    "hands_byte_identical": true,
+    "m4_directory": "~/Local/blueprint-local-cfr/results/blueprint-local-cfr-m4-canonical-20260925",
+    "m4_replay_directory": "~/Local/blueprint-local-cfr/results/blueprint-local-cfr-m4-canonical-replay-20260925",
+    "replay_checksums_sha256": "71a4b7b4c6b90591914cba8b682f19e0eec1e889a7f84ebf1cb2483a852462f1"
+  },
+  "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+  "feasibility": {
+    "completed": 97,
+    "completion_rate": 1.0,
+    "eligible_attempts": 97,
+    "maximum_solver_seconds": 4.389292499981821,
+    "minimum_completed_cycles": 128,
+    "passed": true,
+    "peak_process_rss_bytes": 7808122880
+  },
+  "plan_sha256": "33293726003397b1eba0a4ca1d03b5c643aac3fb97731d0148fbdbda61bb405e",
+  "source_revision": "999d5320659a19d493b812a30fa5ace60a4b2c7d",
+  "status": "valid",
+  "suites": {
+    "random": {
+      "baseline": {
+        "bb_per_100": 484.6354166666667,
+        "blocks": 64,
+        "ci95": [
+          -271.70390551248505,
+          1240.9747388458184
+        ],
+        "reason": null
+      },
+      "baseline_search": {
+        "delegated_search_attempts": 0,
+        "delegated_search_fallbacks": 0,
+        "lookup_coverage": {
+          "continuation": {
+            "off_menu_action": 0,
+            "off_tree": 6190,
+            "trained": 1328,
+            "untrained": 52990
+          },
+          "range": {
+            "off_menu_action": 4128,
+            "off_tree": 7200,
+            "trained": 27393,
+            "untrained": 56991
+          }
+        },
+        "search_attempts": 123,
+        "search_by_street": {
+          "flop": {
+            "attempts": 85,
+            "completed": 85,
+            "fallbacks": 0
+          },
+          "river": {
+            "attempts": 6,
+            "completed": 6,
+            "fallbacks": 0
+          },
+          "turn": {
+            "attempts": 32,
+            "completed": 32,
+            "fallbacks": 0
+          }
+        },
+        "search_completed": 123,
+        "search_fallbacks": 0,
+        "search_seconds_max": 0.21032112499233335,
+        "search_seconds_p50": 0.06508724996820092,
+        "search_seconds_p95": 0.1427601670147851,
+        "solver_cycles_median": null,
+        "solver_cycles_min": null,
+        "solver_leaf_choices": 0,
+        "solver_nodes": 0,
+        "solver_range_updates": 0
+      },
+      "blocks": 64,
+      "candidate": {
+        "bb_per_100": 513.671875,
+        "blocks": 64,
+        "ci95": [
+          -239.1547842970649,
+          1266.498534297065
+        ],
+        "reason": null
+      },
+      "candidate_solver": {
+        "delegated_search_attempts": 105,
+        "delegated_search_fallbacks": 0,
+        "lookup_coverage": {
+          "continuation": {
+            "off_menu_action": 0,
+            "off_tree": 0,
+            "trained": 19226,
+            "untrained": 474597
+          },
+          "range": {
+            "off_menu_action": 288,
+            "off_tree": 0,
+            "trained": 5721,
+            "untrained": 21674
+          }
+        },
+        "search_attempts": 19,
+        "search_by_street": {
+          "flop": {
+            "attempts": 19,
+            "completed": 19,
+            "fallbacks": 0
+          },
+          "river": {
+            "attempts": 0,
+            "completed": 0,
+            "fallbacks": 0
+          },
+          "turn": {
+            "attempts": 0,
+            "completed": 0,
+            "fallbacks": 0
+          }
+        },
+        "search_completed": 19,
+        "search_fallbacks": 0,
+        "search_seconds_max": 3.9911733750486746,
+        "search_seconds_p50": 3.7633434580639005,
+        "search_seconds_p95": 3.9758312919875607,
+        "solver_cycles_median": 128,
+        "solver_cycles_min": 128,
+        "solver_leaf_choices": 176041,
+        "solver_nodes": 439670,
+        "solver_range_updates": 192
+      },
+      "completed_hands": 768,
+      "hands_sha256": "a42a6c11d72ef02600117d3b319b795f9ce67cb426a8aa948851423859db1378",
+      "invalid_actions": 0,
+      "outcomes_sha256": "efafc3b6bb75798b32e967f00e00ffa79b961562c253c72b1718ed106c27d004",
+      "paired_difference": {
+        "bb_per_100": 29.036458333333336,
+        "blocks": 64,
+        "ci95": [
+          -19.67570765228632,
+          77.74862431895299
+        ],
+        "reason": null
+      },
+      "peak_process_rss_bytes": 7808122880
+    },
+    "styles": {
+      "baseline": {
+        "bb_per_100": -294.2369791666667,
+        "blocks": 128,
+        "ci95": [
+          -574.5437000574686,
+          -13.930258275864674
+        ],
+        "reason": null
+      },
+      "baseline_search": {
+        "delegated_search_attempts": 0,
+        "delegated_search_fallbacks": 0,
+        "lookup_coverage": {
+          "continuation": {
+            "off_menu_action": 0,
+            "off_tree": 51077,
+            "trained": 11985,
+            "untrained": 211589
+          },
+          "range": {
+            "off_menu_action": 19104,
+            "off_tree": 27360,
+            "trained": 114598,
+            "untrained": 302426
+          }
+        },
+        "search_attempts": 623,
+        "search_by_street": {
+          "flop": {
+            "attempts": 345,
+            "completed": 345,
+            "fallbacks": 0
+          },
+          "river": {
+            "attempts": 102,
+            "completed": 102,
+            "fallbacks": 0
+          },
+          "turn": {
+            "attempts": 176,
+            "completed": 176,
+            "fallbacks": 0
+          }
+        },
+        "search_completed": 623,
+        "search_fallbacks": 0,
+        "search_seconds_max": 0.17425220890436321,
+        "search_seconds_p50": 0.06321179203223437,
+        "search_seconds_p95": 0.12249591597355902,
+        "solver_cycles_median": null,
+        "solver_cycles_min": null,
+        "solver_leaf_choices": 0,
+        "solver_nodes": 0,
+        "solver_range_updates": 0
+      },
+      "blocks": 128,
+      "candidate": {
+        "bb_per_100": -252.66666666666666,
+        "blocks": 128,
+        "ci95": [
+          -532.2976286212959,
+          26.96429528796253
+        ],
+        "reason": null
+      },
+      "candidate_solver": {
+        "delegated_search_attempts": 542,
+        "delegated_search_fallbacks": 0,
+        "lookup_coverage": {
+          "continuation": {
+            "off_menu_action": 0,
+            "off_tree": 0,
+            "trained": 37122,
+            "untrained": 1944540
+          },
+          "range": {
+            "off_menu_action": 2538,
+            "off_tree": 0,
+            "trained": 15685,
+            "untrained": 57973
+          }
+        },
+        "search_attempts": 78,
+        "search_by_street": {
+          "flop": {
+            "attempts": 78,
+            "completed": 78,
+            "fallbacks": 0
+          },
+          "river": {
+            "attempts": 0,
+            "completed": 0,
+            "fallbacks": 0
+          },
+          "turn": {
+            "attempts": 0,
+            "completed": 0,
+            "fallbacks": 0
+          }
+        },
+        "search_completed": 78,
+        "search_fallbacks": 0,
+        "search_seconds_max": 4.389292499981821,
+        "search_seconds_p50": 3.4933672919869423,
+        "search_seconds_p95": 3.824012874974869,
+        "solver_cycles_median": 128,
+        "solver_cycles_min": 128,
+        "solver_leaf_choices": 691671,
+        "solver_nodes": 1753492,
+        "solver_range_updates": 896
+      },
+      "completed_hands": 1536,
+      "hands_sha256": "88c58f6e2ce5c5bed86a21a67fefabdf564360aab817e9b0963e7416771ff3f7",
+      "invalid_actions": 0,
+      "outcomes_sha256": "34dc43b1128b98ac929e90f86a3cf55ee0595d78decfe1c09a7fbcb22ef6210d",
+      "paired_difference": {
+        "bb_per_100": 41.5703125,
+        "blocks": 128,
+        "ci95": [
+          -90.40436670880803,
+          173.54499170880803
+        ],
+        "reason": null
+      },
+      "peak_process_rss_bytes": 7808122880
+    }
+  }
+}

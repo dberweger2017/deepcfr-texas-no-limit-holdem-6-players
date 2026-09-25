@@ -1,0 +1,41 @@
+{
+  "search": {
+    "max_seconds": 1.0,
+    "worlds": 12,
+    "range_samples": 96,
+    "styles": ["blueprint", "fold", "call", "raise"],
+    "variant": "corrected"
+  },
+  "local_cfr": {
+    "max_seconds": 5.0,
+    "range_samples": 96,
+    "min_cycles": 32,
+    "max_cycles": 128,
+    "max_nodes": 200000
+  },
+  "execution": {
+    "max_wall_seconds": 10800,
+    "max_rss_gib": 10.5,
+    "min_free_gib": 30
+  },
+  "comparisons": {
+    "styles": {
+      "scenarios": [{"name": "six-handed-100bb", "stacks": [10000, 10000, 10000, 10000, 10000, 10000]}],
+      "candidate": "blueprint_local_cfr",
+      "baseline": "blueprint_search",
+      "opponents": ["tight_passive", "loose_aggressive", "pot_pressure"],
+      "blocks": 128,
+      "root_seed": 2026092601,
+      "split": "validation"
+    },
+    "random": {
+      "scenarios": [{"name": "six-handed-100bb", "stacks": [10000, 10000, 10000, 10000, 10000, 10000]}],
+      "candidate": "blueprint_local_cfr",
+      "baseline": "blueprint_search",
+      "opponents": ["random"],
+      "blocks": 64,
+      "root_seed": 2026092602,
+      "split": "validation"
+    }
+  }
+}

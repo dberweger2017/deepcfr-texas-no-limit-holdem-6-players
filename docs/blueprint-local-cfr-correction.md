@@ -1,0 +1,17 @@
+# PR #106 correctness retest
+
+This section records the frozen protocol for the earlier source revision. The
+[report](reports/blueprint-local-cfr-corrected-m4.md) preserves its result. A
+subsequent construction pass narrowed local solving to the first hero flop
+decision, corrected the pre-turn continuation key and compatible-hand sampling
+weights, and removed unused average-policy posterior diagnostics. See the
+[current pilot contract](blueprint-local-cfr.md); the historical protocol below
+does not describe those later changes.
+
+This follow-up remains inside draft PR #106. The first M4 comparison is retained as an exploratory implementation result. The corrected comparison uses the same 12M-entry checkpoint, opponent pools, block counts, five-second decision cap, three-hour wall cap, 10.5-GiB RSS cap, and no paid host. `configs/blueprint/local-cfr-m4-corrected.json` freezes fresh validation roots 2026092901 (128 scripted blocks) and 2026092902 (64 random blocks) before play.
+
+The flop root must have exactly three players able to act, and the current state must still have those three players. Hero's public range enumerates every two-card holding compatible with the board, including the actual holding, without selecting candidates based on private cards. Other seats retain the 96-holding sample cap. A small likelihood floor keeps observed actions with zero blueprint probability in the public support. Ordinary external-sampling traversals draw hero from the public range and update each root-active player's own information sets. Current-flop action information sets use exact private cards, exact public board, legal menu, and public action history. The four continuation styles remain information-set choices at depth limits.
+
+The additional actual-hand traversal starts at the observed decision. Its regret weight includes the public hero prior mass and the probability of observed earlier opponent actions under current local play; hero's earlier actions are held to the observation and do not enter counterfactual reach. Targeted worlds now draw from the public root ranges so the observed action likelihood is counted once. Average-policy posterior ranges are still recomputed for diagnostics but are not used to draw targeted worlds in this retest. This is a targeted, stratified approximation. Collision rejection and the finite opponent range samples mean we do not claim the whole hybrid iteration is an unbiased estimator for the full Hold'em game. The target policy is recorded after publication at cycles 16, 32, 64, and 128 with policy movement, positive regret, action/leaf information-set counts, and leaf-style distributions. The actual play policy is the pre-publication policy at the final cycle. The exact three-player hidden-card game checks the shared sampling and regret core against its known solution; it does not establish convergence in no-limit Hold'em.
+
+The predeclared feasibility gate remains: at least 95% of eligible attempts complete within five seconds, each completed solve has at least 32 complete per-player cycles, RSS stays below 10.5 GiB, and all hands are legal and reproducible. The paired BB/100 effect and confidence interval are reported regardless of sign. Interim paired rates in TensorBoard are descriptive. The previous schedules are not reused for strength inference. Low trained continuation lookup coverage is a measured limitation; lookup counts do not identify the fraction of distinct leaf states or actions whose behavior is uniform.
