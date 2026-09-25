@@ -28,6 +28,13 @@ class UniformBlueprint:
         return menu, (1 / len(menu),) * len(menu), False
 
 
+class ZeroLikelihoodBlueprint:
+    def distribution(self, view):
+        menu = choices(view)
+        return menu, tuple(1.0 if index == 0 else 0.0
+                           for index in range(len(menu))), True
+
+
 def _three_way_flop(deck=DECK):
     table = Table(tuple(f"player-{seat}" for seat in range(6)), (10_000,) * 6)
     hand = Hand.from_deck(table, hand_id="local-cfr-test", deck=deck)
@@ -158,6 +165,18 @@ def test_flop_root_has_all_six_public_ranges_and_collision_free_worlds():
         assert world.events == root_events
         assert world.observe(view.seat).hole_cards == view.hole_cards
         assert len(set(card for pair in holes.values() for card in pair)) == 12
+
+
+def test_public_range_keeps_observed_off_policy_actual_hand():
+    view = _three_way_flop().observe(1)
+    root_events, _ = _flop_root(view)
+    ranges = _root_ranges(
+        ZeroLikelihoodBlueprint(), view, root_events, Random(17), 8,
+        monotonic() + 5, Counter(),
+    )
+    actual = next(weight for pair, weight in ranges[view.seat]
+                  if set(pair) == set(view.hole_cards))
+    assert actual > 0
 
 
 def test_observed_off_menu_raise_is_available_at_its_exact_size():

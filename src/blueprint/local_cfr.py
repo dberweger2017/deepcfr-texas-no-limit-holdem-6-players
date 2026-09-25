@@ -173,9 +173,12 @@ def _root_ranges(
             for index, event in enumerate(root_events):
                 if isinstance(event, ActionTaken) and event.seat == seat:
                     prior = replay(root_events[:index], seat, pair)
-                    probability *= _observed_likelihood(
+                    # A blueprint can assign zero probability to an action
+                    # that was nevertheless observed. Keep every legal hand
+                    # in the public range with a small contamination mass.
+                    probability *= max(1e-4, _observed_likelihood(
                         blueprint, prior, event.action, coverage=coverage,
-                    )
+                    ))
             weighted.append((pair, probability))
         total = fsum(probability for _, probability in weighted)
         if total <= 0:
@@ -409,7 +412,7 @@ class _LocalSolver:
                             probability for item, probability in zip(menu, node.average_policy(), strict=True)
                             if item.action == event.action
                         )
-                    weight *= likelihood
+                    weight *= max(1e-4, likelihood)
                 weighted.append((pair, weight))
             total = fsum(weight for _, weight in weighted)
             if total <= 0:
