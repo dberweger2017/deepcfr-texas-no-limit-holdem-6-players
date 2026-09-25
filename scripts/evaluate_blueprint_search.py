@@ -1,4 +1,4 @@
-"""Compare corrected search with original search or direct blueprint play."""
+"""Compare a frozen blueprint's rollout or local-CFR player on paired deals."""
 
 import argparse
 import json
@@ -19,6 +19,7 @@ from src.arena.report import estimate, summarize
 from src.arena.runner import run_schedule
 from src.arena.schedule import Plan, build_schedule, digest
 from src.blueprint.artifact import load_training
+from src.blueprint.local_cfr import LocalCFRConfig, LocalCFRPlayer
 from src.blueprint.search import LiveBlueprint, SearchConfig, SearchPlayer
 
 
@@ -81,6 +82,23 @@ def _log_progress(writer, name, scenario, rates, players, step):
             writer.add_scalar(
                 f"{prefix}/{arm}_search_p95_seconds", _percentile(latencies, 0.95), step,
             )
+        cycles = [cycle for player in group for cycle in getattr(player, "cycles", ())]
+        if any(hasattr(player, "cycles") for player in group):
+            attempts = sum(player.attempts for player in group)
+            completed = sum(player.completed for player in group)
+            writer.add_scalar(
+                f"{prefix}/{arm}_solver_completion_rate",
+                completed / attempts if attempts else 0.0, step,
+            )
+            writer.add_scalar(
+                f"{prefix}/{arm}_solver_range_updates",
+                sum(player.range_updates for player in group), step,
+            )
+        if cycles:
+            writer.add_scalar(f"{prefix}/{arm}_solver_cycles_min", min(cycles), step)
+            writer.add_scalar(f"{prefix}/{arm}_solver_cycles_median", _percentile(cycles, 0.5), step)
+            writer.add_scalar(f"{prefix}/{arm}_solver_nodes", sum(p.nodes for p in group), step)
+            writer.add_scalar(f"{prefix}/{arm}_solver_leaf_choices", sum(p.leaf_choices for p in group), step)
     paired = estimate([a - b for a, b in zip(rates["candidate"], rates["baseline"], strict=True)])
     writer.add_scalar(f"{prefix}/paired_bb_per_100", paired["bb_per_100"], step)
     if paired["ci95"] is not None:
@@ -101,6 +119,7 @@ def run(
     if actual != expected_sha256:
         raise ValueError("Blueprint checkpoint hash mismatch")
     search_config = SearchConfig(**config["search"])
+    local_config = LocalCFRConfig(**config["local_cfr"]) if "local_cfr" in config else None
     limits = config["execution"]
     if any(
         not isinstance(limits.get(key), (int, float))
@@ -113,8 +132,8 @@ def run(
         raise ValueError("Comparison needs a nonnegative free-disk guard")
     plans = {name: Plan.from_dict(value) for name, value in config["comparisons"].items()}
     if not plans or any(
-        plan.candidate != "blueprint_search"
-        or plan.baseline not in {"blueprint_live", "blueprint_search_original"}
+        plan.candidate != ("blueprint_local_cfr" if local_config else "blueprint_search")
+        or plan.baseline not in ({"blueprint_search"} if local_config else {"blueprint_live", "blueprint_search_original"})
         or plan.split != "validation"
         or plan.models
         or any(s.mode != "fixed" for s in plan.scenarios)
@@ -146,7 +165,8 @@ def run(
         "checkpoint_iteration": trainer.iteration,
         "checkpoint_entries": len(trainer.nodes),
         "comparison": config,
-        "tensorboard_every_blocks": 64 if tensorboard else None,
+        "tensorboard_every_blocks": (8 if local_config else 64) if tensorboard else None,
+        "tensorboard_heartbeat_seconds": 300 if local_config and tensorboard else None,
         "revision": git("rev-parse", "HEAD"),
         "dirty": bool(git("status", "--porcelain")),
         "environment": environment(),
@@ -163,11 +183,16 @@ def run(
             for scenario in plan.scenarios
         }
         scenarios = {scenario.name: scenario for scenario in plan.scenarios}
+        last_progress = monotonic()
 
         def factory(policy_name, seed):
+            if policy_name == "blueprint_local_cfr":
+                player = LocalCFRPlayer(blueprint, seed, local_config, search_config)
+                players["candidate"].append(player)
+                return player
             if policy_name == "blueprint_search":
                 player = SearchPlayer(blueprint, seed, search_config)
-                players["candidate"].append(player)
+                players["baseline" if local_config else "candidate"].append(player)
                 return player
             if policy_name == "blueprint_search_original":
                 player = SearchPlayer(
@@ -181,6 +206,7 @@ def run(
             return make_policy(policy_name, seed)
 
         def emit(row, timing):
+            nonlocal last_progress
             compact = {
                 key: value for key, value in row.items()
                 if key not in {"events", "reloads", "outcome_sha256"}
@@ -204,10 +230,13 @@ def run(
                                 100 * sum(outcomes) / (len(outcomes) * scenario.big_blind)
                             )
                         step = len(rates[scenario.name]["candidate"])
-                        if step % 64 == 0 or step == plan.blocks:
+                        cadence = 8 if local_config else 64
+                        if step % cadence == 0 or step == plan.blocks \
+                                or local_config and monotonic() - last_progress >= 300:
                             _log_progress(
                                 writer, name, scenario.name, rates[scenario.name], players, step,
                             )
+                            last_progress = monotonic()
                     del block_rows[key]
             if row["arm"] == "candidate":
                 candidate_latencies.extend(
@@ -230,6 +259,13 @@ def run(
                 "retained_hands": len(rows), "peak_process_rss_bytes": _rss_bytes(),
             })
             break
+        finally:
+            if local_config is not None:
+                for player in players["candidate"]:
+                    for record in player.attempt_records:
+                        _append(out / f"{name}-solver-attempts.jsonl", {
+                            "policy_seed": player.seed, **record,
+                        })
         report = summarize(plan, rows)
         telemetry = {
             "candidate_decisions": len(candidate_latencies),
@@ -264,6 +300,15 @@ def run(
                 "search_seconds_p50": _percentile(latencies, 0.5),
                 "search_seconds_p95": _percentile(latencies, 0.95),
                 "search_seconds_max": max(latencies, default=None),
+                "solver_cycles_min": min((cycle for p in group for cycle in getattr(p, "cycles", ())), default=None),
+                "solver_cycles_median": _percentile(
+                    [cycle for p in group for cycle in getattr(p, "cycles", ())], 0.5,
+                ),
+                "solver_nodes": sum(getattr(p, "nodes", 0) for p in group),
+                "solver_leaf_choices": sum(getattr(p, "leaf_choices", 0) for p in group),
+                "solver_range_updates": sum(getattr(p, "range_updates", 0) for p in group),
+                "delegated_search_attempts": sum(getattr(getattr(p, "other", None), "attempts", 0) for p in group),
+                "delegated_search_fallbacks": sum(getattr(getattr(p, "other", None), "fallbacks", 0) for p in group),
             }
         telemetry.update({
             key: telemetry["candidate"][key]
@@ -282,6 +327,33 @@ def run(
             item["report"]["status"] == "valid" for item in reports.values()
         ) else "failed",
     }
+    if local_config is not None:
+        candidate = [item["telemetry"]["candidate"] for item in reports.values()]
+        attempts = sum(item["search_attempts"] for item in candidate)
+        completed = sum(item["search_completed"] for item in candidate)
+        minimum = min(
+            (item["solver_cycles_min"] for item in candidate
+             if item["solver_cycles_min"] is not None), default=None,
+        )
+        slowest = max(
+            (item["search_seconds_max"] for item in candidate
+             if item["search_seconds_max"] is not None), default=None,
+        )
+        peak = max((item["telemetry"]["peak_process_rss_bytes"]
+                    for item in reports.values()), default=_rss_bytes())
+        result["feasibility"] = {
+            "eligible_attempts": attempts,
+            "completed": completed,
+            "completion_rate": completed / attempts if attempts else None,
+            "minimum_completed_cycles": minimum,
+            "maximum_solver_seconds": slowest,
+            "peak_process_rss_bytes": peak,
+            "passed": result["status"] == "valid" and attempts > 0
+            and completed / attempts >= 0.95 and minimum is not None
+            and minimum >= local_config.min_cycles
+            and slowest is not None and slowest <= local_config.max_seconds + 0.05
+            and peak < limits["max_rss_gib"] * 1024**3,
+        }
     write_json(out / "result.json", result)
     if writer is not None:
         writer.close()
