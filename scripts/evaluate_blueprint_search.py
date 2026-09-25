@@ -146,6 +146,7 @@ def run(
         raise CampaignLimitExceeded("Checkpoint load reached the wall limit")
     if _rss_bytes() >= limits["max_rss_gib"] * 1024**3:
         raise CampaignLimitExceeded("Checkpoint load reached the RSS limit")
+    out.parent.mkdir(parents=True, exist_ok=True)
     if min_free_gib and shutil.disk_usage(out.parent).free <= min_free_gib * 1024**3:
         raise CampaignLimitExceeded("Checkpoint load reached the free-disk guard")
     if any(
