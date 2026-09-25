@@ -1,5 +1,6 @@
 """Search samples only compatible hidden worlds and returns legal actions."""
 
+import json
 from random import Random
 from time import monotonic
 
@@ -8,7 +9,10 @@ import pytest
 from scripts.evaluate_blueprint_search import run
 from src.blueprint.abstraction import choices
 from src.blueprint.artifact import save_training
-from src.blueprint.search import SearchConfig, SearchPlayer, _sample_world, public_ranges
+from src.blueprint.search import (
+    SearchConfig, SearchPlayer, _continuation_active, _observed_likelihood,
+    _sample_joint_holes, _sample_world, public_ranges,
+)
 from src.blueprint.solver import BlueprintTrainer, PilotConfig
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind, Street
@@ -81,6 +85,42 @@ def test_public_action_updates_private_hand_belief():
     assert posterior > 2 * prior
 
 
+def test_exact_menu_raise_uses_its_probability_not_nearby_raise_mass():
+    hand = _postflop_hand()
+    view = hand.observe(hand.actor)
+    menu, probabilities, _ = UniformBlueprint().distribution(view)
+    raises = [item for item in menu if item.action.kind == ActionKind.RAISE]
+    assert len(raises) >= 2
+    exact = raises[0].action
+    assert _observed_likelihood(UniformBlueprint(), view, exact) == pytest.approx(
+        probabilities[menu.index(raises[0])]
+    )
+    assert _observed_likelihood(
+        UniformBlueprint(), view, exact, variant="original"
+    ) > probabilities[menu.index(raises[0])]
+
+
+def test_joint_ranges_condition_on_card_compatibility():
+    ranges = {
+        1: ((('Ac', 'Ad'), 0.5), (('Kc', 'Kd'), 0.5)),
+        2: ((('Ac', 'Kh'), 0.5), (('Qc', 'Qd'), 0.5)),
+    }
+    random = Random(17)
+    outcomes = [tuple(_sample_joint_holes(ranges, random).values()) for _ in range(3000)]
+    assert len(set(outcomes)) == 3
+    assert all(abs(outcomes.count(outcome) / len(outcomes) - 1 / 3) < 0.04
+               for outcome in set(outcomes))
+
+
+def test_multiway_flop_continuation_stays_active_after_a_fold():
+    args = (Street.FLOP, Street.FLOP, 2, 3, 2, False)
+    assert _continuation_active(*args, "corrected")
+    assert not _continuation_active(*args, "original")
+    assert _continuation_active(
+        Street.FLOP, Street.FLOP, 2, 3, 2, True, "corrected"
+    )
+
+
 def test_six_player_worlds_keep_all_private_cards_disjoint():
     table = Table(tuple(f"player-{i}" for i in range(6)), (10_000,) * 6)
     hand = Hand.from_deck(table, hand_id="six-search", deck=DECK)
@@ -114,6 +154,8 @@ def test_search_is_legal_and_hidden_world_independent():
     assert action == right.choose_action(second)
     assert left.completed == right.completed == 1
     assert len(left.search_seconds) == len(right.search_seconds) == 1
+    assert left.coverage[("range", "off_menu_action")] > 0
+    assert left.coverage[("continuation", "off_tree")] > 0
 
 
 @pytest.mark.parametrize("street", [Street.TURN, Street.RIVER])
@@ -142,18 +184,19 @@ def test_time_limit_uses_unchanged_blueprint_action():
     assert search.fallbacks == 1
 
 
-def test_paired_search_comparison_loads_one_pinned_checkpoint(tmp_path):
+@pytest.mark.parametrize("baseline", ["blueprint_live", "blueprint_search_original"])
+def test_paired_search_comparison_loads_one_pinned_checkpoint(tmp_path, baseline):
     table = Table(tuple(f"player-{i}" for i in range(6)), (10_000,) * 6)
     checkpoint = tmp_path / "checkpoint.json.gz"
     digest = save_training(BlueprintTrainer(table, PilotConfig()), checkpoint)
     config = {
         "search": {"max_seconds": 0.2, "worlds": 1, "range_samples": 8,
                    "styles": ["blueprint"]},
-        "execution": {"max_wall_seconds": 30, "max_rss_gib": 4},
+        "execution": {"max_wall_seconds": 30, "max_rss_gib": 4, "min_free_gib": 0.01},
         "comparisons": {
             "random": {
                 "scenarios": [{"name": "six", "stacks": [10_000] * 6}],
-                "candidate": "blueprint_search", "baseline": "blueprint_live",
+                "candidate": "blueprint_search", "baseline": baseline,
                 "opponents": ["check_call"], "blocks": 1,
                 "root_seed": 918, "split": "validation",
             }
@@ -162,10 +205,26 @@ def test_paired_search_comparison_loads_one_pinned_checkpoint(tmp_path):
     with pytest.raises(ValueError, match="hash mismatch"):
         run(checkpoint, "0" * 64, config, tmp_path / "wrong")
     assert not (tmp_path / "wrong").exists()
-    result = run(checkpoint, digest, config, tmp_path / "comparison")
+    with_tensorboard = baseline == "blueprint_search_original"
+    result = run(
+        checkpoint, digest, config, tmp_path / "comparison",
+        tensorboard=with_tensorboard,
+    )
     assert result["status"] == "valid"
     report = result["comparisons"]["random"]
     assert report["report"]["completed_hands"] == 12
     assert report["telemetry"]["search_attempts"] > 0
     assert report["telemetry"]["search_completed"] > 0
     assert report["telemetry"]["search_seconds_p95"] is not None
+    assert report["telemetry"]["candidate"]["lookup_coverage"]["range"]
+    if baseline == "blueprint_search_original":
+        assert report["telemetry"]["baseline"]["search_attempts"] > 0
+        from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+
+        events = next((tmp_path / "comparison" / "tensorboard").glob("events.out.tfevents.*"))
+        accumulator = EventAccumulator(str(events)).Reload()
+        assert "random/six/paired_bb_per_100" in accumulator.Tags()["scalars"]
+        checksums = json.loads((tmp_path / "comparison" / "checksums.json").read_text())
+        assert any(path.startswith("tensorboard/") for path in checksums)
+    else:
+        assert report["telemetry"]["baseline"]["search_attempts"] == 0

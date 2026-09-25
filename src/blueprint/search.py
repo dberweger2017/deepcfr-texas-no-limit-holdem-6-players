@@ -52,6 +52,7 @@ class SearchConfig:
     worlds: int = 8
     range_samples: int = 96
     styles: tuple[str, ...] = STYLES
+    variant: str = "corrected"
 
     def __post_init__(self):
         object.__setattr__(self, "styles", tuple(self.styles))
@@ -63,10 +64,26 @@ class SearchConfig:
             raise ValueError("Search needs a bounded positive range sample count")
         if not self.styles or any(style not in STYLES for style in self.styles):
             raise ValueError("Unknown continuation style")
+        if self.variant not in {"original", "corrected"}:
+            raise ValueError("Unknown search variant")
 
 
-def _observed_likelihood(blueprint, view: Observation, action: Action) -> float:
-    menu, probabilities, _ = blueprint.distribution(view)
+def _observed_likelihood(
+    blueprint, view: Observation, action: Action, *, variant: str = "corrected",
+    coverage: Counter | None = None, off_tree: bool = False,
+) -> float:
+    menu, probabilities, trained = blueprint.distribution(view)
+    if coverage is not None:
+        coverage[("range", "off_tree" if off_tree else "trained" if trained else "untrained")] += 1
+    if variant == "corrected":
+        exact = sum(
+            probability for choice, probability in zip(menu, probabilities)
+            if choice.action == action
+        )
+        if action.kind != ActionKind.RAISE or any(choice.action == action for choice in menu):
+            return exact
+        if coverage is not None:
+            coverage[("range", "off_menu_action")] += 1
     if action.kind != ActionKind.RAISE:
         mass = sum(
             probability
@@ -84,12 +101,29 @@ def _observed_likelihood(blueprint, view: Observation, action: Action) -> float:
     return max(0.01, mass)
 
 
+def _off_tree_before(blueprint, view: Observation) -> tuple[bool, ...]:
+    """Mark public histories after an action absent from the abstract menu."""
+    known = set(view.hole_cards + view.board)
+    available = (card for card in DECK if card not in known)
+    pair = (next(available), next(available))
+    result = []
+    off_tree = False
+    for index, event in enumerate(view.history):
+        result.append(off_tree)
+        if isinstance(event, ActionTaken):
+            prior = replay(view.history[:index], event.seat, pair)
+            menu, _, _ = blueprint.distribution(prior)
+            off_tree |= all(item.action != event.action for item in menu)
+    return tuple(result)
+
+
 def public_ranges(
     blueprint,
     view: Observation,
     random: Random,
     samples: int,
     deadline: float,
+    *, variant: str = "corrected", coverage: Counter | None = None,
 ) -> dict[int, tuple[tuple[tuple[str, str], float], ...]]:
     """Approximate each opponent's private range using only observed actions.
 
@@ -101,6 +135,7 @@ def public_ranges(
     known = set(view.hole_cards + view.board)
     available = tuple(card for card in DECK if card not in known)
     all_pairs = tuple(combinations(available, 2))
+    off_tree_before = _off_tree_before(blueprint, view) if coverage is not None else ()
     result = {}
     for seat in range(len(view.players)):
         if seat == view.seat:
@@ -114,7 +149,10 @@ def public_ranges(
             for index, event in enumerate(view.history):
                 if isinstance(event, ActionTaken) and event.seat == seat:
                     prior = replay(view.history[:index], seat, pair)
-                    weight *= _observed_likelihood(blueprint, prior, event.action)
+                    weight *= _observed_likelihood(
+                        blueprint, prior, event.action, variant=variant,
+                        coverage=coverage, off_tree=off_tree_before[index] if coverage is not None else False,
+                    )
             weighted.append((pair, weight))
         total = sum(weight for _, weight in weighted)
         if total <= 0:
@@ -123,24 +161,49 @@ def public_ranges(
     return result
 
 
-def _sample_world(view: Observation, ranges, random: Random) -> Hand:
+def _sample_joint_holes(ranges, random: Random) -> dict[int, tuple[str, str]]:
+    """Draw independent seat ranges conditional on having no shared cards."""
+    options = {
+        seat: (tuple(pair for pair, _ in rows), tuple(weight for _, weight in rows))
+        for seat, rows in ranges.items()
+    }
+    for _ in range(256):
+        sampled = {
+            seat: random.choices(pairs, weights=weights, k=1)[0]
+            for seat, (pairs, weights) in options.items()
+        }
+        cards = [card for pair in sampled.values() for card in pair]
+        if len(cards) == len(set(cards)):
+            return sampled
+    raise SearchUnavailable("Compatible joint private range was not sampled")
+
+
+def _sample_world(
+    view: Observation, ranges, random: Random, *, variant: str = "corrected",
+) -> Hand:
     start = view.history[0]
     if not isinstance(start, HandStarted):
         raise ValueError("Search needs a public hand start")
     n = len(view.players)
     holes = {view.seat: view.hole_cards}
     used = set(view.hole_cards + view.board)
-    for seat in random.sample(tuple(ranges), len(ranges)):
-        eligible = [(pair, weight) for pair, weight in ranges[seat] if not used.intersection(pair)]
-        if not eligible:
-            raise SearchUnavailable("Sampled private ranges have no compatible deal")
-        pair = random.choices(
-            [pair for pair, _ in eligible],
-            weights=[weight for _, weight in eligible],
-            k=1,
-        )[0]
-        holes[seat] = pair
-        used.update(pair)
+    if variant == "corrected":
+        # Rejection samples the product of seat marginals conditioned on card
+        # compatibility. Sequential renormalization changes that joint law.
+        sampled = _sample_joint_holes(ranges, random)
+        holes.update(sampled)
+        used.update(card for pair in sampled.values() for card in pair)
+    else:
+        for seat in random.sample(tuple(ranges), len(ranges)):
+            eligible = [(pair, weight) for pair, weight in ranges[seat] if not used.intersection(pair)]
+            if not eligible:
+                raise SearchUnavailable("Sampled private ranges have no compatible deal")
+            pair = random.choices(
+                [pair for pair, _ in eligible],
+                weights=[weight for _, weight in eligible], k=1,
+            )[0]
+            holes[seat] = pair
+            used.update(pair)
     order = tuple((start.button + offset) % n for offset in range(1, n + 1))
     dealt = tuple(holes[seat][round_] for round_ in range(2) for seat in order)
     unused = [card for card in DECK if card not in used]
@@ -160,8 +223,13 @@ def _sample_world(view: Observation, ranges, random: Random) -> Hand:
     return hand
 
 
-def _style_action(blueprint, view: Observation, random: Random, style: str) -> Action:
-    menu, probabilities, _ = blueprint.distribution(view)
+def _style_action(
+    blueprint, view: Observation, random: Random, style: str,
+    coverage: Counter | None = None, off_tree: bool = False,
+) -> Action:
+    menu, probabilities, trained = blueprint.distribution(view)
+    if coverage is not None:
+        coverage[("continuation", "off_tree" if off_tree else "trained" if trained else "untrained")] += 1
     if style == "blueprint":
         weights = probabilities
     else:
@@ -177,6 +245,20 @@ def _style_action(blueprint, view: Observation, random: Random, style: str) -> A
     return random.choices(menu, weights=weights, k=1)[0].action
 
 
+def _continuation_active(
+    root_street: Street, current_street: Street, flop_raises: int,
+    flop_start_players: int, current_players: int, already_active: bool,
+    variant: str,
+) -> bool:
+    if variant == "original":
+        return current_street != root_street or (
+            root_street == Street.FLOP and current_players > 2 and flop_raises >= 2
+        )
+    return already_active or current_street != root_street or (
+        root_street == Street.FLOP and flop_start_players > 2 and flop_raises >= 2
+    )
+
+
 def _rollout(
     blueprint,
     hand: Hand,
@@ -185,8 +267,19 @@ def _rollout(
     continuations: tuple[str, ...],
     root_street: Street,
     deadline: float,
+    *, variant: str = "corrected", coverage: Counter | None = None,
+    off_tree: bool = False,
 ) -> float:
     decisions = 0
+    continuation_started = False
+    flop_start_players = 0
+    if variant == "corrected":
+        start_view = hand.observe(hero)
+        flop_start_players = len(start_view.players) - sum(
+            isinstance(event, ActionTaken) and event.street == Street.PREFLOP
+            and event.action.kind == ActionKind.FOLD
+            for event in start_view.history
+        )
     while not hand.finished:
         if monotonic() >= deadline:
             raise TimeoutError("Postflop search exceeded its time limit")
@@ -203,13 +296,15 @@ def _rollout(
             and event.action.kind == ActionKind.RAISE
             for event in observation.history
         )
-        leaf = observation.street != root_street or (
-            root_street == Street.FLOP
-            and sum(not player.folded for player in observation.players) > 2
-            and flop_raises >= 2
+        continuation_started = _continuation_active(
+            root_street, observation.street, flop_raises, flop_start_players,
+            sum(not player.folded for player in observation.players),
+            continuation_started, variant,
         )
-        continuation = continuations[actor] if leaf else "blueprint"
-        action = _style_action(blueprint, observation, random, continuation)
+        continuation = continuations[actor] if continuation_started else "blueprint"
+        action = _style_action(
+            blueprint, observation, random, continuation, coverage, off_tree,
+        )
         hand = hand.apply(action)
         decisions += 1
     player = hand.observe(hero).players[hero]
@@ -229,6 +324,7 @@ class SearchPlayer:
         self.fallbacks = 0
         self.by_street = Counter()
         self.search_seconds = []
+        self.coverage = Counter()
 
     def choose_action(self, view: Observation) -> Action:
         menu, probabilities, _ = self.blueprint.distribution(view)
@@ -240,12 +336,15 @@ class SearchPlayer:
         started = monotonic()
         deadline = started + self.config.max_seconds
         try:
+            coverage = self.coverage if self.config.variant == "corrected" else None
             ranges = public_ranges(
                 self.blueprint, view, self.search_random,
-                self.config.range_samples, deadline,
+                self.config.range_samples, deadline, variant=self.config.variant,
+                coverage=coverage,
             )
+            off_tree = _off_tree_before(self.blueprint, view)[-1] if coverage is not None else False
             worlds = [
-                _sample_world(view, ranges, self.search_random)
+                _sample_world(view, ranges, self.search_random, variant=self.config.variant)
                 for _ in range(self.config.worlds)
             ]
             values = [0.0] * len(menu)
@@ -258,7 +357,8 @@ class SearchPlayer:
                         branch = world.apply(item.action)
                         values[index] += _rollout(
                             self.blueprint, branch, view.seat, Random(seed), tuple(profile),
-                            view.street, deadline,
+                            view.street, deadline, variant=self.config.variant,
+                            coverage=coverage, off_tree=off_tree,
                         )
             selected = menu[max(
                 range(len(menu)), key=lambda index: (values[index], probabilities[index])

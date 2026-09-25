@@ -1,9 +1,10 @@
-"""Compare one frozen blueprint with and without bounded postflop search."""
+"""Compare corrected search with original search or direct blueprint play."""
 
 import argparse
 import json
 import os
 import resource
+import shutil
 import sys
 from collections import Counter
 from dataclasses import asdict
@@ -14,7 +15,7 @@ from time import monotonic
 
 from src.arena.artifacts import environment, git, write_json
 from src.arena.policies import make_policy
-from src.arena.report import summarize
+from src.arena.report import estimate, summarize
 from src.arena.runner import run_schedule
 from src.arena.schedule import Plan, build_schedule, digest
 from src.blueprint.artifact import load_training
@@ -64,7 +65,35 @@ def _percentile(values, fraction):
     return ordered[min(len(ordered) - 1, int(fraction * (len(ordered) - 1)))]
 
 
-def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict:
+def _log_progress(writer, name, scenario, rates, players, step):
+    prefix = f"{name}/{scenario}"
+    for arm in ("candidate", "baseline"):
+        value = estimate(rates[arm])
+        writer.add_scalar(f"{prefix}/{arm}_bb_per_100", value["bb_per_100"], step)
+        if value["ci95"] is not None:
+            writer.add_scalar(f"{prefix}/{arm}_ci95_lower", value["ci95"][0], step)
+            writer.add_scalar(f"{prefix}/{arm}_ci95_upper", value["ci95"][1], step)
+        group = players[arm]
+        writer.add_scalar(f"{prefix}/{arm}_search_attempts", sum(p.attempts for p in group), step)
+        writer.add_scalar(f"{prefix}/{arm}_search_fallbacks", sum(p.fallbacks for p in group), step)
+        latencies = [value for p in group for value in p.search_seconds]
+        if latencies:
+            writer.add_scalar(
+                f"{prefix}/{arm}_search_p95_seconds", _percentile(latencies, 0.95), step,
+            )
+    paired = estimate([a - b for a, b in zip(rates["candidate"], rates["baseline"], strict=True)])
+    writer.add_scalar(f"{prefix}/paired_bb_per_100", paired["bb_per_100"], step)
+    if paired["ci95"] is not None:
+        writer.add_scalar(f"{prefix}/paired_ci95_lower", paired["ci95"][0], step)
+        writer.add_scalar(f"{prefix}/paired_ci95_upper", paired["ci95"][1], step)
+    writer.add_scalar(f"{prefix}/peak_rss_gib", _rss_bytes() / 1024**3, step)
+    writer.flush()
+
+
+def run(
+    checkpoint: Path, expected_sha256: str, config: dict, out: Path,
+    *, tensorboard: bool = False,
+) -> dict:
     started = monotonic()
     if not isinstance(expected_sha256, str) or len(expected_sha256) != 64:
         raise ValueError("A full expected checkpoint SHA-256 is required")
@@ -79,10 +108,13 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
         for key in ("max_wall_seconds", "max_rss_gib")
     ):
         raise ValueError("Comparison needs positive wall and RSS limits")
+    min_free_gib = limits.get("min_free_gib", 0)
+    if not isinstance(min_free_gib, (int, float)) or not isfinite(min_free_gib) or min_free_gib < 0:
+        raise ValueError("Comparison needs a nonnegative free-disk guard")
     plans = {name: Plan.from_dict(value) for name, value in config["comparisons"].items()}
     if not plans or any(
         plan.candidate != "blueprint_search"
-        or plan.baseline != "blueprint_live"
+        or plan.baseline not in {"blueprint_live", "blueprint_search_original"}
         or plan.split != "validation"
         or plan.models
         or any(s.mode != "fixed" for s in plan.scenarios)
@@ -95,18 +127,26 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
         raise CampaignLimitExceeded("Checkpoint load reached the wall limit")
     if _rss_bytes() >= limits["max_rss_gib"] * 1024**3:
         raise CampaignLimitExceeded("Checkpoint load reached the RSS limit")
+    if min_free_gib and shutil.disk_usage(out.parent).free <= min_free_gib * 1024**3:
+        raise CampaignLimitExceeded("Checkpoint load reached the free-disk guard")
     if any(
         len(s.stacks) != trainer.table.capacity
         for plan in plans.values() for s in plan.scenarios
     ):
         raise ValueError("Comparison table size differs from the checkpoint")
     out.mkdir(parents=True, exist_ok=False)
+    writer = None
+    if tensorboard:
+        from torch.utils.tensorboard import SummaryWriter
+
+        writer = SummaryWriter(str(out / "tensorboard"))
     write_json(out / "manifest.json", {
         "checkpoint": str(checkpoint),
         "checkpoint_sha256": actual,
         "checkpoint_iteration": trainer.iteration,
         "checkpoint_entries": len(trainer.nodes),
         "comparison": config,
+        "tensorboard_every_blocks": 64 if tensorboard else None,
         "revision": git("rev-parse", "HEAD"),
         "dirty": bool(git("status", "--porcelain")),
         "environment": environment(),
@@ -116,12 +156,25 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
     for name, plan in plans.items():
         rows = []
         candidate_latencies = []
-        players = []
+        players = {"candidate": [], "baseline": []}
+        block_rows = {}
+        rates = {
+            scenario.name: {"candidate": [], "baseline": []}
+            for scenario in plan.scenarios
+        }
+        scenarios = {scenario.name: scenario for scenario in plan.scenarios}
 
         def factory(policy_name, seed):
             if policy_name == "blueprint_search":
                 player = SearchPlayer(blueprint, seed, search_config)
-                players.append(player)
+                players["candidate"].append(player)
+                return player
+            if policy_name == "blueprint_search_original":
+                player = SearchPlayer(
+                    blueprint, seed,
+                    SearchConfig(**{**asdict(search_config), "variant": "original"}),
+                )
+                players["baseline"].append(player)
                 return player
             if policy_name == "blueprint_live":
                 return _Baseline(blueprint, seed)
@@ -135,6 +188,27 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
             compact["outcome_sha256"] = digest(compact)
             _append(out / f"{name}-hands.jsonl", compact)
             rows.append(compact)
+            if writer is not None:
+                scenario = scenarios[row["scenario"]]
+                key = (row["scenario"], row["block"])
+                group = block_rows.setdefault(key, [])
+                group.append(compact)
+                expected = 2 * len(scenario.stacks) * scenario.hands_per_rotation
+                if len(group) == expected:
+                    if all(item["status"] == "completed" for item in group):
+                        for arm in ("candidate", "baseline"):
+                            outcomes = [
+                                item["candidate_chips"] for item in group if item["arm"] == arm
+                            ]
+                            rates[scenario.name][arm].append(
+                                100 * sum(outcomes) / (len(outcomes) * scenario.big_blind)
+                            )
+                        step = len(rates[scenario.name]["candidate"])
+                        if step % 64 == 0 or step == plan.blocks:
+                            _log_progress(
+                                writer, name, scenario.name, rates[scenario.name], players, step,
+                            )
+                    del block_rows[key]
             if row["arm"] == "candidate":
                 candidate_latencies.extend(
                     item["seconds"] for item in timing["decisions"]
@@ -144,6 +218,8 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
                 raise CampaignLimitExceeded("Search comparison reached its wall limit")
             if _rss_bytes() >= limits["max_rss_gib"] * 1024**3:
                 raise CampaignLimitExceeded("Search comparison reached its RSS limit")
+            if min_free_gib and shutil.disk_usage(out).free <= min_free_gib * 1024**3:
+                raise CampaignLimitExceeded("Search comparison reached its free-disk guard")
 
         try:
             valid = run_schedule(plan, build_schedule(plan), emit, factory=factory)
@@ -155,28 +231,45 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
             })
             break
         report = summarize(plan, rows)
-        street_counts = sum((p.by_street for p in players), Counter())
-        search_latencies = [value for p in players for value in p.search_seconds]
         telemetry = {
-            "search_attempts": sum(p.attempts for p in players),
-            "search_completed": sum(p.completed for p in players),
-            "search_fallbacks": sum(p.fallbacks for p in players),
-            "search_by_street": {
-                street: {
-                    metric: street_counts[(street, metric)]
-                    for metric in ("attempts", "completed", "fallbacks")
-                }
-                for street in ("flop", "turn", "river")
-            },
             "candidate_decisions": len(candidate_latencies),
             "decision_seconds_p50": _percentile(candidate_latencies, 0.5),
             "decision_seconds_p95": _percentile(candidate_latencies, 0.95),
             "decision_seconds_max": max(candidate_latencies, default=None),
-            "search_seconds_p50": _percentile(search_latencies, 0.5),
-            "search_seconds_p95": _percentile(search_latencies, 0.95),
-            "search_seconds_max": max(search_latencies, default=None),
             "peak_process_rss_bytes": _rss_bytes(),
         }
+        for arm in ("candidate", "baseline"):
+            group = players[arm]
+            counts = sum((p.by_street for p in group), Counter())
+            coverage = sum((p.coverage for p in group), Counter())
+            latencies = [value for p in group for value in p.search_seconds]
+            telemetry[arm] = {
+                "search_attempts": sum(p.attempts for p in group),
+                "search_completed": sum(p.completed for p in group),
+                "search_fallbacks": sum(p.fallbacks for p in group),
+                "search_by_street": {
+                    street: {
+                        metric: counts[(street, metric)]
+                        for metric in ("attempts", "completed", "fallbacks")
+                    }
+                    for street in ("flop", "turn", "river")
+                },
+                "lookup_coverage": {
+                    phase: {
+                        label: coverage[(phase, label)]
+                        for label in ("trained", "untrained", "off_tree", "off_menu_action")
+                    }
+                    for phase in ("range", "continuation")
+                },
+                "search_seconds_p50": _percentile(latencies, 0.5),
+                "search_seconds_p95": _percentile(latencies, 0.95),
+                "search_seconds_max": max(latencies, default=None),
+            }
+        telemetry.update({
+            key: telemetry["candidate"][key]
+            for key in ("search_attempts", "search_completed", "search_fallbacks", "search_by_street",
+                        "search_seconds_p50", "search_seconds_p95", "search_seconds_max")
+        })
         reports[name] = {"report": report, "telemetry": telemetry, "plan": asdict(plan)}
         write_json(out / f"{name}-report.json", reports[name])
         if not valid or report["status"] != "valid":
@@ -190,9 +283,11 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
         ) else "failed",
     }
     write_json(out / "result.json", result)
+    if writer is not None:
+        writer.close()
     write_json(out / "checksums.json", {
-        path.name: _sha256(path)
-        for path in sorted(out.iterdir()) if path.is_file()
+        str(path.relative_to(out)): _sha256(path)
+        for path in sorted(out.rglob("*")) if path.is_file()
     })
     return result
 
@@ -203,10 +298,11 @@ def main(argv=None):
     parser.add_argument("--expected-sha256", required=True)
     parser.add_argument("--plan", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--tensorboard", action="store_true")
     args = parser.parse_args(argv)
     result = run(
         args.checkpoint, args.expected_sha256,
-        json.loads(args.plan.read_text()), args.out,
+        json.loads(args.plan.read_text()), args.out, tensorboard=args.tensorboard,
     )
     print(json.dumps({"status": result["status"], "out": str(args.out)}))
     return 0 if result["status"] == "valid" else 2

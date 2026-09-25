@@ -1,0 +1,30 @@
+{
+  "search": {
+    "max_seconds": 1.0,
+    "worlds": 12,
+    "range_samples": 96,
+    "styles": ["blueprint", "fold", "call", "raise"],
+    "variant": "corrected"
+  },
+  "execution": {"max_wall_seconds": 7200, "max_rss_gib": 50, "min_free_gib": 10},
+  "comparisons": {
+    "random": {
+      "scenarios": [{"name": "six-handed-100bb", "stacks": [10000, 10000, 10000, 10000, 10000, 10000]}],
+      "candidate": "blueprint_search",
+      "baseline": "blueprint_search_original",
+      "opponents": ["random"],
+      "blocks": 256,
+      "root_seed": 2026092505,
+      "split": "validation"
+    },
+    "styles": {
+      "scenarios": [{"name": "six-handed-100bb", "stacks": [10000, 10000, 10000, 10000, 10000, 10000]}],
+      "candidate": "blueprint_search",
+      "baseline": "blueprint_search_original",
+      "opponents": ["tight_passive", "loose_aggressive", "pot_pressure"],
+      "blocks": 1024,
+      "root_seed": 2026092506,
+      "split": "validation"
+    }
+  }
+}
