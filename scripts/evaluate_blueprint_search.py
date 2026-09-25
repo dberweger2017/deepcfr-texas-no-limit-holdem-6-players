@@ -90,10 +90,6 @@ def _log_progress(writer, name, scenario, rates, players, step):
                 f"{prefix}/{arm}_solver_completion_rate",
                 completed / attempts if attempts else 0.0, step,
             )
-            writer.add_scalar(
-                f"{prefix}/{arm}_solver_range_updates",
-                sum(player.range_updates for player in group), step,
-            )
         if cycles:
             writer.add_scalar(f"{prefix}/{arm}_solver_cycles_min", min(cycles), step)
             writer.add_scalar(f"{prefix}/{arm}_solver_cycles_median", _percentile(cycles, 0.5), step)
@@ -325,7 +321,6 @@ def run(
                 ),
                 "solver_nodes": sum(getattr(p, "nodes", 0) for p in group),
                 "solver_leaf_choices": sum(getattr(p, "leaf_choices", 0) for p in group),
-                "solver_range_updates": sum(getattr(p, "range_updates", 0) for p in group),
                 "solver_diagnostics": {
                     str(cycle): {
                         key: (

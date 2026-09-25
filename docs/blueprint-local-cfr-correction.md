@@ -1,5 +1,13 @@
 # PR #106 correctness retest
 
+This section records the frozen protocol for the earlier source revision. The
+[report](reports/blueprint-local-cfr-corrected-m4.md) preserves its result. A
+subsequent construction pass narrowed local solving to the first hero flop
+decision, corrected the pre-turn continuation key and compatible-hand sampling
+weights, and removed unused average-policy posterior diagnostics. See the
+[current pilot contract](blueprint-local-cfr.md); the historical protocol below
+does not describe those later changes.
+
 This follow-up remains inside draft PR #106. The first M4 comparison is retained as an exploratory implementation result. The corrected comparison uses the same 12M-entry checkpoint, opponent pools, block counts, five-second decision cap, three-hour wall cap, 10.5-GiB RSS cap, and no paid host. `configs/blueprint/local-cfr-m4-corrected.json` freezes fresh validation roots 2026092901 (128 scripted blocks) and 2026092902 (64 random blocks) before play.
 
 The flop root must have exactly three players able to act, and the current state must still have those three players. Hero's public range enumerates every two-card holding compatible with the board, including the actual holding, without selecting candidates based on private cards. Other seats retain the 96-holding sample cap. A small likelihood floor keeps observed actions with zero blueprint probability in the public support. Ordinary external-sampling traversals draw hero from the public range and update each root-active player's own information sets. Current-flop action information sets use exact private cards, exact public board, legal menu, and public action history. The four continuation styles remain information-set choices at depth limits.

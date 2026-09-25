@@ -1,13 +1,14 @@
 """Local CFR keeps private information private and updates regrets correctly."""
 
 from collections import Counter
-from itertools import combinations, permutations
+from itertools import combinations, permutations, product
 from random import Random
 from time import monotonic
 
 import pytest
 
 from scripts.evaluate_blueprint_search import run
+import src.blueprint.local_cfr as local_cfr
 from src.blueprint.abstraction import choices
 from src.blueprint.artifact import save_training
 from src.blueprint.local_cfr import (
@@ -74,12 +75,95 @@ def test_linear_regret_update_matches_enumerated_three_player_hidden_game():
     policy = (0.25, 0.75)
     expected = sum(p * value for p, value in zip(policy, values))
     assert _record_delta(deltas, ("hero", 1), ("check", "bet"), policy,
-                         tuple(values), 3, 0.5) == pytest.approx(expected)
+                         tuple(values), 3) == pytest.approx(expected)
     _publish(nodes, deltas)
     node = nodes[("hero", 1)]
     assert node.regrets == pytest.approx([3 * (value - expected) for value in values])
-    assert node.average == pytest.approx([3 * 0.5 * p for p in policy])
     assert node.policy() == (1.0, 0.0)
+
+
+def test_collision_sampler_regret_expectation_with_and_without_targeting():
+    # Nonuniform marginals make the collision-conditioned hero probability
+    # differ from its standalone prior. Enumerate every compatible deal and
+    # the production sequential proposal exactly, without Monte Carlo noise.
+    ranges = {
+        0: ((('A', 'B'), .6), (('C', 'D'), .4)),
+        1: ((('A', 'E'), .7), (('F', 'G'), .3)),
+        2: ((('D', 'H'), .8), (('I', 'J'), .2)),
+    }
+    actual = ('A', 'B')
+    worlds = []
+    for rows in product(*(ranges[seat] for seat in range(3))):
+        pairs = tuple(row[0] for row in rows)
+        if len(set(card for pair in pairs for card in pair)) == 6:
+            worlds.append((pairs, rows[0][1] * rows[1][1] * rows[2][1]))
+    total = sum(mass for _, mass in worlds)
+    actual_mass = sum(mass for pairs, mass in worlds if pairs[0] == actual)
+    assert actual_mass / total != pytest.approx(.6)
+
+    class SelectWorld:
+        def __init__(self, pairs):
+            self.pairs = iter(pairs)
+
+        def choices(self, options, weights, k):
+            chosen = next(self.pairs)
+            assert chosen in options
+            return [chosen]
+
+    def proposal(pairs, forced):
+        used = set()
+        probability = 1.0
+        for seat, pair in enumerate(pairs):
+            if seat == 0 and forced:
+                used.update(pair)
+                continue
+            eligible = [(candidate, mass) for candidate, mass in ranges[seat]
+                        if not used.intersection(candidate)]
+            mass = dict(eligible)[pair]
+            probability *= mass / sum(value for _, value in eligible)
+            used.update(pair)
+        return probability
+
+    policy = (.25, .75)
+    expected = [0.0, 0.0]
+    expected_target = [0.0, 0.0]
+    actual_from_proposal = [0.0, 0.0]
+    target_from_proposal = [0.0, 0.0]
+    for pairs, mass in worlds:
+        # The leaf value depends on the hidden deal, so the check covers the
+        # joint law and the regret arithmetic rather than only total mass.
+        values = (2.0 if pairs[1] == ('F', 'G') else -1.0,
+                  3.0 if pairs[2] == ('I', 'J') else -2.0)
+        baseline = sum(p * value for p, value in zip(policy, values))
+        regrets = [value - baseline for value in values]
+        for index in range(2):
+            expected[index] += mass * regrets[index]
+            if pairs[0] == actual:
+                expected_target[index] += mass * regrets[index]
+        chosen, importance = _sample_holes(ranges, SelectWorld(pairs), 0)
+        assert tuple(chosen[seat] for seat in range(3)) == pairs
+        assert proposal(pairs, False) * importance == pytest.approx(mass)
+        deltas = {}
+        _record_delta(deltas, ('hero',), ('check', 'bet'), policy, values, importance)
+        for index, delta in enumerate(deltas[('hero',)].regrets):
+            actual_from_proposal[index] += proposal(pairs, False) * delta
+        if pairs[0] == actual:
+            chosen, targeted_weight = _sample_holes(
+                ranges, SelectWorld(pairs[1:]), 0, actual,
+            )
+            assert tuple(chosen[seat] for seat in range(3)) == pairs
+            assert proposal(pairs, True) * targeted_weight == pytest.approx(mass)
+            deltas = {}
+            _record_delta(deltas, ('hero',), ('check', 'bet'), policy,
+                          values, targeted_weight)
+            for index, delta in enumerate(deltas[('hero',)].regrets):
+                target_from_proposal[index] += proposal(pairs, True) * delta
+    assert actual_from_proposal == pytest.approx(expected)
+    assert target_from_proposal == pytest.approx(expected_target)
+    # Adding the targeted pass intentionally reweights the actual-hand
+    # stratum. It is a heuristic update schedule, not unbiased ordinary ES.
+    assert [a + b for a, b in zip(actual_from_proposal, target_from_proposal)] \
+        == pytest.approx([a + b for a, b in zip(expected, expected_target)])
 
 
 def test_shared_external_sampling_core_converges_in_three_player_private_game():
@@ -91,7 +175,7 @@ def test_shared_external_sampling_core_converges_in_three_player_private_game():
     nodes = {}
     random = Random(907)
 
-    def visit(world, traverser, deltas, weight, seat=0, actions=(), own_reach=1.0):
+    def visit(world, traverser, deltas, weight, seat=0, actions=()):
         if seat == 3:
             mine = actions[traverser]
             correct = world[traverser] % 2
@@ -105,14 +189,13 @@ def test_shared_external_sampling_core_converges_in_three_player_private_game():
         if seat != traverser:
             chosen = random.choices((0, 1), weights=policy, k=1)[0]
             return visit(world, traverser, deltas, weight, seat + 1,
-                         actions + (chosen,), own_reach)
+                         actions + (chosen,))
         values = tuple(
             visit(world, traverser, deltas, weight, seat + 1,
-                  actions + (choice,), own_reach * policy[choice])
+                  actions + (choice,))
             for choice in (0, 1)
         )
-        return _record_delta(deltas, key, ("0", "1"), policy, values,
-                             weight, own_reach)
+        return _record_delta(deltas, key, ("0", "1"), policy, values, weight)
 
     deals = tuple(permutations((0, 1, 2)))
     for cycle in range(1, 1001):
@@ -122,7 +205,7 @@ def test_shared_external_sampling_core_converges_in_three_player_private_game():
         _publish(nodes, deltas)
     assert set(nodes) == set((seat, rank) for seat in range(3) for rank in range(3))
     for (seat, rank), node in nodes.items():
-        assert node.average_policy()[rank % 2] > 0.98, (seat, rank, node)
+        assert node.policy()[rank % 2] > 0.98, (seat, rank, node)
 
 
 def test_shared_external_sampling_core_approaches_mixed_rps_equilibrium():
@@ -135,8 +218,9 @@ def test_shared_external_sampling_core_approaches_mixed_rps_equilibrium():
     def train(targeted):
         random = Random(1307)
         nodes = {}
+        snapshots = {}
 
-        def visit(world, traverser, deltas, weight, seat=0, actions=(), own_reach=1.0):
+        def visit(world, traverser, deltas, weight, seat=0, actions=()):
             if seat == 3:
                 effective = tuple((choice + rank) % 3
                                   for choice, rank in zip(actions, world, strict=True))
@@ -150,13 +234,13 @@ def test_shared_external_sampling_core_approaches_mixed_rps_equilibrium():
             if seat != traverser:
                 choice = random.choices(range(3), weights=policy, k=1)[0]
                 return visit(world, traverser, deltas, weight, seat + 1,
-                             actions + (choice,), own_reach)
+                             actions + (choice,))
             values = tuple(
                 visit(world, traverser, deltas, weight, seat + 1,
-                      actions + (choice,), own_reach * policy[choice])
+                      actions + (choice,))
                 for choice in range(3)
             )
-            return _record_delta(deltas, key, names, policy, values, weight, own_reach)
+            return _record_delta(deltas, key, names, policy, values, weight)
 
         for cycle in range(1, 5001):
             deltas = _external_sampling_cycle(
@@ -168,13 +252,19 @@ def test_shared_external_sampling_core_approaches_mixed_rps_equilibrium():
                 world = random.choice(tuple(deal for deal in deals if deal[0] == 0))
                 visit(world, 0, deltas, cycle / 3)
             _publish(nodes, deltas)
-        return nodes
+            # This is a test-only full-table snapshot mean. The pilot does not
+            # publish a posterior average from sampled regret-traversal visits.
+            for key, node in nodes.items():
+                totals = snapshots.setdefault(key, [0.0] * 3)
+                for index, probability in enumerate(node.policy()):
+                    totals[index] += cycle * probability
+        return snapshots
 
     ordinary = train(False)
     targeted = train(True)
     errors = [max(abs(probability - 1 / 3)
-                  for node in nodes.values()
-                  for probability in node.average_policy())
+                  for totals in nodes.values()
+                  for probability in (value / sum(totals) for value in totals))
               for nodes in (ordinary, targeted)]
     assert errors[0] < 0.12, errors
     assert errors[1] < 0.2, errors
@@ -215,7 +305,9 @@ def test_flop_root_has_all_six_public_ranges_and_collision_free_worlds():
         assert all(not set(pair).intersection(view.board) for pair, _ in ranges[seat])
     for seed in range(10):
         random = Random(seed)
-        holes = _sample_holes(ranges, random, (view.seat, view.hole_cards))
+        holes, importance = _sample_holes(ranges, random, view.seat, view.hole_cards)
+        assert importance > 0
+        assert holes is not None
         world = _world(view, root_events, holes, random)
         assert world.events == root_events
         assert world.observe(view.seat).hole_cards == view.hole_cards
@@ -246,11 +338,11 @@ def test_observed_off_menu_raise_is_available_at_its_exact_size():
         UniformBlueprint(), view, Random(3), LocalCFRConfig(range_samples=8),
         monotonic() + 5, Counter(),
     )
-    root = _world(
-        view, solver.root_events,
-        _sample_holes(solver.root_ranges, Random(5), (view.seat, view.hole_cards)),
-        Random(6),
+    holes, importance = _sample_holes(
+        solver.root_ranges, Random(5), view.seat, view.hole_cards,
     )
+    assert importance > 0
+    root = _world(view, solver.root_events, holes, Random(6))
     first = root.observe(root.actor)
     assert Action(ActionKind.RAISE, target) in [item.action for item in solver._menu(first)]
     assert any(isinstance(event, ActionTaken) and event.action.raise_to == target
@@ -266,8 +358,10 @@ def test_targeted_pass_restores_observed_opponent_reach():
         UniformBlueprint(), view, Random(3), LocalCFRConfig(range_samples=8),
         monotonic() + 5, Counter(),
     )
-    holes = _sample_holes(solver.root_ranges, Random(5),
-                          (view.seat, view.hole_cards))
+    holes, importance = _sample_holes(
+        solver.root_ranges, Random(5), view.seat, view.hole_cards,
+    )
+    assert importance > 0
     assert solver._observed_opponent_reach(holes) == pytest.approx(
         1 / len(choices(prior))
     )
@@ -289,11 +383,85 @@ def test_leaf_choice_ignores_hole_card_deal_order():
     assert solver._action_key(view, menu) != solver._action_key(other, menu)
 
 
+def test_turn_deal_does_not_enter_flop_continuation_infoset():
+    other_deck = list(DECK)
+    other_deck[15], other_deck[16] = other_deck[16], other_deck[15]
+    first = _three_way_flop()
+    second = _three_way_flop(tuple(other_deck))
+    assert first.observe(first.actor) == second.observe(second.actor)
+    solver = _LocalSolver(
+        UniformBlueprint(), first.observe(first.actor), Random(3),
+        LocalCFRConfig(range_samples=8), monotonic() + 5, Counter(),
+    )
+    frontiers = []
+    keys = []
+
+    def record_leaf(hand, *_args):
+        view = hand.observe(hand.actor)
+        frontiers.append(view.board)
+        keys.append(solver._leaf_key(view))
+        return 0.0
+
+    solver._leaf = record_leaf
+    for hand in (first, second):
+        while hand.observe(hand.actor).street == Street.FLOP:
+            hand = hand.apply(Action(ActionKind.CHECK))
+        solver._visit(hand, solver.view.seat, {}, 1, Random(7))
+    assert frontiers[0] != frontiers[1]
+    assert len(frontiers[0]) == len(frontiers[1]) == 4
+    assert keys[0] == keys[1]
+    assert len(keys[0][3]) == 3  # The selector sees only the flop.
+
+
+def test_production_leaf_traversal_couples_indistinguishable_turn_worlds(monkeypatch):
+    other_deck = list(DECK)
+    other_deck[15], other_deck[16] = other_deck[16], other_deck[15]
+    worlds = [_three_way_flop(), _three_way_flop(tuple(other_deck))]
+    solver = _LocalSolver(
+        UniformBlueprint(), worlds[0].observe(worlds[0].actor), Random(3),
+        LocalCFRConfig(range_samples=8), monotonic() + 5, Counter(),
+    )
+    for index, hand in enumerate(worlds):
+        while hand.observe(hand.actor).street == Street.FLOP:
+            hand = hand.apply(Action(ActionKind.CHECK))
+        worlds[index] = hand
+    first_turn = worlds[0].observe(worlds[0].actor).board[3]
+    monkeypatch.setattr(local_cfr, "_rollout", lambda _blueprint, hand, seat,
+                        _random, profiles, *_args, **_kwargs:
+                        (1.0 if profiles[seat] == "raise" else -1.0)
+                        + (.1 if hand.observe(seat).board[3] == first_turn else -.1))
+    keys = []
+    for hand in worlds:
+        deltas = {}
+        solver._visit(hand, solver.view.seat, deltas, 1.0, Random(11))
+        keys.append(set(deltas))
+        assert deltas
+        assert all(key[0] == "leaf" and len(key[3]) == 3 for key in deltas)
+        assert any(any(abs(value) > 0 for value in delta.regrets)
+                   for delta in deltas.values())
+    assert keys[0] == keys[1]
+
+
 def test_decision_after_second_flop_raise_delegates_to_rollout_search():
     hand = _three_way_flop()
     for _ in range(2):
         view = hand.observe(hand.actor)
         hand = hand.apply(Action(ActionKind.RAISE, view.legal_actions.min_raise_to))
+    view = hand.observe(hand.actor)
+    assert view.street == Street.FLOP
+    assert not _eligible(view)
+    player = LocalCFRPlayer(UniformBlueprint(), 7)
+    view.legal_actions.validate(player.choose_action(view))
+    assert player.attempts == 0
+    assert player.other.attempts == 1
+
+
+def test_second_hero_flop_decision_delegates_to_rollout_search():
+    hand = _three_way_flop()
+    hand = hand.apply(Action(ActionKind.CHECK))
+    hand = hand.apply(Action(ActionKind.CHECK))
+    view = hand.observe(hand.actor)
+    hand = hand.apply(Action(ActionKind.RAISE, view.legal_actions.min_raise_to))
     view = hand.observe(hand.actor)
     assert view.street == Street.FLOP
     assert not _eligible(view)
