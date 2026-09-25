@@ -1,0 +1,5 @@
+{
+  "reason": "Operator stopped after observing per-solve gc.collect overhead; no case or solver configuration changed",
+  "retained_rows": 20,
+  "source_revision": "b9b336b"
+}
