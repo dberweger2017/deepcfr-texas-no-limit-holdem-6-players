@@ -18,4 +18,4 @@ This is one evaluation campaign on a draft PR. The paired scripted contrast must
 
 ## Results
 
-Pending.
+The [final report](reports/blueprint-search-followup.md) and [machine-readable results](reports/blueprint-search-followup.json) contain the completed comparison. The primary 58M scripted paired difference is −6.07 BB/100 [95% CI −55.36, +43.22], so the declared improvement criterion did not pass. The corrected 58M policy's absolute scripted profit is −380.02 BB/100 [−474.72, −285.31]. The 58M-minus-5.83M corrected scripted contrast is +52.59 [−20.06, +125.25], also inconclusive. All 46,080 hands completed with no invalid action, and all three artifact sets were checksum-verified. The 58M pod was stopped at $0.00/hour after retrieval. No new blueprint training or default-model promotion follows from this result.
