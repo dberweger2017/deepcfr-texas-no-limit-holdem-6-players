@@ -1,0 +1,499 @@
+{
+  "checkpoint_sha256": "94d41c737d0e8f41a548d58c64dd219dfb9593459c80d7a7382569bf6963e33a",
+  "comparisons": {
+    "random": {
+      "plan": {
+        "baseline": "blueprint_live",
+        "blocks": 8,
+        "candidate": "blueprint_search",
+        "max_decisions": 1000,
+        "models": [],
+        "opponents": [
+          "random"
+        ],
+        "pool": null,
+        "root_seed": 2026092503,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "six-handed-100bb",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000,
+              10000,
+              10000,
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "validation"
+      },
+      "report": {
+        "attempted_hands": 96,
+        "baseline_policy": "blueprint_live",
+        "candidate_policy": "blueprint_search",
+        "completed_hands": 96,
+        "failed_hands": 0,
+        "invalid_actions": 0,
+        "opponent_pool": [
+          "random"
+        ],
+        "outcomes_sha256": "22948638c6b692b127b8405601ddf7b0a58351046fa01451bb324003a2d6e02c",
+        "requested_hands": 96,
+        "scenarios": {
+          "six-handed-100bb": {
+            "comparison": {
+              "baseline": {
+                "bb_per_100": 311.45833333333337,
+                "blocks": 8,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              },
+              "candidate": {
+                "bb_per_100": 323.95833333333337,
+                "blocks": 8,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              },
+              "conclusion": "inconclusive",
+              "paired_difference": {
+                "bb_per_100": 12.499999999999998,
+                "blocks": 8,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              }
+            },
+            "counts": {
+              "baseline": {
+                "completed": 48,
+                "dealt_in": 48
+              },
+              "candidate": {
+                "completed": 48,
+                "dealt_in": 48
+              }
+            },
+            "initial_players": 6,
+            "lineups": [
+              {
+                "baseline": {
+                  "bb_per_100": 311.45833333333337,
+                  "blocks": 8,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": 323.95833333333337,
+                  "blocks": 8,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "random",
+                  "random",
+                  "random",
+                  "random",
+                  "random"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 12.499999999999998,
+                  "blocks": 8,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              }
+            ],
+            "mode": "fixed",
+            "starting_stacks_bb": [
+              100.0,
+              100.0,
+              100.0,
+              100.0,
+              100.0,
+              100.0
+            ]
+          }
+        },
+        "schedule_sha256": "b3ea9d746d8fa1b123313075e5bb95bf5fc07672c6e13c1673ecb589c5e8515a",
+        "split": "validation",
+        "status": "valid",
+        "unattempted_hands": 0
+      },
+      "telemetry": {
+        "candidate_decisions": 77,
+        "decision_seconds_max": 0.06416683399584144,
+        "decision_seconds_p50": 1.737498678267002e-05,
+        "decision_seconds_p95": 0.03172537498176098,
+        "peak_process_rss_bytes": 5320835072,
+        "search_attempts": 8,
+        "search_by_street": {
+          "flop": {
+            "attempts": 8,
+            "completed": 8,
+            "fallbacks": 0
+          },
+          "river": {
+            "attempts": 0,
+            "completed": 0,
+            "fallbacks": 0
+          },
+          "turn": {
+            "attempts": 0,
+            "completed": 0,
+            "fallbacks": 0
+          }
+        },
+        "search_completed": 8,
+        "search_fallbacks": 0,
+        "search_seconds_max": 0.06410991703160107,
+        "search_seconds_p50": 0.03167775005567819,
+        "search_seconds_p95": 0.034064749954268336
+      }
+    },
+    "styles": {
+      "plan": {
+        "baseline": "blueprint_live",
+        "blocks": 8,
+        "candidate": "blueprint_search",
+        "max_decisions": 1000,
+        "models": [],
+        "opponents": [
+          "tight_passive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "pool": null,
+        "root_seed": 2026092504,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "six-handed-100bb",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000,
+              10000,
+              10000,
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "validation"
+      },
+      "report": {
+        "attempted_hands": 96,
+        "baseline_policy": "blueprint_live",
+        "candidate_policy": "blueprint_search",
+        "completed_hands": 96,
+        "failed_hands": 0,
+        "invalid_actions": 0,
+        "opponent_pool": [
+          "tight_passive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "outcomes_sha256": "e6b5ef03c6636224ec6a198d0fafefc7431b93e880cfd14064fe342d3f1a7549",
+        "requested_hands": 96,
+        "scenarios": {
+          "six-handed-100bb": {
+            "comparison": {
+              "baseline": {
+                "bb_per_100": 45.83333333333332,
+                "blocks": 8,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              },
+              "candidate": {
+                "bb_per_100": 241.14583333333331,
+                "blocks": 8,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              },
+              "conclusion": "inconclusive",
+              "paired_difference": {
+                "bb_per_100": 195.3125,
+                "blocks": 8,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              }
+            },
+            "counts": {
+              "baseline": {
+                "completed": 48,
+                "dealt_in": 48
+              },
+              "candidate": {
+                "completed": 48,
+                "dealt_in": 48
+              }
+            },
+            "initial_players": 6,
+            "lineups": [
+              {
+                "baseline": {
+                  "bb_per_100": -158.33333333333334,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": -158.33333333333334,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "loose_aggressive",
+                  "loose_aggressive",
+                  "pot_pressure",
+                  "tight_passive",
+                  "pot_pressure"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 0.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": 516.6666666666666,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": 1983.3333333333333,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "loose_aggressive",
+                  "pot_pressure",
+                  "tight_passive",
+                  "pot_pressure",
+                  "tight_passive"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 1466.6666666666665,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": -491.6666666666667,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": -325.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "pot_pressure",
+                  "pot_pressure",
+                  "tight_passive",
+                  "loose_aggressive",
+                  "loose_aggressive"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 166.66666666666669,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": 320.8333333333333,
+                  "blocks": 2,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": 116.66666666666666,
+                  "blocks": 2,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "tight_passive",
+                  "loose_aggressive",
+                  "loose_aggressive",
+                  "pot_pressure",
+                  "loose_aggressive"
+                ],
+                "paired_difference": {
+                  "bb_per_100": -204.16666666666666,
+                  "blocks": 2,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": -58.333333333333336,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": 16.666666666666668,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "tight_passive",
+                  "loose_aggressive",
+                  "pot_pressure",
+                  "tight_passive",
+                  "loose_aggressive"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 75.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": 0.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": 0.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "tight_passive",
+                  "pot_pressure",
+                  "loose_aggressive",
+                  "loose_aggressive",
+                  "pot_pressure"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 0.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": -83.33333333333333,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": 179.16666666666666,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "tight_passive",
+                  "pot_pressure",
+                  "pot_pressure",
+                  "loose_aggressive",
+                  "loose_aggressive"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 262.5,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              }
+            ],
+            "mode": "fixed",
+            "starting_stacks_bb": [
+              100.0,
+              100.0,
+              100.0,
+              100.0,
+              100.0,
+              100.0
+            ]
+          }
+        },
+        "schedule_sha256": "665cead9247622da4463dd21c35e259cb6651b4d7df551776f4ed38de248fb74",
+        "split": "validation",
+        "status": "valid",
+        "unattempted_hands": 0
+      },
+      "telemetry": {
+        "candidate_decisions": 96,
+        "decision_seconds_max": 0.12710087501909584,
+        "decision_seconds_p50": 1.9583036191761494e-05,
+        "decision_seconds_p95": 0.06897633301559836,
+        "peak_process_rss_bytes": 5322817536,
+        "search_attempts": 34,
+        "search_by_street": {
+          "flop": {
+            "attempts": 21,
+            "completed": 21,
+            "fallbacks": 0
+          },
+          "river": {
+            "attempts": 6,
+            "completed": 6,
+            "fallbacks": 0
+          },
+          "turn": {
+            "attempts": 7,
+            "completed": 7,
+            "fallbacks": 0
+          }
+        },
+        "search_completed": 34,
+        "search_fallbacks": 0,
+        "search_seconds_max": 0.12705841602291912,
+        "search_seconds_p50": 0.05604270799085498,
+        "search_seconds_p95": 0.1003610830521211
+      }
+    }
+  },
+  "search": {
+    "max_seconds": 1.0,
+    "range_samples": 96,
+    "styles": [
+      "blueprint",
+      "fold",
+      "call",
+      "raise"
+    ],
+    "worlds": 12
+  },
+  "status": "valid"
+}
