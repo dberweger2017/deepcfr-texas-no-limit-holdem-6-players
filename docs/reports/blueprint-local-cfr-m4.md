@@ -3,7 +3,7 @@
 The [frozen protocol](../blueprint-local-cfr.md) ran against the saved 12M-entry
 blueprint on the M4. The final code completed **97/97 eligible local solves**,
 each with 128 full per-player cycles, and all **2,304 paired arena hands**
-without an invalid action. Peak process RSS was **7.59 GiB** under the 10.5-GiB
+without an invalid action. Peak process RSS was **7.27 GiB** under the 10.5-GiB
 guard; maximum solver time was **4.39 seconds** under the five-second decision
 limit. The predeclared correctness and feasibility gate passed.
 
@@ -18,15 +18,15 @@ remains unqualified.
 
 | Frozen schedule | Blocks / hands | Local CFR BB/100 | Corrected search BB/100 | Paired difference BB/100 | Eligible solves | Search p95 / max |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Scripted styles | 128 / 1,536 | −252.67 [−532.30, +26.96] | −294.24 [−574.54, −13.93] | +41.57 [−90.40, +173.54] | 78/78 | 3.85 / 4.39 s |
-| Random | 64 / 768 | +513.67 [−239.15, +1,266.50] | +484.64 [−271.70, +1,240.97] | +29.04 [−19.68, +77.75] | 19/19 | 3.97 / 3.99 s |
+| Scripted styles | 128 / 1,536 | −252.67 [−532.30, +26.96] | −294.24 [−574.54, −13.93] | +41.57 [−90.40, +173.54] | 78/78 | 3.82 / 4.39 s |
+| Random | 64 / 768 | +513.67 [−239.15, +1,266.50] | +484.64 [−271.70, +1,240.97] | +29.04 [−19.68, +77.75] | 19/19 | 3.98 / 3.99 s |
 
 All completed solves used the configured 128 cycles. The run recorded about
-2.19 million sampled traversal nodes, 867,951 leaf choices, and 1,088 public
+2.19 million sampled traversal nodes, 867,712 leaf choices, and 1,088 public
 range updates across both schedules. The candidate delegated other decisions
 to corrected search: 542 scripted and 105 random search attempts, with zero
 delegated fallback. The 12M blueprint remained sparse in simulated
-continuations: only 37,122 of 1,982,158 scripted continuation lookups used a
+continuations: only 37,122 of 1,981,662 scripted continuation lookups used a
 trained entry (about 1.9%); the rest used its uniform abstract fallback.
 
 These intervals use independent seat-rotation blocks, not individual hands.
@@ -44,39 +44,38 @@ fallback had already passed the **second flop raise**, the declared depth
 limit, so it had no current action node to play. A diagnostic-only replay
 reproduced both hand files byte for byte and identified that reason. The code
 then delegated such decisions to corrected search, as required by the depth
-limit. The final run on the **same** frozen schedules completed 97/97; its
+limit. The repaired run on the **same** frozen schedules completed 97/97; its
 scripted paired effect changed from +42.81 [−91.20, +176.81] to +41.57
-[−90.40, +173.54]. This repair happened after the first result was inspected.
+[−90.40, +173.54]. A subsequent information-set review canonicalized the
+order of private cards in leaf keys; it changed no hand outcome on these
+schedules. Both fixes happened after the first result was inspected.
 Treat the final paired intervals as exploratory descriptions, not fresh
-confirmatory evidence. Both earlier runs and their artifacts are retained on
+confirmatory evidence. The prior runs and their artifacts are retained on
 the M4.
 
 ## Verification and artifacts
 
 The final M4 run and a second run at source revision
-`9df1d39a54d2cd2d8c78bfd06486c2ec3ea423c1` produced byte-identical
+`999d5320659a19d493b812a30fa5ace60a4b2c7d` produced byte-identical
 `styles-hands.jsonl` and `random-hands.jsonl` files. Their SHA-256 values are
 `88c58f6e2ce5c5bed86a21a67fefabdf564360aab817e9b0963e7416771ff3f7`
 and `a42a6c11d72ef02600117d3b319b795f9ce67cb426a8aa948851423859db1378`.
 Every saved artifact matches its checksum manifest, every compact hand row
 matches its own digest, and both schedules contain exactly the declared
 blocks, arms, and six seat rotations. Final and replay checksum-manifest
-SHA-256 values are
-`79a8d8d78b02b2b1fac34931c4df795d9db2c47aaf34f3c585684258a04d4a15`
-and `bc48513e55871eb7552a1ee5067cf80a9e881703e692e0b571ae5c920fc96bf0`.
-The [compact JSON result](blueprint-local-cfr-m4.json) preserves rates,
-telemetry, source and checkpoint hashes, and artifact locations.
+SHA-256 values and the rates, telemetry, source and checkpoint hashes, and
+artifact locations are in the [compact JSON result](blueprint-local-cfr-m4.json).
 
 Raw hand rows, per-attempt solver records, manifests, and TensorBoard events
-remain in `~/Local/blueprint-local-cfr/results/blueprint-local-cfr-m4-final-20260925/`
-and its `-final-replay-20260925` companion on the M4. Hash-verified copies
+remain in `~/Local/blueprint-local-cfr/results/blueprint-local-cfr-m4-canonical-20260925/`
+and its `-canonical-replay-20260925` companion on the M4. Hash-verified copies
 are under the ignored `results/` directory of the local PR worktree. The
 initial and diagnostic runs are retained on the M4 in their respective
 `blueprint-local-cfr-m4-20260925` and `-replay-20260925` directories.
 
-The focused local solver/search suite passed 19 tests. The complete M4 suite
-passed 781 tests at the initial code revision, and final PR CI passed after
-the depth-limit fix. One unrelated local-Mac full-suite test hit its existing
+The focused local solver/search suite passed 20 tests. The complete M4 suite
+passed 781 tests at the initial code revision, and PR CI passed on the final
+solver code. One unrelated local-Mac full-suite test hit its existing
 free-disk guard when that machine had about 4.9 GiB available; it passed on
 the M4. The final run produced TensorBoard updates every eight completed
 blocks or five minutes at the next block. No paid compute was used.

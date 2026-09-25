@@ -1,23 +1,23 @@
 {
   "artifacts": {
-    "final_checksums_sha256": "79a8d8d78b02b2b1fac34931c4df795d9db2c47aaf34f3c585684258a04d4a15",
+    "final_checksums_sha256": "b29332efdad1102c29485a994035954e869d26758311d138a6869e00894d7927",
     "hands_byte_identical": true,
-    "m4_directory": "~/Local/blueprint-local-cfr/results/blueprint-local-cfr-m4-final-20260925",
-    "m4_replay_directory": "~/Local/blueprint-local-cfr/results/blueprint-local-cfr-m4-final-replay-20260925",
-    "replay_checksums_sha256": "bc48513e55871eb7552a1ee5067cf80a9e881703e692e0b571ae5c920fc96bf0"
+    "m4_directory": "~/Local/blueprint-local-cfr/results/blueprint-local-cfr-m4-canonical-20260925",
+    "m4_replay_directory": "~/Local/blueprint-local-cfr/results/blueprint-local-cfr-m4-canonical-replay-20260925",
+    "replay_checksums_sha256": "71a4b7b4c6b90591914cba8b682f19e0eec1e889a7f84ebf1cb2483a852462f1"
   },
   "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
   "feasibility": {
     "completed": 97,
     "completion_rate": 1.0,
     "eligible_attempts": 97,
-    "maximum_solver_seconds": 4.387055165949278,
+    "maximum_solver_seconds": 4.389292499981821,
     "minimum_completed_cycles": 128,
     "passed": true,
-    "peak_process_rss_bytes": 8153579520
+    "peak_process_rss_bytes": 7808122880
   },
   "plan_sha256": "33293726003397b1eba0a4ca1d03b5c643aac3fb97731d0148fbdbda61bb405e",
-  "source_revision": "9df1d39a54d2cd2d8c78bfd06486c2ec3ea423c1",
+  "source_revision": "999d5320659a19d493b812a30fa5ace60a4b2c7d",
   "status": "valid",
   "suites": {
     "random": {
@@ -67,9 +67,9 @@
         },
         "search_completed": 123,
         "search_fallbacks": 0,
-        "search_seconds_max": 0.20978100004140288,
-        "search_seconds_p50": 0.06508079101331532,
-        "search_seconds_p95": 0.140622666105628,
+        "search_seconds_max": 0.21032112499233335,
+        "search_seconds_p50": 0.06508724996820092,
+        "search_seconds_p95": 0.1427601670147851,
         "solver_cycles_median": null,
         "solver_cycles_min": null,
         "solver_leaf_choices": 0,
@@ -123,9 +123,9 @@
         },
         "search_completed": 19,
         "search_fallbacks": 0,
-        "search_seconds_max": 3.9889120410662144,
-        "search_seconds_p50": 3.7578953750198707,
-        "search_seconds_p95": 3.9715401669964194,
+        "search_seconds_max": 3.9911733750486746,
+        "search_seconds_p50": 3.7633434580639005,
+        "search_seconds_p95": 3.9758312919875607,
         "solver_cycles_median": 128,
         "solver_cycles_min": 128,
         "solver_leaf_choices": 176041,
@@ -145,7 +145,7 @@
         ],
         "reason": null
       },
-      "peak_process_rss_bytes": 8153579520
+      "peak_process_rss_bytes": 7808122880
     },
     "styles": {
       "baseline": {
@@ -194,9 +194,9 @@
         },
         "search_completed": 623,
         "search_fallbacks": 0,
-        "search_seconds_max": 0.17252075008582324,
-        "search_seconds_p50": 0.06314133398700505,
-        "search_seconds_p95": 0.12268437503371388,
+        "search_seconds_max": 0.17425220890436321,
+        "search_seconds_p50": 0.06321179203223437,
+        "search_seconds_p95": 0.12249591597355902,
         "solver_cycles_median": null,
         "solver_cycles_min": null,
         "solver_leaf_choices": 0,
@@ -221,13 +221,13 @@
             "off_menu_action": 0,
             "off_tree": 0,
             "trained": 37122,
-            "untrained": 1945036
+            "untrained": 1944540
           },
           "range": {
             "off_menu_action": 2538,
             "off_tree": 0,
             "trained": 15685,
-            "untrained": 57887
+            "untrained": 57973
           }
         },
         "search_attempts": 78,
@@ -250,13 +250,13 @@
         },
         "search_completed": 78,
         "search_fallbacks": 0,
-        "search_seconds_max": 4.387055165949278,
-        "search_seconds_p50": 3.5048872500192374,
-        "search_seconds_p95": 3.851063375012018,
+        "search_seconds_max": 4.389292499981821,
+        "search_seconds_p50": 3.4933672919869423,
+        "search_seconds_p95": 3.824012874974869,
         "solver_cycles_median": 128,
         "solver_cycles_min": 128,
-        "solver_leaf_choices": 691910,
-        "solver_nodes": 1753893,
+        "solver_leaf_choices": 691671,
+        "solver_nodes": 1753492,
         "solver_range_updates": 896
       },
       "completed_hands": 1536,
@@ -272,7 +272,7 @@
         ],
         "reason": null
       },
-      "peak_process_rss_bytes": 8153579520
+      "peak_process_rss_bytes": 7808122880
     }
   }
 }
