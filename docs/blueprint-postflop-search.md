@@ -1,5 +1,7 @@
 # Postflop search comparison after checkpoint 0.4
 
+The fixed comparison is complete on the finished 58.02-million-entry checkpoint. Search improved paired profit on both the random and scripted validation schedules, with zero fallbacks and 45.49 GiB peak process RSS. The absolute scripted result remains negative. See the [final result](reports/blueprint-postflop-search-final.md).
+
 ## Question
 
 Does bounded, range-aware postflop reasoning improve the **same finished checkpoint-0.4 blueprint** against random and scripted six-player opponents? The current player consults a sparse table and plays a uniform abstract menu whenever its key is absent. The checkpoint-0.4 campaign must finish under its original protocol before this comparison starts. Search changes the playing policy; it does not resume or retrain the table.
