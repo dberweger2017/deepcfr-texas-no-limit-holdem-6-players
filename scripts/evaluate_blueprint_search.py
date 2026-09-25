@@ -1,9 +1,10 @@
-"""Compare one frozen blueprint with and without bounded postflop search."""
+"""Compare corrected search with original search or direct blueprint play."""
 
 import argparse
 import json
 import os
 import resource
+import shutil
 import sys
 from collections import Counter
 from dataclasses import asdict
@@ -79,10 +80,13 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
         for key in ("max_wall_seconds", "max_rss_gib")
     ):
         raise ValueError("Comparison needs positive wall and RSS limits")
+    min_free_gib = limits.get("min_free_gib", 0)
+    if not isinstance(min_free_gib, (int, float)) or not isfinite(min_free_gib) or min_free_gib < 0:
+        raise ValueError("Comparison needs a nonnegative free-disk guard")
     plans = {name: Plan.from_dict(value) for name, value in config["comparisons"].items()}
     if not plans or any(
         plan.candidate != "blueprint_search"
-        or plan.baseline != "blueprint_live"
+        or plan.baseline not in {"blueprint_live", "blueprint_search_original"}
         or plan.split != "validation"
         or plan.models
         or any(s.mode != "fixed" for s in plan.scenarios)
@@ -95,6 +99,8 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
         raise CampaignLimitExceeded("Checkpoint load reached the wall limit")
     if _rss_bytes() >= limits["max_rss_gib"] * 1024**3:
         raise CampaignLimitExceeded("Checkpoint load reached the RSS limit")
+    if min_free_gib and shutil.disk_usage(out.parent).free <= min_free_gib * 1024**3:
+        raise CampaignLimitExceeded("Checkpoint load reached the free-disk guard")
     if any(
         len(s.stacks) != trainer.table.capacity
         for plan in plans.values() for s in plan.scenarios
@@ -116,12 +122,19 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
     for name, plan in plans.items():
         rows = []
         candidate_latencies = []
-        players = []
+        players = {"candidate": [], "baseline": []}
 
         def factory(policy_name, seed):
             if policy_name == "blueprint_search":
                 player = SearchPlayer(blueprint, seed, search_config)
-                players.append(player)
+                players["candidate"].append(player)
+                return player
+            if policy_name == "blueprint_search_original":
+                player = SearchPlayer(
+                    blueprint, seed,
+                    SearchConfig(**{**asdict(search_config), "variant": "original"}),
+                )
+                players["baseline"].append(player)
                 return player
             if policy_name == "blueprint_live":
                 return _Baseline(blueprint, seed)
@@ -144,6 +157,8 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
                 raise CampaignLimitExceeded("Search comparison reached its wall limit")
             if _rss_bytes() >= limits["max_rss_gib"] * 1024**3:
                 raise CampaignLimitExceeded("Search comparison reached its RSS limit")
+            if min_free_gib and shutil.disk_usage(out).free <= min_free_gib * 1024**3:
+                raise CampaignLimitExceeded("Search comparison reached its free-disk guard")
 
         try:
             valid = run_schedule(plan, build_schedule(plan), emit, factory=factory)
@@ -155,28 +170,45 @@ def run(checkpoint: Path, expected_sha256: str, config: dict, out: Path) -> dict
             })
             break
         report = summarize(plan, rows)
-        street_counts = sum((p.by_street for p in players), Counter())
-        search_latencies = [value for p in players for value in p.search_seconds]
         telemetry = {
-            "search_attempts": sum(p.attempts for p in players),
-            "search_completed": sum(p.completed for p in players),
-            "search_fallbacks": sum(p.fallbacks for p in players),
-            "search_by_street": {
-                street: {
-                    metric: street_counts[(street, metric)]
-                    for metric in ("attempts", "completed", "fallbacks")
-                }
-                for street in ("flop", "turn", "river")
-            },
             "candidate_decisions": len(candidate_latencies),
             "decision_seconds_p50": _percentile(candidate_latencies, 0.5),
             "decision_seconds_p95": _percentile(candidate_latencies, 0.95),
             "decision_seconds_max": max(candidate_latencies, default=None),
-            "search_seconds_p50": _percentile(search_latencies, 0.5),
-            "search_seconds_p95": _percentile(search_latencies, 0.95),
-            "search_seconds_max": max(search_latencies, default=None),
             "peak_process_rss_bytes": _rss_bytes(),
         }
+        for arm in ("candidate", "baseline"):
+            group = players[arm]
+            counts = sum((p.by_street for p in group), Counter())
+            coverage = sum((p.coverage for p in group), Counter())
+            latencies = [value for p in group for value in p.search_seconds]
+            telemetry[arm] = {
+                "search_attempts": sum(p.attempts for p in group),
+                "search_completed": sum(p.completed for p in group),
+                "search_fallbacks": sum(p.fallbacks for p in group),
+                "search_by_street": {
+                    street: {
+                        metric: counts[(street, metric)]
+                        for metric in ("attempts", "completed", "fallbacks")
+                    }
+                    for street in ("flop", "turn", "river")
+                },
+                "lookup_coverage": {
+                    phase: {
+                        label: coverage[(phase, label)]
+                        for label in ("trained", "untrained", "off_tree", "off_menu_action")
+                    }
+                    for phase in ("range", "continuation")
+                },
+                "search_seconds_p50": _percentile(latencies, 0.5),
+                "search_seconds_p95": _percentile(latencies, 0.95),
+                "search_seconds_max": max(latencies, default=None),
+            }
+        telemetry.update({
+            key: telemetry["candidate"][key]
+            for key in ("search_attempts", "search_completed", "search_fallbacks", "search_by_street",
+                        "search_seconds_p50", "search_seconds_p95", "search_seconds_max")
+        })
         reports[name] = {"report": report, "telemetry": telemetry, "plan": asdict(plan)}
         write_json(out / f"{name}-report.json", reports[name])
         if not valid or report["status"] != "valid":
