@@ -4,7 +4,7 @@ The fixed comparison is complete on the finished 58.02-million-entry checkpoint.
 
 ## Question
 
-Does bounded, range-aware postflop reasoning improve the **same finished checkpoint-0.4 blueprint** against random and scripted six-player opponents? The current player consults a sparse table and plays a uniform abstract menu whenever its key is absent. The checkpoint-0.4 campaign must finish under its original protocol before this comparison starts. Search changes the playing policy; it does not resume or retrain the table.
+Does bounded, range-aware postflop reasoning improve the **same finished checkpoint-0.4 blueprint** against random and scripted six-player opponents? The current player consults a sparse table and plays a uniform abstract menu whenever its key is absent. The checkpoint-0.4 final checkpoint must be fixed and its one-time sealed test completed before this comparison starts. Search changes the playing policy; it does not resume or retrain the table.
 
 The design draws from the [Pluribus technical supplement](https://noambrown.github.io/papers/19-Science-Superhuman_Supp.pdf): update private-hand beliefs from public actions, include observed off-tree bet sizes, and use blueprint-based fold/call/raise-biased continuations after a search depth limit. This implementation is a **bounded sampled rollout search**, not Pluribus's multiplayer MCCFR subgame solver. It optimizes the next action against sampled belief worlds and continuation profiles; it does not solve a multiplayer equilibrium or guarantee resistance to exploitation.
 
