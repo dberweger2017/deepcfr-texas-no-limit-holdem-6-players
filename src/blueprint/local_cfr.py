@@ -254,7 +254,8 @@ class _LocalSolver:
     def _leaf_key(self, view: Observation) -> tuple:
         # No opponent hand, future deck, or another player's continuation choice
         # enters this key. Thus indistinguishable leaf worlds share one choice.
-        return ("leaf", view.seat, view.hole_cards, view.board, _public_history(view))
+        return ("leaf", view.seat, tuple(sorted(view.hole_cards)),
+                view.board, _public_history(view))
 
     def _policy(self, key: tuple, names: tuple[str, ...]) -> tuple[float, ...]:
         node = self.nodes.get(key)

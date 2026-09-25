@@ -17,7 +17,7 @@ from src.blueprint.local_cfr import (
 from src.blueprint.search import DECK
 from src.blueprint.solver import BlueprintTrainer, PilotConfig
 from src.game.hand import Hand, Table
-from src.game.observation import ActionTaken
+from src.game.observation import ActionTaken, replay
 from src.game.types import Action, ActionKind, Street
 
 
@@ -115,6 +115,16 @@ def test_observed_off_menu_raise_is_available_at_its_exact_size():
     assert Action(ActionKind.RAISE, target) in [item.action for item in solver._menu(first)]
     assert any(isinstance(event, ActionTaken) and event.action.raise_to == target
                for event in view.history)
+
+
+def test_leaf_choice_ignores_hole_card_deal_order():
+    view = _three_way_flop().observe(1)
+    solver = _LocalSolver(
+        UniformBlueprint(), view, Random(3), LocalCFRConfig(range_samples=8),
+        monotonic() + 5, Counter(),
+    )
+    alternate = replay(view.history, view.seat, view.hole_cards[::-1])
+    assert solver._leaf_key(view) == solver._leaf_key(alternate)
 
 
 def test_decision_after_second_flop_raise_delegates_to_rollout_search():
