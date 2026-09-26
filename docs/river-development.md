@@ -60,3 +60,13 @@ the board-playing-straight texture as a nontrivial deep-stack stress case.
 The amendment is exploratory and must not be treated as a fresh confirmation
 after inspecting the first development run. It has a separate seven-minute
 M4 wall cap and retains its own artifact hashes and failures.
+
+Before freezing a compute-matched rollout control, the
+[resource-only calibration](../configs/blueprint/river-rollout-calibration-m4.json)
+uses three of these development roots and the same public joint range in
+the corrected rollout adapter. It measures 8/128/512/1,024/2,048 worlds,
+actual completed worlds, fallbacks, latency and RSS with a 30-second
+per-decision ceiling and ten-minute overall cap. It does not evaluate
+opponent profit or inspect fresh confirmation roots. A later paired
+protocol must choose a fixed world count from these measurements rather
+than equating a longer deadline with more rollout work.
