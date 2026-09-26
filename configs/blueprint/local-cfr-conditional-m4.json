@@ -1,0 +1,25 @@
+{
+  "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+  "deal_seed_start": 2026100101,
+  "deals": 12,
+  "search_seed_start": 2026100201,
+  "patterns": [
+    {"position": 0, "prefix": "check"},
+    {"position": 1, "prefix": "check"},
+    {"position": 1, "prefix": "raise"},
+    {"position": 2, "prefix": "check"}
+  ],
+  "local_cfr": {
+    "max_seconds": 5.0,
+    "range_samples": 96,
+    "min_cycles": 32,
+    "max_cycles": 128,
+    "max_nodes": 200000
+  },
+  "execution": {
+    "max_wall_seconds": 900,
+    "max_rss_gib": 10.5,
+    "min_free_gib": 30,
+    "tensorboard_every_cases": 8
+  }
+}
