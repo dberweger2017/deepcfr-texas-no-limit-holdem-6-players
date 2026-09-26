@@ -1,0 +1,21 @@
+{
+  "schema": "river-reference-fixtures-v1",
+  "cases": [
+    {"id":"hu-board-straight","board":["Ac","Kd","Qh","Js","Tc"],"stack":500,"button":0,"deck_shift":0,"survivors":2},
+    {"id":"hu-paired-kicker","board":["2c","2d","7h","9s","Kc"],"stack":500,"button":1,"deck_shift":3,"survivors":2},
+    {"id":"hu-four-flush","board":["Ah","Kh","Qh","7h","2c"],"stack":500,"button":2,"deck_shift":6,"survivors":2},
+    {"id":"hu-low-straight","board":["3c","4d","5h","6s","8c"],"stack":500,"button":3,"deck_shift":9,"survivors":2},
+    {"id":"hu-board-straight-flush","board":["2c","3c","4c","5c","6c"],"stack":1000,"button":4,"deck_shift":12,"survivors":2},
+    {"id":"hu-full-house-board","board":["As","Ad","Ac","Kh","Kd"],"stack":1000,"button":5,"deck_shift":15,"survivors":2},
+    {"id":"hu-dry","board":["2h","7d","9c","Js","Qs"],"stack":1000,"button":0,"deck_shift":18,"survivors":2},
+    {"id":"hu-paired-flush","board":["Td","Th","9h","8h","7h"],"stack":1000,"button":1,"deck_shift":21,"survivors":2},
+    {"id":"hu-low-draw","board":["2d","3d","4s","5s","9c"],"stack":10000,"button":2,"deck_shift":24,"survivors":2},
+    {"id":"hu-high-flush","board":["Ks","Qs","Js","Ts","2d"],"stack":10000,"button":3,"deck_shift":27,"survivors":2},
+    {"id":"hu-two-pair-board","board":["4c","4h","8d","8s","2c"],"stack":10000,"button":4,"deck_shift":30,"survivors":2},
+    {"id":"hu-mixed","board":["Ad","7d","6h","5c","3s"],"stack":10000,"button":5,"deck_shift":33,"survivors":2},
+    {"id":"three-paired","board":["2c","2d","7h","9s","Kc"],"stack":1000,"button":0,"deck_shift":2,"survivors":3},
+    {"id":"three-four-flush","board":["Ah","Kh","Qh","7h","2c"],"stack":1000,"button":1,"deck_shift":7,"survivors":3},
+    {"id":"three-dry","board":["2h","7d","9c","Js","Qs"],"stack":1000,"button":2,"deck_shift":13,"survivors":3},
+    {"id":"three-low-draw","board":["2d","3d","4s","5s","9c"],"stack":1000,"button":3,"deck_shift":19,"survivors":3}
+  ]
+}
