@@ -91,6 +91,7 @@ def run(plan: dict, cases_path: Path, checkpoint: Path, out: Path) -> dict:
     if shutil.disk_usage(out.parent).free < plan["min_free_gib"] * 1024**3:
         raise RuntimeError("Conditional evaluation free-disk guard failed")
     out.mkdir()
+    (out / "profiles").mkdir()
     started = monotonic()
     binary = next(Path(pokers.__file__).parent.glob("pokers*.so"))
     write_json(out / "manifest.json", {
@@ -148,7 +149,16 @@ def run(plan: dict, cases_path: Path, checkpoint: Path, out: Path) -> dict:
                     raise TimeoutError("River CFR completed fewer than minimum sweeps")
                 hero = (fixture.actor if case["hero_position"] == "first" else
                         next(seat for seat in game.seats if seat != fixture.actor))
+                solve_seconds = monotonic() - case_started
+                profile_name = sha256(case_id.encode()).hexdigest()[:16] + ".npz"
+                profile_path = out / "profiles" / profile_name
+                np.savez_compressed(profile_path, **{
+                    str(node): strategy for node, strategy in result.average.items()
+                })
                 row.update(status="completed", seconds=monotonic() - case_started,
+                           solver_seconds=solve_seconds,
+                           profile_path=str(profile_path.relative_to(out)),
+                           profile_sha256=_hash(profile_path),
                            completed_sweeps=result.completed_sweeps,
                            stop_reason=result.stop_reason,
                            public_nodes=len(game.nodes), joint_deals=int(np.count_nonzero(game.joint)),

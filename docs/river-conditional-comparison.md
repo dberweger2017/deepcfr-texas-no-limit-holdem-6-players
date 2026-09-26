@@ -45,6 +45,11 @@ player, a five-hour overall wall guard, 10.5-GiB peak process RSS guard, and
 product-compatible public joint distribution `Q`; use that same deal and
 opponent seed in all three arms. Persist the sampled deal and every attempt.
 No confirmation result may be used to change the cases, seeds or budgets.
+Save the solved average profile for every completed root with a SHA-256 hash;
+the 30-second decision budget excludes only this artifact write. The saved
+profile and sampled deals permit fixed-sweep strategy and hand replay even
+though wall-clock stopping may complete a slightly different sweep count on
+another machine or run.
 
 The primary estimate is the equal-root-weighted mean of the eight paired
 candidate-minus-control incremental river returns in BB, reported separately
