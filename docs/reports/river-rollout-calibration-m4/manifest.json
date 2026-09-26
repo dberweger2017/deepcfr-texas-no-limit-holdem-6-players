@@ -1,0 +1,88 @@
+{
+  "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+  "dirty": false,
+  "environment": {
+    "engine": {
+      "binaries": {
+        "pokers/pokers.cpython-311-darwin.so": "0700ac54783869030559782e58064ff1e229e8b0b950297845beaa143f7d95bd"
+      },
+      "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+    },
+    "implementation": "CPython",
+    "machine": "arm64",
+    "packages": {
+      "Jinja2": "3.1.6",
+      "Markdown": "3.10.3",
+      "MarkupSafe": "3.0.3",
+      "Pygments": "2.21.0",
+      "Werkzeug": "3.1.8",
+      "absl-py": "2.5.0",
+      "filelock": "4.0.3",
+      "fsspec": "2026.9.0",
+      "grpcio": "1.84.0",
+      "iniconfig": "2.3.0",
+      "mpmath": "1.3.0",
+      "networkx": "3.6.1",
+      "numpy": "1.26.4",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "pip": "26.0",
+      "pluggy": "1.6.0",
+      "pokers": "0.2.0",
+      "protobuf": "7.36.2",
+      "pytest": "9.0.3",
+      "scipy": "1.17.1",
+      "setuptools": "80.10.2",
+      "sympy": "1.14.0",
+      "tensorboard": "2.21.0",
+      "tensorboard-data-server": "0.7.2",
+      "torch": "2.14.0",
+      "typing_extensions": "4.16.0"
+    },
+    "platform": "macOS-26.6-arm64-arm-64bit",
+    "python": "3.11.14 (main, Oct  9 2025, 16:16:55) [Clang 17.0.0 (clang-1700.6.3.2)]"
+  },
+  "memory_pressure_before": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 73%",
+  "native_engine_binary_sha256": "0700ac54783869030559782e58064ff1e229e8b0b950297845beaa143f7d95bd",
+  "plan": {
+    "case_ids": [
+      "dev-dry-check",
+      "dev-paired-flop",
+      "dev-deep-mixed-high"
+    ],
+    "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+    "max_rss_gib": 10.5,
+    "max_wall_seconds": 600,
+    "min_free_gib": 30,
+    "per_decision_max_seconds": 30,
+    "range_samples": 96,
+    "schema": "river-rollout-calibration-m4-v1",
+    "seed": 2026092608,
+    "source_plans": [
+      "configs/blueprint/river-development-m4.json",
+      "configs/blueprint/river-range-amendment-m4.json"
+    ],
+    "styles": [
+      "blueprint",
+      "fold",
+      "call",
+      "raise"
+    ],
+    "world_counts": [
+      8,
+      128,
+      512,
+      1024,
+      2048
+    ]
+  },
+  "plan_sha256": "76fc09646bcb4bc1d1692924e403d3682d2ebcc538ba508f34c43ed3f86017c3",
+  "requirements_sha256": "8a1a48bfd02c4f64e8d36039006a0822b8f234e9290b4697b633cdf251d39d3a",
+  "revision": "8dd0aec6b2a7a10fe9a5dc09c6b75fd73becde74",
+  "source_plan_hashes": {
+    "configs/blueprint/river-development-m4.json": "9c492ace6b0767f8163dbcfa0a013a9f4787a184c6fb8342c796d0b3a1e40aaf",
+    "configs/blueprint/river-range-amendment-m4.json": "551758f2c23c7a0d632e667241b26df65c92a2c43a5a1f55e4bf3f06fd42d1a2"
+  },
+  "started_unix_seconds": 1790459792.803712,
+  "swap_before": "vm.swapusage: total = 2048.00M  used = 769.38M  free = 1278.62M  (encrypted)"
+}

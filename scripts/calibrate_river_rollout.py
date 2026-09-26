@@ -81,12 +81,12 @@ def run(plan: dict, checkpoint: Path, out: Path) -> dict:
                 _resource_guard(plan, out, started)
                 config = SearchConfig(
                     max_seconds=plan["per_decision_max_seconds"],
-                    worlds=worlds, range_samples=plan["range_samples"],
+                    worlds=min(worlds, 4096), range_samples=plan["range_samples"],
                     styles=tuple(plan["styles"]), variant="corrected",
                 )
                 control = ConditionalRiverRollout(
                     blueprint, game, plan["seed"] + case_index * 10_000 + worlds,
-                    config,
+                    config, worlds_override=worlds,
                 )
                 begun = monotonic()
                 row = {"phase": "calibration", "case_id": case_id,

@@ -1,6 +1,10 @@
 """Controlled rollout and frozen CFR play share the declared hidden-card law."""
 
+import json
+from pathlib import Path
+
 import numpy as np
+import pytest
 
 from scripts.evaluate_river_quality import _ranges
 from src.arena.endgame_quality import _world, fixture_hand
@@ -58,6 +62,11 @@ def test_conditional_rollout_sees_only_the_hero_hand_and_public_joint_law():
     observations[0].legal_actions.validate(actions[0])
     assert all(control.completed == 1 and control.fallbacks == 0
                for control in controls)
+    assert ConditionalRiverRollout(blueprint, game, 239, config,
+                                   worlds_override=8192).worlds == 8192
+    with pytest.raises(ValueError, match="worlds override"):
+        ConditionalRiverRollout(blueprint, game, 239, config,
+                                worlds_override=16385)
 
     solver = RiverCFR(game)
     profile = solver.solve(max_sweeps=1).average
@@ -65,3 +74,30 @@ def test_conditional_rollout_sees_only_the_hero_hand_and_public_joint_law():
     candidate_action = candidate.choose_action(observations[0])
     observations[0].legal_actions.validate(candidate_action)
     assert candidate.delegations == 0
+
+
+def test_frozen_confirmation_roots_are_fresh_legal_and_balanced():
+    base = Path(__file__).resolve().parents[1] / "configs/blueprint"
+    cases = json.loads((base / "river-confirmation-cases.json").read_text())["cases"]
+    prior = []
+    for name in ("river-reference-fixtures.json", "river-development-m4.json",
+                 "river-range-amendment-m4.json"):
+        source = json.loads((base / name).read_text())
+        prior.extend(source.get("cases", source.get("full_range_cases", [])))
+    excluded = {frozenset(case["board"]) for case in prior}
+    assert len(cases) == 32
+    assert len({frozenset(case["board"]) for case in cases}) == 32
+    assert not any(frozenset(case["board"]) in excluded for case in cases)
+    assert {case["hero_position"] for case in cases} == {"first", "second"}
+    assert {case["opponent_style"] for case in cases} == {
+        "tight_passive", "loose_passive", "tight_aggressive",
+        "loose_aggressive", "pot_pressure", "train_pressure",
+    }
+    pots = set()
+    for case in cases:
+        hand = fixture_hand(case)
+        view = hand.observe(hand.actor)
+        assert len([player for player in view.players if not player.folded]) == 2
+        assert list(view.board) == case["board"]
+        pots.add(view.pot / view.big_blind)
+    assert pots == {2, 4, 6, 12}

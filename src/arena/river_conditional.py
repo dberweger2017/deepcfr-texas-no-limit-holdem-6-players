@@ -55,12 +55,16 @@ class ConditionalRiverRollout:
     """Corrected rollout selection with opponent worlds drawn from Q."""
 
     def __init__(self, blueprint, game: RiverGame, seed: int,
-                 config: SearchConfig = SearchConfig()):
+                 config: SearchConfig = SearchConfig(),
+                 worlds_override: int | None = None):
         if config.variant != "corrected":
             raise ValueError("Conditional river control requires corrected rollout")
+        if worlds_override is not None and not 1 <= worlds_override <= 16_384:
+            raise ValueError("Evaluation-only worlds override must be in [1, 16384]")
         self.blueprint = blueprint
         self.game = game
         self.config = config
+        self.worlds = worlds_override if worlds_override is not None else config.worlds
         self.action_random = Random(seed)
         self.search_random = Random(seed ^ 0x505F4C5552494255)
         self.attempts = self.completed = self.fallbacks = 0
@@ -82,7 +86,7 @@ class ConditionalRiverRollout:
             other = next(seat for seat in self.game.seats if seat != view.seat)
             root = self.game.nodes[0].history
             values = [0.0] * len(menu)
-            for _ in range(self.config.worlds):
+            for _ in range(self.worlds):
                 if monotonic() >= deadline:
                     raise TimeoutError("Conditional rollout reached its deadline")
                 pair = self.search_random.choices(pairs, weights=weights, k=1)[0]
