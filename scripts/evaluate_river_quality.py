@@ -120,6 +120,7 @@ def run(plan: dict, fixtures_path: Path, checkpoint: Path, out: Path) -> dict:
         for case in cases:
             _resource_guard(plan, out, started)
             begun = monotonic()
+            solver = None
             hand = fixture_hand(case)
             view = hand.observe(hand.actor)
             root = river_root_history(view.history)
@@ -132,28 +133,48 @@ def run(plan: dict, fixtures_path: Path, checkpoint: Path, out: Path) -> dict:
                 "public_nodes": len(reference.nodes),
                 "uniform_quality": reference.quality(reference.uniform_profile()),
             }
-            if case["survivors"] == 2:
-                game = RiverGame(root, ranges)
-                solver = RiverCFR(game)
-                snapshots = []
-                for target in plan["reference_sweeps"]:
-                    result = solver.solve(
-                        max_sweeps=target - solver.completed_sweeps,
-                        deadline=started + plan["max_wall_seconds"],
-                        rss_limit_bytes=int(plan["max_rss_gib"] * 1024**3),
-                    )
-                    snapshots.append({
-                        "sweeps": target,
-                        "average_quality": profile_quality(game, result.average),
-                        "current_quality": profile_quality(game, result.current),
-                        "reference_average_quality": reference.quality(result.average),
-                        "seconds_since_case_start": monotonic() - begun,
-                    })
-                row["work_quality"] = snapshots
-            row["seconds"] = monotonic() - begun
-            row["peak_process_rss_bytes"] = _rss_bytes()
-            rows.append(row)
-            _append(out / "rows.jsonl", row)
+            pending_target = None
+            try:
+                if case["survivors"] == 2:
+                    game = RiverGame(root, ranges)
+                    solver = RiverCFR(game)
+                    row["work_quality"] = []
+                    for target in plan["reference_sweeps"]:
+                        pending_target = target
+                        result = solver.solve(
+                            max_sweeps=target - solver.completed_sweeps,
+                            deadline=started + plan["max_wall_seconds"],
+                            rss_limit_bytes=int(plan["max_rss_gib"] * 1024**3),
+                        )
+                        reached = result.completed_sweeps >= target
+                        row["work_quality"].append({
+                            "sweeps": result.completed_sweeps,
+                            "requested_sweeps": target,
+                            "completed_sweeps": result.completed_sweeps,
+                            "milestone_reached": reached,
+                            "stop_reason": result.stop_reason,
+                            "average_quality": profile_quality(game, result.average),
+                            "current_quality": profile_quality(game, result.current),
+                            "reference_average_quality": reference.quality(result.average),
+                            "seconds_since_case_start": monotonic() - begun,
+                        })
+                        if not reached:
+                            raise TimeoutError(
+                                f"Reference {case['id']} completed "
+                                f"{result.completed_sweeps}/{target} requested sweeps"
+                            )
+                        pending_target = None
+            except Exception as exc:
+                row["status"] = "incomplete"
+                row["error"] = f"{type(exc).__name__}: {exc}"
+                row["unmet_requested_sweeps"] = pending_target
+                row["completed_sweeps"] = solver.completed_sweeps if solver is not None else 0
+                raise
+            finally:
+                row["seconds"] = monotonic() - begun
+                row["peak_process_rss_bytes"] = _rss_bytes()
+                rows.append(row)
+                _append(out / "rows.jsonl", row)
         _resource_guard(plan, out, started)
         phase = "checkpoint_load"
         solver = None

@@ -1,5 +1,7 @@
 """Independent native settlement and scalar CFR checks on river poker games."""
 
+from dataclasses import replace
+from hashlib import sha256
 from itertools import product
 import json
 from pathlib import Path
@@ -9,6 +11,7 @@ import numpy as np
 import pytest
 
 from src.blueprint.river_cfr import RiverCFR, profile_quality
+import src.blueprint.river_cfr as river_cfr_module
 from src.blueprint.river_game import RiverGame, river_root_history
 from src.blueprint.river_player import RiverCFRPlayer, RiverPlayerConfig
 from src.blueprint.abstraction import choices
@@ -202,6 +205,89 @@ def test_linear_average_uses_own_reach_and_timeout_discards_partial_sweep():
     assert result.completed_sweeps == 2
     for key in prior:
         np.testing.assert_array_equal(solver.regrets[key], prior[key])
+
+
+def test_second_player_interruption_discards_both_players_staged_work(monkeypatch):
+    game, _ = _fixture()
+    solver = RiverCFR(game)
+    before = solver.solve(max_sweeps=1)
+    saved = {
+        "regrets": {key: value.copy() for key, value in solver.regrets.items()},
+        "numer": {key: value.copy() for key, value in solver.average_numer.items()},
+        "denom": {key: value.copy() for key, value in solver.average_denom.items()},
+        "visited": solver.visited_public_nodes,
+        "zero_external": solver.zero_external_reach_entries,
+    }
+    original_visit = river_cfr_module._visit
+    interrupted = []
+
+    def interrupt_after_second_player_infoset(*args, **kwargs):
+        value = original_visit(*args, **kwargs)
+        node_id, traverser = args[1:3]
+        if (not interrupted and traverser == game.seats[1]
+                and game.nodes[node_id].actor == traverser
+                and np.any(args[5][node_id])):
+            assert any(np.any(delta) for key, delta in args[5].items()
+                       if game.nodes[key].actor == game.seats[0])
+            interrupted.append(node_id)
+            raise TimeoutError("Deterministic second-player interruption")
+        return value
+
+    monkeypatch.setattr(river_cfr_module, "_visit", interrupt_after_second_player_infoset)
+    after = solver.solve(max_sweeps=1)
+    assert interrupted
+    assert after.stop_reason == "Deterministic second-player interruption"
+    assert after.completed_sweeps == before.completed_sweeps == 1
+    assert solver.visited_public_nodes == saved["visited"]
+    assert solver.zero_external_reach_entries == saved["zero_external"]
+    for name, actual in (("regrets", solver.regrets),
+                         ("numer", solver.average_numer),
+                         ("denom", solver.average_denom)):
+        for key, value in actual.items():
+            np.testing.assert_array_equal(value, saved[name][key])
+    for key, value in after.current.items():
+        np.testing.assert_array_equal(value, before.current[key])
+
+
+def test_reference_runner_retains_an_unmet_sweep_milestone(tmp_path, monkeypatch):
+    from scripts import evaluate_river_quality as runner
+
+    checkpoint = tmp_path / "unused-checkpoint"
+    checkpoint.write_bytes(b"frozen-test-input")
+    plan = {
+        "checkpoint_sha256": sha256(checkpoint.read_bytes()).hexdigest(),
+        "reference_sweeps": [1, 2, 4],
+        "max_wall_seconds": 600,
+        "max_rss_gib": 10.5,
+        "min_free_gib": 0,
+    }
+    original_solve = runner.RiverCFR.solve
+    completed = []
+
+    def partial_solve(self, **kwargs):
+        if not completed:
+            result = original_solve(self, **kwargs)
+            completed.append(result)
+            return result
+        return replace(completed[0], stop_reason="Test deadline")
+
+    monkeypatch.setattr(runner.RiverCFR, "solve", partial_solve)
+    out = tmp_path / "partial-run"
+    fixtures = Path(__file__).resolve().parents[1] / "configs/blueprint/river-reference-fixtures.json"
+    result = runner.run(plan, fixtures, checkpoint, out)
+    rows = [json.loads(line) for line in (out / "rows.jsonl").read_text().splitlines()]
+    assert result["status"] == "failed"
+    assert len(rows) == 2
+    case, failure = rows
+    assert case["status"] == "incomplete"
+    assert case["unmet_requested_sweeps"] == 2
+    assert case["completed_sweeps"] == 1
+    assert [(item["requested_sweeps"], item["completed_sweeps"],
+             item["milestone_reached"], item["stop_reason"])
+            for item in case["work_quality"]] == [
+                (1, 1, True, "sweep_cap"), (2, 1, False, "Test deadline"),
+            ]
+    assert failure["phase"] == "reference" and failure["completed_sweeps"] == 1
 
 
 def test_average_profile_improves_small_river_exploitability():

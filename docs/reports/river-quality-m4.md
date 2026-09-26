@@ -8,8 +8,14 @@ Its [frozen plan](../../configs/blueprint/river-preflight-m4.json),
 [raw manifest, rows, result, and checksums](river-quality-m4/) retain the
 inputs, native-engine binary hash, environment and every case. All three
 checksummed raw files passed SHA-256 verification after copying from the M4.
-No attempt failed
-or disappeared. No checkpoint was trained or changed.
+No attempt failed or disappeared. No checkpoint was trained or changed.
+
+The frozen preflight rows use the original reporter schema, which labeled
+each reference snapshot with its requested sweep target. A later review
+found that a future timed-out solve could be mislabeled that way. The runner
+now records the requested and completed sweep counts, stop reason, and
+milestone status; it retains an incomplete case and stops if a target is
+missed. The original preflight artifacts remain unchanged.
 
 | Measure | Result |
 | --- | ---: |
