@@ -1,0 +1,12 @@
+{
+  "schema": "river-preflight-m4-v1",
+  "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+  "reference_fixtures": "configs/blueprint/river-reference-fixtures.json",
+  "reference_sweeps": [1, 256, 1024, 4096],
+  "full_range_fixture_id": "hu-dry",
+  "full_range_max_seconds": 30,
+  "full_range_max_sweeps": 4096,
+  "max_rss_gib": 10.5,
+  "min_free_gib": 30,
+  "max_wall_seconds": 600
+}
