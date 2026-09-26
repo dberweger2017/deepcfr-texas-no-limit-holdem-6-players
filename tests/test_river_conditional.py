@@ -7,6 +7,7 @@ import numpy as np
 import pytest
 
 from scripts.evaluate_river_quality import _ranges
+from scripts.evaluate_river_conditional import _draw, _play, _seed
 from src.arena.endgame_quality import _world, fixture_hand
 from src.arena.river_conditional import (
     ConditionalRiverRollout, FrozenRiverProfile, conditional_opponent_weights,
@@ -101,3 +102,26 @@ def test_frozen_confirmation_roots_are_fresh_legal_and_balanced():
         assert list(view.board) == case["board"]
         pots.add(view.pot / view.big_blind)
     assert pots == {2, 4, 6, 12}
+
+
+def test_paired_river_attempts_replay_the_same_private_deal():
+    case = {"id": "paired-river", "board": ["2h", "7d", "9c", "Js", "Qs"],
+            "stack": 1000, "button": 0, "deck_shift": 18, "survivors": 2}
+    hand = fixture_hand(case)
+    game = RiverGame(river_root_history(hand.events), _ranges(hand.observe(hand.actor)))
+    deal_seed = _seed(20260927, case["id"], 0, "deal")
+    holes = _draw(game, deal_seed)
+    assert holes == _draw(game, deal_seed)
+    assert len(set(holes[game.seats[0]] + holes[game.seats[1]] + game.board)) == 9
+    blueprint = _UniformBlueprint()
+    config = SearchConfig(max_seconds=3, worlds=2, range_samples=2,
+                          styles=("blueprint",), variant="corrected")
+    profile = RiverCFR(game).solve(max_sweeps=2).average
+    players = (
+        FrozenRiverProfile(blueprint, game, profile, 11, config),
+        ConditionalRiverRollout(blueprint, game, 12, config),
+    )
+    for player in players:
+        result = _play(game, holes, hand.actor, "tight_passive", 23, player)
+        assert result["finished"] and result["actions"]
+        assert isinstance(result["payoff_bb"], float)
