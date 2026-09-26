@@ -65,6 +65,11 @@ def analyze(plan, manifest, result, rows, coverage):
         return {"status": "resource_violation", "reason": "RSS cap"}
     if result["elapsed_seconds"] >= plan["limits"]["max_wall_seconds"]:
         return {"status": "resource_violation", "reason": "wall cap"}
+    if any(sum(row["decision_weighted_visit_histogram"].values()) !=
+           row["decision_weighted_found"] or
+           sum(row["distinct_found_visit_histogram"].values()) !=
+           row["distinct_found"] for row in coverage["coverage_rows"]):
+        return {"status": "telemetry_invalid", "reason": "visit histogram total"}
     by_key = {key: row for key, row in zip(keys, rows, strict=True)}
     for suite_name, suite in plan["suites"].items():
         for block in range(suite["blocks"]):

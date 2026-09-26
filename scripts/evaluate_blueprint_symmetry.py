@@ -112,7 +112,7 @@ class CoverageProbe:
             distinct_hist = Counter(value for value in values if value is not None)
             weighted_hist = {str(visits): count
                              for (*prefix, visits), count in self.weighted_visits.items()
-                             if prefix == group}
+                             if tuple(prefix) == group}
             rows.append({
                 "arm": group[0], "street": group[1], "button": group[2],
                 "lookup_mode": group[3],

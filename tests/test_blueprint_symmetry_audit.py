@@ -38,5 +38,7 @@ def test_resource_preflight_couples_seven_arms_without_policy_outcomes(tmp_path,
         assert len({tuple(row["opponents"]) for row in group}) == 1
     reached = json.loads((out / "reached-decisions.json").read_text())
     assert reached["decisions"] > 0
+    assert all(sum(row["decision_weighted_visit_histogram"].values()) ==
+               row["decision_weighted_found"] for row in reached["coverage_rows"])
     assert any(row["category"] in ("both", "neither")
                for row in reached["same_decision_counts"])

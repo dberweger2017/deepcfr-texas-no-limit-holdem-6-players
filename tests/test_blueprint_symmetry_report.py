@@ -44,5 +44,11 @@ def test_report_pairs_six_rotations_within_each_block():
     assert primary["bb_per_100"] == 10
     assert primary["confidence"] == 0.975
     assert primary["interval"] == [10, 10]
+    coverage["coverage_rows"] = [{"decision_weighted_visit_histogram": {},
+                                  "decision_weighted_found": 1,
+                                  "distinct_found_visit_histogram": {},
+                                  "distinct_found": 0}]
+    assert analyze(plan, manifest, result, rows, coverage)["status"] == "telemetry_invalid"
+    coverage["coverage_rows"] = []
     rows.pop()
     assert analyze(plan, manifest, result, rows, coverage)["status"] == "incomplete"
