@@ -484,6 +484,25 @@ def test_play_adapter_cannot_distinguish_unseen_opponent_hands():
 
 _CASES = json.loads((Path(__file__).resolve().parents[1]
                     / "configs/blueprint/river-reference-fixtures.json").read_text())["cases"]
+_DEVELOPMENT_CASES = json.loads((Path(__file__).resolve().parents[1]
+                                / "configs/blueprint/river-development-m4.json").read_text())[
+                                    "full_range_cases"]
+
+
+@pytest.mark.parametrize("case,pot_bb", zip(_DEVELOPMENT_CASES, (2, 4, 8, 12, 32)),
+                         ids=[case["id"] for case in _DEVELOPMENT_CASES])
+def test_frozen_development_roots_are_legal_and_distinct(case, pot_bb):
+    from scripts.evaluate_river_development import _shape_ranges
+
+    hand = fixture_hand(case)
+    view = hand.observe(hand.actor)
+    assert view.pot / view.big_blind == pot_bb
+    assert list(view.board) == case["board"]
+    ranges = _shape_ranges(_ranges(view), case["range_shape"])
+    game = RiverGame(river_root_history(view.history), ranges)
+    assert game.root_pot == view.pot
+    assert len(game.nodes) > 1
+    assert game.joint.sum() == pytest.approx(1)
 
 
 @pytest.mark.parametrize("case", _CASES, ids=[case["id"] for case in _CASES])

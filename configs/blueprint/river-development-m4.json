@@ -1,0 +1,18 @@
+{
+  "schema": "river-development-m4-v1",
+  "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+  "reference_fixtures": "configs/blueprint/river-reference-fixtures.json",
+  "tiny_sweeps": [8192, 16384, 32768],
+  "full_range_time_snapshots_seconds": [5, 15, 30, 60],
+  "full_range_max_sweeps": 100000,
+  "full_range_cases": [
+    {"id":"dev-dry-check","board":["2h","7d","9c","Js","Qs"],"stack":1000,"button":0,"deck_shift":18,"survivors":2,"street_bets":{},"range_shape":"blueprint"},
+    {"id":"dev-paired-flop","board":["2c","2d","7h","9s","Kc"],"stack":500,"button":1,"deck_shift":3,"survivors":2,"street_bets":{"flop":100},"range_shape":"uniform"},
+    {"id":"dev-flush-turn","board":["Ah","Kh","Qh","7h","2c"],"stack":1000,"button":2,"deck_shift":6,"survivors":2,"street_bets":{"turn":300},"range_shape":"blueprint"},
+    {"id":"dev-lowdraw-double","board":["2d","3d","4s","5s","9c"],"stack":1000,"button":3,"deck_shift":24,"survivors":2,"street_bets":{"flop":200,"turn":300},"range_shape":"squared"},
+    {"id":"dev-deep-straight","board":["Ac","Kd","Qh","Js","Tc"],"stack":10000,"button":4,"deck_shift":0,"survivors":2,"street_bets":{"flop":500,"turn":1000},"range_shape":"blueprint"}
+  ],
+  "max_rss_gib": 10.5,
+  "min_free_gib": 30,
+  "max_wall_seconds": 900
+}

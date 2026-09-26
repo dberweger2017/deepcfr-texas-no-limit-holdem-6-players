@@ -196,9 +196,18 @@ def fixture_hand(case: dict) -> Hand:
     available = available[shift:] + available[:shift]
     hand = Hand.from_deck(table, hand_id=f"river-fixture-{case['id']}",
                           deck=tuple(available[:12]) + board + tuple(available[12:]))
+    street_bets = case.get("street_bets", {})
+    used_bets = set()
     while hand.observe(hand.actor).street != Street.RIVER:
         view = hand.observe(hand.actor)
         live = sum(not player.folded for player in view.players)
+        if (view.street.value in street_bets and view.street not in used_bets
+                and ActionKind.RAISE in view.legal_actions.kinds):
+            action = Action(ActionKind.RAISE, street_bets[view.street.value])
+            view.legal_actions.validate(action)
+            used_bets.add(view.street)
+            hand = hand.apply(action)
+            continue
         kind = (ActionKind.FOLD if view.street == Street.PREFLOP
                 and live > case["survivors"] and ActionKind.FOLD in view.legal_actions.kinds
                 else ActionKind.CHECK if ActionKind.CHECK in view.legal_actions.kinds
