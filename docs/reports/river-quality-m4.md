@@ -45,6 +45,12 @@ values, native-oracle values, and timings are in `rows.jsonl`. Three-player
 rows contain individual deviation gains and NashConv, with no multiway
 convergence claim.
 
+For all 48 two-player snapshot profiles (12 cases × four sweep counts), the
+largest absolute difference between the batched and independently enumerated
+profile values or best-response gains was `4.44e-16` BB. This checks the
+information-set best-response calculation across the recorded development
+profiles in addition to the one-sweep regret test.
+
 The local focused suite checks independent scalar one-sweep regret increments,
 native terminal payoffs, odd-chip ties, legal all-ins, information-set best
 responses, own-reach averaging, interruption atomicity, hidden-deal
