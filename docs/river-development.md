@@ -41,3 +41,22 @@ compute-matched), evaluation deals, uncertainty analysis and the campaign
 wall budget in a separate protocol before running any paired comparison.
 No playing-strength or model-promotion claim follows from this development
 run alone.
+
+## Range-shape amendment after the first run
+
+The completed first run showed that four of its five full-range roots had
+uniform effective marginals despite their labeled `blueprint`, `uniform` or
+`squared` input shapes. Squaring a uniform prior leaves it uniform. To test
+the requested range variation, the separately frozen
+[amendment](../configs/blueprint/river-range-amendment-m4.json) adds three
+full-range cases only. It keeps the solver, action menu, checkpoint and
+5/15/30/60-second measurements unchanged. The stipulated `suited-bias`,
+`pair-bias` and `high-card-bias` laws multiply the blueprint marginal by a
+fixed factor of four for suited hands, four for pocket pairs, or three for
+hands containing J/Q/K/A respectively, then renormalize and apply card
+compatibility. They deliberately create nonuniform development distributions;
+they are not claims about real opponent beliefs. A deep mixed board replaces
+the board-playing-straight texture as a nontrivial deep-stack stress case.
+The amendment is exploratory and must not be treated as a fresh confirmation
+after inspecting the first development run. It has a separate seven-minute
+M4 wall cap and retains its own artifact hashes and failures.

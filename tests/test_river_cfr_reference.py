@@ -487,6 +487,9 @@ _CASES = json.loads((Path(__file__).resolve().parents[1]
 _DEVELOPMENT_CASES = json.loads((Path(__file__).resolve().parents[1]
                                 / "configs/blueprint/river-development-m4.json").read_text())[
                                     "full_range_cases"]
+_AMENDMENT_CASES = json.loads((Path(__file__).resolve().parents[1]
+                              / "configs/blueprint/river-range-amendment-m4.json").read_text())[
+                                  "full_range_cases"]
 
 
 @pytest.mark.parametrize("case,pot_bb", zip(_DEVELOPMENT_CASES, (2, 4, 8, 12, 32)),
@@ -503,6 +506,25 @@ def test_frozen_development_roots_are_legal_and_distinct(case, pot_bb):
     assert game.root_pot == view.pot
     assert len(game.nodes) > 1
     assert game.joint.sum() == pytest.approx(1)
+
+
+@pytest.mark.parametrize("case,pot_bb", zip(_AMENDMENT_CASES, (2, 12, 32)),
+                         ids=[case["id"] for case in _AMENDMENT_CASES])
+def test_frozen_range_amendment_is_legal_and_nonuniform(case, pot_bb):
+    from itertools import combinations
+    from scripts.evaluate_river_development import _shape_ranges, _range_summary
+
+    hand = fixture_hand(case)
+    view = hand.observe(hand.actor)
+    assert view.pot / view.big_blind == pot_bb
+    root = river_root_history(view.history)
+    RiverGame(root, _ranges(view))
+    pairs = tuple(combinations((card for card in DECK if card not in view.board), 2))
+    seat = next(player.seat for player in view.players if not player.folded)
+    shaped = _shape_ranges({seat: tuple((pair, 1.0) for pair in pairs)},
+                           case["range_shape"])
+    assert sum(weight for _, weight in shaped[seat]) == pytest.approx(1)
+    assert _range_summary(shaped)[str(seat)]["effective_holdings"] < len(pairs)
 
 
 @pytest.mark.parametrize("case", _CASES, ids=[case["id"] for case in _CASES])

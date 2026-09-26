@@ -25,13 +25,26 @@ from src.blueprint.search import LiveBlueprint
 
 
 def _shape_ranges(ranges, shape):
-    if shape not in {"blueprint", "uniform", "squared"}:
+    if shape not in {"blueprint", "uniform", "squared",
+                     "suited-bias", "pair-bias", "high-card-bias"}:
         raise ValueError(f"Unknown declared range shape: {shape}")
     shaped = {}
     for seat, rows in ranges.items():
-        weights = [1.0 if shape == "uniform" else
-                   mass * mass if shape == "squared" else mass
-                   for _, mass in rows]
+        weights = []
+        for pair, mass in rows:
+            if shape == "uniform":
+                weight = 1.0
+            elif shape == "squared":
+                weight = mass * mass
+            elif shape == "suited-bias":
+                weight = mass * (4 if pair[0][1] == pair[1][1] else 1)
+            elif shape == "pair-bias":
+                weight = mass * (4 if pair[0][0] == pair[1][0] else 1)
+            elif shape == "high-card-bias":
+                weight = mass * (3 if any(card[0] in "JQKA" for card in pair) else 1)
+            else:
+                weight = mass
+            weights.append(weight)
         total = fsum(weights)
         shaped[seat] = tuple((pair, weight / total)
                              for (pair, _), weight in zip(rows, weights, strict=True))
@@ -58,9 +71,10 @@ def run(plan: dict, fixtures_path: Path, checkpoint: Path, out: Path) -> dict:
     if _hash(checkpoint) != plan["checkpoint_sha256"]:
         raise ValueError("Checkpoint hash mismatch")
     fixtures = json.loads(fixtures_path.read_text())["cases"]
-    tiny = [case for case in fixtures if case["survivors"] == 2]
-    if (len(tiny) != 12 or len(plan["full_range_cases"]) < 3
-            or plan["tiny_sweeps"] != [8192, 16384, 32768]
+    amendment = plan["schema"] == "river-range-amendment-m4-v1"
+    tiny = [] if amendment else [case for case in fixtures if case["survivors"] == 2]
+    if (len(tiny) != (0 if amendment else 12) or len(plan["full_range_cases"]) < 3
+            or plan["tiny_sweeps"] != ([] if amendment else [8192, 16384, 32768])
             or plan["full_range_time_snapshots_seconds"] != [5, 15, 30, 60]):
         raise ValueError("Expected the frozen development design")
     out.parent.mkdir(parents=True, exist_ok=True)
