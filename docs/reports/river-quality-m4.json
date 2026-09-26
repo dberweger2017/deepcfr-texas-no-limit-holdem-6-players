@@ -1,0 +1,89 @@
+{
+  "full_range": {
+    "average_quality": {
+      "best_response_gains_bb": [
+        0.018199069802735002,
+        0.015204506243198135
+      ],
+      "exploitability_bb": 0.01670178802296657,
+      "exploitability_root_pot": 0.008350894011483284,
+      "profile_values_bb": [
+        0.5765863523918007,
+        -0.5765863523918008
+      ],
+      "zero_sum_error_bb": 1.1102230246251565e-16
+    },
+    "case_id": "hu-dry",
+    "checkpoint_load_seconds": 57.91460941603873,
+    "compatible_joint_deals": 1070190,
+    "completed_sweeps": 694,
+    "current_quality": {
+      "best_response_gains_bb": [
+        0.4888078924521877,
+        0.9767961207512736
+      ],
+      "exploitability_bb": 0.7328020066017307,
+      "exploitability_root_pot": 0.36640100330086534,
+      "profile_values_bb": [
+        0.4770290107643853,
+        -0.47702901076438553
+      ],
+      "zero_sum_error_bb": 2.220446049250313e-16
+    },
+    "holdings_per_seat": [
+      1081,
+      1081
+    ],
+    "public_nodes": 53,
+    "range_construction_seconds": 0.22020479198545218,
+    "solve_seconds": 29.508200665935874,
+    "stop_reason": "River CFR reached its wall limit",
+    "total_decision_seconds": 30.00038279092405,
+    "tree_and_payoff_construction_seconds": 0.27197733300272375,
+    "zero_average_denominators": 0,
+    "zero_external_reach_entries": 969288
+  },
+  "heads_up_cases": 12,
+  "overall_elapsed_seconds": 118.95648512500338,
+  "peak_process_rss_bytes": 6981992448,
+  "playing_strength_claim": false,
+  "proposed_all_case_gate_met": false,
+  "raw_artifacts": "docs/reports/river-quality-m4/",
+  "reference_average_root_pot_exploitability": [
+    {
+      "cases_le_1e-3": 0,
+      "maximum": 0.875,
+      "median": 0.68203125,
+      "sweeps": 1
+    },
+    {
+      "cases_le_1e-3": 5,
+      "maximum": 0.0379634969397698,
+      "median": 0.016969001029212782,
+      "sweeps": 256
+    },
+    {
+      "cases_le_1e-3": 5,
+      "maximum": 0.017315027222397333,
+      "median": 0.0051736811694365475,
+      "sweeps": 1024
+    },
+    {
+      "cases_le_1e-3": 5,
+      "maximum": 0.006132761544215992,
+      "median": 0.002446087726388324,
+      "sweeps": 4096
+    }
+  ],
+  "reference_cases": 16,
+  "reference_sweeps": [
+    1,
+    256,
+    1024,
+    4096
+  ],
+  "schema": "river-quality-m4-preflight-v1",
+  "source_revision": "b361b80e495371138855ee211c381dad463711a7",
+  "status": "valid",
+  "tiny_three_player_cases": 4
+}

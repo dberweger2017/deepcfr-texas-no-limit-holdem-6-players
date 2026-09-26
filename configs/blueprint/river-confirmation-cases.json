@@ -1,0 +1,639 @@
+{
+  "schema": "river-confirmation-cases-v1",
+  "generation_seed": 2026092701,
+  "generation_method": "stratified board textures with disjoint held-out boards, fixed pot/stack/position/style rotation",
+  "cases": [
+    {
+      "id": "confirm-dry-01",
+      "board": [
+        "Td",
+        "Qh",
+        "Ac",
+        "6s",
+        "2c"
+      ],
+      "stack": 500,
+      "button": 0,
+      "deck_shift": 42,
+      "survivors": 2,
+      "street_bets": {},
+      "hero_position": "first",
+      "opponent_style": "tight_passive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-dry-02",
+      "board": [
+        "7h",
+        "4s",
+        "8c",
+        "2h",
+        "Ad"
+      ],
+      "stack": 1000,
+      "button": 3,
+      "deck_shift": 32,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 100
+      },
+      "hero_position": "second",
+      "opponent_style": "loose_passive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-dry-03",
+      "board": [
+        "2c",
+        "7s",
+        "5h",
+        "Ts",
+        "Jc"
+      ],
+      "stack": 3000,
+      "button": 0,
+      "deck_shift": 15,
+      "survivors": 2,
+      "street_bets": {
+        "turn": 200
+      },
+      "hero_position": "first",
+      "opponent_style": "tight_aggressive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-dry-04",
+      "board": [
+        "Js",
+        "5c",
+        "6c",
+        "Ad",
+        "3d"
+      ],
+      "stack": 10000,
+      "button": 3,
+      "deck_shift": 41,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 200,
+        "turn": 300
+      },
+      "hero_position": "second",
+      "opponent_style": "loose_aggressive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-dry-05",
+      "board": [
+        "Jd",
+        "3h",
+        "4d",
+        "5s",
+        "Qs"
+      ],
+      "stack": 500,
+      "button": 0,
+      "deck_shift": 27,
+      "survivors": 2,
+      "street_bets": {},
+      "hero_position": "first",
+      "opponent_style": "pot_pressure",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-dry-06",
+      "board": [
+        "7d",
+        "6h",
+        "3c",
+        "Kc",
+        "2s"
+      ],
+      "stack": 1000,
+      "button": 3,
+      "deck_shift": 5,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 100
+      },
+      "hero_position": "second",
+      "opponent_style": "train_pressure",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-dry-07",
+      "board": [
+        "3d",
+        "Ac",
+        "Kc",
+        "7d",
+        "4h"
+      ],
+      "stack": 3000,
+      "button": 0,
+      "deck_shift": 22,
+      "survivors": 2,
+      "street_bets": {
+        "turn": 200
+      },
+      "hero_position": "first",
+      "opponent_style": "tight_passive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-dry-08",
+      "board": [
+        "8s",
+        "Kh",
+        "Qd",
+        "3c",
+        "7s"
+      ],
+      "stack": 10000,
+      "button": 3,
+      "deck_shift": 15,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 200,
+        "turn": 300
+      },
+      "hero_position": "second",
+      "opponent_style": "loose_passive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-paired-01",
+      "board": [
+        "8s",
+        "8h",
+        "2s",
+        "Qh",
+        "5d"
+      ],
+      "stack": 500,
+      "button": 2,
+      "deck_shift": 20,
+      "survivors": 2,
+      "street_bets": {},
+      "hero_position": "first",
+      "opponent_style": "tight_aggressive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-paired-02",
+      "board": [
+        "Th",
+        "4s",
+        "Ah",
+        "4d",
+        "8d"
+      ],
+      "stack": 1000,
+      "button": 5,
+      "deck_shift": 18,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 100
+      },
+      "hero_position": "second",
+      "opponent_style": "loose_aggressive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-paired-03",
+      "board": [
+        "Kc",
+        "6c",
+        "Th",
+        "9d",
+        "6h"
+      ],
+      "stack": 3000,
+      "button": 2,
+      "deck_shift": 16,
+      "survivors": 2,
+      "street_bets": {
+        "turn": 200
+      },
+      "hero_position": "first",
+      "opponent_style": "pot_pressure",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-paired-04",
+      "board": [
+        "Th",
+        "9h",
+        "Ts",
+        "5d",
+        "2h"
+      ],
+      "stack": 10000,
+      "button": 5,
+      "deck_shift": 4,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 200,
+        "turn": 300
+      },
+      "hero_position": "second",
+      "opponent_style": "train_pressure",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-paired-05",
+      "board": [
+        "Qh",
+        "9c",
+        "6d",
+        "As",
+        "Ac"
+      ],
+      "stack": 500,
+      "button": 2,
+      "deck_shift": 20,
+      "survivors": 2,
+      "street_bets": {},
+      "hero_position": "first",
+      "opponent_style": "tight_passive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-paired-06",
+      "board": [
+        "2d",
+        "Kc",
+        "Qh",
+        "Kd",
+        "Ts"
+      ],
+      "stack": 1000,
+      "button": 5,
+      "deck_shift": 37,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 100
+      },
+      "hero_position": "second",
+      "opponent_style": "loose_passive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-paired-07",
+      "board": [
+        "9c",
+        "Kh",
+        "2c",
+        "4h",
+        "9d"
+      ],
+      "stack": 3000,
+      "button": 2,
+      "deck_shift": 20,
+      "survivors": 2,
+      "street_bets": {
+        "turn": 200
+      },
+      "hero_position": "first",
+      "opponent_style": "tight_aggressive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-paired-08",
+      "board": [
+        "Ah",
+        "Th",
+        "Js",
+        "Jd",
+        "Qc"
+      ],
+      "stack": 10000,
+      "button": 5,
+      "deck_shift": 19,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 200,
+        "turn": 300
+      },
+      "hero_position": "second",
+      "opponent_style": "loose_aggressive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-four-flush-01",
+      "board": [
+        "6h",
+        "3d",
+        "5h",
+        "7h",
+        "9h"
+      ],
+      "stack": 500,
+      "button": 4,
+      "deck_shift": 15,
+      "survivors": 2,
+      "street_bets": {},
+      "hero_position": "first",
+      "opponent_style": "pot_pressure",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-four-flush-02",
+      "board": [
+        "Kd",
+        "7d",
+        "Qd",
+        "5c",
+        "3d"
+      ],
+      "stack": 1000,
+      "button": 1,
+      "deck_shift": 15,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 100
+      },
+      "hero_position": "second",
+      "opponent_style": "train_pressure",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-four-flush-03",
+      "board": [
+        "8s",
+        "Ad",
+        "7s",
+        "3s",
+        "5s"
+      ],
+      "stack": 3000,
+      "button": 4,
+      "deck_shift": 39,
+      "survivors": 2,
+      "street_bets": {
+        "turn": 200
+      },
+      "hero_position": "first",
+      "opponent_style": "tight_passive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-four-flush-04",
+      "board": [
+        "9d",
+        "5h",
+        "3h",
+        "Th",
+        "6h"
+      ],
+      "stack": 10000,
+      "button": 1,
+      "deck_shift": 35,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 200,
+        "turn": 300
+      },
+      "hero_position": "second",
+      "opponent_style": "loose_passive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-four-flush-05",
+      "board": [
+        "6c",
+        "5c",
+        "Qc",
+        "Jc",
+        "4h"
+      ],
+      "stack": 500,
+      "button": 4,
+      "deck_shift": 29,
+      "survivors": 2,
+      "street_bets": {},
+      "hero_position": "first",
+      "opponent_style": "tight_aggressive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-four-flush-06",
+      "board": [
+        "Js",
+        "4s",
+        "2h",
+        "7s",
+        "5s"
+      ],
+      "stack": 1000,
+      "button": 1,
+      "deck_shift": 6,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 100
+      },
+      "hero_position": "second",
+      "opponent_style": "loose_aggressive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-four-flush-07",
+      "board": [
+        "Jh",
+        "6h",
+        "2d",
+        "Qh",
+        "Th"
+      ],
+      "stack": 3000,
+      "button": 4,
+      "deck_shift": 29,
+      "survivors": 2,
+      "street_bets": {
+        "turn": 200
+      },
+      "hero_position": "first",
+      "opponent_style": "pot_pressure",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-four-flush-08",
+      "board": [
+        "Qc",
+        "6s",
+        "Jc",
+        "4c",
+        "2c"
+      ],
+      "stack": 10000,
+      "button": 1,
+      "deck_shift": 27,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 200,
+        "turn": 300
+      },
+      "hero_position": "second",
+      "opponent_style": "train_pressure",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-connected-01",
+      "board": [
+        "7s",
+        "3h",
+        "5s",
+        "Kd",
+        "6d"
+      ],
+      "stack": 500,
+      "button": 0,
+      "deck_shift": 10,
+      "survivors": 2,
+      "street_bets": {},
+      "hero_position": "first",
+      "opponent_style": "tight_passive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-connected-02",
+      "board": [
+        "Th",
+        "Jd",
+        "4h",
+        "8d",
+        "Qd"
+      ],
+      "stack": 1000,
+      "button": 3,
+      "deck_shift": 29,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 100
+      },
+      "hero_position": "second",
+      "opponent_style": "loose_passive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-connected-03",
+      "board": [
+        "Qh",
+        "6c",
+        "8h",
+        "Jc",
+        "9c"
+      ],
+      "stack": 3000,
+      "button": 0,
+      "deck_shift": 25,
+      "survivors": 2,
+      "street_bets": {
+        "turn": 200
+      },
+      "hero_position": "first",
+      "opponent_style": "tight_aggressive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-connected-04",
+      "board": [
+        "6s",
+        "9h",
+        "4d",
+        "3s",
+        "5d"
+      ],
+      "stack": 10000,
+      "button": 3,
+      "deck_shift": 18,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 200,
+        "turn": 300
+      },
+      "hero_position": "second",
+      "opponent_style": "loose_aggressive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-connected-05",
+      "board": [
+        "4h",
+        "Ts",
+        "Qs",
+        "Ks",
+        "Jh"
+      ],
+      "stack": 500,
+      "button": 0,
+      "deck_shift": 41,
+      "survivors": 2,
+      "street_bets": {},
+      "hero_position": "first",
+      "opponent_style": "pot_pressure",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-connected-06",
+      "board": [
+        "8h",
+        "Jh",
+        "Td",
+        "7h",
+        "4d"
+      ],
+      "stack": 1000,
+      "button": 3,
+      "deck_shift": 19,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 100
+      },
+      "hero_position": "second",
+      "opponent_style": "train_pressure",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-connected-07",
+      "board": [
+        "5d",
+        "7h",
+        "6c",
+        "Kh",
+        "8d"
+      ],
+      "stack": 3000,
+      "button": 0,
+      "deck_shift": 13,
+      "survivors": 2,
+      "street_bets": {
+        "turn": 200
+      },
+      "hero_position": "first",
+      "opponent_style": "tight_passive",
+      "range_shape": "blueprint"
+    },
+    {
+      "id": "confirm-connected-08",
+      "board": [
+        "Tc",
+        "3c",
+        "9d",
+        "7d",
+        "6d"
+      ],
+      "stack": 10000,
+      "button": 3,
+      "deck_shift": 23,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 200,
+        "turn": 300
+      },
+      "hero_position": "second",
+      "opponent_style": "loose_passive",
+      "range_shape": "blueprint"
+    }
+  ]
+}

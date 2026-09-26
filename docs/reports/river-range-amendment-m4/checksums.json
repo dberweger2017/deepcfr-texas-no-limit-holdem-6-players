@@ -1,0 +1,8 @@
+{
+  "manifest.json": "635b5fb93e1eccf4f2be808523c614cb6491ded56a48d3632ba269797baa61f4",
+  "profiles/dev-deep-mixed-high.npz": "345b0892547afa192d2811ee155dd4c83e4d86ade6d4d80c9cca6aeae4f0995c",
+  "profiles/dev-dry-suited.npz": "731b5abc91356be38e2fb49fe38463bb088e4f2909231a05895f2e241400c21b",
+  "profiles/dev-lowdraw-pair.npz": "afea1fc6a5610cb90a690b31aa2c129800887e36322a58566dd4ca7b2570c8d0",
+  "result.json": "bb8e34561d6bc8b37b1c19414478e2e74c260df5fdfc47bd108626d91c37bb43",
+  "rows.jsonl": "cc015aa9583dc9451db80fdd970677865c7b9b41939c6d4d270b3faced3ea822"
+}
