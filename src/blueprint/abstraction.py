@@ -17,6 +17,9 @@ from src.game.types import Action, ActionKind, Street
 SCHEMA = "blueprint-abstraction-v1"
 SUMMARY_SCHEMA = "blueprint-abstraction-summary-v1"
 SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA)
+LEGACY_LOOKUP = "legacy-v1"
+BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"
+LOOKUP_MODES = (LEGACY_LOOKUP, BUTTON_ZERO_COMPAT_LOOKUP)
 RANKS = "23456789TJQKA"
 
 
@@ -178,7 +181,8 @@ def _summary_history(view: Observation) -> tuple:
 
 
 def information_key(
-    view: Observation, menu: tuple[Choice, ...], *, schema: str = SCHEMA
+    view: Observation, menu: tuple[Choice, ...], *, schema: str = SCHEMA,
+    lookup_mode: str = LEGACY_LOOKUP,
 ) -> str:
     """Stable abstract infoset; action labels are part of the key."""
     if view.finished or view.actor != view.seat or not menu:
@@ -187,6 +191,8 @@ def information_key(
         raise TypeError("Missing public hand start")
     if schema not in SUPPORTED_SCHEMAS:
         raise ValueError("Unknown blueprint abstraction schema")
+    if lookup_mode not in LOOKUP_MODES:
+        raise ValueError("Unknown blueprint lookup mode")
     cards = (
         _preflop(view.hole_cards)
         if view.street == Street.PREFLOP
@@ -198,6 +204,11 @@ def information_key(
         (view.seat - view.button) % len(view.players),
         view.street.value,
         cards,
+        tuple(
+            (view.players[(view.button + offset) % len(view.players)].folded,
+             view.players[(view.button + offset) % len(view.players)].all_in)
+            for offset in range(len(view.players))
+        ) if lookup_mode == BUTTON_ZERO_COMPAT_LOOKUP else
         tuple((p.folded, p.all_in) for p in view.players),
         _history(view) if schema == SCHEMA else _summary_history(view),
         tuple(item.name for item in menu),

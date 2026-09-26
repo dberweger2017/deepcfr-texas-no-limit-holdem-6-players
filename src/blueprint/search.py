@@ -12,8 +12,8 @@ from math import exp, log
 from random import Random
 from time import monotonic
 
-from src.blueprint.abstraction import choices, information_key
-from src.blueprint.solver import regret_match
+from src.blueprint.abstraction import LEGACY_LOOKUP
+from src.blueprint.lookup import TableDistribution
 from src.game.hand import Hand, Table
 from src.game.observation import ActionTaken, HandStarted, Observation, replay
 from src.game.types import Action, ActionKind, Street
@@ -29,21 +29,15 @@ class SearchUnavailable(RuntimeError):
 class LiveBlueprint:
     """Read the loaded training table directly, avoiding a second full export."""
 
-    def __init__(self, trainer):
+    def __init__(self, trainer, *, lookup_mode: str = LEGACY_LOOKUP,
+                 checkpoint_sha256: str | None = None):
         self.trainer = trainer
+        self.lookup = TableDistribution(
+            trainer, lookup_mode=lookup_mode, checkpoint_sha256=checkpoint_sha256,
+        )
 
     def distribution(self, view: Observation):
-        trainer = self.trainer
-        if view.capacity != trainer.table.capacity:
-            raise ValueError("Blueprint table size differs from the search table")
-        menu = choices(view, raise_cap=trainer.config.raise_cap)
-        key = information_key(view, menu, schema=trainer.config.abstraction)
-        node = trainer.nodes.get(key)
-        if node is None:
-            return menu, (1 / len(menu),) * len(menu), False
-        if node.names != tuple(item.name for item in menu):
-            raise ValueError("Blueprint action labels differ from the observation")
-        return menu, regret_match(tuple(node.regrets)), True
+        return self.lookup.distribution(view)
 
 
 @dataclass(frozen=True, slots=True)
