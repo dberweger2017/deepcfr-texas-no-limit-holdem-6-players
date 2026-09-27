@@ -45,6 +45,32 @@ def system(command):
     return result.stdout.strip() if result.returncode == 0 else result.stderr.strip()
 
 
+def independent_preflop_density(trainer, counters):
+    """Weight visit counts by decisions from collector deals outside training."""
+    histogram = Counter()
+    for key, (_, action_counts) in counters.items():
+        node = trainer.nodes.get(key)
+        histogram[node.visits if node else 0] += sum(action_counts)
+    total = sum(histogram.values())
+
+    def quantile(fraction):
+        threshold = max(1, int(total * fraction + 0.999999))
+        seen = 0
+        for visits, count in sorted(histogram.items()):
+            seen += count
+            if seen >= threshold:
+                return visits
+        return None
+
+    return {"decisions": total, "trained_decisions": total-histogram[0],
+            "revisited_decisions": sum(count for visits, count in histogram.items()
+                                       if visits > 1),
+            "visit_quantiles": {"p25": quantile(.25), "p50": quantile(.5),
+                                "p75": quantile(.75), "p90": quantile(.9)},
+            "mean_visits": (sum(visits*count for visits, count in histogram.items())/total
+                            if total else None)}
+
+
 def train(plan, seed, out, deadline, *, preflight=False):
     if out.exists():
         raise FileExistsError(out)
@@ -137,6 +163,8 @@ def train(plan, seed, out, deadline, *, preflight=False):
             result["collector"] = collect_preflop(trainer, 0,
                 plan["collector_roots_per_seat"], plan["collector_seed"]+seed,
                 counters, max_visited=plan["limits"]["max_collector_states"])
+            result["independent_preflop_density"] = independent_preflop_density(
+                trainer, counters)
             result["current_export_sha256"] = export_policy(trainer, out / "resource-current.json.gz")
             result["capture_export_seconds"] = monotonic()-capture_start
         else:
