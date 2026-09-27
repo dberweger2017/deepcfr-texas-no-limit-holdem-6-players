@@ -12,7 +12,7 @@ from collections import Counter
 from pathlib import Path
 from time import monotonic, time
 
-from src.blueprint.abstraction import HU20_SCHEMA
+from src.blueprint.abstraction import HU20_CARD_VERSION, HU20_MENU_VERSION, HU20_SCHEMA
 from src.arena.schedule import digest
 from src.blueprint.artifact import export_policy, save_training
 from src.blueprint.solver import BlueprintTrainer, HU20_GAME, PilotConfig
@@ -151,6 +151,8 @@ def train(plan, seed, out, deadline, *, preflight=False):
             index_stats = build_index(captured, counters, index_path)
             capture_rows = [json.loads(line) for line in (out / "captures.jsonl").read_text().splitlines()]
             identity = {"schema": EXTRACTION, "game": HU20_GAME,
+                "action_menu": HU20_MENU_VERSION,
+                "card_descriptor": HU20_CARD_VERSION,
                 "source_checkpoint_sha256": result["final_checkpoint_sha256"],
                 "snapshot_sha256": [row["snapshot_sha256"] for row in capture_rows],
                 "requested_nodes": plan["capture_nodes"],

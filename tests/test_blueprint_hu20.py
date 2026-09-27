@@ -1,5 +1,8 @@
 """The versioned short-stack game keeps legacy artifacts and menus intact."""
 
+import gzip
+import json
+
 import pytest
 
 from src.blueprint.abstraction import HU20_SCHEMA, choices, information_key
@@ -152,3 +155,11 @@ def test_new_artifact_identity_and_resume(tmp_path):
         BlueprintTrainer(Table(("hero", "villain"), (10000, 10000)), config())
     with pytest.raises(ValueError, match="Invalid bounded"):
         PilotConfig(abstraction=HU20_SCHEMA)
+    lines = gzip.decompress(path.read_bytes()).splitlines()
+    header = json.loads(lines[0])
+    header["identity"]["action_menu"] = "incompatible-menu"
+    altered = tmp_path / "altered.gz"
+    altered.write_bytes(gzip.compress(json.dumps(header).encode()+b"\n"+
+                                      b"\n".join(lines[1:])+b"\n", mtime=0))
+    with pytest.raises(ValueError, match="abstraction schema"):
+        load_training(altered)

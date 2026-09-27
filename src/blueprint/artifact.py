@@ -14,6 +14,8 @@ from random import Random
 from src.blueprint.abstraction import (
     SCHEMA,
     HU20_SCHEMA,
+    HU20_MENU_VERSION,
+    HU20_CARD_VERSION,
     SUPPORTED_SCHEMAS,
     choices,
     information_key,
@@ -34,6 +36,14 @@ HU20_FORMAT = "holdem-hu20-blueprint-v2"
 
 def _format(config: PilotConfig) -> str:
     return HU20_FORMAT if config.game == HU20_GAME else FORMAT
+
+
+def _identity(config: PilotConfig) -> dict:
+    return ({"game": HU20_GAME, "players": 2, "stacks": [2000, 2000],
+             "small_blind": 50, "big_blind": 100,
+             "action_menu": HU20_MENU_VERSION,
+             "card_descriptor": HU20_CARD_VERSION}
+            if config.game == HU20_GAME else {})
 
 
 def _encoded(document: dict) -> bytes:
@@ -75,6 +85,8 @@ def _checked_schema(document: dict) -> str:
         or (document.get("format") == HU20_FORMAT) != (schema == HU20_SCHEMA)
         or config.get("game", LEGACY_GAME) !=
             (HU20_GAME if schema == HU20_SCHEMA else LEGACY_GAME)
+        or (schema == HU20_SCHEMA and document.get("identity") !=
+            _identity(PilotConfig(**config)))
     ):
         raise ValueError("Unknown blueprint abstraction schema")
     return schema
@@ -114,6 +126,8 @@ def save_training(trainer: BlueprintTrainer, path: Path) -> str:
         "config": _config(trainer.config),
         "iteration": trainer.iteration,
     }
+    if trainer.config.game == HU20_GAME:
+        header["identity"] = _identity(trainer.config)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + ".tmp")
     with temporary.open("wb") as raw:
@@ -217,9 +231,7 @@ def export_policy(
                 else (1 / len(node.names),) * len(node.names)
             )
         entries[key] = [node.names, probabilities]
-    return _write(
-        path,
-        {
+    document = {
             "format": _format(trainer.config),
             "abstraction": trainer.config.abstraction,
             "kind": "inference",
@@ -228,7 +240,12 @@ def export_policy(
             "iteration": trainer.iteration,
             "strategy": strategy,
             "entries": entries,
-        },
+        }
+    if trainer.config.game == HU20_GAME:
+        document["identity"] = _identity(trainer.config)
+    return _write(
+        path,
+        document,
     )
 
 

@@ -17,6 +17,8 @@ from src.game.types import Action, ActionKind, Street
 SCHEMA = "blueprint-abstraction-v1"
 SUMMARY_SCHEMA = "blueprint-abstraction-summary-v1"
 HU20_SCHEMA = "hu20-ordered-history-card-baseline-v2"
+HU20_MENU_VERSION = "hu20-min-pot-conditional-jam-no-free-fold-v2"
+HU20_CARD_VERSION = "legacy-postflop-descriptor-v1"
 SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, HU20_SCHEMA)
 LEGACY_LOOKUP = "legacy-v1"
 BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"

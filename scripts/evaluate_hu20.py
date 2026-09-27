@@ -9,13 +9,13 @@ import sys
 from collections import Counter
 from pathlib import Path
 from random import Random
-from time import monotonic, time
+from time import monotonic, perf_counter, time
 
 from src.arena.catalog import Checkpoint
 from src.arena.policies import make_policy
 from src.arena.runner import _fixed
 from src.arena.schedule import Plan, build_schedule, digest, schedule_document
-from src.blueprint.abstraction import HU20_SCHEMA, choices
+from src.blueprint.abstraction import HU20_SCHEMA, choices, information_key
 from src.blueprint.artifact import HU20_FORMAT, FrozenBlueprint
 from src.blueprint.solver import HU20_GAME
 from src.blueprint.windowed import WindowedDistribution, _hash
@@ -53,13 +53,18 @@ class UniformHU20:
 
 
 class Player:
-    def __init__(self, source, seed, telemetry=None):
+    def __init__(self, source, seed, telemetry=None, reached=None):
         self.source = source
         self.random = Random(seed)
         self.telemetry = telemetry
+        self.reached = reached
 
     def choose_action(self, view):
+        started = perf_counter()
         menu, probabilities, trained = self.source.distribution(view)
+        if self.reached is not None:
+            key = information_key(view, menu, schema=HU20_SCHEMA)
+            self.reached[(view.street.value, key)] += 1
         if self.telemetry is not None:
             self.telemetry[(view.street.value, "decisions")] += 1
             self.telemetry[(view.street.value, "trained" if trained else "fallback")] += 1
@@ -67,7 +72,13 @@ class Player:
                 self.telemetry[(view.street.value, "free_check")] += 1
             if not probabilities or abs(sum(probabilities)-1) > 1e-8:
                 raise ValueError("HU20 inference probabilities are not normalized")
-        return self.random.choices(menu, weights=probabilities, k=1)[0].action
+        action = self.random.choices(menu, weights=probabilities, k=1)[0].action
+        if self.telemetry is not None:
+            elapsed = perf_counter()-started
+            self.telemetry[(view.street.value, "decision_seconds_sum")] += elapsed
+            self.telemetry[(view.street.value, "decision_seconds_max")] = max(
+                self.telemetry[(view.street.value, "decision_seconds_max")], elapsed)
+        return action
 
 
 def load_source(arm, training_root):
@@ -125,6 +136,7 @@ def run(plan, training_root, arm, opponent, phase, out, deadline, *, blocks=None
     write_json(out / "manifest.json", manifest)
     source = opponent_source = None
     telemetry = Counter()
+    reached = Counter()
     attempts = completed_blocks = 0
     stop_reason = None
     try:
@@ -157,7 +169,7 @@ def run(plan, training_root, arm, opponent, phase, out, deadline, *, blocks=None
                         rival = Player(opponent_source, block.action_seeds[1])
                     else:
                         rival = make_policy(opponent, block.action_seeds[1])
-                    policies = {"player-0": Player(source, block.action_seeds[0], telemetry),
+                    policies = {"player-0": Player(source, block.action_seeds[0], telemetry, reached),
                                 "player-1": rival}
                     net, _ = _fixed(scenario, block, rotation, ids, policies, 1000,
                                     trace, timings, f"hu20-{phase}-{opponent}")
@@ -196,6 +208,8 @@ def run(plan, training_root, arm, opponent, phase, out, deadline, *, blocks=None
                                  for key, value in sorted(telemetry.items())],
               "swap_after": system(["sysctl", "vm.swapusage"]),
               "memory_pressure_after": system(["memory_pressure", "-Q"])}
+    write_json(out / "reached.json", [{"street": street, "key": key, "decisions": count}
+        for (street, key), count in sorted(reached.items())])
     write_json(out / "result.json", result)
     write_json(out / "checksums.json", {str(path.relative_to(out)): _hash(path)
         for path in out.rglob("*") if path.is_file() and path.name != "checksums.json"})

@@ -10,7 +10,8 @@ from math import fsum, isfinite
 from pathlib import Path
 from random import Random
 
-from src.blueprint.abstraction import (BUTTON_ZERO_COMPAT_LOOKUP, HU20_SCHEMA,
+from src.blueprint.abstraction import (BUTTON_ZERO_COMPAT_LOOKUP, HU20_CARD_VERSION,
+                                       HU20_MENU_VERSION, HU20_SCHEMA,
                                        LEGACY_LOOKUP, choices, information_key)
 from src.blueprint.solver import HU20_GAME, regret_match
 from src.game.hand import Hand
@@ -212,7 +213,11 @@ class WindowedDistribution:
         self.arm = arm
         self.raise_cap = manifest["raise_cap"]
         self.abstraction = manifest["abstraction"]
-        if self.abstraction == HU20_SCHEMA and manifest.get("game") != HU20_GAME:
+        if self.abstraction == HU20_SCHEMA and (
+            manifest.get("game") != HU20_GAME
+            or manifest.get("action_menu") != HU20_MENU_VERSION
+            or manifest.get("card_descriptor") != HU20_CARD_VERSION
+        ):
             raise ValueError("HU20 extracted artifact game identity mismatch")
         self.coverage = Counter()
 
