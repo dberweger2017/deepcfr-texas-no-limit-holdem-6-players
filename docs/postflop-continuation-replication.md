@@ -65,8 +65,8 @@ node fields.
 The same immutable 5.83M checkpoint is loaded independently for each of
 three paired continuation seeds and both K values. The M4 resource preflight
 completed 96 K4 steps with 1,781,022 nodes in 175.86 seconds, including a
-21.52-second checkpoint load, and 5.35 GiB peak RSS. A separate 48-hand
-evaluation preflight took 22.05 seconds, including load, at 5.32 GiB peak.
+21.52-second checkpoint load, and 4.98 GiB peak RSS. A separate 48-hand
+evaluation preflight took 22.05 seconds, including load, at 4.96 GiB peak.
 These measurements preceded the frozen main protocol in
 [`postflop-replication-m4.json`](../configs/blueprint/postflop-replication-m4.json):
 20 million additional traversal nodes per run, milestones at 5/10/15/20
