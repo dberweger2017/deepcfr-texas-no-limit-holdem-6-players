@@ -72,6 +72,8 @@ def train(plan, seed, out, deadline, *, preflight=False):
     early_index = 0
     capture_index = 0
     visits = Counter()
+    new_by_street = Counter()
+    revisited_by_street = Counter()
     try:
         target = plan["preflight_nodes"] if preflight else plan["training_nodes"]
         while total_nodes < target:
@@ -84,10 +86,14 @@ def train(plan, seed, out, deadline, *, preflight=False):
             report = trainer.step()
             total_nodes += report.nodes
             visits.update(report.traverser_visits_by_street)
+            new_by_street.update(report.new_entries_by_street)
+            revisited_by_street.update(report.revisited_keys_by_street)
             append(out / "iterations.jsonl", {"iteration": trainer.iteration,
                 "additional_nodes": total_nodes, "nodes": report.nodes,
                 "entries": report.entries, "new_entries": report.new_entries,
                 "traverser_visits_by_street": report.traverser_visits_by_street,
+                "new_entries_by_street": report.new_entries_by_street,
+                "revisited_keys_by_street": report.revisited_keys_by_street,
                 "coverage": report.coverage, "elapsed_seconds": monotonic()-started,
                 "rss_bytes": rss()})
             if preflight:
@@ -122,7 +128,9 @@ def train(plan, seed, out, deadline, *, preflight=False):
                 captured.append(path)
                 capture_index += 1
         result.update(completed_nodes=total_nodes, iterations=trainer.iteration,
-                      entries=len(trainer.nodes), visits_by_street=dict(visits))
+                      entries=len(trainer.nodes), visits_by_street=dict(visits),
+                      new_entries_by_street=dict(new_by_street),
+                      revisited_keys_by_street=dict(revisited_by_street))
         if preflight:
             capture_start = monotonic()
             result["snapshot_sha256"] = write_snapshot(trainer, out / "resource-snapshot.jsonl.gz")

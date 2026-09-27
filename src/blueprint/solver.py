@@ -133,6 +133,8 @@ class IterationReport:
     conditional_value_variance_sum: float = 0.0
     conditional_regret_variance_sum: float = 0.0
     updated_keys: tuple[str, ...] = ()
+    new_entries_by_street: dict[str, int] = field(default_factory=dict)
+    revisited_keys_by_street: dict[str, int] = field(default_factory=dict)
 
 
 @dataclass(slots=True)
@@ -141,6 +143,7 @@ class _Delta:
     regrets: list[float]
     average: list[float]
     visits: int = 0
+    street: str | None = None
 
 
 @dataclass(slots=True)
@@ -186,10 +189,12 @@ def _merge_deltas(target: dict[str, _Delta], source: dict[str, _Delta],
         delta = target.get(key)
         if delta is None:
             delta = _Delta(item.names, [0.0] * len(item.names),
-                           [0.0] * len(item.names))
+                           [0.0] * len(item.names), street=item.street)
             target[key] = delta
         elif delta.names != item.names:
             raise ValueError("An abstract infoset changed its action labels")
+        if delta.street != item.street:
+            raise ValueError("An abstract infoset changed streets")
         for index in range(len(item.names)):
             delta.regrets[index] += weight * item.regrets[index]
             delta.average[index] += weight * item.average[index]
@@ -354,10 +359,13 @@ def _collect_root(
         names = tuple(item.name for item in menu)
         delta = target.get(key)
         if delta is None:
-            delta = _Delta(names, [0.0] * len(menu), [0.0] * len(menu))
+            delta = _Delta(names, [0.0] * len(menu), [0.0] * len(menu),
+                           street=view.street.value)
             target[key] = delta
         elif delta.names != names:
             raise ValueError("An abstract infoset changed its action labels")
+        if delta.street != view.street.value:
+            raise ValueError("An abstract infoset changed streets")
         for index in range(len(menu)):
             delta.regrets[index] += iteration * (values[index] - value)
             delta.average[index] += iteration * own_reach * policy[index]
@@ -507,6 +515,12 @@ class BlueprintTrainer:
             if executor is not None:
                 executor.shutdown(cancel_futures=True)
         new_entries = sum(key not in self.nodes for key in deltas)
+        new_by_street: dict[str, int] = {}
+        revisited_by_street: dict[str, int] = {}
+        for key, delta in deltas.items():
+            bucket = new_by_street if key not in self.nodes else revisited_by_street
+            street = delta.street or "unknown"
+            bucket[street] = bucket.get(street, 0) + 1
         if len(self.nodes) + new_entries > self.config.max_entries:
             raise CollectionLimitExceeded("Blueprint iteration reached its entry bound")
         for delta in deltas.values():
@@ -556,4 +570,6 @@ class BlueprintTrainer:
             value_variance,
             regret_variance,
             tuple(deltas),
+            new_by_street,
+            revisited_by_street,
         )

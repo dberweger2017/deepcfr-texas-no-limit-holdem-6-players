@@ -6,6 +6,7 @@ from src.blueprint.abstraction import HU20_SCHEMA, choices, information_key
 from src.arena.catalog import Checkpoint
 from src.blueprint.artifact import (HU20_FORMAT, FrozenBlueprint, export_policy,
                                     load_training, save_training)
+from src.blueprint.lookup import TableDistribution
 from src.blueprint.solver import BlueprintTrainer, HU20_GAME, PilotConfig
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind, Street
@@ -23,8 +24,8 @@ def config(seed=7):
                        max_nodes=10000, max_entries=100000, max_seconds=30)
 
 
-def coupled(button):
-    holes = {"hero": ("Ac", "Ad"), "villain": ("Kc", "Kd")}
+def coupled(button, villain_cards=("Kc", "Kd")):
+    holes = {"hero": ("Ac", "Ad"), "villain": villain_cards}
     board = ("2c", "3d", "4h", "5s", "9c")
     order = tuple((button + offset + 1) % 2 for offset in range(2))
     ids = table(button).player_ids
@@ -62,8 +63,11 @@ def test_training_menu_removes_only_free_fold(monkeypatch):
         return menu
 
     monkeypatch.setattr(solver, "choices", checked)
-    trainer.step()
+    first_report = trainer.step()
     assert seen
+    assert sum(first_report.new_entries_by_street.values()) == first_report.new_entries
+    assert sum(first_report.revisited_keys_by_street.values()) == (
+        first_report.contributing_infosets-first_report.new_entries)
     hand = Hand.start(table(), hand_id="legacy-menu", seed=31)
     while hand.observe(hand.actor).street == Street.PREFLOP:
         view = hand.observe(hand.actor)
@@ -93,6 +97,37 @@ def test_coupled_rotations_share_keys_and_ignore_unseen_hands():
         if hands[0].finished:
             break
 
+    first = coupled(0).observe(0)
+    unseen_changed = coupled(0, ("Qc", "Qd")).observe(0)
+    assert first == unseen_changed
+
+
+@pytest.mark.parametrize("second_action", ["fold", "call"])
+def test_rotated_off_menu_raise_fold_and_all_in_histories(second_action):
+    hands = [coupled(button) for button in (0, 1)]
+    for step in range(5 if second_action == "call" else 2):
+        views = [hand.observe(hand.actor) for hand in hands]
+        assert views[0].player_id == views[1].player_id
+        assert information_key(views[0], choices(views[0], free_fold=False), schema=HU20_SCHEMA) == (
+            information_key(views[1], choices(views[1], free_fold=False), schema=HU20_SCHEMA))
+        if step == 0:
+            action = Action(ActionKind.RAISE, 275)
+            assert action not in tuple(item.action for item in choices(views[0], free_fold=False))
+        elif step == 1:
+            action = Action(ActionKind.FOLD if second_action == "fold" else ActionKind.CALL)
+        elif step == 2:
+            action = Action(ActionKind.CHECK)
+        elif step == 3:
+            action = Action(ActionKind.RAISE, views[0].legal_actions.max_raise_to)
+        else:
+            action = Action(ActionKind.CALL)
+        for view in views:
+            view.legal_actions.validate(action)
+        hands = [hand.apply(action) for hand in hands]
+    assert all(hand.finished for hand in hands)
+    assert len({next(p.stack for p in hand.observe(0).players if p.player_id == "hero")
+                for hand in hands}) == 1
+
 
 def test_new_artifact_identity_and_resume(tmp_path):
     trainer = BlueprintTrainer(table(), config())
@@ -110,6 +145,7 @@ def test_new_artifact_identity_and_resume(tmp_path):
     view = Hand.start(table(), hand_id="policy", seed=17).observe(0)
     menu, probabilities, _ = policy.distribution(view)
     assert len(menu) == len(probabilities) and sum(probabilities) == pytest.approx(1)
+    assert TableDistribution(trainer).distribution(view)[0] == menu
     with pytest.raises(ValueError, match="format differs"):
         FrozenBlueprint(Checkpoint("wrong", str(export_path), digest, "holdem-blueprint-v1"), export_path)
     with pytest.raises(ValueError, match="20BB table"):
