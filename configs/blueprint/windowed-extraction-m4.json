@@ -9,7 +9,7 @@
   "additional_nodes_per_run": 20000000,
   "capture_nodes": [10000000, 11428571, 12857143, 14285714, 15714286, 17142857, 18571429, 20000000],
   "collector_seed": 2026110201,
-  "collector_roots_per_seat": 1,
+  "collector_roots_per_seat": 16,
   "arms": ["C2026092701", "P2026092701", "F2026092701", "A2026092701", "C2026092702", "P2026092702", "F2026092702", "A2026092702", "C2026092703", "P2026092703", "F2026092703", "A2026092703", "U_safe", "parent", "TAG"],
   "suites": {
     "styles": {"blocks": 4096, "root_seed": 2026110101, "opponents": ["tight_passive", "loose_aggressive", "pot_pressure"], "max_decisions": 1000},
