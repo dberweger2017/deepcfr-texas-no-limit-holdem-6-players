@@ -1,5 +1,6 @@
 import gzip
 import json
+from hashlib import sha256
 from pathlib import Path
 from random import Random
 from types import SimpleNamespace
@@ -8,6 +9,7 @@ import pytest
 
 from src.blueprint.solver import BlueprintTrainer, Node, PilotConfig, regret_match
 from src.blueprint.windowed import build_index, collect_one, collect_preflop, write_snapshot
+from scripts.verify_blueprint_windowed_artifact import verify
 from src.game.hand import Table
 
 
@@ -133,6 +135,26 @@ def test_streamed_snapshot_rejects_menu_mismatch(tmp_path):
         snapshot(path, [["a", ["fold", "call" if index else "check"], [0.5, 0.5]]])
     with pytest.raises(ValueError, match="action-menu"):
         build_index(paths, {}, tmp_path / "index.sqlite")
+
+
+def test_direct_artifact_parity_checks_late_created_key(tmp_path):
+    paths = []
+    for index in range(8):
+        path = tmp_path / f"snapshot-{index}.jsonl.gz"
+        rows = [["a", ["fold", "call"], [0.75, 0.25]]]
+        if index >= 6:
+            rows.append(["b", ["fold", "call"], [0.1, 0.9]])
+        snapshot(path, rows)
+        paths.append(path)
+    stats = build_index(paths, {}, tmp_path / "policy-index.sqlite")
+    (tmp_path / "policy-manifest.json").write_text(json.dumps({
+        "artifact_sha256": stats["artifact_sha256"],
+        "snapshot_sha256": [sha256(path.read_bytes()).hexdigest()
+                            for path in paths]}))
+    result = verify(tmp_path, stride=100)
+    assert result["queried_keys"] == 2
+    assert result["late_created_keys"] == 1
+    assert result["max_probability_error"] < 1e-12
 
 
 def test_native_collection_and_snapshot_are_read_only(tmp_path):

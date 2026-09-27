@@ -1,0 +1,78 @@
+{
+  "abstraction": "blueprint-abstraction-v1",
+  "artifact_sha256": "28f7505d06968d71d568d61dfa1cd41bac40b4202ba73bdf70f86fd5a4761dc8",
+  "collector_roots_per_seat": 16,
+  "collector_seed": 2026110201,
+  "completed_nodes": [
+    10002512,
+    11432720,
+    12859716,
+    14290963,
+    15714445,
+    17145047,
+    18574043,
+    20001909
+  ],
+  "index_stats": {
+    "artifact_sha256": "28f7505d06968d71d568d61dfa1cd41bac40b4202ba73bdf70f86fd5a4761dc8",
+    "entries": 8222498,
+    "profile_coverage": {
+      "1": 168747,
+      "2": 168332,
+      "3": 169057,
+      "4": 168180,
+      "5": 169836,
+      "6": 170857,
+      "7": 170721,
+      "8": 7036768
+    }
+  },
+  "iterations": [
+    10605,
+    10869,
+    11130,
+    11395,
+    11659,
+    11922,
+    12187,
+    12447
+  ],
+  "lookup_mode": "button-zero-compatible-v1",
+  "postflop_fallback": "uniform per absent profile",
+  "preflop_fallback": "final-current when no collected action mass",
+  "raise_cap": 2,
+  "requested_nodes": [
+    10000000,
+    11428571,
+    12857143,
+    14285714,
+    15714286,
+    17142857,
+    18571429,
+    20000000
+  ],
+  "schema": "windowed-blueprint-extraction-v1",
+  "snapshot_sha256": [
+    "2a0c9ceb04329386c7f20cd375b992b25a79bab806246b6f3e801a7fa016f3c2",
+    "a1df8976d45603a0981d72cf9207c0858028596c03fc367e0753ac02197bd4b8",
+    "95e675ae8944b12833d4ada883b3efe307dfcfba2406a33dcaae0c5e99f3803d",
+    "3b32b32b736fd374d3f4c2daafeefe4fd5f053f72f9a42454437cd0561d5bb1c",
+    "c94649b27d535ca1a20ad65b05d4e8af70cf0d1429a267197f39e8b7ca1e264a",
+    "9635ed5b06e7e91a0a541919ed094dd8d1927b5eec23350d45971a62ef97f2ff",
+    "b9fa2fdfd06d3c1c757360f5079d7f37997044d05205ed1437211d28c99c92bf",
+    "e79ccbe3cad9464f781ae0192abc07986a2eebcd1fd33e2d31bba74d491c793d"
+  ],
+  "snapshot_weights": [
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125
+  ],
+  "source_checkpoint_sha256": "c1ee9f2f51659e02ca23cc30ef06af073b671baf9ff994ed78316fb4e991fe69",
+  "source_lineage_sha256": "36adfaad2a92d884503314b094fd3e2f584ce1bd92f25bee9b9eb0df45c54c2b",
+  "source_parent_sha256": "94d41c737d0e8f41a548d58c64dd219dfb9593459c80d7a7382569bf6963e33a"
+}

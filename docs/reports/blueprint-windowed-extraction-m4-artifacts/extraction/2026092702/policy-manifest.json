@@ -1,0 +1,78 @@
+{
+  "abstraction": "blueprint-abstraction-v1",
+  "artifact_sha256": "0018ae9096d750f2295b37106227fb61baff381326eff0c6964483f1ca34eaef",
+  "collector_roots_per_seat": 16,
+  "collector_seed": 2026110201,
+  "completed_nodes": [
+    10000274,
+    11432561,
+    12861216,
+    14288046,
+    15716051,
+    17144288,
+    18573073,
+    20000192
+  ],
+  "index_stats": {
+    "artifact_sha256": "0018ae9096d750f2295b37106227fb61baff381326eff0c6964483f1ca34eaef",
+    "entries": 8217353,
+    "profile_coverage": {
+      "1": 168118,
+      "2": 167180,
+      "3": 167984,
+      "4": 169808,
+      "5": 168612,
+      "6": 169483,
+      "7": 169919,
+      "8": 7036249
+    }
+  },
+  "iterations": [
+    10606,
+    10873,
+    11138,
+    11400,
+    11664,
+    11927,
+    12195,
+    12458
+  ],
+  "lookup_mode": "button-zero-compatible-v1",
+  "postflop_fallback": "uniform per absent profile",
+  "preflop_fallback": "final-current when no collected action mass",
+  "raise_cap": 2,
+  "requested_nodes": [
+    10000000,
+    11428571,
+    12857143,
+    14285714,
+    15714286,
+    17142857,
+    18571429,
+    20000000
+  ],
+  "schema": "windowed-blueprint-extraction-v1",
+  "snapshot_sha256": [
+    "76018df9b304dbcac2d2c0487189db8252e12b2e7dc48d87e3ce046893b278d2",
+    "7ec6438cdb8d11e6d3dc38675b3ba8761b73f5ae9480c5ec4a140d855ac65aab",
+    "413426bb24a6fb943e17d55eef66c0f5a111459c4cfd97f2838dc5e224435f4a",
+    "9b6cd5f1154156d56b4edb212012d7fe545e807dcce503db7a0a38131734601d",
+    "39b9aad49e62eda050b934f563f7c653f0e9f97a6278dd7efde249803c1e0e8d",
+    "90a30371a7e62f2015bf72ac788b9f969b67bde4a03f27ca6cf1d23ac7c579d0",
+    "93584c07d049041521c86d32933eba783a556ada6a87220412a62ba7fc3eed2b",
+    "7e3a6fce02726695e2d8bacd404f356a4701ec71470eaad849bb17f656aff9c6"
+  ],
+  "snapshot_weights": [
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125
+  ],
+  "source_checkpoint_sha256": "cdd965158a329829e4dc64e8afe1d4861555c9b4f797fda071775c391e8d2a13",
+  "source_lineage_sha256": "b4d8b1c8f1327f06f92b2eff39e63d4498ebf23bd64ad68d34def1d3c5ef9aa5",
+  "source_parent_sha256": "94d41c737d0e8f41a548d58c64dd219dfb9593459c80d7a7382569bf6963e33a"
+}

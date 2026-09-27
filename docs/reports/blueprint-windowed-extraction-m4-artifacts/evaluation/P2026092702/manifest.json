@@ -1,0 +1,14 @@
+{
+  "arm": "P2026092702",
+  "index_sha256": "0018ae9096d750f2295b37106227fb61baff381326eff0c6964483f1ca34eaef",
+  "manifest_sha256": "4f6814f9ac853b85984d289a0a90178fd256dd2ff3adc13c771f011694e1dae3",
+  "memory_pressure_before": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 73%",
+  "plan_sha256": "38b81b096d25eeaedb3dba13a03d309fd309e6012943c5c8661901fd7b35ba83",
+  "resource_only": false,
+  "schedule_sha256": {
+    "random": "bde7f73d8d76005cf3e1a57773a9c939947445e5d4364ac421f9bc31e01af2af",
+    "styles": "9bd46d520828b9f70b2b2926210d5e52da65230c7d72354e2f55409da8bcc5e1"
+  },
+  "started_unix_seconds": 1790541814.081462,
+  "swap_before": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+}
