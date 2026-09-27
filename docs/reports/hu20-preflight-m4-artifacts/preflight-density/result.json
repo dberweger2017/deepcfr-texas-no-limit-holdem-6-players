@@ -1,0 +1,51 @@
+{
+  "capture_export_seconds": 0.7026049580890685,
+  "collector": {
+    "action_counts": 106,
+    "counter_keys": 102,
+    "profile": 0,
+    "roots_per_seat": 16,
+    "visited_states": 320
+  },
+  "completed_nodes": 1000268,
+  "current_export_sha256": "84b4b6256930717f31cb0d6bde0ada6954d5f80f98617a7e1fec6115fd713cc9",
+  "elapsed_seconds": 56.57109720807057,
+  "entries": 80438,
+  "independent_preflop_density": {
+    "decisions": 106,
+    "mean_visits": 9.50943396226415,
+    "revisited_decisions": 98,
+    "trained_decisions": 103,
+    "visit_quantiles": {
+      "p25": 4,
+      "p50": 7,
+      "p75": 12,
+      "p90": 22
+    }
+  },
+  "iterations": 3606,
+  "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 74%",
+  "new_entries_by_street": {
+    "flop": 4100,
+    "preflop": 1787,
+    "river": 49787,
+    "turn": 24764
+  },
+  "peak_process_rss_bytes": 135839744,
+  "revisited_keys_by_street": {
+    "flop": 31053,
+    "preflop": 11562,
+    "river": 47927,
+    "turn": 43588
+  },
+  "snapshot_sha256": "8c59001851d9864a63aff72949e6cec7ec74c10531bfd6df907e43d2d88a29b4",
+  "status": "complete",
+  "stop_reason": null,
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+  "visits_by_street": {
+    "flop": 36318,
+    "preflop": 13939,
+    "river": 98832,
+    "turn": 69747
+  }
+}

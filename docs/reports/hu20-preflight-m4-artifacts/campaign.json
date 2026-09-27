@@ -1,0 +1,33 @@
+{
+  "attempts": [
+    {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-m",
+        "scripts.train_hu20",
+        "--plan",
+        "configs/blueprint/hu20-m4.json",
+        "--seed",
+        "2026092801",
+        "--out",
+        "results/hu20-m4-20260927/preflight",
+        "--deadline",
+        "1790579403.399064",
+        "--preflight"
+      ],
+      "finished_unix_seconds": 1790543459.3262038,
+      "name": "2026092801",
+      "returncode": 0,
+      "source_revision": "2f94cc75081e1d3eddebbb05f3ca12e2f0d4a8cf",
+      "stage": "preflight",
+      "started_unix_seconds": 1790543403.4083588,
+      "status": "complete"
+    }
+  ],
+  "deadline_unix_seconds": 1790579403.399064,
+  "preflight_plan_sha256": "0da3cb6075d328acd748cf79a7e5f2d2422815c0574fdc3dbf7bb8bbb3908141",
+  "schema": "hu20-campaign-v2",
+  "started_unix_seconds": 1790543403.399064,
+  "status": "awaiting_plan",
+  "updated_unix_seconds": 1790543459.3265128
+}
