@@ -1,0 +1,24 @@
+{
+  "schema": "postflop-replication-campaign-v1",
+  "arms": ["U_safe", "parent", "TAG", "k1-2026092701", "k4-2026092701", "k1-2026092702", "k4-2026092702", "k1-2026092703", "k4-2026092703"],
+  "continuation_seeds": [2026092701, 2026092702, 2026092703],
+  "additional_nodes_per_run": 20000000,
+  "work_milestones": [5000000, 10000000, 15000000, 20000000],
+  "observation_suites": {
+    "styles": {"blocks": 128, "root_seed": 2026100201, "opponents": ["tight_passive", "loose_aggressive", "pot_pressure"], "max_decisions": 1000},
+    "random": {"blocks": 32, "root_seed": 2026100202, "opponents": ["random"], "max_decisions": 1000}
+  },
+  "suites": {
+    "styles": {"blocks": 4096, "root_seed": 2026100101, "opponents": ["tight_passive", "loose_aggressive", "pot_pressure"], "max_decisions": 1000},
+    "random": {"blocks": 1024, "root_seed": 2026100102, "opponents": ["random"], "max_decisions": 1000}
+  },
+  "limits": {
+    "max_rss_gib": 10.5,
+    "min_free_gib": 10,
+    "max_nodes_per_iteration": 250000,
+    "max_entries": 9500000,
+    "max_seconds_per_iteration": 300,
+    "max_overshoot_nodes": 250000,
+    "max_campaign_seconds": 36000
+  }
+}

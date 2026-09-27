@@ -103,6 +103,7 @@ def run(plan, arm, checkpoint, lineage_file, out, *, campaign_deadline, resource
     started = monotonic()
     metadata = {
         "schema": "postflop-replication-evaluation-v1", "arm": arm,
+        "plan_sha256": digest(plan),
         "resource_only": resource_only, "source_revision": git("rev-parse", "HEAD"),
         "source_dirty": False, "environment": environment(),
         "started_unix_seconds": time(), "checkpoint_sha256": None,

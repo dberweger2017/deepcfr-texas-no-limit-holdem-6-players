@@ -63,9 +63,18 @@ node fields.
 ## Comparison gates
 
 The same immutable 5.83M checkpoint is loaded independently for each of
-three paired continuation seeds and both K values. A short outcome-free M4
-preflight will set one common completed-node budget, iteration caps and a
-fresh playing schedule within 10.5 GiB process RSS and ten total hours.
+three paired continuation seeds and both K values. The M4 resource preflight
+completed 96 K4 steps with 1,781,022 nodes in 175.86 seconds, including a
+21.52-second checkpoint load, and 5.35 GiB peak RSS. A separate 48-hand
+evaluation preflight took 22.05 seconds, including load, at 5.32 GiB peak.
+These measurements preceded the frozen main protocol in
+[`postflop-replication-m4.json`](../configs/blueprint/postflop-replication-m4.json):
+20 million additional traversal nodes per run, milestones at 5/10/15/20
+million, at most 250,000 nodes and 300 seconds per complete outer iteration,
+9.5 million entries, and at most 250,000 nodes of completed-iteration
+overshoot. The memory ceiling is 10.5 GiB RSS and the hard campaign limit,
+including loads, saves and evaluation, is ten hours. The runner reserves
+the final 15 minutes for checkpoint saving and reporting.
 Every replicated node is charged; both arms stop only after a complete
 iteration crosses the work threshold. The observed overshoot, discarded
 work, throughput and memory are retained. The six outputs have explicit
@@ -82,3 +91,14 @@ averages differences **within a block**, then estimates a block-level
 interval. The random-opponent suite is a secondary regression check.
 Scripted and random coverage will be separated. More visits or lower
 conditional variance alone will not count as a playing-strength gain.
+
+The fresh playing schedule uses 4,096 scripted-pool and 1,024 random-opponent
+rotation blocks, with seeds 2026100101/2026100102, respectively. A separate
+independent `U_safe` observation set uses 128 scripted and 32 random blocks
+with seeds 2026100201/2026100202; it is frozen before candidate training.
+The two scripted primary claims use two-sided 97.5% block-clustered intervals,
+a Bonferroni adjustment across K4–K1 and K4–`U_safe`. Each seed pair is also
+reported separately; the three contrasts are averaged within each evaluation
+block before forming the aggregate interval. Other intervals are descriptive.
+The frozen schedule is not extended based on observed profit. No player is
+promoted from this experiment.
