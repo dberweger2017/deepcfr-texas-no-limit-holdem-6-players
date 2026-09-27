@@ -1,0 +1,9 @@
+{
+  "hard_deadline_unix_seconds": 1790537742.809062,
+  "parent_checkpoint": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-m4-slice-v1-continued/checkpoint.json.gz",
+  "plan_sha256": "41e6883251cc9e663d01261c60b454dc32cc029a859fb421d72131b8c7470a9a",
+  "schema": "postflop-replication-campaign-v1",
+  "source_revision": "68f9e2c33c696764847e97cb0bb718a49ee7c928",
+  "started_unix_seconds": 1790501742.809062,
+  "work_deadline_unix_seconds": 1790536842.809062
+}

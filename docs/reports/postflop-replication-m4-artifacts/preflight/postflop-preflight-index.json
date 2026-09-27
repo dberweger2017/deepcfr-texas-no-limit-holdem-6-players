@@ -1,0 +1,142 @@
+{
+  "created_unix_seconds": 1790521807.406616,
+  "files": [
+    {
+      "bytes": 1749,
+      "path": "postflop-preflight-k1/manifest.json",
+      "sha256": "faed6921d14ae3241cc7d8d9c633768a20d6392b1f8738918199bdb6d6dca90a"
+    },
+    {
+      "bytes": 453,
+      "path": "postflop-preflight-k1/result.json",
+      "sha256": "f2abce2ecf923e288649174a5bc3fee729c8da6624a94d2c0ec6672228b4c318"
+    },
+    {
+      "bytes": 8820,
+      "path": "postflop-preflight-k1/steps.json",
+      "sha256": "097a570dc9bc86eb98a6f022deb7596090dcabf2a0954d8ef55dfbc5ee00f936"
+    },
+    {
+      "bytes": 1749,
+      "path": "postflop-preflight-k4/manifest.json",
+      "sha256": "ca74765a98fe4c5a80d2e7b605ea5344bafabcfa51f270244a4f3a9ac28797e2"
+    },
+    {
+      "bytes": 454,
+      "path": "postflop-preflight-k4/result.json",
+      "sha256": "8ae2b7920cf0676e4b1a1b39b65bcbd1cb29496c66e351433cd1004989ef5b33"
+    },
+    {
+      "bytes": 9315,
+      "path": "postflop-preflight-k4/steps.json",
+      "sha256": "e75aa3ea9935cb09da336cd462d9049f5724aea3916124ac42a9f148b91a0e09"
+    },
+    {
+      "bytes": 1750,
+      "path": "postflop-preflight-k4-long/manifest.json",
+      "sha256": "3dcf36a283b3343a05a272d13cbba915c98c9dd1d82cbc1a468fa6e229d63b76"
+    },
+    {
+      "bytes": 456,
+      "path": "postflop-preflight-k4-long/result.json",
+      "sha256": "1458ca44544267f02e89cc1a5c1fa631bc0ff223dc354835f8f7271056d70521"
+    },
+    {
+      "bytes": 111731,
+      "path": "postflop-preflight-k4-long/steps.json",
+      "sha256": "6033217e48b4241d033dda5fac39fb3d8d55f2edb298b5d23d9ba40fa1101fef"
+    },
+    {
+      "bytes": 347,
+      "path": "postflop-eval-preflight/checksums.json",
+      "sha256": "c910077a2fea84c1544c2d81144d70bae37e6765ea44493397d85e393320b04d"
+    },
+    {
+      "bytes": 19941,
+      "path": "postflop-eval-preflight/coverage.json",
+      "sha256": "3c20181a42ae466980183e976e22e6dceb0a127af62180a09804a16686cfa4a9"
+    },
+    {
+      "bytes": 19653,
+      "path": "postflop-eval-preflight/hands.jsonl",
+      "sha256": "911cfaae4583b51663f441c405a52d837cc66e927ff7f7d5cbd3529c5f24f81b"
+    },
+    {
+      "bytes": 1986,
+      "path": "postflop-eval-preflight/manifest.json",
+      "sha256": "ee0586482455c1ab87439fc5d91ebf00f54084fa6f66d60eb6eb2c760caa7ae1"
+    },
+    {
+      "bytes": 553,
+      "path": "postflop-eval-preflight/result.json",
+      "sha256": "13e80b947cdf27932d9c0cd0ffbc7cbc4ba97c8a5245b8342b4e70f0e9403be0"
+    },
+    {
+      "bytes": 252352728,
+      "path": "postflop-trainer-smoke/checkpoint.json.gz",
+      "sha256": "023246559474bdfce0067f8c5c6a4b4f7753d901985e4745bbeb1ba4c3499f6d"
+    },
+    {
+      "bytes": 631,
+      "path": "postflop-trainer-smoke/checksums.json",
+      "sha256": "e95598b198d2155bbe69fcf216cec1bc9c40fce18b316131497f2f403239478c"
+    },
+    {
+      "bytes": 1064,
+      "path": "postflop-trainer-smoke/iterations.jsonl",
+      "sha256": "ebb6a9d091405b5e5e856d53b071cfeb49187447a4c169c7e5fee0005af2e0d5"
+    },
+    {
+      "bytes": 976,
+      "path": "postflop-trainer-smoke/lineage.json",
+      "sha256": "922753131d86cce012f8857a93fd8188c9824bc382d4020e0c3ccc46da00804f"
+    },
+    {
+      "bytes": 1855,
+      "path": "postflop-trainer-smoke/manifest.json",
+      "sha256": "851865d8638075e31d2a0d01f824470b1d051fab0e82170ab94ae1cc865179b0"
+    },
+    {
+      "bytes": 485,
+      "path": "postflop-trainer-smoke/milestones.jsonl",
+      "sha256": "a9d041e53bbda39d4cfad9ea037c700ff4fa0df9331b778084c35863966dca60"
+    },
+    {
+      "bytes": 118001,
+      "path": "postflop-trainer-smoke/outer-contributions.json",
+      "sha256": "d77eec930b6e66eeed0d0adaf14caaf8a707cba52a0f42f1e548bc5eebb06181"
+    },
+    {
+      "bytes": 1209,
+      "path": "postflop-trainer-smoke/result.json",
+      "sha256": "df563c24ba68054e417b562acab1212a9596442057269bd6a270f0c69d567564"
+    },
+    {
+      "bytes": 347,
+      "path": "postflop-lineage-eval-preflight/checksums.json",
+      "sha256": "edc6bcda666466e7653b7fef7b14a7d05412fb17f0a47834342ac8dc1576b21b"
+    },
+    {
+      "bytes": 20304,
+      "path": "postflop-lineage-eval-preflight/coverage.json",
+      "sha256": "10ea5b59e9bbaaa395ebdd0d4d96328a6f913df5e4fb03406fcd283ed9838338"
+    },
+    {
+      "bytes": 19985,
+      "path": "postflop-lineage-eval-preflight/hands.jsonl",
+      "sha256": "b8f2bc4c663bb320220fa16a49ff7cd69b543fd59658623674e613f4457e807d"
+    },
+    {
+      "bytes": 2140,
+      "path": "postflop-lineage-eval-preflight/manifest.json",
+      "sha256": "b8e26d879aba4121d1c749876205a0fdb3dec151d2518bc13a341d81cb94a476"
+    },
+    {
+      "bytes": 566,
+      "path": "postflop-lineage-eval-preflight/result.json",
+      "sha256": "522e13a7a1613fc6f840bc2ac2364253df1ca02987d83713184308ce39031c1e"
+    }
+  ],
+  "root": "/Users/dberweger/Local/postflop-replication-pr110/results",
+  "schema": "postflop-replication-preflight-index-v1"
+}

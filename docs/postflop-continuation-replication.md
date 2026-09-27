@@ -102,3 +102,6 @@ reported separately; the three contrasts are averaged within each evaluation
 block before forming the aggregate interval. Other intervals are descriptive.
 The frozen schedule is not extended based on observed profit. No player is
 promoted from this experiment.
+
+The campaign is complete. Its measured work density, paired playing results,
+lineage audit and resource limits are in the [M4 report](reports/postflop-replication-m4.md).

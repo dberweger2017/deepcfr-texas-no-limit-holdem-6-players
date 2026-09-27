@@ -1,0 +1,19 @@
+{
+  "attempts": 30720,
+  "completed_blocks": {
+    "random": 1024,
+    "styles": 4096
+  },
+  "elapsed_seconds": 82.26815745804925,
+  "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 70%",
+  "peak_process_rss_bytes": 7101956096,
+  "status": "complete",
+  "stop_reason": null,
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 769.38M  free = 1278.62M  (encrypted)",
+  "wrapper_interventions": {
+    "all_fold_mass": 101,
+    "changed": 13382,
+    "eligible": 17362,
+    "removed_probability": 3613.715690620447
+  }
+}

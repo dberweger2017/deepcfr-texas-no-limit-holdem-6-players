@@ -1,0 +1,36 @@
+{
+  "completed_nodes": 19085,
+  "completed_outer_iterations": 1,
+  "continuation_samples": 232,
+  "contributing_infosets_sum": 2878,
+  "discarded_nodes": 0,
+  "elapsed_seconds": 61.820056958007626,
+  "load_seconds": 22.14183795801364,
+  "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 75%",
+  "new_entries": 2604,
+  "normalized_mass_by_street": {
+    "flop": 140.0,
+    "preflop": 56.0,
+    "river": 374.0,
+    "turn": 249.5
+  },
+  "normalized_update_mass": 819.5,
+  "output_checkpoint_sha256": "023246559474bdfce0067f8c5c6a4b4f7753d901985e4745bbeb1ba4c3499f6d",
+  "overshoot_nodes": 19084,
+  "parent_checkpoint_sha256": "94d41c737d0e8f41a548d58c64dd219dfb9593459c80d7a7382569bf6963e33a",
+  "peak_process_rss_bytes": 5197283328,
+  "raw_traverser_visits": 3110,
+  "replay_seconds": 0.04988883761689067,
+  "sampled_postflop_prefixes": 58,
+  "save_error": null,
+  "status": "complete",
+  "stop_reason": null,
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 769.38M  free = 1278.62M  (encrypted)",
+  "target_nodes": 1,
+  "visits_by_street": {
+    "flop": 560,
+    "preflop": 56,
+    "river": 1496,
+    "turn": 998
+  }
+}

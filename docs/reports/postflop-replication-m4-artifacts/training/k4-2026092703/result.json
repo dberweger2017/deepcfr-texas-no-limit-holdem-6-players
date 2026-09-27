@@ -1,0 +1,49 @@
+{
+  "completed_nodes": 20000454,
+  "completed_outer_iterations": 1047,
+  "conditional_regret_variance_sum": 4702447900.3846245,
+  "conditional_value_variance_sum": 58469676.928139955,
+  "continuation_samples": 237900,
+  "contributing_infosets_sum": 2955929,
+  "discarded_nodes": 0,
+  "elapsed_seconds": 1808.4073839579942,
+  "load_seconds": 22.34362595807761,
+  "lookup_coverage": {
+    "flop:fallback": 1801673,
+    "flop:trained": 1063729,
+    "preflop:fallback": 161720,
+    "preflop:trained": 334311,
+    "river:fallback": 5082189,
+    "river:trained": 210993,
+    "turn:fallback": 3904155,
+    "turn:trained": 365253
+  },
+  "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 67%",
+  "new_entries": 2516244,
+  "normalized_mass_by_street": {
+    "flop": 135233.75,
+    "preflop": 57744.0,
+    "river": 396101.25,
+    "turn": 256471.25
+  },
+  "normalized_update_mass": 845550.25,
+  "output_checkpoint_sha256": "a5b1c0aba0a4fafa0e31f5070e6d1509fe5b3eadc618e186215da4ca90ae25bb",
+  "overshoot_nodes": 454,
+  "parent_checkpoint_sha256": "94d41c737d0e8f41a548d58c64dd219dfb9593459c80d7a7382569bf6963e33a",
+  "peak_process_rss_bytes": 6682886144,
+  "raw_traverser_visits": 3208969,
+  "replay_seconds": 51.875001673353836,
+  "revisited_contributions": 439685,
+  "sampled_postflop_prefixes": 59475,
+  "save_error": null,
+  "status": "complete",
+  "stop_reason": null,
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 769.38M  free = 1278.62M  (encrypted)",
+  "target_nodes": 20000000,
+  "visits_by_street": {
+    "flop": 540935,
+    "preflop": 57744,
+    "river": 1584405,
+    "turn": 1025885
+  }
+}
