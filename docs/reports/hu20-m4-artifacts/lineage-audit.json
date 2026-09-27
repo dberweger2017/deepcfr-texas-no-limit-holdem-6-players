@@ -1,0 +1,91 @@
+{
+  "checkpoint_headers": [
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 0,
+      "iteration": 7213,
+      "seed": 2026092801,
+      "sha256": "e227332c45b46850f525c67d26ac1fe19be44dfdf2414d720941d70dafb8cb49"
+    },
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 1,
+      "iteration": 17746,
+      "seed": 2026092801,
+      "sha256": "7aca9e9bb274d153a7e6b7caa2fac9b220a352a5cb2578293b5782617cd834d6"
+    },
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 2,
+      "iteration": 34808,
+      "seed": 2026092801,
+      "sha256": "ce44915aee4b19d74d46f5567fda724312bf5985b3e98c5c3eb8de975494a000"
+    },
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 3,
+      "iteration": 66654,
+      "seed": 2026092801,
+      "sha256": "bc88e6798bc1cee2ebec0e3ea395f95cff5c2703017e0afbb8917ddffea1074a"
+    },
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 0,
+      "iteration": 7354,
+      "seed": 2026092802,
+      "sha256": "ebdbd469ae68c123ad88f11a5626787b12fcd9ca97a529e1bdec102f42301d4d"
+    },
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 1,
+      "iteration": 17745,
+      "seed": 2026092802,
+      "sha256": "36a3e1012debbc1cf9516ca1b79a52e5d85dffa29451828908d39c6193a72fdf"
+    },
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 2,
+      "iteration": 34535,
+      "seed": 2026092802,
+      "sha256": "0ad2516ae44d5e108a192d8ea13ff4ae57d6a8b3c948d95c0968d1fccca30d06"
+    },
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 3,
+      "iteration": 67084,
+      "seed": 2026092802,
+      "sha256": "cec9c0dd5fd4ee03462a5f2e3394301de79f7e4ed78f99ce529b5fce7ca4fca6"
+    },
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 0,
+      "iteration": 7297,
+      "seed": 2026092803,
+      "sha256": "36870393e9e72a0ad4abcff21ab5736486be6dea86a65c0c3f3591f3f55a7865"
+    },
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 1,
+      "iteration": 17568,
+      "seed": 2026092803,
+      "sha256": "e2e0c48842c81a4522d6e089428d72a96ea49a44405d3fc05c72e5a2fbde1e56"
+    },
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 2,
+      "iteration": 33907,
+      "seed": 2026092803,
+      "sha256": "f81e617301b1f1c14d7572e259ace4331e1e8cae8f1e3b3370546abe2a4bae81"
+    },
+    {
+      "game": "hu20-20bb-52card-no-ante-rake-v2",
+      "index": 3,
+      "iteration": 65492,
+      "seed": 2026092803,
+      "sha256": "2571531db6867e99f893f896248f1bae0a01c3be0644114a373ea324d333f564"
+    }
+  ],
+  "schema": "hu20-lineage-audit-v1",
+  "starts_from_zero_regrets": "all three training processes instantiated fresh BlueprintTrainer objects; no parent checkpoint was loaded",
+  "status": "complete"
+}

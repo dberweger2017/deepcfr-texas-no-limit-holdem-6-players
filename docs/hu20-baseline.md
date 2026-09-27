@@ -1,5 +1,10 @@
 # Fresh heads-up 20BB blueprint protocol
 
+The fixed M4 campaign is complete. See the [confirmation report](reports/hu20-m4.md),
+the [development extraction decision](reports/hu20-development-m4.md), and
+the [playable model card](hu20-model-card.md). This document records the
+protocol as frozen before confirmation.
+
 This experiment starts three independent K1 external-sampling trainers from
 zero regrets. The game is two-seat, standard 52-card Hold'em with 20 BB
 starting stacks, 0.5/1 blinds, no ante or rake, and a fresh 20 BB stack for

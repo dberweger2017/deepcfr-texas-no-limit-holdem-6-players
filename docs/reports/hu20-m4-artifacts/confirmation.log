@@ -1,0 +1,61 @@
+START confirmation loose_passive-uniform
+END confirmation loose_passive-uniform complete
+START confirmation loose_passive-C2026092801
+END confirmation loose_passive-C2026092801 complete
+START confirmation loose_passive-C2026092802
+END confirmation loose_passive-C2026092802 complete
+START confirmation loose_passive-C2026092803
+END confirmation loose_passive-C2026092803 complete
+START confirmation loose_aggressive-uniform
+END confirmation loose_aggressive-uniform complete
+START confirmation loose_aggressive-C2026092801
+END confirmation loose_aggressive-C2026092801 complete
+START confirmation loose_aggressive-C2026092802
+END confirmation loose_aggressive-C2026092802 complete
+START confirmation loose_aggressive-C2026092803
+END confirmation loose_aggressive-C2026092803 complete
+START confirmation tight_passive-uniform
+END confirmation tight_passive-uniform complete
+START confirmation tight_passive-C2026092801
+END confirmation tight_passive-C2026092801 complete
+START confirmation tight_passive-C2026092802
+END confirmation tight_passive-C2026092802 complete
+START confirmation tight_passive-C2026092803
+END confirmation tight_passive-C2026092803 complete
+START confirmation tight_aggressive-uniform
+END confirmation tight_aggressive-uniform complete
+START confirmation tight_aggressive-C2026092801
+END confirmation tight_aggressive-C2026092801 complete
+START confirmation tight_aggressive-C2026092802
+END confirmation tight_aggressive-C2026092802 complete
+START confirmation tight_aggressive-C2026092803
+END confirmation tight_aggressive-C2026092803 complete
+START confirmation pot_pressure-uniform
+END confirmation pot_pressure-uniform complete
+START confirmation pot_pressure-C2026092801
+END confirmation pot_pressure-C2026092801 complete
+START confirmation pot_pressure-C2026092802
+END confirmation pot_pressure-C2026092802 complete
+START confirmation pot_pressure-C2026092803
+END confirmation pot_pressure-C2026092803 complete
+START confirmation hu20_uniform-uniform
+END confirmation hu20_uniform-uniform complete
+START confirmation hu20_uniform-C2026092801
+END confirmation hu20_uniform-C2026092801 complete
+START confirmation hu20_uniform-C2026092802
+END confirmation hu20_uniform-C2026092802 complete
+START confirmation hu20_uniform-C2026092803
+END confirmation hu20_uniform-C2026092803 complete
+START crossplay E2026092801-0-versus-C2026092802
+END crossplay E2026092801-0-versus-C2026092802 complete
+START crossplay C2026092801-versus-C2026092802
+END crossplay C2026092801-versus-C2026092802 complete
+START crossplay E2026092802-0-versus-C2026092803
+END crossplay E2026092802-0-versus-C2026092803 complete
+START crossplay C2026092802-versus-C2026092803
+END crossplay C2026092802-versus-C2026092803 complete
+START crossplay E2026092803-0-versus-C2026092801
+END crossplay E2026092803-0-versus-C2026092801 complete
+START crossplay C2026092803-versus-C2026092801
+END crossplay C2026092803-versus-C2026092801 complete
+{"status": "complete", "error": null}

@@ -1,0 +1,13 @@
+{
+  "cross_phase_deal_overlap": {
+    "confirmation-crossplay": 0,
+    "development-confirmation": 0,
+    "development-crossplay": 0
+  },
+  "schema": "hu20-schedule-disjointness-v1",
+  "unique_deals": {
+    "confirmation": 24576,
+    "crossplay": 3072,
+    "development": 1536
+  }
+}

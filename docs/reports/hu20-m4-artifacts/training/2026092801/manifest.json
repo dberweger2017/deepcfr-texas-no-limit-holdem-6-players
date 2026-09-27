@@ -1,0 +1,11 @@
+{
+  "abstraction": "hu20-ordered-history-card-baseline-v2",
+  "game": "hu20-20bb-52card-no-ante-rake-v2",
+  "memory_pressure_before": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 75%",
+  "plan_sha256": "0da3cb6075d328acd748cf79a7e5f2d2422815c0574fdc3dbf7bb8bbb3908141",
+  "preflight": false,
+  "schema": "hu20-training-v2",
+  "seed": 2026092801,
+  "started_unix_seconds": 1790543935.385958,
+  "swap_before": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+}

@@ -1,0 +1,199 @@
+START training 2026092801
+END training 2026092801 complete
+START training 2026092802
+END training 2026092802 complete
+START training 2026092803
+END training 2026092803 complete
+START development loose_passive-uniform
+END development loose_passive-uniform complete
+START development loose_passive-E2026092801-0
+END development loose_passive-E2026092801-0 complete
+START development loose_passive-E2026092801-1
+END development loose_passive-E2026092801-1 complete
+START development loose_passive-E2026092801-2
+END development loose_passive-E2026092801-2 complete
+START development loose_passive-C2026092801
+END development loose_passive-C2026092801 complete
+START development loose_passive-A2026092801
+END development loose_passive-A2026092801 complete
+START development loose_passive-E2026092802-0
+END development loose_passive-E2026092802-0 complete
+START development loose_passive-E2026092802-1
+END development loose_passive-E2026092802-1 complete
+START development loose_passive-E2026092802-2
+END development loose_passive-E2026092802-2 complete
+START development loose_passive-C2026092802
+END development loose_passive-C2026092802 complete
+START development loose_passive-A2026092802
+END development loose_passive-A2026092802 complete
+START development loose_passive-E2026092803-0
+END development loose_passive-E2026092803-0 complete
+START development loose_passive-E2026092803-1
+END development loose_passive-E2026092803-1 complete
+START development loose_passive-E2026092803-2
+END development loose_passive-E2026092803-2 complete
+START development loose_passive-C2026092803
+END development loose_passive-C2026092803 complete
+START development loose_passive-A2026092803
+END development loose_passive-A2026092803 complete
+START development loose_aggressive-uniform
+END development loose_aggressive-uniform complete
+START development loose_aggressive-E2026092801-0
+END development loose_aggressive-E2026092801-0 complete
+START development loose_aggressive-E2026092801-1
+END development loose_aggressive-E2026092801-1 complete
+START development loose_aggressive-E2026092801-2
+END development loose_aggressive-E2026092801-2 complete
+START development loose_aggressive-C2026092801
+END development loose_aggressive-C2026092801 complete
+START development loose_aggressive-A2026092801
+END development loose_aggressive-A2026092801 complete
+START development loose_aggressive-E2026092802-0
+END development loose_aggressive-E2026092802-0 complete
+START development loose_aggressive-E2026092802-1
+END development loose_aggressive-E2026092802-1 complete
+START development loose_aggressive-E2026092802-2
+END development loose_aggressive-E2026092802-2 complete
+START development loose_aggressive-C2026092802
+END development loose_aggressive-C2026092802 complete
+START development loose_aggressive-A2026092802
+END development loose_aggressive-A2026092802 complete
+START development loose_aggressive-E2026092803-0
+END development loose_aggressive-E2026092803-0 complete
+START development loose_aggressive-E2026092803-1
+END development loose_aggressive-E2026092803-1 complete
+START development loose_aggressive-E2026092803-2
+END development loose_aggressive-E2026092803-2 complete
+START development loose_aggressive-C2026092803
+END development loose_aggressive-C2026092803 complete
+START development loose_aggressive-A2026092803
+END development loose_aggressive-A2026092803 complete
+START development tight_passive-uniform
+END development tight_passive-uniform complete
+START development tight_passive-E2026092801-0
+END development tight_passive-E2026092801-0 complete
+START development tight_passive-E2026092801-1
+END development tight_passive-E2026092801-1 complete
+START development tight_passive-E2026092801-2
+END development tight_passive-E2026092801-2 complete
+START development tight_passive-C2026092801
+END development tight_passive-C2026092801 complete
+START development tight_passive-A2026092801
+END development tight_passive-A2026092801 complete
+START development tight_passive-E2026092802-0
+END development tight_passive-E2026092802-0 complete
+START development tight_passive-E2026092802-1
+END development tight_passive-E2026092802-1 complete
+START development tight_passive-E2026092802-2
+END development tight_passive-E2026092802-2 complete
+START development tight_passive-C2026092802
+END development tight_passive-C2026092802 complete
+START development tight_passive-A2026092802
+END development tight_passive-A2026092802 complete
+START development tight_passive-E2026092803-0
+END development tight_passive-E2026092803-0 complete
+START development tight_passive-E2026092803-1
+END development tight_passive-E2026092803-1 complete
+START development tight_passive-E2026092803-2
+END development tight_passive-E2026092803-2 complete
+START development tight_passive-C2026092803
+END development tight_passive-C2026092803 complete
+START development tight_passive-A2026092803
+END development tight_passive-A2026092803 complete
+START development tight_aggressive-uniform
+END development tight_aggressive-uniform complete
+START development tight_aggressive-E2026092801-0
+END development tight_aggressive-E2026092801-0 complete
+START development tight_aggressive-E2026092801-1
+END development tight_aggressive-E2026092801-1 complete
+START development tight_aggressive-E2026092801-2
+END development tight_aggressive-E2026092801-2 complete
+START development tight_aggressive-C2026092801
+END development tight_aggressive-C2026092801 complete
+START development tight_aggressive-A2026092801
+END development tight_aggressive-A2026092801 complete
+START development tight_aggressive-E2026092802-0
+END development tight_aggressive-E2026092802-0 complete
+START development tight_aggressive-E2026092802-1
+END development tight_aggressive-E2026092802-1 complete
+START development tight_aggressive-E2026092802-2
+END development tight_aggressive-E2026092802-2 complete
+START development tight_aggressive-C2026092802
+END development tight_aggressive-C2026092802 complete
+START development tight_aggressive-A2026092802
+END development tight_aggressive-A2026092802 complete
+START development tight_aggressive-E2026092803-0
+END development tight_aggressive-E2026092803-0 complete
+START development tight_aggressive-E2026092803-1
+END development tight_aggressive-E2026092803-1 complete
+START development tight_aggressive-E2026092803-2
+END development tight_aggressive-E2026092803-2 complete
+START development tight_aggressive-C2026092803
+END development tight_aggressive-C2026092803 complete
+START development tight_aggressive-A2026092803
+END development tight_aggressive-A2026092803 complete
+START development pot_pressure-uniform
+END development pot_pressure-uniform complete
+START development pot_pressure-E2026092801-0
+END development pot_pressure-E2026092801-0 complete
+START development pot_pressure-E2026092801-1
+END development pot_pressure-E2026092801-1 complete
+START development pot_pressure-E2026092801-2
+END development pot_pressure-E2026092801-2 complete
+START development pot_pressure-C2026092801
+END development pot_pressure-C2026092801 complete
+START development pot_pressure-A2026092801
+END development pot_pressure-A2026092801 complete
+START development pot_pressure-E2026092802-0
+END development pot_pressure-E2026092802-0 complete
+START development pot_pressure-E2026092802-1
+END development pot_pressure-E2026092802-1 complete
+START development pot_pressure-E2026092802-2
+END development pot_pressure-E2026092802-2 complete
+START development pot_pressure-C2026092802
+END development pot_pressure-C2026092802 complete
+START development pot_pressure-A2026092802
+END development pot_pressure-A2026092802 complete
+START development pot_pressure-E2026092803-0
+END development pot_pressure-E2026092803-0 complete
+START development pot_pressure-E2026092803-1
+END development pot_pressure-E2026092803-1 complete
+START development pot_pressure-E2026092803-2
+END development pot_pressure-E2026092803-2 complete
+START development pot_pressure-C2026092803
+END development pot_pressure-C2026092803 complete
+START development pot_pressure-A2026092803
+END development pot_pressure-A2026092803 complete
+START development hu20_uniform-uniform
+END development hu20_uniform-uniform complete
+START development hu20_uniform-E2026092801-0
+END development hu20_uniform-E2026092801-0 complete
+START development hu20_uniform-E2026092801-1
+END development hu20_uniform-E2026092801-1 complete
+START development hu20_uniform-E2026092801-2
+END development hu20_uniform-E2026092801-2 complete
+START development hu20_uniform-C2026092801
+END development hu20_uniform-C2026092801 complete
+START development hu20_uniform-A2026092801
+END development hu20_uniform-A2026092801 complete
+START development hu20_uniform-E2026092802-0
+END development hu20_uniform-E2026092802-0 complete
+START development hu20_uniform-E2026092802-1
+END development hu20_uniform-E2026092802-1 complete
+START development hu20_uniform-E2026092802-2
+END development hu20_uniform-E2026092802-2 complete
+START development hu20_uniform-C2026092802
+END development hu20_uniform-C2026092802 complete
+START development hu20_uniform-A2026092802
+END development hu20_uniform-A2026092802 complete
+START development hu20_uniform-E2026092803-0
+END development hu20_uniform-E2026092803-0 complete
+START development hu20_uniform-E2026092803-1
+END development hu20_uniform-E2026092803-1 complete
+START development hu20_uniform-E2026092803-2
+END development hu20_uniform-E2026092803-2 complete
+START development hu20_uniform-C2026092803
+END development hu20_uniform-C2026092803 complete
+START development hu20_uniform-A2026092803
+END development hu20_uniform-A2026092803 complete
+{"status": "awaiting_decision", "error": null}

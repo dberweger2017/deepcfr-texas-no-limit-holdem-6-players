@@ -1,0 +1,81 @@
+{
+  "abstraction": "hu20-ordered-history-card-baseline-v2",
+  "action_menu": "hu20-min-pot-conditional-jam-no-free-fold-v2",
+  "artifact_sha256": "6e26aa99246b15686bd8b2412607bd4b1e5ab209cf539025aa0a8b9263c9d56d",
+  "card_descriptor": "legacy-postflop-descriptor-v1",
+  "collector_roots_per_seat": 16,
+  "collector_seed": 4052185653,
+  "completed_nodes": [
+    10000155,
+    11428859,
+    12857269,
+    14285903,
+    15714772,
+    17142894,
+    18571431,
+    20000207
+  ],
+  "game": "hu20-20bb-52card-no-ante-rake-v2",
+  "index_stats": {
+    "artifact_sha256": "6e26aa99246b15686bd8b2412607bd4b1e5ab209cf539025aa0a8b9263c9d56d",
+    "entries": 268290,
+    "max_probability_error": 0.0,
+    "parity_queries": 130,
+    "profile_coverage": {
+      "1": 4595,
+      "2": 5610,
+      "3": 5724,
+      "4": 6273,
+      "5": 7136,
+      "6": 7947,
+      "7": 8952,
+      "8": 222053
+    }
+  },
+  "iterations": [
+    33907,
+    38582,
+    43239,
+    47837,
+    52283,
+    56674,
+    61120,
+    65492
+  ],
+  "lookup_mode": "native-button-relative-v2",
+  "postflop_fallback": "uniform per absent profile",
+  "preflop_fallback": "final-current when no collected mass",
+  "raise_cap": 2,
+  "requested_nodes": [
+    10000000,
+    11428571,
+    12857143,
+    14285714,
+    15714286,
+    17142857,
+    18571429,
+    20000000
+  ],
+  "schema": "windowed-blueprint-extraction-v1",
+  "snapshot_sha256": [
+    "85c247ffd866952aec3445c94b2b3efff5a20780f77bb5f8127384867e55d4c9",
+    "d6d69f517e51f50cddae98ff2f941527caaf0f132d316a11c4071eb9075cb9ae",
+    "990375f1a4fc067882ee04c3bb4af5571a23e453718053006e9ef71f69fee75e",
+    "3060dc7b72b1b810864042450b184b2deb665f982270365cc8d86aa95117ff82",
+    "9b3c30779088f7d805c4ea418fcdec0756cd8cb9e7893a5185104433edcfd258",
+    "3147dc24f55223a4775bd5293efdff7811d417cdd6cef23450e50233d8da34bc",
+    "ab1f850c132fedb60ae453e1c234fff31cab7b48a1690c7b326dff60dc3f6793",
+    "c2614b5d7ddb46924feb4b646f1fb12ee797229bca6bade09cf5709adfdcb720"
+  ],
+  "snapshot_weights": [
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125
+  ],
+  "source_checkpoint_sha256": "2571531db6867e99f893f896248f1bae0a01c3be0644114a373ea324d333f564"
+}
