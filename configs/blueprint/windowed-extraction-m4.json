@@ -1,0 +1,27 @@
+{
+  "schema": "windowed-blueprint-campaign-v1",
+  "continuation_seeds": [2026092701, 2026092702, 2026092703],
+  "source_checkpoints": {
+    "2026092701": "c1ee9f2f51659e02ca23cc30ef06af073b671baf9ff994ed78316fb4e991fe69",
+    "2026092702": "cdd965158a329829e4dc64e8afe1d4861555c9b4f797fda071775c391e8d2a13",
+    "2026092703": "72cadcad8fb15cf1a2ebce8d5273c04c8e1c94038f0a0d6b94b6ecd47e0477a6"
+  },
+  "additional_nodes_per_run": 20000000,
+  "capture_nodes": [10000000, 11428571, 12857143, 14285714, 15714286, 17142857, 18571429, 20000000],
+  "collector_seed": 2026110201,
+  "collector_roots_per_seat": 1,
+  "arms": ["C2026092701", "P2026092701", "F2026092701", "A2026092701", "C2026092702", "P2026092702", "F2026092702", "A2026092702", "C2026092703", "P2026092703", "F2026092703", "A2026092703", "U_safe", "parent", "TAG"],
+  "suites": {
+    "styles": {"blocks": 4096, "root_seed": 2026110101, "opponents": ["tight_passive", "loose_aggressive", "pot_pressure"], "max_decisions": 1000},
+    "random": {"blocks": 1024, "root_seed": 2026110102, "opponents": ["random"], "max_decisions": 1000}
+  },
+  "limits": {
+    "max_rss_gib": 10.5,
+    "min_free_gib": 8,
+    "max_nodes_per_iteration": 250000,
+    "max_entries": 9500000,
+    "max_seconds_per_iteration": 300,
+    "max_collector_states": 1000000,
+    "max_campaign_seconds": 36000
+  }
+}
