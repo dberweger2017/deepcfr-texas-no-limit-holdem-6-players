@@ -72,8 +72,10 @@ def run(plan, parent, out, mode, seed, *, campaign_deadline):
     total_nodes = total_prefixes = total_continuations = total_visits = 0
     total_mass = total_replay = 0.0
     total_new = total_contributing = 0
+    total_value_variance = total_regret_variance = 0.0
     visits_by_street = Counter()
     mass_by_street = Counter()
+    lookup_coverage = Counter()
     contribution_counts = Counter()
     milestone = 0
     stop_reason = None
@@ -119,8 +121,11 @@ def run(plan, parent, out, mode, seed, *, campaign_deadline):
             total_replay += report.replay_seconds
             total_new += report.new_entries
             total_contributing += report.contributing_infosets
+            total_value_variance += report.conditional_value_variance_sum
+            total_regret_variance += report.conditional_regret_variance_sum
             visits_by_street.update(report.traverser_visits_by_street)
             mass_by_street.update(report.normalized_mass_by_street)
+            lookup_coverage.update(report.coverage)
             contribution_counts.update(report.updated_keys)
             row = asdict(report)
             row["updated_keys"] = len(report.updated_keys)
@@ -138,6 +143,10 @@ def run(plan, parent, out, mode, seed, *, campaign_deadline):
                     "visits_by_street": dict(visits_by_street),
                     "normalized_mass_by_street": dict(mass_by_street),
                     "contributing_infosets": total_contributing,
+                    "revisited_contributions": total_contributing-total_new,
+                    "conditional_value_variance_sum": total_value_variance,
+                    "conditional_regret_variance_sum": total_regret_variance,
+                    "lookup_coverage": dict(lookup_coverage),
                     "elapsed_seconds": monotonic()-start, "rss_bytes": rss(),
                 })
                 milestone += 1
@@ -193,6 +202,10 @@ def run(plan, parent, out, mode, seed, *, campaign_deadline):
         "raw_traverser_visits": total_visits,
         "normalized_update_mass": total_mass,
         "contributing_infosets_sum": total_contributing,
+        "revisited_contributions": total_contributing-total_new,
+        "conditional_value_variance_sum": total_value_variance,
+        "conditional_regret_variance_sum": total_regret_variance,
+        "lookup_coverage": dict(lookup_coverage),
         "visits_by_street": dict(visits_by_street),
         "normalized_mass_by_street": dict(mass_by_street),
         "replay_seconds": total_replay,
