@@ -1,0 +1,265 @@
+{
+  "attempts": 30720,
+  "completed_blocks": {
+    "random": 1024,
+    "styles": 4096
+  },
+  "distribution_coverage": {
+    "trained": 31393,
+    "untrained": 31574
+  },
+  "elapsed_seconds": 49.53999920899514,
+  "hero_telemetry": [
+    {
+      "coordinates": [
+        "flop",
+        "action",
+        "call"
+      ],
+      "count": 1424
+    },
+    {
+      "coordinates": [
+        "flop",
+        "action",
+        "check"
+      ],
+      "count": 3520
+    },
+    {
+      "coordinates": [
+        "flop",
+        "action",
+        "fold"
+      ],
+      "count": 1396
+    },
+    {
+      "coordinates": [
+        "flop",
+        "action",
+        "raise"
+      ],
+      "count": 6832
+    },
+    {
+      "coordinates": [
+        "flop",
+        "decisions"
+      ],
+      "count": 13172
+    },
+    {
+      "coordinates": [
+        "flop",
+        "free_check_eligible"
+      ],
+      "count": 9256
+    },
+    {
+      "coordinates": [
+        "flop",
+        "missing"
+      ],
+      "count": 7221
+    },
+    {
+      "coordinates": [
+        "flop",
+        "trained"
+      ],
+      "count": 5951
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "action",
+        "call"
+      ],
+      "count": 13083
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "action",
+        "check"
+      ],
+      "count": 387
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "action",
+        "fold"
+      ],
+      "count": 12205
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "action",
+        "raise"
+      ],
+      "count": 13056
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "decisions"
+      ],
+      "count": 38731
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "free_check_eligible"
+      ],
+      "count": 1162
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "missing"
+      ],
+      "count": 14694
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "trained"
+      ],
+      "count": 24037
+    },
+    {
+      "coordinates": [
+        "river",
+        "action",
+        "call"
+      ],
+      "count": 554
+    },
+    {
+      "coordinates": [
+        "river",
+        "action",
+        "check"
+      ],
+      "count": 935
+    },
+    {
+      "coordinates": [
+        "river",
+        "action",
+        "fold"
+      ],
+      "count": 576
+    },
+    {
+      "coordinates": [
+        "river",
+        "action",
+        "raise"
+      ],
+      "count": 1958
+    },
+    {
+      "coordinates": [
+        "river",
+        "decisions"
+      ],
+      "count": 4023
+    },
+    {
+      "coordinates": [
+        "river",
+        "free_check_eligible"
+      ],
+      "count": 2563
+    },
+    {
+      "coordinates": [
+        "river",
+        "missing"
+      ],
+      "count": 3723
+    },
+    {
+      "coordinates": [
+        "river",
+        "trained"
+      ],
+      "count": 300
+    },
+    {
+      "coordinates": [
+        "turn",
+        "action",
+        "call"
+      ],
+      "count": 850
+    },
+    {
+      "coordinates": [
+        "turn",
+        "action",
+        "check"
+      ],
+      "count": 1718
+    },
+    {
+      "coordinates": [
+        "turn",
+        "action",
+        "fold"
+      ],
+      "count": 876
+    },
+    {
+      "coordinates": [
+        "turn",
+        "action",
+        "raise"
+      ],
+      "count": 3597
+    },
+    {
+      "coordinates": [
+        "turn",
+        "decisions"
+      ],
+      "count": 7041
+    },
+    {
+      "coordinates": [
+        "turn",
+        "free_check_eligible"
+      ],
+      "count": 4729
+    },
+    {
+      "coordinates": [
+        "turn",
+        "missing"
+      ],
+      "count": 5936
+    },
+    {
+      "coordinates": [
+        "turn",
+        "trained"
+      ],
+      "count": 1105
+    }
+  ],
+  "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 72%",
+  "peak_process_rss_bytes": 122306560,
+  "status": "complete",
+  "stop_reason": null,
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+  "wrapper_interventions": {
+    "all_fold_mass": 98,
+    "changed": 13684,
+    "eligible": 17710,
+    "removed_probability": 3736.0640050134475
+  }
+}

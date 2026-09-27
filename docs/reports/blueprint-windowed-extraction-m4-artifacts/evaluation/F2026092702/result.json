@@ -1,0 +1,274 @@
+{
+  "attempts": 30720,
+  "completed_blocks": {
+    "random": 1024,
+    "styles": 4096
+  },
+  "distribution_coverage": {
+    "snapshot_profiles_0": 16428,
+    "snapshot_profiles_1": 44,
+    "snapshot_profiles_2": 53,
+    "snapshot_profiles_3": 51,
+    "snapshot_profiles_4": 82,
+    "snapshot_profiles_5": 66,
+    "snapshot_profiles_6": 47,
+    "snapshot_profiles_7": 105,
+    "snapshot_profiles_8": 6914,
+    "trained": 31443,
+    "untrained": 31019
+  },
+  "elapsed_seconds": 49.05762741691433,
+  "hero_telemetry": [
+    {
+      "coordinates": [
+        "flop",
+        "action",
+        "call"
+      ],
+      "count": 1390
+    },
+    {
+      "coordinates": [
+        "flop",
+        "action",
+        "check"
+      ],
+      "count": 3538
+    },
+    {
+      "coordinates": [
+        "flop",
+        "action",
+        "fold"
+      ],
+      "count": 1332
+    },
+    {
+      "coordinates": [
+        "flop",
+        "action",
+        "raise"
+      ],
+      "count": 6594
+    },
+    {
+      "coordinates": [
+        "flop",
+        "decisions"
+      ],
+      "count": 12854
+    },
+    {
+      "coordinates": [
+        "flop",
+        "free_check_eligible"
+      ],
+      "count": 9048
+    },
+    {
+      "coordinates": [
+        "flop",
+        "missing"
+      ],
+      "count": 6982
+    },
+    {
+      "coordinates": [
+        "flop",
+        "trained"
+      ],
+      "count": 5872
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "action",
+        "call"
+      ],
+      "count": 12640
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "action",
+        "check"
+      ],
+      "count": 400
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "action",
+        "fold"
+      ],
+      "count": 12458
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "action",
+        "raise"
+      ],
+      "count": 13174
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "decisions"
+      ],
+      "count": 38672
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "free_check_eligible"
+      ],
+      "count": 1162
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "missing"
+      ],
+      "count": 14591
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "trained"
+      ],
+      "count": 24081
+    },
+    {
+      "coordinates": [
+        "river",
+        "action",
+        "call"
+      ],
+      "count": 534
+    },
+    {
+      "coordinates": [
+        "river",
+        "action",
+        "check"
+      ],
+      "count": 913
+    },
+    {
+      "coordinates": [
+        "river",
+        "action",
+        "fold"
+      ],
+      "count": 599
+    },
+    {
+      "coordinates": [
+        "river",
+        "action",
+        "raise"
+      ],
+      "count": 1960
+    },
+    {
+      "coordinates": [
+        "river",
+        "decisions"
+      ],
+      "count": 4006
+    },
+    {
+      "coordinates": [
+        "river",
+        "free_check_eligible"
+      ],
+      "count": 2538
+    },
+    {
+      "coordinates": [
+        "river",
+        "missing"
+      ],
+      "count": 3665
+    },
+    {
+      "coordinates": [
+        "river",
+        "trained"
+      ],
+      "count": 341
+    },
+    {
+      "coordinates": [
+        "turn",
+        "action",
+        "call"
+      ],
+      "count": 832
+    },
+    {
+      "coordinates": [
+        "turn",
+        "action",
+        "check"
+      ],
+      "count": 1674
+    },
+    {
+      "coordinates": [
+        "turn",
+        "action",
+        "fold"
+      ],
+      "count": 865
+    },
+    {
+      "coordinates": [
+        "turn",
+        "action",
+        "raise"
+      ],
+      "count": 3559
+    },
+    {
+      "coordinates": [
+        "turn",
+        "decisions"
+      ],
+      "count": 6930
+    },
+    {
+      "coordinates": [
+        "turn",
+        "free_check_eligible"
+      ],
+      "count": 4676
+    },
+    {
+      "coordinates": [
+        "turn",
+        "missing"
+      ],
+      "count": 5781
+    },
+    {
+      "coordinates": [
+        "turn",
+        "trained"
+      ],
+      "count": 1149
+    }
+  ],
+  "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 73%",
+  "peak_process_rss_bytes": 123191296,
+  "status": "complete",
+  "stop_reason": null,
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+  "wrapper_interventions": {
+    "all_fold_mass": 56,
+    "changed": 14029,
+    "eligible": 17424,
+    "removed_probability": 3689.277240261815
+  }
+}
