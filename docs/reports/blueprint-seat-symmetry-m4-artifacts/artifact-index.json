@@ -1,0 +1,148 @@
+{
+  "artifacts": {
+    "analysis-12m": {
+      "file": "analysis-12m.json",
+      "sha256": "6edc9775d5bddf5f875397373ed4d4244127f110e8c281d8e9701d851430a2b1"
+    },
+    "analysis-5m": {
+      "file": "analysis-5m.json",
+      "sha256": "aff53807b3e6b2566ad1185e284846d49e86259e5599839c7d5f01260db491c3"
+    },
+    "analysis-replay-12m": {
+      "file": "analysis-replay-12m.json",
+      "sha256": "2db6fc9b5a02bfe03d58aefbcd21378651d33b1ebd6ec0d0841943a88c9f08de"
+    },
+    "analysis-replay-5m": {
+      "file": "analysis-replay-5m.json",
+      "sha256": "2d14c813ed71be96fc72a323f501cebdf710e60839135583450b2e6f4b663454"
+    },
+    "final-12m": {
+      "archive": "final-12m.tar.gz",
+      "archive_sha256": "56b8e27a4983e4083e1df6a1d1523ec3d2314ee4410c028bedb4622fe87810d9",
+      "attempts": 53760,
+      "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+      "elapsed_seconds": 135.13971279200632,
+      "free_fold_counts_available": true,
+      "peak_process_rss_bytes": 8537554944,
+      "plan_sha256": "0558bfc1b9f0978e49e1c53b512ce88d65bb7a419ef1356d031356698d13e8cf",
+      "run_file_sha256": {
+        "block-progress.jsonl": "2b6f5be630713d79481ced56e19105ee09d9a7b0f8c48ac183d4104b98a66154",
+        "hands.jsonl": "2161d75fc9571d785dc6cd8e5d3aa7f255557eae4e4df00bc07edcbc75e9d9b8",
+        "manifest.json": "04e1a7a160298f643b2184aaca608833b26ac06298cc9c9ec890749cf49fd873",
+        "reached-decisions.json": "5731d0d806842644a71c1341865bfb97ca82e5632def0c086029f66b732530d7",
+        "result.json": "9b3d96f98ff1a4b157c4a9668189f086cfb38a588dfa7dc48ce029747fa6fd4a"
+      },
+      "source_revision": "3f234d1c7668b664ec20b3cf94f5b9eb20669642",
+      "stable_outcome_sha256": "ec93c650ad9a80c65479a3d70521c46f44b18ac3ea3645ddff44faf4eb7953",
+      "status": "complete",
+      "telemetry_valid": true
+    },
+    "final-5m": {
+      "archive": "final-5m.tar.gz",
+      "archive_sha256": "81b64ce35291b288af4983d84b3c7d87b5baa39fea98f09aa60b58d5759dbd60",
+      "attempts": 53760,
+      "checkpoint_sha256": "94d41c737d0e8f41a548d58c64dd219dfb9593459c80d7a7382569bf6963e33a",
+      "elapsed_seconds": 98.84484124998562,
+      "free_fold_counts_available": true,
+      "peak_process_rss_bytes": 5359239168,
+      "plan_sha256": "8006f182c30c6ee26456a9e2e941863c0301b49c4ea1bc7f6b8ba546acadf3ea",
+      "run_file_sha256": {
+        "block-progress.jsonl": "8ffd241587195fe8f315635143f7bdf6759ebf7182f1f7c8a1cf6ed77bb80710",
+        "hands.jsonl": "80882cf5f149c7594e8e1cfc363fad57f51ffddb7870a1abb6084d9950b136f9",
+        "manifest.json": "5164833a21651085453443a85abbcadf66de7c59de87ed97e01164accfba0fc8",
+        "reached-decisions.json": "52810b4b16d79dc476c22abe00f7d40cbcff58d7c0381b76661617b1e9d0e14d",
+        "result.json": "08c5714b2f1e47c3beebcd72617c44b7b5431dd5653257021a45c5300e312ff0"
+      },
+      "source_revision": "3f234d1c7668b664ec20b3cf94f5b9eb20669642",
+      "stable_outcome_sha256": "f852ff92e386a8ea8d5c4e389d17ac5261835db10c020083dbf811f3f503ce6d",
+      "status": "complete",
+      "telemetry_valid": true
+    },
+    "initial-12m": {
+      "archive": "initial-12m.tar.gz",
+      "archive_sha256": "c763de2f1d6558a352d1ea658f5a17974fb9b2cc9c638151ddc6f427529f5b3a",
+      "attempts": 53760,
+      "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+      "elapsed_seconds": 134.25029004202224,
+      "free_fold_counts_available": false,
+      "peak_process_rss_bytes": 8211464192,
+      "plan_sha256": "0558bfc1b9f0978e49e1c53b512ce88d65bb7a419ef1356d031356698d13e8cf",
+      "run_file_sha256": {
+        "block-progress.jsonl": "74af7a643c2e0057bdee08d93a796bb807615eb559139e25d61ed7285d7a3c47",
+        "hands.jsonl": "e500635f36070d418103edc7d866a83a229c52b1b6b8178399d7743e1e667093",
+        "manifest.json": "19ebd2fb8b5280d6aef983c6b4b39f6a7750b74f7c5bdcc630b58e4d3e732bbb",
+        "reached-decisions.json": "d2d94918538845fb32542f8034a4bf2d711a91b742d27bcc1180569f09a1bf9a",
+        "result.json": "d833baa97be43f04f7f83a6019d22003c4cb6f1df1ba458485ac726c562b41d7"
+      },
+      "source_revision": "59420789c9a5e6a498cf039598741d837fc6cd43",
+      "stable_outcome_sha256": "ec93c650ad9a80c65479a3d70521c46f44b18ac3ea3645ddff44faf4eb7953",
+      "status": "complete",
+      "telemetry_valid": false
+    },
+    "initial-5m": {
+      "archive": "initial-5m.tar.gz",
+      "archive_sha256": "fbb22ffd7b0234de6026f2617ab6645060ca6bbdf4f68ab3ec4429b1ca1933c0",
+      "attempts": 53760,
+      "checkpoint_sha256": "94d41c737d0e8f41a548d58c64dd219dfb9593459c80d7a7382569bf6963e33a",
+      "elapsed_seconds": 97.63866562501062,
+      "free_fold_counts_available": false,
+      "peak_process_rss_bytes": 5355847680,
+      "plan_sha256": "8006f182c30c6ee26456a9e2e941863c0301b49c4ea1bc7f6b8ba546acadf3ea",
+      "run_file_sha256": {
+        "block-progress.jsonl": "5e1dede03bf19b7de7383c7b15508cce695e843c33f83f8d295418de964461a4",
+        "hands.jsonl": "2a9971bd502d4095ee679b8ffd30871244ede7e1d8cb9eac8bdf37bd10eb8b55",
+        "manifest.json": "74457f936ff5703f0a6e1b53a6d62e75c28249d62711a948669951b9a5450a1f",
+        "reached-decisions.json": "223441fe262e5019668364a139fa909c9fad238e3f94918bdde7fe78eb49744f",
+        "result.json": "85aeb88b20f7e7824b305e871be90b778af3362ad61009eea99ce1c4c408bf13"
+      },
+      "source_revision": "59420789c9a5e6a498cf039598741d837fc6cd43",
+      "stable_outcome_sha256": "f852ff92e386a8ea8d5c4e389d17ac5261835db10c020083dbf811f3f503ce6d",
+      "status": "complete",
+      "telemetry_valid": false
+    },
+    "replay-12m": {
+      "archive": "replay-12m.tar.gz",
+      "archive_sha256": "205fdc3e2e7a87a6a7b405aedd68640919e38dd90f7ec88ee198a090a350555e",
+      "attempts": 53760,
+      "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+      "elapsed_seconds": 142.20447150000837,
+      "free_fold_counts_available": false,
+      "peak_process_rss_bytes": 7017086976,
+      "plan_sha256": "0558bfc1b9f0978e49e1c53b512ce88d65bb7a419ef1356d031356698d13e8cf",
+      "run_file_sha256": {
+        "block-progress.jsonl": "f75ce96b9580ea00a7189f67089b3b10db953ccca9f801fc68768d2bacb7d16a",
+        "hands.jsonl": "151620c16950a76ae5b77a33d598dc03a6f0e2f9b66b0eae030253f518bb4f11",
+        "manifest.json": "e348f831c0dbbbb8f3968a5f3b66e247e7121247199b72fad121c3a2de417b9b",
+        "reached-decisions.json": "54026152e811018ba6825313556dce828d052859dbe0fe37dac322aafdda43a4",
+        "result.json": "acdd8297bc9b029e993d1d813f846903cbf7d9ba2fc14076e074b1ca1191ee41"
+      },
+      "source_revision": "1fdc8812e9f039646fa59fd12a13a3817679f571",
+      "stable_outcome_sha256": "ec93c650ad9a80c65479a3d70521c46f44b18ac3ea3645ddff44faf4eb7953",
+      "status": "complete",
+      "telemetry_valid": true
+    },
+    "replay-5m": {
+      "archive": "replay-5m.tar.gz",
+      "archive_sha256": "d7850ddcdf46bbb1de88931382621eb1af7bb3f14d17132f12c1e60772974bd6",
+      "attempts": 53760,
+      "checkpoint_sha256": "94d41c737d0e8f41a548d58c64dd219dfb9593459c80d7a7382569bf6963e33a",
+      "elapsed_seconds": 99.2933479170315,
+      "free_fold_counts_available": false,
+      "peak_process_rss_bytes": 5359337472,
+      "plan_sha256": "8006f182c30c6ee26456a9e2e941863c0301b49c4ea1bc7f6b8ba546acadf3ea",
+      "run_file_sha256": {
+        "block-progress.jsonl": "f60f8781c5bcd0cf679809c39320f7a67cfd3bb9acccb93193ad327dbbc01165",
+        "hands.jsonl": "7873fe28da1bd3fbd981312955e393f6cc5f95bb0859c279259c18088d76dc44",
+        "manifest.json": "739dbde13a76c493751f71228a8a830efd36875e3409e16c0d26166fcee818b4",
+        "reached-decisions.json": "bd348006c7f2522c969580dade791982afef1c459081edb7a50f0f0462c798d3",
+        "result.json": "62741e7baca6bba5b75e22b027fe750a467030806781274bcb53ba42e5cc9122"
+      },
+      "source_revision": "1fdc8812e9f039646fa59fd12a13a3817679f571",
+      "stable_outcome_sha256": "f852ff92e386a8ea8d5c4e389d17ac5261835db10c020083dbf811f3f503ce6d",
+      "status": "complete",
+      "telemetry_valid": true
+    }
+  },
+  "outcome_comparison": "Initial, replay and final have zero stable-field mismatches across 53,760 rows per checkpoint; seconds and per-row hashes that include seconds are excluded from stable comparison.",
+  "schema": "blueprint-seat-symmetry-artifact-index-v1"
+}
