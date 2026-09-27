@@ -10,8 +10,9 @@ from math import fsum, isfinite
 from pathlib import Path
 from random import Random
 
-from src.blueprint.abstraction import BUTTON_ZERO_COMPAT_LOOKUP, choices, information_key
-from src.blueprint.solver import regret_match
+from src.blueprint.abstraction import (BUTTON_ZERO_COMPAT_LOOKUP, HU20_SCHEMA,
+                                       LEGACY_LOOKUP, choices, information_key)
+from src.blueprint.solver import HU20_GAME, regret_match
 from src.game.hand import Hand
 from src.game.types import Street
 
@@ -73,7 +74,8 @@ class NativePreflopAdapter:
 
     def decision(self, hand):
         view = hand.observe(hand.actor)
-        menu = choices(view, raise_cap=self.trainer.config.raise_cap)
+        menu = choices(view, raise_cap=self.trainer.config.raise_cap,
+                       free_fold=self.trainer.config.abstraction != HU20_SCHEMA)
         key = information_key(view, menu, schema=self.trainer.config.abstraction)
         node = self.trainer.nodes.get(key)
         names = tuple(item.name for item in menu)
@@ -210,12 +212,16 @@ class WindowedDistribution:
         self.arm = arm
         self.raise_cap = manifest["raise_cap"]
         self.abstraction = manifest["abstraction"]
+        if self.abstraction == HU20_SCHEMA and manifest.get("game") != HU20_GAME:
+            raise ValueError("HU20 extracted artifact game identity mismatch")
         self.coverage = Counter()
 
     def distribution(self, view):
-        menu = choices(view, raise_cap=self.raise_cap)
+        menu = choices(view, raise_cap=self.raise_cap,
+                       free_fold=self.abstraction != HU20_SCHEMA)
         key = information_key(view, menu, schema=self.abstraction,
-                              lookup_mode=BUTTON_ZERO_COMPAT_LOOKUP)
+                              lookup_mode=(LEGACY_LOOKUP if self.abstraction == HU20_SCHEMA
+                                           else BUTTON_ZERO_COMPAT_LOOKUP))
         row = self.db.execute("SELECT names,current,snapshot,preflop,trained_profiles "
                               "FROM policies WHERE key=?", (key,)).fetchone()
         names = tuple(item.name for item in menu)

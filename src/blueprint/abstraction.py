@@ -16,7 +16,8 @@ from src.game.types import Action, ActionKind, Street
 
 SCHEMA = "blueprint-abstraction-v1"
 SUMMARY_SCHEMA = "blueprint-abstraction-summary-v1"
-SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA)
+HU20_SCHEMA = "hu20-ordered-history-card-baseline-v2"
+SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, HU20_SCHEMA)
 LEGACY_LOOKUP = "legacy-v1"
 BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"
 LOOKUP_MODES = (LEGACY_LOOKUP, BUTTON_ZERO_COMPAT_LOOKUP)
@@ -29,7 +30,8 @@ class Choice:
     action: Action
 
 
-def choices(view: Observation, *, raise_cap: int = 2) -> tuple[Choice, ...]:
+def choices(view: Observation, *, raise_cap: int = 2,
+            free_fold: bool = True) -> tuple[Choice, ...]:
     """Use a small legal menu, with no speculative 100 BB open shove."""
     if view.finished or view.actor != view.seat:
         raise ValueError("An abstract action menu needs the acting player's view")
@@ -39,7 +41,8 @@ def choices(view: Observation, *, raise_cap: int = 2) -> tuple[Choice, ...]:
     result = [
         Choice(kind.value, Action(kind))
         for kind in (ActionKind.FOLD, ActionKind.CHECK, ActionKind.CALL)
-        if kind in legal.kinds
+        if kind in legal.kinds and (free_fold or kind != ActionKind.FOLD
+                                   or ActionKind.CHECK not in legal.kinds)
     ]
     street_raises = sum(
         isinstance(event, ActionTaken)
@@ -193,6 +196,12 @@ def information_key(
         raise ValueError("Unknown blueprint abstraction schema")
     if lookup_mode not in LOOKUP_MODES:
         raise ValueError("Unknown blueprint lookup mode")
+    if schema == HU20_SCHEMA and (view.capacity != 2 or view.small_blind != 50
+                                  or view.big_blind != 100
+                                  or tuple(view.history[0].stacks) != (2000, 2000)):
+        raise ValueError("HU20 key requires the versioned two-seat 20BB game")
+    # The HU20 baseline intentionally retains the original postflop descriptor;
+    # this dispatch is where a later, separately tested card abstraction can fit.
     cards = (
         _preflop(view.hole_cards)
         if view.street == Street.PREFLOP
@@ -208,9 +217,9 @@ def information_key(
             (view.players[(view.button + offset) % len(view.players)].folded,
              view.players[(view.button + offset) % len(view.players)].all_in)
             for offset in range(len(view.players))
-        ) if lookup_mode == BUTTON_ZERO_COMPAT_LOOKUP else
+        ) if lookup_mode == BUTTON_ZERO_COMPAT_LOOKUP or schema == HU20_SCHEMA else
         tuple((p.folded, p.all_in) for p in view.players),
-        _history(view) if schema == SCHEMA else _summary_history(view),
+        _history(view) if schema in (SCHEMA, HU20_SCHEMA) else _summary_history(view),
         tuple(item.name for item in menu),
     )
     return blake2b(

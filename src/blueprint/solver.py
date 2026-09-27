@@ -13,6 +13,7 @@ from time import perf_counter
 
 from src.blueprint.abstraction import (
     SCHEMA,
+    HU20_SCHEMA,
     SUPPORTED_SCHEMAS,
     Choice,
     choices,
@@ -23,6 +24,8 @@ from src.game.observation import ActionTaken, Observation
 from src.game.types import Street
 
 FORMAT = "holdem-blueprint-v1"
+HU20_GAME = "hu20-20bb-52card-no-ante-rake-v2"
+LEGACY_GAME = "legacy-blueprint-game-v1"
 
 
 def _seed(seed: int, iteration: int, seat: int, sample: int, stream: str) -> int:
@@ -58,6 +61,7 @@ class PilotConfig:
     max_seconds: float = 300.0
     abstraction: str = SCHEMA
     postflop_replicates: int = 1
+    game: str = LEGACY_GAME
 
     def __post_init__(self):
         if (
@@ -74,6 +78,9 @@ class PilotConfig:
             or self.abstraction not in SUPPORTED_SCHEMAS
             or type(self.postflop_replicates) is not int
             or self.postflop_replicates not in (1, 4)
+            or (self.abstraction == HU20_SCHEMA and
+                (self.game != HU20_GAME or self.postflop_replicates != 1))
+            or (self.abstraction != HU20_SCHEMA and self.game != LEGACY_GAME)
         ):
             raise ValueError("Invalid bounded blueprint pilot configuration")
 
@@ -320,7 +327,8 @@ def _collect_root(
             player = hand.observe(traverser).players[traverser]
             return (player.stack - player.starting_stack) / hand.table.big_blind
         view = hand.observe(hand.actor)
-        menu = choices(view, raise_cap=config.raise_cap)
+        menu = choices(view, raise_cap=config.raise_cap,
+                       free_fold=config.abstraction != HU20_SCHEMA)
         key = information_key(view, menu, schema=config.abstraction)
         policy, trained = _distribution(frozen_nodes, key, menu)
         label = f"{view.street.value}:{'trained' if trained else 'fallback'}"
@@ -401,6 +409,12 @@ class BlueprintTrainer:
             raise TypeError("Provide a table and pilot configuration")
         if not 2 <= len(table.stacks) <= 6:
             raise ValueError("The blueprint pilot supports two to six players")
+        if config.abstraction == HU20_SCHEMA and (
+            table.capacity != 2 or table.stacks != (2000, 2000)
+            or table.small_blind != 50 or table.big_blind != 100
+            or table.chip_unit != "0.01"
+        ):
+            raise ValueError("HU20 training requires the versioned 20BB table")
         self.table = table
         self.config = config
         self.iteration = 0
