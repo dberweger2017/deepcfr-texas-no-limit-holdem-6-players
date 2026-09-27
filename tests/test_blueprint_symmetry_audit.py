@@ -40,5 +40,9 @@ def test_resource_preflight_couples_seven_arms_without_policy_outcomes(tmp_path,
     assert reached["decisions"] > 0
     assert all(sum(row["decision_weighted_visit_histogram"].values()) ==
                row["decision_weighted_found"] for row in reached["coverage_rows"])
+    assert all(row["selected"] == 0 for row in reached["free_fold_counts"]
+               if row["arm"] in ("U_safe", "B_legacy_safe", "B_canonical_safe"))
+    assert all(row["selected"] <= row["eligible"] for row in
+               reached["free_fold_counts"])
     assert any(row["category"] in ("both", "neither")
                for row in reached["same_decision_counts"])

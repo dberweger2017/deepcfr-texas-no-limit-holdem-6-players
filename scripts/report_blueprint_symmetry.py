@@ -70,6 +70,9 @@ def analyze(plan, manifest, result, rows, coverage):
            sum(row["distinct_found_visit_histogram"].values()) !=
            row["distinct_found"] for row in coverage["coverage_rows"]):
         return {"status": "telemetry_invalid", "reason": "visit histogram total"}
+    if any(row["selected"] > row["eligible"] for row in
+           coverage.get("free_fold_counts", [])):
+        return {"status": "telemetry_invalid", "reason": "free fold count"}
     by_key = {key: row for key, row in zip(keys, rows, strict=True)}
     for suite_name, suite in plan["suites"].items():
         for block in range(suite["blocks"]):
@@ -124,6 +127,7 @@ def analyze(plan, manifest, result, rows, coverage):
         "same_decision_lookup_counts": coverage["same_decision_counts"],
         "action_counts": [{"arm": arm, "action": action, "count": count}
                           for (arm, action), count in sorted(actions.items())],
+        "free_fold_counts": coverage.get("free_fold_counts", []),
         "wrapper_interventions": result["wrapper_interventions"],
         "decisions": coverage["decisions"],
         "elapsed_seconds": result["elapsed_seconds"],

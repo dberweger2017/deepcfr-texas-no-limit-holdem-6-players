@@ -74,6 +74,7 @@ class CoverageProbe:
         self.distinct = defaultdict(dict)
         self.same_decision = Counter()
         self.actions = Counter()
+        self.free_folds = Counter()
         self.decisions = 0
 
     def record(self, view, arm):
@@ -103,6 +104,10 @@ class CoverageProbe:
 
     def action(self, view, arm, action):
         self.actions[(arm, view.street.value, view.button, action.kind.value)] += 1
+        if ActionKind.CHECK in view.legal_actions.kinds:
+            self.free_folds[(arm, "eligible")] += 1
+            if action.kind == ActionKind.FOLD:
+                self.free_folds[(arm, "selected")] += 1
 
     def summary(self):
         groups = sorted(self.distinct)
@@ -138,6 +143,11 @@ class CoverageProbe:
                 {"arm": arm, "street": street, "button": button,
                  "action": action, "count": count}
                 for (arm, street, button, action), count in sorted(self.actions.items())
+            ],
+            "free_fold_counts": [
+                {"arm": arm, "eligible": self.free_folds[(arm, "eligible")],
+                 "selected": self.free_folds[(arm, "selected")]}
+                for arm in ARMS
             ],
         }
 
