@@ -10,7 +10,8 @@ from src.arena.catalog import Checkpoint
 from src.blueprint.artifact import (HU20_FORMAT, FrozenBlueprint, export_policy,
                                     load_training, save_training)
 from src.blueprint.lookup import TableDistribution
-from src.blueprint.solver import BlueprintTrainer, HU20_GAME, PilotConfig
+from src.blueprint.solver import (BlueprintTrainer, CollectionLimitExceeded,
+                                  HU20_GAME, PilotConfig)
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind, Street
 
@@ -144,6 +145,8 @@ def test_new_artifact_identity_and_resume(tmp_path):
     assert save_training(trainer, tmp_path / "a.gz") == save_training(resumed, tmp_path / "b.gz")
     export_path = tmp_path / "policy.gz"
     digest = export_policy(trainer, export_path)
+    with pytest.raises(ValueError, match="separately collected"):
+        export_policy(trainer, tmp_path / "legacy-average.gz", strategy="average")
     policy = FrozenBlueprint(Checkpoint("hu20", str(export_path), digest, HU20_FORMAT), export_path)
     view = Hand.start(table(), hand_id="policy", seed=17).observe(0)
     menu, probabilities, _ = policy.distribution(view)
@@ -163,3 +166,11 @@ def test_new_artifact_identity_and_resume(tmp_path):
                                       b"\n".join(lines[1:])+b"\n", mtime=0))
     with pytest.raises(ValueError, match="abstraction schema"):
         load_training(altered)
+
+
+def test_failed_hu20_iteration_never_publishes_partial_regrets():
+    trainer = BlueprintTrainer(table(), PilotConfig(
+        seed=2, abstraction=HU20_SCHEMA, game=HU20_GAME, max_nodes=1))
+    with pytest.raises(CollectionLimitExceeded):
+        trainer.step()
+    assert trainer.iteration == 0 and trainer.nodes == {}

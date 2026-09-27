@@ -132,9 +132,17 @@ def analyze_final(plan, root, decision):
         checkpoints = [json.loads(line) for line in (path / "checkpoints.jsonl").read_text().splitlines()]
         identity = json.loads((path / "policy-manifest.json").read_text())
         if (result["status"] != "complete" or result["completed_nodes"] < plan["training_nodes"]
+                or result["completed_nodes"] > plan["training_nodes"]+plan["limits"]["max_nodes_per_iteration"]
                 or result["peak_process_rss_bytes"] >= plan["limits"]["max_rss_gib"]*1024**3
                 or len(captures) != 8 or len(checkpoints) != 4 or check["mismatches"]
-                or identity["artifact_sha256"] != _hash(path / "policy-index.sqlite")):
+                or identity["artifact_sha256"] != _hash(path / "policy-index.sqlite")
+                or identity.get("source_checkpoint_sha256") != result.get("final_checkpoint_sha256")
+                or any(row["requested_nodes"] != plan["checkpoints"][i]
+                       or row["completed_nodes"] < row["requested_nodes"]
+                       for i, row in enumerate(checkpoints))
+                or any(row["requested_nodes"] != plan["capture_nodes"][i]
+                       or row["completed_nodes"] < row["requested_nodes"]
+                       for i, row in enumerate(captures))):
             failures.append(f"Training seed {seed} failed work, artifact or resource verification")
         training[str(seed)] = {"result": result, "verification": check,
                                "captures": captures, "checkpoints": checkpoints,
@@ -186,7 +194,8 @@ def analyze_final(plan, root, decision):
                                    "result": item["result"],
                                    "verification": item["verification"]}
     campaign = json.loads((root / "campaign.json").read_text())
-    if campaign["status"] != "complete" or campaign.get("decision_sha256") is None:
+    if (campaign["status"] != "complete" or campaign.get("decision_sha256") is None
+            or campaign.get("updated_unix_seconds", float("inf")) > campaign["deadline_unix_seconds"]):
         failures.append("Campaign or decision is incomplete")
     return {"schema": "hu20-final-report-v2", "plan_sha256": digest(plan),
             "decision": decision, "campaign": campaign,

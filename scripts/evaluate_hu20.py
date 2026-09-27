@@ -199,6 +199,9 @@ def run(plan, training_root, arm, opponent, phase, out, deadline, *, blocks=None
             source.close()
         if isinstance(opponent_source, WindowedDistribution):
             opponent_source.close()
+    if stop_reason is None and (time() >= deadline or
+            rss() >= plan["limits"]["max_rss_gib"]*1024**3):
+        stop_reason = "HU20 evaluation exceeded the time or RSS ceiling"
     result = {"status": "complete" if stop_reason is None else "incomplete",
               "stop_reason": stop_reason, "attempts": attempts,
               "completed_blocks": completed_blocks,

@@ -219,6 +219,8 @@ def export_policy(
 ) -> str:
     if strategy not in {"current", "average"}:
         raise ValueError("Export current or average strategy")
+    if trainer.config.game == HU20_GAME and strategy != "current":
+        raise ValueError("HU20 uses the separately collected windowed extraction")
     entries = {}
     for key, node in trainer.nodes.items():
         if strategy == "current":

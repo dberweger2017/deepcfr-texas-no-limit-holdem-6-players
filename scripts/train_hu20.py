@@ -169,6 +169,10 @@ def train(plan, seed, out, deadline, *, preflight=False):
                 "index_stats": index_stats}
             write_json(out / "policy-manifest.json", identity)
             result["index_stats"] = index_stats
+        if time() >= deadline or rss() >= plan["limits"]["max_rss_gib"]*1024**3:
+            raise RuntimeError("HU20 extraction exceeded the time or RSS ceiling")
+        if shutil.disk_usage(out).free < plan["limits"]["min_free_gib"]*1024**3:
+            raise RuntimeError("HU20 extraction exceeded the free-disk ceiling")
         result["status"] = "complete"
     except Exception as exc:
         result["stop_reason"] = f"{type(exc).__name__}: {exc}"
