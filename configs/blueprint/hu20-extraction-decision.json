@@ -1,0 +1,7 @@
+{
+  "schema": "hu20-extraction-decision-v1",
+  "plan_sha256": "0da3cb6075d328acd748cf79a7e5f2d2422815c0574fdc3dbf7bb8bbb3908141",
+  "development_digest": "bcbe99d395531f902f9a999a3f841d004c44b91f6d374f62cb4d2ba2f0272dc2",
+  "primary_extraction": "C",
+  "reason": "Development A minus C was +1.92 BB/100 with 95% interval [-6.20,+10.04], and A trailed C on five scripted opponent types while depending on explicit preflop collector fallback for about 43-45% of decisions. Freeze final current C for the untouched confirmation schedule; retain A as a diagnostic and experimental artifact."
+}
