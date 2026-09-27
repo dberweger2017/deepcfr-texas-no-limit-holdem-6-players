@@ -142,7 +142,6 @@ def build_index(snapshots: list[Path], counters: dict, path: Path) -> dict:
     try:
         db.execute("CREATE TABLE policies (key TEXT PRIMARY KEY, names TEXT NOT NULL, "
                    "current TEXT, snapshot TEXT, preflop TEXT, trained_profiles INTEGER NOT NULL)")
-        db.execute("CREATE INDEX covered ON policies(trained_profiles)")
         streams = [_rows(item) for item in snapshots]
         def tagged(stream, index):
             for key, names, probs in stream:

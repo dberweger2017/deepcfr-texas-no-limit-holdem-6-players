@@ -6,7 +6,9 @@ from types import SimpleNamespace
 
 import pytest
 
-from src.blueprint.windowed import build_index, collect_one
+from src.blueprint.solver import BlueprintTrainer, Node, PilotConfig, regret_match
+from src.blueprint.windowed import build_index, collect_one, collect_preflop, write_snapshot
+from src.game.hand import Table
 
 
 class NeedChoice(Exception):
@@ -131,3 +133,34 @@ def test_streamed_snapshot_rejects_menu_mismatch(tmp_path):
         snapshot(path, [["a", ["fold", "call" if index else "check"], [0.5, 0.5]]])
     with pytest.raises(ValueError, match="action-menu"):
         build_index(paths, {}, tmp_path / "index.sqlite")
+
+
+def test_native_collection_and_snapshot_are_read_only(tmp_path):
+    table = Table(("p0", "p1"), (200, 200), small_blind=1, big_blind=2, chip_unit="1")
+    trainer = BlueprintTrainer(table, PilotConfig(seed=9, raise_cap=0))
+    before = (trainer.iteration, dict(trainer.nodes))
+    counters = {}
+    report = collect_preflop(trainer, 0, 2, 41, counters)
+    assert report["action_counts"] > 0
+    assert trainer.iteration == before[0] and trainer.nodes == before[1]
+    write_snapshot(trainer, tmp_path / "empty.gz")
+    assert trainer.nodes == before[1]
+    assert collect_preflop(trainer, 0, 2, 41, {}) == report
+
+
+def test_snapshot_probabilities_match_direct_profiles(tmp_path):
+    paths = []
+    expected = []
+    for index in range(8):
+        trainer = SimpleNamespace(nodes={"a": Node(("fold", "call"),
+                                        [float(index), float(8-index)], [0, 0])})
+        path = tmp_path / f"profile-{index}.gz"
+        write_snapshot(trainer, path)
+        paths.append(path)
+        expected.append(regret_match((float(index), float(8-index))))
+    build_index(paths, {}, tmp_path / "index.sqlite")
+    import sqlite3
+    with sqlite3.connect(tmp_path / "index.sqlite") as db:
+        current, average = db.execute("SELECT current,snapshot FROM policies WHERE key='a'").fetchone()
+    assert json.loads(current) == pytest.approx(expected[-1])
+    assert json.loads(average) == pytest.approx([sum(row[i] for row in expected)/8 for i in (0, 1)])

@@ -13,7 +13,8 @@ from pathlib import Path
 from time import monotonic, time
 
 from src.blueprint.artifact import load_training, save_training
-from src.blueprint.lookup import REPLICATION_PARENT
+from src.blueprint.abstraction import BUTTON_ZERO_COMPAT_LOOKUP
+from src.blueprint.lookup import REPLICATION_PARENT, validate_lookup
 from src.blueprint.windowed import (EXTRACTION, _hash, build_index,
                                     collect_preflop, write_snapshot)
 
@@ -76,6 +77,7 @@ def run(plan, parent, original, lineage_file, out, seed, deadline, *, preflight=
         trainer = load_training(original if preflight else parent)
         result["load_seconds"] = monotonic() - started
         if preflight:
+            validate_lookup(trainer, BUTTON_ZERO_COMPAT_LOOKUP, _hash(original), lineage)
             # One full-sized profile and one root per seat measure read-only
             # capture/collection cost without opening any poker outcomes.
             capture_start = monotonic()

@@ -39,5 +39,16 @@ evaluation counts. The campaign has a ten-hour wall ceiling, 10.5-GiB process
 RSS guard, and disk guard. A failure retains partial artifacts and ends that
 phase without silently changing the frozen comparison.
 
+The M4 resource-only preflight on the existing `2026092701` K1 checkpoint
+loaded in 30.08 seconds. A full-size sorted snapshot took 25.10 seconds and
+247,911,650 bytes. Sixteen collector roots per seat took 24.26 seconds,
+visited 372,932 states and produced 69,274 action counts at 65,496 keys.
+Peak RSS was 7,102,070,784 bytes; system swap remained at 761.38 MiB and
+reported free memory was 69%. These measurements fix sixteen roots per seat
+per capture and the 4,096 scripted/1,024 random block schedules in the plan.
+No new playing outcomes were examined during this preflight. The retained
+preflight directory is `results/windowed-preflight-16-20260927` in the M4
+PR #111 checkout.
+
 This protocol tests readout from the same trained strategies. It cannot
 establish a general six-player equilibrium guarantee or promote a player.
