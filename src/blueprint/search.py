@@ -30,10 +30,12 @@ class LiveBlueprint:
     """Read the loaded training table directly, avoiding a second full export."""
 
     def __init__(self, trainer, *, lookup_mode: str = LEGACY_LOOKUP,
-                 checkpoint_sha256: str | None = None):
+                 checkpoint_sha256: str | None = None,
+                 lineage: dict | None = None):
         self.trainer = trainer
         self.lookup = TableDistribution(
             trainer, lookup_mode=lookup_mode, checkpoint_sha256=checkpoint_sha256,
+            lineage=lineage,
         )
 
     def distribution(self, view: Observation):

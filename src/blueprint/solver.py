@@ -18,8 +18,9 @@ from src.blueprint.abstraction import (
     choices,
     information_key,
 )
-from src.game.hand import Hand, Table
-from src.game.observation import Observation
+from src.game.hand import Hand, Table, card_name
+from src.game.observation import ActionTaken, Observation
+from src.game.types import Street
 
 FORMAT = "holdem-blueprint-v1"
 
@@ -56,6 +57,7 @@ class PilotConfig:
     max_entries: int = 100_000
     max_seconds: float = 300.0
     abstraction: str = SCHEMA
+    postflop_replicates: int = 1
 
     def __post_init__(self):
         if (
@@ -70,6 +72,8 @@ class PilotConfig:
             or not isfinite(self.max_seconds)
             or not 0 < self.max_seconds <= 900
             or self.abstraction not in SUPPORTED_SCHEMAS
+            or type(self.postflop_replicates) is not int
+            or self.postflop_replicates not in (1, 4)
         ):
             raise ValueError("Invalid bounded blueprint pilot configuration")
 
@@ -110,6 +114,18 @@ class IterationReport:
     worker_rss_sum_bytes: int = 0
     coverage: dict[str, int] = field(default_factory=dict)
     schema: str = SCHEMA
+    sampled_postflop_prefixes: int = 0
+    continuation_samples: int = 0
+    replay_actions: int = 0
+    replay_seconds: float = 0.0
+    raw_traverser_visits: int = 0
+    normalized_update_mass: float = 0.0
+    contributing_infosets: int = 0
+    traverser_visits_by_street: dict[str, int] = field(default_factory=dict)
+    normalized_mass_by_street: dict[str, float] = field(default_factory=dict)
+    conditional_value_variance_sum: float = 0.0
+    conditional_regret_variance_sum: float = 0.0
+    updated_keys: tuple[str, ...] = ()
 
 
 @dataclass(slots=True)
@@ -128,6 +144,16 @@ class _RootResult:
     worker_pid: int
     worker_peak_rss_bytes: int
     coverage: dict[str, int]
+    sampled_postflop_prefixes: int = 0
+    continuation_samples: int = 0
+    replay_actions: int = 0
+    replay_seconds: float = 0.0
+    raw_traverser_visits: int = 0
+    normalized_update_mass: float = 0.0
+    traverser_visits_by_street: dict[str, int] = field(default_factory=dict)
+    normalized_mass_by_street: dict[str, float] = field(default_factory=dict)
+    conditional_value_variance_sum: float = 0.0
+    conditional_regret_variance_sum: float = 0.0
 
 
 def _peak_rss_bytes() -> int:
@@ -146,6 +172,85 @@ def _distribution(
     return regret_match(tuple(node.regrets)), True
 
 
+def _merge_deltas(target: dict[str, _Delta], source: dict[str, _Delta],
+                  *, weight: float = 1.0) -> None:
+    """Scale strategy increments but retain visits as raw traverser samples."""
+    for key, item in source.items():
+        delta = target.get(key)
+        if delta is None:
+            delta = _Delta(item.names, [0.0] * len(item.names),
+                           [0.0] * len(item.names))
+            target[key] = delta
+        elif delta.names != item.names:
+            raise ValueError("An abstract infoset changed its action labels")
+        for index in range(len(item.names)):
+            delta.regrets[index] += weight * item.regrets[index]
+            delta.average[index] += weight * item.average[index]
+        delta.visits += item.visits
+
+
+def _mean_continuations(samples, count: int) -> tuple[float, dict[str, _Delta]]:
+    """Missing infosets contribute zero across the declared number of samples."""
+    if type(count) is not int or count < 1:
+        raise ValueError("A positive continuation count is required")
+    total = 0.0
+    deltas: dict[str, _Delta] = {}
+    observed = 0
+    for value, contribution in samples:
+        observed += 1
+        total += value
+        _merge_deltas(deltas, contribution, weight=1.0 / count)
+    if observed != count:
+        raise ValueError("Incomplete continuation batch")
+    return total / count, deltas
+
+
+def _conditional_variance(samples, value: float,
+                          averaged: dict[str, _Delta],
+                          iteration: int) -> tuple[float, float]:
+    """Population variability across draws, with absent infosets as zero."""
+    count = len(samples)
+    utility = sum((sample_value - value) ** 2
+                  for sample_value, _ in samples) / count
+    squared = sum(sum((regret / iteration) ** 2
+                      for delta in contributions.values()
+                      for regret in delta.regrets)
+                  for _, contributions in samples) / count
+    mean_squared = sum((regret / iteration) ** 2
+                       for delta in averaged.values() for regret in delta.regrets)
+    return utility, max(0.0, squared - mean_squared)
+
+
+def _resample_flop_future(hand: Hand, seed: int) -> tuple[Hand, int]:
+    """Rebuild the exact simulated prefix with a fresh conditional deck suffix."""
+    if hand.finished or hand.observe(hand.actor).street != Street.FLOP:
+        raise ValueError("A first-flop decision is required")
+    board = tuple(card_name(card) for card in hand._state.public_cards)
+    if len(board) != 3:
+        raise ValueError("The boundary must precede all flop actions")
+    holes = tuple(tuple(card_name(card) for card in player.hand)
+                  for player in hand._state.players_state)
+    seats = tuple((hand.table.button + offset + 1) % len(holes)
+                  for offset in range(len(holes)))
+    dealt = tuple(holes[seat][round_index]
+                  for round_index in range(2) for seat in seats)
+    remaining = [card_name(card) for card in hand._state.deck]
+    if len(dealt) + len(board) + len(remaining) != 52 or len(set((*dealt, *board, *remaining))) != 52:
+        raise ValueError("The prefix does not contain a complete collision-free deck")
+    Random(seed).shuffle(remaining)
+    replayed = Hand.from_deck(
+        hand.table, hand_id=hand.events[0].hand_id,
+        deck=(*dealt, *board, *remaining),
+    )
+    actions = tuple(event.action for event in hand.events
+                    if isinstance(event, ActionTaken))
+    for action in actions:
+        replayed = replayed.apply(action)
+    if replayed.events != hand.events:
+        raise RuntimeError("Conditional deck replay changed the sampled prefix")
+    return replayed, len(actions)
+
+
 def _collect_root(
     table: Table,
     config: PilotConfig,
@@ -158,9 +263,53 @@ def _collect_root(
     deltas: dict[str, _Delta] = {}
     coverage: dict[str, int] = {}
     nodes = terminals = 0
+    prefixes = continuations = replay_actions = raw_visits = 0
+    replay_seconds = normalized_mass = 0.0
+    street_visits: dict[str, int] = {}
+    street_mass: dict[str, float] = {}
+    value_variance = regret_variance = 0.0
 
-    def visit(hand: Hand, traverser: int, own_reach: float, random: Random) -> float:
-        nonlocal nodes, terminals
+    def visit(hand: Hand, traverser: int, own_reach: float, random: Random,
+              target: dict[str, _Delta], path: tuple[int, ...] = (),
+              replicated: bool = False, sample_weight: float = 1.0) -> float:
+        nonlocal nodes, terminals, prefixes, continuations, replay_actions
+        nonlocal replay_seconds, raw_visits, normalized_mass
+        nonlocal value_variance, regret_variance
+        if (config.postflop_replicates > 1 and not replicated and not hand.finished
+                and hand.observe(hand.actor).street == Street.FLOP):
+            player = hand.observe(traverser).players[traverser]
+            if not player.folded and not player.all_in:
+                prefixes += 1
+                count = config.postflop_replicates
+
+                def samples():
+                    nonlocal continuations, replay_actions, replay_seconds
+                    for index in range(count):
+                        stream = f"flop/{path}/{index}"
+                        started = perf_counter()
+                        world, action_count = _resample_flop_future(
+                            hand, _seed(config.seed, iteration, seat, sample,
+                                        stream + "/deck"))
+                        replay_seconds += perf_counter() - started
+                        replay_actions += action_count
+                        continuations += 1
+                        contribution: dict[str, _Delta] = {}
+                        value = visit(
+                            world, traverser, own_reach,
+                            Random(_seed(config.seed, iteration, seat, sample,
+                                         stream + "/actions")),
+                            contribution, path, True, sample_weight / count,
+                        )
+                        yield value, contribution
+
+                draws = list(samples())
+                value, averaged = _mean_continuations(draws, count)
+                value_var, regret_var = _conditional_variance(
+                    draws, value, averaged, iteration)
+                value_variance += value_var
+                regret_variance += regret_var
+                _merge_deltas(target, averaged)
+                return value
         if nodes >= config.max_nodes or perf_counter() >= deadline:
             raise CollectionLimitExceeded(
                 "Blueprint iteration reached its node or time bound"
@@ -178,28 +327,38 @@ def _collect_root(
         coverage[label] = coverage.get(label, 0) + 1
         if hand.actor != traverser:
             index = random.choices(range(len(menu)), weights=policy, k=1)[0]
-            return visit(hand.apply(menu[index].action), traverser, own_reach, random)
+            return visit(hand.apply(menu[index].action), traverser, own_reach,
+                         random, target, (*path, index), replicated, sample_weight)
         values = tuple(
             visit(
                 hand.apply(item.action),
                 traverser,
                 own_reach * policy[index],
                 random,
+                target,
+                (*path, index),
+                replicated,
+                sample_weight,
             )
             for index, item in enumerate(menu)
         )
         value = fsum(p * v for p, v in zip(policy, values))
         names = tuple(item.name for item in menu)
-        delta = deltas.get(key)
+        delta = target.get(key)
         if delta is None:
             delta = _Delta(names, [0.0] * len(menu), [0.0] * len(menu))
-            deltas[key] = delta
+            target[key] = delta
         elif delta.names != names:
             raise ValueError("An abstract infoset changed its action labels")
         for index in range(len(menu)):
             delta.regrets[index] += iteration * (values[index] - value)
             delta.average[index] += iteration * own_reach * policy[index]
         delta.visits += 1
+        raw_visits += 1
+        normalized_mass += sample_weight
+        street_visits[view.street.value] = street_visits.get(view.street.value, 0) + 1
+        street_mass[view.street.value] = (
+            street_mass.get(view.street.value, 0.0) + sample_weight)
         return value
 
     hand = Hand.start(
@@ -208,8 +367,11 @@ def _collect_root(
         seed=_seed(config.seed, iteration, seat, sample, "deal"),
     )
     random = Random(_seed(config.seed, iteration, seat, sample, "actions"))
-    visit(hand, seat, 1.0, random)
-    return _RootResult(nodes, terminals, deltas, getpid(), _peak_rss_bytes(), coverage)
+    visit(hand, seat, 1.0, random, deltas)
+    return _RootResult(nodes, terminals, deltas, getpid(), _peak_rss_bytes(),
+                       coverage, prefixes, continuations, replay_actions,
+                       replay_seconds, raw_visits, normalized_mass,
+                       street_visits, street_mass, value_variance, regret_variance)
 
 
 _worker_state: tuple[Table, PilotConfig, dict[str, Node], int, float] | None = None
@@ -264,6 +426,11 @@ class BlueprintTrainer:
         nodes = terminals = 0
         worker_peaks: dict[int, int] = {}
         coverage: dict[str, int] = {}
+        prefixes = continuations = replay_actions = raw_visits = 0
+        replay_seconds = normalized_mass = 0.0
+        street_visits: dict[str, int] = {}
+        street_mass: dict[str, float] = {}
+        value_variance = regret_variance = 0.0
         tasks = [
             (seat, sample)
             for seat in range(len(self.table.stacks))
@@ -303,25 +470,25 @@ class BlueprintTrainer:
                     )
                 nodes += result.nodes
                 terminals += result.terminals
+                prefixes += result.sampled_postflop_prefixes
+                continuations += result.continuation_samples
+                replay_actions += result.replay_actions
+                replay_seconds += result.replay_seconds
+                raw_visits += result.raw_traverser_visits
+                normalized_mass += result.normalized_update_mass
+                value_variance += result.conditional_value_variance_sum
+                regret_variance += result.conditional_regret_variance_sum
+                for street, amount in result.traverser_visits_by_street.items():
+                    street_visits[street] = street_visits.get(street, 0) + amount
+                for street, amount in result.normalized_mass_by_street.items():
+                    street_mass[street] = street_mass.get(street, 0.0) + amount
                 for label, count in result.coverage.items():
                     coverage[label] = coverage.get(label, 0) + count
                 if nodes > self.config.max_nodes or perf_counter() >= deadline:
                     raise CollectionLimitExceeded(
                         "Blueprint iteration reached its node or time bound"
                     )
-                for key, contribution in result.deltas.items():
-                    delta = deltas.get(key)
-                    if delta is None:
-                        deltas[key] = contribution
-                    else:
-                        if delta.names != contribution.names:
-                            raise ValueError(
-                                "An abstract infoset changed its action labels"
-                            )
-                        for index in range(len(delta.names)):
-                            delta.regrets[index] += contribution.regrets[index]
-                            delta.average[index] += contribution.average[index]
-                        delta.visits += contribution.visits
+                _merge_deltas(deltas, result.deltas)
         finally:
             if executor is not None:
                 executor.shutdown(cancel_futures=True)
@@ -363,4 +530,16 @@ class BlueprintTrainer:
             sum(worker_peaks.values()),
             coverage,
             self.config.abstraction,
+            prefixes,
+            continuations,
+            replay_actions,
+            replay_seconds,
+            raw_visits,
+            normalized_mass,
+            len(deltas),
+            street_visits,
+            street_mass,
+            value_variance,
+            regret_variance,
+            tuple(deltas),
         )

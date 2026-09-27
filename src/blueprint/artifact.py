@@ -73,6 +73,9 @@ def _config(config: PilotConfig) -> dict:
     if config.abstraction == SCHEMA:
         # Keep existing v1 checkpoint and export bytes reproducible.
         del document["abstraction"]
+    if config.postflop_replicates == 1:
+        # Older checkpoints did not record this optional sampling mode.
+        del document["postflop_replicates"]
     return document
 
 
