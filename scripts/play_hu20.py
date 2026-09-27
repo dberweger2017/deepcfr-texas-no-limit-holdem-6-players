@@ -118,6 +118,7 @@ def play(index: Path, manifest_path: Path, *, arm: str, session_seed: int,
     finally:
         source.close()
     output(f"Saved {hands} replayable hands to {history}")
+    output(f"Policy lookup coverage: {dict(source.coverage)}")
     return {"hands": hands, "human_chips": cumulative,
             "fallback_coverage": dict(source.coverage)}
 
@@ -126,7 +127,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--index", type=Path)
     parser.add_argument("--manifest", type=Path)
-    parser.add_argument("--arm", choices=("C", "A"), default="A")
+    parser.add_argument("--arm", choices=("C", "A"))
     parser.add_argument("--seed", type=int, default=int(time()))
     parser.add_argument("--history", type=Path)
     parser.add_argument("--hands", type=int)
@@ -135,8 +136,8 @@ def main():
     if args.replay:
         print(f"Verified {replay_history(args.replay)} completed hands")
         return 0
-    if args.index is None or args.manifest is None:
-        parser.error("--index and --manifest are required for live play")
+    if args.index is None or args.manifest is None or args.arm is None:
+        parser.error("--index, --manifest and the frozen --arm are required for live play")
     history = args.history or Path("results") / f"hu20-human-{args.seed}.jsonl"
     play(args.index, args.manifest, arm=args.arm, session_seed=args.seed,
          history=history, max_hands=args.hands)
