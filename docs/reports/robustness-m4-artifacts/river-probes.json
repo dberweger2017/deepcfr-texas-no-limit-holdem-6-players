@@ -1,0 +1,2426 @@
+{
+  "cases": [
+    {
+      "actions": [
+        {
+          "kind": "fold",
+          "name": "fold",
+          "raise_to": null,
+          "target_probability": 0.0,
+          "value_chips": -600.0
+        },
+        {
+          "kind": "call",
+          "name": "call",
+          "raise_to": null,
+          "target_probability": 0.35820171704132514,
+          "value_chips": -320.83333333333337
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 200,
+          "target_probability": 0.6417982829586748,
+          "value_chips": -175.00000000000003
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 1400,
+          "target_probability": 0.0,
+          "value_chips": -875.0000000000003
+        }
+      ],
+      "best_one_action_value_chips": -175.00000000000003,
+      "block": 4,
+      "board": [
+        "3h",
+        "8h",
+        "2d",
+        "4d",
+        "Td"
+      ],
+      "conditional_action_gap_chips": 52.23775040185993,
+      "deal_seed": 13753301900765027049,
+      "decision_index": 9,
+      "hero_cards": [
+        "Kh",
+        "7h"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-4', player_ids=('player-0', 'player-1'), stacks=(2000, 2000), button=0, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-0', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-1', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=0, amount=50)",
+        "BlindPosted(seat=1, amount=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=200), paid=150)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=300, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=300), paid=200)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=400, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('3h', '8h', '2d'))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=200), paid=200)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=300, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('4d',))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1500))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1500))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('Td',))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1400))",
+        "ActionTaken(seat=1, street=<Street.RIVER: 'river'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1400))"
+      ],
+      "native_nodes": 144,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": -227.23775040185996,
+      "range": [
+        [
+          "Jc",
+          "Th"
+        ],
+        [
+          "5c",
+          "6d"
+        ],
+        [
+          "9h",
+          "Ks"
+        ],
+        [
+          "4h",
+          "Ts"
+        ],
+        [
+          "7c",
+          "Ks"
+        ],
+        [
+          "3s",
+          "Ks"
+        ],
+        [
+          "2h",
+          "Qh"
+        ],
+        [
+          "Jc",
+          "Qc"
+        ],
+        [
+          "6c",
+          "Qs"
+        ],
+        [
+          "Kc",
+          "8s"
+        ],
+        [
+          "2c",
+          "7d"
+        ],
+        [
+          "9c",
+          "Jc"
+        ],
+        [
+          "3c",
+          "3d"
+        ],
+        [
+          "2c",
+          "Qs"
+        ],
+        [
+          "9c",
+          "6s"
+        ],
+        [
+          "Qc",
+          "Kc"
+        ],
+        [
+          "Ah",
+          "As"
+        ],
+        [
+          "9d",
+          "As"
+        ],
+        [
+          "3c",
+          "Jd"
+        ],
+        [
+          "Qc",
+          "9s"
+        ],
+        [
+          "8d",
+          "5s"
+        ],
+        [
+          "5d",
+          "4h"
+        ],
+        [
+          "8s",
+          "9s"
+        ],
+        [
+          "5d",
+          "Ks"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 0,
+      "rule": "pressure",
+      "status": "complete",
+      "target_trained": true
+    },
+    {
+      "actions": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "target_probability": 1.0,
+          "value_chips": -362.50000000000006
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "target_probability": 0.0,
+          "value_chips": -533.3333333333333
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 1200,
+          "target_probability": 0.0,
+          "value_chips": -1800.0
+        },
+        {
+          "kind": "raise",
+          "name": "jam",
+          "raise_to": 1400,
+          "target_probability": 0.0,
+          "value_chips": -1241.6666666666667
+        }
+      ],
+      "best_one_action_value_chips": -362.50000000000006,
+      "block": 5,
+      "board": [
+        "3h",
+        "7s",
+        "Qs",
+        "6d",
+        "Kd"
+      ],
+      "conditional_action_gap_chips": 0.0,
+      "deal_seed": 11478908484000714859,
+      "decision_index": 9,
+      "hero_cards": [
+        "4s",
+        "Ah"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-5', player_ids=('player-0', 'player-1'), stacks=(2000, 2000), button=1, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-0', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-1', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=1, amount=50)",
+        "BlindPosted(seat=0, amount=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=200), paid=150)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=300, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=300), paid=200)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=400, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('3h', '7s', 'Qs'))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=200), paid=200)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=300, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('6d',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1500))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1500))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1500))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('Kd',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1400))"
+      ],
+      "native_nodes": 288,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": -362.50000000000006,
+      "range": [
+        [
+          "Jc",
+          "7h"
+        ],
+        [
+          "5c",
+          "4d"
+        ],
+        [
+          "6h",
+          "Ks"
+        ],
+        [
+          "2h",
+          "9s"
+        ],
+        [
+          "7c",
+          "Ks"
+        ],
+        [
+          "Qh",
+          "Ks"
+        ],
+        [
+          "Ad",
+          "9h"
+        ],
+        [
+          "Jc",
+          "Qc"
+        ],
+        [
+          "6c",
+          "Js"
+        ],
+        [
+          "Kc",
+          "6s"
+        ],
+        [
+          "2c",
+          "5d"
+        ],
+        [
+          "9c",
+          "Jc"
+        ],
+        [
+          "3c",
+          "2d"
+        ],
+        [
+          "2c",
+          "Js"
+        ],
+        [
+          "9c",
+          "3s"
+        ],
+        [
+          "Qc",
+          "Kc"
+        ],
+        [
+          "Th",
+          "As"
+        ],
+        [
+          "8d",
+          "As"
+        ],
+        [
+          "3c",
+          "9d"
+        ],
+        [
+          "Qc",
+          "8s"
+        ],
+        [
+          "7d",
+          "2s"
+        ],
+        [
+          "3d",
+          "2h"
+        ],
+        [
+          "6s",
+          "8s"
+        ],
+        [
+          "3d",
+          "Ks"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 0,
+      "rule": "pressure",
+      "status": "complete",
+      "target_trained": true
+    },
+    {
+      "actions": [
+        {
+          "kind": "fold",
+          "name": "fold",
+          "raise_to": null,
+          "target_probability": 0.0,
+          "value_chips": -699.9999999999999
+        },
+        {
+          "kind": "call",
+          "name": "call",
+          "raise_to": null,
+          "target_probability": 0.6598742790644643,
+          "value_chips": 33.33333333333332
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 200,
+          "target_probability": 0.34012572093553567,
+          "value_chips": 37.5
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 1300,
+          "target_probability": 0.0,
+          "value_chips": 83.33333333333336
+        }
+      ],
+      "best_one_action_value_chips": 83.33333333333336,
+      "block": 7,
+      "board": [
+        "Ad",
+        "7d",
+        "5c",
+        "7s",
+        "8h"
+      ],
+      "conditional_action_gap_chips": 48.58280949610197,
+      "deal_seed": 11984064518648169464,
+      "decision_index": 8,
+      "hero_cards": [
+        "Ts",
+        "5s"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-7', player_ids=('player-1', 'player-0'), stacks=(2000, 2000), button=1, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-1', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-0', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=1, amount=50)",
+        "BlindPosted(seat=0, amount=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=300), paid=250)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=200, min_raise_to=500, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=500), paid=400)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=200, min_raise_to=700, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=200)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('Ad', '7d', '5c'))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1500))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1500))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('7s',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1400))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1400))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('8h',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1300))",
+        "ActionTaken(seat=0, street=<Street.RIVER: 'river'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1300))"
+      ],
+      "native_nodes": 144,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": 34.750523837231384,
+      "range": [
+        [
+          "Qc",
+          "7h"
+        ],
+        [
+          "6c",
+          "5d"
+        ],
+        [
+          "6h",
+          "Ks"
+        ],
+        [
+          "3h",
+          "9s"
+        ],
+        [
+          "8c",
+          "Ks"
+        ],
+        [
+          "Kh",
+          "Ks"
+        ],
+        [
+          "2h",
+          "Th"
+        ],
+        [
+          "Qc",
+          "Kc"
+        ],
+        [
+          "7c",
+          "Qs"
+        ],
+        [
+          "Ac",
+          "6s"
+        ],
+        [
+          "2c",
+          "6d"
+        ],
+        [
+          "Tc",
+          "Qc"
+        ],
+        [
+          "3c",
+          "3d"
+        ],
+        [
+          "2c",
+          "Qs"
+        ],
+        [
+          "Tc",
+          "3s"
+        ],
+        [
+          "Kc",
+          "Ac"
+        ],
+        [
+          "Jh",
+          "As"
+        ],
+        [
+          "9d",
+          "As"
+        ],
+        [
+          "3c",
+          "Td"
+        ],
+        [
+          "Kc",
+          "8s"
+        ],
+        [
+          "8d",
+          "2s"
+        ],
+        [
+          "4d",
+          "3h"
+        ],
+        [
+          "6s",
+          "8s"
+        ],
+        [
+          "4d",
+          "Ks"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 1,
+      "rule": "pressure",
+      "status": "complete",
+      "target_trained": true
+    },
+    {
+      "actions": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "target_probability": 0.0,
+          "value_chips": 1583.3333333333337
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "target_probability": 0.0,
+          "value_chips": 1583.3333333333337
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 300,
+          "target_probability": 1.0,
+          "value_chips": 1666.6666666666663
+        }
+      ],
+      "best_one_action_value_chips": 1666.6666666666663,
+      "block": 10,
+      "board": [
+        "3d",
+        "2d",
+        "3h",
+        "Jh",
+        "8s"
+      ],
+      "conditional_action_gap_chips": 0.0,
+      "deal_seed": 12426114579798194805,
+      "decision_index": 9,
+      "hero_cards": [
+        "Jd",
+        "9c"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-10', player_ids=('player-1', 'player-0'), stacks=(2000, 2000), button=0, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-1', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-0', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=0, amount=50)",
+        "BlindPosted(seat=1, amount=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=200), paid=150)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=300, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=300), paid=200)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=400, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('3d', '2d', '3h'))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=600), paid=600)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=600, min_raise_to=1200, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=1200), paid=1200)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=600, min_raise_to=1700, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=600)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('Jh',))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=500))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=500))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=200), paid=200)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=300, max_raise_to=500))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('8s',))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=300))"
+      ],
+      "native_nodes": 216,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": 1666.6666666666663,
+      "range": [
+        [
+          "Qc",
+          "9h"
+        ],
+        [
+          "5c",
+          "7d"
+        ],
+        [
+          "8h",
+          "Ks"
+        ],
+        [
+          "5h",
+          "Ts"
+        ],
+        [
+          "7c",
+          "Ks"
+        ],
+        [
+          "2s",
+          "Ks"
+        ],
+        [
+          "4h",
+          "Qh"
+        ],
+        [
+          "Qc",
+          "Kc"
+        ],
+        [
+          "6c",
+          "Qs"
+        ],
+        [
+          "Ac",
+          "7s"
+        ],
+        [
+          "2c",
+          "8d"
+        ],
+        [
+          "Tc",
+          "Qc"
+        ],
+        [
+          "3c",
+          "5d"
+        ],
+        [
+          "2c",
+          "Qs"
+        ],
+        [
+          "Tc",
+          "5s"
+        ],
+        [
+          "Kc",
+          "Ac"
+        ],
+        [
+          "Kh",
+          "As"
+        ],
+        [
+          "Td",
+          "As"
+        ],
+        [
+          "3c",
+          "Qd"
+        ],
+        [
+          "Kc",
+          "9s"
+        ],
+        [
+          "9d",
+          "4s"
+        ],
+        [
+          "6d",
+          "5h"
+        ],
+        [
+          "7s",
+          "9s"
+        ],
+        [
+          "6d",
+          "Ks"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 1,
+      "rule": "pressure",
+      "status": "complete",
+      "target_trained": true
+    },
+    {
+      "actions": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "target_probability": 0.25263755124563875,
+          "value_chips": 842.9298700592662
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "target_probability": 0.37336303428807005,
+          "value_chips": 541.6666666666667
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 1200,
+          "target_probability": 0.37399941446629115,
+          "value_chips": 1083.3333333333335
+        }
+      ],
+      "best_one_action_value_chips": 1083.3333333333335,
+      "block": 11,
+      "board": [
+        "2d",
+        "9c",
+        "4c",
+        "Kd",
+        "4s"
+      ],
+      "conditional_action_gap_chips": 262.9732525119025,
+      "deal_seed": 13813148597025647174,
+      "decision_index": 9,
+      "hero_cards": [
+        "6s",
+        "Kc"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-11', player_ids=('player-0', 'player-1'), stacks=(2000, 2000), button=1, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-0', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-1', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=1, amount=50)",
+        "BlindPosted(seat=0, amount=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=200), paid=150)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=300, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=600), paid=500)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=400, min_raise_to=1000, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=400)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('2d', '9c', '4c'))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1400))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1400))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1400))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('Kd',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1300))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1300))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1300))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('4s',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1200))"
+      ],
+      "native_nodes": 264,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": 820.360080821431,
+      "range": [
+        [
+          "Ac",
+          "9h"
+        ],
+        [
+          "6c",
+          "8d"
+        ],
+        [
+          "8h",
+          "Ks"
+        ],
+        [
+          "5h",
+          "Ts"
+        ],
+        [
+          "8c",
+          "Ks"
+        ],
+        [
+          "Ah",
+          "Ks"
+        ],
+        [
+          "4h",
+          "Jh"
+        ],
+        [
+          "Ac",
+          "3d"
+        ],
+        [
+          "7c",
+          "Qs"
+        ],
+        [
+          "4d",
+          "8s"
+        ],
+        [
+          "2c",
+          "9d"
+        ],
+        [
+          "Jc",
+          "Ac"
+        ],
+        [
+          "3c",
+          "6d"
+        ],
+        [
+          "2c",
+          "Qs"
+        ],
+        [
+          "Jc",
+          "5s"
+        ],
+        [
+          "3d",
+          "4d"
+        ],
+        [
+          "Qh",
+          "As"
+        ],
+        [
+          "Jd",
+          "As"
+        ],
+        [
+          "3c",
+          "Qd"
+        ],
+        [
+          "3d",
+          "9s"
+        ],
+        [
+          "Td",
+          "3s"
+        ],
+        [
+          "7d",
+          "5h"
+        ],
+        [
+          "8s",
+          "9s"
+        ],
+        [
+          "7d",
+          "Ks"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 0,
+      "rule": "pressure",
+      "status": "complete",
+      "target_trained": true
+    },
+    {
+      "actions": [
+        {
+          "kind": "fold",
+          "name": "fold",
+          "raise_to": null,
+          "target_probability": 0.0,
+          "value_chips": -1500.0
+        },
+        {
+          "kind": "call",
+          "name": "call",
+          "raise_to": null,
+          "target_probability": 0.5784349427366132,
+          "value_chips": 533.3333333333335
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 200,
+          "target_probability": 0.38286824300605615,
+          "value_chips": 566.6666666666665
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 500,
+          "target_probability": 0.0386968142573306,
+          "value_chips": 666.6666666666666
+        }
+      ],
+      "best_one_action_value_chips": 666.6666666666666,
+      "block": 11,
+      "board": [
+        "2d",
+        "9c",
+        "4c",
+        "Kd",
+        "4s"
+      ],
+      "conditional_action_gap_chips": 115.41148333215403,
+      "deal_seed": 13813148597025647174,
+      "decision_index": 9,
+      "hero_cards": [
+        "Ad",
+        "9s"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-11', player_ids=('player-1', 'player-0'), stacks=(2000, 2000), button=1, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-1', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-0', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=1, amount=50)",
+        "BlindPosted(seat=0, amount=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=200), paid=150)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=300, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=300), paid=200)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=400, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('2d', '9c', '4c'))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('Kd',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1600))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1600))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=1100), paid=1100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=1000, min_raise_to=1600, max_raise_to=1600))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=1000)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('4s',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=500))",
+        "ActionTaken(seat=0, street=<Street.RIVER: 'river'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=500))"
+      ],
+      "native_nodes": 144,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": 551.2551833345126,
+      "range": [
+        [
+          "Kc",
+          "9h"
+        ],
+        [
+          "6c",
+          "7d"
+        ],
+        [
+          "8h",
+          "Ks"
+        ],
+        [
+          "5h",
+          "Ts"
+        ],
+        [
+          "8c",
+          "Ks"
+        ],
+        [
+          "Ah",
+          "Ks"
+        ],
+        [
+          "4h",
+          "Jh"
+        ],
+        [
+          "Kc",
+          "Ac"
+        ],
+        [
+          "7c",
+          "Qs"
+        ],
+        [
+          "3d",
+          "7s"
+        ],
+        [
+          "2c",
+          "8d"
+        ],
+        [
+          "Jc",
+          "Kc"
+        ],
+        [
+          "3c",
+          "5d"
+        ],
+        [
+          "2c",
+          "Qs"
+        ],
+        [
+          "Jc",
+          "5s"
+        ],
+        [
+          "Ac",
+          "3d"
+        ],
+        [
+          "Qh",
+          "As"
+        ],
+        [
+          "Td",
+          "As"
+        ],
+        [
+          "3c",
+          "Jd"
+        ],
+        [
+          "Ac",
+          "8s"
+        ],
+        [
+          "9d",
+          "3s"
+        ],
+        [
+          "6d",
+          "5h"
+        ],
+        [
+          "7s",
+          "8s"
+        ],
+        [
+          "6d",
+          "Ks"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 1,
+      "rule": "pressure",
+      "status": "complete",
+      "target_trained": true
+    },
+    {
+      "actions": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "target_probability": 1.0,
+          "value_chips": 700.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "target_probability": 0.0,
+          "value_chips": 758.3333333333333
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 800,
+          "target_probability": 0.0,
+          "value_chips": 1166.6666666666667
+        }
+      ],
+      "best_one_action_value_chips": 1166.6666666666667,
+      "block": 0,
+      "board": [
+        "2s",
+        "Td",
+        "2h",
+        "9c",
+        "4s"
+      ],
+      "conditional_action_gap_chips": 466.66666666666674,
+      "deal_seed": 12734312242672771605,
+      "decision_index": 9,
+      "hero_cards": [
+        "7s",
+        "Th"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-0', player_ids=('player-0', 'player-1'), stacks=(2000, 2000), button=0, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-0', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-1', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=0, amount=50)",
+        "BlindPosted(seat=1, amount=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=300), paid=250)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=200, min_raise_to=500, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=200)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('2s', 'Td', '2h'))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('9c',))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1600))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1600))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=800), paid=800)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=800, min_raise_to=1600, max_raise_to=1600))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=800)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('4s',))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=800))",
+        "ActionTaken(seat=1, street=<Street.RIVER: 'river'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=800))"
+      ],
+      "native_nodes": 120,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": 700.0,
+      "range": [
+        [
+          "Qc",
+          "7h"
+        ],
+        [
+          "5c",
+          "5d"
+        ],
+        [
+          "6h",
+          "Ks"
+        ],
+        [
+          "3h",
+          "Ts"
+        ],
+        [
+          "7c",
+          "Ks"
+        ],
+        [
+          "Kh",
+          "Ks"
+        ],
+        [
+          "Ad",
+          "9h"
+        ],
+        [
+          "Qc",
+          "Kc"
+        ],
+        [
+          "6c",
+          "Qs"
+        ],
+        [
+          "Ac",
+          "8s"
+        ],
+        [
+          "2c",
+          "6d"
+        ],
+        [
+          "Tc",
+          "Qc"
+        ],
+        [
+          "3c",
+          "3d"
+        ],
+        [
+          "2c",
+          "Qs"
+        ],
+        [
+          "Tc",
+          "5s"
+        ],
+        [
+          "Kc",
+          "Ac"
+        ],
+        [
+          "Jh",
+          "As"
+        ],
+        [
+          "8d",
+          "As"
+        ],
+        [
+          "3c",
+          "9d"
+        ],
+        [
+          "Kc",
+          "9s"
+        ],
+        [
+          "7d",
+          "3s"
+        ],
+        [
+          "4d",
+          "3h"
+        ],
+        [
+          "8s",
+          "9s"
+        ],
+        [
+          "4d",
+          "Ks"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 0,
+      "rule": "passive",
+      "status": "complete",
+      "target_trained": true
+    },
+    {
+      "actions": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "target_probability": 0.0,
+          "value_chips": 300.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "target_probability": 1.0,
+          "value_chips": 374.99999999999994
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 800,
+          "target_probability": 0.0,
+          "value_chips": 900.0
+        },
+        {
+          "kind": "raise",
+          "name": "jam",
+          "raise_to": 1600,
+          "target_probability": 0.0,
+          "value_chips": 1499.9999999999998
+        }
+      ],
+      "best_one_action_value_chips": 1499.9999999999998,
+      "block": 0,
+      "board": [
+        "2s",
+        "Td",
+        "2h",
+        "9c",
+        "4s"
+      ],
+      "conditional_action_gap_chips": 1124.9999999999998,
+      "deal_seed": 12734312242672771605,
+      "decision_index": 7,
+      "hero_cards": [
+        "Jh",
+        "Js"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-0', player_ids=('player-1', 'player-0'), stacks=(2000, 2000), button=0, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-1', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-0', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=0, amount=50)",
+        "BlindPosted(seat=1, amount=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=50)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=300), paid=200)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=200, min_raise_to=500, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=200)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('2s', 'Td', '2h'))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('9c',))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('4s',))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1600))"
+      ],
+      "native_nodes": 192,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": 374.99999999999994,
+      "range": [
+        [
+          "Qc",
+          "7h"
+        ],
+        [
+          "5c",
+          "5d"
+        ],
+        [
+          "6h",
+          "Ks"
+        ],
+        [
+          "3h",
+          "9s"
+        ],
+        [
+          "7c",
+          "Ks"
+        ],
+        [
+          "Kh",
+          "Ks"
+        ],
+        [
+          "Ad",
+          "9h"
+        ],
+        [
+          "Qc",
+          "Kc"
+        ],
+        [
+          "6c",
+          "Qs"
+        ],
+        [
+          "Ac",
+          "7s"
+        ],
+        [
+          "2c",
+          "6d"
+        ],
+        [
+          "Tc",
+          "Qc"
+        ],
+        [
+          "3c",
+          "3d"
+        ],
+        [
+          "2c",
+          "Qs"
+        ],
+        [
+          "Tc",
+          "5s"
+        ],
+        [
+          "Kc",
+          "Ac"
+        ],
+        [
+          "Th",
+          "As"
+        ],
+        [
+          "8d",
+          "As"
+        ],
+        [
+          "3c",
+          "9d"
+        ],
+        [
+          "Kc",
+          "8s"
+        ],
+        [
+          "7d",
+          "3s"
+        ],
+        [
+          "4d",
+          "3h"
+        ],
+        [
+          "7s",
+          "8s"
+        ],
+        [
+          "4d",
+          "Ks"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 1,
+      "rule": "passive",
+      "status": "complete",
+      "target_trained": true
+    },
+    {
+      "actions": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "target_probability": 0.44274865775448524,
+          "value_chips": -825.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "target_probability": 0.0,
+          "value_chips": -916.6666666666664
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 1100,
+          "target_probability": 0.5572513422455149,
+          "value_chips": -1833.3333333333328
+        }
+      ],
+      "best_one_action_value_chips": -825.0,
+      "block": 1,
+      "board": [
+        "7h",
+        "3h",
+        "5h",
+        "As",
+        "2h"
+      ],
+      "conditional_action_gap_chips": 561.8951034308939,
+      "deal_seed": 12869648255855823824,
+      "decision_index": 7,
+      "hero_cards": [
+        "Qd",
+        "9c"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-1', player_ids=('player-0', 'player-1'), stacks=(2000, 2000), button=1, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-0', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-1', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=1, amount=50)",
+        "BlindPosted(seat=0, amount=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=50)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=300), paid=200)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=200, min_raise_to=500, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=200)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('7h', '3h', '5h'))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('As',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=600), paid=600)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=600, min_raise_to=1200, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=600)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('2h',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1100))"
+      ],
+      "native_nodes": 144,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": -1386.8951034308939,
+      "range": [
+        [
+          "Qc",
+          "Th"
+        ],
+        [
+          "5c",
+          "5d"
+        ],
+        [
+          "9h",
+          "Qs"
+        ],
+        [
+          "4h",
+          "9s"
+        ],
+        [
+          "7c",
+          "Qs"
+        ],
+        [
+          "2s",
+          "Qs"
+        ],
+        [
+          "Ad",
+          "Qh"
+        ],
+        [
+          "Qc",
+          "Kc"
+        ],
+        [
+          "6c",
+          "Js"
+        ],
+        [
+          "Ac",
+          "7s"
+        ],
+        [
+          "2c",
+          "6d"
+        ],
+        [
+          "Tc",
+          "Qc"
+        ],
+        [
+          "3c",
+          "3d"
+        ],
+        [
+          "2c",
+          "Js"
+        ],
+        [
+          "Tc",
+          "5s"
+        ],
+        [
+          "Kc",
+          "Ac"
+        ],
+        [
+          "Kh",
+          "Ks"
+        ],
+        [
+          "8d",
+          "Ks"
+        ],
+        [
+          "3c",
+          "9d"
+        ],
+        [
+          "Kc",
+          "8s"
+        ],
+        [
+          "7d",
+          "4s"
+        ],
+        [
+          "4d",
+          "4h"
+        ],
+        [
+          "7s",
+          "8s"
+        ],
+        [
+          "4d",
+          "Qs"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 0,
+      "rule": "passive",
+      "status": "complete",
+      "target_trained": true
+    },
+    {
+      "actions": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "target_probability": 0.0,
+          "value_chips": 200.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "target_probability": 0.0,
+          "value_chips": 266.66666666666663
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 600,
+          "target_probability": 1.0,
+          "value_chips": 600.0
+        }
+      ],
+      "best_one_action_value_chips": 600.0,
+      "block": 1,
+      "board": [
+        "7h",
+        "3h",
+        "5h",
+        "As",
+        "2h"
+      ],
+      "conditional_action_gap_chips": 0.0,
+      "deal_seed": 12869648255855823824,
+      "decision_index": 9,
+      "hero_cards": [
+        "8h",
+        "5d"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-1', player_ids=('player-1', 'player-0'), stacks=(2000, 2000), button=1, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-1', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-0', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=1, amount=50)",
+        "BlindPosted(seat=0, amount=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=50)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('7h', '3h', '5h'))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1900))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1900))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1900))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('As',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1800))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1800))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1800))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('2h',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.RIVER: 'river'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))"
+      ],
+      "native_nodes": 120,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": 600.0,
+      "range": [
+        [
+          "Jc",
+          "Th"
+        ],
+        [
+          "5c",
+          "4d"
+        ],
+        [
+          "9h",
+          "Qs"
+        ],
+        [
+          "Ad",
+          "9s"
+        ],
+        [
+          "7c",
+          "Qs"
+        ],
+        [
+          "2s",
+          "Qs"
+        ],
+        [
+          "Kd",
+          "Qh"
+        ],
+        [
+          "Jc",
+          "Qc"
+        ],
+        [
+          "6c",
+          "Js"
+        ],
+        [
+          "Kc",
+          "7s"
+        ],
+        [
+          "2c",
+          "6d"
+        ],
+        [
+          "9c",
+          "Jc"
+        ],
+        [
+          "3c",
+          "2d"
+        ],
+        [
+          "2c",
+          "Js"
+        ],
+        [
+          "9c",
+          "5s"
+        ],
+        [
+          "Qc",
+          "Kc"
+        ],
+        [
+          "Kh",
+          "Ks"
+        ],
+        [
+          "8d",
+          "Ks"
+        ],
+        [
+          "3c",
+          "9d"
+        ],
+        [
+          "Qc",
+          "8s"
+        ],
+        [
+          "7d",
+          "4s"
+        ],
+        [
+          "3d",
+          "Ad"
+        ],
+        [
+          "7s",
+          "8s"
+        ],
+        [
+          "3d",
+          "Qs"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 1,
+      "rule": "passive",
+      "status": "complete",
+      "target_trained": true
+    },
+    {
+      "actions": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "target_probability": 0.3661734609702388,
+          "value_chips": 350.00000000000006
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "target_probability": 0.0,
+          "value_chips": 437.4999999999999
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 800,
+          "target_probability": 0.441607506930609,
+          "value_chips": 1050.0
+        },
+        {
+          "kind": "raise",
+          "name": "jam",
+          "raise_to": 1600,
+          "target_probability": 0.19221903209915225,
+          "value_chips": 1749.9999999999995
+        }
+      ],
+      "best_one_action_value_chips": 1749.9999999999995,
+      "block": 2,
+      "board": [
+        "Ad",
+        "7s",
+        "Jd",
+        "Qh",
+        "5s"
+      ],
+      "conditional_action_gap_chips": 821.7681002097602,
+      "deal_seed": 13643421501786761769,
+      "decision_index": 6,
+      "hero_cards": [
+        "Qs",
+        "Jh"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-2', player_ids=('player-1', 'player-0'), stacks=(2000, 2000), button=0, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-1', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-0', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=0, amount=50)",
+        "BlindPosted(seat=1, amount=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=50)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('Ad', '7s', 'Jd'))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1900))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=200), paid=200)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=200, min_raise_to=400, max_raise_to=1900))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=200)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('Qh',))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1700))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.RAISE: 'raise'>, raise_to=100), paid=100)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=100, min_raise_to=200, max_raise_to=1700))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=100)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('5s',))",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1600))"
+      ],
+      "native_nodes": 192,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": 928.2318997902394,
+      "range": [
+        [
+          "Jc",
+          "6h"
+        ],
+        [
+          "5c",
+          "4d"
+        ],
+        [
+          "5h",
+          "Ks"
+        ],
+        [
+          "2h",
+          "9s"
+        ],
+        [
+          "7c",
+          "Ks"
+        ],
+        [
+          "Kh",
+          "Ks"
+        ],
+        [
+          "Kd",
+          "8h"
+        ],
+        [
+          "Jc",
+          "Qc"
+        ],
+        [
+          "6c",
+          "Js"
+        ],
+        [
+          "Kc",
+          "6s"
+        ],
+        [
+          "2c",
+          "5d"
+        ],
+        [
+          "9c",
+          "Jc"
+        ],
+        [
+          "3c",
+          "2d"
+        ],
+        [
+          "2c",
+          "Js"
+        ],
+        [
+          "9c",
+          "3s"
+        ],
+        [
+          "Qc",
+          "Kc"
+        ],
+        [
+          "9h",
+          "As"
+        ],
+        [
+          "7d",
+          "As"
+        ],
+        [
+          "3c",
+          "8d"
+        ],
+        [
+          "Qc",
+          "8s"
+        ],
+        [
+          "6d",
+          "2s"
+        ],
+        [
+          "3d",
+          "2h"
+        ],
+        [
+          "6s",
+          "8s"
+        ],
+        [
+          "3d",
+          "Ks"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 1,
+      "rule": "passive",
+      "status": "complete",
+      "target_trained": true
+    },
+    {
+      "actions": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "target_probability": 0.0,
+          "value_chips": 70.83333333333333
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "target_probability": 0.0,
+          "value_chips": 141.66666666666666
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 200,
+          "target_probability": 1.0,
+          "value_chips": 212.5
+        }
+      ],
+      "best_one_action_value_chips": 212.5,
+      "block": 3,
+      "board": [
+        "7c",
+        "Ad",
+        "3s",
+        "Kh",
+        "6c"
+      ],
+      "conditional_action_gap_chips": 0.0,
+      "deal_seed": 11378757556852522094,
+      "decision_index": 6,
+      "hero_cards": [
+        "2s",
+        "As"
+      ],
+      "history": [
+        "HandStarted(hand_id='robustness-confirmation-2-3', player_ids=('player-0', 'player-1'), stacks=(2000, 2000), button=1, small_blind=50, big_blind=100, chip_unit='0.01', schema_version=2, rules_profile='nlhe-cash-auto-muck-v1', seat_numbers=(0, 1), table_seats=(TableSeat(seat=0, player_id='player-0', stack=2000, status='playing'), TableSeat(seat=1, player_id='player-1', stack=2000, status='playing')), capacity=2, session_profile=None)",
+        "BlindPosted(seat=1, amount=50)",
+        "BlindPosted(seat=0, amount=100)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CALL: 'call'>, <ActionKind.RAISE: 'raise'>), call_amount=50, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=1, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CALL: 'call'>, raise_to=None), paid=50)",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=200, max_raise_to=2000))",
+        "ActionTaken(seat=0, street=<Street.PREFLOP: 'preflop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "BoardDealt(street=<Street.FLOP: 'flop'>, cards=('7c', 'Ad', '3s'))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1900))",
+        "ActionTaken(seat=0, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1900))",
+        "ActionTaken(seat=1, street=<Street.FLOP: 'flop'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "BoardDealt(street=<Street.TURN: 'turn'>, cards=('Kh',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1900))",
+        "ActionTaken(seat=0, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "Decision(seat=1, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1900))",
+        "ActionTaken(seat=1, street=<Street.TURN: 'turn'>, action=Action(kind=<ActionKind.CHECK: 'check'>, raise_to=None), paid=0)",
+        "BoardDealt(street=<Street.RIVER: 'river'>, cards=('6c',))",
+        "Decision(seat=0, legal_actions=LegalActions(kinds=(<ActionKind.FOLD: 'fold'>, <ActionKind.CHECK: 'check'>, <ActionKind.RAISE: 'raise'>), call_amount=0, min_raise_to=100, max_raise_to=1900))"
+      ],
+      "native_nodes": 144,
+      "policy": "2p-2026092801-20M",
+      "policy_value_chips": 212.5,
+      "range": [
+        [
+          "Kc",
+          "7h"
+        ],
+        [
+          "5c",
+          "6d"
+        ],
+        [
+          "6h",
+          "Qs"
+        ],
+        [
+          "3h",
+          "9s"
+        ],
+        [
+          "9c",
+          "Qs"
+        ],
+        [
+          "Qh",
+          "Qs"
+        ],
+        [
+          "2h",
+          "9h"
+        ],
+        [
+          "Kc",
+          "Ac"
+        ],
+        [
+          "8c",
+          "Js"
+        ],
+        [
+          "2d",
+          "7s"
+        ],
+        [
+          "2c",
+          "7d"
+        ],
+        [
+          "Jc",
+          "Kc"
+        ],
+        [
+          "3c",
+          "4d"
+        ],
+        [
+          "2c",
+          "Js"
+        ],
+        [
+          "Jc",
+          "5s"
+        ],
+        [
+          "Ac",
+          "2d"
+        ],
+        [
+          "Th",
+          "Ks"
+        ],
+        [
+          "9d",
+          "Ks"
+        ],
+        [
+          "3c",
+          "Td"
+        ],
+        [
+          "Ac",
+          "8s"
+        ],
+        [
+          "8d",
+          "4s"
+        ],
+        [
+          "5d",
+          "3h"
+        ],
+        [
+          "7s",
+          "8s"
+        ],
+        [
+          "5d",
+          "Qs"
+        ]
+      ],
+      "range_rule": "uniform compatible 24 holdings sampled once; not a posterior from prior actions",
+      "range_weights": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "rotation": 0,
+      "rule": "passive",
+      "status": "complete",
+      "target_trained": true
+    }
+  ],
+  "limitations": "conditional 24-holding uniform range; no whole-hand attribution or actual rival cards used",
+  "schema": "exploratory-river-probes-v1"
+}

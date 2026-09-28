@@ -1,0 +1,12 @@
+{"free_disk_bytes": 47834177536, "phase": "report", "rss_bytes": 4554752, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616672.2865431}
+{"free_disk_bytes": 47842045952, "phase": "report", "rss_bytes": 207880192, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616702.66357}
+{"free_disk_bytes": 47854489600, "phase": "report", "rss_bytes": 265519104, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616733.039398}
+{"free_disk_bytes": 47857410048, "phase": "report", "rss_bytes": 296222720, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616763.415476}
+{"free_disk_bytes": 47857057792, "phase": "report", "rss_bytes": 352157696, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616793.791115}
+{"free_disk_bytes": 47860355072, "phase": "report", "rss_bytes": 387907584, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616824.15995}
+{"free_disk_bytes": 47858368512, "phase": "report", "rss_bytes": 410697728, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616854.533213}
+{"free_disk_bytes": 47853826048, "phase": "report", "rss_bytes": 431292416, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616884.896849}
+{"free_disk_bytes": 47852601344, "phase": "report", "rss_bytes": 464158720, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616915.275237}
+{"free_disk_bytes": 47851061248, "phase": "river-probes", "rss_bytes": 802816, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616937.564804}
+{"free_disk_bytes": 47850905600, "phase": "diagnostic-demo", "rss_bytes": 1392640, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616952.7612748}
+{"free_disk_bytes": 47850893312, "phase": "demo-replay", "rss_bytes": 1458176, "swap": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)", "time": 1790616953.794215}

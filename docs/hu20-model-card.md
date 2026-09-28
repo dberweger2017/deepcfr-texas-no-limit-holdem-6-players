@@ -63,3 +63,17 @@ another session; an existing file is never overwritten. A 20-hand smoke
 completed and replayed byte-identical public-event hashes, including river
 hands. Measured M4 trained decision latency was 0.043–0.044 ms mean and
 0.271 ms maximum across the three seeds' confirmation hands.
+
+## Audited robustness limitations
+
+The [PR #114 diagnostic](reports/robustness-m4.md) uses all three saved seeds.
+Final menu pressure profit is +35.13 BB/100 [exploratory 95% block interval
+24.52, 45.75], but native raises beyond the training cap expose −264.01
+[−277.08, −250.95]. An observation-only, menu-restricted local response
+produces target profit −111.96 [−143.48, −80.45]; all response decisions
+complete without soft overruns. The 20M target improves over 2M, but
+10M-to-20M is inconclusive. These are realized profits against fixed attacks,
+not exact full-game exploitability. Native off-menu-history pressure lookups
+missed in the measured panels; this is a deployment limitation, not proof
+that every off-menu event misses. Card-abstraction causation is unestablished.
+No checkpoint, extraction or playable interface changed; no model is promoted.

@@ -1,0 +1,141 @@
+{
+  "audit_root": "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit",
+  "campaign_root": "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928",
+  "deadline": 1790642874.423834,
+  "files": {
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/attempts.json": {
+      "bytes": 2185,
+      "sha256": "045308b0a49d8ce237372d4872b55c419c5bcd85add43bbcddf2be95fc427e26"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/checksums.json": {
+      "bytes": 1103,
+      "sha256": "7ef72c8081b94d253e931d765908328f88f987c30e76925a6881790fde6999fd"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/demo-replay.log": {
+      "bytes": 16,
+      "sha256": "d6715424faeb834621d9ea796349ab51e39300f55a24cee572dc3f17e45ae057"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/diagnostic-demo.json": {
+      "bytes": 5194,
+      "sha256": "003cc49af2c5afde904a95ea495b74501d8004cec0b7e5240a0ac5dbcb0b0ada"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/diagnostic-demo.log": {
+      "bytes": 45,
+      "sha256": "26c08923506db715d0f40cf893bc0f00198024ed4389976d20a631a10a37b228"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/environment.json": {
+      "bytes": 740,
+      "sha256": "709c0b5aa1209d7511d05b437404ccb9947e3e97cfc303026494a12309c3e8a2"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/report.log": {
+      "bytes": 76,
+      "sha256": "5f3cf8ef40f0eacde360b1f54b8106fd7e050c657a3f551643395abb971995e0"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/report/checksums.json": {
+      "bytes": 275,
+      "sha256": "2b387a1553e3b627e51636fb357f142c9415c8c2615c43b51df8c95209774de8"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/report/exploratory-replay-cases.json": {
+      "bytes": 41584,
+      "sha256": "e8f7de5da7a10100647e01e9a02074126f4d33ee15cca8115d3cf3b9e4cdbc92"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/report/report.md": {
+      "bytes": 4772,
+      "sha256": "6b254dd0423a1f80d5cf22cbda0fecc6dee2ce886c14e54c733ac31fb571c81f"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/report/results.json": {
+      "bytes": 473545,
+      "sha256": "cd5347dd0c221fe2345860f4d450120554c77f8478cc797ba12e50ef2a568b61"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/resources.jsonl": {
+      "bytes": 2303,
+      "sha256": "964751cda5791dba495d7ab4cf50015049b3ed4e73b69f894ed44f681a02594f"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/river-probes.json": {
+      "bytes": 84949,
+      "sha256": "62a3d79723a4afd809cf98225845f302919be7277ef351461245658861f04c1f"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit/river-probes.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/campaign.json": {
+      "bytes": 1861,
+      "sha256": "98495ee52e677b8234a3e457235ad7dc0d5d4cf3be7ff2c2347c46b781805e46"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/checksums.json": {
+      "bytes": 1528,
+      "sha256": "02e8d4b3ea67938e9c850d95164a78debf5050fc1754b02e508b3f6816fb90a5"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/confirmation.log": {
+      "bytes": 211,
+      "sha256": "9c15821cfab95f030ce3f7dd410a763c54fdc8624bc882d8d096f5a86c482577"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/confirmation/attempts.json": {
+      "bytes": 39305,
+      "sha256": "2e5cd6a7f1fffd66f82a26c12351d61e0bb6e15696b412ec06ac4275b2ff19fe"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/confirmation/checksums.json": {
+      "bytes": 520,
+      "sha256": "39338acbbcb5fc6a21bcf4ebfc10452841be8072e23700eba17d2ee89b1d4281"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/confirmation/hands.jsonl.gz": {
+      "bytes": 256996153,
+      "sha256": "1cc074de06bd30362f19367fa09d06ed27a42755ca42a69c2a12e7fdace609aa"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/confirmation/manifest.json": {
+      "bytes": 336,
+      "sha256": "4c8a68bf092e8dc8fb31b5a34260629d59c9458a44ec585c1f6e665c14309478"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/confirmation/plan.json": {
+      "bytes": 7718,
+      "sha256": "4abaff3b8d236f8628d675cad7db149ec86177ecf4a77fba16170b9c3f4dc91f"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/confirmation/progress.json": {
+      "bytes": 299,
+      "sha256": "bd84ce812473987a2b0448bd70552803e6ea0d090ea982f0b1e527733c3b1f86"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/confirmation/result.json": {
+      "bytes": 225,
+      "sha256": "ea2f9f94d15f1097e8da0d7bf0dfdb57a3fa117a79a378526af74a997299b8d3"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/preflight.log": {
+      "bytes": 208,
+      "sha256": "5134e1abb9a4e2a2b003c6f2453606e4b7f47b2a39ea4ff078600655c9f357cb"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/preflight/attempts.json": {
+      "bytes": 3515,
+      "sha256": "8ad9cfbf0f5024bddd6cd8792a92007b5f94db70b9f55dedb6fa0c833832d611"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/preflight/checksums.json": {
+      "bytes": 520,
+      "sha256": "d46695bbd6d15ead2447821d9e44e37fddb656f87eb0dcecc5379fdb60b69303"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/preflight/hands.jsonl.gz": {
+      "bytes": 48445,
+      "sha256": "152d62d0d89b24674a3b25d78b9d0bd9967dcdcaaa8feadb5fa052d5029777cc"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/preflight/manifest.json": {
+      "bytes": 332,
+      "sha256": "29b2e48035d433dc7e266dbe8482803fc3875fe87be38af1ce8fd22d3d3068f8"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/preflight/plan.json": {
+      "bytes": 6882,
+      "sha256": "c1b188b9835015b4f8c951c327b8466a13ffa914199cadcb280e5a8bc43b7c65"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/preflight/progress.json": {
+      "bytes": 291,
+      "sha256": "f255ef4d6427bf382afc096b1d636418baa1d36d58f4651b2aba25b74d626132"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/preflight/result.json": {
+      "bytes": 222,
+      "sha256": "e615bcea168ce5ed79ad1b85ac28a2386f236b0dda76de91e561382560536046"
+    },
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928/resources.jsonl": {
+      "bytes": 104157,
+      "sha256": "d6742c367cfb34f48180fbb3eef91ebc3aaca59680b3ef25d415b69eab635c2a"
+    }
+  },
+  "finished": 1790616954.812271,
+  "status": "complete"
+}

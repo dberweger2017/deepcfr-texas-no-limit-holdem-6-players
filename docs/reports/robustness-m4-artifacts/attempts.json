@@ -1,0 +1,80 @@
+[
+  {
+    "command": [
+      "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "-m",
+      "scripts.report_robustness",
+      "--root",
+      "results/robustness-m4-20260928",
+      "--out",
+      "results/robustness-m4-20260928-audit/report"
+    ],
+    "exit_code": 0,
+    "finished": 1790616937.539819,
+    "name": "report",
+    "peak_rss_bytes": 486244352,
+    "reason": null,
+    "started": 1790616672.2806242,
+    "status": "complete"
+  },
+  {
+    "command": [
+      "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "-m",
+      "scripts.probe_robustness_rivers",
+      "--plan",
+      "results/robustness-m4-20260928/confirmation/plan.json",
+      "--hands",
+      "results/robustness-m4-20260928/confirmation/hands.jsonl.gz",
+      "--out",
+      "results/robustness-m4-20260928-audit/river-probes.json"
+    ],
+    "exit_code": 0,
+    "finished": 1790616952.741738,
+    "name": "river-probes",
+    "peak_rss_bytes": 369983488,
+    "reason": null,
+    "started": 1790616937.541871,
+    "status": "complete"
+  },
+  {
+    "command": [
+      "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "-m",
+      "scripts.play_robustness",
+      "--plan",
+      "results/robustness-m4-20260928/confirmation/plan.json",
+      "--policy",
+      "2p-2026092801-20M",
+      "--rule",
+      "pressure",
+      "--contract",
+      "native",
+      "--history",
+      "results/robustness-m4-20260928-audit/diagnostic-demo.json"
+    ],
+    "exit_code": 0,
+    "finished": 1790616953.771926,
+    "name": "diagnostic-demo",
+    "peak_rss_bytes": 1392640,
+    "reason": null,
+    "started": 1790616952.7434921,
+    "status": "complete"
+  },
+  {
+    "command": [
+      "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "-m",
+      "scripts.play_robustness",
+      "--replay",
+      "results/robustness-m4-20260928-audit/diagnostic-demo.json"
+    ],
+    "exit_code": 0,
+    "finished": 1790616954.8047218,
+    "name": "demo-replay",
+    "peak_rss_bytes": 1458176,
+    "reason": null,
+    "started": 1790616953.7734091,
+    "status": "complete"
+  }
+]

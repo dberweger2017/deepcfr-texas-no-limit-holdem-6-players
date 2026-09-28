@@ -74,3 +74,17 @@ explicit. Scripted-panel returns and update density are not exploitability
 certificates. Review the retained negative and inconclusive opponent-specific
 results before another separately authorized experiment; no automatic
 six-player run follows.
+
+## Audited robustness limitations
+
+The [PR #114 diagnostic](reports/robustness-m4.md) evaluates all three saved
+final checkpoints. Target pressure/pressure profit is −25.80 BB/100
+[exploratory 95% block interval −40.00, −11.61] inside the training menu and
+−279.86 [−291.61, −268.11] under native pressure. Minraise/minraise also
+exposes menu losses (−79.93 [−102.91, −56.95]). Trained-minus-uniform
+improvements remain positive, without removing these absolute weaknesses.
+Native pressure produces off-menu preflop fallback; restricted-menu later
+streets also have sparse trained coverage. Exposure counts do not assign a
+whole losing hand to one decision. HU local-response results do not measure
+TP exploitability: three-player worst-case quality remains unmeasured.
+Existing human-plus-two-bots play and saved artifacts remain unchanged.

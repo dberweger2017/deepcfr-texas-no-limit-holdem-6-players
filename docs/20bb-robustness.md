@@ -127,5 +127,8 @@ from prior HU20/TP20 hand files. It produces block intervals, native/menu and
 Audits run sequentially with RSS/swap/disk guards and the **original** absolute
 deadline. Audit artifacts live beside the immutable evaluation directory;
 a final inventory covers both after logs close. A failure is retained and
-reported, not retried. The readable result and one next-step recommendation
-remain pending until the frozen evaluation and audits finish.
+reported, not retried. The [readable result](reports/robustness-m4.md) records the completed frozen
+evaluation and audit: 947,200 evaluation and 168 preflight hands, every native
+replay verified, all panels complete and no failed/partial attempt omitted.
+The final reporting revision passed 845 CI tests. Its one recommendation is
+a separately authorized HU action-cap A/B; no new training is launched.
