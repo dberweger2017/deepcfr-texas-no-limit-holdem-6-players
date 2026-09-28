@@ -199,3 +199,18 @@ def test_density_is_decision_weighted_and_separates_streets():
     assert result["flop"]["coverage"] == .25
     assert result["flop"]["visit_quantiles"]["p50"] == 0
     assert result["river"]["coverage"] == 1
+
+
+def test_mid_traversal_stop_discards_all_staged_updates(tmp_path):
+    trainer = BlueprintTrainer(table(), config())
+    trainer.step()
+    before = save_training(trainer, tmp_path/"before.gz")
+    calls = 0
+    def cancelled():
+        nonlocal calls
+        calls += 1
+        return calls >= 30
+    with pytest.raises(CollectionLimitExceeded, match="cancelled before publication"):
+        trainer.step(cancelled=cancelled)
+    assert trainer.last_attempt_nodes == 29
+    assert save_training(trainer,tmp_path/"after.gz") == before

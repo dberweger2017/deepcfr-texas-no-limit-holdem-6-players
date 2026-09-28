@@ -44,9 +44,13 @@ class Player:
             street = view.street.value
             self.telemetry[(street, "decisions")] += 1
             self.telemetry[(street, "trained" if trained else "fallback")] += 1
-            self.telemetry[(street, "seconds_sum")] += perf_counter()-started
+            elapsed = perf_counter()-started
+            self.telemetry[(street, "seconds_sum")] += elapsed
             self.telemetry[(street, "seconds_max")] = max(
-                self.telemetry[(street, "seconds_max")], perf_counter()-started)
+                self.telemetry[(street, "seconds_max")], elapsed)
+            upper = next((b for b in (.0001,.00025,.0005,.001,.0025,.005,.01,.025,.05,.1,.25,.5,1,5)
+                          if elapsed <= b), float("inf"))
+            self.telemetry[(street, f"latency_bin_upper_{upper}")] += 1
         return action
 
 

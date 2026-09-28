@@ -2,11 +2,12 @@
 
 import argparse
 import json
+import signal
 from collections import Counter
 from pathlib import Path
 from time import monotonic, time
 
-from scripts.tp20_common import (append, density, guard, interruptible, rss, seal,
+from scripts.tp20_common import (append, density, guard as resource_guard, rss, seal,
                                   system, validate, write_json)
 from src.arena.schedule import digest
 from src.blueprint.abstraction import TP20_SCHEMA
@@ -14,6 +15,25 @@ from src.blueprint.artifact import export_policy, save_training
 from src.blueprint.solver import BlueprintTrainer, PilotConfig, TP20_GAME
 from src.blueprint.windowed import _hash
 from src.game.hand import Table
+
+
+_stop_requested = False
+
+
+def guard(plan, out, deadline):
+    if _stop_requested:
+        raise RuntimeError("TP20 requested stop; completed iteration retained")
+    resource_guard(plan, out, deadline)
+
+
+def install_stop_handler():
+    # Raising from a signal handler during in-place publication would expose a
+    # partial profile. Collection observes this flag; publication completes.
+    def stop(signum, frame):
+        global _stop_requested
+        _stop_requested = True
+    signal.signal(signal.SIGTERM, stop)
+    signal.signal(signal.SIGINT, stop)
 
 
 def train(plan, seed, out, deadline, observations, *, preflight=False):
@@ -45,7 +65,7 @@ def train(plan, seed, out, deadline, observations, *, preflight=False):
         while total < target:
             guard(plan, out, deadline)
             try:
-                report = trainer.step()
+                report = trainer.step(cancelled=lambda: _stop_requested)
             except Exception:
                 discarded += trainer.last_attempt_nodes
                 raise
@@ -115,7 +135,7 @@ def main():
     p.add_argument("--deadline", type=float, required=True)
     p.add_argument("--preflight", action="store_true")
     a = p.parse_args()
-    interruptible()
+    install_stop_handler()
     r = train(json.loads(a.plan.read_text()), a.seed, a.out, a.deadline,
               a.observations, preflight=a.preflight)
     print(json.dumps(r), flush=True)

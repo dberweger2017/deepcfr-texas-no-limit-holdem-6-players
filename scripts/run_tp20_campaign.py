@@ -203,6 +203,24 @@ def main():
             record.update(status="failed",report_error=str(exc))
         record["updated_unix_seconds"] = time()
         write_json(a.root/"campaign.json",record)
+        # Seal after the report child and its log have stopped changing.
+        report_path = a.root/"final-report.json"
+        if report_path.exists():
+            final_report = json.loads(report_path.read_text())
+            final_report["campaign"] = record
+            final_report["resources"] = [json.loads(line) for line in
+                (a.root/"resources.jsonl").read_text().splitlines()]
+            write_json(report_path, final_report)
+        inventory = {str(path.relative_to(a.root)):_hash(path) for path in a.root.rglob("*")
+                     if path.is_file() and path.name != "artifact-manifest.json"}
+        write_json(a.root/"artifact-manifest.json", {"schema":"tp20-artifact-inventory-v1",
+            "files":inventory,"files_sha256":digest(inventory)})
+        if time() > record["deadline_unix_seconds"]:
+            record.update(status="failed", error="Final inventory exceeded the absolute deadline")
+            write_json(a.root/"campaign.json",record)
+            inventory["campaign.json"] = _hash(a.root/"campaign.json")
+            write_json(a.root/"artifact-manifest.json", {"schema":"tp20-artifact-inventory-v1",
+                "files":inventory,"files_sha256":digest(inventory)})
     print(json.dumps({"status":record["status"],"error":record.get("error")}),flush=True)
     return 2 if record["status"] == "failed" else 0
 

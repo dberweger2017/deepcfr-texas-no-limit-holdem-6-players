@@ -327,6 +327,8 @@ def _collect_root(
                 regret_variance += regret_var
                 _merge_deltas(target, averaged)
                 return value
+        if work is not None and work.get("cancelled") is not None and work["cancelled"]():
+            raise CollectionLimitExceeded("Blueprint iteration cancelled before publication")
         if nodes >= config.max_nodes or perf_counter() >= deadline:
             raise CollectionLimitExceeded(
                 "Blueprint iteration reached its node or time bound"
@@ -447,7 +449,7 @@ class BlueprintTrainer:
             self.config.abstraction,
         )
 
-    def step(self, *, workers: int = 1) -> IterationReport:
+    def step(self, *, workers: int = 1, cancelled=None) -> IterationReport:
         if type(workers) is not int or workers < 1:
             raise ValueError("Blueprint workers must be a positive integer")
         iteration = self.iteration + 1
@@ -455,7 +457,7 @@ class BlueprintTrainer:
         started = perf_counter()
         deadline = started + self.config.max_seconds
         nodes = terminals = 0
-        work = {"nodes": 0}
+        work = {"nodes": 0, "cancelled": cancelled}
         self.last_attempt_nodes = 0
         worker_peaks: dict[int, int] = {}
         coverage: dict[str, int] = {}

@@ -10,7 +10,21 @@ artifacts use `holdem-tp20-blueprint-v1` and reject HU20 or other stack counts.
 Final-current C is fixed before playing outcomes. No multiplayer convergence
 or exploitability certificate is claimed.
 
-## Resource decision
+## Frozen resource decision
+
+The completed [outcome-free preflight](reports/tp20-resource-preflight.json)
+and [decision](reports/tp20-resource-decision.json) freeze **20M nodes per seed**,
+checkpoints at 2M/5M/10M/20M, and 4,096 confirmation blocks per primary lineup.
+Measured throughput is 16,238 nodes/s; training plus export peaks at 0.543 GiB;
+save/export take 3.02/2.47 seconds; evaluation including loads reaches 192.7 hands/s.
+A 2x training slowdown projects 2.05 hours for three seeds, plus four-checkpoint
+saving/export allowances. A 3x evaluation allowance plus reporting projects
+1.90 hours for the 382,464 prescribed hands. Conservative 20M crossplay RSS
+projects 8.15 GiB; 50M fails the projected entry and three-profile memory bounds;
+100M also exceeds the seven-hour training allocation. These are conservative
+projections, not promises of resource use. Every real limit remains active.
+
+## Preflight procedure
 
 `configs/blueprint/tp20-m4.json` first specifies an outcome-free 5M-node preflight,
 including native evaluation through all six primary lineups, saves/exports,
@@ -27,7 +41,8 @@ at least two hours before that deadline; evaluation ends fifteen minutes early.
 RSS is capped at 10.5 GiB, free disk at least 8 GiB, additional system swap at
 most 0.5 GiB, and reported memory free percentage at least 5%. The supervisor
 samples child RSS each second and system resources every thirty seconds.
-A bound terminates the current child, retaining partial results and the last
+Training stop signals request cancellation during collection and do not raise
+inside profile publication. A bound terminates the current child, retaining partial results and the last
 completed training iteration; no rerun or relaxed plan follows automatically.
 
 ## Frozen evaluation and learning diagnostics

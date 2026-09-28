@@ -79,7 +79,7 @@ class TableDistribution:
                  checkpoint_sha256: str | None = None, uniform: bool = False,
                  lineage: dict | None = None):
         if trainer.config.abstraction in SHORTSTACK_SEATS and lookup_mode != LEGACY_LOOKUP:
-            raise ValueError("HU20 uses native button-relative keys, not legacy compatibility")
+            raise ValueError("Short-stack games use native button-relative keys, not legacy compatibility")
         validate_lookup(trainer, lookup_mode, checkpoint_sha256, lineage)
         self.trainer = trainer
         self.lookup_mode = lookup_mode
