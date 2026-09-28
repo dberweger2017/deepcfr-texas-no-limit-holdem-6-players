@@ -105,3 +105,27 @@ The requested analysis-v3 document was not found in the repository, attachments
 or M4; its path/attachment was requested. No claim is made to have independently
 reviewed that absent exploratory seed experiment. This evaluation uses the three
 saved campaign seeds and a precisely labeled reconstructed rule.
+
+## Verification and completion
+
+The original full-suite run passed 842 tests in 282.54 seconds. The subsequent
+focused instrument/report suite passes 11 checks, including an explicitly
+incomplete native mini-campaign that cannot be mislabeled complete. Existing
+HU demo index and both TP demo exports retain their original pinned hashes.
+
+After the evaluation process and its logs stop, update the M4 checkout to the
+committed reporting revision, then run:
+
+```sh
+python -m scripts.finish_robustness --root results/robustness-m4-20260928
+```
+
+This audits every confirmation/preflight native replay, phase/global inventory,
+source hash, paired card/rotation schedule, mixed rival order and disjointness
+from prior HU20/TP20 hand files. It produces block intervals, native/menu and
+20M/2M paired contrasts, independent river probes and a run/replay demo.
+Audits run sequentially with RSS/swap/disk guards and the **original** absolute
+deadline. Audit artifacts live beside the immutable evaluation directory;
+a final inventory covers both after logs close. A failure is retained and
+reported, not retried. The readable result and one next-step recommendation
+remain pending until the frozen evaluation and audits finish.

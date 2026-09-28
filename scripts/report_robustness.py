@@ -1,5 +1,5 @@
 """Audit all legal hands and report exploratory paired, block-clustered returns."""
-import argparse,gzip,json
+import argparse,gzip,json,subprocess
 from collections import Counter,defaultdict
 from pathlib import Path
 from time import time
@@ -10,6 +10,7 @@ from scripts.play_robustness import replay_row
 from scripts.tp20_common import seal
 from src.arena.schedule import digest,stream_seed
 from src.blueprint.windowed import _hash
+from scripts.run_tp20_campaign import swap_bytes
 
 
 def estimate(chips):
@@ -33,6 +34,12 @@ def main():
     for name,h in json.loads((root/'checksums.json').read_text()).items():
         if _hash(root/name)!=h:raise ValueError(f'Campaign inventory mismatch {name}')
     groups=defaultdict(lambda: {'blocks':defaultdict(list),'roles':defaultdict(lambda:defaultdict(list)),'telemetry':Counter(),'lbr':Counter(),'latencies':[]})
+    preflight_replays=0
+    with gzip.open(root/'preflight/hands.jsonl.gz','rt') as pref:
+        for line in pref:
+            row=json.loads(line)
+            if row['target_chips'] is not None or row['net_chips_by_seat'] is not None:raise ValueError('Preflight exposed realized returns')
+            replay_row(row);preflight_replays+=1
     total=0;replayed=0;dealsets=defaultdict(set);offmenu=Counter();problem=[];coupling={}
     with gzip.open(root/'confirmation/hands.jsonl.gz','rt') as rows:
         for line in rows:
@@ -61,6 +68,21 @@ def main():
                     g['lbr']['range_holdings_sum']+=d['positive_range_holdings'];g['lbr']['zero_likelihood_cumulative']+=d['zero_likelihood_events']
             if name=='2p-2026092801-20M' and row['block']<64 and len(problem)<12 and any(not i['on_training_menu'] for i in row['actions']):
                 problem.append(row)
+    prior_schedule_audit=[]
+    for n,parent in ((2,Path('/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927')),
+                     (3,Path('/Users/dberweger/Local/tp20-pr113/results/tp20-m4-20260928'))):
+        prior_deals=set();prior_files=0
+        if parent.exists():
+            for file in parent.rglob('hands.jsonl*'):
+                opener=gzip.open if file.suffix=='.gz' else open
+                with opener(file,'rt') as rows:
+                    for line in rows:
+                        row=json.loads(line)
+                        if 'deal_seed' in row:prior_deals.add(row['deal_seed'])
+                prior_files+=1
+            overlap=dealsets[n]&prior_deals
+            if overlap:raise ValueError('Confirmation reuses opened HU20/TP20 deals')
+            prior_schedule_audit.append({'players':n,'prior_hand_files':prior_files,'prior_deal_seeds':len(prior_deals),'overlap':len(overlap)})
     attempts=json.loads((root/'confirmation/attempts.json').read_text());expected_panels=13*6+4*12+len(plan['lbr_targets'])
     expected_hands=13*6*plan['hu_blocks']*2+4*12*plan['tp_blocks']*3+len(plan['lbr_targets'])*plan['lbr_blocks']*2
     complete=not failures and len(attempts)==expected_panels and all(x.get('status')=='complete' for x in attempts) and total==expected_hands
@@ -80,6 +102,7 @@ def main():
     for n in (2,3):
         for checkpoint in ([2,5,10,20] if n==2 else [20]):
             policies=[s['name'] for s in plan['policies'] if s['players']==n and s.get('nodes')==checkpoint*1000000]
+            if not policies:continue
             panels=plan['hu_lineups'] if n==2 else plan['tp_lineups']
             panels=panels+([['lbr']] if n==2 else [])
             for rules in panels:
@@ -98,7 +121,7 @@ def main():
         for rules in panels:
             names=[s['name'] for s in plan['policies'] if s['players']==n and s.get('nodes')==20000000]
             pairs=[((n,tuple(rules),'native',name),(n,tuple(rules),'menu',name)) for name in names]
-            if all(k in blocks for pair in pairs for k in pair):
+            if pairs and all(k in blocks for pair in pairs for k in pair):
                 common=set.intersection(*(set(blocks[k]) for pair in pairs for k in pair))
                 vals=[sum(blocks[x][b]-blocks[y][b] for x,y in pairs)/len(pairs) for b in sorted(common)]
                 contract_effects.append({'players':n,'rules':rules,'final_target_native_minus_menu':estimate(vals)})
@@ -107,15 +130,22 @@ def main():
             pairs=[]
             for seed in (2026092801,2026092802,2026092803):
                 pairs.append(((2,tuple(rules),contract,f'2p-{seed}-20M'),(2,tuple(rules),contract,f'2p-{seed}-2M')))
-            if all(k in blocks for pair in pairs for k in pair):
+            if pairs and all(k in blocks for pair in pairs for k in pair):
                 common=set.intersection(*(set(blocks[k]) for pair in pairs for k in pair))
                 vals=[sum(blocks[x][b]-blocks[y][b] for x,y in pairs)/len(pairs) for b in sorted(common)]
                 learning_effects.append({'rules':rules,'contract':contract,'target20M_minus2M':estimate(vals),
                     'per_seed':{x[-1]:estimate([blocks[x][b]-blocks[y][b] for b in sorted(common)]) for x,y in pairs}})
     resources=[json.loads(line) for line in (root/'resources.jsonl').read_text().splitlines()]
-    report={'status':'complete' if complete else 'incomplete','plan_digest':digest(plan),'campaign':campaign,
-        'hands':total,'expected_hands':expected_hands,'native_replayed_hands':replayed,'verified_phase_files':hashes,'failures':failures,
-        'attempts':attempts,'results':results,'comparisons':comparisons,'contract_effects':contract_effects,'learning_effects':learning_effects,'resources':{'peak_rss_bytes':max(r['rss_bytes'] for r in resources),
+    peak=max([r['rss_bytes'] for r in resources]+[json.loads((root/'preflight/result.json').read_text()).get('peak_rss_bytes',0),json.loads((root/'confirmation/result.json').read_text()).get('peak_rss_bytes',0)] if (root/'confirmation/result.json').exists() else [r['rss_bytes'] for r in resources])
+    minimum_disk=min(r['free_disk_bytes'] for r in resources)
+    swap_values=[swap_bytes(r['swap']) for r in resources];swap_values=[v for v in swap_values if v is not None]
+    resource_checks={'rss_within_10_5_gib':peak<=10.5*1024**3,'disk_above_8_gib':minimum_disk>=8*1024**3,
+        'swap_growth_within_half_gib':not swap_values or max(swap_values)-swap_values[0]<=.5*1024**3,
+        'audit_within_absolute_deadline':time()<=campaign.get('deadline',float('inf'))}
+    complete=complete and all(resource_checks.values())
+    report={'report_revision':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'status':'complete' if complete else 'incomplete','plan_digest':digest(plan),'campaign':campaign,
+        'hands':total,'preflight_native_replayed_hands':preflight_replays,'prior_opened_schedule_audit':prior_schedule_audit,'expected_hands':expected_hands,'native_replayed_hands':replayed,'verified_phase_files':hashes,'failures':failures,
+        'attempts':attempts,'results':results,'comparisons':comparisons,'contract_effects':contract_effects,'learning_effects':learning_effects,'resources':{'peak_rss_bytes':peak,'checks':resource_checks,
             'minimum_free_disk_bytes':min(r['free_disk_bytes'] for r in resources),'swap_first':resources[0]['swap'],'swap_last':resources[-1]['swap'],
             'elapsed_since_preflight':time()-campaign['started'],'audit_seconds':time()-started},
         'interval_contract':'exploratory 95% Student t over paired rotation-block means, seeds averaged within block; no multiplicity-adjusted primary claim'}

@@ -113,7 +113,8 @@ def test_hidden_world_and_future_invariance_full_production():
     view=root.observe(root.actor)
     pair=next(p for p in combinations(DECK,2) if not set(p)&set(view.hole_cards))
     a=_sample_world(view,{1-view.seat:((pair,1),)},Random(1))
-    b=_sample_world(view,{1-view.seat:((pair,1),)},Random(2))
+    other=next(p for p in combinations(DECK,2) if p!=pair and not set(p)&set(view.hole_cards))
+    b=_sample_world(view,{1-view.seat:((other,1),)},Random(2))
     assert a.observe(view.seat)==b.observe(view.seat)==view
     x,y=LocalBestResponse(Call(),99,LBRConfig(1,60)),LocalBestResponse(Call(),99,LBRConfig(1,60))
     assert x.choose_action(a.observe(view.seat))==y.choose_action(b.observe(view.seat))
@@ -178,3 +179,31 @@ def test_report_intervals_use_paired_block_averages():
     pseudorepeated=estimate(seed_contrasts.flatten())
     assert clustered['blocks']==3 and clustered['ci95'][1]>pseudorepeated['ci95'][1]
     assert clustered['buyins20_per100']==pytest.approx(clustered['bb100']/20)
+
+
+def test_production_report_retains_partial_native_rows(tmp_path,monkeypatch):
+    import gzip,json,sys
+    from scripts.evaluate_robustness import play,Uniform
+    from scripts.evaluate_hu20 import write_json
+    from scripts.tp20_common import seal
+    from scripts.report_robustness import main
+    pre=tmp_path/'preflight';pre.mkdir();write_json(pre/'result.json',{'status':'complete'});seal(pre)
+    confirm=tmp_path/'confirmation';confirm.mkdir()
+    plan={'policies':[{'name':'uniform','players':2}],'hu_lineups':[['pressure']],
+        'tp_lineups':[],'hu_blocks':3,'tp_blocks':3,'lbr_targets':[],'lbr_blocks':64}
+    write_json(confirm/'plan.json',plan)
+    with gzip.open(pre/'hands.jsonl.gz','wt') as f:pass
+    seal(pre)
+    rows=[]
+    for b in range(3):
+        for r in range(2):play(Uniform(),plan['policies'][0],('pressure',),'menu',b,r,2026135001,'confirmation',LBRConfig(1,60),rows.append)
+    with gzip.open(confirm/'hands.jsonl.gz','wt') as f:
+        for row in rows:f.write(json.dumps(row)+'\n')
+    write_json(confirm/'attempts.json',[]);seal(confirm)
+    write_json(tmp_path/'campaign.json',{'started':0,'status':'partial test'})
+    (tmp_path/'resources.jsonl').write_text(json.dumps({'rss_bytes':1,'free_disk_bytes':10000000000,'swap':'x'})+'\n');seal(tmp_path)
+    monkeypatch.setattr(sys,'argv',['report','--root',str(tmp_path),'--out',str(tmp_path/'report')])
+    assert main()==True
+    report=json.load(open(tmp_path/'report/results.json'))
+    assert report['status']=='incomplete' and report['native_replayed_hands']==6
+    assert report['results'][0]['target']['blocks']==3
