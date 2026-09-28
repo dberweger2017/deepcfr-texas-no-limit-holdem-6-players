@@ -14,6 +14,8 @@ from time import perf_counter
 from src.blueprint.abstraction import (
     SCHEMA,
     HU20_SCHEMA,
+    TP20_SCHEMA,
+    SHORTSTACK_SEATS,
     SUPPORTED_SCHEMAS,
     Choice,
     choices,
@@ -25,6 +27,8 @@ from src.game.types import Street
 
 FORMAT = "holdem-blueprint-v1"
 HU20_GAME = "hu20-20bb-52card-no-ante-rake-v2"
+TP20_GAME = "tp20-20bb-52card-no-ante-rake-v1"
+SHORTSTACK_GAMES = {HU20_SCHEMA: HU20_GAME, TP20_SCHEMA: TP20_GAME}
 LEGACY_GAME = "legacy-blueprint-game-v1"
 
 
@@ -78,9 +82,9 @@ class PilotConfig:
             or self.abstraction not in SUPPORTED_SCHEMAS
             or type(self.postflop_replicates) is not int
             or self.postflop_replicates not in (1, 4)
-            or (self.abstraction == HU20_SCHEMA and
-                (self.game != HU20_GAME or self.postflop_replicates != 1))
-            or (self.abstraction != HU20_SCHEMA and self.game != LEGACY_GAME)
+            or (self.abstraction in SHORTSTACK_SEATS and
+                (self.game != SHORTSTACK_GAMES[self.abstraction] or self.postflop_replicates != 1))
+            or (self.abstraction not in SHORTSTACK_SEATS and self.game != LEGACY_GAME)
         ):
             raise ValueError("Invalid bounded blueprint pilot configuration")
 
@@ -271,6 +275,7 @@ def _collect_root(
     seat: int,
     sample: int,
     deadline: float,
+    work: dict | None = None,
 ) -> _RootResult:
     deltas: dict[str, _Delta] = {}
     coverage: dict[str, int] = {}
@@ -327,13 +332,15 @@ def _collect_root(
                 "Blueprint iteration reached its node or time bound"
             )
         nodes += 1
+        if work is not None:
+            work["nodes"] += 1
         if hand.finished:
             terminals += 1
             player = hand.observe(traverser).players[traverser]
             return (player.stack - player.starting_stack) / hand.table.big_blind
         view = hand.observe(hand.actor)
         menu = choices(view, raise_cap=config.raise_cap,
-                       free_fold=config.abstraction != HU20_SCHEMA)
+                       free_fold=config.abstraction not in SHORTSTACK_SEATS)
         key = information_key(view, menu, schema=config.abstraction)
         policy, trained = _distribution(frozen_nodes, key, menu)
         label = f"{view.street.value}:{'trained' if trained else 'fallback'}"
@@ -417,16 +424,18 @@ class BlueprintTrainer:
             raise TypeError("Provide a table and pilot configuration")
         if not 2 <= len(table.stacks) <= 6:
             raise ValueError("The blueprint pilot supports two to six players")
-        if config.abstraction == HU20_SCHEMA and (
-            table.capacity != 2 or table.stacks != (2000, 2000)
+        if config.abstraction in SHORTSTACK_SEATS and (
+            table.capacity != SHORTSTACK_SEATS[config.abstraction]
+            or table.stacks != (2000,) * SHORTSTACK_SEATS[config.abstraction]
             or table.small_blind != 50 or table.big_blind != 100
             or table.chip_unit != "0.01"
         ):
-            raise ValueError("HU20 training requires the versioned 20BB table")
+            raise ValueError("Short-stack training requires the versioned 20BB table")
         self.table = table
         self.config = config
         self.iteration = 0
         self.nodes: dict[str, Node] = {}
+        self.last_attempt_nodes = 0
 
     def frozen(self) -> FrozenTable:
         return FrozenTable(
@@ -446,6 +455,8 @@ class BlueprintTrainer:
         started = perf_counter()
         deadline = started + self.config.max_seconds
         nodes = terminals = 0
+        work = {"nodes": 0}
+        self.last_attempt_nodes = 0
         worker_peaks: dict[int, int] = {}
         coverage: dict[str, int] = {}
         prefixes = continuations = replay_actions = raw_visits = 0
@@ -468,6 +479,7 @@ class BlueprintTrainer:
                     seat,
                     sample,
                     deadline,
+                    work,
                 )
                 for seat, sample in tasks
             )
@@ -512,6 +524,7 @@ class BlueprintTrainer:
                     )
                 _merge_deltas(deltas, result.deltas)
         finally:
+            self.last_attempt_nodes = work["nodes"] if workers == 1 else nodes
             if executor is not None:
                 executor.shutdown(cancel_futures=True)
         new_entries = sum(key not in self.nodes for key in deltas)

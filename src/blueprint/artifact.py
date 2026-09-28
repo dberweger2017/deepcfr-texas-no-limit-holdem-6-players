@@ -14,6 +14,9 @@ from random import Random
 from src.blueprint.abstraction import (
     SCHEMA,
     HU20_SCHEMA,
+    TP20_SCHEMA,
+    TP20_MENU_VERSION,
+    SHORTSTACK_SEATS,
     HU20_MENU_VERSION,
     HU20_CARD_VERSION,
     SUPPORTED_SCHEMAS,
@@ -23,6 +26,8 @@ from src.blueprint.abstraction import (
 from src.blueprint.solver import (
     FORMAT,
     HU20_GAME,
+    TP20_GAME,
+    SHORTSTACK_GAMES,
     LEGACY_GAME,
     BlueprintTrainer,
     Node,
@@ -34,16 +39,20 @@ from src.game.hand import Table
 HU20_FORMAT = "holdem-hu20-blueprint-v2"
 
 
+TP20_FORMAT = "holdem-tp20-blueprint-v1"
+SHORTSTACK_FORMATS = {HU20_GAME: HU20_FORMAT, TP20_GAME: TP20_FORMAT}
+
+
 def _format(config: PilotConfig) -> str:
-    return HU20_FORMAT if config.game == HU20_GAME else FORMAT
+    return SHORTSTACK_FORMATS.get(config.game, FORMAT)
 
 
 def _identity(config: PilotConfig) -> dict:
-    return ({"game": HU20_GAME, "players": 2, "stacks": [2000, 2000],
+    seats = SHORTSTACK_SEATS.get(config.abstraction)
+    return ({"game": config.game, "players": seats, "stacks": [2000] * seats,
              "small_blind": 50, "big_blind": 100,
-             "action_menu": HU20_MENU_VERSION,
-             "card_descriptor": HU20_CARD_VERSION}
-            if config.game == HU20_GAME else {})
+             "action_menu": HU20_MENU_VERSION if seats == 2 else TP20_MENU_VERSION,
+             "card_descriptor": HU20_CARD_VERSION} if seats else {})
 
 
 def _encoded(document: dict) -> bytes:
@@ -68,7 +77,7 @@ def _read(path: Path) -> dict:
     document = loads(decompress(path.read_bytes()))
     if (
         not isinstance(document, dict)
-        or document.get("format") not in (FORMAT, HU20_FORMAT)
+        or document.get("format") not in (FORMAT, *SHORTSTACK_FORMATS.values())
     ):
         raise ValueError("Unknown blueprint artifact format")
     _checked_schema(document)
@@ -82,10 +91,11 @@ def _checked_schema(document: dict) -> str:
         schema not in SUPPORTED_SCHEMAS
         or not isinstance(config, dict)
         or config.get("abstraction", SCHEMA) != schema
-        or (document.get("format") == HU20_FORMAT) != (schema == HU20_SCHEMA)
+        or document.get("format") != SHORTSTACK_FORMATS.get(
+            SHORTSTACK_GAMES.get(schema), FORMAT)
         or config.get("game", LEGACY_GAME) !=
-            (HU20_GAME if schema == HU20_SCHEMA else LEGACY_GAME)
-        or (schema == HU20_SCHEMA and document.get("identity") !=
+            SHORTSTACK_GAMES.get(schema, LEGACY_GAME)
+        or (schema in SHORTSTACK_SEATS and document.get("identity") !=
             _identity(PilotConfig(**config)))
     ):
         raise ValueError("Unknown blueprint abstraction schema")
@@ -126,7 +136,7 @@ def save_training(trainer: BlueprintTrainer, path: Path) -> str:
         "config": _config(trainer.config),
         "iteration": trainer.iteration,
     }
-    if trainer.config.game == HU20_GAME:
+    if trainer.config.game in SHORTSTACK_FORMATS:
         header["identity"] = _identity(trainer.config)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + ".tmp")
@@ -161,7 +171,7 @@ def load_training(path: Path) -> BlueprintTrainer:
         document = loads(source.readline())
         if (
             not isinstance(document, dict)
-            or document.get("format") not in (FORMAT, HU20_FORMAT)
+            or document.get("format") not in (FORMAT, *SHORTSTACK_FORMATS.values())
         ):
             raise ValueError("Unknown blueprint artifact format")
         _checked_schema(document)
@@ -219,8 +229,8 @@ def export_policy(
 ) -> str:
     if strategy not in {"current", "average"}:
         raise ValueError("Export current or average strategy")
-    if trainer.config.game == HU20_GAME and strategy != "current":
-        raise ValueError("HU20 uses the separately collected windowed extraction")
+    if trainer.config.game in SHORTSTACK_FORMATS and strategy != "current":
+        raise ValueError("Short-stack games require current export or a separately collected windowed extraction")
     entries = {}
     for key, node in trainer.nodes.items():
         if strategy == "current":
@@ -243,7 +253,7 @@ def export_policy(
             "strategy": strategy,
             "entries": entries,
         }
-    if trainer.config.game == HU20_GAME:
+    if trainer.config.game in SHORTSTACK_FORMATS:
         document["identity"] = _identity(trainer.config)
     return _write(
         path,
@@ -262,7 +272,7 @@ class FrozenBlueprint:
             raise ValueError("Training checkpoints are not arena policies")
         if spec.format != document["format"]:
             raise ValueError("Checkpoint adapter format differs from inference artifact")
-        if document["format"] == HU20_FORMAT:
+        if document["format"] in SHORTSTACK_FORMATS.values():
             table_data = document["table"]
             table = Table(tuple(table_data["player_ids"]), tuple(table_data["stacks"]),
                           table_data["button"], table_data["small_blind"],
@@ -303,7 +313,7 @@ class FrozenBlueprint:
         if view.capacity != self.players:
             raise ValueError("Blueprint table size differs from the evaluation table")
         menu = choices(view, raise_cap=self.raise_cap,
-                       free_fold=self.abstraction != HU20_SCHEMA)
+                       free_fold=self.abstraction not in SHORTSTACK_SEATS)
         key = information_key(view, menu, schema=self.abstraction)
         saved = self.entries.get(key)
         if saved is None:
