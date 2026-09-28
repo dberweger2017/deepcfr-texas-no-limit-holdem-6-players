@@ -25,6 +25,12 @@ Prior #114 checkpoint-contrast variance suggests a **38.9-BB/100** 97.5% half-wi
 
 The [frozen plan](../../configs/blueprint/hu20-native-reopening-m4.json) records every root, count, limit, reference-model hash and resource-decision hash. Common independent public observations are constructed from fixed uniform/passive/repeated-raise paths before any main training. Diagnostics compare the same observations under each arm's keys; hash intersections are not a coverage measure.
 
+## Implementation verification and launch
+
+The initial implementation passed **853 CI tests**. The frozen campaign revision `a87e9f8805d211e2b21dbb710339ada9083eedf6` passed **856 local repository tests** (297.62 seconds) and **22 focused tests**, including six fresh tiny-budget production arms, 648 real native hands, checkpoint/export matching, dual-menu telemetry, native replay and a second arithmetic path. An earlier local suite was invalidated by concurrent source edits during a provenance test; stable-source CI and the full rerun above pass.
+
+The sequential M4 main campaign started at the frozen revision as PID **20244**. Its first A arm saved the 2M checkpoint, with no resource-guard failure or swap growth at the initial check. Main outcomes remain pending. The final-report follow-up checks every 15 minutes and stays quiet while healthy; it retains failures and disables itself after publishing the final report. No running source or frozen count will be changed.
+
 ## Retention
 
 Raw preflight and main artifacts stay on `ssh m4` under `/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928`. Original preflight checksums and supervisor/resource records are preserved separately when main begins. Final inventory is generated after child logs close. Retrieval example:
