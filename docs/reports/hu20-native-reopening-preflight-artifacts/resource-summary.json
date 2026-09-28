@@ -1,0 +1,1107 @@
+{
+  "campaign": {
+    "attempts": [
+      {
+        "arm": "A",
+        "command": [
+          "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+          "-m",
+          "scripts.preflight_hu20_reopening",
+          "--plan",
+          "configs/blueprint/hu20-native-reopening-m4.json",
+          "--out",
+          "results/hu20-native-reopening-m4-20260928/preflight/A-2026093011",
+          "--seed",
+          "2026093011",
+          "--arm",
+          "A",
+          "--deadline",
+          "1790649463.7069068"
+        ],
+        "exit_code": 0,
+        "finished": 1790620735.565912,
+        "guard_failure": null,
+        "peak_sampled_rss_bytes": 183975936,
+        "pid": 18413,
+        "seed": 2026093011,
+        "started": 1790620663.719332,
+        "status": "complete"
+      },
+      {
+        "arm": "B",
+        "command": [
+          "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+          "-m",
+          "scripts.preflight_hu20_reopening",
+          "--plan",
+          "configs/blueprint/hu20-native-reopening-m4.json",
+          "--out",
+          "results/hu20-native-reopening-m4-20260928/preflight/B-2026093011",
+          "--seed",
+          "2026093011",
+          "--arm",
+          "B",
+          "--deadline",
+          "1790649463.7069068"
+        ],
+        "exit_code": 0,
+        "finished": 1790620814.5387661,
+        "guard_failure": null,
+        "peak_sampled_rss_bytes": 355319808,
+        "pid": 18564,
+        "seed": 2026093011,
+        "started": 1790620735.567756,
+        "status": "complete"
+      },
+      {
+        "arm": "A",
+        "command": [
+          "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+          "-m",
+          "scripts.preflight_hu20_reopening",
+          "--plan",
+          "configs/blueprint/hu20-native-reopening-m4.json",
+          "--out",
+          "results/hu20-native-reopening-m4-20260928/preflight/A-2026093012",
+          "--seed",
+          "2026093012",
+          "--arm",
+          "A",
+          "--deadline",
+          "1790649463.7069068"
+        ],
+        "exit_code": 0,
+        "finished": 1790620888.447209,
+        "guard_failure": null,
+        "peak_sampled_rss_bytes": 244514816,
+        "pid": 18726,
+        "seed": 2026093012,
+        "started": 1790620814.540092,
+        "status": "complete"
+      },
+      {
+        "arm": "B",
+        "command": [
+          "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+          "-m",
+          "scripts.preflight_hu20_reopening",
+          "--plan",
+          "configs/blueprint/hu20-native-reopening-m4.json",
+          "--out",
+          "results/hu20-native-reopening-m4-20260928/preflight/B-2026093012",
+          "--seed",
+          "2026093012",
+          "--arm",
+          "B",
+          "--deadline",
+          "1790649463.7069068"
+        ],
+        "exit_code": 0,
+        "finished": 1790620966.411981,
+        "guard_failure": null,
+        "peak_sampled_rss_bytes": 257359872,
+        "pid": 18867,
+        "seed": 2026093012,
+        "started": 1790620888.449297,
+        "status": "complete"
+      },
+      {
+        "arm": "A",
+        "command": [
+          "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+          "-m",
+          "scripts.preflight_hu20_reopening",
+          "--plan",
+          "configs/blueprint/hu20-native-reopening-m4.json",
+          "--out",
+          "results/hu20-native-reopening-m4-20260928/preflight/A-2026093013",
+          "--seed",
+          "2026093013",
+          "--arm",
+          "A",
+          "--deadline",
+          "1790649463.7069068"
+        ],
+        "exit_code": 0,
+        "finished": 1790621039.272099,
+        "guard_failure": null,
+        "peak_sampled_rss_bytes": 182255616,
+        "pid": 19021,
+        "seed": 2026093013,
+        "started": 1790620966.413953,
+        "status": "complete"
+      },
+      {
+        "arm": "B",
+        "command": [
+          "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+          "-m",
+          "scripts.preflight_hu20_reopening",
+          "--plan",
+          "configs/blueprint/hu20-native-reopening-m4.json",
+          "--out",
+          "results/hu20-native-reopening-m4-20260928/preflight/B-2026093013",
+          "--seed",
+          "2026093013",
+          "--arm",
+          "B",
+          "--deadline",
+          "1790649463.7069068"
+        ],
+        "exit_code": 0,
+        "finished": 1790621117.2098088,
+        "guard_failure": null,
+        "peak_sampled_rss_bytes": 258113536,
+        "pid": 19161,
+        "seed": 2026093013,
+        "started": 1790621039.272928,
+        "status": "complete"
+      }
+    ],
+    "deadline": 1790656663.7069068,
+    "plan_digest": "85c68a1fc7b86dfc26c3aedcb639230d2b944e53ab3bbf1efba5b3b69bd4452d",
+    "preflight_finished": 1790621117.2120872,
+    "revision": "613539d152a5d9abf563a12756cd79001b4f556c",
+    "started": 1790620663.7069068,
+    "status": "awaiting_resource_freeze",
+    "swap_baseline": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+  },
+  "runs": [
+    {
+      "arm": "A",
+      "checkpoint_seconds": 0.5568199588451535,
+      "complete_outer_cost": {
+        "max": 0.044281709007918835,
+        "mean": 0.01585657428722634,
+        "p95": 0.027413541916757822,
+        "p99": 0.0339049999602139,
+        "sum_seconds": 56.81410567113198
+      },
+      "completed_iterations": 3583,
+      "completed_nodes": 1000229,
+      "config": {
+        "abstraction": "hu20-ordered-history-card-baseline-v2",
+        "game": "hu20-20bb-52card-no-ante-rake-v2",
+        "max_entries": 4000000,
+        "max_nodes": 250000,
+        "max_seconds": 300,
+        "postflop_replicates": 1,
+        "raise_cap": 2,
+        "roots_per_seat": 1,
+        "seed": 2026093011
+      },
+      "decisions_at_least_two_raises": 160974,
+      "decisions_more_than_two_raises": 0,
+      "elapsed_seconds": 71.27255345787853,
+      "entries": 80950,
+      "export_seconds": 0.4193028749432415,
+      "failure": null,
+      "initial_regret_entries": 0,
+      "last_saved_nodes": 901734,
+      "max_iteration_nodes": 728,
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 75%",
+      "new_entries_after_cap": 27350,
+      "nodes_by_street": {
+        "flop": 101266,
+        "preflop": 38406,
+        "river": 264557,
+        "turn": 184541
+      },
+      "overshoot_nodes": 229,
+      "peak_rss_bytes": 245055488,
+      "plan_digest": "85c68a1fc7b86dfc26c3aedcb639230d2b944e53ab3bbf1efba5b3b69bd4452d",
+      "policy_sha256": "ade10efe708118ca93c7785eacf0373709bc58170f1c0a9b84a47f857c802bd6",
+      "probes": [
+        {
+          "hands": 20,
+          "profile": "uniform",
+          "seconds": 5.1865911250934005
+        },
+        {
+          "hands": 20,
+          "profile": "trained",
+          "seconds": 2.045705207856372
+        }
+      ],
+      "recovery": {
+        "after_sha256": "6c09982f1b28cea876e7a69b1e51d1953814aeee34571a725930cb9f35ad3dc2",
+        "before_sha256": "6c09982f1b28cea876e7a69b1e51d1953814aeee34571a725930cb9f35ad3dc2",
+        "cancelled_nodes": 2,
+        "discarded_work": {
+          "decisions_by_street_raise_count": {
+            "preflop:0": 1
+          },
+          "nodes": 2,
+          "nodes_by_street": {
+            "preflop": 1
+          },
+          "terminals": 1,
+          "updates_by_street_raise_count": {}
+        },
+        "extra_replay_validation_nodes": 884,
+        "next_original_sha256": "59990b5fa5e8f62adb03d222f07969f574ee7af0f02851deadc5e6e6d2b1dd11",
+        "next_resumed_sha256": "59990b5fa5e8f62adb03d222f07969f574ee7af0f02851deadc5e6e6d2b1dd11",
+        "published_iteration": 3583,
+        "recovered_sha256": "6c09982f1b28cea876e7a69b1e51d1953814aeee34571a725930cb9f35ad3dc2"
+      },
+      "requested_nodes": 1000000,
+      "result_path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/result.json",
+      "result_sha256": "563b3d7b531bf64a1da994eda107bd986fa10e1d5a3487617e6f07ee7c8b8e9b",
+      "revisited_entries_after_cap": 37917,
+      "seed": 2026093011,
+      "started": 1790620663.82085,
+      "status": "complete",
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+      "timing_panels": [
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.003748292103409767
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.00472754193469882
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "uniform",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 5.177530833054334
+        },
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.0038079579826444387
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.004832915961742401
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "trained",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 2.0365231661126018
+        }
+      ],
+      "updates_at_least_two_raises": 68241,
+      "updates_by_street": {
+        "flop": 37036,
+        "preflop": 14384,
+        "river": 98486,
+        "turn": 69305
+      },
+      "updates_more_than_two_raises": 0
+    },
+    {
+      "arm": "A",
+      "checkpoint_seconds": 0.564772707875818,
+      "complete_outer_cost": {
+        "max": 0.05145991686731577,
+        "mean": 0.015694481662214693,
+        "p95": 0.027634124970063567,
+        "p99": 0.032436582958325744,
+        "sum_seconds": 57.818470443598926
+      },
+      "completed_iterations": 3684,
+      "completed_nodes": 1000272,
+      "config": {
+        "abstraction": "hu20-ordered-history-card-baseline-v2",
+        "game": "hu20-20bb-52card-no-ante-rake-v2",
+        "max_entries": 4000000,
+        "max_nodes": 250000,
+        "max_seconds": 300,
+        "postflop_replicates": 1,
+        "raise_cap": 2,
+        "roots_per_seat": 1,
+        "seed": 2026093012
+      },
+      "decisions_at_least_two_raises": 161088,
+      "decisions_more_than_two_raises": 0,
+      "elapsed_seconds": 72.74911087518558,
+      "entries": 80661,
+      "export_seconds": 0.3916806250344962,
+      "failure": null,
+      "initial_regret_entries": 0,
+      "last_saved_nodes": 901788,
+      "max_iteration_nodes": 684,
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%",
+      "new_entries_after_cap": 27138,
+      "nodes_by_street": {
+        "flop": 101790,
+        "preflop": 39015,
+        "river": 263847,
+        "turn": 184171
+      },
+      "overshoot_nodes": 272,
+      "peak_rss_bytes": 244514816,
+      "plan_digest": "85c68a1fc7b86dfc26c3aedcb639230d2b944e53ab3bbf1efba5b3b69bd4452d",
+      "policy_sha256": "886bc1faeb27a24bbc8ae3a03fe45720b13f64401e93bb0e65d3b7e0fb2b31e6",
+      "probes": [
+        {
+          "hands": 20,
+          "profile": "uniform",
+          "seconds": 5.2725354169961065
+        },
+        {
+          "hands": 20,
+          "profile": "trained",
+          "seconds": 2.208621249999851
+        }
+      ],
+      "recovery": {
+        "after_sha256": "47d6dc82d81d670fd856e816bcce33d676c363359bb22302564017aceec8619d",
+        "before_sha256": "47d6dc82d81d670fd856e816bcce33d676c363359bb22302564017aceec8619d",
+        "cancelled_nodes": 2,
+        "discarded_work": {
+          "decisions_by_street_raise_count": {
+            "preflop:0": 1
+          },
+          "nodes": 2,
+          "nodes_by_street": {
+            "preflop": 1
+          },
+          "terminals": 1,
+          "updates_by_street_raise_count": {}
+        },
+        "extra_replay_validation_nodes": 626,
+        "next_original_sha256": "db0d1b395015a25f8ff4e5524854f1c715c84dac17f4a8e3ae5e84022f656b1d",
+        "next_resumed_sha256": "db0d1b395015a25f8ff4e5524854f1c715c84dac17f4a8e3ae5e84022f656b1d",
+        "published_iteration": 3684,
+        "recovered_sha256": "47d6dc82d81d670fd856e816bcce33d676c363359bb22302564017aceec8619d"
+      },
+      "requested_nodes": 1000000,
+      "result_path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/result.json",
+      "result_sha256": "d62aee8da070c6da98079126b0d8b197ed12b4d7348f9327c5623f19bcd4bee2",
+      "revisited_entries_after_cap": 37761,
+      "seed": 2026093012,
+      "started": 1790620814.689594,
+      "status": "complete",
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+      "timing_panels": [
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.004879875108599663
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.005053957924246788
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "uniform",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 5.262096457881853
+        },
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.004134375136345625
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.00470699998550117
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "trained",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 2.199162625009194
+        }
+      ],
+      "updates_at_least_two_raises": 67603,
+      "updates_by_street": {
+        "flop": 37499,
+        "preflop": 14513,
+        "river": 98559,
+        "turn": 68669
+      },
+      "updates_more_than_two_raises": 0
+    },
+    {
+      "arm": "A",
+      "checkpoint_seconds": 0.5488216250669211,
+      "complete_outer_cost": {
+        "max": 0.043849874986335635,
+        "mean": 0.015241341693676727,
+        "p95": 0.02734283311292529,
+        "p99": 0.03227204107679427,
+        "sum_seconds": 57.20075537636876
+      },
+      "completed_iterations": 3753,
+      "completed_nodes": 1000162,
+      "config": {
+        "abstraction": "hu20-ordered-history-card-baseline-v2",
+        "game": "hu20-20bb-52card-no-ante-rake-v2",
+        "max_entries": 4000000,
+        "max_nodes": 250000,
+        "max_seconds": 300,
+        "postflop_replicates": 1,
+        "raise_cap": 2,
+        "roots_per_seat": 1,
+        "seed": 2026093013
+      },
+      "decisions_at_least_two_raises": 160521,
+      "decisions_more_than_two_raises": 0,
+      "elapsed_seconds": 72.56247258279473,
+      "entries": 80057,
+      "export_seconds": 0.4193237500730902,
+      "failure": null,
+      "initial_regret_entries": 0,
+      "last_saved_nodes": 902394,
+      "max_iteration_nodes": 717,
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%",
+      "new_entries_after_cap": 27025,
+      "nodes_by_street": {
+        "flop": 103289,
+        "preflop": 39574,
+        "river": 260963,
+        "turn": 185162
+      },
+      "overshoot_nodes": 162,
+      "peak_rss_bytes": 242647040,
+      "plan_digest": "85c68a1fc7b86dfc26c3aedcb639230d2b944e53ab3bbf1efba5b3b69bd4452d",
+      "policy_sha256": "d236877b1132efe15d05d999fe7e01abce1555461d2eee169dc4119d224da640",
+      "probes": [
+        {
+          "hands": 20,
+          "profile": "uniform",
+          "seconds": 4.87099525006488
+        },
+        {
+          "hands": 20,
+          "profile": "trained",
+          "seconds": 3.1378793329931796
+        }
+      ],
+      "recovery": {
+        "after_sha256": "ef4383e091eb9ef90157ae7968a2f9b609aac51721e673fb1bd110a2362ec0ab",
+        "before_sha256": "ef4383e091eb9ef90157ae7968a2f9b609aac51721e673fb1bd110a2362ec0ab",
+        "cancelled_nodes": 2,
+        "discarded_work": {
+          "decisions_by_street_raise_count": {
+            "preflop:0": 1
+          },
+          "nodes": 2,
+          "nodes_by_street": {
+            "preflop": 1
+          },
+          "terminals": 1,
+          "updates_by_street_raise_count": {}
+        },
+        "extra_replay_validation_nodes": 678,
+        "next_original_sha256": "0be6932ae473ed3666e44e00a3bf7ecbe0a5ce65ca5ab31a5b209135a34acb67",
+        "next_resumed_sha256": "0be6932ae473ed3666e44e00a3bf7ecbe0a5ce65ca5ab31a5b209135a34acb67",
+        "published_iteration": 3753,
+        "recovered_sha256": "ef4383e091eb9ef90157ae7968a2f9b609aac51721e673fb1bd110a2362ec0ab"
+      },
+      "requested_nodes": 1000000,
+      "result_path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/result.json",
+      "result_sha256": "f046d689187e97984a99345f0cc889125822835be19e04c1287a00899c7defa9",
+      "revisited_entries_after_cap": 38715,
+      "seed": 2026093013,
+      "started": 1790620966.543763,
+      "status": "complete",
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+      "timing_panels": [
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.0038066250272095203
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.0036973748356103897
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "uniform",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 4.862878167070448
+        },
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.0034192921593785286
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.0028447499498724937
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "trained",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 3.13101812498644
+        }
+      ],
+      "updates_at_least_two_raises": 68562,
+      "updates_by_street": {
+        "flop": 37915,
+        "preflop": 14636,
+        "river": 97621,
+        "turn": 69772
+      },
+      "updates_more_than_two_raises": 0
+    },
+    {
+      "arm": "B",
+      "checkpoint_seconds": 0.8520979159511626,
+      "complete_outer_cost": {
+        "max": 0.06656841700896621,
+        "mean": 0.02226019093978892,
+        "p95": 0.04329150007106364,
+        "p99": 0.05156616703607142,
+        "sum_seconds": 58.4552614078857
+      },
+      "completed_iterations": 2626,
+      "completed_nodes": 1000389,
+      "config": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+        "max_entries": 4000000,
+        "max_nodes": 250000,
+        "max_seconds": 300,
+        "postflop_replicates": 1,
+        "raise_cap": null,
+        "roots_per_seat": 1,
+        "seed": 2026093011
+      },
+      "decisions_at_least_two_raises": 238196,
+      "decisions_more_than_two_raises": 117749,
+      "elapsed_seconds": 77.80568312504329,
+      "entries": 118978,
+      "export_seconds": 0.658763957908377,
+      "failure": null,
+      "initial_regret_entries": 0,
+      "last_saved_nodes": 902935,
+      "max_iteration_nodes": 1075,
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%",
+      "new_entries_after_cap": 54908,
+      "nodes_by_street": {
+        "flop": 109225,
+        "preflop": 48515,
+        "river": 241199,
+        "turn": 170633
+      },
+      "overshoot_nodes": 389,
+      "peak_rss_bytes": 355319808,
+      "plan_digest": "85c68a1fc7b86dfc26c3aedcb639230d2b944e53ab3bbf1efba5b3b69bd4452d",
+      "policy_sha256": "df696f10506cb7c7e2941cc820f950198553d6cccbc9e7e3b2ded3c9d37369bb",
+      "probes": [
+        {
+          "hands": 20,
+          "profile": "uniform",
+          "seconds": 5.410311707993969
+        },
+        {
+          "hands": 20,
+          "profile": "trained",
+          "seconds": 3.3747729579918087
+        }
+      ],
+      "recovery": {
+        "after_sha256": "a212b7047201a5188d75e1a37819b70e787d6e16282e694dbd08509123797b1b",
+        "before_sha256": "a212b7047201a5188d75e1a37819b70e787d6e16282e694dbd08509123797b1b",
+        "cancelled_nodes": 2,
+        "discarded_work": {
+          "decisions_by_street_raise_count": {
+            "preflop:0": 1
+          },
+          "nodes": 2,
+          "nodes_by_street": {
+            "preflop": 1
+          },
+          "terminals": 1,
+          "updates_by_street_raise_count": {}
+        },
+        "extra_replay_validation_nodes": 578,
+        "next_original_sha256": "5d85d36d89cdf7d5dd13c63dcb303b074a997dd840ef88e89428d2e70a79d3d2",
+        "next_resumed_sha256": "5d85d36d89cdf7d5dd13c63dcb303b074a997dd840ef88e89428d2e70a79d3d2",
+        "published_iteration": 2626,
+        "recovered_sha256": "a212b7047201a5188d75e1a37819b70e787d6e16282e694dbd08509123797b1b"
+      },
+      "requested_nodes": 1000000,
+      "result_path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/result.json",
+      "result_sha256": "9ae86dcb5b1c4e257ee2a70e5605e04cee5400ae76d3fe50e03649fb79b8e6a6",
+      "revisited_entries_after_cap": 31350,
+      "seed": 2026093011,
+      "started": 1790620735.724832,
+      "status": "complete",
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+      "timing_panels": [
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.002948082983493805
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.003298250027000904
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "uniform",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 5.403703625081107
+        },
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.003633250016719103
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.003585166996344924
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "trained",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 3.3666498330421746
+        }
+      ],
+      "updates_at_least_two_raises": 86949,
+      "updates_by_street": {
+        "flop": 40899,
+        "preflop": 17231,
+        "river": 86698,
+        "turn": 61893
+      },
+      "updates_more_than_two_raises": 45093
+    },
+    {
+      "arm": "B",
+      "checkpoint_seconds": 0.8367999999318272,
+      "complete_outer_cost": {
+        "max": 0.09197058295831084,
+        "mean": 0.022031609970810658,
+        "p95": 0.04299491713754833,
+        "p99": 0.05507958400994539,
+        "sum_seconds": 58.56001930241473
+      },
+      "completed_iterations": 2658,
+      "completed_nodes": 1000135,
+      "config": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+        "max_entries": 4000000,
+        "max_nodes": 250000,
+        "max_seconds": 300,
+        "postflop_replicates": 1,
+        "raise_cap": null,
+        "roots_per_seat": 1,
+        "seed": 2026093012
+      },
+      "decisions_at_least_two_raises": 238593,
+      "decisions_more_than_two_raises": 118517,
+      "elapsed_seconds": 77.32985416683368,
+      "entries": 117849,
+      "export_seconds": 0.6470844580326229,
+      "failure": null,
+      "initial_regret_entries": 0,
+      "last_saved_nodes": 903428,
+      "max_iteration_nodes": 1409,
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 77%",
+      "new_entries_after_cap": 54621,
+      "nodes_by_street": {
+        "flop": 109788,
+        "preflop": 50462,
+        "river": 239795,
+        "turn": 169460
+      },
+      "overshoot_nodes": 135,
+      "peak_rss_bytes": 352731136,
+      "plan_digest": "85c68a1fc7b86dfc26c3aedcb639230d2b944e53ab3bbf1efba5b3b69bd4452d",
+      "policy_sha256": "6ce476d0522b84b195b20381e0c7e08bea8c71b6742c5852087422bd89f2f96c",
+      "probes": [
+        {
+          "hands": 20,
+          "profile": "uniform",
+          "seconds": 5.693137458991259
+        },
+        {
+          "hands": 20,
+          "profile": "trained",
+          "seconds": 2.4789693339262158
+        }
+      ],
+      "recovery": {
+        "after_sha256": "497c3f06f80b8071f4970492f2643974c3bfe3880f018fd3bf3e719318485c8d",
+        "before_sha256": "497c3f06f80b8071f4970492f2643974c3bfe3880f018fd3bf3e719318485c8d",
+        "cancelled_nodes": 2,
+        "discarded_work": {
+          "decisions_by_street_raise_count": {
+            "preflop:0": 1
+          },
+          "nodes": 2,
+          "nodes_by_street": {
+            "preflop": 1
+          },
+          "terminals": 1,
+          "updates_by_street_raise_count": {}
+        },
+        "extra_replay_validation_nodes": 398,
+        "next_original_sha256": "233d607a3cac4ebf84be855922d4ae1ac0265fdff801a7f6ec0ba62bbfa1fec6",
+        "next_resumed_sha256": "233d607a3cac4ebf84be855922d4ae1ac0265fdff801a7f6ec0ba62bbfa1fec6",
+        "published_iteration": 2658,
+        "recovered_sha256": "497c3f06f80b8071f4970492f2643974c3bfe3880f018fd3bf3e719318485c8d"
+      },
+      "requested_nodes": 1000000,
+      "result_path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/result.json",
+      "result_sha256": "d35ff38954a388ed65e5986e0bd97d3affcff93b8934d62e53e3535284464e37",
+      "revisited_entries_after_cap": 31677,
+      "seed": 2026093012,
+      "started": 1790620888.596365,
+      "status": "complete",
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+      "timing_panels": [
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.004630791023373604
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.004041624953970313
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "uniform",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 5.683938374975696
+        },
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.005097375018522143
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.004304500063881278
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "trained",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 2.4685810829978436
+        }
+      ],
+      "updates_at_least_two_raises": 86877,
+      "updates_by_street": {
+        "flop": 40928,
+        "preflop": 18054,
+        "river": 86069,
+        "turn": 61474
+      },
+      "updates_more_than_two_raises": 45041
+    },
+    {
+      "arm": "B",
+      "checkpoint_seconds": 0.8417668750043958,
+      "complete_outer_cost": {
+        "max": 0.08255195897072554,
+        "mean": 0.021812433617182603,
+        "p95": 0.0439436249434948,
+        "p99": 0.0538465001154691,
+        "sum_seconds": 58.6754464302212
+      },
+      "completed_iterations": 2690,
+      "completed_nodes": 1000339,
+      "config": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+        "max_entries": 4000000,
+        "max_nodes": 250000,
+        "max_seconds": 300,
+        "postflop_replicates": 1,
+        "raise_cap": null,
+        "roots_per_seat": 1,
+        "seed": 2026093013
+      },
+      "decisions_at_least_two_raises": 238835,
+      "decisions_more_than_two_raises": 118326,
+      "elapsed_seconds": 76.77681733295321,
+      "entries": 117942,
+      "export_seconds": 0.6501844169106334,
+      "failure": null,
+      "initial_regret_entries": 0,
+      "last_saved_nodes": 902763,
+      "max_iteration_nodes": 1157,
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%",
+      "new_entries_after_cap": 54676,
+      "nodes_by_street": {
+        "flop": 108590,
+        "preflop": 50621,
+        "river": 242028,
+        "turn": 168437
+      },
+      "overshoot_nodes": 339,
+      "peak_rss_bytes": 353386496,
+      "plan_digest": "85c68a1fc7b86dfc26c3aedcb639230d2b944e53ab3bbf1efba5b3b69bd4452d",
+      "policy_sha256": "444590262c4dea1f5716a0e6563b61339d2550e46e13cfb0e1b551db537f849f",
+      "probes": [
+        {
+          "hands": 20,
+          "profile": "uniform",
+          "seconds": 4.95335966697894
+        },
+        {
+          "hands": 20,
+          "profile": "trained",
+          "seconds": 2.66553375008516
+        }
+      ],
+      "recovery": {
+        "after_sha256": "8643cd6fe0a1d0be83151b6623107d3ba920bc90a26e6289b005e1537a0d5f43",
+        "before_sha256": "8643cd6fe0a1d0be83151b6623107d3ba920bc90a26e6289b005e1537a0d5f43",
+        "cancelled_nodes": 2,
+        "discarded_work": {
+          "decisions_by_street_raise_count": {
+            "preflop:0": 1
+          },
+          "nodes": 2,
+          "nodes_by_street": {
+            "preflop": 1
+          },
+          "terminals": 1,
+          "updates_by_street_raise_count": {}
+        },
+        "extra_replay_validation_nodes": 1126,
+        "next_original_sha256": "6e54e096bc324fdfba606582be4de0a823dcbfb3dcfa68c7565dc7eba152f42a",
+        "next_resumed_sha256": "6e54e096bc324fdfba606582be4de0a823dcbfb3dcfa68c7565dc7eba152f42a",
+        "published_iteration": 2690,
+        "recovered_sha256": "8643cd6fe0a1d0be83151b6623107d3ba920bc90a26e6289b005e1537a0d5f43"
+      },
+      "requested_nodes": 1000000,
+      "result_path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/result.json",
+      "result_sha256": "84275491f4679e3ec4cd0d7bf2f18fdcd0eb7950c29e053d15ad4d6e07df2247",
+      "revisited_entries_after_cap": 31758,
+      "seed": 2026093013,
+      "started": 1790621039.375251,
+      "status": "complete",
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+      "timing_panels": [
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.0037612090818583965
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "uniform",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.003990500001236796
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "uniform",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 4.944964499911293
+        },
+        {
+          "blocks": 4,
+          "contract": "menu",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.004111584043130279
+        },
+        {
+          "blocks": 4,
+          "contract": "native",
+          "hands": 8,
+          "profile": "trained",
+          "rule": [
+            "pressure"
+          ],
+          "seconds": 0.0038291250821202993
+        },
+        {
+          "blocks": 2,
+          "contract": "menu",
+          "hands": 4,
+          "profile": "trained",
+          "rule": [
+            "lbr"
+          ],
+          "seconds": 2.656966583104804
+        }
+      ],
+      "updates_at_least_two_raises": 87023,
+      "updates_by_street": {
+        "flop": 40236,
+        "preflop": 18045,
+        "river": 87044,
+        "turn": 60948
+      },
+      "updates_more_than_two_raises": 45031
+    }
+  ]
+}

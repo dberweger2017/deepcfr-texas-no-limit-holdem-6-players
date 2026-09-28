@@ -68,6 +68,4 @@ model promotion, paid compute or automatic follow-on campaign is implied.
 
 ## Current state
 
-Implementation and correctness checks precede the M4 resource preflight. Main
-training is conditional on that gate. A measured obstruction is a valid completed
-result; six-run training and a candidate human demo are required only if feasible.
+All six outcome-free resource runs passed; see the [preflight and frozen decision](reports/hu20-native-reopening-preflight.md). The main campaign freezes 20M nodes per arm, three paired seeds, 4,096 cheap blocks, 512 LBR blocks and 512 secondary blocks before returns. The six sequential runs, native replay, independent statistics check and fixed-first-seed human demo are implemented. The original ten-hour deadline is retained. Final results are pending; feasibility alone is not a strength claim.

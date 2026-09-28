@@ -42,7 +42,7 @@ def guard(plan,out,deadline):
     if shutil.disk_usage(out).free<plan['limits']['min_free_gib']*1024**3: raise RuntimeError('Free disk guard')
 
 
-def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resource_only=False):
+def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resource_only=False,opponent_policies=None):
     n=spec['players']; logical=tuple((seat-rotation)%n for seat in range(n))
     ids=tuple(f'player-{i}' for i in logical)
     deal=stream_seed(root,'validation' if resource_only else 'test','deal',n,block)
@@ -51,7 +51,7 @@ def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resour
     hand=Hand.start(table,hand_id=f'robustness-{phase}-{n}-{block}',seed=deal)
     declared_rules=rules
     if len(rules)==2 and block%2: rules=rules[::-1]
-    rivals={i:(LocalBestResponse(source,stream_seed(root,'test','opponent',n,block,i),config)
+    rivals=opponent_policies if opponent_policies is not None else {i:(LocalBestResponse(source,stream_seed(root,'test','opponent',n,block,i),config)
                if rules[i-1]=='lbr' else ReactiveAttack(rules[i-1],contract)) for i in range(1,n)}
     off_menu=False; original_off_menu=False; trace=[];timings=[];decisions=Counter();keys=Counter()
     try:
@@ -83,7 +83,8 @@ def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resour
                            preceding_original_off_menu=original_off_menu,
                            preceding_target_off_menu=off_menu,
                            target_abstraction=spec['abstraction'],
-                           target_key=key if who==0 else None)
+                           target_key=key if who==0 else None,
+                           target_visits=(getattr(source,'visits',{}).get(key,0) if who==0 and hasattr(source,'visits') else None))
             if who and isinstance(rivals[who],LocalBestResponse):
                 row['lbr']=rivals[who].telemetry[-1]
             trace.append(row);timings.append(elapsed);off_menu|=not onmenu
