@@ -151,3 +151,30 @@ def test_real_target_rng_not_consumed_by_hypothetical_queries():
     source=Call();source.real_rng=Random(12);before=source.real_rng.getstate()
     view=river().observe(0);LocalBestResponse(source,13,LBRConfig(1,60)).choose_action(view)
     assert source.real_rng.getstate()==before
+
+
+def test_arena_keeps_real_target_policy_and_replays_under_native_stress():
+    from scripts.evaluate_robustness import play
+    from scripts.play_robustness import replay_row
+    rows=[]
+    class TracedCall(Call):
+        def __init__(self):self.calls=[]
+        def distribution(self,view):
+            self.calls.append((view.street,view.seat));return super().distribution(view)
+    source=TracedCall()
+    spec={'players':2,'name':'test'}
+    play(source,spec,('pressure',),'native',1,0,2026135001,'demo',LBRConfig(1,60),rows.append)
+    hand=replay_row(rows[0]);assert hand.finished and sum(hand.events[-1].stacks)==4000
+    assert len(source.calls)==sum(i['logical_player']==0 for i in rows[0]['actions'])
+    assert all(i['kind'] in ('check','call') for i in rows[0]['actions'] if i['logical_player']==0)
+
+
+def test_report_intervals_use_paired_block_averages():
+    from scripts.report_robustness import estimate
+    # Three identical policy repetitions are a single paired observation per
+    # block, not three independent samples. 20 BB conversion is also checked.
+    seed_contrasts=np.array([[100,100,100],[-100,-100,-100],[50,50,50]])
+    clustered=estimate(seed_contrasts.mean(axis=1))
+    pseudorepeated=estimate(seed_contrasts.flatten())
+    assert clustered['blocks']==3 and clustered['ci95'][1]>pseudorepeated['ci95'][1]
+    assert clustered['buyins20_per100']==pytest.approx(clustered['bb100']/20)

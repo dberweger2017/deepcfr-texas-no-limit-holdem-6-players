@@ -81,3 +81,27 @@ across every model; then LBR reloads each HU artifact sequentially. The estimate
 LBR cost is about three hours, leaving substantial headroom under the original
 absolute deadline. A slower actual campaign is retained as incomplete; no count,
 seed or deadline is changed after looking at outcomes.
+
+## Conditional probes and replay
+
+The first six reached river target decisions per pressure/passive rule from the
+first seed's final policy, menu contract and first 64 frozen blocks are retained
+as exploratory probes. The 24-holding uniform compatible opponent range is
+explicitly declared; it is **not** inferred from actual hidden cards or presented
+as the true action-conditioned belief. Native settlement enumerates each possible
+holding and the target's saved continuation probabilities against the fixed rule,
+then aggregates before action comparison. This adapts #108's independent native
+oracle method to two equal 20BB stacks and the no-free-fold menu; it does not
+import the general 100BB river solver or change its game. Neutral probes and
+failures remain in the record. Any gap is conditional on that artificial range.
+
+`python -m scripts.play_robustness --plan configs/blueprint/robustness-m4.json
+--policy 2p-2026092801-20M --rule pressure --contract native --history NEW.json`
+runs a pinned saved model and saves concrete actions. Use
+`python -m scripts.play_robustness --replay NEW.json` to verify its native replay.
+Large outputs remain on M4 under `Local/robustness-pr114/results/robustness-m4-20260928`.
+
+The requested analysis-v3 document was not found in the repository, attachments
+or M4; its path/attachment was requested. No claim is made to have independently
+reviewed that absent exploratory seed experiment. This evaluation uses the three
+saved campaign seeds and a precisely labeled reconstructed rule.
