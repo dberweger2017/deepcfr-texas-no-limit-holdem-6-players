@@ -1,0 +1,2613 @@
+[
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 200,
+        "seat": 1,
+        "seconds": 6.2498729676008224e-06,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 1,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 2.2290972992777824e-05,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "6ce70dac4cce591385bb0d7309045629",
+        "target_trained": true,
+        "target_visits": 113
+      },
+      {
+        "index": 2,
+        "kind": "check",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 4.000007174909115e-05,
+        "street": "flop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "4c005958f1cf13a63ec6ed56cc73e945",
+        "target_trained": true,
+        "target_visits": 457
+      },
+      {
+        "index": 3,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 100,
+        "seat": 1,
+        "seconds": 5.749985575675964e-06,
+        "street": "flop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 4,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 3.641587682068348e-05,
+        "street": "flop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "7b97892535d5370563d452ff969004c6",
+        "target_trained": true,
+        "target_visits": 126
+      },
+      {
+        "index": 5,
+        "kind": "check",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 5.5999960750341415e-05,
+        "street": "turn",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "d72ff927a6abf3d49ea0138bacaad323",
+        "target_trained": true,
+        "target_visits": 130
+      },
+      {
+        "index": 6,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 100,
+        "seat": 1,
+        "seconds": 5.709007382392883e-06,
+        "street": "turn",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 7,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 200,
+        "seat": 0,
+        "seconds": 4.537496715784073e-05,
+        "street": "turn",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "1a87383942775ef48e667bce86a662ff",
+        "target_trained": true,
+        "target_visits": 35
+      },
+      {
+        "index": 8,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 300,
+        "seat": 1,
+        "seconds": 4.875008016824722e-06,
+        "street": "turn",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 9,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 4.850002005696297e-05,
+        "street": "turn",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "a35befa7553234fbc7f3529e3ae8413a",
+        "target_trained": true,
+        "target_visits": 4
+      },
+      {
+        "index": 10,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 100,
+        "seat": 0,
+        "seconds": 9.866594336926937e-05,
+        "street": "river",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "e36ec57828bf1854d76dc1e309738b98",
+        "target_trained": true,
+        "target_visits": 14
+      },
+      {
+        "index": 11,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 200,
+        "seat": 1,
+        "seconds": 7.3749106377363205e-06,
+        "street": "river",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 12,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 1400,
+        "seat": 0,
+        "seconds": 5.075009539723396e-05,
+        "street": "river",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "012a9f8f4628b6405c58fbf5aed72842",
+        "target_trained": true,
+        "target_visits": 1
+      },
+      {
+        "index": 13,
+        "kind": "call",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 1,
+        "seconds": 5.608308129012585e-05,
+        "street": "river",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 1,
+    "button": 1,
+    "contract": "native",
+    "deal_seed": 12792371797281262594,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "flop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 2
+      },
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 1
+      },
+      {
+        "coordinates": [
+          "river",
+          "trained",
+          "menu-history"
+        ],
+        "count": 2
+      },
+      {
+        "coordinates": [
+          "turn",
+          "trained",
+          "menu-history"
+        ],
+        "count": 3
+      }
+    ],
+    "event_digest": "868e0cfdab7f3ffc9f751fc2a8a0613a1ba40846048209eeb0911fc7758e70be",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      0,
+      0
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "4c005958f1cf13a63ec6ed56cc73e945",
+        "street": "flop"
+      },
+      {
+        "decisions": 1,
+        "key": "7b97892535d5370563d452ff969004c6",
+        "street": "flop"
+      },
+      {
+        "decisions": 1,
+        "key": "6ce70dac4cce591385bb0d7309045629",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "012a9f8f4628b6405c58fbf5aed72842",
+        "street": "river"
+      },
+      {
+        "decisions": 1,
+        "key": "e36ec57828bf1854d76dc1e309738b98",
+        "street": "river"
+      },
+      {
+        "decisions": 1,
+        "key": "1a87383942775ef48e667bce86a662ff",
+        "street": "turn"
+      },
+      {
+        "decisions": 1,
+        "key": "a35befa7553234fbc7f3529e3ae8413a",
+        "street": "turn"
+      },
+      {
+        "decisions": 1,
+        "key": "d72ff927a6abf3d49ea0138bacaad323",
+        "street": "turn"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 0,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": 0,
+    "training_seed": 2026093001
+  },
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 200,
+        "seat": 0,
+        "seconds": 6.333924829959869e-06,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 1,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 600,
+        "seat": 1,
+        "seconds": 2.1999934688210487e-05,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "91634a9ce2717079da3ec6381c694360",
+        "target_trained": true,
+        "target_visits": 105
+      },
+      {
+        "index": 2,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 1000,
+        "seat": 0,
+        "seconds": 4.332978278398514e-06,
+        "street": "preflop",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 3,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 2000,
+        "seat": 1,
+        "seconds": 2.6041874662041664e-05,
+        "street": "preflop",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "4e0aa9a117faf96cd9a08cf503ef1eed",
+        "target_trained": true,
+        "target_visits": 17
+      },
+      {
+        "index": 4,
+        "kind": "call",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 4.875008016824722e-06,
+        "street": "preflop",
+        "street_raises": 4,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 2,
+    "button": 0,
+    "contract": "native",
+    "deal_seed": 9868708228930761203,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 2
+      }
+    ],
+    "event_digest": "85d142ced12ebb99f79e27cf592b5f68b1995aeaea71e074500dcd5b9aa1e89c",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      2000,
+      -2000
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "4e0aa9a117faf96cd9a08cf503ef1eed",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "91634a9ce2717079da3ec6381c694360",
+        "street": "preflop"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 1,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": -2000,
+    "training_seed": 2026093001
+  },
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 300,
+        "seat": 1,
+        "seconds": 1.9250204786658287e-05,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "5275ec6403f5a9b4273df4858ce3f65f",
+        "target_trained": true,
+        "target_visits": 495
+      },
+      {
+        "index": 1,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 500,
+        "seat": 0,
+        "seconds": 6.250105798244476e-06,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 2,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 1500,
+        "seat": 1,
+        "seconds": 2.4583889171481133e-05,
+        "street": "preflop",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "9fd4244e00eb1239f279fbe78a8f430e",
+        "target_trained": true,
+        "target_visits": 58
+      },
+      {
+        "index": 3,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 2000,
+        "seat": 0,
+        "seconds": 4.416098818182945e-06,
+        "street": "preflop",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 4,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 1,
+        "seconds": 2.487492747604847e-05,
+        "street": "preflop",
+        "street_raises": 4,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "42449baea58a63bc72ebdf6f5782be94",
+        "target_trained": true,
+        "target_visits": 35
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 3,
+    "button": 1,
+    "contract": "native",
+    "deal_seed": 10200595344294078426,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 3
+      }
+    ],
+    "event_digest": "da2c75bdeb022a05ff4a1410cd5776a8a4108b965c717d4f133b00d4314bfd26",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      -2000,
+      2000
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "42449baea58a63bc72ebdf6f5782be94",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "5275ec6403f5a9b4273df4858ce3f65f",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "9fd4244e00eb1239f279fbe78a8f430e",
+        "street": "preflop"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 1,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": 2000,
+    "training_seed": 2026093001
+  },
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 1,
+        "seconds": 1.9290950149297714e-05,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "0ad7d3a697feffff72a020526b565273",
+        "target_trained": true,
+        "target_visits": 139
+      },
+      {
+        "index": 1,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 200,
+        "seat": 0,
+        "seconds": 5.749985575675964e-06,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 2,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 600,
+        "seat": 1,
+        "seconds": 2.291705459356308e-05,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "0ff5dd26c4d85eed2f619e6d997624cb",
+        "target_trained": true,
+        "target_visits": 62
+      },
+      {
+        "index": 3,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 1000,
+        "seat": 0,
+        "seconds": 4.458008334040642e-06,
+        "street": "preflop",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 4,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 2000,
+        "seat": 1,
+        "seconds": 2.687494270503521e-05,
+        "street": "preflop",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "b3fa3008805fe248727de962118ee954",
+        "target_trained": true,
+        "target_visits": 5
+      },
+      {
+        "index": 5,
+        "kind": "fold",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 5.00003807246685e-06,
+        "street": "preflop",
+        "street_raises": 4,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 5,
+    "button": 1,
+    "contract": "native",
+    "deal_seed": 11195921654197206744,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 3
+      }
+    ],
+    "event_digest": "7735ce6d1a641a255eeea3566797302ec984f122f6bfb21834bd6b3dd862991f",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      -1000,
+      1000
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "0ad7d3a697feffff72a020526b565273",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "0ff5dd26c4d85eed2f619e6d997624cb",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "b3fa3008805fe248727de962118ee954",
+        "street": "preflop"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 1,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": 1000,
+    "training_seed": 2026093001
+  },
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 200,
+        "seat": 1,
+        "seconds": 6.292015314102173e-06,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 1,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 300,
+        "seat": 0,
+        "seconds": 2.191704697906971e-05,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "e7c6ff881682666fab4887e994e28c2a",
+        "target_trained": true,
+        "target_visits": 109
+      },
+      {
+        "index": 2,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 400,
+        "seat": 1,
+        "seconds": 4.332978278398514e-06,
+        "street": "preflop",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 3,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 1200,
+        "seat": 0,
+        "seconds": 2.5250017642974854e-05,
+        "street": "preflop",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "ce42ba4cddb486fee2dbcc73f9c7cbb6",
+        "target_trained": true,
+        "target_visits": 25
+      },
+      {
+        "index": 4,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 2000,
+        "seat": 1,
+        "seconds": 4.458939656615257e-06,
+        "street": "preflop",
+        "street_raises": 4,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 5,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 2.650008536875248e-05,
+        "street": "preflop",
+        "street_raises": 5,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "986acc7c4fc1e4bdbd19dc5cf9fa15ad",
+        "target_trained": true,
+        "target_visits": 12
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 7,
+    "button": 1,
+    "contract": "native",
+    "deal_seed": 11518393211768986946,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 3
+      }
+    ],
+    "event_digest": "016aef8847476584ef09a6cfc59d60eedd8bbe9dcbb38b62d8b2e0735c999608",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      -2000,
+      2000
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "986acc7c4fc1e4bdbd19dc5cf9fa15ad",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "ce42ba4cddb486fee2dbcc73f9c7cbb6",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "e7c6ff881682666fab4887e994e28c2a",
+        "street": "preflop"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 0,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": -2000,
+    "training_seed": 2026093001
+  },
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 300,
+        "seat": 1,
+        "seconds": 1.908303238451481e-05,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "75c206556e1b179b1c51d83e14b4aa9a",
+        "target_trained": true,
+        "target_visits": 498
+      },
+      {
+        "index": 1,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 500,
+        "seat": 0,
+        "seconds": 6.250105798244476e-06,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 2,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 2000,
+        "seat": 1,
+        "seconds": 2.3250002413988113e-05,
+        "street": "preflop",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "83355ce12bdd9cc3a629da2119436735",
+        "target_trained": true,
+        "target_visits": 73
+      },
+      {
+        "index": 3,
+        "kind": "fold",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 4.58303838968277e-06,
+        "street": "preflop",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 7,
+    "button": 1,
+    "contract": "native",
+    "deal_seed": 11518393211768986946,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 2
+      }
+    ],
+    "event_digest": "5ef897c5d351f6287420f733416afb88e9d44372b37e67c90d5b666dad5a0abc",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      -500,
+      500
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "75c206556e1b179b1c51d83e14b4aa9a",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "83355ce12bdd9cc3a629da2119436735",
+        "street": "preflop"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 1,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": 500,
+    "training_seed": 2026093001
+  },
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 300,
+        "seat": 0,
+        "seconds": 1.912517473101616e-05,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "7d8c61a8458130ed2fccb796a4fc2f48",
+        "target_trained": true,
+        "target_visits": 165
+      },
+      {
+        "index": 1,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 500,
+        "seat": 1,
+        "seconds": 6.2498729676008224e-06,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 2,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 700,
+        "seat": 0,
+        "seconds": 2.3250002413988113e-05,
+        "street": "preflop",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "46a02897d92e6cf2a00a082e159604c6",
+        "target_trained": true,
+        "target_visits": 24
+      },
+      {
+        "index": 3,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 900,
+        "seat": 1,
+        "seconds": 4.250090569257736e-06,
+        "street": "preflop",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 4,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 1100,
+        "seat": 0,
+        "seconds": 2.583279274404049e-05,
+        "street": "preflop",
+        "street_raises": 4,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "8ff7b82a246a1e4ee88f0a9bf818abdf",
+        "target_trained": true,
+        "target_visits": 2
+      },
+      {
+        "index": 5,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 1300,
+        "seat": 1,
+        "seconds": 4.417030140757561e-06,
+        "street": "preflop",
+        "street_raises": 5,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 6,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 2.8667040169239044e-05,
+        "street": "preflop",
+        "street_raises": 6,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "4b93e48ee0abdbd164d77efec7dea8bf",
+        "target_trained": false,
+        "target_visits": 0
+      },
+      {
+        "index": 7,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 100,
+        "seat": 1,
+        "seconds": 5.790963768959045e-06,
+        "street": "flop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 8,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 700,
+        "seat": 0,
+        "seconds": 5.0958944484591484e-05,
+        "street": "flop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "9ab297f0c097d19eaef6716c24b3f88b",
+        "target_trained": true,
+        "target_visits": 15
+      },
+      {
+        "index": 9,
+        "kind": "fold",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 1,
+        "seconds": 1.0499963536858559e-05,
+        "street": "flop",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 8,
+    "button": 0,
+    "contract": "native",
+    "deal_seed": 11009170580059049599,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "flop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 1
+      },
+      {
+        "coordinates": [
+          "preflop",
+          "fallback",
+          "menu-history"
+        ],
+        "count": 1
+      },
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 3
+      }
+    ],
+    "event_digest": "6b824ddb504fc3d322d13e5990656383b48421a6ecf11770e2dfc82f051dff6d",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      1400,
+      -1400
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "9ab297f0c097d19eaef6716c24b3f88b",
+        "street": "flop"
+      },
+      {
+        "decisions": 1,
+        "key": "46a02897d92e6cf2a00a082e159604c6",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "4b93e48ee0abdbd164d77efec7dea8bf",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "7d8c61a8458130ed2fccb796a4fc2f48",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "8ff7b82a246a1e4ee88f0a9bf818abdf",
+        "street": "preflop"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 0,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": 1400,
+    "training_seed": 2026093001
+  },
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 200,
+        "seat": 0,
+        "seconds": 6.207963451743126e-06,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 1,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 600,
+        "seat": 1,
+        "seconds": 2.2500054910779e-05,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "0f4b20d35303add3132e1605b0a939ac",
+        "target_trained": true,
+        "target_visits": 116
+      },
+      {
+        "index": 2,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 1000,
+        "seat": 0,
+        "seconds": 4.249857738614082e-06,
+        "street": "preflop",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 3,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 1,
+        "seconds": 2.5166897103190422e-05,
+        "street": "preflop",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "8e663c14af6c4568659eb9b015877acf",
+        "target_trained": true,
+        "target_visits": 20
+      },
+      {
+        "index": 4,
+        "kind": "check",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 1,
+        "seconds": 3.674998879432678e-05,
+        "street": "flop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "c784832494c3910e432e615e878a1047",
+        "target_trained": true,
+        "target_visits": 690
+      },
+      {
+        "index": 5,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 100,
+        "seat": 0,
+        "seconds": 5.917157977819443e-06,
+        "street": "flop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 6,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 1,
+        "seconds": 4.1207997128367424e-05,
+        "street": "flop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "5e44ffeb461984881acdee48e5ea09ae",
+        "target_trained": true,
+        "target_visits": 95
+      },
+      {
+        "index": 7,
+        "kind": "check",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 1,
+        "seconds": 5.8791832998394966e-05,
+        "street": "turn",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "690fa3c34a19f9faa98619a5d91af5c6",
+        "target_trained": true,
+        "target_visits": 24
+      },
+      {
+        "index": 8,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 100,
+        "seat": 0,
+        "seconds": 6.00004568696022e-06,
+        "street": "turn",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 9,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 900,
+        "seat": 1,
+        "seconds": 4.654098302125931e-05,
+        "street": "turn",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "304bcd1f734211836fc49ea4d2c68036",
+        "target_trained": true,
+        "target_visits": 3
+      },
+      {
+        "index": 10,
+        "kind": "fold",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 2.233288250863552e-05,
+        "street": "turn",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 8,
+    "button": 0,
+    "contract": "native",
+    "deal_seed": 11009170580059049599,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "flop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 2
+      },
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 2
+      },
+      {
+        "coordinates": [
+          "turn",
+          "trained",
+          "menu-history"
+        ],
+        "count": 2
+      }
+    ],
+    "event_digest": "d756b91d9fe7dc12dc961526e55194e134534b4e3f80ddc4e15e0fc0f1ae2c1c",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      -1200,
+      1200
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "5e44ffeb461984881acdee48e5ea09ae",
+        "street": "flop"
+      },
+      {
+        "decisions": 1,
+        "key": "c784832494c3910e432e615e878a1047",
+        "street": "flop"
+      },
+      {
+        "decisions": 1,
+        "key": "0f4b20d35303add3132e1605b0a939ac",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "8e663c14af6c4568659eb9b015877acf",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "304bcd1f734211836fc49ea4d2c68036",
+        "street": "turn"
+      },
+      {
+        "decisions": 1,
+        "key": "690fa3c34a19f9faa98619a5d91af5c6",
+        "street": "turn"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 1,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": 1200,
+    "training_seed": 2026093001
+  },
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 1,
+        "seconds": 1.9249971956014633e-05,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "3984f82a3a97c81bbcbfeb3258369828",
+        "target_trained": true,
+        "target_visits": 533
+      },
+      {
+        "index": 1,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 200,
+        "seat": 0,
+        "seconds": 5.4158736020326614e-06,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 2,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 600,
+        "seat": 1,
+        "seconds": 2.1583866328001022e-05,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "8638ef5110acc41d8e010dae00b15005",
+        "target_trained": true,
+        "target_visits": 245
+      },
+      {
+        "index": 3,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 1000,
+        "seat": 0,
+        "seconds": 4.458008334040642e-06,
+        "street": "preflop",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 4,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 1400,
+        "seat": 1,
+        "seconds": 2.537504769861698e-05,
+        "street": "preflop",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "dfba03cc1a34e609d6916919321d4e35",
+        "target_trained": true,
+        "target_visits": 23
+      },
+      {
+        "index": 5,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 1800,
+        "seat": 0,
+        "seconds": 4.458008334040642e-06,
+        "street": "preflop",
+        "street_raises": 4,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 6,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 2000,
+        "seat": 1,
+        "seconds": 2.808310091495514e-05,
+        "street": "preflop",
+        "street_raises": 5,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "8f8468e61d54cac99d585e155b686c53",
+        "target_trained": true,
+        "target_visits": 6
+      },
+      {
+        "index": 7,
+        "kind": "fold",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 4.874775186181068e-06,
+        "street": "preflop",
+        "street_raises": 6,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 9,
+    "button": 1,
+    "contract": "native",
+    "deal_seed": 13551640857395038849,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 4
+      }
+    ],
+    "event_digest": "9feb8cc9730b4505cf461d25eb1d3efbf3377b9ce556daf981a827b922838883",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      -1800,
+      1800
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "3984f82a3a97c81bbcbfeb3258369828",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "8638ef5110acc41d8e010dae00b15005",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "8f8468e61d54cac99d585e155b686c53",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "dfba03cc1a34e609d6916919321d4e35",
+        "street": "preflop"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 1,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": 1800,
+    "training_seed": 2026093001
+  },
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 200,
+        "seat": 1,
+        "seconds": 6.2908511608839035e-06,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 1,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 2.13750172406435e-05,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "e7c6ff881682666fab4887e994e28c2a",
+        "target_trained": true,
+        "target_visits": 109
+      },
+      {
+        "index": 2,
+        "kind": "check",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 3.9708102121949196e-05,
+        "street": "flop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "c6466c2ee6229e9ef4b064cbc7c19923",
+        "target_trained": true,
+        "target_visits": 823
+      },
+      {
+        "index": 3,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 100,
+        "seat": 1,
+        "seconds": 5.332985892891884e-06,
+        "street": "flop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 4,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 3.733299672603607e-05,
+        "street": "flop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "f8d487336bcd83ce4ff2472cd126fc1e",
+        "target_trained": true,
+        "target_visits": 288
+      },
+      {
+        "index": 5,
+        "kind": "check",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 5.466700531542301e-05,
+        "street": "turn",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "a84f80cfe1f85fb62621ce508ccc39ed",
+        "target_trained": true,
+        "target_visits": 37
+      },
+      {
+        "index": 6,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 100,
+        "seat": 1,
+        "seconds": 5.624955520033836e-06,
+        "street": "turn",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 7,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 900,
+        "seat": 0,
+        "seconds": 4.4084154069423676e-05,
+        "street": "turn",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "735fd3fb3c2f690d1e19efadcd5d93bc",
+        "target_trained": true,
+        "target_visits": 16
+      },
+      {
+        "index": 8,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 1700,
+        "seat": 1,
+        "seconds": 5.083857104182243e-06,
+        "street": "turn",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 9,
+        "kind": "call",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 4.5165885239839554e-05,
+        "street": "turn",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "ade131a7007074fafda35f1148a19d51",
+        "target_trained": true,
+        "target_visits": 12
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 11,
+    "button": 1,
+    "contract": "native",
+    "deal_seed": 12195509638323151887,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "flop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 2
+      },
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 1
+      },
+      {
+        "coordinates": [
+          "turn",
+          "trained",
+          "menu-history"
+        ],
+        "count": 3
+      }
+    ],
+    "event_digest": "488407826f34a3df39b96702f6827c3922a2720d050271fe853e3350ff813daa",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      2000,
+      -2000
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "c6466c2ee6229e9ef4b064cbc7c19923",
+        "street": "flop"
+      },
+      {
+        "decisions": 1,
+        "key": "f8d487336bcd83ce4ff2472cd126fc1e",
+        "street": "flop"
+      },
+      {
+        "decisions": 1,
+        "key": "e7c6ff881682666fab4887e994e28c2a",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "735fd3fb3c2f690d1e19efadcd5d93bc",
+        "street": "turn"
+      },
+      {
+        "decisions": 1,
+        "key": "a84f80cfe1f85fb62621ce508ccc39ed",
+        "street": "turn"
+      },
+      {
+        "decisions": 1,
+        "key": "ade131a7007074fafda35f1148a19d51",
+        "street": "turn"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 0,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": 2000,
+    "training_seed": 2026093001
+  },
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 300,
+        "seat": 0,
+        "seconds": 1.9124941900372505e-05,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "19a5099b7872898e956ba087a7a68fbc",
+        "target_trained": true,
+        "target_visits": 485
+      },
+      {
+        "index": 1,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 500,
+        "seat": 1,
+        "seconds": 6.2498729676008224e-06,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 2,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 2000,
+        "seat": 0,
+        "seconds": 2.3124972358345985e-05,
+        "street": "preflop",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "d8a27ea9addb8b61c10f64b3097fcd75",
+        "target_trained": true,
+        "target_visits": 66
+      },
+      {
+        "index": 3,
+        "kind": "call",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 1,
+        "seconds": 4.833098500967026e-06,
+        "street": "preflop",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 12,
+    "button": 0,
+    "contract": "native",
+    "deal_seed": 11320541542901033039,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 2
+      }
+    ],
+    "event_digest": "db96d275a8d79c0f0de0584b40f3ca6d3f0c2c685b092ed40dc3b9b0df326249",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      -2000,
+      2000
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "19a5099b7872898e956ba087a7a68fbc",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "d8a27ea9addb8b61c10f64b3097fcd75",
+        "street": "preflop"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 0,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": -2000,
+    "training_seed": 2026093001
+  },
+  {
+    "actions": [
+      {
+        "index": 0,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 200,
+        "seat": 0,
+        "seconds": 6.082933396100998e-06,
+        "street": "preflop",
+        "street_raises": 0,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 1,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 300,
+        "seat": 1,
+        "seconds": 2.2500054910779e-05,
+        "street": "preflop",
+        "street_raises": 1,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "908e5e64f953516bea38806ed82b19b3",
+        "target_trained": true,
+        "target_visits": 107
+      },
+      {
+        "index": 2,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": false,
+        "preceding_target_off_menu": false,
+        "raise_to": 400,
+        "seat": 0,
+        "seconds": 4.125060513615608e-06,
+        "street": "preflop",
+        "street_raises": 2,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 3,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 500,
+        "seat": 1,
+        "seconds": 2.6582973077893257e-05,
+        "street": "preflop",
+        "street_raises": 3,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "802b730216646d42e4d02e2725f15382",
+        "target_trained": true,
+        "target_visits": 23
+      },
+      {
+        "index": 4,
+        "kind": "raise",
+        "logical_player": 1,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 600,
+        "seat": 0,
+        "seconds": 4.333909600973129e-06,
+        "street": "preflop",
+        "street_raises": 4,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      },
+      {
+        "index": 5,
+        "kind": "raise",
+        "logical_player": 0,
+        "on_original_cap2_menu": false,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": 2000,
+        "seat": 1,
+        "seconds": 2.8749927878379822e-05,
+        "street": "preflop",
+        "street_raises": 5,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": "174acaf6a475458b8d4a7b25d9e71e77",
+        "target_trained": true,
+        "target_visits": 6
+      },
+      {
+        "index": 6,
+        "kind": "fold",
+        "logical_player": 1,
+        "on_original_cap2_menu": true,
+        "on_target_menu": true,
+        "on_training_menu": true,
+        "preceding_off_menu": false,
+        "preceding_original_off_menu": true,
+        "preceding_target_off_menu": false,
+        "raise_to": null,
+        "seat": 0,
+        "seconds": 4.917150363326073e-06,
+        "street": "preflop",
+        "street_raises": 6,
+        "target_abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "target_key": null,
+        "target_trained": null,
+        "target_visits": null
+      }
+    ],
+    "actual_rival_order": [
+      "pressure"
+    ],
+    "arm": "B",
+    "attacker": "Pressure-native",
+    "block": 12,
+    "button": 0,
+    "contract": "native",
+    "deal_seed": 11320541542901033039,
+    "decision_telemetry": [
+      {
+        "coordinates": [
+          "preflop",
+          "trained",
+          "menu-history"
+        ],
+        "count": 3
+      }
+    ],
+    "event_digest": "bdb9ad511d3de92c9c3879db2fdf1176be0d3a0b7657f116602268eacd6a8945",
+    "milestone": 3,
+    "net_chips_by_seat": [
+      -600,
+      600
+    ],
+    "phase": "cheap",
+    "players": 2,
+    "policy": "B-2026093001-3",
+    "reached_keys": [
+      {
+        "decisions": 1,
+        "key": "174acaf6a475458b8d4a7b25d9e71e77",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "802b730216646d42e4d02e2725f15382",
+        "street": "preflop"
+      },
+      {
+        "decisions": 1,
+        "key": "908e5e64f953516bea38806ed82b19b3",
+        "street": "preflop"
+      }
+    ],
+    "root_seed": 2026143001,
+    "rotation": 1,
+    "rules": [
+      "pressure"
+    ],
+    "status": "complete",
+    "target_chips": 600,
+    "training_seed": 2026093001
+  }
+]

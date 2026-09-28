@@ -1,0 +1,840 @@
+HU20 native-reopening | game: hu20-native-reopening-20bb-52card-no-ante-rake-v1 | final-current C | model: 198dae3eb36b6a830ab106ba13032ecab10fc1f2fc12bc4bb9bc06dcce9a01a6
+Abstract min/pot/conditional-jam sizes, no artificial raise-count cap.
+
+preflop: board (none)
+Your cards: 3s 3d | position: button / small blind
+Pot: 1.5 BB | your stack: 19.5 BB | bot stack: 19 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 3 BB
+Bot: raise to 3 BB
+
+preflop: board (none)
+Your cards: 3s 3d | position: button / small blind
+Pot: 4 BB | your stack: 19 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 5 BB
+  4. raise to 9 BB
+Bot: check
+
+flop: board Qs 3h 5c
+Your cards: 3s 3d | position: button / small blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Bot: raise to 1 BB
+
+turn: board Qs 3h 5c 6c
+Your cards: 3s 3d | position: button / small blind
+Pot: 7 BB | your stack: 17 BB | bot stack: 16 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 9 BB
+  5. raise to 17 BB
+Bot: raise to 8 BB
+
+river: board Qs 3h 5c 6c 4c
+Your cards: 3s 3d | position: button / small blind
+Pot: 16 BB | your stack: 16 BB | bot stack: 8 BB
+  1. fold
+  2. call
+  3. raise to 16 BB
+Board: Qs 3h 5c 6c 4c
+You showed: 3s 3d
+Bot showed: Ac 4d
+Hand: +12 BB | session: +12 BB
+Bot: raise to 2 BB
+
+preflop: board (none)
+Your cards: Jc 2c | position: big blind
+Pot: 3 BB | your stack: 19 BB | bot stack: 18 BB
+  1. fold
+  2. call
+  3. raise to 3 BB
+  4. raise to 6 BB
+
+flop: board 5s Ks 9h
+Your cards: Jc 2c | position: big blind
+Pot: 4 BB | your stack: 18 BB | bot stack: 18 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 4 BB
+Bot: check
+
+turn: board 5s Ks 9h 3h
+Your cards: Jc 2c | position: big blind
+Pot: 4 BB | your stack: 18 BB | bot stack: 18 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 4 BB
+Bot: raise to 1 BB
+
+turn: board 5s Ks 9h 3h
+Your cards: Jc 2c | position: big blind
+Pot: 5 BB | your stack: 18 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 7 BB
+
+river: board 5s Ks 9h 3h Tc
+Your cards: Jc 2c | position: big blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Bot: check
+Board: 5s Ks 9h 3h Tc
+You showed: Jc 2c
+Bot showed: Js As
+Hand: -3 BB | session: +9 BB
+
+preflop: board (none)
+Your cards: 7c 3c | position: button / small blind
+Pot: 1.5 BB | your stack: 19.5 BB | bot stack: 19 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 3 BB
+Bot: raise to 2 BB
+
+preflop: board (none)
+Your cards: 7c 3c | position: button / small blind
+Pot: 3 BB | your stack: 19 BB | bot stack: 18 BB
+  1. fold
+  2. call
+  3. raise to 3 BB
+  4. raise to 6 BB
+Bot: raise to 1 BB
+
+flop: board Ks 5d Td
+Your cards: 7c 3c | position: button / small blind
+Pot: 5 BB | your stack: 18 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 7 BB
+Bot: raise to 1 BB
+
+turn: board Ks 5d Td Qs
+Your cards: 7c 3c | position: button / small blind
+Pot: 7 BB | your stack: 17 BB | bot stack: 16 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 9 BB
+  5. raise to 17 BB
+Bot: raise to 1 BB
+
+river: board Ks 5d Td Qs 8s
+Your cards: 7c 3c | position: button / small blind
+Pot: 9 BB | your stack: 16 BB | bot stack: 15 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 11 BB
+  5. raise to 16 BB
+Board: Ks 5d Td Qs 8s
+Bot showed: 7s Kc
+Hand: -5 BB | session: +4 BB
+Bot: call
+
+preflop: board (none)
+Your cards: Kd 2d | position: big blind
+Pot: 2 BB | your stack: 19 BB | bot stack: 19 BB
+  1. check
+  2. raise to 2 BB
+  3. raise to 3 BB
+
+flop: board 9c 8d 3d
+Your cards: Kd 2d | position: big blind
+Pot: 2 BB | your stack: 19 BB | bot stack: 19 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 2 BB
+Bot: check
+
+turn: board 9c 8d 3d Qc
+Your cards: Kd 2d | position: big blind
+Pot: 2 BB | your stack: 19 BB | bot stack: 19 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 2 BB
+Bot: raise to 2 BB
+
+turn: board 9c 8d 3d Qc
+Your cards: Kd 2d | position: big blind
+Pot: 4 BB | your stack: 19 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 4 BB
+  4. raise to 8 BB
+
+river: board 9c 8d 3d Qc Jc
+Your cards: Kd 2d | position: big blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Bot: raise to 6 BB
+
+river: board 9c 8d 3d Qc Jc
+Your cards: Kd 2d | position: big blind
+Pot: 12 BB | your stack: 17 BB | bot stack: 11 BB
+  1. fold
+  2. call
+  3. raise to 12 BB
+  4. raise to 17 BB
+Board: 9c 8d 3d Qc Jc
+You showed: Kd 2d
+Bot showed: 5s 6s
+Hand: +9 BB | session: +13 BB
+
+preflop: board (none)
+Your cards: 4c 2c | position: button / small blind
+Pot: 1.5 BB | your stack: 19.5 BB | bot stack: 19 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 3 BB
+Bot: raise to 3 BB
+
+preflop: board (none)
+Your cards: 4c 2c | position: button / small blind
+Pot: 4 BB | your stack: 19 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 5 BB
+  4. raise to 9 BB
+Bot: raise to 6 BB
+
+flop: board 3d 4s 7h
+Your cards: 4c 2c | position: button / small blind
+Pot: 12 BB | your stack: 17 BB | bot stack: 11 BB
+  1. fold
+  2. call
+  3. raise to 12 BB
+  4. raise to 17 BB
+Bot: raise to 1 BB
+
+turn: board 3d 4s 7h Qh
+Your cards: 4c 2c | position: button / small blind
+Pot: 19 BB | your stack: 11 BB | bot stack: 10 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 11 BB
+Bot: check
+
+river: board 3d 4s 7h Qh Jc
+Your cards: 4c 2c | position: button / small blind
+Pot: 20 BB | your stack: 10 BB | bot stack: 10 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 10 BB
+Board: 3d 4s 7h Qh Jc
+You showed: 4c 2c
+Bot showed: 6d 2d
+Hand: +10 BB | session: +23 BB
+Bot: call
+
+preflop: board (none)
+Your cards: 8c 7s | position: big blind
+Pot: 2 BB | your stack: 19 BB | bot stack: 19 BB
+  1. check
+  2. raise to 2 BB
+  3. raise to 3 BB
+
+flop: board Ad Jc 6s
+Your cards: 8c 7s | position: big blind
+Pot: 2 BB | your stack: 19 BB | bot stack: 19 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 2 BB
+Bot: raise to 1 BB
+
+flop: board Ad Jc 6s
+Your cards: 8c 7s | position: big blind
+Pot: 3 BB | your stack: 19 BB | bot stack: 18 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 5 BB
+
+turn: board Ad Jc 6s Ts
+Your cards: 8c 7s | position: big blind
+Pot: 4 BB | your stack: 18 BB | bot stack: 18 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 4 BB
+Bot: raise to 1 BB
+
+turn: board Ad Jc 6s Ts
+Your cards: 8c 7s | position: big blind
+Pot: 5 BB | your stack: 18 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 7 BB
+
+river: board Ad Jc 6s Ts 8d
+Your cards: 8c 7s | position: big blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Bot: check
+Board: Ad Jc 6s Ts 8d
+You showed: 8c 7s
+Bot showed: Jd 7d
+Hand: -3 BB | session: +20 BB
+
+preflop: board (none)
+Your cards: 8c Th | position: button / small blind
+Pot: 1.5 BB | your stack: 19.5 BB | bot stack: 19 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 3 BB
+Bot: check
+Bot: raise to 1 BB
+
+flop: board 9s 4c 2h
+Your cards: 8c Th | position: button / small blind
+Pot: 3 BB | your stack: 19 BB | bot stack: 18 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 5 BB
+Bot: raise to 1 BB
+
+turn: board 9s 4c 2h 7h
+Your cards: 8c Th | position: button / small blind
+Pot: 5 BB | your stack: 18 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 7 BB
+Bot: check
+
+river: board 9s 4c 2h 7h 5h
+Your cards: 8c Th | position: button / small blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Board: 9s 4c 2h 7h 5h
+Bot showed: Kc Qh
+Hand: -3 BB | session: +17 BB
+Bot: fold
+Board: 
+Hand: +0.5 BB | session: +17.5 BB
+
+preflop: board (none)
+Your cards: 3s Jc | position: button / small blind
+Pot: 1.5 BB | your stack: 19.5 BB | bot stack: 19 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 3 BB
+Bot: raise to 2 BB
+
+preflop: board (none)
+Your cards: 3s Jc | position: button / small blind
+Pot: 3 BB | your stack: 19 BB | bot stack: 18 BB
+  1. fold
+  2. call
+  3. raise to 3 BB
+  4. raise to 6 BB
+Bot: raise to 1 BB
+
+flop: board 9s 4c Ks
+Your cards: 3s Jc | position: button / small blind
+Pot: 5 BB | your stack: 18 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 7 BB
+Bot: check
+
+turn: board 9s 4c Ks 6h
+Your cards: 3s Jc | position: button / small blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Bot: check
+
+river: board 9s 4c Ks 6h 8c
+Your cards: 3s Jc | position: button / small blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Board: 9s 4c Ks 6h 8c
+Bot showed: 6d Qc
+Hand: -3 BB | session: +14.5 BB
+Bot: raise to 2 BB
+
+preflop: board (none)
+Your cards: 9h 8s | position: big blind
+Pot: 3 BB | your stack: 19 BB | bot stack: 18 BB
+  1. fold
+  2. call
+  3. raise to 3 BB
+  4. raise to 6 BB
+
+flop: board Ac 6d Jh
+Your cards: 9h 8s | position: big blind
+Pot: 4 BB | your stack: 18 BB | bot stack: 18 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 4 BB
+Bot: raise to 4 BB
+
+flop: board Ac 6d Jh
+Your cards: 9h 8s | position: big blind
+Pot: 8 BB | your stack: 18 BB | bot stack: 14 BB
+  1. fold
+  2. call
+  3. raise to 8 BB
+  4. raise to 16 BB
+  5. raise to 18 BB
+
+turn: board Ac 6d Jh 2d
+Your cards: 9h 8s | position: big blind
+Pot: 12 BB | your stack: 14 BB | bot stack: 14 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 12 BB
+  4. raise to 14 BB
+Bot: raise to 1 BB
+
+turn: board Ac 6d Jh 2d
+Your cards: 9h 8s | position: big blind
+Pot: 13 BB | your stack: 14 BB | bot stack: 13 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 14 BB
+
+river: board Ac 6d Jh 2d As
+Your cards: 9h 8s | position: big blind
+Pot: 14 BB | your stack: 13 BB | bot stack: 13 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 13 BB
+Bot: check
+Board: Ac 6d Jh 2d As
+You showed: 9h 8s
+Hand: +7 BB | session: +21.5 BB
+
+preflop: board (none)
+Your cards: 4s 2s | position: button / small blind
+Pot: 1.5 BB | your stack: 19.5 BB | bot stack: 19 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 3 BB
+Bot: check
+Bot: raise to 2 BB
+
+flop: board 8h 6s 9s
+Your cards: 4s 2s | position: button / small blind
+Pot: 4 BB | your stack: 19 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 4 BB
+  4. raise to 8 BB
+Bot: raise to 6 BB
+
+turn: board 8h 6s 9s 7c
+Your cards: 4s 2s | position: button / small blind
+Pot: 12 BB | your stack: 17 BB | bot stack: 11 BB
+  1. fold
+  2. call
+  3. raise to 12 BB
+  4. raise to 17 BB
+Bot: check
+
+river: board 8h 6s 9s 7c 3s
+Your cards: 4s 2s | position: button / small blind
+Pot: 18 BB | your stack: 11 BB | bot stack: 11 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 11 BB
+Board: 8h 6s 9s 7c 3s
+You showed: 4s 2s
+Bot showed: 6c 8s
+Hand: +9 BB | session: +30.5 BB
+Bot: call
+
+preflop: board (none)
+Your cards: 7d Ad | position: big blind
+Pot: 2 BB | your stack: 19 BB | bot stack: 19 BB
+  1. check
+  2. raise to 2 BB
+  3. raise to 3 BB
+
+flop: board 8d Ah 2c
+Your cards: 7d Ad | position: big blind
+Pot: 2 BB | your stack: 19 BB | bot stack: 19 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 2 BB
+Bot: raise to 1 BB
+
+flop: board 8d Ah 2c
+Your cards: 7d Ad | position: big blind
+Pot: 3 BB | your stack: 19 BB | bot stack: 18 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 5 BB
+
+turn: board 8d Ah 2c 5h
+Your cards: 7d Ad | position: big blind
+Pot: 4 BB | your stack: 18 BB | bot stack: 18 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 4 BB
+Bot: check
+
+river: board 8d Ah 2c 5h 6c
+Your cards: 7d Ad | position: big blind
+Pot: 4 BB | your stack: 18 BB | bot stack: 18 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 4 BB
+Bot: check
+Board: 8d Ah 2c 5h 6c
+You showed: 7d Ad
+Hand: +2 BB | session: +32.5 BB
+
+preflop: board (none)
+Your cards: Ts 8c | position: button / small blind
+Pot: 1.5 BB | your stack: 19.5 BB | bot stack: 19 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 3 BB
+Bot: check
+Bot: check
+
+flop: board 6s Jh 9d
+Your cards: Ts 8c | position: button / small blind
+Pot: 2 BB | your stack: 19 BB | bot stack: 19 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 2 BB
+Bot: raise to 2 BB
+
+turn: board 6s Jh 9d 3h
+Your cards: Ts 8c | position: button / small blind
+Pot: 4 BB | your stack: 19 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 4 BB
+  4. raise to 8 BB
+Bot: raise to 1 BB
+
+river: board 6s Jh 9d 3h 9c
+Your cards: Ts 8c | position: button / small blind
+Pot: 7 BB | your stack: 17 BB | bot stack: 16 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 9 BB
+  5. raise to 17 BB
+Board: 6s Jh 9d 3h 9c
+Bot showed: 8s Jc
+Hand: -4 BB | session: +28.5 BB
+Bot: raise to 3 BB
+
+preflop: board (none)
+Your cards: 6d 8c | position: big blind
+Pot: 4 BB | your stack: 19 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 5 BB
+  4. raise to 9 BB
+
+flop: board Qc 3c Tc
+Your cards: 6d 8c | position: big blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Bot: raise to 1 BB
+
+flop: board Qc 3c Tc
+Your cards: 6d 8c | position: big blind
+Pot: 7 BB | your stack: 17 BB | bot stack: 16 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 9 BB
+  5. raise to 17 BB
+
+turn: board Qc 3c Tc Kd
+Your cards: 6d 8c | position: big blind
+Pot: 8 BB | your stack: 16 BB | bot stack: 16 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 8 BB
+  4. raise to 16 BB
+Bot: raise to 8 BB
+
+turn: board Qc 3c Tc Kd
+Your cards: 6d 8c | position: big blind
+Pot: 16 BB | your stack: 16 BB | bot stack: 8 BB
+  1. fold
+  2. call
+  3. raise to 16 BB
+
+river: board Qc 3c Tc Kd 9s
+Your cards: 6d 8c | position: big blind
+Pot: 24 BB | your stack: 8 BB | bot stack: 8 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 8 BB
+Bot: raise to 8 BB
+
+river: board Qc 3c Tc Kd 9s
+Your cards: 6d 8c | position: big blind
+Pot: 32 BB | your stack: 8 BB | bot stack: 0 BB
+  1. fold
+  2. call
+Board: Qc 3c Tc Kd 9s
+Bot showed: Ks 6h
+Hand: -20 BB | session: +8.5 BB
+
+preflop: board (none)
+Your cards: 4h 7c | position: button / small blind
+Pot: 1.5 BB | your stack: 19.5 BB | bot stack: 19 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 3 BB
+Bot: raise to 2 BB
+
+preflop: board (none)
+Your cards: 4h 7c | position: button / small blind
+Pot: 3 BB | your stack: 19 BB | bot stack: 18 BB
+  1. fold
+  2. call
+  3. raise to 3 BB
+  4. raise to 6 BB
+Bot: raise to 1 BB
+
+flop: board Jd Tc 4c
+Your cards: 4h 7c | position: button / small blind
+Pot: 5 BB | your stack: 18 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 7 BB
+Bot: check
+
+turn: board Jd Tc 4c 3d
+Your cards: 4h 7c | position: button / small blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Bot: check
+
+river: board Jd Tc 4c 3d 8s
+Your cards: 4h 7c | position: button / small blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Board: Jd Tc 4c 3d 8s
+Bot showed: 8c Ah
+Hand: -3 BB | session: +5.5 BB
+Bot: call
+
+preflop: board (none)
+Your cards: 7c 7d | position: big blind
+Pot: 2 BB | your stack: 19 BB | bot stack: 19 BB
+  1. check
+  2. raise to 2 BB
+  3. raise to 3 BB
+
+flop: board 5c 6c As
+Your cards: 7c 7d | position: big blind
+Pot: 2 BB | your stack: 19 BB | bot stack: 19 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 2 BB
+Bot: raise to 1 BB
+
+flop: board 5c 6c As
+Your cards: 7c 7d | position: big blind
+Pot: 3 BB | your stack: 19 BB | bot stack: 18 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 5 BB
+
+turn: board 5c 6c As Ad
+Your cards: 7c 7d | position: big blind
+Pot: 4 BB | your stack: 18 BB | bot stack: 18 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 4 BB
+Bot: check
+
+river: board 5c 6c As Ad 6h
+Your cards: 7c 7d | position: big blind
+Pot: 4 BB | your stack: 18 BB | bot stack: 18 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 4 BB
+Bot: raise to 4 BB
+
+river: board 5c 6c As Ad 6h
+Your cards: 7c 7d | position: big blind
+Pot: 8 BB | your stack: 18 BB | bot stack: 14 BB
+  1. fold
+  2. call
+  3. raise to 8 BB
+  4. raise to 16 BB
+  5. raise to 18 BB
+Board: 5c 6c As Ad 6h
+Bot showed: Ah Jh
+Hand: -6 BB | session: -0.5 BB
+
+preflop: board (none)
+Your cards: Ts 5c | position: button / small blind
+Pot: 1.5 BB | your stack: 19.5 BB | bot stack: 19 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 3 BB
+Bot: check
+Bot: raise to 1 BB
+
+flop: board 3c Ah Qd
+Your cards: Ts 5c | position: button / small blind
+Pot: 3 BB | your stack: 19 BB | bot stack: 18 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 5 BB
+Bot: raise to 1 BB
+
+turn: board 3c Ah Qd 9d
+Your cards: Ts 5c | position: button / small blind
+Pot: 5 BB | your stack: 18 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 7 BB
+Bot: check
+
+river: board 3c Ah Qd 9d 9c
+Your cards: Ts 5c | position: button / small blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Board: 3c Ah Qd 9d 9c
+Bot showed: Jc 4d
+Hand: -3 BB | session: -3.5 BB
+Bot: raise to 3 BB
+
+preflop: board (none)
+Your cards: Jh 2s | position: big blind
+Pot: 4 BB | your stack: 19 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 5 BB
+  4. raise to 9 BB
+
+flop: board 4s Kh 5h
+Your cards: Jh 2s | position: big blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Bot: raise to 6 BB
+
+flop: board 4s Kh 5h
+Your cards: Jh 2s | position: big blind
+Pot: 12 BB | your stack: 17 BB | bot stack: 11 BB
+  1. fold
+  2. call
+  3. raise to 12 BB
+  4. raise to 17 BB
+
+turn: board 4s Kh 5h 2d
+Your cards: Jh 2s | position: big blind
+Pot: 18 BB | your stack: 11 BB | bot stack: 11 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 11 BB
+Bot: raise to 11 BB
+
+turn: board 4s Kh 5h 2d
+Your cards: Jh 2s | position: big blind
+Pot: 29 BB | your stack: 11 BB | bot stack: 0 BB
+  1. fold
+  2. call
+Board: 4s Kh 5h 2d 3h
+You showed: Jh 2s
+Bot showed: Tc Td
+Hand: -20 BB | session: -23.5 BB
+
+preflop: board (none)
+Your cards: 8d 8c | position: button / small blind
+Pot: 1.5 BB | your stack: 19.5 BB | bot stack: 19 BB
+  1. fold
+  2. call
+  3. raise to 2 BB
+  4. raise to 3 BB
+Bot: raise to 3 BB
+
+preflop: board (none)
+Your cards: 8d 8c | position: button / small blind
+Pot: 4 BB | your stack: 19 BB | bot stack: 17 BB
+  1. fold
+  2. call
+  3. raise to 5 BB
+  4. raise to 9 BB
+Bot: check
+
+flop: board Jh 9h Ts
+Your cards: 8d 8c | position: button / small blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Bot: check
+
+turn: board Jh 9h Ts Ks
+Your cards: 8d 8c | position: button / small blind
+Pot: 6 BB | your stack: 17 BB | bot stack: 17 BB
+  1. check
+  2. raise to 1 BB
+  3. raise to 6 BB
+Bot: raise to 6 BB
+
+river: board Jh 9h Ts Ks 4d
+Your cards: 8d 8c | position: button / small blind
+Pot: 12 BB | your stack: 17 BB | bot stack: 11 BB
+  1. fold
+  2. call
+  3. raise to 12 BB
+  4. raise to 17 BB
+Board: Jh 9h Ts Ks 4d
+Bot showed: Td Jc
+Hand: -9 BB | session: -32.5 BB
+Bot: fold
+Board: 
+Hand: +0.5 BB | session: -32 BB
