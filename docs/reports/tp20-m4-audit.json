@@ -1,0 +1,55 @@
+{
+  "schema": "tp20-post-run-audit-v1",
+  "status": "complete",
+  "errors": [],
+  "audited_unix_seconds": 1790602283.650368,
+  "source_revision": "204e351def48a630a795ffd1d67d7df03871afc1",
+  "plan_sha256": "efc2e794c76db36568530e9cd5239ecf4bb80d17e1a2bc4c5a648eb6ee312690",
+  "global_inventory_file_sha256": "26309c3567cf7acc6f5486b5f9623e4afda49666314e81e17a9aafa4a1266d76",
+  "verified_files": 1072,
+  "completed_attempts": 132,
+  "evaluation_hands": {
+    "development": 59904,
+    "confirmation": 294912,
+    "secondary": 18432,
+    "crossplay": 9216
+  },
+  "total_evaluation_hands": 382464,
+  "independent_primary": {
+    "bb_per_100": 58.83551703559028,
+    "interval": [
+      53.918230079502,
+      63.752803991678554
+    ],
+    "blocks": 24576
+  },
+  "descriptive_five_scripted_effect": {
+    "bb_per_100": 34.67380099826389,
+    "interval": [
+      30.068924733116386,
+      39.2786772634114
+    ],
+    "blocks": 20480
+  },
+  "descriptive_absolute_six_lineup_panel": {
+    "bb_per_100": 28.30539279513889,
+    "interval": [
+      24.48260754959905,
+      32.12817804067873
+    ],
+    "blocks": 24576
+  },
+  "descriptive_absolute_five_scripted": {
+    "bb_per_100": -2.1047634548611107,
+    "interval": [
+      -5.827553758512817,
+      1.618026848790595
+    ],
+    "blocks": 20480
+  },
+  "peak_process_rss_gib": 2.3912353515625,
+  "system_swap_change_mib": 0,
+  "minimum_recorded_free_disk_gib": 46.44739532470703,
+  "campaign_elapsed_hours": 2.265086307194498,
+  "preflight_5m_checkpoint_equals_main": true
+}

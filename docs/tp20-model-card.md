@@ -3,9 +3,12 @@
 ## Status
 
 Draft [PR #113](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/113).
-The fixed M4 campaign is running; final trained hashes and playing results are
-not yet available. No default player is promoted. This is not a six-player,
-tournament or professional-strength model.
+The three fresh 20M-node seeds and all fixed comparisons have completed. The
+[verified report](reports/tp20-m4.md) establishes aggregate trained minus same-game
+uniform **+58.84 BB/100 [95% block CI +53.92, +63.75]** on the restricted six-lineup
+three-player panel. Tight-passive regresses; absolute five-scripted-lineup profit
+remains unestablished. No default player is promoted, and no six-player, tournament
+or professional-strength qualification is claimed.
 
 ## Game and policy
 
@@ -30,16 +33,21 @@ its own immutable observation; the two bot seats do not share private cards.
 
 The M4 checkout is `/Users/dberweger/Local/tp20-pr113`; artifacts are in
 `results/tp20-m4-20260928/training/SEED`. Fixed seed order is
-2026092901, 2026092902, 2026092903. Demo bots will use the first two, irrespective
-of their benchmark scores. The completed report will list every training and
-inference SHA-256 and exact retrieval commands. Do not use guessed hashes.
+2026092901, 2026092902, 2026092903. Demo bots use the first two, irrespective
+of their benchmark scores. All final checkpoint and inference hashes and early
+checkpoint lineage are in the [report](reports/tp20-m4.md) and
+[sealed inventory](reports/tp20-m4-manifest.json). Both demo inference files were
+retrieved and hash-verified locally; 20 smoke hands completed and replayed.
 
-After retrieving those two `current.json.gz` files and their verified hashes:
+Retrieve and play from a checkout of this draft PR with its installed Python environment:
 
 ```sh
+mkdir -p results/tp20-demo
+scp m4:/Users/dberweger/Local/tp20-pr113/results/tp20-m4-20260928/training/2026092901/current.json.gz results/tp20-demo/2026092901.json.gz
+scp m4:/Users/dberweger/Local/tp20-pr113/results/tp20-m4-20260928/training/2026092902/current.json.gz results/tp20-demo/2026092902.json.gz
 python -m scripts.play_tp20 \
   --policies results/tp20-demo/2026092901.json.gz results/tp20-demo/2026092902.json.gz \
-  --hashes FIRST_VERIFIED_SHA256 SECOND_VERIFIED_SHA256 \
+  --hashes c12ac92e9512413e6d83ed806dd0b7a60d88ef8418099294049b14af5700edd6 77d704f9dbdfae569917f9293f8580fa9c9eea4777eb5c44d7ae3d5f5d47962b \
   --history results/tp20-human.jsonl
 python -m scripts.play_tp20 --replay results/tp20-human.jsonl
 ```
@@ -50,11 +58,19 @@ exposed by the engine. Histories retain native actions, deal seeds, model
 hashes, final chip ledgers and public event hashes for replay. HU20 remains a
 separate game with its intact [existing model card](hu20-model-card.md).
 
-## Evidence to obtain
+## Evidence and limitations
 
-The [frozen protocol](tp20-pilot.md) requires checkpoint learning curves,
-independent and own-trajectory street density, paired same-game uniform
-confirmation, six equally weighted primary lineups, mixed-lineup diagnostics,
-independent-seed early/final crossplay and complete resource/artifact audits.
-Scripted-panel returns or update density are not an exploitability certificate.
-The report retains negative, inconclusive and incomplete outcomes.
+The [frozen protocol](tp20-pilot.md) completed all checkpoint curves, primary
+and mixed lineups, and early/final crossplay against two other independent
+final checkpoints. All three seed aggregates and early-to-final crossplay
+estimates are positive. The full audit verified 1,072 files, 132 campaign
+attempts and 382,464 legal paired evaluation hands. Peak RSS was 2.39 GiB,
+with unchanged swap and 2.27-hour total campaign time. CI passed 834 tests.
+
+On the independent set, median final turn updates remain five and median river
+updates one or two; the river set contains only 53 decisions. Own-trajectory
+coverage is higher and is reported separately. Missing-key fallbacks remain
+explicit. Scripted-panel returns and update density are not exploitability
+certificates. Review the retained negative and inconclusive opponent-specific
+results before another separately authorized experiment; no automatic
+six-player run follows.

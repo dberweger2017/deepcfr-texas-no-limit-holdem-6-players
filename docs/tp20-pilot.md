@@ -1,5 +1,9 @@
 # Three-player 20BB learning pilot
 
+**Campaign completed:** [verified results](reports/tp20-m4.md),
+[artifact audit](reports/tp20-m4-audit.json) and
+[playable model card](tp20-model-card.md). The frozen plan below remains unchanged.
+
 Dependent on draft #112; no merge or promotion. This is three actual players,
 20BB reset each hand, 50/100 integer-chip blinds, standard deck, no rake/ante.
 A fold preserves three-seat history. The K1 collector, linear iteration regret
