@@ -14,6 +14,8 @@ from random import Random
 from src.blueprint.abstraction import (
     SCHEMA,
     HU20_SCHEMA,
+    HU20_UNCAPPED_SCHEMA,
+    HU20_UNCAPPED_MENU_VERSION,
     TP20_SCHEMA,
     TP20_MENU_VERSION,
     SHORTSTACK_SEATS,
@@ -26,6 +28,7 @@ from src.blueprint.abstraction import (
 from src.blueprint.solver import (
     FORMAT,
     HU20_GAME,
+    HU20_UNCAPPED_GAME,
     TP20_GAME,
     SHORTSTACK_GAMES,
     LEGACY_GAME,
@@ -37,10 +40,11 @@ from src.blueprint.solver import (
 from src.game.hand import Table
 
 HU20_FORMAT = "holdem-hu20-blueprint-v2"
+HU20_UNCAPPED_FORMAT = "holdem-hu20-native-reopening-blueprint-v1"
 
 
 TP20_FORMAT = "holdem-tp20-blueprint-v1"
-SHORTSTACK_FORMATS = {HU20_GAME: HU20_FORMAT, TP20_GAME: TP20_FORMAT}
+SHORTSTACK_FORMATS = {HU20_GAME: HU20_FORMAT, HU20_UNCAPPED_GAME: HU20_UNCAPPED_FORMAT, TP20_GAME: TP20_FORMAT}
 
 
 def _format(config: PilotConfig) -> str:
@@ -49,10 +53,14 @@ def _format(config: PilotConfig) -> str:
 
 def _identity(config: PilotConfig) -> dict:
     seats = SHORTSTACK_SEATS.get(config.abstraction)
-    return ({"game": config.game, "players": seats, "stacks": [2000] * seats,
+    identity = ({"game": config.game, "players": seats, "stacks": [2000] * seats,
              "small_blind": 50, "big_blind": 100,
-             "action_menu": HU20_MENU_VERSION if seats == 2 else TP20_MENU_VERSION,
+             "action_menu": (HU20_UNCAPPED_MENU_VERSION if config.abstraction == HU20_UNCAPPED_SCHEMA else
+                             HU20_MENU_VERSION if seats == 2 else TP20_MENU_VERSION),
              "card_descriptor": HU20_CARD_VERSION} if seats else {})
+    if config.abstraction == HU20_UNCAPPED_SCHEMA:
+        identity["raise_cap_semantics"] = "none; native minimum-raise/reopening/stack bounds"
+    return identity
 
 
 def _encoded(document: dict) -> bytes:
@@ -281,6 +289,8 @@ class FrozenBlueprint:
         self.players = len(document["table"]["stacks"])
         self.raise_cap = document["config"]["raise_cap"]
         self.abstraction = document["abstraction"]
+        self.game = document["config"].get("game", LEGACY_GAME)
+        self.identity = document.get("identity", {})
         self.entries = {}
         for key, row in document["entries"].items():
             names, probabilities = row

@@ -25,6 +25,7 @@ class Checkpoint:
             "holdem-average-v1",
             "holdem-blueprint-v1",
             "holdem-hu20-blueprint-v2",
+            "holdem-hu20-native-reopening-blueprint-v1",
             "holdem-tp20-blueprint-v1",
         }:
             raise ValueError("Unsupported checkpoint adapter")

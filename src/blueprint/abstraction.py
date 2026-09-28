@@ -18,11 +18,13 @@ SCHEMA = "blueprint-abstraction-v1"
 SUMMARY_SCHEMA = "blueprint-abstraction-summary-v1"
 HU20_SCHEMA = "hu20-ordered-history-card-baseline-v2"
 HU20_MENU_VERSION = "hu20-min-pot-conditional-jam-no-free-fold-v2"
+HU20_UNCAPPED_SCHEMA = "hu20-native-reopening-ordered-history-card-v1"
+HU20_UNCAPPED_MENU_VERSION = "hu20-min-pot-conditional-jam-native-reopening-v1"
 HU20_CARD_VERSION = "legacy-postflop-descriptor-v1"
 TP20_SCHEMA = "tp20-ordered-history-card-baseline-v1"
 TP20_MENU_VERSION = "tp20-min-pot-conditional-jam-no-free-fold-v1"
-SHORTSTACK_SEATS = {HU20_SCHEMA: 2, TP20_SCHEMA: 3}
-SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, HU20_SCHEMA, TP20_SCHEMA)
+SHORTSTACK_SEATS = {HU20_SCHEMA: 2, HU20_UNCAPPED_SCHEMA: 2, TP20_SCHEMA: 3}
+SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, *SHORTSTACK_SEATS)
 LEGACY_LOOKUP = "legacy-v1"
 BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"
 LOOKUP_MODES = (LEGACY_LOOKUP, BUTTON_ZERO_COMPAT_LOOKUP)
@@ -35,13 +37,13 @@ class Choice:
     action: Action
 
 
-def choices(view: Observation, *, raise_cap: int = 2,
+def choices(view: Observation, *, raise_cap: int | None = 2,
             free_fold: bool = True) -> tuple[Choice, ...]:
     """Use a small legal menu, with no speculative 100 BB open shove."""
     if view.finished or view.actor != view.seat:
         raise ValueError("An abstract action menu needs the acting player's view")
-    if type(raise_cap) is not int or raise_cap < 0:
-        raise ValueError("Raise cap must be a nonnegative integer")
+    if raise_cap is not None and (type(raise_cap) is not int or raise_cap < 0):
+        raise ValueError("Raise cap must be a nonnegative integer or None for native reopening")
     legal = view.legal_actions
     result = [
         Choice(kind.value, Action(kind))
@@ -55,7 +57,7 @@ def choices(view: Observation, *, raise_cap: int = 2,
         and event.action.kind == ActionKind.RAISE
         for event in view.history
     )
-    if ActionKind.RAISE in legal.kinds and street_raises < raise_cap:
+    if ActionKind.RAISE in legal.kinds and (raise_cap is None or street_raises < raise_cap):
         player = view.players[view.seat]
         matched = player.street_bet + legal.call_amount
         after_call = view.pot + legal.call_amount
