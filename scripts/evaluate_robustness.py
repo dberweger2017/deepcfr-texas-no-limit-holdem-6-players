@@ -49,6 +49,7 @@ def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resour
     rngs=[Random(stream_seed(root,'test','action',n,block,i)) for i in range(n)]
     table=Table(ids,(2000,)*n,button=block%n)
     hand=Hand.start(table,hand_id=f'robustness-{phase}-{n}-{block}',seed=deal)
+    declared_rules=rules
     if len(rules)==2 and block%2: rules=rules[::-1]
     rivals={i:(LocalBestResponse(source,stream_seed(root,'test','opponent',n,block,i),config)
                if rules[i-1]=='lbr' else ReactiveAttack(rules[i-1],contract)) for i in range(1,n)}
@@ -84,7 +85,7 @@ def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resour
         result={'status':'complete','net_chips_by_seat':None if resource_only else net,'target_chips':None if resource_only else net[rotation]}
     except Exception as exc:
         result={'status':'failed','error':f'{type(exc).__name__}: {exc}'}
-    row={'policy':spec['name'],'players':n,'rules':rules,'contract':contract,'block':block,'rotation':rotation,
+    row={'policy':spec['name'],'players':n,'rules':declared_rules,'actual_rival_order':rules,'contract':contract,'block':block,'rotation':rotation,
          'deal_seed':deal,'root_seed':root,'button':block%n,'phase':phase,'actions':trace,
          'event_digest':digest([repr(e) for e in hand.events]),'decision_telemetry':[{'coordinates':k,'count':v} for k,v in sorted(decisions.items())],
          'reached_keys':[{'street':s,'key':k,'decisions':v} for (s,k),v in sorted(keys.items())],**result}
@@ -107,7 +108,9 @@ def run(plan,out,phase,deadline):
         f.write(json.dumps(row,sort_keys=True,allow_nan=False)+'\n');f.flush();total+=1
     try:
         specs=(plan['preflight_policies'] if phase=='preflight' else plan['policies'])
-        for spec in specs:
+        tasks=[('preflight',s) for s in specs] if phase=='preflight' else (
+            [('stress',s) for s in specs]+[('lbr',s) for s in specs if s['players']==2 and s['name'] in plan['lbr_targets']])
+        for task,spec in tasks:
             guard(plan,out,deadline);source=load(spec)
             panels=[]
             if phase=='preflight':
@@ -120,6 +123,7 @@ def run(plan,out,phase,deadline):
                         panels.append((tuple(lineup),contract,plan['hu_blocks'] if spec['players']==2 else plan['tp_blocks'],0))
                 if spec['name'] in plan['lbr_targets'] and spec['players']==2:
                     panels.append((('lbr',),'menu',plan['lbr_blocks'],plan['chance_samples']))
+                panels=[panel for panel in panels if bool(panel[3])==(task=='lbr')]
             for panel_index,(rules,contract,count,samples) in enumerate(panels):
                 # Same target schedules across checkpoints/seeds/uniform. Contracts
                 # also paired; lineup streams separate; calibration disjoint.

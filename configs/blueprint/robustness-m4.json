@@ -199,10 +199,24 @@
   ],
   "hu_blocks": 4096,
   "tp_blocks": 2048,
-  "lbr_blocks": null,
-  "chance_samples": null,
+  "lbr_blocks": 512,
+  "chance_samples": 4,
   "lbr_seconds": 5,
-  "lbr_targets": [],
+  "lbr_targets": [
+    "2p-2026092801-2M",
+    "2p-2026092801-5M",
+    "2p-2026092801-10M",
+    "2p-2026092801-20M",
+    "2p-2026092802-2M",
+    "2p-2026092802-5M",
+    "2p-2026092802-10M",
+    "2p-2026092802-20M",
+    "2p-2026092803-2M",
+    "2p-2026092803-5M",
+    "2p-2026092803-10M",
+    "2p-2026092803-20M",
+    "uniform"
+  ],
   "stress_root": 2026131001,
   "lbr_root": 2026132001,
   "preflight_root": 2026133001,
@@ -214,5 +228,13 @@
     "max_swap_growth_gib": 0.5,
     "report_reserve_seconds": 1800
   },
-  "reconstruction": "original /tmp/hu20_quality.py absent on local and M4; qualification: any pair, any ace, or both ranks at least ten"
+  "reconstruction": "original /tmp/hu20_quality.py absent on local and M4; qualification: any pair, any ace, or both ranks at least ten",
+  "preflight_sha256": "e615bcea168ce5ed79ad1b85ac28a2386f236b0dda76de91e561382560536046",
+  "resource_decision": {
+    "hu_blocks": 4096,
+    "tp_blocks": 2048,
+    "lbr_blocks": 512,
+    "chance_samples": 4,
+    "basis": "40.93-second preflight, 168 outcome-suppressed hands; measured 2/8 samples on early, final and uniform. Four samples interpolate cost; include all 5M/10M targets before inspecting returns. Approximate 3-hour LBR projection, ten-hour hard cap including preflight/report. Cheap stress completes first."
+  }
 }

@@ -130,3 +130,24 @@ def test_reactive_contract_raise_cap():
     for rule in ("pressure","minraise","passive"):
         for contract in ("menu","native"):
             view.legal_actions.validate(ReactiveAttack(rule,contract).choose_action(view))
+
+
+def test_mixed_hidden_values_aggregate_before_maximum():
+    root=river(hero=("Qc","Qd"),opponent=("Ac","Ad"));view=root.observe(0)
+    pairs=(("Ac","Ad"),("3c","3d"));weights=(.8,.2)
+    lbr=finite_lbr(view,pairs,weights);selected=lbr.choose_action(view)
+    expected=[];clairvoyant=[]
+    for pair in pairs:
+        world=_sample_world(view,{1:((pair,1),)},Random(0))
+        clairvoyant.append([checkdown(world,c.action) for c in choices(view,free_fold=False)])
+    for k in range(len(choices(view,free_fold=False))):
+        expected.append(sum(weights[j]*clairvoyant[j][k] for j in range(2)))
+    assert lbr.telemetry[-1]['values_chips']==pytest.approx(expected)
+    assert expected[[c.action for c in choices(view,free_fold=False)].index(selected)]==max(expected)
+    assert max(expected)<sum(weights[j]*max(clairvoyant[j]) for j in range(2))
+
+
+def test_real_target_rng_not_consumed_by_hypothetical_queries():
+    source=Call();source.real_rng=Random(12);before=source.real_rng.getstate()
+    view=river().observe(0);LocalBestResponse(source,13,LBRConfig(1,60)).choose_action(view)
+    assert source.real_rng.getstate()==before

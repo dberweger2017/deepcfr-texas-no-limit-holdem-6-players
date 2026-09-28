@@ -63,3 +63,21 @@ profits in HU only. True legal-attacker payoff lower-bounds best-response payoff
 in this restricted game; a noisy or negative estimate does not certify robustness.
 TP stress does not measure multiplayer exploitability. No profile-exploitability
 claim is made, and whole-hand outcomes are not attributed to one street.
+
+## Frozen resource decision
+
+The M4 preflight completed 168 outcome-suppressed hands in 40.93 seconds,
+peak RSS 1.19 GiB with unchanged swap. Two/eight samples took respectively
+2.66/7.91 seconds for eight early-target hands, 2.85/9.40 seconds for eight
+final-target hands and 4.59/10.60 seconds for eight uniform hands. These are
+small timing samples, not guarantees across the full tree.
+
+Freeze **four chance samples, five soft seconds, 512 two-position LBR blocks**
+for **all thirteen HU arms**, including 5M/10M before returns are opened.
+The eight-sample development calibration is higher work than this candidate;
+it is outcome-suppressed and is not used to select an attacker on confirmation.
+Retain the proposed 4,096 HU and 2,048 TP stress blocks. Cheap stress runs first
+across every model; then LBR reloads each HU artifact sequentially. The estimated
+LBR cost is about three hours, leaving substantial headroom under the original
+absolute deadline. A slower actual campaign is retained as incomplete; no count,
+seed or deadline is changed after looking at outcomes.
