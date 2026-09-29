@@ -170,6 +170,7 @@ def _guard(output, deadline):
 
 def values(raw_dir, selection_path, models_path, output, deadline):
     output.mkdir(parents=True, exist_ok=False)
+    peak_rss = rss()
     selection = json.loads(selection_path.read_text())
     if digest(selection["selected"]) != selection["selection_digest"]:
         raise ValueError("Selection digest mismatch")
@@ -186,6 +187,7 @@ def values(raw_dir, selection_path, models_path, output, deadline):
         for seed in SEEDS:
             _guard(output, deadline)
             source = Target(specs[seed])
+            peak_rss = max(peak_rss, rss())
             cases = [(entry, item, view) for entry, item, view in views if entry["seed"] == seed]
             keys = {information_key(view, source.distribution(view)[0], schema=specs[seed]["abstraction"])
                     for _, _, view in cases}
@@ -217,6 +219,7 @@ def values(raw_dir, selection_path, models_path, output, deadline):
                     for world_index in range(96):
                         if world_index % 8 == 0:
                             _guard(output, deadline)
+                            peak_rss = max(peak_rss, rss())
                         result, limited = world_action_returns(view, source, decision_seed, world_index)
                         worlds_file.write(json.dumps({"selection": entry, "world_index": world_index,
                             "action_returns_bb": result, "limited_lbr_batches": limited}) + "\n")
@@ -237,7 +240,8 @@ def values(raw_dir, selection_path, models_path, output, deadline):
             del source
     write_json(output / "result.json", {"status": "complete", "decisions": len(attempts),
                "worlds": sum(row["worlds_completed"] for row in attempts),
-               "peak_rss_bytes": rss(), "swap_after": system(["sysctl", "vm.swapusage"]),
+               "peak_rss_bytes": max(peak_rss, rss()),
+               "swap_after": system(["sysctl", "vm.swapusage"]),
                "finished": time()})
     return {"status": "complete", "decisions": len(attempts)}
 
