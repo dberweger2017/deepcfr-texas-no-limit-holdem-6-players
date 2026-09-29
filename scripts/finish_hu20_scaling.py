@@ -20,7 +20,7 @@ from src.blueprint.solver import _seed
 from src.blueprint.windowed import _hash
 
 
-def independent(paths, seeds, final):
+def independent(paths, seeds, final, attacks=("LBR-original-cap2", "Pressure-native")):
     """Rebuild both primary block differences from raw, native-replayed chips."""
     raw = defaultdict(dict); hashes = {}
     for path in paths:
@@ -34,7 +34,7 @@ def independent(paths, seeds, final):
                 if r["status"] != "complete": raise ValueError("Independent failed confirmation hand")
                 raw[key][r["rotation"]]=r["target_chips"]
     result={}
-    for attack in ("LBR-original-cap2","Pressure-native"):
+    for attack in attacks:
         blocks=sorted({b for s,a,n,b in raw if a==attack});values=[]
         for b in blocks:
             contrasts=[]

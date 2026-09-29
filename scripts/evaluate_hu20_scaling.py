@@ -16,7 +16,7 @@ from src.arena.schedule import digest, stream_seed
 from src.diagnostics.robustness import LBRConfig
 
 
-def tasks(plan, specs):
+def all_tasks(plan, specs):
     for spec in specs:
         reference = spec["arm"] == "A"
         attacks = [a for a in ATTACKS if not reference or a[0] in (
@@ -30,6 +30,18 @@ def tasks(plan, specs):
             yield spec, "LBR-original-cap2", "lbr", "menu", plan["lbr_blocks"], plan["lbr_root"], "lbr"
             for index, label in enumerate(SECONDARY):
                 yield spec, label, label, "secondary", plan["secondary_blocks"], plan["secondary_root"]+index, "secondary"
+
+
+def tasks(plan, specs):
+    for row in all_tasks(plan, specs):
+        spec, label, *_ = row
+        primary = spec["arm"] == "B" and spec["milestone"] in (20000000, plan["training_total_nodes"]) and label in ("LBR-original-cap2", "Pressure-native")
+        selected = plan.get("panel_filter", "all")
+        if selected == "primary" and not primary:
+            continue
+        if selected == "diagnostic" and primary:
+            continue
+        yield row
 
 
 def shard_owner(block, plan):

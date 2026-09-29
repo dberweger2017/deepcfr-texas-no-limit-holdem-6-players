@@ -31,6 +31,8 @@ def test_continuation_keeps_the_complete_parent_and_cumulative_iteration_weights
     plan={"limits":{"max_entries":10000,"max_rss_gib":10.5,"min_free_gib":8},
           "training_total_nodes":initial_nodes+3000,"milestones":[initial_nodes+3000],
           "recovery_nodes":1000,"recovery_seconds":900,"independent_path":str(fixture)}
+    from src.blueprint.windowed import _hash
+    plan["independent_sha256"] = _hash(fixture)
     result=run(plan,parent,tmp_path/"continued",time()+60)
     assert result["status"]=="complete"
     assert result["initial_iteration"]==3 and result["initial_nodes"]==initial_nodes

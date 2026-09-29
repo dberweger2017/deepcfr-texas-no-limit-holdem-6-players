@@ -99,7 +99,7 @@ def contrast(panels, seeds, attacker, before, after, role=None, level=.975):
     if any(a is None or b is None for a, b in pairs): return {"status": "unavailable"}
     def values(p): return p["blocks"] if role is None else p["roles"][role]
     sets = [set(values(p)) for pair in pairs for p in pair]
-    if any(s != sets[0] for s in sets[1:]): return {"status": "unavailable", "reason": "Incomplete pairing"}
+    if not sets[0] or any(s != sets[0] for s in sets[1:]): return {"status": "unavailable", "reason": "Incomplete pairing"}
     keys = sorted(sets[0], key=int)
     effects = {str(seed): [values(b)[k]-values(a)[k] for k in keys] for seed, (a,b) in zip(seeds,pairs)}
     return {"status": "available", "long_minus_20M": estimate([mean([e[i] for e in effects.values()]) for i in range(len(keys))],level),
@@ -110,24 +110,36 @@ def contrast(panels, seeds, attacker, before, after, role=None, level=.975):
 
 def combine(plan, paths, out):
     reports = [json.loads(p.read_text()) for p in paths]
-    if {r["host"] for r in reports} != {"m1", "m4"}: raise ValueError("Missing host audit")
+    if {r["host"] for r in reports} != set(plan["block_host_cycle"]): raise ValueError("Missing host audit")
     panels = merge_panels(reports); seeds = plan["training_seeds"]; final = plan["training_total_nodes"]
     expected = {label: count for _,label,_,_,count,_,_ in tasks(plan, json.loads(Path(plan["coordinator_models"]).read_text()))}
-    for (_, attack), panel in panels.items():
-        if set(panel["blocks"]) != {str(b) for b in range(expected[attack])}:
-            raise ValueError("Missing global blocks")
+    pending = []
+    for spec, attack, _, _, count, _, _ in tasks(plan, json.loads(Path(plan["coordinator_models"]).read_text())):
+        panel = panels.get((spec["name"], attack))
+        present = set(panel["blocks"]) if panel else set()
+        wanted = {str(b) for b in range(count)}
+        if present - wanted:
+            raise ValueError("Unexpected global blocks")
+        if present != wanted:
+            pending.append({"policy": spec["name"], "attacker": attack,
+                            "pending_blocks": sorted(wanted-present, key=int)})
     primary = {a: contrast(panels,seeds,a,20000000,final) for a in ("LBR-original-cap2","Pressure-native")}
+    for attack in primary:
+        count = plan["lbr_blocks"] if attack == "LBR-original-cap2" else plan["cheap_blocks"]
+        if primary[attack]["status"] == "available" and primary[attack]["long_minus_20M"]["blocks"] != count:
+            primary[attack] = {"status": "unavailable", "reason": "Prespecified block count incomplete"}
     roles = {role: {a: contrast(panels,seeds,a,20000000,final,role) for a in primary} for role in ("button_small_blind","big_blind")}
     effects = [{"milestone": milestone, "attacker": attacker,
                 **contrast(panels,seeds,attacker,20000000,milestone,level=.95)}
                for milestone in plan["milestones"] for attacker in sorted(expected)]
-    result = {"status": "complete" if all(r["status"] == "complete" for r in reports) else "incomplete",
+    result = {"status": "complete" if not pending and all(r["status"] == "complete" for r in reports) else "incomplete",
               "primary": primary, "primary_roles": roles, "exploratory_curves": effects,
               "native_replayed_hands": sum(r["native_replayed_hands"] for r in reports),
               "per_policy": [{"policy": p["policy"], "attacker": p["attacker"], "target": estimate(list(p["blocks"].values())),
                               "attacker_profit": estimate([-v for v in p["blocks"].values()]),
                               "roles": {r: estimate(list(b.values())) for r,b in p["roles"].items()}}
                              for p in panels.values()],
+              "pending_panels": pending,
               "quality_gate": "unavailable", "pressure_safeguard": "unavailable", "finished": time()}
     for attack, field, threshold in [("LBR-original-cap2","quality_gate",0),("Pressure-native","pressure_safeguard",-10)]:
         r = primary[attack]
