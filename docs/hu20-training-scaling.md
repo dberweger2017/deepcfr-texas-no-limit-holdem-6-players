@@ -44,3 +44,7 @@ The final first-lineage human model is selected by fixed seed order, not profit,
 ## Validation at freeze
 
 The new continuation, shard, accounting and native-replay tests passed: 7 tests, including the 288-hand production fixture. Combined with the existing robustness and native-reopening boundary tests, 26 focused tests pass. The unchanged #115 source previously passed 856 full-suite tests; this PR’s new full CI remains a separate check.
+
+## Executed outcome
+
+The campaign stopped incomplete at its first M4 milestone because the frozen independent observation fixture was absent on that host. The [failure report](reports/hu20-scaling-both-macs.md) preserves both partial lineages and checksum/resource evidence. No confirmation hand ran, so neither quality gate was evaluated. No restart or change to this frozen plan occurred. Full CI passed 863 tests.

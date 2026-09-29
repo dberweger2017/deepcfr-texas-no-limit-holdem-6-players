@@ -97,3 +97,7 @@ The proposed next experiment is one separately authorized HU20 same-recipe
 work-scaling confirmation, retaining the saved 20M A/B baselines, fresh
 confirmation deals, the primary attacks and regressing controls. No campaign,
 rental, merge or promotion is scheduled by this model card.
+
+## Subsequent scaling limitation (#116)
+
+The [dual-Mac continuation](reports/hu20-scaling-both-macs.md) stopped on a missing deployed observation fixture, retaining a first-seed 40M export and a second-seed 34.291M partial checkpoint. No new confirmation hand was played, and no 100M candidate was produced. The partial artifacts have no measured strength gain and do not replace this verified 20M model or its human-play command. The historical #115 measurements above remain the applicable evidence.

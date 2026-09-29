@@ -1,0 +1,52 @@
+[
+  {
+    "completed_nodes": 29137928,
+    "config": {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+      "max_entries": 3000000,
+      "max_nodes": 250000,
+      "max_seconds": 300,
+      "postflop_replicates": 1,
+      "raise_cap": null,
+      "roots_per_seat": 1,
+      "seed": 2026093002
+    },
+    "host": "m1",
+    "iteration": 77947,
+    "most_recent_major_parent_sha256": "03bfacfdb56801d2d079d350dcdb539e1dba02bcbef9c443a08c5299ff49f358",
+    "original_parent_sha256": "03bfacfdb56801d2d079d350dcdb539e1dba02bcbef9c443a08c5299ff49f358",
+    "path": "recovery-1.json.gz",
+    "seconds": 7.7961962500121444,
+    "seed": 2026093002,
+    "sha256": "fea74a4b9ba460f8d85fd7bc5b12621cb9abc680260763b89b893b4bc51f46d7",
+    "source_revision": "eda55331298c4dd229bb15235f22060282ddda25",
+    "starting_iteration": 54709,
+    "starting_nodes": 20000238
+  },
+  {
+    "completed_nodes": 30000559,
+    "config": {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+      "max_entries": 3000000,
+      "max_nodes": 250000,
+      "max_seconds": 300,
+      "postflop_replicates": 1,
+      "raise_cap": null,
+      "roots_per_seat": 1,
+      "seed": 2026093001
+    },
+    "host": "m4",
+    "iteration": 82051,
+    "most_recent_major_parent_sha256": "cb4ca3348398f358c611d92467ae9f891de41f64e374cd847c0103ccb2d62822",
+    "original_parent_sha256": "cb4ca3348398f358c611d92467ae9f891de41f64e374cd847c0103ccb2d62822",
+    "path": "recovery-1.json.gz",
+    "seconds": 5.89622929203324,
+    "seed": 2026093001,
+    "sha256": "5d0e4949899d0b3d0422a7a9fd2336d221a0df1908030cefe399483c2339cee5",
+    "source_revision": "eda55331298c4dd229bb15235f22060282ddda25",
+    "starting_iteration": 55291,
+    "starting_nodes": 20000557
+  }
+]

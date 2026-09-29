@@ -1,0 +1,8 @@
+{
+  "checkpoint_sha256": "2a47a14f77cc9c30b51daaaa7bb9d10f994199db798dc597dbbeeadaf2f3e2f1",
+  "current_sha256": "12d3f1ad67d08b350363ce57665347c2de5edc46fab67e474c5f175d6a5271b7",
+  "entries": 1013710,
+  "iteration": 107359,
+  "scope": "Every serialized current action probability equals regret matching of the retained complete checkpoint. No playing evaluation.",
+  "status": "verified"
+}
