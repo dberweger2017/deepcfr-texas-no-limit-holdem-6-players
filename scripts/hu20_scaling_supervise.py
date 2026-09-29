@@ -16,7 +16,7 @@ from scripts.tp20_common import append
 from scripts.train_hu20 import system, write_json
 
 
-def run(jobs, out, deadline, swap_before=None, coordinator_pid=None):
+def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=False):
     acquire(out)
     record = {"status": "running", "started": time(), "deadline": deadline,
               "identity": identity(), "attempts": [],
@@ -42,12 +42,14 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None):
                     swap = system(["sysctl", "vm.swapusage"])
                     growth = swap_bytes(swap)-swap_bytes(record["swap_baseline"])
                     free = shutil.disk_usage(out).free
+                    power=system(["pmset","-g","batt"])
                     append(out / "resources.jsonl", {"unix_seconds": time(), "phase": job["name"],
                            "rss_bytes": max(sizes, default=0), "aggregate_job_rss_bytes": sum(sizes),
-                           "swap": swap, "swap_growth_bytes": growth, "free_disk_bytes": free})
+                           "swap": swap, "swap_growth_bytes": growth, "free_disk_bytes": free,"power":power})
                     if sum(sizes) >= 10.5*1024**3: reason = "Aggregate job RSS guard"
                     if growth > .5*1024**3: reason = "Swap growth guard"
                     if free < 8*1024**3: reason = "Free disk guard"
+                    if require_ac and (power is None or "AC Power" not in power): reason="Main worker AC power guard"
                     next_sample = time()+5
                 if time() >= end: reason = "Absolute phase/deadline guard"
                 if reason:
@@ -72,8 +74,9 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None):
 def main():
     p = argparse.ArgumentParser(); p.add_argument("--jobs", type=Path, required=True)
     p.add_argument("--out", type=Path, required=True); p.add_argument("--deadline", type=float, required=True)
-    p.add_argument("--swap-baseline"); p.add_argument("--coordinator-pid",type=int); a = p.parse_args()
-    record = run(json.loads(a.jobs.read_text()), a.out, a.deadline, a.swap_baseline,a.coordinator_pid)
+    p.add_argument("--swap-baseline"); p.add_argument("--coordinator-pid",type=int)
+    p.add_argument("--require-ac",action="store_true"); a = p.parse_args()
+    record = run(json.loads(a.jobs.read_text()), a.out, a.deadline, a.swap_baseline,a.coordinator_pid,a.require_ac)
     print(json.dumps(record)); return record["status"] != "complete"
 
 

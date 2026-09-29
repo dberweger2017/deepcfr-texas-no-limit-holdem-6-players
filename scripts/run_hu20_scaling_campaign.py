@@ -54,7 +54,7 @@ def launch(plan, host, name, jobs, deadline):
     jobpath = root / (name+"-jobs.json")
     command = ["/usr/bin/caffeinate", "-dims", settings["python"], "-m", "scripts.hu20_scaling_supervise",
                "--jobs", str(jobpath), "--out", str(supervisor), "--deadline", str(deadline),
-               "--swap-baseline", plan["swap_baselines"][host]]
+               "--swap-baseline", plan["swap_baselines"][host],"--require-ac"]
     if host=="m1": command.extend(["--coordinator-pid",str(os.getpid())])
     code = ("import subprocess,json; from pathlib import Path; "
             f"s=Path({str(supervisor)!r}); assert not s.exists(), 'Duplicate job prevented'; "
