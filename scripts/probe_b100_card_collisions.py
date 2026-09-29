@@ -111,7 +111,14 @@ def main():
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--deadline", type=float, required=True)
     args = parser.parse_args()
-    print(json.dumps(run(args.raw_dir, args.selection, args.models, args.out, args.deadline)))
+    try:
+        result = run(args.raw_dir, args.selection, args.models, args.out, args.deadline)
+    except Exception as exc:
+        if args.out.exists():
+            write_json(args.out / "failure.json", {"status": "incomplete",
+                       "error": f"{type(exc).__name__}: {exc}", "time": time()})
+        raise
+    print(json.dumps(result))
 
 
 if __name__ == "__main__":

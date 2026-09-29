@@ -94,12 +94,20 @@ def decision_report(root):
                        for row in evaluation_half]
             heldout_mean = mean(heldout)
             heldout_width = 1.96 * stdev(heldout) / sqrt(len(heldout))
+            played = next(i for i, action in enumerate(attempt["menu"])
+                          if action["kind"] == attempt["selected_action"]["kind"]
+                          and action["raise_to"] == attempt["selected_action"]["raise_to"])
+            chosen_differences = [row[best] - row[played] for row in evaluation_half]
+            chosen_mean = mean(chosen_differences)
+            chosen_width = 1.96 * stdev(chosen_differences) / sqrt(len(chosen_differences))
             brief = {"selection": entry, "trained": attempt["trained"],
                      "visit_band": band, "visits": node["visits"] if node else 0,
                      "entropy_nats": entropy, "gap_bb": heldout_mean,
                      "gap_interval_bb": [heldout_mean-heldout_width, heldout_mean+heldout_width],
                      "descriptive_full_sample_gap_bb": independent["policy_gap_bb"],
                      "best_action": attempt["menu"][best],
+                     "played_action_gap_bb": chosen_mean,
+                     "played_action_gap_interval_bb": [chosen_mean-chosen_width, chosen_mean+chosen_width],
                      "lbr_limited_batches": limited[key]}
             records.append(brief)
             for label in ("all", f"street:{entry['street']}", f"seed:{entry['seed']}",
