@@ -1,0 +1,37 @@
+{
+  "action_menu_raise_cap": 2,
+  "completed_nodes": 20001395,
+  "completed_outer_iterations": 3721,
+  "continuation_seed": 2026092703,
+  "key_schema": "blueprint-abstraction-v1",
+  "output_checkpoint_sha256": "72cadcad8fb15cf1a2ebce8d5273c04c8e1c94038f0a0d6b94b6ecd47e0477a6",
+  "output_iteration": 12454,
+  "parent_checkpoint_sha256": "94d41c737d0e8f41a548d58c64dd219dfb9593459c80d7a7382569bf6963e33a",
+  "parent_iteration": 8733,
+  "sampler_version": "legacy-external-sampling-v1",
+  "schema": "button-zero-blueprint-descendant-v1",
+  "source_dirty": false,
+  "source_revision": "68f9e2c33c696764847e97cb0bb718a49ee7c928",
+  "training_table": {
+    "big_blind": 100,
+    "button": 0,
+    "chip_unit": "0.01",
+    "player_ids": [
+      "player-0",
+      "player-1",
+      "player-2",
+      "player-3",
+      "player-4",
+      "player-5"
+    ],
+    "small_blind": 50,
+    "stacks": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ]
+  }
+}

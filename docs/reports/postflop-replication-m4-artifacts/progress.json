@@ -1,0 +1,87 @@
+[
+  {
+    "ended_unix_seconds": 1790501767.280739,
+    "exit_code": 0,
+    "phase": "independent-observations"
+  },
+  {
+    "ended_unix_seconds": 1790503438.887842,
+    "exit_code": 0,
+    "phase": "train-k1-2026092701"
+  },
+  {
+    "ended_unix_seconds": 1790505263.3769941,
+    "exit_code": 0,
+    "phase": "train-k4-2026092701"
+  },
+  {
+    "ended_unix_seconds": 1790506933.611495,
+    "exit_code": 0,
+    "phase": "train-k1-2026092702"
+  },
+  {
+    "ended_unix_seconds": 1790508748.457328,
+    "exit_code": 0,
+    "phase": "train-k4-2026092702"
+  },
+  {
+    "ended_unix_seconds": 1790510423.553337,
+    "exit_code": 0,
+    "phase": "train-k1-2026092703"
+  },
+  {
+    "ended_unix_seconds": 1790512240.626584,
+    "exit_code": 0,
+    "phase": "train-k4-2026092703"
+  },
+  {
+    "ended_unix_seconds": 1790512312.797476,
+    "exit_code": 0,
+    "phase": "evaluate-U_safe"
+  },
+  {
+    "ended_unix_seconds": 1790512385.816892,
+    "exit_code": 0,
+    "phase": "evaluate-parent"
+  },
+  {
+    "ended_unix_seconds": 1790512424.723417,
+    "exit_code": 0,
+    "phase": "evaluate-TAG"
+  },
+  {
+    "ended_unix_seconds": 1790512509.175102,
+    "exit_code": 0,
+    "phase": "evaluate-k1-2026092701"
+  },
+  {
+    "ended_unix_seconds": 1790512593.010112,
+    "exit_code": 0,
+    "phase": "evaluate-k4-2026092701"
+  },
+  {
+    "ended_unix_seconds": 1790512676.8188999,
+    "exit_code": 0,
+    "phase": "evaluate-k1-2026092702"
+  },
+  {
+    "ended_unix_seconds": 1790512760.514922,
+    "exit_code": 0,
+    "phase": "evaluate-k4-2026092702"
+  },
+  {
+    "ended_unix_seconds": 1790512843.817368,
+    "exit_code": 0,
+    "phase": "evaluate-k1-2026092703"
+  },
+  {
+    "ended_unix_seconds": 1790512927.750145,
+    "exit_code": 0,
+    "phase": "evaluate-k4-2026092703"
+  },
+  {
+    "ended_unix_seconds": 1790513193.743427,
+    "exit_code": 0,
+    "phase": "report"
+  }
+]
