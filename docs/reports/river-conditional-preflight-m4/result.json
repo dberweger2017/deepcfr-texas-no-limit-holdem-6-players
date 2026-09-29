@@ -1,0 +1,12 @@
+{
+  "completed_or_failed_root_rows": 2,
+  "elapsed_seconds": 160.91595045896247,
+  "error": null,
+  "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 59%",
+  "peak_process_rss_bytes": 8025522176,
+  "planned_play_attempts": 6,
+  "planned_roots": 2,
+  "retained_play_attempts": 6,
+  "status": "valid",
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 769.38M  free = 1278.62M  (encrypted)"
+}

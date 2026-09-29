@@ -1,0 +1,17 @@
+{
+  "schema": "river-rollout-calibration-m4-v1",
+  "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+  "source_plans": [
+    "configs/blueprint/river-development-m4.json",
+    "configs/blueprint/river-range-amendment-m4.json"
+  ],
+  "case_ids": ["dev-dry-check", "dev-paired-flop", "dev-deep-mixed-high"],
+  "world_counts": [8, 128, 512, 1024, 2048],
+  "per_decision_max_seconds": 30,
+  "range_samples": 96,
+  "styles": ["blueprint", "fold", "call", "raise"],
+  "seed": 2026092608,
+  "max_wall_seconds": 600,
+  "max_rss_gib": 10.5,
+  "min_free_gib": 30
+}
