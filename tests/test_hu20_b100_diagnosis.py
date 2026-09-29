@@ -31,11 +31,40 @@ def test_conditional_comparison_cannot_see_real_hidden_cards_or_future_deck():
     assert left == right
 
 
+def test_selection_context_ignores_deal_seed_and_terminal_payoff():
+    from scripts.diagnose_hu20_decisions import _trace
+    row = {"rotation": 0, "block": 0,
+           "actions": [{"seat": 0, "street": "preflop", "kind": "call",
+                        "raise_to": None}]}
+    first = list(_trace({**row, "deal_seed": 31, "target_chips": -2000}, synthetic=True))
+    second = list(_trace({**row, "deal_seed": 982, "target_chips": 2000}, synthetic=True))
+    assert first[0][1] == second[0][1]
+    assert first[0][1].legal_actions.call_amount == 50
+
+
 def test_world_clustered_gap_uses_policy_mix_after_aggregation():
     result = summarize(((1, -1), (-1, 1), (2, -2)), (.75, .25))
     assert result["action_mean_bb"] == pytest.approx((2/3, -2/3))
     assert result["policy_mean_bb"] == pytest.approx(1/3)
     assert result["policy_gap_bb"] == pytest.approx(1/3)
+
+
+def test_late_street_fold_value_matches_independent_ledger():
+    prefix = ("3c", "Ac", "3d", "Ad", "2c", "5d", "8h", "Ts", "Jc")
+    hand = Hand.from_deck(Table(("hero", "rival"), (2000, 2000)),
+                          hand_id="river-reference",
+                          deck=prefix + tuple(c for c in DECK if c not in prefix))
+    while len(hand.observe(hand.actor).board) < 5:
+        seen = hand.observe(hand.actor)
+        hand = hand.apply(Action(ActionKind.CHECK if ActionKind.CHECK in seen.legal_actions.kinds
+                                 else ActionKind.CALL))
+    assert hand.actor == 1
+    hand = hand.apply(Action(ActionKind.RAISE, hand.observe(1).legal_actions.min_raise_to))
+    view = hand.observe(0)
+    menu = choices(view, raise_cap=None, free_fold=False)
+    returns, _ = world_action_returns(view, CallTarget(), 9102, 0)
+    fold = next(i for i, item in enumerate(menu) if item.action.kind == ActionKind.FOLD)
+    assert returns[fold] == pytest.approx(-view.players[0].contributed / 100)
 
 
 def test_translation_changes_only_lookup_label_and_preserves_native_chips():
@@ -74,6 +103,8 @@ def test_translation_changes_only_lookup_label_and_preserves_native_chips():
     opts, probabilities, hit = translated.distribution(view)
     assert hit and sum(probabilities) == pytest.approx(1)
     assert opts == menu and translated.last_translation["translated_hit"]
+    assert translated.source is Target.source
+    assert translated.distribution(view) == (opts, probabilities, hit)
     assert hand.events == original_events and view.pot == original_pot
     assert tuple(p.stack for p in view.players) == original_stacks
     for option in opts:

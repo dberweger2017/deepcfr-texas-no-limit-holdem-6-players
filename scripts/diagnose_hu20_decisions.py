@@ -28,25 +28,27 @@ def _rank(seed, block, rotation, action_index):
     return sha256(token.encode()).hexdigest()
 
 
-def _start(row):
+def _start(row, *, synthetic=False):
     rotation = row["rotation"]
     ids = tuple(f"player-{(seat-rotation)%2}" for seat in range(2))
     return Hand.start(
-        Table(ids, (2000, 2000), button=row["button"]),
-        hand_id=f"robustness-{row['phase']}-2-{row['block']}", seed=row["deal_seed"],
+        Table(ids, (2000, 2000), button=row["block"] % 2 if synthetic else row["button"]),
+        hand_id=(f"selection-{row['block']}" if synthetic else
+                 f"robustness-{row['phase']}-2-{row['block']}"),
+        seed=0 if synthetic else row["deal_seed"],
     )
 
 
-def _trace(row):
+def _trace(row, *, synthetic=False):
     """Yield player-visible prefixes; no terminal payoff is consulted."""
-    hand = _start(row)
+    hand = _start(row, synthetic=synthetic)
     for item in row["actions"]:
         view = hand.observe(hand.actor)
         if (view.seat != item["seat"] or view.street.value != item["street"]):
             raise ValueError("Raw trace differs from native public replay")
         yield item, view
         hand = hand.apply(Action(ActionKind(item["kind"]), item["raise_to"]))
-    if not hand.finished and row["status"] == "complete":
+    if not synthetic and not hand.finished and row["status"] == "complete":
         raise ValueError("Completed raw hand has an incomplete action trace")
 
 
@@ -63,7 +65,7 @@ def select(raw_dir, output):
                 row = json.loads(line)
                 if row["policy"] != f"B-{seed}-{MODEL_MILESTONE}":
                     raise ValueError("Unexpected policy in retained LBR archive")
-                for item, view in _trace(row):
+                for item, view in _trace(row, synthetic=True):
                     if item["logical_player"] != 0:
                         continue
                     context = "free" if view.legal_actions.call_amount == 0 else "facing"
