@@ -101,3 +101,7 @@ rental, merge or promotion is scheduled by this model card.
 ## Subsequent scaling limitation (#116)
 
 The [dual-Mac continuation](reports/hu20-scaling-both-macs.md) stopped on a missing deployed observation fixture, retaining a first-seed 40M export and a second-seed 34.291M partial checkpoint. No new confirmation hand was played, and no 100M candidate was produced. The partial artifacts have no measured strength gain and do not replace this verified 20M model or its human-play command. The historical #115 measurements above remain the applicable evidence.
+
+## M4-only scaling recovery (#116)
+
+The separately authorized [M4-only recovery](reports/hu20-scaling-m4-recovery.md) produced all three 100M checkpoints. Against the original-cap2 bounded LBR, their role-balanced target profit improved by 25.94 BB/100 versus each lineage's 20M policy (two-sided 97.5% block interval [7.43, 44.45]), but remained **−73.14 BB/100 in absolute terms**. The native-pressure contrast was +19.39 [2.86, 35.93] BB/100 on average; one lineage regressed by 11.37 BB/100. The LBR is a limited attacker, so this does not certify robustness or full-game exploitability. Only 73,728 of 608,256 planned confirmation hands ran; the control and intermediate-checkpoint panels remain pending. The first-seed 100M human-play command was smoke-tested and replayed with bot cards hidden, while the verified 20M model and older human interfaces remain available. No default model is promoted.

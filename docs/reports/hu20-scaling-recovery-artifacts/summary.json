@@ -1,0 +1,1979 @@
+{
+  "attempt_id": "hu20-scaling-m4-recovery-20260929-1008",
+  "candidate": {
+    "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+    "arm": "B",
+    "checkpoint_path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093001/checkpoint-100000000.json.gz",
+    "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a",
+    "dual_menu_telemetry": true,
+    "format": "holdem-hu20-native-reopening-blueprint-v1",
+    "iteration": 246212,
+    "milestone": 100000000,
+    "name": "B-2026093001-100000000",
+    "nodes": 100000000,
+    "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093001/current-100000000.json.gz",
+    "players": 2,
+    "seed": 2026093001,
+    "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+  },
+  "deadline": 1790712513.289187,
+  "expected_hands": 608256,
+  "exploratory_curves": [
+    {
+      "attacker": "LBR-original-cap2",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Minraise-native",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Passive",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Pressure-native",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "hu20_uniform",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "loose_aggressive",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "loose_passive",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "pot_pressure",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "tight_aggressive",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "tight_passive",
+      "milestone": 40000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "LBR-original-cap2",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Minraise-native",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Passive",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Pressure-native",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "hu20_uniform",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "loose_aggressive",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "loose_passive",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "pot_pressure",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "tight_aggressive",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "tight_passive",
+      "milestone": 80000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "LBR-original-cap2",
+      "early_absolute": {
+        "bb100": -99.07633463541667,
+        "bb_hand": -0.9907633463541667,
+        "blocks": 2048,
+        "buyins20_per100": -4.953816731770834,
+        "interval": [
+          -113.09288279285248,
+          -85.05978647798086
+        ],
+        "level": 0.95
+      },
+      "long_absolute": {
+        "bb100": -73.13639322916667,
+        "bb_hand": -0.7313639322916667,
+        "blocks": 2048,
+        "buyins20_per100": -3.6568196614583335,
+        "interval": [
+          -87.9137369201725,
+          -58.35904953816084
+        ],
+        "level": 0.95
+      },
+      "long_minus_20M": {
+        "bb100": 25.93994140625,
+        "bb_hand": 0.2593994140625,
+        "blocks": 2048,
+        "buyins20_per100": 1.2969970703125,
+        "interval": [
+          9.757201658778065,
+          42.122681153721935
+        ],
+        "level": 0.95
+      },
+      "milestone": 100000000,
+      "per_lineage": {
+        "2026093001": {
+          "bb100": 32.04345703125,
+          "bb_hand": 0.3204345703125,
+          "blocks": 2048,
+          "buyins20_per100": 1.6021728515625,
+          "interval": [
+            5.46131696538216,
+            58.62559709711784
+          ],
+          "level": 0.95
+        },
+        "2026093002": {
+          "bb100": 33.0810546875,
+          "bb_hand": 0.330810546875,
+          "blocks": 2048,
+          "buyins20_per100": 1.654052734375,
+          "interval": [
+            6.091200201757168,
+            60.07090917324283
+          ],
+          "level": 0.95
+        },
+        "2026093003": {
+          "bb100": 12.6953125,
+          "bb_hand": 0.126953125,
+          "blocks": 2048,
+          "buyins20_per100": 0.634765625,
+          "interval": [
+            -14.69533309203024,
+            40.08595809203024
+          ],
+          "level": 0.95
+        }
+      },
+      "status": "available"
+    },
+    {
+      "attacker": "Minraise-native",
+      "milestone": 100000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "milestone": 100000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Passive",
+      "milestone": 100000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "Pressure-native",
+      "early_absolute": {
+        "bb100": 106.69759114583333,
+        "bb_hand": 1.0669759114583333,
+        "blocks": 4096,
+        "buyins20_per100": 5.334879557291666,
+        "interval": [
+          93.96961049272925,
+          119.42557179893741
+        ],
+        "level": 0.95
+      },
+      "long_absolute": {
+        "bb100": 126.092529296875,
+        "bb_hand": 1.26092529296875,
+        "blocks": 4096,
+        "buyins20_per100": 6.30462646484375,
+        "interval": [
+          112.80148473628205,
+          139.38357385746795
+        ],
+        "level": 0.95
+      },
+      "long_minus_20M": {
+        "bb100": 19.394938151041668,
+        "bb_hand": 0.19394938151041669,
+        "blocks": 4096,
+        "buyins20_per100": 0.9697469075520834,
+        "interval": [
+          4.939743695061111,
+          33.850132607022225
+        ],
+        "level": 0.95
+      },
+      "milestone": 100000000,
+      "per_lineage": {
+        "2026093001": {
+          "bb100": -11.370849609375,
+          "bb_hand": -0.11370849609375,
+          "blocks": 4096,
+          "buyins20_per100": -0.56854248046875,
+          "interval": [
+            -34.59996694666792,
+            11.858267727917923
+          ],
+          "level": 0.95
+        },
+        "2026093002": {
+          "bb100": 51.2939453125,
+          "bb_hand": 0.512939453125,
+          "blocks": 4096,
+          "buyins20_per100": 2.564697265625,
+          "interval": [
+            27.05617188353451,
+            75.53171874146548
+          ],
+          "level": 0.95
+        },
+        "2026093003": {
+          "bb100": 18.26171875,
+          "bb_hand": 0.1826171875,
+          "blocks": 4096,
+          "buyins20_per100": 0.9130859375,
+          "interval": [
+            -5.525293733777616,
+            42.048731233777616
+          ],
+          "level": 0.95
+        }
+      },
+      "status": "available"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "milestone": 100000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "hu20_uniform",
+      "milestone": 100000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "loose_aggressive",
+      "milestone": 100000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "loose_passive",
+      "milestone": 100000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "pot_pressure",
+      "milestone": 100000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "tight_aggressive",
+      "milestone": 100000000,
+      "status": "unavailable"
+    },
+    {
+      "attacker": "tight_passive",
+      "milestone": 100000000,
+      "status": "unavailable"
+    }
+  ],
+  "human_smoke": {
+    "hands": 20,
+    "human_chips": -6300,
+    "lookup_coverage": {
+      "trained": 73
+    },
+    "replayed": 20
+  },
+  "native_replayed_hands": 73728,
+  "pending_panels": [
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-20000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-20000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-20000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-20000000"
+    },
+    {
+      "attacker": "loose_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-20000000"
+    },
+    {
+      "attacker": "loose_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-20000000"
+    },
+    {
+      "attacker": "tight_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-20000000"
+    },
+    {
+      "attacker": "tight_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-20000000"
+    },
+    {
+      "attacker": "pot_pressure",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-20000000"
+    },
+    {
+      "attacker": "hu20_uniform",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-20000000"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-20000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-20000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-20000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-20000000"
+    },
+    {
+      "attacker": "loose_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-20000000"
+    },
+    {
+      "attacker": "loose_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-20000000"
+    },
+    {
+      "attacker": "tight_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-20000000"
+    },
+    {
+      "attacker": "tight_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-20000000"
+    },
+    {
+      "attacker": "pot_pressure",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-20000000"
+    },
+    {
+      "attacker": "hu20_uniform",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-20000000"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-20000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-20000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-20000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-20000000"
+    },
+    {
+      "attacker": "loose_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-20000000"
+    },
+    {
+      "attacker": "loose_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-20000000"
+    },
+    {
+      "attacker": "tight_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-20000000"
+    },
+    {
+      "attacker": "tight_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-20000000"
+    },
+    {
+      "attacker": "pot_pressure",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-20000000"
+    },
+    {
+      "attacker": "hu20_uniform",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-20000000"
+    },
+    {
+      "attacker": "Pressure-native",
+      "pending_blocks": 4096,
+      "policy": "A-2026093001-20000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "A-2026093001-20000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "A-2026093001-20000000"
+    },
+    {
+      "attacker": "Pressure-native",
+      "pending_blocks": 4096,
+      "policy": "A-2026093002-20000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "A-2026093002-20000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "A-2026093002-20000000"
+    },
+    {
+      "attacker": "Pressure-native",
+      "pending_blocks": 4096,
+      "policy": "A-2026093003-20000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "A-2026093003-20000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "A-2026093003-20000000"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-40000000"
+    },
+    {
+      "attacker": "Pressure-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-40000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-40000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-40000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-40000000"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-80000000"
+    },
+    {
+      "attacker": "Pressure-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-80000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-80000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-80000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-80000000"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-100000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-100000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-100000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093001-100000000"
+    },
+    {
+      "attacker": "loose_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-100000000"
+    },
+    {
+      "attacker": "loose_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-100000000"
+    },
+    {
+      "attacker": "tight_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-100000000"
+    },
+    {
+      "attacker": "tight_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-100000000"
+    },
+    {
+      "attacker": "pot_pressure",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-100000000"
+    },
+    {
+      "attacker": "hu20_uniform",
+      "pending_blocks": 256,
+      "policy": "B-2026093001-100000000"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-40000000"
+    },
+    {
+      "attacker": "Pressure-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-40000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-40000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-40000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-40000000"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-80000000"
+    },
+    {
+      "attacker": "Pressure-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-80000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-80000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-80000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-80000000"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-100000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-100000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-100000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093002-100000000"
+    },
+    {
+      "attacker": "loose_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-100000000"
+    },
+    {
+      "attacker": "loose_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-100000000"
+    },
+    {
+      "attacker": "tight_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-100000000"
+    },
+    {
+      "attacker": "tight_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-100000000"
+    },
+    {
+      "attacker": "pot_pressure",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-100000000"
+    },
+    {
+      "attacker": "hu20_uniform",
+      "pending_blocks": 256,
+      "policy": "B-2026093002-100000000"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-40000000"
+    },
+    {
+      "attacker": "Pressure-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-40000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-40000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-40000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-40000000"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-80000000"
+    },
+    {
+      "attacker": "Pressure-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-80000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-80000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-80000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-80000000"
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-100000000"
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-100000000"
+    },
+    {
+      "attacker": "Minraise-native",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-100000000"
+    },
+    {
+      "attacker": "Passive",
+      "pending_blocks": 4096,
+      "policy": "B-2026093003-100000000"
+    },
+    {
+      "attacker": "loose_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-100000000"
+    },
+    {
+      "attacker": "loose_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-100000000"
+    },
+    {
+      "attacker": "tight_passive",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-100000000"
+    },
+    {
+      "attacker": "tight_aggressive",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-100000000"
+    },
+    {
+      "attacker": "pot_pressure",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-100000000"
+    },
+    {
+      "attacker": "hu20_uniform",
+      "pending_blocks": 256,
+      "policy": "B-2026093003-100000000"
+    }
+  ],
+  "per_policy": [
+    {
+      "attacker": "Pressure-native",
+      "attacker_profit": {
+        "bb100": -119.5556640625,
+        "bb_hand": -1.195556640625,
+        "blocks": 4096,
+        "buyins20_per100": -5.977783203125,
+        "interval": [
+          -138.67420760648176,
+          -100.43712051851823
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093001-20000000",
+      "roles": {
+        "big_blind": {
+          "bb100": 116.2109375,
+          "bb_hand": 1.162109375,
+          "blocks": 4096,
+          "buyins20_per100": 5.810546875,
+          "interval": [
+            81.46604840200052,
+            150.95582659799948
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": 122.900390625,
+          "bb_hand": 1.22900390625,
+          "blocks": 4096,
+          "buyins20_per100": 6.14501953125,
+          "interval": [
+            89.68551723167492,
+            156.1152640183251
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": 119.5556640625,
+        "bb_hand": 1.195556640625,
+        "blocks": 4096,
+        "buyins20_per100": 5.977783203125,
+        "interval": [
+          100.43712051851823,
+          138.67420760648176
+        ],
+        "level": 0.95
+      }
+    },
+    {
+      "attacker": "LBR-original-cap2",
+      "attacker_profit": {
+        "bb100": 99.98779296875,
+        "bb_hand": 0.9998779296875,
+        "blocks": 2048,
+        "buyins20_per100": 4.9993896484375,
+        "interval": [
+          77.98225696327434,
+          121.99332897422566
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093001-20000000",
+      "roles": {
+        "big_blind": {
+          "bb100": -91.6015625,
+          "bb_hand": -0.916015625,
+          "blocks": 2048,
+          "buyins20_per100": -4.580078125,
+          "interval": [
+            -134.1825565248098,
+            -49.02056847519019
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": -108.3740234375,
+          "bb_hand": -1.083740234375,
+          "blocks": 2048,
+          "buyins20_per100": -5.418701171875,
+          "interval": [
+            -148.719178580891,
+            -68.028868294109
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": -99.98779296875,
+        "bb_hand": -0.9998779296875,
+        "blocks": 2048,
+        "buyins20_per100": -4.9993896484375,
+        "interval": [
+          -121.99332897422566,
+          -77.98225696327434
+        ],
+        "level": 0.95
+      }
+    },
+    {
+      "attacker": "Pressure-native",
+      "attacker_profit": {
+        "bb100": -84.185791015625,
+        "bb_hand": -0.84185791015625,
+        "blocks": 4096,
+        "buyins20_per100": -4.20928955078125,
+        "interval": [
+          -103.5006887877027,
+          -64.8708932435473
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093002-20000000",
+      "roles": {
+        "big_blind": {
+          "bb100": 93.7744140625,
+          "bb_hand": 0.937744140625,
+          "blocks": 4096,
+          "buyins20_per100": 4.688720703125,
+          "interval": [
+            58.12997520651458,
+            129.4188529184854
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": 74.59716796875,
+          "bb_hand": 0.7459716796875,
+          "blocks": 4096,
+          "buyins20_per100": 3.7298583984375,
+          "interval": [
+            40.89337653436628,
+            108.30095940313372
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": 84.185791015625,
+        "bb_hand": 0.84185791015625,
+        "blocks": 4096,
+        "buyins20_per100": 4.20928955078125,
+        "interval": [
+          64.8708932435473,
+          103.5006887877027
+        ],
+        "level": 0.95
+      }
+    },
+    {
+      "attacker": "LBR-original-cap2",
+      "attacker_profit": {
+        "bb100": 108.38623046875,
+        "bb_hand": 1.0838623046875,
+        "blocks": 2048,
+        "buyins20_per100": 5.4193115234375,
+        "interval": [
+          87.19271386470844,
+          129.57974707279158
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093002-20000000",
+      "roles": {
+        "big_blind": {
+          "bb100": -108.935546875,
+          "bb_hand": -1.08935546875,
+          "blocks": 2048,
+          "buyins20_per100": -5.44677734375,
+          "interval": [
+            -149.87652691445078,
+            -67.99456683554921
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": -107.8369140625,
+          "bb_hand": -1.078369140625,
+          "blocks": 2048,
+          "buyins20_per100": -5.391845703125,
+          "interval": [
+            -146.701989584116,
+            -68.97183854088398
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": -108.38623046875,
+        "bb_hand": -1.0838623046875,
+        "blocks": 2048,
+        "buyins20_per100": -5.4193115234375,
+        "interval": [
+          -129.57974707279158,
+          -87.19271386470844
+        ],
+        "level": 0.95
+      }
+    },
+    {
+      "attacker": "Pressure-native",
+      "attacker_profit": {
+        "bb100": -116.351318359375,
+        "bb_hand": -1.16351318359375,
+        "blocks": 4096,
+        "buyins20_per100": -5.81756591796875,
+        "interval": [
+          -135.48934857487276,
+          -97.21328814387724
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093003-20000000",
+      "roles": {
+        "big_blind": {
+          "bb100": 149.12109375,
+          "bb_hand": 1.4912109375,
+          "blocks": 4096,
+          "buyins20_per100": 7.4560546875,
+          "interval": [
+            113.08214725744556,
+            185.16004024255443
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": 83.58154296875,
+          "bb_hand": 0.8358154296875,
+          "blocks": 4096,
+          "buyins20_per100": 4.1790771484375,
+          "interval": [
+            49.93464451460572,
+            117.22844142289428
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": 116.351318359375,
+        "bb_hand": 1.16351318359375,
+        "blocks": 4096,
+        "buyins20_per100": 5.81756591796875,
+        "interval": [
+          97.21328814387724,
+          135.48934857487276
+        ],
+        "level": 0.95
+      }
+    },
+    {
+      "attacker": "LBR-original-cap2",
+      "attacker_profit": {
+        "bb100": 88.85498046875,
+        "bb_hand": 0.8885498046875,
+        "blocks": 2048,
+        "buyins20_per100": 4.4427490234375,
+        "interval": [
+          67.26647743657566,
+          110.44348350092434
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093003-20000000",
+      "roles": {
+        "big_blind": {
+          "bb100": -99.560546875,
+          "bb_hand": -0.99560546875,
+          "blocks": 2048,
+          "buyins20_per100": -4.97802734375,
+          "interval": [
+            -138.15687038666243,
+            -60.964223363337574
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": -78.1494140625,
+          "bb_hand": -0.781494140625,
+          "blocks": 2048,
+          "buyins20_per100": -3.907470703125,
+          "interval": [
+            -118.91369744911307,
+            -37.385130675886934
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": -88.85498046875,
+        "bb_hand": -0.8885498046875,
+        "blocks": 2048,
+        "buyins20_per100": -4.4427490234375,
+        "interval": [
+          -110.44348350092434,
+          -67.26647743657566
+        ],
+        "level": 0.95
+      }
+    },
+    {
+      "attacker": "Pressure-native",
+      "attacker_profit": {
+        "bb100": -108.184814453125,
+        "bb_hand": -1.08184814453125,
+        "blocks": 4096,
+        "buyins20_per100": -5.40924072265625,
+        "interval": [
+          -126.29655134828269,
+          -90.07307755796731
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093001-100000000",
+      "roles": {
+        "big_blind": {
+          "bb100": 134.7412109375,
+          "bb_hand": 1.347412109375,
+          "blocks": 4096,
+          "buyins20_per100": 6.737060546875,
+          "interval": [
+            99.78877850363526,
+            169.69364337136474
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": 81.62841796875,
+          "bb_hand": 0.8162841796875,
+          "blocks": 4096,
+          "buyins20_per100": 4.0814208984375,
+          "interval": [
+            48.28021336115808,
+            114.97662257634192
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": 108.184814453125,
+        "bb_hand": 1.08184814453125,
+        "blocks": 4096,
+        "buyins20_per100": 5.40924072265625,
+        "interval": [
+          90.07307755796731,
+          126.29655134828269
+        ],
+        "level": 0.95
+      }
+    },
+    {
+      "attacker": "LBR-original-cap2",
+      "attacker_profit": {
+        "bb100": 67.9443359375,
+        "bb_hand": 0.679443359375,
+        "blocks": 2048,
+        "buyins20_per100": 3.397216796875,
+        "interval": [
+          47.41982584804677,
+          88.46884602695323
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093001-100000000",
+      "roles": {
+        "big_blind": {
+          "bb100": -55.322265625,
+          "bb_hand": -0.55322265625,
+          "blocks": 2048,
+          "buyins20_per100": -2.76611328125,
+          "interval": [
+            -93.18102098345402,
+            -17.46351026654598
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": -80.56640625,
+          "bb_hand": -0.8056640625,
+          "blocks": 2048,
+          "buyins20_per100": -4.0283203125,
+          "interval": [
+            -119.669104014916,
+            -41.46370848508399
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": -67.9443359375,
+        "bb_hand": -0.679443359375,
+        "blocks": 2048,
+        "buyins20_per100": -3.397216796875,
+        "interval": [
+          -88.46884602695323,
+          -47.41982584804677
+        ],
+        "level": 0.95
+      }
+    },
+    {
+      "attacker": "Pressure-native",
+      "attacker_profit": {
+        "bb100": -135.479736328125,
+        "bb_hand": -1.35479736328125,
+        "blocks": 4096,
+        "buyins20_per100": -6.77398681640625,
+        "interval": [
+          -154.1441558685324,
+          -116.81531678771759
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093002-100000000",
+      "roles": {
+        "big_blind": {
+          "bb100": 148.0224609375,
+          "bb_hand": 1.480224609375,
+          "blocks": 4096,
+          "buyins20_per100": 7.401123046875,
+          "interval": [
+            113.38610424521717,
+            182.65881762978285
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": 122.93701171875,
+          "bb_hand": 1.2293701171875,
+          "blocks": 4096,
+          "buyins20_per100": 6.1468505859375,
+          "interval": [
+            89.26286701838002,
+            156.61115641912
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": 135.479736328125,
+        "bb_hand": 1.35479736328125,
+        "blocks": 4096,
+        "buyins20_per100": 6.77398681640625,
+        "interval": [
+          116.81531678771759,
+          154.1441558685324
+        ],
+        "level": 0.95
+      }
+    },
+    {
+      "attacker": "LBR-original-cap2",
+      "attacker_profit": {
+        "bb100": 75.30517578125,
+        "bb_hand": 0.7530517578125,
+        "blocks": 2048,
+        "buyins20_per100": 3.7652587890625,
+        "interval": [
+          54.318414967244514,
+          96.29193659525549
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093002-100000000",
+      "roles": {
+        "big_blind": {
+          "bb100": -72.4609375,
+          "bb_hand": -0.724609375,
+          "blocks": 2048,
+          "buyins20_per100": -3.623046875,
+          "interval": [
+            -111.9747510241792,
+            -32.947123975820794
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": -78.1494140625,
+          "bb_hand": -0.781494140625,
+          "blocks": 2048,
+          "buyins20_per100": -3.907470703125,
+          "interval": [
+            -116.29487582526417,
+            -40.00395229973583
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": -75.30517578125,
+        "bb_hand": -0.7530517578125,
+        "blocks": 2048,
+        "buyins20_per100": -3.7652587890625,
+        "interval": [
+          -96.29193659525549,
+          -54.318414967244514
+        ],
+        "level": 0.95
+      }
+    },
+    {
+      "attacker": "Pressure-native",
+      "attacker_profit": {
+        "bb100": -134.613037109375,
+        "bb_hand": -1.34613037109375,
+        "blocks": 4096,
+        "buyins20_per100": -6.73065185546875,
+        "interval": [
+          -153.12114163016926,
+          -116.10493258858075
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093003-100000000",
+      "roles": {
+        "big_blind": {
+          "bb100": 181.494140625,
+          "bb_hand": 1.81494140625,
+          "blocks": 4096,
+          "buyins20_per100": 9.07470703125,
+          "interval": [
+            147.73266308564564,
+            215.25561816435436
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": 87.73193359375,
+          "bb_hand": 0.8773193359375,
+          "blocks": 4096,
+          "buyins20_per100": 4.3865966796875,
+          "interval": [
+            52.47695778387921,
+            122.98690940362079
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": 134.613037109375,
+        "bb_hand": 1.34613037109375,
+        "blocks": 4096,
+        "buyins20_per100": 6.73065185546875,
+        "interval": [
+          116.10493258858075,
+          153.12114163016926
+        ],
+        "level": 0.95
+      }
+    },
+    {
+      "attacker": "LBR-original-cap2",
+      "attacker_profit": {
+        "bb100": 76.15966796875,
+        "bb_hand": 0.7615966796875,
+        "blocks": 2048,
+        "buyins20_per100": 3.8079833984375,
+        "interval": [
+          54.88597764013562,
+          97.43335829736438
+        ],
+        "level": 0.95
+      },
+      "policy": "B-2026093003-100000000",
+      "roles": {
+        "big_blind": {
+          "bb100": -86.572265625,
+          "bb_hand": -0.86572265625,
+          "blocks": 2048,
+          "buyins20_per100": -4.32861328125,
+          "interval": [
+            -125.79050697872415,
+            -47.354024271275854
+          ],
+          "level": 0.95
+        },
+        "button_small_blind": {
+          "bb100": -65.7470703125,
+          "bb_hand": -0.657470703125,
+          "blocks": 2048,
+          "buyins20_per100": -3.287353515625,
+          "interval": [
+            -104.93113129287741,
+            -26.56300933212259
+          ],
+          "level": 0.95
+        }
+      },
+      "target": {
+        "bb100": -76.15966796875,
+        "bb_hand": -0.7615966796875,
+        "blocks": 2048,
+        "buyins20_per100": -3.8079833984375,
+        "interval": [
+          -97.43335829736438,
+          -54.88597764013562
+        ],
+        "level": 0.95
+      }
+    }
+  ],
+  "pressure_safeguard": "pass",
+  "primary": {
+    "LBR-original-cap2": {
+      "early_absolute": {
+        "bb100": -99.07633463541667,
+        "bb_hand": -0.9907633463541667,
+        "blocks": 2048,
+        "buyins20_per100": -4.953816731770834,
+        "interval": [
+          -115.10788893545745,
+          -83.04478033537589
+        ],
+        "level": 0.975
+      },
+      "long_absolute": {
+        "bb100": -73.13639322916667,
+        "bb_hand": -0.7313639322916667,
+        "blocks": 2048,
+        "buyins20_per100": -3.6568196614583335,
+        "interval": [
+          -90.0381143328071,
+          -56.234672125526245
+        ],
+        "level": 0.975
+      },
+      "long_minus_20M": {
+        "bb100": 25.93994140625,
+        "bb_hand": 0.2593994140625,
+        "blocks": 2048,
+        "buyins20_per100": 1.2969970703125,
+        "interval": [
+          7.4307857945387,
+          44.4490970179613
+        ],
+        "level": 0.975
+      },
+      "per_lineage": {
+        "2026093001": {
+          "bb100": 32.04345703125,
+          "bb_hand": 0.3204345703125,
+          "blocks": 2048,
+          "buyins20_per100": 1.6021728515625,
+          "interval": [
+            1.6398928233836756,
+            62.447021239116324
+          ],
+          "level": 0.975
+        },
+        "2026093002": {
+          "bb100": 33.0810546875,
+          "bb_hand": 0.330810546875,
+          "blocks": 2048,
+          "buyins20_per100": 1.654052734375,
+          "interval": [
+            2.2111634076813615,
+            63.95094596731864
+          ],
+          "level": 0.975
+        },
+        "2026093003": {
+          "bb100": 12.6953125,
+          "bb_hand": 0.126953125,
+          "blocks": 2048,
+          "buyins20_per100": 0.634765625,
+          "interval": [
+            -18.632987248954553,
+            44.02361224895455
+          ],
+          "level": 0.975
+        }
+      },
+      "status": "available"
+    },
+    "Pressure-native": {
+      "early_absolute": {
+        "bb100": 106.69759114583333,
+        "bb_hand": 1.0669759114583333,
+        "blocks": 4096,
+        "buyins20_per100": 5.334879557291666,
+        "interval": [
+          92.14089988525069,
+          121.25428240641597
+        ],
+        "level": 0.975
+      },
+      "long_absolute": {
+        "bb100": 126.092529296875,
+        "bb_hand": 1.26092529296875,
+        "blocks": 4096,
+        "buyins20_per100": 6.30462646484375,
+        "interval": [
+          110.89187512617481,
+          141.2931834675752
+        ],
+        "level": 0.975
+      },
+      "long_minus_20M": {
+        "bb100": 19.394938151041668,
+        "bb_hand": 0.19394938151041669,
+        "blocks": 4096,
+        "buyins20_per100": 0.9697469075520834,
+        "interval": [
+          2.862873203560934,
+          35.927003098522405
+        ],
+        "level": 0.975
+      },
+      "per_lineage": {
+        "2026093001": {
+          "bb100": -11.370849609375,
+          "bb_hand": -0.11370849609375,
+          "blocks": 4096,
+          "buyins20_per100": -0.56854248046875,
+          "interval": [
+            -37.937443207421985,
+            15.195743988671985
+          ],
+          "level": 0.975
+        },
+        "2026093002": {
+          "bb100": 51.2939453125,
+          "bb_hand": 0.512939453125,
+          "blocks": 4096,
+          "buyins20_per100": 2.564697265625,
+          "interval": [
+            23.57377553337965,
+            79.01411509162035
+          ],
+          "level": 0.975
+        },
+        "2026093003": {
+          "bb100": 18.26171875,
+          "bb_hand": 0.1826171875,
+          "blocks": 4096,
+          "buyins20_per100": 0.9130859375,
+          "interval": [
+            -8.942926368118599,
+            45.4663638681186
+          ],
+          "level": 0.975
+        }
+      },
+      "status": "available"
+    }
+  },
+  "primary_roles": {
+    "big_blind": {
+      "LBR-original-cap2": {
+        "early_absolute": {
+          "bb100": -100.03255208333334,
+          "bb_hand": -1.0003255208333335,
+          "blocks": 2048,
+          "buyins20_per100": -5.001627604166667,
+          "interval": [
+            -137.6667254687617,
+            -62.39837869790498
+          ],
+          "level": 0.975
+        },
+        "long_absolute": {
+          "bb100": -71.45182291666667,
+          "bb_hand": -0.7145182291666667,
+          "blocks": 2048,
+          "buyins20_per100": -3.5725911458333335,
+          "interval": [
+            -109.30898436597661,
+            -33.59466146735673
+          ],
+          "level": 0.975
+        },
+        "long_minus_20M": {
+          "bb100": 28.580729166666668,
+          "bb_hand": 0.2858072916666667,
+          "blocks": 2048,
+          "buyins20_per100": 1.4290364583333335,
+          "interval": [
+            2.689926940282426,
+            54.47153139305091
+          ],
+          "level": 0.975
+        },
+        "per_lineage": {
+          "2026093001": {
+            "bb100": 36.279296875,
+            "bb_hand": 0.36279296875,
+            "blocks": 2048,
+            "buyins20_per100": 1.81396484375,
+            "interval": [
+              -7.498756012686783,
+              80.05734976268678
+            ],
+            "level": 0.975
+          },
+          "2026093002": {
+            "bb100": 36.474609375,
+            "bb_hand": 0.36474609375,
+            "blocks": 2048,
+            "buyins20_per100": 1.82373046875,
+            "interval": [
+              -7.336751349524647,
+              80.28597009952465
+            ],
+            "level": 0.975
+          },
+          "2026093003": {
+            "bb100": 12.98828125,
+            "bb_hand": 0.1298828125,
+            "blocks": 2048,
+            "buyins20_per100": 0.6494140625,
+            "interval": [
+              -30.12625638180525,
+              56.10281888180525
+            ],
+            "level": 0.975
+          }
+        },
+        "status": "available"
+      },
+      "Pressure-native": {
+        "early_absolute": {
+          "bb100": 119.7021484375,
+          "bb_hand": 1.197021484375,
+          "blocks": 4096,
+          "buyins20_per100": 5.985107421875,
+          "interval": [
+            86.65341048150341,
+            152.7508863934966
+          ],
+          "level": 0.975
+        },
+        "long_absolute": {
+          "bb100": 154.75260416666666,
+          "bb_hand": 1.5475260416666665,
+          "blocks": 4096,
+          "buyins20_per100": 7.737630208333333,
+          "interval": [
+            121.25755574674568,
+            188.24765258658763
+          ],
+          "level": 0.975
+        },
+        "long_minus_20M": {
+          "bb100": 35.050455729166664,
+          "bb_hand": 0.35050455729166663,
+          "blocks": 4096,
+          "buyins20_per100": 1.7525227864583333,
+          "interval": [
+            11.753256785318836,
+            58.34765467301449
+          ],
+          "level": 0.975
+        },
+        "per_lineage": {
+          "2026093001": {
+            "bb100": 18.5302734375,
+            "bb_hand": 0.185302734375,
+            "blocks": 4096,
+            "buyins20_per100": 0.926513671875,
+            "interval": [
+              -19.289545953653324,
+              56.350092828653324
+            ],
+            "level": 0.975
+          },
+          "2026093002": {
+            "bb100": 54.248046875,
+            "bb_hand": 0.54248046875,
+            "blocks": 4096,
+            "buyins20_per100": 2.71240234375,
+            "interval": [
+              15.382714175147136,
+              93.11337957485287
+            ],
+            "level": 0.975
+          },
+          "2026093003": {
+            "bb100": 32.373046875,
+            "bb_hand": 0.32373046875,
+            "blocks": 4096,
+            "buyins20_per100": 1.61865234375,
+            "interval": [
+              -7.144293816662703,
+              71.8903875666627
+            ],
+            "level": 0.975
+          }
+        },
+        "status": "available"
+      }
+    },
+    "button_small_blind": {
+      "LBR-original-cap2": {
+        "early_absolute": {
+          "bb100": -98.1201171875,
+          "bb_hand": -0.981201171875,
+          "blocks": 2048,
+          "buyins20_per100": -4.906005859375,
+          "interval": [
+            -136.54048772761053,
+            -59.69974664738948
+          ],
+          "level": 0.975
+        },
+        "long_absolute": {
+          "bb100": -74.82096354166667,
+          "bb_hand": -0.7482096354166667,
+          "blocks": 2048,
+          "buyins20_per100": -3.7410481770833335,
+          "interval": [
+            -111.47907657430054,
+            -38.1628505090328
+          ],
+          "level": 0.975
+        },
+        "long_minus_20M": {
+          "bb100": 23.299153645833336,
+          "bb_hand": 0.23299153645833337,
+          "blocks": 2048,
+          "buyins20_per100": 1.1649576822916667,
+          "interval": [
+            -3.1297941445433928,
+            49.72810143621007
+          ],
+          "level": 0.975
+        },
+        "per_lineage": {
+          "2026093001": {
+            "bb100": 27.8076171875,
+            "bb_hand": 0.278076171875,
+            "blocks": 2048,
+            "buyins20_per100": 1.390380859375,
+            "interval": [
+              -15.351078425845749,
+              70.96631280084574
+            ],
+            "level": 0.975
+          },
+          "2026093002": {
+            "bb100": 29.6875,
+            "bb_hand": 0.296875,
+            "blocks": 2048,
+            "buyins20_per100": 1.484375,
+            "interval": [
+              -13.074170377881472,
+              72.44917037788147
+            ],
+            "level": 0.975
+          },
+          "2026093003": {
+            "bb100": 12.40234375,
+            "bb_hand": 0.1240234375,
+            "blocks": 2048,
+            "buyins20_per100": 0.6201171875,
+            "interval": [
+              -32.32029229269689,
+              57.12497979269689
+            ],
+            "level": 0.975
+          }
+        },
+        "status": "available"
+      },
+      "Pressure-native": {
+        "early_absolute": {
+          "bb100": 93.69303385416667,
+          "bb_hand": 0.9369303385416667,
+          "blocks": 4096,
+          "buyins20_per100": 4.684651692708334,
+          "interval": [
+            63.21793913880393,
+            124.16812856952942
+          ],
+          "level": 0.975
+        },
+        "long_absolute": {
+          "bb100": 97.43245442708333,
+          "bb_hand": 0.9743245442708333,
+          "blocks": 4096,
+          "buyins20_per100": 4.871622721354166,
+          "interval": [
+            64.17987530562286,
+            130.6850335485438
+          ],
+          "level": 0.975
+        },
+        "long_minus_20M": {
+          "bb100": 3.7394205729166665,
+          "bb_hand": 0.037394205729166664,
+          "blocks": 4096,
+          "buyins20_per100": 0.18697102864583331,
+          "interval": [
+            -19.61053029198383,
+            27.089371437817167
+          ],
+          "level": 0.975
+        },
+        "per_lineage": {
+          "2026093001": {
+            "bb100": -41.27197265625,
+            "bb_hand": -0.4127197265625,
+            "blocks": 4096,
+            "buyins20_per100": -2.0635986328125,
+            "interval": [
+              -79.15671311949819,
+              -3.3872321930018003
+            ],
+            "level": 0.975
+          },
+          "2026093002": {
+            "bb100": 48.33984375,
+            "bb_hand": 0.4833984375,
+            "blocks": 4096,
+            "buyins20_per100": 2.4169921875,
+            "interval": [
+              10.13961142703804,
+              86.54007607296197
+            ],
+            "level": 0.975
+          },
+          "2026093003": {
+            "bb100": 4.150390625,
+            "bb_hand": 0.04150390625,
+            "blocks": 4096,
+            "buyins20_per100": 0.20751953125,
+            "interval": [
+              -35.069338281822574,
+              43.370119531822574
+            ],
+            "level": 0.975
+          }
+        },
+        "status": "available"
+      }
+    }
+  },
+  "quality_gate": "pass",
+  "resources": [
+    {
+      "all_samples_ac": true,
+      "max_swap_growth_bytes": 0.0,
+      "min_free_disk_bytes": 44013568000,
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/validation-supervisor/resources.jsonl",
+      "peak_aggregate_rss_bytes": 2591981568,
+      "samples": 54
+    },
+    {
+      "all_samples_ac": true,
+      "max_swap_growth_bytes": 0.0,
+      "min_free_disk_bytes": 42582065152,
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/train-2026093002-supervisor/resources.jsonl",
+      "peak_aggregate_rss_bytes": 1965965312,
+      "samples": 991
+    },
+    {
+      "all_samples_ac": true,
+      "max_swap_growth_bytes": 0.0,
+      "min_free_disk_bytes": 41697775616,
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/master-supervisor/resources.jsonl",
+      "peak_aggregate_rss_bytes": 3464904704,
+      "samples": 5729
+    },
+    {
+      "all_samples_ac": true,
+      "max_swap_growth_bytes": 0.0,
+      "min_free_disk_bytes": 41705807872,
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/audit-primary-supervisor/resources.jsonl",
+      "peak_aggregate_rss_bytes": 3439607808,
+      "samples": 18
+    },
+    {
+      "all_samples_ac": true,
+      "max_swap_growth_bytes": 0.0,
+      "min_free_disk_bytes": 41728483328,
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/train-2026093003-supervisor/resources.jsonl",
+      "peak_aggregate_rss_bytes": 1948696576,
+      "samples": 1185
+    },
+    {
+      "all_samples_ac": true,
+      "max_swap_growth_bytes": 0.0,
+      "min_free_disk_bytes": 41703743488,
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/evaluate-primary-supervisor/resources.jsonl",
+      "peak_aggregate_rss_bytes": 2947219456,
+      "samples": 2641
+    },
+    {
+      "all_samples_ac": true,
+      "max_swap_growth_bytes": 0.0,
+      "min_free_disk_bytes": 41697775616,
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/final-report-supervisor/resources.jsonl",
+      "peak_aggregate_rss_bytes": 330727424,
+      "samples": 9
+    },
+    {
+      "all_samples_ac": true,
+      "max_swap_growth_bytes": 0.0,
+      "min_free_disk_bytes": 43364147200,
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/train-2026093001-supervisor/resources.jsonl",
+      "peak_aggregate_rss_bytes": 2727346176,
+      "samples": 886
+    }
+  ],
+  "status": "incomplete",
+  "training": [
+    {
+      "additional_nodes": 59999954,
+      "completed_nodes": 100000029,
+      "discarded_nodes": null,
+      "failure": null,
+      "failure_phase": null,
+      "seed": null,
+      "status": "complete"
+    },
+    {
+      "additional_nodes": 65708974,
+      "completed_nodes": 100000280,
+      "discarded_nodes": null,
+      "failure": null,
+      "failure_phase": null,
+      "seed": null,
+      "status": "complete"
+    },
+    {
+      "additional_nodes": 79999815,
+      "completed_nodes": 100000083,
+      "discarded_nodes": null,
+      "failure": null,
+      "failure_phase": null,
+      "seed": null,
+      "status": "complete"
+    }
+  ]
+}
