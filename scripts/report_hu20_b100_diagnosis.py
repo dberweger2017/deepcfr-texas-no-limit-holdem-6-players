@@ -8,6 +8,7 @@ from hashlib import sha256
 from math import sqrt
 from pathlib import Path
 from statistics import mean, stdev
+from time import time
 
 from scripts.evaluate_hu20 import write_json
 from scripts.play_robustness import replay_row
@@ -17,6 +18,12 @@ from src.diagnostics.conditional_values import summarize
 SEEDS = (2026093001, 2026093002, 2026093003)
 MILESTONES = (20000000, 40000000, 80000000, 100000000)
 PANELS = ("pot_pressure", "one_third", "two_thirds", "native_minraise", "passive")
+DEADLINE = float("inf")
+
+
+def time_guard():
+    if time() >= DEADLINE:
+        raise TimeoutError("Ten-hour absolute research deadline during audit")
 
 
 def estimate(data):
@@ -39,7 +46,9 @@ def visit_band(count):
 
 def _rows(path):
     with gzip.open(path, "rt") as handle:
-        for line in handle:
+        for index, line in enumerate(handle):
+            if index % 128 == 0:
+                time_guard()
             yield json.loads(line)
 
 
@@ -47,6 +56,7 @@ def _file_sha(path):
     h = sha256()
     with path.open("rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            time_guard()
             h.update(chunk)
     return h.hexdigest()
 
@@ -299,6 +309,7 @@ def previous_deals(path):
 
 
 def report(root, previous):
+    time_guard()
     old = previous_deals(previous)
     result = {"schema": "hu20-b100-diagnosis-audit-v1",
               "decisions": decision_report(root),
@@ -319,10 +330,13 @@ def report(root, previous):
 
 
 def main():
+    global DEADLINE
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--previous", type=Path, required=True)
+    parser.add_argument("--deadline", type=float, required=True)
     args = parser.parse_args()
+    DEADLINE = args.deadline
     print(json.dumps(report(args.root, args.previous), sort_keys=True))
 
 
