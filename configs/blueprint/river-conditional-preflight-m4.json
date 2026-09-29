@@ -1,0 +1,32 @@
+{
+  "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+  "arms": [
+    "river_cfr",
+    "rollout_normal",
+    "rollout_matched"
+  ],
+  "extraction": "average",
+  "solver_seconds": 30,
+  "solver_min_sweeps": 32,
+  "solver_max_sweeps": 100000,
+  "normal_worlds": 8,
+  "normal_seconds": 0.5,
+  "matched_worlds": 8192,
+  "matched_seconds": 30,
+  "styles": [
+    "blueprint",
+    "fold",
+    "call",
+    "raise"
+  ],
+  "max_rss_gib": 10.5,
+  "min_free_gib": 30,
+  "seed": 2026092703,
+  "schema": "river-conditional-preflight-m4-v1",
+  "case_ids": [
+    "dev-dry-check",
+    "dev-paired-flop"
+  ],
+  "deals_per_root": 1,
+  "max_wall_seconds": 600
+}
