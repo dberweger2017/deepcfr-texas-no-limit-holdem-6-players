@@ -1,0 +1,16 @@
+{
+  "schema": "river-range-amendment-m4-v1",
+  "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+  "reference_fixtures": "configs/blueprint/river-reference-fixtures.json",
+  "tiny_sweeps": [],
+  "full_range_time_snapshots_seconds": [5, 15, 30, 60],
+  "full_range_max_sweeps": 100000,
+  "full_range_cases": [
+    {"id":"dev-dry-suited","board":["2h","7d","9c","Js","Qs"],"stack":1000,"button":0,"deck_shift":18,"survivors":2,"street_bets":{},"range_shape":"suited-bias"},
+    {"id":"dev-lowdraw-pair","board":["2d","3d","4s","5s","9c"],"stack":1000,"button":3,"deck_shift":24,"survivors":2,"street_bets":{"flop":200,"turn":300},"range_shape":"pair-bias"},
+    {"id":"dev-deep-mixed-high","board":["Ad","7d","6h","5c","3s"],"stack":10000,"button":4,"deck_shift":0,"survivors":2,"street_bets":{"flop":500,"turn":1000},"range_shape":"high-card-bias"}
+  ],
+  "max_rss_gib": 10.5,
+  "min_free_gib": 30,
+  "max_wall_seconds": 420
+}

@@ -1,0 +1,10 @@
+{
+  "elapsed_seconds": 89.0406378749758,
+  "error": null,
+  "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 60%",
+  "peak_process_rss_bytes": 8071774208,
+  "planned_rows": 15,
+  "retained_rows": 15,
+  "status": "valid",
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 769.38M  free = 1278.62M  (encrypted)"
+}
