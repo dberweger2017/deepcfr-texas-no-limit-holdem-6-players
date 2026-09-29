@@ -57,7 +57,12 @@ Record the public history, target cards' abstraction and key, legal/menu
 actions, saved policy probabilities and actual selected action, trained/fallback
 status, checkpoint visits and regrets, paired action returns in BB, per-action
 means and 95% world-clustered intervals, best estimated action, sampled
-policy value, and policy-value gap. Treat overlapping or wide intervals as
+policy value, and policy-value gap. To avoid selecting and estimating a gap
+on the same noisy worlds, worlds 0–47 select the best estimated action and
+worlds 48–95 estimate its paired gain over the saved policy, with a 95%
+world-clustered interval. Full-96 action means remain descriptive. This
+analysis refinement was committed before any new conditional values or
+confirmation returns were inspected. Treat overlapping or wide intervals as
 uncertain. The exact realized hand outcome is not an action-value label.
 Cross-check payoff accounting on a deterministic small river reference and
 verify independence from hidden opponent cards/future deck in tests.

@@ -87,11 +87,19 @@ def decision_report(root):
             p = attempt["probabilities"]
             from math import log
             entropy = -sum(q * log(q) for q in p if q > 0)
+            training_half = data[:48]
+            evaluation_half = data[48:]
+            best = max(range(len(p)), key=lambda i: mean(row[i] for row in training_half))
+            heldout = [row[best] - sum(q*v for q,v in zip(p,row))
+                       for row in evaluation_half]
+            heldout_mean = mean(heldout)
+            heldout_width = 1.96 * stdev(heldout) / sqrt(len(heldout))
             brief = {"selection": entry, "trained": attempt["trained"],
                      "visit_band": band, "visits": node["visits"] if node else 0,
-                     "entropy_nats": entropy, "gap_bb": independent["policy_gap_bb"],
-                     "gap_interval_bb": independent["policy_gap_95_interval_bb"],
-                     "best_action": attempt["menu"][independent["best_estimated_index"]],
+                     "entropy_nats": entropy, "gap_bb": heldout_mean,
+                     "gap_interval_bb": [heldout_mean-heldout_width, heldout_mean+heldout_width],
+                     "descriptive_full_sample_gap_bb": independent["policy_gap_bb"],
+                     "best_action": attempt["menu"][best],
                      "lbr_limited_batches": limited[key]}
             records.append(brief)
             for label in ("all", f"street:{entry['street']}", f"seed:{entry['seed']}",
