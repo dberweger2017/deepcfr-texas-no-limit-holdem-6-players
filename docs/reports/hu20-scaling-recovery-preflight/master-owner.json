@@ -1,0 +1,9 @@
+{
+  "attempt_id": "hu20-scaling-m4-recovery-20260929-1008",
+  "wrapper_pid": 31917,
+  "launched": 1790678408.538987,
+  "source_revision": "874ba641fc6110a2d0998af986608633abef8898",
+  "deadline": 1790712513.289187,
+  "retained_wrapper_failure": "wrapper-attempt-1/failed-launch.log",
+  "wrapper_log": "/Users/dberweger/Local/hu20-scaling-m4-recovery-20260929-1008-wrapper.log"
+}

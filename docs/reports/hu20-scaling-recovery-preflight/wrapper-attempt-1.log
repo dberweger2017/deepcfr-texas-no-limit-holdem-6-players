@@ -1,0 +1,4 @@
+  File "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/detached-wrapper.py", line 12
+    )
+    ^
+SyntaxError: invalid syntax

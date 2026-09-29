@@ -36,6 +36,8 @@ All heavy work is sequential with a 10.5-GiB process/owned-job RSS cap, 8-GiB fr
 
 M4 source: `/Users/dberweger/Local/hu20-training-scaling-pr116`.
 
+The coordinator launched at **10:40:08 UTC** from frozen source `874ba641fc6110a2d0998af986608633abef8898` (coordinator initially PID 31928, detached wrapper 31917). An initial wrapper shell-quoting error occurred before any coordinator or training started. Its original source, owner receipt and log remain under `wrapper-attempt-1`; the repaired wrapper passed compilation before launch. This bounded operational repair used the same attempt and absolute clock. [Launch ownership](reports/hu20-scaling-recovery-preflight/master-owner.json), [validation supervisor](reports/hu20-scaling-recovery-preflight/validation-supervisor.json) and [failed-wrapper log](reports/hu20-scaling-recovery-preflight/wrapper-attempt-1.log) are retained. Subsequent documentation commits do not change the running M4 source. Full operational-repair CI passed **869 tests**.
+
 Attempt root: `results/hu20-scaling-m4-recovery-20260929-1008`. Runtime inventory, path mapping, input verification, phase attempts, checkpoints and audits remain there. Compact reporting and the final inventory will be committed when available; large artifacts remain on M4.
 
 ```sh
