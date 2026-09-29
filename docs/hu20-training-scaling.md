@@ -47,4 +47,6 @@ The new continuation, shard, accounting and native-replay tests passed: 7 tests,
 
 ## Executed outcome
 
+The owner subsequently authorized a separate [M4-only recovery](hu20-scaling-m4-recovery.md), with its own recorded ten-hour clock, exact retained states and fixed scientific comparisons. The failed original attempt below remains unchanged.
+
 The campaign stopped incomplete at its first M4 milestone because the frozen independent observation fixture was absent on that host. The [failure report](reports/hu20-scaling-both-macs.md) preserves both partial lineages and checksum/resource evidence. No confirmation hand ran, so neither quality gate was evaluated. No restart or change to this frozen plan occurred. Full CI passed 863 tests.

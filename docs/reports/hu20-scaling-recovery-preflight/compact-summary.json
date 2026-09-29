@@ -1,0 +1,79 @@
+{
+  "finished": 1790677743.405982,
+  "lineages": [
+    {
+      "deterministic_replayed_nodes": 3138,
+      "next_four_nodes": 1569,
+      "next_four_seconds": 0.09297266695648432,
+      "next_sha256": "f74bb34353ce979c334e6352894cddf5028aa0b2543b58fafa5a27388149cf86",
+      "production_completed_nodes": 40101099,
+      "production_milestones": [
+        {
+          "completed_nodes": 40000075,
+          "recovered": true,
+          "requested_total_nodes": 40000000
+        },
+        {
+          "completed_nodes": 40101099,
+          "recovered": false,
+          "requested_total_nodes": 40100075
+        }
+      ],
+      "production_status": "complete",
+      "seed": 2026093001,
+      "verified_reload_seconds": 7.938598417211324
+    },
+    {
+      "deterministic_replayed_nodes": 4486,
+      "next_four_nodes": 2243,
+      "next_four_seconds": 0.13424225011840463,
+      "next_sha256": "2a7e8ba00e9f93f5d520cde94f2eec639e81ca6031dd49619cbef24be2ae1061",
+      "production_completed_nodes": 34391553,
+      "production_milestones": [
+        {
+          "completed_nodes": 34391553,
+          "recovered": false,
+          "requested_total_nodes": 34391306
+        }
+      ],
+      "production_status": "complete",
+      "seed": 2026093002,
+      "verified_reload_seconds": 7.877126458100975
+    },
+    {
+      "deterministic_replayed_nodes": 1982,
+      "next_four_nodes": 991,
+      "next_four_seconds": 0.05683670798316598,
+      "next_sha256": "d78c2e7ed279042f358cae7b75a9615aafdca031402697286db17bbb66c5b708",
+      "production_completed_nodes": 20100489,
+      "production_milestones": [
+        {
+          "completed_nodes": 20100489,
+          "recovered": false,
+          "requested_total_nodes": 20100268
+        }
+      ],
+      "production_status": "complete",
+      "seed": 2026093003,
+      "verified_reload_seconds": 5.626779583049938
+    }
+  ],
+  "peak_rss_bytes": 2767159296,
+  "started": 1790677533.055062,
+  "status": "complete",
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+  "swap_before": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+  "timing_panels": [
+    {
+      "hands": 16,
+      "rule": "pressure",
+      "seconds": 0.060035333037376404
+    },
+    {
+      "hands": 16,
+      "rule": "lbr",
+      "seconds": 9.025778790935874
+    }
+  ],
+  "verified_input_count": 766
+}

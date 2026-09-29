@@ -1,0 +1,12 @@
+{
+  "all_phases_conservatively_fit": false,
+  "available_seconds": 34681.71264696121,
+  "diagnostic_seconds": 3444.085527506858,
+  "lbr_seconds_per_hand": 0.5641111744334921,
+  "primary_seconds": 18453.15188959962,
+  "qualification": "Forecast only; unchanged work/counts, sequential M4; diagnostic admission is resource-only and fixed before outcomes",
+  "remaining_nodes": 205708351,
+  "seconds_per_node": 6.603225922901595e-05,
+  "total_remaining_seconds": 42862.733681054204,
+  "training_seconds": 17965.496263947723
+}

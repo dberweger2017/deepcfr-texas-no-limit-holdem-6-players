@@ -1,0 +1,9 @@
+{
+  "attempt_id": "hu20-scaling-m4-recovery-20260929-1008",
+  "started": 1790676513.289187,
+  "deadline": 1790712513.289187,
+  "previous_attempt": "hu20-scaling-both-macs-20260929",
+  "previous_deadline": 1790674521.7771149,
+  "authorization": "Separate user-authorized M4-only recovery, including staging through report",
+  "host_constraint": "M4 only; M1 transfer/edit/status only"
+}
