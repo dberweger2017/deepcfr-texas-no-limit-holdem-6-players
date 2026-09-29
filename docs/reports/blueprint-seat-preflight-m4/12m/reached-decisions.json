@@ -1,0 +1,8298 @@
+{
+  "action_counts": [
+    {
+      "action": "call",
+      "arm": "B_canonical",
+      "button": 0,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 0,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 0,
+      "count": 4,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 4,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 8,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 2,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 2,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical",
+      "button": 3,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 3,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 4,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 4,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 5,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 5,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical",
+      "button": 0,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 0,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 0,
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 0,
+      "count": 8,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 9,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 12,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical",
+      "button": 2,
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 2,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 2,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical",
+      "button": 3,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 3,
+      "count": 10,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 3,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical",
+      "button": 4,
+      "count": 3,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 4,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 4,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical",
+      "button": 5,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 5,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 5,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 2,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 4,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 5,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 5,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 5,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 0,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 0,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 1,
+      "count": 4,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 2,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical",
+      "button": 2,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 3,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 4,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical",
+      "button": 5,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical",
+      "button": 5,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "count": 5,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 10,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "count": 8,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 9,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 12,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "count": 10,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "count": 3,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "fold",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "count": 4,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "call",
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "count": 3,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy",
+      "button": 0,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_legacy",
+      "button": 0,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 0,
+      "count": 4,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy",
+      "button": 1,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_legacy",
+      "button": 1,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 1,
+      "count": 10,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy",
+      "button": 3,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy",
+      "button": 3,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy",
+      "button": 4,
+      "count": 5,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_legacy",
+      "button": 5,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy",
+      "button": 0,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "B_legacy",
+      "button": 0,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy",
+      "button": 0,
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 0,
+      "count": 8,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy",
+      "button": 1,
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy",
+      "button": 1,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 1,
+      "count": 15,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy",
+      "button": 2,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy",
+      "button": 2,
+      "count": 9,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 2,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy",
+      "button": 3,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy",
+      "button": 3,
+      "count": 10,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 3,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy",
+      "button": 4,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 4,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy",
+      "button": 5,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 5,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy",
+      "button": 1,
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 1,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "B_legacy",
+      "button": 5,
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy",
+      "button": 0,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 0,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "B_legacy",
+      "button": 1,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy",
+      "button": 1,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 1,
+      "count": 4,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 3,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy",
+      "button": 5,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "count": 5,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "count": 12,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "count": 5,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "count": 8,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "count": 15,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "count": 8,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "count": 10,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "fold",
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "count": 6,
+      "street": "turn"
+    },
+    {
+      "action": "call",
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "count": 5,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 0,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "TAG",
+      "button": 0,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 1,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "TAG",
+      "button": 1,
+      "count": 4,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "TAG",
+      "button": 1,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "TAG",
+      "button": 2,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "TAG",
+      "button": 3,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 5,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "TAG",
+      "button": 0,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 0,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "TAG",
+      "button": 0,
+      "count": 15,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "TAG",
+      "button": 0,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "TAG",
+      "button": 1,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 1,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "TAG",
+      "button": 1,
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "TAG",
+      "button": 1,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 2,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "TAG",
+      "button": 2,
+      "count": 11,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "TAG",
+      "button": 3,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 3,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "TAG",
+      "button": 3,
+      "count": 9,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "TAG",
+      "button": 3,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "TAG",
+      "button": 4,
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 5,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "TAG",
+      "button": 5,
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 0,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "fold",
+      "arm": "TAG",
+      "button": 0,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 1,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 5,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 0,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 1,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 3,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "TAG",
+      "button": 3,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "TAG",
+      "button": 5,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "call",
+      "arm": "U",
+      "button": 0,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "U",
+      "button": 0,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "U",
+      "button": 0,
+      "count": 6,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 0,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "U",
+      "button": 1,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "U",
+      "button": 1,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 1,
+      "count": 10,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "U",
+      "button": 3,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "U",
+      "button": 4,
+      "count": 5,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "U",
+      "button": 5,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "U",
+      "button": 0,
+      "count": 14,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "U",
+      "button": 0,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "U",
+      "button": 0,
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 0,
+      "count": 3,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "U",
+      "button": 1,
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "U",
+      "button": 1,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 1,
+      "count": 17,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "U",
+      "button": 2,
+      "count": 9,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "U",
+      "button": 2,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 2,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "U",
+      "button": 3,
+      "count": 11,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 3,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "U",
+      "button": 4,
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "U",
+      "button": 5,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 5,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "U",
+      "button": 0,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 0,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "fold",
+      "arm": "U",
+      "button": 1,
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 1,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "U",
+      "button": 5,
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "action": "call",
+      "arm": "U",
+      "button": 0,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 0,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "check",
+      "arm": "U",
+      "button": 1,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "fold",
+      "arm": "U",
+      "button": 1,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 1,
+      "count": 4,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 3,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "U",
+      "button": 5,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "call",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "fold",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 6,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "U_safe",
+      "button": 1,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 1,
+      "count": 12,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 2,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "U_safe",
+      "button": 3,
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "action": "check",
+      "arm": "U_safe",
+      "button": 4,
+      "count": 5,
+      "street": "flop"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 5,
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "action": "call",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 14,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 3,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "U_safe",
+      "button": 1,
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "U_safe",
+      "button": 1,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 1,
+      "count": 17,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "U_safe",
+      "button": 2,
+      "count": 9,
+      "street": "preflop"
+    },
+    {
+      "action": "check",
+      "arm": "U_safe",
+      "button": 2,
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "U_safe",
+      "button": 2,
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 2,
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "U_safe",
+      "button": 3,
+      "count": 11,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 3,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "U_safe",
+      "button": 4,
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "action": "fold",
+      "arm": "U_safe",
+      "button": 5,
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 5,
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "action": "call",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "action": "call",
+      "arm": "U_safe",
+      "button": 1,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "check",
+      "arm": "U_safe",
+      "button": 1,
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 1,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 4,
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "action": "call",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 0,
+      "count": 4,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 1,
+      "count": 6,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 3,
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "action": "raise",
+      "arm": "U_safe",
+      "button": 4,
+      "count": 5,
+      "street": "turn"
+    }
+  ],
+  "coverage_rows": [
+    {
+      "arm": "B_canonical",
+      "button": 0,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "4": 1,
+        "6": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 0,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "4": 1,
+        "6": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "decision_weighted_found": 10,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 10,
+      "distinct_found_visit_histogram": {
+        "1": 2,
+        "13": 1,
+        "15": 1,
+        "2": 1,
+        "23": 1,
+        "24": 1,
+        "3": 2,
+        "5": 1
+      },
+      "distinct_keys": 16,
+      "distinct_missing": 6,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 16,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 16,
+      "distinct_missing": 16,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "17": 1,
+        "18": 1,
+        "57": 1
+      },
+      "distinct_keys": 3,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "3": 1
+      },
+      "distinct_keys": 2,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "decision_weighted_found": 2,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 2,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "5": 1
+      },
+      "distinct_keys": 4,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 4,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "11": 1,
+        "3": 1,
+        "72": 1
+      },
+      "distinct_keys": 4,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 4,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 12,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1,
+        "9": 1
+      },
+      "distinct_keys": 26,
+      "distinct_missing": 12,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 12,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1,
+        "9": 1
+      },
+      "distinct_keys": 26,
+      "distinct_missing": 12,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "decision_weighted_found": 17,
+      "decision_weighted_missing": 10,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 17,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "19": 1,
+        "2": 2,
+        "22": 1,
+        "235": 1,
+        "25": 1,
+        "259": 1,
+        "29": 1,
+        "3": 1,
+        "52": 1,
+        "6": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1,
+        "80": 1,
+        "84": 1
+      },
+      "distinct_keys": 27,
+      "distinct_missing": 10,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 23,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "235": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1
+      },
+      "distinct_keys": 27,
+      "distinct_missing": 23,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "decision_weighted_found": 11,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 11,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "19": 1,
+        "2": 2,
+        "201": 1,
+        "690": 1,
+        "78": 1,
+        "84": 1
+      },
+      "distinct_keys": 15,
+      "distinct_missing": 4,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "decision_weighted_found": 5,
+      "decision_weighted_missing": 10,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 5,
+      "distinct_found_visit_histogram": {
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "201": 1,
+        "690": 1
+      },
+      "distinct_keys": 15,
+      "distinct_missing": 10,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "decision_weighted_found": 9,
+      "decision_weighted_missing": 8,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 9,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "13": 1,
+        "16": 1,
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1,
+        "7": 1,
+        "9": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 8,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 13,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 13,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "254": 1,
+        "48": 1,
+        "676": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "676": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 5,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "12": 1,
+        "2": 1,
+        "22": 1,
+        "248": 1,
+        "263": 1,
+        "3": 1,
+        "6": 1,
+        "8": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 9,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "248": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 9,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "1": 1
+      },
+      "distinct_keys": 1,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "7": 1
+      },
+      "distinct_keys": 3,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "decision_weighted_found": 2,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 2,
+      "distinct_found_visit_histogram": {
+        "2": 1,
+        "4": 1
+      },
+      "distinct_keys": 8,
+      "distinct_missing": 6,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 8,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 8,
+      "distinct_missing": 8,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "decision_weighted_found": 2,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 2,
+      "distinct_found_visit_histogram": {
+        "2": 1,
+        "3": 1
+      },
+      "distinct_keys": 2,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "8": 1
+      },
+      "distinct_keys": 3,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "4": 1,
+        "6": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "4": 1,
+        "6": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "decision_weighted_found": 10,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 10,
+      "distinct_found_visit_histogram": {
+        "1": 2,
+        "13": 1,
+        "15": 1,
+        "2": 1,
+        "23": 1,
+        "24": 1,
+        "3": 2,
+        "5": 1
+      },
+      "distinct_keys": 16,
+      "distinct_missing": 6,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 16,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 16,
+      "distinct_missing": 16,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "17": 1,
+        "18": 1,
+        "57": 1
+      },
+      "distinct_keys": 4,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 4,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "3": 1
+      },
+      "distinct_keys": 2,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "decision_weighted_found": 2,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 2,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "5": 1
+      },
+      "distinct_keys": 4,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 4,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "11": 1,
+        "3": 1,
+        "72": 1
+      },
+      "distinct_keys": 4,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 4,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 12,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1,
+        "9": 1
+      },
+      "distinct_keys": 26,
+      "distinct_missing": 12,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 12,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1,
+        "9": 1
+      },
+      "distinct_keys": 26,
+      "distinct_missing": 12,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "decision_weighted_found": 17,
+      "decision_weighted_missing": 10,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 17,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "19": 1,
+        "2": 2,
+        "22": 1,
+        "235": 1,
+        "25": 1,
+        "259": 1,
+        "29": 1,
+        "3": 1,
+        "52": 1,
+        "6": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1,
+        "80": 1,
+        "84": 1
+      },
+      "distinct_keys": 27,
+      "distinct_missing": 10,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 23,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "235": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1
+      },
+      "distinct_keys": 27,
+      "distinct_missing": 23,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "decision_weighted_found": 11,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 11,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "19": 1,
+        "2": 2,
+        "201": 1,
+        "690": 1,
+        "78": 1,
+        "84": 1
+      },
+      "distinct_keys": 15,
+      "distinct_missing": 4,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "decision_weighted_found": 5,
+      "decision_weighted_missing": 10,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 5,
+      "distinct_found_visit_histogram": {
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "201": 1,
+        "690": 1
+      },
+      "distinct_keys": 15,
+      "distinct_missing": 10,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "decision_weighted_found": 9,
+      "decision_weighted_missing": 8,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 9,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "13": 1,
+        "16": 1,
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1,
+        "7": 1,
+        "9": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 8,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 13,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 13,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "254": 1,
+        "48": 1,
+        "676": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "676": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 5,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "12": 1,
+        "2": 1,
+        "22": 1,
+        "248": 1,
+        "263": 1,
+        "3": 1,
+        "6": 1,
+        "8": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 9,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "248": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 9,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "1": 1
+      },
+      "distinct_keys": 1,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "7": 1
+      },
+      "distinct_keys": 3,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "decision_weighted_found": 2,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 2,
+      "distinct_found_visit_histogram": {
+        "2": 1,
+        "4": 1
+      },
+      "distinct_keys": 7,
+      "distinct_missing": 5,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 7,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 7,
+      "distinct_missing": 7,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "3": 1
+      },
+      "distinct_keys": 1,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "8": 1
+      },
+      "distinct_keys": 3,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 0,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "4": 1,
+        "6": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 0,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "4": 1,
+        "6": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "151": 1,
+        "2": 1,
+        "24": 1,
+        "3": 1,
+        "30": 1,
+        "4": 2
+      },
+      "distinct_keys": 14,
+      "distinct_missing": 6,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 14,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 14,
+      "distinct_missing": 14,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "3": 1
+      },
+      "distinct_keys": 2,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 4,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "5": 1,
+        "9": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 5,
+      "distinct_missing": 5,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "1": 1
+      },
+      "distinct_keys": 2,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 12,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1,
+        "9": 1
+      },
+      "distinct_keys": 26,
+      "distinct_missing": 12,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 12,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1,
+        "9": 1
+      },
+      "distinct_keys": 26,
+      "distinct_missing": 12,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "decision_weighted_found": 17,
+      "decision_weighted_missing": 11,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 17,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "19": 1,
+        "2": 1,
+        "22": 1,
+        "235": 1,
+        "25": 1,
+        "259": 1,
+        "29": 1,
+        "3": 1,
+        "5": 1,
+        "52": 1,
+        "6": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1,
+        "80": 1,
+        "84": 1
+      },
+      "distinct_keys": 28,
+      "distinct_missing": 11,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 24,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "235": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1
+      },
+      "distinct_keys": 28,
+      "distinct_missing": 24,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 2,
+      "decision_weighted_found": 10,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 10,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "19": 1,
+        "2": 1,
+        "201": 1,
+        "690": 1,
+        "78": 1,
+        "84": 1
+      },
+      "distinct_keys": 14,
+      "distinct_missing": 4,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 2,
+      "decision_weighted_found": 5,
+      "decision_weighted_missing": 9,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 5,
+      "distinct_found_visit_histogram": {
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "201": 1,
+        "690": 1
+      },
+      "distinct_keys": 14,
+      "distinct_missing": 9,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "decision_weighted_found": 9,
+      "decision_weighted_missing": 8,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 9,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "13": 1,
+        "16": 1,
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1,
+        "7": 1,
+        "9": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 8,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 13,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 13,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 4,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "254": 1,
+        "48": 1,
+        "676": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 4,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "676": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "12": 1,
+        "17": 1,
+        "2": 1,
+        "22": 1,
+        "248": 1,
+        "263": 1,
+        "3": 1,
+        "6": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 9,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "248": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 9,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "2": 2,
+        "4": 1
+      },
+      "distinct_keys": 8,
+      "distinct_missing": 4,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 8,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 8,
+      "distinct_missing": 8,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "4": 1,
+        "6": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "4": 1,
+        "6": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "151": 1,
+        "2": 1,
+        "24": 1,
+        "3": 1,
+        "30": 1,
+        "4": 2
+      },
+      "distinct_keys": 14,
+      "distinct_missing": 6,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 14,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 14,
+      "distinct_missing": 14,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "3": 1
+      },
+      "distinct_keys": 2,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "5": 1,
+        "9": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 5,
+      "distinct_missing": 5,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "1": 1
+      },
+      "distinct_keys": 2,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 12,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1,
+        "9": 1
+      },
+      "distinct_keys": 26,
+      "distinct_missing": 12,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 12,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1,
+        "9": 1
+      },
+      "distinct_keys": 26,
+      "distinct_missing": 12,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "decision_weighted_found": 17,
+      "decision_weighted_missing": 11,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 17,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "19": 1,
+        "2": 1,
+        "22": 1,
+        "235": 1,
+        "25": 1,
+        "259": 1,
+        "29": 1,
+        "3": 1,
+        "5": 1,
+        "52": 1,
+        "6": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1,
+        "80": 1,
+        "84": 1
+      },
+      "distinct_keys": 28,
+      "distinct_missing": 11,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 24,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "235": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1
+      },
+      "distinct_keys": 28,
+      "distinct_missing": 24,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "decision_weighted_found": 10,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 10,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "19": 1,
+        "2": 1,
+        "201": 1,
+        "690": 1,
+        "78": 1,
+        "84": 1
+      },
+      "distinct_keys": 14,
+      "distinct_missing": 4,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "decision_weighted_found": 5,
+      "decision_weighted_missing": 9,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 5,
+      "distinct_found_visit_histogram": {
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "201": 1,
+        "690": 1
+      },
+      "distinct_keys": 14,
+      "distinct_missing": 9,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "decision_weighted_found": 9,
+      "decision_weighted_missing": 8,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 9,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "13": 1,
+        "16": 1,
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1,
+        "7": 1,
+        "9": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 8,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 13,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 13,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "254": 1,
+        "48": 1,
+        "676": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "676": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "12": 1,
+        "17": 1,
+        "2": 1,
+        "22": 1,
+        "248": 1,
+        "263": 1,
+        "3": 1,
+        "6": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 9,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "248": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 9,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 4,
+      "distinct_missing": 4,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 4,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "2": 2
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 6,
+      "distinct_missing": 6,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "1": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 4,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 5,
+      "distinct_missing": 5,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "decision_weighted_found": 2,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 2,
+      "distinct_found_visit_histogram": {
+        "15": 1,
+        "6": 1
+      },
+      "distinct_keys": 2,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "decision_weighted_found": 2,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 2,
+      "distinct_found_visit_histogram": {
+        "15": 1,
+        "6": 1
+      },
+      "distinct_keys": 2,
+      "distinct_missing": 0,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "decision_weighted_found": 5,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 5,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "15": 1,
+        "2": 1,
+        "34": 1,
+        "6": 1
+      },
+      "distinct_keys": 8,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 8,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 8,
+      "distinct_missing": 8,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "20": 1
+      },
+      "distinct_keys": 1,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "decision_weighted_found": 13,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 13,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1
+      },
+      "distinct_keys": 19,
+      "distinct_missing": 6,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "decision_weighted_found": 13,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 13,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1
+      },
+      "distinct_keys": 19,
+      "distinct_missing": 6,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "decision_weighted_found": 15,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 15,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "19": 1,
+        "2": 1,
+        "22": 1,
+        "235": 1,
+        "25": 1,
+        "259": 1,
+        "3": 1,
+        "52": 1,
+        "6": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1,
+        "80": 1,
+        "84": 1
+      },
+      "distinct_keys": 18,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 14,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "235": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1
+      },
+      "distinct_keys": 18,
+      "distinct_missing": 14,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 2,
+      "decision_weighted_found": 10,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 10,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "19": 1,
+        "2": 1,
+        "201": 1,
+        "690": 1,
+        "78": 1,
+        "84": 1
+      },
+      "distinct_keys": 12,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 2,
+      "decision_weighted_found": 5,
+      "decision_weighted_missing": 7,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 5,
+      "distinct_found_visit_histogram": {
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "201": 1,
+        "690": 1
+      },
+      "distinct_keys": 12,
+      "distinct_missing": 7,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 3,
+      "decision_weighted_found": 9,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 9,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "13": 1,
+        "16": 1,
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1,
+        "7": 1,
+        "9": 1
+      },
+      "distinct_keys": 12,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 3,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 8,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1
+      },
+      "distinct_keys": 12,
+      "distinct_missing": 8,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 4,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "254": 1,
+        "48": 1,
+        "676": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 4,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "676": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "decision_weighted_found": 6,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 6,
+      "distinct_found_visit_histogram": {
+        "12": 1,
+        "2": 1,
+        "22": 1,
+        "248": 1,
+        "263": 1,
+        "3": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "248": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 5,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "2": 1
+      },
+      "distinct_keys": 1,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "1": 3,
+        "15": 1,
+        "3": 1,
+        "30": 1,
+        "36": 1,
+        "6": 1
+      },
+      "distinct_keys": 14,
+      "distinct_missing": 6,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "1": 3,
+        "15": 1,
+        "3": 1,
+        "30": 1,
+        "36": 1,
+        "6": 1
+      },
+      "distinct_keys": 14,
+      "distinct_missing": 6,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "14": 1,
+        "151": 1,
+        "2": 2,
+        "30": 1,
+        "4": 2
+      },
+      "distinct_keys": 14,
+      "distinct_missing": 6,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 14,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 14,
+      "distinct_missing": 14,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 3,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "3": 1
+      },
+      "distinct_keys": 1,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 4,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 2,
+        "9": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 5,
+      "distinct_missing": 5,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "1": 1
+      },
+      "distinct_keys": 2,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 11,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 2,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1
+      },
+      "distinct_keys": 25,
+      "distinct_missing": 11,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 11,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 2,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1
+      },
+      "distinct_keys": 25,
+      "distinct_missing": 11,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "decision_weighted_found": 17,
+      "decision_weighted_missing": 11,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 17,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "19": 1,
+        "2": 1,
+        "22": 1,
+        "235": 1,
+        "25": 1,
+        "259": 1,
+        "29": 1,
+        "3": 1,
+        "5": 1,
+        "52": 1,
+        "6": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1,
+        "80": 1,
+        "84": 1
+      },
+      "distinct_keys": 28,
+      "distinct_missing": 11,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 24,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "235": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1
+      },
+      "distinct_keys": 28,
+      "distinct_missing": 24,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 2,
+      "decision_weighted_found": 10,
+      "decision_weighted_missing": 7,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 10,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "19": 1,
+        "2": 1,
+        "201": 1,
+        "690": 1,
+        "78": 1,
+        "84": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 7,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 2,
+      "decision_weighted_found": 5,
+      "decision_weighted_missing": 12,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 5,
+      "distinct_found_visit_histogram": {
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "201": 1,
+        "690": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 12,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 3,
+      "decision_weighted_found": 9,
+      "decision_weighted_missing": 8,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 9,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "13": 1,
+        "16": 1,
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1,
+        "7": 1,
+        "9": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 8,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 3,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 13,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 13,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 4,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "254": 1,
+        "48": 1,
+        "676": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 4,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "676": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "12": 1,
+        "17": 1,
+        "2": 1,
+        "22": 1,
+        "248": 1,
+        "263": 1,
+        "3": 1,
+        "6": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 9,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "248": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 9,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 3,
+      "distinct_missing": 3,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "decision_weighted_found": 5,
+      "decision_weighted_missing": 3,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 5,
+      "distinct_found_visit_histogram": {
+        "1": 2,
+        "2": 2,
+        "4": 1
+      },
+      "distinct_keys": 8,
+      "distinct_missing": 3,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 8,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 8,
+      "distinct_missing": 8,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 7,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "1": 3,
+        "15": 1,
+        "3": 1,
+        "30": 1,
+        "36": 1,
+        "6": 1
+      },
+      "distinct_keys": 15,
+      "distinct_missing": 7,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 7,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "1": 3,
+        "15": 1,
+        "3": 1,
+        "30": 1,
+        "36": 1,
+        "6": 1
+      },
+      "distinct_keys": 15,
+      "distinct_missing": 7,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "14": 1,
+        "151": 1,
+        "2": 2,
+        "30": 1,
+        "4": 2
+      },
+      "distinct_keys": 14,
+      "distinct_missing": 6,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 14,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 14,
+      "distinct_missing": 14,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 2,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 3,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 0,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "3": 1
+      },
+      "distinct_keys": 1,
+      "distinct_missing": 0,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "1": 2,
+        "9": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 5,
+      "distinct_missing": 5,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "1": 1
+      },
+      "distinct_keys": 2,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 5,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 2,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 11,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 2,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1
+      },
+      "distinct_keys": 25,
+      "distinct_missing": 11,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "decision_weighted_found": 14,
+      "decision_weighted_missing": 11,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 14,
+      "distinct_found_visit_histogram": {
+        "1": 2,
+        "16": 1,
+        "160": 1,
+        "215": 1,
+        "234": 1,
+        "252": 1,
+        "4": 1,
+        "6": 1,
+        "60": 1,
+        "654": 1,
+        "690": 1,
+        "7": 1,
+        "80": 1
+      },
+      "distinct_keys": 25,
+      "distinct_missing": 11,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "decision_weighted_found": 17,
+      "decision_weighted_missing": 11,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 17,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "19": 1,
+        "2": 1,
+        "22": 1,
+        "235": 1,
+        "25": 1,
+        "259": 1,
+        "29": 1,
+        "3": 1,
+        "5": 1,
+        "52": 1,
+        "6": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1,
+        "80": 1,
+        "84": 1
+      },
+      "distinct_keys": 28,
+      "distinct_missing": 11,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 24,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "235": 1,
+        "660": 1,
+        "678": 1,
+        "75": 1
+      },
+      "distinct_keys": 28,
+      "distinct_missing": 24,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 2,
+      "decision_weighted_found": 10,
+      "decision_weighted_missing": 7,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 10,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "19": 1,
+        "2": 1,
+        "201": 1,
+        "690": 1,
+        "78": 1,
+        "84": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 7,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 2,
+      "decision_weighted_found": 5,
+      "decision_weighted_missing": 12,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 5,
+      "distinct_found_visit_histogram": {
+        "101": 1,
+        "13": 1,
+        "15": 1,
+        "201": 1,
+        "690": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 12,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 3,
+      "decision_weighted_found": 9,
+      "decision_weighted_missing": 8,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 9,
+      "distinct_found_visit_histogram": {
+        "1": 1,
+        "13": 1,
+        "16": 1,
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1,
+        "7": 1,
+        "9": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 8,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 3,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 13,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "176": 1,
+        "329": 1,
+        "61": 1,
+        "699": 1
+      },
+      "distinct_keys": 17,
+      "distinct_missing": 13,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "decision_weighted_found": 3,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 3,
+      "distinct_found_visit_histogram": {
+        "254": 1,
+        "48": 1,
+        "676": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "676": 1
+      },
+      "distinct_keys": 5,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 5,
+      "decision_weighted_found": 8,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 8,
+      "distinct_found_visit_histogram": {
+        "12": 1,
+        "17": 1,
+        "2": 1,
+        "22": 1,
+        "248": 1,
+        "263": 1,
+        "3": 1,
+        "6": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 5,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 9,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "248": 1
+      },
+      "distinct_keys": 10,
+      "distinct_missing": 9,
+      "lookup_mode": "legacy-v1",
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "1": 1
+      },
+      "distinct_keys": 3,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "1": 1
+      },
+      "distinct_keys": 3,
+      "distinct_missing": 2,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 4,
+      "distinct_missing": 4,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 4,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 4,
+      "distinct_missing": 4,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "river"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "1": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 5,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "decision_weighted_found": 1,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 1,
+      "distinct_found_visit_histogram": {
+        "1": 1
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 5,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "decision_weighted_found": 4,
+      "decision_weighted_missing": 2,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 4,
+      "distinct_found_visit_histogram": {
+        "1": 2,
+        "2": 2
+      },
+      "distinct_keys": 6,
+      "distinct_missing": 2,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 6,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 6,
+      "distinct_missing": 6,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 3,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 1,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 1,
+      "distinct_missing": 1,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 5,
+      "distinct_missing": 5,
+      "lookup_mode": "button-zero-compatible-v1",
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "decision_weighted_found": 0,
+      "decision_weighted_missing": 5,
+      "decision_weighted_visit_histogram": {},
+      "distinct_found": 0,
+      "distinct_found_visit_histogram": {},
+      "distinct_keys": 5,
+      "distinct_missing": 5,
+      "lookup_mode": "legacy-v1",
+      "street": "turn"
+    }
+  ],
+  "decisions": 1047,
+  "same_decision_counts": [
+    {
+      "arm": "B_canonical",
+      "button": 0,
+      "category": "both",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 0,
+      "category": "neither",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 10,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "category": "neither",
+      "count": 6,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 4,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 0,
+      "category": "both",
+      "count": 14,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 0,
+      "category": "neither",
+      "count": 12,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "category": "neither",
+      "count": 10,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "category": "both",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "category": "neither",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "category": "neither",
+      "count": 8,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "category": "neither",
+      "count": 3,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "category": "neither",
+      "count": 3,
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "category": "neither",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 0,
+      "category": "neither",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 1,
+      "category": "neither",
+      "count": 6,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 3,
+      "category": "neither",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 4,
+      "category": "neither",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "category": "both",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "category": "neither",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 10,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 6,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 4,
+      "street": "flop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "category": "both",
+      "count": 14,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "category": "neither",
+      "count": 12,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 10,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "category": "both",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "category": "neither",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "category": "neither",
+      "count": 8,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 3,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 3,
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "category": "neither",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 0,
+      "category": "neither",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 5,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 3,
+      "category": "neither",
+      "count": 3,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 3,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "B_canonical_safe",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 0,
+      "category": "both",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 0,
+      "category": "neither",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 8,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "category": "neither",
+      "count": 6,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 0,
+      "category": "both",
+      "count": 14,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 0,
+      "category": "neither",
+      "count": 12,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "category": "neither",
+      "count": 11,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 2,
+      "category": "both",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 2,
+      "category": "neither",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "category": "neither",
+      "count": 8,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 4,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "category": "neither",
+      "count": 3,
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 0,
+      "category": "neither",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 4,
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 1,
+      "category": "neither",
+      "count": 4,
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 3,
+      "category": "neither",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "category": "both",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "category": "neither",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 8,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 6,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "category": "both",
+      "count": 14,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "category": "neither",
+      "count": 12,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 11,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "category": "both",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 2,
+      "category": "neither",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "category": "neither",
+      "count": 8,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 4,
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "category": "neither",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 0,
+      "category": "neither",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 3,
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 3,
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 3,
+      "category": "neither",
+      "count": 3,
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "B_legacy_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 4,
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "category": "both",
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "category": "neither",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 2,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 3,
+      "category": "neither",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "category": "both",
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "category": "neither",
+      "count": 6,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 11,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "category": "neither",
+      "count": 3,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 2,
+      "category": "both",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 2,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 3,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 3,
+      "category": "neither",
+      "count": 3,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 4,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "category": "neither",
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "category": "neither",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "category": "neither",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "TAG",
+      "button": 0,
+      "category": "neither",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 3,
+      "category": "neither",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "TAG",
+      "button": 5,
+      "category": "neither",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "category": "both",
+      "count": 8,
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "category": "neither",
+      "count": 6,
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 8,
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "category": "neither",
+      "count": 6,
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "category": "both",
+      "count": 14,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "category": "neither",
+      "count": 11,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "category": "neither",
+      "count": 11,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 2,
+      "category": "both",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 2,
+      "category": "neither",
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 3,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 3,
+      "category": "neither",
+      "count": 8,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 4,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "category": "neither",
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "category": "neither",
+      "count": 3,
+      "street": "river"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "arm": "U",
+      "button": 0,
+      "category": "neither",
+      "count": 3,
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 1,
+      "category": "neither",
+      "count": 3,
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 3,
+      "category": "neither",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "U",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "category": "both",
+      "count": 8,
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "category": "neither",
+      "count": 7,
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 8,
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 6,
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 2,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 3,
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 5,
+      "category": "neither",
+      "count": 1,
+      "street": "flop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "category": "both",
+      "count": 14,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "category": "neither",
+      "count": 11,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 13,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 11,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 2,
+      "category": "both",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 2,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 2,
+      "category": "neither",
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 3,
+      "category": "both",
+      "count": 4,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 3,
+      "category": "canonical_only",
+      "count": 5,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 3,
+      "category": "neither",
+      "count": 8,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "category": "canonical_only",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 5,
+      "category": "both",
+      "count": 1,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 5,
+      "category": "canonical_only",
+      "count": 7,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 5,
+      "category": "neither",
+      "count": 2,
+      "street": "preflop"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "category": "both",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "category": "neither",
+      "count": 2,
+      "street": "river"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 4,
+      "street": "river"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 1,
+      "street": "river"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "category": "both",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 0,
+      "category": "neither",
+      "count": 5,
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "category": "canonical_only",
+      "count": 4,
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 1,
+      "category": "neither",
+      "count": 2,
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 3,
+      "category": "neither",
+      "count": 1,
+      "street": "turn"
+    },
+    {
+      "arm": "U_safe",
+      "button": 4,
+      "category": "neither",
+      "count": 5,
+      "street": "turn"
+    }
+  ]
+}

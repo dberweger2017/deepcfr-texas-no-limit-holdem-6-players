@@ -1,0 +1,39 @@
+{
+  "schema": "blueprint-seat-symmetry-preflight-12m-v1",
+  "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+  "arms": [
+    "U",
+    "U_safe",
+    "B_legacy",
+    "B_legacy_safe",
+    "B_canonical",
+    "B_canonical_safe",
+    "TAG"
+  ],
+  "resource_only": true,
+  "suites": {
+    "styles": {
+      "blocks": 8,
+      "root_seed": 2026092801,
+      "opponents": [
+        "tight_passive",
+        "loose_aggressive",
+        "pot_pressure"
+      ],
+      "max_decisions": 1000
+    },
+    "random": {
+      "blocks": 4,
+      "root_seed": 2026092802,
+      "opponents": [
+        "random"
+      ],
+      "max_decisions": 1000
+    }
+  },
+  "limits": {
+    "max_wall_seconds": 1800,
+    "max_rss_gib": 10.5,
+    "min_free_gib": 30
+  }
+}

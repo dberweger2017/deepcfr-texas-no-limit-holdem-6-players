@@ -1,0 +1,32 @@
+{
+  "attempts": 504,
+  "completed_blocks": {
+    "random": 4,
+    "styles": 8
+  },
+  "decision_count": 1047,
+  "elapsed_seconds": 61.441147207980976,
+  "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 53%",
+  "peak_process_rss_bytes": 6951796736,
+  "planned_attempts": 504,
+  "status": "complete",
+  "stop_reason": null,
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 769.38M  free = 1278.62M  (encrypted)",
+  "wrapper_interventions": {
+    "B_canonical_safe": {
+      "changed": 38,
+      "eligible": 54,
+      "removed_probability": 10.286154984240147
+    },
+    "B_legacy_safe": {
+      "changed": 45,
+      "eligible": 46,
+      "removed_probability": 11.088322978825927
+    },
+    "U_safe": {
+      "changed": 51,
+      "eligible": 51,
+      "removed_probability": 12.599999999999998
+    }
+  }
+}
