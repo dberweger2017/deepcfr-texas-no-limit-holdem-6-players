@@ -1,0 +1,35 @@
+{
+  "elapsed_seconds": 28863.78402308398,
+  "mean_within_case_policy_l1": 1.0950832139925368,
+  "modes": {
+    "targeting_off": {
+      "attempts": 240,
+      "max_cycles": 3060,
+      "median_cycles": 2951.0,
+      "median_target_prior_mass_visited": 0.46598639455781654,
+      "median_target_visits": 1.0,
+      "statuses": {
+        "completed": 123,
+        "target_unvisited": 117
+      },
+      "trained_lookup_fraction": 0.036906376090502915
+    },
+    "targeting_on": {
+      "attempts": 240,
+      "max_cycles": 2750,
+      "median_cycles": 2450.5,
+      "median_target_prior_mass_visited": 0.4085884353741449,
+      "median_target_visits": 1394.5,
+      "statuses": {
+        "completed": 240
+      },
+      "trained_lookup_fraction": 0.03612928706046349
+    }
+  },
+  "peak_process_rss_bytes": 8094859264,
+  "planned_attempts": 480,
+  "policy_pairs": 635,
+  "preflight": false,
+  "retained_attempts": 480,
+  "status": "valid"
+}
