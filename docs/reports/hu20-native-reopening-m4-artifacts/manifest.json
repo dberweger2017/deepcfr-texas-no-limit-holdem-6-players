@@ -1,0 +1,873 @@
+{
+  "deadline": 1790656663.7069068,
+  "files": {
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/A-2026093011.log": {
+      "bytes": 80093,
+      "sha256": "ec5790de3b4cdc749d97e7b3d0e40ab3cc8cb2496c466c358aabbbbac12585ee"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/A-2026093012.log": {
+      "bytes": 82289,
+      "sha256": "c8e251670e68a5b7f4f47d619d0661c079960c79ac11a6a98d1cf6c769214bcd"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/A-2026093013.log": {
+      "bytes": 83920,
+      "sha256": "81166ed93aa4f4aacc920f83300b4e0e62749c07f4292cef15081a893fee8fba"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/B-2026093011.log": {
+      "bytes": 58927,
+      "sha256": "6fa9dff035d6420f8e301a31dd85f798e32a3639b590789ff2e212569e1b2b94"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/B-2026093012.log": {
+      "bytes": 59630,
+      "sha256": "a7d7b1e2ec333dcfee8e66a81454af9c9263b9f56ebef0f7b7a0b1da155ab8c0"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/B-2026093013.log": {
+      "bytes": 60301,
+      "sha256": "e839ddc7455ccf34f22d02ee4ac1329f7d30d6efc3dbd77ca25dd051d3aa3f2a"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/audit.log": {
+      "bytes": 2461,
+      "sha256": "72de79a29dbbd64525442c902ef8d41b217ccf4ea78eca601f1de895bdfb3990"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/audit/checksums.json": {
+      "bytes": 192,
+      "sha256": "61add43edad211b222c63ccd986a3f80e9b97703d0fdca32859d3f62196fba55"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/audit/fixed-order-replay-cases.json": {
+      "bytes": 75361,
+      "sha256": "46723fda13c927b637a71e18dc99199c3610643e05348cef8a08f72fe86e339a"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/audit/independent-summary.json": {
+      "bytes": 399,
+      "sha256": "3782e4fc40b14ad0a7f0abead2a5e32147d366f066ae614c80562eb89a5e9425"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/audit/results.json": {
+      "bytes": 8535912,
+      "sha256": "8cb464f5db4b14273878e5a9248ff5a511e1c8e57ae97dffb7cecded87487f4b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/campaign.json": {
+      "bytes": 13502,
+      "sha256": "162e11c302cf7462867ed88ac38bdb9e4e32d57bf1b05f59b92bd940bd75dea7"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/candidate-human-smoke-result.json": {
+      "bytes": 125,
+      "sha256": "e8510948c74952e9e4d4aca158d183478cfa1b667fe65292fcc6ffdc648bfd18"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/candidate-human-smoke.jsonl": {
+      "bytes": 16141,
+      "sha256": "c6a0b4911c548fa8665afa9008e031a1e2cfa1b5f52e5401c51df87ae817a04e"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/candidate-human-transcript.txt": {
+      "bytes": 18950,
+      "sha256": "177f02fdab966ed1821ed118f3255bfe3b64bad52133a3a43ad6444c0bfbb8cd"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/checksums.json": {
+      "bytes": 22541,
+      "sha256": "63f4f6b3f88285bdb72fea0658740fd11629de960ca1318dea0bc36c384b8f8d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/environment.json": {
+      "bytes": 607,
+      "sha256": "6f0d70b73819131deaab3600a4988e2c0a4a1514696afa7cdcd18ae4dab6739d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/evaluation.log": {
+      "bytes": 250,
+      "sha256": "d966665d17454dd4afccc0df4f51034088c9693b15e9e64a20565ed4971af08f"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/evaluation/attempts.json": {
+      "bytes": 44754,
+      "sha256": "9c9ef282146d2042cc5a77614f7840408b5318c244bff333db480fcb627ee228"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/evaluation/checksums.json": {
+      "bytes": 518,
+      "sha256": "6015506ce67b0e212a6725ec19806c9914269c423f78d80ebb862d81049b396f"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/evaluation/hands.jsonl.gz": {
+      "bytes": 319585983,
+      "sha256": "3645d9e858a73cd3a1534e16c5098a9ad2b964390d608411a64709640deff97a"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/evaluation/models.json": {
+      "bytes": 19254,
+      "sha256": "36304b4015c0140f9738298658e1f6e9e5e4b298b6bdfc60b12d040fe8b5f9c1"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/evaluation/plan.json": {
+      "bytes": 5931,
+      "sha256": "fa857984b27414d6dc20f3f3144611b05d01ff74ff037b6cbc18db0d149c17e3"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/evaluation/progress.json": {
+      "bytes": 307,
+      "sha256": "155baf8712e589dae36b305a768601661e8e9cf075f08c20ca20d8d86cf2e8ea"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/evaluation/result.json": {
+      "bytes": 266,
+      "sha256": "bf911025a504b39474c1a4adb23428b426a565e4449b6194e03600fbde4e81b2"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/frozen-plan.json": {
+      "bytes": 5931,
+      "sha256": "fa857984b27414d6dc20f3f3144611b05d01ff74ff037b6cbc18db0d149c17e3"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/human-smoke.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/independent-manifest.json": {
+      "bytes": 319,
+      "sha256": "4f7f24279ccb4817d05ae050603967e61a7e5374cba5e9e4cb2b0075109b69d3"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/independent-observations.jsonl.gz": {
+      "bytes": 202379,
+      "sha256": "3a8c9ee0c9c6364993ba4011af791c059f816ced2f1a02f449477928c5a35cd2"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/independent-summary.log": {
+      "bytes": 323,
+      "sha256": "e03e35744d09c8540e969788fe711f5c7ae8b8487cb1ee3772bfc665c7e26479"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight-campaign-record.json": {
+      "bytes": 4852,
+      "sha256": "1f07ca119499a334a5434a6060359a6c52884b1dddcb2447d6ac22d74f85de2c"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight-checksums.json": {
+      "bytes": 9494,
+      "sha256": "d7f305edb5045dc453ff033e963f715f960d847a9e7c2b35710ad8c8cce32c37"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight-plan.json": {
+      "bytes": 1244,
+      "sha256": "18e6ce9301ae2d3daba78339722610fac34d6024f82ddc35690585c74f8cbba1"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight-resources.jsonl": {
+      "bytes": 6197,
+      "sha256": "a017b32ac8a6c41796b2c980a79581133283cef5b052620e236dafb7f02015d6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/after-cancellation.json.gz": {
+      "bytes": 3598914,
+      "sha256": "6c09982f1b28cea876e7a69b1e51d1953814aeee34571a725930cb9f35ad3dc2"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/checkpoint-times.jsonl": {
+      "bytes": 1457,
+      "sha256": "cc97d21e217dd9004ef50a02cf5f99ac6a2ab998c75970724177878d5a9e949b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/checksums.json": {
+      "bytes": 1159,
+      "sha256": "37d4fc2543d4a362cf3ced0597955422fe27823fd9a3cb6684dc8adba8391545"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/current.json.gz": {
+      "bytes": 2179038,
+      "sha256": "ade10efe708118ca93c7785eacf0373709bc58170f1c0a9b84a47f857c802bd6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/inference-timing.jsonl": {
+      "bytes": 727,
+      "sha256": "ba377e881b57b41b75d8ef61c49f4695c2c365674694796bf9274c2ae251e337"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/iterations.jsonl": {
+      "bytes": 5763786,
+      "sha256": "2fafdb67381cb4c4614316d24cfd6082573abd4fb6e3239180a439b41f2387e9"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/last-completed.json.gz": {
+      "bytes": 3598914,
+      "sha256": "6c09982f1b28cea876e7a69b1e51d1953814aeee34571a725930cb9f35ad3dc2"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/recovered.json.gz": {
+      "bytes": 3598914,
+      "sha256": "6c09982f1b28cea876e7a69b1e51d1953814aeee34571a725930cb9f35ad3dc2"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/recovery-next-original.json.gz": {
+      "bytes": 3600811,
+      "sha256": "59990b5fa5e8f62adb03d222f07969f574ee7af0f02851deadc5e6e6d2b1dd11"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/recovery-next-resumed.json.gz": {
+      "bytes": 3600811,
+      "sha256": "59990b5fa5e8f62adb03d222f07969f574ee7af0f02851deadc5e6e6d2b1dd11"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/result.json": {
+      "bytes": 94731,
+      "sha256": "563b3d7b531bf64a1da994eda107bd986fa10e1d5a3487617e6f07ee7c8b8e9b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/trained-timing-hands.jsonl.gz": {
+      "bytes": 5588,
+      "sha256": "6d5eba45e61bf0380b1ad6893c2ea636633c6e09dfb4a395753f24a3089f8fe2"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093011/uniform-timing-hands.jsonl.gz": {
+      "bytes": 6709,
+      "sha256": "bea235f96c98834a58b6a4b636e077ec0767246c58082fb98a5e97bd355f63f6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/after-cancellation.json.gz": {
+      "bytes": 3592945,
+      "sha256": "47d6dc82d81d670fd856e816bcce33d676c363359bb22302564017aceec8619d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/checkpoint-times.jsonl": {
+      "bytes": 1459,
+      "sha256": "ad48f953aea458e2066106671abda0a5194fd0f9bb1a36cf50cf384250eb5bff"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/checksums.json": {
+      "bytes": 1159,
+      "sha256": "32427546611c522b361ac93a58bc7bef8a32ce3d99b755196d6b888f9930d6c7"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/current.json.gz": {
+      "bytes": 2165609,
+      "sha256": "886bc1faeb27a24bbc8ae3a03fe45720b13f64401e93bb0e65d3b7e0fb2b31e6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/inference-timing.jsonl": {
+      "bytes": 725,
+      "sha256": "5bf72b62f6c5c91993bd66e7462aa3c378f78460bc5b5c6a84e273030c6ad321"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/iterations.jsonl": {
+      "bytes": 5921056,
+      "sha256": "8a62acc88c9195cdbcb5d5a3a4d7565f56dfba3da621f863603dbbbcfd1ad566"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/last-completed.json.gz": {
+      "bytes": 3592945,
+      "sha256": "47d6dc82d81d670fd856e816bcce33d676c363359bb22302564017aceec8619d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/recovered.json.gz": {
+      "bytes": 3592945,
+      "sha256": "47d6dc82d81d670fd856e816bcce33d676c363359bb22302564017aceec8619d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/recovery-next-original.json.gz": {
+      "bytes": 3594281,
+      "sha256": "db0d1b395015a25f8ff4e5524854f1c715c84dac17f4a8e3ae5e84022f656b1d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/recovery-next-resumed.json.gz": {
+      "bytes": 3594281,
+      "sha256": "db0d1b395015a25f8ff4e5524854f1c715c84dac17f4a8e3ae5e84022f656b1d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/result.json": {
+      "bytes": 97331,
+      "sha256": "d62aee8da070c6da98079126b0d8b197ed12b4d7348f9327c5623f19bcd4bee2"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/trained-timing-hands.jsonl.gz": {
+      "bytes": 6342,
+      "sha256": "4227ed56a45573909bfbf34f05ea3138e1f19a543b7e82163f75053279a7d946"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093012/uniform-timing-hands.jsonl.gz": {
+      "bytes": 7186,
+      "sha256": "d17e9291d3116d049411439deb8164a068769ea7da2ff3f84a992f7b47c86acf"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/after-cancellation.json.gz": {
+      "bytes": 3552747,
+      "sha256": "ef4383e091eb9ef90157ae7968a2f9b609aac51721e673fb1bd110a2362ec0ab"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/checkpoint-times.jsonl": {
+      "bytes": 1457,
+      "sha256": "612de4085e84208273572a684c478af01d3adf4a08ac201fe9ce825aff79f335"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/checksums.json": {
+      "bytes": 1159,
+      "sha256": "f4316dd81a27288da2a1490a1bf6f65cc91a6d99a43919176f9c8067a1ac3776"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/current.json.gz": {
+      "bytes": 2155050,
+      "sha256": "d236877b1132efe15d05d999fe7e01abce1555461d2eee169dc4119d224da640"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/inference-timing.jsonl": {
+      "bytes": 729,
+      "sha256": "158717b3e469a47a38a15933241cee61a2f98bf1f72374d5986e5c386e985ef4"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/iterations.jsonl": {
+      "bytes": 6032459,
+      "sha256": "cb24cb6daacc48b57bad98025a72500eb4959b6548c1dea5ca218de468c59637"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/last-completed.json.gz": {
+      "bytes": 3552747,
+      "sha256": "ef4383e091eb9ef90157ae7968a2f9b609aac51721e673fb1bd110a2362ec0ab"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/recovered.json.gz": {
+      "bytes": 3552747,
+      "sha256": "ef4383e091eb9ef90157ae7968a2f9b609aac51721e673fb1bd110a2362ec0ab"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/recovery-next-original.json.gz": {
+      "bytes": 3553093,
+      "sha256": "0be6932ae473ed3666e44e00a3bf7ecbe0a5ce65ca5ab31a5b209135a34acb67"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/recovery-next-resumed.json.gz": {
+      "bytes": 3553093,
+      "sha256": "0be6932ae473ed3666e44e00a3bf7ecbe0a5ce65ca5ab31a5b209135a34acb67"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/result.json": {
+      "bytes": 99238,
+      "sha256": "f046d689187e97984a99345f0cc889125822835be19e04c1287a00899c7defa9"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/trained-timing-hands.jsonl.gz": {
+      "bytes": 5565,
+      "sha256": "55739891968c4c8e92b3c7b934c7e9d6781ad9116a73b1539c82e82900719f92"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/A-2026093013/uniform-timing-hands.jsonl.gz": {
+      "bytes": 5572,
+      "sha256": "0696b6c01ffab3509eae136be6825c787bebe2052068ca57c9fdb70bc5162e24"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/after-cancellation.json.gz": {
+      "bytes": 5189008,
+      "sha256": "a212b7047201a5188d75e1a37819b70e787d6e16282e694dbd08509123797b1b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/checkpoint-times.jsonl": {
+      "bytes": 1456,
+      "sha256": "e2ff62ed0f4b53164b4e7b2812872194c44b7842a6120817d616f0cf81c7b3fa"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/checksums.json": {
+      "bytes": 1159,
+      "sha256": "8bacebb56384c7d1f8ea579918db81ea469190ee606c465c5b78a683fd5feb5b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/current.json.gz": {
+      "bytes": 3268961,
+      "sha256": "df696f10506cb7c7e2941cc820f950198553d6cccbc9e7e3b2ded3c9d37369bb"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/inference-timing.jsonl": {
+      "bytes": 727,
+      "sha256": "607cd79cc0da8def1b84a02c8e29bf1c627607d90973d0c5338e8b28c2169ef0"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/iterations.jsonl": {
+      "bytes": 5015548,
+      "sha256": "f45d0f4fedf157e78161afee205071a4ccc1ca04bd22614beb62d0e019628575"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/last-completed.json.gz": {
+      "bytes": 5189008,
+      "sha256": "a212b7047201a5188d75e1a37819b70e787d6e16282e694dbd08509123797b1b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/recovered.json.gz": {
+      "bytes": 5189008,
+      "sha256": "a212b7047201a5188d75e1a37819b70e787d6e16282e694dbd08509123797b1b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/recovery-next-original.json.gz": {
+      "bytes": 5189566,
+      "sha256": "5d85d36d89cdf7d5dd13c63dcb303b074a997dd840ef88e89428d2e70a79d3d2"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/recovery-next-resumed.json.gz": {
+      "bytes": 5189566,
+      "sha256": "5d85d36d89cdf7d5dd13c63dcb303b074a997dd840ef88e89428d2e70a79d3d2"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/result.json": {
+      "bytes": 69737,
+      "sha256": "9ae86dcb5b1c4e257ee2a70e5605e04cee5400ae76d3fe50e03649fb79b8e6a6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/trained-timing-hands.jsonl.gz": {
+      "bytes": 5906,
+      "sha256": "3e66bf198c15c00407cad615a96e8a9dc87df4416f803f7dad372a5862150407"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093011/uniform-timing-hands.jsonl.gz": {
+      "bytes": 5694,
+      "sha256": "63f838e24056eba1f16030723d6a8144c4458f20e53224397bcd84aa796295b5"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/after-cancellation.json.gz": {
+      "bytes": 5128303,
+      "sha256": "497c3f06f80b8071f4970492f2643974c3bfe3880f018fd3bf3e719318485c8d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/checkpoint-times.jsonl": {
+      "bytes": 1456,
+      "sha256": "8e2c8961d34c23e5c860101d76cea72e35173ceaf6cb9090bd94065f2a91e1c8"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/checksums.json": {
+      "bytes": 1159,
+      "sha256": "dfae8f95ebae387931831b0549197c0a1e447859ab27011cdc467b7998fb6289"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/current.json.gz": {
+      "bytes": 3243528,
+      "sha256": "6ce476d0522b84b195b20381e0c7e08bea8c71b6742c5852087422bd89f2f96c"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/inference-timing.jsonl": {
+      "bytes": 727,
+      "sha256": "387911b03d6c671b69fe6da52166dd772b3cbc858ab4be0dd3633732ea50d377"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/iterations.jsonl": {
+      "bytes": 5077029,
+      "sha256": "7680c38e925f0857c7978a986b31314f213ab7a7bf8486538f8ac294eeb5427f"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/last-completed.json.gz": {
+      "bytes": 5128303,
+      "sha256": "497c3f06f80b8071f4970492f2643974c3bfe3880f018fd3bf3e719318485c8d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/recovered.json.gz": {
+      "bytes": 5128303,
+      "sha256": "497c3f06f80b8071f4970492f2643974c3bfe3880f018fd3bf3e719318485c8d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/recovery-next-original.json.gz": {
+      "bytes": 5128952,
+      "sha256": "233d607a3cac4ebf84be855922d4ae1ac0265fdff801a7f6ec0ba62bbfa1fec6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/recovery-next-resumed.json.gz": {
+      "bytes": 5128952,
+      "sha256": "233d607a3cac4ebf84be855922d4ae1ac0265fdff801a7f6ec0ba62bbfa1fec6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/result.json": {
+      "bytes": 70568,
+      "sha256": "d35ff38954a388ed65e5986e0bd97d3affcff93b8934d62e53e3535284464e37"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/trained-timing-hands.jsonl.gz": {
+      "bytes": 6090,
+      "sha256": "ce458f50bd3d0d725c0e392b55bc7fbd178a427e3e9741745aa9b2d20bf32b03"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093012/uniform-timing-hands.jsonl.gz": {
+      "bytes": 6295,
+      "sha256": "ebaf24c0276b1e748c9e1dc92c53739ff8460fd9581c780424dbdd54d4ae2760"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/after-cancellation.json.gz": {
+      "bytes": 5143609,
+      "sha256": "8643cd6fe0a1d0be83151b6623107d3ba920bc90a26e6289b005e1537a0d5f43"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/checkpoint-times.jsonl": {
+      "bytes": 1454,
+      "sha256": "a9fa519e4cd29229496034f2f9a565e8c51b0352c5bad711ce310caa6ce9a212"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/checksums.json": {
+      "bytes": 1159,
+      "sha256": "73a9d1997f9e778e75d2ad0ea4f0113949b184f85e636c1518385efd9d5c4a58"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/current.json.gz": {
+      "bytes": 3243845,
+      "sha256": "444590262c4dea1f5716a0e6563b61339d2550e46e13cfb0e1b551db537f849f"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/inference-timing.jsonl": {
+      "bytes": 728,
+      "sha256": "4d5bd0913a1ca01eb97fb6cc3458796fe018e6ad4d68044dd36c26d48fbe87b0"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/iterations.jsonl": {
+      "bytes": 5127003,
+      "sha256": "2b47b79d5840458e456beeb357898f3d38c17469f8c23366b7d9998dc7f020eb"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/last-completed.json.gz": {
+      "bytes": 5143609,
+      "sha256": "8643cd6fe0a1d0be83151b6623107d3ba920bc90a26e6289b005e1537a0d5f43"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/recovered.json.gz": {
+      "bytes": 5143609,
+      "sha256": "8643cd6fe0a1d0be83151b6623107d3ba920bc90a26e6289b005e1537a0d5f43"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/recovery-next-original.json.gz": {
+      "bytes": 5145934,
+      "sha256": "6e54e096bc324fdfba606582be4de0a823dcbfb3dcfa68c7565dc7eba152f42a"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/recovery-next-resumed.json.gz": {
+      "bytes": 5145934,
+      "sha256": "6e54e096bc324fdfba606582be4de0a823dcbfb3dcfa68c7565dc7eba152f42a"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/result.json": {
+      "bytes": 71367,
+      "sha256": "84275491f4679e3ec4cd0d7bf2f18fdcd0eb7950c29e053d15ad4d6e07df2247"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/trained-timing-hands.jsonl.gz": {
+      "bytes": 5682,
+      "sha256": "ef39fa4c7e698968d025ce2bd8b75ebc3e318e5f54fe44f9f48569bf30146474"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/preflight/B-2026093013/uniform-timing-hands.jsonl.gz": {
+      "bytes": 5460,
+      "sha256": "0dd4665eeb353b212ec90dfe80cf2d612bdcfab8f1e5e1d9b412c4b1a11adf7a"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/resource-summary.json": {
+      "bytes": 34621,
+      "sha256": "896ae6e8702ee145169196e3af8b93982c29029287566afa936fd18b469f5057"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/resources.jsonl": {
+      "bytes": 150384,
+      "sha256": "33d20fcb3fd5a74ba758415add4f1210c5119e5944f9adb0d3795bd70a292ea6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/train-A-2026093001.log": {
+      "bytes": 10501,
+      "sha256": "29437184305518f6110c419e76b6ba064c86a919cda9e65cd4500232daef7164"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/train-A-2026093002.log": {
+      "bytes": 10525,
+      "sha256": "3c623325e58c8fa4cb34462a1ac6e32385327b190ac484fac2408dac70b7e027"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/train-A-2026093003.log": {
+      "bytes": 10587,
+      "sha256": "3fc97c0bab4ddba7d1ea7c39b7a45f355595b3a47192d710a829c9d9f5a8d040"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/train-B-2026093001.log": {
+      "bytes": 10872,
+      "sha256": "8be3d083e01fee6b61387402fdbebb19e657b627ecfd08c7d089621ad23f826c"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/train-B-2026093002.log": {
+      "bytes": 10907,
+      "sha256": "345d06e7e7916346604db85a59a72b1040eec37ae90e0da5cbe3205bdba045fe"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/train-B-2026093003.log": {
+      "bytes": 10818,
+      "sha256": "1d70853f6f5bc694c715ddf694a1c74986a4b304c31e81929242b2a76c5a6865"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/checkpoint-0.json.gz": {
+      "bytes": 5295997,
+      "sha256": "00a56650fc70022835d98bdc0424352681baf9ab4a79e77d27a5eece904fa348"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/checkpoint-1.json.gz": {
+      "bytes": 8338545,
+      "sha256": "a82fff6604bb1c0af83e0f78a2a40902571fcbe361a15171409fe5bb55f0584b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/checkpoint-2.json.gz": {
+      "bytes": 11039984,
+      "sha256": "a7ca0fabcb4fcdc8e3124196da1e793aa45da3c776494b270d35de250a02a176"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/checkpoint-3.json.gz": {
+      "bytes": 13938939,
+      "sha256": "db426b9be746e196333d0f0d4310a0353a0957a5798c00a88b13a5126af7f38d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/checkpoint-overhead.jsonl": {
+      "bytes": 2812,
+      "sha256": "5a817f2e66e80a78d92b550e171f2595ebedd9d75ffc4765ecb44007fd6dec81"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/checksums.json": {
+      "bytes": 1377,
+      "sha256": "5235f0567422df66ef44eba96f36bc817928920d7e2feb1be3dd5b5de047e4cb"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/current-0.json.gz": {
+      "bytes": 3144654,
+      "sha256": "e3f44e15168955e4617f0fc2be880c237a3c922b594a8efb6beaf6fd290ac429"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/current-1.json.gz": {
+      "bytes": 4737797,
+      "sha256": "21d5d21bd5a2730c529295e81cc8ce05e2462782ed441ad3ada348b5bae23571"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/current-2.json.gz": {
+      "bytes": 5994050,
+      "sha256": "21d313c1e37f59273fdf873786f2724e79481843b88e0deadd66e6dd36e3aa83"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/current-3.json.gz": {
+      "bytes": 7220215,
+      "sha256": "b67ebfe7c36cc13b6457e1d15729186a4f4d0b665cf9d818ce32bde5a13a1d05"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/iterations.jsonl": {
+      "bytes": 106006700,
+      "sha256": "a2e6c1bf5d6ff316e5bef1d6c4a974ee48258cccbfba5e88197a6f34d95eb5cd"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/last-completed.json.gz": {
+      "bytes": 13938939,
+      "sha256": "db426b9be746e196333d0f0d4310a0353a0957a5798c00a88b13a5126af7f38d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/manifest.json": {
+      "bytes": 765,
+      "sha256": "38eabc13862b475991faecdcc55c5adffa24e597c3d3df004d11e268a9914175"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/milestones.jsonl": {
+      "bytes": 9172,
+      "sha256": "712f42a8b757d252751a79c7f03e9c7a4eb3c0b5d19d3e0c5ca104c670118b04"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/progress.json": {
+      "bytes": 14346,
+      "sha256": "25f58e264d6897da1a0004af6974b69b0bf590a0bb937436366f3f75db591494"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/result.json": {
+      "bytes": 15005,
+      "sha256": "62ed30c160549e77ccc70d9ac7d74be41d7f0782d2b53e62b7c280b330ce2ff7"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/checkpoint-0.json.gz": {
+      "bytes": 5293530,
+      "sha256": "6c79d5e586d572e26b6b2e4d5cb544cc98c288b2520534e7015dc0e828d3887b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/checkpoint-1.json.gz": {
+      "bytes": 8334132,
+      "sha256": "b08bf4c8dea7fee2c3336bb5a3231a34a260b3ef8e1a8be693ee966d14363dc5"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/checkpoint-2.json.gz": {
+      "bytes": 11122813,
+      "sha256": "3188a1030348fb111f173fe32070d69f270554126f25dbaafc433a29277803bc"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/checkpoint-3.json.gz": {
+      "bytes": 14027404,
+      "sha256": "fc09d38382a9587c98a1d014f6cf83e6bf577dc447fe6499b06c06cb91aac595"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/checkpoint-overhead.jsonl": {
+      "bytes": 2814,
+      "sha256": "7899e88bec2e384a9a3353aa44c07c4edf6e1e4863451bcbc3928879fa4118ab"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/checksums.json": {
+      "bytes": 1377,
+      "sha256": "90d554e85b4b17b03346e10ded25dbbeaf78d980587ed5008fddd3070f2cc2e5"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/current-0.json.gz": {
+      "bytes": 3145104,
+      "sha256": "55cb4f844731443dfe9b811248d59532086966023ca8a203bd982f9cb7eb9d5b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/current-1.json.gz": {
+      "bytes": 4723019,
+      "sha256": "125a3d85de66629fa1ee24716d5787795d01b5125624fafef9780f8ebccb1760"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/current-2.json.gz": {
+      "bytes": 6020233,
+      "sha256": "8a7c029e09075c3bcc3f4c011903dbffa854ea95a846eabe12353f104e858cd7"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/current-3.json.gz": {
+      "bytes": 7233035,
+      "sha256": "7768332ce71004ca0fa8db853a17ace619b5da70ce477463a6d68b59dc3da0d9"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/iterations.jsonl": {
+      "bytes": 104283892,
+      "sha256": "38433fa07251789ed0ab0d27dccec4712b77e5d94a7ec7f9a5bb0fefe55a9fc7"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/last-completed.json.gz": {
+      "bytes": 14027404,
+      "sha256": "fc09d38382a9587c98a1d014f6cf83e6bf577dc447fe6499b06c06cb91aac595"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/manifest.json": {
+      "bytes": 766,
+      "sha256": "ce9d6206b062cb8b6d706e9db14824aa6bcf58f3fb8758c45536d5aa2febde2a"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/milestones.jsonl": {
+      "bytes": 9196,
+      "sha256": "083bc2444b4a76f480919998b9b5a57bd8634c565dd6a96f2e2bd67d730276c4"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/progress.json": {
+      "bytes": 14381,
+      "sha256": "8a4ca3bb7b20925bf5acbacab47a4e666464c4027ca46af78f35d7e68a16fc6a"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/result.json": {
+      "bytes": 15039,
+      "sha256": "be21eec6e330614df1ef33a80c72aa937bb7328bc42b1dcd0515175f96be36da"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/checkpoint-0.json.gz": {
+      "bytes": 5293248,
+      "sha256": "3514cac772ed6cc7c35988813bb21be83cf7ca080e912d64a0dc3558cb3ddee1"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/checkpoint-1.json.gz": {
+      "bytes": 8344198,
+      "sha256": "5342b26227ca7abb153602001e70443accfa91d89f769f49b45fe3b479c790c7"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/checkpoint-2.json.gz": {
+      "bytes": 11037203,
+      "sha256": "b18c383c4cf79a9ea749ff093d9ee0e569464b397c4776fca556d5ba22cd2ff6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/checkpoint-3.json.gz": {
+      "bytes": 13963440,
+      "sha256": "51c86cee74e35784d250db21f7ef5b3d5b838c3eaea2131abdd5038b4aed0192"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/checkpoint-overhead.jsonl": {
+      "bytes": 2813,
+      "sha256": "61bbf47c63291790c9a2becd48aad50b0e3f883a1c0f48a3e5c46c96728f000d"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/checksums.json": {
+      "bytes": 1377,
+      "sha256": "460c7927605d32598b426b76d4035b0308b40e758c81576e4f319db382320e59"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/current-0.json.gz": {
+      "bytes": 3142924,
+      "sha256": "2a6c10d38bc2e5812f2502b382558bef6c117dcd28854866b271bef46bcb2f92"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/current-1.json.gz": {
+      "bytes": 4730119,
+      "sha256": "4ad527be2e7a847aea3624aa577b1910227243af7066fff7c1df742735cb4bd6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/current-2.json.gz": {
+      "bytes": 5984882,
+      "sha256": "7004cf59431c8cd63e44a8cee2d6606c2a85f2667bdb05844c92ac668f7d060b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/current-3.json.gz": {
+      "bytes": 7224977,
+      "sha256": "09c5319b09ed5523a8433be0b626b7c9ffcd4cc7484ac07fd5543866d813257e"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/iterations.jsonl": {
+      "bytes": 110558568,
+      "sha256": "4cdf1c14cbaa3d74a9120c1bd28f8b727b56ef5e68dd38664b3b30c8fe6fd12c"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/last-completed.json.gz": {
+      "bytes": 13963440,
+      "sha256": "51c86cee74e35784d250db21f7ef5b3d5b838c3eaea2131abdd5038b4aed0192"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/manifest.json": {
+      "bytes": 766,
+      "sha256": "eeebce5d86000f579bfd967c2c3a4c66613f7e4151c8a3cedd4440910e3d6484"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/milestones.jsonl": {
+      "bytes": 9258,
+      "sha256": "c810b7388cef8ab72bba5252dbb7839fbcd04e4f0953746b0db6ae3d9991c084"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/progress.json": {
+      "bytes": 14463,
+      "sha256": "4db3455dfaa439f11bc564fdff8e9f199811217b579955dfad6fb8d593908de1"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/result.json": {
+      "bytes": 15121,
+      "sha256": "5373c1584b658088c8f0072d5688e8a5666b36360688568a0753066885350a30"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/checkpoint-0.json.gz": {
+      "bytes": 8474461,
+      "sha256": "4b58cbfe1d4f9f3844dcdebb422d39b9a946f6911f6fb93e3b4748da477fb6d9"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/checkpoint-1.json.gz": {
+      "bytes": 15163459,
+      "sha256": "30107859163af63cd3a493043b99dbea3806f902e92a0bd4294922fc35a4028b"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/checkpoint-2.json.gz": {
+      "bytes": 22859341,
+      "sha256": "e59a806d91ed0c294e05427d18efddb45704a0734d8546838ce9129510ac3faf"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/checkpoint-3.json.gz": {
+      "bytes": 33278287,
+      "sha256": "cb4ca3348398f358c611d92467ae9f891de41f64e374cd847c0103ccb2d62822"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/checkpoint-overhead.jsonl": {
+      "bytes": 2804,
+      "sha256": "8c4025603719482f91985ffe44452c3eedaadbf4fef6b21c7be1c92eb674ebe5"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/checksums.json": {
+      "bytes": 1377,
+      "sha256": "859fee0190c9a3fdbfb9468b0f9017d391c249ef0f3f8e8506a9a4a68ea97e5e"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/current-0.json.gz": {
+      "bytes": 5319608,
+      "sha256": "77471bffa73789d1ad4ea5e8cbee9d19665069f2e7e34b258ecf38a770e9b4a3"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/current-1.json.gz": {
+      "bytes": 9363151,
+      "sha256": "dbad6d8b850e77ffc36902405e009d1fa8f807f26207247f399063c01b72895f"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/current-2.json.gz": {
+      "bytes": 13903069,
+      "sha256": "728c546371e13545d7d57873ead32258d51acbf30f2786552a8bf64d17174f17"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/current-3.json.gz": {
+      "bytes": 19909128,
+      "sha256": "198dae3eb36b6a830ab106ba13032ecab10fc1f2fc12bc4bb9bc06dcce9a01a6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/iterations.jsonl": {
+      "bytes": 104223349,
+      "sha256": "329b5422035ef659b386d85e1659692fa5185840e20c81157368dbfe0b793548"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/last-completed.json.gz": {
+      "bytes": 33278287,
+      "sha256": "cb4ca3348398f358c611d92467ae9f891de41f64e374cd847c0103ccb2d62822"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/manifest.json": {
+      "bytes": 794,
+      "sha256": "1128841c2220b300fb656e70aac56b6a38caee94e02daf67189ef0600876ada5"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/milestones.jsonl": {
+      "bytes": 9510,
+      "sha256": "aecb77040274b6ef733f65ccd6eb18ebc8cbc971c80f87166381a277c3e295f6"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/progress.json": {
+      "bytes": 14793,
+      "sha256": "cdafe83a63a104075fd4397f73f4d1781c82b9bbeb65aa94dc49ad4990ba99d1"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/result.json": {
+      "bytes": 15456,
+      "sha256": "713f61f538e8e3dd55f71e8ada1652553dab01617e95548521f02646047a9d32"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/checkpoint-0.json.gz": {
+      "bytes": 8376057,
+      "sha256": "61a5466aa0fe35622bd54740623acf438a9d1aef81a6459b9d08bec87b402696"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/checkpoint-1.json.gz": {
+      "bytes": 15164562,
+      "sha256": "d0f9d44f46e6798ead8331638f5df738b3e5328cba20df477f3c35a801496e07"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/checkpoint-2.json.gz": {
+      "bytes": 22793859,
+      "sha256": "ec79ca53e811d01ef1e7e34ae7f8120b6fb8ee36d15a6895ff58eb0647b8f5c4"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/checkpoint-3.json.gz": {
+      "bytes": 33264621,
+      "sha256": "03bfacfdb56801d2d079d350dcdb539e1dba02bcbef9c443a08c5299ff49f358"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/checkpoint-overhead.jsonl": {
+      "bytes": 2802,
+      "sha256": "8268731d0e741bd0d9e727f943aa1e9774d241f0148f0c997524a2eebbe50377"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/checksums.json": {
+      "bytes": 1377,
+      "sha256": "0214d796b2ab8208af91905001447fb559e2a529ae2dbc941aaaa336994a7130"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/current-0.json.gz": {
+      "bytes": 5252103,
+      "sha256": "a76bf0120fc37e5e2a66cc9598bf4c2eb3f28d963e1d5f5c278c670e124f3d4c"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/current-1.json.gz": {
+      "bytes": 9362813,
+      "sha256": "ccada484a9f82ac640eb56dec7d4a378a6cb056eaf9ea56df06c0d71230d9698"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/current-2.json.gz": {
+      "bytes": 13869455,
+      "sha256": "6c3585eac17d5754fc49b99f2639c2833e72a12f38e81d1c7433611f44051c22"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/current-3.json.gz": {
+      "bytes": 19887631,
+      "sha256": "4a8c3123437a28c5bea49447e67a91e490096819b3b820fd47c1ffb3f4bb0243"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/iterations.jsonl": {
+      "bytes": 103459492,
+      "sha256": "1b008440ca1b58fcee1b83eea124848e9b67c565b92c3fda98cbb4ec0df3167f"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/last-completed.json.gz": {
+      "bytes": 33264621,
+      "sha256": "03bfacfdb56801d2d079d350dcdb539e1dba02bcbef9c443a08c5299ff49f358"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/manifest.json": {
+      "bytes": 795,
+      "sha256": "fd30c54988b832cd9b65b71d81a8ff4e2bf9b1052788397cf0169392d02b4f42"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/milestones.jsonl": {
+      "bytes": 9544,
+      "sha256": "c0eac7693ada75473f1728a819239684364a8846bc9b8a7b4b16eb8962282b9c"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/progress.json": {
+      "bytes": 14848,
+      "sha256": "3420e1fedc763220120a6264a6bcd592fdd4c33c0991605bd23da9263907c099"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/result.json": {
+      "bytes": 15511,
+      "sha256": "9efec8f2d28216557e8488f1446dc560d4f4c38b2976b5a6d606e7cd6590bdab"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/checkpoint-0.json.gz": {
+      "bytes": 8362195,
+      "sha256": "9ecce1e32808facb7775ee709fdbe22b5f1bc6c623933fbab013d45b5fd8c113"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/checkpoint-1.json.gz": {
+      "bytes": 15235764,
+      "sha256": "c9a57b4692d094d51b88986441f5130c0e4ff462c2a108f9a70d33eacc92eae9"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/checkpoint-2.json.gz": {
+      "bytes": 22736448,
+      "sha256": "4685613998215a3400f9034105d2af35a84e40fa696fcdb8ab22461acbe7f72a"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/checkpoint-3.json.gz": {
+      "bytes": 32970622,
+      "sha256": "aa65e5633cc87c7d23bcb3be871813f3413120a256fe38ebdb2383215acf5afd"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/checkpoint-overhead.jsonl": {
+      "bytes": 2806,
+      "sha256": "7261404051a43e69666d88a02513bf18fa7e6178f26ceddd0a5d6934590a65f0"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/checksums.json": {
+      "bytes": 1377,
+      "sha256": "f29b31bae2b0c35288c291449fc30b1f1bdf051b826eb9529a4c00d2103cd17c"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/current-0.json.gz": {
+      "bytes": 5251149,
+      "sha256": "75cb536eb498cdc1b96fcf571016c6037e0145f3b5e9a469342f339aca1aed2c"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/current-1.json.gz": {
+      "bytes": 9419638,
+      "sha256": "d22362d1f7b92cd5a3621057c07f5d162bc1f160c9d45a96f19468a749a08a2a"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/current-2.json.gz": {
+      "bytes": 13847108,
+      "sha256": "ed87bf4b314bce87b817590f1447d5b9f2d49ff6ab0776a9b46c643f6c0ddad8"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/current-3.json.gz": {
+      "bytes": 19743713,
+      "sha256": "76af425b2457777c64caf8ac44819ae7d28e915b4d8b0b95625f82d96773fbb8"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/iterations.jsonl": {
+      "bytes": 108301657,
+      "sha256": "d4a7e45ecb0e749b26023ed866d3876f6401d4835e2017139e7537a4b70dfb97"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/last-completed.json.gz": {
+      "bytes": 32970622,
+      "sha256": "aa65e5633cc87c7d23bcb3be871813f3413120a256fe38ebdb2383215acf5afd"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/manifest.json": {
+      "bytes": 794,
+      "sha256": "7e86fafbd5f4b77213239675010c7d4bc9f75f263c4863d605ed11d86d93d9f9"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/milestones.jsonl": {
+      "bytes": 9456,
+      "sha256": "9af4f0c3a9bf1c4ff02311ccedf75491f83ae3dd691aa21d060ca2ed3df786d4"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/progress.json": {
+      "bytes": 14729,
+      "sha256": "5aca9c83e181a450ec898b7b83b1c1015f3a49379b679759d66e248d6e6329b3"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/result.json": {
+      "bytes": 15392,
+      "sha256": "242c74a64382773f9fc97d147d3159a2fe05423f6451f881b76531f5168e65cf"
+    }
+  },
+  "finished": 1790634968.940685,
+  "root": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928",
+  "started": 1790620663.7069068,
+  "status": "complete"
+}

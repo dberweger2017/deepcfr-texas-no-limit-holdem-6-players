@@ -1,0 +1,61 @@
+{
+  "files": {
+    "campaign.json": {
+      "bytes": 13502,
+      "sha256": "162e11c302cf7462867ed88ac38bdb9e4e32d57bf1b05f59b92bd940bd75dea7"
+    },
+    "candidate-human-smoke-result.json": {
+      "bytes": 125,
+      "sha256": "e8510948c74952e9e4d4aca158d183478cfa1b667fe65292fcc6ffdc648bfd18"
+    },
+    "candidate-human-smoke.jsonl": {
+      "bytes": 16141,
+      "sha256": "c6a0b4911c548fa8665afa9008e031a1e2cfa1b5f52e5401c51df87ae817a04e"
+    },
+    "candidate-human-transcript.txt": {
+      "bytes": 18950,
+      "sha256": "177f02fdab966ed1821ed118f3255bfe3b64bad52133a3a43ad6444c0bfbb8cd"
+    },
+    "diagnostics.json": {
+      "bytes": 45616,
+      "sha256": "a9a6ce2c326822c5775d6370ab344518ec250032252d660f8c1d6a25ebef0ae9"
+    },
+    "fixed-order-replay-cases.json": {
+      "bytes": 75361,
+      "sha256": "46723fda13c927b637a71e18dc99199c3610643e05348cef8a08f72fe86e339a"
+    },
+    "frozen-plan.json": {
+      "bytes": 5931,
+      "sha256": "fa857984b27414d6dc20f3f3144611b05d01ff74ff037b6cbc18db0d149c17e3"
+    },
+    "independent-summary.json": {
+      "bytes": 399,
+      "sha256": "3782e4fc40b14ad0a7f0abead2a5e32147d366f066ae614c80562eb89a5e9425"
+    },
+    "manifest.json": {
+      "bytes": 54354,
+      "sha256": "a932c855fd1967a7c95e2c6ddca8399fa901a33f92f29a7efdf2c2f787424eed"
+    },
+    "models.json": {
+      "bytes": 19254,
+      "sha256": "36304b4015c0140f9738298658e1f6e9e5e4b298b6bdfc60b12d040fe8b5f9c1"
+    },
+    "preserved-demos.json": {
+      "bytes": 511,
+      "sha256": "869f107a845e2f9753e2e3591da1d6d939eacc71efb6f35430add6f9995ca559"
+    },
+    "summarize-retained.py": {
+      "bytes": 3203,
+      "sha256": "ffbbca74bd9d22edf6023c63e788723302497a5bd8f850b392d0d7b4b34f22c5"
+    },
+    "summary.json": {
+      "bytes": 798832,
+      "sha256": "ff614cbdd24c9214384beb793cccba785cdfb7683a9536b2249946ad493164e9"
+    },
+    "verification.json": {
+      "bytes": 1194,
+      "sha256": "29523059d9022a9f2e27997a576d2dd1e71213a08f015d6e29fd383361782683"
+    }
+  },
+  "scope": "committed compact outputs and postprocessing methods; raw artifact hashes in manifest.json"
+}

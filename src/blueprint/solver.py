@@ -14,6 +14,7 @@ from time import perf_counter
 from src.blueprint.abstraction import (
     SCHEMA,
     HU20_SCHEMA,
+    HU20_UNCAPPED_SCHEMA,
     TP20_SCHEMA,
     SHORTSTACK_SEATS,
     SUPPORTED_SCHEMAS,
@@ -27,8 +28,9 @@ from src.game.types import Street
 
 FORMAT = "holdem-blueprint-v1"
 HU20_GAME = "hu20-20bb-52card-no-ante-rake-v2"
+HU20_UNCAPPED_GAME = "hu20-native-reopening-20bb-52card-no-ante-rake-v1"
 TP20_GAME = "tp20-20bb-52card-no-ante-rake-v1"
-SHORTSTACK_GAMES = {HU20_SCHEMA: HU20_GAME, TP20_SCHEMA: TP20_GAME}
+SHORTSTACK_GAMES = {HU20_SCHEMA: HU20_GAME, HU20_UNCAPPED_SCHEMA: HU20_UNCAPPED_GAME, TP20_SCHEMA: TP20_GAME}
 LEGACY_GAME = "legacy-blueprint-game-v1"
 
 
@@ -58,7 +60,7 @@ class Node:
 @dataclass(frozen=True, slots=True)
 class PilotConfig:
     seed: int = 7
-    raise_cap: int = 2
+    raise_cap: int | None = 2
     roots_per_seat: int = 1
     max_nodes: int = 30_000
     max_entries: int = 100_000
@@ -71,8 +73,11 @@ class PilotConfig:
         if (
             any(
                 type(value) is not int or value < 0
-                for value in (self.seed, self.raise_cap)
+                for value in (self.seed,)
             )
+            or (self.raise_cap is not None and (type(self.raise_cap) is not int or self.raise_cap < 0))
+            or (self.abstraction == HU20_UNCAPPED_SCHEMA and self.raise_cap is not None)
+            or (self.abstraction != HU20_UNCAPPED_SCHEMA and self.raise_cap is None)
             or any(
                 type(value) is not int or value < 1
                 for value in (self.roots_per_seat, self.max_nodes, self.max_entries)
@@ -94,7 +99,7 @@ class FrozenTable:
     """A fixed policy profile for one complete iteration."""
 
     entries: dict[str, tuple[tuple[str, ...], tuple[float, ...]]]
-    raise_cap: int
+    raise_cap: int | None
     abstraction: str = SCHEMA
 
     def distribution(
@@ -139,6 +144,9 @@ class IterationReport:
     updated_keys: tuple[str, ...] = ()
     new_entries_by_street: dict[str, int] = field(default_factory=dict)
     revisited_keys_by_street: dict[str, int] = field(default_factory=dict)
+    attempted_work: dict = field(default_factory=dict)
+    new_entries_after_cap: int = 0
+    revisited_entries_after_cap: int = 0
 
 
 @dataclass(slots=True)
@@ -148,6 +156,7 @@ class _Delta:
     average: list[float]
     visits: int = 0
     street: str | None = None
+    after_cap: bool = False
 
 
 @dataclass(slots=True)
@@ -203,6 +212,7 @@ def _merge_deltas(target: dict[str, _Delta], source: dict[str, _Delta],
             delta.regrets[index] += weight * item.regrets[index]
             delta.average[index] += weight * item.average[index]
         delta.visits += item.visits
+        delta.after_cap |= item.after_cap
 
 
 def _mean_continuations(samples, count: int) -> tuple[float, dict[str, _Delta]]:
@@ -338,9 +348,18 @@ def _collect_root(
             work["nodes"] += 1
         if hand.finished:
             terminals += 1
+            if work is not None:
+                work["terminals"] += 1
             player = hand.observe(traverser).players[traverser]
             return (player.stack - player.starting_stack) / hand.table.big_blind
         view = hand.observe(hand.actor)
+        raises = sum(isinstance(e, ActionTaken) and e.street == view.street
+                     and e.action.kind.value == "raise" for e in getattr(view, "history", ()))
+        work_label = f"{view.street.value}:{raises}"
+        if work is not None:
+            work["nodes_by_street"][view.street.value] = work["nodes_by_street"].get(view.street.value, 0) + 1
+            counts = work["decisions_by_street_raise_count"]
+            counts[work_label] = counts.get(work_label, 0) + 1
         menu = choices(view, raise_cap=config.raise_cap,
                        free_fold=config.abstraction not in SHORTSTACK_SEATS)
         key = information_key(view, menu, schema=config.abstraction)
@@ -369,7 +388,7 @@ def _collect_root(
         delta = target.get(key)
         if delta is None:
             delta = _Delta(names, [0.0] * len(menu), [0.0] * len(menu),
-                           street=view.street.value)
+                           street=view.street.value, after_cap=raises >= 2)
             target[key] = delta
         elif delta.names != names:
             raise ValueError("An abstract infoset changed its action labels")
@@ -379,6 +398,9 @@ def _collect_root(
             delta.regrets[index] += iteration * (values[index] - value)
             delta.average[index] += iteration * own_reach * policy[index]
         delta.visits += 1
+        if work is not None:
+            counts = work["updates_by_street_raise_count"]
+            counts[work_label] = counts.get(work_label, 0) + 1
         raw_visits += 1
         normalized_mass += sample_weight
         street_visits[view.street.value] = street_visits.get(view.street.value, 0) + 1
@@ -438,6 +460,7 @@ class BlueprintTrainer:
         self.iteration = 0
         self.nodes: dict[str, Node] = {}
         self.last_attempt_nodes = 0
+        self.last_attempt_work = {}
 
     def frozen(self) -> FrozenTable:
         return FrozenTable(
@@ -457,7 +480,9 @@ class BlueprintTrainer:
         started = perf_counter()
         deadline = started + self.config.max_seconds
         nodes = terminals = 0
-        work = {"nodes": 0, "cancelled": cancelled}
+        work = {"nodes": 0, "cancelled": cancelled, "nodes_by_street": {},
+                "decisions_by_street_raise_count": {}, "updates_by_street_raise_count": {},
+                "terminals": 0}
         self.last_attempt_nodes = 0
         worker_peaks: dict[int, int] = {}
         coverage: dict[str, int] = {}
@@ -527,11 +552,14 @@ class BlueprintTrainer:
                 _merge_deltas(deltas, result.deltas)
         finally:
             self.last_attempt_nodes = work["nodes"] if workers == 1 else nodes
+            self.last_attempt_work = {k: v for k, v in work.items() if k != "cancelled"}
             if executor is not None:
                 executor.shutdown(cancel_futures=True)
         new_entries = sum(key not in self.nodes for key in deltas)
         new_by_street: dict[str, int] = {}
         revisited_by_street: dict[str, int] = {}
+        new_after_cap = sum(d.after_cap and k not in self.nodes for k, d in deltas.items())
+        revisited_after_cap = sum(d.after_cap and k in self.nodes for k, d in deltas.items())
         for key, delta in deltas.items():
             bucket = new_by_street if key not in self.nodes else revisited_by_street
             street = delta.street or "unknown"
@@ -587,4 +615,7 @@ class BlueprintTrainer:
             tuple(deltas),
             new_by_street,
             revisited_by_street,
+            self.last_attempt_work,
+            new_after_cap,
+            revisited_after_cap,
         )

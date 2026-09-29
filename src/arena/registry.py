@@ -12,7 +12,8 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def load_frozen(spec, path):
-    if spec.format == "holdem-blueprint-v1":
+    if spec.format in {"holdem-blueprint-v1", "holdem-hu20-blueprint-v2",
+                        "holdem-hu20-native-reopening-blueprint-v1", "holdem-tp20-blueprint-v1"}:
         from src.blueprint.artifact import FrozenBlueprint
 
         return FrozenBlueprint(spec, path)
@@ -36,7 +37,7 @@ class PolicyRegistry:
                 raise ValueError(
                     "Checkpoint names must be used and cannot shadow built-in policies"
                 )
-            suffix = ".json.gz" if spec.format == "holdem-blueprint-v1" else ".pt"
+            suffix = ".json.gz" if "blueprint" in spec.format else ".pt"
             path = (
                 artifact_dir / f"{spec.sha256}{suffix}"
                 if artifact_dir
@@ -115,6 +116,6 @@ class PolicyRegistry:
             target.mkdir()
             for model in self.models.values():
                 suffix = (
-                    ".json.gz" if model.spec.format == "holdem-blueprint-v1" else ".pt"
+                    ".json.gz" if "blueprint" in model.spec.format else ".pt"
                 )
                 (target / f"{model.spec.sha256}{suffix}").write_bytes(model.data)

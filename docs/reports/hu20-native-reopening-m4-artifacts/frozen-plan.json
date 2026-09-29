@@ -1,0 +1,182 @@
+{
+  "anticipated_lbr_precision": {
+    "block_sd_bb100": 391.5266715516265,
+    "half_width_97_5_at_chosen_count": 38.89805857749961,
+    "noninferiority_margin_bb100": 10,
+    "qualification": "May be too imprecise to establish the margin; do not widen it",
+    "source": "#114 paired 20M-minus-10M exploratory variance; not an A/B power guarantee"
+  },
+  "attack_root_offsets": [
+    0,
+    0,
+    1,
+    1,
+    2
+  ],
+  "chance_samples": 4,
+  "cheap_blocks": 4096,
+  "checkpoint_fractions": [
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "demo_root": 2026146001,
+  "evaluation_report_reserve_seconds": 14914,
+  "extraction": "final-current-C",
+  "independent_blocks": 128,
+  "independent_path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/independent-observations.jsonl.gz",
+  "independent_root": 2026142001,
+  "lbr_blocks": 512,
+  "lbr_blocks_options": [
+    512,
+    1024,
+    2048
+  ],
+  "lbr_root": 2026144001,
+  "lbr_seconds": 5,
+  "limits": {
+    "max_campaign_seconds": 36000,
+    "max_entries": 4000000,
+    "max_nodes_per_iteration": 250000,
+    "max_rss_gib": 10.5,
+    "max_seconds_per_iteration": 300,
+    "max_swap_growth_gib": 0.5,
+    "min_free_gib": 8,
+    "minimum_evaluation_report_reserve_seconds": 7200
+  },
+  "noninferiority_margin_bb100": 10,
+  "parent_revision": "36a678ae4519d578f5d89ed031b37b3c517a8b3f",
+  "preflight_nodes": 1000000,
+  "preflight_plan_digest": "85c68a1fc7b86dfc26c3aedcb639230d2b944e53ab3bbf1efba5b3b69bd4452d",
+  "preflight_root": 2026141001,
+  "preflight_seeds": [
+    2026093011,
+    2026093012,
+    2026093013
+  ],
+  "primary_interval_level": 0.975,
+  "prior_roots": [
+    "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927",
+    "/Users/dberweger/Local/tp20-pr113/results/tp20-m4-20260928",
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928",
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit"
+  ],
+  "reference_policies": [
+    {
+      "abstraction": "hu20-ordered-history-card-baseline-v2",
+      "arm": "reference",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-blueprint-v2",
+      "milestone": 3,
+      "name": "2p-2026092801-20M",
+      "nodes": 20000000,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092801/current.json.gz",
+      "players": 2,
+      "seed": 2026092801,
+      "sha256": "050a1607fe6f65d8cbdce2fb99a77abf6ba55b1f5a88115b4c2d6b76db051bd1"
+    },
+    {
+      "abstraction": "hu20-ordered-history-card-baseline-v2",
+      "arm": "reference",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-blueprint-v2",
+      "milestone": 3,
+      "name": "2p-2026092802-20M",
+      "nodes": 20000000,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092802/current.json.gz",
+      "players": 2,
+      "seed": 2026092802,
+      "sha256": "b7ec6182fcb35b0f0201799c9fa07d7d353665eb4d8b0f6cd2f3e8394fbbf98b"
+    },
+    {
+      "abstraction": "hu20-ordered-history-card-baseline-v2",
+      "arm": "reference",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-blueprint-v2",
+      "milestone": 3,
+      "name": "2p-2026092803-20M",
+      "nodes": 20000000,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092803/current.json.gz",
+      "players": 2,
+      "seed": 2026092803,
+      "sha256": "b0678a5b54295ac4625019cb9fcc52a57acc8dba7c40e238c8d5fd463331dcac"
+    }
+  ],
+  "resource_decision": {
+    "choice": {
+      "evaluation_report_reserve_seconds": 14913.161679953337,
+      "feasible": true,
+      "forecast_entries_per_arm": 2973293.3888717294,
+      "forecast_peak_rss_bytes": 9147424679.24022,
+      "forecast_seconds": 28990.496606666267,
+      "lbr_blocks": 512,
+      "nodes": 20000000,
+      "training_seconds": 14077.334926712932
+    },
+    "entry_allowance": 1.25,
+    "growth_allowance": 2,
+    "lbr_allowance": 1.25,
+    "proposals": [
+      {
+        "evaluation_report_reserve_seconds": 47652.64671981335,
+        "feasible": false,
+        "forecast_entries_per_arm": 2973293.3888717294,
+        "forecast_peak_rss_bytes": 9147424679.24022,
+        "forecast_seconds": 61729.98164652628,
+        "lbr_blocks": 2048,
+        "nodes": 20000000,
+        "training_seconds": 14077.334926712932
+      },
+      {
+        "evaluation_report_reserve_seconds": 25826.323359906673,
+        "feasible": false,
+        "forecast_entries_per_arm": 2973293.3888717294,
+        "forecast_peak_rss_bytes": 9147424679.24022,
+        "forecast_seconds": 39903.658286619604,
+        "lbr_blocks": 1024,
+        "nodes": 20000000,
+        "training_seconds": 14077.334926712932
+      },
+      {
+        "evaluation_report_reserve_seconds": 14913.161679953337,
+        "feasible": true,
+        "forecast_entries_per_arm": 2973293.3888717294,
+        "forecast_peak_rss_bytes": 9147424679.24022,
+        "forecast_seconds": 28990.496606666267,
+        "lbr_blocks": 512,
+        "nodes": 20000000,
+        "training_seconds": 14077.334926712932
+      }
+    ],
+    "remaining_seconds": 34535.59416294098,
+    "scope": "Resource forecast, not a guarantee of future tails or strength",
+    "slowest_lbr_seconds_per_hand": 1.420984593743924,
+    "slowest_outer_seconds_per_node": 5.865556219463722e-05
+  },
+  "resource_summary_sha256": "896ae6e8702ee145169196e3af8b93982c29029287566afa936fd18b469f5057",
+  "roots_per_seat": 1,
+  "schema": "hu20-native-reopening-ab-v1",
+  "secondary_opponents": [
+    "loose_passive",
+    "loose_aggressive",
+    "tight_passive",
+    "tight_aggressive",
+    "pot_pressure",
+    "hu20_uniform"
+  ],
+  "secondary_panel_blocks": 512,
+  "secondary_root": 2026145001,
+  "stress_root": 2026143001,
+  "training_nodes": 20000000,
+  "training_nodes_options": [
+    5000000,
+    10000000,
+    20000000
+  ],
+  "training_seeds": [
+    2026093001,
+    2026093002,
+    2026093003
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "hands": 20,
+  "human_chips": -3200,
+  "lookup_coverage": {
+    "fallback": 1,
+    "trained": 72
+  },
+  "replayed": 20
+}

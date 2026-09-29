@@ -33,7 +33,7 @@ def load(spec):
     if spec['name']=='uniform': return Uniform()
     path=Path(spec['path'])
     return FrozenBlueprint(Checkpoint(spec['name'],str(path),spec['sha256'],
-        HU20_FORMAT if spec['players']==2 else TP20_FORMAT),path)
+        spec.get('format', HU20_FORMAT if spec['players']==2 else TP20_FORMAT)),path)
 
 
 def guard(plan,out,deadline):
@@ -42,7 +42,7 @@ def guard(plan,out,deadline):
     if shutil.disk_usage(out).free<plan['limits']['min_free_gib']*1024**3: raise RuntimeError('Free disk guard')
 
 
-def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resource_only=False):
+def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resource_only=False,opponent_policies=None):
     n=spec['players']; logical=tuple((seat-rotation)%n for seat in range(n))
     ids=tuple(f'player-{i}' for i in logical)
     deal=stream_seed(root,'validation' if resource_only else 'test','deal',n,block)
@@ -51,33 +51,44 @@ def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resour
     hand=Hand.start(table,hand_id=f'robustness-{phase}-{n}-{block}',seed=deal)
     declared_rules=rules
     if len(rules)==2 and block%2: rules=rules[::-1]
-    rivals={i:(LocalBestResponse(source,stream_seed(root,'test','opponent',n,block,i),config)
+    rivals=opponent_policies if opponent_policies is not None else {i:(LocalBestResponse(source,stream_seed(root,'test','opponent',n,block,i),config)
                if rules[i-1]=='lbr' else ReactiveAttack(rules[i-1],contract)) for i in range(1,n)}
-    off_menu=False; trace=[];timings=[];decisions=Counter();keys=Counter()
+    off_menu=False; original_off_menu=False; trace=[];timings=[];decisions=Counter();keys=Counter()
     try:
         for index in range(1000):
             if hand.finished:break
             view=hand.observe(hand.actor);who=logical[view.seat]
-            menu=choices(view,free_fold=False);trained=None
+            original_menu=choices(view,free_fold=False)
+            target_menu=choices(view,raise_cap=getattr(source,'raise_cap',2),free_fold=False)
+            menu=original_menu;trained=None
             begin=perf_counter()
             if who==0:
                 menu,probabilities,trained=source.distribution(view)
                 action=rngs[who].choices(menu,weights=probabilities,k=1)[0].action
-                key=information_key(view,menu,schema=HU20_SCHEMA if n==2 else TP20_SCHEMA)
+                key=information_key(view,menu,schema=spec.get('abstraction',HU20_SCHEMA if n==2 else TP20_SCHEMA))
                 keys[(view.street.value,key)]+=1
                 decisions[(view.street.value,'trained' if trained else 'fallback','offmenu-history' if off_menu else 'menu-history')]+=1
             else:
                 action=rivals[who].choose_action(view)
             view.legal_actions.validate(action)
-            onmenu=any(c.action==action for c in menu)
+            onmenu=any(c.action==action for c in (target_menu if spec.get("dual_menu_telemetry") else menu))
             elapsed=perf_counter()-begin
             row={'index':index,'seat':view.seat,'logical_player':who,'street':view.street.value,
                  'kind':action.kind.value,'raise_to':action.raise_to,'on_training_menu':onmenu,
                  'street_raises':sum(isinstance(e,ActionTaken) and e.street==view.street and e.action.kind==ActionKind.RAISE for e in view.history),
                  'preceding_off_menu':off_menu,'target_trained':trained,'seconds':elapsed}
+            if spec.get('dual_menu_telemetry'):
+                row.update(on_original_cap2_menu=any(c.action==action for c in original_menu),
+                           on_target_menu=any(c.action==action for c in target_menu),
+                           preceding_original_off_menu=original_off_menu,
+                           preceding_target_off_menu=off_menu,
+                           target_abstraction=spec['abstraction'],
+                           target_key=key if who==0 else None,
+                           target_visits=(getattr(source,'visits',{}).get(key,0) if who==0 and hasattr(source,'visits') else None))
             if who and isinstance(rivals[who],LocalBestResponse):
                 row['lbr']=rivals[who].telemetry[-1]
             trace.append(row);timings.append(elapsed);off_menu|=not onmenu
+            original_off_menu |= not any(c.action==action for c in original_menu)
             hand=hand.apply(action)
         if not hand.finished:raise RuntimeError('Decision cap')
         net=tuple(hand.events[-1].stacks[s]-2000 for s in range(n))

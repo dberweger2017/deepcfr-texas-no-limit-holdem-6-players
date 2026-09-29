@@ -1,0 +1,16 @@
+{
+  "capture_scope": "during resource preflight; before main training",
+  "captured": 1790620708.561516,
+  "machine": "arm64",
+  "native_binaries": {
+    "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/lib/python3.11/site-packages/pokers/pokers.cpython-311-darwin.so": "0700ac54783869030559782e58064ff1e229e8b0b950297845beaa143f7d95bd"
+  },
+  "packages": {
+    "numpy": "1.26.4",
+    "pokers": "0.2.0",
+    "scipy": "1.17.1",
+    "torch": "2.14.0"
+  },
+  "platform": "macOS-26.6-arm64-arm-64bit",
+  "python": "3.11.14 (main, Oct  9 2025, 16:16:55) [Clang 17.0.0 (clang-1700.6.3.2)]"
+}

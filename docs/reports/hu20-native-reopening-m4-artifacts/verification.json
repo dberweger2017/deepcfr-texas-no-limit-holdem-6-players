@@ -1,0 +1,31 @@
+{
+  "attempts": 16,
+  "campaign_finished": 1790634968.21722,
+  "campaign_stopped": true,
+  "every_inventory_hash_verified": true,
+  "external_files": {
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928-manifest.json": {
+      "bytes": 54354,
+      "sha256": "a932c855fd1967a7c95e2c6ddca8399fa901a33f92f29a7efdf2c2f787424eed"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-campaign-20260928.log": {
+      "bytes": 99,
+      "sha256": "67ddde2650c884b72594b4d5e30be29ae08df1bed8c64c841d168898c5f87ce1"
+    },
+    "/Users/dberweger/Local/hu20-native-reopening-preflight-20260928.log": {
+      "bytes": 4852,
+      "sha256": "c8a68e22a3665a4d8778603b1548e27f0a355dfc53ce30da358d00e009624462"
+    }
+  },
+  "failed_attempts": 0,
+  "manifest_files": 216,
+  "native_engine_sha256": "0700ac54783869030559782e58064ff1e229e8b0b950297845beaa143f7d95bd",
+  "original_deadline": 1790656663.7069068,
+  "source_clean": true,
+  "source_revision": "a87e9f8805d211e2b21dbb710339ada9083eedf6",
+  "status": "verified",
+  "total_artifact_bytes": 1851759117,
+  "unlisted_root_files": 0,
+  "verified_unix": 1790635271.439511,
+  "within_original_deadline": true
+}

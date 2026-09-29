@@ -1,0 +1,2794 @@
+{
+  "campaign_status": "evaluation",
+  "captured_utc": "2026-09-28T21:35:28.093365+00:00",
+  "deadline": 1790656663.7069068,
+  "evaluation_progress": {
+    "attempt": {
+      "attacker": "LBR-original-cap2",
+      "completed_blocks": 65,
+      "phase": "lbr",
+      "policy": "B-2026093001-3",
+      "requested_blocks": 512,
+      "started": 1790631225.628125,
+      "status": "running"
+    },
+    "elapsed": 1348.0137870311737,
+    "hands": 1107074,
+    "rss_bytes": 1470005248
+  },
+  "frozen_plan_digest": "114fba80cda43604774ce689c3c064d85709c5a76f8998444854ee2adb407a39",
+  "frozen_source": "a87e9f8805d211e2b21dbb710339ada9083eedf6",
+  "panels_complete_by_phase": {
+    "cheap": 135,
+    "lbr": 1,
+    "secondary": 0
+  },
+  "runs": [
+    {
+      "path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093001/result.json",
+      "result": {
+        "arm": "A",
+        "completed_nodes": 20000188,
+        "config": {
+          "abstraction": "hu20-ordered-history-card-baseline-v2",
+          "game": "hu20-20bb-52card-no-ante-rake-v2",
+          "max_entries": 4000000,
+          "max_nodes": 250000,
+          "max_seconds": 300,
+          "postflop_replicates": 1,
+          "raise_cap": 2,
+          "roots_per_seat": 1,
+          "seed": 2026093001
+        },
+        "elapsed_seconds": 1247.5636060237885,
+        "entries": 270548,
+        "failure": null,
+        "initial_entries": 0,
+        "initial_iteration": 0,
+        "iterations": 66168,
+        "last_checkpoint_sha256": "db426b9be746e196333d0f0d4310a0353a0957a5798c00a88b13a5126af7f38d",
+        "milestones": [
+          {
+            "checkpoint_export_seconds": 1.4332756251096725,
+            "checkpoint_sha256": "00a56650fc70022835d98bdc0424352681baf9ab4a79e77d27a5eece904fa348",
+            "completed_nodes": 2000087,
+            "entries": 116515,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.7441860465116279,
+                  "decisions": 1161,
+                  "mean_visits": 160.2652885443583,
+                  "revisited_decisions": 850,
+                  "trained_decisions": 864,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 69,
+                    "p75": 250,
+                    "p90": 520,
+                    "p99": 708
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9725906277630415,
+                  "decisions": 1131,
+                  "mean_visits": 32.39345711759505,
+                  "revisited_decisions": 1100,
+                  "trained_decisions": 1100,
+                  "visit_quantiles": {
+                    "p25": 15,
+                    "p50": 22,
+                    "p75": 59,
+                    "p90": 72,
+                    "p99": 85
+                  }
+                },
+                "river": {
+                  "coverage": 0.3019067796610169,
+                  "decisions": 944,
+                  "mean_visits": 12.413135593220339,
+                  "revisited_decisions": 266,
+                  "trained_decisions": 285,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 5,
+                    "p90": 57,
+                    "p99": 118
+                  }
+                },
+                "turn": {
+                  "coverage": 0.33695652173913043,
+                  "decisions": 1012,
+                  "mean_visits": 17.91501976284585,
+                  "revisited_decisions": 321,
+                  "trained_decisions": 341,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 11,
+                    "p90": 71,
+                    "p99": 194
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 6,
+                "cap2-uniform:flop:trained": 132,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 2,
+                "cap2-uniform:river:trained": 14,
+                "cap2-uniform:turn:fallback": 3,
+                "cap2-uniform:turn:trained": 47,
+                "later-repeated-minraise:flop:fallback": 260,
+                "later-repeated-minraise:flop:trained": 380,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 30,
+                "native-uniform:flop:trained": 97,
+                "native-uniform:preflop:fallback": 31,
+                "native-uniform:preflop:trained": 300,
+                "native-uniform:river:fallback": 14,
+                "native-uniform:river:trained": 18,
+                "native-uniform:turn:fallback": 20,
+                "native-uniform:turn:trained": 46,
+                "passive:flop:fallback": 1,
+                "passive:flop:trained": 255,
+                "passive:preflop:trained": 256,
+                "passive:river:fallback": 3,
+                "passive:river:trained": 253,
+                "passive:turn:fallback": 8,
+                "passive:turn:trained": 248
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.303453458007425,
+            "index": 0,
+            "iteration": 7442,
+            "overshoot_nodes": 87,
+            "policy_sha256": "e3f44e15168955e4617f0fc2be880c237a3c922b594a8efb6beaf6fd290ac429",
+            "requested_nodes": 2000000
+          },
+          {
+            "checkpoint_export_seconds": 2.210965208010748,
+            "checkpoint_sha256": "a82fff6604bb1c0af83e0f78a2a40902571fcbe361a15171409fe5bb55f0584b",
+            "completed_nodes": 5000139,
+            "entries": 175145,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.7502153316106804,
+                  "decisions": 1161,
+                  "mean_visits": 375.8423772609819,
+                  "revisited_decisions": 864,
+                  "trained_decisions": 871,
+                  "visit_quantiles": {
+                    "p25": 1,
+                    "p50": 153,
+                    "p75": 485,
+                    "p90": 1659,
+                    "p99": 1664
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9734748010610079,
+                  "decisions": 1131,
+                  "mean_visits": 77.57382847038019,
+                  "revisited_decisions": 1101,
+                  "trained_decisions": 1101,
+                  "visit_quantiles": {
+                    "p25": 36,
+                    "p50": 54,
+                    "p75": 152,
+                    "p90": 167,
+                    "p99": 184
+                  }
+                },
+                "river": {
+                  "coverage": 0.3093220338983051,
+                  "decisions": 944,
+                  "mean_visits": 39.84322033898305,
+                  "revisited_decisions": 285,
+                  "trained_decisions": 292,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 22,
+                    "p90": 145,
+                    "p99": 352
+                  }
+                },
+                "turn": {
+                  "coverage": 0.34980237154150196,
+                  "decisions": 1012,
+                  "mean_visits": 52.79249011857708,
+                  "revisited_decisions": 342,
+                  "trained_decisions": 354,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 33,
+                    "p90": 192,
+                    "p99": 512
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 3,
+                "cap2-uniform:flop:trained": 135,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 1,
+                "cap2-uniform:river:trained": 15,
+                "cap2-uniform:turn:fallback": 1,
+                "cap2-uniform:turn:trained": 49,
+                "later-repeated-minraise:flop:fallback": 258,
+                "later-repeated-minraise:flop:trained": 382,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 28,
+                "native-uniform:flop:trained": 99,
+                "native-uniform:preflop:fallback": 30,
+                "native-uniform:preflop:trained": 301,
+                "native-uniform:river:fallback": 11,
+                "native-uniform:river:trained": 21,
+                "native-uniform:turn:fallback": 16,
+                "native-uniform:turn:trained": 50,
+                "passive:flop:fallback": 1,
+                "passive:flop:trained": 255,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:fallback": 1,
+                "passive:turn:trained": 255
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3171367498580366,
+            "index": 1,
+            "iteration": 18112,
+            "overshoot_nodes": 139,
+            "policy_sha256": "21d5d21bd5a2730c529295e81cc8ce05e2462782ed441ad3ada348b5bae23571",
+            "requested_nodes": 5000000
+          },
+          {
+            "checkpoint_export_seconds": 2.8558157910592854,
+            "checkpoint_sha256": "a7ca0fabcb4fcdc8e3124196da1e793aa45da3c776494b270d35de250a02a176",
+            "completed_nodes": 10000298,
+            "entries": 222959,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.7553832902670112,
+                  "decisions": 1161,
+                  "mean_visits": 785.0404823428079,
+                  "revisited_decisions": 876,
+                  "trained_decisions": 877,
+                  "visit_quantiles": {
+                    "p25": 3,
+                    "p50": 350,
+                    "p75": 1333,
+                    "p90": 3248,
+                    "p99": 3388
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9734748010610079,
+                  "decisions": 1131,
+                  "mean_visits": 148.9893899204244,
+                  "revisited_decisions": 1101,
+                  "trained_decisions": 1101,
+                  "visit_quantiles": {
+                    "p25": 66,
+                    "p50": 100,
+                    "p75": 301,
+                    "p90": 325,
+                    "p99": 344
+                  }
+                },
+                "river": {
+                  "coverage": 0.3114406779661017,
+                  "decisions": 944,
+                  "mean_visits": 68.6302966101695,
+                  "revisited_decisions": 290,
+                  "trained_decisions": 294,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 36,
+                    "p90": 250,
+                    "p99": 598
+                  }
+                },
+                "turn": {
+                  "coverage": 0.35079051383399207,
+                  "decisions": 1012,
+                  "mean_visits": 101.55533596837945,
+                  "revisited_decisions": 354,
+                  "trained_decisions": 355,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 56,
+                    "p90": 373,
+                    "p99": 934
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 1,
+                "cap2-uniform:flop:trained": 137,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 1,
+                "cap2-uniform:river:trained": 15,
+                "cap2-uniform:turn:fallback": 1,
+                "cap2-uniform:turn:trained": 49,
+                "later-repeated-minraise:flop:fallback": 256,
+                "later-repeated-minraise:flop:trained": 384,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 27,
+                "native-uniform:flop:trained": 100,
+                "native-uniform:preflop:fallback": 30,
+                "native-uniform:preflop:trained": 301,
+                "native-uniform:river:fallback": 9,
+                "native-uniform:river:trained": 23,
+                "native-uniform:turn:fallback": 15,
+                "native-uniform:turn:trained": 51,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:fallback": 1,
+                "passive:turn:trained": 255
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.313908041920513,
+            "index": 2,
+            "iteration": 34851,
+            "overshoot_nodes": 298,
+            "policy_sha256": "21d313c1e37f59273fdf873786f2724e79481843b88e0deadd66e6dd36e3aa83",
+            "requested_nodes": 10000000
+          },
+          {
+            "checkpoint_export_seconds": 3.51510062511079,
+            "checkpoint_sha256": "db426b9be746e196333d0f0d4310a0353a0957a5798c00a88b13a5126af7f38d",
+            "completed_nodes": 20000188,
+            "entries": 270548,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.7579672695951766,
+                  "decisions": 1161,
+                  "mean_visits": 1567.439276485788,
+                  "revisited_decisions": 879,
+                  "trained_decisions": 880,
+                  "visit_quantiles": {
+                    "p25": 5,
+                    "p50": 695,
+                    "p75": 2496,
+                    "p90": 6267,
+                    "p99": 7421
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9734748010610079,
+                  "decisions": 1131,
+                  "mean_visits": 282.9151193633952,
+                  "revisited_decisions": 1101,
+                  "trained_decisions": 1101,
+                  "visit_quantiles": {
+                    "p25": 128,
+                    "p50": 187,
+                    "p75": 583,
+                    "p90": 613,
+                    "p99": 639
+                  }
+                },
+                "river": {
+                  "coverage": 0.3135593220338983,
+                  "decisions": 944,
+                  "mean_visits": 151.67161016949152,
+                  "revisited_decisions": 293,
+                  "trained_decisions": 296,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 74,
+                    "p90": 633,
+                    "p99": 1617
+                  }
+                },
+                "turn": {
+                  "coverage": 0.35276679841897235,
+                  "decisions": 1012,
+                  "mean_visits": 212.08893280632412,
+                  "revisited_decisions": 356,
+                  "trained_decisions": 357,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 124,
+                    "p90": 879,
+                    "p99": 2372
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:trained": 138,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:trained": 16,
+                "cap2-uniform:turn:trained": 50,
+                "later-repeated-minraise:flop:fallback": 256,
+                "later-repeated-minraise:flop:trained": 384,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 25,
+                "native-uniform:flop:trained": 102,
+                "native-uniform:preflop:fallback": 30,
+                "native-uniform:preflop:trained": 301,
+                "native-uniform:river:fallback": 8,
+                "native-uniform:river:trained": 24,
+                "native-uniform:turn:fallback": 15,
+                "native-uniform:turn:trained": 51,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:trained": 256
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3198807500302792,
+            "index": 3,
+            "iteration": 66168,
+            "overshoot_nodes": 188,
+            "policy_sha256": "b67ebfe7c36cc13b6457e1d15729186a4f4d0b665cf9d818ce32bde5a13a1d05",
+            "requested_nodes": 20000000
+          }
+        ],
+        "new_entries_by_street": {
+          "flop": 7900,
+          "preflop": 1859,
+          "river": 184908,
+          "turn": 75881
+        },
+        "overshoot_nodes": 188,
+        "peak_rss_bytes": 394067968,
+        "plan_digest": "114fba80cda43604774ce689c3c064d85709c5a76f8998444854ee2adb407a39",
+        "requested_nodes": 20000000,
+        "revisited_keys_by_street": {
+          "flop": 581926,
+          "preflop": 217365,
+          "river": 1972257,
+          "turn": 1189879
+        },
+        "seed": 2026093001,
+        "source_revision": "a87e9f8805d211e2b21dbb710339ada9083eedf6",
+        "started": 1790622287.31318,
+        "status": "complete",
+        "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "swap_before": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "updates_by_street": {
+          "flop": 609769,
+          "preflop": 228342,
+          "river": 2194913,
+          "turn": 1293841
+        }
+      },
+      "sealed_result_hash_verified": true,
+      "sha256": "62ed30c160549e77ccc70d9ac7d74be41d7f0782d2b53e62b7c280b330ce2ff7"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093001/result.json",
+      "result": {
+        "arm": "B",
+        "completed_nodes": 20000557,
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 4000000,
+          "max_nodes": 250000,
+          "max_seconds": 300,
+          "postflop_replicates": 1,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026093001
+        },
+        "elapsed_seconds": 1302.2137672901154,
+        "entries": 730010,
+        "failure": null,
+        "initial_entries": 0,
+        "initial_iteration": 0,
+        "iterations": 55291,
+        "last_checkpoint_sha256": "cb4ca3348398f358c611d92467ae9f891de41f64e374cd847c0103ccb2d62822",
+        "milestones": [
+          {
+            "checkpoint_export_seconds": 2.4843182081822306,
+            "checkpoint_sha256": "4b58cbfe1d4f9f3844dcdebb422d39b9a946f6911f6fb93e3b4748da477fb6d9",
+            "completed_nodes": 2000143,
+            "entries": 193295,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.9560723514211886,
+                  "decisions": 1161,
+                  "mean_visits": 101.01894918173988,
+                  "revisited_decisions": 1069,
+                  "trained_decisions": 1110,
+                  "visit_quantiles": {
+                    "p25": 10,
+                    "p50": 40,
+                    "p75": 116,
+                    "p90": 356,
+                    "p99": 451
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9946949602122016,
+                  "decisions": 1131,
+                  "mean_visits": 23.43236074270557,
+                  "revisited_decisions": 1110,
+                  "trained_decisions": 1125,
+                  "visit_quantiles": {
+                    "p25": 10,
+                    "p50": 16,
+                    "p75": 41,
+                    "p90": 53,
+                    "p99": 64
+                  }
+                },
+                "river": {
+                  "coverage": 0.3177966101694915,
+                  "decisions": 944,
+                  "mean_visits": 5.001059322033898,
+                  "revisited_decisions": 255,
+                  "trained_decisions": 300,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 2,
+                    "p90": 21,
+                    "p99": 58
+                  }
+                },
+                "turn": {
+                  "coverage": 0.5138339920948617,
+                  "decisions": 1012,
+                  "mean_visits": 8.976284584980236,
+                  "revisited_decisions": 385,
+                  "trained_decisions": 520,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 1,
+                    "p75": 8,
+                    "p90": 34,
+                    "p99": 90
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 9,
+                "cap2-uniform:flop:trained": 129,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 6,
+                "cap2-uniform:river:trained": 10,
+                "cap2-uniform:turn:fallback": 12,
+                "cap2-uniform:turn:trained": 38,
+                "later-repeated-minraise:flop:fallback": 30,
+                "later-repeated-minraise:flop:trained": 610,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 621,
+                "later-repeated-minraise:river:trained": 19,
+                "later-repeated-minraise:turn:fallback": 453,
+                "later-repeated-minraise:turn:trained": 187,
+                "native-uniform:flop:fallback": 8,
+                "native-uniform:flop:trained": 119,
+                "native-uniform:preflop:fallback": 6,
+                "native-uniform:preflop:trained": 325,
+                "native-uniform:river:fallback": 13,
+                "native-uniform:river:trained": 19,
+                "native-uniform:turn:fallback": 14,
+                "native-uniform:turn:trained": 52,
+                "passive:flop:fallback": 4,
+                "passive:flop:trained": 252,
+                "passive:preflop:trained": 256,
+                "passive:river:fallback": 4,
+                "passive:river:trained": 252,
+                "passive:turn:fallback": 13,
+                "passive:turn:trained": 243
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3385776248760521,
+            "index": 0,
+            "iteration": 5549,
+            "overshoot_nodes": 143,
+            "policy_sha256": "77471bffa73789d1ad4ea5e8cbee9d19665069f2e7e34b258ecf38a770e9b4a3",
+            "requested_nodes": 2000000
+          },
+          {
+            "checkpoint_export_seconds": 4.6376400829758495,
+            "checkpoint_sha256": "30107859163af63cd3a493043b99dbea3806f902e92a0bd4294922fc35a4028b",
+            "completed_nodes": 5000124,
+            "entries": 340800,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.979328165374677,
+                  "decisions": 1161,
+                  "mean_visits": 263.12661498708013,
+                  "revisited_decisions": 1106,
+                  "trained_decisions": 1137,
+                  "visit_quantiles": {
+                    "p25": 23,
+                    "p50": 96,
+                    "p75": 301,
+                    "p90": 1101,
+                    "p99": 1215
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9982316534040672,
+                  "decisions": 1131,
+                  "mean_visits": 60.08488063660477,
+                  "revisited_decisions": 1127,
+                  "trained_decisions": 1129,
+                  "visit_quantiles": {
+                    "p25": 26,
+                    "p50": 38,
+                    "p75": 117,
+                    "p90": 136,
+                    "p99": 150
+                  }
+                },
+                "river": {
+                  "coverage": 0.3294491525423729,
+                  "decisions": 944,
+                  "mean_visits": 20.444915254237287,
+                  "revisited_decisions": 286,
+                  "trained_decisions": 311,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 11,
+                    "p90": 73,
+                    "p99": 153
+                  }
+                },
+                "turn": {
+                  "coverage": 0.5563241106719368,
+                  "decisions": 1012,
+                  "mean_visits": 30.766798418972332,
+                  "revisited_decisions": 464,
+                  "trained_decisions": 563,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 1,
+                    "p75": 17,
+                    "p90": 122,
+                    "p99": 273
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 4,
+                "cap2-uniform:flop:trained": 134,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 2,
+                "cap2-uniform:river:trained": 14,
+                "cap2-uniform:turn:fallback": 10,
+                "cap2-uniform:turn:trained": 40,
+                "later-repeated-minraise:flop:fallback": 12,
+                "later-repeated-minraise:flop:trained": 628,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 621,
+                "later-repeated-minraise:river:trained": 19,
+                "later-repeated-minraise:turn:fallback": 426,
+                "later-repeated-minraise:turn:trained": 214,
+                "native-uniform:flop:fallback": 5,
+                "native-uniform:flop:trained": 122,
+                "native-uniform:preflop:fallback": 2,
+                "native-uniform:preflop:trained": 329,
+                "native-uniform:river:fallback": 10,
+                "native-uniform:river:trained": 22,
+                "native-uniform:turn:fallback": 10,
+                "native-uniform:turn:trained": 56,
+                "passive:flop:fallback": 3,
+                "passive:flop:trained": 253,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:fallback": 3,
+                "passive:turn:trained": 253
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3347062501125038,
+            "index": 1,
+            "iteration": 14222,
+            "overshoot_nodes": 124,
+            "policy_sha256": "dbad6d8b850e77ffc36902405e009d1fa8f807f26207247f399063c01b72895f",
+            "requested_nodes": 5000000
+          },
+          {
+            "checkpoint_export_seconds": 6.723768499912694,
+            "checkpoint_sha256": "e59a806d91ed0c294e05427d18efddb45704a0734d8546838ce9129510ac3faf",
+            "completed_nodes": 10000220,
+            "entries": 507613,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.9922480620155039,
+                  "decisions": 1161,
+                  "mean_visits": 560.0292850990526,
+                  "revisited_decisions": 1134,
+                  "trained_decisions": 1152,
+                  "visit_quantiles": {
+                    "p25": 48,
+                    "p50": 234,
+                    "p75": 604,
+                    "p90": 2190,
+                    "p99": 2523
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9991158267020336,
+                  "decisions": 1131,
+                  "mean_visits": 118.1158267020336,
+                  "revisited_decisions": 1130,
+                  "trained_decisions": 1130,
+                  "visit_quantiles": {
+                    "p25": 51,
+                    "p50": 73,
+                    "p75": 242,
+                    "p90": 261,
+                    "p99": 280
+                  }
+                },
+                "river": {
+                  "coverage": 0.3516949152542373,
+                  "decisions": 944,
+                  "mean_visits": 43.48728813559322,
+                  "revisited_decisions": 292,
+                  "trained_decisions": 332,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 24,
+                    "p90": 168,
+                    "p99": 427
+                  }
+                },
+                "turn": {
+                  "coverage": 0.7065217391304348,
+                  "decisions": 1012,
+                  "mean_visits": 62.06324110671937,
+                  "revisited_decisions": 591,
+                  "trained_decisions": 715,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 3,
+                    "p75": 34,
+                    "p90": 253,
+                    "p99": 616
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 3,
+                "cap2-uniform:flop:trained": 135,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 2,
+                "cap2-uniform:river:trained": 14,
+                "cap2-uniform:turn:fallback": 4,
+                "cap2-uniform:turn:trained": 46,
+                "later-repeated-minraise:flop:fallback": 5,
+                "later-repeated-minraise:flop:trained": 635,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 604,
+                "later-repeated-minraise:river:trained": 36,
+                "later-repeated-minraise:turn:fallback": 290,
+                "later-repeated-minraise:turn:trained": 350,
+                "native-uniform:flop:fallback": 1,
+                "native-uniform:flop:trained": 126,
+                "native-uniform:preflop:fallback": 1,
+                "native-uniform:preflop:trained": 330,
+                "native-uniform:river:fallback": 6,
+                "native-uniform:river:trained": 26,
+                "native-uniform:turn:fallback": 3,
+                "native-uniform:turn:trained": 63,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:trained": 256
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3252186249010265,
+            "index": 2,
+            "iteration": 28134,
+            "overshoot_nodes": 220,
+            "policy_sha256": "728c546371e13545d7d57873ead32258d51acbf30f2786552a8bf64d17174f17",
+            "requested_nodes": 10000000
+          },
+          {
+            "checkpoint_export_seconds": 10.251881999894977,
+            "checkpoint_sha256": "cb4ca3348398f358c611d92467ae9f891de41f64e374cd847c0103ccb2d62822",
+            "completed_nodes": 20000557,
+            "entries": 730010,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.9974160206718347,
+                  "decisions": 1161,
+                  "mean_visits": 1168.260120585702,
+                  "revisited_decisions": 1149,
+                  "trained_decisions": 1158,
+                  "visit_quantiles": {
+                    "p25": 88,
+                    "p50": 401,
+                    "p75": 1253,
+                    "p90": 4737,
+                    "p99": 5099
+                  }
+                },
+                "preflop": {
+                  "coverage": 1.0,
+                  "decisions": 1131,
+                  "mean_visits": 232.60919540229884,
+                  "revisited_decisions": 1131,
+                  "trained_decisions": 1131,
+                  "visit_quantiles": {
+                    "p25": 99,
+                    "p50": 152,
+                    "p75": 487,
+                    "p90": 514,
+                    "p99": 543
+                  }
+                },
+                "river": {
+                  "coverage": 0.3781779661016949,
+                  "decisions": 944,
+                  "mean_visits": 94.91313559322033,
+                  "revisited_decisions": 310,
+                  "trained_decisions": 357,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 50,
+                    "p90": 428,
+                    "p99": 997
+                  }
+                },
+                "turn": {
+                  "coverage": 0.8152173913043478,
+                  "decisions": 1012,
+                  "mean_visits": 126.92885375494072,
+                  "revisited_decisions": 705,
+                  "trained_decisions": 825,
+                  "visit_quantiles": {
+                    "p25": 1,
+                    "p50": 7,
+                    "p75": 72,
+                    "p90": 507,
+                    "p99": 1331
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 1,
+                "cap2-uniform:flop:trained": 137,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 1,
+                "cap2-uniform:river:trained": 15,
+                "cap2-uniform:turn:fallback": 2,
+                "cap2-uniform:turn:trained": 48,
+                "later-repeated-minraise:flop:fallback": 2,
+                "later-repeated-minraise:flop:trained": 638,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 583,
+                "later-repeated-minraise:river:trained": 57,
+                "later-repeated-minraise:turn:fallback": 183,
+                "later-repeated-minraise:turn:trained": 457,
+                "native-uniform:flop:trained": 127,
+                "native-uniform:preflop:trained": 331,
+                "native-uniform:river:fallback": 3,
+                "native-uniform:river:trained": 29,
+                "native-uniform:turn:fallback": 2,
+                "native-uniform:turn:trained": 64,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:trained": 256
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3452496249228716,
+            "index": 3,
+            "iteration": 55291,
+            "overshoot_nodes": 557,
+            "policy_sha256": "198dae3eb36b6a830ab106ba13032ecab10fc1f2fc12bc4bb9bc06dcce9a01a6",
+            "requested_nodes": 20000000
+          }
+        ],
+        "new_entries_by_street": {
+          "flop": 34708,
+          "preflop": 15430,
+          "river": 467023,
+          "turn": 212849
+        },
+        "overshoot_nodes": 557,
+        "peak_rss_bytes": 1064484864,
+        "plan_digest": "114fba80cda43604774ce689c3c064d85709c5a76f8998444854ee2adb407a39",
+        "requested_nodes": 20000000,
+        "revisited_keys_by_street": {
+          "flop": 653246,
+          "preflop": 298686,
+          "river": 1383390,
+          "turn": 1034945
+        },
+        "seed": 2026093001,
+        "source_revision": "a87e9f8805d211e2b21dbb710339ada9083eedf6",
+        "started": 1790623535.378471,
+        "status": "complete",
+        "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "swap_before": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "updates_by_street": {
+          "flop": 700835,
+          "preflop": 315254,
+          "river": 1873682,
+          "turn": 1269498
+        }
+      },
+      "sealed_result_hash_verified": true,
+      "sha256": "713f61f538e8e3dd55f71e8ada1652553dab01617e95548521f02646047a9d32"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093002/result.json",
+      "result": {
+        "arm": "A",
+        "completed_nodes": 20000094,
+        "config": {
+          "abstraction": "hu20-ordered-history-card-baseline-v2",
+          "game": "hu20-20bb-52card-no-ante-rake-v2",
+          "max_entries": 4000000,
+          "max_nodes": 250000,
+          "max_seconds": 300,
+          "postflop_replicates": 1,
+          "raise_cap": 2,
+          "roots_per_seat": 1,
+          "seed": 2026093002
+        },
+        "elapsed_seconds": 1255.8445010185242,
+        "entries": 270949,
+        "failure": null,
+        "initial_entries": 0,
+        "initial_iteration": 0,
+        "iterations": 65011,
+        "last_checkpoint_sha256": "fc09d38382a9587c98a1d014f6cf83e6bf577dc447fe6499b06c06cb91aac595",
+        "milestones": [
+          {
+            "checkpoint_export_seconds": 1.5251649159472436,
+            "checkpoint_sha256": "6c79d5e586d572e26b6b2e4d5cb544cc98c288b2520534e7015dc0e828d3887b",
+            "completed_nodes": 2000290,
+            "entries": 116402,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.751937984496124,
+                  "decisions": 1161,
+                  "mean_visits": 159.44358311800173,
+                  "revisited_decisions": 856,
+                  "trained_decisions": 873,
+                  "visit_quantiles": {
+                    "p25": 1,
+                    "p50": 71,
+                    "p75": 253,
+                    "p90": 510,
+                    "p99": 717
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9734748010610079,
+                  "decisions": 1131,
+                  "mean_visits": 31.634836427939877,
+                  "revisited_decisions": 1101,
+                  "trained_decisions": 1101,
+                  "visit_quantiles": {
+                    "p25": 14,
+                    "p50": 20,
+                    "p75": 60,
+                    "p90": 71,
+                    "p99": 79
+                  }
+                },
+                "river": {
+                  "coverage": 0.2966101694915254,
+                  "decisions": 944,
+                  "mean_visits": 10.407838983050848,
+                  "revisited_decisions": 271,
+                  "trained_decisions": 280,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 6,
+                    "p90": 42,
+                    "p99": 88
+                  }
+                },
+                "turn": {
+                  "coverage": 0.32806324110671936,
+                  "decisions": 1012,
+                  "mean_visits": 17.304347826086957,
+                  "revisited_decisions": 319,
+                  "trained_decisions": 332,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 11,
+                    "p90": 67,
+                    "p99": 192
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 3,
+                "cap2-uniform:flop:trained": 135,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 5,
+                "cap2-uniform:river:trained": 11,
+                "cap2-uniform:turn:fallback": 12,
+                "cap2-uniform:turn:trained": 38,
+                "later-repeated-minraise:flop:fallback": 257,
+                "later-repeated-minraise:flop:trained": 383,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 26,
+                "native-uniform:flop:trained": 101,
+                "native-uniform:preflop:fallback": 30,
+                "native-uniform:preflop:trained": 301,
+                "native-uniform:river:fallback": 11,
+                "native-uniform:river:trained": 21,
+                "native-uniform:turn:fallback": 20,
+                "native-uniform:turn:trained": 46,
+                "passive:flop:fallback": 2,
+                "passive:flop:trained": 254,
+                "passive:preflop:trained": 256,
+                "passive:river:fallback": 8,
+                "passive:river:trained": 248,
+                "passive:turn:fallback": 8,
+                "passive:turn:trained": 248
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3534152919892222,
+            "index": 0,
+            "iteration": 7319,
+            "overshoot_nodes": 290,
+            "policy_sha256": "55cb4f844731443dfe9b811248d59532086966023ca8a203bd982f9cb7eb9d5b",
+            "requested_nodes": 2000000
+          },
+          {
+            "checkpoint_export_seconds": 2.220596957951784,
+            "checkpoint_sha256": "b08bf4c8dea7fee2c3336bb5a3231a34a260b3ef8e1a8be693ee966d14363dc5",
+            "completed_nodes": 5000333,
+            "entries": 174916,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.7545219638242894,
+                  "decisions": 1161,
+                  "mean_visits": 387.2566752799311,
+                  "revisited_decisions": 871,
+                  "trained_decisions": 876,
+                  "visit_quantiles": {
+                    "p25": 2,
+                    "p50": 167,
+                    "p75": 573,
+                    "p90": 1442,
+                    "p99": 1718
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9734748010610079,
+                  "decisions": 1131,
+                  "mean_visits": 76.08311229000884,
+                  "revisited_decisions": 1101,
+                  "trained_decisions": 1101,
+                  "visit_quantiles": {
+                    "p25": 35,
+                    "p50": 51,
+                    "p75": 147,
+                    "p90": 167,
+                    "p99": 181
+                  }
+                },
+                "river": {
+                  "coverage": 0.3114406779661017,
+                  "decisions": 944,
+                  "mean_visits": 32.172669491525426,
+                  "revisited_decisions": 289,
+                  "trained_decisions": 294,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 14,
+                    "p90": 124,
+                    "p99": 304
+                  }
+                },
+                "turn": {
+                  "coverage": 0.3438735177865613,
+                  "decisions": 1012,
+                  "mean_visits": 46.55632411067194,
+                  "revisited_decisions": 341,
+                  "trained_decisions": 348,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 30,
+                    "p90": 165,
+                    "p99": 451
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 1,
+                "cap2-uniform:flop:trained": 137,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 1,
+                "cap2-uniform:river:trained": 15,
+                "cap2-uniform:turn:fallback": 6,
+                "cap2-uniform:turn:trained": 44,
+                "later-repeated-minraise:flop:fallback": 257,
+                "later-repeated-minraise:flop:trained": 383,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 26,
+                "native-uniform:flop:trained": 101,
+                "native-uniform:preflop:fallback": 30,
+                "native-uniform:preflop:trained": 301,
+                "native-uniform:river:fallback": 9,
+                "native-uniform:river:trained": 23,
+                "native-uniform:turn:fallback": 16,
+                "native-uniform:turn:trained": 50,
+                "passive:flop:fallback": 1,
+                "passive:flop:trained": 255,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:fallback": 2,
+                "passive:turn:trained": 254
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3253896250389516,
+            "index": 1,
+            "iteration": 17766,
+            "overshoot_nodes": 333,
+            "policy_sha256": "125a3d85de66629fa1ee24716d5787795d01b5125624fafef9780f8ebccb1760",
+            "requested_nodes": 5000000
+          },
+          {
+            "checkpoint_export_seconds": 2.896884416928515,
+            "checkpoint_sha256": "3188a1030348fb111f173fe32070d69f270554126f25dbaafc433a29277803bc",
+            "completed_nodes": 10000025,
+            "entries": 224006,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.7571059431524548,
+                  "decisions": 1161,
+                  "mean_visits": 747.8811369509044,
+                  "revisited_decisions": 874,
+                  "trained_decisions": 879,
+                  "visit_quantiles": {
+                    "p25": 5,
+                    "p50": 315,
+                    "p75": 1133,
+                    "p90": 2898,
+                    "p99": 3294
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9734748010610079,
+                  "decisions": 1131,
+                  "mean_visits": 145.2183908045977,
+                  "revisited_decisions": 1101,
+                  "trained_decisions": 1101,
+                  "visit_quantiles": {
+                    "p25": 67,
+                    "p50": 98,
+                    "p75": 281,
+                    "p90": 317,
+                    "p99": 341
+                  }
+                },
+                "river": {
+                  "coverage": 0.3125,
+                  "decisions": 944,
+                  "mean_visits": 65.5582627118644,
+                  "revisited_decisions": 294,
+                  "trained_decisions": 295,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 31,
+                    "p90": 219,
+                    "p99": 598
+                  }
+                },
+                "turn": {
+                  "coverage": 0.34980237154150196,
+                  "decisions": 1012,
+                  "mean_visits": 90.30632411067194,
+                  "revisited_decisions": 349,
+                  "trained_decisions": 354,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 58,
+                    "p90": 327,
+                    "p99": 841
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 1,
+                "cap2-uniform:flop:trained": 137,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 1,
+                "cap2-uniform:river:trained": 15,
+                "cap2-uniform:turn:fallback": 2,
+                "cap2-uniform:turn:trained": 48,
+                "later-repeated-minraise:flop:fallback": 256,
+                "later-repeated-minraise:flop:trained": 384,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 25,
+                "native-uniform:flop:trained": 102,
+                "native-uniform:preflop:fallback": 30,
+                "native-uniform:preflop:trained": 301,
+                "native-uniform:river:fallback": 8,
+                "native-uniform:river:trained": 24,
+                "native-uniform:turn:fallback": 15,
+                "native-uniform:turn:trained": 51,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:fallback": 1,
+                "passive:turn:trained": 255
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3189280000515282,
+            "index": 2,
+            "iteration": 33852,
+            "overshoot_nodes": 25,
+            "policy_sha256": "8a7c029e09075c3bcc3f4c011903dbffa854ea95a846eabe12353f104e858cd7",
+            "requested_nodes": 10000000
+          },
+          {
+            "checkpoint_export_seconds": 3.6935404168907553,
+            "checkpoint_sha256": "fc09d38382a9587c98a1d014f6cf83e6bf577dc447fe6499b06c06cb91aac595",
+            "completed_nodes": 20000094,
+            "entries": 270949,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.7579672695951766,
+                  "decisions": 1161,
+                  "mean_visits": 1470.083548664944,
+                  "revisited_decisions": 880,
+                  "trained_decisions": 880,
+                  "visit_quantiles": {
+                    "p25": 7,
+                    "p50": 615,
+                    "p75": 1971,
+                    "p90": 6492,
+                    "p99": 6879
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9734748010610079,
+                  "decisions": 1131,
+                  "mean_visits": 279.54553492484524,
+                  "revisited_decisions": 1101,
+                  "trained_decisions": 1101,
+                  "visit_quantiles": {
+                    "p25": 124,
+                    "p50": 193,
+                    "p75": 568,
+                    "p90": 597,
+                    "p99": 646
+                  }
+                },
+                "river": {
+                  "coverage": 0.3135593220338983,
+                  "decisions": 944,
+                  "mean_visits": 141.4427966101695,
+                  "revisited_decisions": 295,
+                  "trained_decisions": 296,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 64,
+                    "p90": 535,
+                    "p99": 1446
+                  }
+                },
+                "turn": {
+                  "coverage": 0.35177865612648224,
+                  "decisions": 1012,
+                  "mean_visits": 197.01185770750988,
+                  "revisited_decisions": 355,
+                  "trained_decisions": 356,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 108,
+                    "p90": 776,
+                    "p99": 1941
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:trained": 138,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:trained": 16,
+                "cap2-uniform:turn:fallback": 1,
+                "cap2-uniform:turn:trained": 49,
+                "later-repeated-minraise:flop:fallback": 256,
+                "later-repeated-minraise:flop:trained": 384,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 25,
+                "native-uniform:flop:trained": 102,
+                "native-uniform:preflop:fallback": 30,
+                "native-uniform:preflop:trained": 301,
+                "native-uniform:river:fallback": 8,
+                "native-uniform:river:trained": 24,
+                "native-uniform:turn:fallback": 15,
+                "native-uniform:turn:trained": 51,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:trained": 256
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3213126249611378,
+            "index": 3,
+            "iteration": 65011,
+            "overshoot_nodes": 94,
+            "policy_sha256": "7768332ce71004ca0fa8db853a17ace619b5da70ce477463a6d68b59dc3da0d9",
+            "requested_nodes": 20000000
+          }
+        ],
+        "new_entries_by_street": {
+          "flop": 7863,
+          "preflop": 1859,
+          "river": 185140,
+          "turn": 76087
+        },
+        "overshoot_nodes": 94,
+        "peak_rss_bytes": 394051584,
+        "plan_digest": "114fba80cda43604774ce689c3c064d85709c5a76f8998444854ee2adb407a39",
+        "requested_nodes": 20000000,
+        "revisited_keys_by_street": {
+          "flop": 574490,
+          "preflop": 220247,
+          "river": 1973634,
+          "turn": 1191933
+        },
+        "seed": 2026093002,
+        "source_revision": "a87e9f8805d211e2b21dbb710339ada9083eedf6",
+        "started": 1790624838.039624,
+        "status": "complete",
+        "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "swap_before": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "updates_by_street": {
+          "flop": 600289,
+          "preflop": 230769,
+          "river": 2199847,
+          "turn": 1300725
+        }
+      },
+      "sealed_result_hash_verified": true,
+      "sha256": "be21eec6e330614df1ef33a80c72aa937bb7328bc42b1dcd0515175f96be36da"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093002/result.json",
+      "result": {
+        "arm": "B",
+        "completed_nodes": 20000238,
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 4000000,
+          "max_nodes": 250000,
+          "max_seconds": 300,
+          "postflop_replicates": 1,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026093002
+        },
+        "elapsed_seconds": 1294.2988607883453,
+        "entries": 729165,
+        "failure": null,
+        "initial_entries": 0,
+        "initial_iteration": 0,
+        "iterations": 54709,
+        "last_checkpoint_sha256": "03bfacfdb56801d2d079d350dcdb539e1dba02bcbef9c443a08c5299ff49f358",
+        "milestones": [
+          {
+            "checkpoint_export_seconds": 2.4742389579769224,
+            "checkpoint_sha256": "61a5466aa0fe35622bd54740623acf438a9d1aef81a6459b9d08bec87b402696",
+            "completed_nodes": 2000104,
+            "entries": 190826,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.9552110249784669,
+                  "decisions": 1161,
+                  "mean_visits": 92.30749354005168,
+                  "revisited_decisions": 1072,
+                  "trained_decisions": 1109,
+                  "visit_quantiles": {
+                    "p25": 8,
+                    "p50": 35,
+                    "p75": 102,
+                    "p90": 355,
+                    "p99": 410
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9938107869142352,
+                  "decisions": 1131,
+                  "mean_visits": 23.370468611847922,
+                  "revisited_decisions": 1107,
+                  "trained_decisions": 1124,
+                  "visit_quantiles": {
+                    "p25": 10,
+                    "p50": 14,
+                    "p75": 45,
+                    "p90": 53,
+                    "p99": 64
+                  }
+                },
+                "river": {
+                  "coverage": 0.3675847457627119,
+                  "decisions": 944,
+                  "mean_visits": 4.790254237288136,
+                  "revisited_decisions": 275,
+                  "trained_decisions": 347,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 2,
+                    "p90": 18,
+                    "p99": 48
+                  }
+                },
+                "turn": {
+                  "coverage": 0.5503952569169961,
+                  "decisions": 1012,
+                  "mean_visits": 9.395256916996047,
+                  "revisited_decisions": 446,
+                  "trained_decisions": 557,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 1,
+                    "p75": 8,
+                    "p90": 35,
+                    "p99": 105
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 5,
+                "cap2-uniform:flop:trained": 133,
+                "cap2-uniform:preflop:fallback": 2,
+                "cap2-uniform:preflop:trained": 286,
+                "cap2-uniform:river:fallback": 5,
+                "cap2-uniform:river:trained": 11,
+                "cap2-uniform:turn:fallback": 10,
+                "cap2-uniform:turn:trained": 40,
+                "later-repeated-minraise:flop:fallback": 32,
+                "later-repeated-minraise:flop:trained": 608,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 566,
+                "later-repeated-minraise:river:trained": 74,
+                "later-repeated-minraise:turn:fallback": 410,
+                "later-repeated-minraise:turn:trained": 230,
+                "native-uniform:flop:fallback": 7,
+                "native-uniform:flop:trained": 120,
+                "native-uniform:preflop:fallback": 5,
+                "native-uniform:preflop:trained": 326,
+                "native-uniform:river:fallback": 14,
+                "native-uniform:river:trained": 18,
+                "native-uniform:turn:fallback": 18,
+                "native-uniform:turn:trained": 48,
+                "passive:flop:fallback": 8,
+                "passive:flop:trained": 248,
+                "passive:preflop:trained": 256,
+                "passive:river:fallback": 12,
+                "passive:river:trained": 244,
+                "passive:turn:fallback": 17,
+                "passive:turn:trained": 239
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3223576250020415,
+            "index": 0,
+            "iteration": 5583,
+            "overshoot_nodes": 104,
+            "policy_sha256": "a76bf0120fc37e5e2a66cc9598bf4c2eb3f28d963e1d5f5c278c670e124f3d4c",
+            "requested_nodes": 2000000
+          },
+          {
+            "checkpoint_export_seconds": 4.474521249998361,
+            "checkpoint_sha256": "d0f9d44f46e6798ead8331638f5df738b3e5328cba20df477f3c35a801496e07",
+            "completed_nodes": 5000057,
+            "entries": 340979,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.9758828596037898,
+                  "decisions": 1161,
+                  "mean_visits": 257.8397932816537,
+                  "revisited_decisions": 1107,
+                  "trained_decisions": 1133,
+                  "visit_quantiles": {
+                    "p25": 16,
+                    "p50": 85,
+                    "p75": 302,
+                    "p90": 996,
+                    "p99": 1109
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9991158267020336,
+                  "decisions": 1131,
+                  "mean_visits": 60.188328912466844,
+                  "revisited_decisions": 1127,
+                  "trained_decisions": 1130,
+                  "visit_quantiles": {
+                    "p25": 25,
+                    "p50": 38,
+                    "p75": 115,
+                    "p90": 135,
+                    "p99": 151
+                  }
+                },
+                "river": {
+                  "coverage": 0.4459745762711864,
+                  "decisions": 944,
+                  "mean_visits": 22.03707627118644,
+                  "revisited_decisions": 319,
+                  "trained_decisions": 421,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 10,
+                    "p90": 89,
+                    "p99": 185
+                  }
+                },
+                "turn": {
+                  "coverage": 0.6057312252964426,
+                  "decisions": 1012,
+                  "mean_visits": 32.17193675889328,
+                  "revisited_decisions": 497,
+                  "trained_decisions": 613,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 1,
+                    "p75": 18,
+                    "p90": 125,
+                    "p99": 289
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 4,
+                "cap2-uniform:flop:trained": 134,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 4,
+                "cap2-uniform:river:trained": 12,
+                "cap2-uniform:turn:fallback": 7,
+                "cap2-uniform:turn:trained": 43,
+                "later-repeated-minraise:flop:fallback": 19,
+                "later-repeated-minraise:flop:trained": 621,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 511,
+                "later-repeated-minraise:river:trained": 129,
+                "later-repeated-minraise:turn:fallback": 385,
+                "later-repeated-minraise:turn:trained": 255,
+                "native-uniform:flop:fallback": 4,
+                "native-uniform:flop:trained": 123,
+                "native-uniform:preflop:fallback": 1,
+                "native-uniform:preflop:trained": 330,
+                "native-uniform:river:fallback": 8,
+                "native-uniform:river:trained": 24,
+                "native-uniform:turn:fallback": 5,
+                "native-uniform:turn:trained": 61,
+                "passive:flop:fallback": 1,
+                "passive:flop:trained": 255,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:fallback": 2,
+                "passive:turn:trained": 254
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3131169159896672,
+            "index": 1,
+            "iteration": 14317,
+            "overshoot_nodes": 57,
+            "policy_sha256": "ccada484a9f82ac640eb56dec7d4a378a6cb056eaf9ea56df06c0d71230d9698",
+            "requested_nodes": 5000000
+          },
+          {
+            "checkpoint_export_seconds": 6.729942291975021,
+            "checkpoint_sha256": "ec79ca53e811d01ef1e7e34ae7f8120b6fb8ee36d15a6895ff58eb0647b8f5c4",
+            "completed_nodes": 10000441,
+            "entries": 506401,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.9862187769164513,
+                  "decisions": 1161,
+                  "mean_visits": 545.0008613264428,
+                  "revisited_decisions": 1130,
+                  "trained_decisions": 1145,
+                  "visit_quantiles": {
+                    "p25": 44,
+                    "p50": 194,
+                    "p75": 578,
+                    "p90": 2166,
+                    "p99": 2226
+                  }
+                },
+                "preflop": {
+                  "coverage": 1.0,
+                  "decisions": 1131,
+                  "mean_visits": 119.31211317418214,
+                  "revisited_decisions": 1131,
+                  "trained_decisions": 1131,
+                  "visit_quantiles": {
+                    "p25": 54,
+                    "p50": 75,
+                    "p75": 235,
+                    "p90": 267,
+                    "p99": 282
+                  }
+                },
+                "river": {
+                  "coverage": 0.4777542372881356,
+                  "decisions": 944,
+                  "mean_visits": 40.33686440677966,
+                  "revisited_decisions": 364,
+                  "trained_decisions": 451,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 16,
+                    "p90": 169,
+                    "p99": 344
+                  }
+                },
+                "turn": {
+                  "coverage": 0.6719367588932806,
+                  "decisions": 1012,
+                  "mean_visits": 63.71442687747036,
+                  "revisited_decisions": 601,
+                  "trained_decisions": 680,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 4,
+                    "p75": 47,
+                    "p90": 225,
+                    "p99": 527
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 1,
+                "cap2-uniform:flop:trained": 137,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 2,
+                "cap2-uniform:river:trained": 14,
+                "cap2-uniform:turn:fallback": 5,
+                "cap2-uniform:turn:trained": 45,
+                "later-repeated-minraise:flop:fallback": 11,
+                "later-repeated-minraise:flop:trained": 629,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 484,
+                "later-repeated-minraise:river:trained": 156,
+                "later-repeated-minraise:turn:fallback": 321,
+                "later-repeated-minraise:turn:trained": 319,
+                "native-uniform:flop:fallback": 4,
+                "native-uniform:flop:trained": 123,
+                "native-uniform:preflop:trained": 331,
+                "native-uniform:river:fallback": 7,
+                "native-uniform:river:trained": 25,
+                "native-uniform:turn:fallback": 5,
+                "native-uniform:turn:trained": 61,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:fallback": 1,
+                "passive:turn:trained": 255
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3126459999475628,
+            "index": 2,
+            "iteration": 28429,
+            "overshoot_nodes": 441,
+            "policy_sha256": "6c3585eac17d5754fc49b99f2639c2833e72a12f38e81d1c7433611f44051c22",
+            "requested_nodes": 10000000
+          },
+          {
+            "checkpoint_export_seconds": 9.79668708378449,
+            "checkpoint_sha256": "03bfacfdb56801d2d079d350dcdb539e1dba02bcbef9c443a08c5299ff49f358",
+            "completed_nodes": 20000238,
+            "entries": 729165,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.9965546942291128,
+                  "decisions": 1161,
+                  "mean_visits": 1127.0852713178294,
+                  "revisited_decisions": 1144,
+                  "trained_decisions": 1157,
+                  "visit_quantiles": {
+                    "p25": 87,
+                    "p50": 362,
+                    "p75": 1153,
+                    "p90": 4458,
+                    "p99": 4915
+                  }
+                },
+                "preflop": {
+                  "coverage": 1.0,
+                  "decisions": 1131,
+                  "mean_visits": 228.87002652519894,
+                  "revisited_decisions": 1131,
+                  "trained_decisions": 1131,
+                  "visit_quantiles": {
+                    "p25": 102,
+                    "p50": 140,
+                    "p75": 474,
+                    "p90": 501,
+                    "p99": 550
+                  }
+                },
+                "river": {
+                  "coverage": 0.5497881355932204,
+                  "decisions": 944,
+                  "mean_visits": 85.44067796610169,
+                  "revisited_decisions": 427,
+                  "trained_decisions": 519,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 1,
+                    "p75": 39,
+                    "p90": 332,
+                    "p99": 932
+                  }
+                },
+                "turn": {
+                  "coverage": 0.8863636363636364,
+                  "decisions": 1012,
+                  "mean_visits": 134.75,
+                  "revisited_decisions": 829,
+                  "trained_decisions": 897,
+                  "visit_quantiles": {
+                    "p25": 3,
+                    "p50": 11,
+                    "p75": 99,
+                    "p90": 473,
+                    "p99": 1243
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 1,
+                "cap2-uniform:flop:trained": 137,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 1,
+                "cap2-uniform:river:trained": 15,
+                "cap2-uniform:turn:fallback": 4,
+                "cap2-uniform:turn:trained": 46,
+                "later-repeated-minraise:flop:fallback": 1,
+                "later-repeated-minraise:flop:trained": 639,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 419,
+                "later-repeated-minraise:river:trained": 221,
+                "later-repeated-minraise:turn:fallback": 109,
+                "later-repeated-minraise:turn:trained": 531,
+                "native-uniform:flop:fallback": 2,
+                "native-uniform:flop:trained": 125,
+                "native-uniform:preflop:trained": 331,
+                "native-uniform:river:fallback": 5,
+                "native-uniform:river:trained": 27,
+                "native-uniform:turn:fallback": 2,
+                "native-uniform:turn:trained": 64,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:trained": 256
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3182981670834124,
+            "index": 3,
+            "iteration": 54709,
+            "overshoot_nodes": 238,
+            "policy_sha256": "4a8c3123437a28c5bea49447e67a91e490096819b3b820fd47c1ffb3f4bb0243",
+            "requested_nodes": 20000000
+          }
+        ],
+        "new_entries_by_street": {
+          "flop": 34357,
+          "preflop": 15270,
+          "river": 468552,
+          "turn": 210986
+        },
+        "overshoot_nodes": 238,
+        "peak_rss_bytes": 1038958592,
+        "plan_digest": "114fba80cda43604774ce689c3c064d85709c5a76f8998444854ee2adb407a39",
+        "requested_nodes": 20000000,
+        "revisited_keys_by_street": {
+          "flop": 661754,
+          "preflop": 299138,
+          "river": 1380415,
+          "turn": 1035206
+        },
+        "seed": 2026093002,
+        "source_revision": "a87e9f8805d211e2b21dbb710339ada9083eedf6",
+        "started": 1790626094.9937742,
+        "status": "complete",
+        "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "swap_before": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "updates_by_street": {
+          "flop": 708392,
+          "preflop": 315194,
+          "river": 1870824,
+          "turn": 1266515
+        }
+      },
+      "sealed_result_hash_verified": true,
+      "sha256": "9efec8f2d28216557e8488f1446dc560d4f4c38b2976b5a6d606e7cd6590bdab"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/A-2026093003/result.json",
+      "result": {
+        "arm": "A",
+        "completed_nodes": 20000086,
+        "config": {
+          "abstraction": "hu20-ordered-history-card-baseline-v2",
+          "game": "hu20-20bb-52card-no-ante-rake-v2",
+          "max_entries": 4000000,
+          "max_nodes": 250000,
+          "max_seconds": 300,
+          "postflop_replicates": 1,
+          "raise_cap": 2,
+          "roots_per_seat": 1,
+          "seed": 2026093003
+        },
+        "elapsed_seconds": 1240.3890159130096,
+        "entries": 270774,
+        "failure": null,
+        "initial_entries": 0,
+        "initial_iteration": 0,
+        "iterations": 69118,
+        "last_checkpoint_sha256": "51c86cee74e35784d250db21f7ef5b3d5b838c3eaea2131abdd5038b4aed0192",
+        "milestones": [
+          {
+            "checkpoint_export_seconds": 1.440217582974583,
+            "checkpoint_sha256": "3514cac772ed6cc7c35988813bb21be83cf7ca080e912d64a0dc3558cb3ddee1",
+            "completed_nodes": 2000167,
+            "entries": 116036,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.7424633936261843,
+                  "decisions": 1161,
+                  "mean_visits": 158.28251507321275,
+                  "revisited_decisions": 852,
+                  "trained_decisions": 862,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 67,
+                    "p75": 232,
+                    "p90": 628,
+                    "p99": 705
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9734748010610079,
+                  "decisions": 1131,
+                  "mean_visits": 31.98496905393457,
+                  "revisited_decisions": 1101,
+                  "trained_decisions": 1101,
+                  "visit_quantiles": {
+                    "p25": 14,
+                    "p50": 22,
+                    "p75": 60,
+                    "p90": 70,
+                    "p99": 80
+                  }
+                },
+                "river": {
+                  "coverage": 0.2997881355932203,
+                  "decisions": 944,
+                  "mean_visits": 10.477754237288135,
+                  "revisited_decisions": 264,
+                  "trained_decisions": 283,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 5,
+                    "p90": 41,
+                    "p99": 116
+                  }
+                },
+                "turn": {
+                  "coverage": 0.33300395256917,
+                  "decisions": 1012,
+                  "mean_visits": 17.194664031620555,
+                  "revisited_decisions": 316,
+                  "trained_decisions": 337,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 10,
+                    "p90": 61,
+                    "p99": 218
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 9,
+                "cap2-uniform:flop:trained": 129,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 3,
+                "cap2-uniform:river:trained": 13,
+                "cap2-uniform:turn:fallback": 5,
+                "cap2-uniform:turn:trained": 45,
+                "later-repeated-minraise:flop:fallback": 261,
+                "later-repeated-minraise:flop:trained": 379,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 27,
+                "native-uniform:flop:trained": 100,
+                "native-uniform:preflop:fallback": 30,
+                "native-uniform:preflop:trained": 301,
+                "native-uniform:river:fallback": 13,
+                "native-uniform:river:trained": 19,
+                "native-uniform:turn:fallback": 21,
+                "native-uniform:turn:trained": 45,
+                "passive:flop:fallback": 2,
+                "passive:flop:trained": 254,
+                "passive:preflop:trained": 256,
+                "passive:river:fallback": 5,
+                "passive:river:trained": 251,
+                "passive:turn:fallback": 9,
+                "passive:turn:trained": 247
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.31251808302477,
+            "index": 0,
+            "iteration": 7484,
+            "overshoot_nodes": 167,
+            "policy_sha256": "2a6c10d38bc2e5812f2502b382558bef6c117dcd28854866b271bef46bcb2f92",
+            "requested_nodes": 2000000
+          },
+          {
+            "checkpoint_export_seconds": 2.2290355409495533,
+            "checkpoint_sha256": "5342b26227ca7abb153602001e70443accfa91d89f769f49b45fe3b479c790c7",
+            "completed_nodes": 5000180,
+            "entries": 174841,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.7502153316106804,
+                  "decisions": 1161,
+                  "mean_visits": 392.1171403962102,
+                  "revisited_decisions": 867,
+                  "trained_decisions": 871,
+                  "visit_quantiles": {
+                    "p25": 1,
+                    "p50": 169,
+                    "p75": 497,
+                    "p90": 1604,
+                    "p99": 1687
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9734748010610079,
+                  "decisions": 1131,
+                  "mean_visits": 78.7869142351901,
+                  "revisited_decisions": 1101,
+                  "trained_decisions": 1101,
+                  "visit_quantiles": {
+                    "p25": 36,
+                    "p50": 55,
+                    "p75": 152,
+                    "p90": 170,
+                    "p99": 196
+                  }
+                },
+                "river": {
+                  "coverage": 0.3082627118644068,
+                  "decisions": 944,
+                  "mean_visits": 34.22563559322034,
+                  "revisited_decisions": 287,
+                  "trained_decisions": 291,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 16,
+                    "p90": 138,
+                    "p99": 277
+                  }
+                },
+                "turn": {
+                  "coverage": 0.3468379446640316,
+                  "decisions": 1012,
+                  "mean_visits": 49.15612648221344,
+                  "revisited_decisions": 342,
+                  "trained_decisions": 351,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 33,
+                    "p90": 188,
+                    "p99": 463
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 3,
+                "cap2-uniform:flop:trained": 135,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 2,
+                "cap2-uniform:river:trained": 14,
+                "cap2-uniform:turn:fallback": 4,
+                "cap2-uniform:turn:trained": 46,
+                "later-repeated-minraise:flop:fallback": 259,
+                "later-repeated-minraise:flop:trained": 381,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 27,
+                "native-uniform:flop:trained": 100,
+                "native-uniform:preflop:fallback": 30,
+                "native-uniform:preflop:trained": 301,
+                "native-uniform:river:fallback": 10,
+                "native-uniform:river:trained": 22,
+                "native-uniform:turn:fallback": 16,
+                "native-uniform:turn:trained": 50,
+                "passive:flop:fallback": 1,
+                "passive:flop:trained": 255,
+                "passive:preflop:trained": 256,
+                "passive:river:fallback": 1,
+                "passive:river:trained": 255,
+                "passive:turn:fallback": 1,
+                "passive:turn:trained": 255
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.316156999906525,
+            "index": 1,
+            "iteration": 18472,
+            "overshoot_nodes": 180,
+            "policy_sha256": "4ad527be2e7a847aea3624aa577b1910227243af7066fff7c1df742735cb4bd6",
+            "requested_nodes": 5000000
+          },
+          {
+            "checkpoint_export_seconds": 2.880650916835293,
+            "checkpoint_sha256": "b18c383c4cf79a9ea749ff093d9ee0e569464b397c4776fca556d5ba22cd2ff6",
+            "completed_nodes": 10000022,
+            "entries": 222520,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.7553832902670112,
+                  "decisions": 1161,
+                  "mean_visits": 797.557278208441,
+                  "revisited_decisions": 873,
+                  "trained_decisions": 877,
+                  "visit_quantiles": {
+                    "p25": 3,
+                    "p50": 349,
+                    "p75": 1196,
+                    "p90": 3145,
+                    "p99": 3177
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9734748010610079,
+                  "decisions": 1131,
+                  "mean_visits": 151.64809902740936,
+                  "revisited_decisions": 1101,
+                  "trained_decisions": 1101,
+                  "visit_quantiles": {
+                    "p25": 67,
+                    "p50": 105,
+                    "p75": 304,
+                    "p90": 333,
+                    "p99": 368
+                  }
+                },
+                "river": {
+                  "coverage": 0.3114406779661017,
+                  "decisions": 944,
+                  "mean_visits": 63.77436440677966,
+                  "revisited_decisions": 292,
+                  "trained_decisions": 294,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 27,
+                    "p90": 248,
+                    "p99": 558
+                  }
+                },
+                "turn": {
+                  "coverage": 0.35079051383399207,
+                  "decisions": 1012,
+                  "mean_visits": 87.04644268774703,
+                  "revisited_decisions": 353,
+                  "trained_decisions": 355,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 54,
+                    "p90": 335,
+                    "p99": 830
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 1,
+                "cap2-uniform:flop:trained": 137,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 1,
+                "cap2-uniform:river:trained": 15,
+                "cap2-uniform:turn:fallback": 1,
+                "cap2-uniform:turn:trained": 49,
+                "later-repeated-minraise:flop:fallback": 256,
+                "later-repeated-minraise:flop:trained": 384,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 27,
+                "native-uniform:flop:trained": 100,
+                "native-uniform:preflop:fallback": 30,
+                "native-uniform:preflop:trained": 301,
+                "native-uniform:river:fallback": 9,
+                "native-uniform:river:trained": 23,
+                "native-uniform:turn:fallback": 16,
+                "native-uniform:turn:trained": 50,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:trained": 256
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3197400828357786,
+            "index": 2,
+            "iteration": 35830,
+            "overshoot_nodes": 22,
+            "policy_sha256": "7004cf59431c8cd63e44a8cee2d6606c2a85f2667bdb05844c92ac668f7d060b",
+            "requested_nodes": 10000000
+          },
+          {
+            "checkpoint_export_seconds": 3.5489140420686454,
+            "checkpoint_sha256": "51c86cee74e35784d250db21f7ef5b3d5b838c3eaea2131abdd5038b4aed0192",
+            "completed_nodes": 20000086,
+            "entries": 270774,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.7553832902670112,
+                  "decisions": 1161,
+                  "mean_visits": 1575.16451335056,
+                  "revisited_decisions": 877,
+                  "trained_decisions": 877,
+                  "visit_quantiles": {
+                    "p25": 6,
+                    "p50": 692,
+                    "p75": 2342,
+                    "p90": 6216,
+                    "p99": 6247
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9734748010610079,
+                  "decisions": 1131,
+                  "mean_visits": 293.87179487179486,
+                  "revisited_decisions": 1101,
+                  "trained_decisions": 1101,
+                  "visit_quantiles": {
+                    "p25": 124,
+                    "p50": 199,
+                    "p75": 605,
+                    "p90": 636,
+                    "p99": 666
+                  }
+                },
+                "river": {
+                  "coverage": 0.3125,
+                  "decisions": 944,
+                  "mean_visits": 135.00423728813558,
+                  "revisited_decisions": 294,
+                  "trained_decisions": 295,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 65,
+                    "p90": 462,
+                    "p99": 1354
+                  }
+                },
+                "turn": {
+                  "coverage": 0.35177865612648224,
+                  "decisions": 1012,
+                  "mean_visits": 185.35177865612647,
+                  "revisited_decisions": 355,
+                  "trained_decisions": 356,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 111,
+                    "p90": 710,
+                    "p99": 1922
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 1,
+                "cap2-uniform:flop:trained": 137,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 1,
+                "cap2-uniform:river:trained": 15,
+                "cap2-uniform:turn:fallback": 1,
+                "cap2-uniform:turn:trained": 49,
+                "later-repeated-minraise:flop:fallback": 256,
+                "later-repeated-minraise:flop:trained": 384,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 640,
+                "later-repeated-minraise:turn:fallback": 640,
+                "native-uniform:flop:fallback": 27,
+                "native-uniform:flop:trained": 100,
+                "native-uniform:preflop:fallback": 30,
+                "native-uniform:preflop:trained": 301,
+                "native-uniform:river:fallback": 8,
+                "native-uniform:river:trained": 24,
+                "native-uniform:turn:fallback": 15,
+                "native-uniform:turn:trained": 51,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:trained": 256
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.315955457976088,
+            "index": 3,
+            "iteration": 69118,
+            "overshoot_nodes": 86,
+            "policy_sha256": "09c5319b09ed5523a8433be0b626b7c9ffcd4cc7484ac07fd5543866d813257e",
+            "requested_nodes": 20000000
+          }
+        ],
+        "new_entries_by_street": {
+          "flop": 7801,
+          "preflop": 1859,
+          "river": 184723,
+          "turn": 76391
+        },
+        "overshoot_nodes": 86,
+        "peak_rss_bytes": 393658368,
+        "plan_digest": "114fba80cda43604774ce689c3c064d85709c5a76f8998444854ee2adb407a39",
+        "requested_nodes": 20000000,
+        "revisited_keys_by_street": {
+          "flop": 592540,
+          "preflop": 227450,
+          "river": 1951165,
+          "turn": 1197211
+        },
+        "seed": 2026093003,
+        "source_revision": "a87e9f8805d211e2b21dbb710339ada9083eedf6",
+        "started": 1790627390.565721,
+        "status": "complete",
+        "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "swap_before": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "updates_by_street": {
+          "flop": 617452,
+          "preflop": 237777,
+          "river": 2173064,
+          "turn": 1302093
+        }
+      },
+      "sealed_result_hash_verified": true,
+      "sha256": "5373c1584b658088c8f0072d5688e8a5666b36360688568a0753066885350a30"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928/training/B-2026093003/result.json",
+      "result": {
+        "arm": "B",
+        "completed_nodes": 20000268,
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 4000000,
+          "max_nodes": 250000,
+          "max_seconds": 300,
+          "postflop_replicates": 1,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026093003
+        },
+        "elapsed_seconds": 1313.9638631343842,
+        "entries": 723259,
+        "failure": null,
+        "initial_entries": 0,
+        "initial_iteration": 0,
+        "iterations": 57701,
+        "last_checkpoint_sha256": "aa65e5633cc87c7d23bcb3be871813f3413120a256fe38ebdb2383215acf5afd",
+        "milestones": [
+          {
+            "checkpoint_export_seconds": 2.4718120000325143,
+            "checkpoint_sha256": "9ecce1e32808facb7775ee709fdbe22b5f1bc6c623933fbab013d45b5fd8c113",
+            "completed_nodes": 2000207,
+            "entries": 191071,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.9517657192075797,
+                  "decisions": 1161,
+                  "mean_visits": 98.46339362618433,
+                  "revisited_decisions": 1062,
+                  "trained_decisions": 1105,
+                  "visit_quantiles": {
+                    "p25": 10,
+                    "p50": 46,
+                    "p75": 108,
+                    "p90": 384,
+                    "p99": 514
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9902740937223696,
+                  "decisions": 1131,
+                  "mean_visits": 23.80282935455349,
+                  "revisited_decisions": 1103,
+                  "trained_decisions": 1120,
+                  "visit_quantiles": {
+                    "p25": 9,
+                    "p50": 15,
+                    "p75": 44,
+                    "p90": 54,
+                    "p99": 62
+                  }
+                },
+                "river": {
+                  "coverage": 0.3230932203389831,
+                  "decisions": 944,
+                  "mean_visits": 5.834745762711864,
+                  "revisited_decisions": 254,
+                  "trained_decisions": 305,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 3,
+                    "p90": 26,
+                    "p99": 43
+                  }
+                },
+                "turn": {
+                  "coverage": 0.5592885375494071,
+                  "decisions": 1012,
+                  "mean_visits": 11.304347826086957,
+                  "revisited_decisions": 427,
+                  "trained_decisions": 566,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 1,
+                    "p75": 8,
+                    "p90": 45,
+                    "p99": 95
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 7,
+                "cap2-uniform:flop:trained": 131,
+                "cap2-uniform:preflop:fallback": 1,
+                "cap2-uniform:preflop:trained": 287,
+                "cap2-uniform:river:fallback": 6,
+                "cap2-uniform:river:trained": 10,
+                "cap2-uniform:turn:fallback": 6,
+                "cap2-uniform:turn:trained": 44,
+                "later-repeated-minraise:flop:fallback": 29,
+                "later-repeated-minraise:flop:trained": 611,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 613,
+                "later-repeated-minraise:river:trained": 27,
+                "later-repeated-minraise:turn:fallback": 413,
+                "later-repeated-minraise:turn:trained": 227,
+                "native-uniform:flop:fallback": 15,
+                "native-uniform:flop:trained": 112,
+                "native-uniform:preflop:fallback": 10,
+                "native-uniform:preflop:trained": 321,
+                "native-uniform:river:fallback": 18,
+                "native-uniform:river:trained": 14,
+                "native-uniform:turn:fallback": 19,
+                "native-uniform:turn:trained": 47,
+                "passive:flop:fallback": 5,
+                "passive:flop:trained": 251,
+                "passive:preflop:trained": 256,
+                "passive:river:fallback": 2,
+                "passive:river:trained": 254,
+                "passive:turn:fallback": 8,
+                "passive:turn:trained": 248
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3450572500005364,
+            "index": 0,
+            "iteration": 5673,
+            "overshoot_nodes": 207,
+            "policy_sha256": "75cb536eb498cdc1b96fcf571016c6037e0145f3b5e9a469342f339aca1aed2c",
+            "requested_nodes": 2000000
+          },
+          {
+            "checkpoint_export_seconds": 4.519779250025749,
+            "checkpoint_sha256": "c9a57b4692d094d51b88986441f5130c0e4ff462c2a108f9a70d33eacc92eae9",
+            "completed_nodes": 5000190,
+            "entries": 343034,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.9767441860465116,
+                  "decisions": 1161,
+                  "mean_visits": 270.5719207579673,
+                  "revisited_decisions": 1108,
+                  "trained_decisions": 1134,
+                  "visit_quantiles": {
+                    "p25": 24,
+                    "p50": 103,
+                    "p75": 296,
+                    "p90": 1067,
+                    "p99": 1200
+                  }
+                },
+                "preflop": {
+                  "coverage": 0.9991158267020336,
+                  "decisions": 1131,
+                  "mean_visits": 60.36162687886826,
+                  "revisited_decisions": 1124,
+                  "trained_decisions": 1130,
+                  "visit_quantiles": {
+                    "p25": 26,
+                    "p50": 39,
+                    "p75": 117,
+                    "p90": 139,
+                    "p99": 150
+                  }
+                },
+                "river": {
+                  "coverage": 0.3930084745762712,
+                  "decisions": 944,
+                  "mean_visits": 19.75635593220339,
+                  "revisited_decisions": 301,
+                  "trained_decisions": 371,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 9,
+                    "p90": 74,
+                    "p99": 160
+                  }
+                },
+                "turn": {
+                  "coverage": 0.6679841897233202,
+                  "decisions": 1012,
+                  "mean_visits": 31.378458498023715,
+                  "revisited_decisions": 576,
+                  "trained_decisions": 676,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 2,
+                    "p75": 18,
+                    "p90": 107,
+                    "p99": 277
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 1,
+                "cap2-uniform:flop:trained": 137,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 5,
+                "cap2-uniform:river:trained": 11,
+                "cap2-uniform:turn:fallback": 4,
+                "cap2-uniform:turn:trained": 46,
+                "later-repeated-minraise:flop:fallback": 20,
+                "later-repeated-minraise:flop:trained": 620,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 557,
+                "later-repeated-minraise:river:trained": 83,
+                "later-repeated-minraise:turn:fallback": 321,
+                "later-repeated-minraise:turn:trained": 319,
+                "native-uniform:flop:fallback": 5,
+                "native-uniform:flop:trained": 122,
+                "native-uniform:preflop:fallback": 1,
+                "native-uniform:preflop:trained": 330,
+                "native-uniform:river:fallback": 11,
+                "native-uniform:river:trained": 21,
+                "native-uniform:turn:fallback": 8,
+                "native-uniform:turn:trained": 58,
+                "passive:flop:fallback": 1,
+                "passive:flop:trained": 255,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:fallback": 3,
+                "passive:turn:trained": 253
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3373628749977797,
+            "index": 1,
+            "iteration": 14458,
+            "overshoot_nodes": 190,
+            "policy_sha256": "d22362d1f7b92cd5a3621057c07f5d162bc1f160c9d45a96f19468a749a08a2a",
+            "requested_nodes": 5000000
+          },
+          {
+            "checkpoint_export_seconds": 6.756921666907147,
+            "checkpoint_sha256": "4685613998215a3400f9034105d2af35a84e40fa696fcdb8ab22461acbe7f72a",
+            "completed_nodes": 10000367,
+            "entries": 505270,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.9896640826873385,
+                  "decisions": 1161,
+                  "mean_visits": 587.5874246339363,
+                  "revisited_decisions": 1133,
+                  "trained_decisions": 1149,
+                  "visit_quantiles": {
+                    "p25": 46,
+                    "p50": 221,
+                    "p75": 648,
+                    "p90": 2345,
+                    "p99": 2727
+                  }
+                },
+                "preflop": {
+                  "coverage": 1.0,
+                  "decisions": 1131,
+                  "mean_visits": 121.3050397877984,
+                  "revisited_decisions": 1131,
+                  "trained_decisions": 1131,
+                  "visit_quantiles": {
+                    "p25": 54,
+                    "p50": 80,
+                    "p75": 241,
+                    "p90": 268,
+                    "p99": 310
+                  }
+                },
+                "river": {
+                  "coverage": 0.423728813559322,
+                  "decisions": 944,
+                  "mean_visits": 41.717161016949156,
+                  "revisited_decisions": 306,
+                  "trained_decisions": 400,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 0,
+                    "p75": 21,
+                    "p90": 162,
+                    "p99": 358
+                  }
+                },
+                "turn": {
+                  "coverage": 0.758893280632411,
+                  "decisions": 1012,
+                  "mean_visits": 64.38241106719367,
+                  "revisited_decisions": 669,
+                  "trained_decisions": 768,
+                  "visit_quantiles": {
+                    "p25": 1,
+                    "p50": 5,
+                    "p75": 37,
+                    "p90": 234,
+                    "p99": 540
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:fallback": 1,
+                "cap2-uniform:flop:trained": 137,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 4,
+                "cap2-uniform:river:trained": 12,
+                "cap2-uniform:turn:fallback": 3,
+                "cap2-uniform:turn:trained": 47,
+                "later-repeated-minraise:flop:fallback": 9,
+                "later-repeated-minraise:flop:trained": 631,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 533,
+                "later-repeated-minraise:river:trained": 107,
+                "later-repeated-minraise:turn:fallback": 237,
+                "later-repeated-minraise:turn:trained": 403,
+                "native-uniform:flop:fallback": 2,
+                "native-uniform:flop:trained": 125,
+                "native-uniform:preflop:trained": 331,
+                "native-uniform:river:fallback": 7,
+                "native-uniform:river:trained": 25,
+                "native-uniform:turn:fallback": 4,
+                "native-uniform:turn:trained": 62,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:trained": 256
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.335936666931957,
+            "index": 2,
+            "iteration": 29059,
+            "overshoot_nodes": 367,
+            "policy_sha256": "ed87bf4b314bce87b817590f1447d5b9f2d49ff6ab0776a9b46c643f6c0ddad8",
+            "requested_nodes": 10000000
+          },
+          {
+            "checkpoint_export_seconds": 9.723762416979298,
+            "checkpoint_sha256": "aa65e5633cc87c7d23bcb3be871813f3413120a256fe38ebdb2383215acf5afd",
+            "completed_nodes": 20000268,
+            "entries": 723259,
+            "independent": {
+              "density": {
+                "flop": {
+                  "coverage": 0.9956933677863911,
+                  "decisions": 1161,
+                  "mean_visits": 1237.6787252368647,
+                  "revisited_decisions": 1147,
+                  "trained_decisions": 1156,
+                  "visit_quantiles": {
+                    "p25": 86,
+                    "p50": 422,
+                    "p75": 1279,
+                    "p90": 4870,
+                    "p99": 5191
+                  }
+                },
+                "preflop": {
+                  "coverage": 1.0,
+                  "decisions": 1131,
+                  "mean_visits": 241.47303271441203,
+                  "revisited_decisions": 1131,
+                  "trained_decisions": 1131,
+                  "visit_quantiles": {
+                    "p25": 109,
+                    "p50": 154,
+                    "p75": 506,
+                    "p90": 534,
+                    "p99": 570
+                  }
+                },
+                "river": {
+                  "coverage": 0.5169491525423728,
+                  "decisions": 944,
+                  "mean_visits": 100.53919491525424,
+                  "revisited_decisions": 381,
+                  "trained_decisions": 488,
+                  "visit_quantiles": {
+                    "p25": 0,
+                    "p50": 1,
+                    "p75": 48,
+                    "p90": 394,
+                    "p99": 998
+                  }
+                },
+                "turn": {
+                  "coverage": 0.849802371541502,
+                  "decisions": 1012,
+                  "mean_visits": 136.07213438735178,
+                  "revisited_decisions": 759,
+                  "trained_decisions": 860,
+                  "visit_quantiles": {
+                    "p25": 1,
+                    "p50": 9,
+                    "p75": 91,
+                    "p90": 548,
+                    "p99": 1225
+                  }
+                }
+              },
+              "exposure_by_path_street": {
+                "cap2-uniform:flop:trained": 138,
+                "cap2-uniform:preflop:trained": 288,
+                "cap2-uniform:river:fallback": 1,
+                "cap2-uniform:river:trained": 15,
+                "cap2-uniform:turn:fallback": 1,
+                "cap2-uniform:turn:trained": 49,
+                "later-repeated-minraise:flop:fallback": 5,
+                "later-repeated-minraise:flop:trained": 635,
+                "later-repeated-minraise:preflop:trained": 256,
+                "later-repeated-minraise:river:fallback": 451,
+                "later-repeated-minraise:river:trained": 189,
+                "later-repeated-minraise:turn:fallback": 149,
+                "later-repeated-minraise:turn:trained": 491,
+                "native-uniform:flop:trained": 127,
+                "native-uniform:preflop:trained": 331,
+                "native-uniform:river:fallback": 4,
+                "native-uniform:river:trained": 28,
+                "native-uniform:turn:fallback": 2,
+                "native-uniform:turn:trained": 64,
+                "passive:flop:trained": 256,
+                "passive:preflop:trained": 256,
+                "passive:river:trained": 256,
+                "passive:turn:trained": 256
+              },
+              "observations": 4248
+            },
+            "independent_seconds": 1.3429353749379516,
+            "index": 3,
+            "iteration": 57701,
+            "overshoot_nodes": 268,
+            "policy_sha256": "76af425b2457777c64caf8ac44819ae7d28e915b4d8b0b95625f82d96773fbb8",
+            "requested_nodes": 20000000
+          }
+        ],
+        "new_entries_by_street": {
+          "flop": 34022,
+          "preflop": 15097,
+          "river": 463811,
+          "turn": 210329
+        },
+        "overshoot_nodes": 268,
+        "peak_rss_bytes": 1032765440,
+        "plan_digest": "114fba80cda43604774ce689c3c064d85709c5a76f8998444854ee2adb407a39",
+        "requested_nodes": 20000000,
+        "revisited_keys_by_street": {
+          "flop": 655174,
+          "preflop": 305678,
+          "river": 1386921,
+          "turn": 1026657
+        },
+        "seed": 2026093003,
+        "source_revision": "a87e9f8805d211e2b21dbb710339ada9083eedf6",
+        "started": 1790628631.526979,
+        "status": "complete",
+        "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "swap_before": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+        "updates_by_street": {
+          "flop": 701465,
+          "preflop": 321807,
+          "river": 1874655,
+          "turn": 1257248
+        }
+      },
+      "sealed_result_hash_verified": true,
+      "sha256": "242c74a64382773f9fc97d147d3159a2fe05423f6451f881b76531f5168e65cf"
+    }
+  ],
+  "scope": "all six fixed completed 20M training runs; strategic results await final audit"
+}

@@ -77,3 +77,13 @@ not exact full-game exploitability. Native off-menu-history pressure lookups
 missed in the measured panels; this is a deployment limitation, not proof
 that every off-menu event misses. Card-abstraction causation is unestablished.
 No checkpoint, extraction or playable interface changed; no model is promoted.
+
+## Separate native-reopening experiment
+
+[Draft #115's separately versioned candidate](hu20-native-reopening-model-card.md)
+trains without the artificial raise-count cap and compares fresh A/B policies.
+It passes the prespecified native-pressure contrast and aggregate LBR
+non-inferiority margin, but still loses to LBR and regresses against two
+controls. This preserves every #112 model, artifact and play command above;
+it does not promote or replace the capped baseline. See the
+[audited comparison](reports/hu20-native-reopening-m4.md) for full limitations.
