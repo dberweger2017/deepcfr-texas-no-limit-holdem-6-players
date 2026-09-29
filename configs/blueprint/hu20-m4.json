@@ -1,0 +1,23 @@
+{
+  "schema": "hu20-fresh-campaign-v2",
+  "training_seeds": [2026092801, 2026092802, 2026092803],
+  "preflight_nodes": 1000000,
+  "training_nodes": 20000000,
+  "checkpoints": [2000000, 5000000, 10000000, 20000000],
+  "capture_nodes": [10000000, 11428571, 12857143, 14285714, 15714286, 17142857, 18571429, 20000000],
+  "collector_seed": 2026092850,
+  "collector_roots_per_seat": 16,
+  "development": {"blocks_per_opponent": 256, "root_seed": 2026101001},
+  "confirmation": {"blocks_per_opponent": 4096, "root_seed": 2026102001},
+  "crossplay": {"blocks_per_opponent": 1024, "root_seed": 2026103001},
+  "opponents": ["loose_passive", "loose_aggressive", "tight_passive", "tight_aggressive", "pot_pressure", "hu20_uniform"],
+  "limits": {
+    "max_rss_gib": 10.5,
+    "min_free_gib": 8,
+    "max_nodes_per_iteration": 250000,
+    "max_entries": 4000000,
+    "max_seconds_per_iteration": 300,
+    "max_collector_states": 1000000,
+    "max_campaign_seconds": 36000
+  }
+}

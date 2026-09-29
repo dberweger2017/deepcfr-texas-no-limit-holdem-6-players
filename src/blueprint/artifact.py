@@ -13,18 +13,37 @@ from random import Random
 
 from src.blueprint.abstraction import (
     SCHEMA,
+    HU20_SCHEMA,
+    HU20_MENU_VERSION,
+    HU20_CARD_VERSION,
     SUPPORTED_SCHEMAS,
     choices,
     information_key,
 )
 from src.blueprint.solver import (
     FORMAT,
+    HU20_GAME,
+    LEGACY_GAME,
     BlueprintTrainer,
     Node,
     PilotConfig,
     regret_match,
 )
 from src.game.hand import Table
+
+HU20_FORMAT = "holdem-hu20-blueprint-v2"
+
+
+def _format(config: PilotConfig) -> str:
+    return HU20_FORMAT if config.game == HU20_GAME else FORMAT
+
+
+def _identity(config: PilotConfig) -> dict:
+    return ({"game": HU20_GAME, "players": 2, "stacks": [2000, 2000],
+             "small_blind": 50, "big_blind": 100,
+             "action_menu": HU20_MENU_VERSION,
+             "card_descriptor": HU20_CARD_VERSION}
+            if config.game == HU20_GAME else {})
 
 
 def _encoded(document: dict) -> bytes:
@@ -49,7 +68,7 @@ def _read(path: Path) -> dict:
     document = loads(decompress(path.read_bytes()))
     if (
         not isinstance(document, dict)
-        or document.get("format") != FORMAT
+        or document.get("format") not in (FORMAT, HU20_FORMAT)
     ):
         raise ValueError("Unknown blueprint artifact format")
     _checked_schema(document)
@@ -63,6 +82,11 @@ def _checked_schema(document: dict) -> str:
         schema not in SUPPORTED_SCHEMAS
         or not isinstance(config, dict)
         or config.get("abstraction", SCHEMA) != schema
+        or (document.get("format") == HU20_FORMAT) != (schema == HU20_SCHEMA)
+        or config.get("game", LEGACY_GAME) !=
+            (HU20_GAME if schema == HU20_SCHEMA else LEGACY_GAME)
+        or (schema == HU20_SCHEMA and document.get("identity") !=
+            _identity(PilotConfig(**config)))
     ):
         raise ValueError("Unknown blueprint abstraction schema")
     return schema
@@ -76,6 +100,8 @@ def _config(config: PilotConfig) -> dict:
     if config.postflop_replicates == 1:
         # Older checkpoints did not record this optional sampling mode.
         del document["postflop_replicates"]
+    if config.game == LEGACY_GAME:
+        del document["game"]
     return document
 
 
@@ -92,7 +118,7 @@ def _table(table: Table) -> dict:
 
 def save_training(trainer: BlueprintTrainer, path: Path) -> str:
     header = {
-        "format": FORMAT,
+        "format": _format(trainer.config),
         "abstraction": trainer.config.abstraction,
         "kind": "training",
         "checkpoint_format": "jsonl-v2",
@@ -100,6 +126,8 @@ def save_training(trainer: BlueprintTrainer, path: Path) -> str:
         "config": _config(trainer.config),
         "iteration": trainer.iteration,
     }
+    if trainer.config.game == HU20_GAME:
+        header["identity"] = _identity(trainer.config)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + ".tmp")
     with temporary.open("wb") as raw:
@@ -133,7 +161,7 @@ def load_training(path: Path) -> BlueprintTrainer:
         document = loads(source.readline())
         if (
             not isinstance(document, dict)
-            or document.get("format") != FORMAT
+            or document.get("format") not in (FORMAT, HU20_FORMAT)
         ):
             raise ValueError("Unknown blueprint artifact format")
         _checked_schema(document)
@@ -191,6 +219,8 @@ def export_policy(
 ) -> str:
     if strategy not in {"current", "average"}:
         raise ValueError("Export current or average strategy")
+    if trainer.config.game == HU20_GAME and strategy != "current":
+        raise ValueError("HU20 uses the separately collected windowed extraction")
     entries = {}
     for key, node in trainer.nodes.items():
         if strategy == "current":
@@ -203,10 +233,8 @@ def export_policy(
                 else (1 / len(node.names),) * len(node.names)
             )
         entries[key] = [node.names, probabilities]
-    return _write(
-        path,
-        {
-            "format": FORMAT,
+    document = {
+            "format": _format(trainer.config),
             "abstraction": trainer.config.abstraction,
             "kind": "inference",
             "table": _table(trainer.table),
@@ -214,7 +242,12 @@ def export_policy(
             "iteration": trainer.iteration,
             "strategy": strategy,
             "entries": entries,
-        },
+        }
+    if trainer.config.game == HU20_GAME:
+        document["identity"] = _identity(trainer.config)
+    return _write(
+        path,
+        document,
     )
 
 
@@ -227,6 +260,14 @@ class FrozenBlueprint:
         document = _read(path)
         if document.get("kind") != "inference":
             raise ValueError("Training checkpoints are not arena policies")
+        if spec.format != document["format"]:
+            raise ValueError("Checkpoint adapter format differs from inference artifact")
+        if document["format"] == HU20_FORMAT:
+            table_data = document["table"]
+            table = Table(tuple(table_data["player_ids"]), tuple(table_data["stacks"]),
+                          table_data["button"], table_data["small_blind"],
+                          table_data["big_blind"], table_data["chip_unit"])
+            BlueprintTrainer(table, PilotConfig(**document["config"]))
         self.players = len(document["table"]["stacks"])
         self.raise_cap = document["config"]["raise_cap"]
         self.abstraction = document["abstraction"]
@@ -245,7 +286,7 @@ class FrozenBlueprint:
                 raise ValueError("Invalid blueprint policy node")
             self.entries[key] = (tuple(names), tuple(probabilities))
         self.description = {
-            "kind": FORMAT,
+            "kind": document["format"],
             "weights_sha256": spec.sha256,
             "num_players": self.players,
             "iteration": document["iteration"],
@@ -261,7 +302,8 @@ class FrozenBlueprint:
     def distribution(self, view):
         if view.capacity != self.players:
             raise ValueError("Blueprint table size differs from the evaluation table")
-        menu = choices(view, raise_cap=self.raise_cap)
+        menu = choices(view, raise_cap=self.raise_cap,
+                       free_fold=self.abstraction != HU20_SCHEMA)
         key = information_key(view, menu, schema=self.abstraction)
         saved = self.entries.get(key)
         if saved is None:

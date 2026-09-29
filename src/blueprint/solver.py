@@ -13,6 +13,7 @@ from time import perf_counter
 
 from src.blueprint.abstraction import (
     SCHEMA,
+    HU20_SCHEMA,
     SUPPORTED_SCHEMAS,
     Choice,
     choices,
@@ -23,6 +24,8 @@ from src.game.observation import ActionTaken, Observation
 from src.game.types import Street
 
 FORMAT = "holdem-blueprint-v1"
+HU20_GAME = "hu20-20bb-52card-no-ante-rake-v2"
+LEGACY_GAME = "legacy-blueprint-game-v1"
 
 
 def _seed(seed: int, iteration: int, seat: int, sample: int, stream: str) -> int:
@@ -58,6 +61,7 @@ class PilotConfig:
     max_seconds: float = 300.0
     abstraction: str = SCHEMA
     postflop_replicates: int = 1
+    game: str = LEGACY_GAME
 
     def __post_init__(self):
         if (
@@ -74,6 +78,9 @@ class PilotConfig:
             or self.abstraction not in SUPPORTED_SCHEMAS
             or type(self.postflop_replicates) is not int
             or self.postflop_replicates not in (1, 4)
+            or (self.abstraction == HU20_SCHEMA and
+                (self.game != HU20_GAME or self.postflop_replicates != 1))
+            or (self.abstraction != HU20_SCHEMA and self.game != LEGACY_GAME)
         ):
             raise ValueError("Invalid bounded blueprint pilot configuration")
 
@@ -126,6 +133,8 @@ class IterationReport:
     conditional_value_variance_sum: float = 0.0
     conditional_regret_variance_sum: float = 0.0
     updated_keys: tuple[str, ...] = ()
+    new_entries_by_street: dict[str, int] = field(default_factory=dict)
+    revisited_keys_by_street: dict[str, int] = field(default_factory=dict)
 
 
 @dataclass(slots=True)
@@ -134,6 +143,7 @@ class _Delta:
     regrets: list[float]
     average: list[float]
     visits: int = 0
+    street: str | None = None
 
 
 @dataclass(slots=True)
@@ -179,10 +189,12 @@ def _merge_deltas(target: dict[str, _Delta], source: dict[str, _Delta],
         delta = target.get(key)
         if delta is None:
             delta = _Delta(item.names, [0.0] * len(item.names),
-                           [0.0] * len(item.names))
+                           [0.0] * len(item.names), street=item.street)
             target[key] = delta
         elif delta.names != item.names:
             raise ValueError("An abstract infoset changed its action labels")
+        if delta.street != item.street:
+            raise ValueError("An abstract infoset changed streets")
         for index in range(len(item.names)):
             delta.regrets[index] += weight * item.regrets[index]
             delta.average[index] += weight * item.average[index]
@@ -320,7 +332,8 @@ def _collect_root(
             player = hand.observe(traverser).players[traverser]
             return (player.stack - player.starting_stack) / hand.table.big_blind
         view = hand.observe(hand.actor)
-        menu = choices(view, raise_cap=config.raise_cap)
+        menu = choices(view, raise_cap=config.raise_cap,
+                       free_fold=config.abstraction != HU20_SCHEMA)
         key = information_key(view, menu, schema=config.abstraction)
         policy, trained = _distribution(frozen_nodes, key, menu)
         label = f"{view.street.value}:{'trained' if trained else 'fallback'}"
@@ -346,10 +359,13 @@ def _collect_root(
         names = tuple(item.name for item in menu)
         delta = target.get(key)
         if delta is None:
-            delta = _Delta(names, [0.0] * len(menu), [0.0] * len(menu))
+            delta = _Delta(names, [0.0] * len(menu), [0.0] * len(menu),
+                           street=view.street.value)
             target[key] = delta
         elif delta.names != names:
             raise ValueError("An abstract infoset changed its action labels")
+        if delta.street != view.street.value:
+            raise ValueError("An abstract infoset changed streets")
         for index in range(len(menu)):
             delta.regrets[index] += iteration * (values[index] - value)
             delta.average[index] += iteration * own_reach * policy[index]
@@ -401,6 +417,12 @@ class BlueprintTrainer:
             raise TypeError("Provide a table and pilot configuration")
         if not 2 <= len(table.stacks) <= 6:
             raise ValueError("The blueprint pilot supports two to six players")
+        if config.abstraction == HU20_SCHEMA and (
+            table.capacity != 2 or table.stacks != (2000, 2000)
+            or table.small_blind != 50 or table.big_blind != 100
+            or table.chip_unit != "0.01"
+        ):
+            raise ValueError("HU20 training requires the versioned 20BB table")
         self.table = table
         self.config = config
         self.iteration = 0
@@ -493,6 +515,12 @@ class BlueprintTrainer:
             if executor is not None:
                 executor.shutdown(cancel_futures=True)
         new_entries = sum(key not in self.nodes for key in deltas)
+        new_by_street: dict[str, int] = {}
+        revisited_by_street: dict[str, int] = {}
+        for key, delta in deltas.items():
+            bucket = new_by_street if key not in self.nodes else revisited_by_street
+            street = delta.street or "unknown"
+            bucket[street] = bucket.get(street, 0) + 1
         if len(self.nodes) + new_entries > self.config.max_entries:
             raise CollectionLimitExceeded("Blueprint iteration reached its entry bound")
         for delta in deltas.values():
@@ -542,4 +570,6 @@ class BlueprintTrainer:
             value_variance,
             regret_variance,
             tuple(deltas),
+            new_by_street,
+            revisited_by_street,
         )

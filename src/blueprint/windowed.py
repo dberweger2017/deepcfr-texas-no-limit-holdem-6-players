@@ -10,8 +10,10 @@ from math import fsum, isfinite
 from pathlib import Path
 from random import Random
 
-from src.blueprint.abstraction import BUTTON_ZERO_COMPAT_LOOKUP, choices, information_key
-from src.blueprint.solver import regret_match
+from src.blueprint.abstraction import (BUTTON_ZERO_COMPAT_LOOKUP, HU20_CARD_VERSION,
+                                       HU20_MENU_VERSION, HU20_SCHEMA,
+                                       LEGACY_LOOKUP, choices, information_key)
+from src.blueprint.solver import HU20_GAME, regret_match
 from src.game.hand import Hand
 from src.game.types import Street
 
@@ -73,7 +75,8 @@ class NativePreflopAdapter:
 
     def decision(self, hand):
         view = hand.observe(hand.actor)
-        menu = choices(view, raise_cap=self.trainer.config.raise_cap)
+        menu = choices(view, raise_cap=self.trainer.config.raise_cap,
+                       free_fold=self.trainer.config.abstraction != HU20_SCHEMA)
         key = information_key(view, menu, schema=self.trainer.config.abstraction)
         node = self.trainer.nodes.get(key)
         names = tuple(item.name for item in menu)
@@ -151,8 +154,11 @@ def build_index(snapshots: list[Path], counters: dict, path: Path) -> dict:
         batch = []
         group_key = None
         rows = []
+        direct_samples = []
+        row_count = 0
 
         def flush():
+            nonlocal row_count
             if group_key is None:
                 return
             names = rows[0][1]
@@ -173,6 +179,9 @@ def build_index(snapshots: list[Path], counters: dict, path: Path) -> dict:
             if collected and collected[0] != names:
                 raise ValueError("Collector action-menu mismatch")
             count = collected[1] if collected else None
+            if row_count % 100_000 == 0 or (len(rows) < 8 and len(direct_samples) < 128):
+                direct_samples.append((group_key, final, tuple(average)))
+            row_count += 1
             batch.append((group_key, json.dumps(names), json.dumps(final),
                           json.dumps(average), json.dumps(count), len(rows)))
             if len(batch) >= 10_000:
@@ -190,13 +199,28 @@ def build_index(snapshots: list[Path], counters: dict, path: Path) -> dict:
         if batch:
             db.executemany("INSERT INTO policies VALUES (?,?,?,?,?,?)", batch)
         db.commit()
+        maximum_error = 0.0
+        for key, final, average in direct_samples:
+            stored = db.execute("SELECT current,snapshot FROM policies WHERE key=?", (key,)).fetchone()
+            if stored is None:
+                raise ValueError("Indexed snapshot key missing during parity check")
+            recovered_current = json.loads(stored[0])
+            recovered_average = json.loads(stored[1])
+            if final is not None:
+                maximum_error = max(maximum_error,
+                    *(abs(a-b) for a,b in zip(final, recovered_current)))
+            maximum_error = max(maximum_error,
+                *(abs(a-b) for a,b in zip(average, recovered_average)))
+        if maximum_error > 1e-12:
+            raise ValueError("Indexed probabilities differ from direct snapshot arithmetic")
         db.execute("PRAGMA journal_mode=DELETE")
         stats = dict(db.execute("SELECT trained_profiles, COUNT(*) FROM policies GROUP BY trained_profiles"))
     finally:
         db.close()
     temporary.replace(path)
     return {"artifact_sha256": _hash(path), "profile_coverage": stats,
-            "entries": sum(stats.values())}
+            "entries": sum(stats.values()), "parity_queries": len(direct_samples),
+            "max_probability_error": maximum_error}
 
 
 class WindowedDistribution:
@@ -210,12 +234,20 @@ class WindowedDistribution:
         self.arm = arm
         self.raise_cap = manifest["raise_cap"]
         self.abstraction = manifest["abstraction"]
+        if self.abstraction == HU20_SCHEMA and (
+            manifest.get("game") != HU20_GAME
+            or manifest.get("action_menu") != HU20_MENU_VERSION
+            or manifest.get("card_descriptor") != HU20_CARD_VERSION
+        ):
+            raise ValueError("HU20 extracted artifact game identity mismatch")
         self.coverage = Counter()
 
     def distribution(self, view):
-        menu = choices(view, raise_cap=self.raise_cap)
+        menu = choices(view, raise_cap=self.raise_cap,
+                       free_fold=self.abstraction != HU20_SCHEMA)
         key = information_key(view, menu, schema=self.abstraction,
-                              lookup_mode=BUTTON_ZERO_COMPAT_LOOKUP)
+                              lookup_mode=(LEGACY_LOOKUP if self.abstraction == HU20_SCHEMA
+                                           else BUTTON_ZERO_COMPAT_LOOKUP))
         row = self.db.execute("SELECT names,current,snapshot,preflop,trained_profiles "
                               "FROM policies WHERE key=?", (key,)).fetchone()
         names = tuple(item.name for item in menu)
