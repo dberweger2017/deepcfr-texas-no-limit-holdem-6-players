@@ -96,8 +96,11 @@ If there is no compatible abstract raise or translated key/name match, use A.
 This deterministic control is potentially exploitable at boundaries.
 
 Freeze paired schedules for pot-pressure (256 blocks per seed and variant),
-one-third-pot and 1.5-pot pressure (128 each), native minraise and passive
+one-third-pot and two-thirds-pot pressure (128 each), native minraise and passive
 controls (128 each), with both positions. No outcome-driven rule selection.
+The retained `pot_pressure` style already wagers approximately 1.5 times the
+post-call pot; a separate 1.5-pot arm would duplicate it. This correction was
+made before any new outcome was opened.
 For each, report absolute and paired BB/100, 95% block intervals, lookup hit,
 fallback, translation frequency and size pairs, invalid/missing histories,
 latency and every failed hand. Improved hits alone do not establish value.
