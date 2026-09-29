@@ -1,0 +1,243 @@
+{
+  "policy": "2p-2026092801-20M",
+  "players": 2,
+  "rules": [
+    "pressure"
+  ],
+  "actual_rival_order": [
+    "pressure"
+  ],
+  "contract": "native",
+  "block": 0,
+  "rotation": 0,
+  "deal_seed": 11278637214267227445,
+  "root_seed": 2026135001,
+  "button": 0,
+  "phase": "demo",
+  "actions": [
+    {
+      "index": 0,
+      "seat": 0,
+      "logical_player": 0,
+      "street": "preflop",
+      "kind": "raise",
+      "raise_to": 300,
+      "on_training_menu": true,
+      "street_raises": 0,
+      "preceding_off_menu": false,
+      "target_trained": true,
+      "seconds": 5.8582983911037445e-05
+    },
+    {
+      "index": 1,
+      "seat": 1,
+      "logical_player": 1,
+      "street": "preflop",
+      "kind": "raise",
+      "raise_to": 500,
+      "on_training_menu": true,
+      "street_raises": 1,
+      "preceding_off_menu": false,
+      "target_trained": null,
+      "seconds": 9.209034033119678e-06
+    },
+    {
+      "index": 2,
+      "seat": 0,
+      "logical_player": 0,
+      "street": "preflop",
+      "kind": "call",
+      "raise_to": null,
+      "on_training_menu": true,
+      "street_raises": 2,
+      "preceding_off_menu": false,
+      "target_trained": true,
+      "seconds": 3.429199568927288e-05
+    },
+    {
+      "index": 3,
+      "seat": 1,
+      "logical_player": 1,
+      "street": "flop",
+      "kind": "raise",
+      "raise_to": 100,
+      "on_training_menu": true,
+      "street_raises": 0,
+      "preceding_off_menu": false,
+      "target_trained": null,
+      "seconds": 6.875023245811462e-06
+    },
+    {
+      "index": 4,
+      "seat": 0,
+      "logical_player": 0,
+      "street": "flop",
+      "kind": "call",
+      "raise_to": null,
+      "on_training_menu": true,
+      "street_raises": 1,
+      "preceding_off_menu": false,
+      "target_trained": true,
+      "seconds": 8.470797911286354e-05
+    },
+    {
+      "index": 5,
+      "seat": 1,
+      "logical_player": 1,
+      "street": "turn",
+      "kind": "raise",
+      "raise_to": 100,
+      "on_training_menu": true,
+      "street_raises": 0,
+      "preceding_off_menu": false,
+      "target_trained": null,
+      "seconds": 7.207971066236496e-06
+    },
+    {
+      "index": 6,
+      "seat": 0,
+      "logical_player": 0,
+      "street": "turn",
+      "kind": "call",
+      "raise_to": null,
+      "on_training_menu": true,
+      "street_raises": 1,
+      "preceding_off_menu": false,
+      "target_trained": true,
+      "seconds": 7.679197005927563e-05
+    },
+    {
+      "index": 7,
+      "seat": 1,
+      "logical_player": 1,
+      "street": "river",
+      "kind": "raise",
+      "raise_to": 100,
+      "on_training_menu": true,
+      "street_raises": 0,
+      "preceding_off_menu": false,
+      "target_trained": null,
+      "seconds": 6.9999368861317635e-06
+    },
+    {
+      "index": 8,
+      "seat": 0,
+      "logical_player": 0,
+      "street": "river",
+      "kind": "raise",
+      "raise_to": 200,
+      "on_training_menu": true,
+      "street_raises": 1,
+      "preceding_off_menu": false,
+      "target_trained": true,
+      "seconds": 0.00010483397636562586
+    },
+    {
+      "index": 9,
+      "seat": 1,
+      "logical_player": 1,
+      "street": "river",
+      "kind": "raise",
+      "raise_to": 300,
+      "on_training_menu": false,
+      "street_raises": 2,
+      "preceding_off_menu": false,
+      "target_trained": null,
+      "seconds": 5.165929906070232e-06
+    },
+    {
+      "index": 10,
+      "seat": 0,
+      "logical_player": 0,
+      "street": "river",
+      "kind": "fold",
+      "raise_to": null,
+      "on_training_menu": true,
+      "street_raises": 3,
+      "preceding_off_menu": true,
+      "target_trained": false,
+      "seconds": 4.9332971684634686e-05
+    }
+  ],
+  "event_digest": "02d325a62784eee6c5b8d70e93da9256c5ef66516f6d98862db751e140beeb0c",
+  "decision_telemetry": [
+    {
+      "coordinates": [
+        "flop",
+        "trained",
+        "menu-history"
+      ],
+      "count": 1
+    },
+    {
+      "coordinates": [
+        "preflop",
+        "trained",
+        "menu-history"
+      ],
+      "count": 2
+    },
+    {
+      "coordinates": [
+        "river",
+        "fallback",
+        "offmenu-history"
+      ],
+      "count": 1
+    },
+    {
+      "coordinates": [
+        "river",
+        "trained",
+        "menu-history"
+      ],
+      "count": 1
+    },
+    {
+      "coordinates": [
+        "turn",
+        "trained",
+        "menu-history"
+      ],
+      "count": 1
+    }
+  ],
+  "reached_keys": [
+    {
+      "street": "flop",
+      "key": "b9ae5e336e87cc84aad526f202e1fafe",
+      "decisions": 1
+    },
+    {
+      "street": "preflop",
+      "key": "975ed479f98dfb2419baa1049646f9ed",
+      "decisions": 1
+    },
+    {
+      "street": "preflop",
+      "key": "d94e733e177493f6475de29fa0df9996",
+      "decisions": 1
+    },
+    {
+      "street": "river",
+      "key": "4e6ade4422d64be523069d400dcbaac5",
+      "decisions": 1
+    },
+    {
+      "street": "river",
+      "key": "dd64810ecf6c85b41c87496fa1c30c5b",
+      "decisions": 1
+    },
+    {
+      "street": "turn",
+      "key": "4a5cceba47636e62607d5a1b351cfc5b",
+      "decisions": 1
+    }
+  ],
+  "status": "complete",
+  "net_chips_by_seat": [
+    -900,
+    900
+  ],
+  "target_chips": -900
+}

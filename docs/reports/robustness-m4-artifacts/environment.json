@@ -1,0 +1,22 @@
+{
+  "python": "3.11.14 (main, Oct  9 2025, 16:16:55) [Clang 17.0.0 (clang-1700.6.3.2)]",
+  "platform": "macOS-26.6-arm64-arm-64bit",
+  "engine_direct_url": {
+    "url": "https://github.com/dberweger2017/pokers.git",
+    "vcs_info": {
+      "commit_id": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+      "requested_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+      "vcs": "git"
+    }
+  },
+  "engine_binaries": {
+    "pokers/pokers.cpython-311-darwin.so": "0700ac54783869030559782e58064ff1e229e8b0b950297845beaa143f7d95bd"
+  },
+  "packages": {
+    "pokers": "0.2.0",
+    "numpy": "1.26.4",
+    "scipy": "1.17.1",
+    "torch": "2.14.0"
+  },
+  "capture": "post-evaluation environment; engine commit checked against repository pin"
+}

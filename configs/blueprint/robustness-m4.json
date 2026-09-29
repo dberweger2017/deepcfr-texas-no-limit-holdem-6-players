@@ -1,0 +1,240 @@
+{
+  "schema": "20bb-robustness-v1",
+  "policies": [
+    {
+      "name": "2p-2026092801-2M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092801/policy-0.json.gz",
+      "sha256": "ff44e11c23a4ab86a5fb207504c66393772caca5318a7cb529c4bda83c9cf0c5",
+      "seed": 2026092801,
+      "nodes": 2000000
+    },
+    {
+      "name": "2p-2026092801-5M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092801/policy-1.json.gz",
+      "sha256": "488ef7c180ceb6df45f958661a6d51c31b1d949f2d7b9f954c76222507583d06",
+      "seed": 2026092801,
+      "nodes": 5000000
+    },
+    {
+      "name": "2p-2026092801-10M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092801/policy-2.json.gz",
+      "sha256": "4a21f5dd44ead621084e02883e12517873bfb4280f7b44937099ce635347bd6c",
+      "seed": 2026092801,
+      "nodes": 10000000
+    },
+    {
+      "name": "2p-2026092801-20M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092801/current.json.gz",
+      "sha256": "050a1607fe6f65d8cbdce2fb99a77abf6ba55b1f5a88115b4c2d6b76db051bd1",
+      "seed": 2026092801,
+      "nodes": 20000000
+    },
+    {
+      "name": "2p-2026092802-2M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092802/policy-0.json.gz",
+      "sha256": "4da9989396fde07b1158d03b8f2d19ffe75ece6deda216df846f8a1459320450",
+      "seed": 2026092802,
+      "nodes": 2000000
+    },
+    {
+      "name": "2p-2026092802-5M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092802/policy-1.json.gz",
+      "sha256": "d2321891fa20a478f9912898f4707a48c7d7db1da61117daadbfd58a2fc8f2cc",
+      "seed": 2026092802,
+      "nodes": 5000000
+    },
+    {
+      "name": "2p-2026092802-10M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092802/policy-2.json.gz",
+      "sha256": "d4eea55d2d4290f3a124c6b484e2a9c3af01a62ec5fc2c9bee077a3a9c8b6853",
+      "seed": 2026092802,
+      "nodes": 10000000
+    },
+    {
+      "name": "2p-2026092802-20M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092802/current.json.gz",
+      "sha256": "b7ec6182fcb35b0f0201799c9fa07d7d353665eb4d8b0f6cd2f3e8394fbbf98b",
+      "seed": 2026092802,
+      "nodes": 20000000
+    },
+    {
+      "name": "2p-2026092803-2M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092803/policy-0.json.gz",
+      "sha256": "762209d75bab7942e7be34ec919fc540cf1af67b9baa2a249d20d4b6546af9e3",
+      "seed": 2026092803,
+      "nodes": 2000000
+    },
+    {
+      "name": "2p-2026092803-5M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092803/policy-1.json.gz",
+      "sha256": "f055731032dd83ea2b5d81683e4f6721d7be9139c5d7b6cf7e8789da2f4fb85c",
+      "seed": 2026092803,
+      "nodes": 5000000
+    },
+    {
+      "name": "2p-2026092803-10M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092803/policy-2.json.gz",
+      "sha256": "5ac1d6eebe084a6a7a3bab65be69f46504b6aef286e8bb061805e1f132f9c0ca",
+      "seed": 2026092803,
+      "nodes": 10000000
+    },
+    {
+      "name": "2p-2026092803-20M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092803/current.json.gz",
+      "sha256": "b0678a5b54295ac4625019cb9fcc52a57acc8dba7c40e238c8d5fd463331dcac",
+      "seed": 2026092803,
+      "nodes": 20000000
+    },
+    {
+      "name": "3p-2026092901-20M",
+      "players": 3,
+      "path": "/Users/dberweger/Local/tp20-pr113/results/tp20-m4-20260928/training/2026092901/current.json.gz",
+      "sha256": "c12ac92e9512413e6d83ed806dd0b7a60d88ef8418099294049b14af5700edd6",
+      "seed": 2026092901,
+      "nodes": 20000000
+    },
+    {
+      "name": "3p-2026092902-20M",
+      "players": 3,
+      "path": "/Users/dberweger/Local/tp20-pr113/results/tp20-m4-20260928/training/2026092902/current.json.gz",
+      "sha256": "77d704f9dbdfae569917f9293f8580fa9c9eea4777eb5c44d7ae3d5f5d47962b",
+      "seed": 2026092902,
+      "nodes": 20000000
+    },
+    {
+      "name": "3p-2026092903-20M",
+      "players": 3,
+      "path": "/Users/dberweger/Local/tp20-pr113/results/tp20-m4-20260928/training/2026092903/current.json.gz",
+      "sha256": "dbbfba80211f137993f220a7e8410af8b4b21d20c6ad45c729fc6da13ce122ef",
+      "seed": 2026092903,
+      "nodes": 20000000
+    },
+    {
+      "name": "uniform",
+      "players": 2
+    },
+    {
+      "name": "uniform",
+      "players": 3
+    }
+  ],
+  "preflight_policies": [
+    {
+      "name": "2p-2026092801-2M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092801/policy-0.json.gz",
+      "sha256": "ff44e11c23a4ab86a5fb207504c66393772caca5318a7cb529c4bda83c9cf0c5",
+      "seed": 2026092801,
+      "nodes": 2000000
+    },
+    {
+      "name": "2p-2026092801-20M",
+      "players": 2,
+      "path": "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927/training/2026092801/current.json.gz",
+      "sha256": "050a1607fe6f65d8cbdce2fb99a77abf6ba55b1f5a88115b4c2d6b76db051bd1",
+      "seed": 2026092801,
+      "nodes": 20000000
+    },
+    {
+      "name": "3p-2026092901-20M",
+      "players": 3,
+      "path": "/Users/dberweger/Local/tp20-pr113/results/tp20-m4-20260928/training/2026092901/current.json.gz",
+      "sha256": "c12ac92e9512413e6d83ed806dd0b7a60d88ef8418099294049b14af5700edd6",
+      "seed": 2026092901,
+      "nodes": 20000000
+    },
+    {
+      "name": "uniform",
+      "players": 2
+    }
+  ],
+  "hu_lineups": [
+    [
+      "pressure"
+    ],
+    [
+      "minraise"
+    ],
+    [
+      "passive"
+    ]
+  ],
+  "tp_lineups": [
+    [
+      "pressure",
+      "pressure"
+    ],
+    [
+      "minraise",
+      "minraise"
+    ],
+    [
+      "passive",
+      "passive"
+    ],
+    [
+      "pressure",
+      "minraise"
+    ],
+    [
+      "pressure",
+      "passive"
+    ],
+    [
+      "minraise",
+      "passive"
+    ]
+  ],
+  "hu_blocks": 4096,
+  "tp_blocks": 2048,
+  "lbr_blocks": 512,
+  "chance_samples": 4,
+  "lbr_seconds": 5,
+  "lbr_targets": [
+    "2p-2026092801-2M",
+    "2p-2026092801-5M",
+    "2p-2026092801-10M",
+    "2p-2026092801-20M",
+    "2p-2026092802-2M",
+    "2p-2026092802-5M",
+    "2p-2026092802-10M",
+    "2p-2026092802-20M",
+    "2p-2026092803-2M",
+    "2p-2026092803-5M",
+    "2p-2026092803-10M",
+    "2p-2026092803-20M",
+    "uniform"
+  ],
+  "stress_root": 2026131001,
+  "lbr_root": 2026132001,
+  "preflight_root": 2026133001,
+  "calibration_root": 2026134001,
+  "limits": {
+    "max_rss_gib": 10.5,
+    "min_free_gib": 8,
+    "max_campaign_seconds": 36000,
+    "max_swap_growth_gib": 0.5,
+    "report_reserve_seconds": 1800
+  },
+  "reconstruction": "original /tmp/hu20_quality.py absent on local and M4; qualification: any pair, any ace, or both ranks at least ten",
+  "preflight_sha256": "e615bcea168ce5ed79ad1b85ac28a2386f236b0dda76de91e561382560536046",
+  "resource_decision": {
+    "hu_blocks": 4096,
+    "tp_blocks": 2048,
+    "lbr_blocks": 512,
+    "chance_samples": 4,
+    "basis": "40.93-second preflight, 168 outcome-suppressed hands; measured 2/8 samples on early, final and uniform. Four samples interpolate cost; include all 5M/10M targets before inspecting returns. Approximate 3-hour LBR projection, ten-hour hard cap including preflight/report. Cheap stress completes first."
+  }
+}
