@@ -11,6 +11,8 @@ from dataclasses import dataclass, field
 from itertools import combinations
 from math import fsum
 from random import Random
+import resource
+import sys
 from time import monotonic
 
 from src.blueprint.abstraction import Choice, choices
@@ -260,7 +262,8 @@ def _public_history(view: Observation) -> tuple:
 
 class _LocalSolver:
     def __init__(self, blueprint, view: Observation, random: Random, config: LocalCFRConfig,
-                 deadline: float, coverage: Counter):
+                 deadline: float, coverage: Counter, *, root_ranges=None,
+                 snapshot_seconds: tuple[float, ...] = (), rss_limit_bytes: int | None = None):
         self.blueprint = blueprint
         self.view = view
         self.random = random
@@ -273,10 +276,14 @@ class _LocalSolver:
         self.leaf_choices = 0
         self.cycles = 0
         self.diagnostics: list[dict] = []
+        self.time_snapshots: list[dict] = []
+        self.snapshot_seconds = snapshot_seconds
+        self.rss_limit_bytes = rss_limit_bytes
+        self.stop_reason = "cycle_cap"
         self.root_events, self.past_actions = _flop_root(view)
         root_view = replay(self.root_events, view.seat, view.hole_cards)
         self.live = tuple(player.seat for player in root_view.players if not player.folded)
-        self.root_ranges = _root_ranges(
+        self.root_ranges = root_ranges if root_ranges is not None else _root_ranges(
             blueprint, view, self.root_events, random, config.range_samples, deadline, coverage,
         )
         self.observed_raises = {}
@@ -287,8 +294,15 @@ class _LocalSolver:
 
     def _check(self):
         self.sampled_nodes += 1
-        if self.sampled_nodes > self.config.max_nodes or monotonic() >= self.deadline:
-            raise TimeoutError("Local CFR reached its node or time limit")
+        if self.sampled_nodes > self.config.max_nodes:
+            raise TimeoutError("Local CFR reached its node limit")
+        if monotonic() >= self.deadline:
+            raise TimeoutError("Local CFR reached its time limit")
+        if self.rss_limit_bytes is not None and self.sampled_nodes % 1024 == 0:
+            rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+            rss = rss if sys.platform == "darwin" else rss * 1024
+            if rss >= self.rss_limit_bytes:
+                raise MemoryError("Local CFR reached its process RSS limit")
 
     def _menu(self, view: Observation) -> tuple[Choice, ...]:
         menu = choices(view)
@@ -413,6 +427,7 @@ class _LocalSolver:
         return reach
 
     def solve(self) -> tuple[tuple[Choice, ...], tuple[float, ...]]:
+        started = monotonic()
         target_menu = self._menu(self.view)
         target_key = self._action_key(self.view, target_menu)
         target_names = tuple(item.name for item in target_menu)
@@ -452,7 +467,8 @@ class _LocalSolver:
                     if weight > 0:
                         self._visit(self._observed_world(holes), self.view.seat, deltas,
                                     weight, Random(self.random.getrandbits(64)))
-            except TimeoutError:
+            except TimeoutError as exc:
+                self.stop_reason = str(exc)
                 if self.cycles < self.config.min_cycles:
                     raise
                 break
@@ -460,7 +476,7 @@ class _LocalSolver:
                 self.final_strategy = self._policy(target_key, target_names)
             _publish(self.nodes, deltas)
             self.cycles = cycle
-            if cycle in (16, 32, 64, 128):
+            if cycle in (16, 32, 64, 128, 256, 512, 1024, 2048, 4096):
                 policy = self._policy(target_key, target_names)
                 previous = self.diagnostics[-1]["target_policy"] if self.diagnostics else None
                 positive = [max(0.0, regret) for node in self.nodes.values()
@@ -483,6 +499,26 @@ class _LocalSolver:
                         fsum(policy[index] for policy in leaf_policies) / len(leaf_policies)
                         if leaf_policies else 0.0 for index in range(len(STYLES))
                     ],
+                })
+            elapsed = monotonic() - started
+            while len(self.time_snapshots) < len(self.snapshot_seconds) and elapsed >= self.snapshot_seconds[len(self.time_snapshots)]:
+                threshold = self.snapshot_seconds[len(self.time_snapshots)]
+                target = self.nodes.get(target_key)
+                public = _public_history(self.view)
+                seen = {key[2] for key in self.nodes if key[0] == "action"
+                        and key[1] == self.view.seat and key[3] == self.view.board
+                        and key[4] == public}
+                self.time_snapshots.append({
+                    "threshold_seconds": threshold, "elapsed_seconds": elapsed,
+                    "cycles": self.cycles, "sampled_nodes": self.sampled_nodes,
+                    "target_visits": target.visits if target else 0,
+                    "target_holdings_visited": len(seen),
+                    "target_prior_mass_visited": fsum(mass for pair, mass in self.root_ranges[self.view.seat]
+                                                      if tuple(sorted(pair)) in seen),
+                    "target_policy": list(self._policy(target_key, target_names)) if target else None,
+                    "infosets": len(self.nodes), "leaf_choices": self.leaf_choices,
+                    "continuation_trained_lookups": self.coverage[("continuation", "trained")],
+                    "continuation_untrained_lookups": self.coverage[("continuation", "untrained")],
                 })
         if self.cycles < self.config.min_cycles:
             raise TimeoutError("Local CFR did not complete the required cycles")
