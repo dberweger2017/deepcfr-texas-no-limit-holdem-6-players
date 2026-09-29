@@ -1,0 +1,303 @@
+{
+  "baseline_models": [
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "results/hu20-scaling-both-macs-20260929/inputs/B-2026093001.json.gz",
+      "checkpoint_sha256": "cb4ca3348398f358c611d92467ae9f891de41f64e374cd847c0103ccb2d62822",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 20000000,
+      "name": "B-2026093001-20000000",
+      "nodes": 20000000,
+      "path": "results/hu20-scaling-both-macs-20260929/inputs/B-2026093001.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "198dae3eb36b6a830ab106ba13032ecab10fc1f2fc12bc4bb9bc06dcce9a01a6"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "results/hu20-scaling-both-macs-20260929/inputs/B-2026093002.json.gz",
+      "checkpoint_sha256": "03bfacfdb56801d2d079d350dcdb539e1dba02bcbef9c443a08c5299ff49f358",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 20000000,
+      "name": "B-2026093002-20000000",
+      "nodes": 20000000,
+      "path": "results/hu20-scaling-both-macs-20260929/inputs/B-2026093002.policy.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "4a8c3123437a28c5bea49447e67a91e490096819b3b820fd47c1ffb3f4bb0243"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "results/hu20-scaling-both-macs-20260929/inputs/B-2026093003.json.gz",
+      "checkpoint_sha256": "aa65e5633cc87c7d23bcb3be871813f3413120a256fe38ebdb2383215acf5afd",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 20000000,
+      "name": "B-2026093003-20000000",
+      "nodes": 20000000,
+      "path": "results/hu20-scaling-both-macs-20260929/inputs/B-2026093003.policy.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "76af425b2457777c64caf8ac44819ae7d28e915b4d8b0b95625f82d96773fbb8"
+    }
+  ],
+  "block_host_cycle": [
+    "m4",
+    "m4",
+    "m4",
+    "m1",
+    "m1"
+  ],
+  "chance_samples": 4,
+  "cheap_blocks": 4096,
+  "coordinator_models": "results/hu20-scaling-both-macs-20260929/models.json",
+  "deadline": 1790674521.7771149,
+  "demo_root": 2026156001,
+  "evaluation_deadline": 1790670921.7771149,
+  "expected_confirmation_hands": 608256,
+  "extraction": "final-current-C",
+  "host_names": {
+    "m1": "dberweger-m1",
+    "m4": "dberwegerch-m4.local"
+  },
+  "hosts": {
+    "m1": {
+      "python": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "source": "/Users/dberweger/.codex/worktrees/blueprint-averaged-extraction/deepcfr-texas-no-limit-holdem-6-players"
+    },
+    "m4": {
+      "python": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "source": "/Users/dberweger/Local/hu20-training-scaling-pr116"
+    }
+  },
+  "independent_path": "results/hu20-scaling-both-macs-20260929/inputs/independent-observations.jsonl.gz",
+  "independent_sha256": "3a8c9ee0c9c6364993ba4011af791c059f816ced2f1a02f449477928c5a35cd2",
+  "lbr_blocks": 2048,
+  "lbr_root": 2026154001,
+  "lbr_seconds": 5,
+  "limits": {
+    "max_campaign_seconds": 36000,
+    "max_entries": 3000000,
+    "max_nodes_per_iteration": 250000,
+    "max_rss_gib": 10.5,
+    "max_seconds_per_iteration": 300,
+    "max_swap_growth_gib": 0.5,
+    "min_free_gib": 8
+  },
+  "milestones": [
+    40000000,
+    80000000,
+    100000000
+  ],
+  "parent_revision": "c68c981c8cf503a01d31421e4b38f0fa81c86b0e",
+  "parents": {
+    "2026093001": {
+      "checkpoint_path": "results/hu20-scaling-both-macs-20260929/inputs/B-2026093001.json.gz",
+      "checkpoint_sha256": "cb4ca3348398f358c611d92467ae9f891de41f64e374cd847c0103ccb2d62822",
+      "completed_nodes": 20000557,
+      "entries": 730010,
+      "iteration": 55291,
+      "seed": 2026093001
+    },
+    "2026093002": {
+      "checkpoint_path": "results/hu20-scaling-both-macs-20260929/inputs/B-2026093002.json.gz",
+      "checkpoint_sha256": "03bfacfdb56801d2d079d350dcdb539e1dba02bcbef9c443a08c5299ff49f358",
+      "completed_nodes": 20000238,
+      "entries": 729165,
+      "iteration": 54709,
+      "seed": 2026093002
+    },
+    "2026093003": {
+      "checkpoint_path": "results/hu20-scaling-both-macs-20260929/inputs/B-2026093003.json.gz",
+      "checkpoint_sha256": "aa65e5633cc87c7d23bcb3be871813f3413120a256fe38ebdb2383215acf5afd",
+      "completed_nodes": 20000268,
+      "entries": 723259,
+      "iteration": 57701,
+      "seed": 2026093003
+    }
+  },
+  "preflight_root": 2026151001,
+  "primary": "LBR-original-cap2 long minus own 20M",
+  "primary_interval_level": 0.975,
+  "prior_roots": [
+    "/Users/dberweger/Local/hu20-pr112/results/hu20-m4-20260927",
+    "/Users/dberweger/Local/tp20-pr113/results/tp20-m4-20260928",
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928",
+    "/Users/dberweger/Local/robustness-pr114/results/robustness-m4-20260928-audit",
+    "/Users/dberweger/Local/hu20-native-reopening-ab/results/hu20-native-reopening-m4-20260928"
+  ],
+  "reason": "First new transfer/resource preflight; one deadline for both hosts",
+  "recovery_nodes": 10000000,
+  "recovery_seconds": 900,
+  "reference_models": [
+    {
+      "abstraction": "hu20-ordered-history-card-baseline-v2",
+      "arm": "A",
+      "checkpoint_path": "results/hu20-scaling-both-macs-20260929/inputs/A-2026093001.json.gz",
+      "checkpoint_sha256": "db426b9be746e196333d0f0d4310a0353a0957a5798c00a88b13a5126af7f38d",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-blueprint-v2",
+      "milestone": 20000000,
+      "name": "A-2026093001-20000000",
+      "nodes": 20000000,
+      "path": "results/hu20-scaling-both-macs-20260929/inputs/A-2026093001.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "b67ebfe7c36cc13b6457e1d15729186a4f4d0b665cf9d818ce32bde5a13a1d05"
+    },
+    {
+      "abstraction": "hu20-ordered-history-card-baseline-v2",
+      "arm": "A",
+      "checkpoint_path": "results/hu20-scaling-both-macs-20260929/inputs/A-2026093002.json.gz",
+      "checkpoint_sha256": "fc09d38382a9587c98a1d014f6cf83e6bf577dc447fe6499b06c06cb91aac595",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-blueprint-v2",
+      "milestone": 20000000,
+      "name": "A-2026093002-20000000",
+      "nodes": 20000000,
+      "path": "results/hu20-scaling-both-macs-20260929/inputs/A-2026093002.policy.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "7768332ce71004ca0fa8db853a17ace619b5da70ce477463a6d68b59dc3da0d9"
+    },
+    {
+      "abstraction": "hu20-ordered-history-card-baseline-v2",
+      "arm": "A",
+      "checkpoint_path": "results/hu20-scaling-both-macs-20260929/inputs/A-2026093003.json.gz",
+      "checkpoint_sha256": "51c86cee74e35784d250db21f7ef5b3d5b838c3eaea2131abdd5038b4aed0192",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-blueprint-v2",
+      "milestone": 20000000,
+      "name": "A-2026093003-20000000",
+      "nodes": 20000000,
+      "path": "results/hu20-scaling-both-macs-20260929/inputs/A-2026093003.policy.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "09c5319b09ed5523a8433be0b626b7c9ffcd4cc7484ac07fd5543866d813257e"
+    }
+  ],
+  "resource_decision": {
+    "choice": {
+      "evaluation_audit_seconds": 12639.962920343667,
+      "feasible": true,
+      "forecast_seconds": 28309.164262319286,
+      "host_evaluation_audit_seconds": {
+        "m1": 11747.112380718321,
+        "m4": 12639.962920343667
+      },
+      "host_training_seconds": {
+        "m1": 10050.686450056497,
+        "m4": 13869.201341975619
+      },
+      "lbr_blocks": 2048,
+      "nodes": 100000000,
+      "report_reserve_seconds": 1800,
+      "training_seconds": 13869.201341975619
+    },
+    "entry_bound_basis": "Measured complete artifact path on both hosts, not a fitted growth bound",
+    "lbr_allowance": 1.25,
+    "max_entries": 3000000,
+    "node_time_allowance": 1.2,
+    "proposals": [
+      {
+        "evaluation_audit_seconds": 12639.962920343667,
+        "feasible": false,
+        "forecast_seconds": 41729.11633629349,
+        "host_evaluation_audit_seconds": {
+          "m1": 11747.112380718321,
+          "m4": 12639.962920343667
+        },
+        "host_training_seconds": {
+          "m1": 19788.371529236985,
+          "m4": 27289.153415949826
+        },
+        "lbr_blocks": 2048,
+        "nodes": 180000000,
+        "report_reserve_seconds": 1800,
+        "training_seconds": 27289.153415949826
+      },
+      {
+        "evaluation_audit_seconds": 12639.962920343667,
+        "feasible": false,
+        "forecast_seconds": 35019.14029930639,
+        "host_evaluation_audit_seconds": {
+          "m1": 11747.112380718321,
+          "m4": 12639.962920343667
+        },
+        "host_training_seconds": {
+          "m1": 14919.528989646742,
+          "m4": 20579.177378962722
+        },
+        "lbr_blocks": 2048,
+        "nodes": 140000000,
+        "report_reserve_seconds": 1800,
+        "training_seconds": 20579.177378962722
+      },
+      {
+        "evaluation_audit_seconds": 12639.962920343667,
+        "feasible": true,
+        "forecast_seconds": 28309.164262319286,
+        "host_evaluation_audit_seconds": {
+          "m1": 11747.112380718321,
+          "m4": 12639.962920343667
+        },
+        "host_training_seconds": {
+          "m1": 10050.686450056497,
+          "m4": 13869.201341975619
+        },
+        "lbr_blocks": 2048,
+        "nodes": 100000000,
+        "report_reserve_seconds": 1800,
+        "training_seconds": 13869.201341975619
+      }
+    ],
+    "qualification": "Time projections are conservative estimates; original deadline and resource guards remain authoritative",
+    "remaining_seconds": 34846.467718839645
+  },
+  "resource_record_sha256": {
+    "clock.json": "ac3d1776be904ec4c0b2ac5b25aa492642c59163df37b3ebb9d21aeee3feb996",
+    "parity.json": "b4f1a6cc0acc82e67fb4a2a69321dde7d68661451e4922adb0b895821aff7648",
+    "resource-choice.json": "d4b66045e69dc9356e283f57cae728c4661c36a3035b844e10b4f5c61262880e",
+    "resource-memory.json": "7730cc1d2add52a6a6e2aacdac05298b731756f9ac8bde7921b2fb04a3800e4e"
+  },
+  "root": "results/hu20-scaling-both-macs-20260929",
+  "safeguard": "Pressure-native long minus own 20M; lower bound > -10 BB/100",
+  "schema": "hu20-continued-scaling-both-macs-v1",
+  "secondary_blocks": 256,
+  "secondary_root": 2026155001,
+  "source_files_sha256": {
+    "requirements.txt": "8a1a48bfd02c4f64e8d36039006a0822b8f234e9290b4697b633cdf251d39d3a",
+    "src/blueprint/abstraction.py": "bbfa96316cdd3227833d47297c1f7b2a6b7762c5fcebd7fd0d3f2716395cef25",
+    "src/blueprint/artifact.py": "a6aa7c6c4601a64f0c8c2adf3d4642250a69171f426a66878c226de43795973c",
+    "src/blueprint/solver.py": "2497d71311acf274b31d1c3033f441c3bc08753894d8157be5317350dd0bdd82",
+    "src/diagnostics/robustness.py": "92b265f7f6670bb13fef747ebc2002df54dbba7407aaf6a75665654bd2fc507f"
+  },
+  "started": 1790638521.7771149,
+  "status": "frozen",
+  "stress_root": 2026153001,
+  "swap_baselines": {
+    "m1": "vm.swapusage: total = 2048.00M  used = 575.56M  free = 1472.44M  (encrypted)",
+    "m4": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+  },
+  "training_assignment": {
+    "m1": [
+      2026093002
+    ],
+    "m4": [
+      2026093001,
+      2026093003
+    ]
+  },
+  "training_deadline": 1790660081.8141944,
+  "training_seeds": [
+    2026093001,
+    2026093002,
+    2026093003
+  ],
+  "training_total_nodes": 100000000
+}

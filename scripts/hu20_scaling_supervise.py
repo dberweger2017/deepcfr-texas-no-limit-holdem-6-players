@@ -16,7 +16,7 @@ from scripts.tp20_common import append
 from scripts.train_hu20 import system, write_json
 
 
-def run(jobs, out, deadline, swap_before=None):
+def run(jobs, out, deadline, swap_before=None, coordinator_pid=None):
     acquire(out)
     record = {"status": "running", "started": time(), "deadline": deadline,
               "identity": identity(), "attempts": [],
@@ -35,6 +35,7 @@ def run(jobs, out, deadline, swap_before=None):
                     listing = subprocess.check_output(["ps", "-axo", "pid=,ppid=,rss="], text=True)
                     processes = [tuple(map(int, line.split())) for line in listing.splitlines() if line.strip()]
                     owned = {os.getpid(), child.pid}
+                    if coordinator_pid: owned.add(coordinator_pid)
                     for _ in range(4): owned.update(pid for pid, parent, _ in processes if parent in owned)
                     sizes = [size*1024 for pid, _, size in processes if pid in owned]
                     peak = max(peak, max(sizes, default=0)); aggregate_peak = max(aggregate_peak, sum(sizes))
@@ -71,8 +72,8 @@ def run(jobs, out, deadline, swap_before=None):
 def main():
     p = argparse.ArgumentParser(); p.add_argument("--jobs", type=Path, required=True)
     p.add_argument("--out", type=Path, required=True); p.add_argument("--deadline", type=float, required=True)
-    p.add_argument("--swap-baseline"); a = p.parse_args()
-    record = run(json.loads(a.jobs.read_text()), a.out, a.deadline, a.swap_baseline)
+    p.add_argument("--swap-baseline"); p.add_argument("--coordinator-pid",type=int); a = p.parse_args()
+    record = run(json.loads(a.jobs.read_text()), a.out, a.deadline, a.swap_baseline,a.coordinator_pid)
     print(json.dumps(record)); return record["status"] != "complete"
 
 

@@ -27,6 +27,7 @@ def run(plan, parent, out, deadline):
     write_json(out / "manifest.json", result)
     marker = 0; saved_nodes = total; saved_time = time(); slot = 0
     last_parent_hash = parent["checkpoint_sha256"]
+    last_parent_nodes = total; last_parent_iteration = trainer.iteration
     try:
         while total < plan["training_total_nodes"]:
             check(plan, out, deadline, before)
@@ -43,11 +44,14 @@ def run(plan, parent, out, deadline):
                 checkpoint_hash = save_training(trainer, cp)
                 checkpoint_seconds = perf_counter()-t; t = perf_counter()
                 ph = export_policy(trainer, policy); export_seconds = perf_counter()-t
+                check(plan, out, deadline, before)
                 row = {"requested_total_nodes": requested, "completed_nodes": total,
                        "additional_nodes": total-initial, "overshoot_nodes": total-requested,
                        "iteration": trainer.iteration, "entries": len(trainer.nodes),
                        "checkpoint_sha256": checkpoint_hash, "policy_sha256": ph,
                        "parent_checkpoint_sha256": last_parent_hash,
+                       "starting_nodes": last_parent_nodes, "starting_iteration": last_parent_iteration,
+                       "ending_nodes": total, "ending_iteration": trainer.iteration,
                        "checkpoint_seconds": checkpoint_seconds, "export_seconds": export_seconds,
                        "peak_rss_bytes": rss()}
                 t = perf_counter()
@@ -55,6 +59,7 @@ def run(plan, parent, out, deadline):
                 row["independent_seconds"] = perf_counter()-t
                 append(out / "milestones.jsonl", row); result["milestones"].append(row)
                 last_parent_hash = checkpoint_hash; marker += 1
+                last_parent_nodes = total; last_parent_iteration = trainer.iteration
                 saved_nodes = total; saved_time = time()
             elif total-saved_nodes >= plan["recovery_nodes"] or time()-saved_time >= plan["recovery_seconds"]:
                 # Alternate atomic files: the previous valid recovery survives replacement.
@@ -69,6 +74,7 @@ def run(plan, parent, out, deadline):
                            "iteration": trainer.iteration, "entries": len(trainer.nodes),
                            "seconds": time()-started, "peak_rss_bytes": rss()})
         if marker != len(plan["milestones"]): raise ValueError("Missing fixed milestone")
+        check(plan, out, deadline, before)
         result["status"] = "complete"
     except Exception as exc:
         result.update(failure=f"{type(exc).__name__}: {exc}",
@@ -76,6 +82,7 @@ def run(plan, parent, out, deadline):
                       discarded_work=trainer.last_attempt_work, failed_iteration=trainer.iteration+1)
         result["partial_checkpoint_sha256"] = save_training(trainer, out / "partial-last-completed.json.gz")
     result.update(completed_nodes=total, additional_nodes=total-initial,
+                  overshoot_nodes=max(0,total-plan["training_total_nodes"]),
                   completed_iterations=trainer.iteration,
                   additional_iterations=trainer.iteration-parent["iteration"],
                   entries=len(trainer.nodes), finished=time(), peak_rss_bytes=rss(),

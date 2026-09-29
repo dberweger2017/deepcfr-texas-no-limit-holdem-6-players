@@ -52,6 +52,7 @@ def run(plan, specs, host, out, deadline, swap_before=None):
                 import gc
                 gc.collect()
                 source = Target(spec); current = spec["name"]
+                check(plan, out, deadline, before)
             selected = [b for b in range(blocks) if shard_owner(b, plan) == host]
             attempt = {"policy": spec["name"], "attacker": label, "phase": phase,
                        "requested_blocks": len(selected), "completed_blocks": 0,
