@@ -1,5 +1,7 @@
 # Evidence for the next M4 training batch
 
+> Historical analysis of the Deep CFR campaigns through #86, retained in #87. Later campaigns and the blueprint pivot supersede its proposed next run. This report preserves the original evidence and does not schedule computation.
+
 **Recommendation: keep the current architecture, learning rate and sampler as
 the control. If the next batch tests longer training, change only the number of
 self-play iterations and retain both seeds. There is no demonstrated optimizer

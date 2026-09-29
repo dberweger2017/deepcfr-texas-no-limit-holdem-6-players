@@ -1,0 +1,751 @@
+{
+  "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+  "comparisons": {
+    "random": {
+      "plan": {
+        "baseline": "blueprint_search",
+        "blocks": 4,
+        "candidate": "blueprint_local_cfr",
+        "max_decisions": 1000,
+        "models": [],
+        "opponents": [
+          "random"
+        ],
+        "pool": null,
+        "root_seed": 2026093002,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "six-handed-100bb",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000,
+              10000,
+              10000,
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "validation"
+      },
+      "report": {
+        "attempted_hands": 48,
+        "baseline_policy": "blueprint_search",
+        "candidate_policy": "blueprint_local_cfr",
+        "completed_hands": 48,
+        "failed_hands": 0,
+        "invalid_actions": 0,
+        "opponent_pool": [
+          "random"
+        ],
+        "outcomes_sha256": "af2f4f7c84e97e7a5dee9804c7112e84b3c6211a9d0d56c81dbe76eaf3318c13",
+        "requested_hands": 48,
+        "scenarios": {
+          "six-handed-100bb": {
+            "comparison": {
+              "baseline": {
+                "bb_per_100": 737.5,
+                "blocks": 4,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              },
+              "candidate": {
+                "bb_per_100": 737.5,
+                "blocks": 4,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              },
+              "conclusion": "inconclusive",
+              "paired_difference": {
+                "bb_per_100": 0.0,
+                "blocks": 4,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              }
+            },
+            "counts": {
+              "baseline": {
+                "completed": 24,
+                "dealt_in": 24
+              },
+              "candidate": {
+                "completed": 24,
+                "dealt_in": 24
+              }
+            },
+            "initial_players": 6,
+            "lineups": [
+              {
+                "baseline": {
+                  "bb_per_100": 737.5,
+                  "blocks": 4,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": 737.5,
+                  "blocks": 4,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "random",
+                  "random",
+                  "random",
+                  "random",
+                  "random"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 0.0,
+                  "blocks": 4,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              }
+            ],
+            "mode": "fixed",
+            "starting_stacks_bb": [
+              100.0,
+              100.0,
+              100.0,
+              100.0,
+              100.0,
+              100.0
+            ]
+          }
+        },
+        "schedule_sha256": "fcaf620b698a4c881f734d6ecb694c0b79502d64473f4960fec8695287b2e017",
+        "split": "validation",
+        "status": "valid",
+        "unattempted_hands": 0
+      },
+      "telemetry": {
+        "baseline": {
+          "delegated_search_attempts": 0,
+          "delegated_search_fallbacks": 0,
+          "lookup_coverage": {
+            "continuation": {
+              "off_menu_action": 0,
+              "off_tree": 438,
+              "trained": 253,
+              "untrained": 1374
+            },
+            "range": {
+              "off_menu_action": 288,
+              "off_tree": 384,
+              "trained": 3749,
+              "untrained": 475
+            }
+          },
+          "search_attempts": 5,
+          "search_by_street": {
+            "flop": {
+              "attempts": 5,
+              "completed": 5,
+              "fallbacks": 0
+            },
+            "river": {
+              "attempts": 0,
+              "completed": 0,
+              "fallbacks": 0
+            },
+            "turn": {
+              "attempts": 0,
+              "completed": 0,
+              "fallbacks": 0
+            }
+          },
+          "search_completed": 5,
+          "search_fallbacks": 0,
+          "search_seconds_max": 0.11409516609273851,
+          "search_seconds_p50": 0.07211016595829278,
+          "search_seconds_p95": 0.11166891700122505,
+          "solver_cycles_median": null,
+          "solver_cycles_min": null,
+          "solver_diagnostics": null,
+          "solver_leaf_choices": 0,
+          "solver_nodes": 0
+        },
+        "candidate": {
+          "delegated_search_attempts": 5,
+          "delegated_search_fallbacks": 0,
+          "lookup_coverage": {
+            "continuation": {
+              "off_menu_action": 0,
+              "off_tree": 0,
+              "trained": 0,
+              "untrained": 0
+            },
+            "range": {
+              "off_menu_action": 0,
+              "off_tree": 0,
+              "trained": 0,
+              "untrained": 0
+            }
+          },
+          "search_attempts": 0,
+          "search_by_street": {
+            "flop": {
+              "attempts": 0,
+              "completed": 0,
+              "fallbacks": 0
+            },
+            "river": {
+              "attempts": 0,
+              "completed": 0,
+              "fallbacks": 0
+            },
+            "turn": {
+              "attempts": 0,
+              "completed": 0,
+              "fallbacks": 0
+            }
+          },
+          "search_completed": 0,
+          "search_fallbacks": 0,
+          "search_seconds_max": null,
+          "search_seconds_p50": null,
+          "search_seconds_p95": null,
+          "solver_cycles_median": null,
+          "solver_cycles_min": null,
+          "solver_diagnostics": {
+            "128": {
+              "action_infosets": null,
+              "leaf_infosets": null,
+              "max_positive_regret": null,
+              "mean_positive_regret": null,
+              "target_l1_from_previous": null
+            },
+            "16": {
+              "action_infosets": null,
+              "leaf_infosets": null,
+              "max_positive_regret": null,
+              "mean_positive_regret": null,
+              "target_l1_from_previous": null
+            },
+            "32": {
+              "action_infosets": null,
+              "leaf_infosets": null,
+              "max_positive_regret": null,
+              "mean_positive_regret": null,
+              "target_l1_from_previous": null
+            },
+            "64": {
+              "action_infosets": null,
+              "leaf_infosets": null,
+              "max_positive_regret": null,
+              "mean_positive_regret": null,
+              "target_l1_from_previous": null
+            }
+          },
+          "solver_leaf_choices": 0,
+          "solver_nodes": 0
+        },
+        "candidate_decisions": 44,
+        "decision_seconds_max": 0.12120799999684095,
+        "decision_seconds_p50": 2.004194539040327e-05,
+        "decision_seconds_p95": 0.05093066697008908,
+        "peak_process_rss_bytes": 7031357440,
+        "search_attempts": 0,
+        "search_by_street": {
+          "flop": {
+            "attempts": 0,
+            "completed": 0,
+            "fallbacks": 0
+          },
+          "river": {
+            "attempts": 0,
+            "completed": 0,
+            "fallbacks": 0
+          },
+          "turn": {
+            "attempts": 0,
+            "completed": 0,
+            "fallbacks": 0
+          }
+        },
+        "search_completed": 0,
+        "search_fallbacks": 0,
+        "search_seconds_max": null,
+        "search_seconds_p50": null,
+        "search_seconds_p95": null
+      }
+    },
+    "styles": {
+      "plan": {
+        "baseline": "blueprint_search",
+        "blocks": 8,
+        "candidate": "blueprint_local_cfr",
+        "max_decisions": 1000,
+        "models": [],
+        "opponents": [
+          "tight_passive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "pool": null,
+        "root_seed": 2026093001,
+        "scenarios": [
+          {
+            "big_blind": 100,
+            "chip_unit": "0.01",
+            "hands_per_rotation": 1,
+            "mode": "fixed",
+            "name": "six-handed-100bb",
+            "small_blind": 50,
+            "stacks": [
+              10000,
+              10000,
+              10000,
+              10000,
+              10000,
+              10000
+            ]
+          }
+        ],
+        "split": "validation"
+      },
+      "report": {
+        "attempted_hands": 96,
+        "baseline_policy": "blueprint_search",
+        "candidate_policy": "blueprint_local_cfr",
+        "completed_hands": 96,
+        "failed_hands": 0,
+        "invalid_actions": 0,
+        "opponent_pool": [
+          "tight_passive",
+          "loose_aggressive",
+          "pot_pressure"
+        ],
+        "outcomes_sha256": "ee462d95bd919a2643e10a3bf43788cc20caeae078c28bf02f6e31775bb34fcb",
+        "requested_hands": 96,
+        "scenarios": {
+          "six-handed-100bb": {
+            "comparison": {
+              "baseline": {
+                "bb_per_100": -1030.7291666666667,
+                "blocks": 8,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              },
+              "candidate": {
+                "bb_per_100": -1030.7291666666667,
+                "blocks": 8,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              },
+              "conclusion": "inconclusive",
+              "paired_difference": {
+                "bb_per_100": 0.0,
+                "blocks": 8,
+                "ci95": null,
+                "reason": "too_few_blocks"
+              }
+            },
+            "counts": {
+              "baseline": {
+                "completed": 48,
+                "dealt_in": 48
+              },
+              "candidate": {
+                "completed": 48,
+                "dealt_in": 48
+              }
+            },
+            "initial_players": 6,
+            "lineups": [
+              {
+                "baseline": {
+                  "bb_per_100": -808.3333333333334,
+                  "blocks": 2,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": -808.3333333333334,
+                  "blocks": 2,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "loose_aggressive",
+                  "loose_aggressive",
+                  "loose_aggressive",
+                  "loose_aggressive",
+                  "pot_pressure"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 0.0,
+                  "blocks": 2,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": -1129.1666666666667,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": -1129.1666666666667,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "loose_aggressive",
+                  "loose_aggressive",
+                  "pot_pressure",
+                  "tight_passive",
+                  "tight_passive"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 0.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": 58.333333333333336,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": 58.333333333333336,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "loose_aggressive",
+                  "tight_passive",
+                  "tight_passive",
+                  "tight_passive",
+                  "tight_passive"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 0.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": -4991.666666666667,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": -4991.666666666667,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "pot_pressure",
+                  "pot_pressure",
+                  "pot_pressure",
+                  "tight_passive",
+                  "pot_pressure"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 0.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": -3433.3333333333335,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": -3433.3333333333335,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "tight_passive",
+                  "tight_passive",
+                  "tight_passive",
+                  "loose_aggressive",
+                  "loose_aggressive"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 0.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": -25.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": -25.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "tight_passive",
+                  "tight_passive",
+                  "tight_passive",
+                  "loose_aggressive",
+                  "tight_passive"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 0.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              },
+              {
+                "baseline": {
+                  "bb_per_100": 2891.6666666666665,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "candidate": {
+                  "bb_per_100": 2891.6666666666665,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                },
+                "conclusion": "inconclusive",
+                "opponents": [
+                  "tight_passive",
+                  "tight_passive",
+                  "tight_passive",
+                  "pot_pressure",
+                  "loose_aggressive"
+                ],
+                "paired_difference": {
+                  "bb_per_100": 0.0,
+                  "blocks": 1,
+                  "ci95": null,
+                  "reason": "too_few_blocks"
+                }
+              }
+            ],
+            "mode": "fixed",
+            "starting_stacks_bb": [
+              100.0,
+              100.0,
+              100.0,
+              100.0,
+              100.0,
+              100.0
+            ]
+          }
+        },
+        "schedule_sha256": "796ac2b166b937a77b98547d03d8aad48532459cc40f1a2e7901cc98376c8d83",
+        "split": "validation",
+        "status": "valid",
+        "unattempted_hands": 0
+      },
+      "telemetry": {
+        "baseline": {
+          "delegated_search_attempts": 0,
+          "delegated_search_fallbacks": 0,
+          "lookup_coverage": {
+            "continuation": {
+              "off_menu_action": 0,
+              "off_tree": 1830,
+              "trained": 390,
+              "untrained": 8914
+            },
+            "range": {
+              "off_menu_action": 1248,
+              "off_tree": 1632,
+              "trained": 4083,
+              "untrained": 16941
+            }
+          },
+          "search_attempts": 29,
+          "search_by_street": {
+            "flop": {
+              "attempts": 20,
+              "completed": 20,
+              "fallbacks": 0
+            },
+            "river": {
+              "attempts": 5,
+              "completed": 5,
+              "fallbacks": 0
+            },
+            "turn": {
+              "attempts": 4,
+              "completed": 4,
+              "fallbacks": 0
+            }
+          },
+          "search_completed": 29,
+          "search_fallbacks": 0,
+          "search_seconds_max": 0.15338700008578598,
+          "search_seconds_p50": 0.06202125002164394,
+          "search_seconds_p95": 0.11199916701298207,
+          "solver_cycles_median": null,
+          "solver_cycles_min": null,
+          "solver_diagnostics": null,
+          "solver_leaf_choices": 0,
+          "solver_nodes": 0
+        },
+        "candidate": {
+          "delegated_search_attempts": 27,
+          "delegated_search_fallbacks": 0,
+          "lookup_coverage": {
+            "continuation": {
+              "off_menu_action": 0,
+              "off_tree": 0,
+              "trained": 0,
+              "untrained": 45460
+            },
+            "range": {
+              "off_menu_action": 0,
+              "off_tree": 0,
+              "trained": 1656,
+              "untrained": 7128
+            }
+          },
+          "search_attempts": 3,
+          "search_by_street": {
+            "flop": {
+              "attempts": 3,
+              "completed": 3,
+              "fallbacks": 0
+            },
+            "river": {
+              "attempts": 0,
+              "completed": 0,
+              "fallbacks": 0
+            },
+            "turn": {
+              "attempts": 0,
+              "completed": 0,
+              "fallbacks": 0
+            }
+          },
+          "search_completed": 3,
+          "search_fallbacks": 0,
+          "search_seconds_max": 2.997773249982856,
+          "search_seconds_p50": 2.356771624996327,
+          "search_seconds_p95": 2.356771624996327,
+          "solver_cycles_median": 128,
+          "solver_cycles_min": 128,
+          "solver_diagnostics": {
+            "128": {
+              "action_infosets": 349.3333333333333,
+              "leaf_infosets": 868.0,
+              "max_positive_regret": 6698.839821070628,
+              "mean_positive_regret": 367.21321330684714,
+              "target_l1_from_previous": 0.481104876581121
+            },
+            "16": {
+              "action_infosets": 57.0,
+              "leaf_infosets": 133.0,
+              "max_positive_regret": 633.0199863344744,
+              "mean_positive_regret": 40.868544982720444,
+              "target_l1_from_previous": null
+            },
+            "32": {
+              "action_infosets": 106.33333333333333,
+              "leaf_infosets": 252.0,
+              "max_positive_regret": 1258.219833583017,
+              "mean_positive_regret": 84.20528166117498,
+              "target_l1_from_previous": 0.4473707712394594
+            },
+            "64": {
+              "action_infosets": 196.66666666666666,
+              "leaf_infosets": 465.0,
+              "max_positive_regret": 3441.7106426001687,
+              "mean_positive_regret": 171.79054813924844,
+              "target_l1_from_previous": 0.3812551627124407
+            }
+          },
+          "solver_leaf_choices": 18888,
+          "solver_nodes": 52437
+        },
+        "candidate_decisions": 100,
+        "decision_seconds_max": 2.998284125002101,
+        "decision_seconds_p50": 2.26249685510993e-05,
+        "decision_seconds_p95": 0.1299673339817673,
+        "peak_process_rss_bytes": 7031357440,
+        "search_attempts": 3,
+        "search_by_street": {
+          "flop": {
+            "attempts": 3,
+            "completed": 3,
+            "fallbacks": 0
+          },
+          "river": {
+            "attempts": 0,
+            "completed": 0,
+            "fallbacks": 0
+          },
+          "turn": {
+            "attempts": 0,
+            "completed": 0,
+            "fallbacks": 0
+          }
+        },
+        "search_completed": 3,
+        "search_fallbacks": 0,
+        "search_seconds_max": 2.997773249982856,
+        "search_seconds_p50": 2.356771624996327,
+        "search_seconds_p95": 2.356771624996327
+      }
+    }
+  },
+  "feasibility": {
+    "completed": 3,
+    "completion_rate": 1.0,
+    "eligible_attempts": 3,
+    "maximum_solver_seconds": 2.997773249982856,
+    "minimum_completed_cycles": 128,
+    "passed": true,
+    "peak_process_rss_bytes": 7031357440
+  },
+  "search": {
+    "max_seconds": 1.0,
+    "range_samples": 96,
+    "styles": [
+      "blueprint",
+      "fold",
+      "call",
+      "raise"
+    ],
+    "variant": "corrected",
+    "worlds": 12
+  },
+  "status": "valid"
+}

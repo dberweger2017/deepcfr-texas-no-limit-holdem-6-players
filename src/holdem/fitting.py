@@ -21,8 +21,11 @@ class FitConfig:
     batch_size: int = 64
     learning_rate: float = 0.001
     diagnostic_samples: int = 128
+    architecture: str = "current"
 
     def __post_init__(self):
+        if self.architecture not in ("current", "paper") or (self.architecture == "paper" and self.width != 64):
+            raise ValueError("Invalid architecture or architecture width")
         if any(
             type(v) is not int or v < 1
             for v in (self.width, self.steps, self.batch_size, self.diagnostic_samples)
@@ -119,7 +122,7 @@ def fit_role(
         torch.random.default_generator.manual_seed(
             stream_seed(seed, "holdem-fit-initial", iteration, memory.role)
         )
-        model = BettingNetwork(config.width).cpu().float()
+        model = BettingNetwork(config.width, config.architecture).cpu().float()
         optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
 
         def loss(samples):

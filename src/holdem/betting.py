@@ -44,9 +44,16 @@ class ActionScores:
 
 
 class BettingNetwork(nn.Module):
-    def __init__(self, width: int = 128):
+    def __init__(self, width: int = 128, architecture: str = "current"):
         super().__init__()
-        self.encoder = DecisionEncoder(width)
+        if architecture not in ("current", "paper"):
+            raise ValueError("Unknown betting architecture")
+        self.architecture = architecture
+        if architecture == "paper":
+            from src.holdem.paper_encoder import PaperEncoder
+            self.encoder = PaperEncoder(width)
+        else:
+            self.encoder = DecisionEncoder(width)
         self.action = nn.Sequential(nn.Linear(width + FEATURES, width), nn.ReLU())
         self.regret = nn.Linear(width, 1)
         self.value = nn.Linear(width, 1)

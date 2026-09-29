@@ -22,10 +22,16 @@ def write_json(path, value):
 
 def used_bytes(directory):
     total = 0
+    seen = set()
     for path in directory.rglob("*"):
         try:
             if path.is_file():
-                total += path.stat().st_size
+                stat = path.stat()
+                identity = (stat.st_dev, stat.st_ino)
+                # Pinned checkpoints are hard links to the same stored bytes.
+                if identity not in seen:
+                    total += stat.st_size
+                    seen.add(identity)
         except FileNotFoundError:
             # Atomic checkpoint publication can rename a file during this scan.
             continue

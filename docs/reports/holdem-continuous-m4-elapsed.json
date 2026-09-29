@@ -1,0 +1,41 @@
+{
+  "method": "Approximate worker start from manifest mtime, completion from timing-file mtime; includes intervening training, evaluation and storage work. Not exact process-start timestamps or an isolated hardware comparison.",
+  "arms": {
+    "baseline": {
+      "2": {
+        "iteration": 256,
+        "approx_elapsed_seconds": 5765.676543712616,
+        "bb_per_100": -958.6100260416666
+      },
+      "4": {
+        "iteration": 512,
+        "approx_elapsed_seconds": 12711.082466602325,
+        "bb_per_100": -905.126953125
+      }
+    },
+    "branching": {
+      "2": {
+        "iteration": 256,
+        "approx_elapsed_seconds": 7028.012849569321,
+        "bb_per_100": -1007.0638020833334
+      },
+      "4": {
+        "iteration": 512,
+        "approx_elapsed_seconds": 13747.718490362167,
+        "bb_per_100": -1104.8665364583333
+      }
+    },
+    "replay": {
+      "2": {
+        "iteration": 256,
+        "approx_elapsed_seconds": 7156.272414445877,
+        "bb_per_100": -803.4749348958334
+      },
+      "4": {
+        "iteration": 448,
+        "approx_elapsed_seconds": 13367.475224018097,
+        "bb_per_100": -813.7939453125
+      }
+    }
+  }
+}
