@@ -302,7 +302,7 @@ def translation_report(root, previous_deal_seeds):
 
 def previous_deals(path):
     seeds = set()
-    for file in sorted(path.glob("B-*-100000000--LBR-original-cap2.jsonl.gz")):
+    for file in sorted(path.glob("*.jsonl.gz")):
         for row in _rows(file):
             seeds.add(row["deal_seed"])
     return seeds
