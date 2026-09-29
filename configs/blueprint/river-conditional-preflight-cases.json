@@ -1,0 +1,43 @@
+{
+  "schema": "river-conditional-preflight-cases-v1",
+  "cases": [
+    {
+      "id": "dev-dry-check",
+      "board": [
+        "2h",
+        "7d",
+        "9c",
+        "Js",
+        "Qs"
+      ],
+      "stack": 1000,
+      "button": 0,
+      "deck_shift": 18,
+      "survivors": 2,
+      "street_bets": {},
+      "range_shape": "blueprint",
+      "hero_position": "first",
+      "opponent_style": "tight_passive"
+    },
+    {
+      "id": "dev-paired-flop",
+      "board": [
+        "2c",
+        "2d",
+        "7h",
+        "9s",
+        "Kc"
+      ],
+      "stack": 500,
+      "button": 1,
+      "deck_shift": 3,
+      "survivors": 2,
+      "street_bets": {
+        "flop": 100
+      },
+      "range_shape": "uniform",
+      "hero_position": "second",
+      "opponent_style": "loose_aggressive"
+    }
+  ]
+}

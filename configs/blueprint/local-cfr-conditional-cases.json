@@ -1,0 +1,485 @@
+{
+  "cases": [
+    {
+      "button": 0,
+      "deal_seed": 2026100101,
+      "hero_seat": 1,
+      "id": "00-0",
+      "observation_sha256": "4bafe6a5967e2bbac978a46c42b39e8194f30708e81de8fd27b5daa6da6f76a3",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100201
+    },
+    {
+      "button": 0,
+      "deal_seed": 2026100101,
+      "hero_seat": 2,
+      "id": "00-1",
+      "observation_sha256": "ea01589aa278c2a9af26d7d1c0cadb300ab4da91f8fce9fd4492164da588a046",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100202
+    },
+    {
+      "button": 0,
+      "deal_seed": 2026100101,
+      "hero_seat": 2,
+      "id": "00-2",
+      "observation_sha256": "95892fd6e4ec3e3f213e25dcb6421f33ec2821017d26668c8543802c1c1de8e2",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100203
+    },
+    {
+      "button": 0,
+      "deal_seed": 2026100101,
+      "hero_seat": 0,
+      "id": "00-3",
+      "observation_sha256": "3f893454786827b73d272847ce2e84c1397ef8c40f3fd5e3041bc1423e069c2b",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100204
+    },
+    {
+      "button": 1,
+      "deal_seed": 2026100102,
+      "hero_seat": 2,
+      "id": "01-0",
+      "observation_sha256": "babc7cc9c0842d3fd9d0b1297c530f236f3a58860dbc78c3a48762cae751ce52",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100205
+    },
+    {
+      "button": 1,
+      "deal_seed": 2026100102,
+      "hero_seat": 3,
+      "id": "01-1",
+      "observation_sha256": "a094b8a3f8fc20fea536ae2094b2d1d5504d889acde141915c514b0f3d4e8c4b",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100206
+    },
+    {
+      "button": 1,
+      "deal_seed": 2026100102,
+      "hero_seat": 3,
+      "id": "01-2",
+      "observation_sha256": "8077eefc43a18ddda7a038a1db8ee652f19663807fbdb6efa31231385759f029",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100207
+    },
+    {
+      "button": 1,
+      "deal_seed": 2026100102,
+      "hero_seat": 1,
+      "id": "01-3",
+      "observation_sha256": "a5e8bfd6c54ac91fcc3cfa2406a4e57cb12db2c14e637b15320a42a551eab2e9",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100208
+    },
+    {
+      "button": 2,
+      "deal_seed": 2026100103,
+      "hero_seat": 3,
+      "id": "02-0",
+      "observation_sha256": "583c88b973ff6c862b8e73a7af569414b96c176c2f69040167d4349ef3ea1f11",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100209
+    },
+    {
+      "button": 2,
+      "deal_seed": 2026100103,
+      "hero_seat": 4,
+      "id": "02-1",
+      "observation_sha256": "c403ad4f018f89bc641626f140e30209715054e49759dcc0bda3b18a64f18ed1",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100210
+    },
+    {
+      "button": 2,
+      "deal_seed": 2026100103,
+      "hero_seat": 4,
+      "id": "02-2",
+      "observation_sha256": "a241ae945193dd2337e8e25f8fb2e5a5b6c2ba054870ea26b771b359f3db4bd4",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100211
+    },
+    {
+      "button": 2,
+      "deal_seed": 2026100103,
+      "hero_seat": 2,
+      "id": "02-3",
+      "observation_sha256": "3780be51452f320b50644b29e86c38a1f9ec216d49f47554a99319deb252dbc6",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100212
+    },
+    {
+      "button": 3,
+      "deal_seed": 2026100104,
+      "hero_seat": 4,
+      "id": "03-0",
+      "observation_sha256": "65672c3876df29b9ea8c30fe4ad69b04a502ccd7f48a06803d9c5c2cd478dfe9",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100213
+    },
+    {
+      "button": 3,
+      "deal_seed": 2026100104,
+      "hero_seat": 5,
+      "id": "03-1",
+      "observation_sha256": "9ce22816d3ab112a78214343248890d782e4979a601de0d395fb90afd7d9b029",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100214
+    },
+    {
+      "button": 3,
+      "deal_seed": 2026100104,
+      "hero_seat": 5,
+      "id": "03-2",
+      "observation_sha256": "4893c1233be0c05b099f78f1e99b35933203612d64c3eafaa64261c0ed944a3f",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100215
+    },
+    {
+      "button": 3,
+      "deal_seed": 2026100104,
+      "hero_seat": 3,
+      "id": "03-3",
+      "observation_sha256": "141afff5e3afefe878e432634a6d4dc37cd39aacc67103d8febdadd01b510801",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100216
+    },
+    {
+      "button": 4,
+      "deal_seed": 2026100105,
+      "hero_seat": 5,
+      "id": "04-0",
+      "observation_sha256": "a8651f2db44a4141483b3b7f701811931b5f40897caf1a72673952d554fe7d9a",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100217
+    },
+    {
+      "button": 4,
+      "deal_seed": 2026100105,
+      "hero_seat": 0,
+      "id": "04-1",
+      "observation_sha256": "58b1ea2a4e2630c0ea95301c3c3e9f84cf719020ae8c980090570acadedaca58",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100218
+    },
+    {
+      "button": 4,
+      "deal_seed": 2026100105,
+      "hero_seat": 0,
+      "id": "04-2",
+      "observation_sha256": "edd39f1b96715e214edc03b74b061bc274cd08c621b092fee266f6a01962a2cf",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100219
+    },
+    {
+      "button": 4,
+      "deal_seed": 2026100105,
+      "hero_seat": 4,
+      "id": "04-3",
+      "observation_sha256": "bf69e68dfc3264f70f3ddaece31f0199cc3c8160da2ffcea3795c26c4479e349",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100220
+    },
+    {
+      "button": 5,
+      "deal_seed": 2026100106,
+      "hero_seat": 0,
+      "id": "05-0",
+      "observation_sha256": "9eae7e227fc433ed286ae8bc9e47d4b2d81d4e90d089bbd42228dcfbaf13d3b7",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100221
+    },
+    {
+      "button": 5,
+      "deal_seed": 2026100106,
+      "hero_seat": 1,
+      "id": "05-1",
+      "observation_sha256": "b782f3725b19eaae7c83761d20cf3a0fe34ad54f729bf8d74a97881927659570",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100222
+    },
+    {
+      "button": 5,
+      "deal_seed": 2026100106,
+      "hero_seat": 1,
+      "id": "05-2",
+      "observation_sha256": "b645d3e05b5e10e72ea856d746825fe5f74a3e1a6be764fd690cb7a8d0b1041c",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100223
+    },
+    {
+      "button": 5,
+      "deal_seed": 2026100106,
+      "hero_seat": 5,
+      "id": "05-3",
+      "observation_sha256": "d0c3d70e915b06e4f6b27188f4a697bfef4648fa5976ad120d4f565a149cc2d1",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100224
+    },
+    {
+      "button": 0,
+      "deal_seed": 2026100107,
+      "hero_seat": 1,
+      "id": "06-0",
+      "observation_sha256": "fb156126bafdfe4a34f5eb16dc90ec9fa7b3dee865e9ac82c990fda6a3de02c1",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100225
+    },
+    {
+      "button": 0,
+      "deal_seed": 2026100107,
+      "hero_seat": 2,
+      "id": "06-1",
+      "observation_sha256": "1f311ff42e8daa68bffb9d2aeaf892a4d8c3209851b66162cfec800e9d8a0c2c",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100226
+    },
+    {
+      "button": 0,
+      "deal_seed": 2026100107,
+      "hero_seat": 2,
+      "id": "06-2",
+      "observation_sha256": "9006cad824e91cdbc6088dadb7dce1dd58c2e8a714049fa8650a4e512b85809b",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100227
+    },
+    {
+      "button": 0,
+      "deal_seed": 2026100107,
+      "hero_seat": 0,
+      "id": "06-3",
+      "observation_sha256": "e7edd88ac416632d486b6af02a8c9fc0e7aa3e7aaafe6ade3e2e69d21eb55aec",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100228
+    },
+    {
+      "button": 1,
+      "deal_seed": 2026100108,
+      "hero_seat": 2,
+      "id": "07-0",
+      "observation_sha256": "cdd187b2fb6ecbe2ff0de2c72bf528b3390db2d1400137f95c9ed08cfa4f940e",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100229
+    },
+    {
+      "button": 1,
+      "deal_seed": 2026100108,
+      "hero_seat": 3,
+      "id": "07-1",
+      "observation_sha256": "0b8ef9b8eefdd8bd72c9155f59d87fc7100ce44ca7691ddb1ba5e58b074ee925",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100230
+    },
+    {
+      "button": 1,
+      "deal_seed": 2026100108,
+      "hero_seat": 3,
+      "id": "07-2",
+      "observation_sha256": "9d1ca243f43e35368b0075c423cca85e11d5f4657a52005ac328daa1412741f6",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100231
+    },
+    {
+      "button": 1,
+      "deal_seed": 2026100108,
+      "hero_seat": 1,
+      "id": "07-3",
+      "observation_sha256": "6e52f635b731d9269872dcb159ad162937e2399d826a3cbef111041841aade7b",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100232
+    },
+    {
+      "button": 2,
+      "deal_seed": 2026100109,
+      "hero_seat": 3,
+      "id": "08-0",
+      "observation_sha256": "5f587318596de89f48228bd67909b5a3847a25376a081166c6d31c04dfde014f",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100233
+    },
+    {
+      "button": 2,
+      "deal_seed": 2026100109,
+      "hero_seat": 4,
+      "id": "08-1",
+      "observation_sha256": "57d2151865a28b1f3447a77a3c7444cce99f4e9bc9c8f7045e97e8021abe8b7c",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100234
+    },
+    {
+      "button": 2,
+      "deal_seed": 2026100109,
+      "hero_seat": 4,
+      "id": "08-2",
+      "observation_sha256": "98c61a8ef4fde562d9ffbb62835dc2ef0e564ee32331710148f09a762dc0a0cc",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100235
+    },
+    {
+      "button": 2,
+      "deal_seed": 2026100109,
+      "hero_seat": 2,
+      "id": "08-3",
+      "observation_sha256": "046b3e29bd2bc6ac978d240f021d845081ccb7c390284abbc3300d2ffc119a37",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100236
+    },
+    {
+      "button": 3,
+      "deal_seed": 2026100110,
+      "hero_seat": 4,
+      "id": "09-0",
+      "observation_sha256": "d72ed27ed784ea17fa56aa33ba5ec6fa7a887c5f7e9981a306ef23bdc0007198",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100237
+    },
+    {
+      "button": 3,
+      "deal_seed": 2026100110,
+      "hero_seat": 5,
+      "id": "09-1",
+      "observation_sha256": "958cc82cad6832c134b5083dd0984986b275cf08081ab11f8f58371d5bd0c9d3",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100238
+    },
+    {
+      "button": 3,
+      "deal_seed": 2026100110,
+      "hero_seat": 5,
+      "id": "09-2",
+      "observation_sha256": "97d4dc07c7a7b088b21b75708c65706613dd0b58b86a872348384404be29c5ef",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100239
+    },
+    {
+      "button": 3,
+      "deal_seed": 2026100110,
+      "hero_seat": 3,
+      "id": "09-3",
+      "observation_sha256": "35a777ec9fac487114250324ca8021e26dd92b2b126426e4ac1bb39c4dd1e1b1",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100240
+    },
+    {
+      "button": 4,
+      "deal_seed": 2026100111,
+      "hero_seat": 5,
+      "id": "10-0",
+      "observation_sha256": "f739f2447557e93e181e1fd1a374a6b0483cd1b90235ae45b68ad49df6a212e7",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100241
+    },
+    {
+      "button": 4,
+      "deal_seed": 2026100111,
+      "hero_seat": 0,
+      "id": "10-1",
+      "observation_sha256": "1f3b0be1a8a41150167a340e05386f64a5f6b5921ca72d1c4a5d48708aed6f50",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100242
+    },
+    {
+      "button": 4,
+      "deal_seed": 2026100111,
+      "hero_seat": 0,
+      "id": "10-2",
+      "observation_sha256": "35c3877020daf15ba8417c2edce7bd37da5bac4d08f8e205b17439e761beab83",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100243
+    },
+    {
+      "button": 4,
+      "deal_seed": 2026100111,
+      "hero_seat": 4,
+      "id": "10-3",
+      "observation_sha256": "8c95c8f1f66c753ba2cc68cd4e33b768db5248424a6c2c36533382b3d546e865",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100244
+    },
+    {
+      "button": 5,
+      "deal_seed": 2026100112,
+      "hero_seat": 0,
+      "id": "11-0",
+      "observation_sha256": "d3814bd3eb7c2f5d220d553a1dfa0c271bfeefd1759f63c1dbe1d5217fa3fbcb",
+      "position": 0,
+      "prefix": "check",
+      "search_seed": 2026100245
+    },
+    {
+      "button": 5,
+      "deal_seed": 2026100112,
+      "hero_seat": 1,
+      "id": "11-1",
+      "observation_sha256": "b19bfdd113a00c58b79e0361e08d4f8d1eebb0988d7ec8ddaeebb5b0c4c590d7",
+      "position": 1,
+      "prefix": "check",
+      "search_seed": 2026100246
+    },
+    {
+      "button": 5,
+      "deal_seed": 2026100112,
+      "hero_seat": 1,
+      "id": "11-2",
+      "observation_sha256": "1346f014d3830257d9f8f79efdd38e979e9e3412aa19c3df0a3167733d996a11",
+      "position": 1,
+      "prefix": "raise",
+      "search_seed": 2026100247
+    },
+    {
+      "button": 5,
+      "deal_seed": 2026100112,
+      "hero_seat": 5,
+      "id": "11-3",
+      "observation_sha256": "4b49badfea1fbcd0d8a4f1fbae5ea5eac783ab938296b130e681ba2cc7696674",
+      "position": 2,
+      "prefix": "check",
+      "search_seed": 2026100248
+    }
+  ],
+  "plan_sha256": "8fa03f4f3fb73d0d47bb0eab20c8fea441ea006c172ea4114bbdf29bea84894e"
+}
