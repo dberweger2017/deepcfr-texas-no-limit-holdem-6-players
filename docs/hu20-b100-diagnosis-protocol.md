@@ -75,6 +75,16 @@ shared-key or missing-action counterexample with a conditional value contrast;
 otherwise label it unproven. Any highest-gap examples chosen after this
 selection are explicitly exploratory.
 
+If the primary audit finishes with time for a targeted collision check, take
+the lowest-hash *trained* primary decision on each street. Enumerate other
+compatible concrete hero holdings with the identical information key and
+choose the lowest and highest exact hand-rank tuple on the visible board
+(lexicographic tie-break; on preflop choose lexicographic endpoints). Evaluate
+each alternative under the same 96-world conditional model. This comparison
+is prespecified but diagnostic, not a claim that those hands occur at a given
+frequency. It may show a concrete lost card distinction; absence of a
+contrast in four roots does not validate the abstraction.
+
 ## Additional fixed comparisons
 
 For the missing LBR curve, evaluate saved 20M/40M/80M/100M current policies
