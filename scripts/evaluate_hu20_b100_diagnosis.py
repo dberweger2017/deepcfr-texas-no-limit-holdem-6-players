@@ -101,6 +101,7 @@ def run_curve(models, frozen_path, output, deadline):
     swap_before = _swap_gib()
     attempts = []
     total_hands = 0
+    peak_rss = rss()
     try:
         for coordinate, spec in sorted(_specs(models).items()):
             _guard(output, deadline, swap_before)
@@ -117,6 +118,7 @@ def run_curve(models, frozen_path, output, deadline):
                     total_hands += 1
                 for block in range(count):
                     _guard(output, deadline, swap_before)
+                    peak_rss = max(peak_rss, rss())
                     for rotation in (0, 1):
                         play(source, spec, ("lbr",), "menu", block, rotation,
                              CURVE_ROOT, "diagnosis-curve", LBRConfig(4, 5), emit)
@@ -133,7 +135,7 @@ def run_curve(models, frozen_path, output, deadline):
         if attempts and attempts[-1]["status"] == "running":
             attempts[-1].update(status="failed", failure=failure)
     result = {"status": status, "failure": failure, "hands": total_hands,
-              "peak_rss_bytes": rss(), "swap_before_gib": swap_before,
+              "peak_rss_bytes": max(peak_rss, rss()), "swap_before_gib": swap_before,
               "swap_after_gib": _swap_gib(), "finished": time()}
     write_json(output / "attempts.json", attempts)
     write_json(output / "result.json", result)
@@ -160,6 +162,7 @@ def run_translation(models, output, deadline):
     specs = _specs(models)
     attempts = []
     hands = 0
+    peak_rss = rss()
     try:
         for seed in SEEDS:
             spec = specs[(seed, 100000000)]
@@ -183,6 +186,7 @@ def run_translation(models, output, deadline):
                             hands += 1
                         for block in range(blocks):
                             _guard(output, deadline, swap_before)
+                            peak_rss = max(peak_rss, rss())
                             opponent_seed = stream_seed(root, "test", "action", 2, block, 1)
                             for rotation in (0, 1):
                                 rivals = {1: _opponent(panel, opponent_seed)}
@@ -202,7 +206,7 @@ def run_translation(models, output, deadline):
         if attempts and attempts[-1]["status"] == "running":
             attempts[-1].update(status="failed", failure=failure)
     result = {"status": status, "failure": failure, "hands": hands,
-              "peak_rss_bytes": rss(), "swap_before_gib": swap_before,
+              "peak_rss_bytes": max(peak_rss, rss()), "swap_before_gib": swap_before,
               "swap_after_gib": _swap_gib(), "finished": time()}
     write_json(output / "attempts.json", attempts)
     write_json(output / "result.json", result)

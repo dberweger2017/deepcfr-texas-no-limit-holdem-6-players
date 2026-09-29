@@ -25,7 +25,7 @@ def estimate(data):
         return None
     center = mean(values)
     width = 1.96 * stdev(values) / sqrt(len(values)) if len(values) > 1 else None
-    return {"n_blocks": len(values), "bb100": center,
+    return {"n_blocks": len(values), "bb100": center, "bb_per_hand": center/100,
             "ci95": [center-width, center+width] if width is not None else None}
 
 
@@ -173,7 +173,11 @@ def curve_report(root, previous_deal_seeds):
             estimates[str(milestone)] = {"seeds": seed_result,
                 "aggregate": estimate(mean(values[(seed, milestone)][(b, rot)]["target_chips"]
                                            for seed in SEEDS for rot in (0, 1))
-                                      for b in range(requested))}
+                                      for b in range(requested)),
+                "roles": {str(rot): estimate(mean(values[(seed, milestone)][(b, rot)]["target_chips"]
+                                                   for seed in SEEDS)
+                                              for b in range(requested))
+                          for rot in (0, 1)}}
             if milestone != 20000000:
                 estimates[str(milestone)]["minus_own20m"] = estimate(
                     mean(values[(seed, milestone)][(b, rot)]["target_chips"]
@@ -181,6 +185,7 @@ def curve_report(root, previous_deal_seeds):
                          for seed in SEEDS for rot in (0, 1))
                     for b in range(requested))
     return {"status": "complete" if complete else "incomplete", "requested_blocks": requested,
+            "intervals": "exploratory unadjusted 95% paired block intervals",
             "result": result, "attempts": attempts, "issues": issues,
             "estimates": estimates, "archive_sha256": hashes}
 
@@ -196,6 +201,7 @@ def translation_report(root, previous_deal_seeds):
     issues = []
     for panel in PANELS:
         panels = {}
+        all_seed_rows = {}
         for seed in SEEDS:
             variants = {}
             for variant in ("exact", "nearest"):
@@ -211,6 +217,7 @@ def translation_report(root, previous_deal_seeds):
                 continue
             if set(variants["exact"]) != set(variants["nearest"]):
                 raise ValueError("Translation variants have unequal schedule")
+            all_seed_rows[seed] = variants
             if panel in ("native_minraise", "passive"):
                 for key in variants["exact"]:
                     concrete = lambda row: [(item["seat"], item["kind"], item["raise_to"])
@@ -227,6 +234,9 @@ def translation_report(root, previous_deal_seeds):
             for variant, rows in variants.items():
                 target = [item for row in rows.values() for item in row["actions"] if item["logical_player"] == 0]
                 mapped = [item for item in target if item.get("translation", {}).get("attempted")]
+                latencies = sorted(item["seconds"] for item in target)
+                reasons = Counter(item["translation"].get("reason", "translated_hit")
+                                  for item in mapped)
                 telemetry[variant] = {"target_decisions": len(target),
                     "trained": sum(item["target_trained"] is True for item in target),
                     "fallback": sum(item["target_trained"] is False for item in target),
@@ -234,12 +244,41 @@ def translation_report(root, previous_deal_seeds):
                     "translated_attempts": len(mapped),
                     "translated_hits": sum(item["translation"]["translated_hit"] for item in mapped),
                     "seconds_per_target_decision": mean(item["seconds"] for item in target) if target else None,
+                    "p95_seconds_per_target_decision": (latencies[int(.95*(len(latencies)-1))]
+                                                        if latencies else None),
+                    "translation_reasons": dict(reasons),
+                    "no_abstract_raise_events": sum(event["status"] == "no_abstract_raise"
+                                                    for item in target
+                                                    for event in item.get("translation", {}).get("events", [])),
                     "size_pairs": [event for item in mapped for event in item["translation"]["events"]
                                    if event["status"] == "mapped"][:100]}
             panels[str(seed)] = {"exact": exact, "nearest": nearest,
                                   "nearest_minus_exact": contrast, "telemetry": telemetry}
+        if set(all_seed_rows) == set(SEEDS):
+            schedule = set(all_seed_rows[SEEDS[0]]["exact"])
+            if any(set(all_seed_rows[seed][variant]) != schedule
+                   for seed in SEEDS for variant in ("exact", "nearest")):
+                raise ValueError("Seed/variant translation schedules differ")
+            blocks = sorted({block for block, _ in schedule})
+            def aggregate(variant):
+                return estimate(mean(all_seed_rows[seed][variant][(block, rotation)]["target_chips"]
+                                     for seed in SEEDS for rotation in (0, 1))
+                                for block in blocks)
+            panels["aggregate"] = {"exact": aggregate("exact"), "nearest": aggregate("nearest"),
+                "nearest_minus_exact": estimate(
+                    mean(all_seed_rows[seed]["nearest"][(block, rotation)]["target_chips"] -
+                         all_seed_rows[seed]["exact"][(block, rotation)]["target_chips"]
+                         for seed in SEEDS for rotation in (0, 1))
+                    for block in blocks)}
+            panels["aggregate"]["roles"] = {
+                str(rotation): {
+                    variant: estimate(mean(all_seed_rows[seed][variant][(block, rotation)]["target_chips"]
+                                           for seed in SEEDS) for block in blocks)
+                    for variant in ("exact", "nearest")}
+                for rotation in (0, 1)}
         estimates[panel] = panels
-    return {"status": result["status"], "result": result, "attempts": attempts,
+    return {"status": result["status"], "intervals": "exploratory unadjusted 95% paired block intervals",
+            "result": result, "attempts": attempts,
             "issues": issues, "estimates": estimates, "archive_sha256": hashes}
 
 
