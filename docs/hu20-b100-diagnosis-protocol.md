@@ -95,6 +95,9 @@ preflight writes no returns and selects the largest feasible common count
 among 64/128/256/512 blocks. The selection uses observed seconds/block and
 remaining time only, reserving at least 90 minutes for audits/reporting; it
 never uses apparent profit. Freeze count/root before confirmation outcomes.
+The preflight reports projected interval width using #116's 2,048-block
+aggregate LBR contrast half-width (18.51 BB/100 at 97.5%) as an outcome-free
+variance proxy; this is planning, not a guarantee for intermediate milestones.
 All policies receive the same deals and rotations, with separate actual-game
 and attacker internal streams. Report absolute and own-20M paired BB/100,
 seed/seat effects, block intervals, failures and soft-limited comparisons.

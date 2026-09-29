@@ -4,6 +4,7 @@ import argparse
 import gc
 import gzip
 import json
+from math import sqrt
 import re
 import shutil
 import subprocess
@@ -83,6 +84,10 @@ def curve_preflight(models, output, deadline):
     frozen = {"status": "feasible" if selected else "insufficient_time",
               "selected_blocks": selected, "candidates": [64, 128, 256, 512],
               "rule": "largest with 1.2x measured workload and 90-minute report reserve",
+              "precision_planning": {"source": "#116 aggregate B100-minus-own20 LBR, 2048 blocks, 97.5% halfwidth 18.51 BB/100",
+                  "projected_95_halfwidth_bb100": {str(count): 18.51*(1.96/2.24)*sqrt(2048/count)
+                                                    for count in (64, 128, 256, 512)},
+                  "limitation": "Historical variance proxy; intermediate contrasts may differ."},
               "remaining_seconds_at_freeze": remaining,
               "per_block_total_seconds": per_block_total,
               "measurements": measurements, "root": CURVE_ROOT,
