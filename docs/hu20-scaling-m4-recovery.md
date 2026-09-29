@@ -44,3 +44,7 @@ Attempt root: `results/hu20-scaling-m4-recovery-20260929-1008`. Runtime inventor
 rsync -a m4:/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/ ./hu20-scaling-m4-recovery/
 scp m4:/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008-final-manifest.json ./
 ```
+
+## Repository integration
+
+The owner authorized merging previous PRs while keeping #116 draft. #87 and #107–#115 are now merged into main; #105/#106 were already merged. #116 now targets main, and its local Git branch includes the accepted integrations. The running M4 checkout remains pinned to `874ba641fc6110a2d0998af986608633abef8898`; it is not pulled or changed during the recovery. These repository merges neither change the frozen experiment nor promote a model.

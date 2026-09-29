@@ -2,7 +2,7 @@
 
 ## Frozen question and authorization
 
-Draft #116 depends on unmerged #115. This continues all three saved B trajectories; it is not a new cap A/B. Does substantially more work improve realized target profit against the unchanged original-cap2 local best response while retaining native-pressure performance? No model promotion, merge, paid host or following campaign is authorized.
+Draft #116 now targets main after the owner-authorized merge of #115. The original dual-Mac protocol below is retained; the active separately authorized recovery is described in [M4-only recovery](hu20-scaling-m4-recovery.md). This continues all three saved B trajectories; it is not a new cap A/B. Does substantially more work improve realized target profit against the unchanged original-cap2 local best response while retaining native-pressure performance? No model promotion, merge, paid host or following campaign is authorized.
 
 ## Outcome-free preflight and fixed work
 
