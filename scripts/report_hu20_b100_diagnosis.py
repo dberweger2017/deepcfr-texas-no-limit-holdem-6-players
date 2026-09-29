@@ -211,6 +211,13 @@ def translation_report(root, previous_deal_seeds):
                 continue
             if set(variants["exact"]) != set(variants["nearest"]):
                 raise ValueError("Translation variants have unequal schedule")
+            if panel in ("native_minraise", "passive"):
+                for key in variants["exact"]:
+                    concrete = lambda row: [(item["seat"], item["kind"], item["raise_to"])
+                                            for item in row["actions"]]
+                    if (concrete(variants["exact"][key]) != concrete(variants["nearest"][key])
+                            or variants["exact"][key]["target_chips"] != variants["nearest"][key]["target_chips"]):
+                        raise ValueError("On-menu translation control changed a native hand")
             blocks = sorted({key[0] for key in variants["exact"]})
             exact = estimate(mean(variants["exact"][(b, r)]["target_chips"] for r in (0, 1)) for b in blocks)
             nearest = estimate(mean(variants["nearest"][(b, r)]["target_chips"] for r in (0, 1)) for b in blocks)
@@ -249,7 +256,10 @@ def report(root, previous):
     result = {"schema": "hu20-b100-diagnosis-audit-v1",
               "decisions": decision_report(root),
               "curve": curve_report(root, old),
-              "translation": translation_report(root, old)}
+              "translation": translation_report(root, old),
+              "card_collisions": (json.loads((root / "card-collisions" / "result.json").read_text())
+                                  if (root / "card-collisions" / "result.json").exists()
+                                  else {"status": "pending"})}
     files = [p for p in root.rglob("*") if p.is_file() and p.name not in ("report.json", "artifact-manifest.json")]
     manifest = {str(p.relative_to(root)): {"sha256": _file_sha(p), "bytes": p.stat().st_size}
                 for p in sorted(files)}
