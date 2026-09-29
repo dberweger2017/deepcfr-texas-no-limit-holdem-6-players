@@ -1,5 +1,7 @@
 # M4-only uncapped HU20 scaling recovery
 
+**Subsequent completion:** the owner authorized a separate M4-only evaluation of the 99 panels deferred by this attempt's original deadline. Its [audited diagnostic report](hu20-scaling-diagnostics.md) completes the frozen 608,256-hand schedule. The primary results and this attempt's historical incomplete status remain unchanged.
+
 Draft [PR #116](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/116) resumed the three retained, independently seeded uncapped HU20 checkpoints from the failed dual-Mac attempt. This was a separately authorized M4-only run with its own fixed 10-hour clock, from 2026-09-29 10:08:33 to 20:08:33 UTC. The previous failure, partial artifacts and deadline remain recorded in the [dual-Mac report](hu20-scaling-both-macs.md). The M4 source stayed frozen at `874ba641fc6110a2d0998af986608633abef8898`; the model, betting menu, card and history abstraction, K1, current-policy extraction, LBR work budget and paired schedules were unchanged. M1 performed only small-file transfers, edits, Git and status reads.
 
 **Outcome:** all three lineages reached the fixed 100M total-node checkpoint. The two prespecified primary comparisons completed, were natively replayed, and passed their gates. The overall campaign is **incomplete**: 73,728 of 608,256 planned confirmation hands were played, and 99 diagnostic panels remain pending because their outcome-free time forecast exceeded the original deadline reserve. No model was promoted or merged.
