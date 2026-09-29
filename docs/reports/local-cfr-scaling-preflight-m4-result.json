@@ -1,0 +1,35 @@
+{
+  "elapsed_seconds": 134.96287337504327,
+  "mean_within_case_policy_l1": null,
+  "modes": {
+    "targeting_off": {
+      "attempts": 2,
+      "max_cycles": 1029,
+      "median_cycles": 1019.0,
+      "median_target_prior_mass_visited": 0.5732094469667489,
+      "median_target_visits": 0.5,
+      "statuses": {
+        "completed": 1,
+        "target_unvisited": 1
+      },
+      "trained_lookup_fraction": 0.20544023781925613
+    },
+    "targeting_on": {
+      "attempts": 2,
+      "max_cycles": 864,
+      "median_cycles": 787.0,
+      "median_target_prior_mass_visited": 0.4766692634462979,
+      "median_target_visits": 571.5,
+      "statuses": {
+        "completed": 2
+      },
+      "trained_lookup_fraction": 0.20646978285933898
+    }
+  },
+  "peak_process_rss_bytes": 8082194432,
+  "planned_attempts": 4,
+  "policy_pairs": 0,
+  "preflight": true,
+  "retained_attempts": 4,
+  "status": "valid"
+}

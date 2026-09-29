@@ -1,0 +1,20 @@
+{
+  "checkpoint_sha256": "c6649a3e8ab061c70c5f6192d91f1f4090f15d68f4821cf3b50f2746f816c845",
+  "source_cases": "configs/blueprint/local-cfr-conditional-cases.json",
+  "repetitions": 5,
+  "seed_namespace": "local-cfr-scaling-107-v1",
+  "local_cfr": {
+    "max_seconds": 60.0,
+    "range_samples": 96,
+    "min_cycles": 32,
+    "max_cycles": 4096,
+    "max_nodes": 2000000
+  },
+  "snapshot_seconds": [5, 15, 30, 60],
+  "execution": {
+    "max_wall_seconds": 36000,
+    "max_rss_gib": 10.5,
+    "min_free_gib": 30,
+    "tensorboard_every_attempts": 10
+  }
+}
