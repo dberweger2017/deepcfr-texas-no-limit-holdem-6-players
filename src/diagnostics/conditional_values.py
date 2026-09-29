@@ -57,30 +57,37 @@ def world_action_returns(view, target, seed, world_index):
     return tuple(returns), limited
 
 
-def summarize(values, probabilities):
-    """Paired world-clustered 95% normal intervals, explicitly descriptive."""
-    if not values:
-        raise ValueError("No complete action-comparison worlds")
+def summarize(values, probabilities, *, selection_worlds=48):
+    """Select on the first half; estimate its paired gain on the held-out half."""
     n = len(values)
+    if selection_worlds < 2 or n != 2 * selection_worlds:
+        raise ValueError("Expected equal, nonempty selection and evaluation halves")
     if any(len(row) != len(probabilities) for row in values):
         raise ValueError("Incomplete action comparison")
     columns = tuple(tuple(row[i] for row in values) for i in range(len(probabilities)))
-    estimate = [mean(column) for column in columns]
-    uncertainty = [1.96 * stdev(column) / sqrt(n) if n > 1 else None for column in columns]
+    descriptive_means = [mean(column) for column in columns]
+    descriptive_uncertainty = [1.96 * stdev(column) / sqrt(n) for column in columns]
     policy = tuple(sum(p * value for p, value in zip(probabilities, row)) for row in values)
-    policy_mean = mean(policy)
-    best = max(range(len(estimate)), key=lambda i: estimate[i])
-    differences = tuple(row[best] - own for row, own in zip(values, policy))
+    selection_means = [mean(column[:selection_worlds]) for column in columns]
+    selected = max(range(len(selection_means)), key=lambda i: selection_means[i])
+    evaluation = values[selection_worlds:]
+    evaluation_policy = policy[selection_worlds:]
+    differences = tuple(row[selected] - own for row, own in zip(evaluation, evaluation_policy))
     gap = mean(differences)
-    gap_halfwidth = 1.96 * stdev(differences) / sqrt(n) if n > 1 else None
+    gap_halfwidth = 1.96 * stdev(differences) / sqrt(selection_worlds)
     return {
         "worlds": n,
-        "action_mean_bb": estimate,
-        "action_95_halfwidth_bb": uncertainty,
-        "policy_mean_bb": policy_mean,
-        "best_estimated_index": best,
-        "policy_gap_bb": gap,
-        "policy_gap_95_interval_bb": [gap-gap_halfwidth, gap+gap_halfwidth] if gap_halfwidth is not None else None,
+        "selection_worlds": selection_worlds,
+        "evaluation_worlds": selection_worlds,
+        "selection_action_mean_bb": selection_means,
+        "selected_action_index": selected,
+        "evaluation_selected_action_mean_bb": mean(row[selected] for row in evaluation),
+        "evaluation_policy_mean_bb": mean(evaluation_policy),
+        "evaluation_policy_gap_bb": gap,
+        "evaluation_policy_gap_95_interval_bb": [gap-gap_halfwidth, gap+gap_halfwidth],
+        "descriptive_action_mean_bb": descriptive_means,
+        "descriptive_action_95_halfwidth_bb": descriptive_uncertainty,
+        "descriptive_policy_mean_bb": mean(policy),
     }
 
 

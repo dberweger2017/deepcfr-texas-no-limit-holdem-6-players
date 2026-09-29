@@ -86,9 +86,11 @@ def decision_report(root):
         if attempt["status"] == "complete":
             if len(data) != 96:
                 raise ValueError("Completed decision lacks frozen 96 worlds")
-            independent = summarize(data, attempt["probabilities"])
+            independent = summarize(data, attempt["probabilities"], selection_worlds=48)
             prior = attempt["summary"]
-            if abs(independent["policy_gap_bb"] - prior["policy_gap_bb"]) > 1e-10:
+            if (independent["selected_action_index"] != prior["selected_action_index"]
+                    or abs(independent["evaluation_policy_gap_bb"]
+                           - prior["evaluation_policy_gap_bb"]) > 1e-10):
                 raise ValueError("Independent conditional gap arithmetic differs")
             node = attempt["node"]
             if attempt["trained"] != (node is not None):
@@ -100,10 +102,17 @@ def decision_report(root):
             training_half = data[:48]
             evaluation_half = data[48:]
             best = max(range(len(p)), key=lambda i: mean(row[i] for row in training_half))
+            if best != prior["selected_action_index"]:
+                raise ValueError("Selection action changed after the frozen first half")
             heldout = [row[best] - sum(q*v for q,v in zip(p,row))
                        for row in evaluation_half]
             heldout_mean = mean(heldout)
             heldout_width = 1.96 * stdev(heldout) / sqrt(len(heldout))
+            if (abs(heldout_mean - prior["evaluation_policy_gap_bb"]) > 1e-10
+                    or any(abs(actual - expected) > 1e-10 for actual, expected in zip(
+                        (heldout_mean-heldout_width, heldout_mean+heldout_width),
+                        prior["evaluation_policy_gap_95_interval_bb"]))):
+                raise ValueError("Held-out gap or interval differs from independent arithmetic")
             played = next(i for i, action in enumerate(attempt["menu"])
                           if action["kind"] == attempt["selected_action"]["kind"]
                           and action["raise_to"] == attempt["selected_action"]["raise_to"])
@@ -114,7 +123,11 @@ def decision_report(root):
                      "visit_band": band, "visits": node["visits"] if node else 0,
                      "entropy_nats": entropy, "gap_bb": heldout_mean,
                      "gap_interval_bb": [heldout_mean-heldout_width, heldout_mean+heldout_width],
-                     "descriptive_full_sample_gap_bb": independent["policy_gap_bb"],
+                     "selection_worlds": 48, "evaluation_worlds": 48,
+                     "selection_action_mean_bb": prior["selection_action_mean_bb"],
+                     "descriptive_action_mean_bb": prior["descriptive_action_mean_bb"],
+                     "descriptive_policy_mean_bb": prior["descriptive_policy_mean_bb"],
+                     "selected_action_index": best,
                      "best_action": attempt["menu"][best],
                      "played_action_gap_bb": chosen_mean,
                      "played_action_gap_interval_bb": [chosen_mean-chosen_width, chosen_mean+chosen_width],
@@ -312,6 +325,9 @@ def report(root, previous):
     time_guard()
     old = previous_deals(previous)
     result = {"schema": "hu20-b100-diagnosis-audit-v1",
+              "invalid_conditional_attempt": (
+                  json.loads((root / "invalid-conditional-attempt.json").read_text())
+                  if (root / "invalid-conditional-attempt.json").exists() else None),
               "decisions": decision_report(root),
               "curve": curve_report(root, old),
               "translation": translation_report(root, old),

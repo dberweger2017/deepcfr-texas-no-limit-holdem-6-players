@@ -19,7 +19,9 @@ from src.game.types import Action, ActionKind
 
 SEEDS = (2026093001, 2026093002, 2026093003)
 STREETS = ("preflop", "flop", "turn", "river")
-ROOT = 202610010117
+# The original root generated an invalid all-world selection/estimation attempt.
+# This disjoint root is fixed before inspecting any numerical action value.
+ROOT = 202610010118
 MODEL_MILESTONE = 100000000
 
 
@@ -199,7 +201,8 @@ def values(raw_dir, selection_path, models_path, output, deadline):
                 if trained != entry["trained"] or key != item.get("target_key"):
                     raise ValueError("Selected lookup differs from retained trace")
                 abstraction = _preflop(view.hole_cards) if not view.board else _postflop(view.hole_cards, view.board)
-                record = {"selection": entry, "model_sha256": specs[seed]["sha256"],
+                record = {"selection": entry, "audit_root": ROOT,
+                          "model_sha256": specs[seed]["sha256"],
                           "checkpoint_sha256": specs[seed]["checkpoint_sha256"],
                           "public_history": [repr(e) for e in view.history],
                           "hole_cards": list(view.hole_cards), "board": list(view.board),
@@ -228,7 +231,7 @@ def values(raw_dir, selection_path, models_path, output, deadline):
                         record["worlds_completed"] += 1
                         if world_index % 8 == 7:
                             write_json(output / "attempts.json", attempts)
-                    record["summary"] = summarize(returns, probabilities)
+                    record["summary"] = summarize(returns, probabilities, selection_worlds=48)
                     record["status"] = "complete"
                 except Exception as exc:
                     record["status"] = "failed"
@@ -238,7 +241,8 @@ def values(raw_dir, selection_path, models_path, output, deadline):
                 record["finished"] = time()
                 write_json(output / "attempts.json", attempts)
             del source
-    write_json(output / "result.json", {"status": "complete", "decisions": len(attempts),
+    write_json(output / "result.json", {"status": "complete", "audit_root": ROOT,
+               "decisions": len(attempts),
                "worlds": sum(row["worlds_completed"] for row in attempts),
                "peak_rss_bytes": max(peak_rss, rss()),
                "swap_after": system(["sysctl", "vm.swapusage"]),

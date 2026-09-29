@@ -137,3 +137,27 @@ translation comparison, native replay and independent arithmetic, report.
 Time is a ceiling; stop when the declared work is complete. A phase that cannot
 finish before the deadline remains explicitly incomplete. No retraining,
 paid host, model promotion, merge, or automatic next campaign is authorized.
+
+## Prespecified split implementation correction
+
+The first conditional-value executor at source `dd84f49` generated all 60
+decisions and 5,760 worlds with audit root `202610010117`, but its summary
+selected the best action and estimated its gap on all 96 worlds. That summary
+is selection biased and **invalid for the primary conditional-value claim**.
+No numerical action values or gaps from that attempt were inspected before
+this correction. One truncated progress-metadata prefix was viewed (board,
+own cards, key and menu), without numerical values, gap or terminal payoff.
+The original attempt and its file hashes are retained on M4
+in `values-invalid-split-attempt-1` and `invalid-conditional-attempt.json`.
+
+The corrected executor uses worlds 0–47 only to choose the action and worlds
+48–95 only to estimate its paired gain over the saved policy. All-world means
+are explicitly descriptive. It reruns the same 60 selected coordinates,
+unchanged 96-world count, compatible-hand model and LBR settings with the
+fresh audit root `202610010118` in a new `values` output directory. The
+outcome-blind selector recheck produced the original digest
+`e192e57c334cd0b5779e43ea5f92e7498c8ddf702762bd60bf557799d85599ad`.
+The original ten-hour deadline remains in force. The separate 512-block LBR
+curve was paused before any of its playing returns were inspected; its frozen
+schedule and source are unchanged and may resume after the correction passes
+focused M4 tests.

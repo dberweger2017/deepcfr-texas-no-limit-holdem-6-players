@@ -42,11 +42,42 @@ def test_selection_context_ignores_deal_seed_and_terminal_payoff():
     assert first[0][1].legal_actions.call_amount == 50
 
 
-def test_world_clustered_gap_uses_policy_mix_after_aggregation():
-    result = summarize(((1, -1), (-1, 1), (2, -2)), (.75, .25))
-    assert result["action_mean_bb"] == pytest.approx((2/3, -2/3))
-    assert result["policy_mean_bb"] == pytest.approx(1/3)
-    assert result["policy_gap_bb"] == pytest.approx(1/3)
+def test_evaluation_worlds_cannot_change_the_selected_action():
+    worlds = ((2, 0),) * 48 + ((0, 20),) * 48
+    result = summarize(worlds, (.5, .5))
+    assert result["selection_worlds"] == result["evaluation_worlds"] == 48
+    assert result["selection_action_mean_bb"] == pytest.approx((2, 0))
+    assert result["descriptive_action_mean_bb"][1] > result["descriptive_action_mean_bb"][0]
+    assert result["selected_action_index"] == 0
+    assert result["evaluation_policy_gap_bb"] == pytest.approx(-10)
+    assert result["evaluation_policy_gap_95_interval_bb"] == pytest.approx((-10, -10))
+
+
+def test_selection_magnitudes_change_descriptive_means_not_heldout_gap():
+    evaluation = ((3, 1),) * 24 + ((5, 2),) * 24
+    first = summarize(((2, 0),) * 48 + evaluation, (.25, .75))
+    second = summarize(((200, 0),) * 48 + evaluation, (.25, .75))
+    assert first["selected_action_index"] == second["selected_action_index"] == 0
+    assert first["evaluation_policy_gap_bb"] == second["evaluation_policy_gap_bb"]
+    assert first["evaluation_policy_gap_95_interval_bb"] == second["evaluation_policy_gap_95_interval_bb"]
+    assert first["descriptive_action_mean_bb"] != second["descriptive_action_mean_bb"]
+    assert first["descriptive_policy_mean_bb"] != second["descriptive_policy_mean_bb"]
+
+
+def test_heldout_gap_is_paired_with_saved_policy_mixture():
+    result = summarize(((1, -1), (-1, 1), (2, -2), (0, 0)),
+                       (.75, .25), selection_worlds=2)
+    assert result["selected_action_index"] == 0
+    assert result["evaluation_selected_action_mean_bb"] == pytest.approx(1)
+    assert result["evaluation_policy_mean_bb"] == pytest.approx(.5)
+    assert result["evaluation_policy_gap_bb"] == pytest.approx(.5)
+    assert result["descriptive_action_mean_bb"] == pytest.approx((.5, -.5))
+    assert result["descriptive_policy_mean_bb"] == pytest.approx(.25)
+
+
+def test_primary_summary_rejects_incomplete_96_world_split():
+    with pytest.raises(ValueError, match="equal"):
+        summarize(((1, 0),) * 95, (.5, .5))
 
 
 def test_late_street_fold_value_matches_independent_ledger():
