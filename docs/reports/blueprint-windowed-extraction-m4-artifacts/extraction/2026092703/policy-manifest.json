@@ -1,0 +1,78 @@
+{
+  "abstraction": "blueprint-abstraction-v1",
+  "artifact_sha256": "f89273f68ad45139dac750990fe174cb0f70e75d83fad4495532e226aedf41cd",
+  "collector_roots_per_seat": 16,
+  "collector_seed": 2026110201,
+  "completed_nodes": [
+    10001007,
+    11429489,
+    12859156,
+    14286345,
+    15719061,
+    17144949,
+    18574884,
+    20001395
+  ],
+  "index_stats": {
+    "artifact_sha256": "f89273f68ad45139dac750990fe174cb0f70e75d83fad4495532e226aedf41cd",
+    "entries": 8224619,
+    "profile_coverage": {
+      "1": 168310,
+      "2": 169372,
+      "3": 169636,
+      "4": 169913,
+      "5": 169913,
+      "6": 170088,
+      "7": 169275,
+      "8": 7038112
+    }
+  },
+  "iterations": [
+    10601,
+    10867,
+    11132,
+    11397,
+    11661,
+    11923,
+    12187,
+    12454
+  ],
+  "lookup_mode": "button-zero-compatible-v1",
+  "postflop_fallback": "uniform per absent profile",
+  "preflop_fallback": "final-current when no collected action mass",
+  "raise_cap": 2,
+  "requested_nodes": [
+    10000000,
+    11428571,
+    12857143,
+    14285714,
+    15714286,
+    17142857,
+    18571429,
+    20000000
+  ],
+  "schema": "windowed-blueprint-extraction-v1",
+  "snapshot_sha256": [
+    "866eb1b72cbe19543a8dc6ac32d208f39701642ce6bb6d0f8fa34b575b5fdd59",
+    "feb2a982ca727bfac22815be42ad30667f94a3606daf30685b6750d338e13a83",
+    "1ce09b80140301325aaec2ef6141524d2cabc8287eb962a49214bcef8d3bd86f",
+    "cebba15672eda58d4a076332e6e610e4e6e9c7597765848292beb36849bc31d7",
+    "29f39aed70c0c207d5e4401bab902aedce0b9a24d9138fdea6a2c08a300187f9",
+    "82aece4ca3afacd2ce33cb5291c852cd092820afb03df9bd7aae249bdbc16975",
+    "ce0cf9327a72e85f46f226c7b50e3d28e040291df3097574266633605bdbf890",
+    "93b6713caf0cde45ca3060925837e85b4d226b51d00a4362b3fac1a7cc40820b"
+  ],
+  "snapshot_weights": [
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125,
+    0.125
+  ],
+  "source_checkpoint_sha256": "72cadcad8fb15cf1a2ebce8d5273c04c8e1c94038f0a0d6b94b6ecd47e0477a6",
+  "source_lineage_sha256": "de467772785e2412bdf3b02f5984323e04b59299a865f5f7d2c2c73397f68cac",
+  "source_parent_sha256": "94d41c737d0e8f41a548d58c64dd219dfb9593459c80d7a7382569bf6963e33a"
+}

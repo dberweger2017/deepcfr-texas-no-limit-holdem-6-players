@@ -1,0 +1,17 @@
+{
+  "index_sha256": "f89273f68ad45139dac750990fe174cb0f70e75d83fad4495532e226aedf41cd",
+  "late_created_keys": 4,
+  "max_probability_error": 0.0,
+  "queried_keys": 10,
+  "schema": "windowed-blueprint-direct-parity-v1",
+  "snapshot_sha256": [
+    "866eb1b72cbe19543a8dc6ac32d208f39701642ce6bb6d0f8fa34b575b5fdd59",
+    "feb2a982ca727bfac22815be42ad30667f94a3606daf30685b6750d338e13a83",
+    "1ce09b80140301325aaec2ef6141524d2cabc8287eb962a49214bcef8d3bd86f",
+    "cebba15672eda58d4a076332e6e610e4e6e9c7597765848292beb36849bc31d7",
+    "29f39aed70c0c207d5e4401bab902aedce0b9a24d9138fdea6a2c08a300187f9",
+    "82aece4ca3afacd2ce33cb5291c852cd092820afb03df9bd7aae249bdbc16975",
+    "ce0cf9327a72e85f46f226c7b50e3d28e040291df3097574266633605bdbf890",
+    "93b6713caf0cde45ca3060925837e85b4d226b51d00a4362b3fac1a7cc40820b"
+  ]
+}

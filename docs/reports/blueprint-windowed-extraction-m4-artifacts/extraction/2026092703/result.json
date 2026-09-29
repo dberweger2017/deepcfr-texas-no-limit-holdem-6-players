@@ -1,0 +1,28 @@
+{
+  "additional_nodes": 20001395,
+  "checkpoint_byte_identical": true,
+  "elapsed_seconds": 2219.3606761669507,
+  "final_iteration": 12454,
+  "index_stats": {
+    "artifact_sha256": "f89273f68ad45139dac750990fe174cb0f70e75d83fad4495532e226aedf41cd",
+    "entries": 8224619,
+    "profile_coverage": {
+      "1": 168310,
+      "2": 169372,
+      "3": 169636,
+      "4": 169913,
+      "5": 169913,
+      "6": 170088,
+      "7": 169275,
+      "8": 7038112
+    }
+  },
+  "load_seconds": 23.164536833995953,
+  "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 55%",
+  "peak_process_rss_bytes": 6646431744,
+  "replay_checkpoint_sha256": "72cadcad8fb15cf1a2ebce8d5273c04c8e1c94038f0a0d6b94b6ecd47e0477a6",
+  "stage": "done",
+  "status": "complete",
+  "stop_reason": null,
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+}

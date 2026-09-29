@@ -1,0 +1,57 @@
+{
+  "arm": "TAG",
+  "checkpoint_sha256": null,
+  "environment": {
+    "engine": {
+      "binaries": {
+        "pokers/pokers.cpython-311-darwin.so": "0700ac54783869030559782e58064ff1e229e8b0b950297845beaa143f7d95bd"
+      },
+      "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005"
+    },
+    "implementation": "CPython",
+    "machine": "arm64",
+    "packages": {
+      "Jinja2": "3.1.6",
+      "Markdown": "3.10.3",
+      "MarkupSafe": "3.0.3",
+      "Pygments": "2.21.0",
+      "Werkzeug": "3.1.8",
+      "absl-py": "2.5.0",
+      "filelock": "4.0.3",
+      "fsspec": "2026.9.0",
+      "grpcio": "1.84.0",
+      "iniconfig": "2.3.0",
+      "mpmath": "1.3.0",
+      "networkx": "3.6.1",
+      "numpy": "1.26.4",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "pip": "26.0",
+      "pluggy": "1.6.0",
+      "pokers": "0.2.0",
+      "protobuf": "7.36.2",
+      "pytest": "9.0.3",
+      "scipy": "1.17.1",
+      "setuptools": "80.10.2",
+      "sympy": "1.14.0",
+      "tensorboard": "2.21.0",
+      "tensorboard-data-server": "0.7.2",
+      "torch": "2.14.0",
+      "typing_extensions": "4.16.0"
+    },
+    "platform": "macOS-26.6-arm64-arm-64bit",
+    "python": "3.11.14 (main, Oct  9 2025, 16:16:55) [Clang 17.0.0 (clang-1700.6.3.2)]"
+  },
+  "memory_pressure_before": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 74%",
+  "plan_sha256": "38b81b096d25eeaedb3dba13a03d309fd309e6012943c5c8661901fd7b35ba83",
+  "resource_only": false,
+  "schedule_sha256": {
+    "random": "bde7f73d8d76005cf3e1a57773a9c939947445e5d4364ac421f9bc31e01af2af",
+    "styles": "9bd46d520828b9f70b2b2926210d5e52da65230c7d72354e2f55409da8bcc5e1"
+  },
+  "schema": "postflop-replication-evaluation-v1",
+  "source_dirty": false,
+  "source_revision": "85227b913864298a3d1f176d45c7b13b53a3fb75",
+  "started_unix_seconds": 1790542304.0505521,
+  "swap_before": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+}
