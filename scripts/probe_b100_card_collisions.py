@@ -1,7 +1,9 @@
 """Prespecified same-key concrete-hand probes; never use played hidden deals."""
 
 import argparse
+import atexit
 import gc
+import gzip
 import json
 from itertools import combinations
 from pathlib import Path
@@ -46,6 +48,8 @@ def run(raw_dir, selection_path, models_path, output, deadline):
     specs = {s["seed"]: s for s in json.loads(models_path.read_text())
              if s.get("arm") == "B" and s.get("milestone") == 100000000}
     results = []
+    world_file = gzip.open(output / "worlds.jsonl.gz", "wt")
+    atexit.register(world_file.close)
     for street in ("preflop", "flop", "turn", "river"):
         if street not in picked:
             results.append({"street": street, "status": "no_trained_primary_root"})
@@ -77,6 +81,10 @@ def run(raw_dir, selection_path, models_path, output, deadline):
                 if index % 8 == 0:
                     _guard(output, deadline)
                 returns, limited = world_action_returns(alternative, source, seed, index)
+                world_file.write(json.dumps({"street": street, "cards": pair,
+                    "world_index": index, "action_returns_bb": returns,
+                    "limited_lbr_batches": limited}) + "\n")
+                world_file.flush()
                 values.append(returns)
                 attempt["worlds_completed"] += 1
                 attempt["limited_lbr_batches"] = attempt.get("limited_lbr_batches", 0) + limited
@@ -89,6 +97,7 @@ def run(raw_dir, selection_path, models_path, output, deadline):
         write_json(output / "attempts.json", results)
         del source
         gc.collect()
+    world_file.close()
     write_json(output / "result.json", {"status": "complete", "cases": results,
                                          "finished": time()})
     return {"status": "complete", "roots": len(results)}
