@@ -1,0 +1,108 @@
+{
+  "schema": "tp20-fresh-campaign-v1",
+  "game": "tp20-20bb-52card-no-ante-rake-v1",
+  "abstraction": "tp20-ordered-history-card-baseline-v1",
+  "primary_extraction": "C",
+  "training_seeds": [
+    2026092901,
+    2026092902,
+    2026092903
+  ],
+  "preflight_nodes": 5000000,
+  "training_nodes": 20000000,
+  "checkpoints": [
+    2000000,
+    5000000,
+    10000000,
+    20000000
+  ],
+  "primary_lineups": [
+    "loose_passive",
+    "loose_aggressive",
+    "tight_passive",
+    "tight_aggressive",
+    "pot_pressure",
+    "tp20_uniform"
+  ],
+  "secondary_lineups": [
+    "mixed-passive-pressure",
+    "mixed-tight-loose",
+    "mixed-aggressive"
+  ],
+  "lineups": {
+    "loose_passive": [
+      "loose_passive",
+      "loose_passive"
+    ],
+    "loose_aggressive": [
+      "loose_aggressive",
+      "loose_aggressive"
+    ],
+    "tight_passive": [
+      "tight_passive",
+      "tight_passive"
+    ],
+    "tight_aggressive": [
+      "tight_aggressive",
+      "tight_aggressive"
+    ],
+    "pot_pressure": [
+      "pot_pressure",
+      "pot_pressure"
+    ],
+    "tp20_uniform": [
+      "tp20_uniform",
+      "tp20_uniform"
+    ],
+    "mixed-passive-pressure": [
+      "loose_passive",
+      "pot_pressure"
+    ],
+    "mixed-tight-loose": [
+      "tight_passive",
+      "loose_aggressive"
+    ],
+    "mixed-aggressive": [
+      "tight_aggressive",
+      "pot_pressure"
+    ]
+  },
+  "preflight": {
+    "blocks_per_lineup": 64,
+    "root_seed": 2026111001
+  },
+  "independent": {
+    "blocks_per_lineup": 256,
+    "root_seed": 2026112001
+  },
+  "development": {
+    "blocks_per_lineup": 256,
+    "root_seed": 2026113001
+  },
+  "confirmation": {
+    "blocks_per_lineup": 4096,
+    "root_seed": 2026114001
+  },
+  "secondary": {
+    "blocks_per_lineup": 512,
+    "root_seed": 2026115001
+  },
+  "crossplay": {
+    "blocks_per_lineup": 512,
+    "root_seed": 2026116001
+  },
+  "primary_confidence": 0.95,
+  "limits": {
+    "max_rss_gib": 10.5,
+    "min_free_gib": 8,
+    "max_nodes_per_iteration": 250000,
+    "max_entries": 4000000,
+    "max_seconds_per_iteration": 300,
+    "max_campaign_seconds": 36000,
+    "training_seconds": 25200,
+    "report_reserve_seconds": 900,
+    "max_swap_growth_gib": 0.5,
+    "min_memory_free_percent": 5
+  },
+  "resource_preflight_sha256": "cebe0dfb7ebb4f5d07ef630e430947200fcff99130eba4749d901b42f6625f7c"
+}

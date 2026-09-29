@@ -6,8 +6,8 @@ from time import perf_counter
 import pytest
 
 import src.blueprint.solver as solver
-from src.blueprint.abstraction import Choice, HU20_SCHEMA
-from src.blueprint.solver import HU20_GAME, PilotConfig
+from src.blueprint.abstraction import Choice, HU20_SCHEMA, TP20_SCHEMA
+from src.blueprint.solver import HU20_GAME, TP20_GAME, PilotConfig
 from src.game.types import Street
 
 
@@ -38,7 +38,8 @@ class FiniteHand:
                           action if self.phase == 0 else self.action)
 
 
-def test_production_external_sampling_matches_enumerated_hidden_game(monkeypatch):
+@pytest.mark.parametrize("schema,game", [(HU20_SCHEMA, HU20_GAME), (TP20_SCHEMA, TP20_GAME)])
+def test_production_external_sampling_matches_enumerated_hidden_game(monkeypatch, schema, game):
     monkeypatch.setattr(solver, "Hand", FiniteHand)
     def menu(view, **kwargs):
         assert kwargs["free_fold"] is False
@@ -50,7 +51,7 @@ def test_production_external_sampling_matches_enumerated_hidden_game(monkeypatch
                         "hero-root" if view.actor == 0 else "opponent-private")
     table = SimpleNamespace(big_blind=1)
     config = PilotConfig(max_nodes=100, max_seconds=10,
-                         abstraction=HU20_SCHEMA, game=HU20_GAME)
+                         abstraction=schema, game=game)
     weighted = [0.0, 0.0]
     for hidden, chance in (("high", 0.75), ("low", 0.25)):
         FiniteHand.hidden = hidden

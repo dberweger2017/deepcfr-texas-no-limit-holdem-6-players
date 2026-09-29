@@ -19,7 +19,10 @@ SUMMARY_SCHEMA = "blueprint-abstraction-summary-v1"
 HU20_SCHEMA = "hu20-ordered-history-card-baseline-v2"
 HU20_MENU_VERSION = "hu20-min-pot-conditional-jam-no-free-fold-v2"
 HU20_CARD_VERSION = "legacy-postflop-descriptor-v1"
-SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, HU20_SCHEMA)
+TP20_SCHEMA = "tp20-ordered-history-card-baseline-v1"
+TP20_MENU_VERSION = "tp20-min-pot-conditional-jam-no-free-fold-v1"
+SHORTSTACK_SEATS = {HU20_SCHEMA: 2, TP20_SCHEMA: 3}
+SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, HU20_SCHEMA, TP20_SCHEMA)
 LEGACY_LOOKUP = "legacy-v1"
 BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"
 LOOKUP_MODES = (LEGACY_LOOKUP, BUTTON_ZERO_COMPAT_LOOKUP)
@@ -198,10 +201,10 @@ def information_key(
         raise ValueError("Unknown blueprint abstraction schema")
     if lookup_mode not in LOOKUP_MODES:
         raise ValueError("Unknown blueprint lookup mode")
-    if schema == HU20_SCHEMA and (view.capacity != 2 or view.small_blind != 50
+    if schema in SHORTSTACK_SEATS and (view.capacity != SHORTSTACK_SEATS[schema] or view.small_blind != 50
                                   or view.big_blind != 100
-                                  or tuple(view.history[0].stacks) != (2000, 2000)):
-        raise ValueError("HU20 key requires the versioned two-seat 20BB game")
+                                  or tuple(view.history[0].stacks) != (2000,) * SHORTSTACK_SEATS[schema]):
+        raise ValueError("Short-stack key requires its versioned 20BB game")
     # The HU20 baseline intentionally retains the original postflop descriptor;
     # this dispatch is where a later, separately tested card abstraction can fit.
     cards = (
@@ -219,9 +222,9 @@ def information_key(
             (view.players[(view.button + offset) % len(view.players)].folded,
              view.players[(view.button + offset) % len(view.players)].all_in)
             for offset in range(len(view.players))
-        ) if lookup_mode == BUTTON_ZERO_COMPAT_LOOKUP or schema == HU20_SCHEMA else
+        ) if lookup_mode == BUTTON_ZERO_COMPAT_LOOKUP or schema in SHORTSTACK_SEATS else
         tuple((p.folded, p.all_in) for p in view.players),
-        _history(view) if schema in (SCHEMA, HU20_SCHEMA) else _summary_history(view),
+        _history(view) if schema in (SCHEMA, *SHORTSTACK_SEATS) else _summary_history(view),
         tuple(item.name for item in menu),
     )
     return blake2b(

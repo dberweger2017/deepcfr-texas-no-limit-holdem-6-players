@@ -1,0 +1,1007 @@
+{
+  "checkpoint": {
+    "checkpoint_bytes": 18601861,
+    "checkpoint_sha256": "076db30587911400483dd1f618e38714003ec52bf6ab6539d1290b9e3bffb7db",
+    "completed_nodes": 5000229,
+    "entries": 431251,
+    "export_seconds": 2.4732052499894053,
+    "independent_density_by_street": {
+      "flop": {
+        "coverage": 0.8752515090543259,
+        "decisions": 497,
+        "mean_visits": 43.25553319919517,
+        "revisited_decisions": 396,
+        "trained_decisions": 435,
+        "visit_quantiles": {
+          "p25": 2,
+          "p50": 14,
+          "p75": 47,
+          "p90": 108,
+          "p99": 345
+        }
+      },
+      "preflop": {
+        "coverage": 0.9748995983935743,
+        "decisions": 996,
+        "mean_visits": 32.773092369477915,
+        "revisited_decisions": 929,
+        "trained_decisions": 971,
+        "visit_quantiles": {
+          "p25": 6,
+          "p50": 14,
+          "p75": 40,
+          "p90": 111,
+          "p99": 126
+        }
+      },
+      "river": {
+        "coverage": 0.4339622641509434,
+        "decisions": 53,
+        "mean_visits": 3.9056603773584904,
+        "revisited_decisions": 13,
+        "trained_decisions": 23,
+        "visit_quantiles": {
+          "p25": 0,
+          "p50": 0,
+          "p75": 1,
+          "p90": 6,
+          "p99": 94
+        }
+      },
+      "turn": {
+        "coverage": 0.6125,
+        "decisions": 160,
+        "mean_visits": 7.275,
+        "revisited_decisions": 76,
+        "trained_decisions": 98,
+        "visit_quantiles": {
+          "p25": 0,
+          "p50": 1,
+          "p75": 4,
+          "p90": 18,
+          "p99": 158
+        }
+      }
+    },
+    "index": 0,
+    "iteration": 12193,
+    "overshoot_nodes": 229,
+    "policy_bytes": 11211033,
+    "policy_sha256": "9ba3de611fdac90d3d250ce9888eb09eac58707a47acbc0b5b4916d3a69ccc9d",
+    "requested_nodes": 5000000,
+    "rss_bytes": 583401472,
+    "save_seconds": 3.022633499931544
+  },
+  "entries_per_node": 0.08624624992175359,
+  "evaluation": [
+    {
+      "attempts": 192,
+      "completed_blocks": 64,
+      "elapsed_seconds": 1.0891117079881951,
+      "hero_telemetry": [
+        {
+          "coordinates": [
+            "flop",
+            "decisions"
+          ],
+          "count": 133
+        },
+        {
+          "coordinates": [
+            "flop",
+            "fallback"
+          ],
+          "count": 11
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_max"
+          ],
+          "count": 5.9999991208314896e-05
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_sum"
+          ],
+          "count": 0.005572332534939051
+        },
+        {
+          "coordinates": [
+            "flop",
+            "trained"
+          ],
+          "count": 122
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "decisions"
+          ],
+          "count": 180
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "fallback"
+          ],
+          "count": 1
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_max"
+          ],
+          "count": 6.570806726813316e-05
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_sum"
+          ],
+          "count": 0.004501267452724278
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "trained"
+          ],
+          "count": 179
+        },
+        {
+          "coordinates": [
+            "river",
+            "decisions"
+          ],
+          "count": 87
+        },
+        {
+          "coordinates": [
+            "river",
+            "fallback"
+          ],
+          "count": 43
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_max"
+          ],
+          "count": 0.00010358402505517006
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_sum"
+          ],
+          "count": 0.006802255171351135
+        },
+        {
+          "coordinates": [
+            "river",
+            "trained"
+          ],
+          "count": 44
+        },
+        {
+          "coordinates": [
+            "turn",
+            "decisions"
+          ],
+          "count": 100
+        },
+        {
+          "coordinates": [
+            "turn",
+            "fallback"
+          ],
+          "count": 27
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_max"
+          ],
+          "count": 6.583402864634991e-05
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_sum"
+          ],
+          "count": 0.005444419686682522
+        },
+        {
+          "coordinates": [
+            "turn",
+            "trained"
+          ],
+          "count": 73
+        }
+      ],
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%",
+      "peak_process_rss_bytes": 555548672,
+      "status": "complete",
+      "stop_reason": null,
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+    },
+    {
+      "attempts": 192,
+      "completed_blocks": 64,
+      "elapsed_seconds": 0.9940639580599964,
+      "hero_telemetry": [
+        {
+          "coordinates": [
+            "flop",
+            "decisions"
+          ],
+          "count": 85
+        },
+        {
+          "coordinates": [
+            "flop",
+            "fallback"
+          ],
+          "count": 9
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_max"
+          ],
+          "count": 7.054198067635298e-05
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_sum"
+          ],
+          "count": 0.003701463690958917
+        },
+        {
+          "coordinates": [
+            "flop",
+            "trained"
+          ],
+          "count": 76
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "decisions"
+          ],
+          "count": 214
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "fallback"
+          ],
+          "count": 19
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_max"
+          ],
+          "count": 6.520806346088648e-05
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_sum"
+          ],
+          "count": 0.005558889009989798
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "trained"
+          ],
+          "count": 195
+        },
+        {
+          "coordinates": [
+            "river",
+            "decisions"
+          ],
+          "count": 19
+        },
+        {
+          "coordinates": [
+            "river",
+            "fallback"
+          ],
+          "count": 7
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_max"
+          ],
+          "count": 9.666697587817907e-05
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_sum"
+          ],
+          "count": 0.0014299575705081224
+        },
+        {
+          "coordinates": [
+            "river",
+            "trained"
+          ],
+          "count": 12
+        },
+        {
+          "coordinates": [
+            "turn",
+            "decisions"
+          ],
+          "count": 45
+        },
+        {
+          "coordinates": [
+            "turn",
+            "fallback"
+          ],
+          "count": 14
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_max"
+          ],
+          "count": 6.858399137854576e-05
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_sum"
+          ],
+          "count": 0.0024347460130229592
+        },
+        {
+          "coordinates": [
+            "turn",
+            "trained"
+          ],
+          "count": 31
+        }
+      ],
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%",
+      "peak_process_rss_bytes": 555220992,
+      "status": "complete",
+      "stop_reason": null,
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+    },
+    {
+      "attempts": 192,
+      "completed_blocks": 64,
+      "elapsed_seconds": 0.955641333013773,
+      "hero_telemetry": [
+        {
+          "coordinates": [
+            "flop",
+            "decisions"
+          ],
+          "count": 48
+        },
+        {
+          "coordinates": [
+            "flop",
+            "fallback"
+          ],
+          "count": 2
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_max"
+          ],
+          "count": 6.78329961374402e-05
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_sum"
+          ],
+          "count": 0.002132502617314458
+        },
+        {
+          "coordinates": [
+            "flop",
+            "trained"
+          ],
+          "count": 46
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "decisions"
+          ],
+          "count": 135
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_max"
+          ],
+          "count": 7.1709044277668e-05
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_sum"
+          ],
+          "count": 0.003340634168125689
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "trained"
+          ],
+          "count": 135
+        },
+        {
+          "coordinates": [
+            "river",
+            "decisions"
+          ],
+          "count": 15
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_max"
+          ],
+          "count": 0.00010075001046061516
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_sum"
+          ],
+          "count": 0.0013340418227016926
+        },
+        {
+          "coordinates": [
+            "river",
+            "trained"
+          ],
+          "count": 15
+        },
+        {
+          "coordinates": [
+            "turn",
+            "decisions"
+          ],
+          "count": 28
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_max"
+          ],
+          "count": 6.983289495110512e-05
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_sum"
+          ],
+          "count": 0.0015964171616360545
+        },
+        {
+          "coordinates": [
+            "turn",
+            "trained"
+          ],
+          "count": 28
+        }
+      ],
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%",
+      "peak_process_rss_bytes": 555040768,
+      "status": "complete",
+      "stop_reason": null,
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+    },
+    {
+      "attempts": 192,
+      "completed_blocks": 64,
+      "elapsed_seconds": 0.944976958911866,
+      "hero_telemetry": [
+        {
+          "coordinates": [
+            "flop",
+            "decisions"
+          ],
+          "count": 46
+        },
+        {
+          "coordinates": [
+            "flop",
+            "fallback"
+          ],
+          "count": 2
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_max"
+          ],
+          "count": 6.929202936589718e-05
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_sum"
+          ],
+          "count": 0.00202328828163445
+        },
+        {
+          "coordinates": [
+            "flop",
+            "trained"
+          ],
+          "count": 44
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "decisions"
+          ],
+          "count": 147
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "fallback"
+          ],
+          "count": 3
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_max"
+          ],
+          "count": 6.745895370841026e-05
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_sum"
+          ],
+          "count": 0.00359154783654958
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "trained"
+          ],
+          "count": 144
+        },
+        {
+          "coordinates": [
+            "river",
+            "decisions"
+          ],
+          "count": 18
+        },
+        {
+          "coordinates": [
+            "river",
+            "fallback"
+          ],
+          "count": 8
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_max"
+          ],
+          "count": 0.00010974996257573366
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_sum"
+          ],
+          "count": 0.0013848787639290094
+        },
+        {
+          "coordinates": [
+            "river",
+            "trained"
+          ],
+          "count": 10
+        },
+        {
+          "coordinates": [
+            "turn",
+            "decisions"
+          ],
+          "count": 24
+        },
+        {
+          "coordinates": [
+            "turn",
+            "fallback"
+          ],
+          "count": 3
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_max"
+          ],
+          "count": 7.745809853076935e-05
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_sum"
+          ],
+          "count": 0.0013650009641423821
+        },
+        {
+          "coordinates": [
+            "turn",
+            "trained"
+          ],
+          "count": 21
+        }
+      ],
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%",
+      "peak_process_rss_bytes": 554926080,
+      "status": "complete",
+      "stop_reason": null,
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+    },
+    {
+      "attempts": 192,
+      "completed_blocks": 64,
+      "elapsed_seconds": 0.9583063749596477,
+      "hero_telemetry": [
+        {
+          "coordinates": [
+            "flop",
+            "decisions"
+          ],
+          "count": 49
+        },
+        {
+          "coordinates": [
+            "flop",
+            "fallback"
+          ],
+          "count": 21
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_max"
+          ],
+          "count": 8.045893628150225e-05
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_sum"
+          ],
+          "count": 0.002160206437110901
+        },
+        {
+          "coordinates": [
+            "flop",
+            "trained"
+          ],
+          "count": 28
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "decisions"
+          ],
+          "count": 204
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "fallback"
+          ],
+          "count": 58
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_max"
+          ],
+          "count": 6.533297710120678e-05
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_sum"
+          ],
+          "count": 0.005086999270133674
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "trained"
+          ],
+          "count": 146
+        },
+        {
+          "coordinates": [
+            "river",
+            "decisions"
+          ],
+          "count": 10
+        },
+        {
+          "coordinates": [
+            "river",
+            "fallback"
+          ],
+          "count": 4
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_max"
+          ],
+          "count": 0.00010291603393852711
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_sum"
+          ],
+          "count": 0.0008996250107884407
+        },
+        {
+          "coordinates": [
+            "river",
+            "trained"
+          ],
+          "count": 6
+        },
+        {
+          "coordinates": [
+            "turn",
+            "decisions"
+          ],
+          "count": 19
+        },
+        {
+          "coordinates": [
+            "turn",
+            "fallback"
+          ],
+          "count": 7
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_max"
+          ],
+          "count": 6.845896132290363e-05
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_sum"
+          ],
+          "count": 0.0010204169666394591
+        },
+        {
+          "coordinates": [
+            "turn",
+            "trained"
+          ],
+          "count": 12
+        }
+      ],
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%",
+      "peak_process_rss_bytes": 555024384,
+      "status": "complete",
+      "stop_reason": null,
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+    },
+    {
+      "attempts": 192,
+      "completed_blocks": 64,
+      "elapsed_seconds": 1.0362458750605583,
+      "hero_telemetry": [
+        {
+          "coordinates": [
+            "flop",
+            "decisions"
+          ],
+          "count": 119
+        },
+        {
+          "coordinates": [
+            "flop",
+            "fallback"
+          ],
+          "count": 12
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_max"
+          ],
+          "count": 5.6292046792805195e-05
+        },
+        {
+          "coordinates": [
+            "flop",
+            "seconds_sum"
+          ],
+          "count": 0.005017284769564867
+        },
+        {
+          "coordinates": [
+            "flop",
+            "trained"
+          ],
+          "count": 107
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "decisions"
+          ],
+          "count": 246
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "fallback"
+          ],
+          "count": 10
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_max"
+          ],
+          "count": 6.437499541789293e-05
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "seconds_sum"
+          ],
+          "count": 0.005803200416266918
+        },
+        {
+          "coordinates": [
+            "preflop",
+            "trained"
+          ],
+          "count": 236
+        },
+        {
+          "coordinates": [
+            "river",
+            "decisions"
+          ],
+          "count": 18
+        },
+        {
+          "coordinates": [
+            "river",
+            "fallback"
+          ],
+          "count": 9
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_max"
+          ],
+          "count": 0.00010337505955249071
+        },
+        {
+          "coordinates": [
+            "river",
+            "seconds_sum"
+          ],
+          "count": 0.0015826228773221374
+        },
+        {
+          "coordinates": [
+            "river",
+            "trained"
+          ],
+          "count": 9
+        },
+        {
+          "coordinates": [
+            "turn",
+            "decisions"
+          ],
+          "count": 41
+        },
+        {
+          "coordinates": [
+            "turn",
+            "fallback"
+          ],
+          "count": 16
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_max"
+          ],
+          "count": 6.599992047995329e-05
+        },
+        {
+          "coordinates": [
+            "turn",
+            "seconds_sum"
+          ],
+          "count": 0.0023131640627980232
+        },
+        {
+          "coordinates": [
+            "turn",
+            "trained"
+          ],
+          "count": 25
+        }
+      ],
+      "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%",
+      "peak_process_rss_bytes": 555450368,
+      "status": "complete",
+      "stop_reason": null,
+      "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+    }
+  ],
+  "evaluation_hands_per_second": 192.69543113103515,
+  "independent_observations_sha256": "cb8cf1c5352d4633987ed0cc1b5df8562962405c159befab798508acfc6196e6",
+  "nodes_per_second": 16238.480097362148,
+  "schema": "tp20-outcome-free-preflight-v1",
+  "training": {
+    "completed_checkpoints": 1,
+    "completed_nodes": 5000229,
+    "current_export_sha256": "9ba3de611fdac90d3d250ce9888eb09eac58707a47acbc0b5b4916d3a69ccc9d",
+    "discarded_nodes": 0,
+    "elapsed_seconds": 314.5737377080368,
+    "entries": 431251,
+    "final_checkpoint_sha256": "076db30587911400483dd1f618e38714003ec52bf6ab6539d1290b9e3bffb7db",
+    "iterations": 12193,
+    "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 78%",
+    "new_entries_by_street": {
+      "flop": 36278,
+      "preflop": 15770,
+      "river": 238542,
+      "turn": 140661
+    },
+    "overshoot_nodes": 229,
+    "peak_process_rss_bytes": 583401472,
+    "repeated_contributions_by_street": {
+      "flop": 164327,
+      "preflop": 73789,
+      "river": 163523,
+      "turn": 159485
+    },
+    "status": "complete",
+    "stop_reason": null,
+    "swap_after": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)",
+    "visits_by_street": {
+      "flop": 201936,
+      "preflop": 90760,
+      "river": 403709,
+      "turn": 301835
+    }
+  }
+}

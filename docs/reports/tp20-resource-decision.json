@@ -1,0 +1,38 @@
+{
+  "schema": "tp20-resource-decision-v1",
+  "primary_extraction": "C",
+  "selected_nodes_per_seed": 20000000,
+  "confirmation_blocks_per_primary_lineup": 4096,
+  "preflight_sha256": "cebe0dfb7ebb4f5d07ef630e430947200fcff99130eba4749d901b42f6625f7c",
+  "projections": {
+    "20000000": {
+      "training_seconds_three_seeds": 7389.854178501185,
+      "entries_per_seed": 2156156.24804384,
+      "crossplay_peak_rss_gib": 8.14965116003937
+    },
+    "50000000": {
+      "training_seconds_three_seeds": 18474.635446252963,
+      "entries_per_seed": 5390390.620109599,
+      "crossplay_peak_rss_gib": 20.374127900098426
+    },
+    "100000000": {
+      "training_seconds_three_seeds": 36949.27089250593,
+      "entries_per_seed": 10780781.240219198,
+      "crossplay_peak_rss_gib": 40.74825580019685
+    }
+  },
+  "assumptions": {
+    "training_slowdown_factor": 2,
+    "checkpoint_growth_factor": 2,
+    "evaluation_slowdown_factor": 3,
+    "entry_growth_factor": 1.25,
+    "memory_projection": "peak preflight RSS times work ratio times three simultaneously loaded crossplay profiles times 1.25 growth allowance",
+    "memory_target_gib": 8.4,
+    "max_entries": 4000000
+  },
+  "outcomes_inspected": false,
+  "evaluation_hands": 382464,
+  "evaluation_seconds_projected": 6854.43282316206,
+  "checkpoint_and_export_seconds_three_seeds": 244.0040651103081,
+  "reason": "20M passes conservative time, entry and three-profile crossplay RSS projections. 50M fails projected entry cap and crossplay RSS; 100M also exceeds seven-hour training allocation. Preserve the 10.5-GiB guard; no budget extension after outcomes."
+}

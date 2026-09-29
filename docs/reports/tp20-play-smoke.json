@@ -1,0 +1,26 @@
+{
+  "hands": 20,
+  "net_chips": [
+    -850,
+    -3300,
+    4150
+  ],
+  "lookup_counts": [
+    {
+      "trained": 41,
+      "fallback": 0
+    },
+    {
+      "trained": 34,
+      "fallback": 3
+    }
+  ],
+  "replayed_hands": 20,
+  "policy_sha256": [
+    "c12ac92e9512413e6d83ed806dd0b7a60d88ef8418099294049b14af5700edd6",
+    "77d704f9dbdfae569917f9293f8580fa9c9eea4777eb5c44d7ae3d5f5d47962b"
+  ],
+  "session_seed": 2026092951,
+  "history_sha256": "39b7c255ad8149b97ba368e5e87fcbca7b5f242264056a27f9115a2b338ee447",
+  "model_source": "first two seeds in frozen order, not selected by returns"
+}

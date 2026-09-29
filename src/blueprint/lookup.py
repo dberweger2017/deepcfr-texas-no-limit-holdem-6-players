@@ -5,7 +5,7 @@ from math import isfinite
 from string import hexdigits
 
 from src.blueprint.abstraction import (
-    BUTTON_ZERO_COMPAT_LOOKUP, HU20_SCHEMA, LEGACY_LOOKUP, SCHEMA, choices, information_key,
+    BUTTON_ZERO_COMPAT_LOOKUP, HU20_SCHEMA, SHORTSTACK_SEATS, LEGACY_LOOKUP, SCHEMA, choices, information_key,
 )
 from src.blueprint.solver import regret_match
 from src.game.types import ActionKind
@@ -78,8 +78,8 @@ class TableDistribution:
     def __init__(self, trainer, *, lookup_mode: str = LEGACY_LOOKUP,
                  checkpoint_sha256: str | None = None, uniform: bool = False,
                  lineage: dict | None = None):
-        if trainer.config.abstraction == HU20_SCHEMA and lookup_mode != LEGACY_LOOKUP:
-            raise ValueError("HU20 uses native button-relative keys, not legacy compatibility")
+        if trainer.config.abstraction in SHORTSTACK_SEATS and lookup_mode != LEGACY_LOOKUP:
+            raise ValueError("Short-stack games use native button-relative keys, not legacy compatibility")
         validate_lookup(trainer, lookup_mode, checkpoint_sha256, lineage)
         self.trainer = trainer
         self.lookup_mode = lookup_mode
@@ -96,7 +96,7 @@ class TableDistribution:
         if view.capacity != trainer.table.capacity:
             raise ValueError("Blueprint table size differs from the search table")
         menu = choices(view, raise_cap=trainer.config.raise_cap,
-                       free_fold=trainer.config.abstraction != HU20_SCHEMA)
+                       free_fold=trainer.config.abstraction not in SHORTSTACK_SEATS)
         node = trainer.nodes.get(self.key(view, menu))
         if node is not None and node.names != tuple(item.name for item in menu):
             raise ValueError("Blueprint action labels differ from the observation")
