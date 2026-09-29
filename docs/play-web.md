@@ -48,6 +48,46 @@ the session ID and access token locally; it never generates a new session on
 refresh. A pending mutation retains its idempotency key, so retrying a lost
 response cannot deal or act twice. No human action is chosen on disconnect.
 
+## Play a hand: step by step
+
+1. On **M4**, open a terminal in this repository checkout and activate its
+   Python environment (`source .venv/bin/activate` if using the README setup).
+   Confirm the B100M export exists at the path above, then run the service
+   command in **Model and launch**. Keep that terminal running while playing.
+   The service prints its local address and the location of its access-token
+   file; it does not print the token.
+2. Read `results/play-web/access.token` on M4. Treat it as a local password:
+   enter it only into the table's **Access token** field, and do not put it in
+   a URL, shell command argument, shared chat, or screenshot.
+3. On the computer with the browser, open a **second terminal** and run the
+   SSH tunnel command above. Leave the tunnel open. Visit
+   `http://127.0.0.1:8765/` in the browser and select **Unlock table** after
+   entering the token. If the browser is on M4 itself, the tunnel is unnecessary.
+4. Choose **Restricted research** for the policy's trained action menu or
+   **Free sizing · experimental** for any native-legal raise size. Choose
+   **Casual / developer** to see post-hand lookup counts or **Benchmark-safe**
+   to keep those diagnostics unavailable. Select **Create session**, then
+   **Deal next hand**. Mode and visibility stay fixed for that session.
+5. When **Your turn** appears, use the displayed action buttons. In restricted
+   mode, each allowed concrete action has its own button. In free mode, use
+   Fold, Check, or Call, or set a raise-to amount with the slider, an exact BB
+   value, or a pot-size preset, then select **Raise**. The input is the *total
+   wager on this street*, not an additional amount. For example, `2.01` BB
+   submits exactly 201 chips. The displayed minimum and maximum come from the
+   native engine. The bot acts after your submitted action; no network error
+   causes an automatic human move.
+6. At **Hand complete**, read **This hand** and **Session result**, review the
+   action log, and select **Deal next hand** to continue. **Past hands** opens
+   sanitized completed-hand histories. **Model and session details** shows
+   the full pinned SHA-256 and the session ID needed for replay.
+
+Reloading the page resumes the same session. If the SSH connection drops,
+reopen the tunnel and use **Reconnect / retry pending operation**; a retry of
+an acknowledged action cannot apply it twice. To try the other mode, open a
+separate private browser window and create a new session there. Stop the
+service with Ctrl-C when finished; the private journal remains in
+`results/play-web/` for later replay. Stop the SSH tunnel separately.
+
 ## Modes and controls
 
 - **Restricted research:** concrete actions from the native-reopening model
