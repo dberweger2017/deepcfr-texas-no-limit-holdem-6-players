@@ -1,0 +1,499 @@
+{
+  "attempt_id": "hu20-scaling-diagnostics-20260929",
+  "deadline": 1790729363.24073,
+  "files": {
+    "audit-diagnostic-inventory.json": {
+      "bytes": 253,
+      "sha256": "eb65e96b53528707f6c90f3b420d32ebe794790d511d6b7224697473b4cc3dae"
+    },
+    "audit-diagnostic/owner.json": {
+      "bytes": 85,
+      "sha256": "a4dcce87f31391f2e73afaa71c084c4deaa0b1a8e0fff4ff7cc01b328d2eb855"
+    },
+    "audit-diagnostic/results.json": {
+      "bytes": 25886567,
+      "sha256": "642703268452246ba8b05d449400f7cc12316da4caee265b163c73c8c091666c"
+    },
+    "combine.log": {
+      "bytes": 7573,
+      "sha256": "401de94220e004e4b75fc8e103b433beb209b84fe2999c48a517b66f113a89b1"
+    },
+    "combined-plan.json": {
+      "bytes": 216930,
+      "sha256": "8ca3bcaf4f0558858e38397901e7c45dc56a5d351a6b0e085d089d36bd77e912"
+    },
+    "combined-results.json": {
+      "bytes": 197325,
+      "sha256": "e5f66bb44606f593267c358bda7553f9f43c7d029950c5d2bb94c5f93b713838"
+    },
+    "diagnostic-plan.json": {
+      "bytes": 216937,
+      "sha256": "9bdae2002211e15cbb27d48ab08d29a95d58bc18899e9021b5684f7a6832414e"
+    },
+    "evaluation-diagnostic/A-2026093001-20000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2683486,
+      "sha256": "92f305c82279c0f8ee6d58d94ef54281b012e0cb1a283bf10d8d705e8d9b4258"
+    },
+    "evaluation-diagnostic/A-2026093001-20000000--Passive.jsonl.gz": {
+      "bytes": 2625273,
+      "sha256": "fdab3867c222c071130a5ffd9d097da29bbc934767821273a5d7affe4d8408f2"
+    },
+    "evaluation-diagnostic/A-2026093001-20000000--Pressure-native.jsonl.gz": {
+      "bytes": 2375398,
+      "sha256": "7d5a9aa4aac16d656dbe66cd5c6208f9d1ef24ba21d5b7e2a8ee6f2820e85614"
+    },
+    "evaluation-diagnostic/A-2026093002-20000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2729836,
+      "sha256": "e4b26771e8e8cf04a7d44a737463c0deb70f64bbbab53641f0c463d53455c333"
+    },
+    "evaluation-diagnostic/A-2026093002-20000000--Passive.jsonl.gz": {
+      "bytes": 2634477,
+      "sha256": "1b91553818ed762a54352c97c656153b9d6acc9dcb6a7001cc802c77ade864aa"
+    },
+    "evaluation-diagnostic/A-2026093002-20000000--Pressure-native.jsonl.gz": {
+      "bytes": 2415735,
+      "sha256": "f33332f1744442407d1ee9766eff0b86fa36c7537933b466ed739d4859f61ff5"
+    },
+    "evaluation-diagnostic/A-2026093003-20000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2582832,
+      "sha256": "99e94a9b4ed459915e23d7e4d4fb2c45661c8f243a19fae94c34d45d21bdd41d"
+    },
+    "evaluation-diagnostic/A-2026093003-20000000--Passive.jsonl.gz": {
+      "bytes": 2592297,
+      "sha256": "fc9f40f55cb79db125e3f8d0fbfef58ccde4a0bcc53f001cc779946aa14c4150"
+    },
+    "evaluation-diagnostic/A-2026093003-20000000--Pressure-native.jsonl.gz": {
+      "bytes": 2290515,
+      "sha256": "d8322b7bb30b1804bb1fab3980bf88fdc752a141514f098c5d4c834f6c407394"
+    },
+    "evaluation-diagnostic/B-2026093001-100000000--Minraise-native.jsonl.gz": {
+      "bytes": 2593682,
+      "sha256": "697329a8919505e51f96790e4d5e1414b21df7d67054f52a0640be7d90daadaa"
+    },
+    "evaluation-diagnostic/B-2026093001-100000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2690233,
+      "sha256": "409fe2f5d4a46bf5eb24ebcbd6d99e7f18e17c1d73dd5ab57b00c646295f220a"
+    },
+    "evaluation-diagnostic/B-2026093001-100000000--Passive.jsonl.gz": {
+      "bytes": 2747983,
+      "sha256": "a45376a2479cb834cf6f995a45af56bc4752ab94f10a6c097595045d93fa8044"
+    },
+    "evaluation-diagnostic/B-2026093001-100000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 2259711,
+      "sha256": "16b4fd4aed92ae158055df3f58dff1c0f41121b1011dcd21bdf136846887f501"
+    },
+    "evaluation-diagnostic/B-2026093001-100000000--hu20_uniform.jsonl.gz": {
+      "bytes": 119542,
+      "sha256": "bb5a18779ccf2cae6a0b655244e0813f217336d63baf0cef44613542bb7504dd"
+    },
+    "evaluation-diagnostic/B-2026093001-100000000--loose_aggressive.jsonl.gz": {
+      "bytes": 110783,
+      "sha256": "ec3152c09cad88f31b65c885a6b176d7f221c5f1ff1d405cd234c0331adfa07c"
+    },
+    "evaluation-diagnostic/B-2026093001-100000000--loose_passive.jsonl.gz": {
+      "bytes": 123484,
+      "sha256": "60e3bb4737fb53942d475d6558005ed32a0dbc0c5231ef1d08b76ae412ed1dc8"
+    },
+    "evaluation-diagnostic/B-2026093001-100000000--pot_pressure.jsonl.gz": {
+      "bytes": 88495,
+      "sha256": "d1114f569d7182dbeeaa3905e3736cba0c8a0558b2e5e4fd17f6bfe536637405"
+    },
+    "evaluation-diagnostic/B-2026093001-100000000--tight_aggressive.jsonl.gz": {
+      "bytes": 80025,
+      "sha256": "e03c59ee138cc3af902ab22e625daf37696797934216c40108f2716bdfddd17e"
+    },
+    "evaluation-diagnostic/B-2026093001-100000000--tight_passive.jsonl.gz": {
+      "bytes": 79550,
+      "sha256": "7dff56d55cd635fae20f9f5baee83e366f11459847dd00e3f8049201ca6bcab4"
+    },
+    "evaluation-diagnostic/B-2026093001-20000000--Minraise-native.jsonl.gz": {
+      "bytes": 2214055,
+      "sha256": "410dd7ccc0ef758bce396e2d43f987f03d9ba926211a52ad101632c25594ab97"
+    },
+    "evaluation-diagnostic/B-2026093001-20000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2297848,
+      "sha256": "effb8e60e825188c09e210af54080d0a5a464a10007ac9ba72cc71a750811a6e"
+    },
+    "evaluation-diagnostic/B-2026093001-20000000--Passive.jsonl.gz": {
+      "bytes": 2610079,
+      "sha256": "eca8e19f697cab9fdde24db600facda1c8669881e2b96844bbc3526a8b8d3f01"
+    },
+    "evaluation-diagnostic/B-2026093001-20000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 1949824,
+      "sha256": "b3fcf627130464c57f8c9c576f30bdbb5c8c15c43dcca6d3c33df8bdeae06ad1"
+    },
+    "evaluation-diagnostic/B-2026093001-20000000--hu20_uniform.jsonl.gz": {
+      "bytes": 112657,
+      "sha256": "b8daf6eaf2495d46b6985cd34947a9962bb342244dd14adeb83242e920b6b7d5"
+    },
+    "evaluation-diagnostic/B-2026093001-20000000--loose_aggressive.jsonl.gz": {
+      "bytes": 105358,
+      "sha256": "7b5de1880b49095a0ea702a4a24ee4890fa60842fa0fce9d023f4b4a343fa2ba"
+    },
+    "evaluation-diagnostic/B-2026093001-20000000--loose_passive.jsonl.gz": {
+      "bytes": 119214,
+      "sha256": "6ad49012a41ff8dafc8419162db87e5ec211d653423481c23ea5bfa2411c5c18"
+    },
+    "evaluation-diagnostic/B-2026093001-20000000--pot_pressure.jsonl.gz": {
+      "bytes": 84863,
+      "sha256": "6a3155e2737617f0e3cbf107ac9862d39a1bdf240eb1cc2711d6d401a53a516d"
+    },
+    "evaluation-diagnostic/B-2026093001-20000000--tight_aggressive.jsonl.gz": {
+      "bytes": 77730,
+      "sha256": "6bf1f36ef6ec4c315b3259dd559c8254d78bf3dccbffff5af88ca5828134d637"
+    },
+    "evaluation-diagnostic/B-2026093001-20000000--tight_passive.jsonl.gz": {
+      "bytes": 75309,
+      "sha256": "dd20caad06ae55ffba6461c672ed6d829ea5b7a598eb2a274c068a780fbfb1d2"
+    },
+    "evaluation-diagnostic/B-2026093001-40000000--Minraise-native.jsonl.gz": {
+      "bytes": 2361798,
+      "sha256": "1602b8ba0441069dee367f38aaf913fc9e4c3b630f505608524ee0d3ccb51baa"
+    },
+    "evaluation-diagnostic/B-2026093001-40000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2466698,
+      "sha256": "80b4a6b75d232655126800adc9f7e86883cab97ef7148531af8215379c7d4c29"
+    },
+    "evaluation-diagnostic/B-2026093001-40000000--Passive.jsonl.gz": {
+      "bytes": 2685445,
+      "sha256": "bebdd66a154863ed0830ee2516d96b12d1fb4375b5f965b1cbcbf460393ecd42"
+    },
+    "evaluation-diagnostic/B-2026093001-40000000--Pressure-native.jsonl.gz": {
+      "bytes": 2394149,
+      "sha256": "8da5dc975a0e51f8a74bf3674b74f6611d58341df6c6d0e484d98352e2e4671b"
+    },
+    "evaluation-diagnostic/B-2026093001-40000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 2096348,
+      "sha256": "871a47dbb7084528ba5b8a13b8db4acce8ebc7df8fff669c570fce8a0b98f07b"
+    },
+    "evaluation-diagnostic/B-2026093001-80000000--Minraise-native.jsonl.gz": {
+      "bytes": 2518975,
+      "sha256": "9eba9cfa8df815e11cd7300222a8cb0742d8b408a63924e39603ac9541fb0b69"
+    },
+    "evaluation-diagnostic/B-2026093001-80000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2621769,
+      "sha256": "81f6f3296adf9ddd1f7d4e20084bcdf85625ff22103e849a2140dce834f1b5f3"
+    },
+    "evaluation-diagnostic/B-2026093001-80000000--Passive.jsonl.gz": {
+      "bytes": 2738043,
+      "sha256": "9e943e82d7a7ce7c440ac8e59445720db14a36b5971c0dd058c497b910ab0720"
+    },
+    "evaluation-diagnostic/B-2026093001-80000000--Pressure-native.jsonl.gz": {
+      "bytes": 2539950,
+      "sha256": "cc264e3f45675605c5313c334acf57c455de88ad942b4ad6b9efa77de2b4d2d6"
+    },
+    "evaluation-diagnostic/B-2026093001-80000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 2209119,
+      "sha256": "103b8aea39bc70d83e1f4803ad90eb9d9f118f95e01f18271c8c4e248159a1dc"
+    },
+    "evaluation-diagnostic/B-2026093002-100000000--Minraise-native.jsonl.gz": {
+      "bytes": 2471938,
+      "sha256": "e6fc758ab596bec68fda585331f9e10b876f14ba5dae71a402ea37b9c8619f07"
+    },
+    "evaluation-diagnostic/B-2026093002-100000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2567970,
+      "sha256": "177ec8c503a5a9bf80451a6c957d61d5b8ce24e786fa2b7f787b5a10e2b913db"
+    },
+    "evaluation-diagnostic/B-2026093002-100000000--Passive.jsonl.gz": {
+      "bytes": 2728937,
+      "sha256": "e9fad3a45960778ea307975cf8f17cd30b0f04547f10480035ef6dd73361b967"
+    },
+    "evaluation-diagnostic/B-2026093002-100000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 2227317,
+      "sha256": "06825cb12156c35f34c465ee21971ce715eedfca39f32e3e78ef928bdd2d64ff"
+    },
+    "evaluation-diagnostic/B-2026093002-100000000--hu20_uniform.jsonl.gz": {
+      "bytes": 121709,
+      "sha256": "cb7a45357f0d6ea0523a11b3a2b2da7f28c6c0f85553fc2c454b690119038338"
+    },
+    "evaluation-diagnostic/B-2026093002-100000000--loose_aggressive.jsonl.gz": {
+      "bytes": 113011,
+      "sha256": "a90797031106041c7b4f01ff507a1c2615024a986b337900337a41072867d682"
+    },
+    "evaluation-diagnostic/B-2026093002-100000000--loose_passive.jsonl.gz": {
+      "bytes": 125933,
+      "sha256": "9687e8ec6a0b73f880fc566fa063c0602e0d8753a6499775b364ab0b94865318"
+    },
+    "evaluation-diagnostic/B-2026093002-100000000--pot_pressure.jsonl.gz": {
+      "bytes": 90734,
+      "sha256": "a475f9c2775dece7640f3cec372f8f7df15111f06745bcdaf165d1d7a7bcaac3"
+    },
+    "evaluation-diagnostic/B-2026093002-100000000--tight_aggressive.jsonl.gz": {
+      "bytes": 82906,
+      "sha256": "0c7416629d702e45e06f6a80286c107c7c8434e9c4b037b840fcf89a11a7f8fb"
+    },
+    "evaluation-diagnostic/B-2026093002-100000000--tight_passive.jsonl.gz": {
+      "bytes": 81377,
+      "sha256": "7cb4c1bd270a03a1c245af23d50f232a99f7dd8a415573b84a68b7e72ca65e63"
+    },
+    "evaluation-diagnostic/B-2026093002-20000000--Minraise-native.jsonl.gz": {
+      "bytes": 2307015,
+      "sha256": "3210d27382100d15c71253c8d58fb03bfa119dae35b22212115d7c20abe92b5e"
+    },
+    "evaluation-diagnostic/B-2026093002-20000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2399761,
+      "sha256": "8e410db5d33648c2a16e104e28534205f4f7d9cb41e9d18e7f59e0a8aa111cdf"
+    },
+    "evaluation-diagnostic/B-2026093002-20000000--Passive.jsonl.gz": {
+      "bytes": 2637815,
+      "sha256": "dc9a0c60c62503d60368bbe855ae2b0d31c485fddcff681aef4f9c0736dad707"
+    },
+    "evaluation-diagnostic/B-2026093002-20000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 2032646,
+      "sha256": "e56d2e4051686a4b021f3d4cc67dc0ce39847573cefa6d94058e03dc6c5941e6"
+    },
+    "evaluation-diagnostic/B-2026093002-20000000--hu20_uniform.jsonl.gz": {
+      "bytes": 112180,
+      "sha256": "d887a13fabbcb506f2cabc8e5e4e8f20f2c94b33c8948ce067ac1d989aa6bb7f"
+    },
+    "evaluation-diagnostic/B-2026093002-20000000--loose_aggressive.jsonl.gz": {
+      "bytes": 107777,
+      "sha256": "ff87899b86f1988a16b97efeb91a6918f57ca66abc8d85e7ee0db1efdc8ea86e"
+    },
+    "evaluation-diagnostic/B-2026093002-20000000--loose_passive.jsonl.gz": {
+      "bytes": 117766,
+      "sha256": "beb2420396d3c15ae06043a0679c707e3510a178ca520490fb163e762ab26736"
+    },
+    "evaluation-diagnostic/B-2026093002-20000000--pot_pressure.jsonl.gz": {
+      "bytes": 86769,
+      "sha256": "2fe34b7e209420ace7b56fd572bb9fad31f21bf9eb2ab3e8f5e90dfa34398e44"
+    },
+    "evaluation-diagnostic/B-2026093002-20000000--tight_aggressive.jsonl.gz": {
+      "bytes": 79558,
+      "sha256": "ca6eedae4d28202de5d2c6c6cec0a0bce31a466b27c2b2d79140e8446fda8146"
+    },
+    "evaluation-diagnostic/B-2026093002-20000000--tight_passive.jsonl.gz": {
+      "bytes": 76515,
+      "sha256": "396968dd6acaeeb140b258c8930354fb17d080b986aca1e4809a8fb89db13477"
+    },
+    "evaluation-diagnostic/B-2026093002-40000000--Minraise-native.jsonl.gz": {
+      "bytes": 2369260,
+      "sha256": "5858f3bc083781276a5cd68d7f2d171dedf01a3dd278466dfea87c2186710339"
+    },
+    "evaluation-diagnostic/B-2026093002-40000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2486672,
+      "sha256": "69ccef89be26602cc152baa323cc918c1c4be191221392d7c272d05e58fe04f1"
+    },
+    "evaluation-diagnostic/B-2026093002-40000000--Passive.jsonl.gz": {
+      "bytes": 2705818,
+      "sha256": "4065039908597cd6c40a233d43b70830e306feea92cfe98da173b3c8f023ed1a"
+    },
+    "evaluation-diagnostic/B-2026093002-40000000--Pressure-native.jsonl.gz": {
+      "bytes": 2409862,
+      "sha256": "2089feaf1dacd2845e464c908579c36baf0a179923ab70eaf45aa7db9d8aca00"
+    },
+    "evaluation-diagnostic/B-2026093002-40000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 2107403,
+      "sha256": "f418a43cf5602beef5872f3cba0a848410ce872a23c40da8183c48007b0c8612"
+    },
+    "evaluation-diagnostic/B-2026093002-80000000--Minraise-native.jsonl.gz": {
+      "bytes": 2436175,
+      "sha256": "16e5253f3e52cb9d479a29017fa82edafa90ed63f172d6db9e9ef2c39e8622c1"
+    },
+    "evaluation-diagnostic/B-2026093002-80000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2517384,
+      "sha256": "14f7bf00ad0f8ca2b44740ed1378e5bc3711710fdc91f07a572bf3ab79f3f565"
+    },
+    "evaluation-diagnostic/B-2026093002-80000000--Passive.jsonl.gz": {
+      "bytes": 2734914,
+      "sha256": "de437a13d11f64be2d0721c6824a267430e034c693f46cb293e80641714f505b"
+    },
+    "evaluation-diagnostic/B-2026093002-80000000--Pressure-native.jsonl.gz": {
+      "bytes": 2482212,
+      "sha256": "fc75f7714a833db04283063598c0b9b19399b88f99b9dd1743c0197ff2c6a8c0"
+    },
+    "evaluation-diagnostic/B-2026093002-80000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 2171767,
+      "sha256": "0e53aa4ec4dd98a230b03aa4c8e1dfb996a8281e2b7506c87f7b437307277426"
+    },
+    "evaluation-diagnostic/B-2026093003-100000000--Minraise-native.jsonl.gz": {
+      "bytes": 2534612,
+      "sha256": "bcc8481e6253bed1a4475bca3abef2eea6764673526bfecd04b465b6fc364858"
+    },
+    "evaluation-diagnostic/B-2026093003-100000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2623047,
+      "sha256": "25cfb9635b33fc88abcb1e7116a30d651ddceb6cf716c68eff064a9463355947"
+    },
+    "evaluation-diagnostic/B-2026093003-100000000--Passive.jsonl.gz": {
+      "bytes": 2742262,
+      "sha256": "95ac39eb2518754280a05767fb3984c975d81bcd03556040be46fe0ca136ba19"
+    },
+    "evaluation-diagnostic/B-2026093003-100000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 2246407,
+      "sha256": "b55b94ce65992a22bf22e3e74b62715178cccd5b14ac0144c0beae8a92417c18"
+    },
+    "evaluation-diagnostic/B-2026093003-100000000--hu20_uniform.jsonl.gz": {
+      "bytes": 119338,
+      "sha256": "b08a9ea48463897af6d3d28b4926b23a482714247998681495df209f22df134d"
+    },
+    "evaluation-diagnostic/B-2026093003-100000000--loose_aggressive.jsonl.gz": {
+      "bytes": 110227,
+      "sha256": "9a1d0ea0e6b60b3ad0083bc0eb5e68ce9e6aec83b2a8ccfb80fc11c56b983354"
+    },
+    "evaluation-diagnostic/B-2026093003-100000000--loose_passive.jsonl.gz": {
+      "bytes": 121856,
+      "sha256": "39e2d20ee4f3de564e12d77e16e4f6f1a45dc43f807c3711cac81943d00997cf"
+    },
+    "evaluation-diagnostic/B-2026093003-100000000--pot_pressure.jsonl.gz": {
+      "bytes": 88584,
+      "sha256": "e8674ed96b1845c7d6261c885327efb8d151210f5461c47afbd11969a0491923"
+    },
+    "evaluation-diagnostic/B-2026093003-100000000--tight_aggressive.jsonl.gz": {
+      "bytes": 80797,
+      "sha256": "8bb0e959bf099968a3e95052d6bed01208191ec80546cdaeb667304efffa7e3a"
+    },
+    "evaluation-diagnostic/B-2026093003-100000000--tight_passive.jsonl.gz": {
+      "bytes": 79593,
+      "sha256": "dd655ff75adb276a770e1109a1d2bde178e13b42beac83c9c01f3a73291203d1"
+    },
+    "evaluation-diagnostic/B-2026093003-20000000--Minraise-native.jsonl.gz": {
+      "bytes": 2252885,
+      "sha256": "81c3dac76494d5cd7ed5b6b1207acdd4fba982e29b6eeee10cc166d455eb8a78"
+    },
+    "evaluation-diagnostic/B-2026093003-20000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2396024,
+      "sha256": "7855a5202879530f22d2bbca2118c23ad808b80667c2882cf5de4e61b1261f3a"
+    },
+    "evaluation-diagnostic/B-2026093003-20000000--Passive.jsonl.gz": {
+      "bytes": 2613929,
+      "sha256": "4a8ddc95746639fdfc7c600decff6669d5c5befe74dd23424d1bb148be5e732d"
+    },
+    "evaluation-diagnostic/B-2026093003-20000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 1968849,
+      "sha256": "3ac4c3b10769fafab059fae04c7f8efed78b91b501058e8f71d6cfed135340fc"
+    },
+    "evaluation-diagnostic/B-2026093003-20000000--hu20_uniform.jsonl.gz": {
+      "bytes": 110322,
+      "sha256": "e45ae1fcec0e51ba7a169a3cff695a370f332b0883059068c732e1a5699d7219"
+    },
+    "evaluation-diagnostic/B-2026093003-20000000--loose_aggressive.jsonl.gz": {
+      "bytes": 104519,
+      "sha256": "a918506c73153dc58edbb6723870787bb386e4da2738b26403c995bdeaf52a33"
+    },
+    "evaluation-diagnostic/B-2026093003-20000000--loose_passive.jsonl.gz": {
+      "bytes": 119335,
+      "sha256": "cfd72afa7d957c86c62c810dd7b51d01705d5c672e4761be8c346f676cd69596"
+    },
+    "evaluation-diagnostic/B-2026093003-20000000--pot_pressure.jsonl.gz": {
+      "bytes": 86370,
+      "sha256": "b6a6e2d47f3dc7139fda078a89b954ea22e65c7d129467f96c7836364b3dc224"
+    },
+    "evaluation-diagnostic/B-2026093003-20000000--tight_aggressive.jsonl.gz": {
+      "bytes": 76378,
+      "sha256": "6a16a119090a339d28a801352ea981894197c451911fa263ced07c8d33c4cb84"
+    },
+    "evaluation-diagnostic/B-2026093003-20000000--tight_passive.jsonl.gz": {
+      "bytes": 76450,
+      "sha256": "34d40c7162a20dc5604ee6b94f2642cbff37c916357aa3236e3065c79c157a89"
+    },
+    "evaluation-diagnostic/B-2026093003-40000000--Minraise-native.jsonl.gz": {
+      "bytes": 2370265,
+      "sha256": "70be99295c47e3add17893db6fabb595778b5254766a996a220614635f9b1903"
+    },
+    "evaluation-diagnostic/B-2026093003-40000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2439940,
+      "sha256": "4de1c8f504097e286d2ef0788e6b0c522d6f11436ab7b727fa43c7400ea0260b"
+    },
+    "evaluation-diagnostic/B-2026093003-40000000--Passive.jsonl.gz": {
+      "bytes": 2716497,
+      "sha256": "dbcd2d3275f0465c2bd479599ecf592e707922df64899bacabcb142b2e082158"
+    },
+    "evaluation-diagnostic/B-2026093003-40000000--Pressure-native.jsonl.gz": {
+      "bytes": 2372475,
+      "sha256": "5b10cc224e9be951529fe205e31e081773b363db997f1203dcfcc2039092be3a"
+    },
+    "evaluation-diagnostic/B-2026093003-40000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 2098065,
+      "sha256": "385e27d33b1f3ed9f5aecefbb2467af943c08ab4b99bd6e720f85fb7cda5460f"
+    },
+    "evaluation-diagnostic/B-2026093003-80000000--Minraise-native.jsonl.gz": {
+      "bytes": 2524216,
+      "sha256": "2b9e5184d84d644c25f64f63d870b4148ac99f51634422deb429cc810b828a75"
+    },
+    "evaluation-diagnostic/B-2026093003-80000000--Minraise-original-cap2.jsonl.gz": {
+      "bytes": 2644388,
+      "sha256": "d47f31145b9d5d58948667eaa5a57aeb17f6663c705dc2f628ad79e22a8cb537"
+    },
+    "evaluation-diagnostic/B-2026093003-80000000--Passive.jsonl.gz": {
+      "bytes": 2715614,
+      "sha256": "e67ee30701fd8133627490cf06a92257c4fecd34aba2941b0f3eba96f8984965"
+    },
+    "evaluation-diagnostic/B-2026093003-80000000--Pressure-native.jsonl.gz": {
+      "bytes": 2540623,
+      "sha256": "f36a773399057f7bed01d83a29fedbb675d967af3e8f6d7fb48d3a9af40fc88b"
+    },
+    "evaluation-diagnostic/B-2026093003-80000000--Pressure-original-cap2.jsonl.gz": {
+      "bytes": 2202990,
+      "sha256": "040bdfc4bd2586325cd3e1ada8dc508a4d2c3c7d690a117851ff9f7ec98ea76d"
+    },
+    "evaluation-diagnostic/attempts.json": {
+      "bytes": 25793,
+      "sha256": "d1b6674a2fa33a5dbbd1d357511daca24474dd6245b645435ed63e3a3778d5ca"
+    },
+    "evaluation-diagnostic/checksums.json": {
+      "bytes": 12548,
+      "sha256": "1356b1238a4b04b5572ae8ab87f1da95d05eb5b9750e260ebc665fb0593e9f11"
+    },
+    "evaluation-diagnostic/manifest.json": {
+      "bytes": 1440,
+      "sha256": "0874cde63c0632ed2c8533f18deffb0097235458f13c49f2f4fd773d9bc563ad"
+    },
+    "evaluation-diagnostic/models.json": {
+      "bytes": 12196,
+      "sha256": "d15c1fe9f42c0fbeffa7cb27d3bb4c5cb76226f1d812133dcedda9118d1d2402"
+    },
+    "evaluation-diagnostic/owner.json": {
+      "bytes": 85,
+      "sha256": "ac78cfde930bd939a5d319460c8990c542b8cba682e0b022ede037923220f0fe"
+    },
+    "evaluation-diagnostic/progress.json": {
+      "bytes": 321,
+      "sha256": "3ba6fc6086db55e3e9496309a7bd0a592346470059a9be1eb12585ef8c01a5ed"
+    },
+    "evaluation-diagnostic/result.json": {
+      "bytes": 1605,
+      "sha256": "00f3d7176f79c26025cebb9465ee5df6aa06ef309715a80f5979e45f0212298d"
+    },
+    "freeze.json": {
+      "bytes": 19029,
+      "sha256": "dd6f0bbdada65fd9a7231ce3f488a15fb28974becd77f1c29dab4add6e6fc246"
+    },
+    "jobs.json": {
+      "bytes": 1497,
+      "sha256": "997ad8411b09baa903521205bdaad1043500b192ed70727d2c6f2eee430688e6"
+    },
+    "run-status.json": {
+      "bytes": 183,
+      "sha256": "c49b45cccff289ef713dc0a8d6d71e889961835c5462dd4537c4eb229d02cfa8"
+    },
+    "supervisor-inventory.json": {
+      "bytes": 648,
+      "sha256": "5f18a57e5b015eb5a3af96a9b48d18b6b2c8cca5c1c1cd1e1905b2f28c960e07"
+    },
+    "supervisor-launcher.log": {
+      "bytes": 2843,
+      "sha256": "b66cf648ba163b7d6115921967399a6df2af8930ff8f38fae0256dffe2c9206e"
+    },
+    "supervisor/audit-diagnostic.log": {
+      "bytes": 372,
+      "sha256": "e2c2b2e881b33de85672e500c208cf607491fa5f35da9d539d0940693f10bae8"
+    },
+    "supervisor/campaign.json": {
+      "bytes": 3419,
+      "sha256": "2e13a6ad77021595342a43fe94402fc1c2863d3d0a3b60fc6d77dc51f9f5f965"
+    },
+    "supervisor/evaluate-diagnostic.log": {
+      "bytes": 1373,
+      "sha256": "2c51a70bf41e6a5b65d2262b78d1ce0644f3120aae4fb342cae4e97e7db38752"
+    },
+    "supervisor/owner.json": {
+      "bytes": 86,
+      "sha256": "653921fe442a0b45a0c5f296acfd91552fbcaa2639d201d3b90691b865119ee7"
+    },
+    "supervisor/resources.jsonl": {
+      "bytes": 114251,
+      "sha256": "70acd546dac25d46cf7c96685642b6fe79224bf4c11f245566f3548b3b507b60"
+    }
+  },
+  "finished": 1790716450.2492218
+}

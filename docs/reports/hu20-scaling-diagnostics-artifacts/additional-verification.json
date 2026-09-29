@@ -1,0 +1,15 @@
+{
+  "diagnostic_unique_deals": 13824,
+  "manifest_files": 123,
+  "overlap": {
+    "independent": 0,
+    "preflight": 0,
+    "primary_intentional": 4096,
+    "prior": 0
+  },
+  "primary_overlap_reason": "Frozen native-pressure schedule deliberately paired across primary and diagnostics",
+  "primary_unique_deals": 6144,
+  "prior_files": 268,
+  "prior_unique_deals": 100016,
+  "status": "verified"
+}

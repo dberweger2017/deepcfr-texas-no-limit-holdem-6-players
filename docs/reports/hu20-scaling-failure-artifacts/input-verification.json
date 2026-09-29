@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "baseline_checkpoint_and_policy_hash_checks": 24,
+  "local_independent_fixture_sha256": "3a8c9ee0c9c6364993ba4011af791c059f816ced2f1a02f449477928c5a35cd2",
+  "remote_independent_fixture_present": false,
+  "frozen_plan_file_sha256": "50698868306dca11a380dc5b5d80f020dfb0e09b48a02d2cf0077516801c49e0",
+  "report_finished": 1790643119.8007228,
+  "deadline": 1790674521.7771149,
+  "within_original_deadline": true
+}

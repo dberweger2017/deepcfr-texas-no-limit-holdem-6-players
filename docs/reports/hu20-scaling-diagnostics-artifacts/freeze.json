@@ -1,0 +1,739 @@
+{
+  "attempt_id": "hu20-scaling-diagnostics-20260929",
+  "authorization": "Owner requested completion of #116 frozen pending diagnostics on M4",
+  "deadline": 1790729363.24073,
+  "diagnostic_plan_sha256": "9bdae2002211e15cbb27d48ab08d29a95d58bc18899e9021b5684f7a6832414e",
+  "evaluation_deadline": 1790724863.24073,
+  "hands": 534528,
+  "model_list_sha256": "d15c1fe9f42c0fbeffa7cb27d3bb4c5cb76226f1d812133dcedda9118d1d2402",
+  "model_policy_sha256": {
+    "A-2026093001-20000000": "b67ebfe7c36cc13b6457e1d15729186a4f4d0b665cf9d818ce32bde5a13a1d05",
+    "A-2026093002-20000000": "7768332ce71004ca0fa8db853a17ace619b5da70ce477463a6d68b59dc3da0d9",
+    "A-2026093003-20000000": "09c5319b09ed5523a8433be0b626b7c9ffcd4cc7484ac07fd5543866d813257e",
+    "B-2026093001-100000000": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+    "B-2026093001-20000000": "198dae3eb36b6a830ab106ba13032ecab10fc1f2fc12bc4bb9bc06dcce9a01a6",
+    "B-2026093001-40000000": "12d3f1ad67d08b350363ce57665347c2de5edc46fab67e474c5f175d6a5271b7",
+    "B-2026093001-80000000": "b24b9de99b82adeb8c41e26346d892e4a578764eff5ffe1b77c2322b767f4d4e",
+    "B-2026093002-100000000": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710",
+    "B-2026093002-20000000": "4a8c3123437a28c5bea49447e67a91e490096819b3b820fd47c1ffb3f4bb0243",
+    "B-2026093002-40000000": "01468192bc717671dc504ab1d1f36a6e5e8a12fea9023ee1433acd2229b7cb7e",
+    "B-2026093002-80000000": "403e4731cf6102d3c7f64a2d93ff57a59199720a94b44b24e6b9d279707aae18",
+    "B-2026093003-100000000": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e",
+    "B-2026093003-20000000": "76af425b2457777c64caf8ac44819ae7d28e915b4d8b0b95625f82d96773fbb8",
+    "B-2026093003-40000000": "c88d3c22dd9fc5f6ffa0b060a6101fde568338fdf4c9df44ef76902425b8009a",
+    "B-2026093003-80000000": "3ce0a4adfb68406e6d0d40718a8a1a68a9aaccbb9c6e6f589ab830b06f8bbe42"
+  },
+  "panels": 99,
+  "parent_attempt": "hu20-scaling-m4-recovery-20260929-1008",
+  "parent_manifest_sha256": "0495348b92864ae410248d757ae8470b4406671436a668b3535f6557d6d9d498",
+  "parent_plan_sha256": "55add291a54b1277128ee6e5c915433281ff19ef98d7794fc1cef1808c45b9b2",
+  "parent_primary_audit_sha256": "a1346dd10aa4ceca14201440f053a1ddf59b81f2b2c939f708a9dbdbdef34bb6",
+  "resource_limits": {
+    "max_campaign_seconds": 36000,
+    "max_entries": 3000000,
+    "max_nodes_per_iteration": 250000,
+    "max_rss_gib": 10.5,
+    "max_seconds_per_iteration": 300,
+    "max_swap_growth_gib": 0.5,
+    "min_free_gib": 8
+  },
+  "runner_sha256": "1753af1ebf58032ea4b593dcc52b2b68b28df17a4efcc75ef6384bf65593ab0f",
+  "schedule": [
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-20000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-20000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-20000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-20000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "loose_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-20000000",
+      "root": 2026155001
+    },
+    {
+      "attacker": "loose_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-20000000",
+      "root": 2026155002
+    },
+    {
+      "attacker": "tight_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-20000000",
+      "root": 2026155003
+    },
+    {
+      "attacker": "tight_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-20000000",
+      "root": 2026155004
+    },
+    {
+      "attacker": "pot_pressure",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-20000000",
+      "root": 2026155005
+    },
+    {
+      "attacker": "hu20_uniform",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-20000000",
+      "root": 2026155006
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-20000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-20000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-20000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-20000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "loose_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-20000000",
+      "root": 2026155001
+    },
+    {
+      "attacker": "loose_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-20000000",
+      "root": 2026155002
+    },
+    {
+      "attacker": "tight_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-20000000",
+      "root": 2026155003
+    },
+    {
+      "attacker": "tight_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-20000000",
+      "root": 2026155004
+    },
+    {
+      "attacker": "pot_pressure",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-20000000",
+      "root": 2026155005
+    },
+    {
+      "attacker": "hu20_uniform",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-20000000",
+      "root": 2026155006
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-20000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-20000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-20000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-20000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "loose_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-20000000",
+      "root": 2026155001
+    },
+    {
+      "attacker": "loose_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-20000000",
+      "root": 2026155002
+    },
+    {
+      "attacker": "tight_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-20000000",
+      "root": 2026155003
+    },
+    {
+      "attacker": "tight_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-20000000",
+      "root": 2026155004
+    },
+    {
+      "attacker": "pot_pressure",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-20000000",
+      "root": 2026155005
+    },
+    {
+      "attacker": "hu20_uniform",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-20000000",
+      "root": 2026155006
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-40000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Pressure-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-40000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-40000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-40000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-40000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-80000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Pressure-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-80000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-80000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-80000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-80000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-100000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-100000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-100000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093001-100000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "loose_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-100000000",
+      "root": 2026155001
+    },
+    {
+      "attacker": "loose_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-100000000",
+      "root": 2026155002
+    },
+    {
+      "attacker": "tight_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-100000000",
+      "root": 2026155003
+    },
+    {
+      "attacker": "tight_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-100000000",
+      "root": 2026155004
+    },
+    {
+      "attacker": "pot_pressure",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-100000000",
+      "root": 2026155005
+    },
+    {
+      "attacker": "hu20_uniform",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093001-100000000",
+      "root": 2026155006
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-40000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Pressure-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-40000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-40000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-40000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-40000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-80000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Pressure-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-80000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-80000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-80000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-80000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-100000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-100000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-100000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093002-100000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "loose_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-100000000",
+      "root": 2026155001
+    },
+    {
+      "attacker": "loose_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-100000000",
+      "root": 2026155002
+    },
+    {
+      "attacker": "tight_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-100000000",
+      "root": 2026155003
+    },
+    {
+      "attacker": "tight_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-100000000",
+      "root": 2026155004
+    },
+    {
+      "attacker": "pot_pressure",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-100000000",
+      "root": 2026155005
+    },
+    {
+      "attacker": "hu20_uniform",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093002-100000000",
+      "root": 2026155006
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-40000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Pressure-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-40000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-40000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-40000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-40000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-80000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Pressure-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-80000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-80000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-80000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-80000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-100000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-100000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Minraise-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-100000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "B-2026093003-100000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "loose_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-100000000",
+      "root": 2026155001
+    },
+    {
+      "attacker": "loose_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-100000000",
+      "root": 2026155002
+    },
+    {
+      "attacker": "tight_passive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-100000000",
+      "root": 2026155003
+    },
+    {
+      "attacker": "tight_aggressive",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-100000000",
+      "root": 2026155004
+    },
+    {
+      "attacker": "pot_pressure",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-100000000",
+      "root": 2026155005
+    },
+    {
+      "attacker": "hu20_uniform",
+      "blocks": 256,
+      "phase": "secondary",
+      "policy": "B-2026093003-100000000",
+      "root": 2026155006
+    },
+    {
+      "attacker": "Pressure-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "A-2026093001-20000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "A-2026093001-20000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "A-2026093001-20000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "Pressure-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "A-2026093002-20000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "A-2026093002-20000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "A-2026093002-20000000",
+      "root": 2026153003
+    },
+    {
+      "attacker": "Pressure-native",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "A-2026093003-20000000",
+      "root": 2026153001
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "A-2026093003-20000000",
+      "root": 2026153002
+    },
+    {
+      "attacker": "Passive",
+      "blocks": 4096,
+      "phase": "cheap",
+      "policy": "A-2026093003-20000000",
+      "root": 2026153003
+    }
+  ],
+  "source_revision": "874ba641fc6110a2d0998af986608633abef8898",
+  "started": 1790714963.24073,
+  "swap_baseline": "vm.swapusage: total = 2048.00M  used = 761.38M  free = 1286.62M  (encrypted)"
+}

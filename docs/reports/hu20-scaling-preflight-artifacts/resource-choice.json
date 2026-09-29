@@ -1,0 +1,78 @@
+{
+  "choice": {
+    "nodes": 100000000,
+    "lbr_blocks": 2048,
+    "host_training_seconds": {
+      "m1": 10050.686450056497,
+      "m4": 13869.201341975619
+    },
+    "host_evaluation_audit_seconds": {
+      "m1": 11747.112380718321,
+      "m4": 12639.962920343667
+    },
+    "training_seconds": 13869.201341975619,
+    "evaluation_audit_seconds": 12639.962920343667,
+    "report_reserve_seconds": 1800,
+    "forecast_seconds": 28309.164262319286,
+    "feasible": true
+  },
+  "proposals": [
+    {
+      "nodes": 180000000,
+      "lbr_blocks": 2048,
+      "host_training_seconds": {
+        "m1": 19788.371529236985,
+        "m4": 27289.153415949826
+      },
+      "host_evaluation_audit_seconds": {
+        "m1": 11747.112380718321,
+        "m4": 12639.962920343667
+      },
+      "training_seconds": 27289.153415949826,
+      "evaluation_audit_seconds": 12639.962920343667,
+      "report_reserve_seconds": 1800,
+      "forecast_seconds": 41729.11633629349,
+      "feasible": false
+    },
+    {
+      "nodes": 140000000,
+      "lbr_blocks": 2048,
+      "host_training_seconds": {
+        "m1": 14919.528989646742,
+        "m4": 20579.177378962722
+      },
+      "host_evaluation_audit_seconds": {
+        "m1": 11747.112380718321,
+        "m4": 12639.962920343667
+      },
+      "training_seconds": 20579.177378962722,
+      "evaluation_audit_seconds": 12639.962920343667,
+      "report_reserve_seconds": 1800,
+      "forecast_seconds": 35019.14029930639,
+      "feasible": false
+    },
+    {
+      "nodes": 100000000,
+      "lbr_blocks": 2048,
+      "host_training_seconds": {
+        "m1": 10050.686450056497,
+        "m4": 13869.201341975619
+      },
+      "host_evaluation_audit_seconds": {
+        "m1": 11747.112380718321,
+        "m4": 12639.962920343667
+      },
+      "training_seconds": 13869.201341975619,
+      "evaluation_audit_seconds": 12639.962920343667,
+      "report_reserve_seconds": 1800,
+      "forecast_seconds": 28309.164262319286,
+      "feasible": true
+    }
+  ],
+  "remaining_seconds": 34846.467718839645,
+  "node_time_allowance": 1.2,
+  "lbr_allowance": 1.25,
+  "max_entries": 3000000,
+  "entry_bound_basis": "Measured complete artifact path on both hosts, not a fitted growth bound",
+  "qualification": "Time projections are conservative estimates; original deadline and resource guards remain authoritative"
+}

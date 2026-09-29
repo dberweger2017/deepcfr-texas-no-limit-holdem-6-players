@@ -1,0 +1,979 @@
+{
+  "audit_failures": [],
+  "audit_status": "complete",
+  "native_replayed_hands": 534528,
+  "panel_count": 99,
+  "resources": {
+    "all_ac": true,
+    "finished": 1790716443.410675,
+    "max_swap_growth_bytes": 0.0,
+    "min_free_disk_bytes": 41814126592,
+    "peak_owned_job_rss_bytes": 3190996992,
+    "samples": 287,
+    "started": 1790714996.159731
+  },
+  "status": "verified",
+  "telemetry": [
+    {
+      "attacker": "Minraise-native",
+      "decisions": 83465,
+      "fallback": 491,
+      "milestone": 100000000,
+      "preceding_original_off_menu": 23337,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 23594,
+          "fallback": 75,
+          "trained": 23519
+        },
+        "preflop": {
+          "decisions": 41397,
+          "fallback": 23,
+          "trained": 41374
+        },
+        "river": {
+          "decisions": 6003,
+          "fallback": 138,
+          "trained": 5865
+        },
+        "turn": {
+          "decisions": 12471,
+          "fallback": 255,
+          "trained": 12216
+        }
+      },
+      "trained": 82974
+    },
+    {
+      "attacker": "Minraise-native",
+      "decisions": 71019,
+      "fallback": 1115,
+      "milestone": 20000000,
+      "preceding_original_off_menu": 21281,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 18224,
+          "fallback": 203,
+          "trained": 18021
+        },
+        "preflop": {
+          "decisions": 42549,
+          "fallback": 225,
+          "trained": 42324
+        },
+        "river": {
+          "decisions": 2444,
+          "fallback": 204,
+          "trained": 2240
+        },
+        "turn": {
+          "decisions": 7802,
+          "fallback": 483,
+          "trained": 7319
+        }
+      },
+      "trained": 69904
+    },
+    {
+      "attacker": "Minraise-native",
+      "decisions": 75749,
+      "fallback": 784,
+      "milestone": 40000000,
+      "preceding_original_off_menu": 20762,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 19876,
+          "fallback": 158,
+          "trained": 19718
+        },
+        "preflop": {
+          "decisions": 41863,
+          "fallback": 102,
+          "trained": 41761
+        },
+        "river": {
+          "decisions": 4321,
+          "fallback": 243,
+          "trained": 4078
+        },
+        "turn": {
+          "decisions": 9689,
+          "fallback": 281,
+          "trained": 9408
+        }
+      },
+      "trained": 74965
+    },
+    {
+      "attacker": "Minraise-native",
+      "decisions": 81422,
+      "fallback": 632,
+      "milestone": 80000000,
+      "preceding_original_off_menu": 23559,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 22876,
+          "fallback": 118,
+          "trained": 22758
+        },
+        "preflop": {
+          "decisions": 41605,
+          "fallback": 47,
+          "trained": 41558
+        },
+        "river": {
+          "decisions": 5393,
+          "fallback": 179,
+          "trained": 5214
+        },
+        "turn": {
+          "decisions": 11548,
+          "fallback": 288,
+          "trained": 11260
+        }
+      },
+      "trained": 80790
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "decisions": 86892,
+      "fallback": 353,
+      "milestone": 100000000,
+      "preceding_original_off_menu": 7363,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 25074,
+          "fallback": 27,
+          "trained": 25047
+        },
+        "preflop": {
+          "decisions": 34065,
+          "fallback": 0,
+          "trained": 34065
+        },
+        "river": {
+          "decisions": 10869,
+          "fallback": 164,
+          "trained": 10705
+        },
+        "turn": {
+          "decisions": 16884,
+          "fallback": 162,
+          "trained": 16722
+        }
+      },
+      "trained": 86539
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "decisions": 163604,
+      "fallback": 1986,
+      "milestone": 20000000,
+      "preceding_original_off_menu": 6538,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 48603,
+          "fallback": 194,
+          "trained": 48409
+        },
+        "preflop": {
+          "decisions": 65955,
+          "fallback": 0,
+          "trained": 65955
+        },
+        "river": {
+          "decisions": 17972,
+          "fallback": 929,
+          "trained": 17043
+        },
+        "turn": {
+          "decisions": 31074,
+          "fallback": 863,
+          "trained": 30211
+        }
+      },
+      "trained": 161618
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "decisions": 79110,
+      "fallback": 769,
+      "milestone": 40000000,
+      "preceding_original_off_menu": 6434,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 23027,
+          "fallback": 61,
+          "trained": 22966
+        },
+        "preflop": {
+          "decisions": 33764,
+          "fallback": 0,
+          "trained": 33764
+        },
+        "river": {
+          "decisions": 7918,
+          "fallback": 401,
+          "trained": 7517
+        },
+        "turn": {
+          "decisions": 14401,
+          "fallback": 307,
+          "trained": 14094
+        }
+      },
+      "trained": 78341
+    },
+    {
+      "attacker": "Minraise-original-cap2",
+      "decisions": 85047,
+      "fallback": 439,
+      "milestone": 80000000,
+      "preceding_original_off_menu": 7982,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 24603,
+          "fallback": 29,
+          "trained": 24574
+        },
+        "preflop": {
+          "decisions": 33989,
+          "fallback": 0,
+          "trained": 33989
+        },
+        "river": {
+          "decisions": 10090,
+          "fallback": 226,
+          "trained": 9864
+        },
+        "turn": {
+          "decisions": 16365,
+          "fallback": 184,
+          "trained": 16181
+        }
+      },
+      "trained": 84608
+    },
+    {
+      "attacker": "Passive",
+      "decisions": 89791,
+      "fallback": 67,
+      "milestone": 100000000,
+      "preceding_original_off_menu": 0,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 21897,
+          "fallback": 1,
+          "trained": 21896
+        },
+        "preflop": {
+          "decisions": 24576,
+          "fallback": 0,
+          "trained": 24576
+        },
+        "river": {
+          "decisions": 21421,
+          "fallback": 34,
+          "trained": 21387
+        },
+        "turn": {
+          "decisions": 21897,
+          "fallback": 32,
+          "trained": 21865
+        }
+      },
+      "trained": 89724
+    },
+    {
+      "attacker": "Passive",
+      "decisions": 171569,
+      "fallback": 1189,
+      "milestone": 20000000,
+      "preceding_original_off_menu": 0,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 41379,
+          "fallback": 36,
+          "trained": 41343
+        },
+        "preflop": {
+          "decisions": 49152,
+          "fallback": 0,
+          "trained": 49152
+        },
+        "river": {
+          "decisions": 39659,
+          "fallback": 814,
+          "trained": 38845
+        },
+        "turn": {
+          "decisions": 41379,
+          "fallback": 339,
+          "trained": 41040
+        }
+      },
+      "trained": 170380
+    },
+    {
+      "attacker": "Passive",
+      "decisions": 88535,
+      "fallback": 242,
+      "milestone": 40000000,
+      "preceding_original_off_menu": 0,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 21545,
+          "fallback": 5,
+          "trained": 21540
+        },
+        "preflop": {
+          "decisions": 24576,
+          "fallback": 0,
+          "trained": 24576
+        },
+        "river": {
+          "decisions": 20869,
+          "fallback": 144,
+          "trained": 20725
+        },
+        "turn": {
+          "decisions": 21545,
+          "fallback": 93,
+          "trained": 21452
+        }
+      },
+      "trained": 88293
+    },
+    {
+      "attacker": "Passive",
+      "decisions": 89224,
+      "fallback": 90,
+      "milestone": 80000000,
+      "preceding_original_off_menu": 0,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 21712,
+          "fallback": 0,
+          "trained": 21712
+        },
+        "preflop": {
+          "decisions": 24576,
+          "fallback": 0,
+          "trained": 24576
+        },
+        "river": {
+          "decisions": 21224,
+          "fallback": 44,
+          "trained": 21180
+        },
+        "turn": {
+          "decisions": 21712,
+          "fallback": 46,
+          "trained": 21666
+        }
+      },
+      "trained": 89134
+    },
+    {
+      "attacker": "Pressure-native",
+      "decisions": 77594,
+      "fallback": 25902,
+      "milestone": 20000000,
+      "preceding_original_off_menu": 25820,
+      "preceding_target_off_menu": 25820,
+      "street": {
+        "flop": {
+          "decisions": 22344,
+          "fallback": 10395,
+          "trained": 11949
+        },
+        "preflop": {
+          "decisions": 41177,
+          "fallback": 8037,
+          "trained": 33140
+        },
+        "river": {
+          "decisions": 4507,
+          "fallback": 2429,
+          "trained": 2078
+        },
+        "turn": {
+          "decisions": 9566,
+          "fallback": 5041,
+          "trained": 4525
+        }
+      },
+      "trained": 51692
+    },
+    {
+      "attacker": "Pressure-native",
+      "decisions": 76056,
+      "fallback": 663,
+      "milestone": 40000000,
+      "preceding_original_off_menu": 20770,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 20153,
+          "fallback": 124,
+          "trained": 20029
+        },
+        "preflop": {
+          "decisions": 41962,
+          "fallback": 66,
+          "trained": 41896
+        },
+        "river": {
+          "decisions": 4209,
+          "fallback": 202,
+          "trained": 4007
+        },
+        "turn": {
+          "decisions": 9732,
+          "fallback": 271,
+          "trained": 9461
+        }
+      },
+      "trained": 75393
+    },
+    {
+      "attacker": "Pressure-native",
+      "decisions": 81933,
+      "fallback": 582,
+      "milestone": 80000000,
+      "preceding_original_off_menu": 23418,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 23171,
+          "fallback": 84,
+          "trained": 23087
+        },
+        "preflop": {
+          "decisions": 41540,
+          "fallback": 42,
+          "trained": 41498
+        },
+        "river": {
+          "decisions": 5556,
+          "fallback": 192,
+          "trained": 5364
+        },
+        "turn": {
+          "decisions": 11666,
+          "fallback": 264,
+          "trained": 11402
+        }
+      },
+      "trained": 81351
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "decisions": 69974,
+      "fallback": 93,
+      "milestone": 100000000,
+      "preceding_original_off_menu": 2387,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 18787,
+          "fallback": 5,
+          "trained": 18782
+        },
+        "preflop": {
+          "decisions": 34165,
+          "fallback": 0,
+          "trained": 34165
+        },
+        "river": {
+          "decisions": 6522,
+          "fallback": 44,
+          "trained": 6478
+        },
+        "turn": {
+          "decisions": 10500,
+          "fallback": 44,
+          "trained": 10456
+        }
+      },
+      "trained": 69881
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "decisions": 57561,
+      "fallback": 524,
+      "milestone": 20000000,
+      "preceding_original_off_menu": 1958,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 14711,
+          "fallback": 44,
+          "trained": 14667
+        },
+        "preflop": {
+          "decisions": 32958,
+          "fallback": 0,
+          "trained": 32958
+        },
+        "river": {
+          "decisions": 2984,
+          "fallback": 261,
+          "trained": 2723
+        },
+        "turn": {
+          "decisions": 6908,
+          "fallback": 219,
+          "trained": 6689
+        }
+      },
+      "trained": 57037
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "decisions": 62951,
+      "fallback": 245,
+      "milestone": 40000000,
+      "preceding_original_off_menu": 2065,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 16374,
+          "fallback": 12,
+          "trained": 16362
+        },
+        "preflop": {
+          "decisions": 33896,
+          "fallback": 0,
+          "trained": 33896
+        },
+        "river": {
+          "decisions": 4410,
+          "fallback": 127,
+          "trained": 4283
+        },
+        "turn": {
+          "decisions": 8271,
+          "fallback": 106,
+          "trained": 8165
+        }
+      },
+      "trained": 62706
+    },
+    {
+      "attacker": "Pressure-original-cap2",
+      "decisions": 67392,
+      "fallback": 118,
+      "milestone": 80000000,
+      "preceding_original_off_menu": 2325,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 18010,
+          "fallback": 5,
+          "trained": 18005
+        },
+        "preflop": {
+          "decisions": 34045,
+          "fallback": 0,
+          "trained": 34045
+        },
+        "river": {
+          "decisions": 5807,
+          "fallback": 59,
+          "trained": 5748
+        },
+        "turn": {
+          "decisions": 9530,
+          "fallback": 54,
+          "trained": 9476
+        }
+      },
+      "trained": 67274
+    },
+    {
+      "attacker": "hu20_uniform",
+      "decisions": 3227,
+      "fallback": 2,
+      "milestone": 100000000,
+      "preceding_original_off_menu": 69,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 865,
+          "fallback": 0,
+          "trained": 865
+        },
+        "preflop": {
+          "decisions": 1715,
+          "fallback": 0,
+          "trained": 1715
+        },
+        "river": {
+          "decisions": 193,
+          "fallback": 2,
+          "trained": 191
+        },
+        "turn": {
+          "decisions": 454,
+          "fallback": 0,
+          "trained": 454
+        }
+      },
+      "trained": 3225
+    },
+    {
+      "attacker": "hu20_uniform",
+      "decisions": 2860,
+      "fallback": 21,
+      "milestone": 20000000,
+      "preceding_original_off_menu": 64,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 761,
+          "fallback": 2,
+          "trained": 759
+        },
+        "preflop": {
+          "decisions": 1653,
+          "fallback": 0,
+          "trained": 1653
+        },
+        "river": {
+          "decisions": 121,
+          "fallback": 9,
+          "trained": 112
+        },
+        "turn": {
+          "decisions": 325,
+          "fallback": 10,
+          "trained": 315
+        }
+      },
+      "trained": 2839
+    },
+    {
+      "attacker": "loose_aggressive",
+      "decisions": 2779,
+      "fallback": 5,
+      "milestone": 100000000,
+      "preceding_original_off_menu": 71,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 645,
+          "fallback": 0,
+          "trained": 645
+        },
+        "preflop": {
+          "decisions": 1312,
+          "fallback": 0,
+          "trained": 1312
+        },
+        "river": {
+          "decisions": 334,
+          "fallback": 1,
+          "trained": 333
+        },
+        "turn": {
+          "decisions": 488,
+          "fallback": 4,
+          "trained": 484
+        }
+      },
+      "trained": 2774
+    },
+    {
+      "attacker": "loose_aggressive",
+      "decisions": 2566,
+      "fallback": 13,
+      "milestone": 20000000,
+      "preceding_original_off_menu": 97,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 572,
+          "fallback": 0,
+          "trained": 572
+        },
+        "preflop": {
+          "decisions": 1298,
+          "fallback": 0,
+          "trained": 1298
+        },
+        "river": {
+          "decisions": 282,
+          "fallback": 4,
+          "trained": 278
+        },
+        "turn": {
+          "decisions": 414,
+          "fallback": 9,
+          "trained": 405
+        }
+      },
+      "trained": 2553
+    },
+    {
+      "attacker": "loose_passive",
+      "decisions": 3366,
+      "fallback": 1,
+      "milestone": 100000000,
+      "preceding_original_off_menu": 9,
+      "preceding_target_off_menu": 9,
+      "street": {
+        "flop": {
+          "decisions": 888,
+          "fallback": 1,
+          "trained": 887
+        },
+        "preflop": {
+          "decisions": 1232,
+          "fallback": 0,
+          "trained": 1232
+        },
+        "river": {
+          "decisions": 590,
+          "fallback": 0,
+          "trained": 590
+        },
+        "turn": {
+          "decisions": 656,
+          "fallback": 0,
+          "trained": 656
+        }
+      },
+      "trained": 3365
+    },
+    {
+      "attacker": "loose_passive",
+      "decisions": 3189,
+      "fallback": 15,
+      "milestone": 20000000,
+      "preceding_original_off_menu": 9,
+      "preceding_target_off_menu": 9,
+      "street": {
+        "flop": {
+          "decisions": 847,
+          "fallback": 0,
+          "trained": 847
+        },
+        "preflop": {
+          "decisions": 1229,
+          "fallback": 0,
+          "trained": 1229
+        },
+        "river": {
+          "decisions": 525,
+          "fallback": 13,
+          "trained": 512
+        },
+        "turn": {
+          "decisions": 588,
+          "fallback": 2,
+          "trained": 586
+        }
+      },
+      "trained": 3174
+    },
+    {
+      "attacker": "pot_pressure",
+      "decisions": 1757,
+      "fallback": 454,
+      "milestone": 100000000,
+      "preceding_original_off_menu": 513,
+      "preceding_target_off_menu": 513,
+      "street": {
+        "flop": {
+          "decisions": 386,
+          "fallback": 114,
+          "trained": 272
+        },
+        "preflop": {
+          "decisions": 1101,
+          "fallback": 211,
+          "trained": 890
+        },
+        "river": {
+          "decisions": 79,
+          "fallback": 39,
+          "trained": 40
+        },
+        "turn": {
+          "decisions": 191,
+          "fallback": 90,
+          "trained": 101
+        }
+      },
+      "trained": 1303
+    },
+    {
+      "attacker": "pot_pressure",
+      "decisions": 1653,
+      "fallback": 373,
+      "milestone": 20000000,
+      "preceding_original_off_menu": 426,
+      "preceding_target_off_menu": 426,
+      "street": {
+        "flop": {
+          "decisions": 352,
+          "fallback": 84,
+          "trained": 268
+        },
+        "preflop": {
+          "decisions": 1082,
+          "fallback": 191,
+          "trained": 891
+        },
+        "river": {
+          "decisions": 65,
+          "fallback": 31,
+          "trained": 34
+        },
+        "turn": {
+          "decisions": 154,
+          "fallback": 67,
+          "trained": 87
+        }
+      },
+      "trained": 1280
+    },
+    {
+      "attacker": "tight_aggressive",
+      "decisions": 1479,
+      "fallback": 1,
+      "milestone": 100000000,
+      "preceding_original_off_menu": 21,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 329,
+          "fallback": 1,
+          "trained": 328
+        },
+        "preflop": {
+          "decisions": 889,
+          "fallback": 0,
+          "trained": 889
+        },
+        "river": {
+          "decisions": 75,
+          "fallback": 0,
+          "trained": 75
+        },
+        "turn": {
+          "decisions": 186,
+          "fallback": 0,
+          "trained": 186
+        }
+      },
+      "trained": 1478
+    },
+    {
+      "attacker": "tight_aggressive",
+      "decisions": 1363,
+      "fallback": 0,
+      "milestone": 20000000,
+      "preceding_original_off_menu": 28,
+      "preceding_target_off_menu": 0,
+      "street": {
+        "flop": {
+          "decisions": 294,
+          "fallback": 0,
+          "trained": 294
+        },
+        "preflop": {
+          "decisions": 889,
+          "fallback": 0,
+          "trained": 889
+        },
+        "river": {
+          "decisions": 42,
+          "fallback": 0,
+          "trained": 42
+        },
+        "turn": {
+          "decisions": 138,
+          "fallback": 0,
+          "trained": 138
+        }
+      },
+      "trained": 1363
+    },
+    {
+      "attacker": "tight_passive",
+      "decisions": 1425,
+      "fallback": 5,
+      "milestone": 100000000,
+      "preceding_original_off_menu": 13,
+      "preceding_target_off_menu": 13,
+      "street": {
+        "flop": {
+          "decisions": 315,
+          "fallback": 0,
+          "trained": 315
+        },
+        "preflop": {
+          "decisions": 826,
+          "fallback": 5,
+          "trained": 821
+        },
+        "river": {
+          "decisions": 106,
+          "fallback": 0,
+          "trained": 106
+        },
+        "turn": {
+          "decisions": 178,
+          "fallback": 0,
+          "trained": 178
+        }
+      },
+      "trained": 1420
+    },
+    {
+      "attacker": "tight_passive",
+      "decisions": 1303,
+      "fallback": 11,
+      "milestone": 20000000,
+      "preceding_original_off_menu": 14,
+      "preceding_target_off_menu": 14,
+      "street": {
+        "flop": {
+          "decisions": 264,
+          "fallback": 2,
+          "trained": 262
+        },
+        "preflop": {
+          "decisions": 823,
+          "fallback": 1,
+          "trained": 822
+        },
+        "river": {
+          "decisions": 88,
+          "fallback": 4,
+          "trained": 84
+        },
+        "turn": {
+          "decisions": 128,
+          "fallback": 4,
+          "trained": 124
+        }
+      },
+      "trained": 1292
+    }
+  ]
+}
