@@ -1,0 +1,11 @@
+{
+  "checkpoint_load_seconds": 57.3397605830105,
+  "elapsed_seconds": 525.6550282080425,
+  "error": null,
+  "memory_pressure_after": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 61%",
+  "peak_process_rss_bytes": 7070253056,
+  "planned_case_rows": 17,
+  "retained_rows": 17,
+  "status": "valid",
+  "swap_after": "vm.swapusage: total = 2048.00M  used = 769.38M  free = 1278.62M  (encrypted)"
+}

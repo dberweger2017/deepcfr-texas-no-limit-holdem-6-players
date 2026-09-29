@@ -1,0 +1,45 @@
+{
+  "both_modes_completed": 2,
+  "case_count": 48,
+  "completed_case_pairs": 48,
+  "elapsed_seconds": 334.5964465419529,
+  "mean_final_policy_l1_on_off": 1.1731647999612629,
+  "modes": {
+    "targeted_off": {
+      "attempts": 48,
+      "completed": 2,
+      "continuation_trained_fraction": 0.0389788525663897,
+      "continuation_trained_lookups": 37909,
+      "continuation_untrained_lookups": 934644,
+      "maximum_seconds": 2.6251843339996412,
+      "mean_target_policy_l1_64_to_128": 1.3333333333333333,
+      "median_prior_mass_visited": 0.028911564625850348,
+      "median_target_holdings_visited": 32.0,
+      "median_target_visits": 0.0,
+      "minimum_completed_cycles": 128,
+      "p95_seconds": 2.5764215419767424,
+      "search_unavailable": 0,
+      "target_unvisited": 46,
+      "timeouts": 0
+    },
+    "targeted_on": {
+      "attempts": 48,
+      "completed": 48,
+      "continuation_trained_fraction": 0.036171198794137334,
+      "continuation_trained_lookups": 46362,
+      "continuation_untrained_lookups": 1235376,
+      "maximum_seconds": 3.625707417028025,
+      "mean_target_policy_l1_64_to_128": 0.8448868028742971,
+      "median_prior_mass_visited": 0.030187074829931982,
+      "median_target_holdings_visited": 34.0,
+      "median_target_visits": 103.5,
+      "minimum_completed_cycles": 128,
+      "p95_seconds": 3.574708834057674,
+      "search_unavailable": 0,
+      "target_unvisited": 0,
+      "timeouts": 0
+    }
+  },
+  "peak_process_rss_bytes": 8054030336,
+  "status": "valid"
+}
