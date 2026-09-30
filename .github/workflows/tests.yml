@@ -6,12 +6,43 @@ on:
   pull_request:
   workflow_dispatch:
 
+# New commits supersede only the same PR or branch; other agents keep their runs.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
-  test:
+  scope:
     runs-on: ubuntu-latest
+    outputs:
+      full: ${{ steps.scope.outputs.full }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check CI routing regressions
+        run: python -m unittest tests.test_ci_scope -v
+      - name: Select validation scope
+        id: scope
+        run: python -m scripts.ci_scope
+      - name: Check tracked prose encoding
+        if: steps.scope.outputs.full == 'false'
+        run: python -m scripts.ci_scope --check-prose
+
+  full:
+    needs: scope
+    if: needs.scope.outputs.full == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -24,29 +55,55 @@ jobs:
           python -m pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
           python -m pip install -r requirements-dev.txt
       - name: Run engine, arena and solver tests
-        run: python -m pytest -q
+        run: python -m pytest -p scripts.ci_shard --ci-shard ${{ matrix.shard }} --ci-shards 2 -q --durations=25 --durations-min=1
       - name: Check the public observation interface end to end
+        if: matrix.shard == 0
         run: python -m scripts.check_game --players 6 --hands 20
       - name: Check sessions with changing lineups and bankrolls
+        if: matrix.shard == 0
         run: python -m scripts.check_session --hands 30
       - name: Run and reproduce fixed-stack and session evaluations
+        if: matrix.shard == 0
         run: |
           python -m scripts.run_arena --plan configs/arena/smoke.json --out results/arena-smoke
           python -m scripts.run_arena --reproduce results/arena-smoke --out results/arena-replay
       - name: Check and reproduce the benchmark opponent suite
+        if: matrix.shard == 0
         run: |
           python -m scripts.run_arena --plan configs/arena/opponents-smoke.json --out results/opponents-smoke
           python -m scripts.run_arena --reproduce results/opponents-smoke --out results/opponents-replay
       - name: Check and reproduce the tabular solver reference
+        if: matrix.shard == 0
         run: |
           python -m scripts.check_solver --plan configs/solver/smoke.json --out results/solver-smoke
           python -m scripts.check_solver --reproduce results/solver-smoke --out results/solver-replay
       - name: Check and reproduce the neural small-game baseline
+        if: matrix.shard == 0
         run: |
           python -m scripts.check_deep_cfr --plan configs/solver/neural-smoke.json --out results/neural-smoke
           python -m scripts.check_deep_cfr --reproduce results/neural-smoke --out results/neural-replay
       - name: Resume neural training in a new process
+        if: matrix.shard == 0
         run: |
           python -m scripts.check_deep_cfr --plan configs/solver/neural-smoke.json --stop-after 1 --out results/neural-paused
           python -m scripts.check_deep_cfr --resume results/neural-paused --out results/neural-resumed
           cmp results/neural-smoke/policy.pt results/neural-resumed/policy.pt
+
+  # Retain the existing status name. A skipped full job is valid only for prose.
+  test:
+    needs: [scope, full]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require the selected checks to pass
+        env:
+          SCOPE_RESULT: ${{ needs.scope.result }}
+          FULL_REQUIRED: ${{ needs.scope.outputs.full }}
+          FULL_RESULT: ${{ needs.full.result }}
+        run: |
+          test "$SCOPE_RESULT" = success
+          case "$FULL_REQUIRED" in
+            true) test "$FULL_RESULT" = success ;;
+            false) test "$FULL_RESULT" = skipped ;;
+            *) exit 1 ;;
+          esac
