@@ -1,0 +1,1316 @@
+[
+  {
+    "ac": true,
+    "child_pid": 0,
+    "free_disk_bytes": 46222786560,
+    "owned_rss_bytes": 77021184,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784552.0902221
+  },
+  {
+    "ac": true,
+    "child_pid": 90860,
+    "free_disk_bytes": 46196252672,
+    "owned_rss_bytes": 78970880,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784552.1572921
+  },
+  {
+    "ac": true,
+    "child_pid": 0,
+    "free_disk_bytes": 46178136064,
+    "owned_rss_bytes": 77168640,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784553.214433
+  },
+  {
+    "ac": true,
+    "child_pid": 90884,
+    "free_disk_bytes": 46177771520,
+    "owned_rss_bytes": 78462976,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784553.279401
+  },
+  {
+    "ac": true,
+    "child_pid": 0,
+    "free_disk_bytes": 46174502912,
+    "owned_rss_bytes": 33718272,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784554.336664
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46174625792,
+    "owned_rss_bytes": 34029568,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784554.39049
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46172934144,
+    "owned_rss_bytes": 71909376,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784555.444915
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46173212672,
+    "owned_rss_bytes": 73678848,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784556.4993339
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46153928704,
+    "owned_rss_bytes": 64307200,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784557.567242
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46154342400,
+    "owned_rss_bytes": 65994752,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784558.6243021
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46127296512,
+    "owned_rss_bytes": 67305472,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784559.6937149
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46127128576,
+    "owned_rss_bytes": 68534272,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784560.754105
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46127042560,
+    "owned_rss_bytes": 69763072,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784561.817734
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46114086912,
+    "owned_rss_bytes": 71483392,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784562.887058
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46120308736,
+    "owned_rss_bytes": 66011136,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784563.940419
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46119813120,
+    "owned_rss_bytes": 68337664,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784564.997476
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46119550976,
+    "owned_rss_bytes": 69812224,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784566.067158
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46119424000,
+    "owned_rss_bytes": 71204864,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784567.123542
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46118985728,
+    "owned_rss_bytes": 72630272,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784568.178932
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46118825984,
+    "owned_rss_bytes": 73859072,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784569.2295392
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46118662144,
+    "owned_rss_bytes": 75497472,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784570.29
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46118260736,
+    "owned_rss_bytes": 76873728,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784571.3479402
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46113017856,
+    "owned_rss_bytes": 77955072,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784572.408531
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46080884736,
+    "owned_rss_bytes": 79364096,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784573.461756
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46078300160,
+    "owned_rss_bytes": 80543744,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784574.530598
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46078492672,
+    "owned_rss_bytes": 81575936,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784575.585342
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46008655872,
+    "owned_rss_bytes": 83099648,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784576.635763
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46007349248,
+    "owned_rss_bytes": 86360064,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784577.695969
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46006030336,
+    "owned_rss_bytes": 87441408,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784578.745905
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 46005321728,
+    "owned_rss_bytes": 88145920,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784579.801086
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45991759872,
+    "owned_rss_bytes": 88784896,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784580.855384
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45991436288,
+    "owned_rss_bytes": 89554944,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784581.912769
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45991907328,
+    "owned_rss_bytes": 90472448,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784582.9704268
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45991919616,
+    "owned_rss_bytes": 91209728,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784584.065759
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45985419264,
+    "owned_rss_bytes": 89669632,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784585.132444
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45984833536,
+    "owned_rss_bytes": 90357760,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784586.1991029
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45984772096,
+    "owned_rss_bytes": 90750976,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784587.259331
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45984301056,
+    "owned_rss_bytes": 91684864,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784588.331179
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45984251904,
+    "owned_rss_bytes": 92520448,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784589.390569
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45984821248,
+    "owned_rss_bytes": 93356032,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784590.5001311
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983752192,
+    "owned_rss_bytes": 94142464,
+    "swap_growth_mib": 0,
+    "swap_mib": 3019.88,
+    "time": 1790784591.5566149
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45982621696,
+    "owned_rss_bytes": 94912512,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784592.6248882
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45982445568,
+    "owned_rss_bytes": 95567872,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784593.6878989
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45979648000,
+    "owned_rss_bytes": 96468992,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784594.8044858
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983858688,
+    "owned_rss_bytes": 95076352,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784595.884015
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45982621696,
+    "owned_rss_bytes": 95895552,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784596.944736
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45979500544,
+    "owned_rss_bytes": 122585088,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784598.006793
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45979500544,
+    "owned_rss_bytes": 123371520,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784599.069428
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45979639808,
+    "owned_rss_bytes": 120832000,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784600.1304362
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45979484160,
+    "owned_rss_bytes": 111476736,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784601.247756
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983424512,
+    "owned_rss_bytes": 102940672,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784602.357932
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983264768,
+    "owned_rss_bytes": 103677952,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784603.421993
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45987663872,
+    "owned_rss_bytes": 104562688,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784604.479897
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45987385344,
+    "owned_rss_bytes": 105218048,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784605.559555
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45987491840,
+    "owned_rss_bytes": 105627648,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784606.7525382
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45987393536,
+    "owned_rss_bytes": 106446848,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784607.818209
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45987385344,
+    "owned_rss_bytes": 107315200,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784608.875196
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45987360768,
+    "owned_rss_bytes": 108199936,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784609.934453
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45987319808,
+    "owned_rss_bytes": 109019136,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784610.996782
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45987311616,
+    "owned_rss_bytes": 109854720,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784612.052819
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45987307520,
+    "owned_rss_bytes": 110526464,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784613.109793
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45987397632,
+    "owned_rss_bytes": 115097600,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784614.168718
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45986308096,
+    "owned_rss_bytes": 115851264,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784615.228541
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45986308096,
+    "owned_rss_bytes": 116670464,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784616.288961
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45986283520,
+    "owned_rss_bytes": 117456896,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784617.349557
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983965184,
+    "owned_rss_bytes": 118292480,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784618.406004
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983956992,
+    "owned_rss_bytes": 119095296,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784619.478064
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983932416,
+    "owned_rss_bytes": 119734272,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784620.5344808
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45984907264,
+    "owned_rss_bytes": 120438784,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784621.597904
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45984894976,
+    "owned_rss_bytes": 121110528,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784622.653213
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45984825344,
+    "owned_rss_bytes": 121552896,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784623.71213
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45984047104,
+    "owned_rss_bytes": 118980608,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784624.775132
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983956992,
+    "owned_rss_bytes": 119783424,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784625.8313642
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983854592,
+    "owned_rss_bytes": 120324096,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784626.911784
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983326208,
+    "owned_rss_bytes": 119324672,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784628.017909
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983469568,
+    "owned_rss_bytes": 119062528,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784629.130497
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45982650368,
+    "owned_rss_bytes": 118161408,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784630.1886232
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45979746304,
+    "owned_rss_bytes": 118980608,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784631.303885
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45983129600,
+    "owned_rss_bytes": 119652352,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784632.48417
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45982633984,
+    "owned_rss_bytes": 109281280,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784633.550755
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45981982720,
+    "owned_rss_bytes": 109920256,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784634.615156
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45981970432,
+    "owned_rss_bytes": 110854144,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784635.68625
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45980872704,
+    "owned_rss_bytes": 111607808,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784636.75527
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45980999680,
+    "owned_rss_bytes": 112115712,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784637.8339992
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45980880896,
+    "owned_rss_bytes": 118652928,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784638.891285
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45980766208,
+    "owned_rss_bytes": 119455744,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784639.949255
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45980737536,
+    "owned_rss_bytes": 120160256,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784641.0023522
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45980737536,
+    "owned_rss_bytes": 121012224,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784642.060786
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45979832320,
+    "owned_rss_bytes": 121683968,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784643.121228
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45979652096,
+    "owned_rss_bytes": 122290176,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784644.1806562
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45976592384,
+    "owned_rss_bytes": 124747776,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784645.2419891
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45973622784,
+    "owned_rss_bytes": 172015616,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784646.311214
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45968109568,
+    "owned_rss_bytes": 210092032,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784647.375564
+  },
+  {
+    "ac": true,
+    "child_pid": 90893,
+    "free_disk_bytes": 45964087296,
+    "owned_rss_bytes": 205864960,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784648.4380622
+  },
+  {
+    "ac": true,
+    "child_pid": 0,
+    "free_disk_bytes": 45963460608,
+    "owned_rss_bytes": 18006016,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784649.4996421
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45963452416,
+    "owned_rss_bytes": 18399232,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784649.5606961
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45960683520,
+    "owned_rss_bytes": 127631360,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784650.625361
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45957402624,
+    "owned_rss_bytes": 131678208,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784651.6949499
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45957095424,
+    "owned_rss_bytes": 134316032,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784652.759968
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45956702208,
+    "owned_rss_bytes": 135380992,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784653.82555
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45955796992,
+    "owned_rss_bytes": 125960192,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784654.890932
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45953572864,
+    "owned_rss_bytes": 111362048,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784655.954015
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45953474560,
+    "owned_rss_bytes": 108969984,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784657.018893
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45953241088,
+    "owned_rss_bytes": 109756416,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784658.0793128
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45953757184,
+    "owned_rss_bytes": 110821376,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784659.142256
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45953499136,
+    "owned_rss_bytes": 111788032,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784660.201493
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45953359872,
+    "owned_rss_bytes": 113049600,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784661.259845
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45953249280,
+    "owned_rss_bytes": 114032640,
+    "swap_growth_mib": 0,
+    "swap_mib": 3011.88,
+    "time": 1790784662.3218718
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45953003520,
+    "owned_rss_bytes": 115015680,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784663.388191
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45964283904,
+    "owned_rss_bytes": 116031488,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784664.459062
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45971058688,
+    "owned_rss_bytes": 116621312,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784665.519372
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45971013632,
+    "owned_rss_bytes": 121536512,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784666.5805068
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45970923520,
+    "owned_rss_bytes": 122257408,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784667.651184
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45970677760,
+    "owned_rss_bytes": 123207680,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784668.709103
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45970583552,
+    "owned_rss_bytes": 124190720,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784669.767096
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45970366464,
+    "owned_rss_bytes": 125222912,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784670.829293
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45968912384,
+    "owned_rss_bytes": 126124032,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784671.886018
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45968826368,
+    "owned_rss_bytes": 127025152,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784672.9406998
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45968707584,
+    "owned_rss_bytes": 127909888,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784674.0000708
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45968650240,
+    "owned_rss_bytes": 128860160,
+    "swap_growth_mib": 0,
+    "swap_mib": 3003.88,
+    "time": 1790784675.064227
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45967769600,
+    "owned_rss_bytes": 128565248,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784676.192322
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45967753216,
+    "owned_rss_bytes": 129269760,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784677.2574599
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45967585280,
+    "owned_rss_bytes": 129957888,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784678.3597708
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45967564800,
+    "owned_rss_bytes": 130678784,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784679.4206662
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45967355904,
+    "owned_rss_bytes": 131448832,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784680.514837
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45966688256,
+    "owned_rss_bytes": 132186112,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784681.585678
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45946916864,
+    "owned_rss_bytes": 132923392,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784682.701243
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45946896384,
+    "owned_rss_bytes": 133660672,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784683.752961
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45946871808,
+    "owned_rss_bytes": 134479872,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784684.808355
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45934448640,
+    "owned_rss_bytes": 135610368,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784685.864516
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45925863424,
+    "owned_rss_bytes": 136347648,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784686.926741
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45925683200,
+    "owned_rss_bytes": 136806400,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784687.9809542
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45925654528,
+    "owned_rss_bytes": 137609216,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784689.047563
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45925773312,
+    "owned_rss_bytes": 138166272,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784690.1064541
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45924818944,
+    "owned_rss_bytes": 138969088,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784691.162574
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45924958208,
+    "owned_rss_bytes": 139821056,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784692.222058
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45924515840,
+    "owned_rss_bytes": 140541952,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784693.278383
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45924528128,
+    "owned_rss_bytes": 141164544,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784694.3417091
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45921714176,
+    "owned_rss_bytes": 142999552,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784695.397995
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45919019008,
+    "owned_rss_bytes": 192315392,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784696.4590888
+  },
+  {
+    "ac": true,
+    "child_pid": 91603,
+    "free_disk_bytes": 45913542656,
+    "owned_rss_bytes": 220921856,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784697.5168939
+  },
+  {
+    "ac": true,
+    "child_pid": 0,
+    "free_disk_bytes": 45910298624,
+    "owned_rss_bytes": 18137088,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784698.5760908
+  },
+  {
+    "ac": true,
+    "child_pid": 92008,
+    "free_disk_bytes": 45910290432,
+    "owned_rss_bytes": 19005440,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784698.63499
+  },
+  {
+    "ac": true,
+    "child_pid": 0,
+    "free_disk_bytes": 45909241856,
+    "owned_rss_bytes": 18186240,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784699.689038
+  },
+  {
+    "ac": true,
+    "child_pid": 92028,
+    "free_disk_bytes": 45909213184,
+    "owned_rss_bytes": 19529728,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784699.7440739
+  },
+  {
+    "ac": true,
+    "child_pid": 0,
+    "free_disk_bytes": 45907980288,
+    "owned_rss_bytes": 18219008,
+    "swap_growth_mib": 0,
+    "swap_mib": 2995.88,
+    "time": 1790784700.797033
+  }
+]

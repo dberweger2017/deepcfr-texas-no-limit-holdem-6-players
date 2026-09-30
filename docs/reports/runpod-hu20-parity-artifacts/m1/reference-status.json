@@ -1,0 +1,118 @@
+{
+  "clock": {
+    "deadline": 1790788151.9823391,
+    "started": 1790784551.9823391,
+    "swap_start_mib": 3019.88
+  },
+  "elapsed_seconds": 150.09140396118164,
+  "finished": 1790784702.0737422,
+  "owner_approved_host": "M1",
+  "phases": [
+    {
+      "command": [
+        "tar",
+        "-xf",
+        "/Users/dberweger/Local/runpod-hu20-parity-artifacts/hu20-linux-pilot.tar",
+        "-C",
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/results/m1-platform-pilot"
+      ],
+      "exit_code": 0,
+      "finished": 1790784553.1623712,
+      "name": "extract-linux",
+      "pid": 90860,
+      "started": 1790784552.09023
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_hu20_platform_pilot.py"
+      ],
+      "exit_code": 0,
+      "finished": 1790784554.2841759,
+      "name": "focused-tests",
+      "pid": 90884,
+      "started": 1790784553.214441
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/.venv/bin/python",
+        "-m",
+        "scripts.hu20_platform_pilot",
+        "run",
+        "--plan",
+        "configs/blueprint/runpod-hu20-parity.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/results/m1-platform-pilot/direct"
+      ],
+      "exit_code": 0,
+      "finished": 1790784649.4431858,
+      "name": "direct",
+      "pid": 90893,
+      "started": 1790784554.336674
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/.venv/bin/python",
+        "-m",
+        "scripts.hu20_platform_pilot",
+        "run",
+        "--plan",
+        "configs/blueprint/runpod-hu20-parity.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/results/m1-platform-pilot/resumed",
+        "--resume",
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/results/m1-platform-pilot/direct"
+      ],
+      "exit_code": 0,
+      "finished": 1790784698.521997,
+      "name": "resumed",
+      "pid": 91603,
+      "started": 1790784649.499657
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/.venv/bin/python",
+        "-m",
+        "scripts.hu20_platform_pilot",
+        "compare",
+        "--left",
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/results/m1-platform-pilot/direct",
+        "--right",
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/results/m1-platform-pilot/resumed",
+        "--out",
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/results/m1-platform-pilot/resume-comparison.json"
+      ],
+      "exit_code": 0,
+      "finished": 1790784699.6377,
+      "name": "resume-comparison",
+      "pid": 92008,
+      "started": 1790784698.5761049
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/.venv/bin/python",
+        "-m",
+        "scripts.hu20_platform_pilot",
+        "compare",
+        "--left",
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/results/m1-platform-pilot/direct",
+        "--right",
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/results/m1-platform-pilot/results/platform-pilot/direct",
+        "--out",
+        "/Users/dberweger/Local/hu20-platform-parity-pr129/results/m1-platform-pilot/platform-comparison.json"
+      ],
+      "exit_code": 0,
+      "finished": 1790784700.7481642,
+      "name": "platform-comparison",
+      "pid": 92028,
+      "started": 1790784699.689051
+    }
+  ],
+  "pid": 90852,
+  "pinned_engine_reused_without_rebuild": true,
+  "source": "e18f0079a14addc90938acca8c30795e8af09691",
+  "status": "complete"
+}

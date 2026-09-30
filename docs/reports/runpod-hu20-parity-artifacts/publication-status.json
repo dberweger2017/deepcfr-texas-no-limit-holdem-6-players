@@ -10,6 +10,9 @@
   "pod_created_at_utc": "2026-09-30T15:14:39.674Z",
   "termination_epoch": 1790782115.261725,
   "archive_sha256": "ca096bc89593f1f9dee4106389fb698a5fedb2bc9352c89d769d60db7018cb39",
-  "fresh_current_source_m4_reference": "queued_after_pr128_releases",
-  "m4_queue_pid": 94196
+  "fresh_current_source_m4_reference": "not_run_owner_replaced_with_m1",
+  "m4_queue_pid": 94196,
+  "m4_queue_status": "cancelled_before_training",
+  "fresh_current_source_m1_reference": "complete",
+  "m1_files_verified": 64
 }

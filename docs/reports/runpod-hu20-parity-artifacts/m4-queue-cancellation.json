@@ -1,0 +1,9 @@
+{
+  "status": "cancelled_by_owner_host_amendment",
+  "pid": 94196,
+  "time": 1790782535.52382,
+  "wait_deadline": 1790814715.584733,
+  "source": "e18f0079a14addc90938acca8c30795e8af09691",
+  "cancelled_at": 1790784241.787613,
+  "reason": "Owner authorized fresh M1 reference in place of queued M4 reference; zero M4 parity training performed"
+}

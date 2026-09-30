@@ -2,8 +2,11 @@
 
 ## Current result
 
-**Linux training and deterministic recovery passed. The fresh current-source
-M4 reference is queued, so the requested comparison is not yet complete.**
+**The platform pilot passed: fresh current-source Linux/M1 training and
+deterministic recovery agree exactly, with retained historical M4 agreement.**
+The owner explicitly authorized replacing the waiting fresh M4 reference
+with the M1 before that reference began. The idle M4 queue was cancelled
+before performing any training. No fresh current-source M4 run is claimed.
 The running [posterior audit #128](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/128)
 retains exclusive heavy M4 use. Its source, clock and processes were not changed.
 
@@ -64,6 +67,52 @@ after retrieval staging was 20,098,625,536 bytes, above the 8-GiB floor.
 
 ## Exact state and recovery evidence
 
+### Fresh current-source M1 reference
+
+The owner-approved M1 reference used the same frozen harness revision,
+Python **3.11.14**, engine commit, seed/config and node boundaries as Linux.
+The travelling M1 was on AC, with 16 GB RAM. A separate venv used the
+already-installed pinned CPython 3.11 engine binary, with its origin/build
+hash recorded; no native rebuild or full local suite was needed.
+
+| M1 measurement | Direct from zero | Fresh-process resume |
+| --- | ---: | ---: |
+| Final completed nodes / iterations / entries | 1,000,389 / 2,626 / 118,978 | Identical |
+| Training time | 88.428 s | 42.684 s |
+| Training throughput | 11,313.00 nodes/s | 11,708.54 nodes/s |
+| Whole path wall time | 94.281 s | 48.612 s |
+| Peak trainer RSS | 183.81 MiB | 193.50 MiB |
+| Checkpoint save / export | 1.327 / 1.077 s | 1.209 / 0.949 s |
+
+The complete sequential reference/tests/verification took **150.09 seconds**.
+Peak aggregate owned-job RSS was **210.69 MiB**, swap growth was **zero**,
+minimum free disk was **42.75 GiB**, and every sampled power record was AC.
+All six supervisor phases exited zero. The focused tests passed **3/3**.
+No M1 training/reference process or caffeinate lease remains running.
+
+The fresh Linux/M1 comparison verifies every checkpoint/export byte after
+decompression, all **2,626 non-timing iteration records**, all **1,324 resumed
+suffix records**, completed/overshoot/next-iteration counts, and next-root
+deal/action seeds plus initial action-RNG state hashes. The whole direct
+work digest on both platforms is
+`e5bf9a0afe36ed40270ca3b33c7423243f35aeafd5879e7af97e7001df91c592`.
+M1 midpoint reload and final/current/next artifacts also reproduce its
+uninterrupted run exactly. Both native builds retain engine revision
+`5db20e3d5d6862b32a7402035c1340b622d3b005`; their binary hashes differ,
+as expected across arm64/macOS and x86_64/Linux, with no trainer-state
+divergence in this complete prefix.
+
+Independent verification checked all **36 original Linux inventory members**
+and then all **64 files** in the final combined reference inventory after
+child logs closed. The final manifest SHA-256 is
+`cbf2b2f35baa07074acf79d03a3a298a08727d99fddb13510fbae5ac9b624617`.
+M1's zlib build/runtime is 1.2.12, Linux's 1.3.1. Despite that difference,
+checkpoint deflate bytes and trailers match; the inference export differs
+only at the gzip OS marker. This is observed equality, not an assumption
+that all compressor versions always produce identical output.
+
+### Linux resume and retained M4 agreement
+
 The Linux direct path and fresh-process resumed path are byte-identical for
 the entire final training checkpoint, current-policy export, and next-
 iteration checkpoint. Reload/save at the midpoint is byte-identical too.
@@ -96,26 +145,35 @@ header explains the transport difference. There is no unexplained policy
 difference. The payload SHA-256 is
 `359b74cea42802be646288b54a8d892c9bb0fe8e0d3c5f0675127590b5f07eff`.
 
-The historical reference ran source `a87e9f8805d211e2b21dbb710339ada9083eedf6`.
-It is useful interim evidence but does not replace the requested fresh
-current-source M4 comparison. That reference is reserved after #128's
-coordinator, workers, reporting and wrapper finish. Its queue only polls
-small status files while waiting, expires 30 minutes after #128's hard
-cutoff, and gives the reference at most one hour including verification.
-It preserves the same harness/plan, checks AC, aggregate RSS/swap/free disk,
-and stops on a foreign large process or failure instead of retrying.
+The historical M4 reference ran source
+`a87e9f8805d211e2b21dbb710339ada9083eedf6`. M1's training and next-iteration
+checkpoints and current-policy export reproduce its compressed hashes
+exactly. That retained agreement complements the fresh current-source
+Linux/M1 comparison; it is not a fresh current-source M4 benchmark. The
+owner-approved host amendment and idle M4 queue cancellation are retained.
 
-Linux focused tests passed **3/3**. GitHub's full `test` check passed at the
-frozen harness; its external GitGuardian check was pending. No tests,
-compilation, trainer/model loads or evaluation ran on the travelling M1.
+Linux and M1 focused tests each passed **3/3**. GitHub's full `test` check
+passed at the frozen harness; final publication CI runs again. The M1
+performed only this specifically authorized bounded reference and its
+verification. No full local suite, native compilation or poker-playing
+evaluation ran there. The M1's broader research restriction remains in
+force outside this pilot.
 
 ## What this implies for future three-seed training
 
-Linux is a promising training host: this fixed prefix and deterministic
-recovery agree exactly with the retained M4 trainer state. A final host
-recommendation waits for the fresh current-source M4 check. This pilot is
-not a playing-strength result or a safe scaling/memory study for large
-tables.
+**Recommend RunPod CPU as a valid training host for this recipe**, conditional
+on preserving the pinned environment and exact recovery/hash discipline.
+The fresh Linux/M1 fixed prefix and recovery agree exactly, and both match
+the retained M4 trainer state. There is no unexplained numerical/state
+difference. This pilot is not a playing-strength result or a safe scaling/
+memory study for large tables.
+
+This cheapest CPU pod delivered about **60% of M1's measured single-worker
+prefix throughput**. Its prospective advantage is separately provisioned
+independent workers and RAM while freeing the Macs; it is not demonstrated
+per-worker speed or arbitrary core scaling. A late-table resource check is
+still required before choosing a larger paid campaign. No fresh M4 speed
+comparison is available.
 
 For planning only, three independent single-worker processes could use
 three `cpu3g` pods, each **2 vCPU / 8 GB RAM**, whose captured catalog rate
@@ -152,8 +210,8 @@ Compact results, full artifact inventories, environment/cgroup records,
 setup commands, independent suffix/header checks and provider termination
 evidence are under [runpod-hu20-parity-artifacts](runpod-hu20-parity-artifacts).
 The large Linux artifacts were retrieved before the disposable pod was
-terminated. Their opaque tar transport hash was verified on M1; payload and
-member verification belongs to M4.
+terminated. Their transport and all retained member hashes were verified
+under the owner's bounded M1 exception; large archives also remain on M4.
 
 M4 retained archive:
 `/Users/dberweger/Local/hu20-linux-pilot-pr129.tar`.
@@ -162,14 +220,35 @@ Local transfer mirror:
 Archive SHA-256:
 `ca096bc89593f1f9dee4106389fb698a5fedb2bc9352c89d769d60db7018cb39`.
 
+The M1 outputs and final combined manifest are retained at
+`/Users/dberweger/Local/hu20-platform-parity-pr129/results/m1-platform-pilot`.
+Their separate archive (excluding the already-retained nested Linux copy)
+is `/Users/dberweger/Local/hu20-m1-pilot-pr129.tar` on M4, with local mirror
+`/Users/dberweger/Local/runpod-hu20-parity-artifacts/hu20-m1-pilot.tar`.
+Its SHA-256 is
+`916f7657b5fa4310642e7cf5d9975e3d42318cc22888b294ff1c954975d0a130`.
+
 Retrieve without loading a model on the travelling M1:
 
 ```bash
 scp -o HostName=100.122.216.94 -o BatchMode=yes \
   m4:/Users/dberweger/Local/hu20-linux-pilot-pr129.tar ./hu20-linux-pilot.tar
 shasum -a 256 ./hu20-linux-pilot.tar
+scp -o HostName=100.122.216.94 -o BatchMode=yes \
+  m4:/Users/dberweger/Local/hu20-m1-pilot-pr129.tar ./hu20-m1-pilot.tar
+shasum -a 256 ./hu20-m1-pilot.tar
 ```
 
-On a free M4 or Linux host, extract the archive, then use the exact run/compare
-commands in the protocol. Reproduction is a deliberate validation run, not
-authorization for another rental or a larger training experiment.
+On a free M4 or Linux host, restore both archives into one directory:
+
+```bash
+mkdir pilot-restore
+tar -xf hu20-m1-pilot.tar -C pilot-restore
+tar -xf hu20-linux-pilot.tar -C pilot-restore
+```
+
+Then verify the final 64-file manifest or use the exact compare commands in
+the protocol on the restored `direct`, `resumed`, and
+`results/platform-pilot/direct` directories. Reproduction is a deliberate
+validation run, not authorization for another rental or a larger training
+experiment.
