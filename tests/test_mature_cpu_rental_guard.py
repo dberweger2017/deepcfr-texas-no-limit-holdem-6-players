@@ -39,9 +39,9 @@ def test_linux_worker_is_launched_from_driver_not_runtime():
 
 
 def test_engine_provenance_json_format_does_not_change_identity():
-    import json
+    from scripts.verify_mature_cpu_linux import same_engine_identity
     a = '{"url": "https://example.test/engine", "vcs_info": {"vcs": "git", "commit_id": "fixed"}}'
     b = '{"vcs_info":{"commit_id":"fixed","vcs":"git"},"url":"https://example.test/engine"}'
     assert a != b
-    assert json.loads(a) == json.loads(b)
-    assert json.loads(a) != json.loads(b.replace('fixed','different'))
+    assert same_engine_identity(a, b)
+    assert not same_engine_identity(a, b.replace('fixed','different'))

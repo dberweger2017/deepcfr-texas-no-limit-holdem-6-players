@@ -30,6 +30,10 @@ def export_transport_difference(a, b):
                 return True
 
 
+def same_engine_identity(left, right):
+    return json.loads(left) == json.loads(right)
+
+
 def verify(root, reference, out):
     manifest = json.loads((root / 'work-manifest.json').read_text())
     work = root / 'work'
@@ -50,7 +54,7 @@ def verify(root, reference, out):
     for field in fields:
         checks[field] = a[field] == b[field]
     checks['environment:source'] = a['environment']['source'] == b['environment']['source']
-    checks['environment:engine_origin'] = json.loads(a['environment']['engine_origin']) == json.loads(b['environment']['engine_origin'])
+    checks['environment:engine_origin'] = same_engine_identity(a['environment']['engine_origin'], b['environment']['engine_origin'])
     checks['python_version'] = b['environment']['python'].startswith('3.11.14 ')
     transports = {}
     for name in ('final', 'current', 'next'):

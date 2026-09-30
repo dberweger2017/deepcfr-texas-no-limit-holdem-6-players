@@ -165,9 +165,14 @@ def execute(args):
     try:
         with ThreadPoolExecutor(max_workers=6) as pool:
             pending = {pool.submit(workload, row): row for row in records if row['status'] == 'provisioning'}
+            closed = []
             for future in as_completed(pending):
                 row = future.result()
+                closed.append(row)
                 write(root / 'pods.json', records)
+            # Finish every immutable archive transfer before a verification
+            # failure can terminate another completed pod's retained evidence.
+            for row in closed:
                 if row['status'] == 'retrieved':
                     folder = root / row['cpu_id']
                     # Exactly one M4 CPU-heavy verifier at a time.
