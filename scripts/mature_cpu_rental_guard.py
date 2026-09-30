@@ -30,7 +30,7 @@ def api(key_path, path, method='GET', data=None):
         # Retain only a bounded provider message, excluding echoed request data.
         try:
             response = json.loads(error.read())
-            message = response.get('message', response.get('error', ''))
+            message = response.get('detail', response.get('message', response.get('error', '')))
             message = message if isinstance(message, str) else ''
             message = message.replace(key, '[redacted]')[:300]
         except Exception:

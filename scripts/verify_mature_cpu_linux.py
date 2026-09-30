@@ -49,8 +49,8 @@ def verify(root, reference, out):
               'work_sha256', 'parent_fingerprint')
     for field in fields:
         checks[field] = a[field] == b[field]
-    for field in ('source', 'engine_origin'):
-        checks['environment:' + field] = a['environment'][field] == b['environment'][field]
+    checks['environment:source'] = a['environment']['source'] == b['environment']['source']
+    checks['environment:engine_origin'] = json.loads(a['environment']['engine_origin']) == json.loads(b['environment']['engine_origin'])
     checks['python_version'] = b['environment']['python'].startswith('3.11.14 ')
     transports = {}
     for name in ('final', 'current', 'next'):

@@ -36,3 +36,12 @@ def test_linux_worker_is_launched_from_driver_not_runtime():
     launch = source.index(' -m scripts.mature_cpu_linux_worker')
     assert source.rfind('cd /workspace/driver', 0, launch) > source.rfind('cd /workspace/runtime', 0, launch)
     assert '/workspace/runtime/.venv/bin/python -m scripts.mature_cpu_linux_worker' in source
+
+
+def test_engine_provenance_json_format_does_not_change_identity():
+    import json
+    a = '{"url": "https://example.test/engine", "vcs_info": {"vcs": "git", "commit_id": "fixed"}}'
+    b = '{"vcs_info":{"commit_id":"fixed","vcs":"git"},"url":"https://example.test/engine"}'
+    assert a != b
+    assert json.loads(a) == json.loads(b)
+    assert json.loads(a) != json.loads(b.replace('fixed','different'))
