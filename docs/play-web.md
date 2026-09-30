@@ -11,20 +11,24 @@ the [HU20 human benchmark session guide](play-web-benchmark.md).
 
 ## Model and launch
 
-The [#116 recovery report](reports/hu20-scaling-m4-recovery.md#retained-artifacts-and-reproduction)
-gives the M4 path and retrieval command for the fixed-first-seed inference
-export. It is `training/B-2026093001/current-100000000.json.gz`, 40,144,034
-bytes, SHA-256
+The public `v0.4.0` release provides the unchanged fixed-first-seed inference
+export as `B100M-HU20-current-seed-2026093001.json.gz`. Its sealed source is
+`training/B-2026093001/current-100000000.json.gz` in the
+[#116 recovery report](reports/hu20-scaling-m4-recovery.md#retained-artifacts-and-reproduction).
+It is 40,144,034 bytes, SHA-256
 `4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf`.
 The service verifies that hash, HU20 game/schema, two-player format, uncapped
 menu, and current extraction before accepting connections. The older B20M
 model-card command is a different artifact.
 
-From a source checkout with the repository's Python dependencies installed:
+Follow the [clean source-install and verified download](../readme.md#quick-start)
+first. The release download is available after publication; release-candidate
+reviewers can use the sealed artifact with the same size and hash. From the
+checkout with dependencies installed and verified model bytes:
 
 ```sh
 python -m src.play_api.server \
-  --policy /Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093001/current-100000000.json.gz \
+  --policy models/B100M-HU20-current-seed-2026093001.json.gz \
   --data-dir results/play-web \
   --source-version "$(git rev-parse HEAD)"
 ```
@@ -39,11 +43,11 @@ a trusted machine and do not expose it publicly or bind it to all interfaces.
 To reach an M4-hosted service from another machine, establish an SSH tunnel:
 
 ```sh
-ssh -N -L 8765:127.0.0.1:8765 m4
+ssh -N -L 8765:127.0.0.1:8765 user@your-trusted-host
 ```
 
-If the `m4` SSH alias is unavailable, replace it with the reachable M4
-Tailscale address, for example `dberweger@<M4-Tailscale-IP>`.
+Use a trusted SSH host on which you launched the loopback service. Never
+forward the service to a public interface.
 
 The service survives tunnel loss. Reconnect the tunnel, reopen the browser,
 and use **Reconnect / retry pending operation** if needed. The browser stores
@@ -53,19 +57,18 @@ response cannot deal or act twice. No human action is chosen on disconnect.
 
 ## Play a hand: step by step
 
-1. On **M4**, open a terminal in this repository checkout and activate its
-   Python environment (`source .venv/bin/activate` if using the README setup).
-   Confirm the B100M export exists at the path above, then run the service
-   command in **Model and launch**. Keep that terminal running while playing.
-   The service prints its local address and the location of its access-token
-   file; it does not print the token.
-2. Read `results/play-web/access.token` on M4. Treat it as a local password:
+1. On the trusted machine, activate the checkout's Python environment
+   (`. .venv/bin/activate`), verify the downloaded model bytes and run the
+   service command in **Model and launch**. Keep that terminal running while
+   playing. The service prints its local address and the token-file location;
+   it does not print the token.
+2. Read `results/play-web/access.token` on the trusted machine. Treat it as a local password:
    enter it only into the table's **Access token** field, and do not put it in
    a URL, shell command argument, shared chat, or screenshot.
-3. On the computer with the browser, open a **second terminal** and run the
-   SSH tunnel command above. Leave the tunnel open. Visit
+3. If the browser is on a different computer, open a **second terminal** and
+   run the SSH tunnel command above. Leave the tunnel open. Visit
    `http://127.0.0.1:8765/` in the browser and select **Unlock table** after
-   entering the token. If the browser is on M4 itself, the tunnel is unnecessary.
+   entering the token. A browser on the service machine needs no tunnel.
 4. Choose **Restricted research** for the policy's trained action menu or
    **Free sizing · experimental** for any native-legal raise size. Choose
    **Casual / developer** to see post-hand lookup counts or **Benchmark-safe**
@@ -123,7 +126,7 @@ disclosure rules. Folded or mucked bot cards remain hidden.
 After stopping the live service, verify all completed hands in a session with:
 
 ```sh
-python -m src.play_api.server --policy /path/to/current-100000000.json.gz \
+python -m src.play_api.server --policy models/B100M-HU20-current-seed-2026093001.json.gz \
   --data-dir results/play-web --verify-session SESSION_ID
 ```
 
