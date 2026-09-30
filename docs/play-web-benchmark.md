@@ -84,6 +84,37 @@ python -m tests.play_ui.verify_records results/play-web/private.sqlite
 
 That replay is private and can include records from casual sessions too. The
 focused generated-fixture checks are `python -m pytest -q
-tests/play_ui/test_service.py`. A real B100M smoke should run only in a
+tests/play_ui/test_service.py`. The bounded M4 integration scripts are
+`python -m tests.play_ui.benchmark_smoke --data-dir results/play-web-benchmark`
+and `python -m tests.play_ui.benchmark_browser_smoke --data-dir
+results/play-web-benchmark` with the B100M service on port 8767. The browser
+script uses the isolated Chrome dependency described in the play guide. A real
+B100M smoke should run only in a
 coordinated M4 window, with the owned service stopped afterward. Such a smoke
 checks integration, not human or bot playing strength.
+
+## September 30, 2026 integration check
+
+After Doctor Research released M4 for a bounded window, 13 focused
+generated-fixture tests passed there; two later boundary cases brought the
+final lightweight M1 focused suite to **15 passing tests**. One hash-verified B100M service process
+ran a real HTTP benchmark smoke of two restricted and one free-sizing hand,
+then a Chrome smoke of one hand in each mode. All **five** completed hands
+replayed from the private journal with matching native public-event digests,
+payoffs and chip conservation. Each free smoke sent a native-legal off-menu
+raise-to of **201 chips**, and the private action record retained exactly 201.
+The completed reports and JSON exports matched the server's replay-derived
+numbers; the HTTP smoke rejected an N+1 deal.
+
+The service used 1,916,336 KiB RSS after loading and 1,635,648 KiB at the
+last live check. Swap remained 761.38 MiB. The owned service and browser were
+stopped, and Doctor Research was notified. This small smoke checks the
+interface and record path only; it says nothing about playing strength or the
+precision of a future 200-hand result.
+The smoke set the source-version field to the pre-smoke branch commit
+`1b52232`; the later documentation, screenshot and narrow UI-label edits are
+not reflected in that private test record.
+
+![Completed restricted benchmark](play-web-benchmark/benchmark-restricted-result.png)
+
+![Completed free-sizing benchmark](play-web-benchmark/benchmark-free-result.png)

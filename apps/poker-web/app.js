@@ -301,14 +301,17 @@ $("create").addEventListener("click", async () => {
     await mutate("/api/sessions", body);
   } catch (_) { /* Recoverable with the same key. */ }
 });
+let casualVisibility = $("visibility").value;
 function updateSetup() {
   const benchmark = document.querySelector('input[name="sessionType"]:checked').value === "benchmark";
   $("benchmark-options").hidden = !benchmark;
+  $("visibility").value = benchmark ? "benchmark" : casualVisibility;
   $("visibility").disabled = benchmark;
   $("custom-hands").hidden = !benchmark || $("target-hands").value !== "custom";
   $("custom-hands-label").hidden = $("custom-hands").hidden;
 }
 for (const control of document.querySelectorAll('input[name="sessionType"]')) control.addEventListener("change", updateSetup);
+$("visibility").addEventListener("change", () => { casualVisibility = $("visibility").value; });
 $("target-hands").addEventListener("change", updateSetup);
 updateSetup();
 $("new-hand").addEventListener("click", async () => {

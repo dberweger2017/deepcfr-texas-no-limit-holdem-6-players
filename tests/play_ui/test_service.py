@@ -355,6 +355,17 @@ def test_benchmark_early_end_keeps_records_and_denies_diagnostics(service):
             "kind": "fold", "raiseTo": None})
 
 
+def test_benchmark_can_end_before_first_hand_without_a_rate(service):
+    state = benchmark_create(service, target=50)
+    ended = service.end_benchmark(state["sessionId"], "benchmark-empty-end-001", {
+        "revision": 0, "handId": None, "confirm": True})
+    report = ended["benchmarkResult"]
+    assert ended["phase"] == "aborted" and ended["hand"] is None
+    assert report["completedHands"] == 0 and report["status"] == "ABORTED"
+    assert report["netChips"] == 0 and report["bbPer100"] is None
+    assert report["averagePotChips"] is None and report["handRecords"] == []
+
+
 def test_http_benchmark_export_stays_public_and_cannot_delete(http_server, service):
     base = http_server
     state = http(base, "/api/sessions", body={
@@ -387,6 +398,28 @@ def test_http_benchmark_export_stays_public_and_cannot_delete(http_server, servi
         urlopen(request)
     assert denied.value.code in (404, 405, 501)
     assert len(service._load(session)["history"]) == 1
+
+
+def test_http_active_benchmark_withholds_totals_and_diagnostics(http_server):
+    base = http_server
+    state = http(base, "/api/sessions", body={
+        "sessionType": "benchmark", "playMode": "free", "targetHands": 2},
+        key="http-active-benchmark-001", origin=base)
+    session = state["sessionId"]
+    assert "sessionChips" not in state and "sessionBB" not in state
+    state = http(base, f"/api/sessions/{session}/hands", body={"revision": 0},
+                 key="http-active-deal-0001", origin=base)
+    state = http(base, f"/api/sessions/{session}/actions", body={
+        "handId": state["hand"]["id"], "revision": state["revision"],
+        "kind": "fold", "raiseTo": None}, key="http-active-fold-0001", origin=base)
+    assert state["phase"] == "finished" and "sessionChips" not in state
+    fetched = http(base, f"/api/sessions/{session}")
+    history = http(base, f"/api/sessions/{session}/history")
+    assert fetched == state and "humanChips" not in history["hands"][0]
+    assert "fallbackSummary" not in json.dumps({"state": fetched, "history": history})
+    with pytest.raises(HTTPError) as denied:
+        http(base, f"/api/sessions/{session}/hands/{state['hand']['id']}/diagnostics")
+    assert denied.value.code == 403
 
 
 def test_benchmark_result_checks_native_replay_before_reporting(service):
