@@ -9,6 +9,7 @@ import gzip
 import json
 import shutil
 import subprocess
+import sys
 from collections import Counter, defaultdict
 from dataclasses import replace
 from hashlib import sha256
@@ -251,16 +252,100 @@ def run(corpus_path, raw_dir, models_path, out, *, mode, deadline):
     return summary
 
 
+def benchmark(corpus_path, raw_dir, models_path, out, *, executor, deadline):
+    """Fresh-process native or cached timing over the identical frozen cases."""
+    out.mkdir(parents=True, exist_ok=False)
+    swap_start = _swap_mib()
+    started = time()
+    summary = {"status": "running", "executor": executor, "started": started,
+               "deadline": deadline, "swap_start_mib": swap_start,
+               "cases_completed": 0, "peak_rss_bytes": rss()}
+    write_json(out / "result.json", summary)
+    try:
+        corpus, views, models = _inputs(corpus_path, raw_dir, models_path)
+        summary["case_digest"] = corpus["case_digest"]
+        summary["corpus_sha256"] = sha256(corpus_path.read_bytes()).hexdigest()
+        summary["model_spec_sha256"] = sha256(models_path.read_bytes()).hexdigest()
+        by_seed = defaultdict(list)
+        for case in corpus["cases"]:
+            by_seed[case["selected"]["seed"]].append(case)
+        model_load, caches, timings, outputs = [], [], [], []
+        with (out / "attempts.jsonl").open("w") as handle:
+            for seed in sorted(by_seed):
+                _guard(out, deadline, swap_start)
+                before = perf_counter()
+                source = Target(models[seed])
+                model_load.append({"seed": seed, "seconds": perf_counter() - before,
+                                   "rss_bytes": rss()})
+                cache = SharedProbabilityCache(source) if executor == "cached" else None
+                for case in by_seed[seed]:
+                    _guard(out, deadline, swap_start)
+                    view = _view(case, views)
+                    result = _execute(source, case, view, executor, cache)
+                    output = {"case_id": case["case_id"], "seed": seed,
+                              "street": case["selected"]["street"],
+                              "action": result["action"],
+                              "values_chips": result["values"],
+                              "samples": result["completed_samples"]}
+                    outputs.append(output)
+                    row = {"case_id": case["case_id"], "seed": seed,
+                           "street": case["selected"]["street"],
+                           "wall_seconds": result["wall_seconds"],
+                           "cpu_seconds": result["cpu_seconds"],
+                           "rss_bytes": rss(), "output_digest": digest(output)}
+                    handle.write(json.dumps(row, sort_keys=True) + "\n")
+                    handle.flush()
+                    timings.append(row)
+                    summary["cases_completed"] += 1
+                    summary["peak_rss_bytes"] = max(summary["peak_rss_bytes"], row["rss_bytes"])
+                    if summary["cases_completed"] % 12 == 0:
+                        write_json(out / "result.json", summary)
+                if cache is not None:
+                    shallow = (sys.getsizeof(cache.entries) +
+                               sum(sys.getsizeof(k) + sys.getsizeof(v)
+                                   for k, v in cache.entries.items()))
+                    caches.append({"seed": seed, **cache.telemetry(),
+                                   "shallow_cache_bytes": shallow,
+                                   "rss_after_seed_bytes": rss()})
+                del source, cache
+        summary["status"] = "complete"
+        summary["output_digest"] = digest(outputs)
+        summary["model_load"] = model_load
+        summary["cache"] = caches
+        summary["call_wall_seconds"] = sum(t["wall_seconds"] for t in timings)
+        summary["call_cpu_seconds"] = sum(t["cpu_seconds"] for t in timings)
+        summary["per_street"] = {
+            street: {"calls": len(rows), "wall_seconds": sum(r["wall_seconds"] for r in rows),
+                     "cpu_seconds": sum(r["cpu_seconds"] for r in rows),
+                     "max_call_seconds": max(r["wall_seconds"] for r in rows)}
+            for street in ("preflop", "flop", "turn", "river")
+            if (rows := [r for r in timings if r["street"] == street])}
+    except Exception as exc:
+        summary["status"] = "failed"
+        summary["failure"] = f"{type(exc).__name__}: {exc}"
+    summary["finished"] = time()
+    summary["wall_seconds"] = summary["finished"] - started
+    summary["swap_end_mib"] = _swap_mib()
+    summary["free_disk_bytes"] = shutil.disk_usage(out).free
+    write_json(out / "result.json", summary)
+    return summary
+
+
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--mode", choices=("validate", "native", "cached"), default="validate")
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--raw-dir", type=Path, required=True)
     parser.add_argument("--models", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--deadline", type=float, required=True)
     args = parser.parse_args()
-    result = run(args.corpus, args.raw_dir, args.models, args.out,
-                 mode="validation", deadline=args.deadline)
+    if args.mode == "validate":
+        result = run(args.corpus, args.raw_dir, args.models, args.out,
+                     mode="validation", deadline=args.deadline)
+    else:
+        result = benchmark(args.corpus, args.raw_dir, args.models, args.out,
+                           executor=args.mode, deadline=args.deadline)
     print(json.dumps({k: result.get(k) for k in
                       ("status", "cases_completed", "failure", "mismatches", "wall_seconds")}, sort_keys=True))
     if result["status"] != "complete":
