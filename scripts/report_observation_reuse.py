@@ -126,8 +126,9 @@ def report(root, output):
             and summary["resources"]["maximum_swap_growth_bytes"] <= .5*2**30
             and summary["resources"]["minimum_free_disk_bytes"] >= 8*2**30
             and summary["resources"]["all_ac"])
-    from scripts.run_observation_reuse_benchmark import PARENT, PARENT_HASH
-    checks["original_parent_untouched"] = digest(PARENT) == PARENT_HASH
+    parent = Path(summary["cases"]["mature"]["pairs"][0]["original"]["parent"])
+    checks["original_parent_untouched"] = digest(parent) == (
+        "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a")
     verification = {"passed": all(checks.values()), "checks": checks}
     (output / "summary.json").write_bytes(encoded(summary)+b"\n")
     (output / "verification.json").write_bytes(encoded(verification)+b"\n")
