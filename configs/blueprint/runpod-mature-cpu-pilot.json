@@ -26,19 +26,28 @@
       "cpu_id": "cpu3c",
       "vcpus": 2,
       "ram_gb": 4,
-      "max_compute_usd_per_hour": 0.06
+      "max_compute_usd_per_hour": 0.06,
+      "data_center_ids": [
+        "EU-RO-1"
+      ]
     },
     {
       "cpu_id": "cpu3g",
       "vcpus": 2,
       "ram_gb": 8,
-      "max_compute_usd_per_hour": 0.08
+      "max_compute_usd_per_hour": 0.08,
+      "data_center_ids": [
+        "EU-RO-1"
+      ]
     },
     {
       "cpu_id": "cpu3m",
       "vcpus": 2,
       "ram_gb": 16,
-      "max_compute_usd_per_hour": 0.11
+      "max_compute_usd_per_hour": 0.11,
+      "data_center_ids": [
+        "EU-RO-1"
+      ]
     },
     {
       "cpu_id": "cpu5c",
@@ -90,5 +99,8 @@
     "kernel/architecture",
     "provider CPU flavor/data center/allocated shape/live compute and total rate",
     "image and engine build identity"
-  ]
+  ],
+  "rental_cutoff_epoch": 1790809835.502777,
+  "retained_startup_attempt": "c839877, zero training, all three CPU5 pods terminated; original cutoff retained",
+  "placement_amendment": "After auto-placement HTTP400 and before Linux work, choose EU-RO-1 for CPU3 from captured HIGH CPU3 availability. One bounded explicit-placement attempt; retain any rejection. No shape/rate/work changes."
 }

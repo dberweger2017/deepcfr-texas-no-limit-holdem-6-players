@@ -31,7 +31,7 @@ def execute(args):
     if run(['git', 'status', '--porcelain']).strip():
         raise ValueError('Frozen clean driver source required')
     started = time.time()
-    deadline = args.deadline or started + 7200
+    deadline = args.deadline or plan.get('rental_cutoff_epoch') or started + 7200
     if not started < deadline <= started + 7200:
         raise ValueError('Original remaining rental cutoff required')
     configs = plan['configurations']
@@ -87,7 +87,8 @@ def execute(args):
                 'name': name, 'cloud': 'SECURE',
                 'cpu': {'id': config['cpu_id'], 'vcpuCount': config['vcpus']},
                 'image': 'runpod/base:0.7.0-ubuntu2004', 'disk': 30,
-                'ports': ['22/tcp'], 'startSsh': True, 'env': {'PUBLIC_KEY': public_key}})
+                'ports': ['22/tcp'], 'startSsh': True, 'env': {'PUBLIC_KEY': public_key},
+                'dataCenterIds': config.get('data_center_ids', [])})
             if 'pod' in pod:
                 pod = pod['pod']
             row.update(id=pod['id'], created_at=pod['createdAt'],

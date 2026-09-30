@@ -93,3 +93,7 @@ including evaluation/storage/recovery costs and mature-growth uncertainty.
 No automatic merge, substantial continuation, strategy change, promotion or
 new rental beyond this approved pilot follows. The full campaign requires
 separate owner approval of its final frozen budget/scientific plan.
+
+## Outcome-free startup repair / placement record
+
+Initial auto-placement rejected CPU3 requests with HTTP 400; three CPU5 pods completed setup only and no training began because the worker module was hidden by the runtime working directory. The original cutoff **1790809835.502777** stays fixed. All initial pods are absent; attempts/logs and costs remain retained. A corrected launcher starts in the separate driver checkout. Captured provider availability reports HIGH CPU3 availability in EU-RO-1, so one explicit-placement attempt there is prospectively declared for each CPU3 shape. This does not change class, RAM, rates, source, parent, counts or recovery. No performance result was used for placement. A rejection remains pending; no further blind placement retry.
