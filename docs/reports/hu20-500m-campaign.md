@@ -1,6 +1,6 @@
 # HU20 three-lineage 100M→500M campaign
 
-Status: **launch in progress; no new playing-strength result yet**.
+Status: **all three continuations running; no new playing-strength result yet**.
 
 The owner authorized three retained B100M continuations on October 1, 2026,
 with a $10 target and a firm $15 all-in ceiling. #132/#133 are merged. The
@@ -21,9 +21,12 @@ rejection, backup rotation and native replay of the evaluator's hand path.
 All three same-source M4 mature validation prefixes and fresh-process resumes
 matched checkpoint/export bytes, complete work and next RNG streams. The
 [compact preflight evidence](hu20-500m-campaign-artifacts/preflight.json) records
-input/final hashes and every phase. Each Linux worker must match this reference
-before main training. The only allowed cross-platform export difference is the
-known gzip OS byte; normalized compressed bytes and complete policy payload
+input/final hashes and every phase. All three Linux workers passed this
+reference and their fresh-process resume checks before main training. The initial observed continuation rate is
+17.0–18.7k completed nodes/sec per pod, with about 1.9 GB sampled aggregate
+startup RSS and zero swap growth. These are early resource observations, not
+a forecast that accounts for later table growth. The only allowed cross-platform
+export difference is the known gzip OS byte; normalized compressed bytes and complete policy payload
 must both agree. A meaningful divergence blocks that lineage.
 
 The earlier two outcome-free validation attempts are retained on M4. They
@@ -34,7 +37,9 @@ outcomes were inspected to select source, settings or counts.
 ## Schedule and spending
 
 Initial rentals are three CPU5 memory 2-vCPU/16-GB pods, one per lineage, with
-live compute quote $0.13/hour each. Capture actual model/topology/cgroup limits;
+live compute quote $0.13/hour each. Owned pod IDs are `mnze3gf23y1ded`,
+`qvvpd424l32rjo` and `1di6o94izsf3gj`, for seeds 3001/3002/3003 respectively.
+Actual topology/cgroup limits are retained in each worker record;
 vCPU count is not a claim about independent physical cores. Mature pilot
 throughput suggests ~6.25 hours of pure continuation; growing tables and
 save/export/verification overhead can extend this. There is no arbitrary
