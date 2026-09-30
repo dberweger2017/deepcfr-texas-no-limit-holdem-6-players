@@ -10,7 +10,7 @@ import math
 import platform
 import subprocess
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from hashlib import sha256
 from pathlib import Path
 from random import Random
@@ -19,9 +19,12 @@ from time import time
 import pokers
 
 from scripts.diagnose_hu20_decisions import _selected_views
+from scripts.benchmark_reverse_lbr_workload import _work
 from scripts.evaluate_hu20 import write_json
 from scripts.run_exact_ranker_experiment import file_hash, guard
+from src.arena.schedule import digest
 from src.diagnostics.reverse_lbr import compatible_holdings, observed_lbr_actions
+from src.game.observation import BoardDealt
 
 
 def read(path):
@@ -108,8 +111,15 @@ def run(args):
     if supervisor["finished"] > clock["deadline"]:
         raise ValueError("Engineering exceeded original deadline")
     inventory = []
+    actual_full_counts = Counter()
     selection = read(args.selection)
     for entry, _, view in _selected_views(args.raw_dir, selection):
+        actions = observed_lbr_actions(view)
+        holding_count = len(compatible_holdings(view))
+        for _, prefix, _ in actions:
+            street = next((event.street.value for event in reversed(prefix)
+                           if isinstance(event, BoardDealt)), "preflop")
+            actual_full_counts[street] += holding_count
         inventory.append({"selected_rank": entry["rank"], "seed": entry["seed"],
             "street": entry["street"], "position": entry["position"],
             "compatible_holdings": len(compatible_holdings(view)),
@@ -117,6 +127,25 @@ def run(args):
             "one_sample_calls": len(compatible_holdings(view)) * len(observed_lbr_actions(view))})
     if len(inventory) != 24 or sum(r["one_sample_calls"] for r in inventory) != 58047:
         raise ValueError("Independent full inventory mismatch")
+    tasks, _, _, _, _ = _work(args.raw_dir, args.selection)
+    actual_street_by_id = {}
+    for task in tasks:
+        street = next((event.street.value for event in reversed(task["prefix"])
+                       if isinstance(event, BoardDealt)), "preflop")
+        for sample in (0, 1) if task["incremental"] else (0,):
+            identifier = digest((task["selected_rank"], task["event_index"], task["pair"], sample))
+            actual_street_by_id[identifier] = street
+    actual_timings = {}
+    for executor in ("original", "candidate"):
+        actual_timings[executor] = {}
+        for street in ("preflop", "flop", "turn", "river"):
+            actual_timings[executor][street] = {
+                str(sample): {"calls": len(selected),
+                    "wall_seconds": sum(row["wall_seconds"] for row in selected),
+                    "cpu_seconds": sum(row["cpu_seconds"] for row in selected),
+                    "max_seconds": max(row["wall_seconds"] for row in selected)}
+                for sample in (0, 1) if (selected := [row for row in timings["large-" + executor]
+                    if row["sample"] == sample and actual_street_by_id[row["case_id"]] == street])}
     proposal = read(args.proposal_selection)
     stability = {row["rank"] for row in proposal["stability_selected"]}
     suit = set(proposal["suit_selected_ranks"])
@@ -184,6 +213,9 @@ def run(args):
         "microbenchmark_distinct_cpu_speedup": rank_micro["original"]["distinct_cpu_seconds"] / rank_micro["candidate"]["distinct_cpu_seconds"],
         "repeated_microtiming_note": "Timing stops before output-digest bookkeeping in the corrected attempt. Original attempt's repeated timings are retained but excluded.",
         "phase_results": phases, "speedups": speedups, "inventory": inventory,
+        "actual_attacker_prefix_full_one_sample_counts": dict(actual_full_counts),
+        "actual_attacker_prefix_timing": actual_timings,
+        "timing_strata_note": "#121 primary projection strata are the selected target decision's street. Public prior attacker prefixes can be earlier streets; their independently reconstructed counts/timings are reported separately.",
         "stability_one_sample_calls": sum(r["one_sample_calls"] for r in inventory if r["selected_rank"] in stability),
         "suit_one_sample_calls": sum(r["one_sample_calls"] for r in inventory if r["selected_rank"] in suit),
         "cost_projections": costs,
