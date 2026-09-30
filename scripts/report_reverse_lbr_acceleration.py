@@ -140,6 +140,7 @@ def report(root, artifact_dir):
     report_data = {
         "schema": "reverse-lbr-acceleration-report-v1", "status": "complete",
         "source_commit_at_report": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+        "expanded_focused_test_log": (root / "focused-tests-expanded.log").read_text().strip(),
         "scientific_outputs_generated": False,
         "equivalence": {"cases": 336, "mismatches": 0,
                         "value_absolute_tolerance_chips": 1e-10,
@@ -185,6 +186,7 @@ def report(root, artifact_dir):
     for path in [root / "research-clock.json", root / "corpus.json",
                  *[root / p / name for p in results for name in ("result.json", "attempts.jsonl")],
                  *[root / f"{p}.log" for p in results],
+                 root / "focused-tests.log", root / "focused-tests-expanded.log",
                  artifact_dir / "report.json"]:
         if path.exists():
             inventory[str(path.resolve())] = {"sha256": sha256(path.read_bytes()).hexdigest(),
