@@ -21,6 +21,12 @@ class UniformTarget:
         return menu, tuple(1 / len(menu) for _ in menu), True
 
 
+class FirstOnlyTarget:
+    def distribution(self, view):
+        menu = choices(view, free_fold=False)
+        return menu, (1.0,) + (0.0,) * (len(menu) - 1), True
+
+
 def test_cache_key_is_complete_and_source_bound():
     source = UniformTarget()
     hand = Hand.start(Table(("lbr", "target"), (2000, 2000)),
@@ -77,6 +83,55 @@ def test_zero_evidence_preserves_bayes_prior_without_softmax():
     assert zero and tuple(weights) == pytest.approx((.25, .75))
 
 
+def test_observed_zero_likelihood_raise_preserves_lbr_range():
+    source = FirstOnlyTarget()
+    hand = Hand.start(Table(("lbr", "target"), (2000, 2000), button=0),
+                      hand_id="zero-observed-raise", seed=91)
+    hand = hand.apply(Action(ActionKind.CALL))
+    target = hand.observe(1)
+    hand = hand.apply(Action(ActionKind.RAISE, target.legal_actions.min_raise_to))
+    view = hand.observe(0)
+    assert view.legal_actions.call_amount > 0
+    native = LocalBestResponse(source, 93, LBRConfig(1, 5))
+    cached = CachedLocalBestResponse(source, 93, SharedProbabilityCache(source), LBRConfig(1, 5))
+    assert native.choose_action(view) == cached.choose_action(view)
+    assert native.zero_likelihood == cached.zero_likelihood
+    assert len(native.zero_likelihood) == 1
+    assert tuple(native.weights) == pytest.approx(tuple(cached.weights), abs=1e-12)
+
+
+def test_preflop_facing_minraise_equivalence():
+    source = UniformTarget()
+    hand = Hand.start(Table(("lbr", "target"), (2000, 2000), button=0),
+                      hand_id="preflop-facing-minraise", seed=18)
+    hand = hand.apply(Action(ActionKind.CALL))
+    target = hand.observe(1)
+    hand = hand.apply(Action(ActionKind.RAISE, target.legal_actions.min_raise_to))
+    view = hand.observe(0)
+    assert view.street.value == "preflop" and view.legal_actions.call_amount > 0
+    native = LocalBestResponse(source, 94, LBRConfig(4, 5))
+    cached = CachedLocalBestResponse(source, 94, SharedProbabilityCache(source), LBRConfig(4, 5))
+    assert native.choose_action(view) == cached.choose_action(view)
+    assert native.telemetry[-1]["values_chips"] == pytest.approx(cached.telemetry[-1]["values_chips"], abs=1e-10)
+    assert native.telemetry[-1]["samples"] == cached.telemetry[-1]["samples"]
+
+
+def test_river_free_check_equivalence():
+    source = UniformTarget()
+    hand = Hand.start(Table(("target", "lbr"), (2000, 2000), button=0),
+                      hand_id="river-free-check", seed=43)
+    while len(hand.observe(hand.actor).board) < 5:
+        view = hand.observe(hand.actor)
+        hand = hand.apply(Action(ActionKind.CHECK if ActionKind.CHECK in view.legal_actions.kinds
+                                 else ActionKind.CALL))
+    view = hand.observe(hand.actor)
+    assert view.seat == 1 and view.legal_actions.call_amount == 0
+    native = LocalBestResponse(source, 704, LBRConfig(4, 5))
+    cached = CachedLocalBestResponse(source, 704, SharedProbabilityCache(source), LBRConfig(4, 5))
+    assert native.choose_action(view) == cached.choose_action(view)
+    assert native.telemetry[-1]["values_chips"] == pytest.approx(cached.telemetry[-1]["values_chips"], abs=1e-10)
+
+
 def test_small_river_facing_wager_uses_identical_menu_and_action():
     source = UniformTarget()
     hand = Hand.start(Table(("target", "lbr"), (2000, 2000)),
@@ -85,11 +140,12 @@ def test_small_river_facing_wager_uses_identical_menu_and_action():
         view = hand.observe(hand.actor)
         hand = hand.apply(Action(ActionKind.CHECK if ActionKind.CHECK in view.legal_actions.kinds
                                  else ActionKind.CALL))
-    if hand.actor == 0:
-        view = hand.observe(0)
-        hand = hand.apply(Action(ActionKind.RAISE, view.legal_actions.min_raise_to))
-    view = hand.observe(hand.actor)
-    assert len(view.board) == 5
+    if hand.actor == 1:
+        hand = hand.apply(Action(ActionKind.CHECK))
+    target = hand.observe(0)
+    hand = hand.apply(Action(ActionKind.RAISE, target.legal_actions.min_raise_to))
+    view = hand.observe(1)
+    assert len(view.board) == 5 and view.legal_actions.call_amount > 0
     native = LocalBestResponse(source, 703, LBRConfig(4, 5))
     cached = CachedLocalBestResponse(source, 703, SharedProbabilityCache(source), LBRConfig(4, 5))
     assert native.choose_action(view) == cached.choose_action(view)
