@@ -1,0 +1,37 @@
+{
+  "schema": "hu20-mature-cpu-pilot-v1",
+  "base": "8f50f1f",
+  "budget_approval": "pending; do not rent",
+  "max_total_cost_usd": 2.0,
+  "max_rental_seconds_per_pod": 7200,
+  "container_disk_gb": 30,
+  "heavy_workers_per_pod": 1,
+  "python": "3.11.14",
+  "engine_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+  "validated_trainer_source": "50326afcd4776308054e0c9efce8681de1e877eb",
+  "validated_trainer_pr": 132,
+  "variant": "candidate",
+  "added_complete_nodes": 5000000,
+  "midpoint_rule": "first complete iteration crossing 2500000 added nodes",
+  "parent": {
+    "seed": 2026093001,
+    "actual_complete_nodes": 100000029,
+    "iteration": 246212,
+    "entries": 1496914,
+    "checkpoint_path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093001/checkpoint-100000000.json.gz",
+    "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a"
+  },
+  "configurations": [
+    {"cpu_id": "cpu3g", "vcpus": 2, "ram_gb": 8, "max_compute_usd_per_hour": 0.080},
+    {"cpu_id": "cpu5g", "vcpus": 2, "ram_gb": 8, "max_compute_usd_per_hour": 0.092},
+    {"cpu_id": "cpu5m", "vcpus": 2, "ram_gb": 16, "max_compute_usd_per_hour": 0.130}
+  ],
+  "limits": {
+    "max_owned_rss_gib": 10.5,
+    "max_rss_fraction_of_container_memory": 0.8,
+    "max_swap_growth_gib": 0.5,
+    "min_free_disk_gib": 8
+  },
+  "work": ["M4 direct reference", "M4 fresh-process midpoint resume", "Linux direct per CPU class", "Linux fresh-process midpoint resume per CPU class", "independent full-state/work/RNG comparisons", "verified retrieval before termination"],
+  "not_authorized": ["automatic merge", "500M campaign", "strategy changes", "promotion"]
+}

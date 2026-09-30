@@ -1,0 +1,66 @@
+from scripts.mature_cpu_rental_guard import check_quote, owned_pods
+from scripts.verify_mature_cpu_linux import export_transport_difference
+
+
+def test_cutoff_names_cannot_capture_another_owners_pod():
+    ours = {'name': 'doctor-research-mature-cpu3c-1', 'id': 'ours'}
+    other = {'name': 'doctor-research-mature-cpu3c-10', 'id': 'other'}
+    assert owned_pods([ours, other], {ours['name']}) == [ours]
+
+
+def test_shape_rate_and_cpu_only_are_required():
+    config = {'cpu_id': 'cpu3c', 'vcpus': 2, 'ram_gb': 4}
+    pod = {'cpu': {'id': 'cpu3c', 'vcpuCount': 2, 'memory': 4}, 'cost': .062}
+    assert check_quote(config, pod, .11)
+    for changed in ({'gpu': {'count': 1}}, {'cost': .12}, {'cost': 0},
+                    {'cpu': {'id': 'cpu5c', 'vcpuCount': 2, 'memory': 4}},
+                    {'cpu': {'id': 'cpu3c', 'vcpuCount': 4, 'memory': 8}}):
+        assert not check_quote(config, dict(pod, **changed), .11)
+
+
+def test_only_known_export_os_byte_is_exempted(tmp_path):
+    a, b = tmp_path / 'mac.gz', tmp_path / 'linux.gz'
+    header = bytes.fromhex('1f8b08000000000002')
+    a.write_bytes(header + bytes([19]) + b'identical-payload')
+    b.write_bytes(header + bytes([3]) + b'identical-payload')
+    assert export_transport_difference(a, b)
+    b.write_bytes(header + bytes([3]) + b'changed-payload')
+    assert not export_transport_difference(a, b)
+    b.write_bytes(header + bytes([255]) + b'identical-payload')
+    assert not export_transport_difference(a, b)
+
+
+def test_linux_worker_is_launched_from_driver_not_runtime():
+    from pathlib import Path
+    source = (Path(__file__).parents[1] / 'scripts/mature_cpu_linux_setup.sh').read_text()
+    launch = source.index(' -m scripts.mature_cpu_linux_worker')
+    assert source.rfind('cd /workspace/driver', 0, launch) > source.rfind('cd /workspace/runtime', 0, launch)
+    assert '/workspace/runtime/.venv/bin/python -m scripts.mature_cpu_linux_worker' in source
+
+
+def test_engine_provenance_json_format_does_not_change_identity():
+    from scripts.verify_mature_cpu_linux import same_engine_identity
+    a = '{"url": "https://example.test/engine", "vcs_info": {"vcs": "git", "commit_id": "fixed"}}'
+    b = '{"vcs_info":{"commit_id":"fixed","vcs":"git"},"url":"https://example.test/engine"}'
+    assert a != b
+    assert same_engine_identity(a, b)
+    assert not same_engine_identity(a, b.replace('fixed','different'))
+
+
+def test_single_and_six_pod_leases_are_exact_and_bounded():
+    from scripts.mature_cpu_rental_guard import valid_lease
+    one = {'names': ['ours'], 'max_concurrent_pods': 1, 'started': 100, 'deadline': 7300}
+    assert valid_lease(one)
+    assert not valid_lease(dict(one, names=['ours', 'other']))
+    assert not valid_lease(dict(one, deadline=7301))
+    assert not valid_lease(dict(one, deadline=100))
+    six = dict(one, names=list('abcdef'), max_concurrent_pods=6)
+    assert valid_lease(six)
+    assert not valid_lease(dict(six, names=list('abcdee')))
+
+
+def test_large_compute_shape_does_not_admit_small_shape():
+    config = {'cpu_id': 'cpu5c', 'vcpus': 16, 'ram_gb': 32}
+    pod = {'cpu': {'id': 'cpu5c', 'vcpuCount': 16, 'memory': 32}, 'cost': .56}
+    assert check_quote(config, pod, .61)
+    assert not check_quote(config, dict(pod, cpu={'id':'cpu5c','vcpuCount':2,'memory':4}), .61)

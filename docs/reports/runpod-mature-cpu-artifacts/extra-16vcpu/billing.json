@@ -1,0 +1,31 @@
+{
+  "combined_compute_upper_estimate_usd": 0.18017362552073268,
+  "compute_upper_estimate_usd": 0.11130849318504335,
+  "initial_compute_upper_estimate_usd": 0.06886513233568933,
+  "invoice_settled": false,
+  "latest_possible_charge_seconds": 715.5545990467072,
+  "ledger": {
+    "metadata": {
+      "query": {
+        "bucketSize": "day",
+        "endTime": "2026-10-01T00:00:00Z",
+        "podId": "kdrzkfrgf49pua",
+        "startTime": "2026-09-30T00:00:00Z"
+      },
+      "recordCount": 0,
+      "totals": {
+        "cpuAmount": 0,
+        "diskAmount": 0,
+        "gpuAmount": 0,
+        "totalAmount": 0
+      },
+      "uniquePodCount": 0
+    },
+    "records": []
+  },
+  "owned_pods_remaining": [],
+  "pod_id": "kdrzkfrgf49pua",
+  "posted_records_available": false,
+  "queried": 1790806017.132509,
+  "rate_usd_per_hour": 0.56
+}

@@ -1,0 +1,9 @@
+{
+  "archive_sha256": "018bf508c0d24d13c3329e6d8ade7ffc5454335673c2a64cb105267776bfa3cf",
+  "archive_bytes": 589557760,
+  "transport_hash_match": true,
+  "platform_metadata_repair_passed": true,
+  "basis": "Final inventory independently hashes archive to original Linux transport SHA; corrected parity sidecar passes; original combined false verdict preserved.",
+  "original_combined_transport_verdict": false,
+  "original_combined_transport_record_retained": true
+}
