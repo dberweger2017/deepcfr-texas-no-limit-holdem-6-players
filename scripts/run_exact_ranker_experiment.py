@@ -36,7 +36,11 @@ def owned_rss(child):
     for line in subprocess.check_output(["ps", "-axo", "pid=,ppid=,rss=,command="], text=True).splitlines():
         pid, parent, memory, command = line.split(maxsplit=3)
         processes.append((int(pid), int(parent), int(memory), command))
-    owned = {os.getpid(), child}
+    owned = {os.getpid()}
+    # PID 0 is an idle sentinel, never an owned process. Including it would
+    # collect launchd and then the entire machine through parent expansion.
+    if child > 0:
+        owned.add(child)
     while True:
         expanded = owned | {pid for pid, parent, _, _ in processes if parent in owned}
         if expanded == owned:

@@ -61,6 +61,9 @@ def paired_checks(original, candidate):
 
 
 def run(args):
+    publication = args.publication_out or args.root
+    if args.publication_out:
+        publication.mkdir(parents=True, exist_ok=False)
     clock = read(args.root / "engineering-clock.json")
     guard(args.root, clock)
     supervisor = read(args.root / "supervisor.json")
@@ -248,20 +251,28 @@ def run(args):
         raise MemoryError("Reporting peak RSS exceeds the unchanged ceiling")
     result["resources"]["reporting_peak_process_rss_bytes"] = reporting_peak
     result["resources"]["reporting_guard_sample"] = reporting_guard
-    write_json(args.root / "report.json", result)
+    write_json(publication / "report.json", result)
     files = {str(path.resolve()): {"sha256": file_hash(path), "bytes": path.stat().st_size}
-             for path in sorted(args.root.rglob("*")) if path.is_file() and path.name != "manifest.json"}
+             for path in sorted(args.root.rglob("*")) if path.is_file()
+             and (publication != args.root or path.name != "manifest.json")}
+    if publication != args.root:
+        path = publication / "report.json"
+        files[str(path.resolve())] = {"sha256": file_hash(path), "bytes": path.stat().st_size}
     for path in sorted(args.previous_root.rglob("*")):
         if path.is_file():
             files[str(path.resolve())] = {"sha256": file_hash(path), "bytes": path.stat().st_size}
     for path in (args.wrapper_log, args.previous_wrapper_log, args.startup_log, args.proposal_selection):
         files[str(path.resolve())] = {"sha256": file_hash(path), "bytes": path.stat().st_size}
+    if args.previous_verification:
+        path = args.previous_verification
+        files[str(path.resolve())] = {"sha256": file_hash(path), "bytes": path.stat().st_size}
     manifest = {"retained_m4_root": str(args.root.resolve()), "files": files,
+                "publication_root": str(publication.resolve()),
                 "pre_correction_root": str(args.previous_root.resolve()),
                 "engineering_source_head": result["engineering_source_head"],
                 "report_source_head": result["report_source_head"], "sealed": time()}
     guard(args.root, clock)
-    write_json(args.root / "manifest.json", manifest)
+    write_json(publication / "manifest.json", manifest)
     print(json.dumps({"status": "complete", "files_sealed": len(files), "speedups": speedups,
                       "proposal_hours": costs["candidate"]["proposed_four_sample_total_hours"]}, sort_keys=True))
 
@@ -270,6 +281,8 @@ def main():
     parser = argparse.ArgumentParser()
     for name in ("root", "corpus", "selection", "raw-dir", "proposal-selection", "wrapper-log", "previous-wrapper-log", "startup-log", "previous-root"):
         parser.add_argument("--" + name, type=Path, required=True)
+    parser.add_argument("--publication-out", type=Path, help="Fresh reporting path; retain an earlier seal verbatim")
+    parser.add_argument("--previous-verification", type=Path, help="Retain the initial seal verification in the corrected inventory")
     run(parser.parse_args())
 
 
