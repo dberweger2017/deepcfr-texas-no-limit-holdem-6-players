@@ -1,0 +1,44 @@
+{
+  "elapsed_seconds": 9.35961127281189,
+  "files_verified": 262,
+  "independent_stability_cases": [
+    {
+      "independent_metrics_match": true,
+      "passed": true,
+      "rank": "0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26"
+    },
+    {
+      "independent_metrics_match": true,
+      "passed": true,
+      "rank": "0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d"
+    },
+    {
+      "independent_metrics_match": true,
+      "passed": true,
+      "rank": "04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7"
+    },
+    {
+      "independent_metrics_match": true,
+      "passed": true,
+      "rank": "276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e"
+    },
+    {
+      "independent_metrics_match": true,
+      "passed": false,
+      "rank": "0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132"
+    }
+  ],
+  "input_hashes_verified": 100,
+  "manifest_sha256": "9ec297b0eb856900da8a5a41c17c8a91feb614a5d7dd648e7c4e72951ca0359d",
+  "resource_snapshot": {
+    "child_pid": 0,
+    "foreign_large_processes": [],
+    "free_disk_bytes": 39896707072,
+    "owned_rss_bytes": 27574272,
+    "swap_mib": 753.38,
+    "time": 1790788158.7803268
+  },
+  "status": "passed",
+  "unexecuted_scientific_stages_absent": true,
+  "verified_at": 1790788158.7863529
+}

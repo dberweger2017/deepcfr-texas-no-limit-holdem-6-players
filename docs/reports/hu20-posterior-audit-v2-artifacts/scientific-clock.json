@@ -1,0 +1,13 @@
+{
+  "deadline": 1790812915.584733,
+  "deadline_madrid": "2026-10-01T02:01:55.584733+02:00",
+  "deadline_utc": "2026-10-01T00:01:55.584733+00:00",
+  "merged_base": "7d31a39c80cc72deb772336ce251f3c4bdcd46c9",
+  "science_deadline": 1790811115.584733,
+  "source_head": "0d3a5cf1c5ba763ec0db149795650b2773236855",
+  "started": 1790778715.584733,
+  "started_madrid": "2026-09-30T16:31:55.584733+02:00",
+  "started_utc": "2026-09-30T14:31:55.584733+00:00",
+  "swap_start_mib": 753.38,
+  "window_seconds": 34200
+}
