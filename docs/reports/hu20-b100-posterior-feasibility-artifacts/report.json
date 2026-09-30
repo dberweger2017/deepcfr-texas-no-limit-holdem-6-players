@@ -1,0 +1,80 @@
+{
+  "conditional_worlds_generated": 0,
+  "empty_cells": [],
+  "finished": 1790750185.340234,
+  "focused_m4_tests": "12 passed in 7.21 seconds",
+  "four_sample_conservative_projection_seconds": 102389.11214598455,
+  "four_sample_fastest_observed_extrapolation_seconds": 15045.31803231407,
+  "four_sample_overall_mean_extrapolation_seconds": 52549.30163961812,
+  "likelihood_calls_per_sample": 58047,
+  "no_training_or_paid_compute": true,
+  "one_sample_conservative_projection_seconds": 25597.278036496136,
+  "paired_value_world_allowance_seconds_at_96": 1728.0,
+  "posterior_distributions_generated": 0,
+  "reason": "Prespecified four-sample reverse-LBR likelihood plus paired values cannot fit initial two-hour M4 heavy-compute allowance",
+  "remaining_seconds_at_freeze": 6990.580707073212,
+  "report_control_reserve_seconds": 1200,
+  "research_clock": {
+    "comment": "No reset or extension after outcomes.",
+    "first_heavy_work": "focused M4 tests; start conservatively rounded earlier",
+    "first_heavy_work_epoch_conservative": 1790749760,
+    "heavy_deadline_epoch": 1790756960,
+    "heavy_seconds_authorized_about": 7200,
+    "schema": "hu20-b100-posterior-research-clock-v1",
+    "source_commit": "5f94a3f"
+  },
+  "sampled_peak_rss_bytes": 3156230144,
+  "saved_b100_models": [
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "checkpoint_path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093001/checkpoint-100000000.json.gz",
+      "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a",
+      "milestone": 100000000,
+      "name": "B-2026093001-100000000",
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093001/current-100000000.json.gz",
+      "seed": 2026093001,
+      "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "checkpoint_path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093002/checkpoint-100000000.json.gz",
+      "checkpoint_sha256": "830c7c470de2a416b2cb030af6abb76bbb49b2757ff1a8300b0f30a75de3b965",
+      "milestone": 100000000,
+      "name": "B-2026093002-100000000",
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093002/current-100000000.json.gz",
+      "seed": 2026093002,
+      "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "checkpoint_path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093003/checkpoint-100000000.json.gz",
+      "checkpoint_sha256": "77bb18426aecdf6d9e83a9c8eb807f7e6671ab01ffafc94e348382a677e9df1b",
+      "milestone": 100000000,
+      "name": "B-2026093003-100000000",
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093003/current-100000000.json.gz",
+      "seed": 2026093003,
+      "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e"
+    }
+  ],
+  "schema": "hu20-b100-posterior-feasibility-v1",
+  "scientific_result": "No uniform/posterior local action-value outcome was generated; no training mechanism can be inferred from this attempt.",
+  "selected_trained_decisions": 24,
+  "selection_digest": "578b8b67f21a15d2961e88cf498aeeb64831c9827e578e5ce1db62f85d43e322",
+  "source_commit": "5f94a3f32c29373123ec67aab4fc4fc4a3eecff3",
+  "source_raw_hashes": {
+    "B-2026093001-100000000.jsonl.gz": "83feba4ba8a797888dac7b8f7f0aca63070c31c88e29387aa16dbd277a756550",
+    "B-2026093002-100000000.jsonl.gz": "e531d918d75995085ea236eb8d511efc8182013ba4c3189d48da653dd7340213",
+    "B-2026093003-100000000.jsonl.gz": "01116f305b2e80da0a5b1142b75cf5483e3385a8a82ba6d1f9762bd326590552"
+  },
+  "status": "stopped_before_conditional_values",
+  "swap_after_gib": 0.74353515625,
+  "swap_before_gib": 0.74353515625,
+  "timed_calls": 132,
+  "timed_seconds": {
+    "maximum": 0.5242305831052363,
+    "mean": 0.2263222114821529,
+    "median": 0.17208608402870595,
+    "minimum": 0.06479800003580749
+  },
+  "visit_threshold": 300
+}
