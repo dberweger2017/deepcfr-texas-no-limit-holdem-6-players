@@ -1,0 +1,37 @@
+{
+  "scope": "Actual active HTTP boundary check; no private journal inspected",
+  "checkedAt": "2026-09-30T16:42:18.435761+00:00",
+  "completedHands": 72,
+  "checks": [
+    {
+      "endpoint": "/state",
+      "status": 200,
+      "bodySha256": "e484c4368a178342e1d51fe9252576373a8b8a330fb01efef28f9b0fd753574f",
+      "forbiddenFields": []
+    },
+    {
+      "endpoint": "/history",
+      "status": 200,
+      "bodySha256": "e6fab55cc682bfdf81f2b7aab943ed86bd58c707d793026f0951913bc91a3836",
+      "forbiddenFields": []
+    },
+    {
+      "endpoint": "/benchmark/result",
+      "status": 409,
+      "bodySha256": "dc6445f7187e359d3e3108e70175868e1d2a58d8f43ecafdb57077edf0487471",
+      "forbiddenFields": []
+    },
+    {
+      "endpoint": "/benchmark/export",
+      "status": 409,
+      "bodySha256": "dc6445f7187e359d3e3108e70175868e1d2a58d8f43ecafdb57077edf0487471",
+      "forbiddenFields": []
+    },
+    {
+      "endpoint": "/hands/VX05MucJo9rS10oDZW6kO23F/diagnostics",
+      "status": 403,
+      "bodySha256": "97282b071f59ae8e1e57a6e507237e39a573f119f12a273bdf80f39a8ed598c8",
+      "forbiddenFields": []
+    }
+  ]
+}

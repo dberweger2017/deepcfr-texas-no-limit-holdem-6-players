@@ -111,22 +111,133 @@ Surfaced thread counters: **213,616,234 input tokens** (210,588,416 cached),
 counters, not reasoning content or a monetary charge. The runtime did not
 provide a separately attributable experiment dollar cost.
 
-## Uniform-random calibration — pending
+## Uniform-random calibration — completed and verified
 
-The separate uniform control was added only after the primary stopped and was
-uploaded. Its [definition and reproduction guide](../luna-uniform-random-calibration.md)
-use the same concrete restricted menu and persisted per-session bot RNG, with
-no B100M modification or model load. The server accepts only restricted
-benchmark sessions for this opponent. Trained/fallback lookups are inapplicable.
+A fresh `gpt-6-luna` / `high` context completed exactly **100/100 hands** against
+uniform random, earning **+1,300 chips / +13 BB / +13 BB per 100**. This weak
+control has its own deal stream and no inherited primary memory. Its result is
+not combined with B100M's result, and I report no confidence interval.
 
-A fresh `gpt-6-luna` / `high` context is playing a new exact-100 session, using
-the same frozen prompt/harness and no primary history. The
-[calibration configuration](luna-browser/calibration-config.json) pins runtime
-source `7ce9ba600ec9a1822bea19a9396b3c540e6797af` and the algorithm-definition
-hash. All **969 full fixture tests** passed on M1 in 474.65 seconds at that
-source, and its GitHub CI passed. The later reporting-only tally change adds
-one focused test; **37 focused checks** pass. Results remain separate and
-calibration replay/exports await completion.
+| Measure | Verified random result |
+| --- | --- |
+| Status / hands | COMPLETE; 100 / 100 |
+| Wins / losses / ties | 41 / 59 / 0 |
+| Button/SB | 50 hands, +4,400 chips / +44 BB |
+| BB | 50 hands, -3,100 chips / -31 BB |
+| Average terminal pot | 880 chips / 8.8 BB |
+| Native replay / conservation / payoff / public digests | All 100 passed |
+| Human decisions / raw attempts | 217 / 218; one explicit failed-click retry |
+| Attempt/native or reported-menu mismatches | Zero |
+| Missing observation records / timestamps | Zero |
+| Bot decisions | 189; trained/fallback classification is inapplicable |
+| Tools | 331 CUA calls; no prohibited tool/capability detected |
+| Parent poker decisions / session restarts | Zero / zero |
+| Elapsed time | 39m 05s, including setup and a hand-12 idle gap |
+
+The unchanged frozen prompt/harness was submitted to a fresh child. The
+[configuration](luna-browser/calibration-config.json) pins the runtime source
+`7ce9ba600ec9a1822bea19a9396b3c540e6797af`, distinct from the released primary.
+The [adapter definition and reproduction guide](../luna-uniform-random-calibration.md)
+specify uniform weights over exactly the same concrete restricted legal menu,
+using the normal persisted per-session bot RNG, native engine and journal path.
+The definition hash identifies this algorithm, not trained model bytes. The
+server permits only restricted benchmark sessions for this adapter. No B100M
+artifact was loaded for the control.
+
+Three setup failures occurred (two existing-tab lookups and unsupported child
+live visibility). On hand 12 a click failed; a fresh visible observation confirmed
+that the turn remained active and Luna retried the same Fold. The native journal
+contains one Fold. The raw retry marker was a descriptive string rather than a
+boolean; the reporting helper now retains and recognizes that explicit marker,
+with a regression test. Its initial attempt-to-final-ack interval includes the
+retry. The child's final statement of no errors does not override this evidence.
+No parent continuation or browser recovery was required during calibration.
+
+### Random raw evidence
+
+- [Actual HTTP benchmark export](luna-browser/calibration/export.json).
+- [All accepted decisions and raw attempts](luna-browser/calibration/decisions.csv).
+- [Per-hand results/digests](luna-browser/calibration/hands.csv).
+- [Actual completed HTTP public history](luna-browser/calibration/public-history.json).
+- [Sanitized browser metadata](luna-browser/calibration/browser-metadata.json).
+- [Replay/configuration/tool/usage audit](luna-browser/calibration/audit.json).
+- [Actual completed HTTP allowlist/disclosure validation](luna-browser/calibration/http-validation.json)
+  and [active HTTP denial checks](luna-browser/calibration-active-boundary.json).
+- [Resource CSV](luna-browser/calibration/resources.csv) and [summary](luna-browser/calibration/resources.json).
+
+All 100 HTTP history entries exactly matched the native human-view allowlist and
+legitimate disclosures after completion. Active result/export returned 409 and
+benchmark diagnostics returned 403. Reporting metadata now uses a field allowlist,
+so arbitrary embedded rendered trees are excluded as well as private reasoning.
+
+Observed decision interval mean/median/p95: **7.62 / 5.66 / 9.23 seconds**.
+Attempt-to-emitted-ack interval: **0.345 / 0.300 / 0.405 seconds**. Neither is an
+isolated engine/network latency or private reasoning measurement. The mean
+includes a long hand-12 delay; it is not silently removed.
+
+The random service's 91 samples showed `top MEM` **19M–24M**, RSS
+**9,296–27,968 KiB**, and sampled service CPU at most 0.2%. Host swap was
+2,942–3,926 MiB, including other applications and concurrent fixture tests; this
+is not random-service allocation. Its final RSS snapshot was 27,856 KiB.
+I stopped the server, sampler, spectator and owned caffeinate process after
+export. There was no M4, training or paid RunPod use.
+
+Surfaced usage: **45,702,080 input tokens** (45,019,904 cached), 62,348 output
+tokens and 11,228 reasoning-output tokens. No separately attributable dollar
+charge was supplied; these counters do not disclose private reasoning.
+
+## Fixed qualitative review — both results frozen
+
+The frozen selection uses first ten hands, every 50th ordinal, and the five
+largest positive and negative **terminal human payoffs**, with ordinal tie-breaking
+and deduplication. This is not selection by pot size. The manifests retain every
+selected public event, human-visible decision and selection reason:
+[28 primary hands](luna-browser/primary/qualitative-sample.json) and
+[21 random hands](luna-browser/calibration/qualitative-sample.json).
+No solver, private reasoning or unrevealed bot cards were used for this review.
+
+| Observation | Evidence and practical limit |
+| --- | --- |
+| Legal controls and readable game state | All accepted wagers were restricted-menu legal; no recurring rule violation or typed wager exists in these restricted runs. The hand-343 attempted-call/accepted-fold mismatch is a computer-use error, not a strategy judgment. |
+| Cautious folds versus large bets | Primary hands 6, 151, 166 and 210 fold after earlier investment. Hand 6 folds river top pair to a pot-sized bet; this is observable caution, not proof of an EV error without the opponent strategy. |
+| Weak holdings sometimes enter raised pots | Primary 4/8/10 call with K2/K4/K5, and random 4 calls J7 then folds the flop. These are candidates for reviewing preflop selectivity; the sample alone cannot label every call a mistake. |
+| Small bets and calls with strong made hands | Primary 5 bets one BB on the flop, checks the turn and calls one BB on the river with trip aces; 46 bets one BB on the river then calls the shove with a full house. Random 20/61 call large raises with trips. This does not prove missed value or optimal sizing. |
+| Coherent showdown calls | Primary 200 calls three one-BB bets and wins with A-high on a trips board. Random 41 calls the river shove on a five-spade board holding two spades and wins. These are compatible with coherent bluff catching/hand reading, not evidence of private reasoning. |
+| Losses from observable calls | Primary 188 calls small flop/river bets with unpaired AK and loses to a paired six; random 40 calls a pot-sized river bet with Q5 and loses to Q9's kicker. Random 74 calls a turn shove with QQ and loses when the river gives the opponent trips. The last example is a bad outcome, not proof that the call was wrong. |
+| Large winners materially affect the aggregate | Primary has twelve +20-BB hands and no -20-BB hand; random has five +20-BB hands and one -20-BB hand. The top-five positive sample alone contributes +100 BB in each run, underscoring variance rather than establishing strength. |
+
+I cannot quantify how much profit would have changed without the computer-use
+error: no counterfactual hand was played. Primary hand 343's actual Fold and
+loss remain in the ledger; retries did not create duplicate bets. Poker actions
+account for the recorded outcomes, but an action's strategic quality is not
+identified by its realized payoff. The most useful recurring review candidates
+are weak-hand preflop calls and investing before folding to large bets. There is
+no supported ranking of “biggest mistakes” by EV in this experiment.
+
+A post-hoc action-count check across primary quarters finds raises **46/251,
+69/250, 69/227, 77/250** decisions (about 18%, 28%, 30%, 31%). This is an observed
+change in action mix, not proof of adaptation: cards, positions and opportunities
+also changed. The corresponding net quarters were +5.5, +13, +73 and +15.5 BB.
+Random quarters were +37, -14.5, -3 and -6.5 BB. Counts are retained in the sample
+files; no strategic memory or coaching was added between opponents.
+
+## Handoff answers
+
+1. **500 autonomous hands?** No. I explicitly shortened the primary to 400 after seeing progress/scores. It retains original target 500/status ABORTED and technical interruptions in one context. The separate random target 100 completed.
+2. **Information boundary?** No prohibited tool or hidden-information access was detected. Restrictions are instructional; actual HTTP boundary checks, native disclosure comparison and fixture hidden-world tests provide bounded evidence, not a mechanically enforced child tool sandbox.
+3. **Versus B100M?** Luna +107 BB over 400, raw +26.75 BB/100; all hands verified.
+4. **Versus random?** Luna +13 BB over 100, raw +13 BB/100; all hands verified. Separate opponent and fresh context.
+5. **Poker versus computer use?** One primary intent/accepted mismatch, one retry in each run, missing primary metadata and tool recoveries are retained. No counterfactual attribution of net profit is justified.
+6. **Recurring mistakes?** The observable review candidates above merit investigation; there is no solver-backed EV mistake ranking or demonstrated recurring rule misunderstanding.
+7. **Adaptation?** Later primary aggression increased in a post-hoc action mix; adaptation cannot be established from that alone.
+8. **B100M fallback?** 0/894 (0%); inspected only after ending the primary.
+9. **Latency/runtime?** Primary decision mean/median/p95 6.64/6.12/9.98 s; wall time 3h27m26s. Random 7.62/5.66/9.23 s and 39m05s. Logging intervals have the limits stated above.
+10. **M1 sufficient?** Yes for both services, browser play and tests on this 16-GiB M1. B100M's sampled logical memory was about 1.3 GiB; compression/host swap and child tab lifecycle still affected observability/stability. All owned processes are stopped.
+11. **Extend random to 500?** More hands could clarify this noisy +13-BB control, but the current position split and large-pot sensitivity do not establish a stable advantage. No extension was run or authorized.
+12. **One next recommendation:** A preregistered, time-budgeted replication of the restricted HU20 Luna-versus-B100M experiment after fixing browser tab lifecycle/recovery, with the same frozen prompt and exact completion target.
+
+No three-player run is included: the featured B100M is heads-up only. A future
+three-player experiment would need a separately verified TP20 policy and protocol.
 
 ### Primary technical supervision log
 
@@ -166,7 +277,7 @@ The additional polling load is included in subsequent resource samples.
 [Machine and native dependency identity](luna-browser/environment.json) records
 the exact environment. Before the random adapter, the focused service/audit/report/tally suite passed 31 tests.
 The earlier `f7ac53e` GitHub CI candidate passed all 952 tests and its existing
-CLI/reproduction gates. Subsequent reporting changes receive their own CI run.
+CLI/reproduction gates. The latest reporting candidate `fd90a1c` passed GitHub CI with 998 tests in 509.86 seconds, CLI checks and both solver-reference/replay gates; GitGuardian also passed. The platform-specific full M1 count at the calibration runtime was 969.
 
 When I requested a running score, I tallied only individual hand outcomes already
 rendered in Luna's browser. Through hand 106, every hand was represented once
@@ -181,7 +292,7 @@ add profit. Eight full rendered terminal-stack observations independently agreed
 with their displayed hand profits. A generated two-hand regression loses 50
 chips in the small blind, resets both stacks, then loses 100 in the big blind:
 the accumulated result is correctly -150 chips / -1.5 BB. It also replays both
-hands. These checks support the accounting; full primary replay remains pending.
+hands. These checks support the accounting; the completed primary native replay also passed for all 400 hands.
 
 ## Reproduction and audit
 

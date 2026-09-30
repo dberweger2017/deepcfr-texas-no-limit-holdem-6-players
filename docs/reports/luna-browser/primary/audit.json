@@ -67,6 +67,9 @@
   "missingConfirmationTimestamps": 3,
   "attemptAcceptedMismatches": 1,
   "reportedMenuMismatches": 0,
+  "observableErrorRecords": 2,
+  "botDecisions": 894,
+  "lookupApplicable": true,
   "trainedBotLookups": 894,
   "fallbackBotLookups": 0,
   "uiConfirmationMs": {

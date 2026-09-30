@@ -121,6 +121,17 @@
             "3c"
           ]
         }
+      ],
+      "humanCards": [
+        "Tc",
+        "3c"
+      ],
+      "board": [
+        "5c",
+        "Ac",
+        "2s",
+        "6h",
+        "8c"
       ]
     },
     {
@@ -155,7 +166,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2s",
+        "3s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 3,
@@ -197,7 +213,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5d",
+        "8d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 4,
@@ -287,6 +308,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "2s",
+        "Kd"
+      ],
+      "board": [
+        "Ah",
+        "Qh",
+        "4s",
+        "Js"
       ]
     },
     {
@@ -416,6 +447,17 @@
             "3c"
           ]
         }
+      ],
+      "humanCards": [
+        "Ah",
+        "3c"
+      ],
+      "board": [
+        "Ac",
+        "9d",
+        "Ts",
+        "4c",
+        "Ad"
       ]
     },
     {
@@ -537,6 +579,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "6c",
+        "Ad"
+      ],
+      "board": [
+        "Qh",
+        "Js",
+        "4h",
+        "9c",
+        "As"
       ]
     },
     {
@@ -563,7 +616,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8d",
+        "2c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 8,
@@ -653,6 +711,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Kc",
+        "4c"
+      ],
+      "board": [
+        "8s",
+        "3h",
+        "7s",
+        "2d"
       ]
     },
     {
@@ -679,7 +747,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8s",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 10,
@@ -769,6 +842,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5d",
+        "Ks"
+      ],
+      "board": [
+        "Jd",
+        "6d",
+        "Ah",
+        "2s"
       ]
     },
     {
@@ -795,7 +878,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2s",
+        "9d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 12,
@@ -928,6 +1016,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "Kd",
+        "Kh"
+      ],
+      "board": [
+        "8h",
+        "4h",
+        "Ad",
+        "Ts",
+        "Jd"
       ]
     },
     {
@@ -1033,6 +1132,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "9h",
+        "9c"
+      ],
+      "board": [
+        "6h",
+        "3d",
+        "Qh",
+        "As",
+        "8s"
       ]
     },
     {
@@ -1059,7 +1169,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9c",
+        "3c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 15,
@@ -1164,6 +1279,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "6s",
+        "6c"
+      ],
+      "board": [
+        "Ts",
+        "3c",
+        "Tc",
+        "2s",
+        "9c"
       ]
     },
     {
@@ -1190,7 +1316,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5h",
+        "4h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 17,
@@ -1216,7 +1347,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4d",
+        "8h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 18,
@@ -1242,7 +1378,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4c",
+        "6h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 19,
@@ -1276,7 +1417,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9h",
+        "9d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 20,
@@ -1374,6 +1520,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Th",
+        "8h"
+      ],
+      "board": [
+        "5s",
+        "8d",
+        "9d",
+        "Qs"
       ]
     },
     {
@@ -1400,7 +1556,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7d",
+        "4c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 22,
@@ -1498,6 +1659,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Kd",
+        "3h"
+      ],
+      "board": [
+        "Jc",
+        "As",
+        "5s",
+        "Js"
       ]
     },
     {
@@ -1524,7 +1695,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3s",
+        "8d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 24,
@@ -1550,7 +1726,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Ts",
+        "Ad"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 25,
@@ -1592,7 +1773,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5h",
+        "5c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 26,
@@ -1659,6 +1845,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "2d",
+        "Ks"
+      ],
+      "board": [
+        "9d",
+        "Qs",
+        "7d"
       ]
     },
     {
@@ -1741,6 +1936,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Ac",
+        "5d"
+      ],
+      "board": [
+        "2c",
+        "3c",
+        "6d",
+        "Qc"
       ]
     },
     {
@@ -1831,6 +2036,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "4c",
+        "2h"
+      ],
+      "board": [
+        "Tc",
+        "Jd",
+        "3h",
+        "Ks"
       ]
     },
     {
@@ -1936,6 +2151,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "3s",
+        "Td"
+      ],
+      "board": [
+        "7s",
+        "Jd",
+        "9h",
+        "5c",
+        "Ad"
       ]
     },
     {
@@ -1970,7 +2196,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8c",
+        "2c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 31,
@@ -2111,6 +2342,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "5c",
+        "Ad"
+      ],
+      "board": [
+        "As",
+        "2s",
+        "5d",
+        "9d",
+        "2d"
       ]
     },
     {
@@ -2145,7 +2387,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Th",
+        "4s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 33,
@@ -2187,7 +2434,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4h",
+        "Jd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 34,
@@ -2213,7 +2465,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2s",
+        "3h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 35,
@@ -2272,6 +2529,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Kd",
+        "8c"
+      ],
+      "board": [
+        "5h",
+        "Js",
+        "9d"
       ]
     },
     {
@@ -2362,6 +2628,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5s",
+        "4c"
+      ],
+      "board": [
+        "Th",
+        "Kc",
+        "9d",
+        "Qd"
       ]
     },
     {
@@ -2388,7 +2664,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5s",
+        "9c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 38,
@@ -2422,7 +2703,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "6s",
+        "4c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 39,
@@ -2551,6 +2837,17 @@
             "5c"
           ]
         }
+      ],
+      "humanCards": [
+        "5h",
+        "5c"
+      ],
+      "board": [
+        "Kc",
+        "5d",
+        "7c",
+        "2s",
+        "2h"
       ]
     },
     {
@@ -2577,7 +2874,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4c",
+        "9s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 41,
@@ -2690,6 +2992,17 @@
             "Kc"
           ]
         }
+      ],
+      "humanCards": [
+        "Ac",
+        "Kc"
+      ],
+      "board": [
+        "Ks",
+        "Jh",
+        "Ah",
+        "3h",
+        "5s"
       ]
     },
     {
@@ -2757,6 +3070,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "4h",
+        "Ts"
+      ],
+      "board": [
+        "6d",
+        "7h",
+        "7d"
       ]
     },
     {
@@ -2799,7 +3121,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kd",
+        "2s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 44,
@@ -2889,6 +3216,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "6c",
+        "9c"
+      ],
+      "board": [
+        "Ah",
+        "Jd",
+        "Qh",
+        "Jh"
       ]
     },
     {
@@ -3018,6 +3355,17 @@
             "9s"
           ]
         }
+      ],
+      "humanCards": [
+        "Js",
+        "9s"
+      ],
+      "board": [
+        "2s",
+        "Kh",
+        "9c",
+        "2d",
+        "8h"
       ]
     },
     {
@@ -3147,6 +3495,17 @@
             "6s"
           ]
         }
+      ],
+      "humanCards": [
+        "Qs",
+        "6s"
+      ],
+      "board": [
+        "Qd",
+        "8d",
+        "9c",
+        "6h",
+        "Qh"
       ]
     },
     {
@@ -3173,7 +3532,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5s",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 48,
@@ -3240,6 +3604,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7c",
+        "8c"
+      ],
+      "board": [
+        "7s",
+        "Jh",
+        "Qs"
       ]
     },
     {
@@ -3282,7 +3655,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Tc",
+        "5h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 50,
@@ -3316,7 +3694,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4c",
+        "Kd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 51,
@@ -3375,6 +3758,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "3d",
+        "Kc"
+      ],
+      "board": [
+        "7c",
+        "8d",
+        "6h"
       ]
     },
     {
@@ -3496,6 +3888,17 @@
             "7c"
           ]
         }
+      ],
+      "humanCards": [
+        "3c",
+        "Kd"
+      ],
+      "board": [
+        "6h",
+        "6c",
+        "5c",
+        "Js",
+        "Ad"
       ]
     },
     {
@@ -3555,6 +3958,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "6c",
+        "Jh"
+      ],
+      "board": [
+        "7h",
+        "7d",
+        "Kd"
       ]
     },
     {
@@ -3622,6 +4034,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Kh",
+        "9s"
+      ],
+      "board": [
+        "3s",
+        "7c",
+        "Js"
       ]
     },
     {
@@ -3720,6 +4141,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7d",
+        "6d"
+      ],
+      "board": [
+        "Kc",
+        "8c",
+        "Qd",
+        "5c"
       ]
     },
     {
@@ -3754,7 +4185,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "6c",
+        "3s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 57,
@@ -3844,6 +4280,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "As",
+        "6h"
+      ],
+      "board": [
+        "8d",
+        "2h",
+        "7c",
+        "Ks"
       ]
     },
     {
@@ -3870,7 +4316,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kc",
+        "Ad"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 59,
@@ -3937,6 +4388,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "As",
+        "Qs"
+      ],
+      "board": [
+        "Qh",
+        "9h",
+        "9s"
       ]
     },
     {
@@ -4066,6 +4526,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5h",
+        "Ac"
+      ],
+      "board": [
+        "Th",
+        "5d",
+        "Ad",
+        "4s",
+        "6c"
       ]
     },
     {
@@ -4183,6 +4654,17 @@
           "event": "mucked",
           "seat": 0
         }
+      ],
+      "humanCards": [
+        "9h",
+        "2d"
+      ],
+      "board": [
+        "8d",
+        "5h",
+        "6s",
+        "Qs",
+        "3c"
       ]
     },
     {
@@ -4242,6 +4724,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "As",
+        "5c"
+      ],
+      "board": [
+        "Ac",
+        "Qd",
+        "7s"
       ]
     },
     {
@@ -4284,7 +4775,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "6c",
+        "5s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 64,
@@ -4351,6 +4847,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "4h",
+        "2h"
+      ],
+      "board": [
+        "Qh",
+        "Jd",
+        "5d"
       ]
     },
     {
@@ -4418,6 +4923,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "4s",
+        "2s"
+      ],
+      "board": [
+        "5c",
+        "2h",
+        "Js"
       ]
     },
     {
@@ -4444,7 +4958,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8d",
+        "9h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 67,
@@ -4561,6 +5080,17 @@
           "event": "mucked",
           "seat": 0
         }
+      ],
+      "humanCards": [
+        "7c",
+        "4c"
+      ],
+      "board": [
+        "Qc",
+        "4d",
+        "Qd",
+        "8c",
+        "5d"
       ]
     },
     {
@@ -4587,7 +5117,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qc",
+        "Qd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 69,
@@ -4646,6 +5181,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5c",
+        "8h"
+      ],
+      "board": [
+        "7c",
+        "2s",
+        "Jh"
       ]
     },
     {
@@ -4680,7 +5224,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Td",
+        "4s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 71,
@@ -4801,6 +5350,17 @@
             "Ac"
           ]
         }
+      ],
+      "humanCards": [
+        "4c",
+        "Ac"
+      ],
+      "board": [
+        "7h",
+        "Ah",
+        "9h",
+        "3h",
+        "5c"
       ]
     },
     {
@@ -4922,6 +5482,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7c",
+        "7h"
+      ],
+      "board": [
+        "Th",
+        "Kc",
+        "6h",
+        "2d",
+        "Jh"
       ]
     },
     {
@@ -4964,7 +5535,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qd",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 74,
@@ -5054,6 +5630,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "4d",
+        "5d"
+      ],
+      "board": [
+        "9c",
+        "Jd",
+        "2h",
+        "9h"
       ]
     },
     {
@@ -5088,7 +5674,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7h",
+        "Js"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 76,
@@ -5178,6 +5769,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "As",
+        "3c"
+      ],
+      "board": [
+        "2s",
+        "9d",
+        "Kd",
+        "6c"
       ]
     },
     {
@@ -5237,6 +5838,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Th",
+        "5c"
+      ],
+      "board": [
+        "7s",
+        "7d",
+        "Qc"
       ]
     },
     {
@@ -5263,7 +5873,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2c",
+        "5s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 79,
@@ -5345,6 +5960,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "As",
+        "5s"
+      ],
+      "board": [
+        "3d",
+        "7d",
+        "9c",
+        "4h"
       ]
     },
     {
@@ -5379,7 +6004,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2d",
+        "3h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 81,
@@ -5454,6 +6084,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Kc",
+        "4d"
+      ],
+      "board": [
+        "7d",
+        "Qc",
+        "9s"
       ]
     },
     {
@@ -5480,7 +6119,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7h",
+        "Kh"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 83,
@@ -5506,7 +6150,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2c",
+        "7h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 84,
@@ -5596,6 +6245,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qs",
+        "Td"
+      ],
+      "board": [
+        "2h",
+        "9s",
+        "Jh",
+        "Qd"
       ]
     },
     {
@@ -5709,6 +6368,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Kd",
+        "2c"
+      ],
+      "board": [
+        "Jc",
+        "8d",
+        "6d",
+        "3h",
+        "Td"
       ]
     },
     {
@@ -5830,6 +6500,17 @@
             "As"
           ]
         }
+      ],
+      "humanCards": [
+        "8d",
+        "Ad"
+      ],
+      "board": [
+        "5d",
+        "Th",
+        "9s",
+        "Jd",
+        "3s"
       ]
     },
     {
@@ -5951,6 +6632,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5d",
+        "7h"
+      ],
+      "board": [
+        "8s",
+        "7d",
+        "5h",
+        "9d",
+        "9h"
       ]
     },
     {
@@ -5977,7 +6669,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Jc",
+        "6d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 89,
@@ -6126,6 +6823,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "8s",
+        "7s"
+      ],
+      "board": [
+        "8h",
+        "9s",
+        "7h",
+        "Jd",
+        "Qc"
       ]
     },
     {
@@ -6160,7 +6868,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8s",
+        "9h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 91,
@@ -6202,7 +6915,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9d",
+        "5s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 92,
@@ -6269,6 +6987,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "3d",
+        "5h"
+      ],
+      "board": [
+        "8h",
+        "As",
+        "6c"
       ]
     },
     {
@@ -6311,7 +7038,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4d",
+        "7h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 94,
@@ -6378,6 +7110,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "4c",
+        "9h"
+      ],
+      "board": [
+        "8h",
+        "5s",
+        "Jc"
       ]
     },
     {
@@ -6420,7 +7161,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kd",
+        "7s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 96,
@@ -6541,6 +7287,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Jh",
+        "5c"
+      ],
+      "board": [
+        "3s",
+        "3h",
+        "4d",
+        "7d",
+        "7c"
       ]
     },
     {
@@ -6658,6 +7415,17 @@
           "event": "mucked",
           "seat": 0
         }
+      ],
+      "humanCards": [
+        "9c",
+        "3d"
+      ],
+      "board": [
+        "Jc",
+        "Kh",
+        "5h",
+        "6c",
+        "Js"
       ]
     },
     {
@@ -6692,7 +7460,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kh",
+        "2d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 99,
@@ -6718,7 +7491,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3d",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 100,
@@ -6744,7 +7522,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qs",
+        "6s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 101,
@@ -6786,7 +7569,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7s",
+        "8c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 102,
@@ -6876,6 +7664,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "9c",
+        "Th"
+      ],
+      "board": [
+        "4c",
+        "2h",
+        "8h",
+        "Qs"
       ]
     },
     {
@@ -6918,7 +7716,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Td",
+        "3s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 104,
@@ -6944,7 +7747,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "As",
+        "5s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 105,
@@ -7003,6 +7811,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8h",
+        "Jd"
+      ],
+      "board": [
+        "Ah",
+        "2c",
+        "As"
       ]
     },
     {
@@ -7029,7 +7846,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Ac",
+        "5c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 107,
@@ -7071,7 +7893,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "6s",
+        "Ac"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 108,
@@ -7097,7 +7924,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8s",
+        "2s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 109,
@@ -7156,6 +7988,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Tc",
+        "6h"
+      ],
+      "board": [
+        "9h",
+        "5h",
+        "Jd"
       ]
     },
     {
@@ -7182,7 +8023,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "As",
+        "Js"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 111,
@@ -7224,7 +8070,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3d",
+        "Kh"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 112,
@@ -7250,7 +8101,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2s",
+        "Jh"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 113,
@@ -7317,6 +8173,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "6d",
+        "Qs"
+      ],
+      "board": [
+        "4h",
+        "8c",
+        "3d"
       ]
     },
     {
@@ -7446,6 +8311,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "9h",
+        "Jd"
+      ],
+      "board": [
+        "2h",
+        "Ks",
+        "3d",
+        "5d",
+        "3c"
       ]
     },
     {
@@ -7472,7 +8348,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "6d",
+        "2s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 116,
@@ -7539,6 +8420,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Jh",
+        "6d"
+      ],
+      "board": [
+        "5d",
+        "8h",
+        "3h"
       ]
     },
     {
@@ -7581,7 +8471,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4d",
+        "8d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 118,
@@ -7607,7 +8502,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5h",
+        "8s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 119,
@@ -7720,6 +8620,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7d",
+        "8d"
+      ],
+      "board": [
+        "6c",
+        "6d",
+        "5c",
+        "3h",
+        "3s"
       ]
     },
     {
@@ -7754,7 +8665,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2c",
+        "5s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 121,
@@ -7813,6 +8729,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Td",
+        "8h"
+      ],
+      "board": [
+        "Qh",
+        "2s",
+        "Kd"
       ]
     },
     {
@@ -7911,6 +8836,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Jd",
+        "8s"
+      ],
+      "board": [
+        "9c",
+        "6c",
+        "Ts",
+        "8c"
       ]
     },
     {
@@ -8032,6 +8967,17 @@
             "4c"
           ]
         }
+      ],
+      "humanCards": [
+        "3h",
+        "4c"
+      ],
+      "board": [
+        "7d",
+        "5s",
+        "Kd",
+        "3d",
+        "Ks"
       ]
     },
     {
@@ -8107,6 +9053,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "9d",
+        "5h"
+      ],
+      "board": [
+        "4c",
+        "Kh",
+        "2h"
       ]
     },
     {
@@ -8141,7 +9096,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qs",
+        "5d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 126,
@@ -8258,6 +9218,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "5d",
+        "8s"
+      ],
+      "board": [
+        "7c",
+        "2c",
+        "8h",
+        "2h",
+        "3s"
       ]
     },
     {
@@ -8363,6 +9334,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "3c",
+        "8d"
+      ],
+      "board": [
+        "Kc",
+        "4c",
+        "Ks",
+        "6s",
+        "7d"
       ]
     },
     {
@@ -8492,6 +9474,17 @@
             "Ah"
           ]
         }
+      ],
+      "humanCards": [
+        "4d",
+        "Kc"
+      ],
+      "board": [
+        "Js",
+        "Qd",
+        "6d",
+        "7c",
+        "9d"
       ]
     },
     {
@@ -8526,7 +9519,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3d",
+        "As"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 130,
@@ -8601,6 +9599,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qh",
+        "5c"
+      ],
+      "board": [
+        "6c",
+        "Jc",
+        "8c"
       ]
     },
     {
@@ -8660,6 +9667,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5h",
+        "Jc"
+      ],
+      "board": [
+        "2c",
+        "9h",
+        "3h"
       ]
     },
     {
@@ -8727,6 +9743,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7h",
+        "3s"
+      ],
+      "board": [
+        "Qd",
+        "9d",
+        "Ac"
       ]
     },
     {
@@ -8794,6 +9819,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Jd",
+        "Kh"
+      ],
+      "board": [
+        "8h",
+        "Qh",
+        "8c"
       ]
     },
     {
@@ -8919,6 +9953,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "Jc",
+        "Th"
+      ],
+      "board": [
+        "Td",
+        "Tc",
+        "7d",
+        "4d",
+        "3h"
       ]
     },
     {
@@ -8978,6 +10023,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "4d",
+        "Jd"
+      ],
+      "board": [
+        "6c",
+        "2h",
+        "Tc"
       ]
     },
     {
@@ -9123,6 +10177,17 @@
             "8s"
           ]
         }
+      ],
+      "humanCards": [
+        "7d",
+        "8s"
+      ],
+      "board": [
+        "7h",
+        "7c",
+        "4d",
+        "8c",
+        "Ks"
       ]
     },
     {
@@ -9236,6 +10301,17 @@
             "Tc"
           ]
         }
+      ],
+      "humanCards": [
+        "Kd",
+        "Tc"
+      ],
+      "board": [
+        "8c",
+        "Kh",
+        "Kc",
+        "9d",
+        "Ah"
       ]
     },
     {
@@ -9326,6 +10402,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "4s",
+        "Td"
+      ],
+      "board": [
+        "6c",
+        "8c",
+        "2c",
+        "2d"
       ]
     },
     {
@@ -9368,7 +10454,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4h",
+        "5d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 140,
@@ -9458,6 +10549,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7d",
+        "5h"
+      ],
+      "board": [
+        "3d",
+        "Ks",
+        "Ts",
+        "Ad"
       ]
     },
     {
@@ -9579,6 +10680,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "9c",
+        "5h"
+      ],
+      "board": [
+        "Kd",
+        "7c",
+        "5s",
+        "2c",
+        "Jc"
       ]
     },
     {
@@ -9621,7 +10733,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qc",
+        "Tc"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 143,
@@ -9655,7 +10772,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qs",
+        "9d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 144,
@@ -9753,6 +10875,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8c",
+        "Js"
+      ],
+      "board": [
+        "4d",
+        "Qs",
+        "Jc",
+        "Kc"
       ]
     },
     {
@@ -9787,7 +10919,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5h",
+        "Jd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 146,
@@ -9862,6 +10999,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8c",
+        "Tc"
+      ],
+      "board": [
+        "3d",
+        "4h",
+        "Jc"
       ]
     },
     {
@@ -9904,7 +11050,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3h",
+        "6s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 148,
@@ -9938,7 +11089,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2d",
+        "9s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 149,
@@ -9972,7 +11128,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7c",
+        "Td"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 150,
@@ -10062,6 +11223,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Ts",
+        "Qd"
+      ],
+      "board": [
+        "6d",
+        "4s",
+        "3c",
+        "6h"
       ]
     },
     {
@@ -10152,6 +11323,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Ks",
+        "Ac"
+      ],
+      "board": [
+        "8h",
+        "6d",
+        "Js",
+        "Jh"
       ]
     },
     {
@@ -10211,6 +11392,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qd",
+        "2c"
+      ],
+      "board": [
+        "Qc",
+        "2s",
+        "7d"
       ]
     },
     {
@@ -10270,6 +11460,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qc",
+        "2s"
+      ],
+      "board": [
+        "Th",
+        "9d",
+        "5d"
       ]
     },
     {
@@ -10296,7 +11495,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Th",
+        "4h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 155,
@@ -10338,7 +11542,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9h",
+        "6s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 156,
@@ -10364,7 +11573,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Js",
+        "Ac"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 157,
@@ -10431,6 +11645,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Ts",
+        "Ac"
+      ],
+      "board": [
+        "Jc",
+        "2s",
+        "9c"
       ]
     },
     {
@@ -10552,6 +11775,17 @@
             "Qh"
           ]
         }
+      ],
+      "humanCards": [
+        "Jc",
+        "6d"
+      ],
+      "board": [
+        "Ad",
+        "7c",
+        "2c",
+        "8s",
+        "5h"
       ]
     },
     {
@@ -10619,6 +11853,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "6h",
+        "2c"
+      ],
+      "board": [
+        "Qh",
+        "2s",
+        "Qd"
       ]
     },
     {
@@ -10752,6 +11995,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "Qs",
+        "Js"
+      ],
+      "board": [
+        "6h",
+        "2s",
+        "3d",
+        "Jc",
+        "4s"
       ]
     },
     {
@@ -10842,6 +12096,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Tc",
+        "Ks"
+      ],
+      "board": [
+        "3h",
+        "7s",
+        "7c",
+        "Kc"
       ]
     },
     {
@@ -10876,7 +12140,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8h",
+        "2s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 163,
@@ -10910,7 +12179,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8d",
+        "8h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 164,
@@ -11039,6 +12313,17 @@
             "Td"
           ]
         }
+      ],
+      "humanCards": [
+        "Ad",
+        "Kc"
+      ],
+      "board": [
+        "8d",
+        "Ah",
+        "3c",
+        "Jd",
+        "3d"
       ]
     },
     {
@@ -11065,7 +12350,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7d",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 166,
@@ -11115,7 +12405,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "As",
+        "Tc"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 167,
@@ -11141,7 +12436,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9d",
+        "6h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 168,
@@ -11223,6 +12523,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8d",
+        "4s"
+      ],
+      "board": [
+        "5c",
+        "2h",
+        "2s",
+        "Kd"
       ]
     },
     {
@@ -11265,7 +12575,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qs",
+        "9c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 170,
@@ -11299,7 +12614,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "6d",
+        "Qd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 171,
@@ -11333,7 +12653,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kh",
+        "5s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 172,
@@ -11367,7 +12692,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3s",
+        "Td"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 173,
@@ -11409,7 +12739,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3s",
+        "Qd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 174,
@@ -11522,6 +12857,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "4c",
+        "8d"
+      ],
+      "board": [
+        "Kh",
+        "Ac",
+        "4d",
+        "7s",
+        "9c"
       ]
     },
     {
@@ -11556,7 +12902,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7c",
+        "Tc"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 176,
@@ -11582,7 +12933,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Ks",
+        "5d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 177,
@@ -11608,7 +12964,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9d",
+        "2s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 178,
@@ -11642,7 +13003,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3c",
+        "4d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 179,
@@ -11676,7 +13042,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kh",
+        "Th"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 180,
@@ -11702,7 +13073,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kh",
+        "9d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 181,
@@ -11769,6 +13145,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7s",
+        "5s"
+      ],
+      "board": [
+        "5c",
+        "9s",
+        "8s"
       ]
     },
     {
@@ -11795,7 +13180,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qs",
+        "Qd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 183,
@@ -11821,7 +13211,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3h",
+        "8d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 184,
@@ -11946,6 +13341,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "Kc",
+        "Th"
+      ],
+      "board": [
+        "3h",
+        "8h",
+        "8c",
+        "6s",
+        "Ts"
       ]
     },
     {
@@ -12091,6 +13497,17 @@
             "Qs"
           ]
         }
+      ],
+      "humanCards": [
+        "Qc",
+        "Qs"
+      ],
+      "board": [
+        "9c",
+        "4d",
+        "Jh",
+        "4h",
+        "Ah"
       ]
     },
     {
@@ -12228,6 +13645,17 @@
             "Th"
           ]
         }
+      ],
+      "humanCards": [
+        "6c",
+        "Th"
+      ],
+      "board": [
+        "8h",
+        "Qh",
+        "9c",
+        "7h",
+        "6h"
       ]
     },
     {
@@ -12262,7 +13690,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qc",
+        "Th"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 188,
@@ -12403,6 +13836,17 @@
           "event": "mucked",
           "seat": 0
         }
+      ],
+      "humanCards": [
+        "Kh",
+        "Ad"
+      ],
+      "board": [
+        "9h",
+        "Jh",
+        "8c",
+        "6c",
+        "2c"
       ]
     },
     {
@@ -12437,7 +13881,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5h",
+        "8h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 190,
@@ -12471,7 +13920,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8h",
+        "6d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 191,
@@ -12600,6 +14054,17 @@
             "As"
           ]
         }
+      ],
+      "humanCards": [
+        "7h",
+        "As"
+      ],
+      "board": [
+        "Jc",
+        "9c",
+        "4h",
+        "3c",
+        "2h"
       ]
     },
     {
@@ -12721,6 +14186,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Tc",
+        "Ah"
+      ],
+      "board": [
+        "6c",
+        "5c",
+        "9s",
+        "6s",
+        "7c"
       ]
     },
     {
@@ -12763,7 +14239,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Js",
+        "3d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 194,
@@ -12861,6 +14342,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Kd",
+        "Ts"
+      ],
+      "board": [
+        "4c",
+        "6s",
+        "Ac",
+        "3h"
       ]
     },
     {
@@ -12928,6 +14419,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Jc",
+        "Ah"
+      ],
+      "board": [
+        "3d",
+        "Qc",
+        "3h"
       ]
     },
     {
@@ -13049,6 +14549,17 @@
             "9h"
           ]
         }
+      ],
+      "humanCards": [
+        "9d",
+        "5d"
+      ],
+      "board": [
+        "Th",
+        "7h",
+        "Kc",
+        "Qd",
+        "As"
       ]
     },
     {
@@ -13091,7 +14602,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Ac",
+        "3s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 198,
@@ -13158,6 +14674,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "9h",
+        "6c"
+      ],
+      "board": [
+        "Td",
+        "Kh",
+        "8d"
       ]
     },
     {
@@ -13240,6 +14765,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8d",
+        "5d"
+      ],
+      "board": [
+        "Ts",
+        "2d",
+        "Tc",
+        "3s"
       ]
     },
     {
@@ -13385,6 +14920,17 @@
             "Ah"
           ]
         }
+      ],
+      "humanCards": [
+        "8s",
+        "Ah"
+      ],
+      "board": [
+        "2s",
+        "6s",
+        "6d",
+        "6h",
+        "4h"
       ]
     },
     {
@@ -13419,7 +14965,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8d",
+        "Qd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 202,
@@ -13453,7 +15004,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "6d",
+        "4c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 203,
@@ -13487,7 +15043,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5d",
+        "6d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 204,
@@ -13513,7 +15074,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7s",
+        "9d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 205,
@@ -13555,7 +15121,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Jh",
+        "6s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 206,
@@ -13653,6 +15224,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "6s",
+        "Jc"
+      ],
+      "board": [
+        "Ac",
+        "9d",
+        "6h",
+        "2c"
       ]
     },
     {
@@ -13679,7 +15260,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "6c",
+        "4h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 208,
@@ -13808,6 +15394,17 @@
             "6d"
           ]
         }
+      ],
+      "humanCards": [
+        "7h",
+        "6d"
+      ],
+      "board": [
+        "8d",
+        "5c",
+        "4d",
+        "Jc",
+        "5s"
       ]
     },
     {
@@ -13898,6 +15495,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7c",
+        "Js"
+      ],
+      "board": [
+        "9d",
+        "9s",
+        "5c",
+        "Jc"
       ]
     },
     {
@@ -13973,6 +15580,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Jh",
+        "Kh"
+      ],
+      "board": [
+        "6s",
+        "6d",
+        "2s"
       ]
     },
     {
@@ -14007,7 +15623,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9d",
+        "Qs"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 212,
@@ -14041,7 +15662,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kd",
+        "5h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 213,
@@ -14083,7 +15709,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8h",
+        "Kh"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 214,
@@ -14117,7 +15748,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8h",
+        "5c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 215,
@@ -14151,7 +15787,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kh",
+        "Js"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 216,
@@ -14236,6 +15877,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "As",
+        "Ac"
+      ],
+      "board": [
+        "8h",
+        "7s",
+        "7h",
+        "8d",
+        "5c"
       ]
     },
     {
@@ -14270,7 +15922,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Th",
+        "5h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 218,
@@ -14296,7 +15953,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kh",
+        "Qh"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 219,
@@ -14322,7 +15984,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5c",
+        "4s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 220,
@@ -14364,7 +16031,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Js",
+        "Jd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 221,
@@ -14390,7 +16062,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9h",
+        "2c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 222,
@@ -14480,6 +16157,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "3d",
+        "Tc"
+      ],
+      "board": [
+        "9c",
+        "Qh",
+        "7c",
+        "2h"
       ]
     },
     {
@@ -14539,6 +16226,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "3d",
+        "Tc"
+      ],
+      "board": [
+        "4h",
+        "7h",
+        "8h"
       ]
     },
     {
@@ -14676,6 +16372,17 @@
             "Ad"
           ]
         }
+      ],
+      "humanCards": [
+        "2s",
+        "Ad"
+      ],
+      "board": [
+        "Kd",
+        "4d",
+        "8d",
+        "8s",
+        "5d"
       ]
     },
     {
@@ -14710,7 +16417,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kd",
+        "Kh"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 226,
@@ -14752,7 +16464,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kc",
+        "3c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 227,
@@ -14865,6 +16582,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "As",
+        "Kc"
+      ],
+      "board": [
+        "9h",
+        "6c",
+        "7s",
+        "Th",
+        "Qh"
       ]
     },
     {
@@ -14955,6 +16683,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Js",
+        "3h"
+      ],
+      "board": [
+        "5h",
+        "Ah",
+        "7c",
+        "5d"
       ]
     },
     {
@@ -14997,7 +16735,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Jd",
+        "3s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 230,
@@ -15064,6 +16807,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "3c",
+        "Ad"
+      ],
+      "board": [
+        "8c",
+        "7c",
+        "4s"
       ]
     },
     {
@@ -15106,7 +16858,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "6s",
+        "8s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 232,
@@ -15235,6 +16992,17 @@
             "9c"
           ]
         }
+      ],
+      "humanCards": [
+        "Ac",
+        "7s"
+      ],
+      "board": [
+        "Kh",
+        "Ts",
+        "8h",
+        "Qc",
+        "4d"
       ]
     },
     {
@@ -15294,6 +17062,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Jh",
+        "3s"
+      ],
+      "board": [
+        "5d",
+        "7h",
+        "5h"
       ]
     },
     {
@@ -15376,6 +17153,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "2c",
+        "7c"
+      ],
+      "board": [
+        "9c",
+        "Kh",
+        "4s",
+        "8c"
       ]
     },
     {
@@ -15410,7 +17197,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kd",
+        "Qs"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 236,
@@ -15436,7 +17228,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3d",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 237,
@@ -15581,6 +17378,17 @@
             "8s"
           ]
         }
+      ],
+      "humanCards": [
+        "Ad",
+        "8s"
+      ],
+      "board": [
+        "Qh",
+        "Kd",
+        "Jd",
+        "Td",
+        "Tc"
       ]
     },
     {
@@ -15615,7 +17423,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Jd",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 239,
@@ -15649,7 +17462,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8s",
+        "Qd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 240,
@@ -15675,7 +17493,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qh",
+        "9s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 241,
@@ -15742,6 +17565,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5s",
+        "Qc"
+      ],
+      "board": [
+        "9d",
+        "Tc",
+        "2d"
       ]
     },
     {
@@ -15879,6 +17711,17 @@
             "7s"
           ]
         }
+      ],
+      "humanCards": [
+        "3h",
+        "7s"
+      ],
+      "board": [
+        "7c",
+        "Qd",
+        "Kd",
+        "9c",
+        "3s"
       ]
     },
     {
@@ -15913,7 +17756,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5s",
+        "Ad"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 244,
@@ -15980,6 +17828,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "3c",
+        "Js"
+      ],
+      "board": [
+        "4d",
+        "Kc",
+        "Qh"
       ]
     },
     {
@@ -16022,7 +17879,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7s",
+        "4s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 246,
@@ -16151,6 +18013,17 @@
             "Qs"
           ]
         }
+      ],
+      "humanCards": [
+        "Jh",
+        "3h"
+      ],
+      "board": [
+        "Js",
+        "3c",
+        "8c",
+        "5h",
+        "5c"
       ]
     },
     {
@@ -16193,7 +18066,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Ks",
+        "4h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 248,
@@ -16219,7 +18097,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8s",
+        "6s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 249,
@@ -16344,6 +18227,17 @@
           "event": "mucked",
           "seat": 0
         }
+      ],
+      "humanCards": [
+        "4s",
+        "4d"
+      ],
+      "board": [
+        "Jc",
+        "Js",
+        "Qc",
+        "9d",
+        "7d"
       ]
     },
     {
@@ -16411,6 +18305,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Ad",
+        "6h"
+      ],
+      "board": [
+        "3c",
+        "2c",
+        "Kc"
       ]
     },
     {
@@ -16453,7 +18356,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8d",
+        "3h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 252,
@@ -16543,6 +18451,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "6d",
+        "4c"
+      ],
+      "board": [
+        "Th",
+        "3h",
+        "As",
+        "Ad"
       ]
     },
     {
@@ -16577,7 +18495,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Ah",
+        "Th"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 254,
@@ -16644,6 +18567,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Kc",
+        "Ac"
+      ],
+      "board": [
+        "4d",
+        "Th",
+        "Qd"
       ]
     },
     {
@@ -16711,6 +18643,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "9h",
+        "3h"
+      ],
+      "board": [
+        "Ac",
+        "Qc",
+        "Js"
       ]
     },
     {
@@ -16832,6 +18773,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qs",
+        "9d"
+      ],
+      "board": [
+        "3d",
+        "5c",
+        "6c",
+        "Ah",
+        "6h"
       ]
     },
     {
@@ -16953,6 +18905,17 @@
             "Kc"
           ]
         }
+      ],
+      "humanCards": [
+        "Kd",
+        "Kc"
+      ],
+      "board": [
+        "6d",
+        "8c",
+        "2c",
+        "7d",
+        "4h"
       ]
     },
     {
@@ -17086,6 +19049,17 @@
           "event": "mucked",
           "seat": 0
         }
+      ],
+      "humanCards": [
+        "6h",
+        "9c"
+      ],
+      "board": [
+        "6c",
+        "Ks",
+        "Ts",
+        "Jc",
+        "8s"
       ]
     },
     {
@@ -17120,7 +19094,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kc",
+        "6s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 260,
@@ -17245,6 +19224,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "8s",
+        "8c"
+      ],
+      "board": [
+        "2s",
+        "Jd",
+        "9h",
+        "3d",
+        "Qh"
       ]
     },
     {
@@ -17304,6 +19294,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "2d",
+        "6h"
+      ],
+      "board": [
+        "8d",
+        "Jd",
+        "Js"
       ]
     },
     {
@@ -17433,6 +19432,17 @@
             "8c"
           ]
         }
+      ],
+      "humanCards": [
+        "Ah",
+        "8c"
+      ],
+      "board": [
+        "5c",
+        "Jd",
+        "Js",
+        "As",
+        "Qs"
       ]
     },
     {
@@ -17492,6 +19502,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8s",
+        "6d"
+      ],
+      "board": [
+        "2h",
+        "Qd",
+        "2d"
       ]
     },
     {
@@ -17518,7 +19537,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Jc",
+        "7s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 265,
@@ -17577,6 +19601,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "2h",
+        "7s"
+      ],
+      "board": [
+        "9s",
+        "Kd",
+        "4s"
       ]
     },
     {
@@ -17603,7 +19636,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4c",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 267,
@@ -17662,6 +19700,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "3s",
+        "2h"
+      ],
+      "board": [
+        "5c",
+        "6d",
+        "Js"
       ]
     },
     {
@@ -17775,6 +19822,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Js",
+        "9c"
+      ],
+      "board": [
+        "Ah",
+        "5d",
+        "5c",
+        "6h",
+        "Qc"
       ]
     },
     {
@@ -17809,7 +19867,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9h",
+        "Th"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 270,
@@ -17899,6 +19962,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Js",
+        "Td"
+      ],
+      "board": [
+        "8d",
+        "Ac",
+        "3c",
+        "2s"
       ]
     },
     {
@@ -17941,7 +20014,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9c",
+        "Ah"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 272,
@@ -17967,7 +20045,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2h",
+        "Jc"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 273,
@@ -18001,7 +20084,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4h",
+        "Kh"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 274,
@@ -18068,6 +20156,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "4h",
+        "Jh"
+      ],
+      "board": [
+        "Ks",
+        "5s",
+        "5c"
       ]
     },
     {
@@ -18127,6 +20224,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5s",
+        "2c"
+      ],
+      "board": [
+        "7s",
+        "Ad",
+        "4d"
       ]
     },
     {
@@ -18186,6 +20292,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "2c",
+        "9c"
+      ],
+      "board": [
+        "7s",
+        "9s",
+        "9h"
       ]
     },
     {
@@ -18331,6 +20446,17 @@
             "Qc"
           ]
         }
+      ],
+      "humanCards": [
+        "Qh",
+        "Qc"
+      ],
+      "board": [
+        "7s",
+        "Qs",
+        "Ts",
+        "Jd",
+        "9c"
       ]
     },
     {
@@ -18357,7 +20483,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Ts",
+        "Qc"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 279,
@@ -18391,7 +20522,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8d",
+        "Ts"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 280,
@@ -18458,6 +20594,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8d",
+        "3c"
+      ],
+      "board": [
+        "4d",
+        "9h",
+        "Jc"
       ]
     },
     {
@@ -18587,6 +20732,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qs",
+        "7c"
+      ],
+      "board": [
+        "2s",
+        "7s",
+        "Qd",
+        "9c",
+        "9h"
       ]
     },
     {
@@ -18654,6 +20810,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "3d",
+        "8c"
+      ],
+      "board": [
+        "Qd",
+        "Js",
+        "6h"
       ]
     },
     {
@@ -18688,7 +20853,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9s",
+        "Qd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 284,
@@ -18722,7 +20892,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8c",
+        "5s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 285,
@@ -18835,6 +21010,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Js",
+        "Th"
+      ],
+      "board": [
+        "8h",
+        "5c",
+        "3d",
+        "4c",
+        "6d"
       ]
     },
     {
@@ -18925,6 +21111,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qs",
+        "Ts"
+      ],
+      "board": [
+        "5s",
+        "Ah",
+        "3h",
+        "Qc"
       ]
     },
     {
@@ -18959,7 +21155,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qd",
+        "Ks"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 288,
@@ -18985,7 +21186,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qh",
+        "4s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 289,
@@ -19019,7 +21225,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qh",
+        "Kc"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 290,
@@ -19109,6 +21320,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "As",
+        "2h"
+      ],
+      "board": [
+        "4d",
+        "8c",
+        "Jh",
+        "Ks"
       ]
     },
     {
@@ -19234,6 +21455,17 @@
           "event": "mucked",
           "seat": 0
         }
+      ],
+      "humanCards": [
+        "8s",
+        "6d"
+      ],
+      "board": [
+        "3c",
+        "Js",
+        "7s",
+        "5c",
+        "Jd"
       ]
     },
     {
@@ -19260,7 +21492,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3s",
+        "5d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 293,
@@ -19286,7 +21523,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5s",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 294,
@@ -19439,6 +21681,17 @@
             "As"
           ]
         }
+      ],
+      "humanCards": [
+        "5d",
+        "As"
+      ],
+      "board": [
+        "Ac",
+        "4c",
+        "2d",
+        "2c",
+        "Jh"
       ]
     },
     {
@@ -19498,6 +21751,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "2d",
+        "2c"
+      ],
+      "board": [
+        "Jd",
+        "8h",
+        "6s"
       ]
     },
     {
@@ -19565,6 +21827,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Jc",
+        "3c"
+      ],
+      "board": [
+        "Jh",
+        "Qd",
+        "5s"
       ]
     },
     {
@@ -19599,7 +21870,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Ts",
+        "6s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 298,
@@ -19666,6 +21942,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5h",
+        "6d"
+      ],
+      "board": [
+        "5s",
+        "Kc",
+        "9d"
       ]
     },
     {
@@ -19700,7 +21985,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3h",
+        "Qc"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 300,
@@ -19726,7 +22016,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kc",
+        "Js"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 301,
@@ -19785,6 +22080,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "2s",
+        "2c"
+      ],
+      "board": [
+        "6d",
+        "7d",
+        "Kd"
       ]
     },
     {
@@ -19883,6 +22187,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qc",
+        "As"
+      ],
+      "board": [
+        "5c",
+        "8s",
+        "2s",
+        "4d"
       ]
     },
     {
@@ -19909,7 +22223,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3c",
+        "6s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 304,
@@ -20022,6 +22341,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7s",
+        "Ac"
+      ],
+      "board": [
+        "8s",
+        "8d",
+        "4c",
+        "Ad",
+        "Th"
       ]
     },
     {
@@ -20104,6 +22434,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "As",
+        "7h"
+      ],
+      "board": [
+        "6d",
+        "Ac",
+        "4s",
+        "Td"
       ]
     },
     {
@@ -20229,6 +22569,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "Qc",
+        "8c"
+      ],
+      "board": [
+        "Js",
+        "6h",
+        "Td",
+        "Tc",
+        "9h"
       ]
     },
     {
@@ -20382,6 +22733,17 @@
             "Qs"
           ]
         }
+      ],
+      "humanCards": [
+        "2s",
+        "Qs"
+      ],
+      "board": [
+        "2c",
+        "Qd",
+        "Qc",
+        "2d",
+        "Tc"
       ]
     },
     {
@@ -20416,7 +22778,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7h",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 309,
@@ -20442,7 +22809,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4h",
+        "8c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 310,
@@ -20468,7 +22840,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "As",
+        "5s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 311,
@@ -20494,7 +22871,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3c",
+        "8d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 312,
@@ -20561,6 +22943,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7h",
+        "3h"
+      ],
+      "board": [
+        "2d",
+        "Td",
+        "8h"
       ]
     },
     {
@@ -20595,7 +22986,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Th",
+        "Tc"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 314,
@@ -20645,7 +23041,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9h",
+        "Ks"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 315,
@@ -20762,6 +23163,17 @@
           "event": "mucked",
           "seat": 0
         }
+      ],
+      "humanCards": [
+        "4c",
+        "Kh"
+      ],
+      "board": [
+        "Kc",
+        "Ah",
+        "8c",
+        "As",
+        "8s"
       ]
     },
     {
@@ -20796,7 +23208,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7c",
+        "3h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 317,
@@ -20917,6 +23334,17 @@
             "3c"
           ]
         }
+      ],
+      "humanCards": [
+        "Ks",
+        "3c"
+      ],
+      "board": [
+        "8d",
+        "2h",
+        "Jh",
+        "3d",
+        "Td"
       ]
     },
     {
@@ -20951,7 +23379,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3h",
+        "7s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 319,
@@ -21076,6 +23509,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "2d",
+        "9d"
+      ],
+      "board": [
+        "Kd",
+        "7c",
+        "7d",
+        "8h",
+        "Kh"
       ]
     },
     {
@@ -21213,6 +23657,17 @@
             "3s"
           ]
         }
+      ],
+      "humanCards": [
+        "9c",
+        "3s"
+      ],
+      "board": [
+        "6s",
+        "7s",
+        "8c",
+        "6d",
+        "Tc"
       ]
     },
     {
@@ -21247,7 +23702,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Ts",
+        "Ks"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 322,
@@ -21281,7 +23741,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9h",
+        "8d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 323,
@@ -21315,7 +23780,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "6d",
+        "Kh"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 324,
@@ -21428,6 +23898,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "4s",
+        "5s"
+      ],
+      "board": [
+        "Tc",
+        "Kc",
+        "Td",
+        "Kh",
+        "Js"
       ]
     },
     {
@@ -21470,7 +23951,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qs",
+        "2c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 326,
@@ -21529,6 +24015,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "9c",
+        "2h"
+      ],
+      "board": [
+        "8s",
+        "9d",
+        "3d"
       ]
     },
     {
@@ -21604,6 +24099,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "3c",
+        "Qh"
+      ],
+      "board": [
+        "7h",
+        "As",
+        "7c"
       ]
     },
     {
@@ -21721,6 +24225,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "Tc",
+        "Qd"
+      ],
+      "board": [
+        "Qs",
+        "Ad",
+        "6h",
+        "2s",
+        "8s"
       ]
     },
     {
@@ -21819,6 +24334,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7d",
+        "9d"
+      ],
+      "board": [
+        "Jc",
+        "Qd",
+        "5d",
+        "As"
       ]
     },
     {
@@ -21845,7 +24370,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8c",
+        "6c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 331,
@@ -21879,7 +24409,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Jh",
+        "4h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 332,
@@ -21938,6 +24473,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5c",
+        "7d"
+      ],
+      "board": [
+        "Qs",
+        "5d",
+        "3c"
       ]
     },
     {
@@ -22083,6 +24627,17 @@
             "8d"
           ]
         }
+      ],
+      "humanCards": [
+        "Qc",
+        "8d"
+      ],
+      "board": [
+        "3s",
+        "2d",
+        "2c",
+        "6h",
+        "9h"
       ]
     },
     {
@@ -22109,7 +24664,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2c",
+        "Ts"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 335,
@@ -22143,7 +24703,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Jd",
+        "6d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 336,
@@ -22264,6 +24829,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8c",
+        "8d"
+      ],
+      "board": [
+        "3s",
+        "3d",
+        "4d",
+        "Kd",
+        "As"
       ]
     },
     {
@@ -22401,6 +24977,17 @@
             "5c"
           ]
         }
+      ],
+      "humanCards": [
+        "3s",
+        "5c"
+      ],
+      "board": [
+        "Th",
+        "5d",
+        "6h",
+        "5s",
+        "9c"
       ]
     },
     {
@@ -22427,7 +25014,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "6s",
+        "5h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 339,
@@ -22486,6 +25078,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Th",
+        "4h"
+      ],
+      "board": [
+        "5c",
+        "Qd",
+        "3c"
       ]
     },
     {
@@ -22553,6 +25154,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7s",
+        "5s"
+      ],
+      "board": [
+        "8d",
+        "Js",
+        "2c"
       ]
     },
     {
@@ -22587,7 +25197,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Qd",
+        "Jh"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 342,
@@ -22685,6 +25300,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Jh",
+        "Qc"
+      ],
+      "board": [
+        "8s",
+        "Ad",
+        "Th",
+        "2h"
       ]
     },
     {
@@ -22752,6 +25377,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Kh",
+        "7c"
+      ],
+      "board": [
+        "Qh",
+        "3h",
+        "5h"
       ]
     },
     {
@@ -22819,6 +25453,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5c",
+        "9c"
+      ],
+      "board": [
+        "7s",
+        "Qd",
+        "Kh"
       ]
     },
     {
@@ -22940,6 +25583,17 @@
             "3s"
           ]
         }
+      ],
+      "humanCards": [
+        "Jd",
+        "3s"
+      ],
+      "board": [
+        "9s",
+        "Qs",
+        "5d",
+        "As",
+        "2d"
       ]
     },
     {
@@ -23046,6 +25700,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Ad",
+        "Ah"
+      ],
+      "board": [
+        "Qd",
+        "6s",
+        "3s",
+        "4h"
       ]
     },
     {
@@ -23080,7 +25744,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Jd",
+        "5s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 348,
@@ -23106,7 +25775,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9d",
+        "Ks"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 349,
@@ -23148,7 +25822,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2d",
+        "Kc"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 350,
@@ -23182,7 +25861,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Td",
+        "3c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 351,
@@ -23224,7 +25908,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Td",
+        "9s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 352,
@@ -23361,6 +26050,17 @@
             "7h"
           ]
         }
+      ],
+      "humanCards": [
+        "Ac",
+        "7h"
+      ],
+      "board": [
+        "2c",
+        "3h",
+        "6h",
+        "5d",
+        "Qd"
       ]
     },
     {
@@ -23428,6 +26128,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8h",
+        "9d"
+      ],
+      "board": [
+        "Ah",
+        "5s",
+        "Kh"
       ]
     },
     {
@@ -23545,6 +26254,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "Qh",
+        "8c"
+      ],
+      "board": [
+        "Qs",
+        "7s",
+        "9h",
+        "Jd",
+        "Ks"
       ]
     },
     {
@@ -23674,6 +26394,17 @@
             "Jc"
           ]
         }
+      ],
+      "humanCards": [
+        "Kh",
+        "Jc"
+      ],
+      "board": [
+        "2c",
+        "Jh",
+        "As",
+        "7c",
+        "3h"
       ]
     },
     {
@@ -23700,7 +26431,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7d",
+        "Jd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 357,
@@ -23790,6 +26526,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Js",
+        "5d"
+      ],
+      "board": [
+        "Ah",
+        "Kh",
+        "8s",
+        "Ac"
       ]
     },
     {
@@ -23816,7 +26562,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7h",
+        "6d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 359,
@@ -23929,6 +26680,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "As",
+        "5h"
+      ],
+      "board": [
+        "5d",
+        "Th",
+        "Ks",
+        "9s",
+        "2s"
       ]
     },
     {
@@ -24019,6 +26781,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8d",
+        "6c"
+      ],
+      "board": [
+        "Ks",
+        "Qd",
+        "Ac",
+        "9d"
       ]
     },
     {
@@ -24061,7 +26833,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "8d",
+        "Kh"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 362,
@@ -24087,7 +26864,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5s",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 363,
@@ -24154,6 +26936,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Ac",
+        "Qs"
+      ],
+      "board": [
+        "Kc",
+        "2d",
+        "Jh"
       ]
     },
     {
@@ -24180,7 +26971,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5h",
+        "Ac"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 365,
@@ -24206,7 +27002,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7c",
+        "4d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 366,
@@ -24232,7 +27033,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Ah",
+        "2h"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 367,
@@ -24369,6 +27175,17 @@
             "2h"
           ]
         }
+      ],
+      "humanCards": [
+        "6h",
+        "2h"
+      ],
+      "board": [
+        "4d",
+        "3h",
+        "Ac",
+        "5c",
+        "7c"
       ]
     },
     {
@@ -24436,6 +27253,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qd",
+        "9c"
+      ],
+      "board": [
+        "3h",
+        "6d",
+        "Jh"
       ]
     },
     {
@@ -24503,6 +27329,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8d",
+        "4d"
+      ],
+      "board": [
+        "9d",
+        "Qs",
+        "3h"
       ]
     },
     {
@@ -24632,6 +27467,17 @@
             "6s"
           ]
         }
+      ],
+      "humanCards": [
+        "6c",
+        "4s"
+      ],
+      "board": [
+        "6d",
+        "5s",
+        "3c",
+        "Kc",
+        "6h"
       ]
     },
     {
@@ -24757,6 +27603,17 @@
           "event": "mucked",
           "seat": 0
         }
+      ],
+      "humanCards": [
+        "5c",
+        "4d"
+      ],
+      "board": [
+        "9s",
+        "5d",
+        "8c",
+        "2h",
+        "6h"
       ]
     },
     {
@@ -24791,7 +27648,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5c",
+        "7d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 373,
@@ -24850,6 +27712,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7s",
+        "3s"
+      ],
+      "board": [
+        "5s",
+        "Jd",
+        "5d"
       ]
     },
     {
@@ -24975,6 +27846,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "2d",
+        "6d"
+      ],
+      "board": [
+        "6s",
+        "As",
+        "Kh",
+        "Kc",
+        "3h"
       ]
     },
     {
@@ -25017,7 +27899,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3s",
+        "6c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 376,
@@ -25084,6 +27971,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "9s",
+        "6h"
+      ],
+      "board": [
+        "3c",
+        "Ks",
+        "Ts"
       ]
     },
     {
@@ -25197,6 +28093,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "5c",
+        "8d"
+      ],
+      "board": [
+        "7c",
+        "Ad",
+        "2c",
+        "4h",
+        "3s"
       ]
     },
     {
@@ -25326,6 +28233,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8s",
+        "6s"
+      ],
+      "board": [
+        "Kc",
+        "8c",
+        "Jc",
+        "Jd",
+        "Jh"
       ]
     },
     {
@@ -25352,7 +28270,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "3h",
+        "4c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 380,
@@ -25378,7 +28301,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "5h",
+        "Kc"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 381,
@@ -25511,6 +28439,17 @@
           "event": "mucked",
           "seat": 0
         }
+      ],
+      "humanCards": [
+        "9d",
+        "9s"
+      ],
+      "board": [
+        "5c",
+        "5h",
+        "Js",
+        "8c",
+        "Qh"
       ]
     },
     {
@@ -25620,6 +28559,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "8h",
+        "7h"
+      ],
+      "board": [
+        "8s",
+        "7c",
+        "2c",
+        "5h",
+        "Tc"
       ]
     },
     {
@@ -25662,7 +28612,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4s",
+        "Jc"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 384,
@@ -25688,7 +28643,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "7s",
+        "3s"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 385,
@@ -25730,7 +28690,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9d",
+        "4c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 386,
@@ -25764,7 +28729,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4s",
+        "Kd"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 387,
@@ -25831,6 +28801,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qs",
+        "8d"
+      ],
+      "board": [
+        "As",
+        "6d",
+        "5d"
       ]
     },
     {
@@ -25890,6 +28869,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8d",
+        "Kd"
+      ],
+      "board": [
+        "4c",
+        "Td",
+        "9d"
       ]
     },
     {
@@ -25916,7 +28904,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "4h",
+        "2c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 390,
@@ -25983,6 +28976,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "8h",
+        "9c"
+      ],
+      "board": [
+        "2h",
+        "7s",
+        "4d"
       ]
     },
     {
@@ -26017,7 +29019,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "9h",
+        "9c"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 392,
@@ -26134,6 +29141,17 @@
           "event": "mucked",
           "seat": 1
         }
+      ],
+      "humanCards": [
+        "3h",
+        "Qh"
+      ],
+      "board": [
+        "Qd",
+        "7h",
+        "6d",
+        "2h",
+        "8s"
       ]
     },
     {
@@ -26247,6 +29265,17 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qd",
+        "4d"
+      ],
+      "board": [
+        "Jh",
+        "Kc",
+        "8d",
+        "Ts",
+        "7d"
       ]
     },
     {
@@ -26281,7 +29310,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "2c",
+        "Th"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 395,
@@ -26371,6 +29405,16 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "6d",
+        "8s"
+      ],
+      "board": [
+        "7h",
+        "9d",
+        "6h",
+        "Ts"
       ]
     },
     {
@@ -26397,7 +29441,12 @@
           "raiseTo": null,
           "paid": 0
         }
-      ]
+      ],
+      "humanCards": [
+        "Kd",
+        "3d"
+      ],
+      "board": []
     },
     {
       "handOrdinal": 397,
@@ -26456,6 +29505,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Qd",
+        "8c"
+      ],
+      "board": [
+        "3d",
+        "Td",
+        "4d"
       ]
     },
     {
@@ -26523,6 +29581,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "7c",
+        "Jh"
+      ],
+      "board": [
+        "Qs",
+        "Qh",
+        "2s"
       ]
     },
     {
@@ -26590,6 +29657,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "Tc",
+        "Ks"
+      ],
+      "board": [
+        "2h",
+        "9c",
+        "6s"
       ]
     },
     {
@@ -26657,6 +29733,15 @@
           "raiseTo": null,
           "paid": 0
         }
+      ],
+      "humanCards": [
+        "9c",
+        "8c"
+      ],
+      "board": [
+        "5d",
+        "3d",
+        "Ks"
       ]
     }
   ]

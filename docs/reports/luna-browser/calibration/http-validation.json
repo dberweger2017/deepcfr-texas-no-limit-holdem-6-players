@@ -1,0 +1,15 @@
+{
+  "scope": "Actual completed HTTP state/history/result/export; history exactly matched the native human-view allowlist and legitimate disclosures after completion",
+  "completedHands": 100,
+  "status": "COMPLETE",
+  "sourceVersion": "7ce9ba600ec9a1822bea19a9396b3c540e6797af",
+  "opponentDefinitionSha256": "a84129619efdc0f5b6bc2ca6120e2797035b4ab908363285aeb98a76b8e53cf2",
+  "allHistoryResponsesMatched": true,
+  "checkedAt": "2026-09-30T16:51:12.627020+00:00",
+  "responseSha256": {
+    "state": "2d59939393c2c9504711c9736313c3fceace8712c1a5ec6a75c3ed2143a7d727",
+    "history": "b1dedb9f04db95ec998c5671266f4b062be18146934d7670887405203fc209ca",
+    "export": "19c2c4ba1ecc63847b59363f0505db0110570fa5c6ded66c79dccab1b7238476",
+    "result": "19c2c4ba1ecc63847b59363f0505db0110570fa5c6ded66c79dccab1b7238476"
+  }
+}

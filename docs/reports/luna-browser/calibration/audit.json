@@ -1,0 +1,66 @@
+{
+  "configurations": [
+    {
+      "model": "gpt-6-luna",
+      "effort": "high"
+    }
+  ],
+  "toolCounts": {
+    "mcp__cua_repl.js": 331
+  },
+  "violations": [],
+  "verifiedHands": 100,
+  "serverStatus": "COMPLETE",
+  "originalTargetHands": 100,
+  "declaredCompletedHands": null,
+  "setupFailures": [
+    {
+      "callId": "call_t6p96CP44VjsYqtRR0mtLgzy",
+      "category": "existing-tab lookup"
+    },
+    {
+      "callId": "call_lPEumXFqhWh469Cj7oqislsj",
+      "category": "existing-tab lookup"
+    },
+    {
+      "callId": "call_2gH12rUBXzNemGJlZmSvzfrQ",
+      "category": "unsupported live visibility"
+    }
+  ],
+  "reconciledHumanDecisions": 217,
+  "parentPokerInterventions": 0,
+  "rawPokerAttempts": 218,
+  "explicitRetryAttempts": 1,
+  "missingObservationMetadata": 0,
+  "missingConfirmationTimestamps": 0,
+  "attemptAcceptedMismatches": 0,
+  "reportedMenuMismatches": 0,
+  "observableErrorRecords": 1,
+  "botDecisions": 189,
+  "lookupApplicable": false,
+  "trainedBotLookups": null,
+  "fallbackBotLookups": null,
+  "uiConfirmationMs": {
+    "samples": 217,
+    "mean": 345.4009216589862,
+    "median": 300,
+    "p95": 405
+  },
+  "latencyScope": "Action attempt to emitted observation timestamp; includes logging/tool delays, not isolated network/engine latency",
+  "observedDecisionMs": {
+    "samples": 217,
+    "mean": 7617.649769585253,
+    "median": 5659,
+    "p95": 9230
+  },
+  "percentileMethod": "nearest rank",
+  "decisionLatencyScope": "Last rendered result receipt to action attempt; excludes earlier reads/first-ready wait",
+  "usageTotals": {
+    "input_tokens": 45702080,
+    "cached_input_tokens": 45019904,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 62348,
+    "reasoning_output_tokens": 11228,
+    "total_tokens": 45764428
+  }
+}

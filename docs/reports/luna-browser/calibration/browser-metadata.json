@@ -1,0 +1,6826 @@
+[
+  {
+    "type": "luna_attempt",
+    "hand": 1,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 1 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 1 / 100",
+    "attemptedAtMs": 1790784786496,
+    "handOrdinal": 1,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784780464
+  },
+  {
+    "type": "luna_observed",
+    "hand": 1,
+    "decision": 1,
+    "observedAtMs": 1790784786859,
+    "acceptedAction": "Deal hand 1 / 100",
+    "handOrdinal": 1,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 1 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 1,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Call 0.50 BB",
+    "attemptedAtMs": 1790784792976,
+    "handOrdinal": 1,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784786934
+  },
+  {
+    "type": "luna_observed",
+    "hand": 1,
+    "decision": 2,
+    "observedAtMs": 1790784793260,
+    "acceptedAction": "Call 0.50 BB",
+    "handOrdinal": 1,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 0.50 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 1,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790784799817,
+    "handOrdinal": 1,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790784793339
+  },
+  {
+    "type": "luna_observed",
+    "hand": 1,
+    "decision": 3,
+    "observedAtMs": 1790784800044,
+    "acceptedAction": "Fold",
+    "handOrdinal": 1,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 2,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 2 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 2 / 100",
+    "attemptedAtMs": 1790784806786,
+    "handOrdinal": 2,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784800133
+  },
+  {
+    "type": "luna_observed",
+    "hand": 2,
+    "decision": 1,
+    "observedAtMs": 1790784807175,
+    "acceptedAction": "Deal hand 2 / 100",
+    "handOrdinal": 2,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 2 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 2,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 3 BB",
+    "attemptedAtMs": 1790784812789,
+    "handOrdinal": 2,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784807251
+  },
+  {
+    "type": "luna_observed",
+    "hand": 2,
+    "decision": 2,
+    "observedAtMs": 1790784813036,
+    "acceptedAction": "Min \u00b7 3 BB",
+    "handOrdinal": 2,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 3 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 2,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 12 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790784819391,
+    "handOrdinal": 2,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790784813116
+  },
+  {
+    "type": "luna_observed",
+    "hand": 2,
+    "decision": 3,
+    "observedAtMs": 1790784819612,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 2,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 2,
+    "decision": 4,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 8 BB",
+      "Jam \u00b7 16 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790784824883,
+    "handOrdinal": 2,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790784819669
+  },
+  {
+    "type": "luna_observed",
+    "hand": 2,
+    "decision": 4,
+    "observedAtMs": 1790784825246,
+    "acceptedAction": "check",
+    "handOrdinal": 2,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 2,
+    "decision": 5,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 8 BB",
+      "Min \u00b7 16 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790784830500,
+    "handOrdinal": 2,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790784825340
+  },
+  {
+    "type": "luna_observed",
+    "hand": 2,
+    "decision": 5,
+    "observedAtMs": 1790784830715,
+    "acceptedAction": "Fold",
+    "handOrdinal": 2,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 3,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 3 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 3 / 100",
+    "attemptedAtMs": 1790784839093,
+    "handOrdinal": 3,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784830798
+  },
+  {
+    "type": "luna_observed",
+    "hand": 3,
+    "decision": 1,
+    "observedAtMs": 1790784839410,
+    "acceptedAction": "Deal hand 3 / 100",
+    "handOrdinal": 3,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 3 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 3,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Call 0.50 BB",
+    "attemptedAtMs": 1790784844856,
+    "handOrdinal": 3,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784839491
+  },
+  {
+    "type": "luna_observed",
+    "hand": 3,
+    "decision": 2,
+    "observedAtMs": 1790784845160,
+    "acceptedAction": "Call 0.50 BB",
+    "handOrdinal": 3,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 0.50 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 3,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790784849987,
+    "handOrdinal": 3,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790784845204
+  },
+  {
+    "type": "luna_observed",
+    "hand": 3,
+    "decision": 3,
+    "observedAtMs": 1790784850186,
+    "acceptedAction": "Fold",
+    "handOrdinal": 3,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 4,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 4 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 4 / 100",
+    "attemptedAtMs": 1790784855270,
+    "handOrdinal": 4,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784850231
+  },
+  {
+    "type": "luna_observed",
+    "hand": 4,
+    "decision": 1,
+    "observedAtMs": 1790784855478,
+    "acceptedAction": "Deal hand 4 / 100",
+    "handOrdinal": 4,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 4 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 4,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Call 2 BB",
+    "attemptedAtMs": 1790784860369,
+    "handOrdinal": 4,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784855580
+  },
+  {
+    "type": "luna_observed",
+    "hand": 4,
+    "decision": 2,
+    "observedAtMs": 1790784860610,
+    "acceptedAction": "Call 2 BB",
+    "handOrdinal": 4,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 4,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790784864872,
+    "handOrdinal": 4,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790784860716
+  },
+  {
+    "type": "luna_observed",
+    "hand": 4,
+    "decision": 3,
+    "observedAtMs": 1790784865182,
+    "acceptedAction": "check",
+    "handOrdinal": 4,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 4,
+    "decision": 4,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 6 BB",
+      "Min \u00b7 12 BB",
+      "Pot \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790784869580,
+    "handOrdinal": 4,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790784865240
+  },
+  {
+    "type": "luna_observed",
+    "hand": 4,
+    "decision": 4,
+    "observedAtMs": 1790784869942,
+    "acceptedAction": "Fold",
+    "handOrdinal": 4,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 5,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 5 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 5 / 100",
+    "attemptedAtMs": 1790784875538,
+    "handOrdinal": 5,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784870005
+  },
+  {
+    "type": "luna_observed",
+    "hand": 5,
+    "decision": 1,
+    "observedAtMs": 1790784875736,
+    "acceptedAction": "Deal hand 5 / 100",
+    "handOrdinal": 5,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 5 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 5,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790784884210,
+    "handOrdinal": 5,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784875781
+  },
+  {
+    "type": "luna_observed",
+    "hand": 5,
+    "decision": 2,
+    "observedAtMs": 1790784884500,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 5,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 6,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 6 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 6 / 100",
+    "attemptedAtMs": 1790784889418,
+    "handOrdinal": 6,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784884593
+  },
+  {
+    "type": "luna_observed",
+    "hand": 6,
+    "decision": 1,
+    "observedAtMs": 1790784889630,
+    "acceptedAction": "Deal hand 6 / 100",
+    "handOrdinal": 6,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 6 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 6,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 3 BB",
+    "attemptedAtMs": 1790784894730,
+    "handOrdinal": 6,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784889758
+  },
+  {
+    "type": "luna_observed",
+    "hand": 6,
+    "decision": 2,
+    "observedAtMs": 1790784895113,
+    "acceptedAction": "Pot \u00b7 3 BB",
+    "handOrdinal": 6,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Pot \u00b7 3 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 6,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 6 BB",
+      "Min \u00b7 15 BB",
+      "Pot \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790784901936,
+    "handOrdinal": 6,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790784895212
+  },
+  {
+    "type": "luna_observed",
+    "hand": 6,
+    "decision": 3,
+    "observedAtMs": 1790784902318,
+    "acceptedAction": "Fold",
+    "handOrdinal": 6,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 7,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 7 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 7 / 100",
+    "attemptedAtMs": 1790784907873,
+    "handOrdinal": 7,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784902389
+  },
+  {
+    "type": "luna_observed",
+    "hand": 7,
+    "decision": 1,
+    "observedAtMs": 1790784908172,
+    "acceptedAction": "Deal hand 7 / 100",
+    "handOrdinal": 7,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 7 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 7,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790784913855,
+    "handOrdinal": 7,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784908251
+  },
+  {
+    "type": "luna_observed",
+    "hand": 7,
+    "decision": 2,
+    "observedAtMs": 1790784914142,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 7,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 8,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 8 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 8 / 100",
+    "attemptedAtMs": 1790784918918,
+    "handOrdinal": 8,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784914223
+  },
+  {
+    "type": "luna_observed",
+    "hand": 8,
+    "decision": 1,
+    "observedAtMs": 1790784919218,
+    "acceptedAction": "Deal hand 8 / 100",
+    "handOrdinal": 8,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 8 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 8,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 3 BB",
+    "attemptedAtMs": 1790784923778,
+    "handOrdinal": 8,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784919287
+  },
+  {
+    "type": "luna_observed",
+    "hand": 8,
+    "decision": 2,
+    "observedAtMs": 1790784923980,
+    "acceptedAction": "Pot \u00b7 3 BB",
+    "handOrdinal": 8,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Pot \u00b7 3 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 8,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 6 BB",
+      "Min \u00b7 15 BB",
+      "Pot \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790784928176,
+    "handOrdinal": 8,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790784924041
+  },
+  {
+    "type": "luna_observed",
+    "hand": 8,
+    "decision": 3,
+    "observedAtMs": 1790784928508,
+    "acceptedAction": "Fold",
+    "handOrdinal": 8,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 9,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 9 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 9 / 100",
+    "attemptedAtMs": 1790784933209,
+    "handOrdinal": 9,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784928591
+  },
+  {
+    "type": "luna_observed",
+    "hand": 9,
+    "decision": 1,
+    "observedAtMs": 1790784933472,
+    "acceptedAction": "Deal hand 9 / 100",
+    "handOrdinal": 9,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 9 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 9,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 3 BB",
+    "attemptedAtMs": 1790784940831,
+    "handOrdinal": 9,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784933541
+  },
+  {
+    "type": "luna_observed",
+    "hand": 9,
+    "decision": 2,
+    "observedAtMs": 1790784941170,
+    "acceptedAction": "Pot \u00b7 3 BB",
+    "handOrdinal": 9,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Pot \u00b7 3 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 9,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 7 BB",
+      "Pot \u00b7 15 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Jam \u00b7 20 BB",
+    "attemptedAtMs": 1790784947110,
+    "handOrdinal": 9,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790784941351
+  },
+  {
+    "type": "luna_observed",
+    "hand": 9,
+    "decision": 3,
+    "observedAtMs": 1790784947430,
+    "acceptedAction": "Jam \u00b7 20 BB",
+    "handOrdinal": 9,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Jam \u00b7 20 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 10,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 10 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 10 / 100",
+    "attemptedAtMs": 1790784952714,
+    "handOrdinal": 10,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784947547
+  },
+  {
+    "type": "luna_observed",
+    "hand": 10,
+    "decision": 1,
+    "observedAtMs": 1790784952918,
+    "acceptedAction": "Deal hand 10 / 100",
+    "handOrdinal": 10,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 10 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 10,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790784957304,
+    "handOrdinal": 10,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784953010
+  },
+  {
+    "type": "luna_observed",
+    "hand": 10,
+    "decision": 2,
+    "observedAtMs": 1790784957591,
+    "acceptedAction": "Fold",
+    "handOrdinal": 10,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 11,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 11 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 11 / 100",
+    "attemptedAtMs": 1790784961846,
+    "handOrdinal": 11,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784957664
+  },
+  {
+    "type": "luna_observed",
+    "hand": 11,
+    "decision": 1,
+    "observedAtMs": 1790784962064,
+    "acceptedAction": "Deal hand 11 / 100",
+    "handOrdinal": 11,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 11 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 11,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790784966597,
+    "handOrdinal": 11,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784962120
+  },
+  {
+    "type": "luna_observed",
+    "hand": 11,
+    "decision": 2,
+    "observedAtMs": 1790784966906,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 11,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 11,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 4 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790784971720,
+    "handOrdinal": 11,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790784966988
+  },
+  {
+    "type": "luna_observed",
+    "hand": 11,
+    "decision": 3,
+    "observedAtMs": 1790784971945,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 11,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 11,
+    "decision": 4,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Jam \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790784979882,
+    "handOrdinal": 11,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790784972044
+  },
+  {
+    "type": "luna_observed",
+    "hand": 11,
+    "decision": 4,
+    "observedAtMs": 1790784980245,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 11,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 11,
+    "decision": 5,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 11 BB",
+      "Jam \u00b7 16 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790784985747,
+    "handOrdinal": 11,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790784980318
+  },
+  {
+    "type": "luna_observed",
+    "hand": 11,
+    "decision": 5,
+    "observedAtMs": 1790784986129,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 11,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 11,
+    "decision": 6,
+    "street": "river",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 10 BB",
+      "Jam \u00b7 15 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790784990836,
+    "handOrdinal": 11,
+    "decisionOrdinal": 6,
+    "lastRenderedAtMs": 1790784986221
+  },
+  {
+    "type": "luna_observed",
+    "hand": 11,
+    "decision": 6,
+    "observedAtMs": 1790784991193,
+    "acceptedAction": "check",
+    "handOrdinal": 11,
+    "decisionOrdinal": 6,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 12,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 12 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 12 / 100",
+    "attemptedAtMs": 1790784996029,
+    "handOrdinal": 12,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790784991270
+  },
+  {
+    "type": "luna_observed",
+    "hand": 12,
+    "decision": 1,
+    "observedAtMs": 1790784996412,
+    "acceptedAction": "Deal hand 12 / 100",
+    "handOrdinal": 12,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 12 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 12,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785306040,
+    "handOrdinal": 12,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790784996501
+  },
+  {
+    "type": "luna_observed",
+    "hand": 12,
+    "decision": 2,
+    "observedAtMs": 1790785309875,
+    "visibleAcceptedAction": null,
+    "visibleError": "click target shadow root check failed; verifying rendered state",
+    "handOrdinal": 12,
+    "decisionOrdinal": 2
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 12,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785316121,
+    "toolRetry": "first click failed; fresh state confirms turn remains active",
+    "handOrdinal": 12,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785309884
+  },
+  {
+    "type": "luna_observed",
+    "hand": 12,
+    "decision": 2,
+    "observedAtMs": 1790785316337,
+    "acceptedAction": "Fold",
+    "toolRetry": "fold click retried after fresh state",
+    "handOrdinal": 12,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 13,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 13 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 13 / 100",
+    "attemptedAtMs": 1790785321859,
+    "handOrdinal": 13,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785316426
+  },
+  {
+    "type": "luna_observed",
+    "hand": 13,
+    "decision": 1,
+    "observedAtMs": 1790785322225,
+    "acceptedAction": "Deal hand 13 / 100",
+    "handOrdinal": 13,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 13 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 13,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785327239,
+    "handOrdinal": 13,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785322306
+  },
+  {
+    "type": "luna_observed",
+    "hand": 13,
+    "decision": 2,
+    "observedAtMs": 1790785327619,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 13,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 14,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 14 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 14 / 100",
+    "attemptedAtMs": 1790785332218,
+    "handOrdinal": 14,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785327701
+  },
+  {
+    "type": "luna_observed",
+    "hand": 14,
+    "decision": 1,
+    "observedAtMs": 1790785332448,
+    "acceptedAction": "Deal hand 14 / 100",
+    "handOrdinal": 14,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 14 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 14,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Call 2 BB",
+    "attemptedAtMs": 1790785339952,
+    "handOrdinal": 14,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785332524
+  },
+  {
+    "type": "luna_observed",
+    "hand": 14,
+    "decision": 2,
+    "observedAtMs": 1790785340262,
+    "acceptedAction": "Call 2 BB",
+    "handOrdinal": 14,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 14,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785348579,
+    "handOrdinal": 14,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785340347
+  },
+  {
+    "type": "luna_observed",
+    "hand": 14,
+    "decision": 3,
+    "observedAtMs": 1790785348913,
+    "acceptedAction": "check",
+    "handOrdinal": 14,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 14,
+    "decision": 4,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 6 BB",
+      "Min \u00b7 12 BB",
+      "Pot \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Call 6 BB",
+    "attemptedAtMs": 1790785356892,
+    "handOrdinal": 14,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785348989
+  },
+  {
+    "type": "luna_observed",
+    "hand": 14,
+    "decision": 4,
+    "observedAtMs": 1790785357278,
+    "acceptedAction": "Call 6 BB",
+    "handOrdinal": 14,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 6 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 14,
+    "decision": 5,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 11 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 11 BB",
+    "attemptedAtMs": 1790785363307,
+    "handOrdinal": 14,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790785357359
+  },
+  {
+    "type": "luna_observed",
+    "hand": 14,
+    "decision": 5,
+    "observedAtMs": 1790785363685,
+    "acceptedAction": "Pot \u00b7 11 BB",
+    "handOrdinal": 14,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "Pot \u00b7 11 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 15,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 15 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 15 / 100",
+    "attemptedAtMs": 1790785367883,
+    "handOrdinal": 15,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785363779
+  },
+  {
+    "type": "luna_observed",
+    "hand": 15,
+    "decision": 1,
+    "observedAtMs": 1790785368122,
+    "acceptedAction": "Deal hand 15 / 100",
+    "handOrdinal": 15,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 15 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 15,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785374613,
+    "handOrdinal": 15,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785368164
+  },
+  {
+    "type": "luna_observed",
+    "hand": 15,
+    "decision": 2,
+    "observedAtMs": 1790785375017,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 15,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 15,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 7 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785381284,
+    "handOrdinal": 15,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785375094
+  },
+  {
+    "type": "luna_observed",
+    "hand": 15,
+    "decision": 3,
+    "observedAtMs": 1790785381647,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 15,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 15,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785386495,
+    "handOrdinal": 15,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785381724
+  },
+  {
+    "type": "luna_observed",
+    "hand": 15,
+    "decision": 4,
+    "observedAtMs": 1790785386744,
+    "acceptedAction": "check",
+    "handOrdinal": 15,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 15,
+    "decision": 5,
+    "street": "river",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785394087,
+    "handOrdinal": 15,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790785386821
+  },
+  {
+    "type": "luna_observed",
+    "hand": 15,
+    "decision": 5,
+    "observedAtMs": 1790785394305,
+    "acceptedAction": "check",
+    "handOrdinal": 15,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 16,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 16 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 16 / 100",
+    "attemptedAtMs": 1790785399711,
+    "handOrdinal": 16,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785394358
+  },
+  {
+    "type": "luna_observed",
+    "hand": 16,
+    "decision": 1,
+    "observedAtMs": 1790785399983,
+    "acceptedAction": "Deal hand 16 / 100",
+    "handOrdinal": 16,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 16 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 16,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785404464,
+    "handOrdinal": 16,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785400020
+  },
+  {
+    "type": "luna_observed",
+    "hand": 16,
+    "decision": 2,
+    "observedAtMs": 1790785404662,
+    "acceptedAction": "Fold",
+    "handOrdinal": 16,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 17,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 17 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 17 / 100",
+    "attemptedAtMs": 1790785408644,
+    "handOrdinal": 17,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785404752
+  },
+  {
+    "type": "luna_observed",
+    "hand": 17,
+    "decision": 1,
+    "observedAtMs": 1790785408962,
+    "acceptedAction": "Deal hand 17 / 100",
+    "handOrdinal": 17,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 17 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 17,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Call 0.50 BB",
+    "attemptedAtMs": 1790785415613,
+    "handOrdinal": 17,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785409034
+  },
+  {
+    "type": "luna_observed",
+    "hand": 17,
+    "decision": 2,
+    "observedAtMs": 1790785415982,
+    "acceptedAction": "Call 0.50 BB",
+    "handOrdinal": 17,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 0.50 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 17,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785420548,
+    "handOrdinal": 17,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785416059
+  },
+  {
+    "type": "luna_observed",
+    "hand": 17,
+    "decision": 3,
+    "observedAtMs": 1790785420860,
+    "acceptedAction": "Fold",
+    "handOrdinal": 17,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 18,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 18 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 18 / 100",
+    "attemptedAtMs": 1790785425285,
+    "handOrdinal": 18,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785420947
+  },
+  {
+    "type": "luna_observed",
+    "hand": 18,
+    "decision": 1,
+    "observedAtMs": 1790785425515,
+    "acceptedAction": "Deal hand 18 / 100",
+    "handOrdinal": 18,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 18 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 19,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 19 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 19 / 100",
+    "attemptedAtMs": 1790785431332,
+    "handOrdinal": 19,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785425630
+  },
+  {
+    "type": "luna_observed",
+    "hand": 19,
+    "decision": 1,
+    "observedAtMs": 1790785431550,
+    "acceptedAction": "Deal hand 19 / 100",
+    "handOrdinal": 19,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 19 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 19,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785439334,
+    "handOrdinal": 19,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785431631
+  },
+  {
+    "type": "luna_observed",
+    "hand": 19,
+    "decision": 2,
+    "observedAtMs": 1790785439703,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 19,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 19,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 10 BB",
+      "Pot \u00b7 18 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785444843,
+    "handOrdinal": 19,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785439783
+  },
+  {
+    "type": "luna_observed",
+    "hand": 19,
+    "decision": 3,
+    "observedAtMs": 1790785445105,
+    "acceptedAction": "Fold",
+    "handOrdinal": 19,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 20,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 20 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 20 / 100",
+    "attemptedAtMs": 1790785449725,
+    "handOrdinal": 20,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785445184
+  },
+  {
+    "type": "luna_observed",
+    "hand": 20,
+    "decision": 1,
+    "observedAtMs": 1790785449990,
+    "acceptedAction": "Deal hand 20 / 100",
+    "handOrdinal": 20,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 20 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 20,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 3 BB",
+    "attemptedAtMs": 1790785455119,
+    "handOrdinal": 20,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785450074
+  },
+  {
+    "type": "luna_observed",
+    "hand": 20,
+    "decision": 2,
+    "observedAtMs": 1790785455462,
+    "acceptedAction": "Pot \u00b7 3 BB",
+    "handOrdinal": 20,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Pot \u00b7 3 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 20,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 1 BB",
+    "attemptedAtMs": 1790785461120,
+    "handOrdinal": 20,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785455588
+  },
+  {
+    "type": "luna_observed",
+    "hand": 20,
+    "decision": 3,
+    "observedAtMs": 1790785461479,
+    "acceptedAction": "Min \u00b7 1 BB",
+    "handOrdinal": 20,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Min \u00b7 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 20,
+    "decision": 4,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 16 BB"
+    ],
+    "attemptedButtonLabel": "Call 16 BB",
+    "attemptedAtMs": 1790785467755,
+    "handOrdinal": 20,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785461600
+  },
+  {
+    "type": "luna_observed",
+    "hand": 20,
+    "decision": 4,
+    "observedAtMs": 1790785468046,
+    "acceptedAction": "Call 16 BB",
+    "handOrdinal": 20,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 16 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 21,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 21 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 21 / 100",
+    "attemptedAtMs": 1790785474309,
+    "handOrdinal": 21,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785468127
+  },
+  {
+    "type": "luna_observed",
+    "hand": 21,
+    "decision": 1,
+    "observedAtMs": 1790785474567,
+    "acceptedAction": "Deal hand 21 / 100",
+    "handOrdinal": 21,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 21 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 21,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785480437,
+    "handOrdinal": 21,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785474653
+  },
+  {
+    "type": "luna_observed",
+    "hand": 21,
+    "decision": 2,
+    "observedAtMs": 1790785480787,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 21,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 21,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 10 BB",
+      "Pot \u00b7 18 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785486228,
+    "handOrdinal": 21,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785480868
+  },
+  {
+    "type": "luna_observed",
+    "hand": 21,
+    "decision": 3,
+    "observedAtMs": 1790785486498,
+    "acceptedAction": "Fold",
+    "handOrdinal": 21,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 22,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 22 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 22 / 100",
+    "attemptedAtMs": 1790785490984,
+    "handOrdinal": 22,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785486577
+  },
+  {
+    "type": "luna_observed",
+    "hand": 22,
+    "decision": 1,
+    "observedAtMs": 1790785491403,
+    "acceptedAction": "Deal hand 22 / 100",
+    "handOrdinal": 22,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 22 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 22,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 3 BB",
+    "attemptedAtMs": 1790785497013,
+    "handOrdinal": 22,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785491475
+  },
+  {
+    "type": "luna_observed",
+    "hand": 22,
+    "decision": 2,
+    "observedAtMs": 1790785497395,
+    "acceptedAction": "Min \u00b7 3 BB",
+    "handOrdinal": 22,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 3 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 22,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 12 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785503100,
+    "handOrdinal": 22,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785497493
+  },
+  {
+    "type": "luna_observed",
+    "hand": 22,
+    "decision": 3,
+    "observedAtMs": 1790785503323,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 22,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 22,
+    "decision": 4,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 8 BB",
+      "Jam \u00b7 16 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785508399,
+    "handOrdinal": 22,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785503402
+  },
+  {
+    "type": "luna_observed",
+    "hand": 22,
+    "decision": 4,
+    "observedAtMs": 1790785508615,
+    "acceptedAction": "check",
+    "handOrdinal": 22,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 22,
+    "decision": 5,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 8 BB",
+      "Jam \u00b7 16 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785513474,
+    "handOrdinal": 22,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790785508704
+  },
+  {
+    "type": "luna_observed",
+    "hand": 22,
+    "decision": 5,
+    "observedAtMs": 1790785513731,
+    "acceptedAction": "check",
+    "handOrdinal": 22,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 22,
+    "decision": 6,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 8 BB",
+      "Min \u00b7 16 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785519183,
+    "handOrdinal": 22,
+    "decisionOrdinal": 6,
+    "lastRenderedAtMs": 1790785513798
+  },
+  {
+    "type": "luna_observed",
+    "hand": 22,
+    "decision": 6,
+    "observedAtMs": 1790785519418,
+    "acceptedAction": "Fold",
+    "handOrdinal": 22,
+    "decisionOrdinal": 6,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 23,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 23 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 23 / 100",
+    "attemptedAtMs": 1790785523802,
+    "handOrdinal": 23,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785519455
+  },
+  {
+    "type": "luna_observed",
+    "hand": 23,
+    "decision": 1,
+    "observedAtMs": 1790785524060,
+    "acceptedAction": "Deal hand 23 / 100",
+    "handOrdinal": 23,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 23 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 23,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785530316,
+    "handOrdinal": 23,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785524095
+  },
+  {
+    "type": "luna_observed",
+    "hand": 23,
+    "decision": 2,
+    "observedAtMs": 1790785530539,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 23,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 23,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 10 BB",
+      "Pot \u00b7 18 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785536852,
+    "handOrdinal": 23,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785530572
+  },
+  {
+    "type": "luna_observed",
+    "hand": 23,
+    "decision": 3,
+    "observedAtMs": 1790785537064,
+    "acceptedAction": "Fold",
+    "handOrdinal": 23,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 24,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 24 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 24 / 100",
+    "attemptedAtMs": 1790785541778,
+    "handOrdinal": 24,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785537146
+  },
+  {
+    "type": "luna_observed",
+    "hand": 24,
+    "decision": 1,
+    "observedAtMs": 1790785542059,
+    "acceptedAction": "Deal hand 24 / 100",
+    "handOrdinal": 24,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 24 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 25,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 25 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 25 / 100",
+    "attemptedAtMs": 1790785547942,
+    "handOrdinal": 25,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785542141
+  },
+  {
+    "type": "luna_observed",
+    "hand": 25,
+    "decision": 1,
+    "observedAtMs": 1790785548182,
+    "acceptedAction": "Deal hand 25 / 100",
+    "handOrdinal": 25,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 25 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 25,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 3 BB",
+    "attemptedAtMs": 1790785553200,
+    "handOrdinal": 25,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785548260
+  },
+  {
+    "type": "luna_observed",
+    "hand": 25,
+    "decision": 2,
+    "observedAtMs": 1790785553472,
+    "acceptedAction": "Pot \u00b7 3 BB",
+    "handOrdinal": 25,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Pot \u00b7 3 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 25,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 7 BB",
+      "Pot \u00b7 15 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Jam \u00b7 20 BB",
+    "attemptedAtMs": 1790785560188,
+    "handOrdinal": 25,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785553558
+  },
+  {
+    "type": "luna_observed",
+    "hand": 25,
+    "decision": 3,
+    "observedAtMs": 1790785560440,
+    "acceptedAction": "Jam \u00b7 20 BB",
+    "handOrdinal": 25,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Jam \u00b7 20 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 26,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 26 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 26 / 100",
+    "attemptedAtMs": 1790785564682,
+    "handOrdinal": 26,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785560495
+  },
+  {
+    "type": "luna_observed",
+    "hand": 26,
+    "decision": 1,
+    "observedAtMs": 1790785565000,
+    "acceptedAction": "Deal hand 26 / 100",
+    "handOrdinal": 26,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 26 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 26,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 3 BB",
+    "attemptedAtMs": 1790785570000,
+    "handOrdinal": 26,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785565085
+  },
+  {
+    "type": "luna_observed",
+    "hand": 26,
+    "decision": 2,
+    "observedAtMs": 1790785570408,
+    "acceptedAction": "Pot \u00b7 3 BB",
+    "handOrdinal": 26,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Pot \u00b7 3 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 26,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 7 BB",
+      "Pot \u00b7 15 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Call 2 BB",
+    "attemptedAtMs": 1790785575800,
+    "handOrdinal": 26,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785570497
+  },
+  {
+    "type": "luna_observed",
+    "hand": 26,
+    "decision": 3,
+    "observedAtMs": 1790785576113,
+    "acceptedAction": "Call 2 BB",
+    "handOrdinal": 26,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Call 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 26,
+    "decision": 4,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 10 BB",
+      "Jam \u00b7 15 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785583451,
+    "handOrdinal": 26,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785576193
+  },
+  {
+    "type": "luna_observed",
+    "hand": 26,
+    "decision": 4,
+    "observedAtMs": 1790785583748,
+    "acceptedAction": "check",
+    "handOrdinal": 26,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 26,
+    "decision": 5,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 10 BB",
+      "Jam \u00b7 15 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785589922,
+    "handOrdinal": 26,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790785583831
+  },
+  {
+    "type": "luna_observed",
+    "hand": 26,
+    "decision": 5,
+    "observedAtMs": 1790785590178,
+    "acceptedAction": "check",
+    "handOrdinal": 26,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 26,
+    "decision": 6,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 10 BB",
+      "Min \u00b7 15 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785595052,
+    "handOrdinal": 26,
+    "decisionOrdinal": 6,
+    "lastRenderedAtMs": 1790785590249
+  },
+  {
+    "type": "luna_observed",
+    "hand": 26,
+    "decision": 6,
+    "observedAtMs": 1790785595275,
+    "acceptedAction": "Fold",
+    "handOrdinal": 26,
+    "decisionOrdinal": 6,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 27,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 27 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 27 / 100",
+    "attemptedAtMs": 1790785601461,
+    "handOrdinal": 27,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785595351
+  },
+  {
+    "type": "luna_observed",
+    "hand": 27,
+    "decision": 1,
+    "observedAtMs": 1790785601708,
+    "acceptedAction": "Deal hand 27 / 100",
+    "handOrdinal": 27,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 27 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 27,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785606570,
+    "handOrdinal": 27,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785601775
+  },
+  {
+    "type": "luna_observed",
+    "hand": 27,
+    "decision": 2,
+    "observedAtMs": 1790785606784,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 27,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 28,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 28 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 28 / 100",
+    "attemptedAtMs": 1790785611322,
+    "handOrdinal": 28,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785606870
+  },
+  {
+    "type": "luna_observed",
+    "hand": 28,
+    "decision": 1,
+    "observedAtMs": 1790785611685,
+    "acceptedAction": "Deal hand 28 / 100",
+    "handOrdinal": 28,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 28 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 29,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 29 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 29 / 100",
+    "attemptedAtMs": 1790785617681,
+    "handOrdinal": 29,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785611765
+  },
+  {
+    "type": "luna_observed",
+    "hand": 29,
+    "decision": 1,
+    "observedAtMs": 1790785617988,
+    "acceptedAction": "Deal hand 29 / 100",
+    "handOrdinal": 29,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 29 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 29,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785623248,
+    "handOrdinal": 29,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785618076
+  },
+  {
+    "type": "luna_observed",
+    "hand": 29,
+    "decision": 2,
+    "observedAtMs": 1790785623498,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 29,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 29,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 4 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785628260,
+    "handOrdinal": 29,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785623575
+  },
+  {
+    "type": "luna_observed",
+    "hand": 29,
+    "decision": 3,
+    "observedAtMs": 1790785628590,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 29,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 29,
+    "decision": 4,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 6 BB",
+      "Min \u00b7 12 BB",
+      "Pot \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785635626,
+    "handOrdinal": 29,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785628669
+  },
+  {
+    "type": "luna_observed",
+    "hand": 29,
+    "decision": 4,
+    "observedAtMs": 1790785635919,
+    "acceptedAction": "Fold",
+    "handOrdinal": 29,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 30,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 30 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 30 / 100",
+    "attemptedAtMs": 1790785642854,
+    "handOrdinal": 30,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785636005
+  },
+  {
+    "type": "luna_observed",
+    "hand": 30,
+    "decision": 1,
+    "observedAtMs": 1790785643270,
+    "acceptedAction": "Deal hand 30 / 100",
+    "handOrdinal": 30,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 30 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 30,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 3 BB",
+    "attemptedAtMs": 1790785648032,
+    "handOrdinal": 30,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785643350
+  },
+  {
+    "type": "luna_observed",
+    "hand": 30,
+    "decision": 2,
+    "observedAtMs": 1790785648255,
+    "acceptedAction": "Pot \u00b7 3 BB",
+    "handOrdinal": 30,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Pot \u00b7 3 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 30,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785653915,
+    "handOrdinal": 30,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785648344
+  },
+  {
+    "type": "luna_observed",
+    "hand": 30,
+    "decision": 3,
+    "observedAtMs": 1790785654271,
+    "acceptedAction": "check",
+    "handOrdinal": 30,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 30,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785658921,
+    "handOrdinal": 30,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785654329
+  },
+  {
+    "type": "luna_observed",
+    "hand": 30,
+    "decision": 4,
+    "observedAtMs": 1790785659163,
+    "acceptedAction": "check",
+    "handOrdinal": 30,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 30,
+    "decision": 5,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 9 BB",
+      "Jam \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785665283,
+    "handOrdinal": 30,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790785659251
+  },
+  {
+    "type": "luna_observed",
+    "hand": 30,
+    "decision": 5,
+    "observedAtMs": 1790785665587,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 30,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 30,
+    "decision": 6,
+    "street": "river",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 8 BB",
+      "Jam \u00b7 16 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785670654,
+    "handOrdinal": 30,
+    "decisionOrdinal": 6,
+    "lastRenderedAtMs": 1790785665670
+  },
+  {
+    "type": "luna_observed",
+    "hand": 30,
+    "decision": 6,
+    "observedAtMs": 1790785670881,
+    "acceptedAction": "check",
+    "handOrdinal": 30,
+    "decisionOrdinal": 6,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 30,
+    "decision": 7,
+    "street": "river",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 11 BB",
+      "Jam \u00b7 16 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785677611,
+    "handOrdinal": 30,
+    "decisionOrdinal": 7,
+    "lastRenderedAtMs": 1790785670963
+  },
+  {
+    "type": "luna_observed",
+    "hand": 30,
+    "decision": 7,
+    "observedAtMs": 1790785677917,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 30,
+    "decisionOrdinal": 7,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 31,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 31 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 31 / 100",
+    "attemptedAtMs": 1790785682793,
+    "handOrdinal": 31,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785678004
+  },
+  {
+    "type": "luna_observed",
+    "hand": 31,
+    "decision": 1,
+    "observedAtMs": 1790785683017,
+    "acceptedAction": "Deal hand 31 / 100",
+    "handOrdinal": 31,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 31 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 31,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785688165,
+    "handOrdinal": 31,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785683100
+  },
+  {
+    "type": "luna_observed",
+    "hand": 31,
+    "decision": 2,
+    "observedAtMs": 1790785688424,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 31,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 32,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 32 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 32 / 100",
+    "attemptedAtMs": 1790785693512,
+    "handOrdinal": 32,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785688503
+  },
+  {
+    "type": "luna_observed",
+    "hand": 32,
+    "decision": 1,
+    "observedAtMs": 1790785693724,
+    "acceptedAction": "Deal hand 32 / 100",
+    "handOrdinal": 32,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 32 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 32,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785700848,
+    "handOrdinal": 32,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785693812
+  },
+  {
+    "type": "luna_observed",
+    "hand": 32,
+    "decision": 2,
+    "observedAtMs": 1790785701209,
+    "acceptedAction": "Fold",
+    "handOrdinal": 32,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 33,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 33 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 33 / 100",
+    "attemptedAtMs": 1790785705998,
+    "handOrdinal": 33,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785701258
+  },
+  {
+    "type": "luna_observed",
+    "hand": 33,
+    "decision": 1,
+    "observedAtMs": 1790785706279,
+    "acceptedAction": "Deal hand 33 / 100",
+    "handOrdinal": 33,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 33 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 33,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785711083,
+    "handOrdinal": 33,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785706353
+  },
+  {
+    "type": "luna_observed",
+    "hand": 33,
+    "decision": 2,
+    "observedAtMs": 1790785711376,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 33,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 34,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 34 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 34 / 100",
+    "attemptedAtMs": 1790785716658,
+    "handOrdinal": 34,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785711447
+  },
+  {
+    "type": "luna_observed",
+    "hand": 34,
+    "decision": 1,
+    "observedAtMs": 1790785716932,
+    "acceptedAction": "Deal hand 34 / 100",
+    "handOrdinal": 34,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 34 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 35,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 35 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 35 / 100",
+    "attemptedAtMs": 1790785723280,
+    "handOrdinal": 35,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785717062
+  },
+  {
+    "type": "luna_observed",
+    "hand": 35,
+    "decision": 1,
+    "observedAtMs": 1790785723644,
+    "acceptedAction": "Deal hand 35 / 100",
+    "handOrdinal": 35,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 35 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 35,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785732483,
+    "handOrdinal": 35,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785723677
+  },
+  {
+    "type": "luna_observed",
+    "hand": 35,
+    "decision": 2,
+    "observedAtMs": 1790785732703,
+    "acceptedAction": "Fold",
+    "handOrdinal": 35,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 36,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 36 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 36 / 100",
+    "attemptedAtMs": 1790785737754,
+    "handOrdinal": 36,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785732749
+  },
+  {
+    "type": "luna_observed",
+    "hand": 36,
+    "decision": 1,
+    "observedAtMs": 1790785737965,
+    "acceptedAction": "Deal hand 36 / 100",
+    "handOrdinal": 36,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 36 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 36,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785746519,
+    "handOrdinal": 36,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785738057
+  },
+  {
+    "type": "luna_observed",
+    "hand": 36,
+    "decision": 2,
+    "observedAtMs": 1790785746746,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 36,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 36,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785753196,
+    "handOrdinal": 36,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785746823
+  },
+  {
+    "type": "luna_observed",
+    "hand": 36,
+    "decision": 3,
+    "observedAtMs": 1790785753578,
+    "acceptedAction": "check",
+    "handOrdinal": 36,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 36,
+    "decision": 4,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 7 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785759098,
+    "handOrdinal": 36,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785753657
+  },
+  {
+    "type": "luna_observed",
+    "hand": 36,
+    "decision": 4,
+    "observedAtMs": 1790785759383,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 36,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 36,
+    "decision": 5,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785764440,
+    "handOrdinal": 36,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790785759472
+  },
+  {
+    "type": "luna_observed",
+    "hand": 36,
+    "decision": 5,
+    "observedAtMs": 1790785764784,
+    "acceptedAction": "check",
+    "handOrdinal": 36,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 36,
+    "decision": 6,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 6 BB",
+      "Min \u00b7 12 BB",
+      "Pot \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785769765,
+    "handOrdinal": 36,
+    "decisionOrdinal": 6,
+    "lastRenderedAtMs": 1790785764871
+  },
+  {
+    "type": "luna_observed",
+    "hand": 36,
+    "decision": 6,
+    "observedAtMs": 1790785770006,
+    "acceptedAction": "Fold",
+    "handOrdinal": 36,
+    "decisionOrdinal": 6,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 37,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 37 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 37 / 100",
+    "attemptedAtMs": 1790785774497,
+    "handOrdinal": 37,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785770069
+  },
+  {
+    "type": "luna_observed",
+    "hand": 37,
+    "decision": 1,
+    "observedAtMs": 1790785774776,
+    "acceptedAction": "Deal hand 37 / 100",
+    "handOrdinal": 37,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 37 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 37,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785783200,
+    "handOrdinal": 37,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785774874
+  },
+  {
+    "type": "luna_observed",
+    "hand": 37,
+    "decision": 2,
+    "observedAtMs": 1790785783549,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 37,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 37,
+    "decision": 3,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 10 BB",
+      "Pot \u00b7 18 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785788641,
+    "handOrdinal": 37,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785783635
+  },
+  {
+    "type": "luna_observed",
+    "hand": 37,
+    "decision": 3,
+    "observedAtMs": 1790785788904,
+    "acceptedAction": "Fold",
+    "handOrdinal": 37,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 38,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 38 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 38 / 100",
+    "attemptedAtMs": 1790785793586,
+    "handOrdinal": 38,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785789029
+  },
+  {
+    "type": "luna_observed",
+    "hand": 38,
+    "decision": 1,
+    "observedAtMs": 1790785793941,
+    "acceptedAction": "Deal hand 38 / 100",
+    "handOrdinal": 38,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 38 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 38,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785799152,
+    "handOrdinal": 38,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785794022
+  },
+  {
+    "type": "luna_observed",
+    "hand": 38,
+    "decision": 2,
+    "observedAtMs": 1790785799538,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 38,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 38,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785807931,
+    "handOrdinal": 38,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785799626
+  },
+  {
+    "type": "luna_observed",
+    "hand": 38,
+    "decision": 3,
+    "observedAtMs": 1790785808208,
+    "acceptedAction": "check",
+    "handOrdinal": 38,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 38,
+    "decision": 4,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 7 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785814535,
+    "handOrdinal": 38,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785808283
+  },
+  {
+    "type": "luna_observed",
+    "hand": 38,
+    "decision": 4,
+    "observedAtMs": 1790785814759,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 38,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 38,
+    "decision": 5,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 8 BB",
+      "Jam \u00b7 16 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785820721,
+    "handOrdinal": 38,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790785814793
+  },
+  {
+    "type": "luna_observed",
+    "hand": 38,
+    "decision": 5,
+    "observedAtMs": 1790785821026,
+    "acceptedAction": "check",
+    "handOrdinal": 38,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 38,
+    "decision": 6,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 8 BB",
+      "Min \u00b7 16 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790785826161,
+    "handOrdinal": 38,
+    "decisionOrdinal": 6,
+    "lastRenderedAtMs": 1790785821108
+  },
+  {
+    "type": "luna_observed",
+    "hand": 38,
+    "decision": 6,
+    "observedAtMs": 1790785826430,
+    "acceptedAction": "Fold",
+    "handOrdinal": 38,
+    "decisionOrdinal": 6,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 39,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 39 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 39 / 100",
+    "attemptedAtMs": 1790785833147,
+    "handOrdinal": 39,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785826489
+  },
+  {
+    "type": "luna_observed",
+    "hand": 39,
+    "decision": 1,
+    "observedAtMs": 1790785833391,
+    "acceptedAction": "Deal hand 39 / 100",
+    "handOrdinal": 39,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 39 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 39,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785841037,
+    "handOrdinal": 39,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785833440
+  },
+  {
+    "type": "luna_observed",
+    "hand": 39,
+    "decision": 2,
+    "observedAtMs": 1790785841254,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 39,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 40,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 40 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 40 / 100",
+    "attemptedAtMs": 1790785847397,
+    "handOrdinal": 40,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785841292
+  },
+  {
+    "type": "luna_observed",
+    "hand": 40,
+    "decision": 1,
+    "observedAtMs": 1790785847611,
+    "acceptedAction": "Deal hand 40 / 100",
+    "handOrdinal": 40,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 40 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 40,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785853282,
+    "handOrdinal": 40,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785847684
+  },
+  {
+    "type": "luna_observed",
+    "hand": 40,
+    "decision": 2,
+    "observedAtMs": 1790785853610,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 40,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 40,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785860289,
+    "handOrdinal": 40,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785853704
+  },
+  {
+    "type": "luna_observed",
+    "hand": 40,
+    "decision": 3,
+    "observedAtMs": 1790785860545,
+    "acceptedAction": "check",
+    "handOrdinal": 40,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 40,
+    "decision": 4,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 7 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785865606,
+    "handOrdinal": 40,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785860632
+  },
+  {
+    "type": "luna_observed",
+    "hand": 40,
+    "decision": 4,
+    "observedAtMs": 1790785865936,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 40,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 40,
+    "decision": 5,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785871822,
+    "handOrdinal": 40,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790785866028
+  },
+  {
+    "type": "luna_observed",
+    "hand": 40,
+    "decision": 5,
+    "observedAtMs": 1790785872176,
+    "acceptedAction": "check",
+    "handOrdinal": 40,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 40,
+    "decision": 6,
+    "street": "river",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785877839,
+    "handOrdinal": 40,
+    "decisionOrdinal": 6,
+    "lastRenderedAtMs": 1790785872279
+  },
+  {
+    "type": "luna_observed",
+    "hand": 40,
+    "decision": 6,
+    "observedAtMs": 1790785878166,
+    "acceptedAction": "check",
+    "handOrdinal": 40,
+    "decisionOrdinal": 6,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 40,
+    "decision": 7,
+    "street": "river",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 6 BB",
+      "Min \u00b7 12 BB",
+      "Pot \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Call 6 BB",
+    "attemptedAtMs": 1790785885762,
+    "handOrdinal": 40,
+    "decisionOrdinal": 7,
+    "lastRenderedAtMs": 1790785878255
+  },
+  {
+    "type": "luna_observed",
+    "hand": 40,
+    "decision": 7,
+    "observedAtMs": 1790785886125,
+    "acceptedAction": "Call 6 BB",
+    "handOrdinal": 40,
+    "decisionOrdinal": 7,
+    "visibleAcceptedAction": "Call 6 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 41,
+    "decision": 1,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Deal hand 41 / 100"
+    ],
+    "attemptedButtonLabel": "Deal hand 41 / 100",
+    "attemptedAtMs": 1790785892238,
+    "handOrdinal": 41,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785886281
+  },
+  {
+    "type": "luna_observed",
+    "hand": 41,
+    "decision": 1,
+    "observedAtMs": 1790785892440,
+    "acceptedAction": "Deal hand 41 / 100",
+    "handOrdinal": 41,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Deal hand 41 / 100"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 41,
+    "decision": 2,
+    "street": "pre-flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785900614,
+    "handOrdinal": 41,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785892504
+  },
+  {
+    "type": "luna_observed",
+    "hand": 41,
+    "decision": 2,
+    "observedAtMs": 1790785900831,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 41,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 41,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 8 BB",
+      "Pot \u00b7 16 BB",
+      "Jam \u00b7 18 BB"
+    ],
+    "attemptedButtonLabel": "Call 4 BB",
+    "attemptedAtMs": 1790785917550,
+    "handOrdinal": 41,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785900900
+  },
+  {
+    "type": "luna_observed",
+    "hand": 41,
+    "decision": 3,
+    "observedAtMs": 1790785917808,
+    "acceptedAction": "Call 4 BB",
+    "handOrdinal": 41,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Call 4 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 41,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 14 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785931353,
+    "handOrdinal": 41,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785917847
+  },
+  {
+    "type": "luna_observed",
+    "hand": 41,
+    "decision": 4,
+    "observedAtMs": 1790785931740,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 41,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 41,
+    "decision": 5,
+    "street": "river",
+    "legalButtonLabels": [
+      "Call 13 BB"
+    ],
+    "attemptedButtonLabel": "Call 13 BB",
+    "attemptedAtMs": 1790785943822,
+    "handOrdinal": 41,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790785931817
+  },
+  {
+    "type": "luna_observed",
+    "hand": 41,
+    "decision": 5,
+    "observedAtMs": 1790785944211,
+    "acceptedAction": "Call 13 BB",
+    "handOrdinal": 41,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "Call 13 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 43,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790785983643,
+    "handOrdinal": 43,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790785979006
+  },
+  {
+    "type": "luna_observed",
+    "hand": 43,
+    "decision": 1,
+    "observedAtMs": 1790785983967,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 43,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 43,
+    "decision": 2,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 4 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790785989266,
+    "handOrdinal": 43,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790785984053
+  },
+  {
+    "type": "luna_observed",
+    "hand": 43,
+    "decision": 2,
+    "observedAtMs": 1790785989575,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 43,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 43,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790785994231,
+    "handOrdinal": 43,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790785989657
+  },
+  {
+    "type": "luna_observed",
+    "hand": 43,
+    "decision": 3,
+    "observedAtMs": 1790785994462,
+    "acceptedAction": "check",
+    "handOrdinal": 43,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 43,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 6 BB",
+      "Min \u00b7 12 BB",
+      "Pot \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786003224,
+    "handOrdinal": 43,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790785994555
+  },
+  {
+    "type": "luna_observed",
+    "hand": 43,
+    "decision": 4,
+    "observedAtMs": 1790786003459,
+    "acceptedAction": "Fold",
+    "handOrdinal": 43,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 44,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786010861,
+    "handOrdinal": 44,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786006386
+  },
+  {
+    "type": "luna_observed",
+    "hand": 44,
+    "decision": 1,
+    "observedAtMs": 1790786011097,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 44,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 44,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786015748,
+    "handOrdinal": 44,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786011186
+  },
+  {
+    "type": "luna_observed",
+    "hand": 44,
+    "decision": 2,
+    "observedAtMs": 1790786015990,
+    "acceptedAction": "check",
+    "handOrdinal": 44,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 44,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 8 BB",
+      "Pot \u00b7 16 BB",
+      "Jam \u00b7 18 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786021734,
+    "handOrdinal": 44,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786016075
+  },
+  {
+    "type": "luna_observed",
+    "hand": 44,
+    "decision": 3,
+    "observedAtMs": 1790786022116,
+    "acceptedAction": "Fold",
+    "handOrdinal": 44,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 45,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786033774,
+    "handOrdinal": 45,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786026057
+  },
+  {
+    "type": "luna_observed",
+    "hand": 45,
+    "decision": 1,
+    "observedAtMs": 1790786034043,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 45,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 47,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786044876,
+    "handOrdinal": 47,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786040442
+  },
+  {
+    "type": "luna_observed",
+    "hand": 47,
+    "decision": 1,
+    "observedAtMs": 1790786045140,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 47,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 47,
+    "decision": 2,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 4 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786049664,
+    "handOrdinal": 47,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786045230
+  },
+  {
+    "type": "luna_observed",
+    "hand": 47,
+    "decision": 2,
+    "observedAtMs": 1790786050034,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 47,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 47,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 6 BB",
+      "Min \u00b7 12 BB",
+      "Pot \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786055257,
+    "handOrdinal": 47,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786050127
+  },
+  {
+    "type": "luna_observed",
+    "hand": 47,
+    "decision": 3,
+    "observedAtMs": 1790786055555,
+    "acceptedAction": "Fold",
+    "handOrdinal": 47,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 48,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786064518,
+    "handOrdinal": 48,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786058186
+  },
+  {
+    "type": "luna_observed",
+    "hand": 48,
+    "decision": 1,
+    "observedAtMs": 1790786064785,
+    "acceptedAction": "Fold",
+    "handOrdinal": 48,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 49,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786073348,
+    "handOrdinal": 49,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786068071
+  },
+  {
+    "type": "luna_observed",
+    "hand": 49,
+    "decision": 1,
+    "observedAtMs": 1790786073580,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 49,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 50,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786081749,
+    "handOrdinal": 50,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786076320
+  },
+  {
+    "type": "luna_observed",
+    "hand": 50,
+    "decision": 1,
+    "observedAtMs": 1790786081934,
+    "acceptedAction": "Fold",
+    "handOrdinal": 50,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 51,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786091818,
+    "handOrdinal": 51,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786085594
+  },
+  {
+    "type": "luna_observed",
+    "hand": 51,
+    "decision": 1,
+    "observedAtMs": 1790786092141,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 51,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 51,
+    "decision": 2,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 4 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786097675,
+    "handOrdinal": 51,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786092235
+  },
+  {
+    "type": "luna_observed",
+    "hand": 51,
+    "decision": 2,
+    "observedAtMs": 1790786098052,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 51,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 51,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Jam \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786115594,
+    "handOrdinal": 51,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786104373
+  },
+  {
+    "type": "luna_observed",
+    "hand": 51,
+    "decision": 3,
+    "observedAtMs": 1790786115979,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 51,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 51,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 8 BB",
+      "Min \u00b7 16 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786123965,
+    "handOrdinal": 51,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786116075
+  },
+  {
+    "type": "luna_observed",
+    "hand": 51,
+    "decision": 4,
+    "observedAtMs": 1790786124254,
+    "acceptedAction": "Fold",
+    "handOrdinal": 51,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 52,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786135372,
+    "handOrdinal": 52,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786128367
+  },
+  {
+    "type": "luna_observed",
+    "hand": 52,
+    "decision": 1,
+    "observedAtMs": 1790786135683,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 52,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 52,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786140721,
+    "handOrdinal": 52,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786135818
+  },
+  {
+    "type": "luna_observed",
+    "hand": 52,
+    "decision": 2,
+    "observedAtMs": 1790786140977,
+    "acceptedAction": "check",
+    "handOrdinal": 52,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 52,
+    "decision": 3,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786150088,
+    "handOrdinal": 52,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786144291
+  },
+  {
+    "type": "luna_observed",
+    "hand": 52,
+    "decision": 3,
+    "observedAtMs": 1790786150301,
+    "acceptedAction": "check",
+    "handOrdinal": 52,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 52,
+    "decision": 4,
+    "street": "river",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786155499,
+    "handOrdinal": 52,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786150390
+  },
+  {
+    "type": "luna_observed",
+    "hand": 52,
+    "decision": 4,
+    "observedAtMs": 1790786155700,
+    "acceptedAction": "check",
+    "handOrdinal": 52,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 52,
+    "decision": 5,
+    "street": "river",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 7 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786162898,
+    "handOrdinal": 52,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790786155790
+  },
+  {
+    "type": "luna_observed",
+    "hand": 52,
+    "decision": 5,
+    "observedAtMs": 1790786163237,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 52,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 53,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786178700,
+    "handOrdinal": 53,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786169470
+  },
+  {
+    "type": "luna_observed",
+    "hand": 53,
+    "decision": 1,
+    "observedAtMs": 1790786178917,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 53,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 55,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786191260,
+    "handOrdinal": 55,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786185441
+  },
+  {
+    "type": "luna_observed",
+    "hand": 55,
+    "decision": 1,
+    "observedAtMs": 1790786191565,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 55,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 55,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 8 BB",
+      "Pot \u00b7 16 BB",
+      "Jam \u00b7 18 BB"
+    ],
+    "attemptedButtonLabel": "Call 4 BB",
+    "attemptedAtMs": 1790786199720,
+    "handOrdinal": 55,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786191662
+  },
+  {
+    "type": "luna_observed",
+    "hand": 55,
+    "decision": 2,
+    "observedAtMs": 1790786200020,
+    "acceptedAction": "Call 4 BB",
+    "handOrdinal": 55,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 4 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 55,
+    "decision": 3,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 12 BB",
+      "Jam \u00b7 14 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786205497,
+    "handOrdinal": 55,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786200122
+  },
+  {
+    "type": "luna_observed",
+    "hand": 55,
+    "decision": 3,
+    "observedAtMs": 1790786205825,
+    "acceptedAction": "check",
+    "handOrdinal": 55,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 55,
+    "decision": 4,
+    "street": "river",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 12 BB",
+      "Min \u00b7 14 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786211349,
+    "handOrdinal": 55,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786205934
+  },
+  {
+    "type": "luna_observed",
+    "hand": 55,
+    "decision": 4,
+    "observedAtMs": 1790786211606,
+    "acceptedAction": "Fold",
+    "handOrdinal": 55,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 56,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786220509,
+    "handOrdinal": 56,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786215722
+  },
+  {
+    "type": "luna_observed",
+    "hand": 56,
+    "decision": 1,
+    "observedAtMs": 1790786220724,
+    "acceptedAction": "Fold",
+    "handOrdinal": 56,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 57,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786228202,
+    "handOrdinal": 57,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786223532
+  },
+  {
+    "type": "luna_observed",
+    "hand": 57,
+    "decision": 1,
+    "observedAtMs": 1790786228475,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 57,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 57,
+    "decision": 2,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 10 BB",
+      "Pot \u00b7 18 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786235362,
+    "handOrdinal": 57,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786228543
+  },
+  {
+    "type": "luna_observed",
+    "hand": 57,
+    "decision": 2,
+    "observedAtMs": 1790786235601,
+    "acceptedAction": "Fold",
+    "handOrdinal": 57,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 58,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786246687,
+    "handOrdinal": 58,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786239664
+  },
+  {
+    "type": "luna_observed",
+    "hand": 58,
+    "decision": 1,
+    "observedAtMs": 1790786246916,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 58,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 59,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786255432,
+    "handOrdinal": 59,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786250459
+  },
+  {
+    "type": "luna_observed",
+    "hand": 59,
+    "decision": 1,
+    "observedAtMs": 1790786255776,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 59,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 60,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786264587,
+    "handOrdinal": 60,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786259534
+  },
+  {
+    "type": "luna_observed",
+    "hand": 60,
+    "decision": 1,
+    "observedAtMs": 1790786264937,
+    "acceptedAction": "Fold",
+    "handOrdinal": 60,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 61,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786273374,
+    "handOrdinal": 61,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786267879
+  },
+  {
+    "type": "luna_observed",
+    "hand": 61,
+    "decision": 1,
+    "observedAtMs": 1790786273600,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 61,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 61,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 4 BB",
+    "attemptedAtMs": 1790786279348,
+    "handOrdinal": 61,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786273687
+  },
+  {
+    "type": "luna_observed",
+    "hand": 61,
+    "decision": 2,
+    "observedAtMs": 1790786279716,
+    "acceptedAction": "Pot \u00b7 4 BB",
+    "handOrdinal": 61,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Pot \u00b7 4 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 61,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 12 BB",
+      "Min \u00b7 18 BB"
+    ],
+    "attemptedButtonLabel": "Call 12 BB",
+    "attemptedAtMs": 1790786288595,
+    "handOrdinal": 61,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786279794
+  },
+  {
+    "type": "luna_observed",
+    "hand": 61,
+    "decision": 3,
+    "observedAtMs": 1790786288892,
+    "acceptedAction": "Call 12 BB",
+    "handOrdinal": 61,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Call 12 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 61,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786294618,
+    "handOrdinal": 61,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786288969
+  },
+  {
+    "type": "luna_observed",
+    "hand": 61,
+    "decision": 4,
+    "observedAtMs": 1790786294901,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 61,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 61,
+    "decision": 5,
+    "street": "river",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786308528,
+    "handOrdinal": 61,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790786301734
+  },
+  {
+    "type": "luna_observed",
+    "hand": 61,
+    "decision": 5,
+    "observedAtMs": 1790786308770,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 61,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 62,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786317559,
+    "handOrdinal": 62,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786312107
+  },
+  {
+    "type": "luna_observed",
+    "hand": 62,
+    "decision": 1,
+    "observedAtMs": 1790786317853,
+    "acceptedAction": "Fold",
+    "handOrdinal": 62,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 63,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786330393,
+    "handOrdinal": 63,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786321390
+  },
+  {
+    "type": "luna_observed",
+    "hand": 63,
+    "decision": 1,
+    "observedAtMs": 1790786330689,
+    "acceptedAction": "Fold",
+    "handOrdinal": 63,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 64,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786338314,
+    "handOrdinal": 64,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786333516
+  },
+  {
+    "type": "luna_observed",
+    "hand": 64,
+    "decision": 1,
+    "observedAtMs": 1790786338535,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 64,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 64,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 1 BB",
+    "attemptedAtMs": 1790786344541,
+    "handOrdinal": 64,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786338610
+  },
+  {
+    "type": "luna_observed",
+    "hand": 64,
+    "decision": 2,
+    "observedAtMs": 1790786344845,
+    "acceptedAction": "Min \u00b7 1 BB",
+    "handOrdinal": 64,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 64,
+    "decision": 3,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 1 BB",
+    "attemptedAtMs": 1790786357977,
+    "handOrdinal": 64,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786348733
+  },
+  {
+    "type": "luna_observed",
+    "hand": 64,
+    "decision": 3,
+    "observedAtMs": 1790786358311,
+    "acceptedAction": "Min \u00b7 1 BB",
+    "handOrdinal": 64,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Min \u00b7 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 64,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 16 BB"
+    ],
+    "attemptedButtonLabel": "Call 16 BB",
+    "attemptedAtMs": 1790786365567,
+    "handOrdinal": 64,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786358389
+  },
+  {
+    "type": "luna_observed",
+    "hand": 64,
+    "decision": 4,
+    "observedAtMs": 1790786365862,
+    "acceptedAction": "Call 16 BB",
+    "handOrdinal": 64,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 16 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 65,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786376269,
+    "handOrdinal": 65,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786369408
+  },
+  {
+    "type": "luna_observed",
+    "hand": 65,
+    "decision": 1,
+    "observedAtMs": 1790786376665,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 65,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 65,
+    "decision": 2,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 10 BB",
+      "Pot \u00b7 18 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Call 4 BB",
+    "attemptedAtMs": 1790786382264,
+    "handOrdinal": 65,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786376745
+  },
+  {
+    "type": "luna_observed",
+    "hand": 65,
+    "decision": 2,
+    "observedAtMs": 1790786382598,
+    "acceptedAction": "Call 4 BB",
+    "handOrdinal": 65,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 4 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 65,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 12 BB",
+      "Jam \u00b7 14 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786388444,
+    "handOrdinal": 65,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786382651
+  },
+  {
+    "type": "luna_observed",
+    "hand": 65,
+    "decision": 3,
+    "observedAtMs": 1790786388786,
+    "acceptedAction": "check",
+    "handOrdinal": 65,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 65,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 12 BB",
+      "Jam \u00b7 14 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786394370,
+    "handOrdinal": 65,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786388875
+  },
+  {
+    "type": "luna_observed",
+    "hand": 65,
+    "decision": 4,
+    "observedAtMs": 1790786394705,
+    "acceptedAction": "check",
+    "handOrdinal": 65,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 65,
+    "decision": 5,
+    "street": "river",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 12 BB",
+      "Min \u00b7 14 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786403957,
+    "handOrdinal": 65,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790786394784
+  },
+  {
+    "type": "luna_observed",
+    "hand": 65,
+    "decision": 5,
+    "observedAtMs": 1790786404220,
+    "acceptedAction": "Fold",
+    "handOrdinal": 65,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 66,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786412757,
+    "handOrdinal": 66,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786407110
+  },
+  {
+    "type": "luna_observed",
+    "hand": 66,
+    "decision": 1,
+    "observedAtMs": 1790786412987,
+    "acceptedAction": "Fold",
+    "handOrdinal": 66,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 67,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786424220,
+    "handOrdinal": 67,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786418922
+  },
+  {
+    "type": "luna_observed",
+    "hand": 67,
+    "decision": 1,
+    "observedAtMs": 1790786424554,
+    "acceptedAction": "Fold",
+    "handOrdinal": 67,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 69,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786436843,
+    "handOrdinal": 69,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786431461
+  },
+  {
+    "type": "luna_observed",
+    "hand": 69,
+    "decision": 1,
+    "observedAtMs": 1790786437086,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 69,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 69,
+    "decision": 2,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 10 BB",
+      "Pot \u00b7 18 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786442272,
+    "handOrdinal": 69,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786437162
+  },
+  {
+    "type": "luna_observed",
+    "hand": 69,
+    "decision": 2,
+    "observedAtMs": 1790786442481,
+    "acceptedAction": "Fold",
+    "handOrdinal": 69,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 70,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786451962,
+    "handOrdinal": 70,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786445631
+  },
+  {
+    "type": "luna_observed",
+    "hand": 70,
+    "decision": 1,
+    "observedAtMs": 1790786452175,
+    "acceptedAction": "Fold",
+    "handOrdinal": 70,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 71,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786460279,
+    "handOrdinal": 71,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786455122
+  },
+  {
+    "type": "luna_observed",
+    "hand": 71,
+    "decision": 1,
+    "observedAtMs": 1790786460554,
+    "acceptedAction": "Fold",
+    "handOrdinal": 71,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 72,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 3 BB",
+    "attemptedAtMs": 1790786470122,
+    "handOrdinal": 72,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786463377
+  },
+  {
+    "type": "luna_observed",
+    "hand": 72,
+    "decision": 1,
+    "observedAtMs": 1790786470427,
+    "acceptedAction": "Min \u00b7 3 BB",
+    "handOrdinal": 72,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 3 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 72,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 1 BB",
+    "attemptedAtMs": 1790786477408,
+    "handOrdinal": 72,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786470509
+  },
+  {
+    "type": "luna_observed",
+    "hand": 72,
+    "decision": 2,
+    "observedAtMs": 1790786477762,
+    "acceptedAction": "Min \u00b7 1 BB",
+    "handOrdinal": 72,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 72,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 12 BB",
+      "Jam \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786483454,
+    "handOrdinal": 72,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786477843
+  },
+  {
+    "type": "luna_observed",
+    "hand": 72,
+    "decision": 3,
+    "observedAtMs": 1790786483779,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 72,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 72,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 10 BB",
+      "Jam \u00b7 15 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786489918,
+    "handOrdinal": 72,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786483879
+  },
+  {
+    "type": "luna_observed",
+    "hand": 72,
+    "decision": 4,
+    "observedAtMs": 1790786490207,
+    "acceptedAction": "check",
+    "handOrdinal": 72,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 72,
+    "decision": 5,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 10 BB",
+      "Min \u00b7 15 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786495230,
+    "handOrdinal": 72,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790786490289
+  },
+  {
+    "type": "luna_observed",
+    "hand": 72,
+    "decision": 5,
+    "observedAtMs": 1790786495520,
+    "acceptedAction": "Fold",
+    "handOrdinal": 72,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 73,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786505856,
+    "handOrdinal": 73,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786498826
+  },
+  {
+    "type": "luna_observed",
+    "hand": 73,
+    "decision": 1,
+    "observedAtMs": 1790786506211,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 73,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 73,
+    "decision": 2,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 10 BB",
+      "Pot \u00b7 18 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Call 4 BB",
+    "attemptedAtMs": 1790786516200,
+    "handOrdinal": 73,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786506295
+  },
+  {
+    "type": "luna_observed",
+    "hand": 73,
+    "decision": 2,
+    "observedAtMs": 1790786516421,
+    "acceptedAction": "Call 4 BB",
+    "handOrdinal": 73,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 4 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 73,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 14 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786525754,
+    "handOrdinal": 73,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786517095
+  },
+  {
+    "type": "luna_observed",
+    "hand": 73,
+    "decision": 3,
+    "observedAtMs": 1790786525988,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 73,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 73,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 13 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 1 BB",
+    "attemptedAtMs": 1790786533629,
+    "handOrdinal": 73,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786526069
+  },
+  {
+    "type": "luna_observed",
+    "hand": 73,
+    "decision": 4,
+    "observedAtMs": 1790786534044,
+    "acceptedAction": "Min \u00b7 1 BB",
+    "handOrdinal": 73,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Min \u00b7 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 73,
+    "decision": 5,
+    "street": "river",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 12 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786540598,
+    "handOrdinal": 73,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790786534120
+  },
+  {
+    "type": "luna_observed",
+    "hand": 73,
+    "decision": 5,
+    "observedAtMs": 1790786540861,
+    "acceptedAction": "check",
+    "handOrdinal": 73,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 74,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 3 BB",
+    "attemptedAtMs": 1790786549524,
+    "handOrdinal": 74,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786543902
+  },
+  {
+    "type": "luna_observed",
+    "hand": 74,
+    "decision": 1,
+    "observedAtMs": 1790786549831,
+    "acceptedAction": "Pot \u00b7 3 BB",
+    "handOrdinal": 74,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Pot \u00b7 3 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 74,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 6 BB",
+    "attemptedAtMs": 1790786557299,
+    "handOrdinal": 74,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786549919
+  },
+  {
+    "type": "luna_observed",
+    "hand": 74,
+    "decision": 2,
+    "observedAtMs": 1790786557498,
+    "acceptedAction": "Pot \u00b7 6 BB",
+    "handOrdinal": 74,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Pot \u00b7 6 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 74,
+    "decision": 3,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 11 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786563982,
+    "handOrdinal": 74,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786557571
+  },
+  {
+    "type": "luna_observed",
+    "hand": 74,
+    "decision": 3,
+    "observedAtMs": 1790786564314,
+    "acceptedAction": "check",
+    "handOrdinal": 74,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 74,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 11 BB"
+    ],
+    "attemptedButtonLabel": "Call 11 BB",
+    "attemptedAtMs": 1790786570033,
+    "handOrdinal": 74,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786564399
+  },
+  {
+    "type": "luna_observed",
+    "hand": 74,
+    "decision": 4,
+    "observedAtMs": 1790786570437,
+    "acceptedAction": "Call 11 BB",
+    "handOrdinal": 74,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 11 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 75,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786578498,
+    "handOrdinal": 75,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786573371
+  },
+  {
+    "type": "luna_observed",
+    "hand": 75,
+    "decision": 1,
+    "observedAtMs": 1790786578719,
+    "acceptedAction": "Fold",
+    "handOrdinal": 75,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 77,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786590837,
+    "handOrdinal": 77,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786586116
+  },
+  {
+    "type": "luna_observed",
+    "hand": 77,
+    "decision": 1,
+    "observedAtMs": 1790786591140,
+    "acceptedAction": "Fold",
+    "handOrdinal": 77,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 78,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786599566,
+    "handOrdinal": 78,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786594692
+  },
+  {
+    "type": "luna_observed",
+    "hand": 78,
+    "decision": 1,
+    "observedAtMs": 1790786599918,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 78,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 78,
+    "decision": 2,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 4 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786604836,
+    "handOrdinal": 78,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786599999
+  },
+  {
+    "type": "luna_observed",
+    "hand": 78,
+    "decision": 2,
+    "observedAtMs": 1790786605223,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 78,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 78,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786610723,
+    "handOrdinal": 78,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786605301
+  },
+  {
+    "type": "luna_observed",
+    "hand": 78,
+    "decision": 3,
+    "observedAtMs": 1790786611133,
+    "acceptedAction": "check",
+    "handOrdinal": 78,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 78,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786616054,
+    "handOrdinal": 78,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786611219
+  },
+  {
+    "type": "luna_observed",
+    "hand": 78,
+    "decision": 4,
+    "observedAtMs": 1790786616342,
+    "acceptedAction": "check",
+    "handOrdinal": 78,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 78,
+    "decision": 5,
+    "street": "river",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786624678,
+    "handOrdinal": 78,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790786617883
+  },
+  {
+    "type": "luna_observed",
+    "hand": 78,
+    "decision": 5,
+    "observedAtMs": 1790786624997,
+    "acceptedAction": "check",
+    "handOrdinal": 78,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 79,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786634368,
+    "handOrdinal": 79,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786629059
+  },
+  {
+    "type": "luna_observed",
+    "hand": 79,
+    "decision": 1,
+    "observedAtMs": 1790786634627,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 79,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 79,
+    "decision": 2,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 10 BB",
+      "Pot \u00b7 18 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786640328,
+    "handOrdinal": 79,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786634664
+  },
+  {
+    "type": "luna_observed",
+    "hand": 79,
+    "decision": 2,
+    "observedAtMs": 1790786640561,
+    "acceptedAction": "Fold",
+    "handOrdinal": 79,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 80,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786651153,
+    "handOrdinal": 80,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786645776
+  },
+  {
+    "type": "luna_observed",
+    "hand": 80,
+    "decision": 1,
+    "observedAtMs": 1790786651483,
+    "acceptedAction": "check",
+    "handOrdinal": 80,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 80,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 2 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786656859,
+    "handOrdinal": 80,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786651589
+  },
+  {
+    "type": "luna_observed",
+    "hand": 80,
+    "decision": 2,
+    "observedAtMs": 1790786657111,
+    "acceptedAction": "check",
+    "handOrdinal": 80,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 80,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 4 BB",
+      "Pot \u00b7 8 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786662820,
+    "handOrdinal": 80,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786657201
+  },
+  {
+    "type": "luna_observed",
+    "hand": 80,
+    "decision": 3,
+    "observedAtMs": 1790786663213,
+    "acceptedAction": "Fold",
+    "handOrdinal": 80,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 81,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786671370,
+    "handOrdinal": 81,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786666375
+  },
+  {
+    "type": "luna_observed",
+    "hand": 81,
+    "decision": 1,
+    "observedAtMs": 1790786671779,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 81,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 82,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786681773,
+    "handOrdinal": 82,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786676548
+  },
+  {
+    "type": "luna_observed",
+    "hand": 82,
+    "decision": 1,
+    "observedAtMs": 1790786682078,
+    "acceptedAction": "Fold",
+    "handOrdinal": 82,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 83,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786691225,
+    "handOrdinal": 83,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786686030
+  },
+  {
+    "type": "luna_observed",
+    "hand": 83,
+    "decision": 1,
+    "observedAtMs": 1790786691671,
+    "acceptedAction": "Fold",
+    "handOrdinal": 83,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 85,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786706059,
+    "handOrdinal": 85,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786698192
+  },
+  {
+    "type": "luna_observed",
+    "hand": 85,
+    "decision": 1,
+    "observedAtMs": 1790786706336,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 85,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 85,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 7 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786711770,
+    "handOrdinal": 85,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786706447
+  },
+  {
+    "type": "luna_observed",
+    "hand": 85,
+    "decision": 2,
+    "observedAtMs": 1790786712183,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 85,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 85,
+    "decision": 3,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786718299,
+    "handOrdinal": 85,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786712257
+  },
+  {
+    "type": "luna_observed",
+    "hand": 85,
+    "decision": 3,
+    "observedAtMs": 1790786718644,
+    "acceptedAction": "check",
+    "handOrdinal": 85,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 85,
+    "decision": 4,
+    "street": "river",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786729063,
+    "handOrdinal": 85,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786718746
+  },
+  {
+    "type": "luna_observed",
+    "hand": 85,
+    "decision": 4,
+    "observedAtMs": 1790786729288,
+    "acceptedAction": "check",
+    "handOrdinal": 85,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 86,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786740720,
+    "handOrdinal": 86,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786733459
+  },
+  {
+    "type": "luna_observed",
+    "hand": 86,
+    "decision": 1,
+    "observedAtMs": 1790786741135,
+    "acceptedAction": "Fold",
+    "handOrdinal": 86,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 87,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786754050,
+    "handOrdinal": 87,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786745590
+  },
+  {
+    "type": "luna_observed",
+    "hand": 87,
+    "decision": 1,
+    "observedAtMs": 1790786754351,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 87,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 87,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786760520,
+    "handOrdinal": 87,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786754473
+  },
+  {
+    "type": "luna_observed",
+    "hand": 87,
+    "decision": 2,
+    "observedAtMs": 1790786760842,
+    "acceptedAction": "check",
+    "handOrdinal": 87,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 87,
+    "decision": 3,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 1 BB",
+    "attemptedAtMs": 1790786766417,
+    "handOrdinal": 87,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786760887
+  },
+  {
+    "type": "luna_observed",
+    "hand": 87,
+    "decision": 3,
+    "observedAtMs": 1790786766822,
+    "acceptedAction": "Min \u00b7 1 BB",
+    "handOrdinal": 87,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Min \u00b7 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 87,
+    "decision": 4,
+    "street": "river",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786772885,
+    "handOrdinal": 87,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786766902
+  },
+  {
+    "type": "luna_observed",
+    "hand": 87,
+    "decision": 4,
+    "observedAtMs": 1790786773251,
+    "acceptedAction": "check",
+    "handOrdinal": 87,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 88,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 3 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786784966,
+    "handOrdinal": 88,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786776274
+  },
+  {
+    "type": "luna_observed",
+    "hand": 88,
+    "decision": 1,
+    "observedAtMs": 1790786785277,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 88,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 88,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786790553,
+    "handOrdinal": 88,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786785347
+  },
+  {
+    "type": "luna_observed",
+    "hand": 88,
+    "decision": 2,
+    "observedAtMs": 1790786790871,
+    "acceptedAction": "check",
+    "handOrdinal": 88,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 88,
+    "decision": 3,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 8 BB",
+      "Pot \u00b7 16 BB",
+      "Jam \u00b7 18 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786796170,
+    "handOrdinal": 88,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786790958
+  },
+  {
+    "type": "luna_observed",
+    "hand": 88,
+    "decision": 3,
+    "observedAtMs": 1790786796487,
+    "acceptedAction": "Fold",
+    "handOrdinal": 88,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 89,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786806317,
+    "handOrdinal": 89,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786800339
+  },
+  {
+    "type": "luna_observed",
+    "hand": 89,
+    "decision": 1,
+    "observedAtMs": 1790786806573,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 89,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 89,
+    "decision": 2,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 10 BB",
+      "Pot \u00b7 18 BB",
+      "Jam \u00b7 20 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786815215,
+    "handOrdinal": 89,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786806649
+  },
+  {
+    "type": "luna_observed",
+    "hand": 89,
+    "decision": 2,
+    "observedAtMs": 1790786815454,
+    "acceptedAction": "Fold",
+    "handOrdinal": 89,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 90,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Call 2 BB",
+    "attemptedAtMs": 1790786825394,
+    "handOrdinal": 90,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786819814
+  },
+  {
+    "type": "luna_observed",
+    "hand": 90,
+    "decision": 1,
+    "observedAtMs": 1790786825648,
+    "acceptedAction": "Call 2 BB",
+    "handOrdinal": 90,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Call 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 90,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "Pot \u00b7 6 BB",
+    "attemptedAtMs": 1790786832814,
+    "handOrdinal": 90,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786825724
+  },
+  {
+    "type": "luna_observed",
+    "hand": 90,
+    "decision": 2,
+    "observedAtMs": 1790786833185,
+    "acceptedAction": "Pot \u00b7 6 BB",
+    "handOrdinal": 90,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Pot \u00b7 6 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 91,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786843198,
+    "handOrdinal": 91,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786836226
+  },
+  {
+    "type": "luna_observed",
+    "hand": 91,
+    "decision": 1,
+    "observedAtMs": 1790786843578,
+    "acceptedAction": "Fold",
+    "handOrdinal": 91,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 92,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 5 BB",
+      "Pot \u00b7 9 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786851672,
+    "handOrdinal": 92,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786846511
+  },
+  {
+    "type": "luna_observed",
+    "hand": 92,
+    "decision": 1,
+    "observedAtMs": 1790786852034,
+    "acceptedAction": "Fold",
+    "handOrdinal": 92,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 93,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786861164,
+    "handOrdinal": 93,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786855681
+  },
+  {
+    "type": "luna_observed",
+    "hand": 93,
+    "decision": 1,
+    "observedAtMs": 1790786861396,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 93,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 95,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786879602,
+    "handOrdinal": 95,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786869742
+  },
+  {
+    "type": "luna_observed",
+    "hand": 95,
+    "decision": 1,
+    "observedAtMs": 1790786879829,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 95,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 95,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 7 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786886164,
+    "handOrdinal": 95,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786879869
+  },
+  {
+    "type": "luna_observed",
+    "hand": 95,
+    "decision": 2,
+    "observedAtMs": 1790786886398,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 95,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 95,
+    "decision": 3,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786893000,
+    "handOrdinal": 95,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786886483
+  },
+  {
+    "type": "luna_observed",
+    "hand": 95,
+    "decision": 3,
+    "observedAtMs": 1790786893216,
+    "acceptedAction": "check",
+    "handOrdinal": 95,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 95,
+    "decision": 4,
+    "street": "river",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 9 BB",
+      "Jam \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786900056,
+    "handOrdinal": 95,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786893311
+  },
+  {
+    "type": "luna_observed",
+    "hand": 95,
+    "decision": 4,
+    "observedAtMs": 1790786900473,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 95,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 96,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786911879,
+    "handOrdinal": 96,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786903506
+  },
+  {
+    "type": "luna_observed",
+    "hand": 96,
+    "decision": 1,
+    "observedAtMs": 1790786912195,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 96,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 97,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786922725,
+    "handOrdinal": 97,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786916677
+  },
+  {
+    "type": "luna_observed",
+    "hand": 97,
+    "decision": 1,
+    "observedAtMs": 1790786923102,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 97,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 97,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 4 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 1 BB",
+    "attemptedAtMs": 1790786928873,
+    "handOrdinal": 97,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786923179
+  },
+  {
+    "type": "luna_observed",
+    "hand": 97,
+    "decision": 2,
+    "observedAtMs": 1790786929111,
+    "acceptedAction": "Min \u00b7 1 BB",
+    "handOrdinal": 97,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Min \u00b7 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 97,
+    "decision": 3,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786935487,
+    "handOrdinal": 97,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790786929200
+  },
+  {
+    "type": "luna_observed",
+    "hand": 97,
+    "decision": 3,
+    "observedAtMs": 1790786935844,
+    "acceptedAction": "check",
+    "handOrdinal": 97,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 97,
+    "decision": 4,
+    "street": "river",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 9 BB",
+      "Jam \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790786941914,
+    "handOrdinal": 97,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790786935929
+  },
+  {
+    "type": "luna_observed",
+    "hand": 97,
+    "decision": 4,
+    "observedAtMs": 1790786942195,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 97,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 1 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 99,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 0.50 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "Min \u00b7 2 BB",
+    "attemptedAtMs": 1790786960714,
+    "handOrdinal": 99,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786953456
+  },
+  {
+    "type": "luna_observed",
+    "hand": 99,
+    "decision": 1,
+    "observedAtMs": 1790786961048,
+    "acceptedAction": "Min \u00b7 2 BB",
+    "handOrdinal": 99,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "Min \u00b7 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 99,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 4 BB",
+      "Min \u00b7 8 BB",
+      "Pot \u00b7 16 BB",
+      "Jam \u00b7 18 BB"
+    ],
+    "attemptedButtonLabel": "Fold",
+    "attemptedAtMs": 1790786966963,
+    "handOrdinal": 99,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786961100
+  },
+  {
+    "type": "luna_observed",
+    "hand": 99,
+    "decision": 2,
+    "observedAtMs": 1790786967353,
+    "acceptedAction": "Fold",
+    "handOrdinal": 99,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "Fold"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 100,
+    "decision": 1,
+    "street": "preflop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 3 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790786999198,
+    "handOrdinal": 100,
+    "decisionOrdinal": 1,
+    "lastRenderedAtMs": 1790786991427
+  },
+  {
+    "type": "luna_observed",
+    "hand": 100,
+    "decision": 1,
+    "observedAtMs": 1790786999580,
+    "acceptedAction": "check",
+    "handOrdinal": 100,
+    "decisionOrdinal": 1,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 100,
+    "decision": 2,
+    "street": "flop",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 2 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790787005287,
+    "handOrdinal": 100,
+    "decisionOrdinal": 2,
+    "lastRenderedAtMs": 1790786999655
+  },
+  {
+    "type": "luna_observed",
+    "hand": 100,
+    "decision": 2,
+    "observedAtMs": 1790787005692,
+    "acceptedAction": "check",
+    "handOrdinal": 100,
+    "decisionOrdinal": 2,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 100,
+    "decision": 3,
+    "street": "turn",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 2 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790787014027,
+    "handOrdinal": 100,
+    "decisionOrdinal": 3,
+    "lastRenderedAtMs": 1790787009277
+  },
+  {
+    "type": "luna_observed",
+    "hand": 100,
+    "decision": 3,
+    "observedAtMs": 1790787014248,
+    "acceptedAction": "check",
+    "handOrdinal": 100,
+    "decisionOrdinal": 3,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 100,
+    "decision": 4,
+    "street": "turn",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 2 BB",
+      "Min \u00b7 4 BB",
+      "Pot \u00b7 8 BB"
+    ],
+    "attemptedButtonLabel": "Call 2 BB",
+    "attemptedAtMs": 1790787025522,
+    "handOrdinal": 100,
+    "decisionOrdinal": 4,
+    "lastRenderedAtMs": 1790787018849
+  },
+  {
+    "type": "luna_observed",
+    "hand": 100,
+    "decision": 4,
+    "observedAtMs": 1790787025757,
+    "acceptedAction": "Call 2 BB",
+    "handOrdinal": 100,
+    "decisionOrdinal": 4,
+    "visibleAcceptedAction": "Call 2 BB"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 100,
+    "decision": 5,
+    "street": "river",
+    "legalButtonLabels": [
+      "check",
+      "Min \u00b7 1 BB",
+      "Pot \u00b7 6 BB"
+    ],
+    "attemptedButtonLabel": "check",
+    "attemptedAtMs": 1790787039939,
+    "handOrdinal": 100,
+    "decisionOrdinal": 5,
+    "lastRenderedAtMs": 1790787025843
+  },
+  {
+    "type": "luna_observed",
+    "hand": 100,
+    "decision": 5,
+    "observedAtMs": 1790787040136,
+    "acceptedAction": "check",
+    "handOrdinal": 100,
+    "decisionOrdinal": 5,
+    "visibleAcceptedAction": "check"
+  },
+  {
+    "type": "luna_attempt",
+    "hand": 100,
+    "decision": 6,
+    "street": "river",
+    "legalButtonLabels": [
+      "Fold",
+      "Call 1 BB",
+      "Min \u00b7 2 BB",
+      "Pot \u00b7 9 BB",
+      "Jam \u00b7 17 BB"
+    ],
+    "attemptedButtonLabel": "Call 1 BB",
+    "attemptedAtMs": 1790787045976,
+    "handOrdinal": 100,
+    "decisionOrdinal": 6,
+    "lastRenderedAtMs": 1790787040231
+  },
+  {
+    "type": "luna_observed",
+    "hand": 100,
+    "decision": 6,
+    "observedAtMs": 1790787046365,
+    "acceptedAction": "Call 1 BB",
+    "handOrdinal": 100,
+    "decisionOrdinal": 6,
+    "visibleAcceptedAction": "Call 1 BB"
+  }
+]
