@@ -38,3 +38,11 @@ def test_final_completed_progress_and_chip_precision():
     assert tally([row])["netChips"] == 100
     with pytest.raises(ValueError, match="Invalid"):
         tally([result(1, "+0.001")])
+
+
+def test_calibration_current_hand_progress_is_explicit():
+    row = result(1, "+2")
+    row["payload"]["output"][0]["text"] = 'Hand 1 / 100\nThis hand: +2 BB'
+    assert tally([row], progress_mode="current-hand")["netChips"] == 200
+    with pytest.raises(ValueError, match="Invalid"):
+        tally([row])

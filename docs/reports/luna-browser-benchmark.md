@@ -79,6 +79,7 @@ technical supervision in the same context.
 - [Actual HTTP benchmark export](luna-browser/primary/export.json), retaining target 500/status ABORTED.
 - [All accepted native human decisions and logged attempts](luna-browser/primary/decisions.csv).
 - [All per-hand results and digests](luna-browser/primary/hands.csv).
+- [Sanitized public event history](luna-browser/primary/public-history.json), reconstructed after replay with the service serializer, including bot actions and legitimate reveals.
 - [Sanitized raw browser metadata](luna-browser/primary/browser-metadata.json), including deal/retry observations.
 - [Tool/configuration/replay/lookup/usage audit](luna-browser/primary/audit.json).
 - [Resource samples](luna-browser/primary/resources.csv) and [measurement summary](luna-browser/primary/resources.json).
@@ -112,15 +113,20 @@ provide a separately attributable experiment dollar cost.
 
 ## Uniform-random calibration — pending
 
-The restricted B100M session uses a fresh, persistent Luna context. I shortened
-its requested stopping boundary from 500 to 400 completed hands for elapsed-time
-reasons, after running progress/scores were visible. The
-[budget amendment](../luna-browser-budget-amendment.md) preserves that change;
-the original server target remains 500 and the final status will be ABORTED.
-Only after it stops will I add and test the separately identified uniform
-restricted-menu random opponent, then run a fresh 100-hand context. Results will
-remain separate. This ten-hand preflight is integration evidence, not a playing
-strength estimate or a substitute for either planned session.
+The separate uniform control was added only after the primary stopped and was
+uploaded. Its [definition and reproduction guide](../luna-uniform-random-calibration.md)
+use the same concrete restricted menu and persisted per-session bot RNG, with
+no B100M modification or model load. The server accepts only restricted
+benchmark sessions for this opponent. Trained/fallback lookups are inapplicable.
+
+A fresh `gpt-6-luna` / `high` context is playing a new exact-100 session, using
+the same frozen prompt/harness and no primary history. The
+[calibration configuration](luna-browser/calibration-config.json) pins runtime
+source `7ce9ba600ec9a1822bea19a9396b3c540e6797af` and the algorithm-definition
+hash. All **969 full fixture tests** passed on M1 in 474.65 seconds at that
+source, and its GitHub CI passed. The later reporting-only tally change adds
+one focused test; **37 focused checks** pass. Results remain separate and
+calibration replay/exports await completion.
 
 ### Primary technical supervision log
 
@@ -158,7 +164,7 @@ remains on the original released UI at port 8765; no game/runtime source changed
 The additional polling load is included in subsequent resource samples.
 
 [Machine and native dependency identity](luna-browser/environment.json) records
-the exact environment. The focused service/audit/report/tally suite passed 31 tests.
+the exact environment. Before the random adapter, the focused service/audit/report/tally suite passed 31 tests.
 The earlier `f7ac53e` GitHub CI candidate passed all 952 tests and its existing
 CLI/reproduction gates. Subsequent reporting changes receive their own CI run.
 

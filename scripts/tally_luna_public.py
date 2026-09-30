@@ -19,7 +19,9 @@ def text_blocks(output):
         yield output
 
 
-def tally(records):
+def tally(records, *, progress_mode="next-hand"):
+    if progress_mode not in ("next-hand", "current-hand"):
+        raise ValueError("Unknown rendered progress mode")
     ledger = {}
     for record in records:
         payload = record.get("payload", {})
@@ -31,7 +33,8 @@ def tally(records):
         # immediately after settlement. Use its rendered progress, not player
         # metadata: an automatic bot fold can finish the next hand before the
         # player emits an observation labelled with the preceding hand.
-        ordinals = {int(n) - 1 for n in re.findall(r'\bHand ([0-9]+) / [0-9]+', text)}
+        offset = 1 if progress_mode == "next-hand" else 0
+        ordinals = {int(n) - offset for n in re.findall(r'\bHand ([0-9]+) / [0-9]+', text)}
         ordinals.update(int(n) for n in re.findall(r'\b([0-9]+) / [0-9]+ completed', text))
         if len(amounts) != 1 or len(ordinals) != 1:
             continue
@@ -60,4 +63,7 @@ def tally(records):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("rollout", type=Path)
-    print(json.dumps(tally(read(parser.parse_args().rollout)), indent=2))
+    parser.add_argument("--progress-mode", choices=("next-hand", "current-hand"), default="next-hand",
+                        help="v0.4.0 uses next-hand; the calibration source corrects it to current-hand")
+    args = parser.parse_args()
+    print(json.dumps(tally(read(args.rollout), progress_mode=args.progress_mode), indent=2))
