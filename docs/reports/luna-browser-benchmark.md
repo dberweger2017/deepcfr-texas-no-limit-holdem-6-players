@@ -77,7 +77,7 @@ remains on the original released UI at port 8765; no game/runtime source changed
 The additional polling load is included in subsequent resource samples.
 
 [Machine and native dependency identity](luna-browser/environment.json) records
-the exact environment. The focused service/audit/report suite passed 21 tests.
+the exact environment. The focused service/audit/report suite passed 22 tests.
 The earlier `f7ac53e` GitHub CI candidate passed all 952 tests and its existing
 CLI/reproduction gates. Subsequent reporting changes receive their own CI run.
 
@@ -87,6 +87,14 @@ after deduplication, with no conflicting values: Luna was +50 chips / +0.5 BB,
 with 31 wins, 74 losses and one tie. This provisional public-UI tally was not
 sent to Luna, did not use the active private journal and did not change the
 fixed 500-hand target. The final native/server report remains authoritative.
+
+I also questioned whether resetting stacks could corrupt this tally. The service
+adds `terminal human stack - 2000` once per completed hand; a fresh deal does not
+add profit. Eight full rendered terminal-stack observations independently agreed
+with their displayed hand profits. A generated two-hand regression loses 50
+chips in the small blind, resets both stacks, then loses 100 in the big blind:
+the accumulated result is correctly -150 chips / -1.5 BB. It also replays both
+hands. These checks support the accounting; full primary replay remains pending.
 
 ## Reproduction and audit
 
