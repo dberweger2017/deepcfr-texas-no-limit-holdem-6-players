@@ -120,7 +120,7 @@ def execute(args):
             row.update(data_center=pod.get('dataCenterId'), actual_cpu=pod.get('cpu'),
                        total_rate=pod['cost'], connected=time.time())
             host, port = endpoint['host'], str(endpoint['port'])
-            user = endpoint.get('user', 'root')
+            user = endpoint['username']
             ssh = ['ssh', '-i', str(keyfile), '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=20',
                    '-o', 'StrictHostKeyChecking=accept-new', '-o', 'UserKnownHostsFile=' + str(root / 'known-hosts'),
                    '-p', port, user + '@' + host]
