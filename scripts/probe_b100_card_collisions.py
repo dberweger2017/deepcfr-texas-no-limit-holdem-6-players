@@ -23,7 +23,7 @@ def _alternatives(view, source):
     menu, _, _ = source.distribution(view)
     key = information_key(view, menu, schema=source.source.abstraction)
     compatible = []
-    for pair in combinations(c for c in DECK if c not in view.board, 2):
+    for pair in combinations((c for c in DECK if c not in view.board), 2):
         if pair == view.hole_cards or pair == tuple(reversed(view.hole_cards)):
             continue
         alternative = replay(view.history, view.seat, pair)
