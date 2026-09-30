@@ -11,6 +11,7 @@ Play, inspect and reproduce a learning poker agent. This project began with neur
 | Path | Game and status |
 | --- | --- |
 | [Local web table](docs/play-web.md) and [terminal play](scripts/play_hu20_native.py) | **Featured:** two-player no-limit Hold'em, 20 BB (2,000 chips) per seat reset each hand, no rake or ante. The B100M inference export is a saved experimental policy. |
+| [Human benchmark sessions](docs/play-web-benchmark.md) | A planned number of HU20 hands against the same pinned policy, with restart, abort and sanitized result export. These record raw human results, not human strength. |
 | [Three-player research](docs/tp20-model-card.md) | Separate TP20 artifacts and experimental results; not supported by the web table or B100M. |
 | [Scripted multiplayer sandbox](docs/benchmarks.md) | Exercises four-to-six-player rules, sessions and evaluation. It is not a trained six-player agent. |
 | [Six-player, 100 BB research](docs/research-history.md) | Historical neural and blueprint experiments; the v0.5 strength criterion remains unmet. |
@@ -48,7 +49,7 @@ Open `http://127.0.0.1:8765/`. Read `results/play-web/access.token` locally and 
 
 **Restricted research** shows the concrete actions in the model's trained menu. **Free sizing · experimental** accepts any native-legal integer-chip raise-to amount. The native engine executes that exact wager, while the bot still uses its restricted menu and existing missing-key fallback. This interface does not solve off-tree strategy. Both modes keep hidden cards and private randomness on the server.
 
-The base table journals completed hands and supports native replay. The separate [human benchmark framework in PR #120](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/120) is **not included until reviewed and merged into this release source**. If included, it records raw human session results, exact planned hand counts, abort status and sanitized exports. It neither establishes human playing strength nor implements AIVAT.
+The base table journals completed hands and supports native replay. [Human benchmark sessions](docs/play-web-benchmark.md), merged from [PR #120](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/120), freeze a planned hand count and mode, support an explicit incomplete/aborted result, and export a sanitized aggregate. The benchmark withholds cumulative results until completion or abort, while retaining exact native replay. It reports raw BB and BB/100 without a confidence interval, does **not** establish human playing strength, and does not implement AIVAT.
 
 ## Measured research results
 
@@ -68,4 +69,4 @@ The [formal v0.5 and v1.0 criteria](ROADMAP.md#release-milestones) remain unchan
 
 Run the suite with `python -m pip install -r requirements-dev.txt` followed by `python -m pytest -q`. [CI](.github/workflows/tests.yml) also checks observation, sessions, arena, solver and neural baseline. Read the [rules](docs/rules.md), [observation contract](docs/observations.md), [web guide](docs/play-web.md), and [release notes](docs/releases/v0.4.0/RELEASE_NOTES.md).
 
-This repository's own code is [MIT](LICENSE.txt). The pinned `pokers` fork and its upstream do **not currently publish a license grant** in their repositories or package metadata. Engine redistribution terms need clarification before public release; the v0.4 bundle does not include an engine binary. Historical reports and referenced papers retain their own rights.
+This repository's own code is [MIT](LICENSE.txt). The pinned `pokers` fork and its upstream do **not currently publish a license grant** in their repositories or package metadata. I license my changes to the pinned `pokers` fork under MIT; the original authors' terms remain unverified pending direct confirmation. The [license audit](docs/releases/v0.4.0/LICENSE_AUDIT.md) records the checks and resolution path. The v0.4 bundle contains no engine binary. Historical reports and referenced papers retain their own rights.

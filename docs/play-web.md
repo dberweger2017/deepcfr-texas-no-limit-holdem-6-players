@@ -156,7 +156,7 @@ private records without loading the policy, stop the service and run
 
 ### September 30, 2026 integration smoke
 
-In the owner-approved M4 window, the service loaded the documented B100M export
+In the M4 window I approved, the service loaded the documented B100M export
 once and used about **1.92 GiB RSS**. The isolated test copy passed **1,115
 tests, 26 skipped, and 21 subtests**. A real HTTP smoke and headless Chrome
 smoke each completed one hand in both modes. The free HTTP smoke submitted a

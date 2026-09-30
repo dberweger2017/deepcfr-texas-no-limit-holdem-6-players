@@ -1,0 +1,1069 @@
+{
+  "clock": {
+    "deadline": 1790812915.584733,
+    "deadline_madrid": "2026-10-01T02:01:55.584733+02:00",
+    "deadline_utc": "2026-10-01T00:01:55.584733+00:00",
+    "merged_base": "7d31a39c80cc72deb772336ce251f3c4bdcd46c9",
+    "science_deadline": 1790811115.584733,
+    "source_head": "0d3a5cf1c5ba763ec0db149795650b2773236855",
+    "started": 1790778715.584733,
+    "started_madrid": "2026-09-30T16:31:55.584733+02:00",
+    "started_utc": "2026-09-30T14:31:55.584733+00:00",
+    "swap_start_mib": 753.38,
+    "window_seconds": 34200
+  },
+  "file_count": 262,
+  "files": {
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/coordinator.json": {
+      "bytes": 280104,
+      "sha256": "c345b3411e0c109426b44b2be733c18f9d888b24fb180bbe9c2a40dcc5321670"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/focused-tests-01.log": {
+      "bytes": 99,
+      "sha256": "7bf1b94f35399fa9667113b4417afcb9db867bed56fcf70f9817c24e0ddbc52e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004-counts.json": {
+      "bytes": 8914,
+      "sha256": "189d7751b614c153ba5801a340605778f6bb4d5beeeba4687b20956045e32a5d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/identity.json": {
+      "bytes": 1226,
+      "sha256": "cb414b8d0dbef7925b6d277c82f125b3b29de64b967ccb357faa8f569577f554"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/index.json": {
+      "bytes": 229,
+      "sha256": "ecf3e3200a3f4bb01948fbfeae714bd7908f93e6775b859e069046918d28602e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/segment-0000.jsonl": {
+      "bytes": 4441262,
+      "sha256": "19d6d55826496e73e755a22d338156bd5c7310c5b25e9e006a8dbd3c68466e98"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011-counts.json": {
+      "bytes": 8766,
+      "sha256": "ef9df3dc59b1032231df3f859e00d29a3e280b70641162dc07daa65072ed5a58"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/identity.json": {
+      "bytes": 2292,
+      "sha256": "f428d561d697f3fb32ce2deb08e4af458a6f6c967e747ccb662255102caf56b6"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/index.json": {
+      "bytes": 229,
+      "sha256": "c5b9f573b6d405a318c6fac563e46f00f63fa7033ba5e46709152492d8b1e8fb"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/segment-0000.jsonl": {
+      "bytes": 4447936,
+      "sha256": "f7e93d1f01227495639c35a1c33b960167e344662b5cb2a76d0055a0f8c69cf1"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/posterior.json": {
+      "bytes": 67180,
+      "sha256": "89b53396ff9c80b5e34f979cc57de94cc2730a93270604cc0eec31a842045af8"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004-counts.json": {
+      "bytes": 10066,
+      "sha256": "38b9cc6c635d9483291517d2a36955dfe99f03a0c7189236980c45f8f86014fb"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/identity.json": {
+      "bytes": 1226,
+      "sha256": "5aef12c6c0f6297e594492a0c9ad8fe6cd0151c7cd953b7bc41dbddea29340f9"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/index.json": {
+      "bytes": 229,
+      "sha256": "7deca2103d5f3392ac9492a48b8a2696696f994640ffcb3cbb2d2ec719cf9169"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/segment-0000.jsonl": {
+      "bytes": 5035355,
+      "sha256": "9328b72847300117728fda2cd45d8ccfa3ad11c8fe43c64672fb100a17961a7b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/posterior.json": {
+      "bytes": 77842,
+      "sha256": "199b3f0c467bff04ea4896371cfee918e63c7ec8158fb1a54eb7b82020fd7d6d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006-counts.json": {
+      "bytes": 8374,
+      "sha256": "0cf408189e18d24d012e67a6d521f566fedcb2f26099384e89d59884150f2b54"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/identity.json": {
+      "bytes": 1560,
+      "sha256": "3ae92e5158125d7df1cd5ee8923b3af138d170957c3ab22c177bccbf0cbf4272"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/index.json": {
+      "bytes": 229,
+      "sha256": "06fee372d3bf9dbda427537011db7ff26d9a0cabef703b49ff3273e460295a7e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/segment-0000.jsonl": {
+      "bytes": 4440645,
+      "sha256": "e228d0c2281f1554058e5fb33f67245ab073b14576524906e34e1353855c165b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011-counts.json": {
+      "bytes": 7890,
+      "sha256": "81e2619fcf6683c09995787356f9e7e76da95fd2d38d423dcdfc1a1dbdeb2f94"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/identity.json": {
+      "bytes": 2301,
+      "sha256": "45b21a898b930a4c794d258483b6849e1e1df1790c307ac6220b0f54924c7311"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/index.json": {
+      "bytes": 229,
+      "sha256": "22006085d988bab5c2d922e0fef264a414279d085f5dc8971570d996302dbb41"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/segment-0000.jsonl": {
+      "bytes": 4466747,
+      "sha256": "4f5c5b6fea567ef033144cb5a7ec8d2775be3cb1e1913a7e59c159c181cf35bb"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/posterior.json": {
+      "bytes": 61365,
+      "sha256": "144f4fe89bab9835e7ff25ef42cb4748ce5b58f289936a62d74b8f4bf8f7a059"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006-counts.json": {
+      "bytes": 7959,
+      "sha256": "96041cd11e9b0f58dcde7466e7685e1e76d09722b0066722cd135de9ee3f1fff"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/identity.json": {
+      "bytes": 1559,
+      "sha256": "74193a1d31dc859ad1652c07066841cabd62e98e89122229c4473496a8e97472"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/index.json": {
+      "bytes": 229,
+      "sha256": "d24ac30217fab8f26ec9fbbfbb78bc22111326be342ec7ac0f4df3251f7bc7b7"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/segment-0000.jsonl": {
+      "bytes": 4249607,
+      "sha256": "332510c6e54e8edb1b8dd9591501f832ded5404fc4dde5124b96932938fd2390"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009-counts.json": {
+      "bytes": 8200,
+      "sha256": "5753307ab9b4846f02528cd31a15ddd5412519ddf20c881dae04058c956e80ee"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/identity.json": {
+      "bytes": 1967,
+      "sha256": "07432902579806d0f8a17ce5c801d913e1e7f436b5de9386a2029f3c04839240"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/index.json": {
+      "bytes": 229,
+      "sha256": "802000be68e5e69fa4859abd9b09dbdfa92e70faeb58b64ea475f9624c5dd92a"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/segment-0000.jsonl": {
+      "bytes": 4271511,
+      "sha256": "d1ac50d5f487dd20a937da2c85305915666adc1b7fee26fee22ea3d10483f3b2"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013-counts.json": {
+      "bytes": 8084,
+      "sha256": "9f49e30f02350434d5085d92691476068cc00d781a66f70e94677c806d47d927"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/identity.json": {
+      "bytes": 2619,
+      "sha256": "a5ad444590603fad5bd08db689bf1105c119b19b5a3919de5b38e02d03272894"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/index.json": {
+      "bytes": 229,
+      "sha256": "40147b3839e1c8ab9ab5c70a647a662f94ec925912e0dc3a4c3a9d4b7d110b51"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/segment-0000.jsonl": {
+      "bytes": 4250275,
+      "sha256": "5be12062628300802e084d6b5efcf28e2f7553a5591cb54eb399469aeeb0b25d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016-counts.json": {
+      "bytes": 8283,
+      "sha256": "14dd7a26e397a815c5ff910f4608690169a6fdb2183c7bb2693df82bc83d9d47"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/identity.json": {
+      "bytes": 3010,
+      "sha256": "1017c02c8e703595934125064f6dff53bb3947c00269d54ba0806eb2496c132d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/index.json": {
+      "bytes": 229,
+      "sha256": "54110436ce37ac98a2c9853337d059698e1bbc7bd30b86df1606c52d732e2038"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/segment-0000.jsonl": {
+      "bytes": 4275492,
+      "sha256": "6da115b7b3a529c50ec4e61cfa71386b06ae04b5e64b5af8d3b5177629e9cc3d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/posterior.json": {
+      "bytes": 60179,
+      "sha256": "de13bc29c47eaef2aea27c7fb9b4f5065e570669cb7ce378966ef914972e530d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006-counts.json": {
+      "bytes": 7639,
+      "sha256": "7eaf249025506f38efe1e937d7658373567d0127efeee5ec6b5aa8c47dff9a00"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/identity.json": {
+      "bytes": 1559,
+      "sha256": "fdcc58e84fa67457bec536df902513055018803aff2ff9ad1bb163d3379463ab"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/index.json": {
+      "bytes": 229,
+      "sha256": "395d6271f03f18fbcb23f4cdb60f8ce7c831903b4e2cb74161da390b99b1e123"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/segment-0000.jsonl": {
+      "bytes": 4063494,
+      "sha256": "43ae848e4b9612c3255020c10e806d0a518a7cc96e675dffa2227a4ff9934dc6"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009-counts.json": {
+      "bytes": 7839,
+      "sha256": "0e9186428b3cb7483b7b0595c3c61f7e01328ef2ecfd3dc4a7b9c148386f460e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/identity.json": {
+      "bytes": 1967,
+      "sha256": "56307b49500ba5cb7b7c87092e060c10adeb336ddbffc98b33aa97f33326b326"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/index.json": {
+      "bytes": 229,
+      "sha256": "35fc3a3e0a200fa18301ad3582ab54e26ebd11f99fbacb19ef6ff54d7e781aed"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/segment-0000.jsonl": {
+      "bytes": 4085340,
+      "sha256": "aa96dcfed91ee3c0879f81f8aad683513e6dab164fac7c07575bd056c23b33ec"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014-counts.json": {
+      "bytes": 7814,
+      "sha256": "d4c09940079d4fc091c6d8a3e591b9b02e6658468fac527630af40bf43e29cb1"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/identity.json": {
+      "bytes": 2683,
+      "sha256": "eb203abbe59a0aa60dd4e82ddc9e494e122885ac951277cecffe49237c6f25a2"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/index.json": {
+      "bytes": 229,
+      "sha256": "622f11dd3fcda855ddc57adba0bfb4bd763d38fd5b865ce2596fae8ecbf93336"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/segment-0000.jsonl": {
+      "bytes": 4085186,
+      "sha256": "b1b9247e8e6f82d8b0f328d7de354e760117db93e3c12f9cdc1cf073106a83af"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018-counts.json": {
+      "bytes": 7765,
+      "sha256": "ceb8af2008d018b5f10ba71017e702ce235ea475334fcc630f3221b49525465a"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/identity.json": {
+      "bytes": 3334,
+      "sha256": "bdb9472481a5718dab577b9b0b39e97487e56d34d3df2981e07d6956ef4f485e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/index.json": {
+      "bytes": 229,
+      "sha256": "a096d1527afc57712c07c42c93300b2715d11b2408bff1b37177b795ceb8a3da"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/segment-0000.jsonl": {
+      "bytes": 4069764,
+      "sha256": "d79256e9b05031d65ddf03a7846917e0ce9b245a050195f010e87d00dd495559"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021-counts.json": {
+      "bytes": 7718,
+      "sha256": "8914ec9e727422fd33caec5f05f97d7b8fadf37c42fe7425c7e5bdb7388e47ae"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/identity.json": {
+      "bytes": 3727,
+      "sha256": "a8b0ad5b6e757fbbe5109258d992db2209c6fcc2eade0ca4e92f37e7c76c6395"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/index.json": {
+      "bytes": 229,
+      "sha256": "abe3a4f669c2c54e01375fda12ba549509c675005c9bf37723703cdf3c23a7ef"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/segment-0000.jsonl": {
+      "bytes": 4086131,
+      "sha256": "67a29f1689672125f66fda43300ab3f371f163af71cc68d096aee35f7a93669b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/higher-16/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/posterior.json": {
+      "bytes": 57904,
+      "sha256": "941bab815dae83ff936f6bc91d0f0a593d5bf55f1787dd855e077b7cb0280b23"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004-counts.json": {
+      "bytes": 7832,
+      "sha256": "d231dd4a41ac6e10512b97a6b2d9b4725ffc48ff5467c887c33bd94c83f21eff"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/identity.json": {
+      "bytes": 1225,
+      "sha256": "ba00c5a95ab04a127790d3ca103b4ad5e094c048447cb9a5d1917efdca6b14e0"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/index.json": {
+      "bytes": 228,
+      "sha256": "bc1f82eca38ce3a7ca9948d3c75e8c6971874beb8abfcfc188986c9131e85619"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/segment-0000.jsonl": {
+      "bytes": 1107084,
+      "sha256": "f79ffa9acc79d08b609fe8e1fce4e2a29ee1f0deed1ae3f464722d22e19addd4"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011-counts.json": {
+      "bytes": 7833,
+      "sha256": "653c45e256e41400c3d12ced251377b1ccf7f543d9c1d5171f78b490d5d6a0a7"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/identity.json": {
+      "bytes": 2291,
+      "sha256": "0f3f72f60b4172528a402eb8433646a33fb4cb8269e7c5946b0ebb79337866eb"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/index.json": {
+      "bytes": 228,
+      "sha256": "370558e7e2874a5e8d74938bab83b269b87de7e5f54c2ee7bb3a2bed5de0abf5"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/segment-0000.jsonl": {
+      "bytes": 1108662,
+      "sha256": "b9960cb66bc2a99581a2867f7e1284f2e57b7489278f930ab4d5e61e5a55cceb"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/posterior.json": {
+      "bytes": 67809,
+      "sha256": "55a8ff31ee4f2af04aa2c1958a964e72b490704f34c1490067f0ff65484394f9"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004-counts.json": {
+      "bytes": 8840,
+      "sha256": "e081382c24d2fe6d93de3b1f891d202654b62cf6da3e72f33ee4102d7a51d277"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/identity.json": {
+      "bytes": 1225,
+      "sha256": "f35666d91ea8d4f2c2c1b5f78f3444c306b9d574747a4570f7776af6bef56a69"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/index.json": {
+      "bytes": 228,
+      "sha256": "613f28a7fce0882ac0947110ec351532ddc7299747c5a6991f52b2401bb96c31"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/segment-0000.jsonl": {
+      "bytes": 1255153,
+      "sha256": "aeecbf1c32535752ee7069ca846a84f96bdd8a9571731ad68f387ba4a2a04212"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/posterior.json": {
+      "bytes": 77840,
+      "sha256": "9606a5957c877c6c5d5df7d6c2e84eaa3fd35ad520f7f770a88073e1ee824803"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006-counts.json": {
+      "bytes": 7832,
+      "sha256": "6c051acc8c7e6779cdc5b0969c49dd8a08a0bbd892d7664c85beffee6ce5c7ad"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/identity.json": {
+      "bytes": 1559,
+      "sha256": "4c6017785e1d758554b8052a89ac70ca6c38a341fd2afe71bfdccc455433827e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/index.json": {
+      "bytes": 228,
+      "sha256": "bfef25aa5d3d19974dfbddb892baa6c27444c9a83300ba8620593ece530e1fdf"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/segment-0000.jsonl": {
+      "bytes": 1106942,
+      "sha256": "ef313f913a6a78bb647336bf9871feb74226c6c25e84d2390d6c914a422c1e84"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011-counts.json": {
+      "bytes": 7833,
+      "sha256": "6ec5786b52b37b7c7fc67cecc6fd65e758b46891e1c3802c5fc5fc883d5b2d69"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/identity.json": {
+      "bytes": 2300,
+      "sha256": "4a2dc9e3e6d52397fa43d8c73e43d9dd1b567980fc91e3640b849ceb1fb0c311"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/index.json": {
+      "bytes": 228,
+      "sha256": "dad427fb29bb0a53d149cd41b584728ace17bbf1cabe4a1f97823639c1779c3b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/segment-0000.jsonl": {
+      "bytes": 1113430,
+      "sha256": "60297d87eee71e61148f3e93b062aeb1ad36bb10424b2ed84afbf2542de23b45"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/posterior.json": {
+      "bytes": 60585,
+      "sha256": "abefd7b29f93317ea775c4703d53afe1f1fad46ae48f455f03f79d1d96117952"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006-counts.json": {
+      "bytes": 7509,
+      "sha256": "24dd18ec2428d32fada8f17c1fe3aa7d54283320b5e3fcaaff9def4dfe2a6291"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/identity.json": {
+      "bytes": 1558,
+      "sha256": "973c5a62945d86e181802c7a3f5e969b2019389c2d47e0dc22c65a3c9d3232ae"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/index.json": {
+      "bytes": 228,
+      "sha256": "a67fa7039ebe734dfaaeb91d77c401d3f9640a30fd7a8a46aace65433d55e017"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/segment-0000.jsonl": {
+      "bytes": 1059272,
+      "sha256": "50c31191f20543d737a7c4c74bc1409e754538732433006c422235df1364a18f"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009-counts.json": {
+      "bytes": 7511,
+      "sha256": "a7039719577e8b99b5c1e93de8c6058a614ad76970cac5bb9cdd9ef1bbb1aa2e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/identity.json": {
+      "bytes": 1966,
+      "sha256": "311c94c8d7a1e4b35bc62d319898040d081874703714ad7ec56250fef29f8157"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/index.json": {
+      "bytes": 228,
+      "sha256": "d4bee4a253d7c392284a4254ad0a664369bec45298d4bf301713f0097fa858c6"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/segment-0000.jsonl": {
+      "bytes": 1064462,
+      "sha256": "f830b319cb6fb468bfd41ea834881e56d10506f3f185893667749f8a2da74794"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013-counts.json": {
+      "bytes": 7510,
+      "sha256": "6b364f219748bcb4f8e5719ae76e1b84a64ad8f25f2c27dc7fd95545c67cd978"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/identity.json": {
+      "bytes": 2618,
+      "sha256": "8a0b0bfaff879b6e7f402cb4f8eba70c1b6fbdf2fff4b7248ae570a95f23efbf"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/index.json": {
+      "bytes": 228,
+      "sha256": "b9305596f8c7c15f3581eb107f19bdbea04d2baf3f6b91b0a5896165465b9726"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/segment-0000.jsonl": {
+      "bytes": 1059497,
+      "sha256": "78361257719c8f11d73aa367432dfba26eca81bbf2c2b117e8bbd59259bbfc4b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016-counts.json": {
+      "bytes": 7512,
+      "sha256": "199115d3853e39e5e066a57d88f365c6ab8cb731909cae3470957e622f6bbb16"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/identity.json": {
+      "bytes": 3009,
+      "sha256": "42dc14ca83b41b7a1df2e87a44352b442e8bfd6de996392b68a46dcf4a608658"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/index.json": {
+      "bytes": 228,
+      "sha256": "91396dd2027133f8b68b02871238ad7dd99755e9bd16ec8ae98889d71b30b6fa"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/segment-0000.jsonl": {
+      "bytes": 1065761,
+      "sha256": "4700d7bd436b9ff63827e80596f9b7d0990edb5bef2b39a15b48e64becad9cad"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/posterior.json": {
+      "bytes": 59432,
+      "sha256": "7b14b2e7dd0457f81a715b17df14de730534b86caf73b21149b5b0fc69f3cd11"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006-counts.json": {
+      "bytes": 7194,
+      "sha256": "6d9861439d61aae4c6515e1b7748a8c215aec105d1d618d680fb2dcb16165e77"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/identity.json": {
+      "bytes": 1558,
+      "sha256": "aebaf71c08ff9e2dcb505535c276fb70776a564d913955f56ae4460eb4114ddc"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/index.json": {
+      "bytes": 228,
+      "sha256": "e134410a496983b75b457f5e3c287fe491c3a281f93426ef123fd437dcefd385"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/segment-0000.jsonl": {
+      "bytes": 1012954,
+      "sha256": "98cca41476e3c99868e03c5d6b124fc987664e7fcef897c691117cfa46fe7ea8"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009-counts.json": {
+      "bytes": 7196,
+      "sha256": "f16dd6b870dd25a87e9cdab54dd326c486b47e32769f55c6dd2b302f39e2f1bd"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/identity.json": {
+      "bytes": 1966,
+      "sha256": "eefd8687fe2225944616fc77a8fbe88ed97e4d8f2410ad874e24964d8c398abf"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/index.json": {
+      "bytes": 228,
+      "sha256": "d823f4215f18fc41dfefdef81023e6fc23dd16099390498dbf0e80388263a142"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/segment-0000.jsonl": {
+      "bytes": 1018186,
+      "sha256": "861206f240a4766ad1e0fcadbedbe33729a20978bfb0a6d5c239fb881b7e4438"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014-counts.json": {
+      "bytes": 7197,
+      "sha256": "61fda6d4cbfe80e795e708c83f35c81e3875d16e9236f09d7682f9c9d59a698f"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/identity.json": {
+      "bytes": 2682,
+      "sha256": "00b736c392075a99ed911ced81be43be0a51ca075efc9c2e7335f45efe028e9f"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/index.json": {
+      "bytes": 228,
+      "sha256": "fcc86aba1b5cb5ca973827831fe6bcd1bfe50a5f647b02a912f7b0f843d5839a"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/segment-0000.jsonl": {
+      "bytes": 1018317,
+      "sha256": "7ac438e85db9c7f8ce5c1681d2c4d647df71f2366b0e1743d612a3f9f5ddd3b0"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018-counts.json": {
+      "bytes": 7195,
+      "sha256": "ae35a39e8eccdafc0e309586d4c5e0c9b5b48a7cdfe8947dff979f47157733ea"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/identity.json": {
+      "bytes": 3333,
+      "sha256": "aea4fff1c1684a4200cc7bfb43d02526a4de73fc6766e64682d9174d213bda0e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/index.json": {
+      "bytes": 228,
+      "sha256": "9870fc46dce9331d0a19c75e13f233bc4ef2f8c15f0e5a5dfae64a504c100b3f"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/segment-0000.jsonl": {
+      "bytes": 1014390,
+      "sha256": "ed2a6a03cb8bef1be02f2ae6330a5e05afe719d338d07af9895e04f6b2a6caf8"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021-counts.json": {
+      "bytes": 7197,
+      "sha256": "c1834c9ab4e585b8926b469dfefcba3df61ab1c18285e132e806b2b565ddc515"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/identity.json": {
+      "bytes": 3726,
+      "sha256": "432a66bcc7b2f8f5d39a2713e579d2c7060a1024ef003426b64891a4c9636ca1"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/index.json": {
+      "bytes": 228,
+      "sha256": "09a0e4882bde3f94f97ad22017deca1f68443e13dc7f4941fe8834ef30a0d175"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/segment-0000.jsonl": {
+      "bytes": 1018571,
+      "sha256": "4b67cf3b5049e07bb5d1ac102476aaeb58602abcf115391267948539baaf58dc"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-1/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/posterior.json": {
+      "bytes": 57407,
+      "sha256": "57f6fe9b7bccc4b00cc997922c05132c708257ac60b2613e4bf85b01f3b54686"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004-counts.json": {
+      "bytes": 7832,
+      "sha256": "d231dd4a41ac6e10512b97a6b2d9b4725ffc48ff5467c887c33bd94c83f21eff"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/identity.json": {
+      "bytes": 1225,
+      "sha256": "b2feb6e25b573475e9f832c043de4e9311fe5017eec692d7f3221d5761ff4b5b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/index.json": {
+      "bytes": 228,
+      "sha256": "4b4835e2b1da2e03b0f987e53d9e8a48aeabc68de860bf70d63bd11e8d010188"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/segment-0000.jsonl": {
+      "bytes": 1107137,
+      "sha256": "e3212b20d4ec518f2bf103e8972c891eaa32b3749bf4ac972eee3631aaa62107"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011-counts.json": {
+      "bytes": 7833,
+      "sha256": "90c67469726a736c98c5d4c9f09eae8413e6c5be194fc347c5596385fe866b14"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/identity.json": {
+      "bytes": 2291,
+      "sha256": "f9746c1ceb76a37ba1061cef913535b92c66c906b124f3ff68ff432053971d23"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/index.json": {
+      "bytes": 228,
+      "sha256": "dd9c2efec81999c50810fb0b2b7c663df963fb7da6bc013120a756abf4a66ba6"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/segment-0000.jsonl": {
+      "bytes": 1108791,
+      "sha256": "be30f42abaefb6e7312d3a6d0e1d98306127ddf6b60f5865744419afe71e27f7"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/posterior.json": {
+      "bytes": 66939,
+      "sha256": "4d2fe094ff7b04e94b2137f85c9a3d6da446464c41c728ce883094bf09f33890"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004-counts.json": {
+      "bytes": 8840,
+      "sha256": "3013e76689a377f09d1d5ab26e92cb2244272df7ddbde58081fd74394cc62e0b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/identity.json": {
+      "bytes": 1225,
+      "sha256": "99f8bbd27370ba288c09e468ea9b67ca71facc2f42f708ecb02b77accc5a50c4"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/index.json": {
+      "bytes": 228,
+      "sha256": "56c6cb2f2a263f378a98675d92db0d4fdd1d0483f43ff07e9a2093ec69edd5e1"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/segment-0000.jsonl": {
+      "bytes": 1255185,
+      "sha256": "781846d61944651891efc0564b607dd465ab7af952843a9a6f7f63252fc95c41"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/posterior.json": {
+      "bytes": 77841,
+      "sha256": "0da5947c17ed345155209a60f1b743d033b460ffb64c4a0253a0bb65f02b403a"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006-counts.json": {
+      "bytes": 7832,
+      "sha256": "126e2d47e7a53cd60d2e61bf29553cc4d74bceffe92fa26d77ce884dfe438bea"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/identity.json": {
+      "bytes": 1559,
+      "sha256": "b1fc3623720e9e621d5973e378a69383df57d31cb713b3048ca2645b060eb293"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/index.json": {
+      "bytes": 228,
+      "sha256": "d242921d045618c8777061e72b42b09cd0c62abccd85f9fb6d9e0357edf4e080"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/segment-0000.jsonl": {
+      "bytes": 1107003,
+      "sha256": "9f2b7306efb83310a6565be385739817b865939f2df2840b44c48576b1de7471"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011-counts.json": {
+      "bytes": 7833,
+      "sha256": "67d44e5ac009118e7ac54f03574a4e035ea1f970ea9fc3faa0fef84877a5b4ec"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/identity.json": {
+      "bytes": 2300,
+      "sha256": "e2bb9254208c8c052f1460eecdf654fe3e233e746dedf5486428225737dd5575"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/index.json": {
+      "bytes": 228,
+      "sha256": "e9e9e319cc36e1f4f61a83d3dbe709a8c4938eff95d7738d578acd7639fb2aed"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/segment-0000.jsonl": {
+      "bytes": 1113449,
+      "sha256": "6f76409c7a8b3539932dbb28ea8f4e978baaa1bda4f4dc92c909abd02c517b0b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/posterior.json": {
+      "bytes": 60502,
+      "sha256": "79ade9d2ac60d0288c0e08a348395d5bd2eaf9b09608c2eebb67151f5d683767"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006-counts.json": {
+      "bytes": 7509,
+      "sha256": "f56cd6ef95fb33097f600d95619f63e1a667c78433f1064750a58b68031fd9ae"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/identity.json": {
+      "bytes": 1558,
+      "sha256": "7fe710b91ff486c4abf82accc9992059a8b795e46d8cdf9243b327ef1442e5d2"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/index.json": {
+      "bytes": 228,
+      "sha256": "661748f9b2c83c2b4fb89b3c5d81d8eed25830662a93e98f6150604d6383e6bc"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/segment-0000.jsonl": {
+      "bytes": 1059316,
+      "sha256": "ac0d6396068e16ae73ba9075c618af8950dfdd0db556b6cf07acc124a8881177"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009-counts.json": {
+      "bytes": 7511,
+      "sha256": "ced835e43f8cc3174cf5be32747088a50294a8ad31d2f92ffb2ffee00499dd65"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/identity.json": {
+      "bytes": 1966,
+      "sha256": "e98f40ac9a42f766878f7a404dd3bab5533d24a67d2ec6938a26a50529f8d134"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/index.json": {
+      "bytes": 228,
+      "sha256": "3d9ed50407cb3ac555df0b8b086bfe2c68f1780af472566d7713ae0c6c9eaa24"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/segment-0000.jsonl": {
+      "bytes": 1064449,
+      "sha256": "2d1c8c609548ba319700fd8892541e30f582afa2319a6bda7e8d9c82eeadc6b7"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013-counts.json": {
+      "bytes": 7510,
+      "sha256": "6424a066a20accb8634a5c1772a7e48ac3c782fb4f9144c1876edc4e3194536a"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/identity.json": {
+      "bytes": 2618,
+      "sha256": "8e42a573e15c7e9b48a8d41c1097c4d4148fc7c4ee3a3ce4ce395f8050b0ef0d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/index.json": {
+      "bytes": 228,
+      "sha256": "483d190b4d98034060d7175bf0c157f566de7c99584f56413086bbd08b167613"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/segment-0000.jsonl": {
+      "bytes": 1059414,
+      "sha256": "930b194002f6cd8ff120364f71557ec4a942b35564587fbd47c8027188e1016b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016-counts.json": {
+      "bytes": 7512,
+      "sha256": "fe0f14d40529110e0061535db67471def98c5f3713413c5ea6f1be5acac7b63e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/identity.json": {
+      "bytes": 3009,
+      "sha256": "8f01e7cf93d54a5fdb6b74b7530bfe34f3d6178a247e4558763b5359a11598f4"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/index.json": {
+      "bytes": 228,
+      "sha256": "b9bdfdbb859aad6782410134b94191f58e2a5f75f40e98914475f545ab62043b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/segment-0000.jsonl": {
+      "bytes": 1065783,
+      "sha256": "aa1ba4098b19f65bf8295cac2391a27e6586aa3b1dca571cf36c1152ff27cfe3"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/posterior.json": {
+      "bytes": 59089,
+      "sha256": "b9a400d3102edddbaa5e3b455993f622d1c68bebe7d31fdaf04aa5f08ad6ce83"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006-counts.json": {
+      "bytes": 7194,
+      "sha256": "0657263866c93d2cf5a3473caae4763b9f8d060c013475423a62ce56eeced600"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/identity.json": {
+      "bytes": 1558,
+      "sha256": "d2652573d06f970c0837802a5c71b8530d92ce60ef96210fb35ff418bfc6cebe"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/index.json": {
+      "bytes": 228,
+      "sha256": "44231d9c027663f2ed75ac366b6dcef9bdb6894a391a480388b07db1fba2a474"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/segment-0000.jsonl": {
+      "bytes": 1012832,
+      "sha256": "1234f138b5c2e1c98942ccd009f941f1278c254778de1569cc646156f65a439b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009-counts.json": {
+      "bytes": 7196,
+      "sha256": "447dba356b6fd7fa9afced1dba84d79fdd3f7988803827b2d6e678f17502cd5d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/identity.json": {
+      "bytes": 1966,
+      "sha256": "91f74a7339b29d4726599fbf3e528a632811a98e312b0207914153c2e9ed364e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/index.json": {
+      "bytes": 228,
+      "sha256": "eacc0be1bdfdd20cd61e745df1625ceb2ea9f6a6954d4acae83bbd86982e70d7"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/segment-0000.jsonl": {
+      "bytes": 1018134,
+      "sha256": "2ddb11d0bce99d342944699e5ff312b6cde3cbc06c70a9bcf8c8c9c24f45fd68"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014-counts.json": {
+      "bytes": 7197,
+      "sha256": "5cf2f6a65c52573a2f4b54abb0d0595fa5f4b4e4131a744f9b03c08cb80942fa"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/identity.json": {
+      "bytes": 2682,
+      "sha256": "204dc4b9e4c8545a791bf4984684d07d9616a6f5008e72dcfe3b2fb6b6c20845"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/index.json": {
+      "bytes": 228,
+      "sha256": "84f135f7e066610d8892785fcb238788fd3a130a3062ecbb07f264e79fed7162"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/segment-0000.jsonl": {
+      "bytes": 1018389,
+      "sha256": "e23db63d79e381c401592d4fae19b52be87bf511bc5db41dde9e9655a16e9efc"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018-counts.json": {
+      "bytes": 7195,
+      "sha256": "cf87bfd61f913c2d21a27cabf3e98de6866cfe6aee127403ff20e38c328f59d3"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/identity.json": {
+      "bytes": 3333,
+      "sha256": "ba362b3bd46e72365ed6625cf61f8eecfebd7b74dde4005e61d8133d220d11ae"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/index.json": {
+      "bytes": 228,
+      "sha256": "c1d901cd4c6678bfac28d37339a207ae01068d0af58b35abd7edea93f93538f6"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/segment-0000.jsonl": {
+      "bytes": 1014463,
+      "sha256": "93d07e20ba4dba5088235e1efd792f247a8fb536d995011ca2fa473042a74305"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021-counts.json": {
+      "bytes": 7197,
+      "sha256": "c1834c9ab4e585b8926b469dfefcba3df61ab1c18285e132e806b2b565ddc515"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/identity.json": {
+      "bytes": 3726,
+      "sha256": "14e45d233522ee28c48091df6bec81d3f66e37f340c49eb263d9c33c8f7be8f1"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/index.json": {
+      "bytes": 228,
+      "sha256": "a4876e9fc24e3bf118bf9edb6e1b35f64c806c4fcf4a6c8da0f0d5cfe3daaa15"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/segment-0000.jsonl": {
+      "bytes": 1018587,
+      "sha256": "d024abfb911f60c88ff6ed024f024638136f92287f907ae5653273c4f23d1004"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-2/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/posterior.json": {
+      "bytes": 57503,
+      "sha256": "d1252f707a49080c01771dcf3f897496a4e7a16a86c95fdd5f7aaf7fd429f5e4"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004-counts.json": {
+      "bytes": 7832,
+      "sha256": "d231dd4a41ac6e10512b97a6b2d9b4725ffc48ff5467c887c33bd94c83f21eff"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/identity.json": {
+      "bytes": 1225,
+      "sha256": "0e5b405c9445699c589789c060e0897ec7d5dc0ce90829e5726c820d360ad020"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/index.json": {
+      "bytes": 228,
+      "sha256": "b9d4d52f42e397e9b01ec67450cca5ecc57b289045d99f362b80c462f4f2827d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-004/segment-0000.jsonl": {
+      "bytes": 1107085,
+      "sha256": "80f10f29290a13fb495794bae24bd22677744c4fbe941625dfb408a3bcf19268"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011-counts.json": {
+      "bytes": 7833,
+      "sha256": "6dc5f51a570a72db890f3d738aa5c3f8b3c8dcff4d3475cc8fe8932732ac7e4c"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/identity.json": {
+      "bytes": 2291,
+      "sha256": "79afe805c1f52cf0cd9c7bf99e6330fe27160c0951b5baaae6a973b405eb820e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/index.json": {
+      "bytes": 228,
+      "sha256": "9c8cef25c7ff4eee8da5dd4a97ca2cb8811e8a8054db9e0e2f366a168025b5a8"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/event-011/segment-0000.jsonl": {
+      "bytes": 1108828,
+      "sha256": "36b61052e4f1635f0b97585794cbcf928a07266d6ec068e65d5611c57d97fcda"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26/posterior.json": {
+      "bytes": 66923,
+      "sha256": "743872fe284d0b0d25852fc13466346c3a0fdac6cd0a19a172ff820938de44e2"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004-counts.json": {
+      "bytes": 8840,
+      "sha256": "1ea79ec710ff879d22aeb46650b10efdc416a2ab922d7cbf56c458da362e74a8"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/identity.json": {
+      "bytes": 1225,
+      "sha256": "b6acf5cc03d9f7edd112e7ecce1f2e991464330922c782563b72c24b1a6b1cc6"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/index.json": {
+      "bytes": 228,
+      "sha256": "24f8beb4b9bfd77cd9a85a68d1a3a7e219e093d912f886568e7b56109538e876"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/event-004/segment-0000.jsonl": {
+      "bytes": 1255260,
+      "sha256": "a5f75ae4cf1fcc2a4dbdb023d0f00284d673059a3d2cc557077c9c030cd064a8"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d/posterior.json": {
+      "bytes": 77840,
+      "sha256": "fec02293de7e60e19d0909e69a31e12dd22e7b4b236233558c0abc197e146966"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006-counts.json": {
+      "bytes": 7832,
+      "sha256": "613cbb6ea2813e75113e894fba58db96a9ebae77d0e0d907ac1ff22467101a92"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/identity.json": {
+      "bytes": 1559,
+      "sha256": "97ace6dd6f894bd1029e782cf3f4c6fc82fc6b4fcdbcdf5b504a0a9c588144ad"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/index.json": {
+      "bytes": 228,
+      "sha256": "da8712d6b6a4c7c40e31e021991cc5e4f2eae5460aaf84aba76926d729ce9d16"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-006/segment-0000.jsonl": {
+      "bytes": 1106891,
+      "sha256": "7db609ac7372e03eff12ccd3476c15fb403305f27a8ba1caa297bfd681e51375"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011-counts.json": {
+      "bytes": 7833,
+      "sha256": "f42fe9241444b12df64cb7c7a43d04858e6b18f9d7a48ccc80c4736c97f07935"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/identity.json": {
+      "bytes": 2300,
+      "sha256": "6cc90cd44f581faf5c44adc50045a77b49ed7ca31103858468705eb5e8aed537"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/index.json": {
+      "bytes": 228,
+      "sha256": "73e9fb27e9b31145fa3ca82f65b2c9baf8698bc598e19aeb7ba938e8e3fd4427"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/event-011/segment-0000.jsonl": {
+      "bytes": 1113435,
+      "sha256": "585c8206c79a3644ad9bfd8b31854f393f2aa0972fe25ee608aba71412643ace"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132/posterior.json": {
+      "bytes": 60475,
+      "sha256": "d34e264018d1b64baa1747f9955d9567187a5a667cd634c6e031792d2d5c6013"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006-counts.json": {
+      "bytes": 7509,
+      "sha256": "26bd71c217fc2fef3333c8028da7807591a57ba163b80db0d7a369be4d803365"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/identity.json": {
+      "bytes": 1558,
+      "sha256": "304500001300d3e5c01cf60fa2d2afe3ee9853df8394758cf340f76f5f4513ab"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/index.json": {
+      "bytes": 228,
+      "sha256": "0e489528ca98df13cdeb1d941e824f6b7971699e4a640c860f1419783893bb66"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-006/segment-0000.jsonl": {
+      "bytes": 1059263,
+      "sha256": "c7a18d0c9f5da532f44af2f2a04810ef096909f086a8a53fde09d7964c03da4d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009-counts.json": {
+      "bytes": 7511,
+      "sha256": "5005d96317bf28115b547d6950eaa7f4275a0b8e8b7b47abc832183114e6985a"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/identity.json": {
+      "bytes": 1966,
+      "sha256": "4f95e89a7348707fe51ed0465d14393279d30efc9e3b0c8a2dc6e25ec25b6a7e"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/index.json": {
+      "bytes": 228,
+      "sha256": "984338c37eee3badd20522fa47ad8c5c7448c2222fbe91086ba864b16c7283ea"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-009/segment-0000.jsonl": {
+      "bytes": 1064469,
+      "sha256": "012247b9d887340bb8c3583d3d3ea1fcc64436b09228808cb2002e89495916f5"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013-counts.json": {
+      "bytes": 7510,
+      "sha256": "01e49a115c197299096c8e1e2e772e92e49143dae0d4b288889dc9e19b879905"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/identity.json": {
+      "bytes": 2618,
+      "sha256": "29fe2a557ebd48a0aa8ddf88c9aaea8c6e8199c7db72bc917fb90a1fafc3750d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/index.json": {
+      "bytes": 228,
+      "sha256": "e6e7f585d6c56f1ea7a41a007db486960ff28c68e4265a8bd7395126a4730266"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-013/segment-0000.jsonl": {
+      "bytes": 1059406,
+      "sha256": "a3b87c9ee79844d70f852e897ce7226a39b92a0695257f51c3fc75cf4289a709"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016-counts.json": {
+      "bytes": 7512,
+      "sha256": "0e34a305a74169ab0e34bc7cb8a6701d73304d55195c74ffbf231372f1298eda"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/identity.json": {
+      "bytes": 3009,
+      "sha256": "0f680b69a3dbcf417274df226d5a90874789d431c0bbfe1e4b18fffe77ce6a82"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/index.json": {
+      "bytes": 228,
+      "sha256": "58d339b44efe4fe495f4354619791115ac243bb606e61cb7bf8b10283b3f27a7"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/event-016/segment-0000.jsonl": {
+      "bytes": 1065795,
+      "sha256": "e2c5f7519840da8eacf937e167522640b538f1e6c2274ce543382d6e43056be3"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7/posterior.json": {
+      "bytes": 59399,
+      "sha256": "b54f6d049f5b687c5081e636915a340519e758f3db5d9f6ea521301044ebfdf0"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006-counts.json": {
+      "bytes": 7194,
+      "sha256": "f02e046ce154f70d741f6c15f17f7d22ff26f9ee0875081aa188b974fa3dd8eb"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/identity.json": {
+      "bytes": 1558,
+      "sha256": "e8af88629ca9d37bb6df4b01b6813f32ac2c6ed69d57deb94421757bfde58328"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/index.json": {
+      "bytes": 228,
+      "sha256": "b25af9a518101702416efd074e5815b11b71b6edf84634b09f0e8ca1e19f4331"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-006/segment-0000.jsonl": {
+      "bytes": 1012841,
+      "sha256": "f323fe56f23988ffdb677c60f41a5175047534551d33701d5d16f7351b3c30f4"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009-counts.json": {
+      "bytes": 7196,
+      "sha256": "18d7885851c727696d6ddc2a8545d020fee534c4415411cca682ed59e80210aa"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/identity.json": {
+      "bytes": 1966,
+      "sha256": "3e9dca722818c1b7386c9cc6d74ba9eb03060e359b500da85ef52f26a4a55f66"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/index.json": {
+      "bytes": 228,
+      "sha256": "7a03954003a990fab19d67f26384826f5f6ead94b9d53e62101279a3bd21634c"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-009/segment-0000.jsonl": {
+      "bytes": 1018079,
+      "sha256": "62cb8670e8600eac07bf15bebcb105020b667ccebcc2dd71ea68a191b65bfab7"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014-counts.json": {
+      "bytes": 7197,
+      "sha256": "a40003fe8754913607bdb28bba2f02ddb529dfd4bce4f70431105502f52c14f8"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/identity.json": {
+      "bytes": 2682,
+      "sha256": "d04428b67f9b3eaacbe153a9883443ba1a48f5bf75b709d7a192721cdf8cf715"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/index.json": {
+      "bytes": 228,
+      "sha256": "f431ee7849500820ae38e900d4aee2e2c2dc79d1d6e8f553371fbad953bcf2cf"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-014/segment-0000.jsonl": {
+      "bytes": 1018276,
+      "sha256": "d84ff5852b0439b1a84df729cda312b72b2db23a8bf9a204d5c3eac7093f50a5"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018-counts.json": {
+      "bytes": 7195,
+      "sha256": "06b3cd3621066bcc48a9c4caaad357fbd9fd96305346406a5f55fffa3ec66439"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/identity.json": {
+      "bytes": 3333,
+      "sha256": "374d3ceb10aa125a8c8295f96a583714b4ebc51755044bc191921e89b05a7856"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/index.json": {
+      "bytes": 228,
+      "sha256": "c3671811598fb465ea4e7a09bb37f28e6f0202e7160e1ad92438490e632355b3"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-018/segment-0000.jsonl": {
+      "bytes": 1014455,
+      "sha256": "10e043bf30dcb3e93914f3f1f5b96470cd33583a484ad81b4d747fc96f5ce4db"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021-counts.json": {
+      "bytes": 7197,
+      "sha256": "c1834c9ab4e585b8926b469dfefcba3df61ab1c18285e132e806b2b565ddc515"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/identity.json": {
+      "bytes": 3726,
+      "sha256": "9146824767d92260a68af65a8336892cb6ba5ae6e87d5ad9d4e4ef8a9dae4ef0"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/index.json": {
+      "bytes": 228,
+      "sha256": "3a8647df00ec1a8a71b80ef7d8a48402a156788f58a5d3517db223b5c2e9ec41"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/event-021/segment-0000.jsonl": {
+      "bytes": 1018559,
+      "sha256": "136241b684b2ceab8b346428d4cc5b8de2c735245b7c1b49d4aa6ec2bb2983ef"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/likelihood/repeat-3/276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e/posterior.json": {
+      "bytes": 57762,
+      "sha256": "97b0241c841c2fbe3c1289ece864ea96567876fa6980c3156b55e8ec343d86d9"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/report.json": {
+      "bytes": 27529,
+      "sha256": "112aab9aed5786bf625156b9b6890d1d693937a5d3cfd0b6cf15be8597f336ab"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/report.md": {
+      "bytes": 3870,
+      "sha256": "02f7de717c2f100e742363a74d5deb4612d65ca663d62697f1c0de6c72db6d8b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/reporting-status.json": {
+      "bytes": 54,
+      "sha256": "8335f42cb07a2a3f8dfc65d494676c7720981c867e98c0a094e0669c155b3154"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/reporting.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/resources.jsonl": {
+      "bytes": 718516,
+      "sha256": "ce94fd9de03d2bb5043cbb8a95547b26af75589549161fa43e53c1ddc310f4cc"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/scientific-clock.json": {
+      "bytes": 506,
+      "sha256": "90ed572edf6f5a3730c0bd69d48edcb1ce189fa6ccea69f5fe462c43b10b60cf"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/stability-03.log": {
+      "bytes": 205,
+      "sha256": "9ebc6bfb89466fde21f39c71e1e53cfd2b2aff61c76ce5950a25541245c0b6b4"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/stability-attempt.json": {
+      "bytes": 217,
+      "sha256": "a582ba4cad63e7a6342894f0acc4d14505b68b91af37efda17afbd54dd41c0b7"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/stability/result.json": {
+      "bytes": 7461,
+      "sha256": "742ca6bff50116797cb3e8c25d85055f67bc7afe45226edf75eed39f6d1f7c2b"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/timer-02.log": {
+      "bytes": 103,
+      "sha256": "53f039e2f8edb987888ca4bf965140e3d15403e5e5c7217970c05af3d5979b75"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/timer-attempt.json": {
+      "bytes": 113,
+      "sha256": "f45b3c7134de13885077e3ed46ea246dc63f8c76af03a2b7401114d36aa43508"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/timer/result.json": {
+      "bytes": 520302,
+      "sha256": "0d6c68b70be885429cbc731573db992efab831141b201beef962982e042b516f"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/timer/rows/identity.json": {
+      "bytes": 180,
+      "sha256": "54115f104302ac14ab1af5dd318beeea94300ba80558a7608b4c7cadad4e6c1a"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/timer/rows/index.json": {
+      "bytes": 226,
+      "sha256": "13129c0eee22a9cb2fc93b9ab19f0692078eea4be35f2ab306db3697f76c674d"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/timer/rows/segment-0000.jsonl": {
+      "bytes": 373739,
+      "sha256": "d1ab07702b4b22e80c8bda76a8bcc2f63cdab98d7cd4e491a2b78346bad09ef4"
+    },
+    "/Users/dberweger/Local/hu20-posterior-audit-v2/results/hu20-posterior-audit-v2-m4-20260930/verified-inputs.json": {
+      "bytes": 22348,
+      "sha256": "4e29a399cce59aed044a5e24e3344304ab50575cb5e531d254275e162425a55b"
+    }
+  },
+  "merged_base": "7d31a39c80cc72deb772336ce251f3c4bdcd46c9",
+  "sealed_at": 1790787759.538027,
+  "source_head": "0d3a5cf1c5ba763ec0db149795650b2773236855"
+}
