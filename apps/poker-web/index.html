@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HU20 · Local Poker Table</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">♠</span><div><strong>HU20</strong><small>LOCAL PLAY TABLE</small></div></div>
+      <div id="connection" class="connection">Connecting…</div>
+    </header>
+
+    <section id="gate" class="gate panel" hidden>
+      <div class="eyebrow">LOCAL ACCESS</div>
+      <h1>Enter your table</h1>
+      <p>The access token is in the private token file named by the server. It stays in this browser, not in the URL.</p>
+      <form id="gate-form">
+        <label for="token">Access token</label>
+        <input id="token" type="password" autocomplete="off" required>
+        <button type="submit" class="primary">Unlock table</button>
+      </form>
+    </section>
+
+    <section id="setup" class="setup panel" hidden>
+      <div class="eyebrow">NEW SESSION</div>
+      <h1>Play the B100M blueprint</h1>
+      <p>Heads-up, 20 BB stacks, 0.5 / 1 BB blinds. Stacks reset after every hand.</p>
+      <div class="choice-grid">
+        <label class="choice"><input type="radio" name="playMode" value="restricted" checked><span><strong>Restricted research</strong><small>Choose from the policy’s concrete training menu.</small></span></label>
+        <label class="choice"><input type="radio" name="playMode" value="free"><span><strong>Free sizing · experimental</strong><small>Make any native-legal wager. Off-menu play may use the policy’s unchanged fallback.</small></span></label>
+      </div>
+      <label for="visibility">Information visibility</label>
+      <select id="visibility"><option value="developer">Casual / developer</option><option value="benchmark">Benchmark-safe</option></select>
+      <p class="hint">Benchmark-safe sessions never provide lookup diagnostics. This is not a formal strength test.</p>
+      <button id="create" class="primary">Create session</button>
+    </section>
+
+    <section id="game" hidden>
+      <div class="status-row">
+        <div><div id="mode" class="eyebrow"></div><div id="model" class="model"></div></div>
+        <div class="session-stat"><small>SESSION RESULT</small><strong id="session-bb">0 BB</strong></div>
+      </div>
+      <div class="table-wrap">
+        <div class="table-felt">
+          <div class="table-inner">
+            <div id="bot-seat" class="seat bot-seat"></div>
+            <div class="center-board"><div id="street" class="street"></div><div id="board" class="cards"></div><div id="pot" class="pot"></div></div>
+            <div id="human-seat" class="seat human-seat"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-grid">
+        <section class="panel action-panel">
+          <div id="turn" class="turn"></div>
+          <div id="result" class="result"></div>
+          <div id="controls"></div>
+          <button id="new-hand" class="primary" hidden>Deal next hand</button>
+        </section>
+        <aside class="panel history-panel"><div class="panel-heading"><h2>Hand history</h2><button id="past-hands" class="text-button">Past hands</button></div><div id="events" class="events"></div><div id="diagnostics" class="diagnostics"></div></aside>
+      </div>
+      <details class="model-details"><summary>Model and session details</summary><div id="model-details"></div></details>
+    </section>
+    <div id="notice" class="notice" role="status" aria-live="polite"></div>
+    <button id="retry" class="action-button" hidden>Reconnect / retry pending operation</button>
+  </main>
+</body>
+</html>

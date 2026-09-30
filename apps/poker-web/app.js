@@ -1,0 +1,257 @@
+"use strict";
+
+const $ = (id) => document.getElementById(id);
+const STORE = "hu20-local-play-v1";
+let saved = JSON.parse(localStorage.getItem(STORE) || "{}");
+let state = null;
+let busy = false;
+let processingBot = false;
+
+function persist() { localStorage.setItem(STORE, JSON.stringify(saved)); }
+function bb(chips) { return `${(chips / 100).toFixed(2).replace(/\.00$/, "")} BB`; }
+function signed(chips) { return `${chips >= 0 ? "+" : "−"}${bb(Math.abs(chips))}`; }
+function node(tag, className, content) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (content !== undefined) element.textContent = content;
+  return element;
+}
+function clear(element) { element.replaceChildren(); }
+function notice(message, error = false) { $("notice").textContent = message; $("notice").classList.toggle("error", error); $("retry").hidden = !error; }
+function connection(message, good = false) { $("connection").textContent = message; $("connection").classList.toggle("online", good); }
+function show(id) { for (const name of ["gate", "setup", "game"]) $(name).hidden = name !== id; }
+
+async function request(path, { method = "GET", body, key } = {}) {
+  const headers = { "X-Play-Token": saved.token || "" };
+  if (body !== undefined) headers["Content-Type"] = "application/json";
+  if (key) headers["Idempotency-Key"] = key;
+  const response = await fetch(path, { method, headers, body: body === undefined ? undefined : JSON.stringify(body), cache: "no-store" });
+  const result = await response.json();
+  if (!response.ok) {
+    const error = new Error(result.error || `Request failed (${response.status})`);
+    error.status = response.status;
+    throw error;
+  }
+  connection("Connected to local table", true);
+  return result;
+}
+
+async function mutate(path, body) {
+  if (busy) return;
+  busy = true; render();
+  const operation = saved.pending || { path, body, key: crypto.randomUUID() };
+  saved.pending = operation; persist();
+  try {
+    const response = await request(operation.path, { method: "POST", body: operation.body, key: operation.key });
+    saved.pending = null;
+    saved.sessionId = response.sessionId;
+    persist();
+    state = response;
+    notice("");
+    return response;
+  } catch (error) {
+    if (error.status >= 400 && error.status < 500) { saved.pending = null; persist(); }
+    if (error.status === 403) { saved.token = ""; persist(); }
+    connection("Disconnected or request failed");
+    notice(`${error.message}. ${saved.pending ? "Retry the same operation" : "Refresh table state"}; no action will be chosen for you.`, true);
+    throw error;
+  } finally {
+    busy = false; render();
+  }
+}
+
+async function recover() {
+  if (!saved.token) { show("gate"); connection("Access token needed"); return; }
+  if (saved.pending) {
+    const pending = saved.pending;
+    try { await mutate(pending.path, pending.body); } catch (_) { return; }
+  }
+  if (!saved.sessionId) { show("setup"); connection("Ready", true); return; }
+  try {
+    state = await request(`/api/sessions/${saved.sessionId}`);
+    render();
+    await maybeAdvanceBot();
+  } catch (error) {
+    connection("Disconnected");
+    notice(error.message, true);
+    if (error.status === 403) { saved.token = ""; persist(); show("gate"); return; }
+    if (error.status === 404) { saved.sessionId = null; persist(); show("setup"); }
+  }
+}
+
+function card(value, hidden = false) {
+  const c = node("span", `card ${hidden ? "hidden-card" : (value?.endsWith("h") || value?.endsWith("d") ? "red" : "")}`, hidden ? "◆" : `${value[0]}${{ c:"♣", d:"♦", h:"♥", s:"♠" }[value[1]]}`);
+  c.setAttribute("aria-label", hidden ? "Hidden card" : value);
+  return c;
+}
+function cards(target, values, backCount = 0) {
+  clear(target);
+  for (const value of values) target.append(card(value));
+  for (let i = 0; i < backCount; i++) target.append(card("", true));
+}
+function seat(target, player, isHuman, hand) {
+  clear(target);
+  target.classList.toggle("acting", hand.actor === player.seat);
+  const head = node("div", "seat-head");
+  head.append(node("strong", "", isHuman ? "You" : "B100M"));
+  if (hand.button === player.seat) head.append(node("span", "badge", "D · SB"));
+  else head.append(node("span", "badge", "BB"));
+  target.append(head);
+  target.append(node("div", "stack", bb(player.stack)));
+  const visible = isHuman ? hand.humanCards : player.shownCards;
+  const deck = node("div", "cards seat-cards");
+  cards(deck, visible, isHuman || visible.length ? 0 : 2);
+  target.append(deck);
+  const line = [player.folded ? "Folded" : player.allIn ? "All-in" : "", player.streetBet ? `Street ${bb(player.streetBet)}` : "", player.contributed ? `In pot ${bb(player.contributed)}` : ""].filter(Boolean).join(" · ");
+  target.append(node("small", "seat-detail", line || "Waiting"));
+}
+function button(label, action, emphasis = false) {
+  const control = node("button", emphasis ? "primary" : "action-button", label);
+  control.type = "button";
+  control.disabled = busy || !!saved.pending;
+  control.addEventListener("click", action);
+  return control;
+}
+async function act(kind, raiseTo = null) {
+  if (!state?.hand) return;
+  try {
+    await mutate(`/api/sessions/${state.sessionId}/actions`, { handId: state.hand.id, revision: state.revision, kind, raiseTo });
+    await maybeAdvanceBot();
+  } catch (_) { /* The pending operation is retained for an exact retry. */ }
+}
+function exactChips(raw) {
+  if (!/^\d+(?:\.\d{1,2})?$/.test(raw.trim())) return null;
+  const [whole, fraction = ""] = raw.trim().split(".");
+  const chips = Number(whole) * 100 + Number(fraction.padEnd(2, "0"));
+  return Number.isSafeInteger(chips) ? chips : null;
+}
+function renderControls(hand) {
+  const target = $("controls"); clear(target);
+  if (!hand.legal) return;
+  if (state.playMode === "restricted") {
+    const group = node("div", "button-grid");
+    for (const item of hand.menu) {
+      const label = item.kind === "raise" ? `${item.label} · ${bb(item.raiseTo)}` : item.kind === "call" ? `Call ${bb(hand.legal.call)}` : item.kind;
+      group.append(button(label, () => act(item.kind, item.raiseTo), item.kind === "check" || item.kind === "call"));
+    }
+    target.append(group);
+    return;
+  }
+  const base = node("div", "button-grid");
+  for (const kind of ["fold", "check", "call"]) if (hand.legal.kinds.includes(kind)) {
+    base.append(button(kind === "call" ? `Call ${bb(hand.legal.call)}` : kind, () => act(kind), kind !== "fold"));
+  }
+  target.append(base);
+  if (!hand.legal.kinds.includes("raise")) return;
+  const panel = node("div", "raise-panel");
+  panel.append(node("div", "raise-title", `Raise to · ${bb(hand.legal.minRaiseTo)} min / ${bb(hand.legal.maxRaiseTo)} max`));
+  const row = node("div", "raise-row");
+  const slider = node("input"); slider.type = "range"; slider.min = hand.legal.minRaiseTo; slider.max = hand.legal.maxRaiseTo; slider.step = "1"; slider.value = hand.legal.minRaiseTo; slider.disabled = busy;
+  slider.setAttribute("aria-label", "Exact raise-to amount in chips");
+  const field = node("input"); field.type = "text"; field.inputMode = "decimal"; field.value = (hand.legal.minRaiseTo / 100).toFixed(2); field.disabled = busy;
+  field.setAttribute("aria-label", "Exact raise-to amount in BB");
+  slider.addEventListener("input", () => { field.value = (Number(slider.value) / 100).toFixed(2); });
+  field.addEventListener("input", () => { const value = exactChips(field.value); if (value !== null && value >= Number(slider.min) && value <= Number(slider.max)) slider.value = value; });
+  const submit = button("Raise", () => {
+    const chips = exactChips(field.value);
+    if (chips === null || chips < hand.legal.minRaiseTo || chips > hand.legal.maxRaiseTo) { notice("Enter an exact chip amount within the displayed legal bounds.", true); return; }
+    act("raise", chips);
+  }, true);
+  row.append(slider, field, node("span", "unit", "BB"), submit); panel.append(row);
+  const presets = node("div", "presets");
+  for (const preset of hand.presets) {
+    const item = button(`${preset.label} · ${bb(preset.raiseTo)}`, () => { field.value = (preset.raiseTo / 100).toFixed(2); slider.value = preset.raiseTo; }, false);
+    item.disabled = busy || !preset.available;
+    presets.append(item);
+  }
+  panel.append(presets); target.append(panel);
+}
+function eventText(event) {
+  if (event.event === "blind") return `${event.seat === 0 ? "You" : "Bot"} posts ${bb(event.amount)}`;
+  if (event.event === "action") return `${event.seat === 0 ? "You" : "Bot"} ${event.kind === "raise" ? `raise to ${bb(event.raiseTo)}` : event.kind === "call" ? `call ${bb(event.paid)}` : event.kind}`;
+  if (event.event === "board") return `${event.street}: ${event.cards.join(" ")}`;
+  if (event.event === "shown") return `${event.seat === 0 ? "You" : "Bot"} show ${event.cards.join(" ")}`;
+  if (event.event === "mucked") return `${event.seat === 0 ? "You" : "Bot"} muck`;
+  return "";
+}
+async function loadDiagnostics() {
+  if (!state || state.visibility !== "developer" || state.phase !== "finished") return;
+  try {
+    const result = await request(`/api/sessions/${state.sessionId}/hands/${state.hand.id}/diagnostics`);
+    $("diagnostics").textContent = `After-hand lookup: ${result.trained} trained · ${result.fallback} fallback`;
+  } catch (_) { /* Diagnostics do not affect play. */ }
+}
+function render() {
+  if (!saved.token) { show("gate"); return; }
+  if (!state) { show("setup"); return; }
+  show("game");
+  $("mode").textContent = `${state.playMode === "free" ? "FREE SIZING · EXPERIMENTAL" : "RESTRICTED RESEARCH"} / ${state.visibility === "benchmark" ? "BENCHMARK-SAFE" : "DEVELOPER"}`;
+  $("model").textContent = `${state.model.name} · ${state.model.sha256.slice(0, 12)}…`;
+  $("session-bb").textContent = signed(state.sessionChips);
+  $("model-details").textContent = `Session ${state.sessionId} · ${state.model.game} · ${state.model.schema} · ${state.model.format} · SHA-256 ${state.model.sha256} · ${state.model.adapter}`;
+  $("diagnostics").textContent = "";
+  if (!state.hand) {
+    $("turn").textContent = "Ready to deal";
+    $("result").textContent = "Start a 20 BB hand against B100M.";
+    $("new-hand").hidden = false; $("new-hand").disabled = busy || !!saved.pending;
+    clear($("controls")); clear($("events")); clear($("board")); clear($("bot-seat")); clear($("human-seat"));
+    $("street").textContent = "PRE-FLOP"; $("pot").textContent = "POT · 0 BB";
+    return;
+  }
+  const hand = state.hand;
+  seat($("bot-seat"), hand.players[1], false, hand);
+  seat($("human-seat"), hand.players[0], true, hand);
+  cards($("board"), hand.board, 5 - hand.board.length);
+  $("street").textContent = hand.street.toUpperCase();
+  $("pot").textContent = `POT · ${bb(hand.pot)}`;
+  $("turn").textContent = state.phase === "finished" ? "Hand complete" : hand.actor === 0 ? "Your turn" : "B100M is thinking…";
+  $("result").textContent = state.phase === "finished" ? `This hand: ${signed(hand.result.humanChips)} · Session: ${signed(state.sessionChips)}` : "";
+  $("new-hand").hidden = state.phase !== "finished"; $("new-hand").disabled = busy || !!saved.pending;
+  renderControls(hand);
+  const events = $("events"); clear(events);
+  for (const event of hand.events) events.append(node("div", "event", eventText(event)));
+  events.scrollTop = events.scrollHeight;
+  if (state.phase === "finished") loadDiagnostics();
+}
+async function maybeAdvanceBot() {
+  if (processingBot || busy || !state?.hand || state.phase === "finished" || state.hand.actor !== 1) return;
+  processingBot = true;
+  try {
+    await mutate(`/api/sessions/${state.sessionId}/advance`, { handId: state.hand.id, revision: state.revision });
+  } catch (_) { /* Retry remains available on reconnect. */ }
+  finally { processingBot = false; }
+}
+$("gate-form").addEventListener("submit", async (event) => {
+  event.preventDefault(); saved.token = $("token").value.trim(); persist();
+  try { await recover(); } catch (_) { notice("Access denied", true); }
+});
+$("create").addEventListener("click", async () => {
+  try {
+    await mutate("/api/sessions", { playMode: document.querySelector('input[name="playMode"]:checked').value, visibility: $("visibility").value });
+  } catch (_) { /* Recoverable with the same key. */ }
+});
+$("new-hand").addEventListener("click", async () => {
+  if (!state) return;
+  try {
+    await mutate(`/api/sessions/${state.sessionId}/hands`, { revision: state.revision });
+    await maybeAdvanceBot();
+  } catch (_) { /* Recoverable with the same key. */ }
+});
+$("past-hands").addEventListener("click", async () => {
+  if (!state) return;
+  try {
+    const history = await request(`/api/sessions/${state.sessionId}/history`);
+    const events = $("events"); clear(events);
+    if (!history.hands.length) events.append(node("div", "event", "No completed hands yet"));
+    for (const hand of [...history.hands].reverse()) {
+      const details = node("details", "past-hand");
+      details.append(node("summary", "", `${hand.handId.slice(0, 8)}… · ${signed(hand.humanChips)} · ${hand.button === 0 ? "Button" : "Big blind"}`));
+      for (const event of hand.events) details.append(node("div", "event", eventText(event)));
+      events.append(details);
+    }
+    notice(`${history.hands.length} completed hands · ${signed(state.sessionChips)} total`);
+  } catch (error) { notice(error.message, true); }
+});
+window.addEventListener("online", recover);
+$("retry").addEventListener("click", recover);
+recover();
