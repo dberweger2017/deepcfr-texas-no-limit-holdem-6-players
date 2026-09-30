@@ -31,7 +31,6 @@ def load_saved(spec, inputs, guard=lambda: None):
             or source.abstraction != HU20_UNCAPPED_SCHEMA
             or spec['format'] != HU20_UNCAPPED_FORMAT
             or source.description['strategy'] != 'current'
-            or source.description['iteration'] != spec['milestone']
             or source.description['training_seed'] != spec['seed']):
         raise ValueError('Saved policy does not match the frozen HU20 lineage')
     visits = {}
@@ -39,7 +38,7 @@ def load_saved(spec, inputs, guard=lambda: None):
         header = json.loads(handle.readline())
         if (_checked_schema(header) != source.abstraction or header.get('kind') != 'training'
                 or header.get('identity') != source.identity
-                or header.get('iteration') != spec['milestone']
+                or header.get('iteration') != source.description['iteration']
                 or header['config']['seed'] != spec['seed']):
             raise ValueError('Checkpoint lineage differs from current policy')
         if header.get('checkpoint_format') == 'jsonl-v2':

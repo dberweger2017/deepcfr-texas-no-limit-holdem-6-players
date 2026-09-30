@@ -39,7 +39,7 @@ def saved(tmp_path):
     config = PilotConfig(seed=7, abstraction=HU20_UNCAPPED_SCHEMA, game=HU20_UNCAPPED_GAME,
                          raise_cap=None, max_entries=1000, max_nodes=1000, max_seconds=30)
     trainer = BlueprintTrainer(Table(('hero', 'rival'), (2000, 2000)), config)
-    trainer.iteration = 100
+    trainer.iteration = 7
     _, view = hand_view()
     menu = choices(view, raise_cap=None, free_fold=False)
     key = information_key(view, menu, schema=HU20_UNCAPPED_SCHEMA)
@@ -107,7 +107,9 @@ def test_readonly_current_audit_and_rejection(saved):
     spec, path = saved
     source, visits = load_saved(spec, path)
     assert list(visits.values()) == [333]
-    for field, value in [('sha256','0'*64), ('seed',8), ('milestone',101), ('checkpoint_sha256','0'*64)]:
+    assert source.description['iteration'] == 7
+    assert spec['milestone'] == 100  # Work milestone is not traversal iteration.
+    for field, value in [('sha256','0'*64), ('seed',8), ('checkpoint_sha256','0'*64)]:
         with pytest.raises(ValueError):
             load_saved({**spec,field:value}, path)
     document = json.loads(gzip.open(path / spec['path'], 'rt').read())
@@ -260,3 +262,12 @@ def test_lbr_wrapper_keeps_actual_actions_separate_from_hypothetical_queries(sav
     assert row['status']=='complete'
     assert all('lbr' in a for a in row['actions'] if a['logical_player']==1)
     assert all(a['observation']['logical_player']==a['logical_player'] for a in row['actions'])
+
+
+def test_checkpoint_traversal_iteration_must_match_export(saved):
+    spec,path=saved
+    lines=gzip.open(path/spec['checkpoint_path'],'rt').read().splitlines()
+    header=json.loads(lines[0]);header['iteration']+=1;lines[0]=json.dumps(header)
+    (path/spec['checkpoint_path']).write_bytes(gzip.compress(('\n'.join(lines)+'\n').encode()))
+    with pytest.raises(ValueError,match='lineage'):
+        load_saved({**spec,'checkpoint_sha256':file_hash(path/spec['checkpoint_path'])},path)
