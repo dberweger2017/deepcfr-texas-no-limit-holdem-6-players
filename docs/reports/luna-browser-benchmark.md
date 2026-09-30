@@ -15,6 +15,7 @@ game, model hash, run order and sampling rules.
 | Wins / losses / ties | 3 / 7 / 0 |
 | Native replay | All ten settlement amounts, chip conservation and public digests matched |
 | Human decisions | All 32 attempted actions reconciled with accepted native actions |
+| Card reading | All 32 reported human-card/board observations matched the native human view |
 | Bot lookup | 31 trained lookups, zero fallback; inspected only after completion |
 | Browser tools | 56 CUA calls; no prohibited tool or capability detected |
 | Parent poker intervention | None |
@@ -28,15 +29,15 @@ I do not publish private reasoning or the unfiltered model transcript.
 ### Raw evidence
 
 - [Sanitized HTTP benchmark export](luna-browser/preflight/export.json).
-- [Every human decision](luna-browser/preflight/decisions.csv): visible menu and
+- [Every human decision](luna-browser/preflight/decisions.csv): player-visible cards/board, menu and
   attempted button, accepted native action/target, timestamps and UI confirmation.
 - [Per-hand results and public digests](luna-browser/preflight/hands.csv).
 - [Tool, configuration, replay and usage summary](luna-browser/preflight/audit.json).
 
-UI acknowledgment averaged 298 ms (median 300 ms, p95 385 ms). This measures
-attempt-to-observation time, **not** reasoning latency. The current table does
-not log the instant when a decision first becomes visible; total decision latency
-will be reported separately with its measurement definition.
+Last rendered-result receipt to action attempt averaged 5.19 seconds (median
+5.01 seconds, p95 6.51 seconds). This observable decision interval excludes
+earlier reads and the first-ready wait; it does not measure private reasoning.
+UI acknowledgment separately averaged 298 ms (median 300 ms, p95 385 ms).
 
 The service's initial sampled RSS was 1,065,728 KiB (1.016 GiB), followed by a
 much lower idle resident sample. These are snapshots, not a measured peak or
@@ -64,6 +65,9 @@ restricted benchmark, and dispatch the named model with no inherited context.
 After completion, run `python -m scripts.audit_luna_browser ROLLOUT --out PRIVATE_AUDIT`
 and `python -m scripts.report_luna_browser PRIVATE_DB ROLLOUT TOKEN_FILE OUTPUT_DIR`.
 The report command requires one isolated completed session and the running local
-service; it fetches the actual sanitized HTTP export. Private database, token and
-rollout remain outside Git. CSVs intentionally omit cards, seeds, RNG state,
-private policy keys and private reasoning. Failed/incomplete runs must be retained.
+service; it fetches the actual sanitized HTTP export. `--export-file SAVED_EXPORT`
+supports later offline analysis of that recorded HTTP response. Private database, token and
+rollout remain outside Git. Decision CSVs include only cards available in the
+human observation at that decision. Unrevealed bot cards, future cards, seeds,
+RNG state, private policy keys and private reasoning are omitted. Failed/incomplete
+runs must be retained.

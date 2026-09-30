@@ -20,6 +20,12 @@
     "p95": 385
   },
   "latencyScope": "Action attempt to observed UI acknowledgment; excludes poker reasoning",
+  "observedDecisionMs": {
+    "mean": 5191.125,
+    "median": 5011.5,
+    "p95": 6512
+  },
+  "decisionLatencyScope": "Last rendered result receipt to action attempt; excludes earlier reads/first-ready wait",
   "usageTotals": {
     "input_tokens": 3772472,
     "cached_input_tokens": 3644416,

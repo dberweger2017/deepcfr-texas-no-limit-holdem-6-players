@@ -21,7 +21,7 @@ def test_extracts_visible_metadata_without_reasoning_or_cards():
     assert not result["violations"]
     assert result["configurations"] == [{"model": "gpt-6-luna", "effort": "high"}]
     assert result["decisionMetadata"] == [{"type": "luna_attempt", "handOrdinal": 1,
-                                            "attemptedButtonLabel": "check"}]
+                                            "attemptedButtonLabel": "check", "lastRenderedAtMs": None}]
     assert "PRIVATE REASONING" not in json.dumps(result)
     assert "As" not in json.dumps(result)
 

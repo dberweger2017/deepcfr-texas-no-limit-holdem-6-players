@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import re
+from datetime import datetime
 from collections import Counter
 from pathlib import Path
 
@@ -43,6 +44,7 @@ def audit(records):
     violations = []
     configurations = []
     usages = []
+    last_rendered_ms = None
     for record in records:
         kind = record.get("type")
         payload = record.get("payload", {})
@@ -78,7 +80,16 @@ def audit(records):
             # Publish hashes, not tool code or the surrounding model transcript.
             call["codeSha256"] = hashlib.sha256(code.encode()).hexdigest()
         elif payload.get("type") in ("function_call_output", "custom_tool_call_output"):
-            metadata.extend(_metadata(payload.get("output", "")))
+            output = payload.get("output", "")
+            extracted = list(_metadata(output))
+            for item in extracted:
+                if item["type"] == "luna_attempt":
+                    item["lastRenderedAtMs"] = last_rendered_ms
+            metadata.extend(extracted)
+            # The result receipt bounds when this rendered observation reached
+            # the player. It is not the browser's first-ready timestamp.
+            if "Browser tab:" in json.dumps(output) and record.get("timestamp"):
+                last_rendered_ms = int(datetime.fromisoformat(record["timestamp"].replace("Z", "+00:00")).timestamp() * 1000)
     return {"configurations": configurations, "toolCalls": calls,
             "toolCounts": dict(Counter(x["name"] for x in calls)),
             "violations": violations, "decisionMetadata": metadata,
