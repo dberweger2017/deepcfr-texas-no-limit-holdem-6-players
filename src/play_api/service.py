@@ -7,6 +7,7 @@ import os
 import secrets
 import sqlite3
 import threading
+from datetime import datetime, timezone
 from pathlib import Path
 from random import Random
 
@@ -24,6 +25,8 @@ MODEL_SHA256 = "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf
 MODEL_NAME = "B100M · seed 2026093001"
 API_VERSION = "hu20-play-api-v1"
 ADAPTER_ID = "direct-v1"
+BENCHMARK_PROTOCOL = "hu20-human-benchmark-v1"
+BUTTON_SCHEDULE = "alternating-seat-0-first-v1"
 PRESETS = (("⅓ pot", 1, 3), ("½ pot", 1, 2), ("⅔ pot", 2, 3),
            ("¾ pot", 3, 4), ("Pot", 1, 1), ("1.5× pot", 3, 2))
 
@@ -36,6 +39,10 @@ class PlayError(Exception):
 
 def _json(value):
     return json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False)
+
+
+def _utc_now():
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
 def _tuple(value):
@@ -156,16 +163,42 @@ class PlayService:
                 raise
 
     def create(self, key, body):
-        if set(body) != {"playMode", "visibility"} or body["playMode"] not in ("restricted", "free") or body["visibility"] not in ("developer", "benchmark"):
-            raise PlayError("Choose a valid play mode and visibility")
+        if body.get("playMode") not in ("restricted", "free"):
+            raise PlayError("Choose a valid play mode")
+        if body.get("sessionType") == "benchmark":
+            if (set(body) != {"sessionType", "playMode", "targetHands"}
+                    or type(body["targetHands"]) is not int
+                    or not 1 <= body["targetHands"] <= 5000):
+                raise PlayError("Benchmark needs a target of 1–5000 hands")
+            visibility = "benchmark"
+            session_type = "benchmark"
+        elif (set(body) in ({"playMode", "visibility"}, {"sessionType", "playMode", "visibility"})
+              and body.get("sessionType", "casual") == "casual"
+              and body["visibility"] in ("developer", "benchmark")):
+            visibility = body["visibility"]
+            session_type = "casual"
+        else:
+            raise PlayError("Choose a valid session type and visibility")
 
         def operation(_):
             deals, bot = Random(secrets.randbits(256)), Random(secrets.randbits(256))
             state = {"sessionId": secrets.token_urlsafe(18), "playMode": body["playMode"],
-                     "visibility": body["visibility"], "revision": 0, "handsPlayed": 0,
+                     "visibility": visibility, "sessionType": session_type,
+                     "revision": 0, "handsPlayed": 0,
                      "totalChips": 0, "dealRng": deals.getstate(), "botRng": bot.getstate(),
                      "current": None, "history": [], "sourceVersion": self.source_version,
                      "modelSha256": self.policy.spec.sha256, "modelGame": self.policy.game}
+            if session_type == "benchmark":
+                state["benchmark"] = {
+                    "id": secrets.token_urlsafe(18), "protocolVersion": BENCHMARK_PROTOCOL,
+                    "targetHands": body["targetHands"], "status": "ACTIVE",
+                    "buttonSchedule": BUTTON_SCHEDULE, "startedAt": _utc_now(),
+                    "endedAt": None, "abortedHandId": None,
+                    "modelName": MODEL_NAME, "modelSha256": self.policy.spec.sha256,
+                    "game": self.policy.game, "schema": self.policy.abstraction,
+                    "playMode": body["playMode"], "adapter": ADAPTER_ID,
+                    "sourceVersion": self.source_version, "interfaceVersion": API_VERSION,
+                    "visibility": "benchmark"}
             return state, self._view(state)
 
         return self._mutate(key, _json(["create", body]), None, operation)
@@ -173,6 +206,9 @@ class PlayService:
     def state(self, session_id):
         with self.lock:
             return self._view(self._load(session_id))
+
+    def model_info(self):
+        return _model_info(self.policy)
 
     def _check_revision(self, state, body, keys, *, hand=True):
         if set(body) != keys or type(body.get("revision")) is not int:
@@ -185,6 +221,7 @@ class PlayService:
     def new_hand(self, session_id, key, body):
         def operation(state):
             self._check_revision(state, body, {"revision"}, hand=False)
+            self._require_active(state)
             if state["current"] is not None and not _hand(state["current"]).finished:
                 raise PlayError("Finish the current hand first", 409)
             deals = _rng(state["dealRng"])
@@ -201,6 +238,7 @@ class PlayService:
         def operation(state):
             expected = {"handId", "revision", "kind", "raiseTo"}
             self._check_revision(state, body, expected)
+            self._require_active(state)
             hand = _hand(state["current"])
             if hand.finished or hand.actor != 0:
                 raise PlayError("It is not your turn", 409)
@@ -235,6 +273,7 @@ class PlayService:
     def advance(self, session_id, key, body):
         def operation(state):
             self._check_revision(state, body, {"handId", "revision"})
+            self._require_active(state)
             hand = _hand(state["current"])
             if hand.finished or hand.actor != 1:
                 raise PlayError("The bot is not acting", 409)
@@ -266,6 +305,32 @@ class PlayService:
                           "call": legal.call_amount, "minRaiseTo": legal.min_raise_to,
                           "maxRaiseTo": legal.max_raise_to}}
 
+    @staticmethod
+    def _require_active(state):
+        if state.get("sessionType", "casual") == "benchmark" and state["benchmark"]["status"] != "ACTIVE":
+            raise PlayError("Benchmark has ended", 409)
+
+    def end_benchmark(self, session_id, key, body):
+        def operation(state):
+            if state.get("sessionType", "casual") != "benchmark":
+                raise PlayError("This is not a benchmark session", 409)
+            self._check_revision(state, body, {"revision", "handId", "confirm"}, hand=False)
+            if body["confirm"] is not True:
+                raise PlayError("Confirm early benchmark end")
+            current_id = state["current"]["handId"] if state["current"] else None
+            if body["handId"] != current_id:
+                raise PlayError("Stale or unknown hand", 409)
+            self._require_active(state)
+            benchmark = state["benchmark"]
+            benchmark["status"] = "ABORTED"
+            benchmark["endedAt"] = _utc_now()
+            if state["current"] is not None and not _hand(state["current"]).finished:
+                benchmark["abortedHandId"] = current_id
+            state["revision"] += 1
+            return state, self._view(state)
+
+        return self._mutate(key, _json(["end-benchmark", session_id, body]), session_id, operation)
+
     def _complete(self, state):
         row = state["current"]
         hand = _hand(row)
@@ -289,6 +354,10 @@ class PlayService:
         state["history"].append(row)
         state["handsPlayed"] += 1
         state["totalChips"] += net
+        if (state.get("sessionType", "casual") == "benchmark"
+                and state["handsPlayed"] == state["benchmark"]["targetHands"]):
+            state["benchmark"]["status"] = "COMPLETE"
+            state["benchmark"]["endedAt"] = _utc_now()
 
     def _presets(self, view, restricted):
         if restricted:
@@ -313,17 +382,32 @@ class PlayService:
         response = {"sessionId": state["sessionId"], "revision": state["revision"],
                     "playMode": state["playMode"], "visibility": state["visibility"],
                     "model": _model_info(self.policy), "handsPlayed": state["handsPlayed"],
-                    "sessionChips": state["totalChips"], "sessionBB": state["totalChips"] / 100,
+                    "sessionType": state.get("sessionType", "casual"),
                     "phase": "ready" if state["current"] is None else "playing", "hand": None}
+        benchmark = state.get("benchmark")
+        if benchmark:
+            response["benchmark"] = {"id": benchmark["id"],
+                                     "protocolVersion": benchmark["protocolVersion"],
+                                     "targetHands": benchmark["targetHands"],
+                                     "completedHands": state["handsPlayed"],
+                                     "status": benchmark["status"],
+                                     "buttonSchedule": benchmark["buttonSchedule"]}
+            if benchmark["status"] != "ACTIVE":
+                response["benchmarkResult"] = self._benchmark_report(state)
+                response["phase"] = benchmark["status"].lower()
+        if benchmark is None or benchmark["status"] != "ACTIVE":
+            response["sessionChips"] = state["totalChips"]
+            response["sessionBB"] = state["totalChips"] / 100
         if state["current"] is None:
             return response
         row = state["current"]
         hand = _hand(row)
         view = hand.observe(0)
         legal = view.legal_actions
-        own_turn = not hand.finished and hand.actor == 0
+        own_turn = not hand.finished and hand.actor == 0 and (benchmark is None or benchmark["status"] == "ACTIVE")
         menu = choices(view, raise_cap=None, free_fold=False) if own_turn and state["playMode"] == "restricted" else ()
-        response["phase"] = "finished" if hand.finished else "playing"
+        if benchmark is None or benchmark["status"] == "ACTIVE":
+            response["phase"] = "finished" if hand.finished else "playing"
         response["hand"] = {
             "id": row["handId"], "number": state["handsPlayed"] if not hand.finished else state["handsPlayed"] - 1,
             "street": view.street.value, "board": list(view.board), "humanCards": list(view.hole_cards),
@@ -349,15 +433,88 @@ class PlayService:
         with self.lock:
             state = self._load(session_id)
             result = []
+            hide_results = (state.get("sessionType", "casual") == "benchmark"
+                            and state["benchmark"]["status"] == "ACTIVE")
             for row in state["history"]:
                 hand = _hand(row)
                 view = hand.observe(0)
-                result.append({"handId": row["handId"], "button": row["button"],
-                               "humanCards": list(view.hole_cards), "board": list(view.board),
-                               "events": _events(hand), "humanChips": row["humanChips"],
-                               "publicEventsSha256": row["publicEventsSha256"],
-                               "shownBotCards": list(view.players[1].shown_cards)})
+                item = {"handId": row["handId"], "button": row["button"],
+                        "humanCards": list(view.hole_cards), "board": list(view.board),
+                        "events": _events(hand),
+                        "publicEventsSha256": row["publicEventsSha256"],
+                        "shownBotCards": list(view.players[1].shown_cards)}
+                if not hide_results:
+                    item["humanChips"] = row["humanChips"]
+                result.append(item)
             return {"sessionId": session_id, "hands": result}
+
+    def _benchmark_report(self, state):
+        benchmark = state["benchmark"]
+        if benchmark["status"] == "ACTIVE":
+            raise PlayError("Benchmark result is available after it ends", 409)
+        rows = state["history"]
+        if len(rows) != state["handsPlayed"]:
+            raise RuntimeError("Benchmark hand count mismatch")
+        by_button = {0: {"hands": 0, "netChips": 0}, 1: {"hands": 0, "netChips": 0}}
+        wins = losses = ties = trained = fallback = fallback_hands = net = total_pot = 0
+        references = []
+        for index, row in enumerate(rows):
+            hand = _hand(row)
+            payoff = hand.observe(0).players[0].stack - 2000
+            if (not hand.finished or row["button"] != index % 2
+                    or row["humanChips"] != payoff
+                    or digest(public_events(hand.events)) != row["publicEventsSha256"]):
+                raise RuntimeError("Benchmark replay mismatch")
+            net += payoff
+            total_pot += sum(pot.amount for pot in hand.events[-1].pots)
+            by_button[row["button"]]["hands"] += 1
+            by_button[row["button"]]["netChips"] += payoff
+            wins += payoff > 0
+            losses += payoff < 0
+            ties += payoff == 0
+            references.append({"handId": row["handId"],
+                               "publicEventsSha256": row["publicEventsSha256"]})
+            if benchmark["playMode"] == "free":
+                misses = sum(not item["trained"] for item in row["lookup"])
+                trained += len(row["lookup"]) - misses
+                fallback += misses
+                fallback_hands += misses > 0
+        if (net != state["totalChips"] or (benchmark["status"] == "COMPLETE")
+                != (len(rows) == benchmark["targetHands"])):
+            raise RuntimeError("Benchmark total mismatch")
+        report = {"benchmarkId": benchmark["id"], "protocolVersion": benchmark["protocolVersion"],
+                  "model": {"name": benchmark["modelName"], "sha256": benchmark["modelSha256"]},
+                  "game": benchmark["game"], "schema": benchmark["schema"],
+                  "playMode": benchmark["playMode"], "adapter": benchmark["adapter"],
+                  "targetHands": benchmark["targetHands"], "completedHands": len(rows),
+                  "status": benchmark["status"], "netChips": net, "netBB": net / 100,
+                  "bbPer100": net / len(rows) if rows else None,
+                  "averagePotChips": total_pot / len(rows) if rows else None,
+                  "averagePotBB": total_pot / (100 * len(rows)) if rows else None,
+                  "buttonSB": {"hands": by_button[0]["hands"], "netChips": by_button[0]["netChips"],
+                               "netBB": by_button[0]["netChips"] / 100},
+                  "bigBlind": {"hands": by_button[1]["hands"], "netChips": by_button[1]["netChips"],
+                               "netBB": by_button[1]["netChips"] / 100},
+                  "wins": wins, "losses": losses, "ties": ties,
+                  "startedAt": benchmark["startedAt"], "endedAt": benchmark["endedAt"],
+                  "sourceVersion": benchmark["sourceVersion"],
+                  "interfaceVersion": benchmark["interfaceVersion"],
+                  "buttonSchedule": benchmark["buttonSchedule"],
+                  "handRecords": references}
+        if benchmark["playMode"] == "free":
+            report["fallbackSummary"] = {
+                "trainedLookups": trained, "fallbackLookups": fallback,
+                "fallbackPercent": 100 * fallback / (trained + fallback) if trained + fallback else None,
+                "handsWithFallback": fallback_hands,
+                "handsWithFallbackFraction": fallback_hands / len(rows) if rows else None}
+        return report
+
+    def benchmark_result(self, session_id):
+        with self.lock:
+            state = self._load(session_id)
+            if state.get("sessionType", "casual") != "benchmark":
+                raise PlayError("This is not a benchmark session", 404)
+            return self._benchmark_report(state)
 
     def diagnostics(self, session_id, hand_id):
         with self.lock:
