@@ -192,3 +192,11 @@ fresh simulator fixtures, never private human records. Every raw matched-holding
 inspection is retained separately. `evidence-manifest.json` hashes the compact
 outputs and links them to the scientific run manifest; large model binaries
 remain outside ordinary Git history.
+
+I verify packaged hashes, native replays, raw-CSV tail arithmetic and the complete
+paired summary without reloading model binaries:
+
+```sh
+python -m scripts.check_hu20_stackoff \
+  --evidence docs/reports/hu20-stackoff-artifacts
+```

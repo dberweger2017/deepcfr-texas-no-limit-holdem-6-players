@@ -1,0 +1,345 @@
+{
+  "files": {
+    "B-2026093001-100000000.inspection.jsonl.gz": {
+      "bytes": 310522,
+      "sha256": "4a3fefd9e2b77683426e28f8184332dd1507af4be20cdf9863487708d3aa8964"
+    },
+    "B-2026093001-20000000.inspection.jsonl.gz": {
+      "bytes": 323477,
+      "sha256": "d423bb7d84dee7cbb7ad07e8c11e646cc86596d9d3e8e08b817efc875ea1546b"
+    },
+    "B-2026093001-40000000.inspection.jsonl.gz": {
+      "bytes": 327206,
+      "sha256": "3a662c2849465c13bcf55607059cd64ab2b0a615ff20b8c2367f23e39ec5df08"
+    },
+    "B-2026093001-80000000.inspection.jsonl.gz": {
+      "bytes": 312273,
+      "sha256": "d5f674d919ea12be52276c184d30e2d30c3f61258f5d2946e4d26f554b3b3628"
+    },
+    "B-2026093002-100000000.inspection.jsonl.gz": {
+      "bytes": 323911,
+      "sha256": "bce51f419d6671b2e260043be7ddd794eb6a4b9a40d9f41aea74b768f1ca7711"
+    },
+    "B-2026093002-20000000.inspection.jsonl.gz": {
+      "bytes": 329726,
+      "sha256": "5f070990e9f5f62a7158c3d5fb3ef253a3a4379d6c765329e063dbc9f1dfc737"
+    },
+    "B-2026093002-40000000.inspection.jsonl.gz": {
+      "bytes": 325990,
+      "sha256": "294394ead1453aa8bdafd101fed04f6d122137f96f30e8a356a28fd3db10290f"
+    },
+    "B-2026093002-80000000.inspection.jsonl.gz": {
+      "bytes": 313694,
+      "sha256": "1b24720dc388bcfcb184bbcd5138786410dd9746f69a3711804823315e388b53"
+    },
+    "B-2026093003-100000000.inspection.jsonl.gz": {
+      "bytes": 318088,
+      "sha256": "509ddafd153e416781833801460b3b61ed2d4e280fe29a64a1e9949f62d8abf7"
+    },
+    "B-2026093003-20000000.inspection.jsonl.gz": {
+      "bytes": 316937,
+      "sha256": "dee9b9650b2548427c7007bfe00a040b3a9ff0cd01add591dd8538f536981ef8"
+    },
+    "B-2026093003-40000000.inspection.jsonl.gz": {
+      "bytes": 313887,
+      "sha256": "f2d9962b3f26796cf20ac9d10c1496374b243f81defba95e4336bd900658912c"
+    },
+    "B-2026093003-80000000.inspection.jsonl.gz": {
+      "bytes": 317607,
+      "sha256": "3f8683ea5890308db487873453c4753bcc65adc0854b06e69f1c9cf91ad80a55"
+    },
+    "attempts.json": {
+      "bytes": 30477,
+      "sha256": "5cf1332e7d9f1ac0bf428a877311d12e18f30b4c447395b84ea8e9a6674b80b9"
+    },
+    "contexts.json": {
+      "bytes": 59034,
+      "sha256": "03713ced081c1694ee8f5d5fb43d4389a922f83452c096a4077c3a499afd2c3d"
+    },
+    "dashboard.md": {
+      "bytes": 13169,
+      "sha256": "9644ba32e079aa2ddf43b28e6cd8402feadfdc3f9b87c89c15c16e4820ae6a8a"
+    },
+    "decisions.csv.gz": {
+      "bytes": 11445573,
+      "sha256": "7529748ab591b81d2be02da5550ef157b0094930fe2f628547c6dc70c1026d36"
+    },
+    "environment.json": {
+      "bytes": 692,
+      "sha256": "67575d3001582e371bc90c3bdb6d9d2b78428b6ef5e56d521e80eead0dec13a0"
+    },
+    "generated-hands.jsonl.gz": {
+      "bytes": 10531128,
+      "sha256": "b83c0031016db8c7a336319fff60364352704fce3462ee71711fcaab9238ff17"
+    },
+    "input-manifest.json": {
+      "bytes": 4451,
+      "sha256": "7fdd8b8f68aa09da1a57747c453c1d5347e281b5d0638bfd7110012b1db85661"
+    },
+    "inspection-resources.json": {
+      "bytes": 133,
+      "sha256": "f643db491425cd87babe3ad37c13f053ca1ceef29cc5747100f47c09a03938c8"
+    },
+    "inspection-summary.json": {
+      "bytes": 825977,
+      "sha256": "e16d1f622225934a35bb9de7048d6886edf4f9f771f6e07902b8810ea12546b6"
+    },
+    "manifest.json": {
+      "bytes": 9168,
+      "sha256": "70cfadae056efdcb373d05168cf4d9ea8a93b106ef75b4f6fd2fb8037bba65e9"
+    },
+    "matched-river-examples.json": {
+      "bytes": 28221,
+      "sha256": "038d8e06296eba37061d4234c2ded154e1dbfb0a7592dc49f8726e60a9c0376a"
+    },
+    "plan.json": {
+      "bytes": 10139,
+      "sha256": "bdc2f978d85bc7175357c24f963ef501e0bd70789f09022fea8e8a8ec43188bb"
+    },
+    "result.json": {
+      "bytes": 164,
+      "sha256": "56b52d7383627e29837ae93561803db93c25f563de475ff77858407a28e47dac"
+    },
+    "summary.json": {
+      "bytes": 865566,
+      "sha256": "cf0a98c23f227dee2a2494521d85c8254ce3911d4d3b30efc62600f34e02d3f8"
+    },
+    "tests.txt": {
+      "bytes": 3048,
+      "sha256": "a626bd25ee5a8338dc8266d89e612e34c23130d01aa07fea0a3ba7696d4345c1"
+    },
+    "validation.json": {
+      "bytes": 1120,
+      "sha256": "0e95bdd57c602b8f0a6be03063787586421a61c9c413a4d3161f52bfc3d53017"
+    }
+  },
+  "generated_simulator_evidence_only": true,
+  "source_run": {
+    "deadline": 1790806990.05229,
+    "generated_sessions_only": true,
+    "inputs": [
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "cb4ca3348398f358c611d92467ae9f891de41f64e374cd847c0103ccb2d62822",
+        "entries": 730010,
+        "iteration": 55291,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093001-20000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093001,
+        "weights_sha256": "198dae3eb36b6a830ab106ba13032ecab10fc1f2fc12bc4bb9bc06dcce9a01a6"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "2a47a14f77cc9c30b51daaaa7bb9d10f994199db798dc597dbbeeadaf2f3e2f1",
+        "entries": 1013710,
+        "iteration": 107359,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093001-40000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093001,
+        "weights_sha256": "12d3f1ad67d08b350363ce57665347c2de5edc46fab67e474c5f175d6a5271b7"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "5aa715cff787668f70b3c42440fe12c401f6d49a4915cb9e694a61b86dc41e31",
+        "entries": 1364647,
+        "iteration": 201801,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093001-80000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093001,
+        "weights_sha256": "b24b9de99b82adeb8c41e26346d892e4a578764eff5ffe1b77c2322b767f4d4e"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a",
+        "entries": 1496914,
+        "iteration": 246212,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093001-100000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093001,
+        "weights_sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "03bfacfdb56801d2d079d350dcdb539e1dba02bcbef9c443a08c5299ff49f358",
+        "entries": 729165,
+        "iteration": 54709,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093002-20000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093002,
+        "weights_sha256": "4a8c3123437a28c5bea49447e67a91e490096819b3b820fd47c1ffb3f4bb0243"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "ac05b4cd138a5239d2ca63e58499bfd76d7750b7b74fff3d2bcac9f08a1bb2f4",
+        "entries": 1012691,
+        "iteration": 104432,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093002-40000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093002,
+        "weights_sha256": "01468192bc717671dc504ab1d1f36a6e5e8a12fea9023ee1433acd2229b7cb7e"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "92ef4bfd690e26dd3c8ecfb236b009fce8691a83a81169458b06a855e15248ea",
+        "entries": 1363049,
+        "iteration": 198882,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093002-80000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093002,
+        "weights_sha256": "403e4731cf6102d3c7f64a2d93ff57a59199720a94b44b24e6b9d279707aae18"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "830c7c470de2a416b2cb030af6abb76bbb49b2757ff1a8300b0f30a75de3b965",
+        "entries": 1494799,
+        "iteration": 245406,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093002-100000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093002,
+        "weights_sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "aa65e5633cc87c7d23bcb3be871813f3413120a256fe38ebdb2383215acf5afd",
+        "entries": 723259,
+        "iteration": 57701,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093003-20000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093003,
+        "weights_sha256": "76af425b2457777c64caf8ac44819ae7d28e915b4d8b0b95625f82d96773fbb8"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "ddfb6bae3b4e0c864f13227e0b681d5eb932923ebc015f1da641eb37490aebfa",
+        "entries": 1010319,
+        "iteration": 109047,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093003-40000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093003,
+        "weights_sha256": "c88d3c22dd9fc5f6ffa0b060a6101fde568338fdf4c9df44ef76902425b8009a"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "03c87286cd152018b1bd727357a14d8783ce601a461b083be73566d2a814a279",
+        "entries": 1364960,
+        "iteration": 203620,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093003-80000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093003,
+        "weights_sha256": "3ce0a4adfb68406e6d0d40718a8a1a68a9aaccbb9c6e6f589ab830b06f8bbe42"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_sha256": "77bb18426aecdf6d9e83a9c8eb807f7e6671ab01ffafc94e348382a677e9df1b",
+        "entries": 1499679,
+        "iteration": 248186,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "name": "B-2026093003-100000000",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093003,
+        "weights_sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e"
+      }
+    ],
+    "opponent_version": "selective-stackoff-hu20-v1",
+    "outputs": {
+      "B-2026093001-100000000.hands.jsonl.gz": {
+        "bytes": 3201498,
+        "sha256": "776e2d0ce1896664a0b20b44cf7a6bc694f8e202512deef2f778a13e890687cb"
+      },
+      "B-2026093001-20000000.hands.jsonl.gz": {
+        "bytes": 2843513,
+        "sha256": "70a5407e5bdee27c59c78783f79e16a69a780043cf87f6ba3fb01eaa38bea89d"
+      },
+      "B-2026093001-40000000.hands.jsonl.gz": {
+        "bytes": 3026502,
+        "sha256": "9494098d5b4ed09bfb57e55452bd487fc04569474d4feae85f37e9143c760632"
+      },
+      "B-2026093001-80000000.hands.jsonl.gz": {
+        "bytes": 3164603,
+        "sha256": "d56936f63986e19c54089b9b552ad8d36b072e9d09a6da1e246969ec33c45310"
+      },
+      "B-2026093002-100000000.hands.jsonl.gz": {
+        "bytes": 3146180,
+        "sha256": "ecc0e8b04f5b42f9071a4c898d881b778000e3ad3b7024a33fe904dae3dd0ef6"
+      },
+      "B-2026093002-20000000.hands.jsonl.gz": {
+        "bytes": 2914370,
+        "sha256": "bd3f6ea0af2c1799a2f61b02ca059d7fd3c00792e56d80c8199f8bd784ca9379"
+      },
+      "B-2026093002-40000000.hands.jsonl.gz": {
+        "bytes": 3017097,
+        "sha256": "987da5540005167bd07e67d1f24a76a26cbddf6624ba5edcd2dba7216339eb25"
+      },
+      "B-2026093002-80000000.hands.jsonl.gz": {
+        "bytes": 3104503,
+        "sha256": "a2257671363af56ecb3943d79eb90bf90749c6de5aace1fabe743117fe8f4ba5"
+      },
+      "B-2026093003-100000000.hands.jsonl.gz": {
+        "bytes": 3135635,
+        "sha256": "77b989c7fa98d9500833df6a4b71a8aabfd1fc81b660002b9496a62676020fde"
+      },
+      "B-2026093003-20000000.hands.jsonl.gz": {
+        "bytes": 2920735,
+        "sha256": "970813e49ddfa53b20f33481a500e49aa2990d879c72c3611e7eb317a4e4725b"
+      },
+      "B-2026093003-40000000.hands.jsonl.gz": {
+        "bytes": 3005883,
+        "sha256": "102268a8a7ef7afaf623cd1935d8ac3a8c4badf10088168695ac0f267b723036"
+      },
+      "B-2026093003-80000000.hands.jsonl.gz": {
+        "bytes": 3127075,
+        "sha256": "6f305e2ff2571d9b5dd0cd89f865f5e18b513ad923421b139449699d2794f20c"
+      },
+      "attempts.json": {
+        "bytes": 30477,
+        "sha256": "5cf1332e7d9f1ac0bf428a877311d12e18f30b4c447395b84ea8e9a6674b80b9"
+      },
+      "contexts.json": {
+        "bytes": 59034,
+        "sha256": "03713ced081c1694ee8f5d5fb43d4389a922f83452c096a4077c3a499afd2c3d"
+      },
+      "plan.json": {
+        "bytes": 10139,
+        "sha256": "bdc2f978d85bc7175357c24f963ef501e0bd70789f09022fea8e8a8ec43188bb"
+      },
+      "progress.json": {
+        "bytes": 260,
+        "sha256": "5a6737b09c79c50b3f844af1d3621d11fca8cf81c2a98eab16ed5bbab9f22ac8"
+      },
+      "result.json": {
+        "bytes": 164,
+        "sha256": "56b52d7383627e29837ae93561803db93c25f563de475ff77858407a28e47dac"
+      }
+    },
+    "plan_sha256": "bcf64187cb16b582f9503790abfaceee3ded9a9c6c4f9e0731f96960599750d2",
+    "platform": "darwin",
+    "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "source_sha": "1e7fd1a1d68ce5f001b8000be4e385da8076f88e",
+    "started": 1790799790.05229,
+    "swap_before_bytes": 4057202688.0
+  },
+  "warning": "Join decisions to a hand for context; repeated actions are not independent payoff samples."
+}

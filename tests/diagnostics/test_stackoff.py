@@ -379,3 +379,35 @@ def test_inspection_deduplicates_matched_contexts_without_erasing_selection_orig
     assert len(document['contexts'])==2
     with pytest.raises(ValueError,match='digest'):
         unique_contexts({'contexts':[{**first,'id':'wrong'}]})
+
+
+def test_public_evidence_checker_recomputes_csv_tails_and_paired_summary(saved,tmp_path):
+    from scripts.evaluate_hu20_stackoff import run
+    from scripts.export_hu20_stackoff import export
+    from scripts.report_hu20_stackoff import records
+    from scripts.evaluate_hu20 import write_json
+    from scripts.check_hu20_stackoff import check
+    spec,inputs=saved
+    plan={'models':[spec], 'panels':[{'name':'fixture','rule':'selective_stackoff',
+          'contract':'restricted','root':134,'blocks':2}], 'chance_samples':4,'lbr_seconds':5,
+          'inspection_origin_milestone':100,'minimum_visits':300,'small_call_chips':200,
+          'contexts_per_seed_position_kind':2,'interval':'paired',
+          'limits':{'max_seconds':30,'max_rss_gib':6,'max_swap_growth_gib':.5,'min_free_gib':0}}
+    folder=tmp_path/'run';run(plan,inputs,folder)
+    write_json(folder/'summary.json',summarize(plan,records(folder)))
+    out=tmp_path/'evidence';export(folder,out)
+    result=check(out)
+    assert result['status']=='complete' and result['native_replays']==4
+    assert result['raw_decisions']>=4  # A valid hand can end with its first fold.
+    (out/'summary.json').write_text('{}')
+    with pytest.raises(ValueError,match='hash or size'):
+        check(out)
+
+
+def test_summary_check_allows_quantile_roundoff_but_not_count_or_effect_changes():
+    from scripts.check_hu20_stackoff import same_summary
+    original={'blocks':1024,'interval':[1.0,2.0]}
+    assert same_summary(original,{'blocks':1024,'interval':[1.0+1e-12,2.0]})
+    assert not same_summary(original,{'blocks':1025,'interval':[1.0,2.0]})
+    assert not same_summary(original,{'blocks':1024,'interval':[1.0,2.01]})
+    assert not same_summary(original,{'blocks':1024,'interval':[1.0]})

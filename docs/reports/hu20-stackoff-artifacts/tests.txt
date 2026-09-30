@@ -1,0 +1,32 @@
+........................................................................ [  6%]
+........................................................................ [ 13%]
+.......................................................................................... [ 22%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 42%]
+........................................................................ [ 49%]
+........................................................................ [ 56%]
+........................................................................ [ 63%]
+........................................................................ [ 70%]
+........................................................................ [ 76%]
+........................................................................ [ 83%]
+........................................................................ [ 90%]
+........................................................................ [ 97%]
+............................                                             [100%]
+============================= slowest 15 durations =============================
+51.09s call     tests/test_hu20_scaling.py::test_production_two_host_shards_native_replay_and_aggregate
+31.72s call     tests/test_hu20_scaling_recovery.py::test_m4_primary_replay_reports_pending_diagnostics
+19.38s call     tests/test_multistreet_reference_root_aggregation.py::test_root_only_reference_matches_original_infoset_accumulator[False-flop-board0]
+18.67s call     tests/test_hu20_reopening_campaign.py::test_actual_fresh_training_dual_menus_and_native_audit
+17.19s call     tests/test_strategy_study.py::test_full_study_pipeline_freezes_selection_and_retains_both_game_gates
+13.88s call     tests/test_neural_readiness.py::test_runner_smoke_uses_fresh_processes_and_never_claims_readiness
+12.43s call     tests/test_continuous_holdem.py::test_continuous_stop_recovery_and_rolling_retention[-branching]
+11.82s call     tests/test_holdem_experiment.py::test_fresh_process_training_resume_and_reproduction_match[False]
+11.36s call     tests/test_hu20_b100_diagnosis.py::test_conditional_comparison_cannot_see_real_hidden_cards_or_future_deck
+10.23s call     tests/test_holdem_experiment.py::test_fresh_process_training_resume_and_reproduction_match[True]
+10.18s call     tests/test_representation.py::test_complete_run_reloads_all_models_and_rejects_changed_artifacts
+9.43s call     tests/test_multistreet_reference.py::test_paired_reference_values_are_finite_for_all_streets[flop-board0]
+9.37s call     tests/test_multistreet_reference.py::test_partial_features_and_all_arms_accept_flop_decisions
+8.99s call     tests/test_continuous_holdem.py::test_adopt_worker_without_restart
+8.35s call     tests/test_holdem_training_cli.py::test_two_training_iterations_reproduce_in_a_fresh_process
+1054 passed, 54 subtests passed in 471.78s (0:07:51)
