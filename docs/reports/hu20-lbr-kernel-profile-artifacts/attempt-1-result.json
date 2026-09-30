@@ -1,0 +1,13 @@
+{
+  "cases_completed": 0,
+  "deadline": 1790763854.0,
+  "failure": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/evaluation-primary/B-2026093001-100000000.jsonl.gz'",
+  "finished": 1790760321.929014,
+  "free_disk_bytes": 40794537984,
+  "peak_rss_bytes": 45924352,
+  "started": 1790760321.926711,
+  "status": "failed",
+  "swap_end_mib": 761.38,
+  "swap_start_mib": 761.38,
+  "wall_seconds": 0.002302885055541992
+}
