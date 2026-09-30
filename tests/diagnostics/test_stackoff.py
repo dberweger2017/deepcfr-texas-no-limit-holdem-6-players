@@ -356,3 +356,14 @@ def test_lbr_telemetry_counts_budget_batches_and_cumulative_events_once():
     assert counts['lbr_decisions']==4 and counts['lbr_over_soft_budget']==4
     assert counts['lbr_requested_batches']==16 and counts['lbr_completed_batches']==8
     assert counts['lbr_zero_likelihood_events']==6
+
+
+def test_dashboard_labels_incomplete_and_exploratory_intervals():
+    from scripts.report_hu20_stackoff import markdown
+    result={'status':'incomplete','attempted_hands':0,'requested_hands':100,'failed_hands':0,
+            'unattempted_hands':100,'three_lineage_aggregate':[], 'checkpoint_changes':[], 'per_seed':[]}
+    rendered=markdown(result)
+    assert '**incomplete**' in rendered
+    assert 'not individual-bet EV' in rendered
+    assert 'not independent samples' in rendered
+    assert '800 additional chips' in rendered

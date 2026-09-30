@@ -173,3 +173,22 @@ recorded in the final evidence manifest as well as the evaluator manifest.
 
 All these hands are newly generated simulator evidence. They are not private
 human session journals. There is no browser/service change or action translation.
+
+I render the measured tables and package compact evidence with:
+
+```sh
+python -m scripts.export_hu20_stackoff \
+  --run results/hu20-stackoff-run \
+  --out docs/reports/hu20-stackoff-artifacts
+```
+
+`dashboard.md` contains paired checkpoint/position estimates, per-lineage tails,
+whole-hand return partitions, late-street exposure and bounded-LBR execution.
+`decisions.csv.gz` retains exact cards, native amounts, concrete menus, keys,
+visits and probabilities for generated decisions. It does not duplicate hand
+profit onto each action. `generated-hands.jsonl.gz` retains exact action prefixes,
+deal seeds, event digests, payoff and telemetry for native replay. These are
+fresh simulator fixtures, never private human records. Every raw matched-holding
+inspection is retained separately. `evidence-manifest.json` hashes the compact
+outputs and links them to the scientific run manifest; large model binaries
+remain outside ordinary Git history.

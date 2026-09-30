@@ -21,7 +21,7 @@ FIELDS = ('model', 'panel', 'block', 'rotation', 'index', 'logical_player', 'sea
 def export(run, out):
     out.mkdir(parents=True, exist_ok=False)
     for name in ('plan.json', 'manifest.json', 'result.json', 'attempts.json', 'summary.json',
-                 'contexts.json', 'inspection-summary.json', 'environment.json'):
+                 'contexts.json', 'inspection-summary.json', 'environment.json', 'dashboard.md', 'input-manifest.json', 'tests.txt'):
         path = run / name
         if path.exists():
             shutil.copyfile(path, out / name)
