@@ -1,0 +1,63 @@
+{
+  "cache": [],
+  "call_cpu_seconds": 81.9102830000001,
+  "call_wall_seconds": 81.91168898693286,
+  "case_digest": "1559b5aac31016a9db92cfc2b319c28abf110446866d50dba0f45126eacadc4e",
+  "cases_completed": 336,
+  "corpus_sha256": "a3e8b72e3fd33c0eee1d8bfa38c30b61e6ce6e6ff4a95687129b2daa5ac7d30d",
+  "deadline": 1790763031.0,
+  "executor": "native",
+  "finished": 1790753869.732548,
+  "free_disk_bytes": 41251885056,
+  "model_load": [
+    {
+      "rss_bytes": 2766569472,
+      "seconds": 12.182310833130032,
+      "seed": 2026093001
+    },
+    {
+      "rss_bytes": 2771632128,
+      "seconds": 12.123922917060554,
+      "seed": 2026093002
+    },
+    {
+      "rss_bytes": 2971795456,
+      "seconds": 12.823879375122488,
+      "seed": 2026093003
+    }
+  ],
+  "model_spec_sha256": "d15c1fe9f42c0fbeffa7cb27d3bb4c5cb76226f1d812133dcedda9118d1d2402",
+  "output_digest": "712d8379587fe21a1cbd7c4ebb8f34dc6b5daff339b32ee059bfbacc2fc0d79d",
+  "peak_rss_bytes": 2971811840,
+  "per_street": {
+    "flop": {
+      "calls": 96,
+      "cpu_seconds": 23.33945700000006,
+      "max_call_seconds": 0.5330867080483586,
+      "wall_seconds": 23.339796162443236
+    },
+    "preflop": {
+      "calls": 42,
+      "cpu_seconds": 16.07635199999998,
+      "max_call_seconds": 0.5305111662019044,
+      "wall_seconds": 16.076704997336492
+    },
+    "river": {
+      "calls": 102,
+      "cpu_seconds": 21.768099000000124,
+      "max_call_seconds": 0.5315393339842558,
+      "wall_seconds": 21.768482338404283
+    },
+    "turn": {
+      "calls": 96,
+      "cpu_seconds": 20.726374999999948,
+      "max_call_seconds": 0.5364859169349074,
+      "wall_seconds": 20.72670548874885
+    }
+  },
+  "started": 1790753749.06205,
+  "status": "complete",
+  "swap_end_mib": 761.38,
+  "swap_start_mib": 761.38,
+  "wall_seconds": 120.67049789428711
+}

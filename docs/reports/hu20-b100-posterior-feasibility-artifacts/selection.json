@@ -1,0 +1,798 @@
+{
+  "candidate_count": 7293,
+  "empty_cells": [],
+  "excluded_coordinates": [
+    [
+      2026093001,
+      70,
+      0,
+      0
+    ],
+    [
+      2026093001,
+      82,
+      1,
+      3
+    ],
+    [
+      2026093001,
+      130,
+      1,
+      5
+    ],
+    [
+      2026093001,
+      190,
+      0,
+      4
+    ],
+    [
+      2026093001,
+      192,
+      0,
+      9
+    ],
+    [
+      2026093001,
+      211,
+      1,
+      6
+    ],
+    [
+      2026093001,
+      220,
+      1,
+      1
+    ],
+    [
+      2026093001,
+      299,
+      0,
+      3
+    ],
+    [
+      2026093001,
+      381,
+      1,
+      3
+    ],
+    [
+      2026093001,
+      601,
+      0,
+      3
+    ],
+    [
+      2026093001,
+      689,
+      1,
+      7
+    ],
+    [
+      2026093001,
+      752,
+      1,
+      6
+    ],
+    [
+      2026093001,
+      1300,
+      0,
+      2
+    ],
+    [
+      2026093001,
+      1385,
+      1,
+      11
+    ],
+    [
+      2026093001,
+      1423,
+      0,
+      8
+    ],
+    [
+      2026093001,
+      1453,
+      1,
+      9
+    ],
+    [
+      2026093001,
+      1631,
+      0,
+      5
+    ],
+    [
+      2026093001,
+      1738,
+      1,
+      1
+    ],
+    [
+      2026093001,
+      1845,
+      0,
+      7
+    ],
+    [
+      2026093001,
+      2034,
+      0,
+      5
+    ],
+    [
+      2026093002,
+      42,
+      0,
+      3
+    ],
+    [
+      2026093002,
+      141,
+      1,
+      5
+    ],
+    [
+      2026093002,
+      238,
+      0,
+      4
+    ],
+    [
+      2026093002,
+      290,
+      0,
+      7
+    ],
+    [
+      2026093002,
+      333,
+      1,
+      7
+    ],
+    [
+      2026093002,
+      530,
+      0,
+      6
+    ],
+    [
+      2026093002,
+      606,
+      1,
+      2
+    ],
+    [
+      2026093002,
+      747,
+      0,
+      5
+    ],
+    [
+      2026093002,
+      751,
+      1,
+      5
+    ],
+    [
+      2026093002,
+      843,
+      1,
+      6
+    ],
+    [
+      2026093002,
+      1098,
+      1,
+      7
+    ],
+    [
+      2026093002,
+      1110,
+      0,
+      2
+    ],
+    [
+      2026093002,
+      1219,
+      0,
+      1
+    ],
+    [
+      2026093002,
+      1220,
+      1,
+      1
+    ],
+    [
+      2026093002,
+      1284,
+      0,
+      10
+    ],
+    [
+      2026093002,
+      1546,
+      0,
+      9
+    ],
+    [
+      2026093002,
+      1578,
+      1,
+      10
+    ],
+    [
+      2026093002,
+      1805,
+      1,
+      5
+    ],
+    [
+      2026093002,
+      1925,
+      1,
+      8
+    ],
+    [
+      2026093002,
+      2006,
+      1,
+      1
+    ],
+    [
+      2026093003,
+      35,
+      0,
+      4
+    ],
+    [
+      2026093003,
+      348,
+      0,
+      5
+    ],
+    [
+      2026093003,
+      390,
+      0,
+      10
+    ],
+    [
+      2026093003,
+      390,
+      1,
+      6
+    ],
+    [
+      2026093003,
+      434,
+      0,
+      6
+    ],
+    [
+      2026093003,
+      642,
+      0,
+      2
+    ],
+    [
+      2026093003,
+      803,
+      1,
+      8
+    ],
+    [
+      2026093003,
+      1186,
+      1,
+      2
+    ],
+    [
+      2026093003,
+      1336,
+      1,
+      7
+    ],
+    [
+      2026093003,
+      1387,
+      0,
+      3
+    ],
+    [
+      2026093003,
+      1452,
+      1,
+      4
+    ],
+    [
+      2026093003,
+      1590,
+      1,
+      10
+    ],
+    [
+      2026093003,
+      1593,
+      1,
+      2
+    ],
+    [
+      2026093003,
+      1761,
+      1,
+      9
+    ],
+    [
+      2026093003,
+      1870,
+      1,
+      1
+    ],
+    [
+      2026093003,
+      1977,
+      0,
+      7
+    ],
+    [
+      2026093003,
+      2008,
+      0,
+      7
+    ],
+    [
+      2026093003,
+      2010,
+      0,
+      7
+    ],
+    [
+      2026093003,
+      2016,
+      0,
+      0
+    ],
+    [
+      2026093003,
+      2021,
+      0,
+      2
+    ]
+  ],
+  "excluded_encountered": 3,
+  "finished": 1790749869.020315,
+  "schema": "hu20-b100-posterior-selection-v1",
+  "secondary_empty_cell_cases": [],
+  "selected": [
+    {
+      "action_index": 1,
+      "block": 283,
+      "file": "B-2026093001-100000000.jsonl.gz",
+      "line": 567,
+      "position": "big_blind",
+      "rank": "030c1bef7a6b78f9ce847409b476186d2ed6abd16839760aab9b2128cfb26c5e",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "preflop",
+      "trained": true,
+      "visits": 378
+    },
+    {
+      "action_index": 0,
+      "block": 471,
+      "file": "B-2026093001-100000000.jsonl.gz",
+      "line": 944,
+      "position": "button",
+      "rank": "001907db66be051e500d56b1ac3b67f65f62a19eab48945f715be50887c752e5",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "preflop",
+      "trained": true,
+      "visits": 791
+    },
+    {
+      "action_index": 4,
+      "block": 11,
+      "file": "B-2026093001-100000000.jsonl.gz",
+      "line": 23,
+      "position": "big_blind",
+      "rank": "0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "flop",
+      "trained": true,
+      "visits": 1335
+    },
+    {
+      "action_index": 4,
+      "block": 256,
+      "file": "B-2026093001-100000000.jsonl.gz",
+      "line": 513,
+      "position": "button",
+      "rank": "0100c21b456966b9c31de4b36e75105c94d8513148d91a8c747d39fefe33c0bc",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "flop",
+      "trained": true,
+      "visits": 4806
+    },
+    {
+      "action_index": 5,
+      "block": 326,
+      "file": "B-2026093001-100000000.jsonl.gz",
+      "line": 654,
+      "position": "big_blind",
+      "rank": "011984eff8de4d1e527ed5f67f73cdd4c56d9c961becc82fab376f3125326f8e",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "turn",
+      "trained": true,
+      "visits": 321
+    },
+    {
+      "action_index": 5,
+      "block": 54,
+      "file": "B-2026093001-100000000.jsonl.gz",
+      "line": 109,
+      "position": "button",
+      "rank": "0748cffce3f313e60f1c7a96bc938bffb7fd7adc7e10f5c605ef79105057b8ec",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "turn",
+      "trained": true,
+      "visits": 672
+    },
+    {
+      "action_index": 7,
+      "block": 219,
+      "file": "B-2026093001-100000000.jsonl.gz",
+      "line": 439,
+      "position": "big_blind",
+      "rank": "500f86e7f2fefd3fe9314f6cfe2c81cd38c44cf4ef27144385afd5f4bc245409",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "river",
+      "trained": true,
+      "visits": 373
+    },
+    {
+      "action_index": 7,
+      "block": 503,
+      "file": "B-2026093001-100000000.jsonl.gz",
+      "line": 1008,
+      "position": "button",
+      "rank": "044186a05ee136d3980ce231f49818a6f16beb49a17bf14d993c96947f1d30c0",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "river",
+      "trained": true,
+      "visits": 1135
+    },
+    {
+      "action_index": 1,
+      "block": 84,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 170,
+      "position": "big_blind",
+      "rank": "0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "preflop",
+      "trained": true,
+      "visits": 376
+    },
+    {
+      "action_index": 0,
+      "block": 216,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 433,
+      "position": "button",
+      "rank": "0014d5dfb6ed3b43ea7540c0d19be81b8366c10af35fa235aaec872527f5ea14",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "preflop",
+      "trained": true,
+      "visits": 2135
+    },
+    {
+      "action_index": 2,
+      "block": 215,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 431,
+      "position": "big_blind",
+      "rank": "004891647c8350a1c1af9d5288e6d1700d2a7303557640ee77135485edae7f72",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "flop",
+      "trained": true,
+      "visits": 327
+    },
+    {
+      "action_index": 5,
+      "block": 37,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 76,
+      "position": "button",
+      "rank": "002826ea3094310afd9421e0ecb8b1a6cab9022264389d410f44d7d447c2be14",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "flop",
+      "trained": true,
+      "visits": 461
+    },
+    {
+      "action_index": 7,
+      "block": 424,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 850,
+      "position": "big_blind",
+      "rank": "08ba0a67c175b317919204886f4ba5daaf63688afdf3014ba0a2b23f955c7d2f",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "turn",
+      "trained": true,
+      "visits": 311
+    },
+    {
+      "action_index": 6,
+      "block": 238,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 477,
+      "position": "button",
+      "rank": "04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "turn",
+      "trained": true,
+      "visits": 946
+    },
+    {
+      "action_index": 8,
+      "block": 372,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 746,
+      "position": "big_blind",
+      "rank": "02a20cb031c9a8600515fbe441233f3e620fd07d15c2fc1170f6b18560725368",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "river",
+      "trained": true,
+      "visits": 342
+    },
+    {
+      "action_index": 8,
+      "block": 371,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 744,
+      "position": "button",
+      "rank": "276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "river",
+      "trained": true,
+      "visits": 356
+    },
+    {
+      "action_index": 1,
+      "block": 154,
+      "file": "B-2026093003-100000000.jsonl.gz",
+      "line": 310,
+      "position": "big_blind",
+      "rank": "015fae171cdf0f4d7661fcc21314915f46e1b2722a3d64dc6b5532cddea49042",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "preflop",
+      "trained": true,
+      "visits": 510
+    },
+    {
+      "action_index": 0,
+      "block": 43,
+      "file": "B-2026093003-100000000.jsonl.gz",
+      "line": 88,
+      "position": "button",
+      "rank": "003d131b1f67a2f2e4956993d7cf13707c560a00e05e0b0ea5b828be18d1338d",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "preflop",
+      "trained": true,
+      "visits": 2281
+    },
+    {
+      "action_index": 4,
+      "block": 245,
+      "file": "B-2026093003-100000000.jsonl.gz",
+      "line": 491,
+      "position": "big_blind",
+      "rank": "0027c64099e4c18b420e84a5bc950b5578d77ba04fda3a1b677c2cd0cc0c851b",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "flop",
+      "trained": true,
+      "visits": 1535
+    },
+    {
+      "action_index": 4,
+      "block": 157,
+      "file": "B-2026093003-100000000.jsonl.gz",
+      "line": 316,
+      "position": "button",
+      "rank": "0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "flop",
+      "trained": true,
+      "visits": 864
+    },
+    {
+      "action_index": 4,
+      "block": 134,
+      "file": "B-2026093003-100000000.jsonl.gz",
+      "line": 270,
+      "position": "big_blind",
+      "rank": "004565bfeeed91808e1edd31d6eb5bfb18e90b0446d8464a565e0f53e59f12a4",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "turn",
+      "trained": true,
+      "visits": 331
+    },
+    {
+      "action_index": 5,
+      "block": 508,
+      "file": "B-2026093003-100000000.jsonl.gz",
+      "line": 1017,
+      "position": "button",
+      "rank": "02a79abbac601e50bb6ccddf2ff7ec8b110fc310c3d49da5e0951da461126e2c",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "turn",
+      "trained": true,
+      "visits": 1073
+    },
+    {
+      "action_index": 8,
+      "block": 113,
+      "file": "B-2026093003-100000000.jsonl.gz",
+      "line": 227,
+      "position": "big_blind",
+      "rank": "034f47d5e274735a09c7850e1c1afaadc651fb4979867b5d5573258d6904ad83",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "river",
+      "trained": true,
+      "visits": 1300
+    },
+    {
+      "action_index": 8,
+      "block": 229,
+      "file": "B-2026093003-100000000.jsonl.gz",
+      "line": 460,
+      "position": "button",
+      "rank": "08238d32403cf5f42b3062123ae054fbc7b8f3dec0125ee5a11befb3ee4269f0",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "river",
+      "trained": true,
+      "visits": 361
+    }
+  ],
+  "selected_count": 24,
+  "selection_digest": "578b8b67f21a15d2961e88cf498aeeb64831c9827e578e5ce1db62f85d43e322",
+  "source": "#117 fresh LBR curve root 202610010300; aggregate returns previously opened, selector outcome-blind",
+  "source_hashes": {
+    "B-2026093001-100000000.jsonl.gz": "83feba4ba8a797888dac7b8f7f0aca63070c31c88e29387aa16dbd277a756550",
+    "B-2026093002-100000000.jsonl.gz": "e531d918d75995085ea236eb8d511efc8182013ba4c3189d48da653dd7340213",
+    "B-2026093003-100000000.jsonl.gz": "01116f305b2e80da0a5b1142b75cf5483e3385a8a82ba6d1f9762bd326590552"
+  },
+  "threshold_candidates": {
+    "100": {
+      "2026093001/flop/big_blind": 349,
+      "2026093001/flop/button": 275,
+      "2026093001/preflop/big_blind": 511,
+      "2026093001/preflop/button": 837,
+      "2026093001/river/big_blind": 15,
+      "2026093001/river/button": 26,
+      "2026093001/turn/big_blind": 71,
+      "2026093001/turn/button": 75,
+      "2026093002/flop/big_blind": 387,
+      "2026093002/flop/button": 256,
+      "2026093002/preflop/big_blind": 512,
+      "2026093002/preflop/button": 834,
+      "2026093002/river/big_blind": 14,
+      "2026093002/river/button": 28,
+      "2026093002/turn/big_blind": 69,
+      "2026093002/turn/button": 76,
+      "2026093003/flop/big_blind": 418,
+      "2026093003/flop/button": 243,
+      "2026093003/preflop/big_blind": 512,
+      "2026093003/preflop/button": 832,
+      "2026093003/river/big_blind": 26,
+      "2026093003/river/button": 30,
+      "2026093003/turn/big_blind": 76,
+      "2026093003/turn/button": 85
+    },
+    "300": {
+      "2026093001/flop/big_blind": 302,
+      "2026093001/flop/button": 233,
+      "2026093001/preflop/big_blind": 343,
+      "2026093001/preflop/button": 721,
+      "2026093001/river/big_blind": 5,
+      "2026093001/river/button": 8,
+      "2026093001/turn/big_blind": 41,
+      "2026093001/turn/button": 44,
+      "2026093002/flop/big_blind": 326,
+      "2026093002/flop/button": 224,
+      "2026093002/preflop/big_blind": 344,
+      "2026093002/preflop/button": 736,
+      "2026093002/river/big_blind": 3,
+      "2026093002/river/button": 7,
+      "2026093002/turn/big_blind": 36,
+      "2026093002/turn/button": 49,
+      "2026093003/flop/big_blind": 370,
+      "2026093003/flop/button": 217,
+      "2026093003/preflop/big_blind": 344,
+      "2026093003/preflop/button": 741,
+      "2026093003/river/big_blind": 14,
+      "2026093003/river/button": 16,
+      "2026093003/turn/big_blind": 39,
+      "2026093003/turn/button": 48
+    },
+    "1000": {
+      "2026093001/flop/big_blind": 227,
+      "2026093001/flop/button": 155,
+      "2026093001/preflop/big_blind": 0,
+      "2026093001/preflop/button": 370,
+      "2026093001/river/big_blind": 0,
+      "2026093001/river/button": 5,
+      "2026093001/turn/big_blind": 13,
+      "2026093001/turn/button": 14,
+      "2026093002/flop/big_blind": 243,
+      "2026093002/flop/button": 145,
+      "2026093002/preflop/big_blind": 0,
+      "2026093002/preflop/button": 371,
+      "2026093002/river/big_blind": 0,
+      "2026093002/river/button": 0,
+      "2026093002/turn/big_blind": 13,
+      "2026093002/turn/button": 19,
+      "2026093003/flop/big_blind": 261,
+      "2026093003/flop/button": 154,
+      "2026093003/preflop/big_blind": 0,
+      "2026093003/preflop/button": 371,
+      "2026093003/river/big_blind": 2,
+      "2026093003/river/button": 7,
+      "2026093003/turn/big_blind": 13,
+      "2026093003/turn/button": 20
+    }
+  },
+  "threshold_rule": "largest of 1000/300/100 filling all cells, else 100",
+  "visits_threshold": 300
+}
