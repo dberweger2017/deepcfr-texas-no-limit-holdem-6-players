@@ -1,0 +1,7 @@
+{
+  "endpoint": "https://api.runpod.io/v2/catalog/cpus",
+  "captured_utc": "2026-09-30T18:56:28.452897+00:00",
+  "authentication": "existing authorized account key; credential excluded",
+  "pod_prices": "securePerVcpu multiplied by requested vCPU count; allocation/availability rechecked before rental",
+  "rental_status": "no rental; awaiting approval of $2 total pilot cap"
+}
