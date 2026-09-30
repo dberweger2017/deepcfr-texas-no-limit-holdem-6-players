@@ -43,8 +43,8 @@ def run_mode(cdp, token, mode, database, output):
     for _ in range(100):
         if cdp.js("document.querySelector('#turn').textContent === 'Benchmark complete'"):
             break
-        if cdp.js("document.querySelector('#turn').textContent === 'Your turn' && !document.querySelector('#controls button:disabled')"):
-            cdp.js("(() => { const b=[...document.querySelectorAll('#controls button')].find(x=>/^(check|call)/i.test(x.textContent)); if(b) b.click(); })()")
+        if cdp.js("document.querySelector('#turn').textContent === 'Your turn' && [...document.querySelectorAll('#controls button')].some(x=>!x.disabled && /^(check|call)/i.test(x.textContent))"):
+            cdp.js("(() => { const b=[...document.querySelectorAll('#controls button')].find(x=>!x.disabled && /^(check|call)/i.test(x.textContent)); if(b) b.click(); })()")
         time.sleep(0.15)
     else:
         raise TimeoutError(f"{mode} benchmark browser hand did not finish")
