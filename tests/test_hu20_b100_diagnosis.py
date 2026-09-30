@@ -80,6 +80,12 @@ def test_primary_summary_rejects_incomplete_96_world_split():
         summarize(((1, 0),) * 95, (.5, .5))
 
 
+def test_prespecified_card_probe_imports():
+    from scripts.probe_b100_card_collisions import _alternatives
+
+    assert callable(_alternatives)
+
+
 def test_late_street_fold_value_matches_independent_ledger():
     prefix = ("3c", "Ac", "3d", "Ad", "2c", "5d", "8h", "Ts", "Jc")
     hand = Hand.from_deck(Table(("hero", "rival"), (2000, 2000)),
