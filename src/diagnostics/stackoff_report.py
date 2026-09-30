@@ -28,11 +28,12 @@ def summarize(plan, rows):
         position = 'button' if row['rotation'] == row['button'] else 'big_blind'
         values[key[:3] + (position,)] = row['target_chips']
         group = key[:2]
-        tails[group].update(row['tails']['counts'])
         partition = row['tails']['first_large_raise_response']
-        item = partitions[group].setdefault(partition, {'hands': 0, 'target_chips': 0})
-        item['hands'] += 1
-        item['target_chips'] += row['target_chips']
+        for cell in (group, (*group, position)):
+            tails[cell].update(row['tails']['counts'])
+            item = partitions[cell].setdefault(partition, {'hands': 0, 'target_chips': 0})
+            item['hands'] += 1
+            item['target_chips'] += row['target_chips']
     complete = observed == expected and not failures
     summaries, series = [], {}
     for name, spec in models.items():
@@ -49,6 +50,9 @@ def summarize(plan, rows):
                               'panel': panel, 'overall': estimate(overall),
                               'positions': {p: estimate(v) for p, v in positions.items()},
                               'counts': dict(tails[group]), 'whole_hand_partitions': partitions[group],
+                              'positional_tails': {p: {'counts': dict(tails[(*group, p)]),
+                                  'whole_hand_partitions': partitions[(*group, p)]}
+                                  for p in ('button', 'big_blind')},
                               'completed_paired_blocks': len(blocks)})
     aggregates, changes, seed_changes, seed_differences = [], [], [], []
     milestones = sorted({m['milestone'] for m in models.values()})
@@ -73,10 +77,11 @@ def summarize(plan, rows):
     for panel in panels:
         for seed in sorted({m['seed'] for m in models.values()}):
             names = {m['milestone']: n for n, m in models.items() if m['seed'] == seed}
-            for milestone in milestones[1:]:
-                base, candidate = names[milestones[0]], names[milestone]
+            for baseline, milestone in sorted(set([(milestones[0], m) for m in milestones[1:]] +
+                                                  list(zip(milestones, milestones[1:])))):
+                base, candidate = names[baseline], names[milestone]
                 shared = sorted(set(series[(base, panel)][0]) & set(series[(candidate, panel)][0]))
-                seed_changes.append({'panel': panel, 'seed': seed, 'baseline': milestones[0],
+                seed_changes.append({'panel': panel, 'seed': seed, 'baseline': baseline,
                                      'candidate': milestone, 'paired_difference': estimate([
                     mean(values[(candidate, panel, b, p)] - values[(base, panel, b, p)]
                          for p in ('button', 'big_blind')) for b in shared])})
