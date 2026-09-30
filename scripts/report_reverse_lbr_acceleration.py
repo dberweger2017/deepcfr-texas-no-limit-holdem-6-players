@@ -25,6 +25,11 @@ def _percentile(values, fraction):
     return ordered[min(len(ordered) - 1, int((len(ordered) - 1) * fraction))]
 
 
+def _kind(action_repr):
+    return next((kind for kind in ("fold", "check", "call", "raise")
+                 if f"ActionKind.{kind.upper()}" in action_repr), "unrecognized")
+
+
 def report(root, artifact_dir):
     results = {phase: json.loads((root / phase / "result.json").read_text())
                for phase in ("validation", "bench-native", "bench-cached", "bench-large")}
@@ -70,6 +75,26 @@ def report(root, artifact_dir):
     if (len(first_rows) != large["selected_first_sample_calls"] or
             len(extra_rows) != large["selected_incremental_calls"]):
         raise ValueError("Larger-workload first/incremental sample counts differ")
+    validation_rows = attempts["validation"]
+    case_coverage = {
+        "seeds": dict(Counter(r["seed"] for r in validation_rows)),
+        "streets": dict(Counter(r["street"] for r in validation_rows)),
+        "positions": dict(Counter(r["position"] for r in validation_rows)),
+        "observed_attacker_actions": dict(Counter(r["attacker_action_kind"] for r in validation_rows)),
+        "chosen_actions": dict(Counter(_kind(r["native_action"]) for r in validation_rows)),
+        "legal_menu_actions": dict(Counter(_kind(a) for r in validation_rows for a in r["menu"])),
+        "complete_sample_cases": sum(r["completed_samples"] == r["requested_samples"]
+                                     for r in validation_rows),
+        "soft_limited_cases": sum(r["completed_samples"] < r["requested_samples"]
+                                  for r in validation_rows),
+        "zero_likelihood_cases": sum(bool(r["zero_likelihood"]) for r in validation_rows),
+        "minimum_value_margin_chips": min(r["near_tie_margin_chips"]
+                                          for r in validation_rows
+                                          if r["near_tie_margin_chips"] is not None),
+        "ties_within_tolerance": sum(r["near_tie_margin_chips"] is not None and
+                                     r["near_tie_margin_chips"] <= 1e-10
+                                     for r in validation_rows),
+    }
     full_by_street = large["full_calls_by_street"]
     estimates = {}
     measured = {}
@@ -120,7 +145,8 @@ def report(root, artifact_dir):
                         "value_absolute_tolerance_chips": 1e-10,
                         "fresh_process_native_repeat": True,
                         "cached_repeat": True, "suit_control_passed": True,
-                        "output_digest": native["output_digest"]},
+                        "output_digest": native["output_digest"],
+                        "coverage": case_coverage},
         "timing": {"native_calls_seconds": native["call_wall_seconds"],
                    "cached_calls_seconds": cached["call_wall_seconds"],
                    "algorithmic_speedup": native["call_wall_seconds"] / cached["call_wall_seconds"],
