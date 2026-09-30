@@ -1,0 +1,266 @@
+{
+  "engineering_source_head": "c4f16184f7c982b539338b78cfab23d004b1ac9a",
+  "files": {
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/docs/reports/hu20-posterior-audit-v2-proposed-selection.json": {
+      "bytes": 5042,
+      "sha256": "74b8cf4737db8de80e347ffc3f68dd1d123977cde73f717cec1e93b527043f28"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/bench336-candidate.log": {
+      "bytes": 145,
+      "sha256": "edac8154d6953d8b3fbc9607921e341f4bbf75adb076989a8c4c4036667cf5d6"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/bench336-candidate/attempts.jsonl": {
+      "bytes": 316409,
+      "sha256": "5beb3a91f5c7207e4dee50db4c9ab0846dbc17c8cfba707559ff69d9615c1785"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/bench336-candidate/progress.json": {
+      "bytes": 61,
+      "sha256": "da4347a5fc3567325a60bf96dadec5a7e2cd38eeda6f606e4ebcf7f79bba4b3d"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/bench336-candidate/result.json": {
+      "bytes": 2949,
+      "sha256": "15b3b182e2b9f388fecd42ca078144bf1dec58e59968c0b67626537f8eea0a33"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/bench336-original.log": {
+      "bytes": 146,
+      "sha256": "66e6235e7d022a6a378cd1c1d4c7847a97c8da55cd9372cead5380f5d2a0c161"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/bench336-original/attempts.jsonl": {
+      "bytes": 315991,
+      "sha256": "985ffbf14bb050beb2833347a848593c32516a185d9f4baa6155b255e9dcaf60"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/bench336-original/progress.json": {
+      "bytes": 61,
+      "sha256": "56d67296883bf863e68ab541fd4f5d16647d3c150dda173d440e077a9c39de30"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/bench336-original/result.json": {
+      "bytes": 2947,
+      "sha256": "f9e49659f502133275b27e69637311a9b06114e02a05cb554a197cd7a506afd6"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/correction-repro/__pycache__/test_actual_context.cpython-311-pytest-9.0.3.pyc": {
+      "bytes": 31307,
+      "sha256": "a29eb649bb46ec21530a7517304b3bef08e5059c92d4b04cf5bc22dc7cfac9d5"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/correction-repro/old-source-regression.log": {
+      "bytes": 1706,
+      "sha256": "6959ab616016c216eac8a3e43868fe5ceab9e76fae1fe265b57c11d959721c6d"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/correction-repro/test_actual_context.py": {
+      "bytes": 6016,
+      "sha256": "258042b40db16958551adf335696766603cabc8aa50dec88daa691ad91f09588"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/engineering-clock.json": {
+      "bytes": 208,
+      "sha256": "08c7eb98ff26133cdc56cb08b9bde697e9f4c1f97b34e55cb78e938adf961e86"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/focused-tests.log": {
+      "bytes": 99,
+      "sha256": "43626a2be29b9367a0c9876f702c099626a609cfd695f89ef2dc7783ddbb509d"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/large-candidate.log": {
+      "bytes": 144,
+      "sha256": "fbbdf43d35c96ee29fa6251b3376c98657bd662da2adeba89a4a11ec56fcc0ea"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/large-candidate/attempts.jsonl": {
+      "bytes": 4006982,
+      "sha256": "369ba8b43c6826776a5e3d8d0a72d54c46db96e557a637e066595213a2de901a"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/large-candidate/progress.json": {
+      "bytes": 62,
+      "sha256": "6687f22a4c8bb111c142d21eb2e8b46fd5247820dd24761888934596c2b06cdc"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/large-candidate/result.json": {
+      "bytes": 4062,
+      "sha256": "9813d7619ab5794f0cc89dabb06da21985f53923732a622b495b6388e5f05da2"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/large-original.log": {
+      "bytes": 143,
+      "sha256": "64bddfe04cc5bb856b347d5c9018ee7c268aebc0965eaf0e6124f68ee5cd591d"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/large-original/attempts.jsonl": {
+      "bytes": 3999652,
+      "sha256": "32628a85f4edbfe058ad41611a1557f80ad4f63e8f0906a061b790ec279134ac"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/large-original/progress.json": {
+      "bytes": 62,
+      "sha256": "242df8f67c616a2f16681c39f8e5381ba089d2c226df5f7fae94491f4219f076"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/large-original/result.json": {
+      "bytes": 4050,
+      "sha256": "0b3ef8e800f376fef4f9541570998f27939a905270f71b382e9c207ebaa8f467"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/ranks.log": {
+      "bytes": 143,
+      "sha256": "48d3ff95f4636578efa00143727c9e8e6297051b56bf357fc46164372efcda39"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/ranks/result.json": {
+      "bytes": 1797,
+      "sha256": "ebf0e4340855370d1829c3351230c25710f7e50fa34cf784fa8a63495477f0f2"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/resources.jsonl": {
+      "bytes": 270003,
+      "sha256": "6146946dba7c16355b0396356172009296c17e626e439718da170e05ca5026ad"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/supervisor.json": {
+      "bytes": 7515,
+      "sha256": "4769d7750cec251a45f66b137a63f982e64e0d5ccffe194e7785995d5402f443"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/validation.log": {
+      "bytes": 148,
+      "sha256": "7d7922f67724fe4e661c7f39c6e864c3404f6b51b64082f8954528260f90cb46"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/validation/attempts.jsonl": {
+      "bytes": 284493,
+      "sha256": "82ce30c8d02ffa26f94dfd424d9a96235b1a687a9118191657fc3d93ddf9709c"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/validation/result.json": {
+      "bytes": 1058,
+      "sha256": "bff94c693724e5571046d6d908b91325205c7c4484f2e45f085f523760cf46ab"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2/verified-inputs.json": {
+      "bytes": 8719,
+      "sha256": "839ebcc0a9a59ed707dfd83732aa8e65306010ea86ca0c69f0449b75ba908650"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/bench336-candidate.log": {
+      "bytes": 145,
+      "sha256": "bf485df6eea7a2f91b2476d19d77142f8d54b9487c3c641a45968a416c516754"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/bench336-candidate/attempts.jsonl": {
+      "bytes": 316397,
+      "sha256": "815d0a433135554136f808fcd7d77a80e15f0167ced89aaeba218efd62230d1d"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/bench336-candidate/progress.json": {
+      "bytes": 61,
+      "sha256": "80ad5a298ab98d74594dce74820265acf79266321893aedffde17f71ee533707"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/bench336-candidate/result.json": {
+      "bytes": 2948,
+      "sha256": "0c179634663d526fccb4a133ce4be1ab66a69b7312d34fdcb5bd8223fd7483c6"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/bench336-original.log": {
+      "bytes": 146,
+      "sha256": "364e0883921b1ed3d1386015929863cce24de83f6289be1a6e9580cd6080e6d0"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/bench336-original/attempts.jsonl": {
+      "bytes": 315969,
+      "sha256": "adbfac1ab8e7a32d3e40ae9499431e6215c6ad1c55953bf772655d2e27ac2f07"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/bench336-original/progress.json": {
+      "bytes": 61,
+      "sha256": "725238812fbd127813e1995689303bb5772f70af329d4cef6fe7b0d0f041a334"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/bench336-original/result.json": {
+      "bytes": 2936,
+      "sha256": "3021cd58a8b1ce044ee3e77de0e10b324e9353a707d1081df28ce2d93c761196"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/engineering-clock.json": {
+      "bytes": 208,
+      "sha256": "08c7eb98ff26133cdc56cb08b9bde697e9f4c1f97b34e55cb78e938adf961e86"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/focused-tests.log": {
+      "bytes": 99,
+      "sha256": "3ce5396f62c3bd14cdc881f4f424d0f49c7c812ef4d18781a103a4d6abde219e"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/large-candidate.log": {
+      "bytes": 144,
+      "sha256": "f8731c2dd780c5784f546ef6253c058e091a741fa920ed0daf02cf825dfb3f64"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/large-candidate/attempts.jsonl": {
+      "bytes": 4006879,
+      "sha256": "5df7301eca30088a5456f9c637e9d36fe861ebbc6824250c42c46abb2428297c"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/large-candidate/progress.json": {
+      "bytes": 62,
+      "sha256": "894a98227cc1832742e5d4ad646a06955367efe372d19ee7ea7fed17f0a2f31b"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/large-candidate/result.json": {
+      "bytes": 4058,
+      "sha256": "6c6906399254ad1f96c7718133cf8eddc937fea3b7b4c4bbb0d0f3070ea4ac37"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/large-original.log": {
+      "bytes": 143,
+      "sha256": "c17d430a2b2f4778f367985fbf91fcd80ca2843fcaab70606b8cd3d1b5102e8f"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/large-original/attempts.jsonl": {
+      "bytes": 4000198,
+      "sha256": "98b3a392be57ad0a5a43440b0e20437bd2491cf157868f2108edd4674d91d362"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/large-original/progress.json": {
+      "bytes": 62,
+      "sha256": "eda65cc6be216f835349a160c77e2ebf2d3654c86c00fecbe5cb3c92b6ef9f51"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/large-original/result.json": {
+      "bytes": 4060,
+      "sha256": "242276452a598d4d4e917037c42317f2772e5572d319bf4f835a18876637c1a9"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/manifest.json": {
+      "bytes": 14989,
+      "sha256": "a16a03a6d2b97321caa801e12fd3fe5cf2918df3457860e9495f621fe492afc3"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/ranks.log": {
+      "bytes": 143,
+      "sha256": "84961656ee53241bb39f7bf657a0fb95bf3343aef242e33c8bca0fd1b24dfdb8"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/ranks/result.json": {
+      "bytes": 1806,
+      "sha256": "4af5bc991316c9aeec7c59a315564fecb93242c083569c14e184fc6926883ea6"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/report.json": {
+      "bytes": 38559,
+      "sha256": "a2f1a0ce7bbf234a7b8457e0479db75abaeb98824fe88ee0fc1c37717c5298c6"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/reporting-guard-tests.log": {
+      "bytes": 98,
+      "sha256": "fcd476841e8af121ff907e81a92a59579b64c007b70cb79f9d096806f703fc7e"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/resources.jsonl": {
+      "bytes": 267398,
+      "sha256": "f46f3ae5db375830c97edf6189ba5e9d0ca19dd57b002b79ddf408db17473967"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/supervisor.json": {
+      "bytes": 7607,
+      "sha256": "ba20dda9b99d292d3c96ad7db14da5e4737a616295effac326d1518aea093a5b"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/validation.log": {
+      "bytes": 148,
+      "sha256": "059ed86c86b5690d28852e9a9ad6ec9696ca572aa28ade1a00e4b1ecdfbacec5"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/validation/attempts.jsonl": {
+      "bytes": 284493,
+      "sha256": "16178c962ce474f87a68a8b1549db79cbf4327a01d8c5cd863ad790beb22a471"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/validation/result.json": {
+      "bytes": 1058,
+      "sha256": "5a0db02ae452834743eafb2a6111782e71ea73ae488f2ffb3968f3638feb5c0f"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3/verified-inputs.json": {
+      "bytes": 8719,
+      "sha256": "839ebcc0a9a59ed707dfd83732aa8e65306010ea86ca0c69f0449b75ba908650"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-publication-final/report.json": {
+      "bytes": 39877,
+      "sha256": "ea9ea795e68a30e13bea81a9020347ed15380324af54b5ea43e91449db19f52c"
+    },
+    "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930/startup-attempt-1.log": {
+      "bytes": 515,
+      "sha256": "f3e2abcf1f48eaa75a822bee3893975a353560f0e7616b236ff06d6ae88ebcc4"
+    },
+    "/Users/dberweger/Local/hu20-exact-ranker-pr126-seal-verification.json": {
+      "bytes": 603,
+      "sha256": "076b84f50c8498950c39ef16bb1d5e200717e52add5c0b16c97358d4fa38df14"
+    },
+    "/Users/dberweger/Local/hu20-exact-ranker-pr126-wrapper-attempt-2.log": {
+      "bytes": 71,
+      "sha256": "c45b99838bcd2069afbcf794de05c748d6f30695c0dc1a02e601321968352021"
+    },
+    "/Users/dberweger/Local/hu20-exact-ranker-pr126-wrapper-attempt-3.log": {
+      "bytes": 70,
+      "sha256": "1eba27a26abbd1a72b470a3c15f2721c84610b043dd10a31fff164ddb4c20609"
+    }
+  },
+  "pre_correction_root": "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-2",
+  "publication_root": "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-publication-final",
+  "report_source_head": "80d0bef4636999651529bdb9a354393f5246fac6",
+  "retained_m4_root": "/Users/dberweger/Local/hu20-exact-lbr-ranker-pr126/results/hu20-exact-ranker-m4-20260930-attempt-3",
+  "sealed": 1790773525.464009
+}

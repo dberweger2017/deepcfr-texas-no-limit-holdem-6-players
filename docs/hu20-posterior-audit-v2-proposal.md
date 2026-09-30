@@ -65,6 +65,16 @@ subset, separately costed from the four primary samples. Do not recycle the
 stability estimates into the primary posterior. The 16-sample set is a
 comparison with a larger budget, not an exact posterior or accuracy certificate.
 
+Run the three stability repetitions and the 16-sample comparison first. If
+they pass, compute the independent primary four-sample likelihoods and apply
+the same checks to the main estimates on these five coordinates before any
+conditional values. Thus the final stability table compares four independent
+four-sample estimates (three checks plus main) with the 16-sample estimate.
+This uses the already counted main work; it adds no simulations. Total
+variation is one-half the sum of absolute normalized-weight differences;
+ESS is `1 / sum(weight**2)` and ESS ratios compare each four-sample estimate
+with the 16-sample estimate.
+
 Keep every raw match count/denominator, normalized posterior, positive support,
 ESS, entropy, largest weight, zero-evidence event and soft-limited batch.
 Report all pairwise total-variation distances among four-sample repetitions,
@@ -134,6 +144,31 @@ reference that hits its node ceiling as incomplete. No material unexplained
 control/reference discrepancy can support a training recommendation.
 
 ## Host, safety deadline and recovery proposal
+
+The completed [ranker report](reports/hu20-exact-lbr-ranker-m4.md) projects
+**8.66 hours** for the four-sample design including stability, controls and
+1.25× headroom. Recommend **one M4 worker and a new 9.5-hour absolute window**:
+scientific work stops at start + 9 h, leaving 30 minutes for the final report
+and seal. Fix the actual UTC/Madrid timestamps only at an owner-approved start;
+no scientific clock or job has begun. This is a new attempt after #119, not a
+reset of its retained deadline.
+
+The proposed workload contains 232,188 main likelihood calls, 409,892
+stability calls and 49,908 suit-control calls (**691,988** total). Estimated
+raw times are respectively 1.978, 3.584 and 0.434 hours. Add the historical
+0.480-hour primary-world proxy, 0.333-hour controls/report reserve,
+0.067-hour timer allowance and 0.054-hour phase-loading allowance, then
+multiply by 1.25. A minimal main-only design would be 3.49 hours but omits
+mandatory uncertainty checks and is not the recommended budget. Eight main
+likelihood samples would project to 11.13 hours; that variant is not adopted.
+
+The chosen executor is `RankedCachedLocalBestResponse`, retaining the native
+LBR `LBRConfig(4, 5)` and exact event/menu semantics. Its 4,263-call workload
+was 7.82× faster at the LBR-call boundary and 5.90× including startup; all
+outputs and work counts matched. The larger run's peak owned RSS was well
+below the ceiling; the engineering peak including validation was 2.99 GiB.
+Those are bounded corpus measurements, not a full 691,988-call memory proof.
+The additional timer/stability gates remain necessary.
 
 The completed PR #126 report supplies measured workload projections,
 including main likelihood, the 28-sample stability work, separate coupled-suit
