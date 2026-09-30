@@ -118,6 +118,7 @@ class Hand:
     table: Table
     events: tuple[PublicEvent, ...]
     _state: pokers.State = field(repr=False)
+    _acting_view: Observation | None = field(default=None, init=False, repr=False)
 
     @classmethod
     def start(cls, table: Table, *, hand_id: str, seed: int) -> "Hand":
@@ -187,6 +188,20 @@ class Hand:
         return None if self.finished else self._state.current_player
 
     def observe(
+        self, seat: int, previous_hands: tuple[ObservedHand, ...] = ()
+    ) -> Observation:
+        # This cache belongs to one immutable concrete Hand, never an abstract
+        # key. New branches/replace() start empty; other seats and prior private
+        # history cannot use the acting seat's snapshot.
+        reusable = type(seat) is int and seat == self.actor and previous_hands == ()
+        if reusable and self._acting_view is not None:
+            return self._acting_view
+        view = self._observe_uncached(seat, previous_hands)
+        if reusable:
+            object.__setattr__(self, "_acting_view", view)
+        return view
+
+    def _observe_uncached(
         self, seat: int, previous_hands: tuple[ObservedHand, ...] = ()
     ) -> Observation:
         if type(seat) is not int or not 0 <= seat < len(self.table.stacks):
