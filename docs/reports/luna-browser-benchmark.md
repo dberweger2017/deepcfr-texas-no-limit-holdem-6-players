@@ -77,6 +77,14 @@ the existing session and player context, with the interruption retained in
 the report. No new benchmark, changed poker prompt or parent poker action is
 authorized by that recovery.
 
+The reopened table retained the original session without any parent poker
+action. The same child/context resumed. After 351 completed hands another
+browser recovery restored that same table; the child stopped after confirming
+recovery, then resumed on a technical continuation. This included an idle gap
+of about twenty minutes (15:01–15:21 UTC), which remains part of wall time.
+No replacement 500-hand benchmark or context was created. These interruptions
+remain explicit qualifications of the eventual result.
+
 At my request for live viewing, I opened a temporary loopback spectator on port
 8766. It polls only the existing public state/history and reuses the table
 presentation with action controls disabled. Its server rejects every POST (405),
@@ -86,7 +94,7 @@ remains on the original released UI at port 8765; no game/runtime source changed
 The additional polling load is included in subsequent resource samples.
 
 [Machine and native dependency identity](luna-browser/environment.json) records
-the exact environment. The focused service/audit/report/tally suite passed 26 tests.
+the exact environment. The focused service/audit/report/tally suite passed 27 tests.
 The earlier `f7ac53e` GitHub CI candidate passed all 952 tests and its existing
 CLI/reproduction gates. Subsequent reporting changes receive their own CI run.
 
@@ -135,3 +143,9 @@ results cover all 192 completed hands once, without gaps or conflicting amounts:
 +2,350 chips / +23.5 BB, 68 wins / 122 losses / 2 ties. The earlier through-106
 tally remains +50 chips. These are provisional public observations, not private
 journal validation or information supplied to Luna.
+
+Some player observations named their rendered button list
+`visibleLegalButtonLabels` rather than `legalButtonLabels`. The reporting helper
+accepts either spelling, retaining the actual labels and requiring a valid list.
+This is a reporting correction; neither the player harness nor game runtime
+changed. Native action counts, hand order and replay checks remain required.

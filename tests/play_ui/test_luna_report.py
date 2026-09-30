@@ -54,6 +54,17 @@ def test_retains_misclick_result_instead_of_discarding_the_hand(tmp_path):
     assert rows[0]["acceptedKind"] == "fold" and hands[0]["humanChips"] == -50
 
 
+def test_accepts_logged_visible_menu_field_without_changing_its_content(tmp_path):
+    state, metadata = completed_fixture(tmp_path)
+    metadata[1]["visibleLegalButtonLabels"] = metadata[1].pop("legalButtonLabels")
+    rows, _ = reconcile(state, metadata)
+    assert rows[0]["reportedMenuContainsAttempt"]
+    assert rows[0]["legalButtonLabels"] == '["Fold", "Call 0.50 BB"]'
+    metadata[1].pop("visibleLegalButtonLabels")
+    with pytest.raises(ValueError, match="legal button labels"):
+        reconcile(state, metadata)
+
+
 def test_reset_stacks_do_not_reset_accumulated_profit(tmp_path):
     class MinRaisePolicy(FixturePolicy):
         def distribution(self, view):

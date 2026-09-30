@@ -51,6 +51,9 @@ def reconcile(state, metadata):
         assert attempt["handOrdinal"] == ordinal
         observed = observations[(ordinal, attempt["decisionOrdinal"])]
         label = attempt["attemptedButtonLabel"]
+        menu_labels = attempt.get("legalButtonLabels", attempt.get("visibleLegalButtonLabels"))
+        if not isinstance(menu_labels, list) or not all(isinstance(item, str) for item in menu_labels):
+            raise ValueError("Missing or invalid rendered legal button labels")
         matches = False
         if action["kind"] == "raise":
             # Restricted buttons display the exact target after the separator.
@@ -70,11 +73,11 @@ def reconcile(state, metadata):
                          {"name": item.name, "kind": item.action.kind.value,
                           "raiseTo": item.action.raise_to}
                          for item in choices(view, raise_cap=None, free_fold=False)]),
-                     "legalButtonLabels": json.dumps(attempt["legalButtonLabels"], ensure_ascii=False),
+                     "legalButtonLabels": json.dumps(menu_labels, ensure_ascii=False),
                      "attemptedButtonLabel": label, "acceptedKind": action["kind"],
                      "acceptedRaiseTo": action["raiseTo"], "attemptedAtMs": attempt["attemptedAtMs"],
                      "attemptMatchesAccepted": matches,
-                     "reportedMenuContainsAttempt": label in attempt["legalButtonLabels"],
+                     "reportedMenuContainsAttempt": label in menu_labels,
                      "observedAtMs": observed["observedAtMs"],
                      "lastRenderedAtMs": attempt.get("lastRenderedAtMs"),
                      "observedDecisionMs": attempt["attemptedAtMs"] - attempt["lastRenderedAtMs"]
