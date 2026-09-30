@@ -1,0 +1,30 @@
+{
+  "audit_root": 202610010117,
+  "files_before_rename": {
+    "values.log": {
+      "bytes": 40,
+      "sha256": "ef42986aca3e61fded9b40787193b99dbc13adfbe3307d9011d0d03248678379"
+    },
+    "values/attempts.json": {
+      "bytes": 294621,
+      "sha256": "40d8fb0ce89423239fc4a5d4d17bec69cd5858c4a2cfb8a3ceca703a7564c8eb"
+    },
+    "values/result.json": {
+      "bytes": 226,
+      "sha256": "f123e3261c06bb1ac1c2b6c8d97952fa4318dd9232147aeaea720a79d59fb9ca"
+    },
+    "values/worlds.jsonl.gz": {
+      "bytes": 99117,
+      "sha256": "dbe367627c399b330e53cf48ee75c129f0166f6e9544900ee4d5116a74b14300"
+    }
+  },
+  "numerical_action_values_or_gaps_inspected": false,
+  "progress_metadata_inspected": "One truncated attempt prefix was viewed during progress checks; it showed board, own cards, key and menu metadata, but no numerical action returns, gap or terminal payoff.",
+  "reason": "Frozen source dd84f49 selected and estimated the best action on all 96 worlds, creating selection bias; the frozen protocol requires 48 selection and 48 independent evaluation worlds.",
+  "retained_directory": "values-invalid-split-attempt-1",
+  "selected_decisions": 60,
+  "selection_digest": "e192e57c334cd0b5779e43ea5f92e7498c8ddf702762bd60bf557799d85599ad",
+  "source_revision": "dd84f49aa5f6f9b8f6dc756ede8a71785164965a",
+  "status": "invalid_for_primary_conditional_value_claim",
+  "worlds_generated": 5760
+}

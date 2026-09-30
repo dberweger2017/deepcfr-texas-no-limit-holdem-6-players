@@ -1,0 +1,77 @@
+{
+  "by_milestone": {
+    "100000000": {
+      "failed_hands": 0,
+      "fallback_by_street": {
+        "flop": 2,
+        "preflop": 0,
+        "river": 4,
+        "turn": 7
+      },
+      "hands": 3072,
+      "insufficient_samples": 0,
+      "lbr_decisions": 6721,
+      "lbr_incomplete": 0,
+      "lbr_over_soft": 0,
+      "max_lbr_seconds": 0.5414116668980569,
+      "target_decisions": 7309,
+      "target_fallback": 13,
+      "zero_likelihood_events": 0
+    },
+    "20000000": {
+      "failed_hands": 0,
+      "fallback_by_street": {
+        "flop": 12,
+        "preflop": 0,
+        "river": 23,
+        "turn": 27
+      },
+      "hands": 3072,
+      "insufficient_samples": 1,
+      "lbr_decisions": 6855,
+      "lbr_incomplete": 1,
+      "lbr_over_soft": 1,
+      "max_lbr_seconds": 2536.0858953329735,
+      "target_decisions": 7153,
+      "target_fallback": 62,
+      "zero_likelihood_events": 0
+    },
+    "40000000": {
+      "failed_hands": 0,
+      "fallback_by_street": {
+        "flop": 2,
+        "preflop": 0,
+        "river": 13,
+        "turn": 16
+      },
+      "hands": 3072,
+      "insufficient_samples": 0,
+      "lbr_decisions": 6646,
+      "lbr_incomplete": 0,
+      "lbr_over_soft": 0,
+      "max_lbr_seconds": 0.5382982499431819,
+      "target_decisions": 7231,
+      "target_fallback": 31,
+      "zero_likelihood_events": 0
+    },
+    "80000000": {
+      "failed_hands": 0,
+      "fallback_by_street": {
+        "flop": 4,
+        "preflop": 0,
+        "river": 5,
+        "turn": 13
+      },
+      "hands": 3072,
+      "insufficient_samples": 0,
+      "lbr_decisions": 6861,
+      "lbr_incomplete": 0,
+      "lbr_over_soft": 0,
+      "max_lbr_seconds": 0.5913282078690827,
+      "target_decisions": 7434,
+      "target_fallback": 22,
+      "zero_likelihood_events": 0
+    }
+  },
+  "status": "verified"
+}

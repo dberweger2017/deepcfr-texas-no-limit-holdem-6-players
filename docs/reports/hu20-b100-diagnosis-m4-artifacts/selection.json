@@ -1,0 +1,1133 @@
+{
+  "base_cap": 48,
+  "cells": [
+    {
+      "context": "free",
+      "eligible": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "preflop"
+    },
+    {
+      "context": "facing",
+      "eligible": 2643,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "preflop"
+    },
+    {
+      "context": "free",
+      "eligible": 0,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "preflop"
+    },
+    {
+      "context": "facing",
+      "eligible": 2669,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "preflop"
+    },
+    {
+      "context": "free",
+      "eligible": 650,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "flop"
+    },
+    {
+      "context": "facing",
+      "eligible": 758,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "flop"
+    },
+    {
+      "context": "free",
+      "eligible": 612,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "flop"
+    },
+    {
+      "context": "facing",
+      "eligible": 733,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "flop"
+    },
+    {
+      "context": "free",
+      "eligible": 332,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "turn"
+    },
+    {
+      "context": "facing",
+      "eligible": 238,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "turn"
+    },
+    {
+      "context": "free",
+      "eligible": 297,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "turn"
+    },
+    {
+      "context": "facing",
+      "eligible": 210,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "turn"
+    },
+    {
+      "context": "free",
+      "eligible": 126,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "river"
+    },
+    {
+      "context": "facing",
+      "eligible": 95,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "river"
+    },
+    {
+      "context": "free",
+      "eligible": 97,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "river"
+    },
+    {
+      "context": "facing",
+      "eligible": 66,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "river"
+    },
+    {
+      "context": "free",
+      "eligible": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "preflop"
+    },
+    {
+      "context": "facing",
+      "eligible": 2714,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "preflop"
+    },
+    {
+      "context": "free",
+      "eligible": 0,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "preflop"
+    },
+    {
+      "context": "facing",
+      "eligible": 2713,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "preflop"
+    },
+    {
+      "context": "free",
+      "eligible": 704,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "flop"
+    },
+    {
+      "context": "facing",
+      "eligible": 694,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "flop"
+    },
+    {
+      "context": "free",
+      "eligible": 658,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "flop"
+    },
+    {
+      "context": "facing",
+      "eligible": 685,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "flop"
+    },
+    {
+      "context": "free",
+      "eligible": 271,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "turn"
+    },
+    {
+      "context": "facing",
+      "eligible": 220,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "turn"
+    },
+    {
+      "context": "free",
+      "eligible": 277,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "turn"
+    },
+    {
+      "context": "facing",
+      "eligible": 206,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "turn"
+    },
+    {
+      "context": "free",
+      "eligible": 105,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "river"
+    },
+    {
+      "context": "facing",
+      "eligible": 73,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "river"
+    },
+    {
+      "context": "free",
+      "eligible": 98,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "river"
+    },
+    {
+      "context": "facing",
+      "eligible": 68,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "river"
+    },
+    {
+      "context": "free",
+      "eligible": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "preflop"
+    },
+    {
+      "context": "facing",
+      "eligible": 2648,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "preflop"
+    },
+    {
+      "context": "free",
+      "eligible": 0,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "preflop"
+    },
+    {
+      "context": "facing",
+      "eligible": 2674,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "preflop"
+    },
+    {
+      "context": "free",
+      "eligible": 706,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "flop"
+    },
+    {
+      "context": "facing",
+      "eligible": 732,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "flop"
+    },
+    {
+      "context": "free",
+      "eligible": 666,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "flop"
+    },
+    {
+      "context": "facing",
+      "eligible": 720,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "flop"
+    },
+    {
+      "context": "free",
+      "eligible": 313,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "turn"
+    },
+    {
+      "context": "facing",
+      "eligible": 224,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "turn"
+    },
+    {
+      "context": "free",
+      "eligible": 306,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "turn"
+    },
+    {
+      "context": "facing",
+      "eligible": 186,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "turn"
+    },
+    {
+      "context": "free",
+      "eligible": 124,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "river"
+    },
+    {
+      "context": "facing",
+      "eligible": 77,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "river"
+    },
+    {
+      "context": "free",
+      "eligible": 96,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "river"
+    },
+    {
+      "context": "facing",
+      "eligible": 65,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "river"
+    }
+  ],
+  "fallback_extra_cap": 12,
+  "fallback_selected": 12,
+  "protocol": "docs/hu20-b100-diagnosis-protocol.md",
+  "schema": "hu20-b100-outcome-blind-selection-v1",
+  "selected": [
+    {
+      "action_index": 3,
+      "block": 299,
+      "context": "free",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 599,
+      "rank": "000c8b54120ea297292e83066f14354f0bb143d80d1fcc43bfdfbeae1d2474d9",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 4,
+      "block": 190,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 381,
+      "rank": "0015fd69f38ec372041f2e19951a080704bed5631013c0909a1d7d5649f21ae1",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 3,
+      "block": 601,
+      "context": "free",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 1203,
+      "rank": "2b4a30d7e213107c50a0d138f239477fa9e00aac8700cb597471acce2a05af14",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "flop",
+      "trained": false
+    },
+    {
+      "action_index": 3,
+      "block": 82,
+      "context": "free",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 166,
+      "rank": "0009d55c8fb81fa089a95c90f719536f09ec3aa6cfeda798f57f58b8a50550b8",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 3,
+      "block": 381,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 764,
+      "rank": "005e1519a72329dd7bb6d7c1f8717cfdb5801773b0724798a8c8200f05e53c36",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 5,
+      "block": 130,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 262,
+      "rank": "1f2ecd951ab5dec3d1a2cefb0e17fa1f213b48c97e1dbb3df487a35167e8f508",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "flop",
+      "trained": false
+    },
+    {
+      "action_index": 0,
+      "block": 70,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 141,
+      "rank": "000e5fa97684a8a57a970d455ec3e2abec0fd486d91df519160d2be1ded12303",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 2,
+      "block": 1300,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2601,
+      "rank": "005c4dd370b575403d36c1efc87eef6b2cafe356882cd28a6fe2b1c11ed279cc",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 1,
+      "block": 220,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 442,
+      "rank": "00485a0a12971de1c50b082753f0e191c4233b67fcbc69f8c06a7de50126f8b5",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 1,
+      "block": 1738,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3478,
+      "rank": "005a572ab2e4bdacab9b47c9b2aa8463aa086daad40e4c4660ce47ca8e9f81c5",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 9,
+      "block": 192,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 385,
+      "rank": "024094597176aaa6759d4c94553dc923aba9f272e22b4cbea1f4c2faf89ff7ef",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 8,
+      "block": 1423,
+      "context": "free",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2847,
+      "rank": "04fdef27c3a766a8cc190597ae397c5ca35851c5df6a18f1690a0fac773142d0",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 7,
+      "block": 689,
+      "context": "free",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 1380,
+      "rank": "00171ac9d61e914a1e636905d903c2c77589177f4c4280381bf15054bf35c02f",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 11,
+      "block": 1385,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2772,
+      "rank": "0253f4cdacbbe8a2b76e7ced031a2e257f4fc09fcd2c41e6ed277b3f9bdc86cb",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 7,
+      "block": 1845,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3691,
+      "rank": "005230b74f575603ce8039b047c65ccc7062f22c634fea110a00a8643ce7d90d",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "turn",
+      "trained": true
+    },
+    {
+      "action_index": 5,
+      "block": 2034,
+      "context": "free",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 4069,
+      "rank": "0069b171cd35ca41565a03bae3e844abef5335467d5f84d4c80a18a6c05785ec",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "turn",
+      "trained": true
+    },
+    {
+      "action_index": 5,
+      "block": 1631,
+      "context": "free",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3263,
+      "rank": "31e8774a65fed8f8bc56c0ba3a1bb663bc7eaa64bd96a943eac3bf48cac8f2b7",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "turn",
+      "trained": false
+    },
+    {
+      "action_index": 6,
+      "block": 211,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 424,
+      "rank": "0049df2bd2bfe6e6e473459b8cf3f948451ad90a4788c0afe646bd6202beda7b",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "turn",
+      "trained": true
+    },
+    {
+      "action_index": 6,
+      "block": 752,
+      "context": "free",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 1506,
+      "rank": "00cafeefdf41cbcd92a5040186ba92694fadce96dba544eef600ab72a1229541",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "turn",
+      "trained": true
+    },
+    {
+      "action_index": 9,
+      "block": 1453,
+      "context": "facing",
+      "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2908,
+      "rank": "0bf1d7a09d43281ec12774649f3931238f3dc4c82770e5dd0b4ecec879fd2841",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "turn",
+      "trained": false
+    },
+    {
+      "action_index": 3,
+      "block": 42,
+      "context": "free",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 85,
+      "rank": "0032c749d4ce70ca1218ba0fa023642c000b7055635c1c4c19de9fc5528c8dbd",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 4,
+      "block": 238,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 477,
+      "rank": "00a60705db588488c22d9e3a4b6300bd0b777fbcb9ebe8d48fbcdc43fbaeb701",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 5,
+      "block": 751,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 1504,
+      "rank": "00156ec48c30debf0994d3e42cee0c762ffe65f64da05e841f97d1bf3863f27b",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 2,
+      "block": 606,
+      "context": "free",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 1214,
+      "rank": "007f93f78da63d1d7efdb9ca1f9f0b94a9b46a838359fd9196e445963b0ab8ec",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 1,
+      "block": 1219,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2439,
+      "rank": "0000acaa87c01f72cb462712cf49f1df277f6f8cc0e6d3313f2491f4f13a0a4b",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 2,
+      "block": 1110,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2221,
+      "rank": "000f8b2dd8ad8eb2bda1019b95646b3f64e69e690d88759acc6b60769500b65e",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 1,
+      "block": 2006,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 4014,
+      "rank": "0018766c42d2043fff4e88316dcc7f992ca2ec398315180283a875373eed6530",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 1,
+      "block": 1220,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2442,
+      "rank": "002053099dafb4fb5c80261c66fcf6f09bb1212dfaa3b9d36e25b7aa0ea4e353",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 9,
+      "block": 1546,
+      "context": "free",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3093,
+      "rank": "000f44fc3b9a29d34516d0be58e27efabed26ee0b057a17468e36842d1454614",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 10,
+      "block": 1284,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2569,
+      "rank": "05af08a30cdb3810ee8d60ca9473fb0d7b079e31950283546f61b876303b0fdb",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 8,
+      "block": 1925,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3852,
+      "rank": "004013ad3ab06d8bc18a3e113f17da1e18072a3dd2b9926bd93b510d996e009d",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 7,
+      "block": 1098,
+      "context": "free",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2198,
+      "rank": "0822f5c572c36a597a6a7ec62dbd06d08a1a01e09d07112bea2df5f1b753ba5f",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 10,
+      "block": 1578,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3158,
+      "rank": "4664009afe3e7b83cdce22fa797892f235eb037ea855b5b91f525fbbe862acbc",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "river",
+      "trained": false
+    },
+    {
+      "action_index": 5,
+      "block": 747,
+      "context": "free",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 1495,
+      "rank": "007771d1df3ddd6e52758c055d147bcb1f482c47a8ce16586b4764ddc285c489",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "turn",
+      "trained": true
+    },
+    {
+      "action_index": 7,
+      "block": 290,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 581,
+      "rank": "00b783c263fe2db24bec7b35c3b624084fea6551d9b98636e120d9b226f6fc38",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "turn",
+      "trained": true
+    },
+    {
+      "action_index": 6,
+      "block": 530,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 1061,
+      "rank": "3e483029f08fea673509f6d14fe0e6c389cdab9e916d5b278633207eb9c9237a",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "street": "turn",
+      "trained": false
+    },
+    {
+      "action_index": 5,
+      "block": 1805,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3612,
+      "rank": "00f8da256e900ad1b6558ad3c0be429de5000b6bc0eef9aa8cdf5cb4f2680dc1",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "turn",
+      "trained": true
+    },
+    {
+      "action_index": 5,
+      "block": 141,
+      "context": "free",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 284,
+      "rank": "014c01bc3e98e6e811af684f84d4a246ab0dd8d89e3f82411e849f695c956eb4",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "turn",
+      "trained": true
+    },
+    {
+      "action_index": 6,
+      "block": 843,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 1688,
+      "rank": "128ff8537dd5ae42057bc2576e79bbe70a0fe3095205cad43b5defaaabf6c460",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "turn",
+      "trained": false
+    },
+    {
+      "action_index": 7,
+      "block": 333,
+      "context": "facing",
+      "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 668,
+      "rank": "59d74d6f03fa88e50a0e0e2ba9f33852f5a896cfe41c7a4d8e97256013290d95",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "turn",
+      "trained": false
+    },
+    {
+      "action_index": 4,
+      "block": 35,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 71,
+      "rank": "0025d25cabaa680c4b4be8aff7dcbd41f2f32ad9311396febaeb31fd9b2e925a",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 2,
+      "block": 2021,
+      "context": "free",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 4043,
+      "rank": "007b4e2356214bbee09de836107e5b8c25967a852fc5573962208bbd45827133",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 3,
+      "block": 1387,
+      "context": "free",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2775,
+      "rank": "275cefa4bf7bb1550c887360b77cc9fedae65051dde1615a9a7f4a0b91d2fcbe",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "flop",
+      "trained": false
+    },
+    {
+      "action_index": 2,
+      "block": 1186,
+      "context": "free",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2374,
+      "rank": "0020bd6b18a0da8be4bb28c341096ed5ccb59d099f78b32ef7cd1d397036d613",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 4,
+      "block": 1452,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2906,
+      "rank": "006a9e44ee997d8197bd52cff16f8659f2282665e0e35464df8293d3f5bf66d6",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "flop",
+      "trained": true
+    },
+    {
+      "action_index": 2,
+      "block": 642,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 1285,
+      "rank": "000491ee16c6808e1b4b4b3264c9ffdb4162fcbcfed28b082927ede6b0bc98e2",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 0,
+      "block": 2016,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 4033,
+      "rank": "002ce4374d9989c8670dbff252e6a2c47ea76e5670f56216703a4177409870cf",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 1,
+      "block": 1870,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3742,
+      "rank": "000cefb299ee263c19c6699e23d83ef502e0a7d81b2c1e0b8389d2813d66888b",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 2,
+      "block": 1593,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3188,
+      "rank": "001778ae4dcb521a29e4d49a1e49d18deeeaf83f168355d6b24bf5b95b809307",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "preflop",
+      "trained": true
+    },
+    {
+      "action_index": 7,
+      "block": 1977,
+      "context": "free",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3955,
+      "rank": "001ce616230326f4029e28c9105a9b5f549fd1d0fc42dfd9256ae10301f9e9f1",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 7,
+      "block": 2010,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 4021,
+      "rank": "0371f9c90d9695998cb342c0a914ca951d4203c6d5b158d65842185b91f3c9ce",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 10,
+      "block": 390,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 781,
+      "rank": "08168896c7fcc926b6f0f5ea11b748c660f93cb87e5d7c0fc3c011ae5dc8ce2a",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "river",
+      "trained": false
+    },
+    {
+      "action_index": 7,
+      "block": 1336,
+      "context": "free",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 2674,
+      "rank": "0013d335eeaaf91bec46741c94405b5f3f3c4bd5a28842425017914785238156",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 10,
+      "block": 1590,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3182,
+      "rank": "02d55f99325c6e0246a3729a7dab3208310132fcc9aa74788bd369f5184b451c",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "river",
+      "trained": true
+    },
+    {
+      "action_index": 9,
+      "block": 1761,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 3524,
+      "rank": "17a983d6695296e0a3b495c8f21341c13f25fc254c6e9bdce8a11f67fb473827",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "river",
+      "trained": false
+    },
+    {
+      "action_index": 7,
+      "block": 2008,
+      "context": "free",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 4017,
+      "rank": "003ccc01d07b9439f43f53b3608291a58c615115133140e8d2f728393ce589c5",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "turn",
+      "trained": true
+    },
+    {
+      "action_index": 6,
+      "block": 434,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 869,
+      "rank": "00e1dfffd89920c697a4334eb19bfab70a9086a5fdd7a2333e467f4c4b6c9c75",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "turn",
+      "trained": true
+    },
+    {
+      "action_index": 5,
+      "block": 348,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 697,
+      "rank": "0336f03230c3b74b5c97f4e6e44766065839b74d651abb2d2b709981c33e56cd",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093003,
+      "street": "turn",
+      "trained": false
+    },
+    {
+      "action_index": 8,
+      "block": 803,
+      "context": "free",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 1608,
+      "rank": "00eb95d574011b14186e5154ae542f9188a3a03eb508d8e4bc8d8d93e50e1bdc",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "turn",
+      "trained": true
+    },
+    {
+      "action_index": 6,
+      "block": 390,
+      "context": "facing",
+      "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+      "line": 782,
+      "rank": "00f5b65f72cb1ece757bac43de1bf1fb8d935056d60bcb857b7b475aec145167",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "street": "turn",
+      "trained": true
+    }
+  ],
+  "selection_digest": "e192e57c334cd0b5779e43ea5f92e7498c8ddf702762bd60bf557799d85599ad",
+  "source_hashes": {
+    "B-2026093001-100000000--LBR-original-cap2.jsonl.gz": "0fc9c8fc7480e870c1a148a18b11ddaa149c3612c967f6372bade33a6b67db1b",
+    "B-2026093002-100000000--LBR-original-cap2.jsonl.gz": "7116ce7bc42c3b50783e3d8e68f2123a60e27b81f8b01c92fcf2c345c6edbf3d",
+    "B-2026093003-100000000--LBR-original-cap2.jsonl.gz": "dc447a118991bcf35a52cbf18554a695bab60c1f826d857fd909aa7af08fd0d3"
+  }
+}

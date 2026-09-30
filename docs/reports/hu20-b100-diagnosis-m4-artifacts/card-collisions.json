@@ -1,0 +1,424 @@
+{
+  "cases": [
+    {
+      "alternatives": [
+        {
+          "cards": [
+            "8c",
+            "Kd"
+          ],
+          "limited_lbr_batches": 0,
+          "status": "complete",
+          "summary": {
+            "descriptive_action_95_halfwidth_bb": [
+              0.0,
+              1.716093401449933,
+              2.290814357853801,
+              2.9680436386508324
+            ],
+            "descriptive_action_mean_bb": [
+              -1.0,
+              -0.28125,
+              -1.78125,
+              -2.0833333333333335
+            ],
+            "descriptive_policy_mean_bb": -0.28125,
+            "evaluation_policy_gap_95_interval_bb": [
+              -4.05694946318573,
+              0.8069494631857301
+            ],
+            "evaluation_policy_gap_bb": -1.625,
+            "evaluation_policy_mean_bb": 0.625,
+            "evaluation_selected_action_mean_bb": -1.0,
+            "evaluation_worlds": 48,
+            "selected_action_index": 0,
+            "selection_action_mean_bb": [
+              -1.0,
+              -1.1875,
+              -1.3333333333333333,
+              -2.3125
+            ],
+            "selection_worlds": 48,
+            "worlds": 96
+          },
+          "worlds_completed": 96,
+          "worlds_requested": 96
+        },
+        {
+          "cards": [
+            "Kh",
+            "8s"
+          ],
+          "limited_lbr_batches": 0,
+          "status": "complete",
+          "summary": {
+            "descriptive_action_95_halfwidth_bb": [
+              0.0,
+              1.667112115911088,
+              2.3346114043576343,
+              2.7092045747778215
+            ],
+            "descriptive_action_mean_bb": [
+              -1.0,
+              -1.25,
+              -2.9166666666666665,
+              1.3854166666666667
+            ],
+            "descriptive_policy_mean_bb": -1.25,
+            "evaluation_policy_gap_95_interval_bb": [
+              -0.41681202547107876,
+              6.875145358804412
+            ],
+            "evaluation_policy_gap_bb": 3.2291666666666665,
+            "evaluation_policy_mean_bb": 0.0625,
+            "evaluation_selected_action_mean_bb": 3.2916666666666665,
+            "evaluation_worlds": 48,
+            "selected_action_index": 3,
+            "selection_action_mean_bb": [
+              -1.0,
+              -2.5625,
+              -3.7916666666666665,
+              -0.5208333333333334
+            ],
+            "selection_worlds": 48,
+            "worlds": 96
+          },
+          "worlds_completed": 96,
+          "worlds_requested": 96
+        }
+      ],
+      "key": "e452b8cdc214ebcc02232fe5eb0ba0e6",
+      "original_cards": [
+        "8h",
+        "Kd"
+      ],
+      "original_trained": true,
+      "selection": {
+        "action_index": 1,
+        "block": 1219,
+        "context": "facing",
+        "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+        "line": 2439,
+        "rank": "0000acaa87c01f72cb462712cf49f1df277f6f8cc0e6d3313f2491f4f13a0a4b",
+        "rotation": 0,
+        "seat": 0,
+        "seed": 2026093002,
+        "street": "preflop",
+        "trained": true
+      },
+      "status": "complete",
+      "street": "preflop"
+    },
+    {
+      "alternatives": [
+        {
+          "cards": [
+            "2c",
+            "Qc"
+          ],
+          "limited_lbr_batches": 0,
+          "status": "complete",
+          "summary": {
+            "descriptive_action_95_halfwidth_bb": [
+              2.8535698245857857,
+              2.9336824026627326,
+              3.1400778836673906
+            ],
+            "descriptive_action_mean_bb": [
+              0.8020833333333334,
+              1.46875,
+              0.8541666666666666
+            ],
+            "descriptive_policy_mean_bb": 1.46875,
+            "evaluation_policy_gap_95_interval_bb": [
+              -4.390772028305741,
+              1.5991053616390742
+            ],
+            "evaluation_policy_gap_bb": -1.3958333333333333,
+            "evaluation_policy_mean_bb": 0.4166666666666667,
+            "evaluation_selected_action_mean_bb": -0.9791666666666666,
+            "evaluation_worlds": 48,
+            "selected_action_index": 2,
+            "selection_action_mean_bb": [
+              1.6666666666666667,
+              2.5208333333333335,
+              2.6875
+            ],
+            "selection_worlds": 48,
+            "worlds": 96
+          },
+          "worlds_completed": 96,
+          "worlds_requested": 96
+        },
+        {
+          "cards": [
+            "Ad",
+            "9s"
+          ],
+          "limited_lbr_batches": 0,
+          "status": "complete",
+          "summary": {
+            "descriptive_action_95_halfwidth_bb": [
+              2.1786944319929487,
+              2.525485592528727,
+              2.5647104287488935
+            ],
+            "descriptive_action_mean_bb": [
+              6.947916666666667,
+              5.9375,
+              8.4375
+            ],
+            "descriptive_policy_mean_bb": 5.9375,
+            "evaluation_policy_gap_95_interval_bb": [
+              0.6058712284137364,
+              5.3107954382529305
+            ],
+            "evaluation_policy_gap_bb": 2.9583333333333335,
+            "evaluation_policy_mean_bb": 5.625,
+            "evaluation_selected_action_mean_bb": 8.583333333333334,
+            "evaluation_worlds": 48,
+            "selected_action_index": 2,
+            "selection_action_mean_bb": [
+              5.979166666666667,
+              6.25,
+              8.291666666666666
+            ],
+            "selection_worlds": 48,
+            "worlds": 96
+          },
+          "worlds_completed": 96,
+          "worlds_requested": 96
+        }
+      ],
+      "key": "ec3fefab8bed21328aa04817b62172d7",
+      "original_cards": [
+        "As",
+        "3s"
+      ],
+      "original_trained": true,
+      "selection": {
+        "action_index": 3,
+        "block": 82,
+        "context": "free",
+        "file": "B-2026093001-100000000--LBR-original-cap2.jsonl.gz",
+        "line": 166,
+        "rank": "0009d55c8fb81fa089a95c90f719536f09ec3aa6cfeda798f57f58b8a50550b8",
+        "rotation": 1,
+        "seat": 1,
+        "seed": 2026093001,
+        "street": "flop",
+        "trained": true
+      },
+      "status": "complete",
+      "street": "flop"
+    },
+    {
+      "alternatives": [
+        {
+          "cards": [
+            "6d",
+            "Td"
+          ],
+          "limited_lbr_batches": 0,
+          "status": "complete",
+          "summary": {
+            "descriptive_action_95_halfwidth_bb": [
+              2.4321690317143685,
+              2.802760198363778,
+              2.4641968060856683
+            ],
+            "descriptive_action_mean_bb": [
+              11.916666666666666,
+              14.104166666666666,
+              13.4375
+            ],
+            "descriptive_policy_mean_bb": 13.4375,
+            "evaluation_policy_gap_95_interval_bb": [
+              0.0,
+              0.0
+            ],
+            "evaluation_policy_gap_bb": 0.0,
+            "evaluation_policy_mean_bb": 13.020833333333334,
+            "evaluation_selected_action_mean_bb": 13.020833333333334,
+            "evaluation_worlds": 48,
+            "selected_action_index": 2,
+            "selection_action_mean_bb": [
+              11.354166666666666,
+              13.375,
+              13.854166666666666
+            ],
+            "selection_worlds": 48,
+            "worlds": 96
+          },
+          "worlds_completed": 96,
+          "worlds_requested": 96
+        },
+        {
+          "cards": [
+            "Th",
+            "Js"
+          ],
+          "limited_lbr_batches": 0,
+          "status": "complete",
+          "summary": {
+            "descriptive_action_95_halfwidth_bb": [
+              2.787277439453831,
+              3.070972301302227,
+              2.769748460286644
+            ],
+            "descriptive_action_mean_bb": [
+              9.427083333333334,
+              12.677083333333334,
+              11.302083333333334
+            ],
+            "descriptive_policy_mean_bb": 11.302083333333334,
+            "evaluation_policy_gap_95_interval_bb": [
+              1.1353033837265585,
+              2.4896966162734415
+            ],
+            "evaluation_policy_gap_bb": 1.8125,
+            "evaluation_policy_mean_bb": 9.375,
+            "evaluation_selected_action_mean_bb": 11.1875,
+            "evaluation_worlds": 48,
+            "selected_action_index": 1,
+            "selection_action_mean_bb": [
+              10.833333333333334,
+              14.166666666666666,
+              13.229166666666666
+            ],
+            "selection_worlds": 48,
+            "worlds": 96
+          },
+          "worlds_completed": 96,
+          "worlds_requested": 96
+        }
+      ],
+      "key": "34fffa562fc788aeb2328dea4813cabb",
+      "original_cards": [
+        "Jd",
+        "Th"
+      ],
+      "original_trained": true,
+      "selection": {
+        "action_index": 7,
+        "block": 2008,
+        "context": "free",
+        "file": "B-2026093003-100000000--LBR-original-cap2.jsonl.gz",
+        "line": 4017,
+        "rank": "003ccc01d07b9439f43f53b3608291a58c615115133140e8d2f728393ce589c5",
+        "rotation": 0,
+        "seat": 0,
+        "seed": 2026093003,
+        "street": "turn",
+        "trained": true
+      },
+      "status": "complete",
+      "street": "turn"
+    },
+    {
+      "alternatives": [
+        {
+          "cards": [
+            "3c",
+            "4d"
+          ],
+          "limited_lbr_batches": 0,
+          "status": "complete",
+          "summary": {
+            "descriptive_action_95_halfwidth_bb": [
+              0.0,
+              0.9913957318225772,
+              2.8068549700214147
+            ],
+            "descriptive_action_mean_bb": [
+              -9.0,
+              -14.166666666666666,
+              -1.5729166666666667
+            ],
+            "descriptive_policy_mean_bb": -9.0,
+            "evaluation_policy_gap_95_interval_bb": [
+              1.8291652478657188,
+              10.004168085467615
+            ],
+            "evaluation_policy_gap_bb": 5.916666666666667,
+            "evaluation_policy_mean_bb": -9.0,
+            "evaluation_selected_action_mean_bb": -3.0833333333333335,
+            "evaluation_worlds": 48,
+            "selected_action_index": 2,
+            "selection_action_mean_bb": [
+              -9.0,
+              -13.125,
+              -0.0625
+            ],
+            "selection_worlds": 48,
+            "worlds": 96
+          },
+          "worlds_completed": 96,
+          "worlds_requested": 96
+        },
+        {
+          "cards": [
+            "Ks",
+            "As"
+          ],
+          "limited_lbr_batches": 0,
+          "status": "complete",
+          "summary": {
+            "descriptive_action_95_halfwidth_bb": [
+              1.7522548959539925,
+              2.92149512611776,
+              2.8068549700214147
+            ],
+            "descriptive_action_mean_bb": [
+              -1.59375,
+              -6.875,
+              -1.5729166666666667
+            ],
+            "descriptive_policy_mean_bb": -1.59375,
+            "evaluation_policy_gap_95_interval_bb": [
+              -4.043926129816196,
+              2.002259463149529
+            ],
+            "evaluation_policy_gap_bb": -1.0208333333333333,
+            "evaluation_policy_mean_bb": -2.0625,
+            "evaluation_selected_action_mean_bb": -3.0833333333333335,
+            "evaluation_worlds": 48,
+            "selected_action_index": 2,
+            "selection_action_mean_bb": [
+              -1.125,
+              -6.041666666666667,
+              -0.0625
+            ],
+            "selection_worlds": 48,
+            "worlds": 96
+          },
+          "worlds_completed": 96,
+          "worlds_requested": 96
+        }
+      ],
+      "key": "074e688b9b646e9e65a9ad40e03e4b92",
+      "original_cards": [
+        "4h",
+        "Qh"
+      ],
+      "original_trained": true,
+      "selection": {
+        "action_index": 9,
+        "block": 1546,
+        "context": "free",
+        "file": "B-2026093002-100000000--LBR-original-cap2.jsonl.gz",
+        "line": 3093,
+        "rank": "000f44fc3b9a29d34516d0be58e27efabed26ee0b057a17468e36842d1454614",
+        "rotation": 0,
+        "seat": 0,
+        "seed": 2026093002,
+        "street": "river",
+        "trained": true
+      },
+      "status": "complete",
+      "street": "river"
+    }
+  ],
+  "finished": 1790734808.673244,
+  "status": "complete"
+}
