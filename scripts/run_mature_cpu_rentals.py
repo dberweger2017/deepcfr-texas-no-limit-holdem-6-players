@@ -1,4 +1,4 @@
-"""M4 coordinator: six isolated rentals, serial archive verification, no M1 work."""
+"""M4 coordinator: declared isolated rentals, serial archive verification, no M1 work."""
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -24,7 +24,7 @@ def execute(args):
         raise ValueError('M4 control/retrieval host required')
     plan = json.loads(args.plan.read_text())
     if plan['budget_approval'].startswith('pending') or plan['max_total_cost_usd'] != 4:
-        raise ValueError('Approved six-class/four-dollar plan required')
+        raise ValueError('Approved four-dollar plan required')
     root = args.root.resolve()
     root.mkdir(parents=True, exist_ok=False)
     source = run(['git', 'rev-parse', 'HEAD']).strip()
@@ -35,10 +35,14 @@ def execute(args):
     if not started < deadline <= started + 7200:
         raise ValueError('Original remaining rental cutoff required')
     configs = plan['configurations']
+    concurrency = plan['max_concurrent_pods']
+    if concurrency not in (1, 6) or len(configs) != concurrency:
+        raise ValueError('Exactly the declared single or six-class allocation required')
+    plan_relative = str(args.plan.resolve().relative_to(Path.cwd()))
     names = [f'doctor-research-mature-{c["cpu_id"]}-{int(started)}' for c in configs]
     lease = root / 'lease.json'
     write(lease, {'names': names, 'started': started, 'deadline': deadline,
-                 'max_total_cost_usd': 4, 'driver_source': source,
+                 'max_total_cost_usd': 4, 'max_concurrent_pods': concurrency, 'driver_source': source,
                  'plan_sha256': sha256(args.plan.read_bytes()).hexdigest()})
     (root / 'plan.json').write_bytes(args.plan.read_bytes())
     keyfile = root / 'ssh-key'
@@ -62,14 +66,14 @@ def execute(args):
     flavors = {c['id']: c for c in catalog['cpus']}
     # Total price includes a conservative $0.05/h disk allowance per pod.
     maximum_rate = sum(c['max_compute_usd_per_hour'] + .05 for c in configs)
-    if maximum_rate * 2 > 4:
+    if maximum_rate * 2 + plan.get('prior_compute_upper_estimate_usd', 0) > 4:
         raise ValueError('Two-hour maximum exceeds approved total cap')
     records = []
     note = Path('/tmp/DR_RESEARCH_M4_COORDINATION.txt')
     with note.open('a') as stream:
         stream.write(f'\nDr Research six-class RunPod CLAIM: coordinator {os.getpid()}, root {root}, '
                      f'cutoff {deadline}; network/control only until serial guarded archive verification. '
-                     'Up to six Linux trainers; no heavy M1 work.\n')
+                     f'{concurrency} declared Linux worker(s); no heavy M1 work.\n')
     for config, name in zip(configs, names):
         guard = json.loads((root / 'watchdog.json').read_text())
         if guard['status'] != 'armed' or time.time() - guard['heartbeat'] > 45:
@@ -146,7 +150,7 @@ def execute(args):
             with (folder / 'connection.log').open('w') as log:
                 remaining = max(1, int(deadline - time.time() - 600))
                 command = ('timeout ' + str(remaining) + ' bash /workspace/setup.sh '
-                           + shlex.quote(source) + ' ' + str(deadline)
+                           + shlex.quote(source) + ' ' + str(deadline) + ' ' + shlex.quote(plan_relative)
                            + ' > /workspace/results/setup.log 2>&1; '
                            + 'code=$?; printf "%s\\n" "$code" > /workspace/results/outer-exit.txt; exit "$code"')
                 finished = subprocess.run(ssh + [command], stdout=log, stderr=subprocess.STDOUT,
@@ -163,7 +167,7 @@ def execute(args):
             return row
 
     try:
-        with ThreadPoolExecutor(max_workers=6) as pool:
+        with ThreadPoolExecutor(max_workers=concurrency) as pool:
             pending = {pool.submit(workload, row): row for row in records if row['status'] == 'provisioning'}
             closed = []
             for future in as_completed(pending):
@@ -200,7 +204,7 @@ def execute(args):
         remaining = owned_pods(api(args.key, '/v2/pods')['pods'], names)
         write(root / 'pods.json', records)
         write(root / 'operator-finished.json', {'finished': time.time(), 'remaining_owned_ids': [p['id'] for p in remaining],
-              'status': 'complete' if len(records) == 6 and all(r['status'] == 'verified' for r in records) and not remaining else 'incomplete'})
+              'status': 'complete' if len(records) == len(configs) and all(r['status'] == 'verified' for r in records) and not remaining else 'incomplete'})
         with note.open('a') as stream:
             stream.write(f'\nDr Research six-class RunPod RELEASE: coordinator {os.getpid()}, '
                          f'{len(remaining)} owned pods remain; retained root {root}.\n')

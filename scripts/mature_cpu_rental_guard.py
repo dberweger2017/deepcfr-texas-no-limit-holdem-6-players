@@ -49,12 +49,19 @@ def check_quote(config, pod, maximum_total_hourly):
             and 0 < pod.get('cost', 0) <= maximum_total_hourly)
 
 
+def valid_lease(state):
+    expected = state.get('max_concurrent_pods', 6)
+    return (expected in (1, 6) and len(state['names']) == expected
+            and len(set(state['names'])) == expected
+            and 0 < state['deadline'] - state['started'] <= 7200)
+
+
 def watch(lease, key_path):
     state = json.loads(lease.read_text())
     names = set(state['names'])
     out = lease.with_name('watchdog.json')
-    if len(names) != 6 or state['deadline'] - state['started'] > 7200:
-        raise ValueError('Six unique names and immutable <= two-hour lease required')
+    if not valid_lease(state):
+        raise ValueError('Declared one or six unique names and immutable <= two-hour lease required')
     existing = owned_pods(api(key_path, '/v2/pods')['pods'], names)
     if existing:
         raise ValueError('Owned names existed before arming')

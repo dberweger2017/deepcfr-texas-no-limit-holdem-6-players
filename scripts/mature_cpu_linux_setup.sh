@@ -3,6 +3,7 @@
 set -euo pipefail
 DRIVER_REVISION="$1"
 DEADLINE="$2"
+PLAN_RELATIVE="${3:-configs/blueprint/runpod-mature-cpu-pilot.json}"
 export UV_CACHE_DIR=/workspace/uv-cache
 export UV_PYTHON_INSTALL_DIR=/workspace/python
 export CARGO_HOME=/workspace/cargo
@@ -27,6 +28,6 @@ uv pip freeze --python .venv/bin/python > /workspace/results/packages.txt
 PYTHONPATH=/workspace/driver .venv/bin/python -m pytest -q /workspace/driver/tests/test_mature_cpu_worker.py > /workspace/results/worker-tests.log
 cd /workspace/driver
 /workspace/runtime/.venv/bin/python -m scripts.mature_cpu_linux_worker \
-  --plan /workspace/driver/configs/blueprint/runpod-mature-cpu-pilot.json \
+  --plan "/workspace/driver/$PLAN_RELATIVE" \
   --runtime /workspace/runtime --parent /workspace/parent.json.gz \
   --out /workspace/results/work --deadline "$DEADLINE"

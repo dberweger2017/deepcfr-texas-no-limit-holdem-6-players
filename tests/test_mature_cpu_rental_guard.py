@@ -45,3 +45,22 @@ def test_engine_provenance_json_format_does_not_change_identity():
     assert a != b
     assert same_engine_identity(a, b)
     assert not same_engine_identity(a, b.replace('fixed','different'))
+
+
+def test_single_and_six_pod_leases_are_exact_and_bounded():
+    from scripts.mature_cpu_rental_guard import valid_lease
+    one = {'names': ['ours'], 'max_concurrent_pods': 1, 'started': 100, 'deadline': 7300}
+    assert valid_lease(one)
+    assert not valid_lease(dict(one, names=['ours', 'other']))
+    assert not valid_lease(dict(one, deadline=7301))
+    assert not valid_lease(dict(one, deadline=100))
+    six = dict(one, names=list('abcdef'), max_concurrent_pods=6)
+    assert valid_lease(six)
+    assert not valid_lease(dict(six, names=list('abcdee')))
+
+
+def test_large_compute_shape_does_not_admit_small_shape():
+    config = {'cpu_id': 'cpu5c', 'vcpus': 16, 'ram_gb': 32}
+    pod = {'cpu': {'id': 'cpu5c', 'vcpuCount': 16, 'memory': 32}, 'cost': .56}
+    assert check_quote(config, pod, .61)
+    assert not check_quote(config, dict(pod, cpu={'id':'cpu5c','vcpuCount':2,'memory':4}), .61)
