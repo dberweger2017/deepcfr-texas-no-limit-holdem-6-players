@@ -77,7 +77,16 @@ remains on the original released UI at port 8765; no game/runtime source changed
 The additional polling load is included in subsequent resource samples.
 
 [Machine and native dependency identity](luna-browser/environment.json) records
-the exact environment. The focused service/audit/report suite passed 19 tests.
+the exact environment. The focused service/audit/report suite passed 21 tests.
+The earlier `f7ac53e` GitHub CI candidate passed all 952 tests and its existing
+CLI/reproduction gates. Subsequent reporting changes receive their own CI run.
+
+When I requested a running score, I tallied only individual hand outcomes already
+rendered in Luna's browser. Through hand 106, every hand was represented once
+after deduplication, with no conflicting values: Luna was +50 chips / +0.5 BB,
+with 31 wins, 74 losses and one tie. This provisional public-UI tally was not
+sent to Luna, did not use the active private journal and did not change the
+fixed 500-hand target. The final native/server report remains authoritative.
 
 ## Reproduction and audit
 

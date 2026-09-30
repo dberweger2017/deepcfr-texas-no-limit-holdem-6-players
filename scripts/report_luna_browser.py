@@ -51,13 +51,16 @@ def reconcile(state, metadata):
         assert attempt["handOrdinal"] == ordinal
         observed = observations[(ordinal, attempt["decisionOrdinal"])]
         label = attempt["attemptedButtonLabel"]
-        assert label in attempt["legalButtonLabels"]
+        matches = False
         if action["kind"] == "raise":
             # Restricted buttons display the exact target after the separator.
             target = label.split("·")[-1].strip().removesuffix(" BB")
-            assert Decimal(target) * 100 == action["raiseTo"]
+            try:
+                matches = Decimal(target) * 100 == action["raiseTo"]
+            except ArithmeticError:
+                matches = False
         else:
-            assert label.lower().startswith(action["kind"])
+            matches = label.lower().startswith(action["kind"])
         rows.append({"benchmarkId": state["benchmark"]["id"], "handId": hand_id,
                      "handOrdinal": ordinal, "decisionOrdinal": decision, "street": view.street.value,
                      "browserDecisionOrdinal": attempt["decisionOrdinal"],
@@ -70,6 +73,8 @@ def reconcile(state, metadata):
                      "legalButtonLabels": json.dumps(attempt["legalButtonLabels"], ensure_ascii=False),
                      "attemptedButtonLabel": label, "acceptedKind": action["kind"],
                      "acceptedRaiseTo": action["raiseTo"], "attemptedAtMs": attempt["attemptedAtMs"],
+                     "attemptMatchesAccepted": matches,
+                     "reportedMenuContainsAttempt": label in attempt["legalButtonLabels"],
                      "observedAtMs": observed["observedAtMs"],
                      "lastRenderedAtMs": attempt.get("lastRenderedAtMs"),
                      "observedDecisionMs": attempt["attemptedAtMs"] - attempt["lastRenderedAtMs"]
@@ -127,6 +132,8 @@ def main():
                "violations": result["violations"], "verifiedHands": len(hands),
                "setupFailures": result["setupFailures"],
                "reconciledHumanDecisions": len(decisions), "parentPokerInterventions": 0,
+               "attemptAcceptedMismatches": sum(not r["attemptMatchesAccepted"] for r in decisions),
+               "reportedMenuMismatches": sum(not r["reportedMenuContainsAttempt"] for r in decisions),
                "trainedBotLookups": sum(item["trained"] for item in lookups),
                "fallbackBotLookups": sum(not item["trained"] for item in lookups),
                "uiConfirmationMs": {"mean": statistics.mean(latencies),

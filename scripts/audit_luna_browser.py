@@ -28,10 +28,12 @@ def _metadata(output):
     if not isinstance(output, str):
         return
     decoder = json.JSONDecoder()
-    for match in re.finditer(r'\{\s*"type"\s*:\s*"luna_(?:attempt|observed)"', output):
+    for match in re.finditer(r'\{', output):
         try:
             record, _ = decoder.raw_decode(output[match.start():])
         except ValueError:
+            continue
+        if not isinstance(record, dict) or record.get("type") not in ("luna_attempt", "luna_observed"):
             continue
         # Cards can be checked privately against rendered observations, but are
         # not required in the published decision/tool metadata.

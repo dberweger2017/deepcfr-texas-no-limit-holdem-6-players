@@ -26,6 +26,8 @@
   ],
   "reconciledHumanDecisions": 32,
   "parentPokerInterventions": 0,
+  "attemptAcceptedMismatches": 0,
+  "reportedMenuMismatches": 0,
   "trainedBotLookups": 31,
   "fallbackBotLookups": 0,
   "uiConfirmationMs": {

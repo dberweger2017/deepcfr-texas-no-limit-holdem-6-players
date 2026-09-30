@@ -34,3 +34,9 @@ def test_rejects_shell_browser_evaluation_and_other_origins():
         call("mcp__cua_repl", "js", 'await cua.getState();'),
     ):
         assert audit([record])["violations"]
+
+
+def test_metadata_key_order_does_not_drop_attempts():
+    record = {"type": "response_item", "payload": {"type": "function_call_output", "output":
+              '{"handOrdinal":1,"attemptedButtonLabel":"fold","type":"luna_attempt"}'}}
+    assert len(audit([record])["decisionMetadata"]) == 1

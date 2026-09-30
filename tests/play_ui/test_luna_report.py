@@ -43,3 +43,11 @@ def test_refuses_active_incomplete_duplicate_and_tampered_results(tmp_path):
     state["benchmark"]["status"] = "ACTIVE"
     with pytest.raises(ValueError, match="completed"):
         reconcile(state, metadata)
+
+
+def test_retains_misclick_result_instead_of_discarding_the_hand(tmp_path):
+    state, metadata = completed_fixture(tmp_path)
+    metadata[1]["attemptedButtonLabel"] = "Call 0.50 BB"
+    rows, hands = reconcile(state, metadata)
+    assert not rows[0]["attemptMatchesAccepted"]
+    assert rows[0]["acceptedKind"] == "fold" and hands[0]["humanChips"] == -50
