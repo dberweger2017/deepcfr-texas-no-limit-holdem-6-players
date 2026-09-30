@@ -39,7 +39,8 @@ def reconcile(state, metadata, *, allow_aborted=False, expected_completed=None):
         key = (attempt["handOrdinal"], attempt["decisionOrdinal"])
         prior = groups[-1][-1] if groups else None
         if (prior is not None and key == (prior["handOrdinal"], prior["decisionOrdinal"])
-                and attempt.get("toolRetry") is True
+                and (attempt.get("toolRetry") is True
+                     or isinstance(attempt.get("toolRetry"), str) and bool(attempt["toolRetry"].strip()))
                 and attempt["attemptedButtonLabel"] == prior["attemptedButtonLabel"]):
             groups[-1].append(attempt)
         else:
@@ -181,6 +182,7 @@ def main():
                "missingConfirmationTimestamps": sum(row["observedAtMs"] is None for row in decisions),
                "attemptAcceptedMismatches": sum(not r["attemptMatchesAccepted"] for r in decisions),
                "reportedMenuMismatches": sum(not r["reportedMenuContainsAttempt"] for r in decisions),
+               "observableErrorRecords": sum(bool(item.get("visibleError")) for item in result["decisionMetadata"]),
                "botDecisions": sum(action["seat"] == 1 for record in state["history"] for action in record["actions"]),
                "lookupApplicable": lookup_applicable,
                "trainedBotLookups": sum(item["trained"] for item in lookups) if lookup_applicable else None,

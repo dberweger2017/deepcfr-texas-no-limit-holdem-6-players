@@ -92,6 +92,10 @@ def test_retains_explicit_retry_and_missing_observation_without_inventing_confir
     assert rows[0]["attemptCount"] == 2 and rows[0]["toolRetry"] is True
     assert not rows[0]["observationRecorded"] and rows[0]["uiConfirmationMs"] is None
     assert '2200' in rows[0]["attemptRecords"] and '2000' in rows[0]["attemptRecords"]
+    retry["toolRetry"] = "first click failed; fresh state confirms turn remains active"
+    string_rows, _ = reconcile(state, [metadata[0], metadata[1], retry])
+    assert string_rows[0]["attemptCount"] == 2
+    assert "first click failed" in string_rows[0]["attemptRecords"]
     with pytest.raises(ValueError, match="count mismatch"):
         reconcile(state, [metadata[0], metadata[1], dict(retry, attemptedButtonLabel="Call 0.50 BB")])
 

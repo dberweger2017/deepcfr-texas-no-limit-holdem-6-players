@@ -37,8 +37,11 @@ def _metadata(output):
             continue
         # Cards can be checked privately against rendered observations, but are
         # not required in the published decision/tool metadata.
-        item = {k: v for k, v in record.items()
-                if k not in ("humanCards", "board", "visibleHumanCards", "visibleBoard", "visibleState")}
+        allowed = {"type", "handOrdinal", "decisionOrdinal", "hand", "decision",
+                   "street", "legalButtonLabels", "visibleLegalButtonLabels",
+                   "attemptedButtonLabel", "attemptedAtMs", "observedAtMs",
+                   "visibleAcceptedAction", "acceptedAction", "visibleError", "toolRetry"}
+        item = {k: v for k, v in record.items() if k in allowed}
         for alternate, canonical in (("hand", "handOrdinal"), ("decision", "decisionOrdinal"),
                                      ("acceptedAction", "visibleAcceptedAction")):
             if canonical not in item and alternate in item:
