@@ -306,3 +306,38 @@ def test_diagnostic_audit_failure_is_retained_as_failed_hand(saved,monkeypatch):
         {'chance_samples':4,'lbr_seconds':5})
     assert row['status']=='failed'
     assert row['actions'] and 'injected audit defect' in row['error']
+
+
+def test_compact_export_native_replays_and_links_raw_decisions(saved,tmp_path):
+    import csv
+    from scripts.evaluate_hu20_stackoff import run
+    from scripts.export_hu20_stackoff import export
+    from scripts.play_robustness import replay_row
+    spec,inputs=saved
+    plan={'models':[spec], 'panels':[{'name':'fixture','rule':'selective_stackoff',
+          'contract':'restricted','root':134,'blocks':2}], 'chance_samples':4,'lbr_seconds':5,
+          'inspection_origin_milestone':100,'minimum_visits':300,'small_call_chips':200,
+          'contexts_per_seed_position_kind':2,'interval':'paired',
+          'limits':{'max_seconds':30,'max_rss_gib':6,'max_swap_growth_gib':.5,'min_free_gib':0}}
+    folder=tmp_path/'run';run(plan,inputs,folder)
+    destination=tmp_path/'evidence';manifest=export(folder,destination)
+    rows=[json.loads(line) for line in gzip.open(destination/'generated-hands.jsonl.gz','rt')]
+    for row in rows:
+        replay_row(row)
+        assert all('observation' not in action for action in row['actions'])
+    decisions=list(csv.DictReader(gzip.open(destination/'decisions.csv.gz','rt')))
+    assert len(decisions)==sum(len(row['actions']) for row in rows)
+    assert all('target_chips' not in d for d in decisions)
+    assert manifest['files']['decisions.csv.gz']['sha256']==file_hash(destination/'decisions.csv.gz')
+
+
+def test_uniform_comparison_reuses_existing_cap2_and_sampling():
+    from scripts.evaluate_hu20_reopening import UniformPlayer
+    from scripts.evaluate_hu20_stackoff import opponent
+    from src.arena.schedule import stream_seed
+    panel={'root':53,'rule':'hu20_uniform','contract':'secondary'}
+    actual=opponent(panel,None,2,{})
+    assert isinstance(actual,UniformPlayer)
+    reference=UniformPlayer(stream_seed(53,'test','action',2,2,1))
+    _,view=hand_view()
+    assert actual.choose_action(view)==reference.choose_action(view)

@@ -9,27 +9,19 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
-from random import Random
 from time import time
 
 from scripts.evaluate_hu20 import rss, system, write_json
 from scripts.evaluate_robustness import play
+from scripts.evaluate_hu20_reopening import UniformPlayer
 from scripts.play_robustness import replay_row
 from src.arena.policies import make_policy
 from src.arena.schedule import digest, stream_seed
-from src.blueprint.abstraction import choices
 from src.diagnostics.robustness import LBRConfig, LocalBestResponse, ReactiveAttack
 from src.diagnostics.saved_hu20 import file_hash, load_saved
 from src.diagnostics.selective_stackoff import VERSION, SelectiveStackoff
 from src.diagnostics.stackoff_tails import RecordingOpponent, RecordingTarget, attach_snapshots, hand_tails
 
-
-class UniformRestricted:
-    def __init__(self, seed):
-        self.random = Random(seed)
-
-    def choose_action(self, view):
-        return self.random.choice(choices(view, raise_cap=None, free_fold=False)).action
 
 
 def opponent(panel, source, block, plan):
@@ -41,7 +33,7 @@ def opponent(panel, source, block, plan):
         return LocalBestResponse(source, stream_seed(panel['root'], 'test', 'opponent', 2, block, 1),
                                  LBRConfig(plan['chance_samples'], plan['lbr_seconds']))
     if rule == 'hu20_uniform':
-        return UniformRestricted(seed)
+        return UniformPlayer(seed)
     if panel['contract'] == 'secondary':
         return make_policy(rule, seed)
     return ReactiveAttack(rule, panel['contract'])
