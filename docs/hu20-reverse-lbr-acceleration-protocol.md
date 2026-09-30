@@ -86,6 +86,18 @@ timing check shows it fits; do not launch native over the full workload. Keep
 partial attempts and every failure. Extrapolations must label the measured
 fraction and variation across streets.
 
+The larger-workload timing takes the lowest SHA-256-ranked 171
+`(public-action index, compatible hypothetical holding)` calls per one of the
+24 original selected decisions, or every call if a decision has fewer. Rank
+the tuple `("reverse-lbr-large-v1", selected rank, action index, holding)`;
+the expected full one-sample inventory remains 58,047. For the lowest 32
+selected calls per decision, time a second independent internal run after the
+first with the same shared source-query cache. Derive both seeds from root
+`202610030101`, label `validation/opponent/large`, the original selected
+rank, public action index, holding and sample index. This timing subset is
+outcome-blind, keeps the complete LBR range within each call, and yields no
+posterior or target action-value estimate.
+
 Recompute the complete future #119 cost for at least 4×96, 4×192, 4×384
 and 8×96: 24 selected decisions, all compatible holdings, both uniform and
 posterior values, suit controls, independent river references, report/audit
