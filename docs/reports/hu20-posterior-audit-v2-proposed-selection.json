@@ -10,6 +10,55 @@
     "primary": 4
   },
   "parent_selection_digest": "578b8b67f21a15d2961e88cf498aeeb64831c9827e578e5ce1db62f85d43e322",
+  "river_reference_node_ceiling_per_coordinate": 100000,
+  "river_reference_rule": "three lowest SHA-256(posterior-river-reference-v2|original selected rank) among primary river coordinates",
+  "river_reference_selected": [
+    {
+      "action_index": 7,
+      "block": 503,
+      "file": "B-2026093001-100000000.jsonl.gz",
+      "line": 1008,
+      "position": "button",
+      "rank": "044186a05ee136d3980ce231f49818a6f16beb49a17bf14d993c96947f1d30c0",
+      "reference_rank": "1da79b962c698d0dbf1687baa4a3a67b42f91d7d1ea1e58d979265a9c01c09e7",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093001,
+      "street": "river",
+      "trained": true,
+      "visits": 1135
+    },
+    {
+      "action_index": 8,
+      "block": 371,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 744,
+      "position": "button",
+      "rank": "276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e",
+      "reference_rank": "555a364500849febd428b7c65503518cd30f15c5452362d07c9a7ab568572239",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "street": "river",
+      "trained": true,
+      "visits": 356
+    },
+    {
+      "action_index": 7,
+      "block": 219,
+      "file": "B-2026093001-100000000.jsonl.gz",
+      "line": 439,
+      "position": "big_blind",
+      "rank": "500f86e7f2fefd3fe9314f6cfe2c81cd38c44cf4ef27144385afd5f4bc245409",
+      "reference_rank": "7ebc8e05518b99268c90fcdc60d5f401af648b33e8cbaa718b8f01cfe050f74f",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "street": "river",
+      "trained": true,
+      "visits": 373
+    }
+  ],
   "rng_roots": {
     "conditional_worlds": 202610050131,
     "higher_count": 202610050130,

@@ -122,7 +122,9 @@ selected actions and action returns within the declared 1e-10-chip numeric
 tolerance. The three primary preflop decisions without prior LBR actions are
 additional uniform/posterior identity controls; do not omit them as uninformative.
 
-Select up to three river decisions by a separate fixed hash before values.
+The proposal JSON fixes three river decisions by the lowest SHA-256 of
+`posterior-river-reference-v2|<original selected rank>` among primary river
+coordinates; their full coordinates and 100,000-node ceiling are recorded.
 Use an independent native-settlement enumeration of compatible holdings for
 terminal fold/call and matched checkdown action-value subproblems. Freeze
 that boundary and a 100,000-node-per-reference ceiling before running it.
