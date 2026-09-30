@@ -92,10 +92,11 @@ def _events(hand):
 
 
 def _model_info(policy):
-    return {"name": MODEL_NAME, "sha256": policy.spec.sha256,
+    return {"name": getattr(policy, "name", MODEL_NAME), "sha256": policy.spec.sha256,
             "game": policy.game, "schema": policy.abstraction,
-            "format": HU20_UNCAPPED_FORMAT, "strategy": policy.description["strategy"],
-            "adapter": ADAPTER_ID}
+            "format": getattr(policy, "format_id", HU20_UNCAPPED_FORMAT), "strategy": policy.description["strategy"],
+            "adapter": getattr(policy, "adapter_id", ADAPTER_ID),
+            "benchmarkOnly": getattr(policy, "benchmark_only", False)}
 
 
 def load_b100m(path: Path):
@@ -163,6 +164,9 @@ class PlayService:
                 raise
 
     def create(self, key, body):
+        if (getattr(self.policy, "benchmark_only", False)
+                and (body.get("sessionType") != "benchmark" or body.get("playMode") != "restricted")):
+            raise PlayError("This control supports restricted benchmark sessions only")
         if body.get("playMode") not in ("restricted", "free"):
             raise PlayError("Choose a valid play mode")
         if body.get("sessionType") == "benchmark":
@@ -194,9 +198,9 @@ class PlayService:
                     "targetHands": body["targetHands"], "status": "ACTIVE",
                     "buttonSchedule": BUTTON_SCHEDULE, "startedAt": _utc_now(),
                     "endedAt": None, "abortedHandId": None,
-                    "modelName": MODEL_NAME, "modelSha256": self.policy.spec.sha256,
+                    "modelName": _model_info(self.policy)["name"], "modelSha256": self.policy.spec.sha256,
                     "game": self.policy.game, "schema": self.policy.abstraction,
-                    "playMode": body["playMode"], "adapter": ADAPTER_ID,
+                    "playMode": body["playMode"], "adapter": _model_info(self.policy)["adapter"],
                     "sourceVersion": self.source_version, "interfaceVersion": API_VERSION,
                     "visibility": "benchmark"}
             return state, self._view(state)
@@ -285,7 +289,8 @@ class PlayService:
                 menu, probabilities, trained = self.policy.distribution(view)
                 action = bot.choices(menu, weights=probabilities, k=1)[0].action
                 view.legal_actions.validate(action)
-                state["current"]["lookup"].append({"street": view.street.value, "trained": bool(trained)})
+                if trained is not None:
+                    state["current"]["lookup"].append({"street": view.street.value, "trained": bool(trained)})
                 state["current"]["actions"].append(self._record_action(hand, action, view))
                 hand = hand.apply(action)
             else:
@@ -346,7 +351,7 @@ class PlayService:
         row["modelSha256"] = self.policy.spec.sha256
         row["game"] = self.policy.game
         row["schema"] = self.policy.abstraction
-        row["adapter"] = ADAPTER_ID
+        row["adapter"] = _model_info(self.policy)["adapter"]
         row["apiVersion"] = API_VERSION
         row["sourceVersion"] = state["sourceVersion"]
         row["playMode"] = state["playMode"]
@@ -524,7 +529,7 @@ class PlayService:
             row = next((r for r in state["history"] if r["handId"] == hand_id), None)
             if row is None:
                 raise PlayError("Diagnostics available after a completed hand", 404)
-            return {"handId": hand_id, "adapter": ADAPTER_ID,
+            return {"handId": hand_id, "adapter": _model_info(self.policy)["adapter"],
                     "lookups": list(row["lookup"]),
                     "trained": sum(r["trained"] for r in row["lookup"]),
                     "fallback": sum(not r["trained"] for r in row["lookup"])}

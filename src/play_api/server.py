@@ -171,7 +171,10 @@ def handler_for(service, token, port):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--policy", required=True, type=Path)
+    opponent = parser.add_mutually_exclusive_group(required=True)
+    opponent.add_argument("--policy", type=Path)
+    opponent.add_argument("--uniform-random", action="store_true",
+                          help="Benchmark-only control over the same restricted HU20 menu; loads no model")
     parser.add_argument("--data-dir", type=Path, default=Path("results/play-web"))
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--source-version", default="unknown")
@@ -180,7 +183,11 @@ def main():
     if not 1 <= args.port <= 65535:
         parser.error("Port must be 1–65535")
     os.umask(0o077)
-    policy = load_b100m(args.policy)
+    if args.uniform_random:
+        from src.play_api.uniform_random import UniformRestrictedPolicy
+        policy = UniformRestrictedPolicy()
+    else:
+        policy = load_b100m(args.policy)
     service = PlayService(args.data_dir / "private.sqlite", policy, source_version=args.source_version)
     try:
         if args.verify_session:

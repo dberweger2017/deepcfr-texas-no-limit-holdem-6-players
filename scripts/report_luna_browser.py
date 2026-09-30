@@ -167,6 +167,7 @@ def main():
     decision_latencies = sorted(row["observedDecisionMs"] for row in decisions
                                 if row["observedDecisionMs"] is not None)
     lookups = [item for record in state["history"] for item in record["lookup"]]
+    lookup_applicable = state["benchmark"]["adapter"] != "uniform-restricted-v1"
     summary = {"configurations": result["configurations"], "toolCounts": result["toolCounts"],
                "violations": result["violations"], "verifiedHands": len(hands),
                "serverStatus": state["benchmark"]["status"],
@@ -180,8 +181,10 @@ def main():
                "missingConfirmationTimestamps": sum(row["observedAtMs"] is None for row in decisions),
                "attemptAcceptedMismatches": sum(not r["attemptMatchesAccepted"] for r in decisions),
                "reportedMenuMismatches": sum(not r["reportedMenuContainsAttempt"] for r in decisions),
-               "trainedBotLookups": sum(item["trained"] for item in lookups),
-               "fallbackBotLookups": sum(not item["trained"] for item in lookups),
+               "botDecisions": sum(action["seat"] == 1 for record in state["history"] for action in record["actions"]),
+               "lookupApplicable": lookup_applicable,
+               "trainedBotLookups": sum(item["trained"] for item in lookups) if lookup_applicable else None,
+               "fallbackBotLookups": sum(not item["trained"] for item in lookups) if lookup_applicable else None,
                "uiConfirmationMs": {"samples": len(latencies), "mean": statistics.mean(latencies),
                                     "median": statistics.median(latencies),
                                     "p95": latencies[math.ceil(len(latencies)*.95)-1]} if latencies else None,
