@@ -1,0 +1,440 @@
+{
+  "benchmarkId": "bRdqiv-O7i7BOclSO4x5aj9I",
+  "protocolVersion": "hu20-human-benchmark-v1",
+  "model": {
+    "name": "Uniform restricted random",
+    "sha256": "a84129619efdc0f5b6bc2ca6120e2797035b4ab908363285aeb98a76b8e53cf2"
+  },
+  "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+  "schema": "hu20-native-reopening-ordered-history-card-v1",
+  "playMode": "restricted",
+  "adapter": "uniform-restricted-v1",
+  "targetHands": 100,
+  "completedHands": 100,
+  "status": "COMPLETE",
+  "netChips": 1300,
+  "netBB": 13.0,
+  "bbPer100": 13.0,
+  "averagePotChips": 880.0,
+  "averagePotBB": 8.8,
+  "buttonSB": {
+    "hands": 50,
+    "netChips": 4400,
+    "netBB": 44.0
+  },
+  "bigBlind": {
+    "hands": 50,
+    "netChips": -3100,
+    "netBB": -31.0
+  },
+  "wins": 41,
+  "losses": 59,
+  "ties": 0,
+  "startedAt": "2026-09-30T16:11:40+00:00",
+  "endedAt": "2026-09-30T16:50:45+00:00",
+  "sourceVersion": "7ce9ba600ec9a1822bea19a9396b3c540e6797af",
+  "interfaceVersion": "hu20-play-api-v1",
+  "buttonSchedule": "alternating-seat-0-first-v1",
+  "handRecords": [
+    {
+      "handId": "txloGtFj6O5lGjMM4cfnaHX6",
+      "publicEventsSha256": "5f59ae5e7921cad69c68f95c337438d8a1296173f777e5efc32e2533a42ef524"
+    },
+    {
+      "handId": "rKr9Yd7C4IVStBr7laVMqHBN",
+      "publicEventsSha256": "23d52ce25874a121baddb90f5319f3e368429126fec463ff03a9a4ab06ed3ada"
+    },
+    {
+      "handId": "51ZGWGUntkHosZk1WN7VzeqS",
+      "publicEventsSha256": "81f3a80eb1bdafeb3404eecd9287c8163d0090767ed04cf2e9d8c8d48ca96c9c"
+    },
+    {
+      "handId": "u0h83I76EQLaQ1AS02TV-5JZ",
+      "publicEventsSha256": "f6aa79bd0ecb98021c85b373a0c8aa54618fc75ff51bb9db68a7c95251880a8f"
+    },
+    {
+      "handId": "jM8cY3Wq8lEm1sVLNOsARz2q",
+      "publicEventsSha256": "32521c96e5b6e112c48aca9f327d5602c8b12ee73c92cff6d9b88aa7d08ca936"
+    },
+    {
+      "handId": "xjz8WcISrSxmDQ8OXJG7ou8p",
+      "publicEventsSha256": "8a59e1258b221623467b865a9c19100c21b5569d251d56cb08a4492603023d7a"
+    },
+    {
+      "handId": "Qk893eGH1dggPDCMa8IxdPwW",
+      "publicEventsSha256": "cd31cc10d2d6db97b2d844b1f8678ced42242faf7284465e3ec3ba27d33a2fda"
+    },
+    {
+      "handId": "1HFgKI3MyQNhrF2_4B716Vre",
+      "publicEventsSha256": "8f74ba39d380e3b2b62ba1a1fba6be7b715d723944f66e7267cf2d8d5cba496d"
+    },
+    {
+      "handId": "LLnhPpuxPpTzS8_dg5rf1W_a",
+      "publicEventsSha256": "6b071ea0d734a7680763d475488197bc84d6bdaf728dcf2f523b81e8fbe8626f"
+    },
+    {
+      "handId": "JL3Mac66eWICI6d1Il9oOq3Y",
+      "publicEventsSha256": "4735591bd7371432ddf8e861024d97583ae9a52b905f8504b5f3d41cb71ace03"
+    },
+    {
+      "handId": "F08X50d9hejZsIA48-GfXQOx",
+      "publicEventsSha256": "be272f63839ef9b7be31fe0c4f84fb0edbac0b9231dcf2c3607007f78fb6c5e0"
+    },
+    {
+      "handId": "77AJr1SKmKyRVvCPuc0XT1B0",
+      "publicEventsSha256": "12a98fd60838e351c978f0efdb418b94d9e95b0beb631735fe98d8a8174b8dff"
+    },
+    {
+      "handId": "FjhbQ_oInGsWRPgHFm3e2cIi",
+      "publicEventsSha256": "c81b6f1597fe3a359e9a80227e5b55e7653ab0bc94f56b8acfe3326ca64fae97"
+    },
+    {
+      "handId": "nx63TiFPyVrJHArTWlL0AYYJ",
+      "publicEventsSha256": "6eab95649effc177b70ee3745dfd357b45de8e5da758fbd119e1289ee3d19e88"
+    },
+    {
+      "handId": "edHoCDdKngeEHy3QmoO-rQOR",
+      "publicEventsSha256": "ac4c05a1596a72ff5fbb120d50e9f4c3f848170dc2cbd78d05601b8ab5dc604a"
+    },
+    {
+      "handId": "BJB36IA2I-A6g7xbxbQ1tGV9",
+      "publicEventsSha256": "e9eab20fcf0113cc42b53cf48b562b4dda083741679202b40be36c3b8cd35641"
+    },
+    {
+      "handId": "EOAm9luQowQC4i-msw-qKMfj",
+      "publicEventsSha256": "caf4b0054340ed8dd3f7874cf542e6e41de8045c7e6bfee27885df105a91a1a3"
+    },
+    {
+      "handId": "2UipP_8w3ELxlV2KLmut6mD3",
+      "publicEventsSha256": "bac2aca09289c07bf19dafb083e2a608c7547e0c3f6508433ce4e92aed4a9634"
+    },
+    {
+      "handId": "alUTSflS8Oxwg28O9FJZywc2",
+      "publicEventsSha256": "e315dfcccc0055d68d839033c29190eb66a16b32c2346a918e19dd7f817d7892"
+    },
+    {
+      "handId": "4cVLRCCIXcCqGyw3Y_9kQmSF",
+      "publicEventsSha256": "1c2cd8e90470ed57a9739ab321f2ca3334eee9a864c52ec1c0fc18937de008e7"
+    },
+    {
+      "handId": "sznBmSqiod4k2CxPbfTicRWf",
+      "publicEventsSha256": "a5108b98fe4b2c236edf993cd798276e3e4481d52e3848179f4dbfe65a082938"
+    },
+    {
+      "handId": "JaZk8kkF5cHQjQI7danh4462",
+      "publicEventsSha256": "735c4743bf2c5073d5a31c1820c1b9b286185a9e4f2f781aa0b6eef1d8a9960a"
+    },
+    {
+      "handId": "zcbtIALAMmlKQ6f_bvKwB_hB",
+      "publicEventsSha256": "e2061c3fec21facc57c5461904f87211f64794e56e0903a920d329e7858acbe7"
+    },
+    {
+      "handId": "AA7AbLG4sp2mxPgoQ3jG_Px1",
+      "publicEventsSha256": "2cb6fd34c151354e835d845a4af0dd75f3de93955c90a7b55068497e332ec627"
+    },
+    {
+      "handId": "AIaRRsFSqZHnnN29UUcHKQEj",
+      "publicEventsSha256": "3e71412a173197ed3e0c165822f091174b187f2b863eb15406abef2068e05d23"
+    },
+    {
+      "handId": "0kKiU7OQwre30jQXtl04koJi",
+      "publicEventsSha256": "eb5e0d87260a2ad017f83e958812e0b65f6c4535a9d1246ab89baf78c3eaa874"
+    },
+    {
+      "handId": "u_kjGQKjB-iyVbSt2fvt7b16",
+      "publicEventsSha256": "435fbfc7fdb02794271d6149c86b9a9a1199be513859ccc3006e77871dad481a"
+    },
+    {
+      "handId": "51Q-kBQbDMZFNiuCpKjGuGso",
+      "publicEventsSha256": "b4fa6018aa8e4c8afacc1c52e63744dca80edadf60529fbbf1485e77acdb6ce9"
+    },
+    {
+      "handId": "cwe7F8S6br2uovFe_DU3tSF-",
+      "publicEventsSha256": "e219f28aa4004bf38a0630e60867042113ccabfafaaede1c7536b1bdc28f8e2a"
+    },
+    {
+      "handId": "n4LXY95HEP8yjCyjgIugmRjI",
+      "publicEventsSha256": "1838dc5a56bf8b905ace628716ed3b78f07088d2391705ce3a10196a4408bfd8"
+    },
+    {
+      "handId": "9CtMhsztCjxfpkbGh7IDaX3N",
+      "publicEventsSha256": "c6aee0528ebf3be06a7226e8180647ec80c6795a4c7eaa4b59bce8bb5c8b20b6"
+    },
+    {
+      "handId": "NjKL7n2qHUHqmownKasBHHcZ",
+      "publicEventsSha256": "5bd7bae7f8aba92e4c43ce0d91ceb5e435cc82605425dcb3b55b79dfffb02d31"
+    },
+    {
+      "handId": "W4qUdSrzAgDHb9bgXn67Iwyu",
+      "publicEventsSha256": "4a12d36747c1099e3bbfd527f59da761c1fe490727093741f12972fd03af5380"
+    },
+    {
+      "handId": "N_K-dK_9Rr5SFn8Ig4o_atqs",
+      "publicEventsSha256": "df613e35bed98595bef33af0b8325453f7c5d028327b44cce53f35f052c1be32"
+    },
+    {
+      "handId": "Digs_7WNrQZjaxBwnncLn8qH",
+      "publicEventsSha256": "2ca2fe0814fbe198b3e46d6e88ba6e3cec8169dbce9fbff4e97d8b68c8c9f3d0"
+    },
+    {
+      "handId": "Wl1IsLAOcqGEoOZhr8-rqXi0",
+      "publicEventsSha256": "d947bf65e88800892d47e8435e75264893cf1945d7df80f644d36248f3537f21"
+    },
+    {
+      "handId": "hYBu_5zs5vCS0R_J1JWb_QHI",
+      "publicEventsSha256": "ce4473d5343aa630df43dfe487faf4ffcdb02ff3d39f5be01592e744ee3a0b67"
+    },
+    {
+      "handId": "pLWB035tJcjaQu4j6FJu_Uw-",
+      "publicEventsSha256": "e31b1f33d2e85e731587c7fd5b4f28e6c84a99fe4683288e4aa0303f3b94c156"
+    },
+    {
+      "handId": "2t9iNUCsGm3S_K5mR5KYJxGW",
+      "publicEventsSha256": "659a43dc4c3850af735153285d43283aa0f4e1481d29feada547735ee317c753"
+    },
+    {
+      "handId": "a_ZpeeRE9JrPIWyREVFnMToM",
+      "publicEventsSha256": "48564e30f8caa6f7b810b75de23e6ae5c2f7d0fc46747868274d79c5bca2e167"
+    },
+    {
+      "handId": "VD2lTl9D9QoJAdC4-A2vaC8q",
+      "publicEventsSha256": "80b7323a299c12938b099f70c44c5b4814952351f52b510500719d2270592d5a"
+    },
+    {
+      "handId": "7ob1-vx9d_H_NGEdWAvs-881",
+      "publicEventsSha256": "3df80db2068b21f9c19777a1aaaeb6cc46bcac1613bd4a76561116983f67b679"
+    },
+    {
+      "handId": "bueTuOn5CItv058X-qi5JtH7",
+      "publicEventsSha256": "7862d23db54f59a0cdb95fcbbbde843df6f0df859242359b1155a3c18abde1cb"
+    },
+    {
+      "handId": "YdglHPOWvcpKoX5tTfdAk-zv",
+      "publicEventsSha256": "b9f9de4cf6b63ba403a431f284723965263700bb9ea8b6fd7eaf0f239f683326"
+    },
+    {
+      "handId": "8Lj1xZxJEy3IeiZrtm_RmjbO",
+      "publicEventsSha256": "1520ae5c5002bf4ce6b177a1cddac005fb11cb78b129e238d56d4560f4a7be64"
+    },
+    {
+      "handId": "ljSbW1HQDW3Xk8VrEZIsJuPL",
+      "publicEventsSha256": "038065e32493a116adb4d644f5d160d6af33edf9d4647b3c7d0591bc090bcf31"
+    },
+    {
+      "handId": "l-Wz2Dm2jyJ2VCWOUrmutsuh",
+      "publicEventsSha256": "cfb29856691f13deeb5897772d88d0b6b293b3dd7e7c5d38757e87873b45b2df"
+    },
+    {
+      "handId": "98cSMMoz8NQMtlhI3IK_9Ql6",
+      "publicEventsSha256": "ca05b4849037a824a760ac5e159f4c2b7409e621e3100d8b9271d298b38ad494"
+    },
+    {
+      "handId": "dVze2sW9hCCHxw6F26uA97z7",
+      "publicEventsSha256": "ca7aa89e015a8bf5e60745f147b0ef027e6a91ecd34deed302aded0fdbf35e1d"
+    },
+    {
+      "handId": "Q25VhQQRS9-u_gEBvBquafW8",
+      "publicEventsSha256": "da37a3df282ec30cfa6542ad0b895312524c8c0b75e41218aa0f9e34eedc20fb"
+    },
+    {
+      "handId": "LS4of2euPJ26-txDiq-MR6ca",
+      "publicEventsSha256": "af69497de4ef1f6068b13ad51d28c637f395ccf3950dc9bc5d5a1b2877f8660e"
+    },
+    {
+      "handId": "av-1JeyTQXT1mpppltkRACr4",
+      "publicEventsSha256": "c1aa48606cb95e82848820500edd9356504e9fd8eadc09fbddaf365187b4049f"
+    },
+    {
+      "handId": "pNFCkzR646Yp68-LcCqxGiJB",
+      "publicEventsSha256": "3042d3ae4bd018070acb9a4fe7193752a4c5e0e50adee7e61f28b8d098d3dd18"
+    },
+    {
+      "handId": "j9t0G7m1EqXrB-Aibn_HJmUv",
+      "publicEventsSha256": "5532f14da1f8d7a77d2485884ef69d9f89ad58b7df847776438d6d37c59767d2"
+    },
+    {
+      "handId": "7qy2lps-7qwGLcOtFLto3o1y",
+      "publicEventsSha256": "549e696ef7dcf68ff4ad274a563fe968a28996c392316b2ff52f8f4b710fcaf8"
+    },
+    {
+      "handId": "3X_GjtLgroWm4hkiH9qqZj5c",
+      "publicEventsSha256": "e73ba41f34e1c6b2b82301550ab416f64d05a37288197aa93e758f5dd8dd362b"
+    },
+    {
+      "handId": "Lo0QrYKxcqaFXvAE4s8L8voS",
+      "publicEventsSha256": "cf5c5069af6fa6f27ad54328a83468f9aebf1be5f57003157ef6ed73e6b3abcb"
+    },
+    {
+      "handId": "oUx1lq--xuvceFqzDWgOqtGi",
+      "publicEventsSha256": "c37ca01f873f91695fe015b01228febe3ff8b321cd547dffcbf5d201eb6c1d26"
+    },
+    {
+      "handId": "HO7LHwBLNDb81pcTLCiHS11f",
+      "publicEventsSha256": "59b1a5b12b710c6f58aabc46fd22b6a150b20a5bea5aefd871206456dc7a2ebd"
+    },
+    {
+      "handId": "PQ4BbYX_KcxQQWA80mulQ5TL",
+      "publicEventsSha256": "4bdd153d3ded685946d2bb9b4826e95d950b845e2cca68ec2f43af830bd92150"
+    },
+    {
+      "handId": "Oay3ntoycIxnDlIf3rbTodYP",
+      "publicEventsSha256": "10ef187de615150e012d95b0ffd4c1714135a53b688221f8b8a54ab25fd87b79"
+    },
+    {
+      "handId": "X9KmwQkbnY8okKsTgP2ayeOb",
+      "publicEventsSha256": "e7e214cb0ab4b77794643561ac33591e526d1797661432c5e31bc5b5e949ea3d"
+    },
+    {
+      "handId": "5-1uNvEd1TrktlvUb1UW-Mkf",
+      "publicEventsSha256": "23a67c278cc3ab4fa03f697547ea868b1dab5145b0fef2f11719a39e4e205093"
+    },
+    {
+      "handId": "FPmaT1VlZE1EJTEepmC6vN7m",
+      "publicEventsSha256": "c9f1d1a7ac8d6ae6ee2d22fdb1418ce7adc9ce462f4cecdc5ebcc2524555123e"
+    },
+    {
+      "handId": "Au0EDUdkss_5b1Sp3YBDkTDO",
+      "publicEventsSha256": "4502be2ba56a8b7404eebda608eef51053cf91b80b4e6d02d0a750c9c8a9d7a5"
+    },
+    {
+      "handId": "ekTwt0PyiMl2xTWmO7EqdZXk",
+      "publicEventsSha256": "4213333b338a4a89bca6efcd91b102f4e4eb248458ba93368399f6d3ff049146"
+    },
+    {
+      "handId": "o5dUaCof0Fr1zVWILP3y6tDM",
+      "publicEventsSha256": "8c49a03749d3f91df49727a9f71fb1e1bdc501a652bfa2be837cfc57bc9aa3de"
+    },
+    {
+      "handId": "m2AowLzMeYPk0WLmHUjMl0tY",
+      "publicEventsSha256": "29dafc5fa06729bbcd145b76bec7fe0dbaf0099953ffcd810913f49578abdd5f"
+    },
+    {
+      "handId": "pZCmnbVEqDKXwlsCB16mQt55",
+      "publicEventsSha256": "307d9706f317696e333b0ab0ba03cdd8e6d86081630f3bead90a2397fd91978a"
+    },
+    {
+      "handId": "2_UEJ3Pq07zLowpwrobpYjND",
+      "publicEventsSha256": "99abfad50415d6209f094a5865a17998c31a5c479fb5943c634c5136e7214ee0"
+    },
+    {
+      "handId": "GvydvUbC1i6u1TucnpHQyYnv",
+      "publicEventsSha256": "6ab0f91152a7e312ec4d400f05cabc363a492efc1268e90a35558c14b2c9f734"
+    },
+    {
+      "handId": "eGznQdm0BqYHtJH08Apc49F3",
+      "publicEventsSha256": "51b4761940b7a2ee3a6dca65d174aa9b0e849e0e76cef1c09747563c0c9b521e"
+    },
+    {
+      "handId": "VX05MucJo9rS10oDZW6kO23F",
+      "publicEventsSha256": "6733643dd4af24a78aa10979db2e5e3eb0a08b5e91b579aa2fc37ae92fd2b13d"
+    },
+    {
+      "handId": "_wUdxALyidS8XeWpNEw8JIIG",
+      "publicEventsSha256": "bf32ed9594d0601defc305317e9bec59b0db2c3a71a5ecf7dd725aa5fd776b65"
+    },
+    {
+      "handId": "b_qNQKD9QOnaWtsuC50Lowpy",
+      "publicEventsSha256": "d20b2fdf25e41d00415bb6fefac323eb5b875f3b84867be308e67779d7b21afc"
+    },
+    {
+      "handId": "vVbz9FgYeCQvxM9L-G7kEOSY",
+      "publicEventsSha256": "d324e289b83ed0c8c000496c7a8d09a612a1170e244a4bf02ca225a57922d712"
+    },
+    {
+      "handId": "_-slzPKJ9Y9qHbPuw4sPF_kM",
+      "publicEventsSha256": "ba26cac8a1d473dc5d0ccb58036a2987ce9ba5355a03e27ba403c62f921101c2"
+    },
+    {
+      "handId": "ABQja9uwnGujWZ3nytyLSQTT",
+      "publicEventsSha256": "45102008ff014c5a4459b32b8649bb14a181aed348aee7c5bb237f1d3456fb54"
+    },
+    {
+      "handId": "O1Zj1aAqmWTDDJ8roI2b1fEG",
+      "publicEventsSha256": "3e3affd48714b1cbed8eda694ff3a1f10e40565c62866cff85b70cdd4a59e601"
+    },
+    {
+      "handId": "t8iCa7WwUXql3r7d3Y0QvxO3",
+      "publicEventsSha256": "d9a1667b7b149986ddd27fb50923a4b6c73efd4de9ff2068f9fe26dcf5518cef"
+    },
+    {
+      "handId": "A57GDPY4xvFqDddm9_iMaW7B",
+      "publicEventsSha256": "86408752c3c880b389283f70d6293f3c603341b9f01705bb3d674c82eadc9534"
+    },
+    {
+      "handId": "89moBkbBb7LwC46lL7f35FWo",
+      "publicEventsSha256": "32dd9a2a42366031093270aaf5f75b12ad1bae7b17fb1db51a5340e1e9408e66"
+    },
+    {
+      "handId": "AVskSaBjrBdb6vKjK-3ZkYKE",
+      "publicEventsSha256": "4a0a1104341af491761cdd7cede563426bddb719672a8025f3aff44caae8d697"
+    },
+    {
+      "handId": "AkqWqGhWIM-2PAiqwFewfDdx",
+      "publicEventsSha256": "390a8afc458b3ecb33d9ea4e0accb8fde5cdbf34f2ba418d7f30a37cb7453ef7"
+    },
+    {
+      "handId": "sFrCgRQbY6lDRJo5bZfS-KKE",
+      "publicEventsSha256": "75aae77eb18a71f72f10c0dbc8ec787d7c71d35cf30492a0214f00207facf1a3"
+    },
+    {
+      "handId": "w9haN6I_ATb97ITqPPQfQRIC",
+      "publicEventsSha256": "e52e4121a209d2f0650a865200157f1949e23634d700a552d929d8102352d37d"
+    },
+    {
+      "handId": "CiwsASCL1x-Ngv5BR5Cilpu1",
+      "publicEventsSha256": "ec73f6d0176c84e48209e1e04019fd63e634993c46a4aee638f29fd3cea321ed"
+    },
+    {
+      "handId": "rfdQ_jdjgxLOUlhzRk49bwKc",
+      "publicEventsSha256": "d9fef7d320b67586c33582ffabc56062f6e42e2ff2b1222d7010d1e852ac7925"
+    },
+    {
+      "handId": "w09MDPBK_KMgkzP1epCZTwKF",
+      "publicEventsSha256": "de0d73ea2b4f94b58efea5b0ccf7fa58e5bd9abfdd3ecb11e77fe0361a5ce0a3"
+    },
+    {
+      "handId": "AoFGjFmLE6FyatSdAL2ghj5M",
+      "publicEventsSha256": "15605bf3cf4cd9eab2ba20ae2a5de904ac8701fd2cb76b2ca9c8a1846ead2dd0"
+    },
+    {
+      "handId": "tsq7OiOr8_6TPeIsJ0ZeHOT0",
+      "publicEventsSha256": "8a0c75965a7612c99933c2c4bff29de6c16af1c4f755a0b1a86d6f9059514df0"
+    },
+    {
+      "handId": "ZFnNFEbxXj0_H19seCTZxBlg",
+      "publicEventsSha256": "13dc9008c5acac9e85fe7cb97d537b7971d861700371b2d1581b8614b0dc706b"
+    },
+    {
+      "handId": "C7jjuYwV0obRJI9lQODfUEyJ",
+      "publicEventsSha256": "af0c2b63bdfb3bba7387579cf7b84c6c82d7cdd537bdde936330bdd7d3272a58"
+    },
+    {
+      "handId": "G3XuVvZ9pWd19s86E9ihw35v",
+      "publicEventsSha256": "3b2a6230fd84c55028cd26ba0813bec58115e9d7e78986f1b32185982466c5bd"
+    },
+    {
+      "handId": "2VWzgyC-r17cvW0NbhLzNrE7",
+      "publicEventsSha256": "5c7e5c49f3931147fef6e284b071c57d4438f3517bfc7c3a082f8dafb3399ace"
+    },
+    {
+      "handId": "vO9QHDxdOq9cTTd1iy80bY4u",
+      "publicEventsSha256": "ca9e4f8056bf6ed1a530fa01b34cef5ec678cc6e75eb7ecd22b9ba99d1e313d2"
+    },
+    {
+      "handId": "8Wz-pq8Njqiq1EWMhXpvHEAY",
+      "publicEventsSha256": "273a8efa43039004bd307ba81f2d0f4f0c4f93bc184a08293b45cfbfe2d58b1a"
+    },
+    {
+      "handId": "eADEUxT1AoDvv80qomLvS-yG",
+      "publicEventsSha256": "cc3192f048f602a66882bcd4cbde0065a6db2282e6346ed0916cf4032a0f65b7"
+    },
+    {
+      "handId": "2jw1jnDtAm1r9tCmr42Z228G",
+      "publicEventsSha256": "a3cbda367c96380fcde30aebe043ce8f37e1aa7fba427f543c1eee88b75893f2"
+    },
+    {
+      "handId": "HocMRSAKQwe70pGR1O9yCP3G",
+      "publicEventsSha256": "612a4651745c2699d7cec16d8abaccdcbdfa39ada1a31a9dd5f09c22c2ceeb18"
+    }
+  ]
+}

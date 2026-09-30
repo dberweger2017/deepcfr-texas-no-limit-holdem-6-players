@@ -1,0 +1,3811 @@
+{
+  "selection": "After both results frozen: first ten, each ordinal divisible by 50, five largest positive and negative terminal human chip payoffs; ties by ascending hand ordinal; deduplicated in ordinal order. Terminal payoff is not terminal pot size.",
+  "scope": "Observable public events and human decision records only; no private reasoning or strategy oracle",
+  "selectedHandOrdinals": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    39,
+    41,
+    46,
+    50,
+    89,
+    100,
+    134,
+    150,
+    151,
+    164,
+    166,
+    188,
+    200,
+    210,
+    250,
+    300,
+    350,
+    400
+  ],
+  "samples": [
+    {
+      "handOrdinal": 1,
+      "handId": "cAD2jBvzm65BpcBvwN9g_I5D",
+      "button": 0,
+      "humanChips": 200,
+      "publicEventsSha256": "9d5812b2006e0cd2eccecc0ab4f2635d67cde8c747f83d56ac44415eae08046a",
+      "selectionReasons": [
+        "first-ten"
+      ],
+      "terminalPotChips": 400,
+      "humanCards": [
+        "Tc",
+        "3c"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 50
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "5c",
+            "Ac",
+            "2s"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "6h"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "river",
+          "cards": [
+            "8c"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "river",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "shown",
+          "seat": 1,
+          "cards": [
+            "Th",
+            "Qc"
+          ]
+        },
+        {
+          "event": "shown",
+          "seat": 0,
+          "cards": [
+            "Tc",
+            "3c"
+          ]
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Tc\", \"3c\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 300}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"Tc\", \"3c\"]",
+          "visibleBoard": "[\"5c\", \"Ac\", \"2s\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 200}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "turn",
+          "humanVisibleCards": "[\"Tc\", \"3c\"]",
+          "visibleBoard": "[\"5c\", \"Ac\", \"2s\", \"6h\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 200}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "river",
+          "humanVisibleCards": "[\"Tc\", \"3c\"]",
+          "visibleBoard": "[\"5c\", \"Ac\", \"2s\", \"6h\", \"8c\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 500}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 2,
+      "handId": "dJVYn58Cn-KxB5zkhXTJ3rjH",
+      "button": 1,
+      "humanChips": -100,
+      "publicEventsSha256": "15e389c2c17700fc7acd21602b829c9c94f662f68523152aadc998fcda533259",
+      "selectionReasons": [
+        "first-ten"
+      ],
+      "terminalPotChips": 300,
+      "humanCards": [
+        "2s",
+        "3s"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"2s\", \"3s\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 300}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 3,
+      "handId": "i_7Z7eeSNCl-NrRfF1Fv_0WU",
+      "button": 0,
+      "humanChips": -100,
+      "publicEventsSha256": "39732cbf8c49c39e67d65f86bf71fa069ebff9f7a1f3facc68d6f99374ccba85",
+      "selectionReasons": [
+        "first-ten"
+      ],
+      "terminalPotChips": 300,
+      "humanCards": [
+        "5d",
+        "8d"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 50
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"5d\", \"8d\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 300}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "preflop",
+          "humanVisibleCards": "[\"5d\", \"8d\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 300}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 4,
+      "handId": "i63DQpwcX-Z3ijBpwXRLTyrl",
+      "button": 1,
+      "humanChips": -200,
+      "publicEventsSha256": "5275afa7bf4a52bd290e99be6140fc5880d4291c6ebd451c989903d496fabafb",
+      "selectionReasons": [
+        "first-ten"
+      ],
+      "terminalPotChips": 500,
+      "humanCards": [
+        "2s",
+        "Kd"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "Ah",
+            "Qh",
+            "4s"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "Js"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"2s\", \"Kd\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 300}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"2s\", \"Kd\"]",
+          "visibleBoard": "[\"Ah\", \"Qh\", \"4s\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "turn",
+          "humanVisibleCards": "[\"2s\", \"Kd\"]",
+          "visibleBoard": "[\"Ah\", \"Qh\", \"4s\", \"Js\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "turn",
+          "humanVisibleCards": "[\"2s\", \"Kd\"]",
+          "visibleBoard": "[\"Ah\", \"Qh\", \"4s\", \"Js\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 700}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 5,
+      "handId": "QERzycWu4b9NR8rqxA2uSf7V",
+      "button": 0,
+      "humanChips": 400,
+      "publicEventsSha256": "d94852a3683366b492856f3f51dcb7343f0b4b104a356d74ef138abc53ae2b9c",
+      "selectionReasons": [
+        "first-ten"
+      ],
+      "terminalPotChips": 800,
+      "humanCards": [
+        "Ah",
+        "3c"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "Ac",
+            "9d",
+            "Ts"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "4c"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "river",
+          "cards": [
+            "Ad"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "river",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "shown",
+          "seat": 1,
+          "cards": [
+            "Ks",
+            "8h"
+          ]
+        },
+        {
+          "event": "shown",
+          "seat": 0,
+          "cards": [
+            "Ah",
+            "3c"
+          ]
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Ah\", \"3c\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 300}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "200",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"Ah\", \"3c\"]",
+          "visibleBoard": "[\"Ac\", \"9d\", \"Ts\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "100",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "turn",
+          "humanVisibleCards": "[\"Ah\", \"3c\"]",
+          "visibleBoard": "[\"Ac\", \"9d\", \"Ts\", \"4c\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "river",
+          "humanVisibleCards": "[\"Ah\", \"3c\"]",
+          "visibleBoard": "[\"Ac\", \"9d\", \"Ts\", \"4c\", \"Ad\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1700}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 6,
+      "handId": "cqfj8Q9dD6vU_OTUzJlSBX06",
+      "button": 1,
+      "humanChips": -400,
+      "publicEventsSha256": "1b7a398fa68c316646e4dcf882d9a83823877bfa2a5eebd1835b1e0f810aee6a",
+      "selectionReasons": [
+        "first-ten"
+      ],
+      "terminalPotChips": 1600,
+      "humanCards": [
+        "6c",
+        "Ad"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 300,
+          "paid": 250
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 200
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "Qh",
+            "Js",
+            "4h"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "9c"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "river",
+          "cards": [
+            "As"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "river",
+          "kind": "raise",
+          "raiseTo": 800,
+          "paid": 800
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"6c\", \"Ad\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 500}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"6c\", \"Ad\"]",
+          "visibleBoard": "[\"Qh\", \"Js\", \"4h\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "flop",
+          "humanVisibleCards": "[\"6c\", \"Ad\"]",
+          "visibleBoard": "[\"Qh\", \"Js\", \"4h\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1700}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "turn",
+          "humanVisibleCards": "[\"6c\", \"Ad\"]",
+          "visibleBoard": "[\"Qh\", \"Js\", \"4h\", \"9c\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 800}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1600}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "5",
+          "street": "river",
+          "humanVisibleCards": "[\"6c\", \"Ad\"]",
+          "visibleBoard": "[\"Qh\", \"Js\", \"4h\", \"9c\", \"As\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 800}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1600}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "6",
+          "street": "river",
+          "humanVisibleCards": "[\"6c\", \"Ad\"]",
+          "visibleBoard": "[\"Qh\", \"Js\", \"4h\", \"9c\", \"As\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 1600}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 7,
+      "handId": "yp7ngJ0i3BE3FBzMgLTIJbsN",
+      "button": 0,
+      "humanChips": -50,
+      "publicEventsSha256": "758d4252ed3dc6d8b41f7d266640eb55ff413fcc38c98d8553bb55d913efb395",
+      "selectionReasons": [
+        "first-ten"
+      ],
+      "terminalPotChips": 150,
+      "humanCards": [
+        "8d",
+        "2c"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"8d\", \"2c\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 300}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 8,
+      "handId": "XUzSn5Bb9rLNnt83Q1ULq9uF",
+      "button": 1,
+      "humanChips": -300,
+      "publicEventsSha256": "a35bdd33492839da56055f582098059fb72019e5324ff56a561555b75b1d90bb",
+      "selectionReasons": [
+        "first-ten"
+      ],
+      "terminalPotChips": 700,
+      "humanCards": [
+        "Kc",
+        "4c"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 300,
+          "paid": 250
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 200
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "8s",
+            "3h",
+            "7s"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "2d"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Kc\", \"4c\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 500}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"Kc\", \"4c\"]",
+          "visibleBoard": "[\"8s\", \"3h\", \"7s\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "turn",
+          "humanVisibleCards": "[\"Kc\", \"4c\"]",
+          "visibleBoard": "[\"8s\", \"3h\", \"7s\", \"2d\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "turn",
+          "humanVisibleCards": "[\"Kc\", \"4c\"]",
+          "visibleBoard": "[\"8s\", \"3h\", \"7s\", \"2d\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1700}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 9,
+      "handId": "4prmggn6O6rjYgZPvsJDJ8Ig",
+      "button": 0,
+      "humanChips": -50,
+      "publicEventsSha256": "661e5dc0fe42ffc6b7a28d9989407bb8890ef8c4e437b9945b56151228c6446d",
+      "selectionReasons": [
+        "first-ten"
+      ],
+      "terminalPotChips": 150,
+      "humanCards": [
+        "8s",
+        "2h"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"8s\", \"2h\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 300}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 10,
+      "handId": "0CThghQ4pb-KhpIjX8K-X00Y",
+      "button": 1,
+      "humanChips": -200,
+      "publicEventsSha256": "074d3cd04f6627610beeca1c230793854ef3ed39c03928f88b46181b1020625b",
+      "selectionReasons": [
+        "first-ten"
+      ],
+      "terminalPotChips": 800,
+      "humanCards": [
+        "5d",
+        "Ks"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "Jd",
+            "6d",
+            "Ah"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "2s"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 400,
+          "paid": 400
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"5d\", \"Ks\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 300}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"5d\", \"Ks\"]",
+          "visibleBoard": "[\"Jd\", \"6d\", \"Ah\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "turn",
+          "humanVisibleCards": "[\"5d\", \"Ks\"]",
+          "visibleBoard": "[\"Jd\", \"6d\", \"Ah\", \"2s\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "turn",
+          "humanVisibleCards": "[\"5d\", \"Ks\"]",
+          "visibleBoard": "[\"Jd\", \"6d\", \"Ah\", \"2s\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 800}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1600}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1800}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 39,
+      "handId": "yUkhQxwXJEO5voUHJ9lVmWT0",
+      "button": 0,
+      "humanChips": 2000,
+      "publicEventsSha256": "ba6d82a3ec46b68fd86671157fc43d7c951a94f35e78945b4f108e325d93af1c",
+      "selectionReasons": [
+        "largest-five-positive"
+      ],
+      "terminalPotChips": 4000,
+      "humanCards": [
+        "5h",
+        "5c"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 300,
+          "paid": 200
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "Kc",
+            "5d",
+            "7c"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 200
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 300,
+          "paid": 200
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "2s"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 1400,
+          "paid": 1400
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 1400
+        },
+        {
+          "event": "board",
+          "street": "river",
+          "cards": [
+            "2h"
+          ]
+        },
+        {
+          "event": "shown",
+          "seat": 1,
+          "cards": [
+            "4s",
+            "Ac"
+          ]
+        },
+        {
+          "event": "shown",
+          "seat": 0,
+          "cards": [
+            "5h",
+            "5c"
+          ]
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"5h\", \"5c\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 300}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "200",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "preflop",
+          "humanVisibleCards": "[\"5h\", \"5c\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 400}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "flop",
+          "humanVisibleCards": "[\"5h\", \"5c\"]",
+          "visibleBoard": "[\"Kc\", \"5d\", \"7c\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1700}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "200",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "flop",
+          "humanVisibleCards": "[\"5h\", \"5c\"]",
+          "visibleBoard": "[\"Kc\", \"5d\", \"7c\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 400}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1500}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1700}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "5",
+          "street": "turn",
+          "humanVisibleCards": "[\"5h\", \"5c\"]",
+          "visibleBoard": "[\"Kc\", \"5d\", \"7c\", \"2s\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 41,
+      "handId": "KY2lioUuHvqJr4dbWhrD-92F",
+      "button": 0,
+      "humanChips": 2000,
+      "publicEventsSha256": "df1faf10dc13f30bdd6fc3071b013e0fd85a3d18e31622592c1aecb52532cbc5",
+      "selectionReasons": [
+        "largest-five-positive"
+      ],
+      "terminalPotChips": 4000,
+      "humanCards": [
+        "Ac",
+        "Kc"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 300,
+          "paid": 250
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 500,
+          "paid": 400
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 200
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "Ks",
+            "Jh",
+            "Ah"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 1000,
+          "paid": 1000
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 1000
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "3h"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 500,
+          "paid": 500
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 500
+        },
+        {
+          "event": "board",
+          "street": "river",
+          "cards": [
+            "5s"
+          ]
+        },
+        {
+          "event": "shown",
+          "seat": 1,
+          "cards": [
+            "Qc",
+            "Qh"
+          ]
+        },
+        {
+          "event": "shown",
+          "seat": 0,
+          "cards": [
+            "Ac",
+            "Kc"
+          ]
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Ac\", \"Kc\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 300}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "300",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Ac\", \"Kc\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 700}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1500}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 2000}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "flop",
+          "humanVisibleCards": "[\"Ac\", \"Kc\"]",
+          "visibleBoard": "[\"Ks\", \"Jh\", \"Ah\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 1500}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "turn",
+          "humanVisibleCards": "[\"Ac\", \"Kc\"]",
+          "visibleBoard": "[\"Ks\", \"Jh\", \"Ah\", \"3h\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 46,
+      "handId": "U_9BfHf-ZyiyBxVf-dChvGKl",
+      "button": 1,
+      "humanChips": 2000,
+      "publicEventsSha256": "89d095cf405f943e7a0f638dbc6aa136728c669621f3f030135551650d7350fb",
+      "selectionReasons": [
+        "largest-five-positive"
+      ],
+      "terminalPotChips": 4000,
+      "humanCards": [
+        "Qs",
+        "6s"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "Qd",
+            "8d",
+            "9c"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "6h"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "river",
+          "cards": [
+            "Qh"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "river",
+          "kind": "raise",
+          "raiseTo": 1700,
+          "paid": 1700
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 1600
+        },
+        {
+          "event": "shown",
+          "seat": 1,
+          "cards": [
+            "3c",
+            "5c"
+          ]
+        },
+        {
+          "event": "shown",
+          "seat": 0,
+          "cards": [
+            "Qs",
+            "6s"
+          ]
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Qs\", \"6s\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 300}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"Qs\", \"6s\"]",
+          "visibleBoard": "[\"Qd\", \"8d\", \"9c\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "turn",
+          "humanVisibleCards": "[\"Qs\", \"6s\"]",
+          "visibleBoard": "[\"Qd\", \"8d\", \"9c\", \"6h\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "100",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "river",
+          "humanVisibleCards": "[\"Qs\", \"6s\"]",
+          "visibleBoard": "[\"Qd\", \"8d\", \"9c\", \"6h\", \"Qh\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "100",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "5",
+          "street": "river",
+          "humanVisibleCards": "[\"Qs\", \"6s\"]",
+          "visibleBoard": "[\"Qd\", \"8d\", \"9c\", \"6h\", \"Qh\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 50,
+      "handId": "Q69XiXqgqmD_bDIY5Xbq7C0g",
+      "button": 1,
+      "humanChips": -100,
+      "publicEventsSha256": "fae6f6e6392022f0dba58683af8bbbf4fbe68f60966f3daf41f0b850050760b6",
+      "selectionReasons": [
+        "every-fiftieth"
+      ],
+      "terminalPotChips": 400,
+      "humanCards": [
+        "4c",
+        "Kd"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 300,
+          "paid": 250
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"4c\", \"Kd\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 500}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 89,
+      "handId": "dJVnYGlvbJDSyov_Z0c1Y7zY",
+      "button": 0,
+      "humanChips": 2000,
+      "publicEventsSha256": "a677f5bfe56e77681440f602dde099e9608130a751784f14aa8d2d6ab60490fb",
+      "selectionReasons": [
+        "largest-five-positive"
+      ],
+      "terminalPotChips": 4000,
+      "humanCards": [
+        "8s",
+        "7s"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 300,
+          "paid": 200
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "8h",
+            "9s",
+            "7h"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 200
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 1200,
+          "paid": 1100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 1000
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "Jd"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "river",
+          "cards": [
+            "Qc"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "river",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "raise",
+          "raiseTo": 500,
+          "paid": 500
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "river",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 500
+        },
+        {
+          "event": "shown",
+          "seat": 0,
+          "cards": [
+            "8s",
+            "7s"
+          ]
+        },
+        {
+          "event": "mucked",
+          "seat": 1
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"8s\", \"7s\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 300}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "200",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "preflop",
+          "humanVisibleCards": "[\"8s\", \"7s\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 400}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "flop",
+          "humanVisibleCards": "[\"8s\", \"7s\"]",
+          "visibleBoard": "[\"8h\", \"9s\", \"7h\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1700}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "200",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "flop",
+          "humanVisibleCards": "[\"8s\", \"7s\"]",
+          "visibleBoard": "[\"8h\", \"9s\", \"7h\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 1700}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "5",
+          "street": "turn",
+          "humanVisibleCards": "[\"8s\", \"7s\"]",
+          "visibleBoard": "[\"8h\", \"9s\", \"7h\", \"Jd\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 500}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "6",
+          "street": "river",
+          "humanVisibleCards": "[\"8s\", \"7s\"]",
+          "visibleBoard": "[\"8h\", \"9s\", \"7h\", \"Jd\", \"Qc\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 500}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "500",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 100,
+      "handId": "tGzgkWxx2wDtBdFb5F68P9D6",
+      "button": 1,
+      "humanChips": 50,
+      "publicEventsSha256": "f01c082bcafa42f6194cb113b65365e4a757c9cbb5947590ca22a0061a4184b1",
+      "selectionReasons": [
+        "every-fiftieth"
+      ],
+      "terminalPotChips": 150,
+      "humanCards": [
+        "Qs",
+        "6s"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": []
+    },
+    {
+      "handOrdinal": 134,
+      "handId": "DR-0WTU_HrzEcjk9rB9ymmid",
+      "button": 1,
+      "humanChips": 2000,
+      "publicEventsSha256": "23445f6789f522ba10e419fe00315d962afeaae8457c1f4fd29ad45c5d27d08d",
+      "selectionReasons": [
+        "largest-five-positive"
+      ],
+      "terminalPotChips": 4000,
+      "humanCards": [
+        "Jc",
+        "Th"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "Td",
+            "Tc",
+            "7d"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "4d"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 400,
+          "paid": 400
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 1600,
+          "paid": 1600
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 1200
+        },
+        {
+          "event": "board",
+          "street": "river",
+          "cards": [
+            "3h"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 200
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "river",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 200
+        },
+        {
+          "event": "shown",
+          "seat": 0,
+          "cards": [
+            "Jc",
+            "Th"
+          ]
+        },
+        {
+          "event": "mucked",
+          "seat": 1
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Jc\", \"Th\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 300}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"Jc\", \"Th\"]",
+          "visibleBoard": "[\"Td\", \"Tc\", \"7d\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "turn",
+          "humanVisibleCards": "[\"Jc\", \"Th\"]",
+          "visibleBoard": "[\"Td\", \"Tc\", \"7d\", \"4d\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "400",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "turn",
+          "humanVisibleCards": "[\"Jc\", \"Th\"]",
+          "visibleBoard": "[\"Td\", \"Tc\", \"7d\", \"4d\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 1800}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "5",
+          "street": "river",
+          "humanVisibleCards": "[\"Jc\", \"Th\"]",
+          "visibleBoard": "[\"Td\", \"Tc\", \"7d\", \"4d\", \"3h\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 200}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "200",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 150,
+      "handId": "jvsiC3KBxx1rQ2UhvPDREJox",
+      "button": 1,
+      "humanChips": -200,
+      "publicEventsSha256": "4dd15938bee6388eced24f95ee74962090156a8d95de8f5ba79e7f609b0bd6b7",
+      "selectionReasons": [
+        "every-fiftieth"
+      ],
+      "terminalPotChips": 800,
+      "humanCards": [
+        "Ts",
+        "Qd"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "6d",
+            "4s",
+            "3c"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "6h"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 400,
+          "paid": 400
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Ts\", \"Qd\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 300}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"Ts\", \"Qd\"]",
+          "visibleBoard": "[\"6d\", \"4s\", \"3c\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "turn",
+          "humanVisibleCards": "[\"Ts\", \"Qd\"]",
+          "visibleBoard": "[\"6d\", \"4s\", \"3c\", \"6h\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "turn",
+          "humanVisibleCards": "[\"Ts\", \"Qd\"]",
+          "visibleBoard": "[\"6d\", \"4s\", \"3c\", \"6h\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 800}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1600}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1800}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 151,
+      "handId": "KoCwhUbhfS3hsNLrqU72Sqow",
+      "button": 0,
+      "humanChips": -700,
+      "publicEventsSha256": "5fa5fd06240f4010c97db1f9d24a50d3720d5aa8ce52e4532dfd19d7ca1f1e78",
+      "selectionReasons": [
+        "largest-five-negative"
+      ],
+      "terminalPotChips": 2700,
+      "humanCards": [
+        "Ks",
+        "Ac"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 600,
+          "paid": 500
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 400
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "8h",
+            "6d",
+            "Js"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "Jh"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 1300,
+          "paid": 1300
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Ks\", \"Ac\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 300}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "200",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Ks\", \"Ac\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 1000}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1800}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 2000}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "flop",
+          "humanVisibleCards": "[\"Ks\", \"Ac\"]",
+          "visibleBoard": "[\"8h\", \"6d\", \"Js\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1400}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "turn",
+          "humanVisibleCards": "[\"Ks\", \"Ac\"]",
+          "visibleBoard": "[\"8h\", \"6d\", \"Js\", \"Jh\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 164,
+      "handId": "8k2cpTHhtzS5f_fcee1rjzPI",
+      "button": 1,
+      "humanChips": -600,
+      "publicEventsSha256": "02826ab8b0e11d7cbffc9a420cae499062efa9b1bec91716520c5025907be590",
+      "selectionReasons": [
+        "largest-five-negative"
+      ],
+      "terminalPotChips": 1200,
+      "humanCards": [
+        "Ad",
+        "Kc"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 50
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 300,
+          "paid": 200
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 200
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "8d",
+            "Ah",
+            "3c"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "Jd"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "river",
+          "cards": [
+            "3d"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "river",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "shown",
+          "seat": 0,
+          "cards": [
+            "Ad",
+            "Kc"
+          ]
+        },
+        {
+          "event": "shown",
+          "seat": 1,
+          "cards": [
+            "7d",
+            "Td"
+          ]
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Ad\", \"Kc\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 300}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "300",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"Ad\", \"Kc\"]",
+          "visibleBoard": "[\"8d\", \"Ah\", \"3c\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "100",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "turn",
+          "humanVisibleCards": "[\"Ad\", \"Kc\"]",
+          "visibleBoard": "[\"8d\", \"Ah\", \"3c\", \"Jd\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 800}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1600}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "100",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "river",
+          "humanVisibleCards": "[\"Ad\", \"Kc\"]",
+          "visibleBoard": "[\"8d\", \"Ah\", \"3c\", \"Jd\", \"3d\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1000}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1500}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "100",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 166,
+      "handId": "1kleAAA2wdIR_dM4sCqN3eE5",
+      "button": 1,
+      "humanChips": -600,
+      "publicEventsSha256": "9254f83c2e23ce5e4a6c21288afc24342d16b20eab6b00c7fe4244bf922956b7",
+      "selectionReasons": [
+        "largest-five-negative"
+      ],
+      "terminalPotChips": 1600,
+      "humanCards": [
+        "As",
+        "Tc"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 600,
+          "paid": 500
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 1000,
+          "paid": 800
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"As\", \"Tc\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 300}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "600",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "preflop",
+          "humanVisibleCards": "[\"As\", \"Tc\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 1400}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 2000}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 188,
+      "handId": "6dPTUB2xar6p7z0Y2HWwoyL1",
+      "button": 1,
+      "humanChips": -800,
+      "publicEventsSha256": "c5232061911666143ac33d8ac03752545225cc8f667910b56ee29bc5e525a21f",
+      "selectionReasons": [
+        "largest-five-negative"
+      ],
+      "terminalPotChips": 1600,
+      "humanCards": [
+        "Kh",
+        "Ad"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 600,
+          "paid": 500
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 400
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "9h",
+            "Jh",
+            "8c"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "6c"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "board",
+          "street": "river",
+          "cards": [
+            "2c"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "river",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "shown",
+          "seat": 1,
+          "cards": [
+            "6d",
+            "Ah"
+          ]
+        },
+        {
+          "event": "mucked",
+          "seat": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Kh\", \"Ad\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 300}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "600",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"Kh\", \"Ad\"]",
+          "visibleBoard": "[\"9h\", \"Jh\", \"8c\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1200}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1400}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "flop",
+          "humanVisibleCards": "[\"Kh\", \"Ad\"]",
+          "visibleBoard": "[\"9h\", \"Jh\", \"8c\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1400}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "turn",
+          "humanVisibleCards": "[\"Kh\", \"Ad\"]",
+          "visibleBoard": "[\"9h\", \"Jh\", \"8c\", \"6c\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1300}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "5",
+          "street": "river",
+          "humanVisibleCards": "[\"Kh\", \"Ad\"]",
+          "visibleBoard": "[\"9h\", \"Jh\", \"8c\", \"6c\", \"2c\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1300}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "6",
+          "street": "river",
+          "humanVisibleCards": "[\"Kh\", \"Ad\"]",
+          "visibleBoard": "[\"9h\", \"Jh\", \"8c\", \"6c\", \"2c\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1300}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 200,
+      "handId": "wOG5piACXoQJyDW-MmFG9T6r",
+      "button": 1,
+      "humanChips": 600,
+      "publicEventsSha256": "3ebc36e932e5a8b73c6267f76ecfb9d9a034b3a7031ae74976051da88b132a9d",
+      "selectionReasons": [
+        "every-fiftieth"
+      ],
+      "terminalPotChips": 1200,
+      "humanCards": [
+        "8s",
+        "Ah"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 300,
+          "paid": 250
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 200
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "2s",
+            "6s",
+            "6d"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "turn",
+          "cards": [
+            "6h"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "turn",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "turn",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "river",
+          "cards": [
+            "4h"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "river",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "river",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "shown",
+          "seat": 1,
+          "cards": [
+            "8c",
+            "9c"
+          ]
+        },
+        {
+          "event": "shown",
+          "seat": 0,
+          "cards": [
+            "8s",
+            "Ah"
+          ]
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"8s\", \"Ah\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 500}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"8s\", \"Ah\"]",
+          "visibleBoard": "[\"2s\", \"6s\", \"6d\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "flop",
+          "humanVisibleCards": "[\"8s\", \"Ah\"]",
+          "visibleBoard": "[\"2s\", \"6s\", \"6d\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1700}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "4",
+          "street": "turn",
+          "humanVisibleCards": "[\"8s\", \"Ah\"]",
+          "visibleBoard": "[\"2s\", \"6s\", \"6d\", \"6h\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 800}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1600}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "5",
+          "street": "turn",
+          "humanVisibleCards": "[\"8s\", \"Ah\"]",
+          "visibleBoard": "[\"2s\", \"6s\", \"6d\", \"6h\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1100}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1600}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "6",
+          "street": "river",
+          "humanVisibleCards": "[\"8s\", \"Ah\"]",
+          "visibleBoard": "[\"2s\", \"6s\", \"6d\", \"6h\", \"4h\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1000}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1500}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "7",
+          "street": "river",
+          "humanVisibleCards": "[\"8s\", \"Ah\"]",
+          "visibleBoard": "[\"2s\", \"6s\", \"6d\", \"6h\", \"4h\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1300}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1500}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 210,
+      "handId": "F8h2E1YAS8rrF58h1ilvtvuZ",
+      "button": 1,
+      "humanChips": -600,
+      "publicEventsSha256": "900fbdc9274259d38e529af3b5add42332d7187c76d16c0907fa88fcf1be3019",
+      "selectionReasons": [
+        "largest-five-negative"
+      ],
+      "terminalPotChips": 2600,
+      "humanCards": [
+        "Jh",
+        "Kh"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 600,
+          "paid": 500
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 400
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "6s",
+            "6d",
+            "2s"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 1400,
+          "paid": 1400
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Jh\", \"Kh\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 300}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "raise",
+          "acceptedRaiseTo": "600",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"Jh\", \"Kh\"]",
+          "visibleBoard": "[\"6s\", \"6d\", \"2s\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1200}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1400}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "flop",
+          "humanVisibleCards": "[\"Jh\", \"Kh\"]",
+          "visibleBoard": "[\"6s\", \"6d\", \"2s\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 250,
+      "handId": "sM2nilDe_8fpgnErlEofnkiy",
+      "button": 1,
+      "humanChips": -200,
+      "publicEventsSha256": "7d10455bdbbfd80c94ea433fa66b037431306018dcbd6a5978c843fdd8444838",
+      "selectionReasons": [
+        "every-fiftieth"
+      ],
+      "terminalPotChips": 800,
+      "humanCards": [
+        "Ad",
+        "6h"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 200,
+          "paid": 150
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 100
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "3c",
+            "2c",
+            "Kc"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 400,
+          "paid": 400
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Ad\", \"6h\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 300}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"Ad\", \"6h\"]",
+          "visibleBoard": "[\"3c\", \"2c\", \"Kc\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 400}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "flop",
+          "humanVisibleCards": "[\"Ad\", \"6h\"]",
+          "visibleBoard": "[\"3c\", \"2c\", \"Kc\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 800}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 1600}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1800}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 300,
+      "handId": "kyHt3X54ZdpfuokztmXDBD0_",
+      "button": 1,
+      "humanChips": 50,
+      "publicEventsSha256": "ffbfe18253732efd2f15a7afe4be10fe6197ed5c44e7c746c8c1386ff946ad28",
+      "selectionReasons": [
+        "every-fiftieth"
+      ],
+      "terminalPotChips": 150,
+      "humanCards": [
+        "Kc",
+        "Js"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": []
+    },
+    {
+      "handOrdinal": 350,
+      "handId": "5vmpnzD1Wcf4c_sEdk9-X9NF",
+      "button": 1,
+      "humanChips": -100,
+      "publicEventsSha256": "67b8f6a798095e66860c64d58c9a70ecf28cda2c216ed1335b797cc72f28a402",
+      "selectionReasons": [
+        "every-fiftieth"
+      ],
+      "terminalPotChips": 400,
+      "humanCards": [
+        "Td",
+        "3c"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 300,
+          "paid": 250
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"Td\", \"3c\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 500}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    },
+    {
+      "handOrdinal": 400,
+      "handId": "WzBhvLx7noV71TWVL1sGLMK-",
+      "button": 1,
+      "humanChips": -300,
+      "publicEventsSha256": "5c1035026abb13158ff28ba0608ad285c545c095577edd32540613d1f569c2d5",
+      "selectionReasons": [
+        "every-fiftieth"
+      ],
+      "terminalPotChips": 700,
+      "humanCards": [
+        "9c",
+        "8c"
+      ],
+      "events": [
+        {
+          "event": "blind",
+          "seat": 1,
+          "amount": 50
+        },
+        {
+          "event": "blind",
+          "seat": 0,
+          "amount": 100
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "preflop",
+          "kind": "raise",
+          "raiseTo": 300,
+          "paid": 250
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "preflop",
+          "kind": "call",
+          "raiseTo": null,
+          "paid": 200
+        },
+        {
+          "event": "board",
+          "street": "flop",
+          "cards": [
+            "5d",
+            "3d",
+            "Ks"
+          ]
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "check",
+          "raiseTo": null,
+          "paid": 0
+        },
+        {
+          "event": "action",
+          "seat": 1,
+          "street": "flop",
+          "kind": "raise",
+          "raiseTo": 100,
+          "paid": 100
+        },
+        {
+          "event": "action",
+          "seat": 0,
+          "street": "flop",
+          "kind": "fold",
+          "raiseTo": null,
+          "paid": 0
+        }
+      ],
+      "humanDecisions": [
+        {
+          "decisionOrdinal": "1",
+          "street": "preflop",
+          "humanVisibleCards": "[\"9c\", \"8c\"]",
+          "visibleBoard": "[]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 500}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}]",
+          "acceptedKind": "call",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "2",
+          "street": "flop",
+          "humanVisibleCards": "[\"9c\", \"8c\"]",
+          "visibleBoard": "[\"5d\", \"3d\", \"Ks\"]",
+          "restrictedMenu": "[{\"name\": \"check\", \"kind\": \"check\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 100}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 600}]",
+          "acceptedKind": "check",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        },
+        {
+          "decisionOrdinal": "3",
+          "street": "flop",
+          "humanVisibleCards": "[\"9c\", \"8c\"]",
+          "visibleBoard": "[\"5d\", \"3d\", \"Ks\"]",
+          "restrictedMenu": "[{\"name\": \"fold\", \"kind\": \"fold\", \"raiseTo\": null}, {\"name\": \"call\", \"kind\": \"call\", \"raiseTo\": null}, {\"name\": \"min\", \"kind\": \"raise\", \"raiseTo\": 200}, {\"name\": \"pot\", \"kind\": \"raise\", \"raiseTo\": 900}, {\"name\": \"jam\", \"kind\": \"raise\", \"raiseTo\": 1700}]",
+          "acceptedKind": "fold",
+          "acceptedRaiseTo": "",
+          "attemptMatchesAccepted": "True",
+          "toolRetry": "False"
+        }
+      ]
+    }
+  ],
+  "postHocQuarterActionMix": [
+    {
+      "firstHand": 1,
+      "lastHand": 100,
+      "decisions": 251,
+      "actions": {
+        "call": 59,
+        "check": 80,
+        "fold": 66,
+        "raise": 46
+      }
+    },
+    {
+      "firstHand": 101,
+      "lastHand": 200,
+      "decisions": 250,
+      "actions": {
+        "call": 55,
+        "fold": 53,
+        "check": 73,
+        "raise": 69
+      }
+    },
+    {
+      "firstHand": 201,
+      "lastHand": 300,
+      "decisions": 227,
+      "actions": {
+        "raise": 69,
+        "fold": 46,
+        "check": 63,
+        "call": 49
+      }
+    },
+    {
+      "firstHand": 301,
+      "lastHand": 400,
+      "decisions": 250,
+      "actions": {
+        "raise": 77,
+        "fold": 49,
+        "check": 68,
+        "call": 56
+      }
+    }
+  ],
+  "potScope": "Native terminal settled pot amounts; may exclude unmatched returned wagers"
+}

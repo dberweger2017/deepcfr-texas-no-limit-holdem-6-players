@@ -1,0 +1,37 @@
+{
+  "scope": "Actual HTTP active benchmark public state/history and denied diagnostics/results/export; no private journal read",
+  "sourceVersion": "a2053bbeea8a5e5170a1d83bf5d440684f82283d",
+  "completedHands": 367,
+  "responses": {
+    "/api/sessions/-r8gk08V-RNBrjrrDrVa-hTz": {
+      "status": 200,
+      "bytes": 1921,
+      "sha256": "bf09b7f2d617bef213f7b083e877c30a5d7de376bb74dd75d2fc4b3876aaca56",
+      "forbiddenKeys": []
+    },
+    "/api/sessions/-r8gk08V-RNBrjrrDrVa-hTz/history": {
+      "status": 200,
+      "bytes": 279673,
+      "sha256": "fb5e911c985d070c70e43479cf5d0188772c09ab996a94ecd0c29c85c27a421f",
+      "forbiddenKeys": []
+    },
+    "/api/sessions/-r8gk08V-RNBrjrrDrVa-hTz/benchmark/result": {
+      "status": 409,
+      "bytes": 55,
+      "sha256": "dc6445f7187e359d3e3108e70175868e1d2a58d8f43ecafdb57077edf0487471",
+      "forbiddenKeys": []
+    },
+    "/api/sessions/-r8gk08V-RNBrjrrDrVa-hTz/benchmark/export": {
+      "status": 409,
+      "bytes": 55,
+      "sha256": "dc6445f7187e359d3e3108e70175868e1d2a58d8f43ecafdb57077edf0487471",
+      "forbiddenKeys": []
+    },
+    "/api/sessions/-r8gk08V-RNBrjrrDrVa-hTz/hands/g8O0kab3uXruV-p3_i2rcRBH/diagnostics": {
+      "status": 403,
+      "bytes": 52,
+      "sha256": "97282b071f59ae8e1e57a6e507237e39a573f119f12a273bdf80f39a8ed598c8",
+      "forbiddenKeys": []
+    }
+  }
+}

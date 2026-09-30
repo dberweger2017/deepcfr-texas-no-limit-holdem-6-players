@@ -71,6 +71,16 @@ async function recover() {
     try {
       const model = await request("/api/model");
       $("setup-model").textContent = `${model.name} · HU20 · SHA-256 ${model.sha256}`;
+      $("setup-title").textContent = model.benchmarkOnly ? "Uniform-random calibration" : "Play the B100M blueprint";
+      if (model.benchmarkOnly) {
+        for (const input of document.querySelectorAll('input[name="sessionType"]')) {
+          input.checked = input.value === "benchmark"; input.disabled = input.value !== "benchmark";
+        }
+        for (const input of document.querySelectorAll('input[name="playMode"]')) {
+          input.checked = input.value === "restricted"; input.disabled = input.value !== "restricted";
+        }
+        updateSetup();
+      }
     } catch (error) {
       connection("Disconnected"); notice(error.message, true);
       if (error.status === 403) { saved.token = ""; persist(); show("gate"); }
@@ -103,7 +113,7 @@ function seat(target, player, isHuman, hand) {
   clear(target);
   target.classList.toggle("acting", hand.actor === player.seat);
   const head = node("div", "seat-head");
-  head.append(node("strong", "", isHuman ? "You" : "B100M"));
+  head.append(node("strong", "", isHuman ? "You" : state.model.name.split(" · ")[0]));
   if (hand.button === player.seat) head.append(node("span", "badge", "D · SB"));
   else head.append(node("span", "badge", "BB"));
   target.append(head);
@@ -237,7 +247,7 @@ function render() {
   if (!activeBenchmark) $("session-bb").textContent = signed(state.sessionChips);
   $("progress").hidden = !isBenchmark;
   if (isBenchmark) $("progress-text").textContent = activeBenchmark && state.hand
-    ? `Hand ${state.benchmark.completedHands + 1} / ${state.benchmark.targetHands}`
+    ? `Hand ${state.hand.number + 1} / ${state.benchmark.targetHands}`
     : `${state.benchmark.completedHands} / ${state.benchmark.targetHands} completed`;
   $("model-details").textContent = `Session ${state.sessionId}${isBenchmark ? ` · Benchmark ${state.benchmark.id}` : ""} · ${state.model.game} · ${state.model.schema} · ${state.model.format} · SHA-256 ${state.model.sha256} · ${state.model.adapter}`;
   $("benchmark-end").hidden = !activeBenchmark;
@@ -246,7 +256,7 @@ function render() {
   $("diagnostics").textContent = "";
   if (!state.hand) {
     $("turn").textContent = state.phase === "aborted" ? "Benchmark ended early" : "Ready to deal";
-    $("result").textContent = state.phase === "aborted" ? "Completed hands are retained in the result." : "Start a 20 BB hand against B100M.";
+    $("result").textContent = state.phase === "aborted" ? "Completed hands are retained in the result." : `Start a 20 BB hand against ${state.model.name.split(" · ")[0]}.`;
     $("new-hand").hidden = state.phase === "aborted"; $("new-hand").disabled = busy || !!saved.pending;
     $("new-hand").textContent = activeBenchmark ? `Deal hand 1 / ${state.benchmark.targetHands}` : "Deal next hand";
     clear($("controls")); clear($("events")); clear($("board")); clear($("bot-seat")); clear($("human-seat"));
@@ -259,7 +269,7 @@ function render() {
   cards($("board"), hand.board, 5 - hand.board.length);
   $("street").textContent = hand.street.toUpperCase();
   $("pot").textContent = `POT · ${bb(hand.pot)}`;
-  $("turn").textContent = state.phase === "complete" ? "Benchmark complete" : state.phase === "aborted" ? "Benchmark ended early" : state.phase === "finished" ? "Hand complete" : hand.actor === 0 ? "Your turn" : "B100M is thinking…";
+  $("turn").textContent = state.phase === "complete" ? "Benchmark complete" : state.phase === "aborted" ? "Benchmark ended early" : state.phase === "finished" ? "Hand complete" : hand.actor === 0 ? "Your turn" : "Bot is thinking…";
   $("result").textContent = hand.result ? `This hand: ${signed(hand.result.humanChips)}${activeBenchmark ? "" : ` · Session: ${signed(state.sessionChips)}`}` : "";
   $("new-hand").hidden = state.phase !== "finished"; $("new-hand").disabled = busy || !!saved.pending;
   $("new-hand").textContent = activeBenchmark ? `Deal hand ${state.benchmark.completedHands + 1} / ${state.benchmark.targetHands}` : "Deal next hand";

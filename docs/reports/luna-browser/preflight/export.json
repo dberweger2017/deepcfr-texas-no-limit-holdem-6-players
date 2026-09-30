@@ -1,0 +1,80 @@
+{
+  "benchmarkId": "UBURl8UOHdLMwlx5FtHKuAUG",
+  "protocolVersion": "hu20-human-benchmark-v1",
+  "model": {
+    "name": "B100M \u00b7 seed 2026093001",
+    "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+  },
+  "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+  "schema": "hu20-native-reopening-ordered-history-card-v1",
+  "playMode": "restricted",
+  "adapter": "direct-v1",
+  "targetHands": 10,
+  "completedHands": 10,
+  "status": "COMPLETE",
+  "netChips": 0,
+  "netBB": 0.0,
+  "bbPer100": 0.0,
+  "averagePotChips": 560.0,
+  "averagePotBB": 5.6,
+  "buttonSB": {
+    "hands": 5,
+    "netChips": 300,
+    "netBB": 3.0
+  },
+  "bigBlind": {
+    "hands": 5,
+    "netChips": -300,
+    "netBB": -3.0
+  },
+  "wins": 3,
+  "losses": 7,
+  "ties": 0,
+  "startedAt": "2026-09-30T11:57:20+00:00",
+  "endedAt": "2026-09-30T12:02:58+00:00",
+  "sourceVersion": "a2053bbeea8a5e5170a1d83bf5d440684f82283d",
+  "interfaceVersion": "hu20-play-api-v1",
+  "buttonSchedule": "alternating-seat-0-first-v1",
+  "handRecords": [
+    {
+      "handId": "7g83ho4Z3VIIiw_oFs08Brtw",
+      "publicEventsSha256": "a7235a9322215ade575f84604d1c0ccc46a2257fd045860e80c10977bc5e0ce9"
+    },
+    {
+      "handId": "BzlW9Pn8KlAwR-DzRWGc0Kda",
+      "publicEventsSha256": "69906b0af10392ce4d6bf950b5b4d709422e9a277befe5155f18182b4904db31"
+    },
+    {
+      "handId": "bduplWmL2OyRdt4edtFcua2-",
+      "publicEventsSha256": "895d829c5978366e2875d6b643015ccdf04d1d122c101d62b0f7b70d0391a6ff"
+    },
+    {
+      "handId": "X981T41A9I5a5TK6xU_oFvTF",
+      "publicEventsSha256": "d519c15f6a3068c2c48bb70511598ee9c9d6a67aaf9bd6a6d457fb2144af1580"
+    },
+    {
+      "handId": "cLmlj2dJm8nDUH7zCw_oC3HS",
+      "publicEventsSha256": "d6f51a260e48b2c3bfd2ab45fa4fe1e8c96f3b7cb4d6a2c1e38b06e62a68c5f6"
+    },
+    {
+      "handId": "_iKNTF5x583xsklUrtLpdEbz",
+      "publicEventsSha256": "d6c71ebdeacff63aac9c66823622c76ce9822ac7715e55733f8f69dca62946a2"
+    },
+    {
+      "handId": "2RcWIwmvlLk2kmSvphG5yany",
+      "publicEventsSha256": "3a4546e4b4118291d77a924323454fc3608c926b15148c6dd3cb04eac8e7c207"
+    },
+    {
+      "handId": "3cEDP54z5jMet5gBZ1x0M8U-",
+      "publicEventsSha256": "7ffb33dda84986b4ebbee49e7807c11393d5bc2b7aa61a285baac1174a55f8a7"
+    },
+    {
+      "handId": "O7y4EQO93DkA08XgjgqikLrD",
+      "publicEventsSha256": "c9c66fd13a367be181c4c4744a61290fb7a90e6cd6bc86799fef91878b65a357"
+    },
+    {
+      "handId": "hehhaQxEmdbbJquqbWMi283n",
+      "publicEventsSha256": "211a1858067d5806546ee21e9fc70d9e902e4d12ffc6082ac91c425f26789c27"
+    }
+  ]
+}

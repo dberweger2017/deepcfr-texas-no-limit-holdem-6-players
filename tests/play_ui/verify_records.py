@@ -11,13 +11,13 @@ from src.blueprint.abstraction import choices
 from src.play_api.service import MODEL_SHA256, _hand
 
 
-def verify(database):
+def verify(database, expected_hash=MODEL_SHA256):
     connection = sqlite3.connect(database)
     counts = {"sessions": 0, "hands": 0, "freeOffMenu": 0}
     for (raw,) in connection.execute("SELECT state FROM sessions"):
         state = json.loads(raw)
         counts["sessions"] += 1
-        assert state["modelSha256"] == MODEL_SHA256
+        assert state["modelSha256"] == expected_hash
         for record in state["history"]:
             hand = _hand(record)
             assert hand.finished
@@ -41,4 +41,6 @@ def verify(database):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("database", type=Path)
-    print(json.dumps(verify(parser.parse_args().database)))
+    parser.add_argument("--expected-hash", default=MODEL_SHA256)
+    args = parser.parse_args()
+    print(json.dumps(verify(args.database, args.expected_hash)))

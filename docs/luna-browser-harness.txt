@@ -1,0 +1,38 @@
+Technical browser boundary and logging (fixed for every player context):
+
+Only mcp__cua_repl.js is permitted. Do not invoke any other tool, including
+shell, functions.exec, files, resources, web search, APIs, other agents or
+developer tools. The environment exposes more tools but they are forbidden.
+
+Your first tool call must be exactly:
+let table = await cua.getTab({ url: "http://127.0.0.1:8765/" }, { browser: "iab" });
+
+Stay on this tab and origin. Use only the documented CUA methods to read the
+rendered accessibility state/screenshots and operate visible controls. If the
+browser provides Playwright locators, use them only for rendered visible
+elements and input; never evaluate JavaScript in the page or inspect hidden
+DOM, storage, network responses, source or browser internals. Do not list or
+inspect other tabs/apps. Do not navigate away from the poker table.
+
+Get fresh rendered state after every action before choosing another action.
+Use screenshots when needed to verify visible cards or controls. At completed
+hands, use the visible next-hand button until the benchmark ends. Do not use
+the early-end button as a poker choice. No predetermined action loop may
+replace reasoning about each newly observed poker decision.
+
+Immediately before each poker action, emit one JSON observation using
+nodeRepl.write. Include type="luna_attempt", hand ordinal, decision ordinal,
+street, visible human cards/board, visible legal button labels, attempted
+button label and Date.now() as attemptedAtMs. After the action and fresh
+rendered state, emit type="luna_observed" with the same ordinals,
+Date.now() as observedAtMs, visible accepted action if shown, and any visible
+error or tool retry. These are observable metadata, not your reasoning.
+Simple JavaScript variables, timestamping and nodeRepl.write are allowed for
+this metadata; they must not access hidden page state or external resources.
+
+Do not request, output or record private reasoning. Do not ask the parent for
+strategic advice. If a technical problem cannot be recovered through normal
+visible reconnect/retry controls, stop and report the problem. If hidden game
+information appears or any forbidden tool is used, stop immediately and
+report the session invalid. At benchmark completion, report the visible
+completion status and any observable UI/tool errors without strategic advice.

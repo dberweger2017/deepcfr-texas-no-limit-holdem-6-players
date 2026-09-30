@@ -1,0 +1,38 @@
+{
+  "session": "uniform-random calibration",
+  "sourceVersion": "7ce9ba600ec9a1822bea19a9396b3c540e6797af",
+  "targetHands": 100,
+  "playMode": "restricted",
+  "visibility": "benchmark",
+  "modelConfiguration": {
+    "model": "gpt-6-luna",
+    "effort": "high"
+  },
+  "freshContext": true,
+  "opponentDefinition": {
+    "adapter": "uniform-restricted-v1",
+    "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+    "schema": "hu20-native-reopening-ordered-history-card-v1",
+    "menu": "choices(view, raise_cap=None, free_fold=False)",
+    "sampling": "uniform weights; persisted per-session Python Random.choices",
+    "benchmarkOnly": true
+  },
+  "opponentDefinitionSha256": "a84129619efdc0f5b6bc2ca6120e2797035b4ab908363285aeb98a76b8e53cf2",
+  "hashScope": "canonical JSON algorithm definition, not a trained model artifact",
+  "playerPromptSha256": "30d19a7d78e4fde153fe78fb906ab34b539dd1e123ce2f469fab11591cf6d807",
+  "technicalHarnessSha256": "c523f5e71f3c82e17db182f08f1afb4e5fdb887424ae613d4cd0e27bdb1b8148",
+  "fullFixtureTests": {
+    "passed": 969,
+    "elapsedSeconds": 474.65,
+    "platform": "M1 macOS",
+    "sourceVersion": "7ce9ba600ec9a1822bea19a9396b3c540e6797af",
+    "scope": "generated fixtures; no B100M loading"
+  },
+  "M4Used": false,
+  "setupNotes": [
+    "Parent opened the private access token in TextEdit and transferred its document value to the loopback gate without printing the token.",
+    "One parent setup attempt selected the wrong non-secret document-path string; access was denied. The token field was then selected correctly.",
+    "Stale prior session ID produced 404 and normal setup recovery. A fresh target-100 session was created before any parent poker action."
+  ],
+  "spawnMessagePlaintextReverification": "Local rollout stores the task message encrypted; no decryption attempted. The submitted tool call used the unchanged frozen prompt and harness text."
+}

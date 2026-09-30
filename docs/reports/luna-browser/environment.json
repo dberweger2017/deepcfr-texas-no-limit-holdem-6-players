@@ -1,0 +1,11 @@
+{
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "python": "3.11.15",
+  "nativeEnginePackageVersion": "0.2.0",
+  "nativeEngineCommit": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+  "runtimeSource": "a2053bbeea8a5e5170a1d83bf5d440684f82283d",
+  "hostRamBytes": 17179869184,
+  "m4Used": false,
+  "trainingPerformed": false
+}
