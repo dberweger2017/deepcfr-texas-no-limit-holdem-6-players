@@ -34,6 +34,16 @@ def reconcile(state, metadata, *, allow_aborted=False, expected_completed=None):
         raise ValueError("Only completed sessions or explicitly authorized ended-early sessions may be analyzed")
     attempts = [m for m in metadata if m["type"] == "luna_attempt"
                 and not m["attemptedButtonLabel"].lower().startswith("deal hand")]
+    groups = []
+    for attempt in attempts:
+        key = (attempt["handOrdinal"], attempt["decisionOrdinal"])
+        prior = groups[-1][-1] if groups else None
+        if (prior is not None and key == (prior["handOrdinal"], prior["decisionOrdinal"])
+                and attempt.get("toolRetry") is True
+                and attempt["attemptedButtonLabel"] == prior["attemptedButtonLabel"]):
+            groups[-1].append(attempt)
+        else:
+            groups.append([attempt])
     observations = {(m["handOrdinal"], m["decisionOrdinal"]): m for m in metadata
                     if m["type"] == "luna_observed"}
     expected = []
@@ -55,12 +65,14 @@ def reconcile(state, metadata, *, allow_aborted=False, expected_completed=None):
         hands.append({"handOrdinal": ordinal, "handId": record["handId"],
                       "button": record["button"], "humanChips": record["humanChips"],
                       "publicEventsSha256": record["publicEventsSha256"]})
-    if len(attempts) != len(expected):
-        raise ValueError(f"Attempt/action count mismatch: {len(attempts)} / {len(expected)}")
+    if len(groups) != len(expected):
+        raise ValueError(f"Attempt/action count mismatch: {len(groups)} / {len(expected)}")
     rows = []
-    for attempt, (ordinal, decision, hand_id, view, action) in zip(attempts, expected):
+    for group, (ordinal, decision, hand_id, view, action) in zip(groups, expected):
+        attempt = group[0]
         assert attempt["handOrdinal"] == ordinal
-        observed = observations[(ordinal, attempt["decisionOrdinal"])]
+        observed = observations.get((ordinal, attempt["decisionOrdinal"]))
+        observed_ms = observed.get("observedAtMs") if observed else None
         label = attempt["attemptedButtonLabel"]
         menu_labels = attempt.get("legalButtonLabels", attempt.get("visibleLegalButtonLabels"))
         if not isinstance(menu_labels, list) or not all(isinstance(item, str) for item in menu_labels):
@@ -78,6 +90,7 @@ def reconcile(state, metadata, *, allow_aborted=False, expected_completed=None):
         rows.append({"benchmarkId": state["benchmark"]["id"], "handId": hand_id,
                      "handOrdinal": ordinal, "decisionOrdinal": decision, "street": view.street.value,
                      "browserDecisionOrdinal": attempt["decisionOrdinal"],
+                     "attemptCount": len(group), "attemptRecords": json.dumps(group, ensure_ascii=False),
                      "humanVisibleCards": json.dumps(view.hole_cards),
                      "visibleBoard": json.dumps(view.board),
                      "restrictedMenu": json.dumps([
@@ -89,13 +102,15 @@ def reconcile(state, metadata, *, allow_aborted=False, expected_completed=None):
                      "acceptedRaiseTo": action["raiseTo"], "attemptedAtMs": attempt["attemptedAtMs"],
                      "attemptMatchesAccepted": matches,
                      "reportedMenuContainsAttempt": label in menu_labels,
-                     "observedAtMs": observed["observedAtMs"],
+                     "observationRecorded": observed is not None,
+                     "observedAtMs": observed_ms,
                      "lastRenderedAtMs": attempt.get("lastRenderedAtMs"),
                      "observedDecisionMs": attempt["attemptedAtMs"] - attempt["lastRenderedAtMs"]
                          if attempt.get("lastRenderedAtMs") is not None else None,
-                     "uiConfirmationMs": observed["observedAtMs"] - attempt["attemptedAtMs"],
-                     "visibleError": observed.get("visibleError"),
-                     "toolRetry": observed.get("toolRetry", ""), "parentIntervention": False})
+                     "uiConfirmationMs": observed_ms - attempt["attemptedAtMs"] if observed_ms is not None else None,
+                     "visibleError": observed.get("visibleError") if observed else None,
+                     "toolRetry": len(group) > 1 or bool(observed and observed.get("toolRetry")),
+                     "parentIntervention": False})
     if len(hands) != expected_completed:
         raise ValueError("Completed-hand count differs from the declared analysis count")
     assert len(hands) == state["handsPlayed"]
@@ -147,7 +162,8 @@ def main():
             writer.writeheader()
             writer.writerows(rows)
     (args.output / "export.json").write_text(json.dumps(export, indent=2) + "\n")
-    latencies = sorted(row["uiConfirmationMs"] for row in decisions)
+    (args.output / "browser-metadata.json").write_text(json.dumps(result["decisionMetadata"], indent=2) + "\n")
+    latencies = sorted(row["uiConfirmationMs"] for row in decisions if row["uiConfirmationMs"] is not None)
     decision_latencies = sorted(row["observedDecisionMs"] for row in decisions
                                 if row["observedDecisionMs"] is not None)
     lookups = [item for record in state["history"] for item in record["lookup"]]
@@ -158,15 +174,19 @@ def main():
                "declaredCompletedHands": args.expected_completed_hands,
                "setupFailures": result["setupFailures"],
                "reconciledHumanDecisions": len(decisions), "parentPokerInterventions": 0,
+               "rawPokerAttempts": sum(row["attemptCount"] for row in decisions),
+               "explicitRetryAttempts": sum(row["attemptCount"] - 1 for row in decisions),
+               "missingObservationMetadata": sum(not row["observationRecorded"] for row in decisions),
+               "missingConfirmationTimestamps": sum(row["observedAtMs"] is None for row in decisions),
                "attemptAcceptedMismatches": sum(not r["attemptMatchesAccepted"] for r in decisions),
                "reportedMenuMismatches": sum(not r["reportedMenuContainsAttempt"] for r in decisions),
                "trainedBotLookups": sum(item["trained"] for item in lookups),
                "fallbackBotLookups": sum(not item["trained"] for item in lookups),
-               "uiConfirmationMs": {"mean": statistics.mean(latencies),
+               "uiConfirmationMs": {"samples": len(latencies), "mean": statistics.mean(latencies),
                                     "median": statistics.median(latencies),
-                                    "p95": latencies[math.ceil(len(latencies)*.95)-1]},
-               "latencyScope": "Action attempt to observed UI acknowledgment; excludes poker reasoning",
-               "observedDecisionMs": {"mean": statistics.mean(decision_latencies),
+                                    "p95": latencies[math.ceil(len(latencies)*.95)-1]} if latencies else None,
+               "latencyScope": "Action attempt to emitted observation timestamp; includes logging/tool delays, not isolated network/engine latency",
+               "observedDecisionMs": {"samples": len(decision_latencies), "mean": statistics.mean(decision_latencies),
                                       "median": statistics.median(decision_latencies),
                                       "p95": decision_latencies[math.ceil(len(decision_latencies)*.95)-1]} if decision_latencies else None,
                "percentileMethod": "nearest rank",

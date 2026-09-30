@@ -85,6 +85,17 @@ def test_ended_early_requires_explicit_authorization_and_exact_completed_boundar
         reconcile(state, metadata, allow_aborted=True, expected_completed=1)
 
 
+def test_retains_explicit_retry_and_missing_observation_without_inventing_confirmation(tmp_path):
+    state, metadata = completed_fixture(tmp_path)
+    retry = dict(metadata[1], attemptedAtMs=2200, toolRetry=True)
+    rows, _ = reconcile(state, [metadata[0], metadata[1], retry])
+    assert rows[0]["attemptCount"] == 2 and rows[0]["toolRetry"] is True
+    assert not rows[0]["observationRecorded"] and rows[0]["uiConfirmationMs"] is None
+    assert '2200' in rows[0]["attemptRecords"] and '2000' in rows[0]["attemptRecords"]
+    with pytest.raises(ValueError, match="count mismatch"):
+        reconcile(state, [metadata[0], metadata[1], dict(retry, attemptedButtonLabel="Call 0.50 BB")])
+
+
 def test_reset_stacks_do_not_reset_accumulated_profit(tmp_path):
     class MinRaisePolicy(FixturePolicy):
         def distribution(self, view):

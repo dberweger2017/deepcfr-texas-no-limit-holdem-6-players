@@ -50,7 +50,67 @@ Usage counters reported 3,772,472 input tokens (3,644,416 cached), 11,017 output
 tokens and 2,623 reasoning-output tokens. These are environment counters, not
 published reasoning or a calculated monetary charge.
 
-## Primary and calibration — pending
+## B100M primary — stopped at 400, verified
+
+The authoritative result is **+10,700 chips / +107 BB / +26.75 BB per 100**
+for Luna against the released first-seed B100M. This is an unfavorable observed
+result for B100M on this run, not a confidence-qualified relative-strength claim.
+The original 500-hand protocol was not completed. The time-budget amendment
+was made after progress/scores were known, and browser interruptions required
+technical supervision in the same context.
+
+| Measure | Verified primary result |
+| --- | --- |
+| Completed / original target | 400 / 500; ABORTED after completed hand 400 |
+| Wins / losses / ties | 164 / 231 / 5 |
+| Button/SB | 200 hands, +5,450 chips / +54.5 BB |
+| BB | 200 hands, +5,250 chips / +52.5 BB |
+| Average terminal pot | 709.25 chips / 7.0925 BB |
+| Native replay / conservation / payoff / public digests | All 400 passed |
+| Accepted human decisions / raw attempts | 978 / 979; one explicit retry retained |
+| Attempt/native mismatch | One: hand 343 declared Call 1 BB, accepted Fold; outcome retained |
+| B100M lookups | 894 trained, zero fallback (0%) |
+| Tools | 1,488 CUA calls; no prohibited tool/capability detected |
+| Parent poker decisions | Zero |
+| Benchmark elapsed time | 3h 27m 26s, including setup, pauses and technical recovery |
+
+### Primary raw evidence
+
+- [Actual HTTP benchmark export](luna-browser/primary/export.json), retaining target 500/status ABORTED.
+- [All accepted native human decisions and logged attempts](luna-browser/primary/decisions.csv).
+- [All per-hand results and digests](luna-browser/primary/hands.csv).
+- [Sanitized raw browser metadata](luna-browser/primary/browser-metadata.json), including deal/retry observations.
+- [Tool/configuration/replay/lookup/usage audit](luna-browser/primary/audit.json).
+- [Resource samples](luna-browser/primary/resources.csv) and [measurement summary](luna-browser/primary/resources.json).
+
+All 978 accepted human decisions were correlated with native replay. The hand-160
+retry is explicit in the raw table; it is not a second wager. Two decisions lack
+an emitted observation record, and one further record lacks its observation
+timestamp. Those three acknowledgment intervals remain missing, not invented.
+Hand 400 used `hand`/`decision` field spellings; the audit normalizes those aliases
+while retaining their original values. No full rendered tree or private reasoning
+is published. The first stopping acknowledgment confused the UI's post-settlement
+progress with the completed count; the public server confirmed 399, and the same
+child played the one remaining hand before the technical end operation.
+
+Last rendered receipt to attempted action: mean **6.64 s**, median **6.12 s**,
+p95 **9.98 s** across 978 decisions. Emitted acknowledgment intervals: mean
+4.92 s, median 0.416 s, p95 10.28 s across 975 timestamps. These include logging
+and tool delays and do not isolate engine/network latency or private reasoning.
+
+The service's sampled `top MEM` ranged **1356M–1365M** (about 1.3 GiB). Sampled
+RSS ranged 5,504–271,280 KiB after startup; compression/pageout makes that
+inappropriate as the whole model footprint. Host swap ranged 693–5,378 MiB,
+including other applications. Thirty-second CPU samples peaked at 0.2% for the
+service; this can miss brief action bursts. I stopped the service, spectator,
+sampler and its owned caffeinate process after export. M4 was not used.
+
+Surfaced thread counters: **213,616,234 input tokens** (210,588,416 cached),
+349,129 output tokens and 75,280 reasoning-output tokens. These are usage
+counters, not reasoning content or a monetary charge. The runtime did not
+provide a separately attributable experiment dollar cost.
+
+## Uniform-random calibration — pending
 
 The restricted B100M session uses a fresh, persistent Luna context. I shortened
 its requested stopping boundary from 500 to 400 completed hands for elapsed-time
@@ -98,7 +158,7 @@ remains on the original released UI at port 8765; no game/runtime source changed
 The additional polling load is included in subsequent resource samples.
 
 [Machine and native dependency identity](luna-browser/environment.json) records
-the exact environment. The focused service/audit/report/tally suite passed 29 tests.
+the exact environment. The focused service/audit/report/tally suite passed 31 tests.
 The earlier `f7ac53e` GitHub CI candidate passed all 952 tests and its existing
 CLI/reproduction gates. Subsequent reporting changes receive their own CI run.
 

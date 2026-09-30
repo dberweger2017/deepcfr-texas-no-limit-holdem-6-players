@@ -1,0 +1,95 @@
+{
+  "configurations": [
+    {
+      "model": "gpt-6-luna",
+      "effort": "high"
+    }
+  ],
+  "toolCounts": {
+    "mcp__cua_repl.js": 1488
+  },
+  "violations": [],
+  "verifiedHands": 400,
+  "serverStatus": "ABORTED",
+  "originalTargetHands": 500,
+  "declaredCompletedHands": 400,
+  "setupFailures": [
+    {
+      "callId": "call_7xDH1vBw5AzrupFXZUWphP7A",
+      "category": "existing-tab lookup"
+    },
+    {
+      "callId": "call_DDn39N8SuZeXCijst6q7Aa79",
+      "category": "unsupported live visibility"
+    },
+    {
+      "callId": "call_wtPbqT0yTJGrjkec6CmFf2DP",
+      "category": "unbound browser handle"
+    },
+    {
+      "callId": "call_PDWbRgBQqNrduG8RZKN6BCXy",
+      "category": "existing-tab lookup"
+    },
+    {
+      "callId": "call_X1lVcqY6mGncKR3SVnDVun3j",
+      "category": "expired browser handle"
+    },
+    {
+      "callId": "call_6GNZqzeFXzHN6BBLdhKAzOKc",
+      "category": "existing-tab lookup"
+    },
+    {
+      "callId": "call_2NhxHLnCt7Y5wx0Cv4eqyLwd",
+      "category": "expired browser handle"
+    },
+    {
+      "callId": "call_GIKnfEMVEu4es186TuI49MB3",
+      "category": "expired browser handle"
+    },
+    {
+      "callId": "call_0CnSB2QQqDxO11tNIct0iwuo",
+      "category": "existing-tab lookup"
+    },
+    {
+      "callId": "call_XjJ6Rm3c8TSs6azryDfIzfXx",
+      "category": "expired browser handle"
+    },
+    {
+      "callId": "call_jM4GE6hqbHlMoN2aqCeFNdBS",
+      "category": "existing-tab lookup"
+    }
+  ],
+  "reconciledHumanDecisions": 978,
+  "parentPokerInterventions": 0,
+  "rawPokerAttempts": 979,
+  "explicitRetryAttempts": 1,
+  "missingObservationMetadata": 2,
+  "missingConfirmationTimestamps": 3,
+  "attemptAcceptedMismatches": 1,
+  "reportedMenuMismatches": 0,
+  "trainedBotLookups": 894,
+  "fallbackBotLookups": 0,
+  "uiConfirmationMs": {
+    "samples": 975,
+    "mean": 4922.8,
+    "median": 416,
+    "p95": 10278
+  },
+  "latencyScope": "Action attempt to emitted observation timestamp; includes logging/tool delays, not isolated network/engine latency",
+  "observedDecisionMs": {
+    "samples": 978,
+    "mean": 6641.342535787321,
+    "median": 6123.5,
+    "p95": 9976
+  },
+  "percentileMethod": "nearest rank",
+  "decisionLatencyScope": "Last rendered result receipt to action attempt; excludes earlier reads/first-ready wait",
+  "usageTotals": {
+    "input_tokens": 213616234,
+    "cached_input_tokens": 210588416,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 349129,
+    "reasoning_output_tokens": 75280,
+    "total_tokens": 213965363
+  }
+}

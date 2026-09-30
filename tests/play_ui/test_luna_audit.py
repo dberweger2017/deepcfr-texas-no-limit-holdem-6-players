@@ -48,3 +48,14 @@ def test_counts_expired_browser_handle_without_copying_session_identifier():
     result = audit([record])
     assert result["setupFailures"] == [{"callId": "expired", "category": "expired browser handle"}]
     assert "PRIVATE-ID" not in json.dumps(result)
+
+
+def test_normalizes_observable_ordinal_spellings_without_copying_rendered_tree():
+    record = {"type": "response_item", "payload": {"type": "function_call_output", "output":
+              json.dumps({"type": "luna_observed", "hand": 400, "decision": 1,
+                          "acceptedAction": "Call 2 BB", "visibleState": "FULL RENDERED TREE"})}}
+    item = audit([record])["decisionMetadata"][0]
+    assert item["handOrdinal"] == item["hand"] == 400
+    assert item["decisionOrdinal"] == item["decision"] == 1
+    assert item["visibleAcceptedAction"] == "Call 2 BB"
+    assert "FULL RENDERED TREE" not in json.dumps(item)
