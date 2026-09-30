@@ -1,0 +1,16 @@
+{
+  "absolute_deadline_epoch": 1790757462.067029,
+  "attempts_at_resume": [
+    {
+      "completed_blocks": 400,
+      "policy": "B-2026093001-20000000",
+      "status": "running"
+    }
+  ],
+  "correction_commit": "cc7fca21f26fe2fed353acc506b48c431544a321",
+  "curve_frozen_source": "c5574fc6b3d06768e5b9fcb1dbf0b240ecf1c747",
+  "curve_pid": 95830,
+  "metadata_write_note": "First sidecar write failed before creating the file; curve resume succeeded and this is an immediate observed timestamp.",
+  "reason": "Paused on owner independent-review interruption before inspecting fresh returns; corrected conditional split passed tests.",
+  "resume_epoch_observed": 1790727089.75702
+}

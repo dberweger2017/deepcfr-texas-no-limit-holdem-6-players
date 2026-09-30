@@ -1,0 +1,114 @@
+{
+  "candidates": [
+    64,
+    128,
+    256,
+    512
+  ],
+  "chance_samples": 4,
+  "frozen_at": 1790724032.352045,
+  "measurements": [
+    {
+      "blocks": 8,
+      "milestone": 20000000,
+      "rss_bytes": 1345912832,
+      "seconds": 8.759228229522705,
+      "seed": 2026093001
+    },
+    {
+      "blocks": 8,
+      "milestone": 40000000,
+      "rss_bytes": 2002911232,
+      "seconds": 8.392982959747314,
+      "seed": 2026093001
+    },
+    {
+      "blocks": 8,
+      "milestone": 80000000,
+      "rss_bytes": 2806480896,
+      "seconds": 8.462433099746704,
+      "seed": 2026093001
+    },
+    {
+      "blocks": 8,
+      "milestone": 100000000,
+      "rss_bytes": 3355803648,
+      "seconds": 9.662037134170532,
+      "seed": 2026093001
+    },
+    {
+      "blocks": 8,
+      "milestone": 20000000,
+      "rss_bytes": 3355803648,
+      "seconds": 7.851155757904053,
+      "seed": 2026093002
+    },
+    {
+      "blocks": 8,
+      "milestone": 40000000,
+      "rss_bytes": 3355803648,
+      "seconds": 8.347152948379517,
+      "seed": 2026093002
+    },
+    {
+      "blocks": 8,
+      "milestone": 80000000,
+      "rss_bytes": 3355803648,
+      "seconds": 8.545477151870728,
+      "seed": 2026093002
+    },
+    {
+      "blocks": 8,
+      "milestone": 100000000,
+      "rss_bytes": 3355803648,
+      "seconds": 8.087549924850464,
+      "seed": 2026093002
+    },
+    {
+      "blocks": 8,
+      "milestone": 20000000,
+      "rss_bytes": 3355803648,
+      "seconds": 6.858960866928101,
+      "seed": 2026093003
+    },
+    {
+      "blocks": 8,
+      "milestone": 40000000,
+      "rss_bytes": 3355803648,
+      "seconds": 7.770297050476074,
+      "seed": 2026093003
+    },
+    {
+      "blocks": 8,
+      "milestone": 80000000,
+      "rss_bytes": 3355803648,
+      "seconds": 7.930395126342773,
+      "seed": 2026093003
+    },
+    {
+      "blocks": 8,
+      "milestone": 100000000,
+      "rss_bytes": 3355803648,
+      "seconds": 8.038641929626465,
+      "seed": 2026093003
+    }
+  ],
+  "per_block_total_seconds": 12.338289022445679,
+  "precision_planning": {
+    "limitation": "Historical variance proxy; intermediate contrasts may differ.",
+    "projected_95_halfwidth_bb100": {
+      "128": 64.785,
+      "256": 45.809912819170485,
+      "512": 32.3925,
+      "64": 91.61982563834097
+    },
+    "source": "#116 aggregate B100-minus-own20 LBR, 2048 blocks, 97.5% halfwidth 18.51 BB/100"
+  },
+  "remaining_seconds_at_freeze": 33429.714993953705,
+  "root": 202610010300,
+  "rule": "largest with 1.2x measured workload and 90-minute report reserve",
+  "selected_blocks": 512,
+  "soft_seconds": 5,
+  "status": "feasible",
+  "swap_before_gib": 0.74353515625
+}

@@ -1,0 +1,230 @@
+{
+  "method": "all fixed action versus shared saved-policy mixture; evaluation worlds 48-95 only; independent holding samples; unadjusted normal 95% intervals",
+  "roots": [
+    {
+      "actions": [
+        {
+          "action": "fold",
+          "ci95": [
+            -2.938517892765044,
+            4.063517892765044
+          ],
+          "high_hand_gap_bb": -1.0625,
+          "high_minus_low_bb": 0.5625,
+          "index": 0,
+          "low_hand_gap_bb": -1.625
+        },
+        {
+          "action": "call",
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "high_hand_gap_bb": 0.0,
+          "high_minus_low_bb": 0.0,
+          "index": 1,
+          "low_hand_gap_bb": 0.0
+        },
+        {
+          "action": "min",
+          "ci95": [
+            -3.197802374419273,
+            4.697802374419274
+          ],
+          "high_hand_gap_bb": -2.1041666666666665,
+          "high_minus_low_bb": 0.75,
+          "index": 2,
+          "low_hand_gap_bb": -2.8541666666666665
+        },
+        {
+          "action": "pot",
+          "ci95": [
+            0.26654008108307803,
+            11.150126585583589
+          ],
+          "high_hand_gap_bb": 3.2291666666666665,
+          "high_minus_low_bb": 5.708333333333333,
+          "index": 3,
+          "low_hand_gap_bb": -2.4791666666666665
+        }
+      ],
+      "high_cards": [
+        "Kh",
+        "8s"
+      ],
+      "key": "e452b8cdc214ebcc02232fe5eb0ba0e6",
+      "low_cards": [
+        "8c",
+        "Kd"
+      ],
+      "policy": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "street": "preflop",
+      "visits": 347
+    },
+    {
+      "actions": [
+        {
+          "action": "check",
+          "ci95": [
+            -0.5133090837193488,
+            6.054975750386015
+          ],
+          "high_hand_gap_bb": 2.2916666666666665,
+          "high_minus_low_bb": 2.770833333333333,
+          "index": 0,
+          "low_hand_gap_bb": -0.4791666666666667
+        },
+        {
+          "action": "min",
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "high_hand_gap_bb": 0.0,
+          "high_minus_low_bb": 0.0,
+          "index": 1,
+          "low_hand_gap_bb": 0.0
+        },
+        {
+          "action": "pot",
+          "ci95": [
+            0.5457896184050628,
+            8.16254371492827
+          ],
+          "high_hand_gap_bb": 2.9583333333333335,
+          "high_minus_low_bb": 4.354166666666667,
+          "index": 2,
+          "low_hand_gap_bb": -1.3958333333333333
+        }
+      ],
+      "high_cards": [
+        "Ad",
+        "9s"
+      ],
+      "key": "ec3fefab8bed21328aa04817b62172d7",
+      "low_cards": [
+        "2c",
+        "Qc"
+      ],
+      "policy": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "street": "flop",
+      "visits": 623
+    },
+    {
+      "actions": [
+        {
+          "action": "check",
+          "ci95": [
+            -1.6262727983028697,
+            0.0012727983028695267
+          ],
+          "high_hand_gap_bb": -1.3541666666666667,
+          "high_minus_low_bb": -0.8125000000000001,
+          "index": 0,
+          "low_hand_gap_bb": -0.5416666666666666
+        },
+        {
+          "action": "min",
+          "ci95": [
+            -0.9577006391270694,
+            0.9577006391270694
+          ],
+          "high_hand_gap_bb": 1.8125,
+          "high_minus_low_bb": 0.0,
+          "index": 1,
+          "low_hand_gap_bb": 1.8125
+        },
+        {
+          "action": "pot",
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "high_hand_gap_bb": 0.0,
+          "high_minus_low_bb": 0.0,
+          "index": 2,
+          "low_hand_gap_bb": 0.0
+        }
+      ],
+      "high_cards": [
+        "Th",
+        "Js"
+      ],
+      "key": "34fffa562fc788aeb2328dea4813cabb",
+      "low_cards": [
+        "6d",
+        "Td"
+      ],
+      "policy": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "street": "turn",
+      "visits": 15
+    },
+    {
+      "actions": [
+        {
+          "action": "check",
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "high_hand_gap_bb": 0.0,
+          "high_minus_low_bb": 0.0,
+          "index": 0,
+          "low_hand_gap_bb": 0.0
+        },
+        {
+          "action": "min",
+          "ci95": [
+            -2.653795487624168,
+            3.778795487624168
+          ],
+          "high_hand_gap_bb": -5.645833333333333,
+          "high_minus_low_bb": 0.5625,
+          "index": 1,
+          "low_hand_gap_bb": -6.208333333333333
+        },
+        {
+          "action": "pot",
+          "ci95": [
+            -12.021470682925536,
+            -1.8535293170744653
+          ],
+          "high_hand_gap_bb": -1.0208333333333333,
+          "high_minus_low_bb": -6.9375,
+          "index": 2,
+          "low_hand_gap_bb": 5.916666666666667
+        }
+      ],
+      "high_cards": [
+        "Ks",
+        "As"
+      ],
+      "key": "074e688b9b646e9e65a9ad40e03e4b92",
+      "low_cards": [
+        "3c",
+        "4d"
+      ],
+      "policy": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "street": "river",
+      "visits": 41
+    }
+  ],
+  "status": "exploratory"
+}

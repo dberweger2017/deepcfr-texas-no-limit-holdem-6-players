@@ -1,0 +1,27 @@
+{
+  "checked_at": 1790736454.0614889,
+  "checks": {
+    "curve_complete": true,
+    "probe_complete": true,
+    "report_complete": true,
+    "selection_digest": true,
+    "translation_complete": true,
+    "values_complete": true
+  },
+  "counts": {
+    "curve": 12,
+    "probe_streets": 4,
+    "translation": 30,
+    "values": 60
+  },
+  "head": "be8834f09c163ebb5fa931a066f62388b94ab23e",
+  "invalid_attempt_hash_mismatches": [],
+  "manifest_entries": 75,
+  "manifest_mismatches": [
+    "reporter.log"
+  ],
+  "model_hash_mismatches": [],
+  "selected_raw_hash_mismatches": [],
+  "source_input_models_sha256": "d15c1fe9f42c0fbeffa7cb27d3bb4c5cb76226f1d812133dcedda9118d1d2402",
+  "used_model_count": 12
+}

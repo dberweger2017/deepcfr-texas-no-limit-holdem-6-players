@@ -85,6 +85,8 @@ def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resour
                            target_abstraction=spec['abstraction'],
                            target_key=key if who==0 else None,
                            target_visits=(getattr(source,'visits',{}).get(key,0) if who==0 and hasattr(source,'visits') else None))
+            if who==0 and hasattr(source,'last_translation'):
+                row['translation']=source.last_translation
             if who and isinstance(rivals[who],LocalBestResponse):
                 row['lbr']=rivals[who].telemetry[-1]
             trace.append(row);timings.append(elapsed);off_menu|=not onmenu

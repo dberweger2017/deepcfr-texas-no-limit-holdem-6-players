@@ -1,0 +1,114 @@
+{
+  "copied_files": [
+    {
+      "bytes": 11273,
+      "local_file": "artifact-manifest.json",
+      "m4_path": "artifact-manifest.json",
+      "sha256": "4e196d56a53a8c184f1e3b5ed90f084d6fae78606e0aeaad43da2f53d515c522"
+    },
+    {
+      "bytes": 682,
+      "local_file": "card-collisions-startup-failure-attempt-1.log",
+      "m4_path": "card-collisions-startup-failure-attempt-1.log",
+      "sha256": "5e9fd418641e653d47918e8ae24d6ba0a1aea2136c9c6faff46a9c17c9a900d2"
+    },
+    {
+      "bytes": 12447,
+      "local_file": "card-collisions.json",
+      "m4_path": "card-collisions/result.json",
+      "sha256": "a4decb0a584b3b65b2642fb915aeb80850dbeb61ecd3013908f4ca3b345fb795"
+    },
+    {
+      "bytes": 5173,
+      "local_file": "collision-contrasts.json",
+      "m4_path": "collision-contrasts.json",
+      "sha256": "49bba0c72fee978b7215ba420760c24e08708a36c9acdc22518d4caca0d250ec"
+    },
+    {
+      "bytes": 1115,
+      "local_file": "curve-adjacent.json",
+      "m4_path": "curve-adjacent.json",
+      "sha256": "080ba090e59ff592b56ca4d2be92310514c8790ab826f0ba9d2de884aa0b96f2"
+    },
+    {
+      "bytes": 1832,
+      "local_file": "curve-interruption-sensitivity.json",
+      "m4_path": "curve-interruption-sensitivity.json",
+      "sha256": "1f3a94b849b185109b4de93c7e9224184b937d1e25330df1fb6a1127c7fdffcf"
+    },
+    {
+      "bytes": 682,
+      "local_file": "curve-interruption.json",
+      "m4_path": "curve-interruption.json",
+      "sha256": "1ce344bc20d3a555e084f77d1d0ea3b38dc6bb31e6e1cba52f91ae7041b047f8"
+    },
+    {
+      "bytes": 2651,
+      "local_file": "curve-frozen.json",
+      "m4_path": "curve-preflight/frozen.json",
+      "sha256": "5dd414835c5703c281cd9c63e70f05f14e6a0e2d6f1d0527bd63ebfbca4d6bca"
+    },
+    {
+      "bytes": 1674,
+      "local_file": "curve-preflight-measurements.json",
+      "m4_path": "curve-preflight/measurements.json",
+      "sha256": "793e08ae59a14694c52aa1a752f26cef1d73ac5d684525118f4181e13ffe159f"
+    },
+    {
+      "bytes": 1834,
+      "local_file": "curve-telemetry.json",
+      "m4_path": "curve-telemetry.json",
+      "sha256": "d6d901fa1b1ea321ab865bf461cef89653f5f6270251d2981bf2790942192ff5"
+    },
+    {
+      "bytes": 98,
+      "local_file": "focused-post-probe-test.log",
+      "m4_path": "focused-post-probe-test.log",
+      "sha256": "c0f1e01daf67061518a3709fbcbae0ce2498e285b7f9fd5d2398367265e14852"
+    },
+    {
+      "bytes": 1407,
+      "local_file": "invalid-conditional-attempt.json",
+      "m4_path": "invalid-conditional-attempt.json",
+      "sha256": "3c5d98be2f6d3e73b7526af05b9be8432fe6c228fe3a56887bc20ef95e2a7ed9"
+    },
+    {
+      "bytes": 8968,
+      "local_file": "position-results.json",
+      "m4_path": "position-results.json",
+      "sha256": "7a0b10bcadb50e722d9dcd01af07bc4a0e889b2c5bd5c29740ce9db991d8d1de"
+    },
+    {
+      "bytes": 702,
+      "local_file": "postreport-verification.json",
+      "m4_path": "postreport-verification.json",
+      "sha256": "964d2f63a61e352873a6b851e6d902110752c2add00a45f77da7ed7f133db194"
+    },
+    {
+      "bytes": 482712,
+      "local_file": "report.json",
+      "m4_path": "report.json",
+      "sha256": "81d829191f94a1c3c8a52d686db1cb9973e346c00d6f99e961df0b1746a4e5b6"
+    },
+    {
+      "bytes": 145,
+      "local_file": "research-clock.json",
+      "m4_path": "research-clock.json",
+      "sha256": "44aa0708b671d54ebe76a9ccefd93c5101445ecae9d0c6ef84bccd63bb766ad9"
+    },
+    {
+      "bytes": 28821,
+      "local_file": "selection.json",
+      "m4_path": "selection.json",
+      "sha256": "ccf76c5eb7238816735e547fbbd5543bf8b8d14efcb588b546c18ed0c4b22de6"
+    },
+    {
+      "bytes": 317371,
+      "local_file": "conditional-attempts.json",
+      "m4_path": "values/attempts.json",
+      "sha256": "b64589fc75281a76d7b24c34b69d5b55b9fa66ce637640c669a06bc941dc1639"
+    }
+  ],
+  "final_manifest_sha256": "109372515c8c74eeece2fb2528f314f7ba110694ef4829be2f5027f488314e60",
+  "m4_root": "/Users/dberweger/Local/hu20-b100-diagnosis-pr117/results/hu20-b100-diagnosis-m4-20260930"
+}

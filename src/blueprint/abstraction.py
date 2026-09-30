@@ -106,12 +106,12 @@ def _postflop(cards: tuple[str, str], board: tuple[str, ...]) -> tuple[int, ...]
     return (rank, top_band, flush_draw, straight_draw, board_paired)
 
 
-def _history(view: Observation) -> tuple[tuple, ...]:
+def _history(view: Observation, label_overrides: dict[int, str] | None = None) -> tuple[tuple, ...]:
     """Keep order and actors; bucket public raise sizes without inspecting the deck."""
     pot = 0
     remaining = list(view.history[0].stacks)
     result = []
-    for event in view.history:
+    for index, event in enumerate(view.history):
         if isinstance(event, BlindPosted):
             pot += event.amount
             remaining[event.seat] -= event.amount
@@ -125,6 +125,8 @@ def _history(view: Observation) -> tuple[tuple, ...]:
                 label = f"raise-{size}"
                 if event.paid == remaining[event.seat]:
                     label += "-all-in"
+                if label_overrides and index in label_overrides:
+                    label = label_overrides[index]
             result.append(
                 (
                     event.street.value,
@@ -193,6 +195,7 @@ def _summary_history(view: Observation) -> tuple:
 def information_key(
     view: Observation, menu: tuple[Choice, ...], *, schema: str = SCHEMA,
     lookup_mode: str = LEGACY_LOOKUP,
+    history_label_overrides: dict[int, str] | None = None,
 ) -> str:
     """Stable abstract infoset; action labels are part of the key."""
     if view.finished or view.actor != view.seat or not menu:
@@ -226,7 +229,7 @@ def information_key(
             for offset in range(len(view.players))
         ) if lookup_mode == BUTTON_ZERO_COMPAT_LOOKUP or schema in SHORTSTACK_SEATS else
         tuple((p.folded, p.all_in) for p in view.players),
-        _history(view) if schema in (SCHEMA, *SHORTSTACK_SEATS) else _summary_history(view),
+        _history(view, history_label_overrides) if schema in (SCHEMA, *SHORTSTACK_SEATS) else _summary_history(view),
         tuple(item.name for item in menu),
     )
     return blake2b(
