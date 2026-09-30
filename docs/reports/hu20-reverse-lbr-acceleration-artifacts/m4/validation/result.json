@@ -1,0 +1,89 @@
+{
+  "cache": [
+    {
+      "entries": 55269,
+      "hit_rate": 0.9365848117474546,
+      "hits": 816273,
+      "misses": 55269,
+      "seed": 2026093001
+    },
+    {
+      "entries": 49345,
+      "hit_rate": 0.9384257352849424,
+      "hits": 752045,
+      "misses": 49345,
+      "seed": 2026093002
+    },
+    {
+      "entries": 54265,
+      "hit_rate": 0.9413055658310024,
+      "hits": 870269,
+      "misses": 54265,
+      "seed": 2026093003
+    }
+  ],
+  "cached_call_seconds": 40.39401861000806,
+  "case_digest": "1559b5aac31016a9db92cfc2b319c28abf110446866d50dba0f45126eacadc4e",
+  "cases_completed": 336,
+  "chosen_actions": {
+    "Action": 336
+  },
+  "corpus_sha256": "a3e8b72e3fd33c0eee1d8bfa38c30b61e6ce6e6ff4a95687129b2daa5ac7d30d",
+  "deadline": 1790763031.0,
+  "finished": 1790753639.115812,
+  "free_disk_bytes": 41247027200,
+  "menu_actions": {
+    "Action": 1230
+  },
+  "mismatches": [],
+  "mode": "validation",
+  "model_load": [
+    {
+      "rss_bytes": 2766405632,
+      "seconds": 12.32685241685249,
+      "seed": 2026093001
+    },
+    {
+      "rss_bytes": 2766913536,
+      "seconds": 12.072313165990636,
+      "seed": 2026093002
+    },
+    {
+      "rss_bytes": 2773860352,
+      "seconds": 11.99341524997726,
+      "seed": 2026093003
+    }
+  ],
+  "model_spec_sha256": "d15c1fe9f42c0fbeffa7cb27d3bb4c5cb76226f1d812133dcedda9118d1d2402",
+  "native_call_seconds": 84.09125040122308,
+  "peak_rss_bytes": 2773860352,
+  "per_street_seconds": {
+    "flop": {
+      "cached": 10.216289329808205,
+      "native": 23.803631871938705
+    },
+    "preflop": {
+      "cached": 9.294827206525952,
+      "native": 16.33465803717263
+    },
+    "river": {
+      "cached": 10.597071291413158,
+      "native": 22.564067248022184
+    },
+    "turn": {
+      "cached": 10.285830782260746,
+      "native": 21.38889324408956
+    }
+  },
+  "started": 1790753314.944999,
+  "status": "complete",
+  "street_counts": {
+    "flop": 96,
+    "preflop": 42,
+    "river": 102,
+    "turn": 96
+  },
+  "swap_end_mib": 761.38,
+  "swap_start_mib": 761.38,
+  "wall_seconds": 324.1708130836487
+}

@@ -1,0 +1,66 @@
+{
+  "files": {
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/bench-cached.log": {
+      "bytes": 120,
+      "sha256": "55aa254b2637a628636d43628e2134ba90d759f68ccfc7196823156b55fd7b84"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/bench-cached/attempts.jsonl": {
+      "bytes": 101261,
+      "sha256": "06c99ae92619a0f5531ef12bb4a40dec8fe0dde8808ed6ea08b4753c9c1ebfdf"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/bench-cached/result.json": {
+      "bytes": 2488,
+      "sha256": "aafc49834be8046067c6310cf10925876f1a7a78e23dc69914dff59822302ece"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/bench-large.log": {
+      "bytes": 100,
+      "sha256": "7b38a70b4d19685aef4e76308b757391c13538e0623fd60c358bb873a4015314"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/bench-large/attempts.jsonl": {
+      "bytes": 2106996,
+      "sha256": "d243ddb3e3a179c19cb7c7d46dcf535f6580d23e23d5bfde7fd2c672567fe4f3"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/bench-large/result.json": {
+      "bytes": 2957,
+      "sha256": "f111c107cb3119893b44505ab08c07b58aba39bdaa43c35a26ea2e3900ede31e"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/bench-native.log": {
+      "bytes": 120,
+      "sha256": "787115c564e888e04c0186604fb5ff7ee36ae7e4ff4f1d0e4db1df51ba608787"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/bench-native/attempts.jsonl": {
+      "bytes": 100973,
+      "sha256": "3da3b4c066c2a243bdb59ac7723e5028b90f91c0fb145f78b9eaf6e96e4c767b"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/bench-native/result.json": {
+      "bytes": 1810,
+      "sha256": "81083e301fe7795440864d7da2ed209948f6a13dd8b5fa88fcb1da2578b92117"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/corpus.json": {
+      "bytes": 328740,
+      "sha256": "a3e8b72e3fd33c0eee1d8bfa38c30b61e6ce6e6ff4a95687129b2daa5ac7d30d"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/publication/report.json": {
+      "bytes": 7470,
+      "sha256": "ead2cf2410cb170a50854174ad67b0000911d8c5234f8482032b2e597c804234"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/research-clock.json": {
+      "bytes": 203,
+      "sha256": "1d58f58d7280af93c5e30898d04d015179396df0a1710c8ba89a212fdaabec38"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/validation.log": {
+      "bytes": 117,
+      "sha256": "3a1cc4dc5b73348a439b03c338926e7e1681b2796b5f7db7cf9023b6e64b33c9"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/validation/attempts.jsonl": {
+      "bytes": 338297,
+      "sha256": "5bc7d2153ce297a701ac3a057e1834022c6a8b51dd6118e022764ac2d5208569"
+    },
+    "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930/validation/result.json": {
+      "bytes": 2070,
+      "sha256": "c8a1dec11a816efa8c8882310b6b0522d994f24456e606a49198d612c48d2e5f"
+    }
+  },
+  "retained_m4_root": "/Users/dberweger/Local/hu20-reverse-lbr-pr121/results/hu20-reverse-lbr-m4-20260930",
+  "schema": "reverse-lbr-acceleration-inventory-v1"
+}
