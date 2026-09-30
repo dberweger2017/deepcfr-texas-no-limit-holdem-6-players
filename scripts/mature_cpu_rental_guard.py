@@ -27,8 +27,15 @@ def api(key_path, path, method='GET', data=None):
             body = response.read()
             return json.loads(body) if body else {}
     except urllib.error.HTTPError as error:
-        # Provider responses may echo sensitive request headers/environment.
-        raise RuntimeError(f'Provider HTTP {error.code}, {method} {path.split("?")[0]}') from None
+        # Retain only a bounded provider message, excluding echoed request data.
+        try:
+            response = json.loads(error.read())
+            message = response.get('message', response.get('error', ''))
+            message = message if isinstance(message, str) else ''
+            message = message.replace(key, '[redacted]')[:300]
+        except Exception:
+            message = ''
+        raise RuntimeError(f'Provider HTTP {error.code}, {method} {path.split("?")[0]}: {message}') from None
 
 
 def owned_pods(pods, names):

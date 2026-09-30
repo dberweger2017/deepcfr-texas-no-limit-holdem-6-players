@@ -31,7 +31,9 @@ def execute(args):
     if run(['git', 'status', '--porcelain']).strip():
         raise ValueError('Frozen clean driver source required')
     started = time.time()
-    deadline = started + 7200
+    deadline = args.deadline or started + 7200
+    if not started < deadline <= started + 7200:
+        raise ValueError('Original remaining rental cutoff required')
     configs = plan['configurations']
     names = [f'doctor-research-mature-{c["cpu_id"]}-{int(started)}' for c in configs]
     lease = root / 'lease.json'
@@ -202,4 +204,5 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     for name in ('plan', 'key', 'root', 'reference'):
         parser.add_argument('--' + name, type=Path, required=True)
+    parser.add_argument('--deadline', type=float)
     execute(parser.parse_args())

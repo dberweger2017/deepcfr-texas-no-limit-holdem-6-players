@@ -28,3 +28,11 @@ def test_only_known_export_os_byte_is_exempted(tmp_path):
     assert not export_transport_difference(a, b)
     b.write_bytes(header + bytes([255]) + b'identical-payload')
     assert not export_transport_difference(a, b)
+
+
+def test_linux_worker_is_launched_from_driver_not_runtime():
+    from pathlib import Path
+    source = (Path(__file__).parents[1] / 'scripts/mature_cpu_linux_setup.sh').read_text()
+    launch = source.index(' -m scripts.mature_cpu_linux_worker')
+    assert source.rfind('cd /workspace/driver', 0, launch) > source.rfind('cd /workspace/runtime', 0, launch)
+    assert '/workspace/runtime/.venv/bin/python -m scripts.mature_cpu_linux_worker' in source

@@ -25,7 +25,8 @@ uv venv --python 3.11.14 .venv
 uv pip install --python .venv/bin/python pytest 'pokers @ git+https://github.com/dberweger2017/pokers.git@5db20e3d5d6862b32a7402035c1340b622d3b005'
 uv pip freeze --python .venv/bin/python > /workspace/results/packages.txt
 PYTHONPATH=/workspace/driver .venv/bin/python -m pytest -q /workspace/driver/tests/test_mature_cpu_worker.py > /workspace/results/worker-tests.log
-PYTHONPATH=/workspace/driver .venv/bin/python -m scripts.mature_cpu_linux_worker \
+cd /workspace/driver
+/workspace/runtime/.venv/bin/python -m scripts.mature_cpu_linux_worker \
   --plan /workspace/driver/configs/blueprint/runpod-mature-cpu-pilot.json \
   --runtime /workspace/runtime --parent /workspace/parent.json.gz \
   --out /workspace/results/work --deadline "$DEADLINE"

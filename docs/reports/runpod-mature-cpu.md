@@ -50,6 +50,12 @@ All six may run concurrently, one heavy worker per pod, with an independently ar
 
 The [amended frozen protocol](../runpod-mature-cpu-protocol.md) records the prospective expansion. The original M4 [reference plan](runpod-mature-cpu-artifacts/m4-reference/reference-plan.json) and all measured reference outcomes remain unchanged. Retrieve/verify before operator termination, verify pod absence afterward, and preserve failures. Known #129 export gzip OS-byte differences must be distinguished from meaningful-state divergence, which stops the pilot. No mature Linux result or winning CPU class is claimed before execution.
 
+## Retained startup attempt 1
+
+The first six-class creation attempt used driver `c839877` and immutable cutoff `1790809835.502777`. CPU3 compute/general/memory creation returned HTTP 400 and created no owned pod. The three CPU5 shapes were allocated concurrently; setup built the pinned engine, but worker startup failed with `No module named scripts.mature_cpu_linux_worker` because the command ran from the frozen runtime checkout rather than the separate driver. **No trainer iteration or policy outcome ran.** The memory-shape setup log/archive is retained; the other owned pods were terminated promptly after this failure and their connection records retained. Provider absence was verified for all three. This is a deployment failure, not Linux/M4 state divergence or a performance result.
+
+The reporting/launch repair changes only the working directory used to start the worker, preserves source `50326af`, parent/work/recovery/scientific settings, and records a focused regression. A fresh output attempt may use the **same original cutoff**, never reset it. Historical attempts and their rental costs remain in the $4 cap. Availability and provider rejection details are retained explicitly; the live catalog is not proof of allocatable capacity.
+
 ## Conditional future scaling plan
 
 [Plan for owner review](../hu20-100m-to-500m-resource-plan.md) fixes proposed lineages/milestones and describes capacity, evaluation and storage gates. **No final paid host recommendation is possible before the approved six-class mature comparison.** No 500M continuation, poker evaluation, promotion or automatic merge is launched here.
