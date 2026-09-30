@@ -11,6 +11,7 @@ from src.arena.schedule import digest
 from src.diagnostics.saved_hu20 import file_hash
 from src.diagnostics.stackoff_report import summarize
 from src.diagnostics.stackoff_tails import hand_tails
+from src.diagnostics.stackoff_made_hands import first_large_raise, summarize_events
 from scripts.play_robustness import replay_row
 
 
@@ -36,6 +37,7 @@ def checked_rows(evidence, stats):
                     raise ValueError('Raw decision raise-to differs')
                 action['observation'] = {
                     'street': decision['street'], 'call_amount': int(decision['call_amount']),
+                    'hole_cards': json.loads(decision['hole_cards']), 'board': json.loads(decision['board']),
                     'trained': boolean(decision['trained']) if action['logical_player'] == 0 else None,
                     'large_raise_opportunity': boolean(decision['large_raise_opportunity']),
                     'jam_opportunity': boolean(decision['jam_opportunity']), 'menu': json.loads(decision['menu'])}
@@ -61,8 +63,7 @@ def same_summary(actual, recorded):
         return len(actual) == len(recorded) and all(same_summary(a, b) for a, b in zip(actual, recorded))
     return actual == recorded
 
-def check(evidence):
-    started = time()
+def verified_manifest(evidence):
     manifest = json.loads((evidence / 'evidence-manifest.json').read_text())
     for name, entry in manifest['files'].items():
         if Path(name).name != name:
@@ -70,13 +71,37 @@ def check(evidence):
         path = evidence / name
         if path.stat().st_size != entry['bytes'] or file_hash(path) != entry['sha256']:
             raise ValueError('Packaged file hash or size differs')
+    return manifest
+
+
+def check(evidence):
+    started = time()
+    manifest = verified_manifest(evidence)
     plan = json.loads((evidence / 'plan.json').read_text())
     if digest(plan) != json.loads((evidence / 'manifest.json').read_text())['plan_sha256']:
         raise ValueError('Frozen plan digest differs')
     stats = {'native_replays': 0, 'raw_decisions': 0, 'verified_files': len(manifest['files'])}
-    computed = summarize(plan, checked_rows(evidence, stats))
+    events = []
+    derived = evidence / 'large-raise-made-hands.json'
+    def rows():
+        for row in checked_rows(evidence, stats):
+            if derived.exists() and row['panel'] == 'Selective-stackoff-v1':
+                event = first_large_raise(row)
+                if event is not None:
+                    events.append(event)
+            yield row
+    computed = summarize(plan, rows())
     if not same_summary(computed, json.loads((evidence / 'summary.json').read_text())):
         raise ValueError('Paired summary differs from raw chips and decisions')
+    if derived.exists():
+        actual = summarize_events(events, plan)
+        actual['inputs'] = {name: file_hash(evidence / name) for name in
+                            ('plan.json', 'generated-hands.jsonl.gz', 'decisions.csv.gz')}
+        recorded_events = [json.loads(line) for line in
+                           (evidence / 'large-raise-made-hands.rows.jsonl').read_text().splitlines()]
+        if actual != json.loads(derived.read_text()) or events != recorded_events:
+            raise ValueError('Post-hoc made-hand comparisons differ from recorded cards/actions')
+        stats['first_large_raise_hands'] = len(events)
     stats.update(status=computed['status'], seconds=time() - started)
     return stats
 

@@ -399,6 +399,22 @@ def test_public_evidence_checker_recomputes_csv_tails_and_paired_summary(saved,t
     result=check(out)
     assert result['status']=='complete' and result['native_replays']==4
     assert result['raw_decisions']>=4  # A valid hand can end with its first fold.
+    from scripts.report_hu20_stackoff_made_hands import report
+    raw_hashes={name:file_hash(out/name) for name in ('decisions.csv.gz','generated-hands.jsonl.gz','summary.json')}
+    report(out)
+    assert check(out)['first_large_raise_hands']==0  # This fixture panel is outside the stress panel.
+    assert raw_hashes=={name:file_hash(out/name) for name in raw_hashes}
+    derived=out/'large-raise-made-hands.json'
+    original=derived.read_text()
+    altered=json.loads(original);altered['first_large_raise_hands']=1;write_json(derived,altered)
+    manifest=json.loads((out/'evidence-manifest.json').read_text())
+    manifest['files'][derived.name]={'bytes':derived.stat().st_size,'sha256':file_hash(derived)}
+    write_json(out/'evidence-manifest.json',manifest)
+    with pytest.raises(ValueError,match='made-hand comparisons'):
+        check(out)
+    derived.write_text(original)
+    manifest['files'][derived.name]={'bytes':derived.stat().st_size,'sha256':file_hash(derived)}
+    write_json(out/'evidence-manifest.json',manifest)
     (out/'summary.json').write_text('{}')
     with pytest.raises(ValueError,match='hash or size'):
         check(out)
@@ -411,3 +427,57 @@ def test_summary_check_allows_quantile_roundoff_but_not_count_or_effect_changes(
     assert not same_summary(original,{'blocks':1025,'interval':[1.0,2.0]})
     assert not same_summary(original,{'blocks':1024,'interval':[1.0,2.01]})
     assert not same_summary(original,{'blocks':1024,'interval':[1.0]})
+
+
+def made_hand_row(board=('Ac','Kd','7h'), target=('As','2c'), rival=('Ks','Kh'), response='call'):
+    def action(index, actor, street, kind, amount=None, cards=None, shown=None):
+        return {'index':index,'logical_player':actor,'street':street,'kind':kind,'raise_to':amount,
+                'observation':{'hole_cards':list(cards or (target if actor==0 else rival)),
+                    'board':list(board if shown is None else shown),
+                    'menu':[{'kind':'raise','raise_to':1000,'rival_call_amount':800}]}}
+    return {'status':'complete','policy':'tiny','block':0,'rotation':0,'button':0,'target_chips':-2000,
+            'actions':[action(0,1,'preflop','raise',200,shown=()),
+                       action(1,1,'flop' if board else 'preflop','raise',200),
+                       action(2,0,'flop' if board else 'preflop','raise',1000),
+                       action(3,1,'flop' if board else 'preflop',response)]}
+
+
+def test_first_large_raise_uses_current_board_and_counts_each_hand_once():
+    from src.diagnostics.stackoff_made_hands import first_large_raise, summarize_events
+    row=made_hand_row()
+    # A future ace would reverse the made-hand order; it must not enter this comparison.
+    future=copy.deepcopy(row['actions'][2]);future.update(index=4,street='river')
+    future['observation']['board']=['Ac','Kd','7h','Ah','3s']
+    row['actions'].append(future)
+    event=first_large_raise(row)
+    assert event['index']==2 and event['comparison']=='behind'
+    assert event['target_category']=='pair' and event['rival_category']=='trips'
+    assert event['situation']=='after_rival_raise' and event['board']==['Ac','Kd','7h']
+    result=summarize_events([event],{'models':[{'name':'tiny','milestone':100}]})
+    counts=next(r['counts'] for r in result['groups'] if r['model']=='aggregate')
+    assert counts['hands']==1 and counts['target_chips']==-2000
+    assert counts['continued_behind']==1 and counts['category_pair']==1
+    assert counts['street_flop_continued']==1
+
+
+@pytest.mark.parametrize('target,rival,expected',[(('As','Ah'),('Ks','2c'),'ahead'),
+    (('As','2c'),('Ks','Kh'),'behind'),(('As','2c'),('Ah','2d'),'tied')])
+def test_made_hand_order_compares_complete_hand_values(target,rival,expected):
+    from src.diagnostics.stackoff_made_hands import first_large_raise
+    assert first_large_raise(made_hand_row(target=target,rival=rival))['comparison']==expected
+
+
+def test_made_hand_preflop_fold_and_same_street_denominators():
+    from src.diagnostics.stackoff_made_hands import first_large_raise,summarize_events
+    folded=made_hand_row(response='fold')
+    # A raise on a previous street is not a same-street rival raise.
+    folded['actions'].pop(1)
+    event=first_large_raise(folded)
+    assert event['situation']=='no_rival_raise' and event['response']=='folded'
+    preflop=first_large_raise(made_hand_row(board=()))
+    assert preflop['comparison']=='preflop' and preflop['target_category']=='preflop'
+    result=summarize_events([event,preflop],{'models':[{'name':'tiny','milestone':100}]})
+    c=next(r['counts'] for r in result['groups'] if r['model']=='aggregate' and r['situation']=='after_rival_raise')
+    assert c['continued_preflop']==1 and 'continued_ahead' not in c
+    no_raise=copy.deepcopy(folded);no_raise['actions'][1]['kind']='call'
+    assert first_large_raise(no_raise) is None

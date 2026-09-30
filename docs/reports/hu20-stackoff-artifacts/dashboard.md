@@ -169,3 +169,20 @@ Large means at least 800 additional chips for the rival to call. Opportunities c
 ## Interpretation limits
 
 I retain the complete scripted/LBR panel, individual-seed differences and positional tails in `summary.json`. This fresh, smaller schedule does not replace or pool #116/#117. Positive scripted-opponent returns do not establish general wins. Training-node work is not a count of poker hands. Similar aggression across card buckets alone does not prove an error.
+
+## Made hands at the first large target raise (post-hoc)
+
+I split each hand by whether the rival had already raised on that street. Both cards are joined only in offline simulator analysis; each policy still uses its own observation. Ahead/behind/tied compares made hands on the board at the raise, not the final board or equity. Preflop comparisons are separate. Whole-hand returns are not individual-bet EV; draws and semi-bluffs are not valued. These selected, correlated events against one exploitable opponent do not establish the cause of Luna’s results.
+
+| Work | Situation | Hands | Folds / continued / no response | Ahead / behind / tied / preflop when continued | One pair / postflop continuations | Whole-hand target BB |
+| ---: | --- | ---: | --- | --- | --- | ---: |
+| 20M | after_rival_raise | 51 | 0 / 51 / 0 | 20 / 29 / 1 / 1 | 11/50 | -147.00 |
+| 20M | no_rival_raise | 55 | 18 / 37 / 0 | 9 / 27 / 1 / 0 | 11/37 | -234.00 |
+| 40M | after_rival_raise | 35 | 0 / 35 / 0 | 9 / 22 / 3 / 1 | 11/34 | -202.00 |
+| 40M | no_rival_raise | 53 | 14 / 39 / 0 | 11 / 27 / 1 / 0 | 12/39 | -188.00 |
+| 80M | after_rival_raise | 38 | 0 / 38 / 0 | 17 / 19 / 2 / 0 | 6/38 | -12.00 |
+| 80M | no_rival_raise | 49 | 5 / 44 / 0 | 14 / 28 / 2 / 0 | 9/44 | -247.00 |
+| 100M | after_rival_raise | 35 | 0 / 35 / 0 | 16 / 16 / 2 / 1 | 11/34 | +72.00 |
+| 100M | no_rival_raise | 52 | 8 / 44 / 0 | 16 / 25 / 3 / 0 | 7/44 | -129.00 |
+
+Individual-lineage counts, street denominators and all made-hand categories are in `large-raise-made-hands.json`; exact selected events are in `large-raise-made-hands.rows.jsonl`. The v1 opponent and original campaign schedule remain frozen.

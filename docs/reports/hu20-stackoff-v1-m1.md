@@ -61,6 +61,23 @@ No large raise lacked an immediate rival response. Counts are descriptive; share
 
 The distributed first seed still loses more full stacks than it wins against this opponent despite positive average profit. I do not assign individual-bet EV from those outcomes. [Whole-hand return partitions](hu20-stackoff-artifacts/dashboard.md#whole-hand-return-partitions-stress) use the **first** large target raise's response, count each hand once and retain no-large-raise cases. Positional tails, jam opportunities/actions and street-specific lookup denominators are also retained.
 
+## Post-hoc made hands at the first large raise
+
+After the [measured-results review](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/134#issuecomment-5920378273), I added a **post-hoc descriptive dashboard**, using only the existing generated cards/actions. This split was not part of the predeclared outcome analysis. It joins both players' recorded simulator cards offline, compares made hands on the board **at that action**, and classifies whether the rival had already raised on the same street. No policy receives the joined cards, and neither future board cards nor draws enter the comparison. Each hand contributes only its first large target raise.
+
+| Work | Situation | Hands / rival continuations | Ahead / behind / tied / preflop when continued | One pair / postflop continuations | Whole-hand target BB |
+| --- | --- | --- | --- | --- | ---: |
+| B20M | After rival raise | 51 / 51 | 20 / 29 / 1 / 1 | 11 / 50 | −147 |
+| B20M | No rival raise | 55 / 37 | 9 / 27 / 1 / 0 | 11 / 37 | −234 |
+| B100M | After rival raise | 35 / 35 | 16 / 16 / 2 / 1 | **11 / 34** | +72 |
+| B100M | No rival raise | 52 / 44 | 16 / 25 / 3 / 0 | 7 / 44 | −129 |
+
+The [standing dashboard](hu20-stackoff-artifacts/dashboard.md#made-hands-at-the-first-large-target-raise-post-hoc) also includes B40M/B80M. [Per-lineage counts and categories](hu20-stackoff-artifacts/large-raise-made-hands.json) and [all 368 selected events](hu20-stackoff-artifacts/large-raise-made-hands.rows.jsonl) retain exact cards, street, raise-to, response and whole-hand payoff.
+
+The large re-raise subset becomes smaller and its whole-hand total improves, but **eleven one-pair postflop re-raises remain at B100M** against this opponent's strong tier. That is a concrete diagnostic lead; it does not establish that each wager was bad. Draw equity, later decisions and counterfactual action values are not measured. In the no-prior-raise subset, 44/52 B100M large raises receive a continuation, with the target's made hand behind in 25/44 cases. These are selected, correlated situations against one exploitable opponent, not a replication of Luna or an estimate against human bluffing ranges.
+
+Hands with any large target raise improve from −381 to −57 BB in total (+324 BB, approximately +5.27 BB/100 across the 6,144 hands). All other hands improve from +2,054.5 to +2,535.5 BB (+481 BB, approximately +7.83 BB/100). Thus about 60% of the aggregate gain is outside large-raise hands. This decomposition does not identify which folds or decisions caused the improvement and does not assign individual-bet EV.
+
 ## Matched policy-table inspection
 
 The frozen rule selected 13 origins representing **11 distinct public river situations**. Five seed/position/small-raise strata were empty. I queried all 1,081 two-card holdings compatible with each public board for each saved policy: **142,692 queries**. I did not condition on actual unrevealed rival cards. Duplicate origins remain recorded, while each public situation is queried once. The [inspection summary](hu20-stackoff-artifacts/inspection-summary.json) and twelve raw holding tables retain concrete categories, keys, visits, ordered menus, probabilities and fallback.
@@ -93,7 +110,7 @@ I abbreviate the three full training seeds as 3001, 3002 and 3003 below.
 | 3003 B80M | **347** | 18.51% | 18.51% |
 | 3003 B100M | **358** | 0% | 0% |
 
-Only the bold visit counts meet the frozen ≥300 high-visit threshold here. This local strategy is non-monotonic across saved checkpoints; it is not a population-wide aggression estimate or a paired bet-value experiment.
+Only the bold visit counts meet the frozen ≥300 high-visit threshold here. This local strategy is non-monotonic across saved checkpoints: the same node spans 0% to 94.62% large-raise probability at 30–358 visits. That makes it a local convergence/stability lead as well as a card-bucket lead; it is not a population-wide aggression estimate or a paired bet-value experiment.
 
 At the same B100M state, stronger holdings remain sparse:
 
@@ -137,5 +154,7 @@ PY
 2. **The concrete bucket collision is real; its causal importance is unresolved.** Board-only and improved-kicker hands share a state and strategy. A future validated abstraction experiment or paired action-value study would be needed to attribute losses to it.
 3. **High-visit large-river coverage is narrow.** Ten selected situations lack an 8BB action, most small-raise strata are empty, and strong holdings at the qualifying state have few visits or fallback. Do not relax thresholds retroactively or generalize this sample to the whole policy table.
 4. **This restricted stress test does not test off-tree repair.** It neither reproduces Luna's entire decision process nor validates free-sizing strategy, posterior stability, or an action translator. Inspection is river-only even though some Luna traces began on the flop or turn. Paired alternative-action values and additional street strata remain future separately specified work. The bounded LBR remains approximate and the policy still loses against it.
+
+The post-hoc extension passed 38 focused tests and the packaged checker recomputes its exact selected events and category counts from the raw CSV, alongside native replay and the original paired summary. The original compressed records and numerical campaign summary remain byte-identical.
 
 I retain the opponent unchanged for future checkpoint tests. No training, paid campaign, automatic merge, six-player claim or policy-strength promotion follows from this report.

@@ -200,3 +200,27 @@ paired summary without reloading model binaries:
 python -m scripts.check_hu20_stackoff \
   --evidence docs/reports/hu20-stackoff-artifacts
 ```
+
+## Post-hoc review dashboard
+
+The first-large-raise made-hand comparison was added after the completed campaign
+was reviewed. It is a descriptive extension, not a change to the frozen opponent,
+schedule, context selection or paired outcome analysis. It uses existing generated
+simulator cards offline, never as policy input. It compares current made hands,
+not equity or bet EV, and separates preflop comparisons. Each hand enters once,
+split by whether the rival previously raised on the same street.
+
+After exporting a completed campaign, derive these rows without loading policies:
+
+```sh
+python -m scripts.report_hu20_stackoff_made_hands \
+  --evidence docs/reports/hu20-stackoff-artifacts
+python -m scripts.check_hu20_stackoff \
+  --evidence docs/reports/hu20-stackoff-artifacts
+```
+
+The report command updates only the derived JSON/event rows, dashboard and their
+evidence-manifest entries. The original hand/decision bytes and paired summary
+stay unchanged. The checker verifies the post-hoc rows against those raw records.
+Additional street/context selection or counterfactual action values need a
+separately specified follow-up; the frozen v1 inspection is not broadened here.

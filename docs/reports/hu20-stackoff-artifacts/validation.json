@@ -25,6 +25,25 @@
     "subtests": 54
   },
   "inspection_source": "3c2d9ee3a55c8d09c7b36968e047fbb30c61d348",
+  "post_hoc_made_hand_review": {
+    "checker_source_sha256": "0df034a3ad2b8ae314276e8dd6adab88edc2635e2f5b95530bbb4ee8f135644f",
+    "development_failure": "The initial preflop fixture caught a shared counter name between comparison and street counts; separate names corrected it before final verification.",
+    "first_large_raise_hands": 368,
+    "focused_tests": {
+      "passed": 38,
+      "platform": "M1",
+      "seconds": 1.61
+    },
+    "model_loads": 0,
+    "module_source_sha256": "c086a91bb35447fcb116c43a6602888605f498bb384a3a3600d8dfe4a4878a03",
+    "native_replays": 55296,
+    "raw_decisions": 230807,
+    "report_script_sha256": "e1ec8615e1da90a418d47cd67de05c0b3e1ec272129983c1c6133008c662f55f",
+    "seconds": 17.147047996520996,
+    "status": "complete",
+    "unchanged_raw_records_and_paired_summary": true,
+    "verified_files": 30
+  },
   "public_packaged_check": {
     "native_replays": 55296,
     "raw_decisions": 230807,
