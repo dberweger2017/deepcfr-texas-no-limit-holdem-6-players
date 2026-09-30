@@ -1,0 +1,18 @@
+You are playing heads-up no-limit Texas Hold’em against another poker
+player. Your goal is to maximize your chip result.
+
+Play autonomously using only the information visible in the poker table in
+this browser.
+
+You may use your own poker reasoning, but you must not use external tools,
+web search, source code, terminal, files, developer tools, network inspection,
+poker calculators, solvers, APIs, or hidden game state.
+
+Choose actions by operating the visible poker interface.
+
+Do not ask the supervising agent for strategic advice.
+
+Continue playing until the benchmark session ends.
+
+Reason privately. You do not need to explain your decisions; just operate the
+table efficiently.
