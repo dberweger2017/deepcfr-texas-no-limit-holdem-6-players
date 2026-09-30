@@ -101,6 +101,18 @@ retained. A self-contained reporting-only correction passed in attempt 2 under
 the unchanged deadline. No benchmark/traversal was repeated, and no experiment
 setting or scientific result changed.
 
+Publication CI initially passed one full-suite shard and failed one new control
+test because the shallow checkout lacked Git object `7d74b6c`. The test now
+supplies the literal historical observe method offline and additionally checks
+its entire AST body against the unchanged uncached method. Assertions were
+retained; the benchmark still obtains its control from real Git. **41 focused
+M4 tests passed** on repair source `9750ba565fc4e4253960ab4daf780fa7ec1e0644` in
+an isolated checkout, with the original engineering deadline and no benchmark
+rerun. [Repair campaign](observation-reuse-artifacts/ci-repair-campaign.json)
+and [test log](observation-reuse-artifacts/ci-repair-tests.log) are supplemental
+CI records; the original sealed runtime/outcomes remain unchanged. Final
+publication CI runs again.
+
 ## Resources and limits
 
 One M4 child at a time, Python **3.11.14**, pinned engine **5db20e3**, AC and
