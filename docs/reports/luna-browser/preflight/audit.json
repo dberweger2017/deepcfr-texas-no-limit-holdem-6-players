@@ -1,0 +1,31 @@
+{
+  "configurations": [
+    {
+      "model": "gpt-6-luna",
+      "effort": "high"
+    }
+  ],
+  "toolCounts": {
+    "mcp__cua_repl.js": 56
+  },
+  "violations": [],
+  "verifiedHands": 10,
+  "reconciledHumanDecisions": 32,
+  "parentPokerInterventions": 0,
+  "trainedBotLookups": 31,
+  "fallbackBotLookups": 0,
+  "uiConfirmationMs": {
+    "mean": 297.875,
+    "median": 300.0,
+    "p95": 385
+  },
+  "latencyScope": "Action attempt to observed UI acknowledgment; excludes poker reasoning",
+  "usageTotals": {
+    "input_tokens": 3772472,
+    "cached_input_tokens": 3644416,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 11017,
+    "reasoning_output_tokens": 2623,
+    "total_tokens": 3783489
+  }
+}
