@@ -1,6 +1,6 @@
-# Mature HU20 CPU pilot — two verified classes; six-class comparison incomplete
+# Mature HU20 CPU pilot — initial partial matrix and verified 16-vCPU extra control
 
-September 30, 2026. [Draft PR #133](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/133) is separate from the [observation-reuse optimization, draft #132](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/132). Main was pulled to `8f50f1f` before branching. The owner approved **all six classes, a $4 total pilot cap and concurrent independent pods** before Linux outcomes. All initial rentals are now terminated. CPU5 general and memory completed mature Linux/M4 parity; CPU3 allocations were rejected and CPU5 compute lost part of its archive during premature controller cleanup. **This is a partial comparison, not a six-class winner.** No playing-strength outcome was evaluated.
+September 30, 2026. [Draft PR #133](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/133) is separate from the [observation-reuse optimization, draft #132](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/132). Main was pulled to `8f50f1f` before branching. The owner approved **all six classes, a $4 total pilot cap and concurrent independent pods** before Linux outcomes. All initial and extra-control rentals are now terminated. CPU5 general and memory completed mature Linux/M4 parity; CPU3 allocations were rejected and CPU5 compute lost part of its archive during premature controller cleanup. **This is a partial comparison, not a six-class winner.** No playing-strength outcome was evaluated.
 
 ## Frozen work and executed M4 reference
 
@@ -128,4 +128,40 @@ Verify the manifest SHA and each listed archive/hash before analysis; the CPU5 c
 
 **Conditional host recommendation:** CPU5 memory, **2 vCPU / 16 GB, one trainer per pod**, is a validated mature host with more growth headroom; three isolated lineage pods would free the M4 for diagnostics. CPU5 general is cheaper per node at 105M, but its future memory headroom is less certain. Neither is a six-class winner, and M4 remains faster per worker. The [150/200/300/500M proposal](../hu20-100m-to-500m-resource-plan.md) quotes measured baselines and capacity/evaluation/storage gates. It requires separate final budget/guard approval; the existing 3M-entry limit may stop before 500M. No large campaign, playing evaluation, strategy change or automatic merge is authorized here.
 
-The owner has separately requested a **16-vCPU / 32-GB CPU5 compute** comparison, after the initial evidence is pushed. It is an extra engineering control, not a replacement for missing initial classes. Its protocol/results will be appended separately; none was launched for this initial report.
+## Extra control — 16 vCPU / 32 GB, run alone after initial publication
+
+Per the owner's subsequent request, **initial results were committed/pushed first at `f03b9d5`**, then separate protocol/plan `725d087` was frozen and pushed before this extra run. The initial matrix, outcomes and failures remain fixed. This control does not replace the unverified 2-vCPU/4-GB compute shape or any missing CPU3 class.
+
+The live catalog and actual allocation both confirmed CPU5 compute, **16 vCPU / 32 GB, $0.560/h**. Pod `kdrzkfrgf49pua`, EUR-IS-1, was the sole rental; one trainer worker, identical runtime/parent/5M work/midpoint/next-step recovery, with the unchanged original cutoff and $4 combined cap. Twelve focused M4 tests passed before provisioning. Full GitHub CI and GitGuardian passed on frozen driver `725d087`.
+
+| Extra control measurement | Result |
+| --- | ---: |
+| Direct completed nodes / iterations / new entries | 5,000,174 / 10,923 / 30,779 |
+| Direct nodes/sec / training seconds | 18,997.97 / 263.20 |
+| Direct fresh-process wall seconds | 334.32 |
+| Resumed nodes/sec / fresh-process wall seconds | 18,658.54 / 207.22 |
+| Load / midpoint save / final save seconds | 9.58 / 12.83 / 13.49 |
+| Current export / next checkpoint save seconds | 12.01 / 13.40 |
+| Resumed reload/save seconds | 12.96 |
+| Direct process / sampled aggregate peak GiB | 1.849 / 1.811 |
+| Cache-inclusive cgroup peak GiB | 3.726 |
+| Sampled swap growth / minimum free disk | zero / 27.98 GiB |
+| Training-only dollars / million nodes | $0.008188 |
+| Direct + recovery/check compute / million unique nodes | $0.016879 |
+
+**It received the same EPYC 4564P model**, family/model/stepping 25/97/2, rather than a demonstrated more powerful CPU. Actual affinity `[2,4,6,8,10,13,14,15,18,20,22,24,26,29,30,31]` maps to **eight physical cores, each with two SMT threads**. Quota remains `-1` / 100,000µs period; actual container RAM is 32,000,000,000 bytes. Host CPU frequency snapshots are not sustained-clock measurements.
+
+Direct throughput was **6.9% above** the initial memory shape and **7.6% above** general. With one unreplicated run, an extra allocation running alone versus the earlier concurrent rentals, and more room for scheduler placement, this is an observed difference—not a demonstrated causal CPU-class improvement. The M4 remains about 6.9% faster per worker. At the captured prices, extra-control compute per node is **4.03× memory / 5.66× general**. There is **no economic case from this single-worker test** for renting 16 vCPUs for one trainer. Multiple workers inside that allocation were not tested; no linear throughput or safe concurrent mature-table RAM scaling is claimed.
+
+All **26 worker files**, complete trainer/current/next payloads, 10,923 direct rows, 5,445 resume suffix rows, next RNG and guards passed independent verification. Final and next compressed checkpoints match M4 bytes; only the already documented current-export gzip OS byte differs. Full archive transport SHA matched **before termination**. Remote work exited 0, operator closed at September 30 **22:05:34 UTC**, and the independent watcher verified zero owned pods. The extra **70-file seal** and compact transport checks are published beside the initial 209-file seal. [Measurements](runpod-mature-cpu-artifacts/extra-16vcpu/measurements.json), [hardware](runpod-mature-cpu-artifacts/extra-16vcpu/lscpu.txt), [parity](runpod-mature-cpu-artifacts/extra-16vcpu/platform-verification.json), [lease/actual allocation](runpod-mature-cpu-artifacts/extra-16vcpu/pods.json), [manifest](runpod-mature-cpu-artifacts/extra-16vcpu/final-manifest.json) and [seal](runpod-mature-cpu-artifacts/extra-16vcpu/seal.json) retain the complete evidence. No meaningful state divergence or extra failed workload occurred.
+
+Extra creation-to-confirmed-absence compute estimate is **$0.111308**; **combined initial + extra estimate is $0.180174**, versus the $4 cap. The pilot-specific itemized ledger is still unposted; this is not a settled invoice and may exclude disk charges/rounding. [Billing/absence](runpod-mature-cpu-artifacts/extra-16vcpu/billing.json) records that limit. No rental or persistent billable storage remains. The M1 briefly filled its disk during publication; the owner freed unrelated files. No scientific artifact was deleted or Drive cache/sync altered, and detached M4/Linux work was unaffected.
+
+```sh
+scp -o HostName=100.122.216.94 -o BatchMode=yes -r \
+  m4:/Users/dberweger/Local/runpod-mature-cpu-six-20260930/results/runpod-mature-cpu-16vcpu-20260930 ./
+scp -o HostName=100.122.216.94 -o BatchMode=yes \
+  m4:/Users/dberweger/Local/runpod-mature-cpu-six-20260930/results/mature-cpu-16vcpu-final-manifest.json ./
+```
+
+**Final conditional recommendation remains CPU5 memory, 2 vCPU / 16 GB, one trainer per isolated pod**, subject to the growth/guard, live-price, evaluation and storage gates in the prospective plan. The completed extra does not justify expensive single-worker allocation or an automatic training campaign. Initial six-class comparison remains incomplete; no failed-ID rerun, merge, strategy change or 500M launch follows.

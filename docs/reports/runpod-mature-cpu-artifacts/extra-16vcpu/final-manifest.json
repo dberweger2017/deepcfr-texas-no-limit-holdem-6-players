@@ -1,0 +1,288 @@
+{
+  "excluded": "Ephemeral SSH keys and known-hosts; provider key outside artifact roots",
+  "files": {
+    "/Users/dberweger/Local/runpod-mature-cpu-16vcpu-20260930-coordinator.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/mature-cpu-16vcpu-publication/billing.json": {
+      "bytes": 834,
+      "sha256": "41024a4f9bc7ce138ba535cdc6e7bb5db8a08d5996ce60c45cc7f04881c7de02"
+    },
+    "results/mature-cpu-16vcpu-publication/cpu-topology.txt": {
+      "bytes": 759,
+      "sha256": "fd2d4f77fb339d10081670634e4c65b3076a3563abdaac1c0805b5943c674c77"
+    },
+    "results/mature-cpu-16vcpu-publication/cpu.cfs_period_us.txt": {
+      "bytes": 7,
+      "sha256": "b80500a01f984c764f1a3b486622d0ef7cc5b13fa9bd57ec9015113eaf875597"
+    },
+    "results/mature-cpu-16vcpu-publication/cpu.cfs_quota_us.txt": {
+      "bytes": 3,
+      "sha256": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28"
+    },
+    "results/mature-cpu-16vcpu-publication/focused-tests.log": {
+      "bytes": 99,
+      "sha256": "c90552887b15f0dd338283c6b09a470ebacdbd4677c68174867fe21155a8b633"
+    },
+    "results/mature-cpu-16vcpu-publication/lease.json": {
+      "bytes": 312,
+      "sha256": "696da2b2248c95552465d7d231d739a5043991c4cfcc7f6945e780b959b4bbba"
+    },
+    "results/mature-cpu-16vcpu-publication/lscpu.txt": {
+      "bytes": 3308,
+      "sha256": "b2e73da9686b86ff55f232ac3a3f6719dbeb78aefd2c52db9a00d071f4ade999"
+    },
+    "results/mature-cpu-16vcpu-publication/measurements.json": {
+      "bytes": 10622,
+      "sha256": "d6321b1a5161a817dafe3e55d96439838a3bde50b2c7cc2f4c1b6b2c7a4cacf3"
+    },
+    "results/mature-cpu-16vcpu-publication/operator-finished.json": {
+      "bytes": 81,
+      "sha256": "c97fda39468d5d3ad7aab99745b2c1f7befa4a532873b086b42530b11300874c"
+    },
+    "results/mature-cpu-16vcpu-publication/plan.json": {
+      "bytes": 2854,
+      "sha256": "e4db4258fada09713454a29add46da712ce6037acd0694e4ed7faf8b15075db5"
+    },
+    "results/mature-cpu-16vcpu-publication/platform-verification.json": {
+      "bytes": 2233,
+      "sha256": "92e995a5302095df4e7a356d5aebd7e9e0c1a9a31ce385339077bbf5652f53a9"
+    },
+    "results/mature-cpu-16vcpu-publication/pods.json": {
+      "bytes": 624,
+      "sha256": "71d80cc227f144471509952626cd93bf013389e9182b41bbe431cb60beb49461"
+    },
+    "results/mature-cpu-16vcpu-publication/publication-script.py": {
+      "bytes": 5439,
+      "sha256": "5412991ae1eaaf2247f6542d42c9c1b8472b051837ec6d0601320ea80def97ae"
+    },
+    "results/mature-cpu-16vcpu-publication/resume-verification.json": {
+      "bytes": 387,
+      "sha256": "7cf62cbb68629d16f7b0c9f26e10c8e4469db7a43c6ea08b6ece95a3a16caa5b"
+    },
+    "results/mature-cpu-16vcpu-publication/transport-verification.json": {
+      "bytes": 193,
+      "sha256": "b814cd9ac7fa3657ea1b47579f9bd52674e277e4200ec33bb8af53bae450c2a7"
+    },
+    "results/mature-cpu-16vcpu-publication/watchdog.json": {
+      "bytes": 88,
+      "sha256": "0498628a96f890bbd3fa1ebc4231471a3ceeeb3102cddb2467065e1fcba6b1d6"
+    },
+    "results/mature-cpu-16vcpu-publication/work-manifest.json": {
+      "bytes": 3076,
+      "sha256": "dd73e2a716b6ee194f4075b7d72baca7176c1cc4512e01786d78c92a64672dad"
+    },
+    "results/mature-cpu-16vcpu-publication/worker.json": {
+      "bytes": 2066,
+      "sha256": "68bd43485d7a5b0b6452af15530f546d8ef4f5159e410f97c7ff57f9eff310e6"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/connection.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/m4-verification-supervisor-inventory.json": {
+      "bytes": 524,
+      "sha256": "6fc4a001e757f37eeb282948e3ec0b90d01e54b72602399f4651e1653d00cddd"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/m4-verification-supervisor/campaign.json": {
+      "bytes": 2317,
+      "sha256": "e30ff776a644f00f797a1fda8bd414467c6a86797ce9da71ae6a172ee7d05032"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/m4-verification-supervisor/independent-platform-verification.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/m4-verification-supervisor/owner.json": {
+      "bytes": 84,
+      "sha256": "064316c7df5042bc80ad82140c5d772a36907c63472a0c078d3ceb1f081af349"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/m4-verification-supervisor/resources.jsonl": {
+      "bytes": 409,
+      "sha256": "2a897332b830052ec8e922f86e5b5cb04ef4111505be5ce282343ab2799077ec"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/platform-verification.json": {
+      "bytes": 2233,
+      "sha256": "92e995a5302095df4e7a356d5aebd7e9e0c1a9a31ce385339077bbf5652f53a9"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results.tar": {
+      "bytes": 589557760,
+      "sha256": "7f528b61e806750a1fb32c9a216dd81814bde1602a0b5222a8d34fd535302d68"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results.tar.sha256": {
+      "bytes": 89,
+      "sha256": "d00f8f69576fcd8f9b9165d7cc40a4d10744e67f147bfe7a6a0d10b1dc7f1ac6"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/outer-exit.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/packages.txt": {
+      "bytes": 176,
+      "sha256": "aef3907518b93e518ae083b7d6f4b79ead817eb6ca1171748424555ec7be698a"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/setup-kernel.txt": {
+      "bytes": 132,
+      "sha256": "e435b71df50872c2354119f0d79412d9dc7d8a307910f248185396525a79c434"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/setup-lscpu.txt": {
+      "bytes": 3309,
+      "sha256": "6739aa7889bedf276da3efa25335d33999e2f83636f0cb79a33f0ed2ade116c8"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/setup.log": {
+      "bytes": 4134,
+      "sha256": "6436f1d41e0ff21f3b0077b7a2733780ac8ca04a3bc88640365d06e359c6f510"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work-manifest.json": {
+      "bytes": 3076,
+      "sha256": "dd73e2a716b6ee194f4075b7d72baca7176c1cc4512e01786d78c92a64672dad"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/cpu-topology.txt": {
+      "bytes": 759,
+      "sha256": "fd2d4f77fb339d10081670634e4c65b3076a3563abdaac1c0805b5943c674c77"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/cpu.cfs_period_us.txt": {
+      "bytes": 7,
+      "sha256": "b80500a01f984c764f1a3b486622d0ef7cc5b13fa9bd57ec9015113eaf875597"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/cpu.cfs_quota_us.txt": {
+      "bytes": 3,
+      "sha256": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/cpuinfo.txt": {
+      "bytes": 56887,
+      "sha256": "4f5b4c0b9596ff50dfde224d45f53f9c914ef310fca31005c085fc56347a73f3"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/direct.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/direct/attempt.json": {
+      "bytes": 767,
+      "sha256": "7d9492dc51a962f6d642b19c97558a11e294aa22d0474c88981e078719137d44"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/direct/current.json.gz": {
+      "bytes": 40949674,
+      "sha256": "110e1c0d0540df5efd63f401ace671cf3b4d7b82e680e75e2e49ff2b57e88562"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/direct/final.json.gz": {
+      "bytes": 72252600,
+      "sha256": "9447b626e88929ed9398403c282a4f8d860713986b0f768732857b1605127fc1"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/direct/iterations.jsonl": {
+      "bytes": 50319844,
+      "sha256": "9b4f6d55dd6ad42eef0e24b1ab99238b20971303080f2d5d5bc7f5c3dfefe295"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/direct/midpoint.json": {
+      "bytes": 364,
+      "sha256": "e1679f3d2fd871dd2db403225fcf94df3948772539ccca262a3704671bc7e8bf"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/direct/midpoint.json.gz": {
+      "bytes": 71481560,
+      "sha256": "006fdc03a61a2d559a3db7d0d385d00c60b6878309330bd0a923211355bfc97e"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/direct/next.json.gz": {
+      "bytes": 72252836,
+      "sha256": "2b9bfc499eed5b7d60c65ebf5e39cc8e3184d64e6ac345d35a195bb6e48551cb"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/direct/result.json": {
+      "bytes": 3016,
+      "sha256": "83e12843e0aec42fdcf02f7d9434900287136f17002fbd8f92c2aa41d080ca9f"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/lscpu.txt": {
+      "bytes": 3308,
+      "sha256": "b2e73da9686b86ff55f232ac3a3f6719dbeb78aefd2c52db9a00d071f4ade999"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/resources.jsonl": {
+      "bytes": 118189,
+      "sha256": "ec05736ec264db81c444b3b45f4792376f428d3086284451e936a1eb73773883"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/resume-verification.json": {
+      "bytes": 387,
+      "sha256": "7cf62cbb68629d16f7b0c9f26e10c8e4469db7a43c6ea08b6ece95a3a16caa5b"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/resumed.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/resumed/attempt.json": {
+      "bytes": 744,
+      "sha256": "8e143ae9ece0d3ad77fca1f073222d5ad45338c7c7d46683045efdb3acac626a"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/resumed/current.json.gz": {
+      "bytes": 40949674,
+      "sha256": "110e1c0d0540df5efd63f401ace671cf3b4d7b82e680e75e2e49ff2b57e88562"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/resumed/final.json.gz": {
+      "bytes": 72252600,
+      "sha256": "9447b626e88929ed9398403c282a4f8d860713986b0f768732857b1605127fc1"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/resumed/iterations.jsonl": {
+      "bytes": 25129132,
+      "sha256": "3b5c7007ac0814412bf0756c796f30be5a5a29578ade668440604d25b5b7ba92"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/resumed/next.json.gz": {
+      "bytes": 72252836,
+      "sha256": "2b9bfc499eed5b7d60c65ebf5e39cc8e3184d64e6ac345d35a195bb6e48551cb"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/resumed/reload.json.gz": {
+      "bytes": 71481560,
+      "sha256": "006fdc03a61a2d559a3db7d0d385d00c60b6878309330bd0a923211355bfc97e"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/resumed/result.json": {
+      "bytes": 2747,
+      "sha256": "930cf563ff1f55e97bd84a9bdd44461a302de3c8a8671a33ab5ed452d75e3d77"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/verify-resume.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/work/worker.json": {
+      "bytes": 2066,
+      "sha256": "68bd43485d7a5b0b6452af15530f546d8ef4f5159e410f97c7ff57f9eff310e6"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/results/worker-tests.log": {
+      "bytes": 98,
+      "sha256": "ef0e7ef49e71fa999842be0cb8d22ec1058d3a384ed5c0a2ec6efb8f434975ac"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/transport-verification.json": {
+      "bytes": 193,
+      "sha256": "b814cd9ac7fa3657ea1b47579f9bd52674e277e4200ec33bb8af53bae450c2a7"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/cpu5c/verification.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/lease.json": {
+      "bytes": 312,
+      "sha256": "696da2b2248c95552465d7d231d739a5043991c4cfcc7f6945e780b959b4bbba"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/live-catalog.json": {
+      "bytes": 1050,
+      "sha256": "3ce9bd9fac0fc37bddf1a467cd6ef18133bc468ae70f341002146b45d3032ee3"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/operator-finished.json": {
+      "bytes": 81,
+      "sha256": "c97fda39468d5d3ad7aab99745b2c1f7befa4a532873b086b42530b11300874c"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/plan.json": {
+      "bytes": 2854,
+      "sha256": "e4db4258fada09713454a29add46da712ce6037acd0694e4ed7faf8b15075db5"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/pods.json": {
+      "bytes": 624,
+      "sha256": "71d80cc227f144471509952626cd93bf013389e9182b41bbe431cb60beb49461"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/watchdog.json": {
+      "bytes": 88,
+      "sha256": "0498628a96f890bbd3fa1ebc4231471a3ceeeb3102cddb2467065e1fcba6b1d6"
+    },
+    "results/runpod-mature-cpu-16vcpu-20260930/watchdog.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "original_cutoff": 1790809835.502777,
+  "root": "/Users/dberweger/Local/runpod-mature-cpu-six-20260930",
+  "sealed": 1790806017.593056
+}
