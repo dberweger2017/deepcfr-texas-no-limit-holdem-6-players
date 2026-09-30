@@ -1,0 +1,394 @@
+{
+  "version": "hu20-three-lineage-500m-v1",
+  "owner_authorized": true,
+  "parents": [
+    {
+      "seed": 2026093001,
+      "completed_nodes": 100000029,
+      "iteration": 246212,
+      "entries": 1496914,
+      "checkpoint_path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093001/checkpoint-100000000.json.gz",
+      "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a",
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093001/current-100000000.json.gz",
+      "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+      "name": "B-2026093001-100000000",
+      "milestone": 100000000,
+      "players": 2,
+      "arm": "B",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1"
+    },
+    {
+      "seed": 2026093002,
+      "completed_nodes": 100000280,
+      "iteration": 245406,
+      "entries": 1494799,
+      "checkpoint_path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093002/checkpoint-100000000.json.gz",
+      "checkpoint_sha256": "830c7c470de2a416b2cb030af6abb76bbb49b2757ff1a8300b0f30a75de3b965",
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093002/current-100000000.json.gz",
+      "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710",
+      "name": "B-2026093002-100000000",
+      "milestone": 100000000,
+      "players": 2,
+      "arm": "B",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1"
+    },
+    {
+      "seed": 2026093003,
+      "completed_nodes": 100000083,
+      "iteration": 248186,
+      "entries": 1499679,
+      "checkpoint_path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093003/checkpoint-100000000.json.gz",
+      "checkpoint_sha256": "77bb18426aecdf6d9e83a9c8eb807f7e6671ab01ffafc94e348382a677e9df1b",
+      "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093003/current-100000000.json.gz",
+      "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e",
+      "name": "B-2026093003-100000000",
+      "milestone": 100000000,
+      "players": 2,
+      "arm": "B",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1"
+    }
+  ],
+  "target_total_nodes": 500000000,
+  "recovery_totals": [
+    110000000,
+    120000000,
+    130000000,
+    140000000,
+    150000000,
+    160000000,
+    170000000,
+    180000000,
+    190000000,
+    200000000,
+    210000000,
+    220000000,
+    230000000,
+    240000000,
+    250000000,
+    260000000,
+    270000000,
+    280000000,
+    290000000,
+    300000000,
+    310000000,
+    320000000,
+    330000000,
+    340000000,
+    350000000,
+    360000000,
+    370000000,
+    380000000,
+    390000000,
+    400000000,
+    410000000,
+    420000000,
+    430000000,
+    440000000,
+    450000000,
+    460000000,
+    470000000,
+    480000000,
+    490000000,
+    500000000
+  ],
+  "export_totals": [
+    120000000,
+    140000000,
+    150000000,
+    160000000,
+    180000000,
+    200000000,
+    220000000,
+    240000000,
+    250000000,
+    260000000,
+    280000000,
+    300000000,
+    320000000,
+    340000000,
+    350000000,
+    360000000,
+    380000000,
+    400000000,
+    420000000,
+    440000000,
+    450000000,
+    460000000,
+    480000000,
+    500000000
+  ],
+  "permanent_totals": [
+    150000000,
+    200000000,
+    250000000,
+    300000000,
+    350000000,
+    400000000,
+    450000000,
+    500000000
+  ],
+  "broad_totals": [
+    100000000,
+    150000000,
+    200000000,
+    300000000,
+    400000000,
+    500000000
+  ],
+  "light_totals": [
+    100000000,
+    120000000,
+    140000000,
+    150000000,
+    160000000,
+    180000000,
+    200000000,
+    220000000,
+    240000000,
+    250000000,
+    260000000,
+    280000000,
+    300000000,
+    320000000,
+    340000000,
+    350000000,
+    360000000,
+    380000000,
+    400000000,
+    420000000,
+    440000000,
+    450000000,
+    460000000,
+    480000000,
+    500000000
+  ],
+  "chance_samples": 4,
+  "lbr_seconds": 5.0,
+  "opponent_version": "selective-stackoff-hu20-v1",
+  "light_panels": [
+    {
+      "name": "random",
+      "rule": "random",
+      "contract": "secondary",
+      "blocks": 256,
+      "root": 202610020100
+    },
+    {
+      "name": "selective_stackoff",
+      "rule": "selective_stackoff",
+      "contract": "native",
+      "blocks": 256,
+      "root": 202610020101
+    },
+    {
+      "name": "passive",
+      "rule": "passive",
+      "contract": "menu",
+      "blocks": 256,
+      "root": 202610020102
+    },
+    {
+      "name": "loose_passive",
+      "rule": "loose_passive",
+      "contract": "secondary",
+      "blocks": 256,
+      "root": 202610020110
+    },
+    {
+      "name": "loose_aggressive",
+      "rule": "loose_aggressive",
+      "contract": "secondary",
+      "blocks": 256,
+      "root": 202610020111
+    },
+    {
+      "name": "tight_passive",
+      "rule": "tight_passive",
+      "contract": "secondary",
+      "blocks": 256,
+      "root": 202610020112
+    },
+    {
+      "name": "tight_aggressive",
+      "rule": "tight_aggressive",
+      "contract": "secondary",
+      "blocks": 256,
+      "root": 202610020113
+    }
+  ],
+  "broad_panels": [
+    {
+      "name": "LBR-original-cap2",
+      "rule": "lbr",
+      "contract": "menu",
+      "blocks": 2048,
+      "root": 202610020200
+    },
+    {
+      "name": "Pressure-native",
+      "rule": "pressure",
+      "contract": "native",
+      "blocks": 4096,
+      "root": 202610020201
+    },
+    {
+      "name": "selective_stackoff",
+      "rule": "selective_stackoff",
+      "contract": "native",
+      "blocks": 4096,
+      "root": 202610020202
+    },
+    {
+      "name": "pot_pressure",
+      "rule": "pot_pressure",
+      "contract": "secondary",
+      "blocks": 512,
+      "root": 202610020203
+    },
+    {
+      "name": "passive",
+      "rule": "passive",
+      "contract": "menu",
+      "blocks": 512,
+      "root": 202610020204
+    },
+    {
+      "name": "loose_passive",
+      "rule": "loose_passive",
+      "contract": "secondary",
+      "blocks": 512,
+      "root": 202610020210
+    },
+    {
+      "name": "loose_aggressive",
+      "rule": "loose_aggressive",
+      "contract": "secondary",
+      "blocks": 512,
+      "root": 202610020211
+    },
+    {
+      "name": "tight_passive",
+      "rule": "tight_passive",
+      "contract": "secondary",
+      "blocks": 512,
+      "root": 202610020212
+    },
+    {
+      "name": "tight_aggressive",
+      "rule": "tight_aggressive",
+      "contract": "secondary",
+      "blocks": 512,
+      "root": 202610020213
+    }
+  ],
+  "heldout_panels": [
+    {
+      "name": "LBR-original-cap2",
+      "rule": "lbr",
+      "contract": "menu",
+      "blocks": 2048,
+      "root": 202610021200
+    },
+    {
+      "name": "Pressure-native",
+      "rule": "pressure",
+      "contract": "native",
+      "blocks": 4096,
+      "root": 202610021201
+    },
+    {
+      "name": "selective_stackoff",
+      "rule": "selective_stackoff",
+      "contract": "native",
+      "blocks": 4096,
+      "root": 202610021202
+    },
+    {
+      "name": "pot_pressure",
+      "rule": "pot_pressure",
+      "contract": "secondary",
+      "blocks": 512,
+      "root": 202610021203
+    },
+    {
+      "name": "passive",
+      "rule": "passive",
+      "contract": "menu",
+      "blocks": 512,
+      "root": 202610021204
+    },
+    {
+      "name": "loose_passive",
+      "rule": "loose_passive",
+      "contract": "secondary",
+      "blocks": 512,
+      "root": 202610021210
+    },
+    {
+      "name": "loose_aggressive",
+      "rule": "loose_aggressive",
+      "contract": "secondary",
+      "blocks": 512,
+      "root": 202610021211
+    },
+    {
+      "name": "tight_passive",
+      "rule": "tight_passive",
+      "contract": "secondary",
+      "blocks": 512,
+      "root": 202610021212
+    },
+    {
+      "name": "tight_aggressive",
+      "rule": "tight_aggressive",
+      "contract": "secondary",
+      "blocks": 512,
+      "root": 202610021213
+    }
+  ],
+  "heldout_totals": [
+    100000000,
+    500000000
+  ],
+  "budget": {
+    "target_usd": 10,
+    "ceiling_usd": 15,
+    "retrieval_reserve_usd": 1.5,
+    "storage_reserve_usd": 0.5,
+    "quote_max_total_hourly_per_pod": 0.18
+  },
+  "rental": {
+    "cpu_id": "cpu5m",
+    "vcpus": 2,
+    "ram_gb": 16,
+    "disk_gb": 30,
+    "image": "runpod/base:0.7.0-ubuntu2004"
+  },
+  "engineering": {
+    "initial_max_entries": 8000000,
+    "max_owned_rss_gib": 10.5,
+    "max_swap_growth_gib": 0.5,
+    "min_free_disk_gib": 8,
+    "controller_min_free_disk_gib": 10,
+    "container_rss_fraction": 0.68,
+    "control_lease_seconds": 300,
+    "stall_seconds": 900,
+    "backup_stall_seconds": 600
+  },
+  "runtime": {
+    "python": "3.11.14",
+    "engine": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+    "workers_per_lineage": 1
+  },
+  "confirmation": {
+    "interval_percent": 97.5,
+    "primary": "LBR-original-cap2 final-minus-own100M lower > 0",
+    "safeguard": "Pressure-native final-minus-own100M lower > -10 BB/100",
+    "seed_contrasts": "average within identical deal/rotation block; rotate both positions",
+    "intermediate": "exploratory; never score-selected"
+  },
+  "expected_hands": 907776
+}
