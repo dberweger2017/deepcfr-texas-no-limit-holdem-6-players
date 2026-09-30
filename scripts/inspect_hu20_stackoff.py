@@ -52,8 +52,18 @@ def queries(source, visits, context):
                **snapshot(candidate, menu, probabilities, trained, visits.get(key, 0))}
 
 
+
+def unique_contexts(document):
+    result = {}
+    for context in document['contexts']:
+        if digest(context['public_context']) != context['id']:
+            raise ValueError('Selected context digest differs')
+        result.setdefault(context['id'], context)
+    return list(result.values())
+
 def inspect(plan, inputs, run):
     document = json.loads((run / 'contexts.json').read_text())
+    contexts = unique_contexts(document)
     guard = Guard(plan, run)
     summaries = []
     for spec in plan['models']:
@@ -64,7 +74,7 @@ def inspect(plan, inputs, run):
             raise FileExistsError(path)
         groups = defaultdict(list)
         with gzip.open(path, 'wt') as handle:
-            for context in document['contexts']:
+            for context in contexts:
                 for row in queries(source, visits, context):
                     row['model'] = spec['name']
                     handle.write(json.dumps(row, sort_keys=True, allow_nan=False) + '\n')
@@ -84,7 +94,7 @@ def inspect(plan, inputs, run):
         del source, visits, groups
         gc.collect()
     result = {'contexts_sha256': file_hash(run / 'contexts.json'), 'contexts': document,
-              'rows': summaries, 'interpretation': 'Shared keys are not independent samples; similar bucket aggression alone does not prove an error.'}
+              'unique_public_contexts': len(contexts), 'rows': summaries, 'interpretation': 'Shared keys are not independent samples; similar bucket aggression alone does not prove an error.'}
     write_json(run / 'inspection-summary.json', result)
     return result
 

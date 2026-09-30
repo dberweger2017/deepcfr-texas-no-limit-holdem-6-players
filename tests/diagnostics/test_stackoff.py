@@ -367,3 +367,15 @@ def test_dashboard_labels_incomplete_and_exploratory_intervals():
     assert 'not individual-bet EV' in rendered
     assert 'not independent samples' in rendered
     assert '800 additional chips' in rendered
+
+
+def test_inspection_deduplicates_matched_contexts_without_erasing_selection_origins():
+    from scripts.inspect_hu20_stackoff import unique_contexts
+    public={'board':['Ac'],'pot':600}
+    first={'id':digest(public),'public_context':public,'origin_seed':1}
+    second={**first,'origin_seed':2}
+    document={'contexts':[first,second]}
+    assert unique_contexts(document)==[first]
+    assert len(document['contexts'])==2
+    with pytest.raises(ValueError,match='digest'):
+        unique_contexts({'contexts':[{**first,'id':'wrong'}]})
