@@ -33,18 +33,20 @@ def swap():
 
 def owned_rss(child):
     processes = []
-    for line in subprocess.check_output(["ps", "-axo", "pid=,ppid=,rss="], text=True).splitlines():
-        pid, parent, memory = map(int, line.split())
-        processes.append((pid, parent, memory))
+    for line in subprocess.check_output(["ps", "-axo", "pid=,ppid=,rss=,command="], text=True).splitlines():
+        pid, parent, memory, command = line.split(maxsplit=3)
+        processes.append((int(pid), int(parent), int(memory), command))
     owned = {os.getpid(), child}
     while True:
-        expanded = owned | {pid for pid, parent, _ in processes if parent in owned}
+        expanded = owned | {pid for pid, parent, _, _ in processes if parent in owned}
         if expanded == owned:
             break
         owned = expanded
-    return (sum(memory * 1024 for pid, _, memory in processes if pid in owned),
-            [{"pid": pid, "rss_bytes": memory * 1024} for pid, _, memory in processes
-             if pid not in owned and memory * 1024 > 512 * 1024**2])
+    return (sum(memory * 1024 for pid, _, memory, _ in processes if pid in owned),
+            [{"pid": pid, "rss_bytes": memory * 1024, "command": command}
+             for pid, _, memory, command in processes
+             if pid not in owned and memory * 1024 > 512 * 1024**2
+             and any(name in command.lower() for name in ("python", "pytest", "/node", "chrome", "clang", "rustc"))])
 
 
 def guard(out, clock, child=0):
