@@ -110,12 +110,16 @@ def execute(args):
     state = {"status": "running", "started": time.time(), "deadline": args.deadline,
              "runtime_source": revision, "plan_sha256": sha256(args.plan.read_bytes()).hexdigest(),
              "driver_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
-             "memory_limit_bytes": memory, "affinity_logical_cpus": sorted(os.sched_getaffinity(0)),
+             "memory_limit_bytes": memory, "kernel": platform.uname()._asdict(), "affinity_logical_cpus": sorted(os.sched_getaffinity(0)),
              "attempts": []}
     (root / "lscpu.txt").write_text(subprocess.check_output(["lscpu"], text=True))
     (root / "cpu-topology.txt").write_text(subprocess.check_output(["lscpu", "-e=CPU,CORE,SOCKET,ONLINE"], text=True))
+    (root / "cpuinfo.txt").write_text(Path("/proc/cpuinfo").read_text())
     for path in ("/sys/fs/cgroup/cpu.max", "/sys/fs/cgroup/cpu/cpu.cfs_quota_us",
-                 "/sys/fs/cgroup/cpu/cpu.cfs_period_us"):
+                 "/sys/fs/cgroup/cpu/cpu.cfs_period_us",
+                 "/sys/fs/cgroup/cpu,cpuacct/cpu.cfs_quota_us",
+                 "/sys/fs/cgroup/cpu,cpuacct/cpu.cfs_period_us",
+                 "/sys/fs/cgroup/memory.max", "/sys/fs/cgroup/memory.swap.max"):
         p = Path(path)
         if p.exists():
             (root / (p.name + ".txt")).write_text(p.read_text())
@@ -148,7 +152,9 @@ def execute(args):
                 while child.poll() is None:
                     sample = {"time": time.time(), "phase": name, "owned_rss_bytes": owned_rss(child.pid),
                               "swap_growth_bytes": swap_usage()-swap_before,
-                              "free_disk_bytes": shutil.disk_usage(root).free}
+                              "free_disk_bytes": shutil.disk_usage(root).free,
+                              "cgroup_memory_current_bytes": read_limit(("/sys/fs/cgroup/memory.current", "/sys/fs/cgroup/memory/memory.usage_in_bytes")),
+                              "cgroup_memory_peak_bytes": read_limit(("/sys/fs/cgroup/memory.peak", "/sys/fs/cgroup/memory/memory.max_usage_in_bytes"))}
                     with (root / "resources.jsonl").open("a") as stream:
                         stream.write(json.dumps(sample, sort_keys=True)+"\n")
                     reason = guard_reason(sample["owned_rss_bytes"], memory, sample["swap_growth_bytes"],
