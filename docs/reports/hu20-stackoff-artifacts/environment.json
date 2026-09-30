@@ -1,0 +1,17 @@
+{
+  "source_sha": "1e7fd1a1d68ce5f001b8000be4e385da8076f88e",
+  "frozen_opponent_commit": "1db8e0e",
+  "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "dependencies": {
+    "pokers": "0.2.0",
+    "numpy": "1.26.4",
+    "scipy": "1.17.1",
+    "pytest": "9.0.3"
+  },
+  "native_engine_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+  "cpu": "Apple M1",
+  "validation": "M1; generated fixtures and twelve hash-pinned saved policies; no training",
+  "full_tests": "1054 passed, 54 subtests passed in 471.78s; final affected tests: 28 passed",
+  "started": 1790799789.889468,
+  "reporting_source_sha": "3c2d9ee3a55c8d09c7b36968e047fbb30c61d348"
+}

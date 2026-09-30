@@ -1,0 +1,2690 @@
+{
+  "contexts": [
+    {
+      "id": "02f10e0ed53dbefd69225ee97fcbdd3208cbc2d501b5c59b1190cb4c9c20cca5",
+      "kind": "small_bet",
+      "origin": {
+        "block": 418,
+        "button": 0,
+        "deal_seed": 9761907109457394028,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 1
+      },
+      "origin_seed": 2026093001,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 0
+        }
+      ],
+      "public_context": {
+        "board": [
+          "5d",
+          "6d",
+          "4c",
+          "4d",
+          "9c"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "5d",
+              "6d",
+              "4c"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "4d"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "9c"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1900,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 100
+          },
+          {
+            "contributed": 100,
+            "folded": false,
+            "stack": 1900,
+            "starting_stack": 2000,
+            "street_bet": 0
+          }
+        ],
+        "position": "big_blind",
+        "pot": 300,
+        "street": "river"
+      }
+    },
+    {
+      "id": "237913af04f8343371c91c1b1abc3c87781226d8cfdaaa8b37ac4eb563237f67",
+      "kind": "small_bet",
+      "origin": {
+        "block": 386,
+        "button": 0,
+        "deal_seed": 13239550398459202236,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 1
+      },
+      "origin_seed": 2026093001,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 1
+        },
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 0
+        }
+      ],
+      "public_context": {
+        "board": [
+          "9s",
+          "4d",
+          "6s",
+          "Ts",
+          "5s"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "9s",
+              "4d",
+              "6s"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "Ts"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "5s"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1800,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 300,
+            "folded": false,
+            "stack": 1700,
+            "starting_stack": 2000,
+            "street_bet": 100
+          },
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 0
+          }
+        ],
+        "position": "big_blind",
+        "pot": 500,
+        "street": "river"
+      }
+    },
+    {
+      "id": "2aaf8c9d26df95a798245c16e191622eb7e8b6636fb242a6d669ff22751d92d1",
+      "kind": "small_bet",
+      "origin": {
+        "block": 285,
+        "button": 1,
+        "deal_seed": 9590258902200983789,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 1
+      },
+      "origin_seed": 2026093001,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 0
+        }
+      ],
+      "public_context": {
+        "board": [
+          "7c",
+          "7s",
+          "Qd",
+          "4h",
+          "Qc"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "7c",
+              "7s",
+              "Qd"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "4h"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "Qc"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1900,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 100,
+            "folded": false,
+            "stack": 1900,
+            "starting_stack": 2000,
+            "street_bet": 0
+          },
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 100
+          }
+        ],
+        "position": "button",
+        "pot": 300,
+        "street": "river"
+      }
+    },
+    {
+      "id": "3b52b465ff92b9a35425b8fc5051fc2394155aca813fad987e4d9d104c5b7cab",
+      "kind": "small_bet",
+      "origin": {
+        "block": 226,
+        "button": 0,
+        "deal_seed": 9807160371599874290,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 0
+      },
+      "origin_seed": 2026093001,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 0
+        },
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 1
+        }
+      ],
+      "public_context": {
+        "board": [
+          "2c",
+          "7h",
+          "5c",
+          "As",
+          "Tc"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "2c",
+              "7h",
+              "5c"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "As"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "Tc"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1800,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 0
+          },
+          {
+            "contributed": 300,
+            "folded": false,
+            "stack": 1700,
+            "starting_stack": 2000,
+            "street_bet": 100
+          }
+        ],
+        "position": "button",
+        "pot": 500,
+        "street": "river"
+      }
+    },
+    {
+      "id": "047aea7a91e00ca52fa4553bd6d9975d6131d7e138758e68318635338f08fd26",
+      "kind": "small_bet",
+      "origin": {
+        "block": 480,
+        "button": 0,
+        "deal_seed": 11545267240874623788,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 1
+      },
+      "origin_seed": 2026093002,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 0
+        }
+      ],
+      "public_context": {
+        "board": [
+          "5d",
+          "4h",
+          "8c",
+          "9c",
+          "2c"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "5d",
+              "4h",
+              "8c"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "9c"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "2c"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1900,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 100
+          },
+          {
+            "contributed": 100,
+            "folded": false,
+            "stack": 1900,
+            "starting_stack": 2000,
+            "street_bet": 0
+          }
+        ],
+        "position": "big_blind",
+        "pot": 300,
+        "street": "river"
+      }
+    },
+    {
+      "id": "237913af04f8343371c91c1b1abc3c87781226d8cfdaaa8b37ac4eb563237f67",
+      "kind": "small_bet",
+      "origin": {
+        "block": 386,
+        "button": 0,
+        "deal_seed": 13239550398459202236,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 1
+      },
+      "origin_seed": 2026093002,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 1
+        },
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 0
+        }
+      ],
+      "public_context": {
+        "board": [
+          "9s",
+          "4d",
+          "6s",
+          "Ts",
+          "5s"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "9s",
+              "4d",
+              "6s"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "Ts"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "5s"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1800,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 300,
+            "folded": false,
+            "stack": 1700,
+            "starting_stack": 2000,
+            "street_bet": 100
+          },
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 0
+          }
+        ],
+        "position": "big_blind",
+        "pot": 500,
+        "street": "river"
+      }
+    },
+    {
+      "id": "3c6384db1fbe3a0b05e379c749dcd52cef91d609a261fcc293b6f1d69d42a89e",
+      "kind": "small_bet",
+      "origin": {
+        "block": 840,
+        "button": 0,
+        "deal_seed": 9339560060226254407,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 0
+      },
+      "origin_seed": 2026093002,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 1
+        }
+      ],
+      "public_context": {
+        "board": [
+          "8d",
+          "3s",
+          "3d",
+          "2d",
+          "3h"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "8d",
+              "3s",
+              "3d"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "2d"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "3h"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1900,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 100,
+            "folded": false,
+            "stack": 1900,
+            "starting_stack": 2000,
+            "street_bet": 0
+          },
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 100
+          }
+        ],
+        "position": "button",
+        "pot": 300,
+        "street": "river"
+      }
+    },
+    {
+      "id": "47052a46bf8477b63e21a49b3f60b93bfde9d74c0eb62b17168ce1499fb9e779",
+      "kind": "small_bet",
+      "origin": {
+        "block": 472,
+        "button": 0,
+        "deal_seed": 12939640910806177063,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 0
+      },
+      "origin_seed": 2026093002,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 1
+        }
+      ],
+      "public_context": {
+        "board": [
+          "3c",
+          "5c",
+          "As",
+          "Ah",
+          "9h"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "3c",
+              "5c",
+              "As"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "Ah"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "9h"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1900,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 100,
+            "folded": false,
+            "stack": 1900,
+            "starting_stack": 2000,
+            "street_bet": 0
+          },
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 100
+          }
+        ],
+        "position": "button",
+        "pot": 300,
+        "street": "river"
+      }
+    },
+    {
+      "id": "0fb0336a724b181c39c7cb08889ae5cd8b0deee399e40820f55a9a66eb761747",
+      "kind": "small_bet",
+      "origin": {
+        "block": 418,
+        "button": 0,
+        "deal_seed": 9761907109457394028,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 1
+      },
+      "origin_seed": 2026093003,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 1
+        },
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 0
+        }
+      ],
+      "public_context": {
+        "board": [
+          "5d",
+          "6d",
+          "4c",
+          "4d",
+          "9c"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "5d",
+              "6d",
+              "4c"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "4d"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "9c"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1800,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 300,
+            "folded": false,
+            "stack": 1700,
+            "starting_stack": 2000,
+            "street_bet": 100
+          },
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 0
+          }
+        ],
+        "position": "big_blind",
+        "pot": 500,
+        "street": "river"
+      }
+    },
+    {
+      "id": "87d2d6747fb30c59630f749d1170683707d77ed22eba39ca99c1e9ad82972d74",
+      "kind": "small_bet",
+      "origin": {
+        "block": 155,
+        "button": 1,
+        "deal_seed": 10568629901318193142,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 0
+      },
+      "origin_seed": 2026093003,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 1
+        }
+      ],
+      "public_context": {
+        "board": [
+          "9s",
+          "3h",
+          "7s",
+          "8h",
+          "3s"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "9s",
+              "3h",
+              "7s"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "8h"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "3s"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1900,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 100
+          },
+          {
+            "contributed": 100,
+            "folded": false,
+            "stack": 1900,
+            "starting_stack": 2000,
+            "street_bet": 0
+          }
+        ],
+        "position": "big_blind",
+        "pot": 300,
+        "street": "river"
+      }
+    },
+    {
+      "id": "2aaf8c9d26df95a798245c16e191622eb7e8b6636fb242a6d669ff22751d92d1",
+      "kind": "small_bet",
+      "origin": {
+        "block": 285,
+        "button": 1,
+        "deal_seed": 9590258902200983789,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 1
+      },
+      "origin_seed": 2026093003,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 0
+        }
+      ],
+      "public_context": {
+        "board": [
+          "7c",
+          "7s",
+          "Qd",
+          "4h",
+          "Qc"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "7c",
+              "7s",
+              "Qd"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "4h"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "Qc"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1900,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 100,
+            "folded": false,
+            "stack": 1900,
+            "starting_stack": 2000,
+            "street_bet": 0
+          },
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 100
+          }
+        ],
+        "position": "button",
+        "pot": 300,
+        "street": "river"
+      }
+    },
+    {
+      "id": "32abd9e26dfbfc8e0f83efde5a26a57a686f31abee97ec5a14b9eab553e3b3f6",
+      "kind": "small_bet",
+      "origin": {
+        "block": 513,
+        "button": 1,
+        "deal_seed": 13146276020813682997,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 1
+      },
+      "origin_seed": 2026093003,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 1
+        },
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 0
+        }
+      ],
+      "public_context": {
+        "board": [
+          "9c",
+          "6s",
+          "5h",
+          "Qh",
+          "Kh"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "9c",
+              "6s",
+              "5h"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "Qh"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "Kh"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1800,
+          "min_raise_to": 200
+        },
+        "players": [
+          {
+            "contributed": 200,
+            "folded": false,
+            "stack": 1800,
+            "starting_stack": 2000,
+            "street_bet": 0
+          },
+          {
+            "contributed": 300,
+            "folded": false,
+            "stack": 1700,
+            "starting_stack": 2000,
+            "street_bet": 100
+          }
+        ],
+        "position": "button",
+        "pot": 500,
+        "street": "river"
+      }
+    },
+    {
+      "id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+      "kind": "small_raise",
+      "origin": {
+        "block": 965,
+        "button": 1,
+        "deal_seed": 12703243252409295714,
+        "phase": "stackoff-v1",
+        "players": 2,
+        "rotation": 1
+      },
+      "origin_seed": 2026093003,
+      "prefix": [
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 0
+        },
+        {
+          "kind": "call",
+          "raise_to": null,
+          "seat": 1
+        },
+        {
+          "kind": "check",
+          "raise_to": null,
+          "seat": 0
+        },
+        {
+          "kind": "raise",
+          "raise_to": 100,
+          "seat": 1
+        },
+        {
+          "kind": "raise",
+          "raise_to": 200,
+          "seat": 0
+        }
+      ],
+      "public_context": {
+        "board": [
+          "Ad",
+          "7d",
+          "7c",
+          "Ah",
+          "3s"
+        ],
+        "events": [
+          {
+            "amount": 50,
+            "seat": 0,
+            "type": "BlindPosted"
+          },
+          {
+            "amount": 100,
+            "seat": 1,
+            "type": "BlindPosted"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 50,
+            "seat": 0,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "preflop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "Ad",
+              "7d",
+              "7c"
+            ],
+            "street": "flop",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 0,
+            "street": "flop",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "Ah"
+            ],
+            "street": "turn",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 1,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "call",
+              "raise_to": null
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "turn",
+            "type": "ActionTaken"
+          },
+          {
+            "cards": [
+              "3s"
+            ],
+            "street": "river",
+            "type": "BoardDealt"
+          },
+          {
+            "action": {
+              "kind": "check",
+              "raise_to": null
+            },
+            "paid": 0,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 100
+            },
+            "paid": 100,
+            "seat": 0,
+            "street": "river",
+            "type": "ActionTaken"
+          },
+          {
+            "action": {
+              "kind": "raise",
+              "raise_to": 200
+            },
+            "paid": 200,
+            "seat": 1,
+            "street": "river",
+            "type": "ActionTaken"
+          }
+        ],
+        "legal": {
+          "call_amount": 100,
+          "kinds": [
+            "fold",
+            "call",
+            "raise"
+          ],
+          "max_raise_to": 1800,
+          "min_raise_to": 300
+        },
+        "players": [
+          {
+            "contributed": 300,
+            "folded": false,
+            "stack": 1700,
+            "starting_stack": 2000,
+            "street_bet": 100
+          },
+          {
+            "contributed": 400,
+            "folded": false,
+            "stack": 1600,
+            "starting_stack": 2000,
+            "street_bet": 200
+          }
+        ],
+        "position": "button",
+        "pot": 700,
+        "street": "river"
+      }
+    }
+  ],
+  "empty_strata": [
+    {
+      "kind": "small_raise",
+      "position": "button",
+      "seed": 2026093001
+    },
+    {
+      "kind": "small_raise",
+      "position": "big_blind",
+      "seed": 2026093001
+    },
+    {
+      "kind": "small_raise",
+      "position": "button",
+      "seed": 2026093002
+    },
+    {
+      "kind": "small_raise",
+      "position": "big_blind",
+      "seed": 2026093002
+    },
+    {
+      "kind": "small_raise",
+      "position": "big_blind",
+      "seed": 2026093003
+    }
+  ]
+}

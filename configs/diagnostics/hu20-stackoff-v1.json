@@ -1,0 +1,285 @@
+{
+  "chance_samples": 4,
+  "contexts_per_seed_position_kind": 2,
+  "expected_hands": 55296,
+  "inspection_origin_milestone": 100000000,
+  "interval": "student-t-over-paired-deal-block-means; conditional on the three saved lineages; exploratory unadjusted 95%",
+  "large_call_chips": 800,
+  "lbr_seconds": 5,
+  "limits": {
+    "max_rss_gib": 6,
+    "max_seconds": 7200,
+    "max_swap_growth_gib": 0.5,
+    "min_free_gib": 1
+  },
+  "minimum_visits": 300,
+  "models": [
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093001-20000000.checkpoint.json.gz",
+      "checkpoint_sha256": "cb4ca3348398f358c611d92467ae9f891de41f64e374cd847c0103ccb2d62822",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 20000000,
+      "name": "B-2026093001-20000000",
+      "path": "B-2026093001-20000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "198dae3eb36b6a830ab106ba13032ecab10fc1f2fc12bc4bb9bc06dcce9a01a6"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093001-40000000.checkpoint.json.gz",
+      "checkpoint_sha256": "2a47a14f77cc9c30b51daaaa7bb9d10f994199db798dc597dbbeeadaf2f3e2f1",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 40000000,
+      "name": "B-2026093001-40000000",
+      "path": "B-2026093001-40000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "12d3f1ad67d08b350363ce57665347c2de5edc46fab67e474c5f175d6a5271b7"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093001-80000000.checkpoint.json.gz",
+      "checkpoint_sha256": "5aa715cff787668f70b3c42440fe12c401f6d49a4915cb9e694a61b86dc41e31",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 80000000,
+      "name": "B-2026093001-80000000",
+      "path": "B-2026093001-80000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "b24b9de99b82adeb8c41e26346d892e4a578764eff5ffe1b77c2322b767f4d4e"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093001-100000000.checkpoint.json.gz",
+      "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 100000000,
+      "name": "B-2026093001-100000000",
+      "path": "B-2026093001-100000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093002-20000000.checkpoint.json.gz",
+      "checkpoint_sha256": "03bfacfdb56801d2d079d350dcdb539e1dba02bcbef9c443a08c5299ff49f358",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 20000000,
+      "name": "B-2026093002-20000000",
+      "path": "B-2026093002-20000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "4a8c3123437a28c5bea49447e67a91e490096819b3b820fd47c1ffb3f4bb0243"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093002-40000000.checkpoint.json.gz",
+      "checkpoint_sha256": "ac05b4cd138a5239d2ca63e58499bfd76d7750b7b74fff3d2bcac9f08a1bb2f4",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 40000000,
+      "name": "B-2026093002-40000000",
+      "path": "B-2026093002-40000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "01468192bc717671dc504ab1d1f36a6e5e8a12fea9023ee1433acd2229b7cb7e"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093002-80000000.checkpoint.json.gz",
+      "checkpoint_sha256": "92ef4bfd690e26dd3c8ecfb236b009fce8691a83a81169458b06a855e15248ea",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 80000000,
+      "name": "B-2026093002-80000000",
+      "path": "B-2026093002-80000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "403e4731cf6102d3c7f64a2d93ff57a59199720a94b44b24e6b9d279707aae18"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093002-100000000.checkpoint.json.gz",
+      "checkpoint_sha256": "830c7c470de2a416b2cb030af6abb76bbb49b2757ff1a8300b0f30a75de3b965",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 100000000,
+      "name": "B-2026093002-100000000",
+      "path": "B-2026093002-100000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093003-20000000.checkpoint.json.gz",
+      "checkpoint_sha256": "aa65e5633cc87c7d23bcb3be871813f3413120a256fe38ebdb2383215acf5afd",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 20000000,
+      "name": "B-2026093003-20000000",
+      "path": "B-2026093003-20000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "76af425b2457777c64caf8ac44819ae7d28e915b4d8b0b95625f82d96773fbb8"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093003-40000000.checkpoint.json.gz",
+      "checkpoint_sha256": "ddfb6bae3b4e0c864f13227e0b681d5eb932923ebc015f1da641eb37490aebfa",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 40000000,
+      "name": "B-2026093003-40000000",
+      "path": "B-2026093003-40000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "c88d3c22dd9fc5f6ffa0b060a6101fde568338fdf4c9df44ef76902425b8009a"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093003-80000000.checkpoint.json.gz",
+      "checkpoint_sha256": "03c87286cd152018b1bd727357a14d8783ce601a461b083be73566d2a814a279",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 80000000,
+      "name": "B-2026093003-80000000",
+      "path": "B-2026093003-80000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "3ce0a4adfb68406e6d0d40718a8a1a68a9aaccbb9c6e6f589ab830b06f8bbe42"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "checkpoint_path": "B-2026093003-100000000.checkpoint.json.gz",
+      "checkpoint_sha256": "77bb18426aecdf6d9e83a9c8eb807f7e6671ab01ffafc94e348382a677e9df1b",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 100000000,
+      "name": "B-2026093003-100000000",
+      "path": "B-2026093003-100000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e"
+    }
+  ],
+  "opponent_version": "selective-stackoff-hu20-v1",
+  "panels": [
+    {
+      "blocks": 1024,
+      "contract": "restricted",
+      "name": "Selective-stackoff-v1",
+      "root": 202610020001,
+      "rule": "selective_stackoff"
+    },
+    {
+      "blocks": 128,
+      "contract": "menu",
+      "name": "Pressure-original-cap2",
+      "root": 202610020101,
+      "rule": "pressure"
+    },
+    {
+      "blocks": 256,
+      "contract": "native",
+      "name": "Pressure-native",
+      "root": 202610020102,
+      "rule": "pressure"
+    },
+    {
+      "blocks": 128,
+      "contract": "menu",
+      "name": "Minraise-original-cap2",
+      "root": 202610020103,
+      "rule": "minraise"
+    },
+    {
+      "blocks": 128,
+      "contract": "native",
+      "name": "Minraise-native",
+      "root": 202610020104,
+      "rule": "minraise"
+    },
+    {
+      "blocks": 128,
+      "contract": "menu",
+      "name": "Passive",
+      "root": 202610020105,
+      "rule": "passive"
+    },
+    {
+      "blocks": 64,
+      "contract": "secondary",
+      "name": "loose_passive",
+      "root": 202610020201,
+      "rule": "loose_passive"
+    },
+    {
+      "blocks": 64,
+      "contract": "secondary",
+      "name": "loose_aggressive",
+      "root": 202610020202,
+      "rule": "loose_aggressive"
+    },
+    {
+      "blocks": 64,
+      "contract": "secondary",
+      "name": "tight_passive",
+      "root": 202610020203,
+      "rule": "tight_passive"
+    },
+    {
+      "blocks": 64,
+      "contract": "secondary",
+      "name": "tight_aggressive",
+      "root": 202610020204,
+      "rule": "tight_aggressive"
+    },
+    {
+      "blocks": 64,
+      "contract": "secondary",
+      "name": "pot_pressure",
+      "root": 202610020205,
+      "rule": "pot_pressure"
+    },
+    {
+      "blocks": 64,
+      "contract": "secondary",
+      "name": "hu20_uniform",
+      "root": 202610020206,
+      "rule": "hu20_uniform"
+    },
+    {
+      "blocks": 128,
+      "contract": "menu",
+      "name": "LBR-original-cap2",
+      "root": 202610020301,
+      "rule": "lbr"
+    }
+  ],
+  "small_call_chips": 200,
+  "source_main": "8f50f1f5fe74ac04147fc1de7717f9c9a15d175c",
+  "source_models_sha256": "d15c1fe9f42c0fbeffa7cb27d3bb4c5cb76226f1d812133dcedda9118d1d2402",
+  "trap_probability": 0.35,
+  "version": "hu20-post-luna-stackoff-regression-v1"
+}
