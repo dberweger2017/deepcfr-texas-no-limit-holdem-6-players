@@ -68,6 +68,15 @@ continuation provides no poker advice or result information.” This is recorded
 as an orchestration intervention, not silently described as uninterrupted
 autonomous execution. No poker action or strategy was supplied.
 
+The child ended another turn after 192 completed hands. A same-context
+continuation then failed because its browser tab had disappeared; both the
+bound handle and exact-URL lookup failed. The server's public state still
+reported 192/500, ACTIVE. I marked this attempt interrupted/incomplete rather
+than calling it a completed autonomous run. I approved technical recovery of
+the existing session and player context, with the interruption retained in
+the report. No new benchmark, changed poker prompt or parent poker action is
+authorized by that recovery.
+
 At my request for live viewing, I opened a temporary loopback spectator on port
 8766. It polls only the existing public state/history and reuses the table
 presentation with action controls disabled. Its server rejects every POST (405),
@@ -77,7 +86,7 @@ remains on the original released UI at port 8765; no game/runtime source changed
 The additional polling load is included in subsequent resource samples.
 
 [Machine and native dependency identity](luna-browser/environment.json) records
-the exact environment. The focused service/audit/report/tally suite passed 24 tests.
+the exact environment. The focused service/audit/report/tally suite passed 26 tests.
 The earlier `f7ac53e` GitHub CI candidate passed all 952 tests and its existing
 CLI/reproduction gates. Subsequent reporting changes receive their own CI run.
 
@@ -112,8 +121,17 @@ RNG state, private policy keys and private reasoning are omitted. Failed/incompl
 runs must be retained.
 
 For a provisional running score, `python -m scripts.tally_luna_public ROLLOUT`
-reads only rendered individual-hand results correlated with browser metadata.
+reads only rendered individual-hand results and the rendered progress label.
 It deduplicates repeated observations and rejects missing or conflicting hand
 results. It reads neither the active private journal nor private reasoning.
 Do not send its running totals to the player. Reconcile them against the final
 native/server export after the fixed session ends.
+
+At hand 175 the initial tally rejected conflicting player metadata: an automatic
+bot fold could finish the next hand before the player emitted metadata labelled
+with the previous hand. The tally now uses the released UI's progress semantics
+(`completedHands + 1` while active), with a regression for this case. The rendered
+results cover all 192 completed hands once, without gaps or conflicting amounts:
++2,350 chips / +23.5 BB, 68 wins / 122 losses / 2 ties. The earlier through-106
+tally remains +50 chips. These are provisional public observations, not private
+journal validation or information supplied to Luna.

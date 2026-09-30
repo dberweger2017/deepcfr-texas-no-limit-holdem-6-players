@@ -6,7 +6,7 @@ import re
 from decimal import Decimal
 from pathlib import Path
 
-from scripts.audit_luna_browser import _metadata, read
+from scripts.audit_luna_browser import read
 
 
 def text_blocks(output):
@@ -27,14 +27,19 @@ def tally(records):
             continue
         text = "\n".join(text_blocks(payload.get("output", "")))
         amounts = set(re.findall(r"This hand:\s*([+−-][0-9.]+) BB", text))
-        ordinals = {item["handOrdinal"] for item in _metadata(text)
-                    if not item.get("attemptedButtonLabel", "").lower().startswith("deal hand")}
-        # Standalone rereads have no decision correlation. Avoid guessing which
-        # hand they belong to; correlated duplicate observations are deduplicated.
+        # The released UI displays completedHands + 1 while ACTIVE, including
+        # immediately after settlement. Use its rendered progress, not player
+        # metadata: an automatic bot fold can finish the next hand before the
+        # player emits an observation labelled with the preceding hand.
+        ordinals = {int(n) - 1 for n in re.findall(r'\bHand ([0-9]+) / [0-9]+', text)}
+        ordinals.update(int(n) for n in re.findall(r'\b([0-9]+) / [0-9]+ completed', text))
         if len(amounts) != 1 or len(ordinals) != 1:
             continue
         ordinal = ordinals.pop()
-        chips = int(Decimal(amounts.pop().replace("−", "-")) * 100)
+        exact_chips = Decimal(amounts.pop().replace("−", "-")) * 100
+        if ordinal < 1 or exact_chips != exact_chips.to_integral_value():
+            raise ValueError("Invalid rendered hand result")
+        chips = int(exact_chips)
         if ordinal in ledger and ledger[ordinal] != chips:
             raise ValueError(f"Conflicting rendered results for hand {ordinal}")
         ledger[ordinal] = chips
