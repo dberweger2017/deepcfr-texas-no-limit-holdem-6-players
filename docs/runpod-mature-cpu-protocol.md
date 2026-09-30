@@ -1,4 +1,4 @@
-# Mature HU20 CPU comparison — frozen work, budget approval pending
+# Mature HU20 CPU comparison — six classes, $4 approved
 
 Task 2 is separate from [draft PR #132](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/132).
 Current merged main was pulled again at `8f50f1f` before this branch. No
@@ -8,31 +8,31 @@ with its candidate and literal-base benchmark harness. Python 3.11.14 and
 engine 5db20e3 remain pinned. #129 provides the earlier small-table platform
 parity evidence; this task measures mature state/resources independently.
 
-**No rental may begin until the owner approves the $2 total pilot cap.**
+**On September 30 the owner approved all six CPU classes and doubled the total pilot cap to $4, with concurrent independent pods allowed. No Linux outcomes or rentals preceded this amendment.**
 The [plan](../configs/blueprint/runpod-mature-cpu-pilot.json), live API catalog
 and capture provenance are committed. Recheck allocation, CPU-only status,
 availability and hourly price before creating a pod. Do not exceed the frozen
 rates; unavailable classes are explicitly pending, never replaced based on
-performance. Two completed classes suffice for the requested 2–3 comparison;
-do not hide any attempted failure.
+performance. Attempt all six declared classes. Preserve unavailable allocations and failed attempts explicitly; do not substitute a different class or silently retry a failed workload.
 
 | Class | Requested allocation | Live compute rate |
 | --- | --- | ---: |
+| CPU3 compute-optimized | 2 vCPU / 4 GB | $0.060/h |
 | CPU3 general-purpose | 2 vCPU / 8 GB | $0.080/h |
+| CPU3 memory-optimized | 2 vCPU / 16 GB | $0.110/h |
+| CPU5 compute-optimized | 2 vCPU / 4 GB | $0.070/h |
 | CPU5 general-purpose | 2 vCPU / 8 GB | $0.092/h |
 | CPU5 memory-optimized | 2 vCPU / 16 GB | $0.130/h |
 
-At two hours each, total compute is at most $0.604; the $2 cap includes setup,
-disk, transfers/retrieval, termination and billing uncertainty. Use 30 GB
-disposable container disk, no GPU or persistent/network volume. One pod at a
-time for this pilot, one trainer process per pod. Arm an independent M4
-network-only shutdown lease before provisioning; each lease expires two hours
-after creation. M1 only orchestrates lightweight API/Git/status/transfers.
-Retrieve and verify completed/partial artifacts before operator termination,
-then verify pod absence and no owned billable storage. Record posted itemized
-cost if available; otherwise distinguish measured compute-time cost and
-observed attributable debit from an unposted final invoice. Never publish
-credentials or total account balances.
+At two hours each, total quoted compute is at most **$1.084**; the **$4 total cap** includes setup, disk, transfers/retrieval, termination and billing uncertainty. Rates were rechecked against the provider CPU catalog before this amendment; allocation/availability and actual total hourly rate must be checked again at provisioning. Use 30 GB disposable container disk, no GPU or persistent/network volume.
+
+Launch up to **six independent pods concurrently**, as close together as provider availability permits, with one heavy worker per pod. Parallelism is between isolated rentals, not multiple trainer workers inside a pod. Freeze one two-hour campaign rental cutoff before the first creation; each pod must stop no later than that cutoff, which also bounds every individual rental to two hours. Arm an independent M4 network-only shutdown watchdog for all six exact owned names before creation. Do not launch if the watchdog is not armed/healthy. It must discover a created pod by its exact owned name even if a creation response is lost. Preserve unknown-outcome creation attempts and reconcile them; do not blindly retry provisioning.
+
+M1 only orchestrates lightweight API/Git/status/transfers. Linux training may overlap; retrieve and verify each archive sequentially on M4 before operator termination. On meaningful state divergence, stop all remaining owned workloads and preserve partial artifacts rather than completing extra training. At the hard rental cutoff, provider termination takes precedence over waiting for retrieval; report any unretrieved partial explicitly. Verify absence and no retained owned billable storage. Record posted itemized cost if available; otherwise distinguish measured compute-time cost and observed attributable debit from an unposted final invoice. Never publish credentials or total account balances.
+
+Record actual CPU vendor/model/family/stepping/microcode, logical affinity, visible core/socket/SMT topology, cgroup CPU quota/period and memory/swap limits, kernel/architecture, provider flavor/data center, requested and actual shape, live compute and total hourly rate, image identity and pinned engine build. More visible host cores do not imply ownership. Flavor names do not prove clock speed, memory bandwidth, or dedicated physical cores. This is one instance per class; host variation remains a limitation, not an estimated population-wide class ranking.
+
+The original three-class plan used by the already completed M4 reference is retained byte for byte in [reference-plan.json](reports/runpod-mature-cpu-artifacts/m4-reference/reference-plan.json). The amended paid matrix changes no reference workload, checkpoint, seed, runtime, RNG, scientific settings or recovery point. The M4 reference is not rerun.
 
 ## Fixed workload
 
@@ -80,7 +80,7 @@ nodes separately from the pilot's setup/recovery/retrieval-inclusive dollars.
 Record duplicate validation work explicitly. Hash-seal logs after they close,
 verify archives on M4, and retrieve only compact publication data to M1.
 
-The 8 GB shapes are admitted only if observed M4 peak and a Linux limit check
+The 4/8/16 GB shapes are admitted only if observed M4 peak and a Linux limit check
 leave room: guard owned RSS below min(10.5 GiB, 80% actual cgroup RAM). Swap
 growth <=0.5 GiB and free disk >=8 GiB. Stop and retain the attempt on a guard,
 invalid state, parity failure or cost/deadline problem; no blind retry.

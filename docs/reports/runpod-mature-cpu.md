@@ -1,6 +1,6 @@
-# Mature HU20 CPU pilot — M4 reference complete, paid comparison pending
+# Mature HU20 CPU pilot — M4 reference complete, six-class pilot approved
 
-September 30, 2026. [Draft PR #133](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/133) is separate from the [observation-reuse optimization, draft #132](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/132). Main was pulled to `8f50f1f` before branching. No rental has been created: the owner approval request for a **$2 total pilot cap** remains pending. There is no Linux mature-state parity result or measured winning CPU class yet.
+September 30, 2026. [Draft PR #133](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/133) is separate from the [observation-reuse optimization, draft #132](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/132). Main was pulled to `8f50f1f` before branching. No rental has been created. On September 30 the owner approved **all six classes, a $4 total pilot cap and concurrent independent pods**, before any Linux outcomes. There is no Linux mature-state parity result or measured winning CPU class yet.
 
 ## Frozen work and executed M4 reference
 
@@ -42,12 +42,14 @@ scp -o HostName=100.122.216.94 -o BatchMode=yes \
 
 Check the manifest hash first, then every listed size/hash. Original parent path/hash and exact executed commands are in the plan and supervisor records. Verification is reproducible with `python -m scripts.verify_mature_cpu_reference --root <root> --out <fresh-sidecar>` before the recorded deadline; after expiry, verify hashes directly without resetting the attempt clock or rerunning training.
 
-## Proposed paid comparison — approval required
+## Approved six-class comparison — launch pending
 
-The live API catalog recorded CPU3 general-purpose 2 vCPU/8 GB at **$0.080/h**, CPU5 general-purpose 2 vCPU/8 GB at **$0.092/h**, and CPU5 memory-optimized 2 vCPU/16 GB at **$0.130/h**. [Catalog/provenance](runpod-mature-cpu-artifacts/live-cpu-catalog.json) is retained; actual allocation/availability/price must be rechecked before provisioning. At a two-hour cutoff per pod, maximum quoted compute is **$0.604**; **$2 total** includes setup, storage, retrieval and billing uncertainty. No account balance is published or presumed current.
+The live CPU catalog was rechecked on September 30. At 2 vCPU, CPU3 compute/general/memory shapes provide 4/8/16 GB for **$0.060/$0.080/$0.110 per hour**; CPU5 equivalents cost **$0.070/$0.092/$0.130 per hour**. [Catalog/provenance](runpod-mature-cpu-artifacts/live-cpu-catalog.json) is retained; actual allocation/availability/price must be rechecked before provisioning. At a two-hour cutoff, maximum quoted compute for all six is **$1.084**. The owner-approved **$4 total** includes setup, storage, retrieval and billing uncertainty. No account balance is published or presumed current.
 
-One pod and one heavy process at a time; no GPU, persistent volume or assumed core scaling. Each worker captures affinity, physical topology and cgroup quota/memory. Aggregate owned RSS is bounded by the smaller of 10.5 GiB and 80% actual container RAM. Monitoring failure kills the owned process group and retains the failure. Independent provider shutdown leases must be armed before creation. Retrieval and M4 verification precede operator termination; verify pod absence afterward. Known #129 export gzip OS-byte differences must be distinguished from meaningful-state divergence, which stops this pilot. Two completed configurations suffice; attempted failures/unavailable classes remain explicit.
+All six may run concurrently, one heavy worker per pod, with an independently armed M4 shutdown watchdog and one fixed rental cutoff. M4 archive verification remains sequential. Capture actual CPU model/vendor/topology/affinity and cgroup quota/memory/swap, provider shape/data center/rate and native build identity. The smaller 4 GB shapes are admitted only after checking actual allocation against the existing RSS/headroom guard. No GPU, persistent volume or assumed core scaling. A single instance per class cannot characterize cloud host variance.
+
+The [amended frozen protocol](../runpod-mature-cpu-protocol.md) records the prospective expansion. The original M4 [reference plan](runpod-mature-cpu-artifacts/m4-reference/reference-plan.json) and all measured reference outcomes remain unchanged. Retrieve/verify before operator termination, verify pod absence afterward, and preserve failures. Known #129 export gzip OS-byte differences must be distinguished from meaningful-state divergence, which stops the pilot. No mature Linux result or winning CPU class is claimed before execution.
 
 ## Conditional future scaling plan
 
-[Plan for owner review](../hu20-100m-to-500m-resource-plan.md) fixes proposed lineages/milestones and describes capacity, evaluation and storage gates. **No final paid host recommendation is possible before the approved mature comparison.** No 500M continuation, poker evaluation, promotion or automatic merge is launched here.
+[Plan for owner review](../hu20-100m-to-500m-resource-plan.md) fixes proposed lineages/milestones and describes capacity, evaluation and storage gates. **No final paid host recommendation is possible before the approved six-class mature comparison.** No 500M continuation, poker evaluation, promotion or automatic merge is launched here.

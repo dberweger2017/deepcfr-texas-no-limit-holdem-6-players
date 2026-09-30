@@ -1,8 +1,8 @@
 {
-  "schema": "hu20-mature-cpu-pilot-v1",
+  "schema": "hu20-mature-cpu-pilot-v2",
   "base": "8f50f1f",
-  "budget_approval": "pending; do not rent",
-  "max_total_cost_usd": 2.0,
+  "budget_approval": "Owner approved six classes and doubled the total pilot cap to $4 on 2026-09-30, before Linux outcomes or rental.",
+  "max_total_cost_usd": 4.0,
   "max_rental_seconds_per_pod": 7200,
   "container_disk_gb": 30,
   "heavy_workers_per_pod": 1,
@@ -22,9 +22,42 @@
     "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a"
   },
   "configurations": [
-    {"cpu_id": "cpu3g", "vcpus": 2, "ram_gb": 8, "max_compute_usd_per_hour": 0.080},
-    {"cpu_id": "cpu5g", "vcpus": 2, "ram_gb": 8, "max_compute_usd_per_hour": 0.092},
-    {"cpu_id": "cpu5m", "vcpus": 2, "ram_gb": 16, "max_compute_usd_per_hour": 0.130}
+    {
+      "cpu_id": "cpu3c",
+      "vcpus": 2,
+      "ram_gb": 4,
+      "max_compute_usd_per_hour": 0.06
+    },
+    {
+      "cpu_id": "cpu3g",
+      "vcpus": 2,
+      "ram_gb": 8,
+      "max_compute_usd_per_hour": 0.08
+    },
+    {
+      "cpu_id": "cpu3m",
+      "vcpus": 2,
+      "ram_gb": 16,
+      "max_compute_usd_per_hour": 0.11
+    },
+    {
+      "cpu_id": "cpu5c",
+      "vcpus": 2,
+      "ram_gb": 4,
+      "max_compute_usd_per_hour": 0.07
+    },
+    {
+      "cpu_id": "cpu5g",
+      "vcpus": 2,
+      "ram_gb": 8,
+      "max_compute_usd_per_hour": 0.092
+    },
+    {
+      "cpu_id": "cpu5m",
+      "vcpus": 2,
+      "ram_gb": 16,
+      "max_compute_usd_per_hour": 0.13
+    }
   ],
   "limits": {
     "max_owned_rss_gib": 10.5,
@@ -32,6 +65,30 @@
     "max_swap_growth_gib": 0.5,
     "min_free_disk_gib": 8
   },
-  "work": ["M4 direct reference", "M4 fresh-process midpoint resume", "Linux direct per CPU class", "Linux fresh-process midpoint resume per CPU class", "independent full-state/work/RNG comparisons", "verified retrieval before termination"],
-  "not_authorized": ["automatic merge", "500M campaign", "strategy changes", "promotion"]
+  "work": [
+    "M4 direct reference",
+    "M4 fresh-process midpoint resume",
+    "Linux direct per CPU class",
+    "Linux fresh-process midpoint resume per CPU class",
+    "independent full-state/work/RNG comparisons",
+    "verified retrieval before termination"
+  ],
+  "not_authorized": [
+    "automatic merge",
+    "500M campaign",
+    "strategy changes",
+    "promotion"
+  ],
+  "max_concurrent_pods": 6,
+  "concurrency": "Independent pods; one heavy worker per pod. Provision as close together as available. M4 archive verification remains sequential.",
+  "hardware_inventory": [
+    "CPU vendor/model/family/stepping/microcode",
+    "logical CPU affinity",
+    "core/socket/SMT topology visible to container",
+    "cgroup CPU quota and period",
+    "actual cgroup RAM/swap limits",
+    "kernel/architecture",
+    "provider CPU flavor/data center/allocated shape/live compute and total rate",
+    "image and engine build identity"
+  ]
 }
