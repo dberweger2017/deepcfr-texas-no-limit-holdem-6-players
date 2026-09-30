@@ -1,0 +1,31 @@
+{
+  "files": {
+    "preflight.log": {
+      "bytes": 16024,
+      "sha256": "d5fb7c103e28936040fd1a5e0969f2ef9c533f6a89e797508a81d1e53ed5d6b7"
+    },
+    "preflight/frozen.json": {
+      "bytes": 21398,
+      "sha256": "3edc936ee7dd42bb4ac6910aa35015da4006153855d3ecb3706bbbca7924fd21"
+    },
+    "preflight/measurements.json": {
+      "bytes": 18700,
+      "sha256": "26c6db99881c5f500b782e29c5486a804df8637ae2af33d9fa0593242849a787"
+    },
+    "report.json": {
+      "bytes": 4452,
+      "sha256": "0dab47b432999678e56ee82b36630fdeadd9b40719e7f47659875b7b461158eb"
+    },
+    "research-clock.json": {
+      "bytes": 324,
+      "sha256": "6c8e7cf9c4e185dbb5362d3d6f91e9e13ae86de3358552a92460d21fcb9d9e4d"
+    },
+    "selection.json": {
+      "bytes": 16250,
+      "sha256": "39f5cfb54e0c8e325106a97388ac64113596f0b400c2258ad79c8ea5bb051993"
+    }
+  },
+  "finished": 1790750185.340914,
+  "schema": "hu20-b100-posterior-attempt-manifest-v1",
+  "source_commit": "5f94a3f32c29373123ec67aab4fc4fc4a3eecff3"
+}
