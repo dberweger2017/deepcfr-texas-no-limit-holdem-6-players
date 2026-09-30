@@ -37,11 +37,15 @@ def _work(raw_dir, selection_path):
     if selection["selection_digest"] != "578b8b67f21a15d2961e88cf498aeeb64831c9827e578e5ce1db62f85d43e322":
         raise ValueError("Unexpected #119 decision selection")
     tasks, full = [], 0
+    full_by_street = defaultdict(int)
+    full_by_seed = defaultdict(int)
     for entry, _, target_view in _selected_views(raw_dir, selection):
         options = []
         holdings = compatible_holdings(target_view)
         for event_index, prefix, _observed in observed_lbr_actions(target_view):
             full += len(holdings)
+            full_by_street[entry["street"]] += len(holdings)
+            full_by_seed[entry["seed"]] += len(holdings)
             for pair in holdings:
                 key = sha256(repr(("reverse-lbr-large-v1", entry["rank"],
                                    event_index, pair)).encode()).hexdigest()
@@ -56,7 +60,7 @@ def _work(raw_dir, selection_path):
                                          < PER_DECISION_INCREMENTAL})
     if full != EXPECTED_FULL_CALLS:
         raise ValueError(f"#119 complete-workload call count changed: {full}")
-    return tasks, full, selection["selection_digest"]
+    return tasks, full, selection["selection_digest"], dict(full_by_street), dict(full_by_seed)
 
 
 def run(raw_dir, selection_path, models_path, validation_path, out, deadline):
@@ -73,12 +77,14 @@ def run(raw_dir, selection_path, models_path, validation_path, out, deadline):
                "peak_rss_bytes": rss()}
     write_json(out / "result.json", summary)
     try:
-        tasks, full, selection_digest = _work(raw_dir, selection_path)
+        tasks, full, selection_digest, full_by_street, full_by_seed = _work(raw_dir, selection_path)
         specs = {s["seed"]: s for s in json.loads(models_path.read_text())
                  if s.get("arm") == "B" and s.get("milestone") == 100000000}
         if set(specs) != {2026093001, 2026093002, 2026093003}:
             raise ValueError("Missing saved B100M model lineage")
         summary.update({"full_one_sample_calls": full,
+                        "full_calls_by_street": full_by_street,
+                        "full_calls_by_seed": full_by_seed,
                         "selected_first_sample_calls": len(tasks),
                         "selected_incremental_calls": sum(t["incremental"] for t in tasks),
                         "selection_digest": selection_digest,
