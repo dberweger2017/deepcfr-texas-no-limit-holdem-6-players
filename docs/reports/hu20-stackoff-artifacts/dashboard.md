@@ -1,0 +1,188 @@
+# HU20 post-Luna regression dashboard
+
+Schedule status: **complete**; 55,296/55,296 attempted hands; 0 failed; 0 unattempted.
+
+This is a post-Luna stress test, not independent confirmation, exact exploitability or a strength claim.
+
+Intervals are exploratory unadjusted 95%, conditional on the three fixed lineages. I average shared lineages within each paired deal block before calculating aggregate intervals; rotations and lineages are not independent samples.
+
+## Three-lineage checkpoint panel (BB/100)
+
+| Opponent | Work milestone | Paired blocks | Overall [95% CI] | Button [95% CI] | BB [95% CI] |
+| --- | ---: | ---: | --- | --- | --- |
+| Selective-stackoff-v1 | 20M | 1024 | +27.24 [+19.14, +35.33] | +29.44 [+16.28, +42.61] | +25.03 [+12.35, +37.71] |
+| Selective-stackoff-v1 | 40M | 1024 | +34.21 [+26.60, +41.82] | +39.81 [+27.84, +51.78] | +28.61 [+17.49, +39.74] |
+| Selective-stackoff-v1 | 80M | 1024 | +37.08 [+28.59, +45.58] | +44.09 [+28.96, +59.22] | +30.08 [+19.65, +40.51] |
+| Selective-stackoff-v1 | 100M | 1024 | +40.34 [+32.19, +48.50] | +49.04 [+35.06, +63.02] | +31.64 [+21.51, +41.78] |
+| Pressure-original-cap2 | 20M | 128 | +45.05 [-5.52, +95.63] | -24.74 [-116.37, +66.89] | +114.84 [+10.81, +218.87] |
+| Pressure-original-cap2 | 40M | 128 | +9.24 [-41.63, +60.12] | -88.80 [-195.59, +17.98] | +107.29 [+4.34, +210.24] |
+| Pressure-original-cap2 | 80M | 128 | -16.86 [-66.73, +33.01] | -102.21 [-213.52, +9.09] | +68.49 [-35.00, +171.97] |
+| Pressure-original-cap2 | 100M | 128 | -0.07 [-51.72, +51.59] | -105.60 [-224.81, +13.61] | +105.47 [+0.39, +210.55] |
+| Pressure-native | 20M | 256 | +81.41 [+29.60, +133.23] | +99.80 [-15.69, +215.30] | +63.02 [-57.30, +183.34] |
+| Pressure-native | 40M | 256 | +92.84 [+43.64, +142.04] | +124.74 [+10.07, +239.41] | +60.94 [-52.64, +174.52] |
+| Pressure-native | 80M | 256 | +105.99 [+55.98, +156.00] | +135.16 [+15.05, +255.26] | +76.82 [-46.41, +200.05] |
+| Pressure-native | 100M | 256 | +84.11 [+32.26, +135.96] | +76.69 [-40.87, +194.25] | +91.54 [-30.11, +213.19] |
+| Minraise-original-cap2 | 20M | 128 | +44.60 [-39.43, +128.63] | -40.76 [-228.43, +146.92] | +129.95 [-90.39, +350.28] |
+| Minraise-original-cap2 | 40M | 128 | +62.24 [-21.18, +145.66] | +60.68 [-123.13, +244.48] | +63.80 [-124.05, +251.66] |
+| Minraise-original-cap2 | 80M | 128 | +90.17 [+10.00, +170.34] | +0.91 [-185.41, +187.24] | +179.43 [-8.44, +367.29] |
+| Minraise-original-cap2 | 100M | 128 | +113.67 [+32.30, +195.04] | +10.94 [-174.18, +196.06] | +216.41 [+17.67, +415.15] |
+| Minraise-native | 20M | 128 | +130.27 [+42.14, +218.40] | +294.14 [+98.50, +489.78] | -33.59 [-258.12, +190.93] |
+| Minraise-native | 40M | 128 | +129.36 [+44.96, +213.76] | +295.18 [+95.70, +494.66] | -36.46 [-232.37, +159.45] |
+| Minraise-native | 80M | 128 | +130.27 [+38.22, +222.33] | +295.44 [+94.46, +496.43] | -34.90 [-232.30, +162.50] |
+| Minraise-native | 100M | 128 | +143.29 [+52.14, +234.45] | +355.86 [+150.45, +561.27] | -69.27 [-258.21, +119.67] |
+| Passive | 20M | 128 | +83.14 [+33.35, +132.92] | +187.11 [+66.60, +307.62] | -20.83 [-128.76, +87.09] |
+| Passive | 40M | 128 | +100.78 [+56.03, +145.53] | +250.78 [+119.20, +382.36] | -49.22 [-157.25, +58.81] |
+| Passive | 80M | 128 | +122.72 [+74.34, +171.10] | +261.85 [+121.13, +402.57] | -16.41 [-128.75, +95.94] |
+| Passive | 100M | 128 | +96.22 [+44.90, +147.55] | +242.45 [+100.69, +384.20] | -50.00 [-154.32, +54.32] |
+| loose_passive | 20M | 64 | +52.47 [-1.80, +106.75] | +65.62 [-66.56, +197.81] | +39.32 [-82.48, +161.12] |
+| loose_passive | 40M | 64 | +54.17 [+0.92, +107.42] | +47.66 [-74.95, +170.27] | +60.68 [-48.94, +170.29] |
+| loose_passive | 80M | 64 | +36.72 [-27.99, +101.43] | +45.05 [-87.05, +177.16] | +28.39 [-84.15, +140.92] |
+| loose_passive | 100M | 64 | +39.19 [-19.78, +98.16] | +78.12 [-41.28, +197.53] | +0.26 [-131.52, +132.04] |
+| loose_aggressive | 20M | 64 | -6.12 [-69.59, +57.35] | +34.11 [-110.72, +178.95] | -46.35 [-191.65, +98.95] |
+| loose_aggressive | 40M | 64 | -2.34 [-64.38, +59.69] | +29.69 [-96.66, +156.04] | -34.38 [-148.76, +80.01] |
+| loose_aggressive | 80M | 64 | -1.04 [-51.47, +49.38] | +29.17 [-86.34, +144.68] | -31.25 [-139.46, +76.96] |
+| loose_aggressive | 100M | 64 | +1.56 [-46.44, +49.57] | +39.58 [-76.17, +155.34] | -36.46 [-146.86, +73.94] |
+| tight_passive | 20M | 64 | +27.99 [+3.89, +52.10] | +40.89 [+20.41, +61.36] | +15.10 [-31.45, +61.66] |
+| tight_passive | 40M | 64 | +33.72 [+19.48, +47.97] | +37.24 [+19.44, +55.04] | +30.21 [+4.97, +55.45] |
+| tight_passive | 80M | 64 | +23.96 [-0.71, +48.63] | +29.17 [-3.82, +62.15] | +18.75 [-21.60, +59.10] |
+| tight_passive | 100M | 64 | +28.52 [+7.33, +49.70] | +40.36 [+18.06, +62.66] | +16.67 [-24.25, +57.59] |
+| tight_aggressive | 20M | 64 | +37.63 [-7.17, +82.43] | +39.58 [-20.51, +99.68] | +35.68 [-30.12, +101.47] |
+| tight_aggressive | 40M | 64 | +29.04 [-5.46, +63.54] | +40.62 [-13.21, +94.46] | +17.45 [-27.53, +62.43] |
+| tight_aggressive | 80M | 64 | +39.19 [-11.90, +90.28] | +43.23 [-4.69, +91.15] | +35.16 [-55.67, +125.99] |
+| tight_aggressive | 100M | 64 | +42.45 [-1.98, +86.87] | +52.34 [+8.47, +96.21] | +32.55 [-45.39, +110.49] |
+| pot_pressure | 20M | 64 | +15.89 [-70.42, +102.19] | +34.11 [-114.21, +182.44] | -2.34 [-130.98, +126.29] |
+| pot_pressure | 40M | 64 | +12.76 [-77.84, +103.36] | +28.39 [-132.50, +189.27] | -2.86 [-131.63, +125.90] |
+| pot_pressure | 80M | 64 | +21.61 [-67.21, +110.44] | +36.72 [-118.43, +191.87] | +6.51 [-122.03, +135.05] |
+| pot_pressure | 100M | 64 | +15.49 [-74.97, +105.96] | +27.60 [-128.96, +184.17] | +3.39 [-124.97, +131.74] |
+| hu20_uniform | 20M | 64 | +128.91 [+51.67, +206.15] | +140.62 [-49.15, +330.40] | +117.19 [+16.02, +218.35] |
+| hu20_uniform | 40M | 64 | +132.29 [+44.22, +220.37] | +170.31 [-11.21, +351.83] | +94.27 [-34.10, +222.65] |
+| hu20_uniform | 80M | 64 | +136.85 [+52.69, +221.01] | +129.95 [-43.20, +303.10] | +143.75 [+27.51, +259.99] |
+| hu20_uniform | 100M | 64 | +126.04 [+46.97, +205.12] | +141.15 [-29.70, +311.99] | +110.94 [+1.05, +220.82] |
+| LBR-original-cap2 | 20M | 128 | -104.30 [-164.43, -44.16] | -78.12 [-199.96, +43.71] | -130.47 [-267.08, +6.14] |
+| LBR-original-cap2 | 40M | 128 | -96.03 [-152.54, -39.51] | -127.99 [-262.98, +6.99] | -64.06 [-180.35, +52.23] |
+| LBR-original-cap2 | 80M | 128 | -86.00 [-145.49, -26.52] | -85.03 [-213.51, +43.46] | -86.98 [-204.61, +30.65] |
+| LBR-original-cap2 | 100M | 128 | -97.07 [-157.54, -36.60] | -119.40 [-239.85, +1.05] | -74.74 [-203.18, +53.70] |
+
+## Stress checkpoint changes
+
+| Baseline → candidate | Paired blocks | Difference in BB/100 [95% CI] |
+| --- | ---: | --- |
+| 20M → 40M | 1024 | +6.97 [+0.34, +13.61] |
+| 20M → 80M | 1024 | +9.85 [+3.56, +16.13] |
+| 20M → 100M | 1024 | +13.10 [+6.79, +19.41] |
+| 40M → 80M | 1024 | +2.87 [-3.95, +9.69] |
+| 80M → 100M | 1024 | +3.26 [-1.89, +8.40] |
+
+## Stress test by saved lineage
+
+| Seed | Work | Overall [95% CI] | Button [95% CI] | BB [95% CI] |
+| --- | ---: | --- | --- | --- |
+| 2026093001 | 20M | +26.90 [+15.62, +38.19] | +34.28 [+17.56, +50.99] | +19.53 [+2.73, +36.33] |
+| 2026093001 | 40M | +31.03 [+21.02, +41.04] | +34.33 [+18.51, +50.14] | +27.73 [+14.19, +41.28] |
+| 2026093001 | 80M | +43.02 [+32.64, +53.39] | +48.44 [+29.24, +67.64] | +37.60 [+27.47, +47.73] |
+| 2026093001 | 100M | +38.33 [+27.73, +48.93] | +42.19 [+23.95, +60.42] | +34.47 [+22.23, +46.71] |
+| 2026093002 | 20M | +27.66 [+17.44, +37.88] | +31.49 [+14.71, +48.28] | +23.83 [+8.99, +38.67] |
+| 2026093002 | 40M | +33.35 [+23.23, +43.47] | +37.11 [+20.92, +53.30] | +29.59 [+15.72, +43.46] |
+| 2026093002 | 80M | +35.23 [+25.54, +44.91] | +40.87 [+24.05, +57.69] | +29.59 [+17.08, +42.10] |
+| 2026093002 | 100M | +28.86 [+18.44, +39.28] | +33.01 [+16.10, +49.92] | +24.71 [+11.11, +38.31] |
+| 2026093003 | 20M | +27.15 [+17.07, +37.23] | +22.56 [+5.84, +39.27] | +31.74 [+16.75, +46.73] |
+| 2026093003 | 40M | +38.26 [+27.85, +48.66] | +48.00 [+31.30, +64.69] | +28.52 [+14.53, +42.51] |
+| 2026093003 | 80M | +33.01 [+21.60, +44.41] | +42.97 [+23.52, +62.41] | +23.05 [+8.50, +37.59] |
+| 2026093003 | 100M | +53.83 [+43.87, +63.79] | +71.92 [+54.73, +89.12] | +35.74 [+24.63, +46.85] |
+
+## Stress tails: counts with denominators
+
+Large means at least 800 additional chips for the rival to call. Opportunities count decisions, not menu options. Jam means an exact all-in raise; all-in calls are excluded. Counts are descriptive and shared deals remain correlated.
+
+| Seed | Work | Hands | Large raises / opportunities | Rival folds / responses | Continuations / responses | Jams / opportunities | +20BB wins / hands | −20BB losses / hands | Fallback / target decisions | Large fallback / large raises |
+| --- | ---: | ---: | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2026093001 | 20M | 2048 | 39/102 | 6/39 | 33/39 | 27/102 | 8/2048 | 15/2048 | 5/2571 | 1/39 |
+| 2026093001 | 40M | 2048 | 23/83 | 2/23 | 21/23 | 18/85 | 6/2048 | 9/2048 | 4/2752 | 1/23 |
+| 2026093001 | 80M | 2048 | 29/95 | 3/29 | 26/29 | 22/96 | 9/2048 | 11/2048 | 1/2731 | 1/29 |
+| 2026093001 | 100M | 2048 | 32/93 | 4/32 | 28/32 | 21/93 | 7/2048 | 12/2048 | 0/2673 | 0/32 |
+| 2026093002 | 20M | 2048 | 36/83 | 6/36 | 30/36 | 20/83 | 7/2048 | 11/2048 | 7/2626 | 2/36 |
+| 2026093002 | 40M | 2048 | 33/82 | 8/33 | 25/33 | 21/83 | 5/2048 | 11/2048 | 3/2701 | 1/33 |
+| 2026093002 | 80M | 2048 | 26/78 | 1/26 | 25/26 | 20/79 | 8/2048 | 11/2048 | 2/2814 | 2/26 |
+| 2026093002 | 100M | 2048 | 30/95 | 3/30 | 27/30 | 22/98 | 7/2048 | 10/2048 | 0/2823 | 0/30 |
+| 2026093003 | 20M | 2048 | 36/90 | 6/36 | 30/36 | 24/93 | 7/2048 | 14/2048 | 12/2623 | 4/36 |
+| 2026093003 | 40M | 2048 | 33/91 | 4/33 | 29/33 | 22/92 | 6/2048 | 11/2048 | 5/2667 | 1/33 |
+| 2026093003 | 80M | 2048 | 36/111 | 1/36 | 35/36 | 31/115 | 10/2048 | 18/2048 | 2/2619 | 1/36 |
+| 2026093003 | 100M | 2048 | 26/105 | 1/26 | 25/26 | 18/106 | 13/2048 | 3/2048 | 1/2630 | 1/26 |
+
+## Whole-hand return partitions (stress)
+
+**These are whole-hand returns, not individual-bet EV.** I partition each hand using only its first large target raise; later raises do not duplicate its profit. No-response cases are explicit. JSON retains individual-seed and positional partitions.
+
+| Work | First large raise response | Hands | Total target BB | Mean target BB/hand |
+| ---: | --- | ---: | ---: | ---: |
+| 20M | folded | 18 | +94.00 | +5.2222 |
+| 20M | continued | 88 | -475.00 | -5.3977 |
+| 20M | no_response | 0 | +0.00 | unavailable |
+| 20M | no_large_raise | 6038 | +2054.50 | +0.3403 |
+| 40M | folded | 14 | +77.00 | +5.5000 |
+| 40M | continued | 74 | -467.00 | -6.3108 |
+| 40M | no_response | 0 | +0.00 | unavailable |
+| 40M | no_large_raise | 6056 | +2492.00 | +0.4115 |
+| 80M | folded | 5 | +25.00 | +5.0000 |
+| 80M | continued | 82 | -284.00 | -3.4634 |
+| 80M | no_response | 0 | +0.00 | unavailable |
+| 80M | no_large_raise | 6057 | +2537.50 | +0.4189 |
+| 100M | folded | 8 | +44.00 | +5.5000 |
+| 100M | continued | 79 | -101.00 | -1.2785 |
+| 100M | no_response | 0 | +0.00 | unavailable |
+| 100M | no_large_raise | 6057 | +2535.50 | +0.4186 |
+
+## Stress late-street lookup exposure
+
+| Seed | Work | Preflop fallback / decisions | Flop fallback / decisions | Turn fallback / decisions | River fallback / decisions |
+| --- | ---: | --- | --- | --- | --- |
+| 2026093001 | 20M | 0/1322 | 0/604 | 1/368 | 4/277 |
+| 2026093001 | 40M | 0/1320 | 0/642 | 0/443 | 4/347 |
+| 2026093001 | 80M | 0/1321 | 0/685 | 1/427 | 0/298 |
+| 2026093001 | 100M | 0/1319 | 0/644 | 0/422 | 0/288 |
+| 2026093002 | 20M | 0/1322 | 0/586 | 2/413 | 5/305 |
+| 2026093002 | 40M | 0/1323 | 0/647 | 1/434 | 2/297 |
+| 2026093002 | 80M | 0/1323 | 0/672 | 1/513 | 1/306 |
+| 2026093002 | 100M | 0/1325 | 0/675 | 0/482 | 0/341 |
+| 2026093003 | 20M | 0/1320 | 0/612 | 4/392 | 8/299 |
+| 2026093003 | 40M | 0/1319 | 0/668 | 2/400 | 3/280 |
+| 2026093003 | 80M | 0/1320 | 0/622 | 0/396 | 2/281 |
+| 2026093003 | 100M | 0/1318 | 0/618 | 0/397 | 1/297 |
+
+## Bounded LBR execution
+
+| Seed | Work | Decisions | Completed / requested batches | Partial decisions | Over soft budget | Zero-likelihood events |
+| --- | ---: | ---: | --- | ---: | ---: | ---: |
+| 2026093001 | 20M | 549 | 2130/2130 | 0 | 0 | 0 |
+| 2026093001 | 40M | 553 | 2134/2134 | 0 | 0 | 0 |
+| 2026093001 | 80M | 516 | 2001/2001 | 0 | 0 | 0 |
+| 2026093001 | 100M | 539 | 2069/2069 | 0 | 0 | 0 |
+| 2026093002 | 20M | 582 | 2241/2241 | 0 | 0 | 0 |
+| 2026093002 | 40M | 527 | 2057/2057 | 0 | 0 | 0 |
+| 2026093002 | 80M | 527 | 2036/2036 | 0 | 0 | 0 |
+| 2026093002 | 100M | 536 | 2051/2051 | 0 | 0 | 0 |
+| 2026093003 | 20M | 506 | 1961/1961 | 0 | 0 | 0 |
+| 2026093003 | 40M | 529 | 2053/2053 | 0 | 0 | 0 |
+| 2026093003 | 80M | 559 | 2152/2152 | 0 | 0 | 0 |
+| 2026093003 | 100M | 532 | 2086/2086 | 0 | 0 | 0 |
+
+## Interpretation limits
+
+I retain the complete scripted/LBR panel, individual-seed differences and positional tails in `summary.json`. This fresh, smaller schedule does not replace or pool #116/#117. Positive scripted-opponent returns do not establish general wins. Training-node work is not a count of poker hands. Similar aggression across card buckets alone does not prove an error.
+
+## Made hands at the first large target raise (post-hoc)
+
+I split each hand by whether the rival had already raised on that street. Both cards are joined only in offline simulator analysis; each policy still uses its own observation. Ahead/behind/tied compares made hands on the board at the raise, not the final board or equity. Preflop comparisons are separate. Whole-hand returns are not individual-bet EV; draws and semi-bluffs are not valued. These selected, correlated events against one exploitable opponent do not establish the cause of Luna’s results.
+
+| Work | Situation | Hands | Folds / continued / no response | Ahead / behind / tied / preflop when continued | One pair / postflop continuations | Whole-hand target BB |
+| ---: | --- | ---: | --- | --- | --- | ---: |
+| 20M | after_rival_raise | 51 | 0 / 51 / 0 | 20 / 29 / 1 / 1 | 11/50 | -147.00 |
+| 20M | no_rival_raise | 55 | 18 / 37 / 0 | 9 / 27 / 1 / 0 | 11/37 | -234.00 |
+| 40M | after_rival_raise | 35 | 0 / 35 / 0 | 9 / 22 / 3 / 1 | 11/34 | -202.00 |
+| 40M | no_rival_raise | 53 | 14 / 39 / 0 | 11 / 27 / 1 / 0 | 12/39 | -188.00 |
+| 80M | after_rival_raise | 38 | 0 / 38 / 0 | 17 / 19 / 2 / 0 | 6/38 | -12.00 |
+| 80M | no_rival_raise | 49 | 5 / 44 / 0 | 14 / 28 / 2 / 0 | 9/44 | -247.00 |
+| 100M | after_rival_raise | 35 | 0 / 35 / 0 | 16 / 16 / 2 / 1 | 11/34 | +72.00 |
+| 100M | no_rival_raise | 52 | 8 / 44 / 0 | 16 / 25 / 3 / 0 | 7/44 | -129.00 |
+
+Individual-lineage counts, street denominators and all made-hand categories are in `large-raise-made-hands.json`; exact selected events are in `large-raise-made-hands.rows.jsonl`. The v1 opponent and original campaign schedule remain frozen.

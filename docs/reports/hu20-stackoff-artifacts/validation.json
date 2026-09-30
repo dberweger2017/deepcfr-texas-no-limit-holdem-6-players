@@ -1,0 +1,55 @@
+{
+  "checker_source_sha256": "1969e68d8860ac3ec79fea67529f6824d1872d39bd839a6e6c368e8935334d39",
+  "final_focused_tests": {
+    "passed": 33,
+    "platform": "M1",
+    "seconds": 1.94
+  },
+  "full_observation_and_query_check": {
+    "holding_queries": 142692,
+    "independently_recomputed_tail_rows": 55296,
+    "lbr_decisions": 6455,
+    "lbr_max_seconds": 2.063121915969532,
+    "lbr_over_soft_budget": 0,
+    "lbr_partial_decisions": 0,
+    "native_compact_replays": 55296,
+    "raw_decision_rows": 230807,
+    "seconds": 17.17095708847046,
+    "status": "complete",
+    "verified_packaged_files": 27
+  },
+  "gameplay_source": "1e7fd1a1d68ce5f001b8000be4e385da8076f88e",
+  "initial_full_tests": {
+    "passed": 1054,
+    "seconds": 471.78,
+    "subtests": 54
+  },
+  "inspection_source": "3c2d9ee3a55c8d09c7b36968e047fbb30c61d348",
+  "post_hoc_made_hand_review": {
+    "checker_source_sha256": "0df034a3ad2b8ae314276e8dd6adab88edc2635e2f5b95530bbb4ee8f135644f",
+    "development_failure": "The initial preflop fixture caught a shared counter name between comparison and street counts; separate names corrected it before final verification.",
+    "first_large_raise_hands": 368,
+    "focused_tests": {
+      "passed": 38,
+      "platform": "M1",
+      "seconds": 1.61
+    },
+    "model_loads": 0,
+    "module_source_sha256": "c086a91bb35447fcb116c43a6602888605f498bb384a3a3600d8dfe4a4878a03",
+    "native_replays": 55296,
+    "raw_decisions": 230807,
+    "report_script_sha256": "e1ec8615e1da90a418d47cd67de05c0b3e1ec272129983c1c6133008c662f55f",
+    "seconds": 17.147047996520996,
+    "status": "complete",
+    "unchanged_raw_records_and_paired_summary": true,
+    "verified_files": 30
+  },
+  "public_packaged_check": {
+    "native_replays": 55296,
+    "raw_decisions": 230807,
+    "seconds": 16.76682686805725,
+    "status": "complete",
+    "verified_files": 27
+  },
+  "validated_initial_manifest_sha256": "bc6efd2bb37bea3b583f0d3c910e9b03d41b3d577c1b2e08f487ad5632f8fcbb"
+}

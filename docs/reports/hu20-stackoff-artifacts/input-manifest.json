@@ -1,0 +1,126 @@
+{
+  "files": [
+    {
+      "file": "B-2026093001-20000000.policy.json.gz",
+      "bytes": 19909128,
+      "sha256": "198dae3eb36b6a830ab106ba13032ecab10fc1f2fc12bc4bb9bc06dcce9a01a6"
+    },
+    {
+      "file": "B-2026093001-20000000.checkpoint.json.gz",
+      "bytes": 33278287,
+      "sha256": "cb4ca3348398f358c611d92467ae9f891de41f64e374cd847c0103ccb2d62822"
+    },
+    {
+      "file": "B-2026093001-40000000.policy.json.gz",
+      "bytes": 27487536,
+      "sha256": "12d3f1ad67d08b350363ce57665347c2de5edc46fab67e474c5f175d6a5271b7"
+    },
+    {
+      "file": "B-2026093001-40000000.checkpoint.json.gz",
+      "bytes": 46904514,
+      "sha256": "2a47a14f77cc9c30b51daaaa7bb9d10f994199db798dc597dbbeeadaf2f3e2f1"
+    },
+    {
+      "file": "B-2026093001-80000000.policy.json.gz",
+      "bytes": 36720930,
+      "sha256": "b24b9de99b82adeb8c41e26346d892e4a578764eff5ffe1b77c2322b767f4d4e"
+    },
+    {
+      "file": "B-2026093001-80000000.checkpoint.json.gz",
+      "bytes": 64147744,
+      "sha256": "5aa715cff787668f70b3c42440fe12c401f6d49a4915cb9e694a61b86dc41e31"
+    },
+    {
+      "file": "B-2026093001-100000000.policy.json.gz",
+      "bytes": 40144034,
+      "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+    },
+    {
+      "file": "B-2026093001-100000000.checkpoint.json.gz",
+      "bytes": 70724170,
+      "sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a"
+    },
+    {
+      "file": "B-2026093002-20000000.policy.json.gz",
+      "bytes": 19887631,
+      "sha256": "4a8c3123437a28c5bea49447e67a91e490096819b3b820fd47c1ffb3f4bb0243"
+    },
+    {
+      "file": "B-2026093002-20000000.checkpoint.json.gz",
+      "bytes": 33264621,
+      "sha256": "03bfacfdb56801d2d079d350dcdb539e1dba02bcbef9c443a08c5299ff49f358"
+    },
+    {
+      "file": "B-2026093002-40000000.policy.json.gz",
+      "bytes": 27464634,
+      "sha256": "01468192bc717671dc504ab1d1f36a6e5e8a12fea9023ee1433acd2229b7cb7e"
+    },
+    {
+      "file": "B-2026093002-40000000.checkpoint.json.gz",
+      "bytes": 46924348,
+      "sha256": "ac05b4cd138a5239d2ca63e58499bfd76d7750b7b74fff3d2bcac9f08a1bb2f4"
+    },
+    {
+      "file": "B-2026093002-80000000.policy.json.gz",
+      "bytes": 36683467,
+      "sha256": "403e4731cf6102d3c7f64a2d93ff57a59199720a94b44b24e6b9d279707aae18"
+    },
+    {
+      "file": "B-2026093002-80000000.checkpoint.json.gz",
+      "bytes": 64121621,
+      "sha256": "92ef4bfd690e26dd3c8ecfb236b009fce8691a83a81169458b06a855e15248ea"
+    },
+    {
+      "file": "B-2026093002-100000000.policy.json.gz",
+      "bytes": 40096108,
+      "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710"
+    },
+    {
+      "file": "B-2026093002-100000000.checkpoint.json.gz",
+      "bytes": 70620325,
+      "sha256": "830c7c470de2a416b2cb030af6abb76bbb49b2757ff1a8300b0f30a75de3b965"
+    },
+    {
+      "file": "B-2026093003-20000000.policy.json.gz",
+      "bytes": 19743713,
+      "sha256": "76af425b2457777c64caf8ac44819ae7d28e915b4d8b0b95625f82d96773fbb8"
+    },
+    {
+      "file": "B-2026093003-20000000.checkpoint.json.gz",
+      "bytes": 32970622,
+      "sha256": "aa65e5633cc87c7d23bcb3be871813f3413120a256fe38ebdb2383215acf5afd"
+    },
+    {
+      "file": "B-2026093003-40000000.policy.json.gz",
+      "bytes": 27386987,
+      "sha256": "c88d3c22dd9fc5f6ffa0b060a6101fde568338fdf4c9df44ef76902425b8009a"
+    },
+    {
+      "file": "B-2026093003-40000000.checkpoint.json.gz",
+      "bytes": 46731248,
+      "sha256": "ddfb6bae3b4e0c864f13227e0b681d5eb932923ebc015f1da641eb37490aebfa"
+    },
+    {
+      "file": "B-2026093003-80000000.policy.json.gz",
+      "bytes": 36723220,
+      "sha256": "3ce0a4adfb68406e6d0d40718a8a1a68a9aaccbb9c6e6f589ab830b06f8bbe42"
+    },
+    {
+      "file": "B-2026093003-80000000.checkpoint.json.gz",
+      "bytes": 64113403,
+      "sha256": "03c87286cd152018b1bd727357a14d8783ce601a461b083be73566d2a814a279"
+    },
+    {
+      "file": "B-2026093003-100000000.policy.json.gz",
+      "bytes": 40229571,
+      "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e"
+    },
+    {
+      "file": "B-2026093003-100000000.checkpoint.json.gz",
+      "bytes": 70773417,
+      "sha256": "77bb18426aecdf6d9e83a9c8eb807f7e6671ab01ffafc94e348382a677e9df1b"
+    }
+  ],
+  "finished": 1790799544.374758,
+  "wrapper_note": "All copies/hash checks succeeded; metadata finalization repaired locally after time-module call and Python-version errors."
+}

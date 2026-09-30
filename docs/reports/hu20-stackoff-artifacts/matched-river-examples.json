@@ -1,0 +1,1394 @@
+[
+  {
+    "model": "B-2026093001-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 229,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093001-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 229,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093001-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 37,
+    "trained": true,
+    "large_raise_probability": 0.5620741394715131,
+    "jam_probability": 0.4957980905077562,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.4379258605284869,
+      0.06627604896375686,
+      0.4957980905077562
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093001-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 3,
+    "trained": true,
+    "large_raise_probability": 0.7955514369846917,
+    "jam_probability": 0.7657071725970255,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.2044485630153084,
+      0.029844264387666145,
+      0.7657071725970255
+    ],
+    "example": "quad_sevens"
+  },
+  {
+    "model": "B-2026093001-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 32,
+    "trained": true,
+    "large_raise_probability": 0.11810736436185526,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      0.5392315342896405,
+      0.3426611013485042,
+      0.11810736436185526,
+      0.0
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093001-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 32,
+    "trained": true,
+    "large_raise_probability": 0.11810736436185526,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      0.5392315342896405,
+      0.3426611013485042,
+      0.11810736436185526,
+      0.0
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093001-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 5,
+    "trained": true,
+    "large_raise_probability": 1.0,
+    "jam_probability": 1.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093001-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 1,
+    "trained": true,
+    "large_raise_probability": 0.731958762886598,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.26804123711340205,
+      0.731958762886598,
+      0.0
+    ],
+    "example": "quad_sevens"
+  },
+  {
+    "model": "B-2026093001-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 89,
+    "trained": true,
+    "large_raise_probability": 0.676970455431426,
+    "jam_probability": 0.31482144637896814,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.32302954456857397,
+      0.36214900905245784,
+      0.31482144637896814
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093001-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 89,
+    "trained": true,
+    "large_raise_probability": 0.676970455431426,
+    "jam_probability": 0.31482144637896814,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.32302954456857397,
+      0.36214900905245784,
+      0.31482144637896814
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093001-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 9,
+    "trained": true,
+    "large_raise_probability": 1.0,
+    "jam_probability": 0.7943081620168865,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.0,
+      0.20569183798311352,
+      0.7943081620168865
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093001-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 1,
+    "trained": true,
+    "large_raise_probability": 0.731958762886598,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.26804123711340205,
+      0.731958762886598,
+      0.0
+    ],
+    "example": "quad_sevens"
+  },
+  {
+    "model": "B-2026093001-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 204,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093001-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 204,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093001-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 33,
+    "trained": true,
+    "large_raise_probability": 0.5620741394715131,
+    "jam_probability": 0.4957980905077562,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.4379258605284869,
+      0.06627604896375686,
+      0.4957980905077562
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093001-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 3,
+    "trained": true,
+    "large_raise_probability": 0.7955514369846917,
+    "jam_probability": 0.7657071725970255,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.2044485630153084,
+      0.029844264387666145,
+      0.7657071725970255
+    ],
+    "example": "quad_sevens"
+  },
+  {
+    "model": "B-2026093002-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 138,
+    "trained": true,
+    "large_raise_probability": 0.33553664146380874,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      0.6644633585361913,
+      0.0,
+      0.33553664146380874,
+      0.0
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093002-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 138,
+    "trained": true,
+    "large_raise_probability": 0.33553664146380874,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      0.6644633585361913,
+      0.0,
+      0.33553664146380874,
+      0.0
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093002-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 6,
+    "trained": true,
+    "large_raise_probability": 0.8319961261800444,
+    "jam_probability": 0.2007615662684629,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.16800387381995566,
+      0.6312345599115815,
+      0.2007615662684629
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093002-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 2,
+    "trained": true,
+    "large_raise_probability": 1.0,
+    "jam_probability": 1.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "example": "quad_sevens"
+  },
+  {
+    "model": "B-2026093002-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 30,
+    "trained": true,
+    "large_raise_probability": 0.5659067675958478,
+    "jam_probability": 0.10016866065898639,
+    "probabilities": [
+      0.0,
+      0.43409323240415226,
+      0.0,
+      0.46573810693686135,
+      0.10016866065898639
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093002-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 30,
+    "trained": true,
+    "large_raise_probability": 0.5659067675958478,
+    "jam_probability": 0.10016866065898639,
+    "probabilities": [
+      0.0,
+      0.43409323240415226,
+      0.0,
+      0.46573810693686135,
+      0.10016866065898639
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093002-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 3,
+    "trained": true,
+    "large_raise_probability": 0.6457761601049825,
+    "jam_probability": 0.523971419693987,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.35422383989501754,
+      0.1218047404109955,
+      0.523971419693987
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093002-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 2,
+    "trained": true,
+    "large_raise_probability": 1.0,
+    "jam_probability": 1.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "example": "quad_sevens"
+  },
+  {
+    "model": "B-2026093002-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 68,
+    "trained": true,
+    "large_raise_probability": 0.9462071032151863,
+    "jam_probability": 0.4255989074895079,
+    "probabilities": [
+      0.0,
+      0.05379289678481372,
+      0.0,
+      0.5206081957256784,
+      0.4255989074895079
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093002-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 68,
+    "trained": true,
+    "large_raise_probability": 0.9462071032151863,
+    "jam_probability": 0.4255989074895079,
+    "probabilities": [
+      0.0,
+      0.05379289678481372,
+      0.0,
+      0.5206081957256784,
+      0.4255989074895079
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093002-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 5,
+    "trained": true,
+    "large_raise_probability": 0.6198281204949848,
+    "jam_probability": 0.5114869420148873,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.38017187950501513,
+      0.10834117848009751,
+      0.5114869420148873
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093002-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 2,
+    "trained": true,
+    "large_raise_probability": 1.0,
+    "jam_probability": 1.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "example": "quad_sevens"
+  },
+  {
+    "model": "B-2026093002-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 131,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093002-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 131,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093002-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 6,
+    "trained": true,
+    "large_raise_probability": 0.8319961261800444,
+    "jam_probability": 0.2007615662684629,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.16800387381995566,
+      0.6312345599115815,
+      0.2007615662684629
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093002-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 2,
+    "trained": true,
+    "large_raise_probability": 1.0,
+    "jam_probability": 1.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "example": "quad_sevens"
+  },
+  {
+    "model": "B-2026093003-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 358,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093003-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 358,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093003-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 29,
+    "trained": true,
+    "large_raise_probability": 1.0,
+    "jam_probability": 1.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093003-100000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 0,
+    "trained": false,
+    "large_raise_probability": 0.4,
+    "jam_probability": 0.2,
+    "probabilities": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "example": "quad_sevens"
+  },
+  {
+    "model": "B-2026093003-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 110,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093003-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 110,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093003-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 8,
+    "trained": true,
+    "large_raise_probability": 1.0,
+    "jam_probability": 0.125919521899821,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.0,
+      0.874080478100179,
+      0.125919521899821
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093003-20000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 0,
+    "trained": false,
+    "large_raise_probability": 0.4,
+    "jam_probability": 0.2,
+    "probabilities": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "example": "quad_sevens"
+  },
+  {
+    "model": "B-2026093003-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 141,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093003-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 141,
+    "trained": true,
+    "large_raise_probability": 0.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093003-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 11,
+    "trained": true,
+    "large_raise_probability": 1.0,
+    "jam_probability": 0.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093003-40000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 0,
+    "trained": false,
+    "large_raise_probability": 0.4,
+    "jam_probability": 0.2,
+    "probabilities": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "example": "quad_sevens"
+  },
+  {
+    "model": "B-2026093003-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "2c",
+      "2d"
+    ],
+    "concrete_category": "board_only",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 347,
+    "trained": true,
+    "large_raise_probability": 0.18506306784000107,
+    "jam_probability": 0.18506306784000107,
+    "probabilities": [
+      0.0,
+      0.614205750471564,
+      0.20073118168843498,
+      0.0,
+      0.18506306784000107
+    ],
+    "example": "board_only"
+  },
+  {
+    "model": "B-2026093003-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "872868ae2200030bf5ecc308d267d41f",
+    "hole_cards": [
+      "Qc",
+      "Kc"
+    ],
+    "concrete_category": "two_pair",
+    "card_bucket": [
+      2,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 347,
+    "trained": true,
+    "large_raise_probability": 0.18506306784000107,
+    "jam_probability": 0.18506306784000107,
+    "probabilities": [
+      0.0,
+      0.614205750471564,
+      0.20073118168843498,
+      0.0,
+      0.18506306784000107
+    ],
+    "example": "kicker_K"
+  },
+  {
+    "model": "B-2026093003-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "6650dd4a9ead62e3b076f44d8f4c2e06",
+    "hole_cards": [
+      "Kc",
+      "Ac"
+    ],
+    "concrete_category": "full_house",
+    "card_bucket": [
+      6,
+      2,
+      0,
+      0,
+      1
+    ],
+    "visits": 27,
+    "trained": true,
+    "large_raise_probability": 1.0,
+    "jam_probability": 1.0,
+    "probabilities": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "example": "aces_full"
+  },
+  {
+    "model": "B-2026093003-80000000",
+    "context_id": "be761977c9187da150ccf8c836ba5bd1b28cc0e6160a5692f42f60f40c5985d2",
+    "key": "49e2dbe96b6456ef93652083ab12de8f",
+    "hole_cards": [
+      "7h",
+      "7s"
+    ],
+    "concrete_category": "quads",
+    "card_bucket": [
+      7,
+      0,
+      0,
+      0,
+      1
+    ],
+    "visits": 0,
+    "trained": false,
+    "large_raise_probability": 0.4,
+    "jam_probability": 0.2,
+    "probabilities": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "example": "quad_sevens"
+  }
+]

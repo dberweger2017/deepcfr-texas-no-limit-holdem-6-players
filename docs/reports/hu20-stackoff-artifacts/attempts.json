@@ -1,0 +1,1250 @@
+[
+  {
+    "blocks": 1024,
+    "model": "B-2026093001-20000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.041273832321167,
+    "started": 1790799795.6314392
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-20000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.3356599807739258,
+    "started": 1790799797.672714
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093001-20000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 0.9850859642028809,
+    "started": 1790799798.008375
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-20000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.5150599479675293,
+    "started": 1790799798.993463
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-20000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.4222731590270996,
+    "started": 1790799799.508524
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-20000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 0.6950430870056152,
+    "started": 1790799799.930797
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-20000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.21520066261291504,
+    "started": 1790799800.6258402
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-20000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.12780523300170898,
+    "started": 1790799800.8410418
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-20000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.10056495666503906,
+    "started": 1790799800.968847
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-20000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.0886390209197998,
+    "started": 1790799801.069412
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-20000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.10704469680786133,
+    "started": 1790799801.1580522
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-20000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.177656888961792,
+    "started": 1790799801.265098
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-20000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 203.04607796669006,
+    "started": 1790799801.4427562
+  },
+  {
+    "blocks": 1024,
+    "model": "B-2026093001-40000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.2479989528656006,
+    "started": 1790800012.375818
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-40000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.40025806427001953,
+    "started": 1790800014.623817
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093001-40000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 1.09507417678833,
+    "started": 1790800015.024076
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-40000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.5730278491973877,
+    "started": 1790800016.119151
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-40000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.5325231552124023,
+    "started": 1790800016.69218
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-40000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 0.7262542247772217,
+    "started": 1790800017.224706
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-40000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.21030116081237793,
+    "started": 1790800017.9509609
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-40000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.1403348445892334,
+    "started": 1790800018.161263
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-40000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.0965731143951416,
+    "started": 1790800018.3015978
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-40000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.1092221736907959,
+    "started": 1790800018.398172
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-40000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.11425471305847168,
+    "started": 1790800018.507394
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-40000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.17316198348999023,
+    "started": 1790800018.62165
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-40000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 203.85973000526428,
+    "started": 1790800018.794812
+  },
+  {
+    "blocks": 1024,
+    "model": "B-2026093001-80000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.237334966659546,
+    "started": 1790800233.3268821
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-80000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.4720430374145508,
+    "started": 1790800235.564218
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093001-80000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 1.1393280029296875,
+    "started": 1790800236.0362618
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-80000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.7742471694946289,
+    "started": 1790800237.175591
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-80000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.6362287998199463,
+    "started": 1790800237.9498382
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-80000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 0.8630950450897217,
+    "started": 1790800238.586068
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-80000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.26219916343688965,
+    "started": 1790800239.449164
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-80000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.1630721092224121,
+    "started": 1790800239.711364
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-80000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.12427377700805664,
+    "started": 1790800239.8744361
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-80000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.1204369068145752,
+    "started": 1790800239.998711
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-80000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.13097810745239258,
+    "started": 1790800240.119149
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-80000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.19884800910949707,
+    "started": 1790800240.2501278
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-80000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 188.02486395835876,
+    "started": 1790800240.448977
+  },
+  {
+    "blocks": 1024,
+    "model": "B-2026093001-100000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.3169639110565186,
+    "started": 1790800439.458926
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-100000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.4905581474304199,
+    "started": 1790800441.7758908
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093001-100000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 1.1482901573181152,
+    "started": 1790800442.26645
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-100000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.6522858142852783,
+    "started": 1790800443.41474
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-100000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.5793581008911133,
+    "started": 1790800444.0670269
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-100000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 0.7085790634155273,
+    "started": 1790800444.646386
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-100000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.21942830085754395,
+    "started": 1790800445.354966
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-100000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.13242888450622559,
+    "started": 1790800445.574395
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-100000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.1028890609741211,
+    "started": 1790800445.7068238
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-100000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.10582304000854492,
+    "started": 1790800445.8097138
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-100000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.1158912181854248,
+    "started": 1790800445.9155378
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093001-100000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.1728510856628418,
+    "started": 1790800446.03143
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093001-100000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 195.38088583946228,
+    "started": 1790800446.204282
+  },
+  {
+    "blocks": 1024,
+    "model": "B-2026093002-20000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.1233701705932617,
+    "started": 1790800647.140112
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-20000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.4062330722808838,
+    "started": 1790800649.2634828
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093002-20000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 0.9603819847106934,
+    "started": 1790800649.669717
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-20000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.5962181091308594,
+    "started": 1790800650.6301
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-20000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.39948081970214844,
+    "started": 1790800651.226319
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-20000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 0.6769201755523682,
+    "started": 1790800651.6258008
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-20000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.19694805145263672,
+    "started": 1790800652.302722
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-20000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.11896610260009766,
+    "started": 1790800652.499671
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-20000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.09535789489746094,
+    "started": 1790800652.618637
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-20000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.09688925743103027,
+    "started": 1790800652.713996
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-20000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.1123356819152832,
+    "started": 1790800652.8108852
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-20000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.1695418357849121,
+    "started": 1790800652.923222
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-20000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 210.0991621017456,
+    "started": 1790800653.092764
+  },
+  {
+    "blocks": 1024,
+    "model": "B-2026093002-40000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.3290700912475586,
+    "started": 1790800871.464778
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-40000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.472257137298584,
+    "started": 1790800873.793848
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093002-40000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 1.0624089241027832,
+    "started": 1790800874.2661061
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-40000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.6145076751708984,
+    "started": 1790800875.3285172
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-40000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.5044772624969482,
+    "started": 1790800875.9430249
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-40000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 0.7698960304260254,
+    "started": 1790800876.447503
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-40000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.2408299446105957,
+    "started": 1790800877.2173991
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-40000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.16382908821105957,
+    "started": 1790800877.45823
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-40000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.13356471061706543,
+    "started": 1790800877.622059
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-40000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.11732220649719238,
+    "started": 1790800877.7556238
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-40000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.12113189697265625,
+    "started": 1790800877.872946
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-40000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.18991422653198242,
+    "started": 1790800877.9940789
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-40000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 207.37530994415283,
+    "started": 1790800878.183994
+  },
+  {
+    "blocks": 1024,
+    "model": "B-2026093002-80000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.457883834838867,
+    "started": 1790801097.4695392
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-80000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.4653501510620117,
+    "started": 1790801099.927423
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093002-80000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 1.1479122638702393,
+    "started": 1790801100.3927739
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-80000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.6856367588043213,
+    "started": 1790801101.5406861
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-80000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.5193798542022705,
+    "started": 1790801102.226324
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-80000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 0.8039202690124512,
+    "started": 1790801102.745705
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-80000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.2505607604980469,
+    "started": 1790801103.549626
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-80000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.15955615043640137,
+    "started": 1790801103.8001869
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-80000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.11638808250427246,
+    "started": 1790801103.959744
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-80000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.11722874641418457,
+    "started": 1790801104.076132
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-80000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.14316678047180176,
+    "started": 1790801104.193362
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-80000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.18088603019714355,
+    "started": 1790801104.33653
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-80000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 198.2357530593872,
+    "started": 1790801104.517417
+  },
+  {
+    "blocks": 1024,
+    "model": "B-2026093002-100000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.331671953201294,
+    "started": 1790801315.891904
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-100000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.4563159942626953,
+    "started": 1790801318.223577
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093002-100000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 1.1135339736938477,
+    "started": 1790801318.679894
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-100000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.6367859840393066,
+    "started": 1790801319.793428
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-100000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.519503116607666,
+    "started": 1790801320.430215
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-100000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 0.7684140205383301,
+    "started": 1790801320.949719
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-100000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.22916722297668457,
+    "started": 1790801321.718133
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-100000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.14444589614868164,
+    "started": 1790801321.9473011
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-100000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.12855792045593262,
+    "started": 1790801322.091747
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-100000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.10592818260192871,
+    "started": 1790801322.220305
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-100000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.12102103233337402,
+    "started": 1790801322.326234
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093002-100000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.18240094184875488,
+    "started": 1790801322.4472551
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093002-100000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 194.12059807777405,
+    "started": 1790801322.629657
+  },
+  {
+    "blocks": 1024,
+    "model": "B-2026093003-20000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.357654094696045,
+    "started": 1790801523.398527
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-20000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.39133214950561523,
+    "started": 1790801525.756182
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093003-20000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 1.019484281539917,
+    "started": 1790801526.1475148
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-20000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.6696929931640625,
+    "started": 1790801527.167
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-20000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.9432809352874756,
+    "started": 1790801527.836693
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-20000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 0.9170029163360596,
+    "started": 1790801528.779979
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-20000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.256591796875,
+    "started": 1790801529.696983
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-20000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.16212105751037598,
+    "started": 1790801529.953578
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-20000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.08982491493225098,
+    "started": 1790801530.115699
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-20000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.11860513687133789,
+    "started": 1790801530.205524
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-20000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.13251876831054688,
+    "started": 1790801530.3241332
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-20000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.17360472679138184,
+    "started": 1790801530.456653
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-20000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 198.450434923172,
+    "started": 1790801530.630259
+  },
+  {
+    "blocks": 1024,
+    "model": "B-2026093003-40000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.396028757095337,
+    "started": 1790801737.6734452
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-40000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.4105417728424072,
+    "started": 1790801740.0694752
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093003-40000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 1.0765349864959717,
+    "started": 1790801740.480018
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-40000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.599480152130127,
+    "started": 1790801741.556553
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-40000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.5473580360412598,
+    "started": 1790801742.156034
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-40000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 0.7497549057006836,
+    "started": 1790801742.703393
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-40000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.21744894981384277,
+    "started": 1790801743.4531488
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-40000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.161607027053833,
+    "started": 1790801743.670599
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-40000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.08646988868713379,
+    "started": 1790801743.8322072
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-40000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.1098177433013916,
+    "started": 1790801743.918678
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-40000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.11317229270935059,
+    "started": 1790801744.0284958
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-40000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.19637084007263184,
+    "started": 1790801744.141668
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-40000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 206.76080107688904,
+    "started": 1790801744.33804
+  },
+  {
+    "blocks": 1024,
+    "model": "B-2026093003-80000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.476508378982544,
+    "started": 1790801963.4585128
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-80000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.5331346988677979,
+    "started": 1790801965.935022
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093003-80000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 1.2283270359039307,
+    "started": 1790801966.468158
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-80000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.6401598453521729,
+    "started": 1790801967.696486
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-80000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.5924122333526611,
+    "started": 1790801968.3366468
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-80000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 0.9212450981140137,
+    "started": 1790801968.92906
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-80000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.23318886756896973,
+    "started": 1790801969.850305
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-80000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.16809320449829102,
+    "started": 1790801970.083495
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-80000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.1131889820098877,
+    "started": 1790801970.251589
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-80000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.13176608085632324,
+    "started": 1790801970.364779
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-80000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.12484502792358398,
+    "started": 1790801970.496546
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-80000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.2024829387664795,
+    "started": 1790801970.621391
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-80000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 217.90813899040222,
+    "started": 1790801970.8238752
+  },
+  {
+    "blocks": 1024,
+    "model": "B-2026093003-100000000",
+    "panel": "Selective-stackoff-v1",
+    "requested_blocks": 1024,
+    "seconds": 2.6623928546905518,
+    "started": 1790802200.900504
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-100000000",
+    "panel": "Pressure-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.4909679889678955,
+    "started": 1790802203.562898
+  },
+  {
+    "blocks": 256,
+    "model": "B-2026093003-100000000",
+    "panel": "Pressure-native",
+    "requested_blocks": 256,
+    "seconds": 1.1971697807312012,
+    "started": 1790802204.053867
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-100000000",
+    "panel": "Minraise-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 0.6172552108764648,
+    "started": 1790802205.2510378
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-100000000",
+    "panel": "Minraise-native",
+    "requested_blocks": 128,
+    "seconds": 0.5716791152954102,
+    "started": 1790802205.868293
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-100000000",
+    "panel": "Passive",
+    "requested_blocks": 128,
+    "seconds": 1.0726878643035889,
+    "started": 1790802206.439973
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-100000000",
+    "panel": "loose_passive",
+    "requested_blocks": 64,
+    "seconds": 0.2254810333251953,
+    "started": 1790802207.512661
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-100000000",
+    "panel": "loose_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.15279197692871094,
+    "started": 1790802207.738143
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-100000000",
+    "panel": "tight_passive",
+    "requested_blocks": 64,
+    "seconds": 0.11409997940063477,
+    "started": 1790802207.8909361
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-100000000",
+    "panel": "tight_aggressive",
+    "requested_blocks": 64,
+    "seconds": 0.10746073722839355,
+    "started": 1790802208.005036
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-100000000",
+    "panel": "pot_pressure",
+    "requested_blocks": 64,
+    "seconds": 0.10770726203918457,
+    "started": 1790802208.1124978
+  },
+  {
+    "blocks": 64,
+    "model": "B-2026093003-100000000",
+    "panel": "hu20_uniform",
+    "requested_blocks": 64,
+    "seconds": 0.17937493324279785,
+    "started": 1790802208.220206
+  },
+  {
+    "blocks": 128,
+    "model": "B-2026093003-100000000",
+    "panel": "LBR-original-cap2",
+    "requested_blocks": 128,
+    "seconds": 200.94624710083008,
+    "started": 1790802208.399582
+  }
+]
