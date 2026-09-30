@@ -1,0 +1,7 @@
+{
+  "finished": 1790787748.211157,
+  "phase": "stability",
+  "reason": "stability five-case posterior stability gate failed; primary values prohibited",
+  "started": 1790778842.573983,
+  "status": "scientific_stop"
+}
