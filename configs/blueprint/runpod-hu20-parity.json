@@ -1,0 +1,24 @@
+{
+  "schema": "runpod-hu20-parity-v1",
+  "merged_base": "7d31a39c80cc72deb772336ce251f3c4bdcd46c9",
+  "engine_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+  "seed": 2026093011,
+  "completed_node_target": 1000000,
+  "resume_checkpoint_target": 500000,
+  "max_seconds": 1800,
+  "max_rss_gib": 3.0,
+  "min_free_gib": 8,
+  "max_rental_seconds": 7200,
+  "max_cost_usd": 0.50,
+  "config": {
+    "seed": 2026093011,
+    "raise_cap": null,
+    "roots_per_seat": 1,
+    "max_nodes": 250000,
+    "max_entries": 4000000,
+    "max_seconds": 300,
+    "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+    "postflop_replicates": 1,
+    "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1"
+  }
+}
