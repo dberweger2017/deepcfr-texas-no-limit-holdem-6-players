@@ -12,6 +12,9 @@ import subprocess
 import sys
 import threading
 import time
+import tomllib
+import urllib.parse
+import urllib.request
 
 from scripts.hu20_platform_pilot import canonical, write
 from scripts.mature_cpu_rental_guard import api, check_quote, owned_pods
@@ -29,6 +32,25 @@ def estimated_cost(records, now):
 
 def budget_action(cost, ceiling, reserve):
     return 'stop' if cost >= ceiling-reserve else 'continue'
+
+
+def verify_credit(key_path, out):
+    key = tomllib.loads(key_path.read_text())['apikey']
+    url = 'https://api.runpod.io/graphql?'+urllib.parse.urlencode({'api_key':key})
+    query = {'query':'query { myself { clientBalance currentSpendPerHr } }'}
+    request = urllib.request.Request(url, data=json.dumps(query).encode(),
+              headers={'Content-Type':'application/json', 'User-Agent':'runpodctl/1.14.5'})
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            result = json.loads(response.read())['data']['myself']
+    except Exception:
+        raise RuntimeError('Private campaign credit verification failed') from None
+    sufficient = float(result['clientBalance']) >= 15
+    write(out, dict(checked=time.time(), sufficient_for_ceiling=sufficient,
+                   unrelated_current_spend_nonzero=float(result['currentSpendPerHr'])>0))
+    if not sufficient:
+        raise ValueError('Verified account credit cannot cover authorized ceiling')
+    return result
 
 
 def connections(row, root):
@@ -118,7 +140,14 @@ def retrieve_file(row, item, destination, a):
     run(scp+[address+':/workspace/results/worker/training/'+item['name'], str(temporary)], timeout=240)
     if _hash(temporary) != item['sha256'] or temporary.stat().st_size != item['bytes']:
         raise ValueError('Off-pod transport hash or length mismatch')
+    with temporary.open('rb') as saved:
+        os.fsync(saved.fileno())
     temporary.replace(path)
+    directory = os.open(destination, os.O_RDONLY)
+    try:
+        os.fsync(directory)
+    finally:
+        os.close(directory)
 
 
 def emergency_archive(row, a, expected, size):
@@ -219,6 +248,10 @@ def execute(a):
     a.root.mkdir(parents=True, exist_ok=False)
     if shutil.disk_usage(a.root).free < 12*2**30:
         raise OSError('Insufficient initial M4 space')
+    funds = verify_credit(a.key, a.root/'credit-check.json')
+    private = a.key.parent/'campaign-billing-baseline-private.json'
+    write(private, dict(time=time.time(), account=funds))
+    os.chmod(private, 0o600)
     names = ['dr-research-500m-'+str(p['seed'])+'-'+str(int(time.time())) for p in plan['parents']]
     write(a.root/'lease.json', dict(names=names, started=time.time(), ceiling_usd=15,
           source=source, plan_sha256=sha256(canonical(plan)).hexdigest()))
@@ -283,11 +316,19 @@ def execute(a):
         except Exception as exc:
             row.update(status='allocation-incident', failure=str(exc)[:300])
             event(a.root, 'allocation-incident', seed=parent['seed'], reason=str(exc)[:300])
+            # A failed quote or uncertain create is never a training license.
+            for lost in owned_pods(api(a.key, '/v2/pods')['pods'], {name}):
+                from datetime import datetime
+                row.update(id=lost['id'],
+                    created_epoch=datetime.fromisoformat(lost['createdAt'].replace('Z', '+00:00')).timestamp(),
+                    upper_rate=max(.18,float(lost.get('cost') or .18)+.05))
+                api(a.key, '/v2/pods/'+lost['id'], 'DELETE')
+                row.update(id=lost['id'], terminated=time.time())
         publish()
 
     def workload(row):
         try:
-            if not row.get('id'):
+            if not row.get('id') or row['status'] != 'provisioning':
                 return
             for _ in range(90):
                 pod = api(a.key, '/v2/pods/'+row['id'])

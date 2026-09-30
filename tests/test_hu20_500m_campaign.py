@@ -146,3 +146,23 @@ def test_actual_continuation_driver_preserves_state_work_chain_and_recovery(tmp_
     assert partial['status'] == 'interrupted' and partial['completed_nodes']==0
     assert partial['discarded_nodes']==0
     assert (tmp_path/'stopped/checkpoint-partial-0.json.gz').exists()
+
+
+def test_export_backup_failure_cannot_acknowledge_checkpoint_only(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+    import scripts.hu20_500m_control as control
+    ack = []
+    calls = []
+    monkeypatch.setattr(control.shutil, 'disk_usage', lambda p: SimpleNamespace(free=100*2**30))
+    monkeypatch.setattr(control, 'connections', lambda row, root: ([], [], 'fixture'))
+    monkeypatch.setattr(control, 'remote_write', lambda *args: ack.append(args))
+    def copy(row, item, destination, a):
+        calls.append(item['name'])
+        if len(calls)==2:
+            raise ValueError('policy transport hash mismatch')
+    monkeypatch.setattr(control, 'retrieve_file', copy)
+    saved = dict(id='120M', files=[dict(name='cp.gz', bytes=1, sha256='a'),
+                                 dict(name='policy.gz', bytes=1, sha256='b')])
+    with pytest.raises(ValueError, match='hash mismatch'):
+        control.backup(dict(seed=1, attempt='1'), saved, SimpleNamespace(root=tmp_path))
+    assert calls == ['cp.gz', 'policy.gz'] and ack == []

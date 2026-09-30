@@ -36,7 +36,14 @@ def execute(a):
         return max(0, combined-resident)
     before_swap = swap()
     state = dict(status='preflight', started=time.time(), pid=os.getpid(), memory_limit_bytes=memory,
-                 swap_before_bytes=before_swap, peak_owned_rss_bytes=0, attempts=[])
+                 swap_before_bytes=before_swap, peak_owned_rss_bytes=0, attempts=[],
+                 kernel=platform.uname()._asdict(), affinity_logical_cpus=sorted(os.sched_getaffinity(0)))
+    for filename in ('/sys/fs/cgroup/cpu.max', '/sys/fs/cgroup/cpu/cpu.cfs_quota_us',
+                     '/sys/fs/cgroup/cpu/cpu.cfs_period_us', '/sys/fs/cgroup/memory.max',
+                     '/sys/fs/cgroup/memory.swap.max'):
+        path = Path(filename)
+        if path.exists():
+            (root/(path.name+'.txt')).write_text(path.read_text())
     for name, cmd in (('lscpu', ['lscpu']), ('topology', ['lscpu', '-e=CPU,CORE,SOCKET,ONLINE']),
                       ('packages', [sys.executable, '-m', 'pip', 'freeze'])):
         (root / (name+'.txt')).write_text(subprocess.check_output(cmd, text=True))
@@ -60,6 +67,12 @@ def execute(a):
                     state['peak_owned_rss_bytes'] = max(state['peak_owned_rss_bytes'], current)
                     state.update(heartbeat=time.time(), current_owned_rss_bytes=current,
                                  swap_growth_bytes=swap_growth, free_disk_bytes=free)
+                    with (root/'resources.jsonl').open('a') as record:
+                        record.write(json.dumps(dict(time=time.time(), phase=name, owned_rss_bytes=current,
+                            swap_growth_bytes=swap_growth, free_disk_bytes=free,
+                            cgroup_memory_bytes=read_limit(('/sys/fs/cgroup/memory.current',
+                                '/sys/fs/cgroup/memory/memory.usage_in_bytes')),
+                            progress=state.get('progress'))) + '\n')
                     if name == 'training':
                         progress = root / 'training' / 'progress.json'
                         if progress.exists():
@@ -110,6 +123,9 @@ def execute(a):
             resumed = json.loads((root/'preflight-resume/result.json').read_text())
             reference = json.loads(a.reference.read_text())
             checks = {}
+            checks['same_frozen_source'] = direct['source']['source'] == resumed['source']['source'] == reference['source']['source']
+            checks['pinned_engine'] = all(json.loads(row['source']['engine_origin'])['vcs_info']['commit_id'] ==
+                                        plan['runtime']['engine'] for row in (direct, resumed, reference))
             for key in ('added_nodes', 'iteration', 'next_streams'):
                 checks[key] = direct[key] == resumed[key] == reference[key]
             checks['checkpoint_bytes'] = direct['final'] == resumed['final'] == reference['final']
@@ -129,6 +145,11 @@ def execute(a):
         state['status'] = 'training'
         phase('training', ['train', *common, '--out', str(root/'training'), '--control', str(a.control.resolve()),
                           *(['--resume', str(a.resume.resolve())] if a.resume else [])])
+        saved = json.loads((root/'training/saved.jsonl').read_text().splitlines()[-1])
+        if saved['requested_total_nodes'] != plan['target_total_nodes']:
+            raise ValueError('Final requested checkpoint missing')
+        phase('final-reload', ['verify-final', *common, '--out', str(root/'final-reload'),
+                              '--resume', str(root/'training'/(saved['id']+'.record.json'))])
         state['status'] = 'complete'
     except Exception as exc:
         state.update(status='incident', failure=f'{type(exc).__name__}: {exc}')

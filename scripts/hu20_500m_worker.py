@@ -96,6 +96,11 @@ def checkpoint(trainer, plan, parent, out, requested, total, chain, counters,
         row.update(export_seconds=time.monotonic()-before,
                    spec=specification(parent['seed'], requested, trainer.iteration, cp, p, h, ph))
         row['files'].append(dict(name=p.name, sha256=ph, bytes=p.stat().st_size))
+    directory = os.open(out, os.O_RDONLY)
+    try:
+        os.fsync(directory)
+    finally:
+        os.close(directory)
     write(out / (ident + '.record.json'), row)
     append(out / 'saved.jsonl', row)
     return row
@@ -262,9 +267,32 @@ def preflight(plan, parent, out, resume=None):
     return result
 
 
+def verify_saved(plan, parent, out, record):
+    out.mkdir(parents=True, exist_ok=False)
+    saved = json.loads(record.read_text())
+    path = Path(saved['checkpoint_path'])
+    if _hash(path) != saved['checkpoint_sha256']:
+        raise ValueError('Final checkpoint transport mismatch')
+    trainer = load_training(path)
+    if (scientific_config(trainer.config) != parent_trainer_config(parent)
+            or trainer.iteration != saved['iteration'] or len(trainer.nodes) != saved['entries']):
+        raise ValueError('Final reload scientific state / counters mismatch')
+    h = save_training(trainer, out/'reloaded.json.gz')
+    ph = export_policy(trainer, out/'current.json.gz')
+    if h != saved['checkpoint_sha256'] or ph != saved['files'][1]['sha256']:
+        raise ValueError('Final fresh-process checkpoint/export bytes differ')
+    result = dict(status='complete', checkpoint_sha256=h, policy_sha256=ph,
+                  iteration=trainer.iteration, entries=len(trainer.nodes),
+                  completed_nodes=saved['completed_nodes'],
+                  next_streams=[dict(seat=seat, deal=_seed(trainer.config.seed, trainer.iteration+1, seat, 0, 'deal'),
+                       actions=_seed(trainer.config.seed, trainer.iteration+1, seat, 0, 'actions')) for seat in (0,1)])
+    write(out/'result.json', result)
+    return result
+
+
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('phase', choices=('train', 'preflight'))
+    p.add_argument('phase', choices=('train', 'preflight', 'verify-final'))
     p.add_argument('--plan', type=Path, required=True)
     p.add_argument('--parent', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
@@ -276,8 +304,10 @@ def main():
         if a.control is None:
             p.error('Control lease required')
         result = run(plan, parent, a.out, a.control, a.resume)
-    else:
+    elif a.phase == 'preflight':
         result = preflight(plan, parent, a.out, a.resume)
+    else:
+        result = verify_saved(plan, parent, a.out, a.resume)
     print(json.dumps({k: result[k] for k in ('status',) if k in result}))
     return result['status'] != 'complete'
 
