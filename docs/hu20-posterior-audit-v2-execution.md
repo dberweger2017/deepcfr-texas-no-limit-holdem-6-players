@@ -87,3 +87,26 @@ hashes, and writes a readable report even for a scientific stop. The final
 inventory is verified again after log closure. No experiment setting changes
 in response to results. Local gaps remain conditional on one estimated range;
 their intervals do not include all posterior-estimation uncertainty.
+
+## Launch and unattended execution
+
+Runtime `0d3a5cf1c5ba763ec0db149795650b2773236855` launched on M4
+at 2026-09-30 14:31:55.584733 UTC. The immutable 9.5-hour window
+ends October 1 00:01:55 UTC (02:01:55 Madrid); science stops at
+23:31:55 UTC. Source/parent/input/native-build hashes passed.
+All 24 focused tests passed in 7.32 seconds; the timer/attacker identity
+phase passed. GitHub's full `test` check passed in 13m1s.
+
+At the subsequent compact status check, coordinator 83695 and stability
+worker 84076 were healthy. Seven likelihood journal indices existed; the
+latest higher-reference index had 14,352 committed rows and was seven
+seconds old. Sampled peak aggregate owned RSS was 2,809,430,016 bytes
+with no swap growth. These are progress/resource observations, not
+posterior findings. No stability numerical output was opened to alter
+settings. A quiet heartbeat monitors phase changes/failures/completion.
+
+The detached caffeinated wrapper runs final sealing after phase and
+coordinator logs close. It does not depend on the travelling M1 or a
+continuous SSH session. The separately authorized small RunPod training
+parity pilot will use Linux independently; its fresh M4 reference waits
+until this audit has stopped and released M4.
