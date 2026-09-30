@@ -1,0 +1,91 @@
+{
+  "cache": [
+    {
+      "entries": 34383,
+      "hit_rate": 0.8816477002829468,
+      "hits": 256131,
+      "misses": 34383,
+      "rss_after_seed_bytes": 2765651968,
+      "seed": 2026093001,
+      "shallow_cache_bytes": 5711824
+    },
+    {
+      "entries": 31106,
+      "hit_rate": 0.8835548234941789,
+      "hits": 236024,
+      "misses": 31106,
+      "rss_after_seed_bytes": 2768486400,
+      "seed": 2026093002,
+      "shallow_cache_bytes": 5292368
+    },
+    {
+      "entries": 33493,
+      "hit_rate": 0.8913193024810336,
+      "hits": 274685,
+      "misses": 33493,
+      "rss_after_seed_bytes": 2986000384,
+      "seed": 2026093003,
+      "shallow_cache_bytes": 5597904
+    }
+  ],
+  "call_cpu_seconds": 65.82691300000003,
+  "call_wall_seconds": 65.82794603775255,
+  "case_digest": "1559b5aac31016a9db92cfc2b319c28abf110446866d50dba0f45126eacadc4e",
+  "cases_completed": 336,
+  "corpus_sha256": "a3e8b72e3fd33c0eee1d8bfa38c30b61e6ce6e6ff4a95687129b2daa5ac7d30d",
+  "deadline": 1790763031.0,
+  "executor": "cached",
+  "finished": 1790754149.258046,
+  "free_disk_bytes": 41253924864,
+  "model_load": [
+    {
+      "rss_bytes": 2765062144,
+      "seconds": 12.149419374996796,
+      "seed": 2026093001
+    },
+    {
+      "rss_bytes": 2768486400,
+      "seconds": 11.883594458224252,
+      "seed": 2026093002
+    },
+    {
+      "rss_bytes": 2986000384,
+      "seconds": 12.553189458092675,
+      "seed": 2026093003
+    }
+  ],
+  "model_spec_sha256": "d15c1fe9f42c0fbeffa7cb27d3bb4c5cb76226f1d812133dcedda9118d1d2402",
+  "output_digest": "712d8379587fe21a1cbd7c4ebb8f34dc6b5daff339b32ee059bfbacc2fc0d79d",
+  "peak_rss_bytes": 2986000384,
+  "per_street": {
+    "flop": {
+      "calls": 96,
+      "cpu_seconds": 19.096072000000007,
+      "max_call_seconds": 0.5391084998846054,
+      "wall_seconds": 19.09635095181875
+    },
+    "preflop": {
+      "calls": 42,
+      "cpu_seconds": 14.65477499999998,
+      "max_call_seconds": 0.5292610828764737,
+      "wall_seconds": 14.654994081705809
+    },
+    "river": {
+      "calls": 102,
+      "cpu_seconds": 15.595908999999999,
+      "max_call_seconds": 0.540607042144984,
+      "wall_seconds": 15.59620008757338
+    },
+    "turn": {
+      "calls": 96,
+      "cpu_seconds": 16.480157000000037,
+      "max_call_seconds": 0.5517125828191638,
+      "wall_seconds": 16.480400916654617
+    }
+  },
+  "started": 1790754045.228584,
+  "status": "complete",
+  "swap_end_mib": 761.38,
+  "swap_start_mib": 761.38,
+  "wall_seconds": 104.02946186065674
+}

@@ -1,0 +1,114 @@
+{
+  "action_digest": "623bd75257d04272a3e5b6f54701e8ec68b1c171351cf8622cb1167f7ac81979",
+  "cache": [
+    {
+      "entries": 30680,
+      "hit_rate": 0.9914048984794682,
+      "hits": 3538795,
+      "misses": 30680,
+      "rss_after_seed_bytes": 2767257600,
+      "seed": 2026093001,
+      "shallow_cache_bytes": 5237840
+    },
+    {
+      "entries": 30168,
+      "hit_rate": 0.9912398865087922,
+      "hits": 3413623,
+      "misses": 30168,
+      "rss_after_seed_bytes": 3998826496,
+      "seed": 2026093002,
+      "shallow_cache_bytes": 5172304
+    },
+    {
+      "entries": 29992,
+      "hit_rate": 0.9918035407763734,
+      "hits": 3629149,
+      "misses": 29992,
+      "rss_after_seed_bytes": 4105945088,
+      "seed": 2026093003,
+      "shallow_cache_bytes": 5149776
+    }
+  ],
+  "calls_completed": 4263,
+  "deadline": 1790763031.0,
+  "finished": 1790755769.375183,
+  "first_sample": {
+    "calls": 3591,
+    "cpu_seconds": 916.7825819999979,
+    "wall_seconds": 916.7988131525926
+  },
+  "free_disk_bytes": 41236180992,
+  "full_calls_by_seed": {
+    "2026093001": 18689,
+    "2026093002": 21704,
+    "2026093003": 17654
+  },
+  "full_calls_by_street": {
+    "flop": 12972,
+    "preflop": 3675,
+    "river": 22770,
+    "turn": 18630
+  },
+  "full_one_sample_calls": 58047,
+  "incremental_sample": {
+    "calls": 672,
+    "cpu_seconds": 166.33053499999932,
+    "wall_seconds": 166.3333959064912
+  },
+  "limited_calls": 0,
+  "model_load": [
+    {
+      "rss_bytes": 2767077376,
+      "seconds": 12.375926499953493,
+      "seed": 2026093001
+    },
+    {
+      "rss_bytes": 3998826496,
+      "seconds": 13.112607375020161,
+      "seed": 2026093002
+    },
+    {
+      "rss_bytes": 4105945088,
+      "seconds": 14.014680583961308,
+      "seed": 2026093003
+    }
+  ],
+  "model_spec_sha256": "d15c1fe9f42c0fbeffa7cb27d3bb4c5cb76226f1d812133dcedda9118d1d2402",
+  "peak_rss_bytes": 4105945088,
+  "per_decision_first": 171,
+  "per_decision_incremental": 32,
+  "per_street": {
+    "flop": {
+      "calls": 1218,
+      "cpu_seconds": 322.2021059999992,
+      "max_call_seconds": 0.531285917153582,
+      "wall_seconds": 322.2072508314159
+    },
+    "preflop": {
+      "calls": 609,
+      "cpu_seconds": 295.259488,
+      "max_call_seconds": 0.5288789998739958,
+      "wall_seconds": 295.2644307320006
+    },
+    "river": {
+      "calls": 1218,
+      "cpu_seconds": 216.39609099999973,
+      "max_call_seconds": 0.5116414160002023,
+      "wall_seconds": 216.3996608501766
+    },
+    "turn": {
+      "calls": 1218,
+      "cpu_seconds": 249.25543199999828,
+      "max_call_seconds": 0.5317473330069333,
+      "wall_seconds": 249.26086664549075
+    }
+  },
+  "selected_first_sample_calls": 3591,
+  "selected_incremental_calls": 672,
+  "selection_digest": "578b8b67f21a15d2961e88cf498aeeb64831c9827e578e5ce1db62f85d43e322",
+  "started": 1790754630.7762501,
+  "status": "complete",
+  "swap_end_mib": 761.38,
+  "swap_start_mib": 761.38,
+  "wall_seconds": 1138.598932981491
+}
