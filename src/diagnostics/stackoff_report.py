@@ -29,8 +29,16 @@ def summarize(plan, rows):
         values[key[:3] + (position,)] = row['target_chips']
         group = key[:2]
         partition = row['tails']['first_large_raise_response']
+        lbr = [a['lbr'] for a in row['actions'] if 'lbr' in a]
+        lbr_counts = Counter(lbr_decisions=len(lbr),
+            lbr_requested_batches=sum(a['requested_samples'] for a in lbr),
+            lbr_completed_batches=sum(a['samples'] for a in lbr),
+            lbr_partial_decisions=sum(not a['completed'] for a in lbr),
+            lbr_over_soft_budget=sum(a['over_soft_budget'] for a in lbr),
+            lbr_zero_likelihood_events=max((a['zero_likelihood_events'] for a in lbr), default=0))
         for cell in (group, (*group, position)):
             tails[cell].update(row['tails']['counts'])
+            tails[cell].update(lbr_counts)
             item = partitions[cell].setdefault(partition, {'hands': 0, 'target_chips': 0})
             item['hands'] += 1
             item['target_chips'] += row['target_chips']

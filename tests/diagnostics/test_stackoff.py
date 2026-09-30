@@ -176,7 +176,7 @@ def test_shared_lineage_blocks_and_positions_not_pseudoreplicates():
                 net = [0,0];net[r]=profit;net[1-r]=-profit
                 rows.append({'policy':model['name'],'panel':'stress','block':b,'rotation':r,'button':b%2,
                     'status':'complete','native_replay_verified':True,'net_chips_by_seat':net,'target_chips':profit,
-                    'tails':{'counts':{'hands':1},'first_large_raise_response':'no_large_raise'}})
+                    'actions':[], 'tails':{'counts':{'hands':1},'first_large_raise_response':'no_large_raise'}})
     result = summarize(plan, reversed(rows))
     assert result['status'] == 'complete'
     assert result['three_lineage_aggregate'][0]['overall']['blocks'] == 32
@@ -341,3 +341,18 @@ def test_uniform_comparison_reuses_existing_cap2_and_sampling():
     reference=UniformPlayer(stream_seed(53,'test','action',2,2,1))
     _,view=hand_view()
     assert actual.choose_action(view)==reference.choose_action(view)
+
+
+def test_lbr_telemetry_counts_budget_batches_and_cumulative_events_once():
+    plan={'models':[{'name':'tiny','seed':1,'milestone':20}],
+          'panels':[{'name':'lbr','blocks':1}],'interval':'paired'}
+    telemetry={'requested_samples':4,'samples':2,'completed':False,
+               'over_soft_budget':True,'zero_likelihood_events':2}
+    rows=[{'policy':'tiny','panel':'lbr','block':0,'rotation':r,'button':0,'status':'complete',
+           'native_replay_verified':True,'net_chips_by_seat':[0,0],'target_chips':0,
+           'tails':{'counts':{'hands':1},'first_large_raise_response':'no_large_raise'},
+           'actions':[{'lbr':telemetry},{'lbr':{**telemetry,'zero_likelihood_events':3}}]} for r in (0,1)]
+    counts=summarize(plan,rows)['per_seed'][0]['counts']
+    assert counts['lbr_decisions']==4 and counts['lbr_over_soft_budget']==4
+    assert counts['lbr_requested_batches']==16 and counts['lbr_completed_batches']==8
+    assert counts['lbr_zero_likelihood_events']==6
