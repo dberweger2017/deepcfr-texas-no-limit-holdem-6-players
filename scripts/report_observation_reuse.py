@@ -76,12 +76,17 @@ def report(root, output):
 
     for case in ("small", "mature"):
         values = []
+        process_times = {a["name"]: a["finished"]-a["started"] for a in supervisor["attempts"]}
         for pair in range(1, 4):
             a = all_results[f"perf-{case}-{pair}-original"]
             b = all_results[f"perf-{case}-{pair}-candidate"]
+            original_wall = process_times[f"perf-{case}-{pair}-original"]
+            candidate_wall = process_times[f"perf-{case}-{pair}-candidate"]
             values.append({"pair": pair, "original": a, "candidate": b,
+                           "original_process_wall_seconds": original_wall,
+                           "candidate_process_wall_seconds": candidate_wall,
                            "training_speedup": b["nodes_per_second"]/a["nodes_per_second"],
-                           "startup_inclusive_speedup": a["elapsed_seconds"]/b["elapsed_seconds"]})
+                           "startup_inclusive_speedup": original_wall/candidate_wall})
         reference = all_results[f"perf-{case}-1-original"]
         checks[case + ":all_repeat_state_identical"] = all(
             d[name] == reference[name] for row in values for d in (row["original"], row["candidate"])
