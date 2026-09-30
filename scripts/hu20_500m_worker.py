@@ -32,6 +32,20 @@ def scientific_config(config):
     return {k: v for k, v in asdict(config).items() if k != 'max_entries'}
 
 
+def export_fingerprint(path):
+    result = fingerprint(path)
+    normalized = sha256()
+    with path.open('rb') as stream:
+        header = stream.read(10)
+        if len(header) != 10 or header[9] not in (3, 19):
+            raise ValueError('Unexpected gzip export header')
+        normalized.update(header[:9]+b'\0')
+        for chunk in iter(lambda: stream.read(1048576), b''):
+            normalized.update(chunk)
+    result['os_normalized_sha256'] = normalized.hexdigest()
+    return result
+
+
 def next_boundary(total, boundaries):
     return next((value for value in boundaries if value > total), None)
 
@@ -91,17 +105,22 @@ def run(plan, parent, out, control, resume=None):
     out.mkdir(parents=True, exist_ok=False)
     (out / 'ack').mkdir()
     stopping = []
-    signal.signal(signal.SIGTERM, lambda signum, frame: stopping.append('SIGTERM'))
-    signal.signal(signal.SIGINT, lambda signum, frame: stopping.append('SIGINT'))
+    old_term = signal.signal(signal.SIGTERM, lambda signum, frame: stopping.append('SIGTERM'))
+    old_int = signal.signal(signal.SIGINT, lambda signum, frame: stopping.append('SIGINT'))
     if resume:
         previous = json.loads(resume.read_text())
         path = Path(previous['checkpoint_path'])
         if _hash(path) != previous['checkpoint_sha256']:
             raise ValueError('Resume checkpoint differs from verified record')
         trainer = load_training(path)
+        if (trainer.iteration != previous['iteration'] or len(trainer.nodes) != previous['entries']
+                or previous['seed'] != parent['seed']):
+            raise ValueError('Resume counters differ from checkpoint')
         total = previous['completed_nodes']
         chain = previous['work_chain_sha256']
         counters = Counter(previous['cumulative_work'])
+        if counters['nodes'] != total-parent['completed_nodes']:
+            raise ValueError('Resume lifetime work counter mismatch')
         if previous['original_parent_sha256'] != parent['checkpoint_sha256']:
             raise ValueError('Recovery has another original parent')
     else:
@@ -124,18 +143,28 @@ def run(plan, parent, out, control, resume=None):
     training_seconds = 0.0
     unpublished = False
     last_progress = 0
+    last_control_check = 0.0
+    control_cancelled = False
 
     def cancelled():
+        nonlocal last_control_check, control_cancelled
         if stopping:
             return True
+        # This callback is invoked at every traversal node. File reads belong
+        # to the control cadence, not the poker hot path.
+        now = time.monotonic()
+        if now-last_control_check < 1:
+            return control_cancelled
+        last_control_check = now
         try:
             c = json.loads(control.read_text())
-            return (c.get('stop') is not None or time.time() >= c['lease_until'])
+            control_cancelled = c.get('stop') is not None or time.time() >= c['lease_until']
         except (OSError, ValueError, KeyError):
-            return True
+            control_cancelled = True
+        return control_cancelled
 
     try:
-        with gzip.GzipFile(filename='', mode='wb', fileobj=(out / 'iterations.jsonl.gz').open('wb'), mtime=0) as log:
+        with (out / 'iterations.jsonl.gz').open('wb') as raw, gzip.GzipFile(filename='', mode='wb', fileobj=raw, mtime=0) as log:
             while total < plan['target_total_nodes']:
                 if cancelled():
                     raise InterruptedError('Controller lease/stop request')
@@ -161,7 +190,7 @@ def run(plan, parent, out, control, resume=None):
                 row['work_chain_sha256'] = chain
                 log.write(canonical(row)+b'\n')
                 for field, value in stable.items():
-                    if type(value) in (int, float) and field not in ('iteration', 'lifetime_completed_nodes'):
+                    if type(value) in (int, float) and field not in ('iteration', 'entries', 'lifetime_completed_nodes'):
                         counters[field] += value
                     elif isinstance(value, dict):
                         for street, amount in value.items():
@@ -191,6 +220,8 @@ def run(plan, parent, out, control, resume=None):
                  entries=len(trainer.nodes), training_seconds=training_seconds,
                  work_chain_sha256=chain, cumulative_work=dict(counters), saves=len(rows))
     write(out / 'result.json', state)
+    signal.signal(signal.SIGTERM, old_term)
+    signal.signal(signal.SIGINT, old_int)
     return state
 
 
@@ -225,7 +256,7 @@ def preflight(plan, parent, out, resume=None):
     save_training(trainer, out / 'final.json.gz')
     export_policy(trainer, out / 'current.json.gz')
     result.update(status='complete', added_nodes=completed, iteration=trainer.iteration,
-                  final=fingerprint(out / 'final.json.gz'), current=fingerprint(out / 'current.json.gz'),
+                  final=fingerprint(out / 'final.json.gz'), current=export_fingerprint(out / 'current.json.gz'),
                   next_streams=[_seed(trainer.config.seed, trainer.iteration+1, seat, 0, 'actions') for seat in (0, 1)])
     write(out / 'result.json', result)
     return result

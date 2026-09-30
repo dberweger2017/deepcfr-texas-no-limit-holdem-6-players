@@ -91,3 +91,58 @@ def test_frozen_schedules_all_seeds_counts_and_fresh_confirmation():
     for baseline, confirmation in zip(plan['broad_panels'], plan['heldout_panels'], strict=True):
         assert baseline['blocks'] == confirmation['blocks']
         assert baseline['root'] != confirmation['root']
+
+
+def test_export_exception_is_only_the_documented_os_byte(tmp_path):
+    import gzip
+    from scripts.hu20_500m_worker import export_fingerprint
+    payload = b'{"fixed":"policy"}'*1000
+    a = tmp_path/'mac.gz'; b = tmp_path/'linux.gz'
+    data = gzip.compress(payload, mtime=0)
+    a.write_bytes(data[:9]+bytes([19])+data[10:])
+    b.write_bytes(data[:9]+bytes([3])+data[10:])
+    assert export_fingerprint(a)['sha256'] != export_fingerprint(b)['sha256']
+    assert export_fingerprint(a)['os_normalized_sha256'] == export_fingerprint(b)['os_normalized_sha256']
+    alternate = gzip.compress(payload, compresslevel=1, mtime=0)
+    b.write_bytes(alternate[:9]+bytes([3])+alternate[10:])
+    assert export_fingerprint(a)['uncompressed_sha256'] == export_fingerprint(b)['uncompressed_sha256']
+    assert export_fingerprint(a)['os_normalized_sha256'] != export_fingerprint(b)['os_normalized_sha256']
+
+
+def test_actual_continuation_driver_preserves_state_work_chain_and_recovery(tmp_path):
+    import time
+    from scripts.hu20_500m_worker import run
+    from src.blueprint.artifact import save_training
+    from src.blueprint.solver import BlueprintTrainer, HU20_UNCAPPED_GAME
+    from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
+    from src.game.hand import Table
+    trainer = BlueprintTrainer(Table(('player-0','player-1'), (2000,2000)),
+        PilotConfig(seed=2026093001, raise_cap=None, roots_per_seat=1, max_nodes=250000,
+                    max_entries=8000000, max_seconds=300, postflop_replicates=1,
+                    abstraction=HU20_UNCAPPED_SCHEMA, game=HU20_UNCAPPED_GAME))
+    cp = tmp_path/'parent.gz'
+    parent = dict(seed=2026093001, completed_nodes=0, iteration=0, entries=0,
+                  checkpoint_path=str(cp), checkpoint_sha256=save_training(trainer,cp))
+    plan = dict(target_total_nodes=20000, recovery_totals=[10000,20000],
+                export_totals=[10000,20000], permanent_totals=[20000],
+                engineering=dict(initial_max_entries=8000000))
+    control = tmp_path/'control.json'
+    write(control, dict(lease_until=time.time()+300, stop=None))
+    direct = run(plan, parent, tmp_path/'direct', control)
+    records = [json.loads(line) for line in (tmp_path/'direct/saved.jsonl').read_text().splitlines()]
+    middle = next(row for row in records if row['requested_total_nodes']==10000)
+    resume = tmp_path/'direct'/(middle['id']+'.record.json')
+    resumed = run(plan, parent, tmp_path/'resumed', control, resume)
+    assert direct['status'] == resumed['status'] == 'complete'
+    assert direct['work_chain_sha256'] == resumed['work_chain_sha256']
+    assert direct['completed_nodes'] == resumed['completed_nodes']
+    assert direct['cumulative_work'] == resumed['cumulative_work']
+    final_a = records[-1]
+    final_b = json.loads((tmp_path/'resumed/saved.jsonl').read_text().splitlines()[-1])
+    assert final_a['checkpoint_sha256'] == final_b['checkpoint_sha256']
+    assert final_a['files'][1]['sha256'] == final_b['files'][1]['sha256']
+    write(control, dict(lease_until=time.time()-1, stop='fixture stop'))
+    partial = run(plan, parent, tmp_path/'stopped', control)
+    assert partial['status'] == 'interrupted' and partial['completed_nodes']==0
+    assert partial['discarded_nodes']==0
+    assert (tmp_path/'stopped/checkpoint-partial-0.json.gz').exists()

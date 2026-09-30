@@ -115,6 +115,8 @@ def execute(a):
             checks['checkpoint_bytes'] = direct['final'] == resumed['final'] == reference['final']
             checks['policy_payload'] = (direct['current']['uncompressed_sha256'] ==
                 resumed['current']['uncompressed_sha256'] == reference['current']['uncompressed_sha256'])
+            checks['only_known_gzip_os_byte'] = (direct['current']['os_normalized_sha256'] ==
+                resumed['current']['os_normalized_sha256'] == reference['current']['os_normalized_sha256'])
             checks['linux_policy_bytes'] = direct['current'] == resumed['current']
             write(root/'preflight-parity.json', dict(checks=checks, passed=all(checks.values()),
                   gzip_os_header_note='Linux 3 / Darwin 19; policy payload must match exactly'))

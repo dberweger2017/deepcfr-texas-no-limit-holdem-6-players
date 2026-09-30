@@ -121,6 +121,30 @@ def retrieve_file(row, item, destination, a):
     temporary.replace(path)
 
 
+def emergency_archive(row, a, expected, size):
+    """Final-archive failover also avoids staging on a full M4."""
+    ssh, _, _ = connections(row, a.root)
+    m1 = ['ssh', '-i', str(a.root/'backup-key'), '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=15',
+          'dberweger@100.115.183.86']
+    target = '/Users/dberweger/Local/hu20-500m-emergency-backups-20261001/'+str(row['seed'])+'-final-'+row['attempt']+'.tar'
+    free = int(run(m1+['python3 -c '+shlex.quote('import shutil; print(shutil.disk_usage("/Users/dberweger/Local").free)')]).strip())
+    if free-size < 10*2**30:
+        raise OSError('M1 final-archive capacity is insufficient')
+    with subprocess.Popen(ssh+['cat /workspace/final.tar'], stdout=subprocess.PIPE, stderr=subprocess.PIPE) as read:
+        subprocess.run(m1+['cat > '+shlex.quote(target+'.transfer')], stdin=read.stdout,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, check=True, timeout=600)
+        read.stdout.close()
+        if read.wait(timeout=30):
+            raise OSError('Final archive stream did not close successfully')
+    code = ('import hashlib,pathlib; p=pathlib.Path('+repr(target+'.transfer')+'); h=hashlib.sha256(); '
+            'f=p.open("rb"); [h.update(b) for b in iter(lambda:f.read(1048576),b"")]; '
+            'assert h.hexdigest()=='+repr(expected)+'; assert p.stat().st_size=='+str(size)+'; '
+            'p.replace('+repr(target)+'); print("verified")')
+    run(m1+['python3 -c '+shlex.quote(code)], timeout=600)
+    event(a.root, 'final-archive-storage-failover', seed=row['seed'], path=target)
+    return target
+
+
 def backup(row, saved, a):
     """No acknowledgement exists until all destination bytes match."""
     seed = str(row['seed'])
@@ -340,11 +364,16 @@ def execute(a):
             # before deleting this rental; metadata failures cannot erase peers.
             run(ssh+['tar -cf /workspace/final.tar -C /workspace results; sha256sum /workspace/final.tar'], timeout=240)
             expected = run(ssh+['sha256sum /workspace/final.tar']).split()[0]
-            run(scp+[address+':/workspace/final.tar', str(folder/'final.tar.transfer')], timeout=300)
-            if _hash(folder/'final.tar.transfer') != expected:
-                raise ValueError('Final archive transport hash mismatch')
-            (folder/'final.tar.transfer').replace(folder/'final.tar')
-            row.update(archive_sha256=expected, archive_bytes=(folder/'final.tar').stat().st_size,
+            size = int(run(ssh+['stat -c %s /workspace/final.tar']).strip())
+            if shutil.disk_usage(a.root).free-size < 10*2**30:
+                archive = emergency_archive(row, a, expected, size)
+            else:
+                run(scp+[address+':/workspace/final.tar', str(folder/'final.tar.transfer')], timeout=600)
+                if _hash(folder/'final.tar.transfer') != expected:
+                    raise ValueError('Final archive transport hash mismatch')
+                (folder/'final.tar.transfer').replace(folder/'final.tar')
+                archive = str(folder/'final.tar')
+            row.update(archive_sha256=expected, archive_bytes=size, archive_path=archive,
                        status='retrieved-complete' if final and final['status']=='complete' else 'retrieved-incident')
             publish()
             api(a.key, '/v2/pods/'+row['id'], 'DELETE')
