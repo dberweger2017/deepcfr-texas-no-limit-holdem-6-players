@@ -94,7 +94,7 @@ remains on the original released UI at port 8765; no game/runtime source changed
 The additional polling load is included in subsequent resource samples.
 
 [Machine and native dependency identity](luna-browser/environment.json) records
-the exact environment. The focused service/audit/report/tally suite passed 27 tests.
+the exact environment. The focused service/audit/report/tally suite passed 28 tests.
 The earlier `f7ac53e` GitHub CI candidate passed all 952 tests and its existing
 CLI/reproduction gates. Subsequent reporting changes receive their own CI run.
 
@@ -149,3 +149,14 @@ Some player observations named their rendered button list
 accepts either spelling, retaining the actual labels and requiring a valid list.
 This is a reporting correction; neither the player harness nor game runtime
 changed. Native action counts, hand order and replay checks remain required.
+
+The tool audit also counts expired browser handles during play, rather than
+only failed URL lookups. It publishes sanitized failure categories and call
+identifiers, without copying browser-session identifiers or tool error traces.
+
+[Active HTTP boundary evidence](luna-browser/primary-active-boundary.json)
+records public state/history requests during the primary session. Forbidden
+private fields were absent; final result/export requests returned 409 and
+diagnostics returned 403. This is a bounded check of the actual service, alongside
+the fixture tests; it is not a replacement for final native replay and disclosure
+validation. No active private journal was read.

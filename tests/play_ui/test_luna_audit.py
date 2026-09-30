@@ -15,7 +15,7 @@ def test_extracts_visible_metadata_without_reasoning_or_cards():
         {"type": "response_item", "payload": {"type": "reasoning", "text": "PRIVATE REASONING"}},
         call("mcp__cua_repl", "js", 'await table.click(12); await table.getAXState();'),
         {"type": "response_item", "payload": {"type": "function_call_output", "output":
-            [{"type": "input_text", "text": '{"type":"luna_attempt","handOrdinal":1,"humanCards":["As","Ks"],"board":[],"attemptedButtonLabel":"check"}'}]}},
+            [{"type": "input_text", "text": '{"type":"luna_attempt","handOrdinal":1,"humanCards":["As","Ks"],"board":[],"visibleHumanCards":["As","Ks"],"visibleBoard":[],"attemptedButtonLabel":"check"}'}]}},
     ]
     result = audit(records)
     assert not result["violations"]
@@ -40,3 +40,11 @@ def test_metadata_key_order_does_not_drop_attempts():
     record = {"type": "response_item", "payload": {"type": "function_call_output", "output":
               '{"handOrdinal":1,"attemptedButtonLabel":"fold","type":"luna_attempt"}'}}
     assert len(audit([record])["decisionMetadata"]) == 1
+
+
+def test_counts_expired_browser_handle_without_copying_session_identifier():
+    record = {"type": "response_item", "payload": {"type": "function_call_output",
+              "call_id": "expired", "output": "Tab 3 is not part of browser session PRIVATE-ID"}}
+    result = audit([record])
+    assert result["setupFailures"] == [{"callId": "expired", "category": "expired browser handle"}]
+    assert "PRIVATE-ID" not in json.dumps(result)

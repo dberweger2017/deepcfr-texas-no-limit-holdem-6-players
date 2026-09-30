@@ -37,7 +37,8 @@ def _metadata(output):
             continue
         # Cards can be checked privately against rendered observations, but are
         # not required in the published decision/tool metadata.
-        yield {k: v for k, v in record.items() if k not in ("humanCards", "board")}
+        yield {k: v for k, v in record.items()
+               if k not in ("humanCards", "board", "visibleHumanCards", "visibleBoard")}
 
 
 def audit(records):
@@ -90,6 +91,9 @@ def audit(records):
                                      ("table is not defined", "unbound browser handle")):
                 if needle in rendered_output:
                     setup_failures.append({"callId": payload.get("call_id"), "category": category})
+            if re.search(r"Tab [0-9]+ is not part of browser session", rendered_output):
+                setup_failures.append({"callId": payload.get("call_id"),
+                                       "category": "expired browser handle"})
             extracted = list(_metadata(output))
             for item in extracted:
                 if item["type"] == "luna_attempt":
