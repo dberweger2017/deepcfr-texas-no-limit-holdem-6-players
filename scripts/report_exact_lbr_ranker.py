@@ -245,6 +245,13 @@ def run(args):
         "original_clock_reused": read(args.previous_root / "engineering-clock.json") == clock}
     if not result["retained_attempts"]["original_clock_reused"]:
         raise ValueError("Engineering deadline was reset")
+    if args.previous_verification:
+        result["reporting_correction"] = {
+            "first_report": str((args.root / "report.json").resolve()),
+            "first_manifest": str((args.root / "manifest.json").resolve()),
+            "first_verification": read(args.previous_verification),
+            "reason": "Idle child PID 0 included the system process tree in report/phase-boundary guard samples. Active benchmark child samples remain valid. Corrected reporting guard excludes PID 0; original report and seal retained verbatim. No benchmark or gameplay rerun.",
+            "focused_guard_tests": (args.root / "reporting-guard-tests.log").read_text().strip().splitlines()[-1]}
     reporting_guard = guard(args.root, clock)
     reporting_peak = rss()
     if reporting_peak > 10.5 * 1024**3:
