@@ -1,0 +1,26 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________ test_actual_executor_binds_active_coupled_suit_context ____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10b3b6b50>
+
+    def test_actual_executor_binds_active_coupled_suit_context(monkeypatch):
+        source = UniformTarget()
+        hand = Hand.start(Table(("lbr", "target"), (2000, 2000)), hand_id="ranker-suit", seed=91)
+        view = hand.observe(hand.actor)
+        original = CachedLocalBestResponse(source, 713, SharedProbabilityCache(source), LBRConfig(1, 5))
+        action = original.choose_action(view)
+        mapping = dict(zip("cdhs", "dhsc"))
+        card = lambda c: c[0] + mapping[c[1]]
+        deck = tuple(map(card, robustness.DECK))
+        monkeypatch.setattr(robustness, "DECK", deck)
+        monkeypatch.setattr(search, "DECK", deck)
+        permuted = replay(view.history, view.seat, tuple(map(card, view.hole_cards)))
+        candidate = RankedCachedLocalBestResponse(source, 713, SharedProbabilityCache(source), LBRConfig(1, 5))
+>       assert candidate.choose_action.__func__.__globals__["DECK"] is deck
+E       AssertionError: assert ('2c', '3c', '4c', '5c', '6c', '7c', ...) is ('2d', '3d', '4d', '5d', '6d', '7d', ...)
+
+results/hu20-exact-ranker-m4-20260930-attempt-2/correction-repro/test_actual_context.py:66: AssertionError
+=========================== short test summary info ============================
+FAILED results/hu20-exact-ranker-m4-20260930-attempt-2/correction-repro/test_actual_context.py::test_actual_executor_binds_active_coupled_suit_context
+1 failed in 0.22s

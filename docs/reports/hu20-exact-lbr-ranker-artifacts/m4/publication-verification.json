@@ -1,0 +1,19 @@
+{
+  "deadline": 1790783677.5442078,
+  "first_seal_preserved": true,
+  "inputs_verified": 32,
+  "manifest_files_verified": 64,
+  "manifest_sha256": "c82f6808163e23b7588f6753147d4933b56bb3b3249abec11356f41b18e70fe6",
+  "report_sha256": "ea9ea795e68a30e13bea81a9020347ed15380324af54b5ea43e91449db19f52c",
+  "scientific_and_timing_fields_unchanged": true,
+  "status": "complete",
+  "verification_guard": {
+    "child_pid": 0,
+    "foreign_large_processes": [],
+    "free_disk_bytes": 40204169216,
+    "owned_rss_bytes": 24363008,
+    "swap_mib": 753.38,
+    "time": 1790773574.961649
+  },
+  "verified_at": 1790773574.9675038
+}
