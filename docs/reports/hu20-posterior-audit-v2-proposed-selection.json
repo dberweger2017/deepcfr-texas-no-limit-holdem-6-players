@@ -1,0 +1,110 @@
+{
+  "evaluation_worlds_per_range": 48,
+  "likelihood_samples": {
+    "higher_count_stability": 16,
+    "independent_stability_repetitions": [
+      4,
+      4,
+      4
+    ],
+    "primary": 4
+  },
+  "parent_selection_digest": "578b8b67f21a15d2961e88cf498aeeb64831c9827e578e5ce1db62f85d43e322",
+  "rng_roots": {
+    "conditional_worlds": 202610050131,
+    "higher_count": 202610050130,
+    "main_likelihood": 202610050126,
+    "stability": [
+      202610050127,
+      202610050128,
+      202610050129
+    ]
+  },
+  "rule": "eligible has prior LBR action in frozen #121 corpus; minimum posterior-stability-v2 hash per street, then add missing seeds, then missing positions",
+  "selection_worlds_per_range": 48,
+  "stability_selected": [
+    {
+      "action_index": 4,
+      "block": 11,
+      "file": "B-2026093001-100000000.jsonl.gz",
+      "line": 23,
+      "position": "big_blind",
+      "rank": "0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093001,
+      "stability_rank": "09533e2e49e78ebeb4e950ebf5173e30c6736f5f4877c130e5ce24f35ed44f00",
+      "street": "flop",
+      "trained": true,
+      "visits": 1335
+    },
+    {
+      "action_index": 8,
+      "block": 371,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 744,
+      "position": "button",
+      "rank": "276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "stability_rank": "0ec7b7487cf542184e7555d6ab196e8b338a53306bc412b77b278cee5bdb9337",
+      "street": "river",
+      "trained": true,
+      "visits": 356
+    },
+    {
+      "action_index": 6,
+      "block": 238,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 477,
+      "position": "button",
+      "rank": "04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7",
+      "rotation": 0,
+      "seat": 0,
+      "seed": 2026093002,
+      "stability_rank": "15dafa580a39bf23cee1920fcc370189df998d5d90686394f0679f99badb5da1",
+      "street": "turn",
+      "trained": true,
+      "visits": 946
+    },
+    {
+      "action_index": 4,
+      "block": 157,
+      "file": "B-2026093003-100000000.jsonl.gz",
+      "line": 316,
+      "position": "button",
+      "rank": "0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093003,
+      "stability_rank": "1b20c70630fb1dfaac73e24443b2a7c1f729ff7fbc296983c8eef6cd064d3490",
+      "street": "flop",
+      "trained": true,
+      "visits": 864
+    },
+    {
+      "action_index": 1,
+      "block": 84,
+      "file": "B-2026093002-100000000.jsonl.gz",
+      "line": 170,
+      "position": "big_blind",
+      "rank": "0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d",
+      "rotation": 1,
+      "seat": 1,
+      "seed": 2026093002,
+      "stability_rank": "3f1cd0deefd8796f7ede852f4fd112626a9d85b74b13e46c88792e24e044e545",
+      "street": "preflop",
+      "trained": true,
+      "visits": 376
+    }
+  ],
+  "status": "proposal_only_not_executed",
+  "suit_selected_ranks": [
+    "0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d",
+    "0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26",
+    "04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7",
+    "276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e"
+  ],
+  "worlds_per_range": 96
+}
