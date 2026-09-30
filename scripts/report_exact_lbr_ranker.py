@@ -20,7 +20,7 @@ import pokers
 
 from scripts.diagnose_hu20_decisions import _selected_views
 from scripts.benchmark_reverse_lbr_workload import _work
-from scripts.evaluate_hu20 import write_json
+from scripts.evaluate_hu20 import rss, write_json
 from scripts.run_exact_ranker_experiment import file_hash, guard
 from src.arena.schedule import digest
 from src.diagnostics.reverse_lbr import compatible_holdings, observed_lbr_actions
@@ -242,8 +242,13 @@ def run(args):
         "original_clock_reused": read(args.previous_root / "engineering-clock.json") == clock}
     if not result["retained_attempts"]["original_clock_reused"]:
         raise ValueError("Engineering deadline was reset")
+    reporting_guard = guard(args.root, clock)
+    reporting_peak = rss()
+    if reporting_peak > 10.5 * 1024**3:
+        raise MemoryError("Reporting peak RSS exceeds the unchanged ceiling")
+    result["resources"]["reporting_peak_process_rss_bytes"] = reporting_peak
+    result["resources"]["reporting_guard_sample"] = reporting_guard
     write_json(args.root / "report.json", result)
-    guard(args.root, clock)
     files = {str(path.resolve()): {"sha256": file_hash(path), "bytes": path.stat().st_size}
              for path in sorted(args.root.rglob("*")) if path.is_file() and path.name != "manifest.json"}
     for path in sorted(args.previous_root.rglob("*")):
@@ -255,6 +260,7 @@ def run(args):
                 "pre_correction_root": str(args.previous_root.resolve()),
                 "engineering_source_head": result["engineering_source_head"],
                 "report_source_head": result["report_source_head"], "sealed": time()}
+    guard(args.root, clock)
     write_json(args.root / "manifest.json", manifest)
     print(json.dumps({"status": "complete", "files_sealed": len(files), "speedups": speedups,
                       "proposal_hours": costs["candidate"]["proposed_four_sample_total_hours"]}, sort_keys=True))
