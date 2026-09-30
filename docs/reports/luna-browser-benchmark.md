@@ -77,7 +77,7 @@ remains on the original released UI at port 8765; no game/runtime source changed
 The additional polling load is included in subsequent resource samples.
 
 [Machine and native dependency identity](luna-browser/environment.json) records
-the exact environment. The focused service/audit/report suite passed 22 tests.
+the exact environment. The focused service/audit/report/tally suite passed 24 tests.
 The earlier `f7ac53e` GitHub CI candidate passed all 952 tests and its existing
 CLI/reproduction gates. Subsequent reporting changes receive their own CI run.
 
@@ -110,3 +110,10 @@ rollout remain outside Git. Decision CSVs include only cards available in the
 human observation at that decision. Unrevealed bot cards, future cards, seeds,
 RNG state, private policy keys and private reasoning are omitted. Failed/incomplete
 runs must be retained.
+
+For a provisional running score, `python -m scripts.tally_luna_public ROLLOUT`
+reads only rendered individual-hand results correlated with browser metadata.
+It deduplicates repeated observations and rejects missing or conflicting hand
+results. It reads neither the active private journal nor private reasoning.
+Do not send its running totals to the player. Reconcile them against the final
+native/server export after the fixed session ends.
