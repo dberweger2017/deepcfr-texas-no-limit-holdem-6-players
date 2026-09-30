@@ -53,6 +53,27 @@ history-label override defaults to absent during training. A fresh current-
 source M4 reference still runs **after** the active audit releases M4, before
 declaring the requested current-source cross-platform result complete.
 
+### Owner-approved reference host amendment — September 30
+
+Before any fresh macOS reference training, the owner explicitly authorized
+using the M1 for #129. The fresh reference now runs on the AC-powered M1
+instead of the queued M4. The idle M4 queue is cancelled before performing
+any reference training; the active #128 M4 audit stays untouched. This is a
+narrow exception to the earlier travelling-M1 restriction for this fixed
+pilot and its verification, not authorization for a larger campaign.
+
+Keep the original harness revision `e18f0079a14addc90938acca8c30795e8af09691`,
+Python **3.11.14**, pinned engine, seed, configuration, node boundaries and
+all comparison requirements unchanged. Use one worker, a 3-GiB process RSS
+cap, 10.5-GiB aggregate owned-job ceiling, 0.5-GiB swap-growth ceiling and
+8-GiB free-disk floor. Limit this complete reference/verification to one
+hour, with the existing 30-minute ceiling per training path. No playing
+outcomes are evaluated. Record AC and resource measurements.
+
+Label the result precisely: fresh current-source **Linux versus M1** parity,
+plus exact agreement with the retained historical M4 reference. Do not claim
+a fresh current-source M4 run or infer M4 throughput from the M1 measurement.
+
 ## Resources and billing
 
 Choose the cheapest available sensible CPU offer after checking live prices.
