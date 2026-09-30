@@ -110,3 +110,14 @@ coordinator logs close. It does not depend on the travelling M1 or a
 continuous SSH session. The separately authorized small RunPod training
 parity pilot will use Linux independently; its fresh M4 reference waits
 until this audit has stopped and released M4.
+
+## Final execution status
+
+The five-case stability gate failed after all 409,892 calls completed;
+primary values and subsequent controls were prohibited. The coordinator and
+wrapper exited and the 262-file seal completed September 30 at 17:02:46 UTC,
+within the original deadline. The [final report](reports/hu20-posterior-audit-v2-m4.md)
+retains every case, gate, input hash and pending phase. No scientific setting
+changed. A separate owner-authorized fresh parity reference for #129 ran on
+M1, so its queued M4 reference was cancelled before training and this audit
+retained exclusive heavy M4 use throughout.

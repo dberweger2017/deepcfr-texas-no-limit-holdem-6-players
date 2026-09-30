@@ -1,0 +1,290 @@
+{
+  "cases": [
+    {
+      "failures": [],
+      "four_vs_higher": [
+        {
+          "ess_ratio": 0.9942428392759721,
+          "four_index": 0,
+          "higher_mass_on_four_zero_support": 0.005617977528089829,
+          "tv_vs_16": 0.010358876492035707
+        },
+        {
+          "ess_ratio": 0.996589658431318,
+          "four_index": 1,
+          "higher_mass_on_four_zero_support": 0.0046265697290151534,
+          "tv_vs_16": 0.008588986209743908
+        },
+        {
+          "ess_ratio": 0.9950437330177534,
+          "four_index": 2,
+          "higher_mass_on_four_zero_support": 0.005221414408459958,
+          "tv_vs_16": 0.008704429163584177
+        }
+      ],
+      "pairwise_four_tv": [
+        {
+          "a": 0,
+          "b": 1,
+          "tv": 0.011618656485182066
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "tv": 0.01086092715231791
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "tv": 0.01214005493380096
+        }
+      ],
+      "passed": true,
+      "selection": {
+        "action_index": 4,
+        "block": 11,
+        "file": "B-2026093001-100000000.jsonl.gz",
+        "line": 23,
+        "position": "big_blind",
+        "rank": "0086ab6bc7134b4c31cc6de87fe5d9bdd5fb89b6aa78083fd57af61200649d26",
+        "rotation": 0,
+        "seat": 0,
+        "seed": 2026093001,
+        "street": "flop",
+        "trained": true,
+        "visits": 1335
+      }
+    },
+    {
+      "failures": [],
+      "four_vs_higher": [
+        {
+          "ess_ratio": 0.9994845682732594,
+          "four_index": 0,
+          "higher_mass_on_four_zero_support": 0,
+          "tv_vs_16": 0.003358947372613814
+        },
+        {
+          "ess_ratio": 0.9991788555298949,
+          "four_index": 1,
+          "higher_mass_on_four_zero_support": 0,
+          "tv_vs_16": 0.0033790702437030825
+        },
+        {
+          "ess_ratio": 0.9989338949900274,
+          "four_index": 2,
+          "higher_mass_on_four_zero_support": 0,
+          "tv_vs_16": 0.005090307281481812
+        }
+      ],
+      "pairwise_four_tv": [
+        {
+          "a": 0,
+          "b": 1,
+          "tv": 0.003476435593921322
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "tv": 0.004676412640505806
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "tv": 0.004887784077659142
+        }
+      ],
+      "passed": true,
+      "selection": {
+        "action_index": 1,
+        "block": 84,
+        "file": "B-2026093002-100000000.jsonl.gz",
+        "line": 170,
+        "position": "big_blind",
+        "rank": "0101cbbe10d9f1018a969b0aac07e59620ddb731e96bcf3a8643b99df794777d",
+        "rotation": 1,
+        "seat": 1,
+        "seed": 2026093002,
+        "street": "preflop",
+        "trained": true,
+        "visits": 376
+      }
+    },
+    {
+      "failures": [],
+      "four_vs_higher": [
+        {
+          "ess_ratio": 0.9209436231590697,
+          "four_index": 0,
+          "higher_mass_on_four_zero_support": 0.06726246030794253,
+          "tv_vs_16": 0.1421116549210078
+        },
+        {
+          "ess_ratio": 0.9193455552256445,
+          "four_index": 1,
+          "higher_mass_on_four_zero_support": 0.06200668442924253,
+          "tv_vs_16": 0.1414937634282302
+        },
+        {
+          "ess_ratio": 0.9685334013038104,
+          "four_index": 2,
+          "higher_mass_on_four_zero_support": 0.0501561611979832,
+          "tv_vs_16": 0.14123629461161588
+        }
+      ],
+      "pairwise_four_tv": [
+        {
+          "a": 0,
+          "b": 1,
+          "tv": 0.15402027290311257
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "tv": 0.18116808008921914
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "tv": 0.1651716404557813
+        }
+      ],
+      "passed": true,
+      "selection": {
+        "action_index": 6,
+        "block": 238,
+        "file": "B-2026093002-100000000.jsonl.gz",
+        "line": 477,
+        "position": "button",
+        "rank": "04cd69f4398f33db36880d3167a50cca8c3b3f845cb85d718acdf41612160ad7",
+        "rotation": 0,
+        "seat": 0,
+        "seed": 2026093002,
+        "street": "turn",
+        "trained": true,
+        "visits": 946
+      }
+    },
+    {
+      "failures": [],
+      "four_vs_higher": [
+        {
+          "ess_ratio": 0.9650274203323167,
+          "four_index": 0,
+          "higher_mass_on_four_zero_support": 0.02394781834789333,
+          "tv_vs_16": 0.09212672718554377
+        },
+        {
+          "ess_ratio": 0.9709310846976147,
+          "four_index": 1,
+          "higher_mass_on_four_zero_support": 0.016769328055835326,
+          "tv_vs_16": 0.08409757671429598
+        },
+        {
+          "ess_ratio": 0.9664953907272978,
+          "four_index": 2,
+          "higher_mass_on_four_zero_support": 0.026383586668852644,
+          "tv_vs_16": 0.09178614619556771
+        }
+      ],
+      "pairwise_four_tv": [
+        {
+          "a": 0,
+          "b": 1,
+          "tv": 0.09267461190759049
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "tv": 0.10688042499360441
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "tv": 0.09550653101434098
+        }
+      ],
+      "passed": true,
+      "selection": {
+        "action_index": 8,
+        "block": 371,
+        "file": "B-2026093002-100000000.jsonl.gz",
+        "line": 744,
+        "position": "button",
+        "rank": "276c2b1a6f4017869f1d1a6ab69f246a6b4f0a821343d5c9940ed2fb4024238e",
+        "rotation": 1,
+        "seat": 1,
+        "seed": 2026093002,
+        "street": "river",
+        "trained": true,
+        "visits": 356
+      }
+    },
+    {
+      "failures": [
+        "four-0: TV versus 16 > 0.15",
+        "four-0: higher mass on zero support > 0.10",
+        "four-1: TV versus 16 > 0.15",
+        "four-1: higher mass on zero support > 0.10",
+        "four-2: TV versus 16 > 0.15",
+        "four-2: higher mass on zero support > 0.10",
+        "four-0/four-1: TV > 0.20",
+        "four-0/four-2: TV > 0.20",
+        "four-1/four-2: TV > 0.20"
+      ],
+      "four_vs_higher": [
+        {
+          "ess_ratio": 0.7473810055114467,
+          "four_index": 0,
+          "higher_mass_on_four_zero_support": 0.21300768386388597,
+          "tv_vs_16": 0.3406446743265032
+        },
+        {
+          "ess_ratio": 0.749192534735484,
+          "four_index": 1,
+          "higher_mass_on_four_zero_support": 0.22310647639956102,
+          "tv_vs_16": 0.3314397399049775
+        },
+        {
+          "ess_ratio": 0.7506498575053433,
+          "four_index": 2,
+          "higher_mass_on_four_zero_support": 0.19253567508232727,
+          "tv_vs_16": 0.3234587675425891
+        }
+      ],
+      "pairwise_four_tv": [
+        {
+          "a": 0,
+          "b": 1,
+          "tv": 0.373807699468656
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "tv": 0.38347322622640867
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "tv": 0.3739325776322087
+        }
+      ],
+      "passed": false,
+      "selection": {
+        "action_index": 4,
+        "block": 157,
+        "file": "B-2026093003-100000000.jsonl.gz",
+        "line": 316,
+        "position": "button",
+        "rank": "0232d9bf7b3858bf06a2bf384cc442da9ea7dd9dc49ed3b54b00c7a292058132",
+        "rotation": 1,
+        "seat": 1,
+        "seed": 2026093003,
+        "street": "flop",
+        "trained": true,
+        "visits": 864
+      }
+    }
+  ],
+  "status": "stopped"
+}

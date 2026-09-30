@@ -119,3 +119,21 @@ The [M4 decision diagnosis](reports/hu20-b100-diagnosis-m4.md) retains all three
 The 60-decision information-safe conditional audit found positive held-out local action gaps at some trained and heavily visited keys, but its uniform compatible opponent range does not reconstruct the actual LBR posterior. Four same-key concrete-card probes include a suit-equivalent preflop negative control with an apparent difference, so they do not justify declaring the card abstraction the cause. A deterministic nearest-size lookup translated only 53 of 382 attempted pot-pressure decisions to trained keys and changed profit by **+1.24 [−5.20, 7.68] BB/100**; the one-third-pot control moved −6.16 [−13.98, 1.65]. It has no demonstrated playing benefit and is not part of the human-facing policy. Native chip state remained exact in the test. The bounded LBR is not exact exploitability, and none of these tests certifies broad HU20 strength.
 
 The next recommendation is a small posterior-conditioned conditional-value measurement on new outcome-blind decisions before selecting a training recipe. It belongs on the M4. The fixed-first-seed B100M human-play command above and the older #112/#113/#115 interfaces remain available; no model is promoted.
+
+## Posterior diagnostic limitation (#128)
+
+The [stability-gated M4 audit](reports/hu20-posterior-audit-v2-m4.md)
+completed its timer checks and all 409,892 prospective likelihood calls.
+Four of five fixed cases passed, but one seed-3 button flop failed: independent
+four-sample estimated ranges had TV 0.374–0.383, and the 16-sample comparison
+assigned 19.3–22.3% mass to holdings omitted by the smaller estimates.
+The supervisor therefore prohibited all primary conditional values and later
+controls. No posterior-conditioned gap or new playing-strength measurement
+was produced; these missing values are not zero gaps. Sixteen samples are
+not an exact posterior, and five cases do not certify all 24 selected decisions.
+This result identifies insufficient reliability of this diagnostic budget,
+without identifying sparse training, card/history abstraction or sizing as
+the cause of the model's remaining LBR loss. The one next recommendation is a
+prospectively frozen larger-likelihood stability measurement on the same five
+cases, after an outcome-free M4 cost preflight. No training change, paid run,
+model promotion or alteration to the verified human-play command follows.
