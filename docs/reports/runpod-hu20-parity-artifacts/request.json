@@ -1,0 +1,1 @@
+{"cpu": {"id": "cpu3c", "vcpuCount": 2}, "disk": 20, "image": "runpod/base:0.7.0-ubuntu2004", "name": "doctor-research-hu20-parity-1790781224", "ports": ["22/tcp"], "startJupyter": false, "startSsh": true}

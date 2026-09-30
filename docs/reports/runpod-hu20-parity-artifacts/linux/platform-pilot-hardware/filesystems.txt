@@ -1,0 +1,10 @@
+Filesystem          1B-blocks          Used      Available Use% Mounted on
+overlay           21474836480    1256050688    20218785792   6% /
+tmpfs                67108864             0       67108864   0% /dev
+shm                2000003072             0     2000003072   0% /dev/shm
+/dev/md0       15358678269952 1040743104512 14317935165440   7% /etc/hosts
+udev             540924252160             0   540924252160   0% /dev/tty
+tmpfs            540968271872             0   540968271872   0% /proc/acpi
+tmpfs            540968271872             0   540968271872   0% /proc/scsi
+tmpfs            540968271872             0   540968271872   0% /sys/firmware
+tmpfs            540968271872             0   540968271872   0% /sys/devices/virtual/powercap

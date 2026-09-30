@@ -1,0 +1,32 @@
+{
+  "all_non_timing_iterations_equal": true,
+  "completed_counts_equal": true,
+  "linux_members_verified": 36,
+  "next_rng_streams_equal": true,
+  "resume_suffix_equal": true,
+  "transport": {
+    "current.json.gz": {
+      "deflate_and_crc_equal": true,
+      "differing_byte_offsets": [
+        9
+      ],
+      "linux_gzip_os": 3,
+      "m1_gzip_os": 19,
+      "sizes_equal": true
+    },
+    "final.json.gz": {
+      "deflate_and_crc_equal": true,
+      "differing_byte_offsets": [],
+      "linux_gzip_os": 255,
+      "m1_gzip_os": 255,
+      "sizes_equal": true
+    },
+    "next.json.gz": {
+      "deflate_and_crc_equal": true,
+      "differing_byte_offsets": [],
+      "linux_gzip_os": 255,
+      "m1_gzip_os": 255,
+      "sizes_equal": true
+    }
+  }
+}

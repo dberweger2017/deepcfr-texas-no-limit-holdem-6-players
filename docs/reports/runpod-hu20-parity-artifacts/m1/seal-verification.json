@@ -1,0 +1,20 @@
+{
+  "source": "e18f0079a14addc90938acca8c30795e8af09691",
+  "manifest_sha256": "cbf2b2f35baa07074acf79d03a3a298a08727d99fddb13510fbae5ac9b624617",
+  "files_verified": 64,
+  "owner_amended_reference_host": "M1",
+  "status": "complete",
+  "elapsed_seconds": 150.09140396118164,
+  "peak_aggregate_owned_rss_bytes": 220921856,
+  "maximum_swap_growth_mib": 0,
+  "minimum_free_disk_bytes": 45907980288,
+  "all_ac": true,
+  "all_phase_exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

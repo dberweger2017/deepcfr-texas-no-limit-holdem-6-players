@@ -1,0 +1,6 @@
+iniconfig==2.3.0
+packaging==26.3
+pluggy==1.6.0
+pokers @ git+https://github.com/dberweger2017/pokers.git@5db20e3d5d6862b32a7402035c1340b622d3b005
+pygments==2.21.0
+pytest==9.1.1
