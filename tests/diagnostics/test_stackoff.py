@@ -445,9 +445,12 @@ def made_hand_row(board=('Ac','Kd','7h'), target=('As','2c'), rival=('Ks','Kh'),
 def test_first_large_raise_uses_current_board_and_counts_each_hand_once():
     from src.diagnostics.stackoff_made_hands import first_large_raise, summarize_events
     row=made_hand_row()
-    # A future ace would reverse the made-hand order; it must not enter this comparison.
+    # Two future aces would reverse the made-hand order; it must not enter this comparison.
     future=copy.deepcopy(row['actions'][2]);future.update(index=4,street='river')
-    future['observation']['board']=['Ac','Kd','7h','Ah','3s']
+    future['observation']['board']=['Ac','Kd','7h','Ah','Ad']
+    from src.game.showdown import hand_value
+    board=tuple(future['observation']['board'])
+    assert hand_value(('As','2c')+board)>hand_value(('Ks','Kh')+board)
     row['actions'].append(future)
     event=first_large_raise(row)
     assert event['index']==2 and event['comparison']=='behind'
