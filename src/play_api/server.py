@@ -22,6 +22,9 @@ HAND = re.compile(r"^/api/sessions/([A-Za-z0-9_-]{24})/hands$")
 ACTION = re.compile(r"^/api/sessions/([A-Za-z0-9_-]{24})/actions$")
 ADVANCE = re.compile(r"^/api/sessions/([A-Za-z0-9_-]{24})/advance$")
 DIAGNOSTICS = re.compile(r"^/api/sessions/([A-Za-z0-9_-]{24})/hands/([A-Za-z0-9_-]{24})/diagnostics$")
+BENCHMARK_RESULT = re.compile(r"^/api/sessions/([A-Za-z0-9_-]{24})/benchmark/result$")
+BENCHMARK_EXPORT = re.compile(r"^/api/sessions/([A-Za-z0-9_-]{24})/benchmark/export$")
+BENCHMARK_END = re.compile(r"^/api/sessions/([A-Za-z0-9_-]{24})/benchmark/end$")
 
 
 def token_file(path):
@@ -50,7 +53,7 @@ def handler_for(service, token, port):
         def log_message(self, *_):
             pass
 
-        def _send(self, status, value):
+        def _send(self, status, value, *, download_name=None):
             data = json.dumps(value, separators=(",", ":"), allow_nan=False).encode()
             self.send_response(status)
             self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -58,6 +61,8 @@ def handler_for(service, token, port):
             self.send_header("Cache-Control", "no-store")
             self.send_header("X-Content-Type-Options", "nosniff")
             self.send_header("Content-Security-Policy", "default-src 'self'; connect-src 'self'; style-src 'self'; script-src 'self'")
+            if download_name is not None:
+                self.send_header("Content-Disposition", f'attachment; filename="{download_name}"')
             self.end_headers()
             self.wfile.write(data)
 
@@ -114,10 +119,17 @@ def handler_for(service, token, port):
                 self._auth()
                 if self.path != path:
                     raise PlayError("Unknown endpoint", 404)
-                if match := SESSION.fullmatch(path):
+                if path == "/api/model":
+                    self._send(200, service.model_info())
+                elif match := SESSION.fullmatch(path):
                     self._send(200, service.state(match[1]))
                 elif match := HISTORY.fullmatch(path):
                     self._send(200, service.history(match[1]))
+                elif match := BENCHMARK_RESULT.fullmatch(path):
+                    self._send(200, service.benchmark_result(match[1]))
+                elif match := BENCHMARK_EXPORT.fullmatch(path):
+                    report = service.benchmark_result(match[1])
+                    self._send(200, report, download_name=f'hu20-benchmark-{report["benchmarkId"]}.json')
                 elif match := DIAGNOSTICS.fullmatch(path):
                     self._send(200, service.diagnostics(match[1], match[2]))
                 else:
@@ -144,6 +156,8 @@ def handler_for(service, token, port):
                     response = service.act(match[1], key, body)
                 elif match := ADVANCE.fullmatch(path):
                     response = service.advance(match[1], key, body)
+                elif match := BENCHMARK_END.fullmatch(path):
+                    response = service.end_benchmark(match[1], key, body)
                 else:
                     raise PlayError("Unknown endpoint", 404)
                 self._send(200, response)

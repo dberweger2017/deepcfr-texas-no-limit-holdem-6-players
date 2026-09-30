@@ -66,7 +66,17 @@ async function recover() {
     const pending = saved.pending;
     try { await mutate(pending.path, pending.body); } catch (_) { return; }
   }
-  if (!saved.sessionId) { show("setup"); connection("Ready", true); return; }
+  if (!saved.sessionId) {
+    show("setup");
+    try {
+      const model = await request("/api/model");
+      $("setup-model").textContent = `${model.name} · HU20 · SHA-256 ${model.sha256}`;
+    } catch (error) {
+      connection("Disconnected"); notice(error.message, true);
+      if (error.status === 403) { saved.token = ""; persist(); show("gate"); }
+    }
+    return;
+  }
   try {
     state = await request(`/api/sessions/${saved.sessionId}`);
     render();
@@ -181,19 +191,64 @@ async function loadDiagnostics() {
     $("diagnostics").textContent = `After-hand lookup: ${result.trained} trained · ${result.fallback} fallback`;
   } catch (_) { /* Diagnostics do not affect play. */ }
 }
+function benchmarkLine(label, value) {
+  const row = node("div", "benchmark-line");
+  row.append(node("span", "", label), node("strong", "", value));
+  return row;
+}
+function renderBenchmarkResult(report) {
+  const panel = $("benchmark-results");
+  panel.hidden = !report;
+  if (!report) return;
+  $("benchmark-status").textContent = report.status === "COMPLETE" ? "COMPLETE" : "INCOMPLETE · ENDED EARLY";
+  const summary = $("benchmark-summary"); clear(summary);
+  const lines = [
+    ["Benchmark ID", report.benchmarkId], ["Protocol", report.protocolVersion],
+    ["Model", `${report.model.name} · SHA-256 ${report.model.sha256}`],
+    ["Game / schema", `${report.game} / ${report.schema}`],
+    ["Mode / adapter", `${report.playMode} / ${report.adapter}`],
+    ["Hands", `${report.completedHands} / ${report.targetHands}`],
+    ["Human net", `${report.netChips} chips · ${signed(report.netChips)}`],
+    ["Raw BB/100", report.bbPer100 === null ? "No completed hands" : report.bbPer100.toFixed(2)],
+    ["Average pot", report.averagePotBB === null ? "No completed hands" : `${report.averagePotChips.toFixed(1)} chips · ${report.averagePotBB.toFixed(2)} BB`],
+    ["Button / SB", `${report.buttonSB.hands} hands · ${signed(report.buttonSB.netChips)}`],
+    ["Big blind", `${report.bigBlind.hands} hands · ${signed(report.bigBlind.netChips)}`],
+    ["Wins / losses / ties", `${report.wins} / ${report.losses} / ${report.ties}`],
+    ["Started", report.startedAt], ["Ended", report.endedAt],
+    ["Source / interface", `${report.sourceVersion} / ${report.interfaceVersion}`]
+  ];
+  if (report.fallbackSummary) {
+    const f = report.fallbackSummary;
+    lines.push(["Bot trained / fallback lookups", `${f.trainedLookups} / ${f.fallbackLookups}`]);
+    lines.push(["Fallback share", f.fallbackPercent === null ? "No bot lookups" : `${f.fallbackPercent.toFixed(2)}%`]);
+    lines.push(["Hands with fallback", `${f.handsWithFallback} / ${report.completedHands} (${f.handsWithFallbackFraction === null ? "n/a" : `${(100 * f.handsWithFallbackFraction).toFixed(2)}%`})`]);
+  }
+  for (const [label, value] of lines) summary.append(benchmarkLine(label, value));
+}
 function render() {
   if (!saved.token) { show("gate"); return; }
   if (!state) { show("setup"); return; }
   show("game");
-  $("mode").textContent = `${state.playMode === "free" ? "FREE SIZING · EXPERIMENTAL" : "RESTRICTED RESEARCH"} / ${state.visibility === "benchmark" ? "BENCHMARK-SAFE" : "DEVELOPER"}`;
+  const isBenchmark = state.sessionType === "benchmark";
+  const activeBenchmark = isBenchmark && state.benchmark.status === "ACTIVE";
+  $("mode").textContent = `${isBenchmark ? "HUMAN BENCHMARK / " : ""}${state.playMode === "free" ? "FREE SIZING · EXPERIMENTAL" : "RESTRICTED RESEARCH"} / ${state.visibility === "benchmark" ? "BENCHMARK-SAFE" : "DEVELOPER"}`;
   $("model").textContent = `${state.model.name} · ${state.model.sha256.slice(0, 12)}…`;
-  $("session-bb").textContent = signed(state.sessionChips);
-  $("model-details").textContent = `Session ${state.sessionId} · ${state.model.game} · ${state.model.schema} · ${state.model.format} · SHA-256 ${state.model.sha256} · ${state.model.adapter}`;
+  $("session-stat").hidden = activeBenchmark;
+  if (!activeBenchmark) $("session-bb").textContent = signed(state.sessionChips);
+  $("progress").hidden = !isBenchmark;
+  if (isBenchmark) $("progress-text").textContent = activeBenchmark && state.hand
+    ? `Hand ${state.benchmark.completedHands + 1} / ${state.benchmark.targetHands}`
+    : `${state.benchmark.completedHands} / ${state.benchmark.targetHands} completed`;
+  $("model-details").textContent = `Session ${state.sessionId}${isBenchmark ? ` · Benchmark ${state.benchmark.id}` : ""} · ${state.model.game} · ${state.model.schema} · ${state.model.format} · SHA-256 ${state.model.sha256} · ${state.model.adapter}`;
+  $("benchmark-end").hidden = !activeBenchmark;
+  $("benchmark-end").disabled = busy || !!saved.pending;
+  renderBenchmarkResult(state.benchmarkResult || null);
   $("diagnostics").textContent = "";
   if (!state.hand) {
-    $("turn").textContent = "Ready to deal";
-    $("result").textContent = "Start a 20 BB hand against B100M.";
-    $("new-hand").hidden = false; $("new-hand").disabled = busy || !!saved.pending;
+    $("turn").textContent = state.phase === "aborted" ? "Benchmark ended early" : "Ready to deal";
+    $("result").textContent = state.phase === "aborted" ? "Completed hands are retained in the result." : "Start a 20 BB hand against B100M.";
+    $("new-hand").hidden = state.phase === "aborted"; $("new-hand").disabled = busy || !!saved.pending;
+    $("new-hand").textContent = activeBenchmark ? `Deal hand 1 / ${state.benchmark.targetHands}` : "Deal next hand";
     clear($("controls")); clear($("events")); clear($("board")); clear($("bot-seat")); clear($("human-seat"));
     $("street").textContent = "PRE-FLOP"; $("pot").textContent = "POT · 0 BB";
     return;
@@ -204,17 +259,18 @@ function render() {
   cards($("board"), hand.board, 5 - hand.board.length);
   $("street").textContent = hand.street.toUpperCase();
   $("pot").textContent = `POT · ${bb(hand.pot)}`;
-  $("turn").textContent = state.phase === "finished" ? "Hand complete" : hand.actor === 0 ? "Your turn" : "B100M is thinking…";
-  $("result").textContent = state.phase === "finished" ? `This hand: ${signed(hand.result.humanChips)} · Session: ${signed(state.sessionChips)}` : "";
+  $("turn").textContent = state.phase === "complete" ? "Benchmark complete" : state.phase === "aborted" ? "Benchmark ended early" : state.phase === "finished" ? "Hand complete" : hand.actor === 0 ? "Your turn" : "B100M is thinking…";
+  $("result").textContent = hand.result ? `This hand: ${signed(hand.result.humanChips)}${activeBenchmark ? "" : ` · Session: ${signed(state.sessionChips)}`}` : "";
   $("new-hand").hidden = state.phase !== "finished"; $("new-hand").disabled = busy || !!saved.pending;
+  $("new-hand").textContent = activeBenchmark ? `Deal hand ${state.benchmark.completedHands + 1} / ${state.benchmark.targetHands}` : "Deal next hand";
   renderControls(hand);
   const events = $("events"); clear(events);
   for (const event of hand.events) events.append(node("div", "event", eventText(event)));
   events.scrollTop = events.scrollHeight;
-  if (state.phase === "finished") loadDiagnostics();
+  if (state.phase === "finished" && !isBenchmark) loadDiagnostics();
 }
 async function maybeAdvanceBot() {
-  if (processingBot || busy || !state?.hand || state.phase === "finished" || state.hand.actor !== 1) return;
+  if (processingBot || busy || !state?.hand || ["finished", "complete", "aborted"].includes(state.phase) || state.hand.actor !== 1) return;
   processingBot = true;
   try {
     await mutate(`/api/sessions/${state.sessionId}/advance`, { handId: state.hand.id, revision: state.revision });
@@ -227,9 +283,37 @@ $("gate-form").addEventListener("submit", async (event) => {
 });
 $("create").addEventListener("click", async () => {
   try {
-    await mutate("/api/sessions", { playMode: document.querySelector('input[name="playMode"]:checked').value, visibility: $("visibility").value });
+    const playMode = document.querySelector('input[name="playMode"]:checked').value;
+    const sessionType = document.querySelector('input[name="sessionType"]:checked').value;
+    let body;
+    if (sessionType === "benchmark") {
+      const selected = $("target-hands").value;
+      const raw = selected === "custom" ? $("custom-hands").value.trim() : selected;
+      const targetHands = /^\d+$/.test(raw) ? Number(raw) : NaN;
+      if (!Number.isInteger(targetHands) || targetHands < 1 || targetHands > 5000) {
+        notice("Choose a whole-number benchmark target between 1 and 5000 hands.", true);
+        return;
+      }
+      body = { sessionType, playMode, targetHands };
+    } else {
+      body = { sessionType, playMode, visibility: $("visibility").value };
+    }
+    await mutate("/api/sessions", body);
   } catch (_) { /* Recoverable with the same key. */ }
 });
+let casualVisibility = $("visibility").value;
+function updateSetup() {
+  const benchmark = document.querySelector('input[name="sessionType"]:checked').value === "benchmark";
+  $("benchmark-options").hidden = !benchmark;
+  $("visibility").value = benchmark ? "benchmark" : casualVisibility;
+  $("visibility").disabled = benchmark;
+  $("custom-hands").hidden = !benchmark || $("target-hands").value !== "custom";
+  $("custom-hands-label").hidden = $("custom-hands").hidden;
+}
+for (const control of document.querySelectorAll('input[name="sessionType"]')) control.addEventListener("change", updateSetup);
+$("visibility").addEventListener("change", () => { casualVisibility = $("visibility").value; });
+$("target-hands").addEventListener("change", updateSetup);
+updateSetup();
 $("new-hand").addEventListener("click", async () => {
   if (!state) return;
   try {
@@ -245,11 +329,31 @@ $("past-hands").addEventListener("click", async () => {
     if (!history.hands.length) events.append(node("div", "event", "No completed hands yet"));
     for (const hand of [...history.hands].reverse()) {
       const details = node("details", "past-hand");
-      details.append(node("summary", "", `${hand.handId.slice(0, 8)}… · ${signed(hand.humanChips)} · ${hand.button === 0 ? "Button" : "Big blind"}`));
+      details.append(node("summary", "", `${hand.handId.slice(0, 8)}… · ${hand.humanChips === undefined ? "Result hidden during benchmark" : signed(hand.humanChips)} · ${hand.button === 0 ? "Button" : "Big blind"}`));
       for (const event of hand.events) details.append(node("div", "event", eventText(event)));
       events.append(details);
     }
-    notice(`${history.hands.length} completed hands · ${signed(state.sessionChips)} total`);
+    notice(`${history.hands.length} completed hands${state.sessionChips === undefined ? "" : ` · ${signed(state.sessionChips)} total`}`);
+  } catch (error) { notice(error.message, true); }
+});
+$("benchmark-end").addEventListener("click", async () => {
+  if (!state?.benchmark || state.benchmark.status !== "ACTIVE") return;
+  if (!window.confirm("End this benchmark early? Completed hands will remain recorded, and the result will be marked INCOMPLETE.")) return;
+  try {
+    await mutate(`/api/sessions/${state.sessionId}/benchmark/end`, {
+      revision: state.revision, handId: state.hand?.id || null, confirm: true
+    });
+  } catch (_) { /* A lost response can be retried with the same key. */ }
+});
+$("export-benchmark").addEventListener("click", async () => {
+  if (!state?.benchmarkResult) return;
+  try {
+    const report = await request(`/api/sessions/${state.sessionId}/benchmark/export`);
+    const blob = new Blob([JSON.stringify(report, null, 2) + "\n"], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = node("a"); link.href = url; link.download = `hu20-benchmark-${report.benchmarkId}.json`;
+    document.body.append(link); link.click(); link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   } catch (error) { notice(error.message, true); }
 });
 window.addEventListener("online", recover);

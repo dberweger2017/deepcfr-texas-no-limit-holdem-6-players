@@ -6,6 +6,9 @@ native-reopening **heads-up 20BB** policy. It does not support six players,
 native rules engine for every action and settlement. Stacks reset to 20BB each
 hand; the button alternates; session BB is the sum of completed hand payoffs.
 
+For a planned, restartable human measurement with a frozen hand target, use
+the [HU20 human benchmark session guide](play-web-benchmark.md).
+
 ## Model and launch
 
 The [#116 recovery report](reports/hu20-scaling-m4-recovery.md#retained-artifacts-and-reproduction)

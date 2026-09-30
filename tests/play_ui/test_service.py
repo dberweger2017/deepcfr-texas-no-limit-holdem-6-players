@@ -242,3 +242,197 @@ def test_http_rejects_bad_origin_and_content_type(http_server):
     with pytest.raises(HTTPError) as denied:
         urlopen(request)
     assert denied.value.code == 415
+
+
+def benchmark_create(service, target=2, mode="free"):
+    return service.create("benchmark-create-key-001", {
+        "sessionType": "benchmark", "playMode": mode, "targetHands": target})
+
+
+def finish_benchmark_hand(service, state, prefix):
+    for step in range(100):
+        if state["phase"] in ("finished", "complete"):
+            return state
+        hand = state["hand"]
+        if hand["actor"] == 1:
+            state = service.advance(state["sessionId"], f"{prefix}-bot-{step:016d}", {
+                "handId": hand["id"], "revision": state["revision"]})
+        else:
+            kinds = hand["legal"]["kinds"]
+            action = "fold" if "fold" in kinds else "check" if "check" in kinds else "call"
+            state = service.act(state["sessionId"], f"{prefix}-human-{step:014d}", {
+                "handId": hand["id"], "revision": state["revision"],
+                "kind": action, "raiseTo": None})
+    raise AssertionError("Fixture hand did not settle")
+
+
+def test_benchmark_freezes_target_identity_and_active_results(service):
+    state = benchmark_create(service, 200)
+    assert state["benchmark"]["targetHands"] == 200
+    assert state["benchmark"]["status"] == "ACTIVE"
+    assert state["visibility"] == "benchmark"
+    assert "sessionChips" not in state and "benchmarkResult" not in state
+    assert service.create("benchmark-create-key-001", {
+        "sessionType": "benchmark", "playMode": "free", "targetHands": 200}) == state
+    with pytest.raises(PlayError, match="conflicts"):
+        service.create("benchmark-create-key-001", {
+            "sessionType": "benchmark", "playMode": "restricted", "targetHands": 200})
+    with pytest.raises(PlayError, match="conflicts"):
+        service.create("benchmark-create-key-001", {
+            "sessionType": "benchmark", "playMode": "free", "targetHands": 500})
+    with pytest.raises(PlayError) as unavailable:
+        service.benchmark_result(state["sessionId"])
+    assert unavailable.value.status == 409
+    with pytest.raises(PlayError, match="Invalid request fields"):
+        service.new_hand(state["sessionId"], "benchmark-change-target-001", {
+            "revision": state["revision"], "targetHands": 50})
+    assert service.state(state["sessionId"]) == state
+
+
+def test_benchmark_exact_target_position_restart_and_report(service, tmp_path):
+    state = benchmark_create(service)
+    session = state["sessionId"]
+    first_request = {"revision": state["revision"]}
+    state = service.new_hand(session, "benchmark-deal-key-001", first_request)
+    assert service.new_hand(session, "benchmark-deal-key-001", first_request) == state
+    assert state["hand"]["button"] == 0
+    state = finish_benchmark_hand(service, state, "benchmark-first")
+    assert state["benchmark"]["completedHands"] == 1
+    assert "sessionChips" not in state
+    first_history = service.history(session)
+    assert "humanChips" not in first_history["hands"][0]
+    clone = tmp_path / "benchmark-restart.sqlite"
+    target = sqlite3.connect(clone)
+    service.db.backup(target)
+    target.close()
+    restarted = PlayService(clone, FixturePolicy(), source_version="test")
+    try:
+        assert restarted.state(session) == state
+        state = restarted.new_hand(session, "benchmark-deal-key-002", {"revision": state["revision"]})
+        assert state["hand"]["button"] == 1
+        assert state["benchmark"]["completedHands"] == 1
+        state = finish_benchmark_hand(restarted, state, "benchmark-second")
+        assert state["phase"] == "complete"
+        assert state["benchmark"]["completedHands"] == 2
+        report = restarted.benchmark_result(session)
+        assert report == state["benchmarkResult"]
+        assert report["status"] == "COMPLETE" and report["targetHands"] == 2
+        assert report["buttonSB"]["hands"] == report["bigBlind"]["hands"] == 1
+        assert report["netChips"] == sum(row["humanChips"] for row in restarted._load(session)["history"])
+        assert report["bbPer100"] == report["netChips"] / 2
+        assert report["wins"] + report["losses"] + report["ties"] == 2
+        assert restarted.verify_replay(session) == 2
+        with pytest.raises(PlayError, match="ended"):
+            restarted.new_hand(session, "benchmark-deal-key-003", {"revision": state["revision"]})
+        assert restarted.state(session) == state
+    finally:
+        restarted.close()
+
+
+def test_benchmark_early_end_keeps_records_and_denies_diagnostics(service):
+    state = benchmark_create(service)
+    session = state["sessionId"]
+    state = service.new_hand(session, "benchmark-deal-key-001", {"revision": state["revision"]})
+    state = finish_benchmark_hand(service, state, "benchmark-first")
+    state = service.new_hand(session, "benchmark-deal-key-002", {"revision": state["revision"]})
+    request = {"revision": state["revision"], "handId": state["hand"]["id"], "confirm": True}
+    with pytest.raises(PlayError, match="Confirm"):
+        service.end_benchmark(session, "benchmark-end-key-000", dict(request, confirm=False))
+    ended = service.end_benchmark(session, "benchmark-end-key-001", request)
+    assert service.end_benchmark(session, "benchmark-end-key-001", request) == ended
+    assert ended["phase"] == "aborted" and ended["hand"]["legal"] is None
+    report = service.benchmark_result(session)
+    assert report["status"] == "ABORTED" and report["completedHands"] == 1
+    assert service._load(session)["benchmark"]["abortedHandId"] == state["hand"]["id"]
+    assert len(service._load(session)["history"]) == 1
+    assert service.verify_replay(session) == 1
+    with pytest.raises(PlayError) as denied:
+        service.diagnostics(session, report["handRecords"][0]["handId"])
+    assert denied.value.status == 403
+    with pytest.raises(PlayError, match="ended"):
+        service.act(session, "benchmark-post-end-001", {
+            "handId": state["hand"]["id"], "revision": ended["revision"],
+            "kind": "fold", "raiseTo": None})
+
+
+def test_benchmark_can_end_before_first_hand_without_a_rate(service):
+    state = benchmark_create(service, target=50)
+    ended = service.end_benchmark(state["sessionId"], "benchmark-empty-end-001", {
+        "revision": 0, "handId": None, "confirm": True})
+    report = ended["benchmarkResult"]
+    assert ended["phase"] == "aborted" and ended["hand"] is None
+    assert report["completedHands"] == 0 and report["status"] == "ABORTED"
+    assert report["netChips"] == 0 and report["bbPer100"] is None
+    assert report["averagePotChips"] is None and report["handRecords"] == []
+
+
+def test_http_benchmark_export_stays_public_and_cannot_delete(http_server, service):
+    base = http_server
+    state = http(base, "/api/sessions", body={
+        "sessionType": "benchmark", "playMode": "free", "targetHands": 1},
+        key="http-benchmark-create-001", origin=base)
+    session = state["sessionId"]
+    assert http(base, "/api/model")["sha256"] == "a" * 64
+    with pytest.raises(HTTPError) as unavailable:
+        http(base, f"/api/sessions/{session}/benchmark/export")
+    assert unavailable.value.code == 409
+    state = http(base, f"/api/sessions/{session}/hands", body={"revision": 0},
+                 key="http-benchmark-deal-001", origin=base)
+    state = http(base, f"/api/sessions/{session}/actions", body={
+        "handId": state["hand"]["id"], "revision": state["revision"],
+        "kind": "fold", "raiseTo": None}, key="http-benchmark-action-01", origin=base)
+    assert state["phase"] == "complete"
+    report = http(base, f"/api/sessions/{session}/benchmark/export")
+    assert report == http(base, f"/api/sessions/{session}/benchmark/result")
+    assert report["netChips"] == service._load(session)["history"][0]["humanChips"]
+    public = json.dumps(report)
+    assert not any(field in public for field in (
+        "dealSeed", "dealRng", "botRng", "hole_cards", "shownBotCards", "probabilities", "lookup"))
+    with pytest.raises(HTTPError) as denied:
+        http(base, f"/api/sessions/{session}/hands", body={"revision": state["revision"]},
+             key="http-benchmark-deal-002", origin=base)
+    assert denied.value.code == 409
+    request = Request(base + f"/api/sessions/{session}/history", data=b"{}", method="DELETE",
+                      headers={"X-Play-Token": "fixture-access-token"})
+    with pytest.raises(HTTPError) as denied:
+        urlopen(request)
+    assert denied.value.code in (404, 405, 501)
+    assert len(service._load(session)["history"]) == 1
+
+
+def test_http_active_benchmark_withholds_totals_and_diagnostics(http_server):
+    base = http_server
+    state = http(base, "/api/sessions", body={
+        "sessionType": "benchmark", "playMode": "free", "targetHands": 2},
+        key="http-active-benchmark-001", origin=base)
+    session = state["sessionId"]
+    assert "sessionChips" not in state and "sessionBB" not in state
+    state = http(base, f"/api/sessions/{session}/hands", body={"revision": 0},
+                 key="http-active-deal-0001", origin=base)
+    state = http(base, f"/api/sessions/{session}/actions", body={
+        "handId": state["hand"]["id"], "revision": state["revision"],
+        "kind": "fold", "raiseTo": None}, key="http-active-fold-0001", origin=base)
+    assert state["phase"] == "finished" and "sessionChips" not in state
+    fetched = http(base, f"/api/sessions/{session}")
+    history = http(base, f"/api/sessions/{session}/history")
+    assert fetched == state and "humanChips" not in history["hands"][0]
+    assert "fallbackSummary" not in json.dumps({"state": fetched, "history": history})
+    with pytest.raises(HTTPError) as denied:
+        http(base, f"/api/sessions/{session}/hands/{state['hand']['id']}/diagnostics")
+    assert denied.value.code == 403
+
+
+def test_benchmark_result_checks_native_replay_before_reporting(service):
+    state = benchmark_create(service, target=1)
+    session = state["sessionId"]
+    state = service.new_hand(session, "benchmark-deal-key-001", {"revision": state["revision"]})
+    state = human_action(service, state, "fold", key="benchmark-fold-key-01")
+    assert state["phase"] == "complete"
+    original = service.benchmark_result(session)
+    assert original["netChips"] == state["benchmarkResult"]["netChips"]
+    private = service._load(session)
+    private["history"][0]["humanChips"] += 1
+    service.db.execute("UPDATE sessions SET state=? WHERE id=?", (json.dumps(private), session))
+    service.db.commit()
+    with pytest.raises(RuntimeError, match="replay mismatch"):
+        service.benchmark_result(session)
