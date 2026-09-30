@@ -1,0 +1,146 @@
+{
+  "platform-pilot/direct/attempt.json": {
+    "sha256": "ef3a1801e17cebd89c803cddf6aa68c769aedbc96b716efe9341d3e92d26076e",
+    "bytes": 1070
+  },
+  "platform-pilot/direct/current.json.gz": {
+    "sha256": "057cab4ad4968958cfbaa44e2ebe79d2504fbb8989a4f72fd77030e79811599e",
+    "bytes": 3268961
+  },
+  "platform-pilot/direct/final.json.gz": {
+    "sha256": "a212b7047201a5188d75e1a37819b70e787d6e16282e694dbd08509123797b1b",
+    "bytes": 5189008
+  },
+  "platform-pilot/direct/initial.json.gz": {
+    "sha256": "d7ebe1593377a9f29fffe75004ec29a4b6554e0e1351efd286567c82ca1f079d",
+    "bytes": 423
+  },
+  "platform-pilot/direct/iterations.jsonl": {
+    "sha256": "cd08e7b06ba0b508cd02afc04d77683498d002312ae5448898f4ecfd5e6b5d14",
+    "bytes": 4658308
+  },
+  "platform-pilot/direct/midpoint.json": {
+    "sha256": "f947bbfdc5d3ec9d0f0c13e467961a16df5f5626777b04b95ba6fbfb0b2d1a7f",
+    "bytes": 310
+  },
+  "platform-pilot/direct/midpoint.json.gz": {
+    "sha256": "2838ab0f98eea52a58fedcaff0a73700022b01d30dbb62194ff1094f47838611",
+    "bytes": 3025180
+  },
+  "platform-pilot/direct/next.json.gz": {
+    "sha256": "5d85d36d89cdf7d5dd13c63dcb303b074a997dd840ef88e89428d2e70a79d3d2",
+    "bytes": 5189566
+  },
+  "platform-pilot/direct/result.json": {
+    "sha256": "73c84ea82f7f295428fcf50c499ce6316c30ca6bec4e429bb0f0fe1d8b94f551",
+    "bytes": 2635
+  },
+  "platform-pilot/historical-m4-comparison.json": {
+    "sha256": "e002daad9e3791d54cb5a2edf615abd005c6f724c9559cbe0e8d645001485e5b",
+    "bytes": 1844
+  },
+  "platform-pilot/independent-parity-checks.json": {
+    "sha256": "227cce8ee1aaae9a67c9e518aad36971bc1d2dff6f717bf683c6b13171d6bdc7",
+    "bytes": 446
+  },
+  "platform-pilot/resume-comparison.json": {
+    "sha256": "14dabe7b208740f8e595b72505407c36828ef2431ff19c863fb69dbcb52ac51d",
+    "bytes": 1849
+  },
+  "platform-pilot/resumed/attempt.json": {
+    "sha256": "bc56d7472653d5fcb2f4058618f0aebe4036752be8d14b64f9dadcb742559e1b",
+    "bytes": 1353
+  },
+  "platform-pilot/resumed/current.json.gz": {
+    "sha256": "057cab4ad4968958cfbaa44e2ebe79d2504fbb8989a4f72fd77030e79811599e",
+    "bytes": 3268961
+  },
+  "platform-pilot/resumed/final.json.gz": {
+    "sha256": "a212b7047201a5188d75e1a37819b70e787d6e16282e694dbd08509123797b1b",
+    "bytes": 5189008
+  },
+  "platform-pilot/resumed/initial.json.gz": {
+    "sha256": "2838ab0f98eea52a58fedcaff0a73700022b01d30dbb62194ff1094f47838611",
+    "bytes": 3025180
+  },
+  "platform-pilot/resumed/iterations.jsonl": {
+    "sha256": "9ecc0e26d5df250a2903eb46eb8902d2f23abe2a47eebcb200a4de09770d175d",
+    "bytes": 2346592
+  },
+  "platform-pilot/resumed/next.json.gz": {
+    "sha256": "5d85d36d89cdf7d5dd13c63dcb303b074a997dd840ef88e89428d2e70a79d3d2",
+    "bytes": 5189566
+  },
+  "platform-pilot/resumed/reload.json.gz": {
+    "sha256": "2838ab0f98eea52a58fedcaff0a73700022b01d30dbb62194ff1094f47838611",
+    "bytes": 3025180
+  },
+  "platform-pilot/resumed/result.json": {
+    "sha256": "504c3322047494c4d56f88449035af011cfa6fe2b3a23a2feaa92b869322db3f",
+    "bytes": 2916
+  },
+  "platform-pilot-hardware/cgroup-cpu.max.txt": {
+    "sha256": "04afe0d058a8924a172509ae2f711347aca93cbca3879c64bd8d3d1b2e559ee7",
+    "bytes": 11
+  },
+  "platform-pilot-hardware/cgroup-memory.max.txt": {
+    "sha256": "0396be68e83d0cf98db3b76986893afe9f6ccb5e4cf40efaefedbd8d173b3f18",
+    "bytes": 11
+  },
+  "platform-pilot-hardware/cgroup-memory.peak.txt": {
+    "sha256": "3d3de0e26c0e7fc12e3113e686cea525b21d7563a6862a041f70e81360e9d8c8",
+    "bytes": 11
+  },
+  "platform-pilot-hardware/cgroup-memory.swap.current.txt": {
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "bytes": 2
+  },
+  "platform-pilot-hardware/cpu.max.txt": {
+    "sha256": "04afe0d058a8924a172509ae2f711347aca93cbca3879c64bd8d3d1b2e559ee7",
+    "bytes": 11
+  },
+  "platform-pilot-hardware/filesystems.txt": {
+    "sha256": "05b3a7a20dac54513d5bd03b80106f8e8977aa00a3c6cbabae5d2c814ee389e3",
+    "bytes": 753
+  },
+  "platform-pilot-hardware/focused-tests.log": {
+    "sha256": "86288ee89a493b657a4f02c2118272c4f6a9a7afa049f10741e60f3a564db934",
+    "bytes": 98
+  },
+  "platform-pilot-hardware/lscpu.txt": {
+    "sha256": "b9fbc3329991c37a6a8609d8f3cb85bac0f75feb53267efa9cf059e75744476a",
+    "bytes": 3689
+  },
+  "platform-pilot-hardware/memory.current.txt": {
+    "sha256": "c0549765f50524ea4dd6ef65d65426dd346dcdea9dba180f950298efbba1a6e3",
+    "bytes": 11
+  },
+  "platform-pilot-hardware/memory.max.txt": {
+    "sha256": "0396be68e83d0cf98db3b76986893afe9f6ccb5e4cf40efaefedbd8d173b3f18",
+    "bytes": 11
+  },
+  "platform-pilot-hardware/memory.peak.txt": {
+    "sha256": "3d3de0e26c0e7fc12e3113e686cea525b21d7563a6862a041f70e81360e9d8c8",
+    "bytes": 11
+  },
+  "platform-pilot-hardware/memory.swap.current.txt": {
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "bytes": 2
+  },
+  "platform-pilot-hardware/memory.txt": {
+    "sha256": "af8a985722a9c4a2b310d86f7e96f763cf4b7f43b7a7d9558827be41ceb2df6f",
+    "bytes": 210
+  },
+  "platform-pilot-hardware/packages.txt": {
+    "sha256": "aef3907518b93e518ae083b7d6f4b79ead817eb6ca1171748424555ec7be698a",
+    "bytes": 176
+  },
+  "platform-pilot-hardware/setup-finished.txt": {
+    "sha256": "37a40f08d8548dba289b9b0bb35bcf63b359f6d37ee86044ebc6b6da080b9ec1",
+    "bytes": 9
+  },
+  "platform-pilot-hardware/uname.txt": {
+    "sha256": "8c07d791f5f9b525b8a54a455b47708b293fd455d0c9c8659cf274e77359b384",
+    "bytes": 133
+  }
+}

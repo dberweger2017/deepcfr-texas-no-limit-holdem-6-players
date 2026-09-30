@@ -1,0 +1,17 @@
+{
+  "midpoint_completed_nodes": 500625,
+  "midpoint_iteration": 1302,
+  "resumed_iterations": 1324,
+  "iteration_suffix_exact": true,
+  "reload_byte_identical": true,
+  "historical_export_different_offsets": [
+    9
+  ],
+  "historical_export_only_gzip_os_byte_differs": true,
+  "historical_export_gzip_os": {
+    "m4": 19,
+    "linux": 3
+  },
+  "historical_export_deflate_and_crc_identical": true,
+  "historical_export_payload_identical": true
+}

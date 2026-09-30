@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "query": {
+      "bucketSize": "day",
+      "endTime": "2026-10-01T00:00:00Z",
+      "podId": "xdyx1equpj1u95",
+      "startTime": "2026-09-30T00:00:00Z"
+    },
+    "recordCount": 0,
+    "totals": {
+      "cpuAmount": 0,
+      "diskAmount": 0,
+      "gpuAmount": 0,
+      "totalAmount": 0
+    },
+    "uniquePodCount": 0
+  },
+  "records": []
+}

@@ -1,0 +1,10 @@
+{
+  "allowed_logical_cpus": [
+    116,
+    244
+  ],
+  "cpu_weight": 100,
+  "cpu_max": "max 100000",
+  "free_disk_bytes": 20098625536,
+  "source": "direct SSH cgroup, taskset and df read before termination"
+}
