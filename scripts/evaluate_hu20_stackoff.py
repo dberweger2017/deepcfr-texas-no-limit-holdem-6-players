@@ -120,16 +120,20 @@ def recorded_hand(source, visits, spec, panel, block, rotation, plan, guard=lamb
     wrapped = RecordingOpponent(rival, decisions, guard)
     def emit(row):
         row['panel'] = panel['name']
-        # Preserve failed prefixes without treating uncommitted decisions as actions.
-        attach_snapshots(row, decisions[:len(row['actions'])])
-        if isinstance(rival, LocalBestResponse):
-            rival_actions = [a for a in row['actions'] if a['logical_player'] == 1]
-            for action, telemetry in zip(rival_actions, rival.telemetry):
-                action['lbr'] = telemetry
-        if row['status'] == 'complete':
-            replay_row(row)
-            row['native_replay_verified'] = True
-            row['tails'] = hand_tails(row)
+        try:
+            # Preserve failed prefixes without treating uncommitted decisions as actions.
+            attach_snapshots(row, decisions[:len(row['actions'])])
+            if isinstance(rival, LocalBestResponse):
+                rival_actions = [a for a in row['actions'] if a['logical_player'] == 1]
+                for action, telemetry in zip(rival_actions, rival.telemetry):
+                    action['lbr'] = telemetry
+            if row['status'] == 'complete':
+                replay_row(row)
+                row['native_replay_verified'] = True
+                row['tails'] = hand_tails(row)
+        except Exception as exc:
+            row['status'] = 'failed'
+            row['error'] = f'Diagnostic audit {type(exc).__name__}: {exc}'
         rows.append(row)
     try:
         play(target, spec, (panel['rule'],), panel['contract'], block, rotation,

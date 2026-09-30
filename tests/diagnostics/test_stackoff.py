@@ -271,3 +271,38 @@ def test_checkpoint_traversal_iteration_must_match_export(saved):
     (path/spec['checkpoint_path']).write_bytes(gzip.compress(('\n'.join(lines)+'\n').encode()))
     with pytest.raises(ValueError,match='lineage'):
         load_saved({**spec,'checkpoint_sha256':file_hash(path/spec['checkpoint_path'])},path)
+
+
+def test_cli_vertical_slice_fixture_and_explicit_guard_abort(saved,tmp_path):
+    from scripts.evaluate_hu20_stackoff import run
+    from scripts.report_hu20_stackoff import records
+    spec,inputs=saved
+    plan={'models':[spec], 'panels':[{'name':'fixture','rule':'selective_stackoff',
+          'contract':'restricted','root':134,'blocks':2}], 'chance_samples':4,'lbr_seconds':5,
+          'inspection_origin_milestone':100,'minimum_visits':300,'small_call_chips':200,
+          'contexts_per_seed_position_kind':2,'interval':'paired',
+          'limits':{'max_seconds':30,'max_rss_gib':6,'max_swap_growth_gib':.5,'min_free_gib':0}}
+    out=tmp_path/'run'
+    result=run(plan,inputs,out)
+    assert result['status']=='complete' and result['hands']==4
+    assert summarize(plan,records(out))['status']=='complete'
+    assert len(json.loads((out/'manifest.json').read_text())['outputs']) >= 4
+    impossible={**plan,'limits':{**plan['limits'],'max_seconds':-1}}
+    failed=run(impossible,inputs,tmp_path/'aborted')
+    assert failed['status']=='incomplete' and failed['hands']==0
+    with pytest.raises(FileExistsError):
+        run(plan,inputs,out)
+
+
+def test_diagnostic_audit_failure_is_retained_as_failed_hand(saved,monkeypatch):
+    import scripts.evaluate_hu20_stackoff as evaluator
+    spec,path=saved
+    source,visits=load_saved(spec,path)
+    def broken(row):
+        raise ValueError('injected audit defect')
+    monkeypatch.setattr(evaluator,'hand_tails',broken)
+    row=evaluator.recorded_hand(source,visits,spec,
+        {'name':'fixture','rule':'selective_stackoff','contract':'restricted','root':91},0,0,
+        {'chance_samples':4,'lbr_seconds':5})
+    assert row['status']=='failed'
+    assert row['actions'] and 'injected audit defect' in row['error']
