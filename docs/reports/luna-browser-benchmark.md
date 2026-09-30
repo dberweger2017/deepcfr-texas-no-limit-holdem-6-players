@@ -52,8 +52,12 @@ published reasoning or a calculated monetary charge.
 
 ## Primary and calibration — pending
 
-The 500-hand restricted B100M session will use a fresh, persistent Luna context.
-Only after it finishes will I add and test the separately identified uniform
+The restricted B100M session uses a fresh, persistent Luna context. I shortened
+its requested stopping boundary from 500 to 400 completed hands for elapsed-time
+reasons, after running progress/scores were visible. The
+[budget amendment](../luna-browser-budget-amendment.md) preserves that change;
+the original server target remains 500 and the final status will be ABORTED.
+Only after it stops will I add and test the separately identified uniform
 restricted-menu random opponent, then run a fresh 100-hand context. Results will
 remain separate. This ten-hand preflight is integration evidence, not a playing
 strength estimate or a substitute for either planned session.
@@ -94,7 +98,7 @@ remains on the original released UI at port 8765; no game/runtime source changed
 The additional polling load is included in subsequent resource samples.
 
 [Machine and native dependency identity](luna-browser/environment.json) records
-the exact environment. The focused service/audit/report/tally suite passed 28 tests.
+the exact environment. The focused service/audit/report/tally suite passed 29 tests.
 The earlier `f7ac53e` GitHub CI candidate passed all 952 tests and its existing
 CLI/reproduction gates. Subsequent reporting changes receive their own CI run.
 

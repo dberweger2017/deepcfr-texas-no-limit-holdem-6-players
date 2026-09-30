@@ -18,9 +18,20 @@ from src.game.types import Action, ActionKind
 from src.play_api.service import _hand
 
 
-def reconcile(state, metadata):
-    if state["benchmark"]["status"] != "COMPLETE":
-        raise ValueError("Only completed sessions may be analyzed")
+def reconcile(state, metadata, *, allow_aborted=False, expected_completed=None):
+    status = state["benchmark"]["status"]
+    target = state["benchmark"]["targetHands"]
+    if status == "COMPLETE":
+        expected_completed = target if expected_completed is None else expected_completed
+        if expected_completed != target:
+            raise ValueError("Completed session must retain its original target")
+    elif status == "ABORTED" and allow_aborted:
+        if type(expected_completed) is not int or not 0 < expected_completed <= target:
+            raise ValueError("Ended-early analysis requires an explicit completed-hand count")
+        if state["benchmark"].get("abortedHandId") is not None:
+            raise ValueError("Ended-early analysis requires a completed-hand boundary")
+    else:
+        raise ValueError("Only completed sessions or explicitly authorized ended-early sessions may be analyzed")
     attempts = [m for m in metadata if m["type"] == "luna_attempt"
                 and not m["attemptedButtonLabel"].lower().startswith("deal hand")]
     observations = {(m["handOrdinal"], m["decisionOrdinal"]): m for m in metadata
@@ -85,7 +96,9 @@ def reconcile(state, metadata):
                      "uiConfirmationMs": observed["observedAtMs"] - attempt["attemptedAtMs"],
                      "visibleError": observed.get("visibleError"),
                      "toolRetry": observed.get("toolRetry", ""), "parentIntervention": False})
-    assert len(hands) == state["benchmark"]["targetHands"]
+    if len(hands) != expected_completed:
+        raise ValueError("Completed-hand count differs from the declared analysis count")
+    assert len(hands) == state["handsPlayed"]
     assert sum(h["humanChips"] for h in hands) == state["totalChips"]
     return rows, hands
 
@@ -98,6 +111,10 @@ def main():
     parser.add_argument("output", type=Path)
     parser.add_argument("--export-file", type=Path,
                         help="Previously saved actual HTTP export, for offline analysis")
+    parser.add_argument("--allow-aborted", action="store_true",
+                        help="Explicitly analyze an ended-early run, retaining its original status/target")
+    parser.add_argument("--expected-completed-hands", type=int,
+                        help="Required completed-hand boundary for an authorized ended-early run")
     args = parser.parse_args()
     with sqlite3.connect(args.database) as connection:
         states = [json.loads(raw) for (raw,) in connection.execute("SELECT state FROM sessions")]
@@ -107,7 +124,9 @@ def main():
     result = audit(read(args.rollout))
     if result["violations"] or result["configurations"] != [{"model": "gpt-6-luna", "effort": "high"}]:
         raise ValueError("Invalid player configuration or tool boundary")
-    decisions, hands = reconcile(state, result["decisionMetadata"])
+    decisions, hands = reconcile(state, result["decisionMetadata"],
+                                 allow_aborted=args.allow_aborted,
+                                 expected_completed=args.expected_completed_hands)
     if args.export_file:
         export = json.loads(args.export_file.read_text())
     else:
@@ -120,6 +139,7 @@ def main():
     assert export["model"]["sha256"] == state["modelSha256"]
     assert export["sourceVersion"] == state["sourceVersion"]
     assert export["targetHands"] == state["benchmark"]["targetHands"]
+    assert export["status"] == state["benchmark"]["status"]
     args.output.mkdir(parents=True, exist_ok=True)
     for name, rows in (("decisions", decisions), ("hands", hands)):
         with (args.output / f"{name}.csv").open("w") as stream:
@@ -133,6 +153,9 @@ def main():
     lookups = [item for record in state["history"] for item in record["lookup"]]
     summary = {"configurations": result["configurations"], "toolCounts": result["toolCounts"],
                "violations": result["violations"], "verifiedHands": len(hands),
+               "serverStatus": state["benchmark"]["status"],
+               "originalTargetHands": state["benchmark"]["targetHands"],
+               "declaredCompletedHands": args.expected_completed_hands,
                "setupFailures": result["setupFailures"],
                "reconciledHumanDecisions": len(decisions), "parentPokerInterventions": 0,
                "attemptAcceptedMismatches": sum(not r["attemptMatchesAccepted"] for r in decisions),

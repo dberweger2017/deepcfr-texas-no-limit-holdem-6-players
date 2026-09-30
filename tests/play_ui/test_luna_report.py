@@ -6,10 +6,13 @@ from src.game.types import ActionKind
 from src.play_api.service import PlayService
 
 
-def completed_fixture(tmp_path):
+def completed_fixture(tmp_path, target=1):
     service = PlayService(tmp_path / "journal.sqlite", FixturePolicy())
-    public = hand_start(service, benchmark_create(service, target=1, mode="restricted"))
-    human_action(service, public, "fold")
+    public = hand_start(service, benchmark_create(service, target=target, mode="restricted"))
+    public = human_action(service, public, "fold")
+    if target > 1:
+        service.end_benchmark(public["sessionId"], "report-end-benchmark-001",
+                              {"revision": public["revision"], "handId": public["hand"]["id"], "confirm": True})
     state = service._load(public["sessionId"])
     service.close()
     metadata = [
@@ -63,6 +66,23 @@ def test_accepts_logged_visible_menu_field_without_changing_its_content(tmp_path
     metadata[1].pop("visibleLegalButtonLabels")
     with pytest.raises(ValueError, match="legal button labels"):
         reconcile(state, metadata)
+
+
+def test_ended_early_requires_explicit_authorization_and_exact_completed_boundary(tmp_path):
+    state, metadata = completed_fixture(tmp_path, target=2)
+    assert state["benchmark"]["status"] == "ABORTED"
+    with pytest.raises(ValueError, match="Only completed"):
+        reconcile(state, metadata)
+    with pytest.raises(ValueError, match="explicit completed-hand count"):
+        reconcile(state, metadata, allow_aborted=True)
+    with pytest.raises(ValueError, match="declared analysis count"):
+        reconcile(state, metadata, allow_aborted=True, expected_completed=2)
+    rows, hands = reconcile(state, metadata, allow_aborted=True, expected_completed=1)
+    assert len(rows) == len(hands) == 1
+    assert state["benchmark"]["targetHands"] == 2 and state["benchmark"]["status"] == "ABORTED"
+    state["benchmark"]["abortedHandId"] = "unfinished-hand"
+    with pytest.raises(ValueError, match="completed-hand boundary"):
+        reconcile(state, metadata, allow_aborted=True, expected_completed=1)
 
 
 def test_reset_stacks_do_not_reset_accumulated_profit(tmp_path):
