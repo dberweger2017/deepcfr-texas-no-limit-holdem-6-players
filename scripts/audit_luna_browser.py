@@ -44,6 +44,7 @@ def audit(records):
     violations = []
     configurations = []
     usages = []
+    setup_failures = []
     last_rendered_ms = None
     for record in records:
         kind = record.get("type")
@@ -81,6 +82,12 @@ def audit(records):
             call["codeSha256"] = hashlib.sha256(code.encode()).hexdigest()
         elif payload.get("type") in ("function_call_output", "custom_tool_call_output"):
             output = payload.get("output", "")
+            rendered_output = json.dumps(output)
+            for needle, category in (("Tab not found in browser", "existing-tab lookup"),
+                                     ("IAB visibility is not supported in a subagent thread", "unsupported live visibility"),
+                                     ("table is not defined", "unbound browser handle")):
+                if needle in rendered_output:
+                    setup_failures.append({"callId": payload.get("call_id"), "category": category})
             extracted = list(_metadata(output))
             for item in extracted:
                 if item["type"] == "luna_attempt":
@@ -88,11 +95,12 @@ def audit(records):
             metadata.extend(extracted)
             # The result receipt bounds when this rendered observation reached
             # the player. It is not the browser's first-ready timestamp.
-            if "Browser tab:" in json.dumps(output) and record.get("timestamp"):
+            if "Browser tab:" in rendered_output and record.get("timestamp"):
                 last_rendered_ms = int(datetime.fromisoformat(record["timestamp"].replace("Z", "+00:00")).timestamp() * 1000)
     return {"configurations": configurations, "toolCalls": calls,
             "toolCounts": dict(Counter(x["name"] for x in calls)),
             "violations": violations, "decisionMetadata": metadata,
+            "setupFailures": setup_failures,
             "usageRecords": usages}
 
 

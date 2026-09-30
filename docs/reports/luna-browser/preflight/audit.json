@@ -10,6 +10,20 @@
   },
   "violations": [],
   "verifiedHands": 10,
+  "setupFailures": [
+    {
+      "callId": "call_ypNJNJuO8iiEZbNyYFImx1Jn",
+      "category": "existing-tab lookup"
+    },
+    {
+      "callId": "call_amP5FzutVwIEu60a2TrJg46B",
+      "category": "unsupported live visibility"
+    },
+    {
+      "callId": "call_jVM935v8ZblNE7AsUIzZKPrT",
+      "category": "unbound browser handle"
+    }
+  ],
   "reconciledHumanDecisions": 32,
   "parentPokerInterventions": 0,
   "trainedBotLookups": 31,
@@ -25,6 +39,7 @@
     "median": 5011.5,
     "p95": 6512
   },
+  "percentileMethod": "nearest rank",
   "decisionLatencyScope": "Last rendered result receipt to action attempt; excludes earlier reads/first-ready wait",
   "usageTotals": {
     "input_tokens": 3772472,

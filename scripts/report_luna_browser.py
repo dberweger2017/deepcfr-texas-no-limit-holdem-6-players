@@ -5,6 +5,7 @@ import csv
 import json
 import sqlite3
 import statistics
+import math
 from decimal import Decimal
 import urllib.request
 from pathlib import Path
@@ -124,16 +125,18 @@ def main():
     lookups = [item for record in state["history"] for item in record["lookup"]]
     summary = {"configurations": result["configurations"], "toolCounts": result["toolCounts"],
                "violations": result["violations"], "verifiedHands": len(hands),
+               "setupFailures": result["setupFailures"],
                "reconciledHumanDecisions": len(decisions), "parentPokerInterventions": 0,
                "trainedBotLookups": sum(item["trained"] for item in lookups),
                "fallbackBotLookups": sum(not item["trained"] for item in lookups),
                "uiConfirmationMs": {"mean": statistics.mean(latencies),
                                     "median": statistics.median(latencies),
-                                    "p95": latencies[min(len(latencies)-1, int(len(latencies)*.95))]},
+                                    "p95": latencies[math.ceil(len(latencies)*.95)-1]},
                "latencyScope": "Action attempt to observed UI acknowledgment; excludes poker reasoning",
                "observedDecisionMs": {"mean": statistics.mean(decision_latencies),
                                       "median": statistics.median(decision_latencies),
-                                      "p95": decision_latencies[min(len(decision_latencies)-1, int(len(decision_latencies)*.95))]} if decision_latencies else None,
+                                      "p95": decision_latencies[math.ceil(len(decision_latencies)*.95)-1]} if decision_latencies else None,
+               "percentileMethod": "nearest rank",
                "decisionLatencyScope": "Last rendered result receipt to action attempt; excludes earlier reads/first-ready wait",
                "usageTotals": result["usageRecords"][-1].get("thread_token_usage") if result["usageRecords"] else None}
     (args.output / "audit.json").write_text(json.dumps(summary, indent=2) + "\n")

@@ -20,9 +20,10 @@ game, model hash, run order and sampling rules.
 | Browser tools | 56 CUA calls; no prohibited tool or capability detected |
 | Parent poker intervention | None |
 
-The initial existing-tab lookup failed, and this child's browser did not support
-the requested visible-tab option. Luna recovered by opening the same local table
-in its browser. No subsequent UI error was reported. Tool restrictions are
+Three setup tool failures occurred: an existing-tab lookup, unsupported live
+visibility in a child thread, and an unbound table handle after tab creation.
+Luna recovered by binding the same local table before its first poker action.
+No subsequent UI error was reported. Tool restrictions are
 instructional, not an enforced tool allowlist; the transcript audit is required.
 I do not publish private reasoning or the unfiltered model transcript.
 
@@ -56,6 +57,27 @@ Only after it finishes will I add and test the separately identified uniform
 restricted-menu random opponent, then run a fresh 100-hand context. Results will
 remain separate. This ten-hand preflight is integration evidence, not a playing
 strength estimate or a substitute for either planned session.
+
+### Primary technical supervision log
+
+The primary child ended its first turn at 9/500 with no UI failure. I resumed
+the **same agent and context**, using only: “Continue playing until the benchmark
+session ends. Keep using the same poker table and the same context. The frozen
+player prompt and browser-only technical harness remain unchanged. This
+continuation provides no poker advice or result information.” This is recorded
+as an orchestration intervention, not silently described as uninterrupted
+autonomous execution. No poker action or strategy was supplied.
+
+At my request for live viewing, I opened a temporary loopback spectator on port
+8766. It polls only the existing public state/history and reuses the table
+presentation with action controls disabled. Its server rejects every POST (405),
+foreign Origin (403) and unknown filesystem path (404). It cannot deal, wager,
+advance the bot or end the benchmark. It does not reveal running totals. Luna
+remains on the original released UI at port 8765; no game/runtime source changed.
+The additional polling load is included in subsequent resource samples.
+
+[Machine and native dependency identity](luna-browser/environment.json) records
+the exact environment. The focused service/audit/report suite passed 19 tests.
 
 ## Reproduction and audit
 
