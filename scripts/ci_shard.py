@@ -6,6 +6,12 @@ import pytest
 
 
 def shard_for(path, count):
+    # The first CI timings put both long HU20 integrations in bucket 0:
+    # 93.73s + 59.70s for their largest cases alone. Balance intact files.
+    if count == 2 and path in (
+        "tests/test_hu20_scaling.py", "tests/test_hu20_scaling_recovery.py"
+    ):
+        return 1
     return int.from_bytes(hashlib.sha256(path.encode()).digest()[:8], "big") % count
 
 

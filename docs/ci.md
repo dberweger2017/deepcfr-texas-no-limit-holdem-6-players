@@ -34,7 +34,12 @@ changes start two `full` jobs on separate runners. A small pytest plugin assigns
 every collected test to exactly one shard by hashing its repository-relative
 file path. All parametrizations and tests in a file stay together, preserving
 collection order. New test files join automatically; there is no manual list
-that can omit future tests. Separate runners avoid shared output-file races.
+that can omit future tests. Two measured exceptions place the intact
+`test_hu20_scaling.py` and `test_hu20_scaling_recovery.py` files on shard 1:
+their largest cases alone took 93.73s and 59.70s in the first run, while the
+default split took 480.16s versus 194.05s. These are assignment hints, not
+selection/exclusion lists; every collected test still belongs to one shard.
+Separate runners avoid shared output-file races.
 
 The engine, session, arena, solver, neural baseline and recovery smoke/replay
 commands also run once, on shard 0. Neither shard cancels the other on failure.
@@ -78,6 +83,13 @@ why deleting many cheap tests or tuning installation first would miss most of
 the cost. New timing output will identify individual slow tests before changing
 fixture budgets. Two file shards reduce sequential waiting while preserving
 those tests; their actual elapsed time must be measured on GitHub.
+
+The first run of [PR #131](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/131)
+passed all 1,031 tests and existing smoke/recovery gates. Its pytest shards took
+8m00s and 3m14s; the whole workflow took 9m27s. The preceding main run spent
+12m08s in pytest alone. This is observed integration timing on separate runners,
+not a controlled benchmark or a promise for future queue/run times. That first
+run motivated the two file-assignment hints above; its timings precede them.
 
 To reproduce either shard locally:
 
