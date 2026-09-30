@@ -1,181 +1,71 @@
 # DeepCFR Poker AI
 
-Building a reproducible training system for strong **no-limit Texas Hold’em**, with six-handed play as the main target and support for four- and five-handed tables, changing lineups, and unequal stacks.
+**v0.4 — Rebuilt Poker AI Research Preview**
 
-The agent must play by the documented rules and use exactly the game information available to a human in its seat. The project started with neural Deep CFR. After reproducible but weak six-player results, our strongest current learning evidence comes from a narrower, tabular external-sampling blueprint for **20 BB heads-up and three-player games**. The six-handed 100 BB goal has not been met.
+Play, inspect and reproduce a learning poker agent. This project began with neural Deep CFR; its featured playable policy now uses **tabular external-sampling CFR**. The local table lets a person play the fixed-first-seed B100M policy, trained to 100 million *traversal nodes*. Strong six-player poker remains the destination, not a capability of this release.
 
-**Status: building v0.5, a reproducible research release, on the way to v1.0. No current model has demonstrated professional-level Hold’em strength.**
+![The local heads-up poker table](docs/play-web/restricted-table.png)
 
-[Current result](#current-result) · [Research journey](#research-journey) · [Release plan](#release-plan) · [1.0 strength standard](#what-10-means) · [Quick start](#quick-start) · [Roadmap](ROADMAP.md) · [Documentation](#documentation)
+## What runs today
 
-## Current result
-
-We now have a **reproducible learning pipeline with measured improvement in restricted 20 BB games**. Three independent heads-up seeds learned against a same-game uniform baseline in [PR #112](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/112), and three-player seeds did so in [PR #113](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/113). [PR #115](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/115) removed the artificial two-raise cap in the heads-up training game, repairing a large measured loss against native repeated raises. With that recipe held fixed, [PR #116](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/116) continued three saved 20M-node policies to 100M nodes. Against a fixed bounded local best response, target profit improved **+25.94 BB/100 [two-sided 97.5% interval +7.43, +44.45]**; native-pressure profit improved **+19.39 [+2.86, +35.93]**. The completed control panel also shows improvement against minraise and passive rules relative to each policy's own 20M version. [Full scaling results](docs/reports/hu20-scaling-diagnostics.md)
-
-The remaining weakness is material: the 100M heads-up policies still earn **−73.14 BB/100 against that bounded attacker**. Secondary opponents show mixed results, late-street independent coverage remains thin, and these 20 BB findings do not establish six-player or professional strength. No model is promoted. The completed training and confirmation measurements cited above ran on the local M4 without a new paid rental; #116 also retains a failed dual-Mac attempt. The current evidence does not justify a rental for the next decision. The [model card](docs/hu20-native-reopening-model-card.md) lists the playable experimental artifact and its limits.
-
-## Release plan
-
-The next release is **v0.5**, followed by **v1.0**. The rebuilt system belongs to the 1.0 roadmap.
-
-**v0.5 is a research release.** It should let someone train, interrupt and resume a run, export a playable model, and reproduce its evaluation. It ships with a documented longer training experiment: fixed settings and budgets, multiple seeds, learning curves, throughput and memory measurements, model artifacts, and every failure or weak result. Legal play and the player-information boundary remain mandatory. The v0.5 playing-strength goal is reliable positive profit against the existing scripted opponent pool in the six-player, 100 BB, no-rake benchmark, confirmed on fresh deals across at least two independent training seeds under the [roadmap acceptance criteria](ROADMAP.md#release-milestones). Professional strength and completion of search or adaptation are not v0.5 requirements.
-
-We can run longer exploratory training once the implementation, recovery and resource checks pass. Weak or inconclusive poker results are useful data; they do not block the next budgeted experiment. We will use that evidence to choose improvements for v1.0 instead of repeatedly tuning small diagnostics. A research checkpoint is clearly labelled as such; publishing it does not certify professional strength.
-
-## What 1.0 means
-
-**Version 1.0 is earned by demonstrated playing strength.** We will release it only when the code, paired with a documented and repeatable training recipe, produces an agent that meets our **lower-end professional cash-game standard** in the declared benchmark format.
-
-A working trainer, completed roadmap, larger network, or long GPU run does not qualify on its own. We must actually train and evaluate qualifying models; “this should become strong with enough training” is not release evidence.
-
-### The playing-strength standard
-
-Our target is at least the lower end of professional no-limit cash-game play. For this project, we use a conservative, measurable release test: **demonstrably winning play against a credible reference group representing that level**, under a specified ruleset and resource budget.
-
-“Lower-end professional” is a project target, not an established numerical poker rating. Before the qualification campaign, we must document the stakes, format, reference-group selection, and evidence that the group represents established winning professionals or comparably strong regulars. A job title, a few winning sessions, or success against our own bots is insufficient.
-
-We will not claim “better than X% of poker players” without defining and measuring the relevant player population. Professional-level evidence applies to the tested format and opponents; it does not imply a universal ranking across cash games, tournaments, stakes, or player pools.
-
-### Requirements for the release
-
-| Requirement | Evidence needed for 1.0 |
+| Path | Game and status |
 | --- | --- |
-| **A credible strength benchmark** | Direct evaluation against the documented human reference group, or an independently validated benchmark demonstrably calibrated to that group in the same format. Our style agents and historical checkpoints alone cannot establish professional strength. |
-| **A statistically supported result** | Positive net win rate in big blinds per 100 hands (BB/100), with the lower bound of a predeclared 95% confidence interval above zero on the primary qualification benchmark. Include the declared rake and all completed hands; use an analysis that accounts for shared deals, sessions, opponents, and repeated measurements. |
-| **A reliable training recipe** | At least three independently seeded training runs under the same declared recipe and compute budget, with per-seed results and all failures retained. Each must meet its predeclared qualification criteria; a lucky seed or the best intermediate checkpoint cannot rescue a failed campaign. |
-| **Fresh confirmation** | Freeze the selected code, model, opponents/selection procedure, and evaluation protocol before the final test. Use held-out opponents or sessions and fresh evaluation data. Choose sample size, meaningful effect target, stopping rules, and scenario limits before looking at the results. An inconclusive result does not qualify. |
-| **Correct and fair play** | Verified legal betting and settlement, consistent chip accounting, no privileged information in decisions, no sharing of private observations between agents, and no silent substitution of invalid actions. |
-| **Supported table conditions** | Separate results for four-, five-, and six-handed starts, changing lineups, and declared unequal-stack scenarios. Publish predeclared regression limits for secondary scenarios; do not hide a failure in an overall average. |
-| **A reproducible release package** | Versioned rules, source, dependencies, training configuration, hardware/runtime/cost record, complete resume support, model hashes and retrieval instructions, and a report sufficient to repeat training and evaluation. A fresh training reproduction must confirm the recipe's quality. |
+| [Local web table](docs/play-web.md) and [terminal play](scripts/play_hu20_native.py) | **Featured:** two-player no-limit Hold'em, 20 BB (2,000 chips) per seat reset each hand, no rake or ante. The B100M inference export is a saved experimental policy. |
+| [Three-player research](docs/tp20-model-card.md) | Separate TP20 artifacts and experimental results; not supported by the web table or B100M. |
+| [Scripted multiplayer sandbox](docs/benchmarks.md) | Exercises four-to-six-player rules, sessions and evaluation. It is not a trained six-player agent. |
+| [Six-player, 100 BB research](docs/research-history.md) | Historical neural and blueprint experiments; the v0.5 strength criterion remains unmet. |
 
-The primary strength benchmark starts with **six-handed, 100 BB cash play**. The qualification protocol must pin the opponent population, seating, stack/reset policy, rake, decision-time limits, and any search or adaptation allowed during play. Four-/five-handed and other stack-depth results are reported separately; a professional-strength claim extends only to formats that have passed their own qualification checks.
-
-These are **our release requirements**, not a claim that a particular win rate or hand count universally defines a professional player. Exact exploitability is useful in the small games we can solve; we do not have an exact exploitability certificate for full multiplayer no-limit Hold’em.
-
-**The professional reference group and final qualification protocol have not yet been established. Until both the evidence and the implementation meet this standard, the project stays pre-1.0.**
-
-## The game we are building for
-
-| Area | Target |
-| --- | --- |
-| Game | Cash-game no-limit Texas Hold’em, table stakes, standard deck, one board |
-| Players | Six-handed first; four and five players are first-class table configurations |
-| Stacks | Begin with 100 BB; expand to unequal stacks and declared 20–200 BB scenarios |
-| Table lifecycle | Arrivals, departures, sit-outs, and top-ups between hands |
-| Information | Own hole cards, public board and actions, legal betting bounds, public stacks/positions, and legitimately observed opponent history |
-| Current research rules | No rake or antes; the release benchmark must explicitly name its rake/rules profile. Unraked results do not establish profitability after rake. |
-| Interface | A headless agent API, reproducible evaluation, and a way to inspect and replay decisions |
-
-Hidden opponent cards, undealt cards, deck order, simulator seeds, and future outcomes never belong in the agent's input. Training may use simulated payoffs and counterfactual branches to construct learning targets; those targets do not grant extra information during play. Search must infer possible hidden worlds from legitimate observations.
-
-The [rules profile](docs/rules.md), [observation contract](docs/observations.md), and [session contract](docs/sessions.md) define the supported behavior. Tournament payouts/ICM, straddles, multiple runouts, and live audiovisual tells are outside the initial scope.
-
-## Where we are
-
-The project began as an earlier Deep CFR implementation. We are rebuilding its learning and evaluation foundations, retaining useful regression cases and replacing components as their successors pass meaningful checks. Backwards compatibility is not a requirement.
-
-| Area | Current evidence |
-| --- | --- |
-| Rules engine | Maintained Rust [`pokers` fork](https://github.com/dberweger2017/pokers), pinned to an audited revision; integer chips, legal raises, side pots, and settlement checks. [Engine audit](docs/engine-audit.md) |
-| Player information and sessions | Immutable player observations, complete public history, identity-owned records, and changing four-to-six-player lineups. [Observation](docs/observations.md) / [session](docs/sessions.md) contracts |
-| Evaluation | Reproducible schedules, separate data splits, paired reports, varied style opponents, and hash-pinned historical models. Professional-strength opponents remain an open requirement. [Benchmark guide](docs/benchmarks.md) |
-| Tabular reference | Kuhn and Leduc CFR checked against exact best responses and independently solved equilibrium values. [Results](docs/reports/tabular-validation.md) |
-| Neural baseline | Small-game Deep CFR with complete snapshot-average training recovery and verified inference exports. Fresh snapshot readiness passes in both games. [Contract](docs/neural-cfr.md), [snapshot design](docs/decisions/snapshot-average.md) |
-| Neural convergence | Snapshot confirmation passes: 8/8 seeds in each game meet the original exploitability and value-error limits. Milestone 3 is complete. [Latest results](docs/reports/snapshot-readiness.md) |
-| Hold’em decisions | Full current-hand event encoding, variable-seat masks, board reveal stages and a small sequence model. [Contract](docs/holdem-encoding.md) |
-| Hold’em betting | Exact legal bet candidates, per-action regret/value heads and branch-payoff targets. [Contract](docs/holdem-betting.md) |
-| Hold’em collection | External sampling for every role against isolated current policies, with exact action records and reproducible 100 BB checks. [Contract](docs/holdem-collection.md) |
-| Hold’em fitting | Separate role reservoirs and whole-iteration rollback, with explicit sampled replay/root normalization and verified recovery. [Reference contract](docs/holdem-training.md), [sampled trainer](docs/holdem-sampled-training.md) |
-| Hold’em baseline pipeline | Averaged play, full iteration-boundary recovery, deterministic button rotation and a multi-seed training/arena runner. [Contract](docs/holdem-baseline.md), [first report](docs/reports/holdem-baseline.md). Substantial learning and strength remain unproven. |
-
-The table above describes the neural and full-game foundations. Their six-player 100 BB learning results were reproducible but did **not** establish playing competence. The later short-stack blueprint experiments below are a narrower research path, with their own game versions and opponents. The [roadmap](ROADMAP.md#current-position) and linked reports record the current decision and every retained negative result.
-
-## Research journey
-
-| Stage and PR | What we learned |
-| --- | --- |
-| Neural Deep CFR and six-player 100 BB baseline ([longer run](docs/reports/holdem-longer-training.md), [higher-work run](docs/reports/holdem-local-fullgame.md), [representation study](docs/reports/holdem-representation.md)) | Training, recovery and evaluation became reproducible, but the policies lost heavily to scripted opponents. More fitting capacity improved training examples without qualifying on unseen boards. This did not demonstrate useful six-player learning. |
-| Saved blueprint and local search ([#105](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/105), [#106](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/106), [#107](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/107)) | Corrected rollout and bounded multiway-flop CFR could run legally, but their paired profit estimates did not establish a gain. The conditional scaling study found sparse useful range work, moving policies and low trained-continuation coverage. Solver feasibility alone was insufficient. |
-| Exact terminal river solver ([#108](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/108)) | In restricted river games, own-reach-weighted average strategies became much less exploitable than final-iteration strategies. This gave us an independent quality measure for one component; it did not prove a full-game gain. [River quality report](docs/reports/river-quality-m4.md) |
-| Blueprint diagnosis and fixed-work alternatives ([#109](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/109), [#110](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/110), [#111](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/111)) | A seat-symmetry correction increased trained lookup hits but did not establish profit. K=4 postflop replication created more entries without a demonstrated quality gain at equal work. Windowed K1 extraction also failed to show a gain. Thin late-street visits remained a concern. [Seat audit](docs/reports/blueprint-seat-symmetry-m4.md) · [K4 report](docs/reports/postflop-replication-m4.md) · [Extraction report](docs/reports/blueprint-windowed-extraction-m4.md) |
-| Fresh 20 BB learning ([#112](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/112), [#113](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/113)) | The narrower heads-up recipe beat same-game uniform by **+38.31 BB/100 [95% +33.98, +42.64]** over its declared panel. The three-player recipe also improved by **+58.84 [+53.92, +63.75]** on its prespecified comparison. Both retained opponent-specific losses and sparse later streets. [HU20](docs/reports/hu20-m4.md) · [TP20](docs/reports/tp20-m4.md) |
-| Adversarial testing and action-menu repair ([#114](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/114), [#115](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/115)) | Fixed pressure rules and a validated bounded local response exposed large weaknesses in the saved 20 BB policies. Removing the heads-up two-raise cap changed native-pressure profit from **−254.75 to +102.20 BB/100** in the paired A/B, while bounded-LBR improvement remained inconclusive and the new policy still lost to it. [Robustness](docs/reports/robustness-m4.md) · [Uncapped A/B](docs/reports/hu20-native-reopening-m4.md) |
-| More work with the uncapped recipe ([#116](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/116)) | Continuing each saved lineage from 20M to 100M nodes improved the **prespecified aggregate** LBR and native-pressure comparisons. The completed controls recovered the earlier minraise/passive losses relative to own 20M policies. The 100M policies still lost **−73.14 BB/100** to bounded LBR, and small secondary panels were mixed. More work helped; its future returns and the six-player transfer remain unknown. [Recovery](docs/reports/hu20-scaling-m4-recovery.md) · [Completed diagnostics](docs/reports/hu20-scaling-diagnostics.md) |
-
-These results answer progressively stronger questions, from whether runs reproduce to whether additional work improves decisions against a fixed policy-aware attacker. The present next question is **which remaining mistakes occur at trained information sets and which follow off-menu actions**. We plan a bounded conditional action-value audit before choosing another training or abstraction intervention. This is a research direction, not an unattended campaign or a claim of professional poker strength.
-
-## The route to 1.0
-
-1. **Trust the game and the measurements.** Rules, legal observations, sessions, reproducible evaluation, and independent small-game references.
-2. **Validate the learning algorithm.** The snapshot-average path passes fresh predeclared small-game checks; preserve that evidence and move to Hold’em.
-3. **Build the no-limit learner.** The full-decision, variable-seat pipeline and complete recovery are implemented. Establish meaningful all-role learning and bet preferences against fixed benchmarks.
-4. **Scale from measured throughput.** Profile collection and fitting, batch work, and run bounded hardware pilots before larger campaigns.
-5. **Improve demonstrated playing strength.** Evaluate range-aware search and opponent adaptation as separate changes against fixed baselines.
-6. **Qualify the release.** Establish the professional reference benchmark, run the declared training and confirmation campaigns, and publish the complete evidence package.
-
-The [roadmap](ROADMAP.md) contains the PR-sized work, acceptance checks, and current next task. Completing implementation milestones does not waive the release standard above.
-
-Vast.ai remains a candidate for substantial training. Bounded Runpod CPU studies have already measured parallel throughput and tested small-game learning. Future hardware choices follow profiling and a cost/performance comparison; no GPU campaign is committed.
+The v0.4 source workflow uses Python 3.11 with a pinned Rust-backed [pokers engine](https://github.com/dberweger2017/pokers/tree/5db20e3d5d6862b32a7402035c1340b622d3b005). The web table runs **locally on loopback**, with an access token. It is not a hosted poker service. We have not validated every operating system or published a new PyPI package.
 
 ## Quick start
 
-Use **Python 3.11**, Git, and a Rust toolchain. The engine is built from the pinned fork. Commands run from the repository root.
+Install Python 3.11, Rust/Cargo, Git and a C/C++ build toolchain. The native engine is pinned in [requirements.txt](requirements.txt) to audited commit `5db20e3d5d6862b32a7402035c1340b622d3b005`. From a clean checkout of the **published `v0.4.0` tag**:
 
-```bash
+```sh
 git clone https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players.git
 cd deepcfr-texas-no-limit-holdem-6-players
-
+git checkout v0.4.0
 python3.11 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements-dev.txt
-python -m pytest -q
+. .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+mkdir models
+curl -fL --output models/B100M-HU20-current-seed-2026093001.json.gz \
+  https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/download/v0.4.0/B100M-HU20-current-seed-2026093001.json.gz
+python -m scripts.verify_v04_model models/B100M-HU20-current-seed-2026093001.json.gz
+python -m src.play_api.server \
+  --policy models/B100M-HU20-current-seed-2026093001.json.gz \
+  --data-dir results/play-web --source-version "$(git rev-parse HEAD)"
 ```
 
-For the CPU Torch version used by the current CI and neural reports, install `torch==2.5.1` from the [PyTorch CPU package index](https://download.pytorch.org/whl/cpu) before installing the requirements. The general requirements allow other Torch 2.x versions; exact report reproduction requires matching the recorded runtime.
+The verifier checks **40,144,034 bytes** and SHA-256 `4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf` before model loading. The service independently checks the hash, HU20 game/schema, two seats, uncapped restricted menu and current-policy extraction. Do not substitute a training checkpoint or an earlier B20M export. The download becomes available when the v0.4.0 release is published; during review use the verified local artifact described in the [model card](docs/releases/v0.4.0/MODEL_CARD.md).
 
-Run a short neural check, pause it, and resume in a new process:
+`mkdir models` intentionally fails when that directory already exists, so the example cannot silently overwrite a previously downloaded model. Choose a fresh destination or inspect existing files before rerunning it.
 
-```bash
-python -m scripts.check_deep_cfr \
-  --plan configs/solver/neural-smoke.json \
-  --stop-after 1 --out results/readme-paused
+Open `http://127.0.0.1:8765/`. Read `results/play-web/access.token` locally and enter it in the table. Keep the token out of URLs, screenshots and shared logs. Choose a play mode, create a session and deal a hand. The server stays on `127.0.0.1`, including when reached through an [SSH tunnel](docs/play-web.md#model-and-launch). Refresh resumes the same session; lost responses can be retried without a second wager. [Full play and replay guide](docs/play-web.md).
 
-python -m scripts.check_deep_cfr \
-  --resume results/readme-paused --out results/readme-resumed
-```
+## Play modes and human sessions
 
-Run and reproduce a small Hold’em arena schedule:
+**Restricted research** shows the concrete actions in the model's trained menu. **Free sizing · experimental** accepts any native-legal integer-chip raise-to amount. The native engine executes that exact wager, while the bot still uses its restricted menu and existing missing-key fallback. This interface does not solve off-tree strategy. Both modes keep hidden cards and private randomness on the server.
 
-```bash
-python -m scripts.run_arena \
-  --plan configs/arena/smoke.json --out results/readme-arena
+The base table journals completed hands and supports native replay. The separate [human benchmark framework in PR #120](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/120) is **not included until reviewed and merged into this release source**. If included, it records raw human session results, exact planned hand counts, abort status and sanitized exports. It neither establishes human playing strength nor implements AIVAT.
 
-python -m scripts.run_arena \
-  --reproduce results/readme-arena --out results/readme-arena-replay
-```
+## Measured research results
 
-Use fresh output directories; runners preserve existing results. These commands check execution and reproducibility. They do not train or certify a professional-strength model.
+The featured first-seed B100M is **one saved inference export**, not the three-lineage aggregate below. In the frozen [#116 HU20 scaling study](docs/reports/hu20-scaling-m4-recovery.md), three uncapped 20 BB lineages continued from 20M to 100M traversal nodes. On paired two-position schedules, the **aggregate** 100M-minus-own-20M target profit improved **+25.94 BB/100 [two-sided 97.5% interval +7.43, +44.45]** against original-cap2 bounded local best response (2,048 paired blocks per seed/checkpoint) and **+19.39 [+2.86, +35.93]** against native-legal pressure (4,096 blocks). Absolute 100M profit against that bounded attacker remained **−73.14 BB/100**. The attacker is limited, not an exact exploitability certificate.
 
-## Documentation
+The separate [completed #116 diagnostics](docs/reports/hu20-scaling-diagnostics.md) found improvements against minraise and passive controls relative to each B lineage's own 20M policy, but small secondary panels were mixed. Pot-pressure profit was only +3.29 BB/100 in a 256-block-per-policy panel, with frequent fallback after off-menu histories. [#117's diagnosis](docs/reports/hu20-b100-diagnosis-m4.md) used a **different** fresh 512-block schedule and must not be pooled with #116 estimates. Independent late-street trained coverage stayed thin (first-seed river 56.2% on a 4,248-observation fixture). These are research outcomes, not a claim that the released seed beats human players.
 
-| Read this | For |
-| --- | --- |
-| [Roadmap](ROADMAP.md) | Development order, current blockers, contribution workflow, and compute policy |
-| [Rules](docs/rules.md) / [engine audit](docs/engine-audit.md) | Supported poker rules and verification evidence |
-| [Observations](docs/observations.md) / [sessions](docs/sessions.md) | What the agent can see and how tables change between hands |
-| [Evaluation arena](docs/evaluation.md) / [benchmarks](docs/benchmarks.md) | Schedules, opponents, metrics, and reproducible comparisons |
-| [Tabular solver](docs/solver-reference.md) / [neural solver](docs/neural-cfr.md) | Learning conventions, commands, snapshots, and diagnostics |
-| [Snapshot readiness results](docs/reports/snapshot-readiness.md) | All seeds, artifact verification, rental cost, limitations and the next decision |
-| [Repository layout](docs/repository-layout.md) | Supported commands, retained historical opponents and retired workflows |
+## Limits and next milestones
 
-The old trainers, desktop UI and experimental opponent model have been retired. Use the current headless commands from a source checkout; release packaging and a new play interface follow the roadmap. Historical standard checkpoints remain read-only arena opponents.
+B100M supports only its specified heads-up 20 BB, no-rake/no-ante game. Each hand resets stacks; this is not tournament play. Free sizing can push histories outside the bot's trained abstraction. No six-player or 100 BB strength follows from these results, and the older neural Deep CFR work is not a complete Pluribus reproduction. Historical failures and the full trail remain in the [research index](docs/research-history.md) and [roadmap](ROADMAP.md).
 
-## Research foundations
+### What 1.0 means
 
-- [Deep Counterfactual Regret Minimization](https://proceedings.mlr.press/v97/brown19b.html) — the original inspiration and starting neural algorithm.
-- [Single Deep CFR](https://arxiv.org/abs/1901.07621) — an alternative approach to strategy averaging that we may compare separately.
-- [Pluribus: Superhuman AI for multiplayer poker](https://doi.org/10.1126/science.aay2400) and [supplementary material](https://noambrown.github.io/papers/19-Science-Superhuman_Supp.pdf) — multiplayer self-play, search, and evaluation against professional players. This project's release criteria are our own; citing that result does not establish equivalent strength here.
+The [formal v0.5 and v1.0 criteria](ROADMAP.md#release-milestones) remain unchanged. v0.5 requires reliable positive six-player 100 BB profit against the scripted pool on fresh held-out deals across at least two independent seeds. v1.0 requires a credible professional reference benchmark, predeclared confirmation, multiple training seeds, legal information-safe play and complete reproducibility. v0.4 qualifies neither milestone.
 
-## License and acknowledgments
+## Developers and licenses
 
-[MIT](LICENSE.txt). Thanks to the original [`pokers` maintainers](https://github.com/Reinforcement-Poker/pokers), contributors who reported and reproduced game/training failures, and the open-source research and tooling behind this work.
+Run the suite with `python -m pip install -r requirements-dev.txt` followed by `python -m pytest -q`. [CI](.github/workflows/tests.yml) also checks observation, sessions, arena, solver and neural baseline. Read the [rules](docs/rules.md), [observation contract](docs/observations.md), [web guide](docs/play-web.md), and [release notes](docs/releases/v0.4.0/RELEASE_NOTES.md).
+
+This repository's own code is [MIT](LICENSE.txt). The pinned `pokers` fork and its upstream do **not currently publish a license grant** in their repositories or package metadata. Engine redistribution terms need clarification before public release; the v0.4 bundle does not include an engine binary. Historical reports and referenced papers retain their own rights.
