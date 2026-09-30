@@ -33,7 +33,8 @@ def report(root, artifact_dir):
             raise ValueError(f"Incomplete {phase}: {result['status']}")
     validation, native, cached, large = (results[p] for p in
                                          ("validation", "bench-native", "bench-cached", "bench-large"))
-    if validation["cases_completed"] != native["cases_completed"] != cached["cases_completed"]:
+    if len({validation["cases_completed"], native["cases_completed"],
+            cached["cases_completed"]}) != 1:
         raise ValueError("Matched corpus case counts differ")
     if validation["mismatches"] or native["output_digest"] != cached["output_digest"]:
         raise ValueError("Exact LBR equivalence or fresh-process output digest failed")
