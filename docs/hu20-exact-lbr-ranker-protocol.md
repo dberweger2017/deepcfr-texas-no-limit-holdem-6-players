@@ -114,3 +114,23 @@ Claude v7 is advisory: resolve `a2053bb`, record absent temporary scripts and
 unreplicated M1 training observations, and supply a separate observation-reuse
 handoff. Its quoted cost, balance, worker count and training suggestions have
 no authority here.
+
+## Implementation correction within the original clock
+
+Attempt 2 at `645bb86` passed independent ranking and native-code-bound
+fixed-work tests, but review found that the production optional executor
+captured `DECK` at import time. The fixed-clock helper rebound globals inside
+the suit context and therefore did not test this production-context boundary.
+Bind the active globals when each actual optional executor is constructed,
+and have fixed-work validation change only that instance's clock. Add an
+actual-executor cyclic-suit regression. This corrects the stated control,
+without changing rank computation, cases, random seeds, menus or work counts.
+
+The first attempt's repeated-rank timing also included output-digest
+bookkeeping. Stop the timer before bookkeeping in the corrected run; retain
+the original measurement and exclude it from performance claims. No original
+attempt is overwritten. The corrected full protocol uses a fresh output
+directory with `--clock` pointing to attempt 2's immutable start/deadline,
+**1790769277.5442078 / 1790783677.5442078**. Only this corrected attempt's
+measurements enter the final candidate performance claim. There is still one
+candidate implementation and no parameter or outcome-dependent selection.

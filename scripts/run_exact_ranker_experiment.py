@@ -116,20 +116,27 @@ def main():
     for name in ("root", "corpus", "selection", "models", "raw-dir", "parent-manifest"):
         parser.add_argument("--" + name, type=Path, required=True)
     parser.add_argument("--source-head", required=True)
+    parser.add_argument("--clock", type=Path, help="Retain the original engineering start/deadline after an implementation correction")
     args = parser.parse_args()
     args.root.mkdir(parents=True, exist_ok=False)
     head = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
     if head != args.source_head or subprocess.check_output(["git", "status", "--porcelain"], text=True).strip():
         raise ValueError("Engineering source must be frozen and clean")
-    start = time()
-    clock = {"started": start, "deadline": start + 14400, "source_head": head,
-             "swap_start_mib": swap(), "owner_pid": os.getpid(), "window_seconds": 14400}
+    if args.clock:
+        clock = json.loads(args.clock.read_text())
+        if clock["window_seconds"] != 14400 or clock["deadline"] != clock["started"] + 14400:
+            raise ValueError("Original engineering clock is invalid")
+    else:
+        start = time()
+        clock = {"started": start, "deadline": start + 14400, "source_head": head,
+                 "swap_start_mib": swap(), "owner_pid": os.getpid(), "window_seconds": 14400}
     write(args.root / "engineering-clock.json", clock)
-    state = {"status": "running", "clock": clock, "phases": [], "peak_owned_rss_bytes": 0}
+    state = {"status": "running", "clock": clock, "runtime_source_head": head,
+             "owner_pid": os.getpid(), "phases": [], "peak_owned_rss_bytes": 0}
     child = None
     coordination = Path("/tmp/DR_RESEARCH_M4_COORDINATION.txt")
     with coordination.open("a") as handle:
-        handle.write(f"\nDr Research PR #126 CLAIM: task exact-ranker, supervisor PID {os.getpid()}, checkout {Path.cwd()}, start {start}, immutable deadline {clock['deadline']}, one heavy child.\n")
+        handle.write(f"\nDr Research PR #126 CLAIM: task exact-ranker, supervisor PID {os.getpid()}, checkout {Path.cwd()}, original start {clock['started']}, immutable deadline {clock['deadline']}, runtime source {head}, one heavy child.\n")
     try:
         guard(args.root, clock)
         write(args.root / "verified-inputs.json", inputs(args))

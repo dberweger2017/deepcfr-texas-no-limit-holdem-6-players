@@ -6,6 +6,8 @@ import numpy as np
 import pytest
 
 from src.blueprint.abstraction import choices
+from src.blueprint import search
+from src.diagnostics import robustness
 from src.diagnostics.cached_lbr import CachedLocalBestResponse, SharedProbabilityCache
 from src.diagnostics.exact_ranker import (
     RankedCachedLocalBestResponse, _bind_choose_action, exact_seven_card,
@@ -13,6 +15,7 @@ from src.diagnostics.exact_ranker import (
 from src.diagnostics.ranker_fixtures import FIXTURES
 from src.diagnostics.robustness import LBRConfig, LocalBestResponse
 from src.game.hand import Hand, Table
+from src.game.observation import replay
 from src.game.showdown import hand_value
 from src.game.types import Action, ActionKind
 
@@ -45,6 +48,25 @@ def test_executor_reuses_native_code_and_private_globals():
     assert differing == ["hand_value"]
     assert candidate.__globals__["hand_value"] is exact_seven_card
     assert LocalBestResponse.choose_action.__globals__["hand_value"] is hand_value
+
+
+def test_actual_executor_binds_active_coupled_suit_context(monkeypatch):
+    source = UniformTarget()
+    hand = Hand.start(Table(("lbr", "target"), (2000, 2000)), hand_id="ranker-suit", seed=91)
+    view = hand.observe(hand.actor)
+    original = CachedLocalBestResponse(source, 713, SharedProbabilityCache(source), LBRConfig(1, 5))
+    action = original.choose_action(view)
+    mapping = dict(zip("cdhs", "dhsc"))
+    card = lambda c: c[0] + mapping[c[1]]
+    deck = tuple(map(card, robustness.DECK))
+    monkeypatch.setattr(robustness, "DECK", deck)
+    monkeypatch.setattr(search, "DECK", deck)
+    permuted = replay(view.history, view.seat, tuple(map(card, view.hole_cards)))
+    candidate = RankedCachedLocalBestResponse(source, 713, SharedProbabilityCache(source), LBRConfig(1, 5))
+    assert candidate.choose_action.__func__.__globals__["DECK"] is deck
+    assert candidate.choose_action(permuted) == action
+    assert candidate.telemetry[-1]["values_chips"] == original.telemetry[-1]["values_chips"]
+    assert candidate.random.getstate() == original.random.getstate()
 
 
 @pytest.mark.parametrize("times,completed", [((0, 6, 6, 7), 1), ((0, .1, 4.9, 5.1, 5.2), 2)])

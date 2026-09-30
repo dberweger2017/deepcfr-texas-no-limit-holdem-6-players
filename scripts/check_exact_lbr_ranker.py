@@ -9,6 +9,7 @@ from hashlib import sha256
 from itertools import permutations
 from pathlib import Path
 from time import perf_counter, process_time, time
+from types import FunctionType, MethodType
 
 from scripts.benchmark_reverse_lbr_workload import CONFIG, ROOT, _work
 from scripts.evaluate_hu20 import rss, write_json
@@ -31,11 +32,12 @@ EXPECTED_CORPUS = "1559b5aac31016a9db92cfc2b319c28abf110446866d50dba0f45126eacad
 
 def execute(source, view, seed, cache, executor, fixed=False):
     cls = CachedLocalBestResponse if executor == "original" else RankedCachedLocalBestResponse
-    if fixed:
-        ranker = hand_value if executor == "original" else exact_seven_card
-        cls = type("FixedWorkLBR", (CachedLocalBestResponse,),
-                   {"choose_action": _bind_choose_action(ranker, clock=lambda: 0)})
     lbr = cls(source, seed, cache, CONFIG)
+    if fixed:
+        # Exercise the actual executor, changing only its elapsed-time clock.
+        fn = lbr.choose_action.__func__
+        namespace = dict(fn.__globals__, perf_counter=lambda: 0)
+        lbr.choose_action = MethodType(FunctionType(fn.__code__, namespace, fn.__name__), lbr)
     wall, cpu = perf_counter(), process_time()
     action = lbr.choose_action(view)
     wall, cpu = perf_counter() - wall, process_time() - cpu
@@ -99,11 +101,12 @@ def rank_check(out, deadline, swap_start):
         cold_cache = ranker.cache_info()._asdict()
         start_wall, start_cpu = perf_counter(), process_time()
         repeated = [ranker(cards) for cards in hands[-4096:]]
+        repeated_wall, repeated_cpu = perf_counter() - start_wall, process_time() - start_cpu
         summary["microbenchmark"][name] = {"distinct_wall_seconds": cold_wall,
             "distinct_cpu_seconds": cold_cpu, "distinct_output_digest": digest(values),
             "cold_cache": cold_cache, "repeated_calls": len(repeated),
-            "repeated_wall_seconds": perf_counter() - start_wall,
-            "repeated_cpu_seconds": process_time() - start_cpu,
+            "repeated_wall_seconds": repeated_wall,
+            "repeated_cpu_seconds": repeated_cpu,
             "final_cache": ranker.cache_info()._asdict()}
     if summary["microbenchmark"]["original"]["distinct_output_digest"] != summary["microbenchmark"]["candidate"]["distinct_output_digest"]:
         raise ValueError("Rank timing digest mismatch")

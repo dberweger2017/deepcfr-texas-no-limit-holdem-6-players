@@ -5,10 +5,10 @@ The game/showdown evaluator remains the independent reference and default.
 """
 
 from functools import lru_cache
-from types import FunctionType
+from types import FunctionType, MethodType
 
 from src.diagnostics.cached_lbr import CachedLocalBestResponse
-from src.diagnostics.robustness import LocalBestResponse
+from src.diagnostics.robustness import LBRConfig, LocalBestResponse
 from src.game.showdown import hand_value
 
 
@@ -80,3 +80,10 @@ class RankedCachedLocalBestResponse(CachedLocalBestResponse):
     """Shared saved-query cache plus exact ranking, explicitly selected only."""
 
     choose_action = _bind_choose_action(exact_seven_card)
+
+    def __init__(self, source, seed, shared_cache, config=LBRConfig()):
+        super().__init__(source, seed, shared_cache, config)
+        # Bind the active evaluator context at instance creation. Coupled suit
+        # controls temporarily relabel DECK; an import-time snapshot would
+        # retain its old ordering while update() uses the relabeled ordering.
+        self.choose_action = MethodType(_bind_choose_action(exact_seven_card), self)
