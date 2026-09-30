@@ -136,3 +136,40 @@ All hands undergo existing native replay, public-event digest and chip-payoff
 verification. Fixture tests cover information isolation, restricted/native
 legality, RNG determinism, exact boundaries and dashboard arithmetic. Generated
 fixtures and the twelve real saved artifacts are distinguished in the report.
+
+## Running and inspecting the regression
+
+I use a separate source checkout and an ignored input directory containing the
+exact relative filenames in the plan. The sealed #116 model index and final
+manifest identify their compressed hashes; I copy existing exports/checkpoints,
+without training or recompressing them. The evaluator verifies every export and
+streams every checkpoint node to check its current-policy extraction and visit
+count. It retains no mutable trainer state.
+
+```sh
+python -m scripts.evaluate_hu20_stackoff \
+  --plan configs/diagnostics/hu20-stackoff-v1.json \
+  --inputs results/hu20-stackoff-inputs --out results/hu20-stackoff-run
+python -m scripts.report_hu20_stackoff --run results/hu20-stackoff-run
+python -m scripts.inspect_hu20_stackoff \
+  --run results/hu20-stackoff-run --inputs results/hu20-stackoff-inputs
+python -m pytest tests/diagnostics/test_stackoff.py -q
+```
+
+The output directory must be new. I do not silently resume an incomplete campaign
+or exclude failed hands. `result.json` and `attempts.json` retain completion,
+resource guards, timings and attempted panels; `manifest.json` pins source,
+plan, inputs and initial output hashes. Each completed generated hand is checked
+against native replay before entering metrics. `summary.json` includes aggregate,
+position, individual-lineage, paired checkpoint and paired between-lineage
+estimates. `contexts.json` records selection and empty strata. The inspection
+outputs contain exact own-card queries, visits, menus and probabilities, with
+unique information keys distinguished from compatible concrete holdings.
+
+Inspection is a separate bounded read-only process with the same memory, swap,
+disk and maximum-duration guards. It never changes the frozen opponent or the
+completed evaluation. Timing and hashes added by reporting/inspection must be
+recorded in the final evidence manifest as well as the evaluator manifest.
+
+All these hands are newly generated simulator evidence. They are not private
+human session journals. There is no browser/service change or action translation.

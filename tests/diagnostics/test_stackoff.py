@@ -1,0 +1,262 @@
+"""Frozen opponent and saved-policy diagnostics, using generated tiny exports."""
+import copy
+import gzip
+import json
+from dataclasses import replace
+from random import Random
+
+import pytest
+
+from scripts.evaluate_hu20_stackoff import Contexts, recorded_hand
+from scripts.inspect_hu20_stackoff import holdings
+from src.arena.schedule import digest
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, choices, information_key
+from src.blueprint.artifact import HU20_UNCAPPED_FORMAT, export_policy, save_training
+from src.blueprint.search import DECK, _sample_world
+from src.blueprint.solver import BlueprintTrainer, HU20_UNCAPPED_GAME, Node, PilotConfig
+from src.diagnostics.saved_hu20 import file_hash, load_saved
+from src.diagnostics.selective_stackoff import SelectiveStackoff, is_jam, raise_call_amount, strength
+from src.diagnostics.stackoff_report import summarize
+from src.diagnostics.stackoff_tails import hand_tails, public_context, snapshot
+from src.game.hand import Hand, Table
+from src.game.types import Action, ActionKind
+
+
+def hand_view(cards=('Ac', 'Ad'), board=('2c', '5d', '8h', 'Ts', 'Jc'), river=False):
+    # Seat 1 gets first card in each round. Own seat is 0 before the flop.
+    prefix = ('Kc', cards[0], 'Kd', cards[1]) + board
+    hand = Hand.from_deck(Table(('hero', 'rival'), (2000, 2000)), hand_id='fixture',
+                          deck=prefix + tuple(c for c in DECK if c not in prefix))
+    if river:
+        while len(hand.observe(hand.actor).board) < 5:
+            view = hand.observe(hand.actor)
+            hand = hand.apply(Action(ActionKind.CHECK if ActionKind.CHECK in view.legal_actions.kinds else ActionKind.CALL))
+    return hand, hand.observe(hand.actor)
+
+
+@pytest.fixture
+def saved(tmp_path):
+    config = PilotConfig(seed=7, abstraction=HU20_UNCAPPED_SCHEMA, game=HU20_UNCAPPED_GAME,
+                         raise_cap=None, max_entries=1000, max_nodes=1000, max_seconds=30)
+    trainer = BlueprintTrainer(Table(('hero', 'rival'), (2000, 2000)), config)
+    trainer.iteration = 100
+    _, view = hand_view()
+    menu = choices(view, raise_cap=None, free_fold=False)
+    key = information_key(view, menu, schema=HU20_UNCAPPED_SCHEMA)
+    trainer.nodes[key] = Node(tuple(c.name for c in menu), [float(i+1) for i in range(len(menu))],
+                              [0.] * len(menu), 333)
+    spec = {'name': 'tiny', 'path': 'policy.gz', 'checkpoint_path': 'checkpoint.gz',
+            'format': HU20_UNCAPPED_FORMAT, 'players': 2, 'seed': 7, 'milestone': 100,
+            'abstraction': HU20_UNCAPPED_SCHEMA, 'dual_menu_telemetry': True}
+    spec['sha256'] = export_policy(trainer, tmp_path / spec['path'])
+    spec['checkpoint_sha256'] = save_training(trainer, tmp_path / spec['checkpoint_path'])
+    return spec, tmp_path
+
+
+@pytest.mark.parametrize('cards,tier', [(('Ac','Ad'),'strong'),(('As','Kh'),'strong'),
+    (('Tc','Td'),'strong'),(('9c','9d'),'medium'),(('Ac','3d'),'medium'),(('Tc','Jh'),'medium'),
+    (('7c','3d'),'weak')])
+def test_preflop_frozen_tiers(cards, tier):
+    _, view = hand_view(cards)
+    assert strength(view) == tier
+
+
+def test_private_worlds_cannot_change_opponent_choice_or_public_context():
+    _, view = hand_view()
+    cards = [c for c in DECK if c not in view.hole_cards]
+    a = _sample_world(view, {1-view.seat: ((tuple(cards[:2]), 1),)}, Random(12))
+    b = _sample_world(view, {1-view.seat: ((tuple(cards[-2:]), 1),)}, Random(33))
+    assert a.observe(view.seat) == b.observe(view.seat)
+    assert SelectiveStackoff(8).choose_action(a.observe(view.seat)) == SelectiveStackoff(8).choose_action(b.observe(view.seat))
+    assert public_context(view) == public_context(replace(view, hand_id='different', hole_cards=('Qs','Qh')))
+
+
+def test_one_rng_draw_and_restart_next_action():
+    _, view = hand_view()
+    player = SelectiveStackoff(21)
+    oracle = Random(21)
+    player.choose_action(view); oracle.random()
+    assert player.random.getstate() == oracle.getstate()
+    restored = SelectiveStackoff(0)
+    restored.random.setstate(player.random.getstate())
+    assert restored.choose_action(view) == player.choose_action(view)
+    assert restored.random.getstate() == player.random.getstate()
+
+
+def test_large_call_is_amount_owed_not_raise_to_and_allin_call_is_not_jam():
+    hand, view = hand_view()
+    action = Action(ActionKind.RAISE, 900)
+    assert raise_call_amount(view, action) == 800
+    assert not is_jam(view, action)
+    assert is_jam(view, Action(ActionKind.RAISE, 2000))
+    assert not is_jam(view, Action(ActionKind.CALL))
+    hand = hand.apply(action)
+    rival = hand.observe(hand.actor)
+    assert rival.legal_actions.call_amount == 800
+    weak = replace(rival, hole_cards=('7c','3d'))
+    assert SelectiveStackoff(1).choose_action(weak).kind == ActionKind.FOLD
+    assert SelectiveStackoff(1).choose_action(replace(rival,hole_cards=('As','Ah'))).kind == ActionKind.CALL
+
+
+def test_board_only_is_not_strong():
+    _, view = hand_view(('3h','4d'), ('Ac','Ks','Qh','Js','Tc'), river=True)
+    assert strength(view) == 'board_only'
+
+
+def test_readonly_current_audit_and_rejection(saved):
+    spec, path = saved
+    source, visits = load_saved(spec, path)
+    assert list(visits.values()) == [333]
+    for field, value in [('sha256','0'*64), ('seed',8), ('milestone',101), ('checkpoint_sha256','0'*64)]:
+        with pytest.raises(ValueError):
+            load_saved({**spec,field:value}, path)
+    document = json.loads(gzip.open(path / spec['path'], 'rt').read())
+    document['strategy'] = 'average'
+    (path / spec['path']).write_bytes(gzip.compress(json.dumps(document).encode()))
+    with pytest.raises(ValueError, match='lineage'):
+        load_saved({**spec,'sha256':file_hash(path / spec['path'])}, path)
+
+
+def test_generated_native_hands_are_legal_replayable_and_deterministic(saved):
+    spec, path = saved
+    source, visits = load_saved(spec, path)
+    plan = {'chance_samples':4,'lbr_seconds':5}
+    panel = {'name':'Selective-stackoff-v1','rule':'selective_stackoff','contract':'restricted','root':871}
+    for block in range(16):
+        for rotation in (0,1):
+            first = recorded_hand(source, visits, spec, panel, block, rotation, plan)
+            second = recorded_hand(source, visits, spec, panel, block, rotation, plan)
+            assert first['status'] == 'complete' and first['native_replay_verified']
+            assert sum(first['net_chips_by_seat']) == 0
+            assert first['event_digest'] == second['event_digest']
+            assert first['tails'] == second['tails']
+            for action in first['actions']:
+                menu = action['observation']['menu']
+                assert any(c['kind']==action['kind'] and c['raise_to']==action['raise_to'] for c in menu)
+
+
+def test_tail_arithmetic_partitions_first_raise_and_full_stack_signs():
+    hand, view = hand_view()
+    hand = hand.apply(Action(ActionKind.RAISE, 600))
+    view = hand.observe(hand.actor)
+    menu = choices(view, raise_cap=None, free_fold=False)
+    own = snapshot(view, menu, [1/len(menu)]*len(menu),True,400)
+    amount = next(c for c in own['menu'] if c['rival_call_amount'] >= 800)
+    raise_action = {'logical_player':0,'street':'preflop','kind':'raise','raise_to':amount['raise_to'],'observation':own}
+    rival = {'logical_player':1,'street':'preflop','kind':'call','raise_to':None,
+             'observation':{'call_amount':amount['rival_call_amount']}}
+    row = {'status':'complete','target_chips':-2000,'actions':[raise_action,rival,raise_action,{**rival,'kind':'fold'}]}
+    result = hand_tails(row)
+    assert result['counts']['large_actions'] == 2
+    assert result['counts']['rival_continuations'] == result['counts']['rival_folds'] == 1
+    assert result['first_large_raise_response'] == 'continued'
+    assert result['counts']['full_stack_losses'] == 1
+    assert result['counts']['full_stack_wins'] == 0
+    assert hand_tails({**row,'target_chips':1900})['counts']['full_stack_wins'] == 0
+    assert hand_tails({**row,'actions':[raise_action]})['counts']['no_response'] == 1
+
+
+def test_compatible_inspection_holdings_do_not_condition_on_hidden_cards():
+    _, view = hand_view(river=True)
+    pairs = list(holdings(view))
+    assert len(pairs) == 47*46//2
+    assert any(view.hole_cards[0] in pair for pair in pairs)
+
+
+def test_shared_lineage_blocks_and_positions_not_pseudoreplicates():
+    models = [{'name':f'{seed}-{m}', 'seed':seed,'milestone':m} for seed in (1,2,3) for m in (20,40)]
+    plan = {'models':models,'panels':[{'name':'stress','blocks':32}], 'interval':'paired'}
+    rows = []
+    for model in models:
+        for b in range(32):
+            for r in (0,1):
+                profit = b + model['milestone'] + (100 if r == b%2 else -100)
+                net = [0,0];net[r]=profit;net[1-r]=-profit
+                rows.append({'policy':model['name'],'panel':'stress','block':b,'rotation':r,'button':b%2,
+                    'status':'complete','native_replay_verified':True,'net_chips_by_seat':net,'target_chips':profit,
+                    'tails':{'counts':{'hands':1},'first_large_raise_response':'no_large_raise'}})
+    result = summarize(plan, reversed(rows))
+    assert result['status'] == 'complete'
+    assert result['three_lineage_aggregate'][0]['overall']['blocks'] == 32
+    assert result['three_lineage_aggregate'][0]['positions']['button']['bb_per_100'] == 135.5
+    assert result['checkpoint_changes'][0]['paired_difference']['bb_per_100'] == 20
+    with pytest.raises(ValueError,match='duplicate'):
+        summarize(plan, rows + [rows[0]])
+    assert summarize(plan, rows[:-1])['status'] == 'incomplete'
+
+
+@pytest.mark.parametrize('cards,board,tier', [
+    (('Ac','Ad'),('2c','5d','8h','Ts','Jc'),'medium'),
+    (('2h','5h'),('2c','5d','8h','Ts','Jc'),'strong'),
+    (('3h','4d'),('2c','5d','8h','Ts','Jc'),'weak'),
+])
+def test_postflop_rule_uses_made_hand_not_future_equity(cards, board, tier):
+    _, view = hand_view(cards, board, river=True)
+    # The first river actor is seat 1; replace only the observer's own cards.
+    assert strength(replace(view,hole_cards=cards)) == tier
+
+
+def test_context_replay_queries_actual_menu_and_includes_hidden_opponent_cards(saved):
+    from scripts.inspect_hu20_stackoff import context_view, queries
+    spec, path = saved
+    source, visits = load_saved(spec,path)
+    hand = Hand.start(Table(('player-0','player-1'),(2000,2000),button=0),
+                      hand_id='robustness-stackoff-v1-2-0',seed=31)
+    prefix = []
+    while len(hand.observe(hand.actor).board) < 5:
+        view = hand.observe(hand.actor)
+        action = Action(ActionKind.CHECK if ActionKind.CHECK in view.legal_actions.kinds else ActionKind.CALL)
+        prefix.append({'seat':hand.actor,'kind':action.kind.value,'raise_to':action.raise_to})
+        hand = hand.apply(action)
+    view = hand.observe(hand.actor)
+    context = {'public_context':public_context(view),'id':digest(public_context(view)),
+               'origin':{'rotation':0,'button':0,'phase':'stackoff-v1','block':0,'deal_seed':31},'prefix':prefix}
+    context = json.loads(json.dumps(context))
+    assert context_view(context) == view
+    rows = list(queries(source,visits,context))
+    assert len(rows) == 1081
+    assert all(r['probabilities'] and len(r['menu']) == len(r['probabilities']) for r in rows)
+    assert all(0 <= r['large_raise_probability'] <= 1 for r in rows)
+    altered = copy.deepcopy(context); altered['public_context']['pot'] += 1
+    with pytest.raises(ValueError,match='public replay'):
+        context_view(altered)
+
+
+def test_candidate_selection_ignores_terminal_payoff_and_keeps_lowest_hashes():
+    plan = {'inspection_origin_milestone':100, 'minimum_visits':300,'small_call_chips':200,
+            'contexts_per_seed_position_kind':1,'models':[{'seed':7}]}
+    observed = {'trained':True,'visits':300,'call_amount':100,'pot':500,'street_bet':0,
+                'position':'button','public_context_id':'b','public_context':{'board':['Ac']}}
+    row = {'players':2,'rotation':0,'button':0,'phase':'fixture','block':0,'deal_seed':13,'target_chips':-2000,
+           'actions':[{'logical_player':1,'seat':1,'street':'river','kind':'raise','raise_to':100,'observation':{}},
+                      {'logical_player':0,'seat':0,'street':'river','kind':'call','raise_to':None,'observation':observed}]}
+    spec = {'milestone':100,'seed':7}
+    first, second = Contexts(plan), Contexts(plan)
+    first.consider(row,spec);second.consider({**row,'target_chips':2000},spec)
+    assert first.document() == second.document()
+    changed = copy.deepcopy(row);changed['actions'][1]['observation']['public_context_id']='a'
+    first.consider(changed,spec)
+    assert first.document()['contexts'][0]['id'] == 'a'
+    third=Contexts(plan);changed['actions'][1]['observation']['visits']=299;third.consider(changed,spec)
+    assert third.document()['contexts'] == []
+
+
+def test_checkpoint_wrong_regrets_rejected_even_with_new_byte_hash(saved):
+    spec,path=saved
+    lines=gzip.open(path/spec['checkpoint_path'],'rt').read().splitlines()
+    node=json.loads(lines[1]);node[2][0]+=100
+    lines[1]=json.dumps(node)
+    (path/spec['checkpoint_path']).write_bytes(gzip.compress(('\n'.join(lines)+'\n').encode()))
+    with pytest.raises(ValueError,match='current extraction'):
+        load_saved({**spec,'checkpoint_sha256':file_hash(path/spec['checkpoint_path'])},path)
+
+
+def test_lbr_wrapper_keeps_actual_actions_separate_from_hypothetical_queries(saved):
+    spec,path=saved
+    source,visits=load_saved(spec,path)
+    plan={'chance_samples':1,'lbr_seconds':.01}
+    panel={'name':'fixture-lbr','rule':'lbr','contract':'menu','root':31}
+    row=recorded_hand(source,visits,spec,panel,0,0,plan)
+    assert row['status']=='complete'
+    assert all('lbr' in a for a in row['actions'] if a['logical_player']==1)
+    assert all(a['observation']['logical_player']==a['logical_player'] for a in row['actions'])
