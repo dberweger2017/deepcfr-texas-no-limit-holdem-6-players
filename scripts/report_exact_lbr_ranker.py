@@ -7,12 +7,16 @@ This consumes engineering outputs and public inventory, never new game outcomes.
 import argparse
 import json
 import math
+import platform
 import subprocess
+import sys
 from collections import defaultdict
 from hashlib import sha256
 from pathlib import Path
 from random import Random
 from time import time
+
+import pokers
 
 from scripts.diagnose_hu20_decisions import _selected_views
 from scripts.evaluate_hu20 import write_json
@@ -95,7 +99,7 @@ def run(args):
     if any(comparison.values()):
         write_json(args.root / "real-clock-differences.json", comparison)
         raise ValueError("Real-clock difference retained; no unconditional equivalence claim")
-    resource_rows = rows(args.root / "resources.jsonl")
+    resource_rows = rows(args.root / "resources.jsonl") + rows(args.previous_root / "resources.jsonl")
     if not resource_rows:
         raise ValueError("Missing external resource samples")
     if any(r["owned_rss_bytes"] > 10.5 * 1024**3 or r["swap_mib"] - clock["swap_start_mib"] > 512
@@ -188,13 +192,35 @@ def run(args):
             "minimum_free_disk_bytes": min(r["free_disk_bytes"] for r in resource_rows),
             "resource_samples": len(resource_rows), "heavy_elapsed_seconds": supervisor["finished"] - clock["started"]},
         "proposal_selection_sha256": file_hash(args.proposal_selection), "finished": time()}
+    result["environment"] = {"python": sys.version, "platform": platform.platform(),
+        "cpu": subprocess.check_output(["sysctl", "-n", "machdep.cpu.brand_string"], text=True).strip(),
+        "physical_memory_bytes": int(subprocess.check_output(["sysctl", "-n", "hw.memsize"], text=True)),
+        "pokers_files": {str(Path(module.__file__).resolve()): file_hash(Path(module.__file__))
+                         for name, module in list(sys.modules.items())
+                         if name == "pokers" or name.startswith("pokers.") if getattr(module, "__file__", None)},
+        "source_files": {str(path): file_hash(path) for path in
+            (Path("src/game/showdown.py"), Path("src/diagnostics/robustness.py"),
+             Path("src/diagnostics/cached_lbr.py"), Path("src/diagnostics/exact_ranker.py"))}}
+    previous = read(args.previous_root / "supervisor.json")
+    if previous["status"] != "complete":
+        raise ValueError("Pre-correction attempt has not closed")
+    result["retained_attempts"] = {"startup_before_heavy": str(args.startup_log),
+        "pre_correction_root": str(args.previous_root), "pre_correction_source": previous["clock"]["source_head"],
+        "correction": "Active suit-context binding and actual-executor validation; repeat-rank timer excludes digest bookkeeping. Original attempt retained, not used for final performance.",
+        "original_clock_reused": read(args.previous_root / "engineering-clock.json") == clock}
+    if not result["retained_attempts"]["original_clock_reused"]:
+        raise ValueError("Engineering deadline was reset")
     write_json(args.root / "report.json", result)
     guard(args.root, clock)
     files = {str(path.resolve()): {"sha256": file_hash(path), "bytes": path.stat().st_size}
              for path in sorted(args.root.rglob("*")) if path.is_file() and path.name != "manifest.json"}
-    for path in (args.wrapper_log, args.startup_log, args.proposal_selection):
+    for path in sorted(args.previous_root.rglob("*")):
+        if path.is_file():
+            files[str(path.resolve())] = {"sha256": file_hash(path), "bytes": path.stat().st_size}
+    for path in (args.wrapper_log, args.previous_wrapper_log, args.startup_log, args.proposal_selection):
         files[str(path.resolve())] = {"sha256": file_hash(path), "bytes": path.stat().st_size}
     manifest = {"retained_m4_root": str(args.root.resolve()), "files": files,
+                "pre_correction_root": str(args.previous_root.resolve()),
                 "engineering_source_head": result["engineering_source_head"],
                 "report_source_head": result["report_source_head"], "sealed": time()}
     write_json(args.root / "manifest.json", manifest)
@@ -204,7 +230,7 @@ def run(args):
 
 def main():
     parser = argparse.ArgumentParser()
-    for name in ("root", "corpus", "selection", "raw-dir", "proposal-selection", "wrapper-log", "startup-log"):
+    for name in ("root", "corpus", "selection", "raw-dir", "proposal-selection", "wrapper-log", "previous-wrapper-log", "startup-log", "previous-root"):
         parser.add_argument("--" + name, type=Path, required=True)
     run(parser.parse_args())
 
