@@ -1,4 +1,7 @@
 from dataclasses import replace
+import ast
+import inspect
+from textwrap import dedent
 
 import pytest
 
@@ -6,6 +9,18 @@ from scripts.benchmark_observation_reuse import original_observe
 from src.game.hand import Hand, Table
 from src.game.observation import replay
 from src.game.types import Action, ActionKind
+
+# Literal observe method from merged 7d74b6c. CI's shallow checkout need not
+# contain that historical object; the benchmark itself still reads real Git.
+ORIGINAL_SOURCE = '''class Hand:
+    def observe(
+        self, seat: int, previous_hands: tuple[ObservedHand, ...] = ()
+    ) -> Observation:
+        if type(seat) is not int or not 0 <= seat < len(self.table.stacks):
+            raise ValueError("Unknown observer seat")
+        cards = tuple(card_name(c) for c in self._state.players_state[seat].hand)
+        return replay(self.events, seat, cards, previous_hands)
+'''
 
 
 def hand():
@@ -69,7 +84,12 @@ def test_seat_and_prior_private_history_are_not_reused():
             h.observe(invalid)
 
 
-def test_original_control_and_cached_views_match_all_seats_and_branches():
+def test_original_control_and_cached_views_match_all_seats_and_branches(monkeypatch):
+    def historical_source(command, *, text):
+        assert command == ["git", "show", "7d74b6c:src/game/hand.py"] and text
+        return ORIGINAL_SOURCE
+
+    monkeypatch.setattr("scripts.benchmark_observation_reuse.subprocess.check_output", historical_source)
     original = original_observe()
     h = hand()
     while not h.finished:
@@ -81,3 +101,10 @@ def test_original_control_and_cached_views_match_all_seats_and_branches():
     assert h._acting_view is None
     for seat in (0, 1):
         assert h.observe(seat) == original(h, seat)
+
+
+def test_offline_reference_retains_the_entire_original_replay_body():
+    reference = ast.parse(ORIGINAL_SOURCE).body[0].body[0]
+    actual = ast.parse(dedent(inspect.getsource(Hand._observe_uncached))).body[0]
+    assert ast.dump(ast.Module(body=reference.body, type_ignores=[])) == ast.dump(
+        ast.Module(body=actual.body, type_ignores=[]))
