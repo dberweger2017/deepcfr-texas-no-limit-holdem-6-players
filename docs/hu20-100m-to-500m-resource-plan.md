@@ -1,6 +1,6 @@
 # Conditional HU20 100M→500M resource plan
 
-This is a prospective plan for review, **not launch authorization**. The mature CPU pilot's Linux measurements and owner-approved full budget are still required before final resource freeze. Scientific/learning settings remain the flagship uncapped HU20 recipe: same seed lineage, regrets, iteration weighting, K1, card/history abstraction, action menu and current-policy extraction. No architecture A/B or new independent seed is implied.
+This is a prospective plan for review, **not launch authorization**. Two mature Linux configurations now pass exact state/recovery parity. The six-class comparison remains incomplete; a separately authorized 16-vCPU control is still pending. Owner approval of the final full budget and capacity guard is required before launch. Scientific/learning settings remain the flagship uncapped HU20 recipe: same seed lineage, regrets, iteration weighting, K1, card/history abstraction, action menu and current-policy extraction. No architecture A/B or new independent seed is implied.
 
 ## Inputs and work
 
@@ -23,6 +23,25 @@ M4 direct training measured 20,314 nodes/sec with 2.067 GiB process peak at 1.52
 Final paid configuration is the parity-passing candidate with lowest measured cost per complete node **subject to future capacity/headroom**. Record actual CPU/quota/SMT: two vCPUs are not proof of two physical cores. Prefer one heavy worker per pod. The six-class pilot permits concurrent independent pods; it does not validate multiple heavy workers in one allocation. Three isolated pods, one per lineage, are an option for independent parallelism only after capped spending approval; this pilot does not measure simultaneous workers or arbitrary multi-core scaling. CPU/RAM class, immutable rental cutoff and maximum dollars remain pending until measurements. If meaningful trainer state diverges, no paid training recommendation follows.
 
 Use measured pilot rate `r` and price `p` to quote baseline training wall time `400M/r` per lineage and compute cost `3 × p × 400M/(3600 × r)`, then add observed save/export cadence, conservative slowdown/setup/recovery reserve, storage, verification/retrieval and evaluation. Report training-only dollars/M separately from full delivered cost. Do not present current 5M throughput as a 500M guarantee.
+
+## Measured paid-host choice and conditional costs
+
+Initial verified CPU5 general/memory runs both used EPYC 4564P SMT-sibling allocations, not two independent physical cores. They measured 17,663 / 17,770 training nodes/sec, about 1.85 GiB process peak at 1.528M entries, 3.73–3.74 GiB cgroup cache-inclusive peak, approximately 10.8s load, 13.8s checkpoint save and 12.8s current export. All full trainer state, iteration work, next RNG and fresh-process recovery match M4. The still-unmerged #132 runtime is explicit. CPU3 provisioning and CPU5 compute retrieval did not supply usable comparison results; no six-class ranking follows.
+
+**Provisional paid configuration: CPU5 memory, 2 vCPU / 16 GB, one heavy worker per pod, up to three isolated pods for the three lineages.** Live pilot compute rate was $0.130/h. General 8 GB was cheaper per node ($0.001447 versus $0.002032/M), with essentially equal speed; choose 16 GB for growth/serialization/cache headroom, not a measured speed advantage. Current single-worker M4 is faster, so paid compute's proposed benefit is independent parallelism and freeing M4, not faster individual training. Larger-allocation control results may revise this recommendation before final freeze.
+
+At constant measured speed, per-lineage training time to the milestones is:
+
+| Total lifetime milestone | Added nodes from 100M | CPU5 memory training-only hours | M4 training-only hours |
+| --- | ---: | ---: | ---: |
+| 150M | 50M | 0.78 | 0.68 |
+| 200M | 100M | 1.56 | 1.37 |
+| 300M | 200M | 3.13 | 2.73 |
+| 500M | 400M | 6.25 | 5.47 |
+
+Three paid pods concurrently give a **6.25-hour training-only illustration and $2.44 aggregate compute**, versus 16.4 hours on serial M4. About 40 recovery saves and four major saves/exports add roughly 0.18 hours per lineage at today's sizes; later saves will be larger. A 50% slowdown/setup/recovery allowance gives roughly **9.7 hours and $3.8 compute** for all three, not a validated upper bound. A proposed **$10 training/provisioning/storage cap** would require owner approval and verified live total pricing; evaluation cost/time is separate below and must be measured before final freeze. Do not interpret unposted pilot billing as an invoice or assume quoted compute includes every storage charge.
+
+Memory projected by entries alone is about 5.3 GiB process RSS at 500M. Scaling today's cache-inclusive cgroup peak by the same ratio gives about 9.7 GiB; these rough extrapolations are not independent evidence and neither guarantees safety. Retain the 10.5 GiB owned-RSS ceiling, 80% actual container RAM headroom limit, 0.5 GiB swap-growth and 8 GiB free-disk guards. The current 3M-entry cap is still enforced: reaching it stops and preserves work. A final 500M plan needs a separately approved, measured prospective entry/RAM capacity limit (e.g. assessed around a proposed 4.5M-entry ceiling), not an automatic guard increase. No admission of two trainers inside one pod is justified by this single-worker evidence.
 
 ## Evaluation and storage are part of the campaign
 

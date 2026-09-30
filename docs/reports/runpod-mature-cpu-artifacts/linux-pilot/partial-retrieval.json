@@ -1,0 +1,85 @@
+{
+  "archive_bytes": 142442496,
+  "cause": "Controller terminated rentals after metadata-verifier failure while cpu5c transfer was still in progress; retained original incomplete archive; no workload rerun",
+  "complete_state_parity": "NOT VERIFIED",
+  "fully_preserved_small_members": [
+    {
+      "bytes": 4142,
+      "name": "results/setup.log",
+      "sha256": "a0b289e10ffa2cd446d2566458e486fa739ee0871f2d0757fcd66645e7d5401d"
+    },
+    {
+      "bytes": 3309,
+      "name": "results/setup-lscpu.txt",
+      "sha256": "5e8b8193236679106c9f3ae960638ee1b628cd9fe628340311f398ff4eea0b09"
+    },
+    {
+      "bytes": 132,
+      "name": "results/setup-kernel.txt",
+      "sha256": "8e7914f8a2a5ee1164c708e7eebd6c901d9f3ca6fc800a0766e29a8e57b952f4"
+    },
+    {
+      "bytes": 176,
+      "name": "results/packages.txt",
+      "sha256": "aef3907518b93e518ae083b7d6f4b79ead817eb6ca1171748424555ec7be698a"
+    },
+    {
+      "bytes": 98,
+      "name": "results/worker-tests.log",
+      "sha256": "ef0e7ef49e71fa999842be0cb8d22ec1058d3a384ed5c0a2ec6efb8f434975ac"
+    },
+    {
+      "bytes": 3308,
+      "name": "results/work/lscpu.txt",
+      "sha256": "0d959ee95767fc78ec09ddeb3186d2e966f22af55e2c67e0482736d09e93848b"
+    },
+    {
+      "bytes": 759,
+      "name": "results/work/cpu-topology.txt",
+      "sha256": "fd2d4f77fb339d10081670634e4c65b3076a3563abdaac1c0805b5943c674c77"
+    },
+    {
+      "bytes": 56895,
+      "name": "results/work/cpuinfo.txt",
+      "sha256": "39e67e712d8199295483b0e3e96ee21274a94c1b693fa56b15607096a23dcb29"
+    },
+    {
+      "bytes": 3,
+      "name": "results/work/cpu.cfs_quota_us.txt",
+      "sha256": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28"
+    },
+    {
+      "bytes": 7,
+      "name": "results/work/cpu.cfs_period_us.txt",
+      "sha256": "b80500a01f984c764f1a3b486622d0ef7cc5b13fa9bd57ec9015113eaf875597"
+    },
+    {
+      "bytes": 2010,
+      "name": "results/work/worker.json",
+      "sha256": "930cdeccd550a980bfcb0ed1a4ce0ab4764e387ad80c2f1efe7c3a277fd58024"
+    },
+    {
+      "bytes": 0,
+      "name": "results/work/direct.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 126059,
+      "name": "results/work/resources.jsonl",
+      "sha256": "ef2501bd0063efe8fb2708cdd4c97d4b87b254d4d770423211fa74d5d7d4d39b"
+    },
+    {
+      "bytes": 767,
+      "name": "results/work/direct/attempt.json",
+      "sha256": "7d9492dc51a962f6d642b19c97558a11e294aa22d0474c88981e078719137d44"
+    },
+    {
+      "bytes": 364,
+      "name": "results/work/direct/midpoint.json",
+      "sha256": "e1679f3d2fd871dd2db403225fcf94df3948772539ccca262a3704671bc7e8bf"
+    }
+  ],
+  "remote_exit": 0,
+  "transport_hash_available": false,
+  "truncation": "unexpected end of data"
+}

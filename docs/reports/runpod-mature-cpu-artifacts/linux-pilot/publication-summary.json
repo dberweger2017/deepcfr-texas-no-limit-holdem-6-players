@@ -1,0 +1,19 @@
+{
+  "allocation_rejected": [
+    "cpu3c",
+    "cpu3g",
+    "cpu3m"
+  ],
+  "completed": 1790804687.630285,
+  "meaningful_training_state_divergence": false,
+  "no_new_training": true,
+  "original_cutoff": 1790809835.502777,
+  "status": "partial-six-class-comparison",
+  "unverified_completed_workload": [
+    "cpu5c"
+  ],
+  "verified_classes": [
+    "cpu5g",
+    "cpu5m"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "attempts": [
+    {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-m",
+        "scripts.verify_mature_cpu_linux",
+        "--root",
+        "/Users/dberweger/Local/runpod-mature-cpu-six-20260930/results/runpod-mature-cpu-six-20260930-attempt-2/cpu5m/results",
+        "--reference",
+        "/Users/dberweger/Local/runpod-mature-cpu-20260930/results/m4-mature-cpu-reference-20260930",
+        "--out",
+        "/Users/dberweger/Local/runpod-mature-cpu-six-20260930/results/runpod-mature-cpu-six-20260930-attempt-2/cpu5m/platform-verification-repaired.json"
+      ],
+      "exit_code": 0,
+      "finished": 1790804208.6765811,
+      "guard_failure": null,
+      "name": "cpu5m-metadata-repair",
+      "peak_aggregate_job_rss_bytes": 39337984,
+      "peak_process_rss_bytes": 31522816,
+      "pid": 26672,
+      "started": 1790804203.603415,
+      "status": "complete"
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-m",
+        "scripts.mature_cpu_verify_transport",
+        "--folder",
+        "/Users/dberweger/Local/runpod-mature-cpu-six-20260930/results/runpod-mature-cpu-six-20260930-attempt-2/cpu5g",
+        "--reference",
+        "/Users/dberweger/Local/runpod-mature-cpu-20260930/results/m4-mature-cpu-reference-20260930",
+        "--deadline",
+        "1790809835.502777"
+      ],
+      "exit_code": 0,
+      "finished": 1790804215.8226008,
+      "guard_failure": null,
+      "name": "cpu5g-transport-and-parity",
+      "peak_aggregate_job_rss_bytes": 92569600,
+      "peak_process_rss_bytes": 34979840,
+      "pid": 26688,
+      "started": 1790804208.678486,
+      "status": "complete"
+    }
+  ],
+  "deadline": 1790804803.439596,
+  "finished": 1790804215.824565,
+  "identity": {
+    "dependencies": [
+      "absl-py==2.5.0",
+      "filelock==4.0.3",
+      "fsspec==2026.9.0",
+      "grpcio==1.84.0",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "Markdown==3.10.3",
+      "MarkupSafe==3.0.3",
+      "mpmath==1.3.0",
+      "networkx==3.6.1",
+      "numpy==1.26.4",
+      "packaging==26.3",
+      "pillow==12.3.0",
+      "pluggy==1.6.0",
+      "pokers @ git+https://github.com/dberweger2017/pokers.git@5db20e3d5d6862b32a7402035c1340b622d3b005",
+      "protobuf==7.36.2",
+      "Pygments==2.21.0",
+      "pytest==9.0.3",
+      "scipy==1.17.1",
+      "sympy==1.14.0",
+      "tensorboard==2.21.0",
+      "tensorboard-data-server==0.7.2",
+      "torch==2.14.0",
+      "typing_extensions==4.16.0",
+      "Werkzeug==3.1.8"
+    ],
+    "host": "dberwegerch-m4.local",
+    "native_binaries": {
+      "pokers.cpython-311-darwin.so": "0700ac54783869030559782e58064ff1e229e8b0b950297845beaa143f7d95bd"
+    },
+    "pid": 26662,
+    "platform": "macOS-26.6-arm64-arm-64bit",
+    "processor": "Apple M4",
+    "python": "3.11.14",
+    "ram": "17179869184",
+    "revision": "0b1bb4ba5195c57527ca1e11f1cbf4177fdb215e"
+  },
+  "started": 1790804203.439757,
+  "status": "complete",
+  "swap_baseline": "vm.swapusage: total = 2048.00M  used = 753.38M  free = 1294.62M  (encrypted)"
+}

@@ -1,0 +1,168 @@
+{
+  "lifetime_compute_upper_estimate_usd": 0.06886513233568933,
+  "pods": [
+    {
+      "attempt": "runpod-mature-cpu-six-20260930",
+      "compute_upper_estimate_usd": 0.0016220648705959323,
+      "cpu_id": "cpu5c",
+      "latest_possible_charge_seconds": 83.42047905921936,
+      "ledger": {
+        "metadata": {
+          "query": {
+            "bucketSize": "day",
+            "endTime": "2026-10-01T00:00:00Z",
+            "podId": "e94ya9ohu8npug",
+            "startTime": "2026-09-30T00:00:00Z"
+          },
+          "recordCount": 0,
+          "totals": {
+            "cpuAmount": 0,
+            "diskAmount": 0,
+            "gpuAmount": 0,
+            "totalAmount": 0
+          },
+          "uniquePodCount": 0
+        },
+        "records": []
+      },
+      "pod_id": "e94ya9ohu8npug",
+      "rate_usd_per_hour": 0.07
+    },
+    {
+      "attempt": "runpod-mature-cpu-six-20260930",
+      "compute_upper_estimate_usd": 0.0020939833508597477,
+      "cpu_id": "cpu5g",
+      "latest_possible_charge_seconds": 81.93847894668579,
+      "ledger": {
+        "metadata": {
+          "query": {
+            "bucketSize": "day",
+            "endTime": "2026-10-01T00:00:00Z",
+            "podId": "q58w5e5c31j8lm",
+            "startTime": "2026-09-30T00:00:00Z"
+          },
+          "recordCount": 0,
+          "totals": {
+            "cpuAmount": 0,
+            "diskAmount": 0,
+            "gpuAmount": 0,
+            "totalAmount": 0
+          },
+          "uniquePodCount": 0
+        },
+        "records": []
+      },
+      "pod_id": "q58w5e5c31j8lm",
+      "rate_usd_per_hour": 0.092
+    },
+    {
+      "attempt": "runpod-mature-cpu-six-20260930",
+      "compute_upper_estimate_usd": 0.0029091284056504568,
+      "cpu_id": "cpu5m",
+      "latest_possible_charge_seconds": 80.56047892570496,
+      "ledger": {
+        "metadata": {
+          "query": {
+            "bucketSize": "day",
+            "endTime": "2026-10-01T00:00:00Z",
+            "podId": "p5uu27fzi5q87j",
+            "startTime": "2026-09-30T00:00:00Z"
+          },
+          "recordCount": 0,
+          "totals": {
+            "cpuAmount": 0,
+            "diskAmount": 0,
+            "gpuAmount": 0,
+            "totalAmount": 0
+          },
+          "uniquePodCount": 0
+        },
+        "records": []
+      },
+      "pod_id": "p5uu27fzi5q87j",
+      "rate_usd_per_hour": 0.13
+    },
+    {
+      "attempt": "runpod-mature-cpu-six-20260930-attempt-2",
+      "compute_upper_estimate_usd": 0.014965527109967338,
+      "cpu_id": "cpu5c",
+      "latest_possible_charge_seconds": 769.6556799411774,
+      "ledger": {
+        "metadata": {
+          "query": {
+            "bucketSize": "day",
+            "endTime": "2026-10-01T00:00:00Z",
+            "podId": "xd3vv3qxqcnjhp",
+            "startTime": "2026-09-30T00:00:00Z"
+          },
+          "recordCount": 0,
+          "totals": {
+            "cpuAmount": 0,
+            "diskAmount": 0,
+            "gpuAmount": 0,
+            "totalAmount": 0
+          },
+          "uniquePodCount": 0
+        },
+        "records": []
+      },
+      "pod_id": "xd3vv3qxqcnjhp",
+      "rate_usd_per_hour": 0.07
+    },
+    {
+      "attempt": "runpod-mature-cpu-six-20260930-attempt-2",
+      "compute_upper_estimate_usd": 0.01961163182179133,
+      "cpu_id": "cpu5g",
+      "latest_possible_charge_seconds": 767.411679983139,
+      "ledger": {
+        "metadata": {
+          "query": {
+            "bucketSize": "day",
+            "endTime": "2026-10-01T00:00:00Z",
+            "podId": "sqakeb4sdafyz3",
+            "startTime": "2026-09-30T00:00:00Z"
+          },
+          "recordCount": 0,
+          "totals": {
+            "cpuAmount": 0,
+            "diskAmount": 0,
+            "gpuAmount": 0,
+            "totalAmount": 0
+          },
+          "uniquePodCount": 0
+        },
+        "records": []
+      },
+      "pod_id": "sqakeb4sdafyz3",
+      "rate_usd_per_hour": 0.092
+    },
+    {
+      "attempt": "runpod-mature-cpu-six-20260930-attempt-2",
+      "compute_upper_estimate_usd": 0.02766279677682453,
+      "cpu_id": "cpu5m",
+      "latest_possible_charge_seconds": 766.0466799736023,
+      "ledger": {
+        "metadata": {
+          "query": {
+            "bucketSize": "day",
+            "endTime": "2026-10-01T00:00:00Z",
+            "podId": "b9mog5lyhc82uy",
+            "startTime": "2026-09-30T00:00:00Z"
+          },
+          "recordCount": 0,
+          "totals": {
+            "cpuAmount": 0,
+            "diskAmount": 0,
+            "gpuAmount": 0,
+            "totalAmount": 0
+          },
+          "uniquePodCount": 0
+        },
+        "records": []
+      },
+      "pod_id": "b9mog5lyhc82uy",
+      "rate_usd_per_hour": 0.13
+    }
+  ],
+  "queried": 1790804686.87504
+}
