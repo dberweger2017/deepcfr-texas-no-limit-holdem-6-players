@@ -121,20 +121,20 @@
       "sha256": "4112722c5e59a860eb3775ca4894f05c689c9b89d7f43d671a09014ecadad3de"
     },
     "derived/decisions.csv": {
-      "bytes": 145033,
-      "sha256": "6037665e6905a6412c846040f6f25418bc30087f843ed3f185afb0604926609d"
+      "bytes": 144840,
+      "sha256": "80b4a8001c4a220f7a8582f69becc8b4b7b529edcad052a400b3af9c4860791d"
     },
     "derived/panels.csv": {
-      "bytes": 15476,
-      "sha256": "8fc21a378703397ffe08d65209ab71a57f99981ab584d563facd50e80d65b71c"
+      "bytes": 15367,
+      "sha256": "bdefef46a0e568e44ec9b8dfc757931e45431ba8c05b8509eca84ae7fb12395f"
     },
     "derived/tables.md": {
       "bytes": 5848,
       "sha256": "ccdbc96d3c1a4318013a0d3520cea9e3a8a32e0fb4ecd0edce1410e947c6ec5b"
     },
     "derived/whole-hand-partitions.csv": {
-      "bytes": 2809,
-      "sha256": "9a57879b87c0ad9bbbf57236deff6eb42523ecc212fb697f663792437cbc578b"
+      "bytes": 2772,
+      "sha256": "4d2bd66e6f01ff2c379582429c2aa03f3b05557856ac45d576be05299788bcc3"
     },
     "final-audit.json": {
       "bytes": 321,

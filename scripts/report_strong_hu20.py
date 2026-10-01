@@ -10,7 +10,7 @@ from pathlib import Path
 def write_csv(path, rows):
     fields=list(dict.fromkeys(k for row in rows for k in row))
     with path.open('w',newline='') as f:
-        writer=csv.DictWriter(f,fields);writer.writeheader();writer.writerows(rows)
+        writer=csv.DictWriter(f,fields,lineterminator='\n');writer.writeheader();writer.writerows(rows)
 
 
 def interval(result):
