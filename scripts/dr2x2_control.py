@@ -115,8 +115,8 @@ def watch(a):
     """Independent provider watchdog survives controller failure."""
     lease = json.loads((a.root/'lease.json').read_text())
     names = set(lease['names'])
-    if len(names) != 6 or lease['ceiling_usd'] != 16 or not all(n.startswith('dr2x2-') for n in names):
-        raise ValueError('Exactly six prospectively owned names / approved USD16 ceiling')
+    if len(names) != 3 or lease['ceiling_usd'] != 16 or not all(n.startswith('dr2x2-C-') for n in names):
+        raise ValueError('Exactly three C-owned names / approved USD16 ceiling')
     while True:
         try:
             pods = owned_pods(api(a.key, '/v2/pods')['pods'], names)
@@ -141,7 +141,7 @@ def watch(a):
             records=list(indexed.values())
             write(ledger_path,records)
             cost = estimated_cost(records, time.time())
-            stop = budget_action(cost, lease['training_subcap_usd'], 2)
+            stop = budget_action(cost, lease['training_subcap_usd'], lease['shutdown_reserve_usd'])
             heartbeat = a.root/'controller-heartbeat.json'
             controller_age = time.time()-json.loads(heartbeat.read_text())['heartbeat'] if heartbeat.exists() else time.time()-lease['started']
             if stop == 'stop' or controller_age > 900:
@@ -249,12 +249,12 @@ def execute(a):
     private = a.key.parent/'campaign-billing-baseline-private.json'
     write(private, dict(time=time.time(), account=funds))
     os.chmod(private, 0o600)
-    if not plan['owner_approved_budget']['approval'].startswith('APPROVED'):
+    if plan['schema']!='dr2x2-c-only-100m-campaign-v1' or len(plan['jobs'])!=3 or any(p['cell']!='C' for p in plan['jobs']) or not plan['owner_approved_budget']['approval'].startswith('APPROVED'):
         raise ValueError('Owner-approved budget required')
     jobs = [dict(p, name='dr2x2-'+p['cell']+'-'+str(p['seed'])+'-'+str(int(time.time()))) for p in plan['jobs']]
     names = [p['name'] for p in jobs]
     rates = {p['name']:plan['cells'][p['cell']]['max_total_usd_per_hour'] for p in jobs}
-    write(a.root/'lease.json', dict(names=names, started=time.time(), ceiling_usd=16, training_subcap_usd=12, rates_by_name=rates, max_concurrent_pods=4,
+    write(a.root/'lease.json', dict(names=names, started=time.time(), ceiling_usd=16, training_subcap_usd=4, shutdown_reserve_usd=1, rates_by_name=rates, max_concurrent_pods=3,
           source=source, plan_sha256=sha256(canonical(plan)).hexdigest()))
     write(a.root/'plan.json', plan)
     # Only the dedicated public SSH key enters owned pods.
@@ -446,7 +446,7 @@ def execute(a):
             # budget reserve forces shutdown. Other lineages continue unchanged.
             publish()
 
-    coordination('Doctor Research APPROVED USD16 C/D campaign before creation. Frozen owned names: '+json.dumps(names)+'. Max4pods/one worker; M4 PR136 scientific reservation unchanged. C16GB/D64GB, separate ledger/root '+str(a.root))
+    coordination('Doctor Research APPROVED C-only pivot; operational USD4 training subcap within USD16 ceiling, D deferred before creation. Frozen owned names: '+json.dumps(names)+'. Max3Cpods/one worker; M4 PR136 scientific reservation unchanged. C16GB, separate ledger/root '+str(a.root))
     try:
         for wave in plan['waves']:
             if (a.root/'budget-stop.json').exists():
@@ -455,7 +455,7 @@ def execute(a):
             for spec in wave:
                 job=next(p for p in jobs if p['cell']==spec['cell'] and p['seed']==spec['seed'])
                 rows.append(create(job))
-            with ThreadPoolExecutor(max_workers=4) as pool:
+            with ThreadPoolExecutor(max_workers=3) as pool:
                 list(pool.map(workload, rows))
             if not all(r.get('terminated') and r['status']=='retrieved-complete' for r in rows):
                 raise RuntimeError('Wave incident; preserve evidence, no automatic failed-lineage retry')
@@ -463,7 +463,7 @@ def execute(a):
         event(a.root,'campaign-incident',reason=str(exc)[:300])
 
     remaining = owned_pods(api(a.key, '/v2/pods')['pods'], names)
-    status = 'training-complete' if len(records)==6 and all(r['status']=='retrieved-complete' for r in records) and not remaining else 'incident-needs-recovery'
+    status = 'training-complete' if len(records)==3 and all(r['status']=='retrieved-complete' for r in records) and not remaining else 'incident-needs-recovery'
     write(a.root/'operator-finished.json', dict(status=status, time=time.time(), remaining_ids=[p['id'] for p in remaining],
           upper_cost_usd=estimated_cost(records, time.time())))
     if not remaining:

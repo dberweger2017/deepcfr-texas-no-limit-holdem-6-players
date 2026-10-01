@@ -1,5 +1,7 @@
 # Owner-approved C/D production admission
 
+**Superseded paid scope:** owner approved [C-only pivot](dr2x2-c-only-pivot.md) October1. Active rentals are three C jobs only; D deferred. Retained six-job tables/plans below describe the earlier proposal, not current launch permission.
+
 The additional$16 cap is approved. Frozen scientific integration5f8a394 is
 unchanged; this controller adds ownership, recovery and resource safeguards.
 It does not change cards/history, game, legal actions, K1, regrets/averages,

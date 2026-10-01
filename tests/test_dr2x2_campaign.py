@@ -16,17 +16,17 @@ from scripts.hu20_platform_pilot import write
 from scripts.mature_cpu_rental_guard import owned_pods, check_quote
 from src.blueprint.artifact import save_training
 
-PLAN=Path('configs/blueprint/dr2x2-cd-campaign.json')
+PLAN=Path('configs/blueprint/dr2x2-c-campaign.json')
 
 
 def test_approved_work_shapes_waves_and_no_measurement_parents():
     plan=json.loads(PLAN.read_text())
     assert plan['owner_approved_budget']['approval'].startswith('APPROVED')
     assert plan['target_total_nodes']==100000000
-    assert len(plan['jobs'])==6 and len(plan['waves'][0])==4 and len(plan['waves'][1])==2
-    assert {(j['cell'],j['seed']) for j in plan['jobs']}=={(c,s) for c in ('C','D') for s in plan['seeds']}
+    assert len(plan['jobs'])==3 and len(plan['waves'])==1 and len(plan['waves'][0])==3
+    assert {(j['cell'],j['seed']) for j in plan['jobs']}=={(c,s) for c in ('C',) for s in plan['seeds']}
     assert all(j['completed_nodes']==0 and j['checkpoint_sha256']=='from-zero' for j in plan['jobs'])
-    assert plan['cells']['C']['max_entries']==8000000 and plan['cells']['D']['max_entries']==24000000
+    assert plan['cells']['C']['max_entries']==8000000 and 'D' not in plan['cells']
     assert plan['recovery_totals']==[10000000,20000000,25000000,30000000,40000000,50000000,60000000,70000000,80000000,90000000,100000000]
     assert plan['export_totals']==plan['permanent_totals']==[25000000,50000000,100000000]
 
@@ -38,6 +38,8 @@ def test_cost_retains_terminated_attempts_and_training_reserve():
     assert estimated_cost(rows,7200)==pytest.approx(1.32)
     assert budget_action(9.99,12,2)=='continue'
     assert budget_action(10,12,2)=='stop'
+    assert budget_action(2.99,4,1)=='continue'
+    assert budget_action(3,4,1)=='stop'
     assert budget_action(14,16,2)=='stop'
 
 
@@ -67,7 +69,7 @@ def test_rotation_requires_matching_ack_and_keeps_permanent(tmp_path):
 
 @pytest.mark.parametrize('cell',['C','D'])
 def test_direct_fresh_resume_trace_and_state_bytes(tmp_path,cell):
-    plan=json.loads(PLAN.read_text());plan['preflight_nodes']=2500
+    plan=json.loads((PLAN if cell=='C' else Path('configs/blueprint/dr2x2-cd-campaign.json')).read_text());plan['preflight_nodes']=2500
     pp=tmp_path/'plan.json';write(pp,plan)
     parent=next(j for j in plan['jobs'] if j['cell']==cell);jp=tmp_path/'parent.json';write(jp,parent)
     for name in ('direct','resume'):

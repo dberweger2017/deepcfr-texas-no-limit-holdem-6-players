@@ -1,5 +1,7 @@
 # HU20 card × history factorial: prospective protocol
 
+**Superseded paid scope:** owner approved [C-only pivot](dr2x2-c-only-pivot.md) October1. Active rentals are three C jobs only; D deferred. Retained six-job tables/plans below describe the earlier proposal, not current launch permission.
+
 Doctor Research owns history compression, C/D training and four-cell synthesis.
 New Guy owns #143 / B. M4 remains reserved for #136; its 90-minute supervision,
 scientific source and queue are unchanged. Phase 0 runs sequentially on M1.

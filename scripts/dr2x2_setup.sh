@@ -25,6 +25,6 @@ uv venv --python 3.11.14 .venv
 uv pip install --python .venv/bin/python pip pytest==9.0.3 'pokers @ git+https://github.com/dberweger2017/pokers.git@5db20e3d5d6862b32a7402035c1340b622d3b005'
 uv pip freeze --python .venv/bin/python > /workspace/results/packages.txt
  .venv/bin/python -m pytest -q tests/test_dr2x2_campaign.py tests/test_hu20_factorial_d.py tests/test_hu20_history_compression.py > /workspace/results/focused-tests.log
-.venv/bin/python -m scripts.dr2x2_pod --plan configs/blueprint/dr2x2-cd-campaign.json \
+.venv/bin/python -m scripts.dr2x2_pod --plan configs/blueprint/dr2x2-c-campaign.json \
   --parent /workspace/parent.json --reference /workspace/reference.json \
   --control /workspace/control.json --root /workspace/results/worker

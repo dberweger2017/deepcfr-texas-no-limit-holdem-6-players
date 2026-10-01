@@ -1,5 +1,7 @@
 # C/D resource admission and proposed paid budget
 
+**Superseded paid scope:** owner approved [C-only pivot](../dr2x2-c-only-pivot.md) October1. Active rentals are three C jobs only; D deferred. Retained six-job tables/plans below describe the earlier proposal, not current launch permission.
+
 October1,2026. **D prefixes and recovery checks complete. The owner approved the additional
 $16 all-in cap ($8–11 expected) on October1. Production controller and Linux
 parity are being prepared; no C/D rental has been created at this snapshot.**
