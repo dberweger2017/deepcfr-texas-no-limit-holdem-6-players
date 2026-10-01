@@ -75,3 +75,17 @@ The endpoint publication is preliminary, not the fresh final confirmation.
 Update forecasts using execution timing, not poker returns. All paid rentals
 are terminated; analysis runs on M4. B100M remains unchanged, and no promotion,
 merge or follow-on experiment is implied.
+
+## Measured update, October 1 at approximately 11:00 Madrid
+
+The three broader B100M tasks completed all 79,872 hands in
+2,224.12 / 2,202.25 / 2,218.56 seconds. The first baseline publication is
+complete. Four queue-order tests and three reporting tests passed on M4;
+the reporter finished once between children under the shared heavy lock.
+
+B500M seed 1 is active. If its group has comparable task timing, the complete
+paired B500M-versus-ownB100M publication is expected **13:00–13:30 Madrid**.
+Retain the **00:00–05:00 October 2** final-report window until mature-endpoint
+execution timing is measured. These remain forecasts, not deadlines, and use
+execution time rather than poker outcomes. M4 file/resource ownership remains
+with Doctor Research through the owner's eventual #136 merge.

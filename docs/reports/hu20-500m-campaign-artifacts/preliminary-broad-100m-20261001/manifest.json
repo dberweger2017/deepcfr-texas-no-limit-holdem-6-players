@@ -1,0 +1,14 @@
+{
+  "summary.json": {
+    "bytes": 125636,
+    "sha256": "dd7d25fd204cba111012f70b70de8e100ffeb1c4086ad27599ebd92461c00884"
+  },
+  "curves.md": {
+    "bytes": 3707,
+    "sha256": "b4c682f9c7fa86bd70217670d5717ff208f81f9eb9386c59ab855834e768daa5"
+  },
+  "per-seed-role.csv": {
+    "bytes": 9169,
+    "sha256": "0740381c39b6a36a326f63b38e4a35132c215f1aca2c041670a185f726a0a5ff"
+  }
+}

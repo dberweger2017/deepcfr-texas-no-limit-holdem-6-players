@@ -1,7 +1,9 @@
 # HU20 three-lineage 100M→500M campaign
 
-Status: **preliminary light checkpoint curves published; broader tests and fresh
-final confirmation pending**. The October 1, 06:43 UTC snapshot contains 74
+Status: **complete broader B100M baseline and preliminary light curves published;
+broader B500M/intermediate comparisons and fresh final confirmation pending**.
+The broader baseline contains all three lineages / 79,872 natively replayed
+hands. The October 1, 06:43 UTC light snapshot contains 74
 closed light tasks / 265,216 hands. All three lineages have light results through
 480M; two have individual 500M results. The missing third 500M task stays
 pending, so this snapshot has no three-lineage 500M aggregate.
@@ -22,11 +24,68 @@ changes. All retained archives are hash-verified on M4 and all rentals have
 terminated. All75 light tasks are complete; the snapshot below deliberately
 retains its original74-task capture.
 
-Initial Madrid-time ETA: full broader baseline **10:30–11:30 October1**;
-broader500M versus own100M **13:00–14:30 October1**; fresh confirmation/final
+The broader baseline is complete and published. Updated Madrid-time ETA:
+broader500M versus own100M **13:00–13:30 October1**, conditional on its tasks
+taking similar time to the measured baseline; fresh confirmation/final
 verification **00:00–05:00 October2**. These are timing forecasts, not deadlines.
 Publish each newly completed group with all opponents, seed/position intervals,
 paired changes and tails; pending groups cannot become smaller aggregates.
+
+## Complete broader B100M baseline — October 1
+
+The first complete group contains **three model tasks / 79,872 hands**, all
+nine frozen opponents and both positions. Each model completed every requested
+block; 15 broader tasks and all six fresh-confirmation tasks remain pending at
+this capture. The [complete broad tables](hu20-500m-campaign-artifacts/preliminary-broad-100m-20261001/curves.md),
+[seed/position CSV](hu20-500m-campaign-artifacts/preliminary-broad-100m-20261001/per-seed-role.csv)
+and [summary with raw/model hashes](hu20-500m-campaign-artifacts/preliminary-broad-100m-20261001/summary.json)
+retain every opponent. These are **absolute baseline returns**, not training
+improvements. B500M must be paired against this same schedule; the old #116
+numbers and the separate light schedule cannot substitute for this baseline.
+
+| Fixed broad opponent | B100M BB/100 [exploratory 95% interval] | Independent paired blocks |
+| --- | --- | ---: |
+| Original-cap2 bounded LBR | −64.97 [−79.85, −50.10] | 2,048 |
+| Native pressure | +114.04 [+100.78, +127.31] | 4,096 |
+| Selective stackoff | +35.13 [+31.22, +39.04] | 4,096 |
+| Pot pressure | +16.18 [−11.55, +43.91] | 512 |
+| Passive | +108.04 [+81.72, +134.37] | 512 |
+| Loose passive | +29.82 [+10.86, +48.78] | 512 |
+| Loose aggressive | +24.72 [+0.21, +49.24] | 512 |
+| Tight passive | +52.69 [+45.07, +60.30] | 512 |
+| Tight aggressive | +50.75 [+36.57, +64.92] | 512 |
+
+The baseline still loses substantially to bounded LBR. Each seed's overall
+estimate is negative: −75.55, −49.66 and −69.71 BB/100, with its individual
+95% interval below zero. Aggregate position estimates are −99.27
+[−131.58, −66.96] on the button and −30.68 [−64.33, +2.97] in the big blind.
+These estimates do not measure exact exploitability or prove a causal seat
+defect. LBR parameters remain four chance samples, five soft seconds and the
+original-cap2 attacker contract; completed scheduled hands do not make its
+search exhaustive. LBR fallback occurred at only **78/28,797 target decisions**
+(about 0.27%), so most attacked decisions used trained entries.
+
+Native pressure and selective stackoff are profitable in this baseline;
+pot-pressure's interval includes zero. The broad selective-stackoff panel
+records **134 full-stack losses / 24,576 hands** (36/49/49 by seed), alongside
+positive overall profit. It records 399 large raises, 261 jams and zero
+large/all-in calls, with 7 fallback decisions out of 32,739. Rare full-stack
+losses therefore coexist with positive average returns; these counts alone
+do not identify bad decisions or establish whether B500M reduces the weakness.
+Whole-hand partitions are descriptive, not individual-action values. The
+opponent remains a post-Luna regression/stress test.
+
+The M4 reporter ran once after the last baseline child closed, under the shared
+heavy lock. All 79,872 raw records passed frozen coordinate/model identity,
+native-replay evidence, zero-sum chips, recomputed tails, complete pairing and
+independent return-sum checks. Four queue-order tests and three reporter tests
+passed on M4 before publication. Compact output and provenance hashes match
+after transfer; see the [manifest](hu20-500m-campaign-artifacts/preliminary-broad-100m-20261001/manifest.json)
+and [verification record](hu20-500m-campaign-artifacts/preliminary-broad-100m-20261001/verification.json).
+No gameplay reran, and the frozen clone was not edited. Three baseline model
+tasks took 2,224.12 / 2,202.25 / 2,218.56 seconds; B500M seed 1 is now active.
+All broad intervals are unadjusted exploratory 95% intervals; the separate
+97.5% fresh confirmation gates remain pending and cannot pass yet.
 
 ## Preliminary playing profiles
 
@@ -83,7 +142,7 @@ are retained in the summary; the [publication manifest](hu20-500m-campaign-artif
 was verified after compact transfer. This pass did not rerun gameplay or alter
 the frozen executable, seeds, checkpoint cadence, opponents, schedules or gates.
 
-Broader bounded-LBR/native-pressure tests and disjoint fresh final confirmation
+Broader B500M/intermediate comparisons and disjoint fresh final confirmation
 remain pending. No inference about their results follows from these light
 profiles. B100M remains the unchanged preview model.
 
@@ -130,13 +189,13 @@ reserving $2 and at most ten minutes for checkpoint retrieval/shutdown. Account
 sufficiency was privately verified; credentials and balances are not published.
 Final cost will distinguish posted ledger charges from conservative estimates.
 
-At the 06:44 UTC operational read, seeds 3002/3003 had reached
-500,000,321 / 500,000,576 completed lifetime nodes, passed final reload and
-verified off-pod archive retrieval, and their rentals were terminated. Seed
-3001 was still running with a hash-verified 490,000,257-node recovery. The
-watchdog's conservative all-in upper estimate was **$3.65**, not a settled
-invoice. This preliminary publication does not wait for or select on subsequent
-playing outcomes; the original controller continues the fixed campaign.
+Training completed by 06:54 UTC: the three lineages reached
+**500,000,440 / 500,000,321 / 500,000,576** lifetime nodes and
+2,701,878 / 2,670,044 / 2,654,147 entries. Final reload/recovery checks and
+off-pod archive hashes passed on M4 before all three rentals were terminated.
+The conservative all-in upper estimate is **$3.68**, not a settled invoice;
+itemized billing remains pending. The endpoint-first serial M4 analysis is
+active, with no paid training job left running.
 
 Each 10M recovery is destination-hash-verified before rotation; each 20M has a
 current export and queued light evaluation; each 50M is a permanent full save.
@@ -187,6 +246,12 @@ scp -o HostName=100.122.216.94 -o BatchMode=yes \
   ./light-SEED-NODES-hands.jsonl.gz
 shasum -a 256 ./light-SEED-NODES-hands.jsonl.gz
 ```
+
+The broader baseline uses the same retrieval procedure with
+`evaluation/broad-SEED-100000000/hands.jsonl.gz`. Select the exact `hands_sha256`
+and model identity from the broader summary; keep the light and broad schedules
+separate. The baseline reporter output is retained at
+`results/hu20-three-lineage-500m-20261001/preliminary-broad-100M-attempt-1`.
 
 Reproduce the reporting pass from this PR's reporting source on M4 (use a fresh
 output directory; the original attempt remains retained):
