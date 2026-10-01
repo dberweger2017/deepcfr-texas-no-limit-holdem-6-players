@@ -34,7 +34,7 @@ Value/draw/blocker gates and near-best seeded mixing are heuristics, not a solve
 
 Use both positions on each fixed deal and report modes separately. Development:
 16 paired blocks per each of 12 controls; confirmation: 64 fresh blocks each.
-Controls are uniform restricted random, six existing styles (project their
+Controls are uniform random over each mode's menu, six existing styles (project their
 preferred legal action to the restricted menu only in restricted mode), frozen
 selective-stackoff, min-raise, check/call, largest-raise and unconditional native
 jam (restricted jam control takes largest available restricted raise).

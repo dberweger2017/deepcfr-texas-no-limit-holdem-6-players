@@ -1,0 +1,181 @@
+{
+  "files": {
+    "b500-transfer-manifest.json": {
+      "bytes": 3917,
+      "sha256": "bd16392d26b358bbc4d2141dc835f7e3e4525011093c53bd46b9b9273e316378"
+    },
+    "calibration-confirmation/hands.jsonl.gz": {
+      "bytes": 1284045,
+      "sha256": "f0e457ab6a5009db0ce067ed43d47f9f637b6c7cd60650248f1a9e267f40675f"
+    },
+    "calibration-confirmation/manifest.json": {
+      "bytes": 259,
+      "sha256": "11fc833106c012733a074297de74fac9f2f75eb7d56cded5d0ac680ea0e24532"
+    },
+    "calibration-confirmation/summary.json": {
+      "bytes": 69925,
+      "sha256": "82015607ce07f3d8b36db3c870fa646fb76675237fd08ce2422add3ba1d8c2e3"
+    },
+    "calibration-development/hands.jsonl.gz": {
+      "bytes": 310051,
+      "sha256": "a6a1a736298af243c400956f574089e4ac7d29d2dab5e66c413542a64f35a0ca"
+    },
+    "calibration-development/manifest.json": {
+      "bytes": 258,
+      "sha256": "30cd311e9d4a0717fc270b872a446b6655f63d5611f6fd2bca66284348b86be3"
+    },
+    "calibration-development/summary.json": {
+      "bytes": 36894,
+      "sha256": "96d51f2ea9585eeaa019bff0101997ff603a9e1bf5a41fe34f8e35201574dc5a"
+    },
+    "calibration-pilot/hands.jsonl.gz": {
+      "bytes": 69758,
+      "sha256": "de6d8e3e4d7abadc8839f9e9cf120fcfd9fc2ebe5eb11a7a03ad8e3a0e9016fe"
+    },
+    "calibration-pilot/manifest.json": {
+      "bytes": 257,
+      "sha256": "cdf4594b541d56babb10a7dbbdbc593ebbe2af5740335da2e5ea5a5ca988bd45"
+    },
+    "calibration-pilot/summary.json": {
+      "bytes": 28520,
+      "sha256": "930eccaf799aba3a3affed516d86f91c4f2c27813985ccd52a1fafdc1c4c3a8f"
+    },
+    "comparison/B-2026093001-100000000.hands.jsonl.gz": {
+      "bytes": 1116857,
+      "sha256": "e888e8a5423a67e5a5c04f66fca3875224bc860a356284fbbbcd0cedc4fc8c25"
+    },
+    "comparison/B-2026093001-100000000.native.decisions.jsonl.gz": {
+      "bytes": 49274,
+      "sha256": "1923d8ed6fcafdf7fa8c0589565a9da08d99726762da3e0d5db1629ea68d2f90"
+    },
+    "comparison/B-2026093001-100000000.restricted.decisions.jsonl.gz": {
+      "bytes": 45971,
+      "sha256": "0206064bdb2f78836fc1bf33c1171d9bd7eb87c768ad5c84e51148790c03c19c"
+    },
+    "comparison/B-2026093001-500000000.hands.jsonl.gz": {
+      "bytes": 1133063,
+      "sha256": "c8689536b3b97c0046620360d8462d2aaa9b2d45cdbe8062d07e9f0d28f082fd"
+    },
+    "comparison/B-2026093001-500000000.native.decisions.jsonl.gz": {
+      "bytes": 49062,
+      "sha256": "f835620aacdcd1710ff6e678070efe08a56d12e8749263a86367042c906a9a55"
+    },
+    "comparison/B-2026093001-500000000.restricted.decisions.jsonl.gz": {
+      "bytes": 46597,
+      "sha256": "adb7e69601cef70ee6024f242af1a453f94d2ec45ab1770f25919ca54422ef41"
+    },
+    "comparison/B-2026093002-100000000.hands.jsonl.gz": {
+      "bytes": 1168686,
+      "sha256": "23aea37bc9a841df53f4cf1274a8846c576b3cca3918c046b3799eccb701c966"
+    },
+    "comparison/B-2026093002-100000000.native.decisions.jsonl.gz": {
+      "bytes": 49293,
+      "sha256": "66f45cb19a03195d2140570522011229dada1cf797639b19115e9d9f71771559"
+    },
+    "comparison/B-2026093002-100000000.restricted.decisions.jsonl.gz": {
+      "bytes": 46623,
+      "sha256": "1db61ccc8672d755a581f0f32b80d396697dc278dc852575f7d122af1fb95563"
+    },
+    "comparison/B-2026093002-500000000.hands.jsonl.gz": {
+      "bytes": 1184486,
+      "sha256": "23a908347e1756529a2247a925507fe1a244b6b483bff8b7049e5eab4b3e1ed9"
+    },
+    "comparison/B-2026093002-500000000.native.decisions.jsonl.gz": {
+      "bytes": 48747,
+      "sha256": "764b32677b138f8f48da5e5f9ab41f9836523d9f309021b0095f9b3db02e7d42"
+    },
+    "comparison/B-2026093002-500000000.restricted.decisions.jsonl.gz": {
+      "bytes": 46243,
+      "sha256": "a6e32dfe45119a8b36ff7bc4bd8386f80b89c94cb7b61f9c4df8c3f7a2437f4b"
+    },
+    "comparison/B-2026093003-100000000.hands.jsonl.gz": {
+      "bytes": 1089236,
+      "sha256": "9f970a9c56f582cce31821bb938c4392d9d8d4d1b808f69f79cb7c9395d24200"
+    },
+    "comparison/B-2026093003-100000000.native.decisions.jsonl.gz": {
+      "bytes": 49237,
+      "sha256": "5f28460997687c617e51de0a36033903ad2c431a5983a712727fa1a42aee19b9"
+    },
+    "comparison/B-2026093003-100000000.restricted.decisions.jsonl.gz": {
+      "bytes": 46543,
+      "sha256": "3ee4a1f2f09869f1763a58b8e31424ad935c8b34ef2c2b04c8be2547bfb2ed32"
+    },
+    "comparison/B-2026093003-500000000.hands.jsonl.gz": {
+      "bytes": 1120620,
+      "sha256": "05a6d1784b1fe3e8f18fbd409b54e5591801d637f49fdaceb58a0987e0220e9e"
+    },
+    "comparison/B-2026093003-500000000.native.decisions.jsonl.gz": {
+      "bytes": 49312,
+      "sha256": "944692ad308469f744bed6e672099285e935fea7d300173c713f4cb0644e1454"
+    },
+    "comparison/B-2026093003-500000000.restricted.decisions.jsonl.gz": {
+      "bytes": 46481,
+      "sha256": "f90bf67f934a32fd2574a0251ddd52484837f5ba91f92b848f995392fd42b76d"
+    },
+    "comparison/manifest.json": {
+      "bytes": 3016,
+      "sha256": "33c3ce68f52519a966896b43482695886140eea65ec6dcde0e740701199d5f8e"
+    },
+    "comparison/summary.json": {
+      "bytes": 828997,
+      "sha256": "4112722c5e59a860eb3775ca4894f05c689c9b89d7f43d671a09014ecadad3de"
+    },
+    "derived/decisions.csv": {
+      "bytes": 145033,
+      "sha256": "6037665e6905a6412c846040f6f25418bc30087f843ed3f185afb0604926609d"
+    },
+    "derived/panels.csv": {
+      "bytes": 15476,
+      "sha256": "8fc21a378703397ffe08d65209ab71a57f99981ab584d563facd50e80d65b71c"
+    },
+    "derived/tables.md": {
+      "bytes": 5848,
+      "sha256": "ccdbc96d3c1a4318013a0d3520cea9e3a8a32e0fb4ecd0edce1410e947c6ec5b"
+    },
+    "derived/whole-hand-partitions.csv": {
+      "bytes": 2809,
+      "sha256": "9a57879b87c0ad9bbbf57236deff6eb42523ecc212fb697f663792437cbc578b"
+    },
+    "final-audit.json": {
+      "bytes": 321,
+      "sha256": "dcf2e26929a71a7b4bb50efb5b4ed27a7fc0d4308881bf7f91f23747bbc8adb7"
+    },
+    "model-timing-pilot-attempt2/B-2026093001-100000000.hands.jsonl.gz": {
+      "bytes": 10678,
+      "sha256": "c6e77d9fc5e935f0b31bccdd9ce891ac1f3844cc2dfb0fe9855e7aa61c9615e0"
+    },
+    "model-timing-pilot-attempt2/B-2026093001-100000000.native.decisions.jsonl.gz": {
+      "bytes": 6721,
+      "sha256": "31fde6d10f70db36c1e5878ff4c2e243aec72e35377dd73c23860150f4dcccb0"
+    },
+    "model-timing-pilot-attempt2/B-2026093001-100000000.restricted.decisions.jsonl.gz": {
+      "bytes": 7714,
+      "sha256": "4bd8ccf5a4f0e3d6d5dbb96235a84934a17471c8dd93d6a6b82ecfae9842853e"
+    },
+    "model-timing-pilot-attempt2/manifest.json": {
+      "bytes": 606,
+      "sha256": "359b3ff2f98d896c1bc314f43eb6ab0a0857414155f9b6d6ac2264b2544f0d57"
+    },
+    "model-timing-pilot-attempt2/summary.json": {
+      "bytes": 31605,
+      "sha256": "36ad46e85293e52e5bd20c30c617b3c373cc4366abdc3d81a10c6548885baf8d"
+    },
+    "model-timing-pilot/manifest.json": {
+      "bytes": 128,
+      "sha256": "9e1a083c4008edf794202f76ebf0121198882dafb3e79ce33521dbabbab8feb8"
+    },
+    "model-timing-pilot/summary.json": {
+      "bytes": 2153,
+      "sha256": "dbeb97462e91b41dd0cfd282951dd622f7364dd42414f4a162c49e32f1650e59"
+    },
+    "opponent-freeze.json": {
+      "bytes": 836,
+      "sha256": "10ad3c3fa04305ae5ed265d513fb0d3dd9ead71a39cbb8b81b287d54a95eca53"
+    },
+    "validation-environment.json": {
+      "bytes": 590,
+      "sha256": "4ffeff4caf304936f27036b544f0e6557b77194f930b2fb93c2eab7fcf756c5b"
+    }
+  },
+  "scope": "Generated offline simulation records, manifests, derived tables and audit; excludes model binaries and private human sessions"
+}
