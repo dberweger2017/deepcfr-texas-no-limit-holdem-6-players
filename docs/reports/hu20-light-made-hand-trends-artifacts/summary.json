@@ -1,0 +1,5945 @@
+{
+  "canonical_plan_sha256": "74f0c18024a4a409d223276d4781c2464b27fc8d5d32a51ccb22a224332f2219",
+  "completed_tasks": 75,
+  "peak_rss_bytes": 32309248,
+  "pending_tasks": [],
+  "per_seed": [
+    {
+      "counts": {
+        "fallback": 1,
+        "flop_trained": 160,
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 1,
+        "jam_opportunities": 21,
+        "large_actions": 1,
+        "large_opportunities": 21,
+        "large_trained": 1,
+        "no_response": 0,
+        "preflop_trained": 321,
+        "rival_continuations": 1,
+        "rival_folds": 0,
+        "river_fallback": 1,
+        "river_trained": 77,
+        "target_decisions": 664,
+        "trained": 663,
+        "turn_trained": 105
+      },
+      "milestone": 100000000,
+      "policy": "B-2026093001-100000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_full_house": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 1,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 30300
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 165,
+        "full_stack_losses": 1,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 23,
+        "large_actions": 5,
+        "large_opportunities": 23,
+        "large_trained": 5,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 4,
+        "rival_folds": 1,
+        "river_trained": 72,
+        "target_decisions": 657,
+        "trained": 657,
+        "turn_trained": 98
+      },
+      "milestone": 120000000,
+      "policy": "B-2026093001-120000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_trips": 2,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 1800
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 29250
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 175,
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 23,
+        "large_actions": 4,
+        "large_opportunities": 23,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 3,
+        "rival_folds": 1,
+        "river_trained": 82,
+        "target_decisions": 698,
+        "trained": 698,
+        "turn_trained": 119
+      },
+      "milestone": 140000000,
+      "policy": "B-2026093001-140000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_straight": 1,
+            "category_trips": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 1200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "folded": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "target_chips": 500
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 23050
+    },
+    {
+      "counts": {
+        "fallback": 1,
+        "flop_trained": 170,
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 1,
+        "jam_opportunities": 26,
+        "large_actions": 7,
+        "large_fallback": 1,
+        "large_opportunities": 26,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 6,
+        "rival_folds": 1,
+        "river_fallback": 1,
+        "river_trained": 71,
+        "target_decisions": 679,
+        "trained": 678,
+        "turn_trained": 115
+      },
+      "milestone": 150000000,
+      "policy": "B-2026093001-150000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_pair": 1,
+            "category_straight": 1,
+            "category_two_pair": 2,
+            "continued": 5,
+            "continued_ahead": 3,
+            "continued_behind": 2,
+            "hands": 5,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 4,
+            "street_turn_continued": 1,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_straight": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 1700
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 28650
+    },
+    {
+      "counts": {
+        "fallback": 1,
+        "flop_trained": 170,
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 14,
+        "large_actions": 6,
+        "large_fallback": 1,
+        "large_opportunities": 14,
+        "large_trained": 5,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 4,
+        "rival_folds": 2,
+        "river_fallback": 1,
+        "river_trained": 61,
+        "target_decisions": 653,
+        "trained": 652,
+        "turn_trained": 99
+      },
+      "milestone": 160000000,
+      "policy": "B-2026093001-160000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_straight": 1,
+            "category_trips": 1,
+            "continued": 3,
+            "continued_ahead": 3,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 5000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": -900
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 30050
+    },
+    {
+      "counts": {
+        "fallback": 1,
+        "flop_trained": 174,
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 512,
+        "jam_actions": 1,
+        "jam_opportunities": 22,
+        "large_actions": 4,
+        "large_fallback": 1,
+        "large_opportunities": 22,
+        "large_trained": 3,
+        "no_response": 0,
+        "preflop_trained": 321,
+        "rival_continuations": 2,
+        "rival_folds": 2,
+        "river_fallback": 1,
+        "river_trained": 78,
+        "target_decisions": 699,
+        "trained": 698,
+        "turn_trained": 125
+      },
+      "milestone": 180000000,
+      "policy": "B-2026093001-180000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": 3000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "folded": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "target_chips": 800
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 23000
+    },
+    {
+      "counts": {
+        "fallback": 1,
+        "flop_trained": 176,
+        "full_stack_losses": 3,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 28,
+        "large_actions": 8,
+        "large_fallback": 1,
+        "large_opportunities": 28,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 7,
+        "rival_folds": 1,
+        "river_fallback": 1,
+        "river_trained": 87,
+        "target_decisions": 697,
+        "trained": 696,
+        "turn_trained": 111
+      },
+      "milestone": 200000000,
+      "policy": "B-2026093001-200000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 2,
+            "category_pair": 1,
+            "category_two_pair": 1,
+            "continued": 4,
+            "continued_ahead": 1,
+            "continued_behind": 3,
+            "hands": 4,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "street_turn_continued": 1,
+            "target_chips": -200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_behind": 2,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": -3100
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 17400
+    },
+    {
+      "counts": {
+        "fallback": 1,
+        "flop_trained": 178,
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 28,
+        "large_actions": 6,
+        "large_fallback": 1,
+        "large_opportunities": 28,
+        "large_trained": 5,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_fallback": 1,
+        "river_trained": 75,
+        "target_decisions": 677,
+        "trained": 676,
+        "turn_trained": 101
+      },
+      "milestone": 220000000,
+      "policy": "B-2026093001-220000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": 1600
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 1,
+            "target_chips": 2400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 25950
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 177,
+        "full_stack_losses": 2,
+        "full_stack_wins": 3,
+        "hands": 512,
+        "jam_actions": 5,
+        "jam_opportunities": 25,
+        "large_actions": 7,
+        "large_opportunities": 25,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 6,
+        "rival_folds": 1,
+        "river_trained": 95,
+        "target_decisions": 709,
+        "trained": 709,
+        "turn_trained": 115
+      },
+      "milestone": 240000000,
+      "policy": "B-2026093001-240000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_two_pair": 2,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 3,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 2,
+            "category_two_pair": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 1800
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 24650
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 173,
+        "full_stack_losses": 2,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 22,
+        "large_actions": 6,
+        "large_opportunities": 22,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_trained": 97,
+        "target_decisions": 700,
+        "trained": 700,
+        "turn_trained": 108
+      },
+      "milestone": 250000000,
+      "policy": "B-2026093001-250000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_two_pair": 2,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 2,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": -1500
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": -200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 19250
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 168,
+        "full_stack_losses": 2,
+        "full_stack_wins": 0,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 23,
+        "large_actions": 6,
+        "large_opportunities": 23,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 4,
+        "rival_folds": 2,
+        "river_trained": 87,
+        "target_decisions": 678,
+        "trained": 678,
+        "turn_trained": 101
+      },
+      "milestone": 260000000,
+      "policy": "B-2026093001-260000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_pair": 1,
+            "continued": 2,
+            "continued_behind": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": -4000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 4,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": 700
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 20700
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 165,
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 32,
+        "large_actions": 7,
+        "large_opportunities": 32,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 4,
+        "rival_folds": 3,
+        "river_trained": 82,
+        "target_decisions": 679,
+        "trained": 679,
+        "turn_trained": 110
+      },
+      "milestone": 280000000,
+      "policy": "B-2026093001-280000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "folded": 3,
+            "hands": 7,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "street_turn_continued": 1,
+            "target_chips": 2900
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 23550
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 169,
+        "full_stack_losses": 0,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 19,
+        "large_actions": 6,
+        "large_opportunities": 19,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_trained": 80,
+        "target_decisions": 671,
+        "trained": 671,
+        "turn_trained": 100
+      },
+      "milestone": 300000000,
+      "policy": "B-2026093001-300000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_trips": 2,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": 2500
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": -1200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 27950
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 170,
+        "full_stack_losses": 1,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 28,
+        "large_actions": 5,
+        "large_opportunities": 28,
+        "large_trained": 5,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 0,
+        "river_trained": 98,
+        "target_decisions": 710,
+        "trained": 710,
+        "turn_trained": 120
+      },
+      "milestone": 320000000,
+      "policy": "B-2026093001-320000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 2,
+            "continued": 2,
+            "continued_ahead": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 1,
+            "street_turn_continued": 1,
+            "target_chips": 4000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_two_pair": 3,
+            "continued": 3,
+            "continued_behind": 3,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 3,
+            "target_chips": -4400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 21500
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 164,
+        "full_stack_losses": 1,
+        "full_stack_wins": 3,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 24,
+        "large_actions": 7,
+        "large_opportunities": 24,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 6,
+        "rival_folds": 1,
+        "river_trained": 83,
+        "target_decisions": 675,
+        "trained": 675,
+        "turn_trained": 106
+      },
+      "milestone": 340000000,
+      "policy": "B-2026093001-340000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_straight": 1,
+            "category_trips": 2,
+            "continued": 3,
+            "continued_ahead": 3,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 1,
+            "street_turn_continued": 2,
+            "target_chips": 6000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_two_pair": 2,
+            "continued": 3,
+            "continued_behind": 3,
+            "folded": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 3,
+            "target_chips": -3800
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 25800
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 165,
+        "full_stack_losses": 3,
+        "full_stack_wins": 4,
+        "hands": 512,
+        "jam_actions": 7,
+        "jam_opportunities": 31,
+        "large_actions": 10,
+        "large_opportunities": 31,
+        "large_trained": 10,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 8,
+        "rival_folds": 2,
+        "river_trained": 82,
+        "target_decisions": 682,
+        "trained": 682,
+        "turn_trained": 113
+      },
+      "milestone": 350000000,
+      "policy": "B-2026093001-350000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_straight": 1,
+            "category_trips": 2,
+            "continued": 3,
+            "continued_ahead": 3,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 1,
+            "street_turn_continued": 2,
+            "target_chips": 6000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 3,
+            "continued": 5,
+            "continued_ahead": 1,
+            "continued_behind": 4,
+            "folded": 2,
+            "hands": 7,
+            "selected_full_stack_losses": 3,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 5,
+            "target_chips": -4200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 28400
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 162,
+        "full_stack_losses": 1,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 26,
+        "large_actions": 7,
+        "large_opportunities": 26,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 2,
+        "river_trained": 79,
+        "target_decisions": 669,
+        "trained": 669,
+        "turn_trained": 106
+      },
+      "milestone": 360000000,
+      "policy": "B-2026093001-360000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_straight": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 1,
+            "street_turn_continued": 1,
+            "target_chips": 4000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 3,
+            "continued_behind": 3,
+            "folded": 2,
+            "hands": 5,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 3,
+            "target_chips": -3900
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 28900
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 169,
+        "full_stack_losses": 3,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 5,
+        "jam_opportunities": 33,
+        "large_actions": 9,
+        "large_opportunities": 33,
+        "large_trained": 9,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 8,
+        "rival_folds": 1,
+        "river_trained": 77,
+        "target_decisions": 688,
+        "trained": 688,
+        "turn_trained": 120
+      },
+      "milestone": 380000000,
+      "policy": "B-2026093001-380000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_full_house": 1,
+            "category_trips": 1,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 2,
+            "category_two_pair": 3,
+            "continued": 5,
+            "continued_ahead": 2,
+            "continued_behind": 3,
+            "folded": 1,
+            "hands": 6,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 4,
+            "street_turn_continued": 1,
+            "target_chips": -1100
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 25000
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 160,
+        "full_stack_losses": 3,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 26,
+        "large_actions": 5,
+        "large_opportunities": 26,
+        "large_trained": 5,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 0,
+        "river_trained": 84,
+        "target_decisions": 673,
+        "trained": 673,
+        "turn_trained": 107
+      },
+      "milestone": 400000000,
+      "policy": "B-2026093001-400000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_full_house": 1,
+            "category_trips": 1,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_two_pair": 2,
+            "continued": 2,
+            "continued_behind": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": -4000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 20550
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 164,
+        "full_stack_losses": 2,
+        "full_stack_wins": 4,
+        "hands": 512,
+        "jam_actions": 6,
+        "jam_opportunities": 23,
+        "large_actions": 7,
+        "large_opportunities": 23,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 6,
+        "rival_folds": 1,
+        "river_trained": 84,
+        "target_decisions": 690,
+        "trained": 690,
+        "turn_trained": 120
+      },
+      "milestone": 420000000,
+      "policy": "B-2026093001-420000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_trips": 3,
+            "category_two_pair": 1,
+            "continued": 5,
+            "continued_ahead": 4,
+            "continued_behind": 1,
+            "hands": 5,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 4,
+            "street_river_continued": 4,
+            "street_turn_continued": 1,
+            "target_chips": 6000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "continued": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": -1400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 26350
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 166,
+        "full_stack_losses": 0,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 17,
+        "large_actions": 5,
+        "large_opportunities": 17,
+        "large_trained": 5,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 4,
+        "rival_folds": 1,
+        "river_trained": 85,
+        "target_decisions": 682,
+        "trained": 682,
+        "turn_trained": 109
+      },
+      "milestone": 440000000,
+      "policy": "B-2026093001-440000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 2,
+            "category_two_pair": 1,
+            "continued": 3,
+            "continued_ahead": 3,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": 5200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_straight": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 1800
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 33700
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 167,
+        "full_stack_losses": 2,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 19,
+        "large_actions": 7,
+        "large_opportunities": 19,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 6,
+        "rival_folds": 1,
+        "river_trained": 79,
+        "target_decisions": 674,
+        "trained": 674,
+        "turn_trained": 106
+      },
+      "milestone": 450000000,
+      "policy": "B-2026093001-450000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_pair": 1,
+            "category_trips": 2,
+            "category_two_pair": 1,
+            "continued": 5,
+            "continued_ahead": 3,
+            "continued_behind": 2,
+            "hands": 5,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 2,
+            "street_flop_continued": 1,
+            "street_river_continued": 3,
+            "street_turn_continued": 1,
+            "target_chips": 1200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "folded": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "target_chips": 600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 29250
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 170,
+        "full_stack_losses": 3,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 5,
+        "jam_opportunities": 20,
+        "large_actions": 7,
+        "large_opportunities": 20,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 7,
+        "rival_folds": 0,
+        "river_trained": 78,
+        "target_decisions": 680,
+        "trained": 680,
+        "turn_trained": 110
+      },
+      "milestone": 460000000,
+      "policy": "B-2026093001-460000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 2,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_two_pair": 3,
+            "continued": 4,
+            "continued_ahead": 1,
+            "continued_behind": 3,
+            "hands": 4,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 4,
+            "target_chips": -4000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 24900
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 176,
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 1,
+        "jam_opportunities": 10,
+        "large_actions": 2,
+        "large_opportunities": 10,
+        "large_trained": 2,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 1,
+        "rival_folds": 1,
+        "river_trained": 73,
+        "target_decisions": 672,
+        "trained": 672,
+        "turn_trained": 101
+      },
+      "milestone": 480000000,
+      "policy": "B-2026093001-480000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_turn_continued": 1,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "folded": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "target_chips": 600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 32100
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 180,
+        "full_stack_losses": 1,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 5,
+        "jam_opportunities": 18,
+        "large_actions": 6,
+        "large_opportunities": 18,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_trained": 93,
+        "target_decisions": 711,
+        "trained": 711,
+        "turn_trained": 116
+      },
+      "milestone": 100000000,
+      "policy": "B-2026093002-100000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 2,
+            "continued": 2,
+            "continued_ahead": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 2,
+            "target_chips": 4000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_two_pair": 2,
+            "continued": 3,
+            "continued_behind": 2,
+            "continued_tied": 1,
+            "folded": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 3,
+            "target_chips": -2600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 22450
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 170,
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 21,
+        "large_actions": 4,
+        "large_opportunities": 21,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 3,
+        "rival_folds": 1,
+        "river_trained": 80,
+        "target_decisions": 675,
+        "trained": 675,
+        "turn_trained": 103
+      },
+      "milestone": 120000000,
+      "policy": "B-2026093002-120000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_behind": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": -1200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_ahead": 2,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 4100
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 25100
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 165,
+        "full_stack_losses": 2,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 21,
+        "large_actions": 6,
+        "large_opportunities": 21,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 6,
+        "rival_folds": 0,
+        "river_trained": 81,
+        "target_decisions": 680,
+        "trained": 680,
+        "turn_trained": 112
+      },
+      "milestone": 140000000,
+      "policy": "B-2026093002-140000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_pair": 1,
+            "category_trips": 2,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 2,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 4,
+            "target_chips": 0
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 20500
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 175,
+        "full_stack_losses": 2,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 15,
+        "large_actions": 5,
+        "large_opportunities": 15,
+        "large_trained": 5,
+        "no_response": 0,
+        "preflop_trained": 321,
+        "rival_continuations": 4,
+        "rival_folds": 1,
+        "river_trained": 64,
+        "target_decisions": 660,
+        "trained": 660,
+        "turn_trained": 100
+      },
+      "milestone": 150000000,
+      "policy": "B-2026093002-150000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 24800
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 170,
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 11,
+        "large_actions": 4,
+        "large_opportunities": 10,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 321,
+        "rival_continuations": 3,
+        "rival_folds": 1,
+        "river_trained": 73,
+        "target_decisions": 677,
+        "trained": 677,
+        "turn_trained": 113
+      },
+      "milestone": 160000000,
+      "policy": "B-2026093002-160000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 2,
+            "continued": 2,
+            "continued_behind": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_flop_continued": 1,
+            "street_river_continued": 1,
+            "target_chips": -3400
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 1,
+            "target_chips": 2600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 22800
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 178,
+        "full_stack_losses": 2,
+        "full_stack_wins": 0,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 17,
+        "large_actions": 4,
+        "large_opportunities": 16,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 321,
+        "rival_continuations": 3,
+        "rival_folds": 1,
+        "river_trained": 66,
+        "target_decisions": 670,
+        "trained": 670,
+        "turn_trained": 105
+      },
+      "milestone": 180000000,
+      "policy": "B-2026093002-180000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_behind": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_turn_continued": 1,
+            "target_chips": -2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 2,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": 400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 24400
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 166,
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 1,
+        "jam_opportunities": 16,
+        "large_actions": 4,
+        "large_opportunities": 16,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 321,
+        "rival_continuations": 3,
+        "rival_folds": 1,
+        "river_trained": 67,
+        "target_decisions": 645,
+        "trained": 645,
+        "turn_trained": 91
+      },
+      "milestone": 200000000,
+      "policy": "B-2026093002-200000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_tied": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 2,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 800
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 25100
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 171,
+        "full_stack_losses": 1,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 14,
+        "large_actions": 5,
+        "large_opportunities": 14,
+        "large_trained": 5,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 0,
+        "river_trained": 76,
+        "target_decisions": 675,
+        "trained": 675,
+        "turn_trained": 106
+      },
+      "milestone": 220000000,
+      "policy": "B-2026093002-220000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_tied": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 2,
+            "category_two_pair": 2,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 2,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 4,
+            "target_chips": 500
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 26350
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 171,
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 512,
+        "jam_actions": 0,
+        "jam_opportunities": 20,
+        "large_actions": 3,
+        "large_opportunities": 20,
+        "large_trained": 3,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 2,
+        "rival_folds": 1,
+        "river_trained": 66,
+        "target_decisions": 661,
+        "trained": 661,
+        "turn_trained": 102
+      },
+      "milestone": 240000000,
+      "policy": "B-2026093002-240000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_tied": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 2200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 27750
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 175,
+        "full_stack_losses": 1,
+        "full_stack_wins": 0,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 20,
+        "large_actions": 4,
+        "large_opportunities": 20,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 3,
+        "rival_folds": 1,
+        "river_trained": 77,
+        "target_decisions": 684,
+        "trained": 684,
+        "turn_trained": 110
+      },
+      "milestone": 250000000,
+      "policy": "B-2026093002-250000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_tied": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": 200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 26200
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 182,
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 1,
+        "jam_opportunities": 19,
+        "large_actions": 3,
+        "large_opportunities": 19,
+        "large_trained": 3,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 2,
+        "rival_folds": 1,
+        "river_trained": 74,
+        "target_decisions": 677,
+        "trained": 677,
+        "turn_trained": 99
+      },
+      "milestone": 260000000,
+      "policy": "B-2026093002-260000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 1,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 2400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 31300
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 186,
+        "full_stack_losses": 2,
+        "full_stack_wins": 0,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 16,
+        "large_actions": 6,
+        "large_opportunities": 16,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 6,
+        "rival_folds": 0,
+        "river_trained": 80,
+        "target_decisions": 697,
+        "trained": 697,
+        "turn_trained": 109
+      },
+      "milestone": 280000000,
+      "policy": "B-2026093002-280000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_flop_continued": 1,
+            "street_river_continued": 1,
+            "target_chips": -2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 4,
+            "continued_ahead": 1,
+            "continued_behind": 3,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 4,
+            "target_chips": -3200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 19600
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 178,
+        "full_stack_losses": 3,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 6,
+        "jam_opportunities": 19,
+        "large_actions": 10,
+        "large_opportunities": 19,
+        "large_trained": 10,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 8,
+        "rival_folds": 2,
+        "river_trained": 85,
+        "target_decisions": 688,
+        "trained": 688,
+        "turn_trained": 103
+      },
+      "milestone": 300000000,
+      "policy": "B-2026093002-300000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 2,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 3,
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 5,
+            "continued_ahead": 1,
+            "continued_behind": 4,
+            "folded": 2,
+            "hands": 7,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 4,
+            "street_turn_continued": 1,
+            "target_chips": -4600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 17500
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 182,
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 14,
+        "large_actions": 7,
+        "large_opportunities": 14,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 3,
+        "rival_folds": 4,
+        "river_trained": 71,
+        "target_decisions": 684,
+        "trained": 684,
+        "turn_trained": 109
+      },
+      "milestone": 320000000,
+      "policy": "B-2026093002-320000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_tied": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 4,
+            "hands": 6,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 1800
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 28450
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 195,
+        "full_stack_losses": 2,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 5,
+        "jam_opportunities": 17,
+        "large_actions": 7,
+        "large_opportunities": 17,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 2,
+        "river_trained": 91,
+        "target_decisions": 727,
+        "trained": 727,
+        "turn_trained": 119
+      },
+      "milestone": 340000000,
+      "policy": "B-2026093002-340000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_straight": 1,
+            "category_two_pair": 1,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 1000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 24950
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 198,
+        "full_stack_losses": 2,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 16,
+        "large_actions": 8,
+        "large_opportunities": 16,
+        "large_trained": 8,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 3,
+        "river_trained": 70,
+        "target_decisions": 689,
+        "trained": 689,
+        "turn_trained": 99
+      },
+      "milestone": 350000000,
+      "policy": "B-2026093002-350000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": -2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 2,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 2,
+            "folded": 3,
+            "hands": 6,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 24000
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 197,
+        "full_stack_losses": 3,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 5,
+        "jam_opportunities": 19,
+        "large_actions": 9,
+        "large_opportunities": 19,
+        "large_trained": 9,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 4,
+        "river_trained": 77,
+        "target_decisions": 707,
+        "trained": 707,
+        "turn_trained": 111
+      },
+      "milestone": 360000000,
+      "policy": "B-2026093002-360000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 2,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 2,
+            "folded": 4,
+            "hands": 7,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": -200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 26500
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 198,
+        "full_stack_losses": 4,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 6,
+        "jam_opportunities": 25,
+        "large_actions": 8,
+        "large_opportunities": 25,
+        "large_trained": 8,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 7,
+        "rival_folds": 1,
+        "river_trained": 91,
+        "target_decisions": 735,
+        "trained": 735,
+        "turn_trained": 124
+      },
+      "milestone": 380000000,
+      "policy": "B-2026093002-380000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 1,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 2,
+            "category_two_pair": 3,
+            "continued": 6,
+            "continued_ahead": 2,
+            "continued_behind": 4,
+            "folded": 1,
+            "hands": 7,
+            "selected_full_stack_losses": 4,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 6,
+            "target_chips": -3600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 23000
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 193,
+        "full_stack_losses": 2,
+        "full_stack_wins": 3,
+        "hands": 512,
+        "jam_actions": 6,
+        "jam_opportunities": 24,
+        "large_actions": 9,
+        "large_opportunities": 24,
+        "large_trained": 9,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 7,
+        "rival_folds": 2,
+        "river_trained": 75,
+        "target_decisions": 701,
+        "trained": 701,
+        "turn_trained": 111
+      },
+      "milestone": 400000000,
+      "policy": "B-2026093002-400000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_trips": 2,
+            "category_two_pair": 1,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 4,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 2,
+            "category_two_pair": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 5,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 2900
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 27900
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 192,
+        "full_stack_losses": 2,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 5,
+        "jam_opportunities": 18,
+        "large_actions": 6,
+        "large_opportunities": 18,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_trained": 74,
+        "target_decisions": 692,
+        "trained": 692,
+        "turn_trained": 104
+      },
+      "milestone": 420000000,
+      "policy": "B-2026093002-420000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_trips": 2,
+            "category_two_pair": 1,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 4,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": -1400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 26050
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 188,
+        "full_stack_losses": 1,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 19,
+        "large_actions": 6,
+        "large_opportunities": 19,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_trained": 88,
+        "target_decisions": 712,
+        "trained": 712,
+        "turn_trained": 114
+      },
+      "milestone": 440000000,
+      "policy": "B-2026093002-440000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_trips": 2,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": 1300
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_ahead": 2,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 4200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 31250
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 187,
+        "full_stack_losses": 3,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 6,
+        "jam_opportunities": 15,
+        "large_actions": 7,
+        "large_opportunities": 15,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 2,
+        "river_trained": 89,
+        "target_decisions": 709,
+        "trained": 709,
+        "turn_trained": 111
+      },
+      "milestone": 450000000,
+      "policy": "B-2026093002-450000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 2,
+            "folded": 2,
+            "hands": 5,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": -1000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 23100
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 185,
+        "full_stack_losses": 1,
+        "full_stack_wins": 0,
+        "hands": 512,
+        "jam_actions": 1,
+        "jam_opportunities": 14,
+        "large_actions": 4,
+        "large_opportunities": 14,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 2,
+        "rival_folds": 2,
+        "river_trained": 86,
+        "target_decisions": 706,
+        "trained": 706,
+        "turn_trained": 113
+      },
+      "milestone": 460000000,
+      "policy": "B-2026093002-460000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 1200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "continued": 1,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": -1000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 24150
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 188,
+        "full_stack_losses": 2,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 22,
+        "large_actions": 6,
+        "large_opportunities": 22,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_trained": 88,
+        "target_decisions": 706,
+        "trained": 706,
+        "turn_trained": 108
+      },
+      "milestone": 480000000,
+      "policy": "B-2026093002-480000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": -300
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_two_pair": 2,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 2,
+            "folded": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": -1400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 27200
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 195,
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 12,
+        "large_actions": 7,
+        "large_opportunities": 12,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 6,
+        "rival_folds": 1,
+        "river_trained": 79,
+        "target_decisions": 701,
+        "trained": 701,
+        "turn_trained": 105
+      },
+      "milestone": 500000000,
+      "policy": "B-2026093002-500000000",
+      "seed": 2026093002,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 2,
+            "category_trips": 1,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 2,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 3,
+            "target_chips": -2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 2,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 2900
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 27800
+    },
+    {
+      "counts": {
+        "fallback": 2,
+        "flop_trained": 153,
+        "full_stack_losses": 2,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 28,
+        "large_actions": 5,
+        "large_opportunities": 28,
+        "large_trained": 5,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 4,
+        "rival_folds": 1,
+        "river_fallback": 2,
+        "river_trained": 73,
+        "target_decisions": 654,
+        "trained": 652,
+        "turn_trained": 104
+      },
+      "milestone": 100000000,
+      "policy": "B-2026093003-100000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": -800
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 22100
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 164,
+        "full_stack_losses": 2,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 21,
+        "large_actions": 6,
+        "large_opportunities": 21,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_trained": 67,
+        "target_decisions": 653,
+        "trained": 653,
+        "turn_trained": 100
+      },
+      "milestone": 120000000,
+      "policy": "B-2026093003-120000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": -800
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_trips": 2,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "folded": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 25300
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 168,
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 1,
+        "jam_opportunities": 19,
+        "large_actions": 8,
+        "large_opportunities": 19,
+        "large_trained": 8,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 3,
+        "river_trained": 66,
+        "target_decisions": 649,
+        "trained": 649,
+        "turn_trained": 93
+      },
+      "milestone": 140000000,
+      "policy": "B-2026093003-140000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_trips": 2,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_tied": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 3200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 2,
+            "folded": 3,
+            "hands": 5,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": 5000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 37200
+    },
+    {
+      "counts": {
+        "fallback": 1,
+        "flop_trained": 180,
+        "full_stack_losses": 1,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 27,
+        "large_actions": 6,
+        "large_opportunities": 27,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 6,
+        "rival_folds": 0,
+        "river_fallback": 1,
+        "river_trained": 73,
+        "target_decisions": 677,
+        "trained": 676,
+        "turn_trained": 101
+      },
+      "milestone": 150000000,
+      "policy": "B-2026093003-150000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_straight": 1,
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 4,
+            "target_chips": 1200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_ahead": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 3800
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 33100
+    },
+    {
+      "counts": {
+        "fallback": 1,
+        "flop_trained": 178,
+        "full_stack_losses": 1,
+        "full_stack_wins": 3,
+        "hands": 512,
+        "jam_actions": 5,
+        "jam_opportunities": 27,
+        "large_actions": 10,
+        "large_opportunities": 27,
+        "large_trained": 10,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 7,
+        "rival_folds": 3,
+        "river_fallback": 1,
+        "river_trained": 88,
+        "target_decisions": 693,
+        "trained": 692,
+        "turn_trained": 104
+      },
+      "milestone": 160000000,
+      "policy": "B-2026093003-160000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_full_house": 1,
+            "category_trips": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_tied": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 3200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 2,
+            "category_two_pair": 1,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 2,
+            "folded": 3,
+            "hands": 7,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 4,
+            "target_chips": 1600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 28000
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 184,
+        "full_stack_losses": 2,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 20,
+        "large_actions": 8,
+        "large_opportunities": 20,
+        "large_trained": 8,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 6,
+        "rival_folds": 2,
+        "river_trained": 84,
+        "target_decisions": 704,
+        "trained": 704,
+        "turn_trained": 114
+      },
+      "milestone": 180000000,
+      "policy": "B-2026093003-180000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_high_card": 1,
+            "category_trips": 2,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 4,
+            "target_chips": 1200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 1000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 26400
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 178,
+        "full_stack_losses": 1,
+        "full_stack_wins": 3,
+        "hands": 512,
+        "jam_actions": 5,
+        "jam_opportunities": 18,
+        "large_actions": 9,
+        "large_opportunities": 18,
+        "large_trained": 9,
+        "no_response": 0,
+        "preflop_trained": 321,
+        "rival_continuations": 7,
+        "rival_folds": 2,
+        "river_trained": 74,
+        "target_decisions": 683,
+        "trained": 683,
+        "turn_trained": 110
+      },
+      "milestone": 200000000,
+      "policy": "B-2026093003-200000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_ahead": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 2,
+            "target_chips": 4000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_full_house": 1,
+            "category_high_card": 1,
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 5,
+            "continued_ahead": 3,
+            "continued_behind": 2,
+            "folded": 2,
+            "hands": 7,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 5,
+            "target_chips": 3400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 33800
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 186,
+        "full_stack_losses": 0,
+        "full_stack_wins": 3,
+        "hands": 512,
+        "jam_actions": 6,
+        "jam_opportunities": 23,
+        "large_actions": 8,
+        "large_opportunities": 23,
+        "large_trained": 8,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 3,
+        "river_trained": 86,
+        "target_decisions": 715,
+        "trained": 715,
+        "turn_trained": 121
+      },
+      "milestone": 220000000,
+      "policy": "B-2026093003-220000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_straight": 1,
+            "category_two_pair": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_tied": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 3,
+            "target_chips": 4000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 2,
+            "folded": 3,
+            "hands": 5,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 5000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 33800
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 179,
+        "full_stack_losses": 2,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 6,
+        "jam_opportunities": 20,
+        "large_actions": 7,
+        "large_opportunities": 20,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 2,
+        "river_trained": 87,
+        "target_decisions": 700,
+        "trained": 700,
+        "turn_trained": 112
+      },
+      "milestone": 240000000,
+      "policy": "B-2026093003-240000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 5,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 3,
+            "target_chips": 2600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 26600
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 174,
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 23,
+        "large_actions": 7,
+        "large_opportunities": 22,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 2,
+        "river_trained": 71,
+        "target_decisions": 666,
+        "trained": 666,
+        "turn_trained": 99
+      },
+      "milestone": 250000000,
+      "policy": "B-2026093003-250000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_behind": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_turn_continued": 1,
+            "target_chips": -2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 2,
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 4,
+            "continued_ahead": 3,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 6,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 4,
+            "target_chips": 4900
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 30550
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 169,
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 1,
+        "jam_opportunities": 22,
+        "large_actions": 5,
+        "large_opportunities": 22,
+        "large_trained": 5,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 4,
+        "rival_folds": 1,
+        "river_trained": 78,
+        "target_decisions": 671,
+        "trained": 671,
+        "turn_trained": 102
+      },
+      "milestone": 260000000,
+      "policy": "B-2026093003-260000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 1,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 2,
+            "category_two_pair": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 3,
+            "target_chips": 2500
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 29600
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 166,
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 24,
+        "large_actions": 4,
+        "large_opportunities": 24,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 3,
+        "rival_folds": 1,
+        "river_trained": 79,
+        "target_decisions": 681,
+        "trained": 681,
+        "turn_trained": 114
+      },
+      "milestone": 280000000,
+      "policy": "B-2026093003-280000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 2400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 27750
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 176,
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 512,
+        "jam_actions": 0,
+        "jam_opportunities": 20,
+        "large_actions": 9,
+        "large_opportunities": 20,
+        "large_trained": 9,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 4,
+        "rival_folds": 5,
+        "river_trained": 80,
+        "target_decisions": 693,
+        "trained": 693,
+        "turn_trained": 115
+      },
+      "milestone": 300000000,
+      "policy": "B-2026093003-300000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_tied": 1,
+            "hands": 1,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_trips": 2,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "folded": 5,
+            "hands": 8,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 3,
+            "target_chips": 4600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 33050
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 172,
+        "full_stack_losses": 2,
+        "full_stack_wins": 0,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 22,
+        "large_actions": 4,
+        "large_opportunities": 20,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 3,
+        "rival_folds": 1,
+        "river_trained": 67,
+        "target_decisions": 666,
+        "trained": 666,
+        "turn_trained": 105
+      },
+      "milestone": 320000000,
+      "policy": "B-2026093003-320000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_pair": 1,
+            "category_two_pair": 1,
+            "continued": 3,
+            "continued_ahead": 1,
+            "continued_behind": 2,
+            "folded": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": -1800
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 27350
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 169,
+        "full_stack_losses": 1,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 18,
+        "large_actions": 6,
+        "large_opportunities": 18,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 4,
+        "rival_folds": 2,
+        "river_trained": 72,
+        "target_decisions": 665,
+        "trained": 665,
+        "turn_trained": 102
+      },
+      "milestone": 340000000,
+      "policy": "B-2026093003-340000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_straight": 1,
+            "category_trips": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_flop_continued": 1,
+            "street_river_continued": 2,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "folded": 2,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": 2600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 32300
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 169,
+        "full_stack_losses": 2,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 5,
+        "jam_opportunities": 20,
+        "large_actions": 6,
+        "large_opportunities": 20,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_trained": 72,
+        "target_decisions": 668,
+        "trained": 668,
+        "turn_trained": 105
+      },
+      "milestone": 350000000,
+      "policy": "B-2026093003-350000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_straight": 1,
+            "category_trips": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_tied": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 3,
+            "target_chips": 4000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_two_pair": 2,
+            "continued": 2,
+            "continued_behind": 2,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": -3600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 25650
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 176,
+        "full_stack_losses": 1,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 23,
+        "large_actions": 5,
+        "large_opportunities": 23,
+        "large_trained": 5,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 4,
+        "rival_folds": 1,
+        "river_trained": 80,
+        "target_decisions": 697,
+        "trained": 697,
+        "turn_trained": 119
+      },
+      "milestone": 360000000,
+      "policy": "B-2026093003-360000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_tied": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 27050
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 176,
+        "full_stack_losses": 1,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 22,
+        "large_actions": 7,
+        "large_opportunities": 22,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 6,
+        "rival_folds": 1,
+        "river_trained": 86,
+        "target_decisions": 703,
+        "trained": 703,
+        "turn_trained": 119
+      },
+      "milestone": 380000000,
+      "policy": "B-2026093003-380000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_high_card": 1,
+            "category_trips": 2,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 4,
+            "target_chips": 1200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 24900
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 182,
+        "full_stack_losses": 0,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 21,
+        "large_actions": 6,
+        "large_opportunities": 21,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_trained": 80,
+        "target_decisions": 708,
+        "trained": 708,
+        "turn_trained": 124
+      },
+      "milestone": 400000000,
+      "policy": "B-2026093003-400000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_trips": 3,
+            "continued": 4,
+            "continued_ahead": 3,
+            "continued_tied": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 4,
+            "target_chips": 5200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": -1400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 28100
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 178,
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 17,
+        "large_actions": 6,
+        "large_opportunities": 17,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 321,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_trained": 77,
+        "target_decisions": 690,
+        "trained": 690,
+        "turn_trained": 114
+      },
+      "milestone": 420000000,
+      "policy": "B-2026093003-420000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 2,
+            "continued": 2,
+            "continued_ahead": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 3200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_pair": 1,
+            "category_trips": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 3,
+            "target_chips": 2000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 34800
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 177,
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 15,
+        "large_actions": 6,
+        "large_opportunities": 15,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 4,
+        "rival_folds": 2,
+        "river_trained": 84,
+        "target_decisions": 719,
+        "trained": 719,
+        "turn_trained": 136
+      },
+      "milestone": 440000000,
+      "policy": "B-2026093003-440000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 2,
+            "continued": 2,
+            "continued_ahead": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 3200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 4,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": 1400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 29100
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 169,
+        "full_stack_losses": 0,
+        "full_stack_wins": 2,
+        "hands": 512,
+        "jam_actions": 2,
+        "jam_opportunities": 17,
+        "large_actions": 4,
+        "large_opportunities": 17,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 321,
+        "rival_continuations": 3,
+        "rival_folds": 1,
+        "river_trained": 79,
+        "target_decisions": 692,
+        "trained": 692,
+        "turn_trained": 123
+      },
+      "milestone": 450000000,
+      "policy": "B-2026093003-450000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 2,
+            "continued": 2,
+            "continued_ahead": 2,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 1,
+            "street_turn_continued": 1,
+            "target_chips": 3200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_two_pair": 1,
+            "continued": 1,
+            "continued_ahead": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 1,
+            "target_chips": 2400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 33100
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 176,
+        "full_stack_losses": 1,
+        "full_stack_wins": 3,
+        "hands": 512,
+        "jam_actions": 4,
+        "jam_opportunities": 17,
+        "large_actions": 6,
+        "large_opportunities": 17,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 321,
+        "rival_continuations": 5,
+        "rival_folds": 1,
+        "river_trained": 83,
+        "target_decisions": 710,
+        "trained": 710,
+        "turn_trained": 130
+      },
+      "milestone": 460000000,
+      "policy": "B-2026093003-460000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 3,
+            "continued": 3,
+            "continued_ahead": 3,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": 6000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 1,
+            "continued": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": -1600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 28750
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 171,
+        "full_stack_losses": 1,
+        "full_stack_wins": 5,
+        "hands": 512,
+        "jam_actions": 8,
+        "jam_opportunities": 16,
+        "large_actions": 11,
+        "large_opportunities": 16,
+        "large_trained": 11,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 9,
+        "rival_folds": 2,
+        "river_trained": 78,
+        "target_decisions": 694,
+        "trained": 694,
+        "turn_trained": 123
+      },
+      "milestone": 480000000,
+      "policy": "B-2026093003-480000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 5,
+            "category_two_pair": 1,
+            "continued": 6,
+            "continued_ahead": 5,
+            "continued_tied": 1,
+            "hands": 6,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 5,
+            "street_river_continued": 5,
+            "street_turn_continued": 1,
+            "target_chips": 10000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 2,
+            "target_chips": 800
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 36400
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 173,
+        "full_stack_losses": 1,
+        "full_stack_wins": 4,
+        "hands": 512,
+        "jam_actions": 5,
+        "jam_opportunities": 19,
+        "large_actions": 8,
+        "large_opportunities": 19,
+        "large_trained": 8,
+        "no_response": 0,
+        "preflop_trained": 321,
+        "rival_continuations": 6,
+        "rival_folds": 2,
+        "river_trained": 72,
+        "target_decisions": 671,
+        "trained": 671,
+        "turn_trained": 105
+      },
+      "milestone": 500000000,
+      "policy": "B-2026093003-500000000",
+      "seed": 2026093003,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 3,
+            "continued": 3,
+            "continued_ahead": 3,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": 6000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_two_pair": 2,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 4,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 2,
+            "target_chips": 1000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 31500
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 167,
+        "full_stack_losses": 2,
+        "full_stack_wins": 1,
+        "hands": 512,
+        "jam_actions": 3,
+        "jam_opportunities": 15,
+        "large_actions": 4,
+        "large_opportunities": 15,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 322,
+        "rival_continuations": 3,
+        "rival_folds": 1,
+        "river_trained": 72,
+        "target_decisions": 661,
+        "trained": 661,
+        "turn_trained": 100
+      },
+      "milestone": 500000000,
+      "policy": "B-2026093001-500000000",
+      "seed": 2026093001,
+      "situations": [
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_trips": 1,
+            "continued": 2,
+            "continued_ahead": 1,
+            "continued_behind": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 1,
+            "street_turn_continued": 1,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "continued": 1,
+            "continued_behind": 1,
+            "folded": 1,
+            "hands": 2,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 1,
+            "target_chips": -1400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 24750
+    }
+  ],
+  "post_hoc": true,
+  "reporting_source": "da64fd3cefc89afeb5c8ff1782bca40b1375aabe",
+  "scientific_source": "17b4c9a08ed0765d0fb8f05240c0409b21e43977",
+  "seconds": 21.865960583032575,
+  "selected_events": 457,
+  "selective_hands": 38400,
+  "three_lineage": [
+    {
+      "counts": {
+        "fallback": 3,
+        "flop_trained": 493,
+        "full_stack_losses": 3,
+        "full_stack_wins": 4,
+        "hands": 1536,
+        "jam_actions": 9,
+        "jam_opportunities": 67,
+        "large_actions": 12,
+        "large_opportunities": 67,
+        "large_trained": 12,
+        "no_response": 0,
+        "preflop_trained": 965,
+        "rival_continuations": 10,
+        "rival_folds": 2,
+        "river_fallback": 3,
+        "river_trained": 243,
+        "target_decisions": 2029,
+        "trained": 2026,
+        "turn_trained": 325
+      },
+      "milestone": 100000000,
+      "situations": [
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_pair": 1,
+            "category_trips": 3,
+            "continued": 5,
+            "continued_ahead": 4,
+            "continued_behind": 1,
+            "hands": 5,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 5,
+            "target_chips": 5200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 2,
+            "category_trips": 1,
+            "category_two_pair": 2,
+            "continued": 5,
+            "continued_ahead": 1,
+            "continued_behind": 3,
+            "continued_tied": 1,
+            "folded": 2,
+            "hands": 7,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 5,
+            "target_chips": -2000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 74850
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 499,
+        "full_stack_losses": 3,
+        "full_stack_wins": 4,
+        "hands": 1536,
+        "jam_actions": 9,
+        "jam_opportunities": 65,
+        "large_actions": 15,
+        "large_opportunities": 65,
+        "large_trained": 15,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 12,
+        "rival_folds": 3,
+        "river_trained": 219,
+        "target_decisions": 1985,
+        "trained": 1985,
+        "turn_trained": 301
+      },
+      "milestone": 120000000,
+      "situations": [
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_pair": 1,
+            "category_trips": 3,
+            "category_two_pair": 1,
+            "continued": 6,
+            "continued_ahead": 3,
+            "continued_behind": 3,
+            "hands": 6,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 5,
+            "street_turn_continued": 1,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_trips": 3,
+            "category_two_pair": 2,
+            "continued": 6,
+            "continued_ahead": 4,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "folded": 3,
+            "hands": 9,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 6,
+            "target_chips": 6500
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 79650
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 508,
+        "full_stack_losses": 3,
+        "full_stack_wins": 4,
+        "hands": 1536,
+        "jam_actions": 7,
+        "jam_opportunities": 63,
+        "large_actions": 18,
+        "large_opportunities": 63,
+        "large_trained": 18,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 14,
+        "rival_folds": 4,
+        "river_trained": 229,
+        "target_decisions": 2027,
+        "trained": 2027,
+        "turn_trained": 324
+      },
+      "milestone": 140000000,
+      "situations": [
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_pair": 2,
+            "category_straight": 1,
+            "category_trips": 4,
+            "continued": 8,
+            "continued_ahead": 5,
+            "continued_behind": 2,
+            "continued_tied": 1,
+            "hands": 8,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 8,
+            "target_chips": 4400
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_high_card": 1,
+            "category_pair": 1,
+            "category_trips": 3,
+            "continued": 6,
+            "continued_ahead": 4,
+            "continued_behind": 2,
+            "folded": 4,
+            "hands": 10,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 6,
+            "target_chips": 5500
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 80750
+    },
+    {
+      "counts": {
+        "fallback": 2,
+        "flop_trained": 525,
+        "full_stack_losses": 3,
+        "full_stack_wins": 5,
+        "hands": 1536,
+        "jam_actions": 9,
+        "jam_opportunities": 68,
+        "large_actions": 18,
+        "large_fallback": 1,
+        "large_opportunities": 68,
+        "large_trained": 17,
+        "no_response": 0,
+        "preflop_trained": 965,
+        "rival_continuations": 16,
+        "rival_folds": 2,
+        "river_fallback": 2,
+        "river_trained": 208,
+        "target_decisions": 2016,
+        "trained": 2014,
+        "turn_trained": 316
+      },
+      "milestone": 150000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_full_house": 1,
+            "category_pair": 2,
+            "category_straight": 2,
+            "category_trips": 2,
+            "category_two_pair": 3,
+            "continued": 11,
+            "continued_ahead": 6,
+            "continued_behind": 4,
+            "continued_tied": 1,
+            "hands": 11,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 10,
+            "street_turn_continued": 1,
+            "target_chips": 3200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_high_card": 1,
+            "category_straight": 1,
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 5,
+            "continued_ahead": 4,
+            "continued_behind": 1,
+            "folded": 2,
+            "hands": 7,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 5,
+            "target_chips": 6100
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 86550
+    },
+    {
+      "counts": {
+        "fallback": 2,
+        "flop_trained": 518,
+        "full_stack_losses": 3,
+        "full_stack_wins": 5,
+        "hands": 1536,
+        "jam_actions": 9,
+        "jam_opportunities": 52,
+        "large_actions": 20,
+        "large_fallback": 1,
+        "large_opportunities": 51,
+        "large_trained": 19,
+        "no_response": 0,
+        "preflop_trained": 965,
+        "rival_continuations": 14,
+        "rival_folds": 6,
+        "river_fallback": 2,
+        "river_trained": 222,
+        "target_decisions": 2023,
+        "trained": 2021,
+        "turn_trained": 316
+      },
+      "milestone": 160000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 2,
+            "category_full_house": 1,
+            "category_pair": 2,
+            "category_straight": 1,
+            "category_trips": 2,
+            "continued": 8,
+            "continued_ahead": 5,
+            "continued_behind": 2,
+            "continued_tied": 1,
+            "hands": 8,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_flop_continued": 1,
+            "street_river_continued": 7,
+            "target_chips": 4800
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 3,
+            "category_two_pair": 2,
+            "continued": 6,
+            "continued_ahead": 3,
+            "continued_behind": 3,
+            "folded": 6,
+            "hands": 12,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 6,
+            "target_chips": 3300
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 80850
+    },
+    {
+      "counts": {
+        "fallback": 1,
+        "flop_trained": 536,
+        "full_stack_losses": 4,
+        "full_stack_wins": 2,
+        "hands": 1536,
+        "jam_actions": 8,
+        "jam_opportunities": 59,
+        "large_actions": 16,
+        "large_fallback": 1,
+        "large_opportunities": 58,
+        "large_trained": 15,
+        "no_response": 0,
+        "preflop_trained": 964,
+        "rival_continuations": 11,
+        "rival_folds": 5,
+        "river_fallback": 1,
+        "river_trained": 228,
+        "target_decisions": 2073,
+        "trained": 2072,
+        "turn_trained": 344
+      },
+      "milestone": 180000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_full_house": 1,
+            "category_high_card": 1,
+            "category_trips": 3,
+            "category_two_pair": 1,
+            "continued": 7,
+            "continued_ahead": 4,
+            "continued_behind": 2,
+            "continued_tied": 1,
+            "hands": 7,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 6,
+            "street_turn_continued": 1,
+            "target_chips": 2200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 3,
+            "category_two_pair": 1,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 2,
+            "folded": 5,
+            "hands": 9,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 4,
+            "target_chips": 2200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 73800
+    },
+    {
+      "counts": {
+        "fallback": 1,
+        "flop_trained": 520,
+        "full_stack_losses": 4,
+        "full_stack_wins": 5,
+        "hands": 1536,
+        "jam_actions": 10,
+        "jam_opportunities": 62,
+        "large_actions": 21,
+        "large_fallback": 1,
+        "large_opportunities": 62,
+        "large_trained": 20,
+        "no_response": 0,
+        "preflop_trained": 964,
+        "rival_continuations": 17,
+        "rival_folds": 4,
+        "river_fallback": 1,
+        "river_trained": 228,
+        "target_decisions": 2025,
+        "trained": 2024,
+        "turn_trained": 312
+      },
+      "milestone": 200000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 2,
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 3,
+            "continued": 7,
+            "continued_ahead": 3,
+            "continued_behind": 3,
+            "continued_tied": 1,
+            "hands": 7,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 6,
+            "street_turn_continued": 1,
+            "target_chips": 3800
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_full_house": 1,
+            "category_high_card": 1,
+            "category_pair": 2,
+            "category_trips": 3,
+            "category_two_pair": 1,
+            "continued": 9,
+            "continued_ahead": 4,
+            "continued_behind": 5,
+            "folded": 4,
+            "hands": 13,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 9,
+            "target_chips": 1100
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 76300
+    },
+    {
+      "counts": {
+        "fallback": 1,
+        "flop_trained": 535,
+        "full_stack_losses": 2,
+        "full_stack_wins": 6,
+        "hands": 1536,
+        "jam_actions": 12,
+        "jam_opportunities": 65,
+        "large_actions": 19,
+        "large_fallback": 1,
+        "large_opportunities": 65,
+        "large_trained": 18,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 15,
+        "rival_folds": 4,
+        "river_fallback": 1,
+        "river_trained": 237,
+        "target_decisions": 2067,
+        "trained": 2066,
+        "turn_trained": 328
+      },
+      "milestone": 220000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_full_house": 1,
+            "category_pair": 1,
+            "category_straight": 1,
+            "category_trips": 1,
+            "category_two_pair": 2,
+            "continued": 7,
+            "continued_ahead": 4,
+            "continued_behind": 1,
+            "continued_tied": 2,
+            "hands": 7,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 6,
+            "street_turn_continued": 1,
+            "target_chips": 5600
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_trips": 3,
+            "category_two_pair": 3,
+            "continued": 7,
+            "continued_ahead": 5,
+            "continued_behind": 2,
+            "folded": 4,
+            "hands": 11,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 4,
+            "street_river_continued": 7,
+            "target_chips": 7900
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 86100
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 527,
+        "full_stack_losses": 4,
+        "full_stack_wins": 5,
+        "hands": 1536,
+        "jam_actions": 11,
+        "jam_opportunities": 65,
+        "large_actions": 17,
+        "large_opportunities": 65,
+        "large_trained": 17,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 13,
+        "rival_folds": 4,
+        "river_trained": 248,
+        "target_decisions": 2070,
+        "trained": 2070,
+        "turn_trained": 329
+      },
+      "milestone": 240000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_trips": 1,
+            "category_two_pair": 4,
+            "continued": 6,
+            "continued_ahead": 3,
+            "continued_behind": 2,
+            "continued_tied": 1,
+            "hands": 6,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 6,
+            "target_chips": 2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_pair": 1,
+            "category_trips": 4,
+            "category_two_pair": 1,
+            "continued": 7,
+            "continued_ahead": 5,
+            "continued_behind": 2,
+            "folded": 4,
+            "hands": 11,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 7,
+            "target_chips": 6600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 79000
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 522,
+        "full_stack_losses": 4,
+        "full_stack_wins": 2,
+        "hands": 1536,
+        "jam_actions": 8,
+        "jam_opportunities": 65,
+        "large_actions": 17,
+        "large_opportunities": 64,
+        "large_trained": 17,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 13,
+        "rival_folds": 4,
+        "river_trained": 245,
+        "target_decisions": 2050,
+        "trained": 2050,
+        "turn_trained": 317
+      },
+      "milestone": 250000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_two_pair": 4,
+            "continued": 5,
+            "continued_ahead": 1,
+            "continued_behind": 3,
+            "continued_tied": 1,
+            "hands": 5,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 4,
+            "street_turn_continued": 1,
+            "target_chips": -3500
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 2,
+            "category_trips": 3,
+            "category_two_pair": 3,
+            "continued": 8,
+            "continued_ahead": 5,
+            "continued_behind": 3,
+            "folded": 4,
+            "hands": 12,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 8,
+            "target_chips": 4900
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 76000
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 519,
+        "full_stack_losses": 2,
+        "full_stack_wins": 2,
+        "hands": 1536,
+        "jam_actions": 4,
+        "jam_opportunities": 64,
+        "large_actions": 14,
+        "large_opportunities": 64,
+        "large_trained": 14,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 10,
+        "rival_folds": 4,
+        "river_trained": 239,
+        "target_decisions": 2026,
+        "trained": 2026,
+        "turn_trained": 302
+      },
+      "milestone": 260000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_pair": 1,
+            "category_trips": 2,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 2,
+            "hands": 4,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 4,
+            "target_chips": 0
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 2,
+            "category_pair": 1,
+            "category_trips": 2,
+            "category_two_pair": 1,
+            "continued": 6,
+            "continued_ahead": 4,
+            "continued_behind": 2,
+            "folded": 4,
+            "hands": 10,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 6,
+            "target_chips": 5600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 81600
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 517,
+        "full_stack_losses": 4,
+        "full_stack_wins": 2,
+        "hands": 1536,
+        "jam_actions": 9,
+        "jam_opportunities": 72,
+        "large_actions": 17,
+        "large_opportunities": 72,
+        "large_trained": 17,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 13,
+        "rival_folds": 4,
+        "river_trained": 241,
+        "target_decisions": 2057,
+        "trained": 2057,
+        "turn_trained": 333
+      },
+      "milestone": 280000000,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 2,
+            "category_trips": 1,
+            "category_two_pair": 1,
+            "continued": 4,
+            "continued_ahead": 1,
+            "continued_behind": 2,
+            "continued_tied": 1,
+            "hands": 4,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_flop_continued": 1,
+            "street_river_continued": 3,
+            "target_chips": -2000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 2,
+            "category_high_card": 1,
+            "category_pair": 2,
+            "category_trips": 2,
+            "category_two_pair": 2,
+            "continued": 9,
+            "continued_ahead": 4,
+            "continued_behind": 4,
+            "continued_tied": 1,
+            "folded": 4,
+            "hands": 13,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 8,
+            "street_turn_continued": 1,
+            "target_chips": 2100
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 70900
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 523,
+        "full_stack_losses": 3,
+        "full_stack_wins": 4,
+        "hands": 1536,
+        "jam_actions": 9,
+        "jam_opportunities": 58,
+        "large_actions": 25,
+        "large_opportunities": 58,
+        "large_trained": 25,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 17,
+        "rival_folds": 8,
+        "river_trained": 245,
+        "target_decisions": 2052,
+        "trained": 2052,
+        "turn_trained": 318
+      },
+      "milestone": 300000000,
+      "situations": [
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_trips": 3,
+            "category_two_pair": 3,
+            "continued": 7,
+            "continued_ahead": 3,
+            "continued_behind": 2,
+            "continued_tied": 2,
+            "hands": 7,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 6,
+            "street_turn_continued": 1,
+            "target_chips": 2500
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 2,
+            "category_pair": 3,
+            "category_trips": 3,
+            "category_two_pair": 2,
+            "continued": 10,
+            "continued_ahead": 3,
+            "continued_behind": 6,
+            "continued_tied": 1,
+            "folded": 8,
+            "hands": 18,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 9,
+            "street_turn_continued": 1,
+            "target_chips": -1200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 78500
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 524,
+        "full_stack_losses": 4,
+        "full_stack_wins": 3,
+        "hands": 1536,
+        "jam_actions": 8,
+        "jam_opportunities": 64,
+        "large_actions": 16,
+        "large_opportunities": 62,
+        "large_trained": 16,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 11,
+        "rival_folds": 5,
+        "river_trained": 236,
+        "target_decisions": 2060,
+        "trained": 2060,
+        "turn_trained": 334
+      },
+      "milestone": 320000000,
+      "situations": [
+        {
+          "counts": {
+            "category_trips": 2,
+            "category_two_pair": 1,
+            "continued": 3,
+            "continued_ahead": 2,
+            "continued_tied": 1,
+            "hands": 3,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 2,
+            "street_turn_continued": 1,
+            "target_chips": 4000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 5,
+            "continued": 8,
+            "continued_ahead": 2,
+            "continued_behind": 6,
+            "folded": 5,
+            "hands": 13,
+            "selected_full_stack_losses": 4,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 7,
+            "street_turn_continued": 1,
+            "target_chips": -4400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 77300
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 528,
+        "full_stack_losses": 4,
+        "full_stack_wins": 7,
+        "hands": 1536,
+        "jam_actions": 12,
+        "jam_opportunities": 59,
+        "large_actions": 20,
+        "large_opportunities": 59,
+        "large_trained": 20,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 15,
+        "rival_folds": 5,
+        "river_trained": 246,
+        "target_decisions": 2067,
+        "trained": 2067,
+        "turn_trained": 327
+      },
+      "milestone": 340000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_pair": 1,
+            "category_straight": 3,
+            "category_trips": 3,
+            "category_two_pair": 1,
+            "continued": 9,
+            "continued_ahead": 6,
+            "continued_behind": 2,
+            "continued_tied": 1,
+            "hands": 9,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 6,
+            "street_flop_continued": 1,
+            "street_river_continued": 6,
+            "street_turn_continued": 2,
+            "target_chips": 8000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 3,
+            "continued": 6,
+            "continued_ahead": 2,
+            "continued_behind": 4,
+            "folded": 5,
+            "hands": 11,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 6,
+            "target_chips": -200
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 83050
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 532,
+        "full_stack_losses": 7,
+        "full_stack_wins": 7,
+        "hands": 1536,
+        "jam_actions": 16,
+        "jam_opportunities": 67,
+        "large_actions": 24,
+        "large_opportunities": 67,
+        "large_trained": 24,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 18,
+        "rival_folds": 6,
+        "river_trained": 224,
+        "target_decisions": 2039,
+        "trained": 2039,
+        "turn_trained": 317
+      },
+      "milestone": 350000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_full_house": 1,
+            "category_straight": 2,
+            "category_trips": 3,
+            "category_two_pair": 1,
+            "continued": 8,
+            "continued_ahead": 5,
+            "continued_behind": 1,
+            "continued_tied": 2,
+            "hands": 8,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 5,
+            "street_river_continued": 6,
+            "street_turn_continued": 2,
+            "target_chips": 8000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 2,
+            "category_two_pair": 7,
+            "continued": 10,
+            "continued_ahead": 2,
+            "continued_behind": 8,
+            "folded": 6,
+            "hands": 16,
+            "selected_full_stack_losses": 6,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 10,
+            "target_chips": -7600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 78050
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 535,
+        "full_stack_losses": 5,
+        "full_stack_wins": 6,
+        "hands": 1536,
+        "jam_actions": 11,
+        "jam_opportunities": 68,
+        "large_actions": 21,
+        "large_opportunities": 68,
+        "large_trained": 21,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 14,
+        "rival_folds": 7,
+        "river_trained": 236,
+        "target_decisions": 2073,
+        "trained": 2073,
+        "turn_trained": 336
+      },
+      "milestone": 360000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 2,
+            "category_full_house": 1,
+            "category_straight": 1,
+            "category_trips": 2,
+            "continued": 6,
+            "continued_ahead": 4,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 6,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 4,
+            "street_river_continued": 5,
+            "street_turn_continued": 1,
+            "target_chips": 6000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 3,
+            "category_trips": 3,
+            "category_two_pair": 2,
+            "continued": 8,
+            "continued_ahead": 2,
+            "continued_behind": 6,
+            "folded": 7,
+            "hands": 15,
+            "selected_full_stack_losses": 4,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 8,
+            "target_chips": -3700
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 82450
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 543,
+        "full_stack_losses": 8,
+        "full_stack_wins": 6,
+        "hands": 1536,
+        "jam_actions": 15,
+        "jam_opportunities": 80,
+        "large_actions": 24,
+        "large_opportunities": 80,
+        "large_trained": 24,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 21,
+        "rival_folds": 3,
+        "river_trained": 254,
+        "target_decisions": 2126,
+        "trained": 2126,
+        "turn_trained": 363
+      },
+      "milestone": 380000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_full_house": 2,
+            "category_high_card": 1,
+            "category_trips": 4,
+            "continued": 8,
+            "continued_ahead": 4,
+            "continued_behind": 2,
+            "continued_tied": 2,
+            "hands": 8,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 7,
+            "street_turn_continued": 1,
+            "target_chips": 3200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 5,
+            "category_two_pair": 7,
+            "continued": 13,
+            "continued_ahead": 5,
+            "continued_behind": 8,
+            "folded": 3,
+            "hands": 16,
+            "selected_full_stack_losses": 6,
+            "selected_full_stack_wins": 3,
+            "street_river_continued": 12,
+            "street_turn_continued": 1,
+            "target_chips": -4100
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 72900
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 535,
+        "full_stack_losses": 5,
+        "full_stack_wins": 6,
+        "hands": 1536,
+        "jam_actions": 12,
+        "jam_opportunities": 71,
+        "large_actions": 20,
+        "large_opportunities": 71,
+        "large_trained": 20,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 17,
+        "rival_folds": 3,
+        "river_trained": 239,
+        "target_decisions": 2082,
+        "trained": 2082,
+        "turn_trained": 342
+      },
+      "milestone": 400000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 2,
+            "category_full_house": 2,
+            "category_trips": 6,
+            "category_two_pair": 1,
+            "continued": 11,
+            "continued_ahead": 6,
+            "continued_behind": 2,
+            "continued_tied": 3,
+            "hands": 11,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 5,
+            "street_river_continued": 10,
+            "street_turn_continued": 1,
+            "target_chips": 7200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_trips": 2,
+            "category_two_pair": 4,
+            "continued": 6,
+            "continued_ahead": 2,
+            "continued_behind": 4,
+            "folded": 3,
+            "hands": 9,
+            "selected_full_stack_losses": 3,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 6,
+            "target_chips": -2500
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 76550
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 534,
+        "full_stack_losses": 5,
+        "full_stack_wins": 7,
+        "hands": 1536,
+        "jam_actions": 13,
+        "jam_opportunities": 58,
+        "large_actions": 19,
+        "large_opportunities": 58,
+        "large_trained": 19,
+        "no_response": 0,
+        "preflop_trained": 965,
+        "rival_continuations": 16,
+        "rival_folds": 3,
+        "river_trained": 235,
+        "target_decisions": 2072,
+        "trained": 2072,
+        "turn_trained": 338
+      },
+      "milestone": 420000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_high_card": 1,
+            "category_trips": 7,
+            "category_two_pair": 2,
+            "continued": 11,
+            "continued_ahead": 8,
+            "continued_behind": 2,
+            "continued_tied": 1,
+            "hands": 11,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 7,
+            "street_river_continued": 10,
+            "street_turn_continued": 1,
+            "target_chips": 11200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_pair": 1,
+            "category_trips": 2,
+            "category_two_pair": 1,
+            "continued": 5,
+            "continued_ahead": 2,
+            "continued_behind": 3,
+            "folded": 3,
+            "hands": 8,
+            "selected_full_stack_losses": 3,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 5,
+            "target_chips": -800
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 87200
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 531,
+        "full_stack_losses": 1,
+        "full_stack_wins": 5,
+        "hands": 1536,
+        "jam_actions": 7,
+        "jam_opportunities": 51,
+        "large_actions": 17,
+        "large_opportunities": 51,
+        "large_trained": 17,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 13,
+        "rival_folds": 4,
+        "river_trained": 257,
+        "target_decisions": 2113,
+        "trained": 2113,
+        "turn_trained": 359
+      },
+      "milestone": 440000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_trips": 6,
+            "category_two_pair": 1,
+            "continued": 8,
+            "continued_ahead": 7,
+            "continued_behind": 1,
+            "hands": 8,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 4,
+            "street_river_continued": 6,
+            "street_turn_continued": 2,
+            "target_chips": 9700
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_straight": 1,
+            "category_trips": 2,
+            "category_two_pair": 1,
+            "continued": 5,
+            "continued_ahead": 4,
+            "continued_behind": 1,
+            "folded": 4,
+            "hands": 9,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 5,
+            "target_chips": 7400
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 94050
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 523,
+        "full_stack_losses": 5,
+        "full_stack_wins": 6,
+        "hands": 1536,
+        "jam_actions": 12,
+        "jam_opportunities": 51,
+        "large_actions": 18,
+        "large_opportunities": 51,
+        "large_trained": 18,
+        "no_response": 0,
+        "preflop_trained": 965,
+        "rival_continuations": 14,
+        "rival_folds": 4,
+        "river_trained": 247,
+        "target_decisions": 2075,
+        "trained": 2075,
+        "turn_trained": 340
+      },
+      "milestone": 450000000,
+      "situations": [
+        {
+          "counts": {
+            "category_flush": 1,
+            "category_high_card": 1,
+            "category_pair": 1,
+            "category_trips": 5,
+            "category_two_pair": 1,
+            "continued": 9,
+            "continued_ahead": 6,
+            "continued_behind": 3,
+            "hands": 9,
+            "selected_full_stack_losses": 3,
+            "selected_full_stack_wins": 4,
+            "street_flop_continued": 1,
+            "street_river_continued": 6,
+            "street_turn_continued": 2,
+            "target_chips": 4400
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 2,
+            "continued": 4,
+            "continued_ahead": 2,
+            "continued_behind": 2,
+            "folded": 4,
+            "hands": 8,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 4,
+            "target_chips": 2000
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 85450
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 531,
+        "full_stack_losses": 5,
+        "full_stack_wins": 5,
+        "hands": 1536,
+        "jam_actions": 10,
+        "jam_opportunities": 51,
+        "large_actions": 17,
+        "large_opportunities": 51,
+        "large_trained": 17,
+        "no_response": 0,
+        "preflop_trained": 965,
+        "rival_continuations": 14,
+        "rival_folds": 3,
+        "river_trained": 247,
+        "target_decisions": 2096,
+        "trained": 2096,
+        "turn_trained": 353
+      },
+      "milestone": 460000000,
+      "situations": [
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 6,
+            "continued": 7,
+            "continued_ahead": 6,
+            "continued_behind": 1,
+            "hands": 7,
+            "selected_full_stack_losses": 1,
+            "selected_full_stack_wins": 5,
+            "street_river_continued": 5,
+            "street_turn_continued": 2,
+            "target_chips": 9200
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 2,
+            "category_trips": 1,
+            "category_two_pair": 3,
+            "continued": 6,
+            "continued_ahead": 1,
+            "continued_behind": 5,
+            "folded": 3,
+            "hands": 9,
+            "selected_full_stack_losses": 4,
+            "selected_full_stack_wins": 0,
+            "street_river_continued": 6,
+            "target_chips": -6600
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 77800
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 535,
+        "full_stack_losses": 3,
+        "full_stack_wins": 7,
+        "hands": 1536,
+        "jam_actions": 13,
+        "jam_opportunities": 48,
+        "large_actions": 19,
+        "large_opportunities": 48,
+        "large_trained": 19,
+        "no_response": 0,
+        "preflop_trained": 966,
+        "rival_continuations": 15,
+        "rival_folds": 4,
+        "river_trained": 239,
+        "target_decisions": 2072,
+        "trained": 2072,
+        "turn_trained": 332
+      },
+      "milestone": 480000000,
+      "situations": [
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_trips": 7,
+            "category_two_pair": 1,
+            "continued": 9,
+            "continued_ahead": 7,
+            "continued_behind": 1,
+            "continued_tied": 1,
+            "hands": 9,
+            "selected_full_stack_losses": 0,
+            "selected_full_stack_wins": 6,
+            "street_river_continued": 7,
+            "street_turn_continued": 2,
+            "target_chips": 11700
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_full_house": 1,
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 2,
+            "continued": 5,
+            "continued_ahead": 2,
+            "continued_behind": 3,
+            "folded": 4,
+            "hands": 9,
+            "selected_full_stack_losses": 3,
+            "selected_full_stack_wins": 1,
+            "street_river_continued": 5,
+            "target_chips": 0
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 95700
+    },
+    {
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 535,
+        "full_stack_losses": 4,
+        "full_stack_wins": 6,
+        "hands": 1536,
+        "jam_actions": 11,
+        "jam_opportunities": 46,
+        "large_actions": 19,
+        "large_opportunities": 46,
+        "large_trained": 19,
+        "no_response": 0,
+        "preflop_trained": 965,
+        "rival_continuations": 15,
+        "rival_folds": 4,
+        "river_trained": 223,
+        "target_decisions": 2033,
+        "trained": 2033,
+        "turn_trained": 310
+      },
+      "milestone": 500000000,
+      "situations": [
+        {
+          "counts": {
+            "category_high_card": 1,
+            "category_pair": 2,
+            "category_trips": 5,
+            "continued": 8,
+            "continued_ahead": 5,
+            "continued_behind": 3,
+            "hands": 8,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 4,
+            "street_river_continued": 6,
+            "street_turn_continued": 2,
+            "target_chips": 4000
+          },
+          "situation": "after_rival_raise"
+        },
+        {
+          "counts": {
+            "category_pair": 1,
+            "category_trips": 1,
+            "category_two_pair": 4,
+            "continued": 6,
+            "continued_ahead": 3,
+            "continued_behind": 3,
+            "folded": 4,
+            "hands": 10,
+            "selected_full_stack_losses": 2,
+            "selected_full_stack_wins": 2,
+            "street_river_continued": 6,
+            "target_chips": 2500
+          },
+          "situation": "no_rival_raise"
+        }
+      ],
+      "whole_hand_chips": 84050
+    }
+  ],
+  "transfer_manifest_sha256": "37080f74fda0b9c6f4ef580869f12f3d02c4a35c0f783ad00644c1e1e72a7338",
+  "version": "hu20-light-made-hand-trends-v1",
+  "warning": "Current made hands are not equity; whole-hand profit is not individual-bet EV. Selected shared-deal counts are descriptive."
+}

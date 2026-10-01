@@ -1,0 +1,14 @@
+{
+  "dashboard.md": {
+    "bytes": 10211,
+    "sha256": "64ae17c2c39136e45cf6b5472633fa88c94b3d19595af50cc82daa3c5976ac29"
+  },
+  "events.jsonl": {
+    "bytes": 225543,
+    "sha256": "1db6883dbf381ccbe751d6154bee2f3ad4d10d0426c565c557b7361b8a7c3d1c"
+  },
+  "summary.json": {
+    "bytes": 166239,
+    "sha256": "ec1d5f0cc3b04fb36e9afff4f84869541e7fc7efd9d8fd3e507d3743e2b053dc"
+  }
+}
