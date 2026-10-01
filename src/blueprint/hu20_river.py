@@ -111,12 +111,13 @@ class RiverProfileCache:
 
 
 class HU20RiverPlayer:
-    def __init__(self, blueprint, seed, config=HU20RiverConfig(), cache=None):
+    def __init__(self, blueprint, seed, config=HU20RiverConfig(), cache=None, deadline=None):
         self.blueprint = blueprint; self.config = config; self.random = Random(seed)
         self.cache = cache if cache is not None else RiverProfileCache(blueprint, config.cache_entries)
         if self.cache.blueprint is not blueprint:
             raise ValueError("River cache belongs to a different immutable blueprint")
         self.hand_id = None; self.solution = None; self.used = {}; self.records = []
+        self.deadline = deadline
 
     def _reset(self, view):
         if self.hand_id != view.hand_id:
@@ -124,6 +125,8 @@ class HU20RiverPlayer:
 
     def _solve(self, view):
         started = monotonic(); deadline = started + self.config.watchdog_seconds
+        if self.deadline is not None:
+            deadline = min(deadline, self.deadline)
 
         def check():
             if monotonic() >= deadline:
@@ -197,7 +200,7 @@ class HU20RiverPlayer:
         if self.solution is None or identity not in self.solution[2]:
             self._solve(view)
         else:
-            self.cache.stats["retained_decisions"] += 1
+            self.cache.stats["retained_queries"] += 1
         game, profile, lookup = self.solution
         node = game.nodes[lookup[identity]]
         if node.actor != view.seat:

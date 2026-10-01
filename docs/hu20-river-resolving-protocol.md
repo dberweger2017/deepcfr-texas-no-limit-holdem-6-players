@@ -53,3 +53,26 @@ Retain every failure, native replay and exact action record; abort on invalid
 play/incomplete solves. Report seed/position paired BB/100 uncertainty, tails,
 range coverage, solve/cache counts and incremental cost. Whole-hand returns
 are not individual-bet EV. No training, M4 access, paid compute or promotion.
+
+## Frozen first playing budget (after timing, before outcomes)
+
+The completed first-lineage curve takes 6.81–11.40 seconds for 250 sweeps,
+with 0.63-second range/tree setup and 2.597 GiB process peak including one
+policy. All requested milestones through 2,000 sweeps complete at all three
+roots. Choose **250 sweeps** for this initial cost/signal experiment; residual
+conditional-game exploitability is retained, not called solved equilibrium.
+
+The final plan fixes **1,536 hands**: all three B500M current lineages, direct
+versus river search, both positions, 16 fresh paired blocks per each of eight
+panels (uncapped-menu uniform, six existing native styles, selective-stackoff).
+Root seed `202610010501` differs from timing roots and earlier reports. No LBR.
+Prior #141 current trajectories, inspected only for river exposure, project
+108.5 river roots; worst timing cost/setup plus 1.5× allowance for off-tree
+solves and three policy loads fits a **2,700-second / 6 GiB** cap. Watchdogs
+abort, not delegate or reduce sweeps. No opened pilot payoff selects the budget.
+
+Paired differences average both positions and three fixed lineages within
+each independent deal block. Report exploratory unadjusted 95% Student-t
+intervals, all seed/position contrasts and small denominators; do not pool
+panels or claim a well-powered strength result from 16 blocks. Cache/RSS,
+actual river interventions and incremental action latency are part of the result.

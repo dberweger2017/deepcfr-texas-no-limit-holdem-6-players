@@ -79,10 +79,10 @@ def curve(source, plan, out, check):
     return {'curve':rows}
 
 
-def play(source,spec,panel,root,block,rotation,strategy,config,cache,check):
+def play(source,spec,panel,root,block,rotation,strategy,config,cache,check,deadline=None):
     deal = stream_seed(root,'test','deal',2,block)
     action_seed = stream_seed(root,'test','action',2,block,0); random = Random(action_seed)
-    player = HU20RiverPlayer(source,action_seed,config,cache) if strategy == 'average' else None
+    player = HU20RiverPlayer(source,action_seed,config,cache,deadline) if strategy == 'average' else None
     if player is not None:
         player.random = random  # One coupled action stream, including earlier streets.
     rival = opponent(panel,source,stream_seed(root,'test','opponent',2,block,1))
@@ -94,7 +94,9 @@ def play(source,spec,panel,root,block,rotation,strategy,config,cache,check):
         if hand.finished: break
         view = hand.observe(hand.actor); logical = int(hand.actor != rotation)
         search = not logical and player is not None and view.street == Street.RIVER
+        blueprint_trained = None
         if not logical:
+            blueprint_trained = source.distribution(view)[2]
             menu,p,trained = player.distribution(view) if search else source.distribution(view)
             action = player.choose_action(view) if search else random.choices(menu,weights=p,k=1)[0].action
             status = 'river_search' if search else 'current' if trained else 'missing'
@@ -105,10 +107,12 @@ def play(source,spec,panel,root,block,rotation,strategy,config,cache,check):
         observed = snapshot(view,menu,p,trained,None);observed['logical_player'] = logical
         actions.append({'index':index,'seat':hand.actor,'logical_player':logical,'street':view.street.value,
             'kind':action.kind.value,'raise_to':action.raise_to,'observation':observed,
-            'target_key':None,'average_mass_status':None,'river_search':search})
+            'target_key':None,'average_mass_status':None,'river_search':search,
+            'blueprint_trained':blueprint_trained})
         view.legal_actions.validate(action);hand = hand.apply(action)
     if not hand.finished: raise RuntimeError('HU20 comparison action limit')
-    replay = Hand.start(hand.table,hand_id=hand.hand_id,seed=deal)
+    hand_id = hand.events[0].hand_id
+    replay = Hand.start(hand.table,hand_id=hand_id,seed=deal)
     for a in actions:
         if replay.actor != a['seat']:raise ValueError('Replay actor differs')
         replay = replay.apply(Action(ActionKind(a['kind']),a['raise_to']))
@@ -117,7 +121,7 @@ def play(source,spec,panel,root,block,rotation,strategy,config,cache,check):
         raise ValueError('Native comparison settlement differs')
     row = {'status':'complete','policy':spec['name'],'seed':spec['seed'],'strategy':strategy,
         'panel':panel['name'],'block':block,'rotation':rotation,'button':block%2,'players':2,
-        'deal_seed':deal,'root_seed':root,'hand_id':hand.hand_id,'actions':actions,
+        'deal_seed':deal,'root_seed':root,'hand_id':hand_id,'actions':actions,
         'target_chips':chips[rotation],'net_chips_by_seat':chips,'coverage':dict(coverage),
         'public_events_sha256':digest(public_events(hand.events)),'native_replay_verified':True,
         'search_records':player.records if player else [],'seconds':perf_counter()-began}
@@ -126,7 +130,7 @@ def play(source,spec,panel,root,block,rotation,strategy,config,cache,check):
     return row
 
 
-def comparison(plan,inputs,out,check):
+def comparison(plan,inputs,out,check,deadline):
     rows = []; loads = []; cache_counts = {}
     config = HU20RiverConfig(**plan['river_config'])
     for spec in plan['models']:
@@ -139,7 +143,7 @@ def comparison(plan,inputs,out,check):
                 for strategy in ('current','average'):
                     for block in range(panel['blocks']):
                         for rotation in (0,1):
-                            row = play(source,spec,panel,plan['root'],block,rotation,strategy,config,cache,check)
+                            row = play(source,spec,panel,plan['root'],block,rotation,strategy,config,cache,check,deadline)
                             rows.append(row);stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+'\n');stream.flush()
                     print(json.dumps({'model':spec['name'],'panel':panel['name'],'strategy':strategy,
                         'hands':len(rows),'peak_rss_bytes':peak_rss(),'cache':dict(cache.stats)}),flush=True)
@@ -160,7 +164,7 @@ def run(plan,inputs,out):
         if plan['phase'] == 'curve':
             source = load(plan['models'][0],inputs)
             extra = curve(source,{**plan,'_deadline':deadline},out,check)
-        else: extra = comparison(plan,inputs,out,check)
+        else: extra = comparison(plan,inputs,out,check,deadline)
     except Exception as exc:failure = f'{type(exc).__name__}: {exc}'
     result = {'status':'failed' if failure else 'complete','failure':failure,'source':source_sha,
         'plan':plan,'plan_sha256':digest(plan),'seconds':perf_counter()-began,
