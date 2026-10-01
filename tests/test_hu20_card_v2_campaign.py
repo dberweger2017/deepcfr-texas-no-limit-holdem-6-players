@@ -99,11 +99,19 @@ def test_full_fixture_comparison_metrics_from_actual_raw_hands(tmp_path,monkeypa
     result=evaluation.evaluate(plan,7,tmp_path,{},tmp_path/'comparison',time()+60)
     assert result['status']=='complete' and result['hands']=={'v1':8,'v2':8}
     with gzip.open(tmp_path/'comparison/hands.jsonl.gz','rt') as f:rows=[json.loads(line) for line in f]
+    from scripts.summarize_hu20_cards_v2 import summarize_records
+    independent=summarize_records(tmp_path/'comparison/hands.jsonl.gz')
+    assert independent['hands']==16
     for panel in result['panels']:
+        recomputed=independent['panels'][panel['panel']]
+        assert recomputed['paired_v2_minus_v1_bb_per_100']==panel['paired_v2_minus_v1_bb_per_100']
         selected=[r for r in rows if r['panel']==panel['panel']]
         a=[r['target_chips'] for r in selected if r['version']=='v1'];b=[r['target_chips'] for r in selected if r['version']=='v2']
         assert panel['paired_v2_minus_v1_bb_per_100']['bb_per_100']==(sum(b)-sum(a))/4
         for version in ('v1','v2'):
+            assert panel['per_arm'][version]['tails']==recomputed['per_arm'][version]['tails']
+            hist=recomputed['per_arm'][version]['visit_bands_by_street']
+            assert sum(d['decisions'] for d in hist.values())==panel['per_arm'][version]['tails']['target_decisions']
             assert panel['per_arm'][version]['tails']['hands']==4
             assert panel['per_arm'][version]['bb_per_100']['blocks']==2
         assert len({(r['block'],r['rotation'],r['deal_seed']) for r in selected})==4
