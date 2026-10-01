@@ -1,0 +1,16 @@
+{
+  "time": 1790837158.829229,
+  "reporter_sha256": "1e8e5121aae776b041da96467214eb3229677d4e7d4b25ab3df86417642c4c26",
+  "test_source_sha256": "d7d406ddc40288ce4357e96e5f2d4ad9c1d8c59c70d99a58b271503b14124e24",
+  "focused_tests": {
+    "passed": 3,
+    "failed": 0,
+    "host": "M4"
+  },
+  "publication_files_match_manifest": true,
+  "manifest_sha256": "7441336889d9577fb0697e80d22727de238c9e11f88b1896e168a9b4fc85bb26",
+  "gameplay_rerun": false,
+  "frozen_source_mutated": false,
+  "snapshot_closed_tasks": 74,
+  "snapshot_hands": 265216
+}

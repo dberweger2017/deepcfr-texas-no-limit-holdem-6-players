@@ -1,0 +1,45 @@
+{
+  "all_final_checkpoint_export_hashes_and_iterations_match_verified_retrieval": true,
+  "baseline_snapshot_inputs_and_results_identical": true,
+  "host": "M1 compact transfer/identity verification only; raw replay/arithmetic/reporting on M4",
+  "lineages": 3,
+  "m4_closed_tasks": 6,
+  "m4_endpoint_peak_rss_bytes": [
+    3562536960,
+    3523952640,
+    3505897472
+  ],
+  "m4_endpoint_swap_growth_bytes": [
+    0,
+    0,
+    0
+  ],
+  "m4_endpoint_wall_seconds": [
+    2377.1951310634613,
+    2242.0002269744873,
+    2372.30490398407
+  ],
+  "m4_native_replayed_hands": 159744,
+  "m4_order_tests_passed": 4,
+  "m4_reporting_tests_passed": 3,
+  "model_spec_nodes_note": "500M nodes is the scheduled threshold; actual completed iteration overshoot is recorded separately in training receipts.",
+  "output_manifest": {
+    "curves.md": {
+      "bytes": 4718,
+      "sha256": "9e69c92f8469b8611ddbb8c4985e42a9553b3bcd015e9e083c80d3c075d397be"
+    },
+    "per-seed-role.csv": {
+      "bytes": 18285,
+      "sha256": "9195de2005802311afe424be3fe8e875e8f7feae46dbe2f9d75808a805450b25"
+    },
+    "summary.json": {
+      "bytes": 265195,
+      "sha256": "d8fc72788495f76dea9c9a2d1305d007d131673b75cdbe33a7a7b1d1ba388ce4"
+    }
+  },
+  "panels": 9,
+  "report_job_sha256": "58de341b35480369253ca0e02e2081047cf8e28b63ed106579e592a842e623de",
+  "report_source_sha256": "165a2f7594473bc12ebc936bc95a1e3a40425b2b43bb6f9ec3191feb535b457c",
+  "scope": "Exploratory paired B100M-to-B500M only; 12 broader and 6 heldout tasks pending at capture.",
+  "verified_at_utc": "2026-10-01T11:03:16.339630+00:00"
+}

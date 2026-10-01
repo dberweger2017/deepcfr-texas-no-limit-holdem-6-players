@@ -1,0 +1,191 @@
+{
+  "source": "17b4c9a08ed0765d0fb8f05240c0409b21e43977",
+  "plan_sha256": "74f0c18024a4a409d223276d4781c2464b27fc8d5d32a51ccb22a224332f2219",
+  "status": "complete",
+  "focused_tests": 24,
+  "lineages": [
+    {
+      "seed": 2026093001,
+      "added_validation_nodes": 25778,
+      "iteration": 246267,
+      "checkpoint_sha256": "313726c3202e160ea3be8783cedd112a3a4c262ebd810609df2631898e37dc96",
+      "policy_payload_sha256": "b741c94f3bd8ce83b2ad82286b8b15bdf4ff5597ddd41cc4dcb2d5e7b64f42a5",
+      "resume_passed": true
+    },
+    {
+      "seed": 2026093002,
+      "added_validation_nodes": 25372,
+      "iteration": 245467,
+      "checkpoint_sha256": "f0a63d54a6129830b5bd473ae9e95f8aa11ffa76ba318947735a926deff1597a",
+      "policy_payload_sha256": "a81cb72a6c4d0510b9443e8c11f7fc9fcca513d9d05c4219d222a1fbd1b25c38",
+      "resume_passed": true
+    },
+    {
+      "seed": 2026093003,
+      "added_validation_nodes": 25987,
+      "iteration": 248235,
+      "checkpoint_sha256": "1df707d442df7567ab6486f6410865b7689166377c81bf4aba38c2af60468d50",
+      "policy_payload_sha256": "500bf68a9b8c2e7f469e51f6e3b13894813b1c1383377b22a463f733a1922455",
+      "resume_passed": true
+    }
+  ],
+  "all_pref_phases": [
+    {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_hu20_500m_campaign.py",
+        "tests/test_mature_cpu_worker.py",
+        "tests/test_mature_cpu_rental_guard.py",
+        "tests/test_hu20_500m_evaluation.py"
+      ],
+      "exit": 0,
+      "finished": 1790811363.089977,
+      "name": "focused-tests",
+      "peak_rss_bytes": 32768,
+      "pid": 36420,
+      "started": 1790811361.074461,
+      "status": "complete"
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-m",
+        "scripts.hu20_500m_worker",
+        "preflight",
+        "--plan",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/configs/blueprint/hu20-500m-campaign.json",
+        "--parent",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093001/parent.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093001/direct"
+      ],
+      "exit": 0,
+      "finished": 1790811397.344159,
+      "name": "2026093001-direct",
+      "peak_rss_bytes": 2137800704,
+      "pid": 36439,
+      "started": 1790811363.090795,
+      "status": "complete"
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-m",
+        "scripts.hu20_500m_worker",
+        "preflight",
+        "--plan",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/configs/blueprint/hu20-500m-campaign.json",
+        "--parent",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093001/parent.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093001/resumed",
+        "--resume",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093001/direct"
+      ],
+      "exit": 0,
+      "finished": 1790811431.6053288,
+      "name": "2026093001-resume",
+      "peak_rss_bytes": 2136752128,
+      "pid": 36541,
+      "started": 1790811397.3460338,
+      "status": "complete"
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-m",
+        "scripts.hu20_500m_worker",
+        "preflight",
+        "--plan",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/configs/blueprint/hu20-500m-campaign.json",
+        "--parent",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093002/parent.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093002/direct"
+      ],
+      "exit": 0,
+      "finished": 1790811467.890052,
+      "name": "2026093002-direct",
+      "peak_rss_bytes": 2128232448,
+      "pid": 36639,
+      "started": 1790811431.60989,
+      "status": "complete"
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-m",
+        "scripts.hu20_500m_worker",
+        "preflight",
+        "--plan",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/configs/blueprint/hu20-500m-campaign.json",
+        "--parent",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093002/parent.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093002/resumed",
+        "--resume",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093002/direct"
+      ],
+      "exit": 0,
+      "finished": 1790811502.148174,
+      "name": "2026093002-resume",
+      "peak_rss_bytes": 2109440000,
+      "pid": 36710,
+      "started": 1790811467.8917701,
+      "status": "complete"
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-m",
+        "scripts.hu20_500m_worker",
+        "preflight",
+        "--plan",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/configs/blueprint/hu20-500m-campaign.json",
+        "--parent",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093003/parent.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093003/direct"
+      ],
+      "exit": 0,
+      "finished": 1790811538.427638,
+      "name": "2026093003-direct",
+      "peak_rss_bytes": 2135326720,
+      "pid": 36790,
+      "started": 1790811502.152954,
+      "status": "complete"
+    },
+    {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-m",
+        "scripts.hu20_500m_worker",
+        "preflight",
+        "--plan",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/configs/blueprint/hu20-500m-campaign.json",
+        "--parent",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093003/parent.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093003/resumed",
+        "--resume",
+        "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/preflight-attempt-3/2026093003/direct"
+      ],
+      "exit": 0,
+      "finished": 1790811572.687361,
+      "name": "2026093003-resume",
+      "peak_rss_bytes": 2137014272,
+      "pid": 36882,
+      "started": 1790811538.429423,
+      "status": "complete"
+    }
+  ],
+  "prior_validation_attempts_retained": [
+    1,
+    2
+  ],
+  "main_work_started": false,
+  "validation_work_not_independent_diversity": true
+}

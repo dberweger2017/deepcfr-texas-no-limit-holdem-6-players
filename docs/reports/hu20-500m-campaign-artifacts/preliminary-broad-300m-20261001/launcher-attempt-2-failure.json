@@ -1,0 +1,16 @@
+{
+  "status": "failed-before-reporting",
+  "failure": "Bootstrap left script path in sys.argv before runpy; parser rejected redundant positional argument before output or raw reads",
+  "log_sha256": "f6afd754e539d324393e467b529bd61ed730a9e0de8580926a190955b8720891",
+  "job": {
+    "pid": 92618,
+    "out": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/preliminary-broad-300M-attempt-2",
+    "log": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/preliminary-broad-300M-attempt-2.log",
+    "source_sha256": "165a2f7594473bc12ebc936bc95a1e3a40425b2b43bb6f9ec3191feb535b457c",
+    "dependency_site_packages": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/lib/python3.11/site-packages",
+    "waiting_on": "shared heavy lock; complete B300 group",
+    "prior_failed_attempt": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/preliminary-broad-300M-attempt-1-failure.json"
+  },
+  "recorded": 1790876565.348877,
+  "repair": "Remove bootstrap script argument before runpy; unchanged reporter/science, fresh attempt3"
+}
