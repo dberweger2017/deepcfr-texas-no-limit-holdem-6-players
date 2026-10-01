@@ -1,0 +1,6359 @@
+{
+  "cache": {
+    "B-2026093001-500000000": {
+      "evictions": 80,
+      "hits": 2,
+      "range_hits": 10,
+      "retained_queries": 60,
+      "solves": 52
+    },
+    "B-2026093002-500000000": {
+      "evictions": 63,
+      "hits": 5,
+      "range_hits": 6,
+      "retained_queries": 51,
+      "solves": 40
+    },
+    "B-2026093003-500000000": {
+      "evictions": 75,
+      "hits": 5,
+      "range_hits": 8,
+      "retained_queries": 60,
+      "solves": 47
+    }
+  },
+  "comparison": {
+    "changes": [
+      {
+        "overall": {
+          "bb_per_100": 3.125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          750.0,
+          0.0,
+          -300.0,
+          -400.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "loose_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -93.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 100,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001
+      },
+      {
+        "overall": {
+          "bb_per_100": 0.0,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -100.0,
+          100.0,
+          0.0,
+          -50.0,
+          50.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "loose_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001
+      },
+      {
+        "overall": {
+          "bb_per_100": 59.375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          950.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "pot_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 118.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001
+      },
+      {
+        "overall": {
+          "bb_per_100": -21.875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          50.0,
+          -450.0,
+          50.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "selective-stackoff",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": -43.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001
+      },
+      {
+        "overall": {
+          "bb_per_100": 0.0,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "tight_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001
+      },
+      {
+        "overall": {
+          "bb_per_100": 0.0,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "tight_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001
+      },
+      {
+        "overall": {
+          "bb_per_100": 6.25,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -600.0,
+          100.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          600.0,
+          0.0
+        ],
+        "panel": "train_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 81.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": -68.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001
+      },
+      {
+        "overall": {
+          "bb_per_100": -90.625,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1450.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "uniform",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -181.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001
+      },
+      {
+        "overall": {
+          "bb_per_100": 40.625,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          600.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          50.0
+        ],
+        "panel": "loose_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 12.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 68.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002
+      },
+      {
+        "overall": {
+          "bb_per_100": 31.25,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -200.0,
+          0.0,
+          0.0,
+          600.0,
+          0.0,
+          0.0,
+          0.0,
+          50.0,
+          0.0,
+          0.0,
+          0.0,
+          50.0
+        ],
+        "panel": "loose_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 37.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002
+      },
+      {
+        "overall": {
+          "bb_per_100": 56.25,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          50.0,
+          0.0,
+          0.0,
+          0.0,
+          850.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "pot_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 112.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002
+      },
+      {
+        "overall": {
+          "bb_per_100": 3.125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          50.0,
+          -50.0,
+          0.0,
+          50.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "selective-stackoff",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 6.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002
+      },
+      {
+        "overall": {
+          "bb_per_100": 0.0,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "tight_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002
+      },
+      {
+        "overall": {
+          "bb_per_100": 0.0,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "tight_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002
+      },
+      {
+        "overall": {
+          "bb_per_100": 21.875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -50.0,
+          0.0,
+          50.0,
+          0.0,
+          0.0,
+          0.0,
+          50.0,
+          0.0,
+          300.0,
+          0.0,
+          0.0
+        ],
+        "panel": "train_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 43.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002
+      },
+      {
+        "overall": {
+          "bb_per_100": 6.25,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "uniform",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 12.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002
+      },
+      {
+        "overall": {
+          "bb_per_100": -40.625,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -850.0,
+          600.0,
+          0.0,
+          0.0,
+          -300.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -100.0
+        ],
+        "panel": "loose_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -81.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003
+      },
+      {
+        "overall": {
+          "bb_per_100": 25.0,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          50.0,
+          0.0,
+          -300.0,
+          -50.0,
+          0.0,
+          600.0,
+          0.0,
+          50.0,
+          200.0,
+          0.0,
+          0.0,
+          -50.0,
+          0.0,
+          -100.0
+        ],
+        "panel": "loose_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 18.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 31.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003
+      },
+      {
+        "overall": {
+          "bb_per_100": 59.375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          950.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "pot_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 118.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003
+      },
+      {
+        "overall": {
+          "bb_per_100": 0.0,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          50.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -50.0,
+          0.0,
+          0.0
+        ],
+        "panel": "selective-stackoff",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003
+      },
+      {
+        "overall": {
+          "bb_per_100": -34.375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -550.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "tight_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": -68.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003
+      },
+      {
+        "overall": {
+          "bb_per_100": 6.25,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          0.0,
+          0.0
+        ],
+        "panel": "tight_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 12.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003
+      },
+      {
+        "overall": {
+          "bb_per_100": 53.125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          50.0,
+          150.0,
+          50.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          600.0,
+          0.0
+        ],
+        "panel": "train_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 87.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 18.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003
+      },
+      {
+        "overall": {
+          "bb_per_100": -43.75,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_delta_chips": [
+          -700.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "panel": "uniform",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 0,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": -87.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003
+      }
+    ],
+    "panels": [
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 17,
+          "full_stack_losses": 2,
+          "full_stack_wins": 1,
+          "hands": 32,
+          "jam_actions": 2,
+          "jam_opportunities": 9,
+          "large_actions": 5,
+          "large_opportunities": 8,
+          "large_trained": 5,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 4,
+          "rival_folds": 1,
+          "river_trained": 9,
+          "target_decisions": 69,
+          "trained": 69,
+          "turn_trained": 15
+        },
+        "coverage": {
+          "current": 60,
+          "flop:current": 17,
+          "preflop:current": 28,
+          "river:river_search": 9,
+          "river_search": 9,
+          "turn:current": 15
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -121.875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -425.0,
+          0.0,
+          0.0,
+          850.0,
+          -950.0,
+          -700.0,
+          -550.0,
+          0.0,
+          175.0,
+          350.0,
+          0.0,
+          350.0,
+          0.0,
+          -100.0,
+          -950.0
+        ],
+        "panel": "loose_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -434.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 190.625,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -875.0,
+            "hands": 4,
+            "sum_chips": -3500
+          },
+          "folded": {
+            "bb_per_100": 600.0,
+            "hands": 1,
+            "sum_chips": 600
+          },
+          "no_large_raise": {
+            "bb_per_100": -37.03703703703704,
+            "hands": 27,
+            "sum_chips": -1000
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 20,
+          "full_stack_losses": 1,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 7,
+          "large_actions": 2,
+          "large_opportunities": 7,
+          "large_trained": 2,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 2,
+          "rival_folds": 0,
+          "river_trained": 16,
+          "target_decisions": 81,
+          "trained": 81,
+          "turn_trained": 17
+        },
+        "coverage": {
+          "current": 65,
+          "flop:current": 20,
+          "preflop:current": 28,
+          "river:river_search": 16,
+          "river_search": 16,
+          "turn:current": 17
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -92.1875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -425.0,
+          -100.0,
+          0.0,
+          400.0,
+          -250.0,
+          150.0,
+          -400.0,
+          0.0,
+          0.0,
+          -100.0,
+          0.0,
+          350.0,
+          -50.0,
+          -100.0,
+          -950.0
+        ],
+        "panel": "loose_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -343.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 159.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -1600.0,
+            "hands": 2,
+            "sum_chips": -3200
+          },
+          "no_large_raise": {
+            "bb_per_100": 8.333333333333334,
+            "hands": 30,
+            "sum_chips": 250
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 6,
+          "flop_fallback": 3,
+          "flop_trained": 5,
+          "full_stack_losses": 2,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 8,
+          "large_actions": 4,
+          "large_fallback": 3,
+          "large_opportunities": 8,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_fallback": 3,
+          "preflop_trained": 19,
+          "rival_continuations": 2,
+          "rival_folds": 2,
+          "river_trained": 2,
+          "target_decisions": 35,
+          "trained": 29,
+          "turn_trained": 3
+        },
+        "coverage": {
+          "current": 27,
+          "flop:current": 5,
+          "flop:missing": 3,
+          "missing": 6,
+          "preflop:current": 19,
+          "preflop:missing": 3,
+          "river:river_search": 2,
+          "river_search": 2,
+          "turn:current": 3
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -48.4375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          -950.0,
+          0.0,
+          225.0,
+          75.0,
+          -25.0,
+          250.0,
+          0.0,
+          225.0,
+          75.0,
+          0.0,
+          75.0,
+          -950.0,
+          75.0,
+          75.0
+        ],
+        "panel": "pot_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -193.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 96.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -2000.0,
+            "hands": 2,
+            "sum_chips": -4000
+          },
+          "folded": {
+            "bb_per_100": 400.0,
+            "hands": 2,
+            "sum_chips": 800
+          },
+          "no_large_raise": {
+            "bb_per_100": 58.92857142857143,
+            "hands": 28,
+            "sum_chips": 1650
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 13,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 3,
+          "large_actions": 0,
+          "large_opportunities": 3,
+          "no_response": 0,
+          "preflop_trained": 23,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 10,
+          "target_decisions": 58,
+          "trained": 58,
+          "turn_trained": 12
+        },
+        "coverage": {
+          "current": 48,
+          "flop:current": 13,
+          "preflop:current": 23,
+          "river:river_search": 10,
+          "river_search": 10,
+          "turn:current": 12
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 37.5,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          100.0,
+          0.0,
+          75.0,
+          -250.0,
+          50.0,
+          250.0,
+          0.0,
+          -50.0,
+          75.0,
+          0.0,
+          125.0,
+          -50.0,
+          125.0,
+          75.0
+        ],
+        "panel": "selective-stackoff",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -46.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 121.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 37.5,
+            "hands": 32,
+            "sum_chips": 1200
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 7,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 1,
+          "large_actions": 0,
+          "large_opportunities": 0,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 1,
+          "target_decisions": 32,
+          "trained": 32,
+          "turn_trained": 6
+        },
+        "coverage": {
+          "current": 31,
+          "flop:current": 7,
+          "preflop:current": 18,
+          "river:river_search": 1,
+          "river_search": 1,
+          "turn:current": 6
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 45.3125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          100.0,
+          0.0,
+          175.0,
+          75.0,
+          -225.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 43.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 46.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 45.3125,
+            "hands": 32,
+            "sum_chips": 1450
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 8,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 0,
+          "large_actions": 0,
+          "large_opportunities": 0,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 2,
+          "target_decisions": 33,
+          "trained": 33,
+          "turn_trained": 5
+        },
+        "coverage": {
+          "current": 31,
+          "flop:current": 8,
+          "preflop:current": 18,
+          "river:river_search": 2,
+          "river_search": 2,
+          "turn:current": 5
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 79.6875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          100.0,
+          0.0,
+          75.0,
+          75.0,
+          325.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          100.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 56.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 103.125,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 79.6875,
+            "hands": 32,
+            "sum_chips": 2550
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 1,
+          "flop_trained": 12,
+          "full_stack_losses": 1,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 6,
+          "large_actions": 2,
+          "large_opportunities": 5,
+          "large_trained": 2,
+          "no_response": 0,
+          "preflop_trained": 24,
+          "rival_continuations": 2,
+          "rival_folds": 0,
+          "river_trained": 11,
+          "target_decisions": 60,
+          "trained": 59,
+          "turn_fallback": 1,
+          "turn_trained": 12
+        },
+        "coverage": {
+          "current": 48,
+          "flop:current": 12,
+          "missing": 1,
+          "preflop:current": 24,
+          "river:river_search": 11,
+          "river_search": 11,
+          "turn:current": 12,
+          "turn:missing": 1
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -34.375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          0.0,
+          0.0,
+          50.0,
+          -950.0,
+          425.0,
+          -400.0,
+          0.0,
+          125.0,
+          75.0,
+          0.0,
+          325.0,
+          0.0,
+          -350.0,
+          75.0
+        ],
+        "panel": "train_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -253.125,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 184.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -1600.0,
+            "hands": 2,
+            "sum_chips": -3200
+          },
+          "no_large_raise": {
+            "bb_per_100": 70.0,
+            "hands": 30,
+            "sum_chips": 2100
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 13,
+          "full_stack_losses": 1,
+          "full_stack_wins": 5,
+          "hands": 32,
+          "jam_actions": 5,
+          "jam_opportunities": 20,
+          "large_actions": 6,
+          "large_opportunities": 18,
+          "large_trained": 6,
+          "no_response": 0,
+          "preflop_trained": 43,
+          "rival_continuations": 2,
+          "rival_folds": 4,
+          "river_trained": 6,
+          "target_decisions": 69,
+          "trained": 69,
+          "turn_trained": 7
+        },
+        "coverage": {
+          "current": 63,
+          "flop:current": 13,
+          "preflop:current": 43,
+          "river:river_search": 6,
+          "river_search": 6,
+          "turn:current": 7
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 414.0625,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -100.0,
+          75.0,
+          -75.0,
+          1000.0,
+          400.0,
+          0.0,
+          350.0,
+          975.0,
+          175.0,
+          800.0,
+          250.0,
+          950.0,
+          950.0,
+          800.0,
+          75.0
+        ],
+        "panel": "uniform",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 118.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 709.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 2000.0,
+            "hands": 2,
+            "sum_chips": 4000
+          },
+          "folded": {
+            "bb_per_100": 625.0,
+            "hands": 4,
+            "sum_chips": 2500
+          },
+          "no_large_raise": {
+            "bb_per_100": 259.61538461538464,
+            "hands": 26,
+            "sum_chips": 6750
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 17,
+          "full_stack_losses": 2,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 9,
+          "large_actions": 3,
+          "large_opportunities": 8,
+          "large_trained": 3,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 2,
+          "rival_folds": 1,
+          "river_trained": 9,
+          "target_decisions": 69,
+          "trained": 69,
+          "turn_trained": 15
+        },
+        "coverage": {
+          "current": 69,
+          "flop:current": 17,
+          "preflop:current": 28,
+          "river:current": 9,
+          "turn:current": 15
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -125.0,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -425.0,
+          0.0,
+          0.0,
+          100.0,
+          -950.0,
+          -400.0,
+          -150.0,
+          0.0,
+          175.0,
+          350.0,
+          0.0,
+          350.0,
+          0.0,
+          -100.0,
+          -950.0
+        ],
+        "panel": "loose_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -340.625,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 90.625,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -2000.0,
+            "hands": 2,
+            "sum_chips": -4000
+          },
+          "folded": {
+            "bb_per_100": 600.0,
+            "hands": 1,
+            "sum_chips": 600
+          },
+          "no_large_raise": {
+            "bb_per_100": -20.689655172413794,
+            "hands": 29,
+            "sum_chips": -600
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 20,
+          "full_stack_losses": 1,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 7,
+          "large_actions": 2,
+          "large_opportunities": 7,
+          "large_trained": 2,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 2,
+          "rival_folds": 0,
+          "river_trained": 16,
+          "target_decisions": 81,
+          "trained": 81,
+          "turn_trained": 17
+        },
+        "coverage": {
+          "current": 81,
+          "flop:current": 20,
+          "preflop:current": 28,
+          "river:current": 16,
+          "turn:current": 17
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -92.1875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -425.0,
+          -100.0,
+          0.0,
+          400.0,
+          -250.0,
+          250.0,
+          -500.0,
+          0.0,
+          50.0,
+          -150.0,
+          0.0,
+          350.0,
+          -50.0,
+          -100.0,
+          -950.0
+        ],
+        "panel": "loose_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -343.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 159.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -1650.0,
+            "hands": 2,
+            "sum_chips": -3300
+          },
+          "no_large_raise": {
+            "bb_per_100": 11.666666666666666,
+            "hands": 30,
+            "sum_chips": 350
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 7,
+          "flop_fallback": 3,
+          "flop_trained": 5,
+          "full_stack_losses": 3,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 2,
+          "jam_opportunities": 8,
+          "large_actions": 5,
+          "large_fallback": 4,
+          "large_opportunities": 8,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_fallback": 3,
+          "preflop_trained": 19,
+          "rival_continuations": 3,
+          "rival_folds": 2,
+          "river_fallback": 1,
+          "river_trained": 1,
+          "target_decisions": 35,
+          "trained": 28,
+          "turn_trained": 3
+        },
+        "coverage": {
+          "current": 28,
+          "flop:current": 5,
+          "flop:missing": 3,
+          "missing": 7,
+          "preflop:current": 19,
+          "preflop:missing": 3,
+          "river:current": 1,
+          "river:missing": 1,
+          "turn:current": 3
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -107.8125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          -950.0,
+          0.0,
+          225.0,
+          75.0,
+          -25.0,
+          250.0,
+          0.0,
+          225.0,
+          75.0,
+          -950.0,
+          75.0,
+          -950.0,
+          75.0,
+          75.0
+        ],
+        "panel": "pot_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -312.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 96.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -2000.0,
+            "hands": 3,
+            "sum_chips": -6000
+          },
+          "folded": {
+            "bb_per_100": 400.0,
+            "hands": 2,
+            "sum_chips": 800
+          },
+          "no_large_raise": {
+            "bb_per_100": 64.81481481481481,
+            "hands": 27,
+            "sum_chips": 1750
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 13,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 3,
+          "large_actions": 1,
+          "large_opportunities": 3,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 23,
+          "rival_continuations": 1,
+          "rival_folds": 0,
+          "river_trained": 11,
+          "target_decisions": 59,
+          "trained": 59,
+          "turn_trained": 12
+        },
+        "coverage": {
+          "current": 59,
+          "flop:current": 13,
+          "preflop:current": 23,
+          "river:current": 11,
+          "turn:current": 12
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 59.375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          100.0,
+          0.0,
+          75.0,
+          -300.0,
+          500.0,
+          200.0,
+          0.0,
+          -50.0,
+          75.0,
+          0.0,
+          125.0,
+          -50.0,
+          125.0,
+          75.0
+        ],
+        "panel": "selective-stackoff",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -46.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 165.625,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 1200.0,
+            "hands": 1,
+            "sum_chips": 1200
+          },
+          "no_large_raise": {
+            "bb_per_100": 22.580645161290324,
+            "hands": 31,
+            "sum_chips": 700
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 7,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 1,
+          "large_actions": 0,
+          "large_opportunities": 0,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 1,
+          "target_decisions": 32,
+          "trained": 32,
+          "turn_trained": 6
+        },
+        "coverage": {
+          "current": 32,
+          "flop:current": 7,
+          "preflop:current": 18,
+          "river:current": 1,
+          "turn:current": 6
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 45.3125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          100.0,
+          0.0,
+          175.0,
+          75.0,
+          -225.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 43.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 46.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 45.3125,
+            "hands": 32,
+            "sum_chips": 1450
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 8,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 0,
+          "large_actions": 0,
+          "large_opportunities": 0,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 2,
+          "target_decisions": 33,
+          "trained": 33,
+          "turn_trained": 5
+        },
+        "coverage": {
+          "current": 33,
+          "flop:current": 8,
+          "preflop:current": 18,
+          "river:current": 2,
+          "turn:current": 5
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 79.6875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          100.0,
+          0.0,
+          75.0,
+          75.0,
+          325.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          100.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 56.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 103.125,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 79.6875,
+            "hands": 32,
+            "sum_chips": 2550
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 1,
+          "flop_trained": 12,
+          "full_stack_losses": 2,
+          "full_stack_wins": 1,
+          "hands": 32,
+          "jam_actions": 3,
+          "jam_opportunities": 6,
+          "large_actions": 3,
+          "large_opportunities": 5,
+          "large_trained": 3,
+          "no_response": 0,
+          "preflop_trained": 24,
+          "rival_continuations": 3,
+          "rival_folds": 0,
+          "river_trained": 10,
+          "target_decisions": 59,
+          "trained": 58,
+          "turn_fallback": 1,
+          "turn_trained": 12
+        },
+        "coverage": {
+          "current": 58,
+          "flop:current": 12,
+          "missing": 1,
+          "preflop:current": 24,
+          "river:current": 10,
+          "turn:current": 12,
+          "turn:missing": 1
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -40.625,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          0.0,
+          0.0,
+          50.0,
+          -950.0,
+          1025.0,
+          -500.0,
+          0.0,
+          125.0,
+          75.0,
+          0.0,
+          325.0,
+          0.0,
+          -950.0,
+          75.0
+        ],
+        "panel": "train_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -334.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 253.125,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -1766.6666666666667,
+            "hands": 3,
+            "sum_chips": -5300
+          },
+          "no_large_raise": {
+            "bb_per_100": 137.93103448275863,
+            "hands": 29,
+            "sum_chips": 4000
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 13,
+          "full_stack_losses": 0,
+          "full_stack_wins": 5,
+          "hands": 32,
+          "jam_actions": 7,
+          "jam_opportunities": 20,
+          "large_actions": 7,
+          "large_opportunities": 18,
+          "large_trained": 7,
+          "no_response": 0,
+          "preflop_trained": 43,
+          "rival_continuations": 2,
+          "rival_folds": 5,
+          "river_trained": 5,
+          "target_decisions": 68,
+          "trained": 68,
+          "turn_trained": 7
+        },
+        "coverage": {
+          "current": 68,
+          "flop:current": 13,
+          "preflop:current": 43,
+          "river:current": 5,
+          "turn:current": 7
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 504.6875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -100.0,
+          75.0,
+          -75.0,
+          1000.0,
+          400.0,
+          1450.0,
+          350.0,
+          975.0,
+          175.0,
+          800.0,
+          250.0,
+          950.0,
+          950.0,
+          800.0,
+          75.0
+        ],
+        "panel": "uniform",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 300,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 709.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093001,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 2000.0,
+            "hands": 2,
+            "sum_chips": 4000
+          },
+          "folded": {
+            "bb_per_100": 680.0,
+            "hands": 5,
+            "sum_chips": 3400
+          },
+          "no_large_raise": {
+            "bb_per_100": 350.0,
+            "hands": 25,
+            "sum_chips": 8750
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 18,
+          "full_stack_losses": 1,
+          "full_stack_wins": 2,
+          "hands": 32,
+          "jam_actions": 2,
+          "jam_opportunities": 7,
+          "large_actions": 2,
+          "large_opportunities": 5,
+          "large_trained": 2,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 2,
+          "rival_folds": 0,
+          "river_trained": 9,
+          "target_decisions": 68,
+          "trained": 68,
+          "turn_trained": 13
+        },
+        "coverage": {
+          "current": 59,
+          "flop:current": 18,
+          "preflop:current": 28,
+          "river:river_search": 9,
+          "river_search": 9,
+          "turn:current": 13
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 53.125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -275.0,
+          0.0,
+          0.0,
+          850.0,
+          -950.0,
+          -150.0,
+          550.0,
+          0.0,
+          175.0,
+          350.0,
+          0.0,
+          250.0,
+          0.0,
+          50.0,
+          0.0
+        ],
+        "panel": "loose_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -221.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 328.125,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 2000.0,
+            "hands": 2,
+            "sum_chips": 4000
+          },
+          "no_large_raise": {
+            "bb_per_100": -76.66666666666667,
+            "hands": 30,
+            "sum_chips": -2300
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 20,
+          "full_stack_losses": 0,
+          "full_stack_wins": 1,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 3,
+          "large_actions": 1,
+          "large_opportunities": 3,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 1,
+          "rival_folds": 0,
+          "river_trained": 15,
+          "target_decisions": 79,
+          "trained": 79,
+          "turn_trained": 16
+        },
+        "coverage": {
+          "current": 64,
+          "flop:current": 20,
+          "preflop:current": 28,
+          "river:river_search": 15,
+          "river_search": 15,
+          "turn:current": 16
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 20.3125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -275.0,
+          0.0,
+          0.0,
+          150.0,
+          0.0,
+          -150.0,
+          800.0,
+          0.0,
+          0.0,
+          -350.0,
+          -100.0,
+          250.0,
+          -50.0,
+          50.0,
+          0.0
+        ],
+        "panel": "loose_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -150,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 190.625,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 2000.0,
+            "hands": 1,
+            "sum_chips": 2000
+          },
+          "no_large_raise": {
+            "bb_per_100": -43.54838709677419,
+            "hands": 31,
+            "sum_chips": -1350
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 5,
+          "flop_fallback": 2,
+          "flop_trained": 5,
+          "full_stack_losses": 2,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 7,
+          "large_actions": 3,
+          "large_fallback": 3,
+          "large_opportunities": 7,
+          "no_response": 0,
+          "preflop_fallback": 3,
+          "preflop_trained": 19,
+          "rival_continuations": 2,
+          "rival_folds": 1,
+          "river_trained": 3,
+          "target_decisions": 35,
+          "trained": 30,
+          "turn_trained": 3
+        },
+        "coverage": {
+          "current": 27,
+          "flop:current": 5,
+          "flop:missing": 2,
+          "missing": 5,
+          "preflop:current": 19,
+          "preflop:missing": 3,
+          "river:river_search": 3,
+          "river_search": 3,
+          "turn:current": 3
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -60.9375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          -950.0,
+          0.0,
+          425.0,
+          75.0,
+          75.0,
+          -150.0,
+          0.0,
+          225.0,
+          75.0,
+          -100.0,
+          75.0,
+          -950.0,
+          75.0,
+          75.0
+        ],
+        "panel": "pot_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -256.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 134.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -2000.0,
+            "hands": 2,
+            "sum_chips": -4000
+          },
+          "folded": {
+            "bb_per_100": 400.0,
+            "hands": 1,
+            "sum_chips": 400
+          },
+          "no_large_raise": {
+            "bb_per_100": 56.89655172413793,
+            "hands": 29,
+            "sum_chips": 1650
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 12,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 1,
+          "large_actions": 0,
+          "large_opportunities": 1,
+          "no_response": 0,
+          "preflop_trained": 23,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 9,
+          "target_decisions": 55,
+          "trained": 55,
+          "turn_trained": 11
+        },
+        "coverage": {
+          "current": 46,
+          "flop:current": 12,
+          "preflop:current": 23,
+          "river:river_search": 9,
+          "river_search": 9,
+          "turn:current": 11
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 43.75,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          125.0,
+          0.0,
+          0.0,
+          225.0,
+          -100.0,
+          100.0,
+          -150.0,
+          0.0,
+          0.0,
+          75.0,
+          100.0,
+          175.0,
+          -50.0,
+          125.0,
+          75.0
+        ],
+        "panel": "selective-stackoff",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -28.125,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 115.625,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 43.75,
+            "hands": 32,
+            "sum_chips": 1400
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 6,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 2,
+          "large_actions": 1,
+          "large_opportunities": 2,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 1,
+          "river_trained": 1,
+          "target_decisions": 29,
+          "trained": 29,
+          "turn_trained": 4
+        },
+        "coverage": {
+          "current": 28,
+          "flop:current": 6,
+          "preflop:current": 18,
+          "river:river_search": 1,
+          "river_search": 1,
+          "turn:current": 4
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 67.1875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          0.0,
+          0.0,
+          325.0,
+          75.0,
+          75.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 31.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 103.125,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "folded": {
+            "bb_per_100": 600.0,
+            "hands": 1,
+            "sum_chips": 600
+          },
+          "no_large_raise": {
+            "bb_per_100": 50.0,
+            "hands": 31,
+            "sum_chips": 1550
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 6,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 0,
+          "large_actions": 0,
+          "large_opportunities": 0,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 1,
+          "target_decisions": 29,
+          "trained": 29,
+          "turn_trained": 4
+        },
+        "coverage": {
+          "current": 28,
+          "flop:current": 6,
+          "preflop:current": 18,
+          "river:river_search": 1,
+          "river_search": 1,
+          "turn:current": 4
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 57.8125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          0.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          100.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 43.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 71.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 57.8125,
+            "hands": 32,
+            "sum_chips": 1850
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 13,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 3,
+          "large_actions": 1,
+          "large_opportunities": 3,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 24,
+          "rival_continuations": 0,
+          "rival_folds": 1,
+          "river_trained": 7,
+          "target_decisions": 57,
+          "trained": 57,
+          "turn_trained": 13
+        },
+        "coverage": {
+          "current": 50,
+          "flop:current": 13,
+          "preflop:current": 24,
+          "river:river_search": 7,
+          "river_search": 7,
+          "turn:current": 13
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 37.5,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          0.0,
+          0.0,
+          100.0,
+          -100.0,
+          75.0,
+          -50.0,
+          0.0,
+          125.0,
+          75.0,
+          -100.0,
+          175.0,
+          150.0,
+          0.0,
+          75.0
+        ],
+        "panel": "train_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -46.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 121.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "folded": {
+            "bb_per_100": 400.0,
+            "hands": 1,
+            "sum_chips": 400
+          },
+          "no_large_raise": {
+            "bb_per_100": 25.806451612903224,
+            "hands": 31,
+            "sum_chips": 800
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 18,
+          "full_stack_losses": 0,
+          "full_stack_wins": 6,
+          "hands": 32,
+          "jam_actions": 9,
+          "jam_opportunities": 29,
+          "large_actions": 8,
+          "large_opportunities": 22,
+          "large_trained": 8,
+          "no_response": 0,
+          "preflop_trained": 40,
+          "rival_continuations": 3,
+          "rival_folds": 5,
+          "river_trained": 3,
+          "target_decisions": 72,
+          "trained": 72,
+          "turn_trained": 11
+        },
+        "coverage": {
+          "current": 69,
+          "flop:current": 18,
+          "preflop:current": 40,
+          "river:river_search": 3,
+          "river_search": 3,
+          "turn:current": 11
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 510.9375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -100.0,
+          75.0,
+          -75.0,
+          1350.0,
+          400.0,
+          1450.0,
+          250.0,
+          975.0,
+          -75.0,
+          800.0,
+          400.0,
+          -200.0,
+          950.0,
+          950.0,
+          1025.0
+        ],
+        "panel": "uniform",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 162.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 859.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 2000.0,
+            "hands": 3,
+            "sum_chips": 6000
+          },
+          "folded": {
+            "bb_per_100": 860.0,
+            "hands": 5,
+            "sum_chips": 4300
+          },
+          "no_large_raise": {
+            "bb_per_100": 252.08333333333334,
+            "hands": 24,
+            "sum_chips": 6050
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 18,
+          "full_stack_losses": 1,
+          "full_stack_wins": 1,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 8,
+          "large_actions": 1,
+          "large_opportunities": 6,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 1,
+          "rival_folds": 0,
+          "river_trained": 9,
+          "target_decisions": 68,
+          "trained": 68,
+          "turn_trained": 13
+        },
+        "coverage": {
+          "current": 68,
+          "flop:current": 18,
+          "preflop:current": 28,
+          "river:current": 9,
+          "turn:current": 13
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 12.5,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -275.0,
+          0.0,
+          0.0,
+          850.0,
+          -950.0,
+          -150.0,
+          -50.0,
+          0.0,
+          175.0,
+          350.0,
+          0.0,
+          250.0,
+          0.0,
+          50.0,
+          -50.0
+        ],
+        "panel": "loose_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -234.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 259.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 2000.0,
+            "hands": 1,
+            "sum_chips": 2000
+          },
+          "no_large_raise": {
+            "bb_per_100": -51.61290322580645,
+            "hands": 31,
+            "sum_chips": -1600
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 20,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 3,
+          "large_actions": 0,
+          "large_opportunities": 3,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 15,
+          "target_decisions": 79,
+          "trained": 79,
+          "turn_trained": 16
+        },
+        "coverage": {
+          "current": 79,
+          "flop:current": 20,
+          "preflop:current": 28,
+          "river:current": 15,
+          "turn:current": 16
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -10.9375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -275.0,
+          0.0,
+          0.0,
+          350.0,
+          0.0,
+          -150.0,
+          200.0,
+          0.0,
+          0.0,
+          -350.0,
+          -150.0,
+          250.0,
+          -50.0,
+          50.0,
+          -50.0
+        ],
+        "panel": "loose_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -175,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 153.125,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": -10.9375,
+            "hands": 32,
+            "sum_chips": -350
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 6,
+          "flop_fallback": 2,
+          "flop_trained": 5,
+          "full_stack_losses": 3,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 2,
+          "jam_opportunities": 7,
+          "large_actions": 3,
+          "large_fallback": 3,
+          "large_opportunities": 6,
+          "no_response": 0,
+          "preflop_fallback": 3,
+          "preflop_trained": 19,
+          "rival_continuations": 2,
+          "rival_folds": 1,
+          "river_fallback": 1,
+          "river_trained": 2,
+          "target_decisions": 35,
+          "trained": 29,
+          "turn_trained": 3
+        },
+        "coverage": {
+          "current": 29,
+          "flop:current": 5,
+          "flop:missing": 2,
+          "missing": 6,
+          "preflop:current": 19,
+          "preflop:missing": 3,
+          "river:current": 2,
+          "river:missing": 1,
+          "turn:current": 3
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -117.1875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          -950.0,
+          0.0,
+          425.0,
+          75.0,
+          75.0,
+          -200.0,
+          0.0,
+          225.0,
+          75.0,
+          -950.0,
+          75.0,
+          -950.0,
+          75.0,
+          75.0
+        ],
+        "panel": "pot_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -368.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 134.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -2000.0,
+            "hands": 2,
+            "sum_chips": -4000
+          },
+          "folded": {
+            "bb_per_100": 400.0,
+            "hands": 1,
+            "sum_chips": 400
+          },
+          "no_large_raise": {
+            "bb_per_100": -5.172413793103448,
+            "hands": 29,
+            "sum_chips": -150
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 12,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 1,
+          "large_actions": 0,
+          "large_opportunities": 1,
+          "no_response": 0,
+          "preflop_trained": 23,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 9,
+          "target_decisions": 55,
+          "trained": 55,
+          "turn_trained": 11
+        },
+        "coverage": {
+          "current": 55,
+          "flop:current": 12,
+          "preflop:current": 23,
+          "river:current": 9,
+          "turn:current": 11
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 40.625,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          125.0,
+          0.0,
+          0.0,
+          175.0,
+          -50.0,
+          100.0,
+          -200.0,
+          0.0,
+          0.0,
+          75.0,
+          100.0,
+          175.0,
+          -50.0,
+          125.0,
+          75.0
+        ],
+        "panel": "selective-stackoff",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -28.125,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 109.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 40.625,
+            "hands": 32,
+            "sum_chips": 1300
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 6,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 2,
+          "large_actions": 1,
+          "large_opportunities": 2,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 1,
+          "river_trained": 1,
+          "target_decisions": 29,
+          "trained": 29,
+          "turn_trained": 4
+        },
+        "coverage": {
+          "current": 29,
+          "flop:current": 6,
+          "preflop:current": 18,
+          "river:current": 1,
+          "turn:current": 4
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 67.1875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          0.0,
+          0.0,
+          325.0,
+          75.0,
+          75.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 31.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 103.125,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "folded": {
+            "bb_per_100": 600.0,
+            "hands": 1,
+            "sum_chips": 600
+          },
+          "no_large_raise": {
+            "bb_per_100": 50.0,
+            "hands": 31,
+            "sum_chips": 1550
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 6,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 0,
+          "large_actions": 0,
+          "large_opportunities": 0,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 1,
+          "target_decisions": 29,
+          "trained": 29,
+          "turn_trained": 4
+        },
+        "coverage": {
+          "current": 29,
+          "flop:current": 6,
+          "preflop:current": 18,
+          "river:current": 1,
+          "turn:current": 4
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 57.8125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          0.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          100.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 43.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 71.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 57.8125,
+            "hands": 32,
+            "sum_chips": 1850
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 13,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 4,
+          "large_actions": 1,
+          "large_opportunities": 4,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 24,
+          "rival_continuations": 0,
+          "rival_folds": 1,
+          "river_trained": 8,
+          "target_decisions": 58,
+          "trained": 58,
+          "turn_trained": 13
+        },
+        "coverage": {
+          "current": 58,
+          "flop:current": 13,
+          "preflop:current": 24,
+          "river:current": 8,
+          "turn:current": 13
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 15.625,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          75.0,
+          0.0,
+          0.0,
+          100.0,
+          -50.0,
+          75.0,
+          -100.0,
+          0.0,
+          125.0,
+          75.0,
+          -150.0,
+          175.0,
+          -150.0,
+          0.0,
+          75.0
+        ],
+        "panel": "train_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -90.625,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 121.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "folded": {
+            "bb_per_100": 400.0,
+            "hands": 1,
+            "sum_chips": 400
+          },
+          "no_large_raise": {
+            "bb_per_100": 3.225806451612903,
+            "hands": 31,
+            "sum_chips": 100
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 18,
+          "full_stack_losses": 0,
+          "full_stack_wins": 6,
+          "hands": 32,
+          "jam_actions": 9,
+          "jam_opportunities": 29,
+          "large_actions": 8,
+          "large_opportunities": 22,
+          "large_trained": 8,
+          "no_response": 0,
+          "preflop_trained": 40,
+          "rival_continuations": 3,
+          "rival_folds": 5,
+          "river_trained": 3,
+          "target_decisions": 72,
+          "trained": 72,
+          "turn_trained": 11
+        },
+        "coverage": {
+          "current": 72,
+          "flop:current": 18,
+          "preflop:current": 40,
+          "river:current": 3,
+          "turn:current": 11
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 504.6875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          0.0,
+          -100.0,
+          75.0,
+          -75.0,
+          1350.0,
+          400.0,
+          1450.0,
+          150.0,
+          975.0,
+          -75.0,
+          800.0,
+          400.0,
+          -200.0,
+          950.0,
+          950.0,
+          1025.0
+        ],
+        "panel": "uniform",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 150,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 859.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093002,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 2000.0,
+            "hands": 3,
+            "sum_chips": 6000
+          },
+          "folded": {
+            "bb_per_100": 860.0,
+            "hands": 5,
+            "sum_chips": 4300
+          },
+          "no_large_raise": {
+            "bb_per_100": 243.75,
+            "hands": 24,
+            "sum_chips": 5850
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 18,
+          "full_stack_losses": 0,
+          "full_stack_wins": 1,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 12,
+          "large_actions": 2,
+          "large_opportunities": 10,
+          "large_trained": 2,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 2,
+          "rival_folds": 0,
+          "river_trained": 13,
+          "target_decisions": 72,
+          "trained": 72,
+          "turn_trained": 13
+        },
+        "coverage": {
+          "current": 59,
+          "flop:current": 18,
+          "preflop:current": 28,
+          "river:river_search": 13,
+          "river_search": 13,
+          "turn:current": 13
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 26.5625,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          0.0,
+          0.0,
+          450.0,
+          -850.0,
+          0.0,
+          550.0,
+          0.0,
+          -75.0,
+          -150.0,
+          0.0,
+          550.0,
+          0.0,
+          -100.0,
+          -100.0
+        ],
+        "panel": "loose_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -334.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 387.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 1600.0,
+            "hands": 2,
+            "sum_chips": 3200
+          },
+          "no_large_raise": {
+            "bb_per_100": -78.33333333333333,
+            "hands": 30,
+            "sum_chips": -2350
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 20,
+          "full_stack_losses": 0,
+          "full_stack_wins": 1,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 2,
+          "large_actions": 1,
+          "large_opportunities": 2,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 1,
+          "rival_folds": 0,
+          "river_trained": 16,
+          "target_decisions": 80,
+          "trained": 80,
+          "turn_trained": 16
+        },
+        "coverage": {
+          "current": 64,
+          "flop:current": 20,
+          "preflop:current": 28,
+          "river:river_search": 16,
+          "river_search": 16,
+          "turn:current": 16
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 81.25,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          -100.0,
+          0.0,
+          100.0,
+          -100.0,
+          150.0,
+          850.0,
+          0.0,
+          -50.0,
+          0.0,
+          0.0,
+          550.0,
+          -50.0,
+          -100.0,
+          -100.0
+        ],
+        "panel": "loose_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -150,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 312.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 2000.0,
+            "hands": 1,
+            "sum_chips": 2000
+          },
+          "no_large_raise": {
+            "bb_per_100": 19.35483870967742,
+            "hands": 31,
+            "sum_chips": 600
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 4,
+          "flop_fallback": 2,
+          "flop_trained": 6,
+          "full_stack_losses": 1,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 5,
+          "large_actions": 2,
+          "large_fallback": 2,
+          "large_opportunities": 5,
+          "no_response": 0,
+          "preflop_fallback": 2,
+          "preflop_trained": 19,
+          "rival_continuations": 2,
+          "rival_folds": 0,
+          "river_trained": 3,
+          "target_decisions": 35,
+          "trained": 31,
+          "turn_trained": 3
+        },
+        "coverage": {
+          "current": 28,
+          "flop:current": 6,
+          "flop:missing": 2,
+          "missing": 4,
+          "preflop:current": 19,
+          "preflop:missing": 2,
+          "river:river_search": 3,
+          "river_search": 3,
+          "turn:current": 3
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -34.375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          -950.0,
+          0.0,
+          225.0,
+          75.0,
+          -25.0,
+          100.0,
+          0.0,
+          125.0,
+          75.0,
+          0.0,
+          75.0,
+          -550.0,
+          75.0,
+          75.0
+        ],
+        "panel": "pot_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -162.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 93.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -1600.0,
+            "hands": 2,
+            "sum_chips": -3200
+          },
+          "no_large_raise": {
+            "bb_per_100": 70.0,
+            "hands": 30,
+            "sum_chips": 2100
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 12,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 2,
+          "large_actions": 1,
+          "large_opportunities": 2,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 23,
+          "rival_continuations": 1,
+          "rival_folds": 0,
+          "river_trained": 6,
+          "target_decisions": 51,
+          "trained": 51,
+          "turn_trained": 10
+        },
+        "coverage": {
+          "current": 45,
+          "flop:current": 12,
+          "preflop:current": 23,
+          "river:river_search": 6,
+          "river_search": 6,
+          "turn:current": 10
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 73.4375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          100.0,
+          0.0,
+          75.0,
+          -100.0,
+          450.0,
+          100.0,
+          0.0,
+          100.0,
+          75.0,
+          0.0,
+          75.0,
+          -50.0,
+          125.0,
+          75.0
+        ],
+        "panel": "selective-stackoff",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -9.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 156.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 1200.0,
+            "hands": 1,
+            "sum_chips": 1200
+          },
+          "no_large_raise": {
+            "bb_per_100": 37.096774193548384,
+            "hands": 31,
+            "sum_chips": 1150
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 6,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 1,
+          "large_actions": 0,
+          "large_opportunities": 1,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 1,
+          "target_decisions": 28,
+          "trained": 28,
+          "turn_trained": 3
+        },
+        "coverage": {
+          "current": 27,
+          "flop:current": 6,
+          "preflop:current": 18,
+          "river:river_search": 1,
+          "river_search": 1,
+          "turn:current": 3
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 93.75,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          100.0,
+          0.0,
+          175.0,
+          75.0,
+          475.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 43.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 143.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 93.75,
+            "hands": 32,
+            "sum_chips": 3000
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 7,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 0,
+          "large_actions": 0,
+          "large_opportunities": 0,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 2,
+          "target_decisions": 31,
+          "trained": 31,
+          "turn_trained": 4
+        },
+        "coverage": {
+          "current": 29,
+          "flop:current": 7,
+          "preflop:current": 18,
+          "river:river_search": 2,
+          "river_search": 2,
+          "turn:current": 4
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 84.375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          100.0,
+          0.0,
+          75.0,
+          75.0,
+          325.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          100.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 56.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 112.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 84.375,
+            "hands": 32,
+            "sum_chips": 2700
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 1,
+          "flop_trained": 12,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 5,
+          "large_actions": 0,
+          "large_opportunities": 4,
+          "no_response": 0,
+          "preflop_trained": 23,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 10,
+          "target_decisions": 56,
+          "trained": 55,
+          "turn_fallback": 1,
+          "turn_trained": 10
+        },
+        "coverage": {
+          "current": 45,
+          "flop:current": 12,
+          "missing": 1,
+          "preflop:current": 23,
+          "river:river_search": 10,
+          "river_search": 10,
+          "turn:current": 10,
+          "turn:missing": 1
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 42.1875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          0.0,
+          0.0,
+          50.0,
+          -150.0,
+          325.0,
+          -100.0,
+          0.0,
+          125.0,
+          75.0,
+          0.0,
+          475.0,
+          0.0,
+          -350.0,
+          75.0
+        ],
+        "panel": "train_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -96.875,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 181.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 42.1875,
+            "hands": 32,
+            "sum_chips": 1350
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 14,
+          "full_stack_losses": 2,
+          "full_stack_wins": 4,
+          "hands": 32,
+          "jam_actions": 7,
+          "jam_opportunities": 21,
+          "large_actions": 8,
+          "large_opportunities": 17,
+          "large_trained": 8,
+          "no_response": 0,
+          "preflop_trained": 42,
+          "rival_continuations": 2,
+          "rival_folds": 6,
+          "river_trained": 5,
+          "target_decisions": 67,
+          "trained": 67,
+          "turn_trained": 6
+        },
+        "coverage": {
+          "current": 62,
+          "flop:current": 14,
+          "preflop:current": 42,
+          "river:river_search": 5,
+          "river_search": 5,
+          "turn:current": 6
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 284.375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          -975.0,
+          -150.0,
+          75.0,
+          -75.0,
+          1350.0,
+          400.0,
+          950.0,
+          -800.0,
+          975.0,
+          75.0,
+          800.0,
+          250.0,
+          -200.0,
+          950.0,
+          850.0,
+          75.0
+        ],
+        "panel": "uniform",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 100,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 468.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "average",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 0.0,
+            "hands": 2,
+            "sum_chips": 0
+          },
+          "folded": {
+            "bb_per_100": 783.3333333333334,
+            "hands": 6,
+            "sum_chips": 4700
+          },
+          "no_large_raise": {
+            "bb_per_100": 183.33333333333334,
+            "hands": 24,
+            "sum_chips": 4400
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 18,
+          "full_stack_losses": 0,
+          "full_stack_wins": 1,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 13,
+          "large_actions": 1,
+          "large_opportunities": 11,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 1,
+          "rival_folds": 0,
+          "river_trained": 14,
+          "target_decisions": 73,
+          "trained": 73,
+          "turn_trained": 13
+        },
+        "coverage": {
+          "current": 73,
+          "flop:current": 18,
+          "preflop:current": 28,
+          "river:current": 14,
+          "turn:current": 13
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 67.1875,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          0.0,
+          0.0,
+          450.0,
+          -850.0,
+          850.0,
+          -50.0,
+          0.0,
+          -75.0,
+          150.0,
+          0.0,
+          550.0,
+          0.0,
+          -100.0,
+          0.0
+        ],
+        "panel": "loose_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -253.125,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 387.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 1200.0,
+            "hands": 1,
+            "sum_chips": 1200
+          },
+          "no_large_raise": {
+            "bb_per_100": 30.64516129032258,
+            "hands": 31,
+            "sum_chips": 950
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 20,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 2,
+          "large_actions": 0,
+          "large_opportunities": 2,
+          "no_response": 0,
+          "preflop_trained": 28,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 16,
+          "target_decisions": 80,
+          "trained": 80,
+          "turn_trained": 16
+        },
+        "coverage": {
+          "current": 80,
+          "flop:current": 20,
+          "preflop:current": 28,
+          "river:current": 16,
+          "turn:current": 16
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 56.25,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          -150.0,
+          0.0,
+          400.0,
+          -50.0,
+          150.0,
+          250.0,
+          0.0,
+          -100.0,
+          -200.0,
+          0.0,
+          550.0,
+          0.0,
+          -100.0,
+          0.0
+        ],
+        "panel": "loose_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -168.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 281.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 56.25,
+            "hands": 32,
+            "sum_chips": 1800
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 5,
+          "flop_fallback": 2,
+          "flop_trained": 6,
+          "full_stack_losses": 2,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 2,
+          "jam_opportunities": 5,
+          "large_actions": 3,
+          "large_fallback": 3,
+          "large_opportunities": 5,
+          "no_response": 0,
+          "preflop_fallback": 2,
+          "preflop_trained": 19,
+          "rival_continuations": 3,
+          "rival_folds": 0,
+          "river_fallback": 1,
+          "river_trained": 2,
+          "target_decisions": 35,
+          "trained": 30,
+          "turn_trained": 3
+        },
+        "coverage": {
+          "current": 30,
+          "flop:current": 6,
+          "flop:missing": 2,
+          "missing": 5,
+          "preflop:current": 19,
+          "preflop:missing": 2,
+          "river:current": 2,
+          "river:missing": 1,
+          "turn:current": 3
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -93.75,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          -950.0,
+          0.0,
+          225.0,
+          75.0,
+          -25.0,
+          100.0,
+          0.0,
+          125.0,
+          75.0,
+          -950.0,
+          75.0,
+          -550.0,
+          75.0,
+          75.0
+        ],
+        "panel": "pot_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -281.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 93.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -1733.3333333333333,
+            "hands": 3,
+            "sum_chips": -5200
+          },
+          "no_large_raise": {
+            "bb_per_100": 75.86206896551724,
+            "hands": 29,
+            "sum_chips": 2200
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 12,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 2,
+          "large_actions": 1,
+          "large_opportunities": 2,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 23,
+          "rival_continuations": 1,
+          "rival_folds": 0,
+          "river_trained": 6,
+          "target_decisions": 51,
+          "trained": 51,
+          "turn_trained": 10
+        },
+        "coverage": {
+          "current": 51,
+          "flop:current": 12,
+          "preflop:current": 23,
+          "river:current": 6,
+          "turn:current": 10
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 73.4375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          100.0,
+          0.0,
+          75.0,
+          -150.0,
+          450.0,
+          100.0,
+          0.0,
+          100.0,
+          75.0,
+          0.0,
+          75.0,
+          0.0,
+          125.0,
+          75.0
+        ],
+        "panel": "selective-stackoff",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -9.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 156.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 1200.0,
+            "hands": 1,
+            "sum_chips": 1200
+          },
+          "no_large_raise": {
+            "bb_per_100": 37.096774193548384,
+            "hands": 31,
+            "sum_chips": 1150
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 6,
+          "full_stack_losses": 0,
+          "full_stack_wins": 1,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 1,
+          "large_actions": 0,
+          "large_opportunities": 1,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 2,
+          "target_decisions": 29,
+          "trained": 29,
+          "turn_trained": 3
+        },
+        "coverage": {
+          "current": 29,
+          "flop:current": 6,
+          "preflop:current": 18,
+          "river:current": 2,
+          "turn:current": 3
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 128.125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          100.0,
+          0.0,
+          175.0,
+          75.0,
+          1025.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_aggressive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 43.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 212.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 128.125,
+            "hands": 32,
+            "sum_chips": 4100
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 7,
+          "full_stack_losses": 0,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 0,
+          "jam_opportunities": 0,
+          "large_actions": 0,
+          "large_opportunities": 0,
+          "no_response": 0,
+          "preflop_trained": 18,
+          "rival_continuations": 0,
+          "rival_folds": 0,
+          "river_trained": 2,
+          "target_decisions": 31,
+          "trained": 31,
+          "turn_trained": 4
+        },
+        "coverage": {
+          "current": 31,
+          "flop:current": 7,
+          "preflop:current": 18,
+          "river:current": 2,
+          "turn:current": 4
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 78.125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          100.0,
+          0.0,
+          75.0,
+          75.0,
+          325.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0,
+          75.0,
+          75.0,
+          0.0,
+          75.0,
+          75.0
+        ],
+        "panel": "tight_passive",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 43.75,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 112.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "no_large_raise": {
+            "bb_per_100": 78.125,
+            "hands": 32,
+            "sum_chips": 2500
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 1,
+          "flop_trained": 12,
+          "full_stack_losses": 1,
+          "full_stack_wins": 0,
+          "hands": 32,
+          "jam_actions": 1,
+          "jam_opportunities": 4,
+          "large_actions": 1,
+          "large_opportunities": 4,
+          "large_trained": 1,
+          "no_response": 0,
+          "preflop_trained": 23,
+          "rival_continuations": 1,
+          "rival_folds": 0,
+          "river_trained": 9,
+          "target_decisions": 55,
+          "trained": 54,
+          "turn_fallback": 1,
+          "turn_trained": 10
+        },
+        "coverage": {
+          "current": 54,
+          "flop:current": 12,
+          "missing": 1,
+          "preflop:current": 23,
+          "river:current": 9,
+          "turn:current": 10,
+          "turn:missing": 1
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": -10.9375,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          75.0,
+          75.0,
+          0.0,
+          0.0,
+          50.0,
+          -200.0,
+          175.0,
+          -150.0,
+          0.0,
+          125.0,
+          75.0,
+          0.0,
+          475.0,
+          0.0,
+          -950.0,
+          75.0
+        ],
+        "panel": "train_pressure",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": -184.375,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 162.5,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": -2000.0,
+            "hands": 1,
+            "sum_chips": -2000
+          },
+          "no_large_raise": {
+            "bb_per_100": 53.225806451612904,
+            "hands": 31,
+            "sum_chips": 1650
+          }
+        }
+      },
+      {
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "counts": {
+          "fallback": 0,
+          "flop_trained": 14,
+          "full_stack_losses": 1,
+          "full_stack_wins": 4,
+          "hands": 32,
+          "jam_actions": 7,
+          "jam_opportunities": 21,
+          "large_actions": 7,
+          "large_opportunities": 17,
+          "large_trained": 7,
+          "no_response": 0,
+          "preflop_trained": 42,
+          "rival_continuations": 1,
+          "rival_folds": 6,
+          "river_trained": 4,
+          "target_decisions": 66,
+          "trained": 66,
+          "turn_trained": 6
+        },
+        "coverage": {
+          "current": 66,
+          "flop:current": 14,
+          "preflop:current": 42,
+          "river:current": 4,
+          "turn:current": 6
+        },
+        "distinct_keys_by_street": {},
+        "distinct_target_keys": 0,
+        "hands": 32,
+        "limited_lbr_decisions": 0,
+        "overall": {
+          "bb_per_100": 328.125,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "paired_block_chips": [
+          -275.0,
+          -150.0,
+          75.0,
+          -75.0,
+          1350.0,
+          400.0,
+          950.0,
+          -800.0,
+          975.0,
+          75.0,
+          800.0,
+          250.0,
+          -200.0,
+          950.0,
+          850.0,
+          75.0
+        ],
+        "panel": "uniform",
+        "positions": {
+          "big_blind": {
+            "bb_per_100": 100,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          },
+          "button": {
+            "bb_per_100": 556.25,
+            "blocks": 16,
+            "ci95": null,
+            "reason": "too_few_blocks"
+          }
+        },
+        "seed": 2026093003,
+        "strategy": "current",
+        "whole_hand_partitions": {
+          "continued": {
+            "bb_per_100": 2000.0,
+            "hands": 1,
+            "sum_chips": 2000
+          },
+          "folded": {
+            "bb_per_100": 783.3333333333334,
+            "hands": 6,
+            "sum_chips": 4700
+          },
+          "no_large_raise": {
+            "bb_per_100": 152.0,
+            "hands": 25,
+            "sum_chips": 3800
+          }
+        }
+      }
+    ],
+    "three_lineage_changes": [
+      {
+        "average_minus_current": {
+          "bb_per_100": 1.041666666666669,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "panel": "loose_aggressive",
+        "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+      },
+      {
+        "average_minus_current": {
+          "bb_per_100": 18.75,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "panel": "loose_passive",
+        "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+      },
+      {
+        "average_minus_current": {
+          "bb_per_100": 58.33333333333333,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "panel": "pot_pressure",
+        "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+      },
+      {
+        "average_minus_current": {
+          "bb_per_100": -6.25,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "panel": "selective-stackoff",
+        "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+      },
+      {
+        "average_minus_current": {
+          "bb_per_100": -11.458333333333334,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "panel": "tight_aggressive",
+        "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+      },
+      {
+        "average_minus_current": {
+          "bb_per_100": 2.0833333333333335,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "panel": "tight_passive",
+        "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+      },
+      {
+        "average_minus_current": {
+          "bb_per_100": 27.083333333333332,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "panel": "train_pressure",
+        "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+      },
+      {
+        "average_minus_current": {
+          "bb_per_100": -42.708333333333336,
+          "blocks": 16,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "panel": "uniform",
+        "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+      }
+    ]
+  },
+  "failure": null,
+  "hands": 1536,
+  "loaded": [
+    {
+      "description": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "entries": 2701878,
+        "iteration": 1098929,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093001,
+        "weights_sha256": "e0dfb7c0a0ebde1e8a904fce89481919f4e9b32a633b912e88d241d039e69628"
+      },
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "bytes": 70646565,
+        "checkpoint_bytes": 131332745,
+        "checkpoint_path": "B-2026093001-500000000.checkpoint.json.gz",
+        "checkpoint_sha256": "51876a51da9f3c2ac5b622efecb3645300a4126312525314afd299c36b9f30b1",
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1098929,
+        "milestone": 500000000,
+        "name": "B-2026093001-500000000",
+        "path": "B-2026093001-500000000.policy.json.gz",
+        "players": 2,
+        "seed": 2026093001,
+        "sha256": "e0dfb7c0a0ebde1e8a904fce89481919f4e9b32a633b912e88d241d039e69628"
+      },
+      "seconds": 10.72173870797269
+    },
+    {
+      "description": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "entries": 2670044,
+        "iteration": 1110069,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093002,
+        "weights_sha256": "67427db96fb3d1aba3570e0235bb368a81e129978ff1a3e4c6e083b162563456"
+      },
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "bytes": 69783238,
+        "checkpoint_bytes": 129627466,
+        "checkpoint_path": "B-2026093002-500000000.checkpoint.json.gz",
+        "checkpoint_sha256": "bd177287272bca4fcaa78e4aff70711927e1e95ee2b41f6963b22f6cbee5425c",
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1110069,
+        "milestone": 500000000,
+        "name": "B-2026093002-500000000",
+        "path": "B-2026093002-500000000.policy.json.gz",
+        "players": 2,
+        "seed": 2026093002,
+        "sha256": "67427db96fb3d1aba3570e0235bb368a81e129978ff1a3e4c6e083b162563456"
+      },
+      "seconds": 10.071799499972258
+    },
+    {
+      "description": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "entries": 2654147,
+        "iteration": 1096178,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093003,
+        "weights_sha256": "bcf7ca319b95688a0d8fcd15536b04b311310feacefdc6fff81221304662d083"
+      },
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "bytes": 69363255,
+        "checkpoint_bytes": 128901358,
+        "checkpoint_path": "B-2026093003-500000000.checkpoint.json.gz",
+        "checkpoint_sha256": "6b409964e9c62c71d83a0e3e8fe1b5c7b41e76c315234399e84ae379cbe9436b",
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1096178,
+        "milestone": 500000000,
+        "name": "B-2026093003-500000000",
+        "path": "B-2026093003-500000000.policy.json.gz",
+        "players": 2,
+        "seed": 2026093003,
+        "sha256": "bcf7ca319b95688a0d8fcd15536b04b311310feacefdc6fff81221304662d083"
+      },
+      "seconds": 10.229923999984749
+    }
+  ],
+  "peak_rss_bytes": 2905030656,
+  "plan": {
+    "budget_basis": "250 sweep worst measured root 11.40s + 0.64s setup; prior #141 river exposure predicts 108.5 roots; 1.5x allowance for off-tree solves + 3 loads fits 2700s. No pilot payoffs select settings.",
+    "expected_hands": 1536,
+    "max_seconds": 2700,
+    "models": [
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "bytes": 70646565,
+        "checkpoint_bytes": 131332745,
+        "checkpoint_path": "B-2026093001-500000000.checkpoint.json.gz",
+        "checkpoint_sha256": "51876a51da9f3c2ac5b622efecb3645300a4126312525314afd299c36b9f30b1",
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1098929,
+        "milestone": 500000000,
+        "name": "B-2026093001-500000000",
+        "path": "B-2026093001-500000000.policy.json.gz",
+        "players": 2,
+        "seed": 2026093001,
+        "sha256": "e0dfb7c0a0ebde1e8a904fce89481919f4e9b32a633b912e88d241d039e69628"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "bytes": 69783238,
+        "checkpoint_bytes": 129627466,
+        "checkpoint_path": "B-2026093002-500000000.checkpoint.json.gz",
+        "checkpoint_sha256": "bd177287272bca4fcaa78e4aff70711927e1e95ee2b41f6963b22f6cbee5425c",
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1110069,
+        "milestone": 500000000,
+        "name": "B-2026093002-500000000",
+        "path": "B-2026093002-500000000.policy.json.gz",
+        "players": 2,
+        "seed": 2026093002,
+        "sha256": "67427db96fb3d1aba3570e0235bb368a81e129978ff1a3e4c6e083b162563456"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "bytes": 69363255,
+        "checkpoint_bytes": 128901358,
+        "checkpoint_path": "B-2026093003-500000000.checkpoint.json.gz",
+        "checkpoint_sha256": "6b409964e9c62c71d83a0e3e8fe1b5c7b41e76c315234399e84ae379cbe9436b",
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1096178,
+        "milestone": 500000000,
+        "name": "B-2026093003-500000000",
+        "path": "B-2026093003-500000000.policy.json.gz",
+        "players": 2,
+        "seed": 2026093003,
+        "sha256": "bcf7ca319b95688a0d8fcd15536b04b311310feacefdc6fff81221304662d083"
+      }
+    ],
+    "panels": [
+      {
+        "blocks": 16,
+        "contract": "menu",
+        "name": "uniform",
+        "rule": "uniform"
+      },
+      {
+        "blocks": 16,
+        "contract": "style-native",
+        "name": "tight_passive",
+        "rule": "tight_passive"
+      },
+      {
+        "blocks": 16,
+        "contract": "style-native",
+        "name": "loose_passive",
+        "rule": "loose_passive"
+      },
+      {
+        "blocks": 16,
+        "contract": "style-native",
+        "name": "tight_aggressive",
+        "rule": "tight_aggressive"
+      },
+      {
+        "blocks": 16,
+        "contract": "style-native",
+        "name": "loose_aggressive",
+        "rule": "loose_aggressive"
+      },
+      {
+        "blocks": 16,
+        "contract": "style-native",
+        "name": "pot_pressure",
+        "rule": "pot_pressure"
+      },
+      {
+        "blocks": 16,
+        "contract": "style-native",
+        "name": "train_pressure",
+        "rule": "train_pressure"
+      },
+      {
+        "blocks": 16,
+        "contract": "menu",
+        "name": "selective-stackoff",
+        "rule": "selective_stackoff"
+      }
+    ],
+    "phase": "comparison",
+    "river_config": {
+      "cache_entries": 8,
+      "raise_cap": 2,
+      "sweeps": 250,
+      "watchdog_seconds": 120
+    },
+    "root": 202610010501,
+    "rss_limit_bytes": 6442450944
+  },
+  "plan_sha256": "38f753f1ab0e1ef155917f819f48097a00694041faf23f6c1d7bba167f94c2ca",
+  "seconds": 1595.774407416,
+  "source": "845bd458b6e32a22bc6bb17520eafd73b66a104c",
+  "status": "complete",
+  "strategy_labels": {
+    "average": "B500M current + river average re-solving",
+    "current": "B500M direct current"
+  }
+}

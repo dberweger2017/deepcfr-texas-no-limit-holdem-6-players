@@ -1,0 +1,69 @@
+{
+  "frozen_scientific_source": "17b4c9a08ed0765d0fb8f05240c0409b21e43977",
+  "canonical_plan_sha256": "74f0c18024a4a409d223276d4781c2464b27fc8d5d32a51ccb22a224332f2219",
+  "exports": [
+    {
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "arm": "B",
+        "checkpoint_path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/artifacts/2026093001/attempt-1/checkpoint-500000000-1098929.json.gz",
+        "checkpoint_sha256": "51876a51da9f3c2ac5b622efecb3645300a4126312525314afd299c36b9f30b1",
+        "dual_menu_telemetry": true,
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1098929,
+        "milestone": 500000000,
+        "name": "B-2026093001-500000000",
+        "nodes": 500000000,
+        "path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/artifacts/2026093001/attempt-1/current-500000000-1098929.json.gz",
+        "players": 2,
+        "seed": 2026093001,
+        "sha256": "e0dfb7c0a0ebde1e8a904fce89481919f4e9b32a633b912e88d241d039e69628"
+      },
+      "bytes": 70646565,
+      "result_path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/evaluation/light-2026093001-500000000/result.json",
+      "result_sha256": "a2db87b362f074e8940c2169660a64d5886faef539654aeb6fc0534369e9a203"
+    },
+    {
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "arm": "B",
+        "checkpoint_path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/artifacts/2026093002/attempt-1/checkpoint-500000000-1110069.json.gz",
+        "checkpoint_sha256": "bd177287272bca4fcaa78e4aff70711927e1e95ee2b41f6963b22f6cbee5425c",
+        "dual_menu_telemetry": true,
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1110069,
+        "milestone": 500000000,
+        "name": "B-2026093002-500000000",
+        "nodes": 500000000,
+        "path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/artifacts/2026093002/attempt-1/current-500000000-1110069.json.gz",
+        "players": 2,
+        "seed": 2026093002,
+        "sha256": "67427db96fb3d1aba3570e0235bb368a81e129978ff1a3e4c6e083b162563456"
+      },
+      "bytes": 69783238,
+      "result_path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/evaluation/light-2026093002-500000000/result.json",
+      "result_sha256": "ac89ebebb13fc2937ba7b0f0782dec632397146997341e7a3c37bb0aa6993072"
+    },
+    {
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "arm": "B",
+        "checkpoint_path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/artifacts/2026093003/attempt-1/checkpoint-500000000-1096178.json.gz",
+        "checkpoint_sha256": "6b409964e9c62c71d83a0e3e8fe1b5c7b41e76c315234399e84ae379cbe9436b",
+        "dual_menu_telemetry": true,
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1096178,
+        "milestone": 500000000,
+        "name": "B-2026093003-500000000",
+        "nodes": 500000000,
+        "path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/artifacts/2026093003/attempt-1/current-500000000-1096178.json.gz",
+        "players": 2,
+        "seed": 2026093003,
+        "sha256": "bcf7ca319b95688a0d8fcd15536b04b311310feacefdc6fff81221304662d083"
+      },
+      "bytes": 69363255,
+      "result_path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/evaluation/light-2026093003-500000000/result.json",
+      "result_sha256": "18b18dc8774516f06313a672601c36e14f1578c3a8fd575651f400b23d145033"
+    }
+  ]
+}

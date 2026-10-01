@@ -1,0 +1,9 @@
+{
+  "actual_hands_replayed": 208,
+  "manifest_sha256": "ac8758c2c4e689f284253eb63a4eb050aea78bde881ecf609c7ba2ed6403455b",
+  "no_models_loaded": true,
+  "peak_rss_bytes": 103497728,
+  "seconds": 0.19184050004696473,
+  "status": "verified",
+  "target_decisions_verified": 374
+}

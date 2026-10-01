@@ -1,0 +1,20 @@
+{
+  "computation_host": "M1",
+  "fixture_scope": "generated small checkpoint/exports and a synthetic traversal; no new campaign training",
+  "focused_checks": {
+    "command": "python -m pytest -q tests/diagnostics/test_cfr_average.py tests/diagnostics/test_cfr_average_evaluation.py tests/test_blueprint_hu20.py tests/test_blueprint_native_reopening.py",
+    "passed": 28
+  },
+  "native_engine_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+  "packages": {
+    "numpy": "1.26.4",
+    "pokers": "0.2.0",
+    "pytest": "9.0.3",
+    "scipy": "1.17.1",
+    "torch": "2.14.0"
+  },
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "production_blueprint_files_changed": false,
+  "python": "3.11.15",
+  "real_scope": "all retained B500M node accumulators/current extractions audited, all three lineages compared"
+}

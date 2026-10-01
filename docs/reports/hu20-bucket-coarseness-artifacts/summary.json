@@ -1,0 +1,6695 @@
+{
+  "boards_per_street": 64,
+  "buckets": [
+    {
+      "boards": 2,
+      "bucket": [
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.00011749267578125004,
+      "largest_same_board_collision": null,
+      "max": 0.322265625,
+      "median": 0.28466796875,
+      "min": 0.2470703125,
+      "n": 2,
+      "p10": 0.25458984375,
+      "p90": 0.31474609375,
+      "share": 0.001953125,
+      "spread": 0.06015625000000002,
+      "street": "flop"
+    },
+    {
+      "boards": 16,
+      "bucket": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.006646156311035156,
+      "largest_same_board_collision": {
+        "board": [
+          "3h",
+          "6s",
+          "Jd"
+        ],
+        "board_index": 55,
+        "different_made_value": true,
+        "equity_spread": 0.1923828125,
+        "high": {
+          "cards": [
+            "9c",
+            "Th"
+          ],
+          "equity": 0.345703125,
+          "equity_seed": 9429349969099552794,
+          "made_value": [
+            0,
+            11,
+            10,
+            9,
+            6,
+            3
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2s",
+            "7h"
+          ],
+          "equity": 0.1533203125,
+          "equity_seed": 10121084646128229656,
+          "made_value": [
+            0,
+            11,
+            7,
+            6,
+            3,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.357421875,
+      "median": 0.24169921875,
+      "min": 0.1259765625,
+      "n": 46,
+      "p10": 0.17578125,
+      "p90": 0.32373046875,
+      "share": 0.044921875,
+      "spread": 0.14794921875,
+      "street": "flop"
+    },
+    {
+      "boards": 15,
+      "bucket": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.005932426452636724,
+      "largest_same_board_collision": {
+        "board": [
+          "7h",
+          "2c",
+          "6c"
+        ],
+        "board_index": 8,
+        "different_made_value": true,
+        "equity_spread": 0.2001953125,
+        "high": {
+          "cards": [
+            "8c",
+            "9d"
+          ],
+          "equity": 0.51171875,
+          "equity_seed": 12978387480249998340,
+          "made_value": [
+            0,
+            9,
+            8,
+            7,
+            6,
+            2
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "4d",
+            "8h"
+          ],
+          "equity": 0.3115234375,
+          "equity_seed": 10298915714486693028,
+          "made_value": [
+            0,
+            8,
+            7,
+            6,
+            4,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.51171875,
+      "median": 0.3896484375,
+      "min": 0.248046875,
+      "n": 38,
+      "p10": 0.30107421875,
+      "p90": 0.46093750000000017,
+      "share": 0.037109375,
+      "spread": 0.15986328125000016,
+      "street": "flop"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.4853515625,
+      "median": 0.4853515625,
+      "min": 0.4853515625,
+      "n": 1,
+      "p10": 0.4853515625,
+      "p90": 0.4853515625,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "flop"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.000171661376953125,
+      "largest_same_board_collision": null,
+      "max": 0.6015625,
+      "median": 0.529296875,
+      "min": 0.5283203125,
+      "n": 3,
+      "p10": 0.528515625,
+      "p90": 0.587109375,
+      "share": 0.0029296875,
+      "spread": 0.05859375,
+      "street": "flop"
+    },
+    {
+      "boards": 55,
+      "bucket": [
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.09738349914550781,
+      "largest_same_board_collision": {
+        "board": [
+          "2h",
+          "Qd",
+          "5s"
+        ],
+        "board_index": 36,
+        "different_made_value": true,
+        "equity_spread": 0.3896484375,
+        "high": {
+          "cards": [
+            "Ac",
+            "Td"
+          ],
+          "equity": 0.5498046875,
+          "equity_seed": 11218884086985874899,
+          "made_value": [
+            0,
+            14,
+            12,
+            10,
+            5,
+            2
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3s",
+            "7d"
+          ],
+          "equity": 0.16015625,
+          "equity_seed": 12486446558438144215,
+          "made_value": [
+            0,
+            12,
+            7,
+            5,
+            3,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.564453125,
+      "median": 0.34814453125,
+      "min": 0.125,
+      "n": 366,
+      "p10": 0.20361328125,
+      "p90": 0.47607421875,
+      "share": 0.357421875,
+      "spread": 0.2724609375,
+      "street": "flop"
+    },
+    {
+      "boards": 38,
+      "bucket": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.01822147369384765,
+      "largest_same_board_collision": {
+        "board": [
+          "Qh",
+          "Jd",
+          "2c"
+        ],
+        "board_index": 39,
+        "different_made_value": true,
+        "equity_spread": 0.23046875,
+        "high": {
+          "cards": [
+            "Ah",
+            "Kh"
+          ],
+          "equity": 0.6376953125,
+          "equity_seed": 12221927769063027168,
+          "made_value": [
+            0,
+            14,
+            13,
+            12,
+            11,
+            2
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "8c",
+            "9s"
+          ],
+          "equity": 0.4072265625,
+          "equity_seed": 13123492805997966809,
+          "made_value": [
+            0,
+            12,
+            11,
+            9,
+            8,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.65625,
+      "median": 0.470703125,
+      "min": 0.27734375,
+      "n": 83,
+      "p10": 0.339453125,
+      "p90": 0.5642578125,
+      "share": 0.0810546875,
+      "spread": 0.22480468749999993,
+      "street": "flop"
+    },
+    {
+      "boards": 7,
+      "bucket": [
+        0,
+        2,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0033531188964843746,
+      "largest_same_board_collision": {
+        "board": [
+          "3h",
+          "8h",
+          "Ah"
+        ],
+        "board_index": 9,
+        "different_made_value": true,
+        "equity_spread": 0.173828125,
+        "high": {
+          "cards": [
+            "5h",
+            "Qc"
+          ],
+          "equity": 0.5068359375,
+          "equity_seed": 12315329787179292346,
+          "made_value": [
+            0,
+            14,
+            12,
+            8,
+            5,
+            3
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2h",
+            "7c"
+          ],
+          "equity": 0.3330078125,
+          "equity_seed": 11973666024053975295,
+          "made_value": [
+            0,
+            14,
+            8,
+            7,
+            3,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.6611328125,
+      "median": 0.5068359375,
+      "min": 0.3330078125,
+      "n": 15,
+      "p10": 0.4111328125,
+      "p90": 0.6400390625,
+      "share": 0.0146484375,
+      "spread": 0.22890624999999998,
+      "street": "flop"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        0,
+        2,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 3.204345703124991e-05,
+      "largest_same_board_collision": null,
+      "max": 0.6728515625,
+      "median": 0.66259765625,
+      "min": 0.65234375,
+      "n": 2,
+      "p10": 0.65439453125,
+      "p90": 0.67080078125,
+      "share": 0.001953125,
+      "spread": 0.016406249999999956,
+      "street": "flop"
+    },
+    {
+      "boards": 50,
+      "bucket": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.022738456726074226,
+      "largest_same_board_collision": {
+        "board": [
+          "9c",
+          "7s",
+          "5d"
+        ],
+        "board_index": 16,
+        "different_made_value": true,
+        "equity_spread": 0.2822265625,
+        "high": {
+          "cards": [
+            "7d",
+            "Ks"
+          ],
+          "equity": 0.654296875,
+          "equity_seed": 11317584939305691065,
+          "made_value": [
+            1,
+            7,
+            13,
+            9,
+            5
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2c",
+            "2d"
+          ],
+          "equity": 0.3720703125,
+          "equity_seed": 12510924267161334144,
+          "made_value": [
+            1,
+            2,
+            9,
+            7,
+            5
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.75,
+      "median": 0.5791015625,
+      "min": 0.3671875,
+      "n": 113,
+      "p10": 0.4728515625,
+      "p90": 0.67890625,
+      "share": 0.1103515625,
+      "spread": 0.20605468750000006,
+      "street": "flop"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.013171768188476561,
+      "largest_same_board_collision": {
+        "board": [
+          "Ts",
+          "5d",
+          "5c"
+        ],
+        "board_index": 45,
+        "different_made_value": true,
+        "equity_spread": 0.3837890625,
+        "high": {
+          "cards": [
+            "Ad",
+            "Qh"
+          ],
+          "equity": 0.587890625,
+          "equity_seed": 13237852453574918270,
+          "made_value": [
+            1,
+            5,
+            14,
+            12,
+            10
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2h",
+            "7c"
+          ],
+          "equity": 0.2041015625,
+          "equity_seed": 12930783145169117399,
+          "made_value": [
+            1,
+            5,
+            10,
+            7,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.60546875,
+      "median": 0.326171875,
+      "min": 0.2041015625,
+      "n": 44,
+      "p10": 0.23427734375,
+      "p90": 0.5408203125,
+      "share": 0.04296875,
+      "spread": 0.30654296875,
+      "street": "flop"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0010128021240234375,
+      "largest_same_board_collision": {
+        "board": [
+          "7d",
+          "4d",
+          "5h"
+        ],
+        "board_index": 23,
+        "different_made_value": true,
+        "equity_spread": 0.1865234375,
+        "high": {
+          "cards": [
+            "7c",
+            "8s"
+          ],
+          "equity": 0.6767578125,
+          "equity_seed": 13679873250386727838,
+          "made_value": [
+            1,
+            7,
+            8,
+            5,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3c",
+            "3d"
+          ],
+          "equity": 0.490234375,
+          "equity_seed": 9261518286886053684,
+          "made_value": [
+            1,
+            3,
+            7,
+            5,
+            4
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.7763671875,
+      "median": 0.64111328125,
+      "min": 0.490234375,
+      "n": 6,
+      "p10": 0.5537109375,
+      "p90": 0.7265625,
+      "share": 0.005859375,
+      "spread": 0.1728515625,
+      "street": "flop"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.4697265625,
+      "median": 0.4697265625,
+      "min": 0.4697265625,
+      "n": 1,
+      "p10": 0.4697265625,
+      "p90": 0.4697265625,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "flop"
+    },
+    {
+      "boards": 39,
+      "bucket": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.01276264190673828,
+      "largest_same_board_collision": {
+        "board": [
+          "8c",
+          "Js",
+          "7d"
+        ],
+        "board_index": 63,
+        "different_made_value": true,
+        "equity_spread": 0.1787109375,
+        "high": {
+          "cards": [
+            "Jc",
+            "Ks"
+          ],
+          "equity": 0.806640625,
+          "equity_seed": 9510884225106437499,
+          "made_value": [
+            1,
+            11,
+            13,
+            8,
+            7
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2d",
+            "8h"
+          ],
+          "equity": 0.6279296875,
+          "equity_seed": 10266930758793195984,
+          "made_value": [
+            1,
+            8,
+            11,
+            7,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.82421875,
+      "median": 0.72265625,
+      "min": 0.55859375,
+      "n": 79,
+      "p10": 0.624609375,
+      "p90": 0.7900390625,
+      "share": 0.0771484375,
+      "spread": 0.16542968749999998,
+      "street": "flop"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.01491546630859375,
+      "largest_same_board_collision": {
+        "board": [
+          "5h",
+          "9c",
+          "9h"
+        ],
+        "board_index": 43,
+        "different_made_value": true,
+        "equity_spread": 0.3974609375,
+        "high": {
+          "cards": [
+            "Ah",
+            "Tc"
+          ],
+          "equity": 0.6279296875,
+          "equity_seed": 13204258537480040067,
+          "made_value": [
+            1,
+            9,
+            14,
+            10,
+            5
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2c",
+            "6c"
+          ],
+          "equity": 0.23046875,
+          "equity_seed": 9788184222945084846,
+          "made_value": [
+            1,
+            9,
+            6,
+            5,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.6474609375,
+      "median": 0.400390625,
+      "min": 0.1650390625,
+      "n": 46,
+      "p10": 0.244140625,
+      "p90": 0.576171875,
+      "share": 0.044921875,
+      "spread": 0.33203125,
+      "street": "flop"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 4.8828124999999827e-05,
+      "largest_same_board_collision": null,
+      "max": 0.7578125,
+      "median": 0.7421875,
+      "min": 0.7265625,
+      "n": 2,
+      "p10": 0.7296875,
+      "p90": 0.7546875,
+      "share": 0.001953125,
+      "spread": 0.02499999999999991,
+      "street": "flop"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "common_spread_score": 0.00041236877441406237,
+      "largest_same_board_collision": {
+        "board": [
+          "Td",
+          "Jd",
+          "Ts"
+        ],
+        "board_index": 49,
+        "different_made_value": true,
+        "equity_spread": 0.1357421875,
+        "high": {
+          "cards": [
+            "8h",
+            "Qs"
+          ],
+          "equity": 0.4921875,
+          "equity_seed": 9261277725311499803,
+          "made_value": [
+            1,
+            10,
+            12,
+            11,
+            8
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "7d",
+            "8s"
+          ],
+          "equity": 0.3564453125,
+          "equity_seed": 12436183963074366798,
+          "made_value": [
+            1,
+            10,
+            11,
+            8,
+            7
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.4921875,
+      "median": 0.419921875,
+      "min": 0.3564453125,
+      "n": 4,
+      "p10": 0.37021484375,
+      "p90": 0.47578125,
+      "share": 0.00390625,
+      "spread": 0.10556640624999997,
+      "street": "flop"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.00017623901367187507,
+      "largest_same_board_collision": null,
+      "max": 0.82421875,
+      "median": 0.765625,
+      "min": 0.7490234375,
+      "n": 3,
+      "p10": 0.75234375,
+      "p90": 0.8125,
+      "share": 0.0029296875,
+      "spread": 0.06015625000000002,
+      "street": "flop"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 2.4414062499999913e-05,
+      "largest_same_board_collision": null,
+      "max": 0.486328125,
+      "median": 0.478515625,
+      "min": 0.470703125,
+      "n": 2,
+      "p10": 0.472265625,
+      "p90": 0.484765625,
+      "share": 0.001953125,
+      "spread": 0.012499999999999956,
+      "street": "flop"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.689453125,
+      "median": 0.689453125,
+      "min": 0.689453125,
+      "n": 1,
+      "p10": 0.689453125,
+      "p90": 0.689453125,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "flop"
+    },
+    {
+      "boards": 35,
+      "bucket": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.00959873199462891,
+      "largest_same_board_collision": {
+        "board": [
+          "Ac",
+          "2h",
+          "9d"
+        ],
+        "board_index": 44,
+        "different_made_value": true,
+        "equity_spread": 0.1396484375,
+        "high": {
+          "cards": [
+            "As",
+            "Qc"
+          ],
+          "equity": 0.8935546875,
+          "equity_seed": 12752255149719153069,
+          "made_value": [
+            1,
+            14,
+            12,
+            9,
+            2
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "Qc",
+            "Qd"
+          ],
+          "equity": 0.75390625,
+          "equity_seed": 11392187909717227335,
+          "made_value": [
+            1,
+            12,
+            14,
+            9,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.896484375,
+      "median": 0.8154296875,
+      "min": 0.66796875,
+      "n": 75,
+      "p10": 0.7302734375,
+      "p90": 0.861328125,
+      "share": 0.0732421875,
+      "spread": 0.13105468750000004,
+      "street": "flop"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        1,
+        2,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.00044155120849609386,
+      "largest_same_board_collision": {
+        "board": [
+          "3h",
+          "Ad",
+          "2s"
+        ],
+        "board_index": 51,
+        "different_made_value": false,
+        "equity_spread": 0.017578125,
+        "high": {
+          "cards": [
+            "4d",
+            "Ah"
+          ],
+          "equity": 0.865234375,
+          "equity_seed": 10353864418288753677,
+          "made_value": [
+            1,
+            14,
+            4,
+            3,
+            2
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "4h",
+            "Ah"
+          ],
+          "equity": 0.84765625,
+          "equity_seed": 10537954822971581304,
+          "made_value": [
+            1,
+            14,
+            4,
+            3,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.8740234375,
+      "median": 0.84765625,
+      "min": 0.77734375,
+      "n": 5,
+      "p10": 0.780078125,
+      "p90": 0.8705078125,
+      "share": 0.0048828125,
+      "spread": 0.09042968750000002,
+      "street": "flop"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        1,
+        2,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0001968383789062502,
+      "largest_same_board_collision": null,
+      "max": 0.8896484375,
+      "median": 0.861328125,
+      "min": 0.8056640625,
+      "n": 3,
+      "p10": 0.816796875,
+      "p90": 0.883984375,
+      "share": 0.0029296875,
+      "spread": 0.06718750000000007,
+      "street": "flop"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.00029296875000000026,
+      "largest_same_board_collision": null,
+      "max": 0.8759765625,
+      "median": 0.8525390625,
+      "min": 0.7509765625,
+      "n": 3,
+      "p10": 0.7712890625,
+      "p90": 0.8712890625,
+      "share": 0.0029296875,
+      "spread": 0.10000000000000009,
+      "street": "flop"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.00012664794921875017,
+      "largest_same_board_collision": null,
+      "max": 0.6611328125,
+      "median": 0.62060546875,
+      "min": 0.580078125,
+      "n": 2,
+      "p10": 0.58818359375,
+      "p90": 0.65302734375,
+      "share": 0.001953125,
+      "spread": 0.06484375000000009,
+      "street": "flop"
+    },
+    {
+      "boards": 9,
+      "bucket": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0006265640258789067,
+      "largest_same_board_collision": {
+        "board": [
+          "8d",
+          "3c",
+          "Qs"
+        ],
+        "board_index": 58,
+        "different_made_value": false,
+        "equity_spread": 0.009765625,
+        "high": {
+          "cards": [
+            "3h",
+            "8c"
+          ],
+          "equity": 0.8798828125,
+          "equity_seed": 12652303926976454197,
+          "made_value": [
+            2,
+            8,
+            3,
+            12
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3d",
+            "8h"
+          ],
+          "equity": 0.8701171875,
+          "equity_seed": 12330879641855298754,
+          "made_value": [
+            2,
+            8,
+            3,
+            12
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9052734375,
+      "median": 0.86962890625,
+      "min": 0.66796875,
+      "n": 10,
+      "p10": 0.82353515625,
+      "p90": 0.8876953125,
+      "share": 0.009765625,
+      "spread": 0.06416015625000004,
+      "street": "flop"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        2,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0016426086425781247,
+      "largest_same_board_collision": {
+        "board": [
+          "5h",
+          "9c",
+          "9h"
+        ],
+        "board_index": 43,
+        "different_made_value": true,
+        "equity_spread": 0.29296875,
+        "high": {
+          "cards": [
+            "Th",
+            "Ts"
+          ],
+          "equity": 0.80078125,
+          "equity_seed": 11059978501246318804,
+          "made_value": [
+            2,
+            10,
+            9,
+            5
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2d",
+            "2s"
+          ],
+          "equity": 0.5078125,
+          "equity_seed": 12868227978158820362,
+          "made_value": [
+            2,
+            9,
+            2,
+            5
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.80078125,
+      "median": 0.67529296875,
+      "min": 0.5078125,
+      "n": 8,
+      "p10": 0.540625,
+      "p90": 0.75087890625,
+      "share": 0.0078125,
+      "spread": 0.21025390624999996,
+      "street": "flop"
+    },
+    {
+      "boards": 6,
+      "bucket": [
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.00020313262939453125,
+      "largest_same_board_collision": null,
+      "max": 0.919921875,
+      "median": 0.90087890625,
+      "min": 0.875,
+      "n": 6,
+      "p10": 0.880859375,
+      "p90": 0.91552734375,
+      "share": 0.005859375,
+      "spread": 0.03466796875,
+      "street": "flop"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        2,
+        2,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.00014190673828125007,
+      "largest_same_board_collision": {
+        "board": [
+          "3h",
+          "3d",
+          "Ks"
+        ],
+        "board_index": 50,
+        "different_made_value": true,
+        "equity_spread": 0.060546875,
+        "high": {
+          "cards": [
+            "5c",
+            "Kh"
+          ],
+          "equity": 0.8486328125,
+          "equity_seed": 12934346671512901810,
+          "made_value": [
+            2,
+            13,
+            3,
+            5
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "4c",
+            "Kd"
+          ],
+          "equity": 0.7880859375,
+          "equity_seed": 10853724773953245701,
+          "made_value": [
+            2,
+            13,
+            3,
+            4
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.8486328125,
+      "median": 0.791015625,
+      "min": 0.7880859375,
+      "n": 3,
+      "p10": 0.788671875,
+      "p90": 0.837109375,
+      "share": 0.0029296875,
+      "spread": 0.04843750000000002,
+      "street": "flop"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 7.324218750000007e-05,
+      "largest_same_board_collision": null,
+      "max": 0.953125,
+      "median": 0.943359375,
+      "min": 0.921875,
+      "n": 3,
+      "p10": 0.926171875,
+      "p90": 0.951171875,
+      "share": 0.0029296875,
+      "spread": 0.025000000000000022,
+      "street": "flop"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        3,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.000209808349609375,
+      "largest_same_board_collision": {
+        "board": [
+          "Qd",
+          "7d",
+          "7h"
+        ],
+        "board_index": 15,
+        "different_made_value": true,
+        "equity_spread": 0.0234375,
+        "high": {
+          "cards": [
+            "4d",
+            "7s"
+          ],
+          "equity": 0.9267578125,
+          "equity_seed": 13516630806976407749,
+          "made_value": [
+            3,
+            7,
+            12,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "7s",
+            "9s"
+          ],
+          "equity": 0.9033203125,
+          "equity_seed": 13077304032620792166,
+          "made_value": [
+            3,
+            7,
+            12,
+            9
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9423828125,
+      "median": 0.93115234375,
+      "min": 0.9033203125,
+      "n": 10,
+      "p10": 0.91650390625,
+      "p90": 0.93798828125,
+      "share": 0.009765625,
+      "spread": 0.021484375,
+      "street": "flop"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        3,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.916015625,
+      "median": 0.916015625,
+      "min": 0.916015625,
+      "n": 1,
+      "p10": 0.916015625,
+      "p90": 0.916015625,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "flop"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        3,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.01220703125,
+      "largest_same_board_collision": {
+        "board": [
+          "8s",
+          "8d",
+          "8h"
+        ],
+        "board_index": 11,
+        "different_made_value": true,
+        "equity_spread": 0.419921875,
+        "high": {
+          "cards": [
+            "5h",
+            "Ac"
+          ],
+          "equity": 0.6884765625,
+          "equity_seed": 11194779726554427618,
+          "made_value": [
+            3,
+            8,
+            14,
+            5
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3h",
+            "4d"
+          ],
+          "equity": 0.2685546875,
+          "equity_seed": 12343021782375461408,
+          "made_value": [
+            3,
+            8,
+            4,
+            3
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.908203125,
+      "median": 0.40234375,
+      "min": 0.2685546875,
+      "n": 20,
+      "p10": 0.27861328125,
+      "p90": 0.90361328125,
+      "share": 0.01953125,
+      "spread": 0.625,
+      "street": "flop"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        3,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.00018692016601562467,
+      "largest_same_board_collision": {
+        "board": [
+          "Ad",
+          "9s",
+          "Qs"
+        ],
+        "board_index": 53,
+        "different_made_value": false,
+        "equity_spread": 0.017578125,
+        "high": {
+          "cards": [
+            "Qd",
+            "Qh"
+          ],
+          "equity": 0.947265625,
+          "equity_seed": 12130877670994930565,
+          "made_value": [
+            3,
+            12,
+            14,
+            9
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "Qc",
+            "Qd"
+          ],
+          "equity": 0.9296875,
+          "equity_seed": 11330311079623981800,
+          "made_value": [
+            3,
+            12,
+            14,
+            9
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.984375,
+      "median": 0.947265625,
+      "min": 0.9296875,
+      "n": 5,
+      "p10": 0.9328125,
+      "p90": 0.97109375,
+      "share": 0.0048828125,
+      "spread": 0.03828124999999993,
+      "street": "flop"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        4,
+        0,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.875,
+      "median": 0.875,
+      "min": 0.875,
+      "n": 1,
+      "p10": 0.875,
+      "p90": 0.875,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "flop"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        4,
+        1,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0002761840820312499,
+      "largest_same_board_collision": null,
+      "max": 0.9521484375,
+      "median": 0.86376953125,
+      "min": 0.775390625,
+      "n": 2,
+      "p10": 0.79306640625,
+      "p90": 0.93447265625,
+      "share": 0.001953125,
+      "spread": 0.14140624999999996,
+      "street": "flop"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        4,
+        1,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.9345703125,
+      "median": 0.9345703125,
+      "min": 0.9345703125,
+      "n": 1,
+      "p10": 0.9345703125,
+      "p90": 0.9345703125,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "flop"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        4,
+        2,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.9482421875,
+      "median": 0.9482421875,
+      "min": 0.9482421875,
+      "n": 1,
+      "p10": 0.9482421875,
+      "p90": 0.9482421875,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "flop"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        5,
+        2,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0001968383789062502,
+      "largest_same_board_collision": {
+        "board": [
+          "Kc",
+          "2c",
+          "9c"
+        ],
+        "board_index": 4,
+        "different_made_value": true,
+        "equity_spread": 0.072265625,
+        "high": {
+          "cards": [
+            "Ac",
+            "Jc"
+          ],
+          "equity": 0.98046875,
+          "equity_seed": 12273844033742010893,
+          "made_value": [
+            5,
+            14,
+            13,
+            11,
+            9,
+            2
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3c",
+            "8c"
+          ],
+          "equity": 0.908203125,
+          "equity_seed": 12886763830016125184,
+          "made_value": [
+            5,
+            13,
+            9,
+            8,
+            3,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9921875,
+      "median": 0.98046875,
+      "min": 0.908203125,
+      "n": 3,
+      "p10": 0.92265625,
+      "p90": 0.98984375,
+      "share": 0.0029296875,
+      "spread": 0.06718750000000007,
+      "street": "flop"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        5,
+        2,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.94140625,
+      "median": 0.94140625,
+      "min": 0.94140625,
+      "n": 1,
+      "p10": 0.94140625,
+      "p90": 0.94140625,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "flop"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        6,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.9833984375,
+      "median": 0.9833984375,
+      "min": 0.9833984375,
+      "n": 1,
+      "p10": 0.9833984375,
+      "p90": 0.9833984375,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "flop"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        6,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 7.62939453125e-06,
+      "largest_same_board_collision": null,
+      "max": 0.9921875,
+      "median": 0.98974609375,
+      "min": 0.9873046875,
+      "n": 2,
+      "p10": 0.98779296875,
+      "p90": 0.99169921875,
+      "share": 0.001953125,
+      "spread": 0.00390625,
+      "street": "flop"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        6,
+        2,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.994140625,
+      "median": 0.994140625,
+      "min": 0.994140625,
+      "n": 1,
+      "p10": 0.994140625,
+      "p90": 0.994140625,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "flop"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.00035116792929292933,
+      "largest_same_board_collision": {
+        "board": [
+          "5d",
+          "4s",
+          "2c",
+          "9s",
+          "3d"
+        ],
+        "board_index": 11,
+        "different_made_value": true,
+        "equity_spread": 0.05252525252525253,
+        "high": {
+          "cards": [
+            "Jc",
+            "Th"
+          ],
+          "equity": 0.0691919191919192,
+          "equity_seed": 9470512733854182703,
+          "made_value": [
+            0,
+            11,
+            10,
+            9,
+            5,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "7s",
+            "Th"
+          ],
+          "equity": 0.016666666666666666,
+          "equity_seed": 10190487131797655572,
+          "made_value": [
+            0,
+            10,
+            9,
+            7,
+            5,
+            4
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.08282828282828283,
+      "median": 0.06616161616161617,
+      "min": 0.016666666666666666,
+      "n": 8,
+      "p10": 0.03787878787878788,
+      "p90": 0.08282828282828283,
+      "share": 0.0078125,
+      "spread": 0.044949494949494954,
+      "street": "river"
+    },
+    {
+      "boards": 30,
+      "bucket": [
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.038047466856060606,
+      "largest_same_board_collision": {
+        "board": [
+          "2s",
+          "Ah",
+          "Th",
+          "6s",
+          "5h"
+        ],
+        "board_index": 58,
+        "different_made_value": true,
+        "equity_spread": 0.34595959595959597,
+        "high": {
+          "cards": [
+            "Kc",
+            "Qh"
+          ],
+          "equity": 0.3560606060606061,
+          "equity_seed": 13775807088160923608,
+          "made_value": [
+            0,
+            14,
+            13,
+            12,
+            10,
+            6
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3h",
+            "7c"
+          ],
+          "equity": 0.010101010101010102,
+          "equity_seed": 12253709706308465414,
+          "made_value": [
+            0,
+            14,
+            10,
+            7,
+            6,
+            5
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.3560606060606061,
+      "median": 0.1714646464646465,
+      "min": 0.004545454545454545,
+      "n": 138,
+      "p10": 0.041767676767676766,
+      "p90": 0.3240909090909091,
+      "share": 0.134765625,
+      "spread": 0.2823232323232323,
+      "street": "river"
+    },
+    {
+      "boards": 28,
+      "bucket": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.021944937657828283,
+      "largest_same_board_collision": {
+        "board": [
+          "Qs",
+          "7d",
+          "5h",
+          "3d",
+          "2h"
+        ],
+        "board_index": 15,
+        "different_made_value": true,
+        "equity_spread": 0.31818181818181823,
+        "high": {
+          "cards": [
+            "7h",
+            "Jd"
+          ],
+          "equity": 0.7292929292929293,
+          "equity_seed": 10075913262107686151,
+          "made_value": [
+            1,
+            7,
+            12,
+            11,
+            5
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2d",
+            "8d"
+          ],
+          "equity": 0.4111111111111111,
+          "equity_seed": 10687079850551261139,
+          "made_value": [
+            1,
+            2,
+            12,
+            8,
+            7
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.7292929292929293,
+      "median": 0.4404040404040404,
+      "min": 0.1484848484848485,
+      "n": 109,
+      "p10": 0.36878787878787883,
+      "p90": 0.574949494949495,
+      "share": 0.1064453125,
+      "spread": 0.20616161616161616,
+      "street": "river"
+    },
+    {
+      "boards": 13,
+      "bucket": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.037859059343434344,
+      "largest_same_board_collision": {
+        "board": [
+          "2s",
+          "7s",
+          "4c",
+          "Ac",
+          "2d"
+        ],
+        "board_index": 35,
+        "different_made_value": true,
+        "equity_spread": 0.47474747474747475,
+        "high": {
+          "cards": [
+            "Jd",
+            "Kc"
+          ],
+          "equity": 0.48535353535353537,
+          "equity_seed": 9448617080035416231,
+          "made_value": [
+            1,
+            2,
+            14,
+            13,
+            11
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3c",
+            "6c"
+          ],
+          "equity": 0.010606060606060607,
+          "equity_seed": 10505423637914685587,
+          "made_value": [
+            1,
+            2,
+            14,
+            7,
+            6
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.48535353535353537,
+      "median": 0.1984848484848485,
+      "min": 0.004545454545454545,
+      "n": 101,
+      "p10": 0.04494949494949495,
+      "p90": 0.4287878787878788,
+      "share": 0.0986328125,
+      "spread": 0.3838383838383838,
+      "street": "river"
+    },
+    {
+      "boards": 26,
+      "bucket": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.017143899936868687,
+      "largest_same_board_collision": {
+        "board": [
+          "2s",
+          "9h",
+          "7h",
+          "6c",
+          "Jh"
+        ],
+        "board_index": 12,
+        "different_made_value": true,
+        "equity_spread": 0.14343434343434336,
+        "high": {
+          "cards": [
+            "Jd",
+            "Kc"
+          ],
+          "equity": 0.807070707070707,
+          "equity_seed": 12781770556130459411,
+          "made_value": [
+            1,
+            11,
+            13,
+            9,
+            7
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3d",
+            "9c"
+          ],
+          "equity": 0.6636363636363637,
+          "equity_seed": 11194209013352637052,
+          "made_value": [
+            1,
+            9,
+            11,
+            7,
+            6
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.8181818181818182,
+      "median": 0.6555555555555556,
+      "min": 0.3464646464646465,
+      "n": 67,
+      "p10": 0.4991919191919192,
+      "p90": 0.7612121212121212,
+      "share": 0.0654296875,
+      "spread": 0.26202020202020204,
+      "street": "river"
+    },
+    {
+      "boards": 8,
+      "bucket": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.02208570075757576,
+      "largest_same_board_collision": {
+        "board": [
+          "7s",
+          "8s",
+          "Qc",
+          "6h",
+          "8c"
+        ],
+        "board_index": 21,
+        "different_made_value": true,
+        "equity_spread": 0.43434343434343436,
+        "high": {
+          "cards": [
+            "Ac",
+            "Kc"
+          ],
+          "equity": 0.46515151515151515,
+          "equity_seed": 10069087779877521808,
+          "made_value": [
+            1,
+            8,
+            14,
+            13,
+            12
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2s",
+            "5s"
+          ],
+          "equity": 0.03080808080808081,
+          "equity_seed": 10586580180053094871,
+          "made_value": [
+            1,
+            8,
+            12,
+            7,
+            6
+          ],
+          "plays_board": true
+        }
+      },
+      "max": 0.4712121212121212,
+      "median": 0.28939393939393937,
+      "min": 0.03080808080808081,
+      "n": 57,
+      "p10": 0.056262626262626264,
+      "p90": 0.453030303030303,
+      "share": 0.0556640625,
+      "spread": 0.39676767676767677,
+      "street": "river"
+    },
+    {
+      "boards": 21,
+      "bucket": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.01052418718434343,
+      "largest_same_board_collision": {
+        "board": [
+          "Ah",
+          "Qd",
+          "9s",
+          "Jh",
+          "Ks"
+        ],
+        "board_index": 29,
+        "different_made_value": true,
+        "equity_spread": 0.1636363636363637,
+        "high": {
+          "cards": [
+            "5h",
+            "Ad"
+          ],
+          "equity": 0.7090909090909091,
+          "equity_seed": 11259558491326534543,
+          "made_value": [
+            1,
+            14,
+            13,
+            12,
+            11
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2h",
+            "Qs"
+          ],
+          "equity": 0.5454545454545454,
+          "equity_seed": 13766102716521201480,
+          "made_value": [
+            1,
+            12,
+            14,
+            13,
+            11
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.8727272727272727,
+      "median": 0.8035353535353535,
+      "min": 0.5353535353535354,
+      "n": 47,
+      "p10": 0.6272727272727273,
+      "p90": 0.8565656565656565,
+      "share": 0.0458984375,
+      "spread": 0.22929292929292922,
+      "street": "river"
+    },
+    {
+      "boards": 9,
+      "bucket": [
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.030791114267676768,
+      "largest_same_board_collision": {
+        "board": [
+          "Qh",
+          "9s",
+          "Ad",
+          "3d",
+          "As"
+        ],
+        "board_index": 40,
+        "different_made_value": true,
+        "equity_spread": 0.49696969696969695,
+        "high": {
+          "cards": [
+            "Ks",
+            "Th"
+          ],
+          "equity": 0.5015151515151515,
+          "equity_seed": 12618881128845800459,
+          "made_value": [
+            1,
+            14,
+            13,
+            12,
+            10
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2h",
+            "4c"
+          ],
+          "equity": 0.004545454545454545,
+          "equity_seed": 12424946442124931633,
+          "made_value": [
+            1,
+            14,
+            12,
+            9,
+            4
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.5136363636363637,
+      "median": 0.251010101010101,
+      "min": 0.004545454545454545,
+      "n": 73,
+      "p10": 0.03323232323232324,
+      "p90": 0.46515151515151515,
+      "share": 0.0712890625,
+      "spread": 0.4319191919191919,
+      "street": "river"
+    },
+    {
+      "boards": 7,
+      "bucket": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0010848721590909092,
+      "largest_same_board_collision": {
+        "board": [
+          "9c",
+          "Jh",
+          "7d",
+          "5d",
+          "4h"
+        ],
+        "board_index": 50,
+        "different_made_value": true,
+        "equity_spread": 0.0060606060606061,
+        "high": {
+          "cards": [
+            "5h",
+            "7h"
+          ],
+          "equity": 0.8868686868686869,
+          "equity_seed": 12183594304658032168,
+          "made_value": [
+            2,
+            7,
+            5,
+            11
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "4c",
+            "7c"
+          ],
+          "equity": 0.8808080808080808,
+          "equity_seed": 11108801429396323263,
+          "made_value": [
+            2,
+            7,
+            4,
+            11
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9242424242424242,
+      "median": 0.8808080808080808,
+      "min": 0.602020202020202,
+      "n": 9,
+      "p10": 0.7967676767676768,
+      "p90": 0.9202020202020202,
+      "share": 0.0087890625,
+      "spread": 0.12343434343434345,
+      "street": "river"
+    },
+    {
+      "boards": 13,
+      "bucket": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.00616122159090909,
+      "largest_same_board_collision": {
+        "board": [
+          "3s",
+          "6c",
+          "7c",
+          "6d",
+          "4c"
+        ],
+        "board_index": 10,
+        "different_made_value": true,
+        "equity_spread": 0.19090909090909092,
+        "high": {
+          "cards": [
+            "7s",
+            "Jd"
+          ],
+          "equity": 0.6383838383838384,
+          "equity_seed": 9399133487752857437,
+          "made_value": [
+            2,
+            7,
+            6,
+            11
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3d",
+            "Qc"
+          ],
+          "equity": 0.44747474747474747,
+          "equity_seed": 11102229153020679058,
+          "made_value": [
+            2,
+            6,
+            3,
+            12
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.7287878787878788,
+      "median": 0.5969696969696969,
+      "min": 0.44747474747474747,
+      "n": 36,
+      "p10": 0.5176767676767677,
+      "p90": 0.692929292929293,
+      "share": 0.03515625,
+      "spread": 0.17525252525252522,
+      "street": "river"
+    },
+    {
+      "boards": 9,
+      "bucket": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0018199573863636356,
+      "largest_same_board_collision": {
+        "board": [
+          "4d",
+          "6c",
+          "2s",
+          "7c",
+          "8c"
+        ],
+        "board_index": 45,
+        "different_made_value": true,
+        "equity_spread": 0.0060606060606061,
+        "high": {
+          "cards": [
+            "7h",
+            "8d"
+          ],
+          "equity": 0.7636363636363637,
+          "equity_seed": 9731640930273939736,
+          "made_value": [
+            2,
+            8,
+            7,
+            6
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "6h",
+            "8h"
+          ],
+          "equity": 0.7575757575757576,
+          "equity_seed": 10067739660189945437,
+          "made_value": [
+            2,
+            8,
+            6,
+            7
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9191919191919192,
+      "median": 0.8959595959595961,
+      "min": 0.501010101010101,
+      "n": 10,
+      "p10": 0.731919191919192,
+      "p90": 0.9182828282828283,
+      "share": 0.009765625,
+      "spread": 0.1863636363636363,
+      "street": "river"
+    },
+    {
+      "boards": 20,
+      "bucket": [
+        2,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.05124289772727273,
+      "largest_same_board_collision": {
+        "board": [
+          "7h",
+          "Td",
+          "Ts",
+          "2s",
+          "2c"
+        ],
+        "board_index": 63,
+        "different_made_value": true,
+        "equity_spread": 0.745959595959596,
+        "high": {
+          "cards": [
+            "7s",
+            "Kd"
+          ],
+          "equity": 0.7828282828282829,
+          "equity_seed": 13527748276776604931,
+          "made_value": [
+            2,
+            10,
+            7,
+            13
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "4d",
+            "5s"
+          ],
+          "equity": 0.03686868686868687,
+          "equity_seed": 10997385243942204089,
+          "made_value": [
+            2,
+            10,
+            2,
+            7
+          ],
+          "plays_board": true
+        }
+      },
+      "max": 0.8747474747474747,
+      "median": 0.6661616161616162,
+      "min": 0.03686868686868687,
+      "n": 78,
+      "p10": 0.14494949494949494,
+      "p90": 0.8176767676767677,
+      "share": 0.076171875,
+      "spread": 0.6727272727272727,
+      "street": "river"
+    },
+    {
+      "boards": 13,
+      "bucket": [
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0016938920454545447,
+      "largest_same_board_collision": {
+        "board": [
+          "5h",
+          "Kc",
+          "Ac",
+          "Jc",
+          "8h"
+        ],
+        "board_index": 39,
+        "different_made_value": true,
+        "equity_spread": 0.030303030303030276,
+        "high": {
+          "cards": [
+            "Ah",
+            "Kd"
+          ],
+          "equity": 0.9262626262626262,
+          "equity_seed": 12128889714284819623,
+          "made_value": [
+            2,
+            14,
+            13,
+            11
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "Jh",
+            "Kd"
+          ],
+          "equity": 0.895959595959596,
+          "equity_seed": 10314695095113527529,
+          "made_value": [
+            2,
+            13,
+            11,
+            14
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9525252525252526,
+      "median": 0.9272727272727272,
+      "min": 0.6131313131313131,
+      "n": 18,
+      "p10": 0.8415151515151515,
+      "p90": 0.9378787878787879,
+      "share": 0.017578125,
+      "spread": 0.09636363636363632,
+      "street": "river"
+    },
+    {
+      "boards": 27,
+      "bucket": [
+        2,
+        2,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.032867739898989896,
+      "largest_same_board_collision": {
+        "board": [
+          "Ts",
+          "Ks",
+          "9s",
+          "Td",
+          "Kh"
+        ],
+        "board_index": 46,
+        "different_made_value": true,
+        "equity_spread": 0.5752525252525252,
+        "high": {
+          "cards": [
+            "Jh",
+            "Js"
+          ],
+          "equity": 0.7681818181818182,
+          "equity_seed": 12206117094912930429,
+          "made_value": [
+            2,
+            13,
+            11,
+            10
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3c",
+            "6c"
+          ],
+          "equity": 0.19292929292929292,
+          "equity_seed": 9708143287713214938,
+          "made_value": [
+            2,
+            13,
+            10,
+            9
+          ],
+          "plays_board": true
+        }
+      },
+      "max": 0.9025252525252525,
+      "median": 0.7944444444444445,
+      "min": 0.19292929292929292,
+      "n": 112,
+      "p10": 0.572929292929293,
+      "p90": 0.8734343434343435,
+      "share": 0.109375,
+      "spread": 0.3005050505050505,
+      "street": "river"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0007812499999999996,
+      "largest_same_board_collision": {
+        "board": [
+          "5s",
+          "7h",
+          "2s",
+          "8c",
+          "Js"
+        ],
+        "board_index": 44,
+        "different_made_value": true,
+        "equity_spread": 0.00303030303030305,
+        "high": {
+          "cards": [
+            "5d",
+            "5h"
+          ],
+          "equity": 0.9,
+          "equity_seed": 12223564394832099948,
+          "made_value": [
+            3,
+            5,
+            11,
+            8
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2d",
+            "2h"
+          ],
+          "equity": 0.896969696969697,
+          "equity_seed": 9465509886349811999,
+          "made_value": [
+            3,
+            2,
+            11,
+            8
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9242424242424242,
+      "median": 0.9,
+      "min": 0.6696969696969697,
+      "n": 5,
+      "p10": 0.7606060606060606,
+      "p90": 0.9206060606060605,
+      "share": 0.0048828125,
+      "spread": 0.15999999999999992,
+      "street": "river"
+    },
+    {
+      "boards": 9,
+      "bucket": [
+        3,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0008299794823232308,
+      "largest_same_board_collision": {
+        "board": [
+          "2s",
+          "5d",
+          "3h",
+          "9h",
+          "3d"
+        ],
+        "board_index": 32,
+        "different_made_value": true,
+        "equity_spread": 0.02020202020202022,
+        "high": {
+          "cards": [
+            "3c",
+            "Kd"
+          ],
+          "equity": 0.943939393939394,
+          "equity_seed": 12646318744022897391,
+          "made_value": [
+            3,
+            3,
+            13,
+            9
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3c",
+            "6s"
+          ],
+          "equity": 0.9237373737373737,
+          "equity_seed": 13801887983175356655,
+          "made_value": [
+            3,
+            3,
+            9,
+            6
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9722222222222222,
+      "median": 0.945959595959596,
+      "min": 0.7641414141414141,
+      "n": 14,
+      "p10": 0.9044444444444445,
+      "p90": 0.9651515151515151,
+      "share": 0.013671875,
+      "spread": 0.0607070707070706,
+      "street": "river"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        3,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 9.46969696969703e-06,
+      "largest_same_board_collision": null,
+      "max": 0.9515151515151515,
+      "median": 0.9484848484848485,
+      "min": 0.9454545454545454,
+      "n": 2,
+      "p10": 0.946060606060606,
+      "p90": 0.9509090909090909,
+      "share": 0.001953125,
+      "spread": 0.00484848484848488,
+      "street": "river"
+    },
+    {
+      "boards": 7,
+      "bucket": [
+        3,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.012897727272727274,
+      "largest_same_board_collision": {
+        "board": [
+          "Td",
+          "Tc",
+          "9s",
+          "Th",
+          "7s"
+        ],
+        "board_index": 13,
+        "different_made_value": true,
+        "equity_spread": 0.5535353535353535,
+        "high": {
+          "cards": [
+            "Ad",
+            "Ks"
+          ],
+          "equity": 0.6186868686868687,
+          "equity_seed": 12466579003813497688,
+          "made_value": [
+            3,
+            10,
+            14,
+            13
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3h",
+            "5s"
+          ],
+          "equity": 0.06515151515151515,
+          "equity_seed": 12637452541097506863,
+          "made_value": [
+            3,
+            10,
+            9,
+            7
+          ],
+          "plays_board": true
+        }
+      },
+      "max": 0.9641414141414142,
+      "median": 0.9146464646464646,
+      "min": 0.06515151515151515,
+      "n": 18,
+      "p10": 0.21484848484848487,
+      "p90": 0.9485858585858586,
+      "share": 0.017578125,
+      "spread": 0.7337373737373738,
+      "street": "river"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        3,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 2.5252525252525198e-05,
+      "largest_same_board_collision": null,
+      "max": 0.9838383838383838,
+      "median": 0.9757575757575758,
+      "min": 0.9676767676767677,
+      "n": 2,
+      "p10": 0.9692929292929293,
+      "p90": 0.9822222222222222,
+      "share": 0.001953125,
+      "spread": 0.012929292929292902,
+      "street": "river"
+    },
+    {
+      "boards": 7,
+      "bucket": [
+        3,
+        2,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.000992542613636363,
+      "largest_same_board_collision": {
+        "board": [
+          "Qh",
+          "9s",
+          "Ad",
+          "3d",
+          "As"
+        ],
+        "board_index": 40,
+        "different_made_value": true,
+        "equity_spread": 0.018181818181818188,
+        "high": {
+          "cards": [
+            "Ac",
+            "Jd"
+          ],
+          "equity": 0.9762626262626263,
+          "equity_seed": 12744237180570999836,
+          "made_value": [
+            3,
+            14,
+            12,
+            11
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "5h",
+            "Ah"
+          ],
+          "equity": 0.9580808080808081,
+          "equity_seed": 11237535955634518170,
+          "made_value": [
+            3,
+            14,
+            12,
+            9
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9803030303030303,
+      "median": 0.95,
+      "min": 0.8924242424242425,
+      "n": 13,
+      "p10": 0.8964646464646465,
+      "p90": 0.9746464646464646,
+      "share": 0.0126953125,
+      "spread": 0.07818181818181813,
+      "street": "river"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0018702651515151518,
+      "largest_same_board_collision": {
+        "board": [
+          "5d",
+          "4s",
+          "2c",
+          "9s",
+          "3d"
+        ],
+        "board_index": 11,
+        "different_made_value": true,
+        "equity_spread": 0.15959595959595962,
+        "high": {
+          "cards": [
+            "6s",
+            "Jd"
+          ],
+          "equity": 0.9287878787878788,
+          "equity_seed": 9374318074643386736,
+          "made_value": [
+            4,
+            6
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "As",
+            "Th"
+          ],
+          "equity": 0.7691919191919192,
+          "equity_seed": 13271312676924824878,
+          "made_value": [
+            4,
+            5
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9287878787878788,
+      "median": 0.9287878787878788,
+      "min": 0.7691919191919192,
+      "n": 12,
+      "p10": 0.7691919191919192,
+      "p90": 0.9287878787878788,
+      "share": 0.01171875,
+      "spread": 0.15959595959595962,
+      "street": "river"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        4,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 6.313131313131137e-06,
+      "largest_same_board_collision": {
+        "board": [
+          "3s",
+          "6c",
+          "7c",
+          "6d",
+          "4c"
+        ],
+        "board_index": 10,
+        "different_made_value": false,
+        "equity_spread": 0.004040404040403955,
+        "high": {
+          "cards": [
+            "5c",
+            "Qh"
+          ],
+          "equity": 0.8641414141414141,
+          "equity_seed": 13222326154389376652,
+          "made_value": [
+            4,
+            7
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "5s",
+            "Ts"
+          ],
+          "equity": 0.8601010101010101,
+          "equity_seed": 13149671821757521402,
+          "made_value": [
+            4,
+            7
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.8641414141414141,
+      "median": 0.8621212121212121,
+      "min": 0.8601010101010101,
+      "n": 2,
+      "p10": 0.8605050505050506,
+      "p90": 0.8637373737373737,
+      "share": 0.001953125,
+      "spread": 0.003232323232323142,
+      "street": "river"
+    },
+    {
+      "boards": 7,
+      "bucket": [
+        4,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0015052872474747465,
+      "largest_same_board_collision": {
+        "board": [
+          "5s",
+          "7h",
+          "2s",
+          "8c",
+          "Js"
+        ],
+        "board_index": 44,
+        "different_made_value": true,
+        "equity_spread": 0.015151515151515249,
+        "high": {
+          "cards": [
+            "6d",
+            "9c"
+          ],
+          "equity": 0.9393939393939394,
+          "equity_seed": 12820739580106658605,
+          "made_value": [
+            4,
+            9
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "4d",
+            "6c"
+          ],
+          "equity": 0.9242424242424242,
+          "equity_seed": 10013198353243048075,
+          "made_value": [
+            4,
+            8
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9954545454545455,
+      "median": 0.9287878787878788,
+      "min": 0.8732323232323232,
+      "n": 14,
+      "p10": 0.8732323232323232,
+      "p90": 0.9833333333333333,
+      "share": 0.013671875,
+      "spread": 0.11010101010101003,
+      "street": "river"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        4,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.00044625946969696964,
+      "largest_same_board_collision": null,
+      "max": 0.955050505050505,
+      "median": 0.955050505050505,
+      "min": 0.7646464646464647,
+      "n": 3,
+      "p10": 0.8027272727272727,
+      "p90": 0.955050505050505,
+      "share": 0.0029296875,
+      "spread": 0.1523232323232323,
+      "street": "river"
+    },
+    {
+      "boards": 6,
+      "bucket": [
+        4,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0004071969696969697,
+      "largest_same_board_collision": {
+        "board": [
+          "Ah",
+          "Qd",
+          "9s",
+          "Jh",
+          "Ks"
+        ],
+        "board_index": 29,
+        "different_made_value": false,
+        "equity_spread": 0.0,
+        "high": {
+          "cards": [
+            "Qc",
+            "Ts"
+          ],
+          "equity": 0.9348484848484848,
+          "equity_seed": 10758335731600021899,
+          "made_value": [
+            4,
+            14
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "Ad",
+            "Th"
+          ],
+          "equity": 0.9348484848484848,
+          "equity_seed": 13662625287976087847,
+          "made_value": [
+            4,
+            14
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9954545454545455,
+      "median": 0.9547979797979798,
+      "min": 0.9348484848484848,
+      "n": 8,
+      "p10": 0.9348484848484848,
+      "p90": 0.9869696969696969,
+      "share": 0.0078125,
+      "spread": 0.052121212121212124,
+      "street": "river"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        4,
+        2,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.00030727193813131245,
+      "largest_same_board_collision": {
+        "board": [
+          "4s",
+          "Qd",
+          "Kc",
+          "9d",
+          "4d"
+        ],
+        "board_index": 3,
+        "different_made_value": false,
+        "equity_spread": 0.008585858585858586,
+        "high": {
+          "cards": [
+            "Jd",
+            "Tc"
+          ],
+          "equity": 0.9308080808080809,
+          "equity_seed": 9532474351427971008,
+          "made_value": [
+            4,
+            13
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "Jc",
+            "Tc"
+          ],
+          "equity": 0.9222222222222223,
+          "equity_seed": 12591843956086741957,
+          "made_value": [
+            4,
+            13
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9671717171717171,
+      "median": 0.9671717171717171,
+      "min": 0.9222222222222223,
+      "n": 7,
+      "p10": 0.9222222222222223,
+      "p90": 0.9671717171717171,
+      "share": 0.0068359375,
+      "spread": 0.04494949494949485,
+      "street": "river"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        5,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0012695312499999998,
+      "largest_same_board_collision": {
+        "board": [
+          "Ks",
+          "3h",
+          "7h",
+          "Th",
+          "5h"
+        ],
+        "board_index": 30,
+        "different_made_value": true,
+        "equity_spread": 0.15454545454545454,
+        "high": {
+          "cards": [
+            "9h",
+            "Kc"
+          ],
+          "equity": 0.8272727272727273,
+          "equity_seed": 11612014604689919756,
+          "made_value": [
+            5,
+            10,
+            9,
+            7,
+            5,
+            3
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2c",
+            "2h"
+          ],
+          "equity": 0.6727272727272727,
+          "equity_seed": 11751804541757813277,
+          "made_value": [
+            5,
+            10,
+            7,
+            5,
+            3,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.8282828282828283,
+      "median": 0.7878787878787878,
+      "min": 0.6727272727272727,
+      "n": 11,
+      "p10": 0.7101010101010101,
+      "p90": 0.8282828282828283,
+      "share": 0.0107421875,
+      "spread": 0.11818181818181817,
+      "street": "river"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        5,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.803030303030303,
+      "median": 0.803030303030303,
+      "min": 0.803030303030303,
+      "n": 1,
+      "p10": 0.803030303030303,
+      "p90": 0.803030303030303,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "river"
+    },
+    {
+      "boards": 8,
+      "bucket": [
+        5,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0010102982954545451,
+      "largest_same_board_collision": {
+        "board": [
+          "Ks",
+          "3h",
+          "7h",
+          "Th",
+          "5h"
+        ],
+        "board_index": 30,
+        "different_made_value": true,
+        "equity_spread": 0.08787878787878789,
+        "high": {
+          "cards": [
+            "Ad",
+            "Ah"
+          ],
+          "equity": 0.998989898989899,
+          "equity_seed": 13183210183675820397,
+          "made_value": [
+            5,
+            14,
+            10,
+            7,
+            5,
+            3
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "6s",
+            "Qh"
+          ],
+          "equity": 0.9111111111111111,
+          "equity_seed": 12209531232417178735,
+          "made_value": [
+            5,
+            12,
+            10,
+            7,
+            5,
+            3
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 1.0,
+      "median": 0.9898989898989898,
+      "min": 0.9111111111111111,
+      "n": 18,
+      "p10": 0.9425252525252525,
+      "p90": 1.0,
+      "share": 0.017578125,
+      "spread": 0.057474747474747456,
+      "street": "river"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        5,
+        2,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 3.590593434343436e-05,
+      "largest_same_board_collision": null,
+      "max": 0.9626262626262626,
+      "median": 0.9585858585858585,
+      "min": 0.9494949494949495,
+      "n": 4,
+      "p10": 0.9522222222222222,
+      "p90": 0.9614141414141414,
+      "share": 0.00390625,
+      "spread": 0.009191919191919196,
+      "street": "river"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        6,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.000503077651515151,
+      "largest_same_board_collision": {
+        "board": [
+          "7h",
+          "Td",
+          "Ts",
+          "2s",
+          "2c"
+        ],
+        "board_index": 63,
+        "different_made_value": false,
+        "equity_spread": 0.0,
+        "high": {
+          "cards": [
+            "2d",
+            "9s"
+          ],
+          "equity": 0.8878787878787879,
+          "equity_seed": 9829787978862345348,
+          "made_value": [
+            6,
+            2,
+            10
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2d",
+            "Kc"
+          ],
+          "equity": 0.8878787878787879,
+          "equity_seed": 10790924565460008311,
+          "made_value": [
+            6,
+            2,
+            10
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9929292929292929,
+      "median": 0.9868686868686869,
+      "min": 0.8878787878787879,
+      "n": 5,
+      "p10": 0.8878787878787879,
+      "p90": 0.9909090909090909,
+      "share": 0.0048828125,
+      "spread": 0.10303030303030292,
+      "street": "river"
+    },
+    {
+      "boards": 6,
+      "bucket": [
+        6,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0032655658143939384,
+      "largest_same_board_collision": {
+        "board": [
+          "Td",
+          "Tc",
+          "9s",
+          "Th",
+          "7s"
+        ],
+        "board_index": 13,
+        "different_made_value": true,
+        "equity_spread": 0.23636363636363633,
+        "high": {
+          "cards": [
+            "9d",
+            "Jd"
+          ],
+          "equity": 0.8914141414141414,
+          "equity_seed": 13228999533391164907,
+          "made_value": [
+            6,
+            10,
+            9
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2c",
+            "2d"
+          ],
+          "equity": 0.6550505050505051,
+          "equity_seed": 10392172982132383954,
+          "made_value": [
+            6,
+            10,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9939393939393939,
+      "median": 0.8898989898989899,
+      "min": 0.6550505050505051,
+      "n": 15,
+      "p10": 0.7580808080808081,
+      "p90": 0.981010101010101,
+      "share": 0.0146484375,
+      "spread": 0.22292929292929287,
+      "street": "river"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        6,
+        2,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 2.0123106060605973e-05,
+      "largest_same_board_collision": null,
+      "max": 0.998989898989899,
+      "median": 0.9974747474747474,
+      "min": 0.9929292929292929,
+      "n": 4,
+      "p10": 0.9938383838383839,
+      "p90": 0.998989898989899,
+      "share": 0.00390625,
+      "spread": 0.005151515151515129,
+      "street": "river"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        7,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "n": 1,
+      "p10": 1.0,
+      "p90": 1.0,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "river"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        8,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": {
+        "board": [
+          "Kd",
+          "7s",
+          "Td",
+          "2h",
+          "Jd"
+        ],
+        "board_index": 7,
+        "different_made_value": true,
+        "equity_spread": 0.0,
+        "high": {
+          "cards": [
+            "Ad",
+            "Qd"
+          ],
+          "equity": 1.0,
+          "equity_seed": 10023492118190737926,
+          "made_value": [
+            8,
+            14
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "9d",
+            "Qd"
+          ],
+          "equity": 1.0,
+          "equity_seed": 11004664879866123523,
+          "made_value": [
+            8,
+            13
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "n": 2,
+      "p10": 1.0,
+      "p90": 1.0,
+      "share": 0.001953125,
+      "spread": 0.0,
+      "street": "river"
+    },
+    {
+      "boards": 9,
+      "bucket": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0015727996826171878,
+      "largest_same_board_collision": {
+        "board": [
+          "4s",
+          "Tc",
+          "3c",
+          "Jd"
+        ],
+        "board_index": 20,
+        "different_made_value": true,
+        "equity_spread": 0.087890625,
+        "high": {
+          "cards": [
+            "5h",
+            "8d"
+          ],
+          "equity": 0.1650390625,
+          "equity_seed": 11513938768734068700,
+          "made_value": [
+            0,
+            11,
+            10,
+            8,
+            5,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2s",
+            "7s"
+          ],
+          "equity": 0.0771484375,
+          "equity_seed": 10989305777046402028,
+          "made_value": [
+            0,
+            11,
+            10,
+            7,
+            4,
+            3
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.2060546875,
+      "median": 0.15966796875,
+      "min": 0.0517578125,
+      "n": 14,
+      "p10": 0.07802734375,
+      "p90": 0.19306640625000002,
+      "share": 0.013671875,
+      "spread": 0.11503906250000001,
+      "street": "turn"
+    },
+    {
+      "boards": 13,
+      "bucket": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0056522369384765635,
+      "largest_same_board_collision": {
+        "board": [
+          "8c",
+          "Tc",
+          "9h",
+          "2s"
+        ],
+        "board_index": 14,
+        "different_made_value": true,
+        "equity_spread": 0.19140625,
+        "high": {
+          "cards": [
+            "4c",
+            "Js"
+          ],
+          "equity": 0.3408203125,
+          "equity_seed": 13779987299602775880,
+          "made_value": [
+            0,
+            11,
+            10,
+            9,
+            8,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3c",
+            "6h"
+          ],
+          "equity": 0.1494140625,
+          "equity_seed": 13292191754621919077,
+          "made_value": [
+            0,
+            10,
+            9,
+            8,
+            6,
+            3
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.353515625,
+      "median": 0.236328125,
+      "min": 0.1494140625,
+      "n": 33,
+      "p10": 0.1650390625,
+      "p90": 0.3404296875,
+      "share": 0.0322265625,
+      "spread": 0.17539062500000002,
+      "street": "turn"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.00014038085937500004,
+      "largest_same_board_collision": null,
+      "max": 0.40234375,
+      "median": 0.357421875,
+      "min": 0.3125,
+      "n": 2,
+      "p10": 0.321484375,
+      "p90": 0.393359375,
+      "share": 0.001953125,
+      "spread": 0.07187500000000002,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.314453125,
+      "median": 0.314453125,
+      "min": 0.314453125,
+      "n": 1,
+      "p10": 0.314453125,
+      "p90": 0.314453125,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 41,
+      "bucket": [
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.042099952697753906,
+      "largest_same_board_collision": {
+        "board": [
+          "9s",
+          "Kh",
+          "7d",
+          "3h"
+        ],
+        "board_index": 2,
+        "different_made_value": true,
+        "equity_spread": 0.4482421875,
+        "high": {
+          "cards": [
+            "As",
+            "Js"
+          ],
+          "equity": 0.501953125,
+          "equity_seed": 11115065414902307835,
+          "made_value": [
+            0,
+            14,
+            13,
+            11,
+            9,
+            7
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2s",
+            "4h"
+          ],
+          "equity": 0.0537109375,
+          "equity_seed": 9423538960408869017,
+          "made_value": [
+            0,
+            13,
+            9,
+            7,
+            4,
+            3
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.501953125,
+      "median": 0.2490234375,
+      "min": 0.0537109375,
+      "n": 150,
+      "p10": 0.10234375,
+      "p90": 0.38974609375,
+      "share": 0.146484375,
+      "spread": 0.28740234375,
+      "street": "turn"
+    },
+    {
+      "boards": 37,
+      "bucket": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.03311100006103516,
+      "largest_same_board_collision": {
+        "board": [
+          "8s",
+          "Ah",
+          "5s",
+          "Qh"
+        ],
+        "board_index": 42,
+        "different_made_value": true,
+        "equity_spread": 0.2880859375,
+        "high": {
+          "cards": [
+            "Kc",
+            "Tc"
+          ],
+          "equity": 0.4384765625,
+          "equity_seed": 11236926229076206708,
+          "made_value": [
+            0,
+            14,
+            13,
+            12,
+            10,
+            8
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3s",
+            "4d"
+          ],
+          "equity": 0.150390625,
+          "equity_seed": 12923661817896289712,
+          "made_value": [
+            0,
+            14,
+            12,
+            8,
+            5,
+            4
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.5068359375,
+      "median": 0.3486328125,
+      "min": 0.1455078125,
+      "n": 134,
+      "p10": 0.20078125,
+      "p90": 0.45380859375,
+      "share": 0.130859375,
+      "spread": 0.25302734375,
+      "street": "turn"
+    },
+    {
+      "boards": 15,
+      "bucket": [
+        0,
+        2,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0030521392822265626,
+      "largest_same_board_collision": {
+        "board": [
+          "4s",
+          "Qs",
+          "7s",
+          "2h"
+        ],
+        "board_index": 5,
+        "different_made_value": true,
+        "equity_spread": 0.1845703125,
+        "high": {
+          "cards": [
+            "9s",
+            "Ad"
+          ],
+          "equity": 0.4931640625,
+          "equity_seed": 12523400554324901600,
+          "made_value": [
+            0,
+            14,
+            12,
+            9,
+            7,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3s",
+            "Jd"
+          ],
+          "equity": 0.30859375,
+          "equity_seed": 9258902330981687836,
+          "made_value": [
+            0,
+            12,
+            11,
+            7,
+            4,
+            3
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.5244140625,
+      "median": 0.412109375,
+      "min": 0.30078125,
+      "n": 18,
+      "p10": 0.3126953125,
+      "p90": 0.486328125,
+      "share": 0.017578125,
+      "spread": 0.1736328125,
+      "street": "turn"
+    },
+    {
+      "boards": 13,
+      "bucket": [
+        0,
+        2,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0036649703979492196,
+      "largest_same_board_collision": {
+        "board": [
+          "6h",
+          "7d",
+          "5d",
+          "Qd"
+        ],
+        "board_index": 61,
+        "different_made_value": true,
+        "equity_spread": 0.138671875,
+        "high": {
+          "cards": [
+            "4d",
+            "As"
+          ],
+          "equity": 0.455078125,
+          "equity_seed": 11549563205796719036,
+          "made_value": [
+            0,
+            14,
+            12,
+            7,
+            6,
+            5
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3d",
+            "Kc"
+          ],
+          "equity": 0.31640625,
+          "equity_seed": 11796270203830682600,
+          "made_value": [
+            0,
+            13,
+            12,
+            7,
+            6,
+            5
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.6015625,
+      "median": 0.45068359375,
+      "min": 0.31640625,
+      "n": 18,
+      "p10": 0.33369140625,
+      "p90": 0.5421875,
+      "share": 0.017578125,
+      "spread": 0.20849609375000006,
+      "street": "turn"
+    },
+    {
+      "boards": 35,
+      "bucket": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.015042495727539068,
+      "largest_same_board_collision": {
+        "board": [
+          "7d",
+          "Qd",
+          "6h",
+          "2h"
+        ],
+        "board_index": 57,
+        "different_made_value": true,
+        "equity_spread": 0.2421875,
+        "high": {
+          "cards": [
+            "7s",
+            "Jc"
+          ],
+          "equity": 0.7099609375,
+          "equity_seed": 9245387948820338775,
+          "made_value": [
+            1,
+            7,
+            12,
+            11,
+            6
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2c",
+            "8c"
+          ],
+          "equity": 0.4677734375,
+          "equity_seed": 12522435466057315250,
+          "made_value": [
+            1,
+            2,
+            12,
+            8,
+            7
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.7099609375,
+      "median": 0.53857421875,
+      "min": 0.4052734375,
+      "n": 94,
+      "p10": 0.4693359375,
+      "p90": 0.6332031250000001,
+      "share": 0.091796875,
+      "spread": 0.16386718750000007,
+      "street": "turn"
+    },
+    {
+      "boards": 10,
+      "bucket": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.02619171142578126,
+      "largest_same_board_collision": {
+        "board": [
+          "5s",
+          "5h",
+          "9c",
+          "Tc"
+        ],
+        "board_index": 23,
+        "different_made_value": true,
+        "equity_spread": 0.45703125,
+        "high": {
+          "cards": [
+            "As",
+            "Kh"
+          ],
+          "equity": 0.5703125,
+          "equity_seed": 12879454129446498100,
+          "made_value": [
+            1,
+            5,
+            14,
+            13,
+            10
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3h",
+            "6d"
+          ],
+          "equity": 0.11328125,
+          "equity_seed": 10642287340358648054,
+          "made_value": [
+            1,
+            5,
+            10,
+            9,
+            6
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.5703125,
+      "median": 0.34375,
+      "min": 0.10546875,
+      "n": 80,
+      "p10": 0.15302734375,
+      "p90": 0.4882812500000001,
+      "share": 0.078125,
+      "spread": 0.3352539062500001,
+      "street": "turn"
+    },
+    {
+      "boards": 15,
+      "bucket": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0038663864135742177,
+      "largest_same_board_collision": {
+        "board": [
+          "4h",
+          "Kc",
+          "5h",
+          "3s"
+        ],
+        "board_index": 0,
+        "different_made_value": true,
+        "equity_spread": 0.1474609375,
+        "high": {
+          "cards": [
+            "2d",
+            "5s"
+          ],
+          "equity": 0.6435546875,
+          "equity_seed": 9352224352701233088,
+          "made_value": [
+            1,
+            5,
+            13,
+            4,
+            3
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3h",
+            "7s"
+          ],
+          "equity": 0.49609375,
+          "equity_seed": 11268312490628564816,
+          "made_value": [
+            1,
+            3,
+            13,
+            7,
+            5
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.6796875,
+      "median": 0.5751953125,
+      "min": 0.4287109375,
+      "n": 29,
+      "p10": 0.525,
+      "p90": 0.6615234375,
+      "share": 0.0283203125,
+      "spread": 0.13652343749999996,
+      "street": "turn"
+    },
+    {
+      "boards": 8,
+      "bucket": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "common_spread_score": 0.007289886474609375,
+      "largest_same_board_collision": {
+        "board": [
+          "7s",
+          "5h",
+          "3c",
+          "5c"
+        ],
+        "board_index": 44,
+        "different_made_value": true,
+        "equity_spread": 0.42578125,
+        "high": {
+          "cards": [
+            "4d",
+            "As"
+          ],
+          "equity": 0.578125,
+          "equity_seed": 11312839831306690963,
+          "made_value": [
+            1,
+            5,
+            14,
+            7,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2s",
+            "6s"
+          ],
+          "equity": 0.15234375,
+          "equity_seed": 10327511174447456598,
+          "made_value": [
+            1,
+            5,
+            7,
+            6,
+            3
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.5849609375,
+      "median": 0.373046875,
+      "min": 0.15234375,
+      "n": 21,
+      "p10": 0.189453125,
+      "p90": 0.544921875,
+      "share": 0.0205078125,
+      "spread": 0.35546875,
+      "street": "turn"
+    },
+    {
+      "boards": 9,
+      "bucket": [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0011821746826171883,
+      "largest_same_board_collision": {
+        "board": [
+          "Tc",
+          "Kc",
+          "9c",
+          "4d"
+        ],
+        "board_index": 31,
+        "different_made_value": true,
+        "equity_spread": 0.0771484375,
+        "high": {
+          "cards": [
+            "4s",
+            "Ac"
+          ],
+          "equity": 0.6591796875,
+          "equity_seed": 10742073121105367868,
+          "made_value": [
+            1,
+            4,
+            14,
+            13,
+            10
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "7c",
+            "7d"
+          ],
+          "equity": 0.58203125,
+          "equity_seed": 11801656041392412830,
+          "made_value": [
+            1,
+            7,
+            13,
+            10,
+            9
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.7451171875,
+      "median": 0.662109375,
+      "min": 0.58203125,
+      "n": 12,
+      "p10": 0.6072265625,
+      "p90": 0.70810546875,
+      "share": 0.01171875,
+      "spread": 0.10087890625000007,
+      "street": "turn"
+    },
+    {
+      "boards": 5,
+      "bucket": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 0.00047779083251953125,
+      "largest_same_board_collision": {
+        "board": [
+          "3h",
+          "2h",
+          "3c",
+          "7c"
+        ],
+        "board_index": 55,
+        "different_made_value": true,
+        "equity_spread": 0.0263671875,
+        "high": {
+          "cards": [
+            "4c",
+            "9c"
+          ],
+          "equity": 0.3271484375,
+          "equity_seed": 13758833957210348106,
+          "made_value": [
+            1,
+            3,
+            9,
+            7,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "5h",
+            "8h"
+          ],
+          "equity": 0.30078125,
+          "equity_seed": 10202780727747713405,
+          "made_value": [
+            1,
+            3,
+            8,
+            7,
+            5
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.4111328125,
+      "median": 0.32861328125,
+      "min": 0.30078125,
+      "n": 6,
+      "p10": 0.30615234375,
+      "p90": 0.3876953125,
+      "share": 0.005859375,
+      "spread": 0.08154296875,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.6083984375,
+      "median": 0.6083984375,
+      "min": 0.6083984375,
+      "n": 1,
+      "p10": 0.6083984375,
+      "p90": 0.6083984375,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.34765625,
+      "median": 0.34765625,
+      "min": 0.34765625,
+      "n": 1,
+      "p10": 0.34765625,
+      "p90": 0.34765625,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 25,
+      "bucket": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0074138641357421875,
+      "largest_same_board_collision": {
+        "board": [
+          "Th",
+          "6s",
+          "5s",
+          "Jh"
+        ],
+        "board_index": 17,
+        "different_made_value": true,
+        "equity_spread": 0.171875,
+        "high": {
+          "cards": [
+            "Js",
+            "Qd"
+          ],
+          "equity": 0.81640625,
+          "equity_seed": 13105275445108563386,
+          "made_value": [
+            1,
+            11,
+            12,
+            10,
+            6
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "9d",
+            "9h"
+          ],
+          "equity": 0.64453125,
+          "equity_seed": 12809664937487166170,
+          "made_value": [
+            1,
+            9,
+            11,
+            10,
+            6
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.81640625,
+      "median": 0.7158203125,
+      "min": 0.5537109375,
+      "n": 46,
+      "p10": 0.6337890625,
+      "p90": 0.798828125,
+      "share": 0.044921875,
+      "spread": 0.1650390625,
+      "street": "turn"
+    },
+    {
+      "boards": 8,
+      "bucket": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.017701148986816406,
+      "largest_same_board_collision": {
+        "board": [
+          "4h",
+          "Jh",
+          "3s",
+          "Jd"
+        ],
+        "board_index": 4,
+        "different_made_value": true,
+        "equity_spread": 0.46875,
+        "high": {
+          "cards": [
+            "8d",
+            "Ah"
+          ],
+          "equity": 0.556640625,
+          "equity_seed": 11746078690782279087,
+          "made_value": [
+            1,
+            11,
+            14,
+            8,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2c",
+            "7d"
+          ],
+          "equity": 0.087890625,
+          "equity_seed": 12035380511217797501,
+          "made_value": [
+            1,
+            11,
+            7,
+            4,
+            3
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.556640625,
+      "median": 0.27294921875,
+      "min": 0.080078125,
+      "n": 46,
+      "p10": 0.1240234375,
+      "p90": 0.51806640625,
+      "share": 0.044921875,
+      "spread": 0.39404296875,
+      "street": "turn"
+    },
+    {
+      "boards": 13,
+      "bucket": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.003591346740722655,
+      "largest_same_board_collision": {
+        "board": [
+          "Th",
+          "4d",
+          "Jd",
+          "9s"
+        ],
+        "board_index": 9,
+        "different_made_value": true,
+        "equity_spread": 0.2216796875,
+        "high": {
+          "cards": [
+            "Js",
+            "Qc"
+          ],
+          "equity": 0.81640625,
+          "equity_seed": 11764130320373543968,
+          "made_value": [
+            1,
+            11,
+            12,
+            10,
+            9
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "8d",
+            "8h"
+          ],
+          "equity": 0.5947265625,
+          "equity_seed": 13820780746755677649,
+          "made_value": [
+            1,
+            8,
+            11,
+            10,
+            9
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.822265625,
+      "median": 0.720703125,
+      "min": 0.5947265625,
+      "n": 19,
+      "p10": 0.6064453125,
+      "p90": 0.7999999999999999,
+      "share": 0.0185546875,
+      "spread": 0.19355468749999993,
+      "street": "turn"
+    },
+    {
+      "boards": 6,
+      "bucket": [
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "common_spread_score": 0.0023757934570312503,
+      "largest_same_board_collision": {
+        "board": [
+          "9d",
+          "Qs",
+          "Jh",
+          "Jd"
+        ],
+        "board_index": 38,
+        "different_made_value": true,
+        "equity_spread": 0.044921875,
+        "high": {
+          "cards": [
+            "5d",
+            "Kh"
+          ],
+          "equity": 0.4423828125,
+          "equity_seed": 11644127315226741314,
+          "made_value": [
+            1,
+            11,
+            13,
+            12,
+            9
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "4c",
+            "Tc"
+          ],
+          "equity": 0.3974609375,
+          "equity_seed": 11615509235401064188,
+          "made_value": [
+            1,
+            11,
+            12,
+            10,
+            9
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.619140625,
+      "median": 0.4208984375,
+      "min": 0.201171875,
+      "n": 9,
+      "p10": 0.305859375,
+      "p90": 0.576171875,
+      "share": 0.0087890625,
+      "spread": 0.2703125,
+      "street": "turn"
+    },
+    {
+      "boards": 6,
+      "bucket": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0012159347534179688,
+      "largest_same_board_collision": null,
+      "max": 0.8935546875,
+      "median": 0.7607421875,
+      "min": 0.580078125,
+      "n": 6,
+      "p10": 0.64404296875,
+      "p90": 0.8515625,
+      "share": 0.005859375,
+      "spread": 0.20751953125,
+      "street": "turn"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0031564712524414064,
+      "largest_same_board_collision": {
+        "board": [
+          "9h",
+          "2h",
+          "9s",
+          "8h"
+        ],
+        "board_index": 51,
+        "different_made_value": true,
+        "equity_spread": 0.298828125,
+        "high": {
+          "cards": [
+            "Ah",
+            "Qs"
+          ],
+          "equity": 0.6279296875,
+          "equity_seed": 9728705424833691442,
+          "made_value": [
+            1,
+            9,
+            14,
+            12,
+            8
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "6h",
+            "Jd"
+          ],
+          "equity": 0.3291015625,
+          "equity_seed": 10705662493427428243,
+          "made_value": [
+            1,
+            9,
+            11,
+            8,
+            6
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.6279296875,
+      "median": 0.4931640625,
+      "min": 0.2451171875,
+      "n": 13,
+      "p10": 0.2939453125,
+      "p90": 0.542578125,
+      "share": 0.0126953125,
+      "spread": 0.24863281250000002,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.689453125,
+      "median": 0.689453125,
+      "min": 0.689453125,
+      "n": 1,
+      "p10": 0.689453125,
+      "p90": 0.689453125,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "common_spread_score": 0.0005203247070312501,
+      "largest_same_board_collision": {
+        "board": [
+          "3s",
+          "9s",
+          "Js",
+          "9h"
+        ],
+        "board_index": 7,
+        "different_made_value": true,
+        "equity_spread": 0.15625,
+        "high": {
+          "cards": [
+            "Ks",
+            "Tc"
+          ],
+          "equity": 0.578125,
+          "equity_seed": 9854475862540435091,
+          "made_value": [
+            1,
+            9,
+            13,
+            11,
+            10
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "7d",
+            "Ts"
+          ],
+          "equity": 0.421875,
+          "equity_seed": 12340881505086592776,
+          "made_value": [
+            1,
+            9,
+            11,
+            10,
+            7
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.578125,
+      "median": 0.4228515625,
+      "min": 0.388671875,
+      "n": 4,
+      "p10": 0.3986328125,
+      "p90": 0.5318359375,
+      "share": 0.00390625,
+      "spread": 0.13320312500000003,
+      "street": "turn"
+    },
+    {
+      "boards": 23,
+      "bucket": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0070095062255859375,
+      "largest_same_board_collision": {
+        "board": [
+          "Kh",
+          "6h",
+          "Qd",
+          "9c"
+        ],
+        "board_index": 1,
+        "different_made_value": true,
+        "equity_spread": 0.142578125,
+        "high": {
+          "cards": [
+            "Ac",
+            "Kc"
+          ],
+          "equity": 0.869140625,
+          "equity_seed": 12872295033923749775,
+          "made_value": [
+            1,
+            13,
+            14,
+            12,
+            9
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "7d",
+            "Qs"
+          ],
+          "equity": 0.7265625,
+          "equity_seed": 13409681456512050434,
+          "made_value": [
+            1,
+            12,
+            13,
+            9,
+            7
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.892578125,
+      "median": 0.80078125,
+      "min": 0.640625,
+      "n": 42,
+      "p10": 0.70302734375,
+      "p90": 0.87392578125,
+      "share": 0.041015625,
+      "spread": 0.1708984375,
+      "street": "turn"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.004486083984375,
+      "largest_same_board_collision": {
+        "board": [
+          "4s",
+          "6c",
+          "Kh",
+          "Kd"
+        ],
+        "board_index": 22,
+        "different_made_value": true,
+        "equity_spread": 0.2705078125,
+        "high": {
+          "cards": [
+            "2c",
+            "Ac"
+          ],
+          "equity": 0.501953125,
+          "equity_seed": 9888701865760563333,
+          "made_value": [
+            1,
+            13,
+            14,
+            6,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3c",
+            "Tc"
+          ],
+          "equity": 0.2314453125,
+          "equity_seed": 11270665473369169729,
+          "made_value": [
+            1,
+            13,
+            10,
+            6,
+            4
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.501953125,
+      "median": 0.236328125,
+      "min": 0.166015625,
+      "n": 16,
+      "p10": 0.19140625,
+      "p90": 0.478515625,
+      "share": 0.015625,
+      "spread": 0.287109375,
+      "street": "turn"
+    },
+    {
+      "boards": 8,
+      "bucket": [
+        1,
+        2,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0007965087890624996,
+      "largest_same_board_collision": {
+        "board": [
+          "4h",
+          "Kc",
+          "5h",
+          "3s"
+        ],
+        "board_index": 0,
+        "different_made_value": true,
+        "equity_spread": 0.0078125,
+        "high": {
+          "cards": [
+            "6s",
+            "Ks"
+          ],
+          "equity": 0.796875,
+          "equity_seed": 9701220561869833726,
+          "made_value": [
+            1,
+            13,
+            6,
+            5,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "Ac",
+            "Ah"
+          ],
+          "equity": 0.7890625,
+          "equity_seed": 12467219939026762424,
+          "made_value": [
+            1,
+            14,
+            13,
+            5,
+            4
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.8642578125,
+      "median": 0.796875,
+      "min": 0.7509765625,
+      "n": 9,
+      "p10": 0.7658203125,
+      "p90": 0.8564453125,
+      "share": 0.0087890625,
+      "spread": 0.09062499999999996,
+      "street": "turn"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "common_spread_score": 0.001393890380859375,
+      "largest_same_board_collision": {
+        "board": [
+          "Qd",
+          "Kh",
+          "Jc",
+          "Qc"
+        ],
+        "board_index": 11,
+        "different_made_value": true,
+        "equity_spread": 0.2158203125,
+        "high": {
+          "cards": [
+            "4c",
+            "As"
+          ],
+          "equity": 0.5322265625,
+          "equity_seed": 10767778442404308773,
+          "made_value": [
+            1,
+            12,
+            14,
+            13,
+            11
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "7s",
+            "9d"
+          ],
+          "equity": 0.31640625,
+          "equity_seed": 12941626830179744864,
+          "made_value": [
+            1,
+            12,
+            13,
+            11,
+            9
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.5322265625,
+      "median": 0.33984375,
+      "min": 0.2177734375,
+      "n": 8,
+      "p10": 0.28681640625,
+      "p90": 0.465234375,
+      "share": 0.0078125,
+      "spread": 0.17841796875,
+      "street": "turn"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        1,
+        2,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0005287170410156251,
+      "largest_same_board_collision": {
+        "board": [
+          "6s",
+          "2s",
+          "Qd",
+          "Js"
+        ],
+        "board_index": 3,
+        "different_made_value": true,
+        "equity_spread": 0.1201171875,
+        "high": {
+          "cards": [
+            "As",
+            "Qc"
+          ],
+          "equity": 0.890625,
+          "equity_seed": 9845976844341921977,
+          "made_value": [
+            1,
+            12,
+            14,
+            11,
+            6
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "3s",
+            "Qh"
+          ],
+          "equity": 0.7705078125,
+          "equity_seed": 11250567905193824849,
+          "made_value": [
+            1,
+            12,
+            11,
+            6,
+            3
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.890625,
+      "median": 0.818359375,
+      "min": 0.73828125,
+      "n": 4,
+      "p10": 0.74794921875,
+      "p90": 0.88330078125,
+      "share": 0.00390625,
+      "spread": 0.13535156250000002,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        1,
+        2,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0004873275756835937,
+      "largest_same_board_collision": {
+        "board": [
+          "Kd",
+          "Qh",
+          "Ah",
+          "Kh"
+        ],
+        "board_index": 54,
+        "different_made_value": true,
+        "equity_spread": 0.1142578125,
+        "high": {
+          "cards": [
+            "5c",
+            "9h"
+          ],
+          "equity": 0.439453125,
+          "equity_seed": 11692280245223683278,
+          "made_value": [
+            1,
+            13,
+            14,
+            12,
+            9
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2d",
+            "4h"
+          ],
+          "equity": 0.3251953125,
+          "equity_seed": 10797703755618530507,
+          "made_value": [
+            1,
+            13,
+            14,
+            12,
+            4
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.439453125,
+      "median": 0.4072265625,
+      "min": 0.3251953125,
+      "n": 5,
+      "p10": 0.3310546875,
+      "p90": 0.430859375,
+      "share": 0.0048828125,
+      "spread": 0.09980468749999999,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        1,
+        2,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.6904296875,
+      "median": 0.6904296875,
+      "min": 0.6904296875,
+      "n": 1,
+      "p10": 0.6904296875,
+      "p90": 0.6904296875,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.435546875,
+      "median": 0.435546875,
+      "min": 0.435546875,
+      "n": 1,
+      "p10": 0.435546875,
+      "p90": 0.435546875,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 6,
+      "bucket": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0007677078247070312,
+      "largest_same_board_collision": {
+        "board": [
+          "4c",
+          "2c",
+          "7h",
+          "5s"
+        ],
+        "board_index": 58,
+        "different_made_value": true,
+        "equity_spread": 0.052734375,
+        "high": {
+          "cards": [
+            "5h",
+            "7s"
+          ],
+          "equity": 0.8427734375,
+          "equity_seed": 9511307947136927187,
+          "made_value": [
+            2,
+            7,
+            5,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2h",
+            "7c"
+          ],
+          "equity": 0.7900390625,
+          "equity_seed": 10740392834399596778,
+          "made_value": [
+            2,
+            7,
+            2,
+            5
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.8828125,
+      "median": 0.822265625,
+      "min": 0.7119140625,
+      "n": 7,
+      "p10": 0.7482421875,
+      "p90": 0.860546875,
+      "share": 0.0068359375,
+      "spread": 0.1123046875,
+      "street": "turn"
+    },
+    {
+      "boards": 6,
+      "bucket": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0022916793823242196,
+      "largest_same_board_collision": {
+        "board": [
+          "3h",
+          "4s",
+          "Kc",
+          "3s"
+        ],
+        "board_index": 28,
+        "different_made_value": true,
+        "equity_spread": 0.2138671875,
+        "high": {
+          "cards": [
+            "4c",
+            "Ah"
+          ],
+          "equity": 0.673828125,
+          "equity_seed": 9745762161297744430,
+          "made_value": [
+            2,
+            4,
+            3,
+            14
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2d",
+            "2h"
+          ],
+          "equity": 0.4599609375,
+          "equity_seed": 10889021232058866421,
+          "made_value": [
+            2,
+            3,
+            2,
+            13
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.6884765625,
+      "median": 0.60546875,
+      "min": 0.4599609375,
+      "n": 15,
+      "p10": 0.5169921875,
+      "p90": 0.6734375,
+      "share": 0.0146484375,
+      "spread": 0.15644531250000004,
+      "street": "turn"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        2,
+        0,
+        0,
+        1,
+        1
+      ],
+      "common_spread_score": 0.0005275726318359373,
+      "largest_same_board_collision": {
+        "board": [
+          "2s",
+          "3s",
+          "3d",
+          "5h"
+        ],
+        "board_index": 26,
+        "different_made_value": true,
+        "equity_spread": 0.0703125,
+        "high": {
+          "cards": [
+            "6d",
+            "6s"
+          ],
+          "equity": 0.767578125,
+          "equity_seed": 9561788490494522667,
+          "made_value": [
+            2,
+            6,
+            3,
+            5
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "5d",
+            "6s"
+          ],
+          "equity": 0.697265625,
+          "equity_seed": 9709303821163062691,
+          "made_value": [
+            2,
+            5,
+            3,
+            6
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.767578125,
+      "median": 0.720703125,
+      "min": 0.5947265625,
+      "n": 4,
+      "p10": 0.62548828125,
+      "p90": 0.760546875,
+      "share": 0.00390625,
+      "spread": 0.13505859374999996,
+      "street": "turn"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        2,
+        0,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0003265380859375001,
+      "largest_same_board_collision": null,
+      "max": 0.783203125,
+      "median": 0.6787109375,
+      "min": 0.57421875,
+      "n": 2,
+      "p10": 0.5951171875,
+      "p90": 0.7623046875,
+      "share": 0.001953125,
+      "spread": 0.16718750000000004,
+      "street": "turn"
+    },
+    {
+      "boards": 9,
+      "bucket": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0015840530395507812,
+      "largest_same_board_collision": {
+        "board": [
+          "7d",
+          "Qh",
+          "Tc",
+          "9d"
+        ],
+        "board_index": 41,
+        "different_made_value": false,
+        "equity_spread": 0.02734375,
+        "high": {
+          "cards": [
+            "9c",
+            "Th"
+          ],
+          "equity": 0.826171875,
+          "equity_seed": 11635067899092686620,
+          "made_value": [
+            2,
+            10,
+            9,
+            12
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "9c",
+            "Ts"
+          ],
+          "equity": 0.798828125,
+          "equity_seed": 12017498027886391056,
+          "made_value": [
+            2,
+            10,
+            9,
+            12
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9111328125,
+      "median": 0.83203125,
+      "min": 0.7216796875,
+      "n": 11,
+      "p10": 0.7626953125,
+      "p90": 0.91015625,
+      "share": 0.0107421875,
+      "spread": 0.1474609375,
+      "street": "turn"
+    },
+    {
+      "boards": 11,
+      "bucket": [
+        2,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.008668899536132812,
+      "largest_same_board_collision": {
+        "board": [
+          "9h",
+          "2h",
+          "9s",
+          "8h"
+        ],
+        "board_index": 51,
+        "different_made_value": true,
+        "equity_spread": 0.3505859375,
+        "high": {
+          "cards": [
+            "Jc",
+            "Js"
+          ],
+          "equity": 0.7451171875,
+          "equity_seed": 10473646744541055195,
+          "made_value": [
+            2,
+            11,
+            9,
+            8
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2s",
+            "5s"
+          ],
+          "equity": 0.39453125,
+          "equity_seed": 13489019689051047033,
+          "made_value": [
+            2,
+            9,
+            2,
+            8
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.853515625,
+      "median": 0.67822265625,
+      "min": 0.39453125,
+      "n": 36,
+      "p10": 0.51220703125,
+      "p90": 0.7587890625,
+      "share": 0.03515625,
+      "spread": 0.24658203125,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        2,
+        1,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.685546875,
+      "median": 0.685546875,
+      "min": 0.685546875,
+      "n": 1,
+      "p10": 0.685546875,
+      "p90": 0.685546875,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        2,
+        1,
+        0,
+        1,
+        1
+      ],
+      "common_spread_score": 2.1362304687500087e-05,
+      "largest_same_board_collision": {
+        "board": [
+          "9d",
+          "Qs",
+          "Jh",
+          "Jd"
+        ],
+        "board_index": 38,
+        "different_made_value": true,
+        "equity_spread": 0.013671875,
+        "high": {
+          "cards": [
+            "9s",
+            "Kc"
+          ],
+          "equity": 0.724609375,
+          "equity_seed": 11177177496432651218,
+          "made_value": [
+            2,
+            11,
+            9,
+            13
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "9c",
+            "Ts"
+          ],
+          "equity": 0.7109375,
+          "equity_seed": 10137639174371391570,
+          "made_value": [
+            2,
+            11,
+            9,
+            12
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.724609375,
+      "median": 0.7177734375,
+      "min": 0.7109375,
+      "n": 2,
+      "p10": 0.7123046875,
+      "p90": 0.7232421875,
+      "share": 0.001953125,
+      "spread": 0.010937500000000044,
+      "street": "turn"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        2,
+        1,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 0.00011291503906250009,
+      "largest_same_board_collision": null,
+      "max": 0.7490234375,
+      "median": 0.712890625,
+      "min": 0.6767578125,
+      "n": 2,
+      "p10": 0.683984375,
+      "p90": 0.741796875,
+      "share": 0.001953125,
+      "spread": 0.057812500000000044,
+      "street": "turn"
+    },
+    {
+      "boards": 7,
+      "bucket": [
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.000965118408203125,
+      "largest_same_board_collision": {
+        "board": [
+          "2s",
+          "Js",
+          "Kd",
+          "Ac"
+        ],
+        "board_index": 32,
+        "different_made_value": true,
+        "equity_spread": 0.0751953125,
+        "high": {
+          "cards": [
+            "2h",
+            "Ah"
+          ],
+          "equity": 0.9150390625,
+          "equity_seed": 10506690002202799529,
+          "made_value": [
+            2,
+            14,
+            2,
+            13
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2h",
+            "Kh"
+          ],
+          "equity": 0.83984375,
+          "equity_seed": 13504750984049635808,
+          "made_value": [
+            2,
+            13,
+            2,
+            14
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9404296875,
+      "median": 0.87890625,
+      "min": 0.830078125,
+      "n": 11,
+      "p10": 0.83984375,
+      "p90": 0.9296875,
+      "share": 0.0107421875,
+      "spread": 0.08984375,
+      "street": "turn"
+    },
+    {
+      "boards": 13,
+      "bucket": [
+        2,
+        2,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.005712509155273438,
+      "largest_same_board_collision": {
+        "board": [
+          "4s",
+          "6c",
+          "Kh",
+          "Kd"
+        ],
+        "board_index": 22,
+        "different_made_value": true,
+        "equity_spread": 0.173828125,
+        "high": {
+          "cards": [
+            "4d",
+            "6h"
+          ],
+          "equity": 0.763671875,
+          "equity_seed": 13186122609700182108,
+          "made_value": [
+            2,
+            13,
+            6,
+            4
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "4c",
+            "Td"
+          ],
+          "equity": 0.58984375,
+          "equity_seed": 10291811140054510261,
+          "made_value": [
+            2,
+            13,
+            4,
+            10
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9052734375,
+      "median": 0.798828125,
+      "min": 0.580078125,
+      "n": 25,
+      "p10": 0.625,
+      "p90": 0.858984375,
+      "share": 0.0244140625,
+      "spread": 0.23398437500000002,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        2,
+        2,
+        0,
+        1,
+        1
+      ],
+      "common_spread_score": 0.000240325927734375,
+      "largest_same_board_collision": {
+        "board": [
+          "Qd",
+          "Kh",
+          "Jc",
+          "Qc"
+        ],
+        "board_index": 11,
+        "different_made_value": true,
+        "equity_spread": 0.1025390625,
+        "high": {
+          "cards": [
+            "Ad",
+            "Jd"
+          ],
+          "equity": 0.7646484375,
+          "equity_seed": 11733353374703574195,
+          "made_value": [
+            2,
+            12,
+            11,
+            14
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "Td",
+            "Ts"
+          ],
+          "equity": 0.662109375,
+          "equity_seed": 11306536648517923501,
+          "made_value": [
+            2,
+            12,
+            10,
+            13
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.7646484375,
+      "median": 0.681640625,
+      "min": 0.662109375,
+      "n": 3,
+      "p10": 0.666015625,
+      "p90": 0.748046875,
+      "share": 0.0029296875,
+      "spread": 0.08203125,
+      "street": "turn"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        2,
+        2,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0001068115234375,
+      "largest_same_board_collision": null,
+      "max": 0.916015625,
+      "median": 0.8818359375,
+      "min": 0.84765625,
+      "n": 2,
+      "p10": 0.8544921875,
+      "p90": 0.9091796875,
+      "share": 0.001953125,
+      "spread": 0.0546875,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        2,
+        2,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.828125,
+      "median": 0.828125,
+      "min": 0.828125,
+      "n": 1,
+      "p10": 0.828125,
+      "p90": 0.828125,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        3,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0002971649169921874,
+      "largest_same_board_collision": null,
+      "max": 0.9423828125,
+      "median": 0.9140625,
+      "min": 0.85546875,
+      "n": 4,
+      "p10": 0.8654296875,
+      "p90": 0.94150390625,
+      "share": 0.00390625,
+      "spread": 0.07607421874999998,
+      "street": "turn"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        3,
+        0,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0002737045288085942,
+      "largest_same_board_collision": {
+        "board": [
+          "As",
+          "6s",
+          "5s",
+          "6h"
+        ],
+        "board_index": 6,
+        "different_made_value": true,
+        "equity_spread": 0.0849609375,
+        "high": {
+          "cards": [
+            "6c",
+            "Ks"
+          ],
+          "equity": 0.947265625,
+          "equity_seed": 13455407969688765329,
+          "made_value": [
+            3,
+            6,
+            14,
+            13
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2s",
+            "6c"
+          ],
+          "equity": 0.8623046875,
+          "equity_seed": 11247139357055944326,
+          "made_value": [
+            3,
+            6,
+            14,
+            5
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.947265625,
+      "median": 0.9423828125,
+      "min": 0.8623046875,
+      "n": 5,
+      "p10": 0.8904296875,
+      "p90": 0.946484375,
+      "share": 0.0048828125,
+      "spread": 0.05605468750000009,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        3,
+        1,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.982421875,
+      "median": 0.982421875,
+      "min": 0.982421875,
+      "n": 1,
+      "p10": 0.982421875,
+      "p90": 0.982421875,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 5,
+      "bucket": [
+        3,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0008016586303710936,
+      "largest_same_board_collision": {
+        "board": [
+          "Js",
+          "6s",
+          "2s",
+          "Jd"
+        ],
+        "board_index": 39,
+        "different_made_value": true,
+        "equity_spread": 0.0283203125,
+        "high": {
+          "cards": [
+            "Ad",
+            "Jh"
+          ],
+          "equity": 0.888671875,
+          "equity_seed": 12783832054133651215,
+          "made_value": [
+            3,
+            11,
+            14,
+            6
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "4d",
+            "Jc"
+          ],
+          "equity": 0.8603515625,
+          "equity_seed": 10237853780359760647,
+          "made_value": [
+            3,
+            11,
+            6,
+            4
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9501953125,
+      "median": 0.87890625,
+      "min": 0.849609375,
+      "n": 9,
+      "p10": 0.857421875,
+      "p90": 0.9486328125,
+      "share": 0.0087890625,
+      "spread": 0.09121093749999998,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        3,
+        1,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.9130859375,
+      "median": 0.9130859375,
+      "min": 0.9130859375,
+      "n": 1,
+      "p10": 0.9130859375,
+      "p90": 0.9130859375,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        3,
+        2,
+        0,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.890625,
+      "median": 0.890625,
+      "min": 0.890625,
+      "n": 1,
+      "p10": 0.890625,
+      "p90": 0.890625,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        3,
+        2,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 8.468627929687507e-05,
+      "largest_same_board_collision": {
+        "board": [
+          "Kd",
+          "Qh",
+          "Ah",
+          "Kh"
+        ],
+        "board_index": 54,
+        "different_made_value": false,
+        "equity_spread": 0.0244140625,
+        "high": {
+          "cards": [
+            "8d",
+            "Ks"
+          ],
+          "equity": 0.83984375,
+          "equity_seed": 13717735762864169331,
+          "made_value": [
+            3,
+            13,
+            14,
+            12
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "8c",
+            "Ks"
+          ],
+          "equity": 0.8154296875,
+          "equity_seed": 13227070488938950956,
+          "made_value": [
+            3,
+            13,
+            14,
+            12
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.8515625,
+      "median": 0.83984375,
+      "min": 0.8154296875,
+      "n": 3,
+      "p10": 0.8203125,
+      "p90": 0.84921875,
+      "share": 0.0029296875,
+      "spread": 0.028906250000000022,
+      "street": "turn"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        4,
+        0,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0003437042236328126,
+      "largest_same_board_collision": {
+        "board": [
+          "4h",
+          "Kc",
+          "5h",
+          "3s"
+        ],
+        "board_index": 0,
+        "different_made_value": true,
+        "equity_spread": 0.0654296875,
+        "high": {
+          "cards": [
+            "6c",
+            "7h"
+          ],
+          "equity": 0.9755859375,
+          "equity_seed": 11214847770511696949,
+          "made_value": [
+            4,
+            7
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "2s",
+            "Ad"
+          ],
+          "equity": 0.91015625,
+          "equity_seed": 12645973784253339909,
+          "made_value": [
+            4,
+            5
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9755859375,
+      "median": 0.94287109375,
+      "min": 0.8779296875,
+      "n": 4,
+      "p10": 0.88759765625,
+      "p90": 0.9755859375,
+      "share": 0.00390625,
+      "spread": 0.08798828125000002,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        4,
+        0,
+        0,
+        1,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.9189453125,
+      "median": 0.9189453125,
+      "min": 0.9189453125,
+      "n": 1,
+      "p10": 0.9189453125,
+      "p90": 0.9189453125,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        4,
+        0,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.9248046875,
+      "median": 0.9248046875,
+      "min": 0.9248046875,
+      "n": 1,
+      "p10": 0.9248046875,
+      "p90": 0.9248046875,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        4,
+        1,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0005500793457031256,
+      "largest_same_board_collision": {
+        "board": [
+          "7d",
+          "5d",
+          "8h",
+          "9h"
+        ],
+        "board_index": 19,
+        "different_made_value": true,
+        "equity_spread": 0.154296875,
+        "high": {
+          "cards": [
+            "Jh",
+            "Ts"
+          ],
+          "equity": 0.970703125,
+          "equity_seed": 11160327603662635248,
+          "made_value": [
+            4,
+            11
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "6c",
+            "Ks"
+          ],
+          "equity": 0.81640625,
+          "equity_seed": 13620512653923345030,
+          "made_value": [
+            4,
+            9
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.970703125,
+      "median": 0.8359375,
+      "min": 0.81640625,
+      "n": 7,
+      "p10": 0.822265625,
+      "p90": 0.9027343750000001,
+      "share": 0.0068359375,
+      "spread": 0.08046875000000009,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        4,
+        1,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.9150390625,
+      "median": 0.9150390625,
+      "min": 0.9150390625,
+      "n": 1,
+      "p10": 0.9150390625,
+      "p90": 0.9150390625,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        4,
+        2,
+        0,
+        1,
+        0
+      ],
+      "common_spread_score": 1.8310546874999827e-05,
+      "largest_same_board_collision": null,
+      "max": 0.9677734375,
+      "median": 0.9619140625,
+      "min": 0.9560546875,
+      "n": 2,
+      "p10": 0.9572265625,
+      "p90": 0.9666015625,
+      "share": 0.001953125,
+      "spread": 0.009374999999999911,
+      "street": "turn"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        4,
+        2,
+        0,
+        1,
+        1
+      ],
+      "common_spread_score": 4.57763671875e-05,
+      "largest_same_board_collision": null,
+      "max": 0.91015625,
+      "median": 0.8955078125,
+      "min": 0.880859375,
+      "n": 2,
+      "p10": 0.8837890625,
+      "p90": 0.9072265625,
+      "share": 0.001953125,
+      "spread": 0.0234375,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        5,
+        1,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.955078125,
+      "median": 0.955078125,
+      "min": 0.955078125,
+      "n": 1,
+      "p10": 0.955078125,
+      "p90": 0.955078125,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        5,
+        1,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.904296875,
+      "median": 0.904296875,
+      "min": 0.904296875,
+      "n": 1,
+      "p10": 0.904296875,
+      "p90": 0.904296875,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        5,
+        1,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.951171875,
+      "median": 0.951171875,
+      "min": 0.951171875,
+      "n": 1,
+      "p10": 0.951171875,
+      "p90": 0.951171875,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        5,
+        1,
+        1,
+        1,
+        1
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.927734375,
+      "median": 0.927734375,
+      "min": 0.927734375,
+      "n": 1,
+      "p10": 0.927734375,
+      "p90": 0.927734375,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        5,
+        2,
+        1,
+        0,
+        0
+      ],
+      "common_spread_score": 6.103515625000087e-06,
+      "largest_same_board_collision": {
+        "board": [
+          "Jd",
+          "2d",
+          "6d",
+          "3s"
+        ],
+        "board_index": 13,
+        "different_made_value": true,
+        "equity_spread": 0.00390625,
+        "high": {
+          "cards": [
+            "3d",
+            "Kd"
+          ],
+          "equity": 0.9765625,
+          "equity_seed": 10123844586768589419,
+          "made_value": [
+            5,
+            13,
+            11,
+            6,
+            3,
+            2
+          ],
+          "plays_board": false
+        },
+        "low": {
+          "cards": [
+            "Kd",
+            "Qd"
+          ],
+          "equity": 0.97265625,
+          "equity_seed": 10755535665016895704,
+          "made_value": [
+            5,
+            13,
+            12,
+            11,
+            6,
+            2
+          ],
+          "plays_board": false
+        }
+      },
+      "max": 0.9765625,
+      "median": 0.974609375,
+      "min": 0.97265625,
+      "n": 2,
+      "p10": 0.973046875,
+      "p90": 0.976171875,
+      "share": 0.001953125,
+      "spread": 0.0031250000000000444,
+      "street": "turn"
+    },
+    {
+      "boards": 4,
+      "bucket": [
+        5,
+        2,
+        1,
+        0,
+        1
+      ],
+      "common_spread_score": 0.000202178955078125,
+      "largest_same_board_collision": null,
+      "max": 0.955078125,
+      "median": 0.935546875,
+      "min": 0.89453125,
+      "n": 4,
+      "p10": 0.9021484375,
+      "p90": 0.95390625,
+      "share": 0.00390625,
+      "spread": 0.0517578125,
+      "street": "turn"
+    },
+    {
+      "boards": 1,
+      "bucket": [
+        5,
+        2,
+        1,
+        1,
+        0
+      ],
+      "common_spread_score": 0.0,
+      "largest_same_board_collision": null,
+      "max": 0.9296875,
+      "median": 0.9296875,
+      "min": 0.9296875,
+      "n": 1,
+      "p10": 0.9296875,
+      "p90": 0.9296875,
+      "share": 0.0009765625,
+      "spread": 0.0,
+      "street": "turn"
+    },
+    {
+      "boards": 3,
+      "bucket": [
+        6,
+        0,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 6.179809570312507e-05,
+      "largest_same_board_collision": null,
+      "max": 0.9853515625,
+      "median": 0.9765625,
+      "min": 0.958984375,
+      "n": 3,
+      "p10": 0.9625,
+      "p90": 0.98359375,
+      "share": 0.0029296875,
+      "spread": 0.021093750000000022,
+      "street": "turn"
+    },
+    {
+      "boards": 2,
+      "bucket": [
+        6,
+        1,
+        0,
+        0,
+        1
+      ],
+      "common_spread_score": 5.950927734375009e-05,
+      "largest_same_board_collision": null,
+      "max": 0.9951171875,
+      "median": 0.97607421875,
+      "min": 0.95703125,
+      "n": 2,
+      "p10": 0.96083984375,
+      "p90": 0.99130859375,
+      "share": 0.001953125,
+      "spread": 0.030468750000000044,
+      "street": "turn"
+    }
+  ],
+  "chance_samples": 512,
+  "common_min_n": 20,
+  "holdings_per_board": 16,
+  "peak_rss_bytes": 49725440,
+  "quantile_method": "linear",
+  "range": "uniform compatible opponent, no betting",
+  "ranker_source_sha256": "9865e79f5ca47a820fc858b70009f203cb2639c4b1c12c62795090ddc5578f2b",
+  "root": 202610030301,
+  "schema_source_sha256": "3c69708dfd1e4a47e5ac761f3b9d0587ed999a3c7a2355aff729cf35ec73f78f",
+  "seconds": 7.666910500032827,
+  "source": "fe0522cd571354995f863c4b321213d68aa34508",
+  "street_totals": {
+    "flop": 1024,
+    "river": 1024,
+    "turn": 1024
+  },
+  "total_worlds": 2062336,
+  "unobserved": "Unmeasured; not proof that a descriptor is impossible",
+  "version": "hu20-postflop-coarseness-v1"
+}

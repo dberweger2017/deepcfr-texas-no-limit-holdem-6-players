@@ -1,0 +1,109 @@
+{
+  "files": {
+    "checkpoint-transfer-manifest.json": {
+      "bytes": 1416,
+      "sha256": "162cea0e3ecf106f57c1162481be02c1975da78976c0e99a42aebd2d731ae2fe"
+    },
+    "comparison/B-2026093001-500000000-average.hands.jsonl.gz": {
+      "bytes": 4376391,
+      "sha256": "e1e28c590bbeae5f13910963e0ed536ca9d5ce7dfa908dea0de22af21993898e"
+    },
+    "comparison/B-2026093001-500000000-current.hands.jsonl.gz": {
+      "bytes": 3972720,
+      "sha256": "f0cb5d53131ffbd8e5ed5048f014dfa1172804e4ac329aac47a218ed197952b1"
+    },
+    "comparison/B-2026093002-500000000-average.hands.jsonl.gz": {
+      "bytes": 4387508,
+      "sha256": "101b272ec97f0ce12b97b98de0536b632302fed98c8d4811e7d157e3c58dcbdd"
+    },
+    "comparison/B-2026093002-500000000-current.hands.jsonl.gz": {
+      "bytes": 3823037,
+      "sha256": "0f3f3868dacd9d1a43846dc12fd77bdec5de16e2e2058406e7a4572a7540106d"
+    },
+    "comparison/B-2026093003-500000000-average.hands.jsonl.gz": {
+      "bytes": 4151172,
+      "sha256": "c53dde680579f26560c2ccaa5be0be85fa2157eb311e2ade6e77aecb25bedc18"
+    },
+    "comparison/B-2026093003-500000000-average.hands.jsonl.gz.interrupted": {
+      "bytes": 4148316,
+      "sha256": "4032af57ee31a943312d782eb194302210c1f003936b812ff01afdcef0471f49"
+    },
+    "comparison/B-2026093003-500000000-current.hands.jsonl.gz": {
+      "bytes": 3878923,
+      "sha256": "5023eb142b155c18fa70f654ab1c354fa2af59f4c5f5ccc48d3ff4ed0b53fdf8"
+    },
+    "comparison/manifest.json": {
+      "bytes": 1269,
+      "sha256": "02f09e706e09b7b7095400d5a84707e942be5a6d8ffcc6ed22017aff11dbea86"
+    },
+    "comparison/summary.json": {
+      "bytes": 879772,
+      "sha256": "0de7517d98078347da5813381c01b15de785d3030e3dd3c6bf39f65c4b83226f"
+    },
+    "derived/coverage.csv": {
+      "bytes": 7840,
+      "sha256": "675e518a5810d627eb5801ba49398da2f66fa6c11b640d0166eb47ef75e6e0ea"
+    },
+    "derived/large-action-coverage.csv": {
+      "bytes": 7201,
+      "sha256": "2221d2325d610c05e3b044ef12b0df62f6f8891aa86f937bffcb7270354a42c5"
+    },
+    "derived/paired-changes.csv": {
+      "bytes": 9935,
+      "sha256": "d17cb90aab3823ecd68c210c469e66af66c5215e651b8ffd6561b0a036f795f6"
+    },
+    "derived/panels.csv": {
+      "bytes": 31061,
+      "sha256": "1127a2782e1568fd75bcb14ec9b854ad3fe5463947dd4b8377367d5900a8019f"
+    },
+    "derived/tables.md": {
+      "bytes": 12807,
+      "sha256": "4902aa22572e896f02e9ca4ad8f336ac4533a20330425983045a1e835728cb5f"
+    },
+    "derived/three-lineage-levels.json": {
+      "bytes": 6426,
+      "sha256": "bcac362ed26a2c7e89e7f5043141709b53e994f1f8d9a21f67803458105d676b"
+    },
+    "derived/whole-hand-partitions.csv": {
+      "bytes": 14309,
+      "sha256": "9e3f93d78ba1160d4d2b7b6f0a13d6066d7b3040dedd7e2d22ec6398c865afce"
+    },
+    "extraction-manifest.json": {
+      "bytes": 596,
+      "sha256": "bcbb1c8df6ce9f8f841303edccf7260f517f13a9f9d263f4924e0c2826a86ba4"
+    },
+    "extraction-summary.json": {
+      "bytes": 8350,
+      "sha256": "0d44b89d61711f80606de24f163a14d0f0b587a367dff84f9907928852b24167"
+    },
+    "final-audit.json": {
+      "bytes": 281,
+      "sha256": "919e2a021d53b11e797dbc8800ab0bddf2ee5ab61698b84fb04cd8cbc38b8764"
+    },
+    "pilot-audit.json": {
+      "bytes": 277,
+      "sha256": "197dc7b07899e18404bf329b5b28d9310afec51d2741a007a309785d626696ae"
+    },
+    "timing-pilot/B-2026093001-500000000-average.hands.jsonl.gz": {
+      "bytes": 62081,
+      "sha256": "63a8a766a4f97a315e915045897e2bdfb4a796fc59b3cbbf1203384a50981ac7"
+    },
+    "timing-pilot/B-2026093001-500000000-current.hands.jsonl.gz": {
+      "bytes": 53928,
+      "sha256": "d2e823ab665dcb590fec7f33f84712ef0508d6b3a0f10e1997caefd9d518d8f3"
+    },
+    "timing-pilot/manifest.json": {
+      "bytes": 447,
+      "sha256": "ac8758c2c4e689f284253eb63a4eb050aea78bde881ecf609c7ba2ed6403455b"
+    },
+    "timing-pilot/summary.json": {
+      "bytes": 60304,
+      "sha256": "8c85f1ee4f980a1f7f8523b737a75c05320ca0d892a5c764b401da4564a7edec"
+    },
+    "validation-environment.json": {
+      "bytes": 813,
+      "sha256": "de0873b519a57754a6c724388f36d90e66de731de256386b3e5895e1dba6f67a"
+    }
+  },
+  "scope": "Generated offline simulation records and truncated original stream; extraction hashes/metadata only, model binaries excluded"
+}

@@ -1,0 +1,10 @@
+{
+  "hands.jsonl.gz": {
+    "bytes": 1284045,
+    "sha256": "f0e457ab6a5009db0ce067ed43d47f9f637b6c7cd60650248f1a9e267f40675f"
+  },
+  "summary.json": {
+    "bytes": 69925,
+    "sha256": "82015607ce07f3d8b36db3c870fa646fb76675237fd08ce2422add3ba1d8c2e3"
+  }
+}

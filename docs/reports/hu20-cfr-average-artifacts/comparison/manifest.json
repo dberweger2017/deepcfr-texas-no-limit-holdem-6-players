@@ -1,0 +1,34 @@
+{
+  "B-2026093001-500000000-average.hands.jsonl.gz": {
+    "bytes": 4376391,
+    "sha256": "e1e28c590bbeae5f13910963e0ed536ca9d5ce7dfa908dea0de22af21993898e"
+  },
+  "B-2026093001-500000000-current.hands.jsonl.gz": {
+    "bytes": 3972720,
+    "sha256": "f0cb5d53131ffbd8e5ed5048f014dfa1172804e4ac329aac47a218ed197952b1"
+  },
+  "B-2026093002-500000000-average.hands.jsonl.gz": {
+    "bytes": 4387508,
+    "sha256": "101b272ec97f0ce12b97b98de0536b632302fed98c8d4811e7d157e3c58dcbdd"
+  },
+  "B-2026093002-500000000-current.hands.jsonl.gz": {
+    "bytes": 3823037,
+    "sha256": "0f3f3868dacd9d1a43846dc12fd77bdec5de16e2e2058406e7a4572a7540106d"
+  },
+  "B-2026093003-500000000-average.hands.jsonl.gz": {
+    "bytes": 4151172,
+    "sha256": "c53dde680579f26560c2ccaa5be0be85fa2157eb311e2ade6e77aecb25bedc18"
+  },
+  "B-2026093003-500000000-average.hands.jsonl.gz.interrupted": {
+    "bytes": 4148316,
+    "sha256": "4032af57ee31a943312d782eb194302210c1f003936b812ff01afdcef0471f49"
+  },
+  "B-2026093003-500000000-current.hands.jsonl.gz": {
+    "bytes": 3878923,
+    "sha256": "5023eb142b155c18fa70f654ab1c354fa2af59f4c5f5ccc48d3ff4ed0b53fdf8"
+  },
+  "summary.json": {
+    "bytes": 879772,
+    "sha256": "0de7517d98078347da5813381c01b15de785d3030e3dd3c6bf39f65c4b83226f"
+  }
+}

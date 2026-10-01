@@ -1,0 +1,106 @@
+[
+  {
+    "average_minus_current": {
+      "bb_per_100": 1.041666666666669,
+      "blocks": 16,
+      "ci95": null,
+      "reason": "too_few_blocks"
+    },
+    "exploratory_t95_high": 75.23733710127078,
+    "exploratory_t95_low": -73.15400376793744,
+    "interpretation": "16 paired blocks; descriptive t interval, arena >=30-block gate unmet",
+    "panel": "loose_aggressive",
+    "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+  },
+  {
+    "average_minus_current": {
+      "bb_per_100": 18.75,
+      "blocks": 16,
+      "ci95": null,
+      "reason": "too_few_blocks"
+    },
+    "exploratory_t95_high": 83.19110855173771,
+    "exploratory_t95_low": -45.69110855173771,
+    "interpretation": "16 paired blocks; descriptive t interval, arena >=30-block gate unmet",
+    "panel": "loose_passive",
+    "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+  },
+  {
+    "average_minus_current": {
+      "bb_per_100": 58.33333333333333,
+      "blocks": 16,
+      "ci95": null,
+      "reason": "too_few_blocks"
+    },
+    "exploratory_t95_high": 180.3197300860645,
+    "exploratory_t95_low": -63.65306341939785,
+    "interpretation": "16 paired blocks; descriptive t interval, arena >=30-block gate unmet",
+    "panel": "pot_pressure",
+    "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+  },
+  {
+    "average_minus_current": {
+      "bb_per_100": -6.25,
+      "blocks": 16,
+      "ci95": null,
+      "reason": "too_few_blocks"
+    },
+    "exploratory_t95_high": 14.984168038103594,
+    "exploratory_t95_low": -27.484168038103594,
+    "interpretation": "16 paired blocks; descriptive t interval, arena >=30-block gate unmet",
+    "panel": "selective-stackoff",
+    "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+  },
+  {
+    "average_minus_current": {
+      "bb_per_100": -11.458333333333334,
+      "blocks": 16,
+      "ci95": null,
+      "reason": "too_few_blocks"
+    },
+    "exploratory_t95_high": 12.964526042872434,
+    "exploratory_t95_low": -35.8811927095391,
+    "interpretation": "16 paired blocks; descriptive t interval, arena >=30-block gate unmet",
+    "panel": "tight_aggressive",
+    "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+  },
+  {
+    "average_minus_current": {
+      "bb_per_100": 2.0833333333333335,
+      "blocks": 16,
+      "ci95": null,
+      "reason": "too_few_blocks"
+    },
+    "exploratory_t95_high": 6.5238532199162,
+    "exploratory_t95_low": -2.3571865532495333,
+    "interpretation": "16 paired blocks; descriptive t interval, arena >=30-block gate unmet",
+    "panel": "tight_passive",
+    "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+  },
+  {
+    "average_minus_current": {
+      "bb_per_100": 27.083333333333332,
+      "blocks": 16,
+      "ci95": null,
+      "reason": "too_few_blocks"
+    },
+    "exploratory_t95_high": 86.33835125949233,
+    "exploratory_t95_low": -32.17168459282567,
+    "interpretation": "16 paired blocks; descriptive t interval, arena >=30-block gate unmet",
+    "panel": "train_pressure",
+    "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+  },
+  {
+    "average_minus_current": {
+      "bb_per_100": -42.708333333333336,
+      "blocks": 16,
+      "ci95": null,
+      "reason": "too_few_blocks"
+    },
+    "exploratory_t95_high": 27.443917465137154,
+    "exploratory_t95_low": -112.86058413180382,
+    "interpretation": "16 paired blocks; descriptive t interval, arena >=30-block gate unmet",
+    "panel": "uniform",
+    "scope": "paired fresh blocks; conditional on three original lineages; exploratory 95%"
+  }
+]

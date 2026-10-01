@@ -19,11 +19,13 @@ SUMMARY_SCHEMA = "blueprint-abstraction-summary-v1"
 HU20_SCHEMA = "hu20-ordered-history-card-baseline-v2"
 HU20_MENU_VERSION = "hu20-min-pot-conditional-jam-no-free-fold-v2"
 HU20_UNCAPPED_SCHEMA = "hu20-native-reopening-ordered-history-card-v1"
+HU20_CARD_V2_SCHEMA = "hu20-native-reopening-ordered-history-card-v2"
+HU20_NATIVE_SCHEMAS = (HU20_UNCAPPED_SCHEMA, HU20_CARD_V2_SCHEMA)
 HU20_UNCAPPED_MENU_VERSION = "hu20-min-pot-conditional-jam-native-reopening-v1"
 HU20_CARD_VERSION = "legacy-postflop-descriptor-v1"
 TP20_SCHEMA = "tp20-ordered-history-card-baseline-v1"
 TP20_MENU_VERSION = "tp20-min-pot-conditional-jam-no-free-fold-v1"
-SHORTSTACK_SEATS = {HU20_SCHEMA: 2, HU20_UNCAPPED_SCHEMA: 2, TP20_SCHEMA: 3}
+SHORTSTACK_SEATS = {HU20_SCHEMA: 2, HU20_UNCAPPED_SCHEMA: 2, HU20_CARD_V2_SCHEMA: 2, TP20_SCHEMA: 3}
 SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, *SHORTSTACK_SEATS)
 LEGACY_LOOKUP = "legacy-v1"
 BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"
@@ -210,11 +212,12 @@ def information_key(
                                   or view.big_blind != 100
                                   or tuple(view.history[0].stacks) != (2000,) * SHORTSTACK_SEATS[schema]):
         raise ValueError("Short-stack key requires its versioned 20BB game")
-    # The HU20 baseline intentionally retains the original postflop descriptor;
-    # this dispatch is where a later, separately tested card abstraction can fit.
+    from src.blueprint.cards_v2 import postflop_v2
+
     cards = (
         _preflop(view.hole_cards)
         if view.street == Street.PREFLOP
+        else postflop_v2(view.hole_cards, view.board) if schema == HU20_CARD_V2_SCHEMA
         else _postflop(view.hole_cards, view.board)
     )
     payload = (

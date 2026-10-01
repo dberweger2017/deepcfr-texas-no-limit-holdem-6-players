@@ -1,0 +1,22 @@
+{
+  "aggregate.json": {
+    "bytes": 3753,
+    "sha256": "cd0c6dd5e8619f3288540c212abece6392b3a0302c81187feed79d7830ae32df"
+  },
+  "audit.json": {
+    "bytes": 208,
+    "sha256": "bce45b8838658948bedc62ec095bc68c98136593fd82c6bfd77475e0fb62607f"
+  },
+  "paired-changes.csv": {
+    "bytes": 6174,
+    "sha256": "56f7fd4a0ca07468e867581809a9c89c675c74e49422a367c90d4b9a70f2dabc"
+  },
+  "panels.csv": {
+    "bytes": 16645,
+    "sha256": "4bbf7ffb47ce9289300a10d8ae77f09edf92f0fe3808a4be4dc258c26a7fefe1"
+  },
+  "resources.csv": {
+    "bytes": 5953,
+    "sha256": "df19085a1b858916de26e02c223ca1f1ce7e61b2f752b19c518f17a371d30e26"
+  }
+}
