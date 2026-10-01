@@ -1,4 +1,4 @@
-"""Read a fixed snapshot of closed light evaluations; never change gameplay."""
+"""Read a fixed snapshot of closed exploratory evaluations; never change gameplay."""
 
 import argparse
 from collections import Counter, defaultdict
@@ -39,15 +39,15 @@ def cell(values):
     return result
 
 
-def summary(root, plan, guard=lambda: None):
-    panels = {p['name']: p for p in plan['light_panels']}
+def summary(root, plan, guard=lambda: None, stage='light'):
+    panels = {p['name']: p for p in plan[stage + '_panels']}
     seeds = [p['seed'] for p in plan['parents']]
     series, per_seed, inputs, pending = {}, [], [], []
     coupling = {}
     folders = []
     for seed in seeds:
-        for milestone in plan['light_totals']:
-            folder = root/'evaluation'/f'light-{seed}-{milestone}'
+        for milestone in plan[stage + '_totals']:
+            folder = root/'evaluation'/f'{stage}-{seed}-{milestone}'
             path = folder/'result.json'
             if not path.exists():
                 pending.append(dict(seed=seed, milestone=milestone, status='not_closed'))
@@ -81,7 +81,7 @@ def summary(root, plan, guard=lambda: None):
                 panel, block, rotation = row['panel'], row['block'], row['rotation']
                 key = (panel, block, rotation)
                 if key in seen or panel not in panels or not 0 <= block < panels[panel]['blocks'] or rotation not in (0, 1):
-                    raise ValueError('Duplicate/unexpected light coordinate')
+                    raise ValueError('Duplicate/unexpected exploratory coordinate')
                 seen.add(key)
                 if row['seed'] != seed or row['milestone'] != milestone or row['policy'] != spec['name']:
                     raise ValueError('Hand/model identity mismatch')
@@ -134,7 +134,7 @@ def summary(root, plan, guard=lambda: None):
     aggregates, changes, seed_changes = [], [], []
     for panel in panels:
         baseline = aggregate(series, seeds, 100000000, panel)
-        for milestone in plan['light_totals']:
+        for milestone in plan[stage + '_totals']:
             values = aggregate(series, seeds, milestone, panel)
             if values is not None:
                 aggregates.append(dict(panel=panel, milestone=milestone, lineages=3,
@@ -152,7 +152,8 @@ def summary(root, plan, guard=lambda: None):
                 if milestone != 100000000 and base is not None and candidate is not None:
                     seed_changes.append(dict(seed=seed, panel=panel, baseline=100000000, candidate=milestone,
                                              paired_difference=cell([v-b for v,b in zip(candidate,base,strict=True)])))
-    return dict(status='preliminary', captured=time.time(), plan_sha256=digest(plan),
+    return dict(status='preliminary', stage=stage, panel_blocks={n:p['blocks'] for n,p in panels.items()},
+                captured=time.time(), plan_sha256=digest(plan),
                 frozen_training_source='17b4c9a08ed0765d0fb8f05240c0409b21e43977',
                 inference='Exploratory unadjusted 95% Student-t block intervals, conditional on fixed saved lineages; no final gates.',
                 completed_tasks=len(folders), completed_hands=sum(x[1]['hands'] for x in folders),
@@ -166,16 +167,19 @@ def formatted(value):
 
 
 def markdown(result, panels):
+    stage = result.get('stage', 'light')
+    blocks = result.get('panel_blocks', {p:256 for p in panels})
     milestones = sorted({r['milestone'] for r in result['three_lineage_aggregate']})
     lookup = {(r['milestone'],r['panel']):r for r in result['three_lineage_aggregate']}
     changes = {(r['candidate'],r['panel']):r for r in result['checkpoint_changes']}
-    lines = ['# Preliminary HU20 100M→500M checkpoint curves', '',
-             f"Snapshot: {result['completed_tasks']} closed light tasks, **{result['completed_hands']:,} hands**. "
-             f"{len(result['pending_tasks'])} light tasks pending at capture.", '',
-             '**Exploratory only.** Unadjusted 95% intervals use 256 paired deal blocks per opponent. '
+    lines = [f'# Preliminary HU20 100M→500M {stage} checkpoint curves', '',
+             f"Snapshot: {result['completed_tasks']} closed {stage} tasks, **{result['completed_hands']:,} hands**. "
+             f"{len(result['pending_tasks'])} {stage} tasks pending at capture.", '',
+             '**Exploratory only.** Unadjusted 95% intervals use the frozen paired deal blocks: '
+             + ', '.join(f'{p}: {blocks[p]}' for p in panels) + '. '
              'Three seed returns/contrasts are averaged inside each deal/rotation block, then both roles are averaged. '
-             'Neither seats nor seeds multiply the sample count. All seven opponents and every available checkpoint are retained. '
-             'Broad bounded-LBR/native-pressure panels and fresh final confirmation are pending; no strength or promotion gate is inferred.', '',
+             'Neither seats nor seeds multiply the sample count. All declared opponents and every available checkpoint are retained. '
+             'Incomplete broad tasks and fresh final confirmation remain pending; no strength or promotion gate is inferred.', '',
              '## Absolute three-lineage returns: BB/100 [95% interval]', '',
              '| Nodes | '+' | '.join(panels)+' |', '| ---: | '+' | '.join(['---']*len(panels))+' |']
     for m in milestones:
@@ -207,19 +211,20 @@ def markdown(result, panels):
               'frozen coordinates, chip accounting, recomputed tails, pairing and independent sums. It does not rerun gameplay.', '',
               'The selective-stackoff opponent was designed after Luna and remains a regression/stress opponent, '
               'not independent confirmation of Luna. Point estimates can fluctuate; these small panels do not replace '
-              'the frozen broader or fresh final schedules. Training, saving and evaluation settings remain unchanged.', '']
+              'any incomplete broader panels or fresh final schedules. Training, saving and evaluation settings remain unchanged.', '']
     return '\n'.join(lines)
 
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--plan',type=Path,required=True);p.add_argument('--root',type=Path,required=True)
+    p.add_argument('--stage',choices=('light','broad'),default='light')
     p.add_argument('--out',type=Path,required=True);a=p.parse_args()
     a.out.mkdir(parents=True,exist_ok=False)
     with Path('/tmp/DR_RESEARCH_M4_HEAVY.lock').open('a') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX)
         note=Path('/tmp/DR_RESEARCH_M4_COORDINATION.txt')
-        with note.open('a') as h:h.write('\nDoctor Research #136 preliminary reporting CLAIM: closed raw light records only; no gameplay.\n')
+        with note.open('a') as h:h.write(f'\nDoctor Research #136 preliminary reporting CLAIM: closed raw {a.stage} records only; no gameplay.\n')
         try:
             if shutil.disk_usage(a.root).free < 8*2**30:raise OSError('Reporting disk headroom')
             swap_before=swap_bytes();last=0
@@ -230,9 +235,9 @@ def main():
                 if peak_rss() >= 10.5*2**30:raise MemoryError('Reporting RSS')
                 if swap_bytes()-swap_before > .5*2**30:raise MemoryError('Reporting swap growth')
                 if shutil.disk_usage(a.root).free < 8*2**30:raise OSError('Reporting disk headroom')
-            plan=json.loads(a.plan.read_text());result=summary(a.root,plan,guard)
+            plan=json.loads(a.plan.read_text());result=summary(a.root,plan,guard,stage=a.stage)
             (a.out/'summary.json').write_text(json.dumps(result,indent=2,sort_keys=True,allow_nan=False)+'\n')
-            (a.out/'curves.md').write_text(markdown(result,[p['name'] for p in plan['light_panels']]))
+            (a.out/'curves.md').write_text(markdown(result,[p['name'] for p in plan[a.stage + '_panels']]))
             with (a.out/'per-seed-role.csv').open('w') as h:
                 w=csv.writer(h);w.writerow(['seed','nodes','opponent','role','bb_per_hand','bb_per_100','ci95_lower','ci95_upper','blocks'])
                 for r in result['per_seed']:
