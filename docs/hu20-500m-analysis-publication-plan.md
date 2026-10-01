@@ -1,5 +1,19 @@
 # HU20 500M analysis order and progressive publication
 
+## Owner cancellation addendum — October 1, 2026
+
+The owner explicitly directed stopping the remaining M4 evaluation and merging
+#136: continuing was judged unlikely to yield results sufficient to justify
+the M4 opportunity cost. Training and all18 broad tasks completed; fresh
+confirmation stopped after four complete individual tasks, one partial task
+and one unstarted task. Final97.5% gates are incomplete and cannot pass.
+All artifacts and the original frozen plan remain retained. This cancellation
+supersedes future execution/forecast instructions below; it is not evidence of
+a plateau, convergence or a null effect. See the
+[closeout report](reports/hu20-500m-campaign.md). No model promotion or new
+experiment follows. Explicit owner merge authorization applies to this closeout.
+
+
 Owner authorized this execution-priority change on October 1, 2026, after
 training and verified retrieval completed. It supersedes the original queue's
 seed-first execution order. The [scientific protocol](hu20-500m-campaign-protocol.md)

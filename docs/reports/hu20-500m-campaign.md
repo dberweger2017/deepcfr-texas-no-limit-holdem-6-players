@@ -1,33 +1,61 @@
 # HU20 three-lineage 100M→500M campaign
 
-Status: **all six broad checkpoint groups published; fresh final confirmation running**.
-The latest immutable broad snapshot contains all eighteen model tasks /479,232
-natively replayed hands: all three seeds at100/150/200/300/400/500M. Earlier
-snapshots remain unchanged, including the original74-task light snapshot.
+Status: **owner-stopped and closed on October 1, 2026; training and all broad curves complete, fresh confirmation incomplete**.
 
-The owner authorized three retained B100M continuations on October 1, 2026,
-with a $10 target and a firm $15 all-in ceiling. #132/#133 are merged. The
-[frozen protocol](../hu20-500m-campaign-protocol.md) and JSON plan retain the
-original seeds, iteration/RNG lineages, regrets/averages/visits, K1, abstraction,
-uncapped menu and current extraction. B100M is unchanged; no promotion.
+## Owner decision and retained evidence
 
-## Analysis order and next publications
+At 21:04 UTC the owner directed us to stop the remaining M4 evaluation and
+merge this closeout. **The owner judged that continuing would not yield
+results sufficient to justify the opportunity cost of the M4.** This is a
+resource-allocation judgment. It does not establish a learning plateau,
+convergence, a null strength effect, or the outcomes of uncompleted work.
 
-The owner authorized an [endpoint-first analysis/publication plan](../hu20-500m-analysis-publication-plan.md)
-on October 1. Finish the current child, then complete all three broad100M
-baselines, all three broad500M endpoints, the150/200/300/400M groups, and fresh
-confirmation last. The scientific executor/plan stay frozen; only queue priority
-changes. All retained archives are hash-verified on M4 and all rentals have
-terminated. All75 light tasks are complete; the snapshot below deliberately
-retains its original74-task capture.
+The serial supervisor and active evaluator are stopped. The retained
+[stop record](hu20-500m-campaign-artifacts/owner-stop-20261001/owner-stop.json)
+records their identities, complete-task result hashes and interrupted files.
+Its M4 and retrieved M1 SHA-256 both equal
+`c1c6110d1c8c4101b1a62e0e733c06d98773f21bf75f931848ebebd1647f0654`.
+The [storage manifest](hu20-500m-campaign-artifacts/owner-stop-20261001/owner-stop-storage-manifest.json)
+seals retained evaluation files and independently rechecks all three final
+archive hashes without new gameplay or model loading.
 
-All broad scientific evaluations and their complete-group reports have now
-closed. The400M group below completes the full exploratory curve. Fresh confirmation
-is running in the frozen serial order. Final confirmation/verification remains
-**00:00–05:00 Madrid October2**, with publication allowed to lag closure by up to
-90 minutes. These are timing forecasts, not deadlines.
-Publish each newly completed group with all opponents, seed/position intervals,
-paired changes and tails; pending groups cannot become smaller aggregates.
+| Retained stage | Complete tasks | Complete hands |
+| --- | ---: | ---: |
+| Light | 75 | 268,800 |
+| Broad, all six checkpoints / all three seeds | 18 | 479,232 |
+| Fresh held-out individual tasks | 4 | 106,496 |
+| Total | 97 | 854,528 |
+
+Seed3's `heldout-2026093003-100000000` was interrupted with **1,410 retained
+records** in a closed, readable gzip; it has no completed result. Its500M
+held-out task never started. These partial records are not added to the
+complete-hand count. Both missing tasks and all four completed held-out tasks
+remain on M4. No two-seed confirmation aggregate is substituted.
+**The final fresh97.5% LBR and pressure gates are incomplete and cannot pass.**
+No completed99-task scientific audit or strength qualification is claimed.
+
+All three original B100M lineages reached500M total lifetime nodes; final
+reload/recovery and off-pod archive hashes passed before rental termination.
+The frozen source, seeds, RNG/iterations, game, regrets/averages/visits, K1,
+abstractions, current readout, menus and scientific schedule remain unchanged.
+The [protocol](../hu20-500m-campaign-protocol.md) records the cancellation
+addendum; its original JSON plan is retained as the prospectively frozen plan.
+B100M and human-play commands remain unchanged; no model is promoted.
+
+The complete exploratory endpoint comparison shows B500M bounded-LBR profit
+**−72.48 BB/100**, with paired change versus own100M
+**−7.51 [95% −22.72, +7.70]**. This does not demonstrate an improvement or
+establish deterioration. Some scripted-panel aggregate changes are positive,
+with seed/position regressions and full-stack losses retained. All six broad
+checkpoint groups and every opponent are published below. These unadjusted95%
+comparisons remain exploratory; the bounded LBR is not exact exploitability.
+
+The sections below preserve historical publication snapshots, including the
+original74-task light capture. Their pending counts and timing forecasts refer
+to those captures and are superseded by this closeout. No remaining #136
+computation is scheduled. The separate C RunPod campaign continues unchanged.
+M4 resource coordination is released when this owner-authorized PR merges;
+archives and prior incidents remain retained.
 
 ## Complete broader400M profile — October1
 
@@ -66,9 +94,9 @@ tails and independent paired-block arithmetic without rerunning gameplay.
 M4 verification and every compact destination hash passed. Large raw files
 remain on M4 at `results/hu20-three-lineage-500m-20261001`.
 
-At the20:05UTC scheduled check, fresh seed1's own100/500 tasks were closed;
-seed2's own100 task was active. No smaller-seed final aggregate is published.
-Final verification/publication retains the00:00–05:00MadridOctober2 forecast.
+At the20:05UTC capture, fresh seed1's own100/500 tasks were closed and
+seed2's own100 task was active. This historical forecast was superseded by
+the owner stop above; no smaller-seed final aggregate is published.
 
 ## Complete broader300M profile — October1
 
@@ -516,8 +544,8 @@ Training completed by 06:54 UTC: the three lineages reached
 2,701,878 / 2,670,044 / 2,654,147 entries. Final reload/recovery checks and
 off-pod archive hashes passed on M4 before all three rentals were terminated.
 The conservative all-in upper estimate is **$3.68**, not a settled invoice;
-itemized billing remains pending. The endpoint-first serial M4 analysis is
-active, with no paid training job left running.
+itemized billing remains unavailable at closeout. All rentals were terminated
+and remaining M4 evaluation is owner-stopped; no #136 job remains running.
 
 Each 10M recovery is destination-hash-verified before rotation; each 20M has a
 current export and queued light evaluation; each 50M is a permanent full save.
@@ -535,9 +563,9 @@ Main artifacts: `results/hu20-three-lineage-500m-20261001` below that source.
 External controller log:
 `/Users/dberweger/Local/hu20-500m-controller-20261001.log`.
 
-The durable controller/provider watchdog handle backups and guard resources;
-90-minute agent checks coalesce milestones/incidents and remain quiet while
-healthy. M4 performs evaluations serially; training and backups take priority.
+The durable controller/provider watchdog handled backups and guarded resources.
+The serial evaluator is now stopped, and #136 routine supervision ends with
+this closeout. Separate C RunPod supervision retains its90-minute cadence.
 The M1 emergency route was authenticated and available capacity verified. Its
 root is `/Users/dberweger/Local/hu20-500m-emergency-backups-20261001`; it performs
 transfers/transport hashing only. Earlier research and unverified Drive copies
@@ -553,10 +581,11 @@ shasum -a 256 ./FILE
 ```
 
 Replace `SEED`/`FILE` using the receipt's exact name/hash. Emergency M1 receipts
-record the alternate absolute destination. Final sealed manifests, learning
-curves for the broader/confirmation schedules, resource measurements, billing
-and incident table remain pending until
-execution and independent verification finish. This PR stays draft.
+record the alternate absolute destination. Complete broad curves and their verification are published; the owner-stop
+manifest seals retained complete and partial records. Fresh confirmation
+remains incomplete permanently for this campaign. Posted itemized billing is
+unavailable, so $3.68 remains an upper estimate. The owner explicitly authorized
+merging this closeout without strength qualification.
 
 The preliminary raw hands remain on M4 under
 `results/hu20-three-lineage-500m-20261001/evaluation/light-SEED-NODES/hands.jsonl.gz`.
@@ -589,3 +618,36 @@ The reporting script was run from `/tmp/dr-research-pr136-preliminary.py`,
 importing the unchanged frozen clone through `PYTHONPATH`, rather than updating
 the running campaign source. A later snapshot may include tasks that closed
 after this publication's fixed input list.
+
+## Final training archives and observed resources
+
+| Seed suffix | Final nodes / iteration | Training-phase elapsed | Peak owned RSS | Swap growth |
+| --- | --- | ---: | ---: | ---: |
+| 3001 | 500,000,440 / 1,098,929 | 6.996h | 3.00GiB | 0 |
+| 3002 | 500,000,321 / 1,110,069 | 6.568h | 3.01GiB | 0 |
+| 3003 | 500,000,576 / 1,096,178 | 6.426h | 2.99GiB | 0 |
+
+Phase times include saves and destination-hash acknowledgments. The quoted
+2vCPUs are allocated logical CPUs, not a claim of independent physical cores.
+The estimated all-in upper cost is $3.677783487; posted billing is not yet
+available. All original10M recoveries,20M exports,50M permanent checkpoints,
+parent receipts and validation/reporting attempts remain retained.
+
+Retrieve the three final training archives individually (about7.29GB total):
+
+```sh
+for seed in 2026093001 2026093002 2026093003; do
+  scp -o HostName=100.122.216.94 -o BatchMode=yes \
+    "m4:/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/$seed/final.tar" \
+    "./$seed-final.tar"
+done
+shasum -a 256 ./*-final.tar
+```
+
+Compare each destination hash with `final_archives` in the storage manifest
+before loading. Exact sizes and SHA-256 values are recorded there. For retained
+evaluation files, use its exact `evaluation_files[].path` below the same root
+and compare the recorded hash after transfer. The interrupted task is marked
+incomplete and must not be treated as a completed evaluation or silently rerun.
+Private credentials are excluded from the manifest. No archive is deleted or
+moved into Git; compact evidence alone is committed.
