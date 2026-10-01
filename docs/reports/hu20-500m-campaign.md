@@ -12,6 +12,22 @@ with a $10 target and a firm $15 all-in ceiling. #132/#133 are merged. The
 original seeds, iteration/RNG lineages, regrets/averages/visits, K1, abstraction,
 uncapped menu and current extraction. B100M is unchanged; no promotion.
 
+## Analysis order and next publications
+
+The owner authorized an [endpoint-first analysis/publication plan](../hu20-500m-analysis-publication-plan.md)
+on October 1. Finish the current child, then complete all three broad100M
+baselines, all three broad500M endpoints, the150/200/300/400M groups, and fresh
+confirmation last. The scientific executor/plan stay frozen; only queue priority
+changes. All retained archives are hash-verified on M4 and all rentals have
+terminated. All75 light tasks are complete; the snapshot below deliberately
+retains its original74-task capture.
+
+Initial Madrid-time ETA: full broader baseline **10:30–11:30 October1**;
+broader500M versus own100M **13:00–14:30 October1**; fresh confirmation/final
+verification **00:00–05:00 October2**. These are timing forecasts, not deadlines.
+Publish each newly completed group with all opponents, seed/position intervals,
+paired changes and tails; pending groups cannot become smaller aggregates.
+
 ## Preliminary playing profiles
 
 The [complete checkpoint tables](hu20-500m-campaign-artifacts/preliminary-20261001/curves.md)
