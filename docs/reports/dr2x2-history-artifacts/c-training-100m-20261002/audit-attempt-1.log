@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/dr2x2-c-final-audit.py", line 57, in <module>
+    assert all(math.isfinite(x) for n in trainer.nodes.values() for x in [*n.regrets,*n.strategy_sum])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/dr2x2-c-final-audit.py", line 57, in <genexpr>
+    assert all(math.isfinite(x) for n in trainer.nodes.values() for x in [*n.regrets,*n.strategy_sum])
+                                                                                      ^^^^^^^^^^^^^^
+AttributeError: 'Node' object has no attribute 'strategy_sum'

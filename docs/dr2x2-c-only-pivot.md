@@ -28,7 +28,7 @@ The scientific implementation/schema/menu/math/seeds are unchanged. C admits
 work. RSS/swap/disk guards remain. Re-freeze the source after updating main and
 prove C's three25k direct/fresh-process references match the previous frozen
 C references exactly in meaningful state/trace/export/work, then require Linux
-parity before each main run. M1 model work stays sequential; M4 is #136-only.
+parity before each main run. M1 model work stays sequential. No M4 allocation is part of this C campaign.
 
 Atomic recovery every10M (plus25M), destination hash ACK before further work,
 permanent25/50/100M checkpoints/current exports, closed final archive verification
@@ -38,7 +38,7 @@ watchdog uses exactly three C-owned names and the lowered training reserve.
 Forecast after launch: **2.5–4hours for this single wave and verified retrieval**,
 subject to actual host throughput, table growth and saves. This replaces the
 superseded two-wave5–8hour forecast. Evaluations follow a separate runtime
-admission. #136 continues its frozen science and90-minute M4 supervision.
+admission. This was a timing forecast; actual completion is recorded below.
 
 ## Launch record
 
@@ -51,3 +51,14 @@ owned pod, quote, source, plan hash and lowered spending reserve. Pod setup
 and Linux gates precede main training; this record does not assert a passed
 Linux gate for a pod still provisioning. Running clone remains frozen while
 this reporting-only publication advances the branch. No D rental.
+
+## Completed training — October2 publication
+
+All three Linux parity gates passed, all three C lineages reached100M, and every
+final archive/member hash passed before all owned pods were terminated by
+22:01:38UTC October1. [Training closeout](reports/dr2x2-c-training-100m.md) retains
+all work/recovery/RNG checks and resource evidence. Conservative all-in estimate
+$1.004184, settled billing pending. No active hourly spend. Fresh common A/C
+strength evaluation is pending prospective schedule/runtime admission; any paid
+evaluation requires its own quote before creation. D stays deferred. #136 was
+owner-stopped and merged; its M4 reservation is released.

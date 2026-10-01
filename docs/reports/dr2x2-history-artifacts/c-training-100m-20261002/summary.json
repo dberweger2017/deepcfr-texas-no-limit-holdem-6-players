@@ -1,0 +1,309 @@
+{
+  "audit_peak_rss_bytes": 996065280,
+  "plan_sha256": "d6c01b4685dff805de93ac566a007778e065e9493b075656a7f279e93a24a36c",
+  "remaining_ids": [],
+  "source": "e45b297cdab45a2f4eb70f0325415794883c2163",
+  "status": "passed",
+  "strength_outcomes_inspected": false,
+  "upper_cost": 1.0041844655513763,
+  "wall_seconds": 65.32642102241516,
+  "workers": [
+    {
+      "all_checks_passed": true,
+      "archive_bytes": 416542720,
+      "archive_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/jobs/C/2026093001/final.tar",
+      "archive_sha256": "0d398606ab042c86d7486d3182e0dafcf99015b8b9274888eec28d784c3149a6",
+      "entries": 576380,
+      "final_checkpoint_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093001/attempt-1/checkpoint-100000000-236698.json.gz",
+      "final_checkpoint_sha256": "cf8cceb414c049fe933af513ffb0578ad6c36b1930b307fb1b28492debabffc7",
+      "final_current_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093001/attempt-1/current-100000000-236698.json.gz",
+      "final_current_sha256": "8fbf31e1b87efc9635de3b80fe72006a854ea4e1490611d56c09fcf68598d7d4",
+      "iteration": 236698,
+      "nodes": 100000113,
+      "peak_rss_bytes": 744693760,
+      "phase_seconds": 6515.2262761592865,
+      "recovery_acks": 11,
+      "resources": {
+        "affinity_logical_cpus": [
+          3,
+          19
+        ],
+        "attempts": [
+          {
+            "exit": 0,
+            "finished": 1790885479.992324,
+            "name": "preflight-direct",
+            "pid": 1563,
+            "started": 1790885471.9848106,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790885487.998234,
+            "name": "preflight-resume",
+            "pid": 1568,
+            "started": 1790885479.992678,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790891934.821837,
+            "name": "training",
+            "pid": 1582,
+            "started": 1790885487.9989297,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790891960.838729,
+            "name": "final-reload-a",
+            "pid": 15196,
+            "started": 1790891934.8223076,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790891986.8553874,
+            "name": "final-reload-b",
+            "pid": 15210,
+            "started": 1790891960.8391044,
+            "status": "complete"
+          }
+        ],
+        "current_owned_rss_bytes": 744677376,
+        "finished": 1790891986.855901,
+        "free_disk_bytes": 30305861632,
+        "heartbeat": 1790891984.8549225,
+        "kernel": {
+          "machine": "x86_64",
+          "node": "90f937990f61",
+          "processor": "x86_64",
+          "release": "6.8.0-45-generic",
+          "system": "Linux",
+          "version": "#45~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Sep 11 15:25:05 UTC 2"
+        },
+        "memory_limit_bytes": 16000000000,
+        "peak_owned_rss_bytes": 744693760,
+        "pid": 1558,
+        "progress": {
+          "additional_nodes": 100000113,
+          "completed_nodes": 100000113,
+          "entries": 576380,
+          "heartbeat": 1790891916.7002263,
+          "iteration": 236698,
+          "nodes_per_second": 16520.30198029633,
+          "training_seconds": 6053.164955414832
+        },
+        "started": 1790885471.6296248,
+        "status": "complete",
+        "swap_before_bytes": 0,
+        "swap_growth_bytes": 0
+      },
+      "seed": 2026093001,
+      "step_nodes_per_second": 16520.30198029633,
+      "swap_growth_bytes": 0,
+      "training_seconds": 6053.164955414832,
+      "verified_manifest_files": 66,
+      "visits": 20167913,
+      "work_chain_sha256": "5388cb6cd75765e707d1a7c1991a91b3b5e4508539f10a7741c35e9c3014b9eb"
+    },
+    {
+      "all_checks_passed": true,
+      "archive_bytes": 417781760,
+      "archive_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/jobs/C/2026093002/final.tar",
+      "archive_sha256": "e9c836dc38da0ead382001c1e236428432ae4954ef742f4653342f371136b58e",
+      "entries": 579211,
+      "final_checkpoint_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093002/attempt-1/checkpoint-100000000-232796.json.gz",
+      "final_checkpoint_sha256": "bfd88d6d58d54220f5214eca0a4676c06dae5b820eaa447679cca09f77c2e877",
+      "final_current_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093002/attempt-1/current-100000000-232796.json.gz",
+      "final_current_sha256": "709b942ae3e0ab3589c2026de307b70290f780858a182ced0e2a9f8e8edf3587",
+      "iteration": 232796,
+      "nodes": 100000081,
+      "peak_rss_bytes": 748851200,
+      "phase_seconds": 6577.617321968079,
+      "recovery_acks": 11,
+      "resources": {
+        "affinity_logical_cpus": [
+          15,
+          31
+        ],
+        "attempts": [
+          {
+            "exit": 0,
+            "finished": 1790885458.0626628,
+            "name": "preflight-direct",
+            "pid": 1493,
+            "started": 1790885450.0565128,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790885464.0675955,
+            "name": "preflight-resume",
+            "pid": 1496,
+            "started": 1790885458.063076,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790891975.2994044,
+            "name": "training",
+            "pid": 1514,
+            "started": 1790885464.0684521,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790892001.3173032,
+            "name": "final-reload-a",
+            "pid": 15276,
+            "started": 1790891975.300037,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790892027.335583,
+            "name": "final-reload-b",
+            "pid": 15290,
+            "started": 1790892001.317606,
+            "status": "complete"
+          }
+        ],
+        "current_owned_rss_bytes": 748077056,
+        "finished": 1790892027.3360445,
+        "free_disk_bytes": 30305517568,
+        "heartbeat": 1790892025.335099,
+        "kernel": {
+          "machine": "x86_64",
+          "node": "f2688a90b4c9",
+          "processor": "x86_64",
+          "release": "6.8.0-51-generic",
+          "system": "Linux",
+          "version": "#52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2"
+        },
+        "memory_limit_bytes": 16000000000,
+        "peak_owned_rss_bytes": 748851200,
+        "pid": 1488,
+        "progress": {
+          "additional_nodes": 100000081,
+          "completed_nodes": 100000081,
+          "entries": 579211,
+          "heartbeat": 1790891958.0169892,
+          "iteration": 232796,
+          "nodes_per_second": 16460.260935410526,
+          "training_seconds": 6075.24275540933
+        },
+        "started": 1790885449.7187226,
+        "status": "complete",
+        "swap_before_bytes": 0,
+        "swap_growth_bytes": 0
+      },
+      "seed": 2026093002,
+      "step_nodes_per_second": 16460.260935410526,
+      "swap_growth_bytes": 0,
+      "training_seconds": 6075.24275540933,
+      "verified_manifest_files": 66,
+      "visits": 20154607,
+      "work_chain_sha256": "e32bb2fec6f54470967a77e7a8f9668a5842409e6c22301cc7e3133b99a5354a"
+    },
+    {
+      "all_checks_passed": true,
+      "archive_bytes": 415293440,
+      "archive_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/jobs/C/2026093003/final.tar",
+      "archive_sha256": "d7ea2ff45c4d7c65dc9ee7c13c6c0d38e0b3b5445a6f660051fed75d8eb47212",
+      "entries": 574065,
+      "final_checkpoint_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093003/attempt-1/checkpoint-100000000-239157.json.gz",
+      "final_checkpoint_sha256": "5d7dcf34de5b77ec56c19993e27d43304b7bba9b72d0b5ba85bd7df3838e97ad",
+      "final_current_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093003/attempt-1/current-100000000-239157.json.gz",
+      "final_current_sha256": "1ff36cd222f1c8aedf2bd1ebe97c6d8d45835b19c399514a1d3b09a1310548bd",
+      "iteration": 239157,
+      "nodes": 100000571,
+      "peak_rss_bytes": 741257216,
+      "phase_seconds": 6402.645925760269,
+      "recovery_acks": 11,
+      "resources": {
+        "affinity_logical_cpus": [
+          15,
+          31
+        ],
+        "attempts": [
+          {
+            "exit": 0,
+            "finished": 1790885432.3340027,
+            "name": "preflight-direct",
+            "pid": 1420,
+            "started": 1790885424.328716,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790885438.3382118,
+            "name": "preflight-resume",
+            "pid": 1450,
+            "started": 1790885432.334302,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790891778.6536298,
+            "name": "training",
+            "pid": 1488,
+            "started": 1790885438.3388503,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790891802.668829,
+            "name": "final-reload-a",
+            "pid": 14917,
+            "started": 1790891778.6540043,
+            "status": "complete"
+          },
+          {
+            "exit": 0,
+            "finished": 1790891826.6836991,
+            "name": "final-reload-b",
+            "pid": 14941,
+            "started": 1790891802.6691384,
+            "status": "complete"
+          }
+        ],
+        "current_owned_rss_bytes": 741257216,
+        "finished": 1790891826.6841538,
+        "free_disk_bytes": 30307663872,
+        "heartbeat": 1790891824.6832566,
+        "kernel": {
+          "machine": "x86_64",
+          "node": "c3c5d0bd92f3",
+          "processor": "x86_64",
+          "release": "6.8.0-51-generic",
+          "system": "Linux",
+          "version": "#52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2"
+        },
+        "memory_limit_bytes": 16000000000,
+        "peak_owned_rss_bytes": 741257216,
+        "pid": 1415,
+        "progress": {
+          "additional_nodes": 100000571,
+          "completed_nodes": 100000571,
+          "entries": 574065,
+          "heartbeat": 1790891749.3721015,
+          "iteration": 239157,
+          "nodes_per_second": 16950.63438953032,
+          "training_seconds": 5899.517900153995
+        },
+        "started": 1790885424.038228,
+        "status": "complete",
+        "swap_before_bytes": 0,
+        "swap_growth_bytes": 0
+      },
+      "seed": 2026093003,
+      "step_nodes_per_second": 16950.63438953032,
+      "swap_growth_bytes": 0,
+      "training_seconds": 5899.517900153995,
+      "verified_manifest_files": 66,
+      "visits": 20155259,
+      "work_chain_sha256": "143519b0b5e3a78103e70a6d2d178d7ee1084e162d7fb93adf24ac01c847f21f"
+    }
+  ]
+}

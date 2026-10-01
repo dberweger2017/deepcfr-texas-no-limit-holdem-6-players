@@ -1,0 +1,33 @@
+{
+  "pod_records": [
+    {
+      "compute_hourly_usd": 0.13,
+      "created_epoch": 1790885329.064,
+      "id": "3mh21or26uj3gs",
+      "name": "dr2x2-C-2026093001-1790885324",
+      "status": "retrieved-complete",
+      "terminated": 1790892078.523252,
+      "upper_hourly_usd": 0.18
+    },
+    {
+      "compute_hourly_usd": 0.13,
+      "created_epoch": 1790885331.778,
+      "id": "v4pz7zg2p00tic",
+      "name": "dr2x2-C-2026093002-1790885324",
+      "status": "retrieved-complete",
+      "terminated": 1790892097.871464,
+      "upper_hourly_usd": 0.18
+    },
+    {
+      "compute_hourly_usd": 0.13,
+      "created_epoch": 1790885334.007,
+      "id": "2mzrhprjp997hu",
+      "name": "dr2x2-C-2026093003-1790885324",
+      "status": "retrieved-complete",
+      "terminated": 1790891901.048121,
+      "upper_hourly_usd": 0.18
+    }
+  ],
+  "settled_invoice": false,
+  "upper_cost_usd": 1.0041844655513763
+}
