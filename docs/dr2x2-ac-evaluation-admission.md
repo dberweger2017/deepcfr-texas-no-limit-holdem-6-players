@@ -61,3 +61,10 @@ inside the remaining approved$16 all-in cap. If the declared work is impractical
 report the admission blocker before outcomes; never silently shrink it or
 substitute another primary panel. D remains deferred, B/#143 historical evidence
 separate, factorial interaction unanswered. No M4 work, promotion,300M or merge.
+
+## Completed timing pilot
+
+[Timing result](reports/dr2x2-ac-timing.md) completes all480timing hands in58.91seconds,
+2.394GiBpeak, zeroswap. Fixed2× current-policy projection is2.03hours onM1,
+excluding full evidence serialization and separately pending mechanism work.
+No payoffs inspected. Final strength/runtime/paidquote admission remains pending.

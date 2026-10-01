@@ -1,0 +1,13 @@
+{
+  "child_pid": null,
+  "child_rss_bytes": 1441890304,
+  "exit": 0,
+  "finished": 1790896202.972058,
+  "heartbeat": 1790896202.97211,
+  "paid_spend_usd": 0,
+  "pid": 70835,
+  "plan_file_sha256": "9ed9cb6882716eba99c87d106788427234cee1567de4926cd9a6ee086c7eadae",
+  "source": "a21125af0239b70615624611ce11b54058dfe291",
+  "started": 1790896142.7238941,
+  "status": "complete"
+}
