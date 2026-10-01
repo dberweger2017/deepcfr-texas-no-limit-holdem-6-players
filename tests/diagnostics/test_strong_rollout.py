@@ -103,3 +103,15 @@ def test_match_replay_and_paired_metric_arithmetic():
     assert 'fallback' not in result['counts']
     with pytest.raises(ValueError,match='Incomplete paired'):summarize_matches(rows[:1])
     with pytest.raises(ValueError,match='Duplicate'):summarize_matches(rows+[rows[0]])
+
+
+def test_exact_short_allin_and_raising_unavailable():
+    hand=Hand.start(Table(('a','b'),(2000,2000)),hand_id='short-allin',seed=17)
+    hand=hand.apply(Action(ActionKind.RAISE,1000)).apply(Action(ActionKind.RAISE,1900))
+    view=hand.observe(0)
+    assert view.legal_actions.min_raise_to==view.legal_actions.max_raise_to==2000
+    for mode in ('restricted','native'):
+        raises=[c.action for c in action_menu(view,mode) if c.action.kind==ActionKind.RAISE]
+        assert raises==[Action(ActionKind.RAISE,2000)]
+    hand=hand.apply(Action(ActionKind.RAISE,2000));view=hand.observe(1)
+    assert not any(c.action.kind==ActionKind.RAISE for c in action_menu(view,'native'))

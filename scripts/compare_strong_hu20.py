@@ -1,6 +1,6 @@
 """Frozen heuristic vs verified checkpoints, separate modes and sampled decisions."""
 import argparse
-from collections import defaultdict
+from collections import Counter, defaultdict
 import gc
 import gzip
 import json
@@ -61,9 +61,17 @@ def load_policy(spec,inputs):
 
 
 def checkpoint_changes(panels,specs):
-    names={s['name']:s for s in specs};changes=[];aggregates=[]
+    names={s['name']:s for s in specs};changes=[];aggregates=[];levels=[]
     for mode in ('restricted','native'):
         seed_deltas=[]
+        for milestone in (100000000,500000000):
+            matched=[p for p in panels if p['mode']==mode and names[p['policy']]['milestone']==milestone]
+            if len(matched)==3:
+                if any(p['blocks']!=matched[0]['blocks'] for p in matched):raise ValueError('Aggregate checkpoint pairing differs')
+                counts=Counter()
+                for p in matched:counts.update(p['counts'])
+                positions={pos:estimate([sum(v)/3 for v in zip(*(p['position_block_chips'][pos] for p in matched))]) for pos in ('button','big_blind')} if all('position_block_chips' in p for p in matched) else None
+                levels.append({'mode':mode,'milestone':milestone,'overall':estimate([sum(v)/3 for v in zip(*(p['paired_block_chips'] for p in matched))]),'positions':positions,'counts':dict(counts)})
         for seed in sorted({s['seed'] for s in specs}):
             rows={names[p['policy']]['milestone']:p for p in panels if p['mode']==mode and names[p['policy']]['seed']==seed}
             if set(rows)!={100000000,500000000}:continue
@@ -74,10 +82,11 @@ def checkpoint_changes(panels,specs):
         if len(seed_deltas)==3:
             aggregates.append({'mode':mode,'500m_minus_100m':estimate([sum(v)/3 for v in zip(*seed_deltas)]),
                                'scope':'paired deals; conditional on the three original saved lineages, exploratory 95%'})
-    return {'seed_changes':changes,'three_lineage_changes':aggregates}
+    return {'seed_changes':changes,'three_lineage_changes':aggregates,'three_lineage_levels':levels}
 
 
 def run(plan,config,freeze,out,inputs):
+    if plan.get('opponent_freeze_sha256') and digest(freeze)!=plan['opponent_freeze_sha256']:raise ValueError('Comparison freeze identity differs')
     out.mkdir(parents=True,exist_ok=False);start=perf_counter();all_rows=[];diagnostics=[];loaded_inputs=[];samples=[];failure=None
     def guard():
         if perf_counter()-start>plan['max_seconds']:raise TimeoutError('Frozen execution window exceeded')
@@ -104,11 +113,15 @@ def run(plan,config,freeze,out,inputs):
                             result=score_decision(view,source,config,mode,seed,selection_worlds=plan['selection_worlds'])
                             row={'model':spec['name'],'mode':mode,**coordinate,**result}
                             scored.write(json.dumps(row,sort_keys=True)+'\n');scored.flush();diagnostics.append({k:v for k,v in row.items() if k not in ('range_holdings','world_records')})
+                            print(json.dumps({'model':spec['name'],'mode':mode,'stage':'decision','street':coordinate['street'],'position':coordinate['position'],'seconds':perf_counter()-panel_start}),flush=True)
                     print(json.dumps({'model':spec['name'],'mode':mode,'stage':'scored','seconds':perf_counter()-panel_start}),flush=True)
                     del sample
             del source;gc.collect()
     except Exception as exc:failure=f'{type(exc).__name__}: {exc}'
     panels=summarize_matches(all_rows) if not failure else []
+    for panel in panels:
+        items=[r for r in all_rows if r['policy']==panel['policy'] and r['mode']==panel['mode']]
+        panel['position_block_chips']={pos:[r['target_chips'] for r in sorted(items,key=lambda r:r['block']) if ('button' if r['rotation']==r['button'] else 'big_blind')==pos] for pos in ('button','big_blind')}
     result={'status':'incomplete' if failure else 'complete','failure':failure,'plan':plan,'plan_sha256':digest(plan),
         'source':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'opponent_freeze':freeze,
         'inputs':loaded_inputs,'hands':len(all_rows),'panels':panels,'decision_sampling':samples,'decision_diagnostics':diagnostics,

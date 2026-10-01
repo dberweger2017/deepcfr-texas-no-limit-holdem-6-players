@@ -106,3 +106,26 @@ exp((score−best)/35). Fold scores −own current contribution. Call/check scor
 contribution + continue_probability×(2×continuing_equity−1)×matched contribution.
 These are explicitly approximate one-step/checkdown utilities, not full strategic
 rollouts or a calibrated model of a particular saved blueprint.
+
+## Final comparison budget (frozen after timing, before final outcomes)
+
+The B100M timing-only pilot used 16 hands and 352 continuation branches in 9.465s,
+including one 5.686s model load; peak 1.754 GiB. Pilot return/gap estimates are
+excluded from final inference. An initial input-root/metadata name collision
+failed before any load/hand; its outputs are retained and the runner regression
+now covers that path.
+
+The [final plan](../configs/diagnostics/strong-rollout-comparison.json) fixes **512
+paired blocks per model/mode**, six original B100M/B500M exports, **12,288 actual
+hands** total. Root `202610040301`; outcome-blind sampler root `202610040302`.
+At most two decisions per street/position/model/mode: 192 maximum, with any missing
+stratum explicit. Each has 32 selection + 32 independent evaluation worlds; native
+legal extra candidates have zero saved-root mixture weight. Worst-case candidate
+extrapolation plus loads/gameplay is roughly 15 minutes, with a **30-minute absolute
+worker limit** and 6 GiB process-peak guard. No outcome-based budget expansion.
+
+Modes are never pooled. Three-lineage estimates average within shared deal blocks;
+intervals condition on these fixed lineages and use exploratory unadjusted 95%
+Student-t intervals. All per-seed/position results and adverse tails remain visible.
+Stratified sampled-decision gaps are conditional diagnostics, not an unweighted
+estimate of all policy decisions or a ranking adjusted for changed state occupancy.

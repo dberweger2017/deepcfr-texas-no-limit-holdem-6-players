@@ -1,0 +1,1107 @@
+{
+  "decision_diagnostics": [
+    {
+      "assumptions": "128-particle heuristic public-history range; sampled fresh worlds; saved target vs freshly initialized frozen v1; no cross-hand adaptation",
+      "block": 0,
+      "continuation_lookups": {
+        "fallback": 0,
+        "trained": 31
+      },
+      "evaluation_action_mean_bb": [
+        -3.5,
+        -2.0,
+        2.5
+      ],
+      "evaluation_policy_mean_bb": -3.421210886193307,
+      "evaluation_worlds": 4,
+      "gap_bb": 1.421210886193307,
+      "gap_ci95_bb": [
+        -5.3771254344568415,
+        8.219547206843457
+      ],
+      "index": 2,
+      "interval_scope": "conditional on this observation, fixed assumed range and continuation model; exploratory",
+      "legal_alternatives": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "root_probability": 0.9474739241288713
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "root_probability": 0.05252607587112871
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 600,
+          "root_probability": 0.0
+        }
+      ],
+      "mode": "restricted",
+      "model": "B-2026093001-100000000",
+      "observation_sha256": "20985a435904e3efda65372fe8e355abd23db7116267cd48fbe8f3d5c2801f73",
+      "position": "big_blind",
+      "priority": "184b4f623e8df7b0893366c6a8c0ba3ce24b1783a321930454381e64bed797d6",
+      "range": {
+        "assumption": "heuristic-public-likelihood-v1",
+        "effective_sample_size": 59.20812182741118,
+        "particles": 128,
+        "resets": 0
+      },
+      "root_trained": true,
+      "rotation": 1,
+      "selected_index": 1,
+      "selection_action_mean_bb": [
+        -3.0,
+        -2.25,
+        -3.0
+      ],
+      "selection_worlds": 4,
+      "street": "flop",
+      "version": "assumed-range-decision-gap-v1",
+      "warning": "A conditional model-based estimate, not actual-opponent EV or a proven error; one world is a realized counterfactual."
+    },
+    {
+      "assumptions": "128-particle heuristic public-history range; sampled fresh worlds; saved target vs freshly initialized frozen v1; no cross-hand adaptation",
+      "block": 0,
+      "continuation_lookups": {
+        "fallback": 0,
+        "trained": 16
+      },
+      "evaluation_action_mean_bb": [
+        -1.0,
+        3.25,
+        7.75,
+        7.25
+      ],
+      "evaluation_policy_mean_bb": 7.387174965027793,
+      "evaluation_worlds": 4,
+      "gap_bb": -0.13717496502779314,
+      "gap_ci95_bb": [
+        -0.5737269256579152,
+        0.29937699560232894
+      ],
+      "index": 3,
+      "interval_scope": "conditional on this observation, fixed assumed range and continuation model; exploratory",
+      "legal_alternatives": [
+        {
+          "kind": "fold",
+          "name": "fold",
+          "raise_to": null,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "call",
+          "name": "call",
+          "raise_to": null,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 400,
+          "root_probability": 0.2743499300555864
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 800,
+          "root_probability": 0.7256500699444136
+        }
+      ],
+      "mode": "restricted",
+      "model": "B-2026093001-100000000",
+      "observation_sha256": "3cf918a64e24f411a4feae9ab7d6de2f55a885a988096add2df42d605d64e8ac",
+      "position": "button",
+      "priority": "5dfb985ff06c6b1c7a12971fede1e0449224e75171732d94f35da7e433d95838",
+      "range": {
+        "assumption": "heuristic-public-likelihood-v1",
+        "effective_sample_size": 67.75563063029298,
+        "particles": 128,
+        "resets": 0
+      },
+      "root_trained": true,
+      "rotation": 0,
+      "selected_index": 3,
+      "selection_action_mean_bb": [
+        -1.0,
+        3.25,
+        6.0,
+        7.25
+      ],
+      "selection_worlds": 4,
+      "street": "flop",
+      "version": "assumed-range-decision-gap-v1",
+      "warning": "A conditional model-based estimate, not actual-opponent EV or a proven error; one world is a realized counterfactual."
+    },
+    {
+      "assumptions": "128-particle heuristic public-history range; sampled fresh worlds; saved target vs freshly initialized frozen v1; no cross-hand adaptation",
+      "block": 1,
+      "continuation_lookups": {
+        "fallback": 1,
+        "trained": 28
+      },
+      "evaluation_action_mean_bb": [
+        -1.0,
+        7.5,
+        0.75,
+        -2.75
+      ],
+      "evaluation_policy_mean_bb": -1.0,
+      "evaluation_worlds": 4,
+      "gap_bb": 0.0,
+      "gap_ci95_bb": [
+        0.0,
+        0.0
+      ],
+      "index": 1,
+      "interval_scope": "conditional on this observation, fixed assumed range and continuation model; exploratory",
+      "legal_alternatives": [
+        {
+          "kind": "fold",
+          "name": "fold",
+          "raise_to": null,
+          "root_probability": 1.0
+        },
+        {
+          "kind": "call",
+          "name": "call",
+          "raise_to": null,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 500,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 900,
+          "root_probability": 0.0
+        }
+      ],
+      "mode": "restricted",
+      "model": "B-2026093001-100000000",
+      "observation_sha256": "4d0e37f0ee8ffb201eeb7d3f26fc7f1c26926f19b5bb3983ba05b01e23a3e751",
+      "position": "big_blind",
+      "priority": "43814032911cc447dcf0862acca4eb4a9da63e256d0023d571218bbc327f4211",
+      "range": {
+        "assumption": "heuristic-public-likelihood-v1",
+        "effective_sample_size": 60.16222206829704,
+        "particles": 128,
+        "resets": 0
+      },
+      "root_trained": true,
+      "rotation": 0,
+      "selected_index": 0,
+      "selection_action_mean_bb": [
+        -1.0,
+        -11.5,
+        -4.75,
+        -5.75
+      ],
+      "selection_worlds": 4,
+      "street": "preflop",
+      "version": "assumed-range-decision-gap-v1",
+      "warning": "A conditional model-based estimate, not actual-opponent EV or a proven error; one world is a realized counterfactual."
+    },
+    {
+      "assumptions": "128-particle heuristic public-history range; sampled fresh worlds; saved target vs freshly initialized frozen v1; no cross-hand adaptation",
+      "block": 1,
+      "continuation_lookups": {
+        "fallback": 0,
+        "trained": 38
+      },
+      "evaluation_action_mean_bb": [
+        -0.5,
+        3.5,
+        6.5,
+        3.0
+      ],
+      "evaluation_policy_mean_bb": 3.5,
+      "evaluation_worlds": 4,
+      "gap_bb": 0.0,
+      "gap_ci95_bb": [
+        0.0,
+        0.0
+      ],
+      "index": 0,
+      "interval_scope": "conditional on this observation, fixed assumed range and continuation model; exploratory",
+      "legal_alternatives": [
+        {
+          "kind": "fold",
+          "name": "fold",
+          "raise_to": null,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "call",
+          "name": "call",
+          "raise_to": null,
+          "root_probability": 1.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 200,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 300,
+          "root_probability": 0.0
+        }
+      ],
+      "mode": "restricted",
+      "model": "B-2026093001-100000000",
+      "observation_sha256": "ed20fafa6334816bcf31e63700b467c884ff6431399343f44e93d37b7834f1b2",
+      "position": "button",
+      "priority": "00050589c87c095a9fac797871a93af31ad28b7959fe049b1e0e7a680995af1e",
+      "range": {
+        "assumption": "heuristic-public-likelihood-v1",
+        "effective_sample_size": 128.0,
+        "particles": 128,
+        "resets": 0
+      },
+      "root_trained": true,
+      "rotation": 1,
+      "selected_index": 1,
+      "selection_action_mean_bb": [
+        -0.5,
+        1.25,
+        0.25,
+        -2.75
+      ],
+      "selection_worlds": 4,
+      "street": "preflop",
+      "version": "assumed-range-decision-gap-v1",
+      "warning": "A conditional model-based estimate, not actual-opponent EV or a proven error; one world is a realized counterfactual."
+    },
+    {
+      "assumptions": "128-particle heuristic public-history range; sampled fresh worlds; saved target vs freshly initialized frozen v1; no cross-hand adaptation",
+      "block": 2,
+      "continuation_lookups": {
+        "fallback": 0,
+        "trained": 1
+      },
+      "evaluation_action_mean_bb": [
+        1.5,
+        1.75,
+        0.0
+      ],
+      "evaluation_policy_mean_bb": 1.75,
+      "evaluation_worlds": 4,
+      "gap_bb": -0.25,
+      "gap_ci95_bb": [
+        -1.7734801808288123,
+        1.2734801808288123
+      ],
+      "index": 7,
+      "interval_scope": "conditional on this observation, fixed assumed range and continuation model; exploratory",
+      "legal_alternatives": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "root_probability": 1.0
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 600,
+          "root_probability": 0.0
+        }
+      ],
+      "mode": "restricted",
+      "model": "B-2026093001-100000000",
+      "observation_sha256": "d37c7e4d83ceebb790631985c123f4b222ee259a22e24631350a3e24d1c92849",
+      "position": "button",
+      "priority": "9ec443e487580bcf17f910e9bf6e9a3431c63cb0c0d02ff0195df75794d781e4",
+      "range": {
+        "assumption": "heuristic-public-likelihood-v1",
+        "effective_sample_size": 93.2673575716056,
+        "particles": 128,
+        "resets": 0
+      },
+      "root_trained": true,
+      "rotation": 0,
+      "selected_index": 0,
+      "selection_action_mean_bb": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "selection_worlds": 4,
+      "street": "river",
+      "version": "assumed-range-decision-gap-v1",
+      "warning": "A conditional model-based estimate, not actual-opponent EV or a proven error; one world is a realized counterfactual."
+    },
+    {
+      "assumptions": "128-particle heuristic public-history range; sampled fresh worlds; saved target vs freshly initialized frozen v1; no cross-hand adaptation",
+      "block": 2,
+      "continuation_lookups": {
+        "fallback": 0,
+        "trained": 18
+      },
+      "evaluation_action_mean_bb": [
+        -1.75,
+        -4.0,
+        -5.75
+      ],
+      "evaluation_policy_mean_bb": -1.75,
+      "evaluation_worlds": 4,
+      "gap_bb": -2.25,
+      "gap_ci95_bb": [
+        -11.562394746331055,
+        7.062394746331055
+      ],
+      "index": 5,
+      "interval_scope": "conditional on this observation, fixed assumed range and continuation model; exploratory",
+      "legal_alternatives": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "root_probability": 1.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 600,
+          "root_probability": 0.0
+        }
+      ],
+      "mode": "restricted",
+      "model": "B-2026093001-100000000",
+      "observation_sha256": "66e7e30c915646b209335f9b4503d204737379893b503a9cff33e39909ccd1f7",
+      "position": "button",
+      "priority": "ef47d40f4ce1bff94522eb5a34f809241dfcb4763f3282e484f59d181782f06a",
+      "range": {
+        "assumption": "heuristic-public-likelihood-v1",
+        "effective_sample_size": 81.78706436119435,
+        "particles": 128,
+        "resets": 0
+      },
+      "root_trained": true,
+      "rotation": 0,
+      "selected_index": 1,
+      "selection_action_mean_bb": [
+        1.25,
+        3.75,
+        -0.25
+      ],
+      "selection_worlds": 4,
+      "street": "turn",
+      "version": "assumed-range-decision-gap-v1",
+      "warning": "A conditional model-based estimate, not actual-opponent EV or a proven error; one world is a realized counterfactual."
+    },
+    {
+      "assumptions": "128-particle heuristic public-history range; sampled fresh worlds; saved target vs freshly initialized frozen v1; no cross-hand adaptation",
+      "block": 0,
+      "continuation_lookups": {
+        "fallback": 0,
+        "trained": 18
+      },
+      "evaluation_action_mean_bb": [
+        1.25,
+        1.5,
+        1.5,
+        1.3325
+      ],
+      "evaluation_policy_mean_bb": 1.5,
+      "evaluation_worlds": 4,
+      "gap_bb": -0.25000000000000006,
+      "gap_ci95_bb": [
+        -1.0092077921983618,
+        0.5092077921983615
+      ],
+      "index": 3,
+      "interval_scope": "conditional on this observation, fixed assumed range and continuation model; exploratory",
+      "legal_alternatives": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "root_probability": 0.03473845906626368
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 200,
+          "root_probability": 0.9652615409337364
+        },
+        {
+          "kind": "raise",
+          "name": "two-thirds",
+          "raise_to": 133,
+          "root_probability": 0
+        }
+      ],
+      "mode": "native",
+      "model": "B-2026093001-100000000",
+      "observation_sha256": "29149948f320d954735a3a155a6467c22a626385b6eb33ba61a1ecbdf5d2fc7a",
+      "position": "button",
+      "priority": "5dfb985ff06c6b1c7a12971fede1e0449224e75171732d94f35da7e433d95838",
+      "range": {
+        "assumption": "heuristic-public-likelihood-v1",
+        "effective_sample_size": 122.85552193863074,
+        "particles": 128,
+        "resets": 0
+      },
+      "root_trained": true,
+      "rotation": 0,
+      "selected_index": 0,
+      "selection_action_mean_bb": [
+        1.75,
+        1.25,
+        1.0,
+        1.3325
+      ],
+      "selection_worlds": 4,
+      "street": "flop",
+      "version": "assumed-range-decision-gap-v1",
+      "warning": "A conditional model-based estimate, not actual-opponent EV or a proven error; one world is a realized counterfactual."
+    },
+    {
+      "assumptions": "128-particle heuristic public-history range; sampled fresh worlds; saved target vs freshly initialized frozen v1; no cross-hand adaptation",
+      "block": 1,
+      "continuation_lookups": {
+        "fallback": 10,
+        "trained": 23
+      },
+      "evaluation_action_mean_bb": [
+        -1.0,
+        1.665,
+        2.5,
+        2.5
+      ],
+      "evaluation_policy_mean_bb": -1.0,
+      "evaluation_worlds": 4,
+      "gap_bb": 3.5,
+      "gap_ci95_bb": [
+        3.5,
+        3.5
+      ],
+      "index": 1,
+      "interval_scope": "conditional on this observation, fixed assumed range and continuation model; exploratory",
+      "legal_alternatives": [
+        {
+          "kind": "fold",
+          "name": "fold",
+          "raise_to": null,
+          "root_probability": 1.0
+        },
+        {
+          "kind": "call",
+          "name": "call",
+          "raise_to": null,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 400,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 750,
+          "root_probability": 0.0
+        }
+      ],
+      "mode": "native",
+      "model": "B-2026093001-100000000",
+      "observation_sha256": "c3c04acb8938362f0f7233102df2c6e551d7ef00c22541755089a8dcca9ac40f",
+      "position": "big_blind",
+      "priority": "43814032911cc447dcf0862acca4eb4a9da63e256d0023d571218bbc327f4211",
+      "range": {
+        "assumption": "heuristic-public-likelihood-v1",
+        "effective_sample_size": 61.11640571817527,
+        "particles": 128,
+        "resets": 0
+      },
+      "root_trained": true,
+      "rotation": 0,
+      "selected_index": 2,
+      "selection_action_mean_bb": [
+        -1.0,
+        -3.0825,
+        0.835,
+        -8.75
+      ],
+      "selection_worlds": 4,
+      "street": "preflop",
+      "version": "assumed-range-decision-gap-v1",
+      "warning": "A conditional model-based estimate, not actual-opponent EV or a proven error; one world is a realized counterfactual."
+    },
+    {
+      "assumptions": "128-particle heuristic public-history range; sampled fresh worlds; saved target vs freshly initialized frozen v1; no cross-hand adaptation",
+      "block": 1,
+      "continuation_lookups": {
+        "fallback": 5,
+        "trained": 22
+      },
+      "evaluation_action_mean_bb": [
+        -0.5,
+        -0.25,
+        1.5825,
+        -3.0,
+        1.7925
+      ],
+      "evaluation_policy_mean_bb": -0.25,
+      "evaluation_worlds": 4,
+      "gap_bb": 2.0425,
+      "gap_ci95_bb": [
+        -1.966379811890714,
+        6.051379811890714
+      ],
+      "index": 0,
+      "interval_scope": "conditional on this observation, fixed assumed range and continuation model; exploratory",
+      "legal_alternatives": [
+        {
+          "kind": "fold",
+          "name": "fold",
+          "raise_to": null,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "call",
+          "name": "call",
+          "raise_to": null,
+          "root_probability": 1.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 200,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 300,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "open-2.5bb",
+          "raise_to": 250,
+          "root_probability": 0
+        }
+      ],
+      "mode": "native",
+      "model": "B-2026093001-100000000",
+      "observation_sha256": "80808053925693fb8dcc3fcb99fced79de1a0964edd19befcf21f849353994de",
+      "position": "button",
+      "priority": "00050589c87c095a9fac797871a93af31ad28b7959fe049b1e0e7a680995af1e",
+      "range": {
+        "assumption": "heuristic-public-likelihood-v1",
+        "effective_sample_size": 128.0,
+        "particles": 128,
+        "resets": 0
+      },
+      "root_trained": true,
+      "rotation": 1,
+      "selected_index": 4,
+      "selection_action_mean_bb": [
+        -0.5,
+        -1.0825,
+        3.0,
+        -2.5,
+        3.375
+      ],
+      "selection_worlds": 4,
+      "street": "preflop",
+      "version": "assumed-range-decision-gap-v1",
+      "warning": "A conditional model-based estimate, not actual-opponent EV or a proven error; one world is a realized counterfactual."
+    },
+    {
+      "assumptions": "128-particle heuristic public-history range; sampled fresh worlds; saved target vs freshly initialized frozen v1; no cross-hand adaptation",
+      "block": 2,
+      "continuation_lookups": {
+        "fallback": 0,
+        "trained": 0
+      },
+      "evaluation_action_mean_bb": [
+        1.165,
+        1.165,
+        0.0,
+        0.7775000000000001,
+        0.38749999999999996
+      ],
+      "evaluation_policy_mean_bb": 1.165,
+      "evaluation_worlds": 4,
+      "gap_bb": 0.0,
+      "gap_ci95_bb": [
+        0.0,
+        0.0
+      ],
+      "index": 7,
+      "interval_scope": "conditional on this observation, fixed assumed range and continuation model; exploratory",
+      "legal_alternatives": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "root_probability": 1.0
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 466,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "one-third",
+          "raise_to": 155,
+          "root_probability": 0
+        },
+        {
+          "kind": "raise",
+          "name": "two-thirds",
+          "raise_to": 311,
+          "root_probability": 0
+        }
+      ],
+      "mode": "native",
+      "model": "B-2026093001-100000000",
+      "observation_sha256": "9c5fc2fc705fb7c0a2cb594bcac82351b28962b1055365cb8c203671d0607228",
+      "position": "button",
+      "priority": "9ec443e487580bcf17f910e9bf6e9a3431c63cb0c0d02ff0195df75794d781e4",
+      "range": {
+        "assumption": "heuristic-public-likelihood-v1",
+        "effective_sample_size": 104.28531618134356,
+        "particles": 128,
+        "resets": 0
+      },
+      "root_trained": true,
+      "rotation": 0,
+      "selected_index": 1,
+      "selection_action_mean_bb": [
+        2.33,
+        2.58,
+        2.33,
+        2.33,
+        2.33
+      ],
+      "selection_worlds": 4,
+      "street": "river",
+      "version": "assumed-range-decision-gap-v1",
+      "warning": "A conditional model-based estimate, not actual-opponent EV or a proven error; one world is a realized counterfactual."
+    },
+    {
+      "assumptions": "128-particle heuristic public-history range; sampled fresh worlds; saved target vs freshly initialized frozen v1; no cross-hand adaptation",
+      "block": 2,
+      "continuation_lookups": {
+        "fallback": 0,
+        "trained": 19
+      },
+      "evaluation_action_mean_bb": [
+        3.1075,
+        2.83,
+        2.33,
+        2.33,
+        2.33
+      ],
+      "evaluation_policy_mean_bb": 3.1075,
+      "evaluation_worlds": 4,
+      "gap_bb": 0.0,
+      "gap_ci95_bb": [
+        0.0,
+        0.0
+      ],
+      "index": 5,
+      "interval_scope": "conditional on this observation, fixed assumed range and continuation model; exploratory",
+      "legal_alternatives": [
+        {
+          "kind": "check",
+          "name": "check",
+          "raise_to": null,
+          "root_probability": 1.0
+        },
+        {
+          "kind": "raise",
+          "name": "min",
+          "raise_to": 100,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "pot",
+          "raise_to": 466,
+          "root_probability": 0.0
+        },
+        {
+          "kind": "raise",
+          "name": "one-third",
+          "raise_to": 155,
+          "root_probability": 0
+        },
+        {
+          "kind": "raise",
+          "name": "two-thirds",
+          "raise_to": 311,
+          "root_probability": 0
+        }
+      ],
+      "mode": "native",
+      "model": "B-2026093001-100000000",
+      "observation_sha256": "21b406ba59011ae69b80d472e4f86b379c12c67796c1d41d1921ff75231060ef",
+      "position": "button",
+      "priority": "ef47d40f4ce1bff94522eb5a34f809241dfcb4763f3282e484f59d181782f06a",
+      "range": {
+        "assumption": "heuristic-public-likelihood-v1",
+        "effective_sample_size": 77.73225938902726,
+        "particles": 128,
+        "resets": 0
+      },
+      "root_trained": true,
+      "rotation": 0,
+      "selected_index": 0,
+      "selection_action_mean_bb": [
+        1.0275,
+        0.30500000000000016,
+        -3.2525,
+        -0.12750000000000017,
+        -3.2525
+      ],
+      "selection_worlds": 4,
+      "street": "turn",
+      "version": "assumed-range-decision-gap-v1",
+      "warning": "A conditional model-based estimate, not actual-opponent EV or a proven error; one world is a realized counterfactual."
+    }
+  ],
+  "decision_sampling": [
+    {
+      "mode": "restricted",
+      "model": "B-2026093001-100000000",
+      "strata": [
+        {
+          "eligible_decisions": 4,
+          "position": "button",
+          "selected": 1,
+          "street": "preflop"
+        },
+        {
+          "eligible_decisions": 3,
+          "position": "big_blind",
+          "selected": 1,
+          "street": "preflop"
+        },
+        {
+          "eligible_decisions": 3,
+          "position": "button",
+          "selected": 1,
+          "street": "flop"
+        },
+        {
+          "eligible_decisions": 2,
+          "position": "big_blind",
+          "selected": 1,
+          "street": "flop"
+        },
+        {
+          "eligible_decisions": 1,
+          "position": "button",
+          "selected": 1,
+          "street": "turn"
+        },
+        {
+          "eligible_decisions": 0,
+          "position": "big_blind",
+          "selected": 0,
+          "street": "turn"
+        },
+        {
+          "eligible_decisions": 1,
+          "position": "button",
+          "selected": 1,
+          "street": "river"
+        },
+        {
+          "eligible_decisions": 0,
+          "position": "big_blind",
+          "selected": 0,
+          "street": "river"
+        }
+      ]
+    },
+    {
+      "mode": "native",
+      "model": "B-2026093001-100000000",
+      "strata": [
+        {
+          "eligible_decisions": 4,
+          "position": "button",
+          "selected": 1,
+          "street": "preflop"
+        },
+        {
+          "eligible_decisions": 3,
+          "position": "big_blind",
+          "selected": 1,
+          "street": "preflop"
+        },
+        {
+          "eligible_decisions": 3,
+          "position": "button",
+          "selected": 1,
+          "street": "flop"
+        },
+        {
+          "eligible_decisions": 0,
+          "position": "big_blind",
+          "selected": 0,
+          "street": "flop"
+        },
+        {
+          "eligible_decisions": 1,
+          "position": "button",
+          "selected": 1,
+          "street": "turn"
+        },
+        {
+          "eligible_decisions": 0,
+          "position": "big_blind",
+          "selected": 0,
+          "street": "turn"
+        },
+        {
+          "eligible_decisions": 1,
+          "position": "button",
+          "selected": 1,
+          "street": "river"
+        },
+        {
+          "eligible_decisions": 0,
+          "position": "big_blind",
+          "selected": 0,
+          "street": "river"
+        }
+      ]
+    }
+  ],
+  "failure": null,
+  "hands": 16,
+  "inputs": [
+    {
+      "bytes": 40144034,
+      "load_seconds": 5.686364124994725,
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "entries": 1496914,
+        "iteration": 246212,
+        "kind": "holdem-hu20-native-reopening-blueprint-v1",
+        "num_players": 2,
+        "strategy": "current",
+        "training_seed": 2026093001,
+        "weights_sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+      },
+      "name": "B-2026093001-100000000",
+      "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+    }
+  ],
+  "opponent_freeze": {
+    "calibration_confirmation_sha256": "82015607ce07f3d8b36db3c870fa646fb76675237fd08ce2422add3ba1d8c2e3",
+    "calibration_source": "9e4f655",
+    "classification": "inspectable heuristic baseline; strength unvalidated; no strategic revisions after development",
+    "files": {
+      "configs/diagnostics/strong-rollout-hu20-v1.json": "5da85541d31b33c571f3c6bd9a9ac3aaa3c86cef9ba160df055e2dcc98800dd3",
+      "requirements.txt": "8a1a48bfd02c4f64e8d36039006a0822b8f234e9290b4697b633cdf251d39d3a",
+      "src/diagnostics/exact_ranker.py": "9865e79f5ca47a820fc858b70009f203cb2639c4b1c12c62795090ddc5578f2b",
+      "src/diagnostics/strong_rollout.py": "4bea131350d7dc3e546f123300a69aea863be3f9e6727248ecaf8207199ec584"
+    },
+    "quality_goal_passed": false,
+    "source": "ff8c7d60eb16c64f6b3a4bcb02ea63769df5ea5c",
+    "version": "strong-rollout-hu20-v1"
+  },
+  "panels": [
+    {
+      "blocks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 3,
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 8,
+        "jam_actions": 0,
+        "jam_opportunities": 0,
+        "large_actions": 0,
+        "large_opportunities": 0,
+        "no_response": 0,
+        "preflop_trained": 7,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "river_trained": 1,
+        "target_decisions": 12,
+        "trained": 12,
+        "turn_trained": 1
+      },
+      "family95_interval": [
+        -324.5907595993114,
+        395.3407595993114
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": 35.375,
+        "blocks": 4,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        175,
+        -100,
+        66.5,
+        0
+      ],
+      "panel": "native",
+      "policy": "B-2026093001-100000000",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 25,
+          "blocks": 4,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 45.75,
+          "blocks": 4,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "counts": {
+        "fallback": 0,
+        "flop_trained": 5,
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 8,
+        "jam_actions": 0,
+        "jam_opportunities": 1,
+        "large_actions": 0,
+        "large_opportunities": 1,
+        "no_response": 0,
+        "preflop_trained": 7,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "river_trained": 1,
+        "target_decisions": 14,
+        "trained": 14,
+        "turn_trained": 1
+      },
+      "family95_interval": [
+        -254.40169699531174,
+        254.40169699531174
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": 0,
+        "blocks": 4,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        0,
+        -100,
+        100,
+        0
+      ],
+      "panel": "restricted",
+      "policy": "B-2026093001-100000000",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -112.5,
+          "blocks": 4,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 112.5,
+          "blocks": 4,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    }
+  ],
+  "peak_rss_bytes": 1883078656,
+  "plan": {
+    "blocks": 4,
+    "deal_root": 202610040201,
+    "decision_sample_root": 202610040202,
+    "decisions_per_street_position": 1,
+    "max_seconds": 600,
+    "models": [
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "bytes": 40144034,
+        "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a",
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "milestone": 100000000,
+        "name": "B-2026093001-100000000",
+        "path": "B-2026093001-100000000.policy.json.gz",
+        "players": 2,
+        "seed": 2026093001,
+        "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+      }
+    ],
+    "modes": [
+      "restricted",
+      "native"
+    ],
+    "selection_worlds": 4,
+    "stage": "timing-only-pilot"
+  },
+  "plan_sha256": "0d699d04e29e58f7d316e83733e209a7018f74e66aebd6bcaecac62d8fe12f70",
+  "seconds": 9.464869000017643,
+  "seed_changes": [],
+  "source": "edff22b36c96d8be8e51b52a269f279b740dd9e4",
+  "status": "complete",
+  "three_lineage_changes": []
+}

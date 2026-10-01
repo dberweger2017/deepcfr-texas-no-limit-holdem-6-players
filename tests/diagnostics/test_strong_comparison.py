@@ -30,7 +30,7 @@ def test_paired_lineages_and_modes_are_separate():
                 if mode=='restricted':specs.append({'name':name,'seed':seed,'milestone':checkpoint})
                 base=100 if mode=='restricted' else -100
                 panels.append({'policy':name,'mode':mode,'blocks':[0,1],
-                    'paired_block_chips':[base+(10 if checkpoint==500000000 else 0),base+(20 if checkpoint==500000000 else 0)]})
+                    'counts':{'hands':4},'paired_block_chips':[base+(10 if checkpoint==500000000 else 0),base+(20 if checkpoint==500000000 else 0)]})
     result=checkpoint_changes(panels,specs)
     assert len(result['seed_changes'])==6 and len(result['three_lineage_changes'])==2
     assert all(r['500m_minus_100m']['bb_per_100']==15 for r in result['three_lineage_changes'])

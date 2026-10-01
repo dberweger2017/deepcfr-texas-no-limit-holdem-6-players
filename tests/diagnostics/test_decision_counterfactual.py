@@ -50,3 +50,17 @@ def test_native_alternatives_keep_saved_root_mixture_and_exact_sizes():
     offmenu=next(a for a in result['legal_alternatives'] if a['raise_to']==250)
     assert offmenu['root_probability']==0
     assert sum(a['root_probability'] for a in result['legal_alternatives'])==pytest.approx(1)
+
+
+def test_postflop_hidden_holding_and_unseen_runout_are_isolated():
+    deck=list(DECK);other=list(deck)
+    other[0],other[7]=other[7],other[0];other[2],other[8]=other[8],other[2]
+    other[9:]=reversed(other[9:]);table=Table(('a','b'),(2000,2000))
+    hands=[]
+    for d in (deck,other):
+        hand=Hand.from_deck(table,hand_id='postflop-boundary',deck=tuple(d))
+        hand=hand.apply(Action(ActionKind.CALL)).apply(Action(ActionKind.CHECK)).apply(Action(ActionKind.CHECK))
+        hands.append(hand)
+    views=[h.observe(0) for h in hands];assert views[0]==views[1] and len(views[0].board)==3
+    config={**CONFIG,'particles':8,'equity_worlds':4}
+    assert score_decision(views[0],PassiveTarget(),config,'native',95,selection_worlds=2)==score_decision(views[1],PassiveTarget(),config,'native',95,selection_worlds=2)
