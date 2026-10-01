@@ -1,0 +1,120 @@
+{
+  "max_seconds": 1800,
+  "models": [
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 70646565,
+      "checkpoint_bytes": 131332745,
+      "checkpoint_path": "B-2026093001-500000000.checkpoint.json.gz",
+      "checkpoint_sha256": "51876a51da9f3c2ac5b622efecb3645300a4126312525314afd299c36b9f30b1",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1098929,
+      "milestone": 500000000,
+      "name": "B-2026093001-500000000-current",
+      "path": "B-2026093001-500000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "e0dfb7c0a0ebde1e8a904fce89481919f4e9b32a633b912e88d241d039e69628",
+      "strategy": "current"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 73289592,
+      "checkpoint_bytes": 131332745,
+      "checkpoint_path": "B-2026093001-500000000.checkpoint.json.gz",
+      "checkpoint_sha256": "51876a51da9f3c2ac5b622efecb3645300a4126312525314afd299c36b9f30b1",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1098929,
+      "milestone": 500000000,
+      "name": "B-2026093001-500000000-average",
+      "path": "B-2026093001-500000000.average.jsonl.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+      "strategy": "average"
+    }
+  ],
+  "outcome_use": "Runtime only; excluded from final inference",
+  "panels": [
+    {
+      "blocks": 4,
+      "contract": "menu",
+      "name": "uniform",
+      "rule": "uniform"
+    },
+    {
+      "blocks": 4,
+      "contract": "menu",
+      "name": "passive",
+      "rule": "passive"
+    },
+    {
+      "blocks": 4,
+      "contract": "menu",
+      "name": "minraise-cap2",
+      "rule": "minraise"
+    },
+    {
+      "blocks": 4,
+      "contract": "menu",
+      "name": "pressure-cap2",
+      "rule": "pressure"
+    },
+    {
+      "blocks": 4,
+      "contract": "style-native",
+      "name": "tight_passive",
+      "rule": "tight_passive"
+    },
+    {
+      "blocks": 4,
+      "contract": "style-native",
+      "name": "loose_passive",
+      "rule": "loose_passive"
+    },
+    {
+      "blocks": 4,
+      "contract": "style-native",
+      "name": "tight_aggressive",
+      "rule": "tight_aggressive"
+    },
+    {
+      "blocks": 4,
+      "contract": "style-native",
+      "name": "loose_aggressive",
+      "rule": "loose_aggressive"
+    },
+    {
+      "blocks": 4,
+      "contract": "style-native",
+      "name": "pot_pressure",
+      "rule": "pot_pressure"
+    },
+    {
+      "blocks": 4,
+      "contract": "style-native",
+      "name": "train_pressure",
+      "rule": "train_pressure"
+    },
+    {
+      "blocks": 4,
+      "contract": "native",
+      "name": "native-pressure",
+      "rule": "pressure"
+    },
+    {
+      "blocks": 4,
+      "contract": "menu",
+      "name": "selective-stackoff",
+      "rule": "selective_stackoff"
+    },
+    {
+      "blocks": 4,
+      "contract": "menu",
+      "name": "lbr",
+      "rule": "lbr"
+    }
+  ],
+  "root": 202610050101,
+  "stage": "timing-only-pilot"
+}
