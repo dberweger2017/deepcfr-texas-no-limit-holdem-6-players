@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "scope": "16 fixed whole iterations; A/C previous frozen executable and B PR143 byte-identical checkpoints/current exports",
+  "results": {
+    "original-v1-c": {
+      "hu20-native-reopening-ordered-history-card-v1": {
+        "checkpoint": "7dd2375d0991d4bdf955e1a34d36d199cac135970908f8a030d7847414cf0f60",
+        "export": "395da8695a7e8b5f2767a7fcac590e3df2bd2891115f09fa93941f7cead256e6",
+        "entries": 1182,
+        "iteration": 16
+      },
+      "hu20-native-reopening-compressed-history-card-v1": {
+        "checkpoint": "b16c4a7dac2fa6b4436d2da3a0143b9b4abc9f437fd6db3375e87f13c9f729e2",
+        "export": "015100eda2595b32ce574da5acdc0efde17fee76cdc86c6ae3dae865e11a7a4b",
+        "entries": 1131,
+        "iteration": 16
+      }
+    },
+    "original-v2-b": {
+      "hu20-native-reopening-ordered-history-card-v2": {
+        "checkpoint": "abe88f47ca71f2c08825f357892e7bb1913ae51319b812ae7a50292f7cff994c",
+        "export": "6e1932dd6d18059917df3ecb44d05f66a52b86522146e48bd671be4738f48f79",
+        "entries": 1252,
+        "iteration": 16
+      }
+    },
+    "integrated": {
+      "hu20-native-reopening-ordered-history-card-v1": {
+        "checkpoint": "7dd2375d0991d4bdf955e1a34d36d199cac135970908f8a030d7847414cf0f60",
+        "export": "395da8695a7e8b5f2767a7fcac590e3df2bd2891115f09fa93941f7cead256e6",
+        "entries": 1182,
+        "iteration": 16
+      },
+      "hu20-native-reopening-ordered-history-card-v2": {
+        "checkpoint": "abe88f47ca71f2c08825f357892e7bb1913ae51319b812ae7a50292f7cff994c",
+        "export": "6e1932dd6d18059917df3ecb44d05f66a52b86522146e48bd671be4738f48f79",
+        "entries": 1252,
+        "iteration": 16
+      },
+      "hu20-native-reopening-compressed-history-card-v1": {
+        "checkpoint": "b16c4a7dac2fa6b4436d2da3a0143b9b4abc9f437fd6db3375e87f13c9f729e2",
+        "export": "015100eda2595b32ce574da5acdc0efde17fee76cdc86c6ae3dae865e11a7a4b",
+        "entries": 1131,
+        "iteration": 16
+      }
+    }
+  }
+}

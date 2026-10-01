@@ -11,6 +11,7 @@ from src.game.observation import (
     HandStarted,
     Observation,
 )
+from src.blueprint.cards_v2 import postflop_v2
 from src.game.showdown import hand_value
 from src.game.types import Action, ActionKind, Street
 
@@ -21,12 +22,16 @@ HU20_MENU_VERSION = "hu20-min-pot-conditional-jam-no-free-fold-v2"
 HU20_UNCAPPED_SCHEMA = "hu20-native-reopening-ordered-history-card-v1"
 HU20_UNCAPPED_MENU_VERSION = "hu20-min-pot-conditional-jam-native-reopening-v1"
 HU20_COMPRESSED_SCHEMA = "hu20-native-reopening-compressed-history-card-v1"
-HU20_NATIVE_SCHEMAS = (HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA)
+HU20_CARD_V2_SCHEMA = "hu20-native-reopening-ordered-history-card-v2"
+HU20_COMPRESSED_CARD_V2_SCHEMA = "hu20-native-reopening-compressed-history-card-v2"
+HU20_COMPRESSED_SCHEMAS = (HU20_COMPRESSED_SCHEMA, HU20_COMPRESSED_CARD_V2_SCHEMA)
+HU20_CARD_V2_SCHEMAS = (HU20_CARD_V2_SCHEMA, HU20_COMPRESSED_CARD_V2_SCHEMA)
+HU20_NATIVE_SCHEMAS = (HU20_UNCAPPED_SCHEMA, HU20_CARD_V2_SCHEMA, *HU20_COMPRESSED_SCHEMAS)
 HU20_HISTORY_VERSION = "hu20-earlier-streets-public-summary-v1"
 HU20_CARD_VERSION = "legacy-postflop-descriptor-v1"
 TP20_SCHEMA = "tp20-ordered-history-card-baseline-v1"
 TP20_MENU_VERSION = "tp20-min-pot-conditional-jam-no-free-fold-v1"
-SHORTSTACK_SEATS = {HU20_SCHEMA: 2, HU20_UNCAPPED_SCHEMA: 2, HU20_COMPRESSED_SCHEMA: 2, TP20_SCHEMA: 3}
+SHORTSTACK_SEATS = {HU20_SCHEMA: 2, HU20_UNCAPPED_SCHEMA: 2, HU20_COMPRESSED_SCHEMA: 2, HU20_CARD_V2_SCHEMA: 2, HU20_COMPRESSED_CARD_V2_SCHEMA: 2, TP20_SCHEMA: 3}
 SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, *SHORTSTACK_SEATS)
 LEGACY_LOOKUP = "legacy-v1"
 BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"
@@ -253,15 +258,16 @@ def information_key(
                                   or view.big_blind != 100
                                   or tuple(view.history[0].stacks) != (2000,) * SHORTSTACK_SEATS[schema]):
         raise ValueError("Short-stack key requires its versioned 20BB game")
-    # The HU20 baseline intentionally retains the original postflop descriptor;
-    # this dispatch is where a later, separately tested card abstraction can fit.
+    # Each cell keeps its frozen descriptor; compression only changes history.
     cards = (
         _preflop(view.hole_cards)
         if view.street == Street.PREFLOP
-        else _postflop(view.hole_cards, view.board)
+        else postflop_v2(view.hole_cards, view.board)
+        if schema in HU20_CARD_V2_SCHEMAS else _postflop(view.hole_cards, view.board)
     )
     payload = (
-        HU20_UNCAPPED_SCHEMA if schema == HU20_COMPRESSED_SCHEMA and view.street == Street.PREFLOP else schema,
+        (HU20_CARD_V2_SCHEMA if schema in HU20_CARD_V2_SCHEMAS else HU20_UNCAPPED_SCHEMA)
+        if schema in HU20_COMPRESSED_SCHEMAS and view.street == Street.PREFLOP else schema,
         len(view.players),
         (view.seat - view.button) % len(view.players),
         view.street.value,
@@ -272,7 +278,7 @@ def information_key(
             for offset in range(len(view.players))
         ) if lookup_mode == BUTTON_ZERO_COMPAT_LOOKUP or schema in SHORTSTACK_SEATS else
         tuple((p.folded, p.all_in) for p in view.players),
-        compressed_history(view, history_label_overrides) if schema == HU20_COMPRESSED_SCHEMA else
+        compressed_history(view, history_label_overrides) if schema in HU20_COMPRESSED_SCHEMAS else
         _history(view, history_label_overrides) if schema in (SCHEMA, *SHORTSTACK_SEATS) else _summary_history(view),
         tuple(item.name for item in menu),
     )
