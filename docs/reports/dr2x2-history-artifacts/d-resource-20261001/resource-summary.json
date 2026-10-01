@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "source": "5f8a3941c0bf009c00695a5a0fbb4ef9a0c0c1e8",
+  "plan_sha256": "767749a8f91aecb3aae757e3a46217b84011c3bfe537e7dd0d8be1bcb2d35589",
+  "workers": 3,
+  "raw_sealed_files": 72,
+  "seconds": 540.9373450279236,
+  "descriptor_sha256": "190d530ce66d65a031334d95600ce0f005d81324a7353170dcebf1d64a6ccd92",
+  "projections": [
+    {
+      "seed": 2026093001,
+      "local_entry_exponent": 0.9224842988867672,
+      "power_entries_100m": 12063110.968814354,
+      "last_increment_linear_entries_100m": 15452451.452137679,
+      "scaled_full_prefix_peak_with_50pct_headroom_gib": 38.064495594315254
+    },
+    {
+      "seed": 2026093002,
+      "local_entry_exponent": 0.9248623446810814,
+      "power_entries_100m": 12094454.458166044,
+      "last_increment_linear_entries_100m": 15376930.52722266,
+      "scaled_full_prefix_peak_with_50pct_headroom_gib": 38.43372217268518
+    },
+    {
+      "seed": 2026093003,
+      "local_entry_exponent": 0.9204576790958463,
+      "power_entries_100m": 11895572.41106653,
+      "last_increment_linear_entries_100m": 15335613.79561397,
+      "scaled_full_prefix_peak_with_50pct_headroom_gib": 38.49147061191607
+    }
+  ],
+  "projection_limitation": "Short-prefix extrapolations include corpus/classification/save/export overhead. They are conservative engineering admission estimates, not mature-table forecasts; active RSS/cost guards and recorded infrastructure recovery remain mandatory.",
+  "strength_outcomes_inspected": false,
+  "paid_spend_usd": 0
+}

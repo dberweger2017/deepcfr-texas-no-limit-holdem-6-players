@@ -1,0 +1,9 @@
+{
+  "verified_at_utc": "2026-10-01T18:59:23.779659+00:00",
+  "destination": "/Users/dberweger/Local/dr2x2-cd-campaign-20261001",
+  "free_bytes": 87674408960,
+  "free_gib": 81.65315628051758,
+  "expected_retained_artifact_allowance_gib": 30,
+  "minimum_free_gib": 8,
+  "previous_D_resource_supervisor_closed": true
+}

@@ -1,0 +1,31 @@
+{
+  "queried_utc": "2026-10-01T18:47:01.827885+00:00",
+  "request": "GET /v2/catalog/cpus/cpu5m?include=AVAILABILITY&product=POD&vcpuCount=8",
+  "catalog": {
+    "availability": "HIGH",
+    "dataCenters": [
+      {
+        "availability": "HIGH",
+        "id": "EU-RO-1",
+        "name": "EU-RO-1"
+      },
+      {
+        "availability": "HIGH",
+        "id": "EUR-IS-1",
+        "name": "EUR-IS-1"
+      }
+    ],
+    "group": "CPU5",
+    "id": "cpu5m",
+    "name": "Memory-Optimized",
+    "price": {
+      "securePerVcpu": 0.065,
+      "serverlessPerVcpu": 0
+    },
+    "ramGbPerVcpu": 8,
+    "vcpu": {
+      "max": 32,
+      "min": 2
+    }
+  }
+}
