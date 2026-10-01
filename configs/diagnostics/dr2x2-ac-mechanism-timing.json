@@ -1,0 +1,252 @@
+{
+  "average_readout": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+  "candidate_projection_timing_root": 202610120301,
+  "chance_samples": 4,
+  "geometry_scope": "all three full compatible-range games; uniform dummy BR only, values discarded",
+  "intended_additional_current_readout_hands": 30720,
+  "intended_average_hands": 30720,
+  "intended_current_hands": 104448,
+  "intended_paired_readout_hands": 61440,
+  "law": "dr2x2-hu20-uniform-board-compatible-product-v1",
+  "lbr_seconds": 5,
+  "limits": {
+    "max_rss_gib": 6,
+    "max_swap_growth_gib": 0.5,
+    "min_free_disk_gib": 8,
+    "timing_max_seconds": 1800
+  },
+  "main_playing_not_authorized_by_this_plan": true,
+  "max_public_nodes": 10000,
+  "mechanism_admission_pending": [
+    "#142 fixedroots202610120301/302/303, raise_to none/400/1200; uniformallboardcompatibleholdingproducts conditioned on disjointness; same law for allmodels; restrictedcap2 exactBR apparatus; notfullgameexploitability",
+    "#141 current versusstoredlifetimeCFRaverage readout for bothschemas, counts/runtime frozen separately before outcomes"
+  ],
+  "models": [
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "cell": "A",
+      "checkpoint_path": "/Users/dberweger/.codex/worktrees/main-isolated/deepcfr-texas-no-limit-holdem-6-players/results/hu20-stackoff-inputs/B-2026093001-100000000.checkpoint.json.gz",
+      "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 246212,
+      "milestone": 100000000,
+      "name": "B-2026093001-100000000",
+      "path": "/Users/dberweger/.codex/worktrees/main-isolated/deepcfr-texas-no-limit-holdem-6-players/results/hu20-stackoff-inputs/B-2026093001-100000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+      "version": "A"
+    },
+    {
+      "abstraction": "hu20-native-reopening-compressed-history-card-v1",
+      "cell": "C",
+      "checkpoint_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093001/attempt-1/checkpoint-100000000-236698.json.gz",
+      "checkpoint_sha256": "cf8cceb414c049fe933af513ffb0578ad6c36b1930b307fb1b28492debabffc7",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 236698,
+      "milestone": 100000000,
+      "name": "C-2026093001-100M",
+      "path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093001/attempt-1/current-100000000-236698.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "8fbf31e1b87efc9635de3b80fe72006a854ea4e1490611d56c09fcf68598d7d4",
+      "version": "C"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "cell": "A",
+      "checkpoint_path": "/Users/dberweger/.codex/worktrees/main-isolated/deepcfr-texas-no-limit-holdem-6-players/results/hu20-stackoff-inputs/B-2026093002-100000000.checkpoint.json.gz",
+      "checkpoint_sha256": "830c7c470de2a416b2cb030af6abb76bbb49b2757ff1a8300b0f30a75de3b965",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 245406,
+      "milestone": 100000000,
+      "name": "B-2026093002-100000000",
+      "path": "/Users/dberweger/.codex/worktrees/main-isolated/deepcfr-texas-no-limit-holdem-6-players/results/hu20-stackoff-inputs/B-2026093002-100000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710",
+      "version": "A"
+    },
+    {
+      "abstraction": "hu20-native-reopening-compressed-history-card-v1",
+      "cell": "C",
+      "checkpoint_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093002/attempt-1/checkpoint-100000000-232796.json.gz",
+      "checkpoint_sha256": "bfd88d6d58d54220f5214eca0a4676c06dae5b820eaa447679cca09f77c2e877",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 232796,
+      "milestone": 100000000,
+      "name": "C-2026093002-100M",
+      "path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093002/attempt-1/current-100000000-232796.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "709b942ae3e0ab3589c2026de307b70290f780858a182ced0e2a9f8e8edf3587",
+      "version": "C"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "arm": "B",
+      "cell": "A",
+      "checkpoint_path": "/Users/dberweger/.codex/worktrees/main-isolated/deepcfr-texas-no-limit-holdem-6-players/results/hu20-stackoff-inputs/B-2026093003-100000000.checkpoint.json.gz",
+      "checkpoint_sha256": "77bb18426aecdf6d9e83a9c8eb807f7e6671ab01ffafc94e348382a677e9df1b",
+      "dual_menu_telemetry": true,
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 248186,
+      "milestone": 100000000,
+      "name": "B-2026093003-100000000",
+      "path": "/Users/dberweger/.codex/worktrees/main-isolated/deepcfr-texas-no-limit-holdem-6-players/results/hu20-stackoff-inputs/B-2026093003-100000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e",
+      "version": "A"
+    },
+    {
+      "abstraction": "hu20-native-reopening-compressed-history-card-v1",
+      "cell": "C",
+      "checkpoint_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093003/attempt-1/checkpoint-100000000-239157.json.gz",
+      "checkpoint_sha256": "5d7dcf34de5b77ec56c19993e27d43304b7bba9b72d0b5ba85bd7df3838e97ad",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 239157,
+      "milestone": 100000000,
+      "name": "C-2026093003-100M",
+      "path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093003/attempt-1/current-100000000-239157.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "1ff36cd222f1c8aedf2bd1ebe97c6d8d45835b19c399514a1d3b09a1310548bd",
+      "version": "C"
+    }
+  ],
+  "panels": [
+    {
+      "average_blocks": 256,
+      "blocks": 1024,
+      "contract": "menu",
+      "name": "lbr",
+      "proposed_average_root": 202610120501,
+      "proposed_test_root": 202610120101,
+      "rule": "lbr",
+      "timing_root": 202610120401
+    },
+    {
+      "average_blocks": 256,
+      "blocks": 2048,
+      "contract": "native",
+      "name": "native-pressure",
+      "proposed_average_root": 202610120502,
+      "proposed_test_root": 202610120102,
+      "rule": "pressure",
+      "timing_root": 202610120402
+    },
+    {
+      "average_blocks": 256,
+      "blocks": 2048,
+      "contract": "menu",
+      "name": "selective-stackoff",
+      "proposed_average_root": 202610120503,
+      "proposed_test_root": 202610120103,
+      "rule": "selective_stackoff",
+      "timing_root": 202610120403
+    },
+    {
+      "average_blocks": 256,
+      "blocks": 512,
+      "contract": "menu",
+      "name": "uniform",
+      "proposed_average_root": 202610120504,
+      "proposed_test_root": 202610120104,
+      "rule": "hu20_uniform",
+      "timing_root": 202610120404
+    },
+    {
+      "average_blocks": 256,
+      "blocks": 512,
+      "contract": "menu",
+      "name": "passive",
+      "proposed_average_root": 202610120505,
+      "proposed_test_root": 202610120105,
+      "rule": "passive",
+      "timing_root": 202610120405
+    },
+    {
+      "average_blocks": 256,
+      "blocks": 512,
+      "contract": "secondary",
+      "name": "pot_pressure",
+      "proposed_average_root": 202610120506,
+      "proposed_test_root": 202610120106,
+      "rule": "pot_pressure",
+      "timing_root": 202610120406
+    },
+    {
+      "average_blocks": 256,
+      "blocks": 512,
+      "contract": "secondary",
+      "name": "tight_passive",
+      "proposed_average_root": 202610120507,
+      "proposed_test_root": 202610120107,
+      "rule": "tight_passive",
+      "timing_root": 202610120407
+    },
+    {
+      "average_blocks": 256,
+      "blocks": 512,
+      "contract": "secondary",
+      "name": "loose_passive",
+      "proposed_average_root": 202610120508,
+      "proposed_test_root": 202610120108,
+      "rule": "loose_passive",
+      "timing_root": 202610120408
+    },
+    {
+      "average_blocks": 256,
+      "blocks": 512,
+      "contract": "secondary",
+      "name": "tight_aggressive",
+      "proposed_average_root": 202610120509,
+      "proposed_test_root": 202610120109,
+      "rule": "tight_aggressive",
+      "timing_root": 202610120409
+    },
+    {
+      "average_blocks": 256,
+      "blocks": 512,
+      "contract": "secondary",
+      "name": "loose_aggressive",
+      "proposed_average_root": 202610120510,
+      "proposed_test_root": 202610120110,
+      "rule": "loose_aggressive",
+      "timing_root": 202610120410
+    }
+  ],
+  "payoffs_inspected": false,
+  "phase": "outcome-blind-mechanism-runtime-only",
+  "projection": "retain-equal-concrete-actions-renormalize-uniform-if-zero-v1",
+  "projection_multiplier": 2,
+  "projection_scope": "all six models, current and average, on first fixed root; capacity extrapolation times three roots; no candidate BR values computed",
+  "proposed_intervals": "primary95%two-sided pairedStudentt; secondary95%unadjusted exploratory; allseeds/roles/tails/failures retained; no promotion gate",
+  "proposed_primary": "C-minus-ownA100M boundedoriginalcap2LBR; allthree seed contrasts averaged WITHIN each shared deal/rotation block; two positions then blocktinterval; sampleN=1024 notseedseatmultiplied; conditionalonsavedlineages",
+  "proposed_quality_records": 36,
+  "quality_outputs_permitted": false,
+  "readout_pairing": "Current and average both use roots202610120501-510 with256pairedblocks per panel, same deals/action/opponent streams andbothpositions; allthree seeds/cells. This is separatefrom primarycurrent roots202610120101-110.",
+  "rental_permission": false,
+  "river_raise_cap": 2,
+  "river_roots": [
+    {
+      "raise_to": null,
+      "seed": 202610120301
+    },
+    {
+      "raise_to": 400,
+      "seed": 202610120302
+    },
+    {
+      "raise_to": 1200,
+      "seed": 202610120303
+    }
+  ],
+  "schema": "dr2x2-ac-mechanism-admission-v1",
+  "timing_blocks": 4
+}

@@ -68,3 +68,49 @@ separate, factorial interaction unanswered. No M4 work, promotion,300M or merge.
 2.394GiBpeak, zeroswap. Fixed2× current-policy projection is2.03hours onM1,
 excluding full evidence serialization and separately pending mechanism work.
 No payoffs inspected. Final strength/runtime/paidquote admission remains pending.
+
+## Prospectively frozen mechanism capacity pilot
+
+[Mechanism timing plan](../configs/diagnostics/dr2x2-ac-mechanism-timing.json)
+keeps all six original inputs and explicitly admits the C schema to #141's
+unchanged lifetime-accumulator normalization. The default reader still rejects C
+unless its schema is supplied. Extraction and audit check every accumulator,
+current-regret export and hash; their policy-distance statistics are suppressed
+in capacity output. The pilot records sizes, verified counts and timings.
+
+All three declared river roots use every one of the1,081 board-compatible
+holdings per seat, with the joint product conditioned on no shared private card.
+The #142 public tree, settlement and information-set best-response routines are
+unchanged, with two players, no free fold and restricted raise cap2. Saved
+uncapped action probabilities are projected by equal concrete action identities,
+retained mass is normalized, and zero retained mass becomes uniform. Removed
+mass and missing/zero rows must be reported in the eventual quality comparison.
+This projection defines a conditional restricted-game diagnostic; it does not
+measure unrestricted exploitability or justify a unique causal mechanism.
+
+Capacity work builds all three full-range trees and times exact BR only against
+a uniform dummy, discarding its values. Each of six candidates is projected at
+the first fixed root with both current and stored-average readouts; candidate
+BR values are not computed. The declared future comparison is36 records
+(three roots × six models × two readouts). A fixed2× timing projection uses
+three times the measured candidate projection work and twelve dummy-quality
+passes per root. It remains an extrapolation with no guarantee about candidate
+costs, provider performance or serialization.
+
+Stored-average playing timing uses four validation blocks per panel/model,
+both positions, roots202610120401–410, suppressing payoffs. Proposed separate
+paired readout roots202610120501–510 use256 blocks per panel, all three seeds,
+both cells and positions, for both current and average:61,440 hands including
+30,720 additional current hands. Current104,448-hand primary roots remain
+unchanged. Validation, primary-current and paired-readout schedules are disjoint;
+within the paired-readout schedule current and average share the same deals,
+rotations and random streams. Three seed readout contrasts are averaged within
+each shared block before computing exploratory intervals. These results are
+separate from the primary104,448-hand A/C comparison.
+
+One unpaid M1 worker under the shared heavy lock,6GiB RSS,8GiB free disk,
+.5GiB swap growth and a30-minute pilot guard. The supervisor retains failures
+and partial exports. No paid job, strength run or change to training is authorized
+by this plan. Seventeen focused schema/average/projection/common-law and prior
+playing-admission tests passed on pinned Python3.11.14. Final playing evidence
+serialization, Linux parity and the separate live rental quote remain pending.
