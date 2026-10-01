@@ -168,6 +168,77 @@ The following aggregates reached target decisions across the separately reported
 
 The density loss is particularly large on flop/turn/river while preflop remains dense. Fallback is retained, not translated or masked. This supports a sampling-density diagnostic lead; it does not separate dilution, visited-state changes, fallback action mixtures and intrinsic representation quality. #144’s separately frozen card×history experiment is needed for its own interaction contrast; these 13-panel results are not a common four-cell comparison.
 
+### Post-hoc LBR review: separate v1’s residual weakness from v2’s dilution
+
+I independently reproduced Claude’s final-review counts from the committed raw
+hands, with no model loads or new games. The [post-hoc output](hu20-card-v2-artifacts/lbr-posthoc.json)
+pins all three raw-file hashes and the analysis script. This section was added
+after outcomes were opened; it is not a prospective endpoint.
+
+**LBR-only reached target decisions:** the pooled histogram above also includes
+other opponents, so it should not be read as the LBR histogram.
+
+| Street | v1 decisions | v1 ≥100 visits | v2 decisions | v2 ≥100 visits | v2 <10 visits |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Preflop | 1,007 | 99.4% | 933 | 99.9% | 0.0% |
+| Flop | 513 | 91.6% | 531 | 17.9% | 43.3% |
+| Turn | 168 | 54.2% | 164 | 4.3% | 71.3% |
+| River | 55 | 43.6% | 41 | 0.0% | 82.9% |
+
+**Whole-hand net returns grouped by the last recorded betting action:** an
+all-in on an earlier street may still run out the board to the river. These
+labels describe where betting stopped, not the final board street or the
+location of an erroneous decision. The arms can enter different groups.
+
+| Last betting street | v1 hands / total net BB | v2 hands / total net BB |
+| --- | ---: | ---: |
+| Preflop | 383 / −111 | 392 / −295 |
+| Flop | 251 / −471 | 248 / −588 |
+| Turn | 90 / −2 | 93 / −186 |
+| River | 44 / +24 | 35 / −25 |
+| Total | 768 / −560 | 768 / −1,094 |
+
+The totals reproduce −72.92/−142.45 BB/100. V1’s preflop/flop-stop groups
+sum to −582 BB while its later-stop groups sum to +22 BB. Its 15 hands
+with any target turn/river key below 10 visits net +125 BB; 63 hands with
+minimum late visits 10–99 net −58 BB; 56 with all late target visits ≥100
+net −45 BB; 634 with no target late decision net −582 BB. These are disjoint
+hand partitions. Pooling the latter two categories gives the review’s
+690 hands / −627 BB, but hides the much larger no-late-decision category.
+
+This **raises the priority of v1’s preflop/flop strategy and commitment
+patterns**, including potential card-aliasing at well-visited keys. Sparse
+turn/river keys do not describe the main observed v1 loss partition here.
+It does not establish that the mistake occurred on the flop, or that the
+flop abstraction is its unique cause. A hand can end after earlier strategic
+choices; visited keys can still be unconverged, and later continuation
+values affect earlier regret updates. These 128 paired blocks and bounded
+responder remain a small, post-hoc diagnostic.
+
+V2’s extra −184 BB in preflop-stop hands is compatible with degraded future
+values feeding into its earlier strategy; that mechanism is untested. The
+preflop 169-class representation is unchanged, but full information-key IDs
+are schema-specific and learned strategies differ. Likewise, the 43 flop
+buckets in #139 are **observed types in its uniform-card sample**, not an
+exhaustive schema-wide bucket limit.
+
+A replication on #136’s larger, completed B100M/B500M LBR records would be a
+useful next measurement, with Doctor Research’s artifact ownership respected.
+Retained v2 quarter-checkpoint curves could test whether the negative gap
+recovers with work; shrinking/flat gaps alone would not uniquely distinguish
+dilution from representation quality. Its ~300-second final evaluation timing
+was measured on Linux 64GB pods, so any M1 follow-up needs a memory/runtime
+preflight and a separately frozen budget. No additional model evaluation,
+training, M4 work or new abstraction was started for this review.
+
+Reproduce this raw-only partition with a new output file:
+
+```sh
+python -m scripts.analyze_hu20_card_v2_lbr \
+  --root docs/reports/hu20-card-v2-artifacts/production \
+  --out results/card-v2-lbr-posthoc-reproduction.json
+```
+
 ## Training work, growth and resources
 
 Linux production/evaluation source is **`aae1036a5cf2f3372a75a1f686832a303dddd84d`**. The later independent report reader/report commits do not alter that runtime. Frozen descriptor SHA-256 is `190d530ce66d65a031334d95600ce0f005d81324a7353170dcebf1d64a6ccd92`, schema `hu20-native-reopening-ordered-history-card-v2`. All workers use Python 3.11.15, Rust 1.90.0, NumPy 1.26.4, SciPy 1.17.1 and native-engine revision `5db20e3d5d6862b32a7402035c1340b622d3b005`; native binary and host provenance are pinned in each attempt/result.
@@ -275,7 +346,7 @@ Replay any generated raw row with `replay_row(row)` from `scripts/play_robustnes
 
 ## Decision and unresolved questions
 
-I keep v1 as the playable default and retain v2 as a negative fixed-budget experiment. The immediate leads are sparse postflop coverage, fallback exposure and the sharp full-stack-loss increase against min-raise, alongside unchanged remaining kicker collisions. It remains unresolved whether a more economical representation, history compression or additional convergence could recover the useful distinctions. Those are different experiments, not changes or extra training folded into this result. #144 can test its separately frozen history interaction; this task makes no causal claim from that unfinished campaign.
+I keep v1 as the playable default and retain v2 as a negative fixed-budget experiment. For v2, the immediate leads are sparse postflop coverage, fallback exposure and the sharp full-stack-loss increase against min-raise, alongside unchanged remaining kicker collisions. For v1’s residual LBR weakness, the separately verified post-hoc early betting-stop groups at well-visited keys raise preflop/flop strategy and commitment as leads; they do not locate individual mistakes. It remains unresolved whether a more economical representation, history compression or additional convergence could recover the useful distinctions. Those are different experiments, not changes or extra training folded into this result. #144 can test its separately frozen history interaction; this task makes no causal claim from that unfinished campaign.
 
 ---
 
