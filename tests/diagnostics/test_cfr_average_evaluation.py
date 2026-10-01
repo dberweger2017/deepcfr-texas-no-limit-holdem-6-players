@@ -42,3 +42,32 @@ def test_changes_are_paired_and_positions_not_pooled(tmp_path):
     assert all(c['positions']['button']['bb_per_100']==10 and c['positions']['big_blind']['bb_per_100']==30 for c in result['changes'])
     with pytest.raises(ValueError,match='Duplicate'):summarize([*base,base[0]])
     with pytest.raises(ValueError,match='Incomplete'):summarize(base[:-1])
+
+
+def test_interruption_preserves_records_and_finishes_only_missing_coordinates(tmp_path,monkeypatch):
+    import gzip
+    import subprocess
+    from scripts.complete_hu20_cfr_average import complete,surviving_rows
+    from scripts.audit_hu20_cfr_average import audit_run
+    _,_,checkpoint,current,spec=fixture(tmp_path);avg=tmp_path/'average.gz';exported=extract(checkpoint,spec,avg)
+    models=[{**spec,'name':'current','strategy':'current','path':current.name,'bytes':current.stat().st_size},
+            {**spec,'name':'average','strategy':'average','path':avg.name,'bytes':avg.stat().st_size,'sha256':exported['sha256']}]
+    plan={'models':models,'panels':[{'name':'uniform','rule':'uniform','contract':'menu','blocks':2}],
+          'root':197,'max_seconds':3600}
+    original=tmp_path/'original';assert run(plan,tmp_path,tmp_path,original)['status']=='complete'
+    file=original/'average.hands.jsonl.gz'
+    with gzip.open(file,'rt') as f:retained=[json.loads(line) for line in f][:2]
+    file.write_bytes(gzip.compress((''.join(json.dumps(r)+'\n' for r in retained)).encode(),mtime=0)[:-8])
+    assert surviving_rows(file)[0]==retained and surviving_rows(file)[1]
+    before=file.read_bytes();head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+    anchor=int(subprocess.check_output(['git','show','-s','--format=%ct',head],text=True))
+    monkeypatch.setattr('scripts.complete_hu20_cfr_average.time',lambda:anchor+1)
+    out=tmp_path/'completed';result=complete(plan,original,tmp_path,tmp_path,out,head)
+    assert result['status']=='complete' and result['hands']==8
+    assert result['recovery']['new_hands']==2 and result['recovery']['retained_original_hands']==6
+    assert file.read_bytes()==before and (out/(file.name+'.interrupted')).read_bytes()==before
+    assert (out/'current.hands.jsonl.gz').read_bytes()==(original/'current.hands.jsonl.gz').read_bytes()
+    assert audit_run(out)['actual_hands_replayed']==8
+    monkeypatch.setattr('scripts.complete_hu20_cfr_average.time',lambda:anchor+plan['max_seconds']+1)
+    expired=complete(plan,original,tmp_path,tmp_path,tmp_path/'expired',head)
+    assert expired['status']=='incomplete' and expired['hands']==0 and 'expired' in expired['failure']

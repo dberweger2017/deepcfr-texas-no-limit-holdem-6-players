@@ -3,7 +3,7 @@
   "fixture_scope": "generated small checkpoint/exports and a synthetic traversal; no new campaign training",
   "focused_checks": {
     "command": "python -m pytest -q tests/diagnostics/test_cfr_average.py tests/diagnostics/test_cfr_average_evaluation.py tests/test_blueprint_hu20.py tests/test_blueprint_native_reopening.py",
-    "passed": 27
+    "passed": 28
   },
   "native_engine_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
   "packages": {

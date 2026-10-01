@@ -1,5 +1,33 @@
 # B500M stored CFR-average extraction
 
+## Result
+
+All **38,400 frozen hands** completed and passed the model-free native audit,
+including **85,370 target decision observations** and all paired report arithmetic.
+No three-lineage panel change excludes zero, even before multiple-comparison
+adjustment. The stored average is **not demonstrated better or worse** by this
+bounded experiment. All negative and inconclusive results remain in the raw data.
+
+| Panel | Current BB/100 [95%] | Average BB/100 [95%] | Paired average−current [95%] |
+| --- | --- | --- | --- |
+| Native pressure | +79.85 [20.36, 139.34] | +50.00 [−6.20, 106.20] | −29.85 [−72.42, 12.72] |
+| Selective-stackoff | +50.65 [33.81, 67.49] | +47.56 [31.99, 63.12] | −3.09 [−13.95, 7.76] |
+| Bounded LBR | −141.86 [−210.31, −73.42] | −92.32 [−158.35, −26.28] | +49.54 [−6.04, 105.13] |
+
+Both extractions still lose to this bounded LBR. The favorable average LBR point
+is a lead for a more precise future comparison, not an improvement certificate.
+All **13 panels** and per-seed/position results are in the
+[tables](hu20-cfr-average-artifacts/derived/tables.md),
+[panel CSV](hu20-cfr-average-artifacts/derived/panels.csv) and
+[paired-change CSV](hu20-cfr-average-artifacts/derived/paired-changes.csv).
+
+Native-pressure seed changes are +36.72, −53.32, −72.95 BB/100; LBR changes are
+−0.39, +100.98, +48.05. Every corresponding overall per-seed interval includes
+zero. One adverse native-pressure seed-3 button contrast is −129.49
+[−247.86, −11.13] BB/100; it is an exploratory position result among many
+comparisons, not proof of a general positional defect. Do not cherry-pick that
+position or the favorable LBR lineage.
+
 ## Scope and interpretation
 
 I compare all three original B500M current policies against a diagnostic export
@@ -60,6 +88,24 @@ No new training or retrospective reconstruction was attempted. All full audit
 counts and artifact identities are in the
 [extraction summary](hu20-cfr-average-artifacts/extraction-summary.json).
 
+### Recorded technical interruption
+
+The tool turn was interrupted while the last average-policy LBR panel was
+running, terminating the original worker before its summary/peak-RSS publication.
+**38,144 completed hand records** survived. Five gzip files were closed and
+complete; the final average-policy stream retained 6,144 cheap-panel hands and
+had no end marker. Its original truncated bytes are preserved separately.
+
+The bounded completion script retains every completed record and runs only the
+256 unrecorded frozen LBR coordinates. It verifies that gameplay/extraction code
+is byte-identical to the original source, keeps the same deals/streams, and uses
+the original source commit timestamp as a conservative earlier-than-launch
+30-minute deadline. No completed hand or observed result is selected for rerun;
+there is no new seed, budget extension or replacement of the interrupted evidence.
+The recovery fixture checks unchanged original bytes, exact missing-coordinate
+counts and complete native replay. The original worker's peak memory and load
+times are unavailable; the recovery process is measured separately.
+
 ## Frozen schedule and evidence
 
 The separate timing pilot used first-lineage current/average on 208 hands and all
@@ -94,6 +140,80 @@ do not reset the accumulated result. Larger wagers are raises demanding at least
 800 additional rival chips (8BB); their denominators are target decisions with
 such an action available. Full-stack wins/losses require exactly ±2,000 net chips.
 Whole-hand response subgroups are **not individual-bet EV**.
+
+### Coverage and large-pot tails
+
+| Panel / extraction | Hands | Large actions / opportunities | Rival folds / continues | Full-stack wins / losses | Missing keys / decisions | Zero mass / decisions |
+| --- | --- | --- | --- | --- | --- | --- |
+| Native pressure / current | 1,536 | 465 / 2,516 | 138 / 327 | 205 / 145 | 15 / 5,840 | n/a |
+| Native pressure / average | 1,536 | 475 / 2,443 | 135 / 340 | 198 / 144 | 19 / 5,810 | 97 / 5,810 |
+| Selective-stackoff / current | 1,536 | 22 / 59 | 4 / 18 | 3 / 5 | 0 / 2,055 | n/a |
+| Selective-stackoff / average | 1,536 | 13 / 58 | 4 / 9 | 3 / 4 | 0 / 2,106 | 1 / 2,106 |
+| LBR / current | 768 | 146 / 625 | 68 / 78 | 45 / 81 | 0 / 1,909 | n/a |
+| LBR / average | 768 | 162 / 693 | 78 / 84 | 60 / 73 | 1 / 1,980 | 9 / 1,980 |
+
+The native audit recomputes these counters from exact menus/actions and chip
+results. [Coverage](hu20-cfr-average-artifacts/derived/coverage.csv) reports every
+panel's street and distinct-key counts. The
+[large-action coverage CSV](hu20-cfr-average-artifacts/derived/large-action-coverage.csv)
+separates positive-mass, zero-mass and missing-key opportunities/actions; the
+[whole-hand partitions](hu20-cfr-average-artifacts/derived/whole-hand-partitions.csv)
+retain exact subgroup denominators and chip totals.
+
+Across the full scheduled inventory (not a pooled performance estimate), average
+queries reach positive mass 42,074/42,849 times, zero mass 188/42,849 (**0.44%**)
+and missing keys 587/42,849 (**1.37%**). Current missing-key exposure is
+555/42,521 (**1.31%**). Thus the 77% global zero-mass key share is very different
+from realized exposure in these panels. All LBR decisions complete their declared
+chance-comparison batches; none is reported limited. This does not eliminate
+the bounded LBR's modeling limitations.
+
+### Resources and validation
+
+| M1 stage | Wall seconds | Measured process peak |
+| --- | --- | --- |
+| Three extractions plus all-node/current audits | 195.98 | 3.143 GiB |
+| Timing pilot | 32.08 | 2.670 GiB |
+| Final schedule including interruption/recovery | 1,095.61 from conservative commit anchor | Original worker peak unavailable |
+| Completion process (only 256 missing hands) | 171.21 | 2.625 GiB |
+| Separate final model-free audit | 49.48 | 1.745 GiB |
+
+The final elapsed window includes editing during the interruption and is not pure
+algorithm throughput. It ends before the original conservative 1,800-second
+deadline. The six original model loads plus one final-average reload for recovery
+are explicit; all owned workers have exited and no service/model remains resident.
+Do not infer the lost original peak from the separately measured processes.
+
+Original gameplay source: `f2934d3a9fe5247ac126013c86b698f6b040176b`.
+Completion source: `9501d42738513a2dab71e62720680ac58783489f`; original gameplay
+files verified unchanged. Extraction source: `ee79b39` (full identity in the
+extraction summary). The fixed plan and opponent definitions did not change after
+the pilot. [Final audit](hu20-cfr-average-artifacts/final-audit.json) verifies
+all records; [environment](hu20-cfr-average-artifacts/validation-environment.json)
+records Python 3.11.15, NumPy 1.26.4, SciPy 1.17.1 and native engine
+`5db20e3d5d6862b32a7402035c1340b622d3b005`. **28 focused tests pass**, including
+the production guard, independent accumulator factors, information isolation,
+native replay/tails/paired arithmetic, byte reproducibility, corruption rejection
+and interruption/expired-deadline checks. CI status is on the draft PR.
+
+The [evidence inventory](hu20-cfr-average-artifacts/evidence-manifest.json) pins
+raw records, derived tables, audited extraction hashes and the retained truncated
+stream. Average artifact hashes are `f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa`,
+`8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d`,
+and `c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285`
+for seeds 1–3. Current/checkpoint hashes and exact sizes are in the input plan.
+
+### Unresolved questions
+
+- Does the LBR point improvement persist on a larger independently frozen paired
+  sample? This run is too uncertain to establish it.
+- Why do native-pressure directions differ by lineage and position? Inspect
+  matched decisions before attributing them to extraction or abstraction.
+- Does another opponent drive materially more visits into zero-mass keys? These
+  panels cannot establish good coverage against every off-tree history.
+- Are stored averaging/sampling behavior and abstraction adequate for the intended
+  game? This audit validates retained totals and extraction, not a new convergence
+  theorem or a reason to weaken the current-export guard.
 
 ## Reproduce without M4 computation
 
