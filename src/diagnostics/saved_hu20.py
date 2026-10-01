@@ -8,7 +8,7 @@ from pathlib import Path
 
 from src.arena.catalog import Checkpoint
 from src.blueprint.artifact import FrozenBlueprint, _checked_schema, HU20_UNCAPPED_FORMAT
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_NATIVE_SCHEMAS
 from src.blueprint.solver import regret_match
 
 
@@ -20,7 +20,11 @@ def file_hash(path):
     return result.hexdigest()
 
 
-def load_saved(spec, inputs, guard=lambda: None):
+def load_saved(spec, inputs, guard=lambda: None, *, expected_schema=HU20_UNCAPPED_SCHEMA):
+    # Default callers retain the original strict v1 contract. An experiment must
+    # explicitly pin another registered schema; never infer it from the file.
+    if expected_schema not in HU20_NATIVE_SCHEMAS:
+        raise ValueError('Unknown native HU20 experiment schema')
     policy_path = Path(inputs) / spec['path']
     checkpoint_path = Path(inputs) / spec['checkpoint_path']
     if file_hash(checkpoint_path) != spec['checkpoint_sha256']:
@@ -28,7 +32,7 @@ def load_saved(spec, inputs, guard=lambda: None):
     source = FrozenBlueprint(Checkpoint(spec['name'], str(policy_path), spec['sha256'],
                                        spec['format']), policy_path)
     if (source.players != 2 or source.raise_cap is not None
-            or source.abstraction != HU20_UNCAPPED_SCHEMA
+            or source.abstraction != expected_schema
             or spec['format'] != HU20_UNCAPPED_FORMAT
             or source.description['strategy'] != 'current'
             or source.description['training_seed'] != spec['seed']):

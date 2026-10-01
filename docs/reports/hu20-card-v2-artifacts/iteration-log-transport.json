@@ -1,0 +1,16 @@
+{
+  "preflight-v1/iterations.jsonl.gz": {
+    "bytes": 979459,
+    "sha256": "2a0ef3f920df4d91d265dfc848e49af3543f2be9603e513e48155eed90067a4b",
+    "uncompressed_bytes": 10250110,
+    "uncompressed_name": "iterations.jsonl",
+    "uncompressed_sha256": "cf5cb97f8a1fc01007843a463053bec75690be5e00f6124becfc9e7b648daebf"
+  },
+  "preflight-v2/iterations.jsonl.gz": {
+    "bytes": 880903,
+    "sha256": "267c87c36769e27e6fb187f0c0b1aebb1905f1d160dda259d0738219076c1876",
+    "uncompressed_bytes": 9286585,
+    "uncompressed_name": "iterations.jsonl",
+    "uncompressed_sha256": "9b9dba03e105e91695878473884b1084d53bb9a52125c6095e6bc5bf4a4c7944"
+  }
+}

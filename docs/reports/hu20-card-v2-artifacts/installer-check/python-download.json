@@ -1,0 +1,17 @@
+{
+  "arch": "x86_64",
+  "implementation": "cpython",
+  "key": "cpython-3.11.15-linux-x86_64-gnu",
+  "libc": "gnu",
+  "os": "linux",
+  "path": null,
+  "symlink": null,
+  "url": "https://releases.astral.sh/github/python-build-standalone/releases/download/20260807/cpython-3.11.15%2B20260807-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+  "variant": "default",
+  "version": "3.11.15",
+  "version_parts": {
+    "major": 3,
+    "minor": 11,
+    "patch": 15
+  }
+}

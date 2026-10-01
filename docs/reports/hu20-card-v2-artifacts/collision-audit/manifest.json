@@ -1,0 +1,10 @@
+{
+  "descriptors.jsonl": {
+    "bytes": 1109659,
+    "sha256": "f9939b21b1c318f6d23433349203ca767d153cf4943a193591f35a976c6531f2"
+  },
+  "summary.json": {
+    "bytes": 25487,
+    "sha256": "255cb8372deac725c1565c0383198199cedf15163c32d50b43a2fccad23232de"
+  }
+}

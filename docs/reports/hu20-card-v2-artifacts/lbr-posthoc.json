@@ -1,0 +1,138 @@
+{
+  "analysis_script_sha256": "7bdc5a2e869a8b86e4a537bbcc14eb03049c996e45216c2e01c25bc6757d9a6e",
+  "arms": {
+    "v1": {
+      "chips": -56000,
+      "decision_visits": {
+        "flop": {
+          "1-9": 3,
+          "10-99": 40,
+          "100+": 470
+        },
+        "preflop": {
+          "10-99": 6,
+          "100+": 1001
+        },
+        "river": {
+          "1-9": 6,
+          "10-99": 25,
+          "100+": 24
+        },
+        "turn": {
+          "0": 5,
+          "1-9": 8,
+          "10-99": 64,
+          "100+": 91
+        }
+      },
+      "hands": 768,
+      "last_betting_street": {
+        "flop": {
+          "chips": -47100,
+          "hands": 251
+        },
+        "preflop": {
+          "chips": -11100,
+          "hands": 383
+        },
+        "river": {
+          "chips": 2400,
+          "hands": 44
+        },
+        "turn": {
+          "chips": -200,
+          "hands": 90
+        }
+      },
+      "minimum_target_late_visits": {
+        "10-99": {
+          "chips": -5800,
+          "hands": 63
+        },
+        "100+": {
+          "chips": -4500,
+          "hands": 56
+        },
+        "no_target_late_decision": {
+          "chips": -58200,
+          "hands": 634
+        },
+        "under_10": {
+          "chips": 12500,
+          "hands": 15
+        }
+      }
+    },
+    "v2": {
+      "chips": -109400,
+      "decision_visits": {
+        "flop": {
+          "0": 66,
+          "1-9": 164,
+          "10-99": 206,
+          "100+": 95
+        },
+        "preflop": {
+          "10-99": 1,
+          "100+": 932
+        },
+        "river": {
+          "0": 11,
+          "1-9": 23,
+          "10-99": 7
+        },
+        "turn": {
+          "0": 51,
+          "1-9": 66,
+          "10-99": 40,
+          "100+": 7
+        }
+      },
+      "hands": 768,
+      "last_betting_street": {
+        "flop": {
+          "chips": -58800,
+          "hands": 248
+        },
+        "preflop": {
+          "chips": -29500,
+          "hands": 392
+        },
+        "river": {
+          "chips": -2500,
+          "hands": 35
+        },
+        "turn": {
+          "chips": -18600,
+          "hands": 93
+        }
+      },
+      "minimum_target_late_visits": {
+        "10-99": {
+          "chips": 300,
+          "hands": 20
+        },
+        "100+": {
+          "chips": -100,
+          "hands": 1
+        },
+        "no_target_late_decision": {
+          "chips": -88300,
+          "hands": 640
+        },
+        "under_10": {
+          "chips": -21300,
+          "hands": 107
+        }
+      }
+    }
+  },
+  "definition": "Whole-hand returns grouped by last recorded betting action or minimum target turn/river visits; not action EV or causal street attribution",
+  "inputs": {
+    "2026093001/evaluation/hands.jsonl.gz": "81c82e2d914b28c57dc49134a5653562aeaf63e0590e2d3bcc8ecf8094f8a5d2",
+    "2026093002/evaluation/hands.jsonl.gz": "7e5366049b0657a30f1b5b0391daab40c428cc1004947e10109271a9ab43e0bc",
+    "2026093003/evaluation/hands.jsonl.gz": "2af3e4bff4ca29da2921ed5e848b2c077fe46468d1fc4f43fd5b1cdce15b1b82"
+  },
+  "model_loads": 0,
+  "post_hoc": true
+}

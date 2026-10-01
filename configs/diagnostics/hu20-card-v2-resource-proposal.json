@@ -1,0 +1,59 @@
+{
+  "baseline_max_entries": 3000000,
+  "completed_nodes_per_seed": 100000000,
+  "descriptor_sha256": "190d530ce66d65a031334d95600ce0f005d81324a7353170dcebf1d64a6ccd92",
+  "descriptor_version": "hu20-contribution-kicker-draw-descriptor-v2",
+  "extrapolation": {
+    "caveat": "early table growth, not a mature capacity guarantee; no saturation assumed",
+    "last_segment_linear_entries_at_100m": 16892577.822685502,
+    "local_power_exponent": 0.9437764976107953,
+    "power_entries_at_100m": 14106914.207224613,
+    "prefix_entries": [
+      182835,
+      351592
+    ],
+    "prefix_node_range": [
+      1000440,
+      2000268
+    ],
+    "projected_serialization_peak_bytes": 25408761701.412914
+  },
+  "from_zero": true,
+  "limits": {
+    "max_container_fraction": 0.8,
+    "max_entries": 20000000,
+    "max_owned_rss_gib": 45,
+    "max_swap_growth_gib": 0.5,
+    "min_free_disk_gib": 8,
+    "no_silent_coarsening": true
+  },
+  "not_launched": true,
+  "only_recipe_difference_besides_card_schema": "inactive 20M safety entry capacity explicitly approved; trainer math unchanged",
+  "proposed_max_entries": 20000000,
+  "provider": {
+    "container_disk_gb": 40,
+    "cpu_id": "cpu5m",
+    "max_compute_hourly_usd": 0.52,
+    "max_total_cost_usd": 10,
+    "max_total_hourly_usd_per_pod": 0.57,
+    "pods": 3,
+    "ram_gb": 64,
+    "rental_cutoff_seconds": 18000,
+    "vcpus": 8,
+    "workers_per_pod": 1
+  },
+  "runtime_basis": {
+    "100m_training_only_seconds": 6642.348289567839,
+    "prefix_nodes_per_second": 15054.916671119958,
+    "setup_recovery_save_retrieval_allowance_seconds": 4500,
+    "slowdown_allowance": 1.5,
+    "total_hourly_ceiling_times_three_times_five_hours_usd": 8.55
+  },
+  "schema": "hu20-native-reopening-ordered-history-card-v2",
+  "status": "approved 2026-10-01 before rentals",
+  "training_seeds": [
+    2026093001,
+    2026093002,
+    2026093003
+  ]
+}

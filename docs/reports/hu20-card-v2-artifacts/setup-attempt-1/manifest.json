@@ -1,0 +1,42 @@
+{
+  "2026093001.setup-downloads.sha256": {
+    "bytes": 176,
+    "sha256": "d009fa48841e35fe3b6f654a756c9709505fe7af93297435eac6979e93e57d03"
+  },
+  "2026093001.setup.log": {
+    "bytes": 1913,
+    "sha256": "8690e9b3128d3fa16ab2b4e7148f17272a9f1ce97d558dc00b316a5de59a6170"
+  },
+  "2026093002.setup-downloads.sha256": {
+    "bytes": 176,
+    "sha256": "d009fa48841e35fe3b6f654a756c9709505fe7af93297435eac6979e93e57d03"
+  },
+  "2026093002.setup.log": {
+    "bytes": 1913,
+    "sha256": "8690e9b3128d3fa16ab2b4e7148f17272a9f1ce97d558dc00b316a5de59a6170"
+  },
+  "2026093003.setup-downloads.sha256": {
+    "bytes": 176,
+    "sha256": "d009fa48841e35fe3b6f654a756c9709505fe7af93297435eac6979e93e57d03"
+  },
+  "2026093003.setup.log": {
+    "bytes": 1913,
+    "sha256": "8690e9b3128d3fa16ab2b4e7148f17272a9f1ce97d558dc00b316a5de59a6170"
+  },
+  "lease.json": {
+    "bytes": 380,
+    "sha256": "cc5f269adbf6d80286802329359bc75e95d2aa89998a542669bf46b7cbeb9610"
+  },
+  "operator-finished.json": {
+    "bytes": 149,
+    "sha256": "0281f0e1f13d9afe414418c7908dbb7cc67064f552cddfa9207328434d859a17"
+  },
+  "pods.json": {
+    "bytes": 2011,
+    "sha256": "dfbe8b06689fad0405c314dc12d00bdd70e37aa0910ea7a29c22f43283aa08bf"
+  },
+  "watchdog.json": {
+    "bytes": 87,
+    "sha256": "982583bf105ced9e6186ccc782365e38fbdaedd16f5fc3ab9aac1d7534007a7c"
+  }
+}
