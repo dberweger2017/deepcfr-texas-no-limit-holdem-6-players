@@ -1,0 +1,9 @@
+{
+  "owner": "New Guy #143",
+  "path": "/Users/dberweger/.codex/worktrees/hu20-card-v2/deepcfr-texas-no-limit-holdem-6-players/src/blueprint/cards_v2.py",
+  "sha256": "190d530ce66d65a031334d95600ce0f005d81324a7353170dcebf1d64a6ccd92",
+  "version": "hu20-contribution-kicker-draw-descriptor-v2",
+  "schema_B": "hu20-native-reopening-ordered-history-card-v2",
+  "D_status": "dependent integration not yet executed; exact descriptor required",
+  "paid_jobs_created": 0
+}

@@ -119,3 +119,12 @@ results and one winning cell do not establish a unique causal explanation.
 
 Seal all four-cell results/inputs/receipts before proposing any follow-up.
 No 300M extension, best-seed selection, promotion or automatic merge.
+
+## Phase 0 outcome (October 1, frozen attempt)
+
+The [M1 report](reports/hu20-history-factorial-phase0.md) completes all six2M
+workers. Median river visits improve1→4 and below10 encounters fall88.50→73.64%,
+but below100 remains100% in both schemas. The declared gate fails in every
+seed. No C/D paid launch follows. A separate5M prefix amendment is proposed,
+not executed; preserve this failed result. Twenty-two pinned focused checks
+and all six short v1/v2 cross-patch state comparisons pass.

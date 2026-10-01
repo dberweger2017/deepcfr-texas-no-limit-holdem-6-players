@@ -1,0 +1,42 @@
+{
+  "pid": 19157,
+  "source": "da42ac5285edf30a732cad930b970580640be387",
+  "status": "complete",
+  "started": 1790866187.5510552,
+  "completed": [
+    {
+      "task": "full-2026093001",
+      "exit_code": 0,
+      "status": "complete"
+    },
+    {
+      "task": "compressed-2026093001",
+      "exit_code": 0,
+      "status": "complete"
+    },
+    {
+      "task": "full-2026093002",
+      "exit_code": 0,
+      "status": "complete"
+    },
+    {
+      "task": "compressed-2026093002",
+      "exit_code": 0,
+      "status": "complete"
+    },
+    {
+      "task": "full-2026093003",
+      "exit_code": 0,
+      "status": "complete"
+    },
+    {
+      "task": "compressed-2026093003",
+      "exit_code": 0,
+      "status": "complete"
+    }
+  ],
+  "active": null,
+  "child_pid": null,
+  "density_gate": "density-fail",
+  "finished": 1790866988.9209442
+}
