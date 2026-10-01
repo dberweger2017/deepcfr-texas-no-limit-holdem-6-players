@@ -1,0 +1,52 @@
+{
+  "host": "M4 closed report/receipt/identity verification; M1 compact transport hashes only",
+  "lineages": 3,
+  "m4_closed_tasks": 13,
+  "m4_native_replayed_hands": 346112,
+  "m4_order_tests_passed": 4,
+  "m4_reporting_tests_passed": 3,
+  "new_200m_task_resources": [
+    {
+      "peak_rss_bytes": 2720989184,
+      "result_sha256": "f96bd9724f7cee5cbe5c0c6c6610c240795cc0822a8f3f12db55fdc94392b300",
+      "seed": 2026093001,
+      "swap_growth_bytes": 0.0,
+      "wall_seconds": 2196.4709661006927
+    },
+    {
+      "peak_rss_bytes": 2720923648,
+      "result_sha256": "0ae25f8560e09df40582b41b24302fec83dd1a5a05257987317d8b4d36d2d452",
+      "seed": 2026093002,
+      "swap_growth_bytes": 0.0,
+      "wall_seconds": 2229.5634269714355
+    },
+    {
+      "peak_rss_bytes": 2685681664,
+      "result_sha256": "30e12d34f527ddce9ed5d602a177019c77f2536edad5804d955059175e1fcc4e",
+      "seed": 2026093003,
+      "swap_growth_bytes": 0.0,
+      "wall_seconds": 2310.629682302475
+    }
+  ],
+  "output_manifest": {
+    "curves.md": {
+      "bytes": 6920,
+      "sha256": "542909f8ef70900dc5d24fb833adeecb1278c78fbb2ead8718dc11fede53aa93"
+    },
+    "per-seed-role.csv": {
+      "bytes": 39588,
+      "sha256": "4681935603ebe7072b950f591a37ea4a14eea27f90c43f581c86a49fc43b703f"
+    },
+    "summary.json": {
+      "bytes": 587648,
+      "sha256": "1ed9e50f9ee1e2a6e42af7f75661d49b87a60c6ab713c109bb6605ed49c00a97"
+    }
+  },
+  "panels": 9,
+  "partial_300m_individual_only": true,
+  "prior_100_150_500_snapshot_entries_unchanged": true,
+  "report_job_sha256": "a6d3759a5caf112ec0b8abee8ccd11d74b5dff57529ec6d59c92582e68bbd2c8",
+  "report_source_sha256": "165a2f7594473bc12ebc936bc95a1e3a40425b2b43bb6f9ec3191feb535b457c",
+  "scope": "Exploratory broad100/150/200/500 all3 groups; one closed300Mseed1 individual only. Five broad and all6heldout tasks pending at capture; no direct intermediate-to500 CI or gate claim.",
+  "verified_at_utc": "2026-10-01T15:33:37.586244+00:00"
+}

@@ -1,9 +1,11 @@
 # HU20 three-lineage 100M→500M campaign
 
-Status: **complete broad 100/150/500M profiles and preliminary light curves
-published; 200/300/400M and fresh final confirmation pending**.
-The latest broad snapshot contains nine model tasks /239,616 natively
-replayed hands across all three lineages. The October 1, 06:43 UTC light snapshot contains 74
+Status: **complete broad 100/150/200/500M profiles and preliminary light curves
+published; 300/400M and fresh final confirmation pending**.
+The latest broad snapshot contains thirteen model tasks /346,112 natively
+replayed hands: twelve tasks in complete three-seed groups and one individual
+300M task. There is no three-seed300M aggregate. The earlier150M snapshot
+retains239,616 hands. The October1,06:43UTC light snapshot contains74
 closed light tasks / 265,216 hands. All three lineages have light results through
 480M; two have individual 500M results. The missing third 500M task stays
 pending, so this snapshot has no three-lineage 500M aggregate.
@@ -24,13 +26,90 @@ changes. All retained archives are hash-verified on M4 and all rentals have
 terminated. All75 light tasks are complete; the snapshot below deliberately
 retains its original74-task capture.
 
-The broad 100/150/500M groups are complete and published. B200M is now
-running; its complete three-seed group is expected around **17:00 Madrid
-October1**, followed by 300/400M about every two hours. Fresh
+The broad 100/150/200/500M groups are complete and published. B300M is now
+running; its complete three-seed group is expected around **18:30–19:30 Madrid
+October1**, followed by400M about two hours later. Publications can lag group
+closure by up to90 minutes under the owner's supervision cadence. Fresh
 confirmation/final verification remains **00:00–05:00 October2**.
 These are timing forecasts, not deadlines.
 Publish each newly completed group with all opponents, seed/position intervals,
 paired changes and tails; pending groups cannot become smaller aggregates.
+
+## Complete broader 200M profile — October 1
+
+All three200M policies completed the same nine-opponent panel. The new
+[complete-group curves](hu20-500m-campaign-artifacts/preliminary-broad-200m-20261001/curves.md),
+[seed/position CSV](hu20-500m-campaign-artifacts/preliminary-broad-200m-20261001/per-seed-role.csv)
+and [summary](hu20-500m-campaign-artifacts/preliminary-broad-200m-20261001/summary.json)
+retain all100/150/200/500M groups and one closed300M seed1 task. This snapshot
+has **13 closed tasks /346,112 hands**, of which319,488 belong to complete
+three-seed groups. Five broad tasks and all six fresh-confirmation tasks remain
+pending at capture. Individual300M results are explicitly partial and do not
+form an aggregate. Prior100/150/500M entries and input hashes are unchanged.
+
+Intervals are unadjusted exploratory95% paired-block intervals; three seed
+contrasts and both positions are averaged within each independent deal block.
+
+| Fixed broad opponent | B200M BB/100 | Paired change versus own B100M [95%] |
+| --- | ---: | --- |
+| Original-cap2 bounded LBR | −63.36 | +1.61 [−13.06, +16.28] |
+| Native pressure | +125.01 | +10.97 [−0.99, +22.93] |
+| Selective stackoff | +39.56 | +4.43 [+1.50, +7.36] |
+| Pot pressure | +18.91 | +2.73 [−10.18, +15.64] |
+| Passive | +98.44 | −9.60 [−32.10, +12.90] |
+| Loose passive | +25.93 | −3.89 [−18.72, +10.94] |
+| Loose aggressive | +26.45 | +1.73 [−17.34, +20.79] |
+| Tight passive | +57.34 | +4.65 [+0.46, +8.84] |
+| Tight aggressive | +53.03 | +2.28 [−5.44, +10.00] |
+
+**LBR improvement remains inconclusive**, with absolute return
+−63.36 [−77.89, −48.84] BB/100. Native pressure also includes zero.
+Selective stackoff and tight passive have positive exploratory aggregate
+intervals; the other seven changes include zero. These comparisons neither
+establish a universal gain nor pass the separate final97.5% gates. No direct
+150-to200 or200-to500 interval is claimed, and the curve does not establish a
+plateau or identify a causal defect.
+
+### Seed variation, positions and tails
+
+| Seed | LBR change [95%] | Native-pressure change [95%] | Selective-stackoff change [95%] |
+| --- | --- | --- | --- |
+| 3001 | +15.89 [−8.70, +40.49] | +28.34 [+7.55, +49.13] | +2.31 [−2.71, +7.32] |
+| 3002 | +4.16 [−20.99, +29.32] | −3.30 [−24.41, +17.80] | +11.96 [+6.54, +17.37] |
+| 3003 | −15.22 [−39.90, +9.46] | +7.87 [−12.53, +28.28] | −0.98 [−6.34, +4.39] |
+
+All individual LBR changes include zero. Its button/big-blind changes are
++3.61 [−16.86, +24.09] and−0.39 [−20.89, +20.11]. Selective stackoff's button
+gain is+6.19 [+1.17, +11.21], while its big-blind change+2.67 [−0.47, +5.81]
+is inconclusive. Seed3002's loose-passive regression persists:
+**−30.76 [−54.26, −7.27] BB/100**. All nine opponents' seed/position returns,
+fallback by street and whole-hand tail partitions remain in the compact data.
+
+Selective full20BB losses total **122 /24,576 hands**, versus134 at100M:
+seed counts36→36 /49→40 /49→46. Full-stack wins total76, large raises379,
+jams248, large/all-in calls zero and fallback6/32,391 target decisions.
+These are descriptive correlated-hand counts without tail-change intervals;
+they do not establish that catastrophic errors are repaired. The opponent is
+a post-Luna stress test, and whole-hand partitions are not action EV.
+
+### Verification and remaining work
+
+The reporter finished once under the shared M4 lock after all200M children
+closed. It validated all346,112 raw hands, frozen coordinates/model identities,
+native-replay evidence, chips/tails, pairing and independent return sums.
+Compact transfers match the [manifest](hu20-500m-campaign-artifacts/preliminary-broad-200m-20261001/manifest.json).
+The [verification record](hu20-500m-campaign-artifacts/preliminary-broad-200m-20261001/verification.json)
+checks all three200M receipts, unchanged prior snapshot entries and the
+absence of an incomplete300M aggregate. The200M tasks took2,196.47 /2,229.56
+/2,310.63 seconds, with process peaks2.53 /2.53 /2.50 GiB and zero swap growth.
+The four ordering and three reporting tests already passed on M4. No gameplay
+was rerun and no scientific setting changed.
+
+B300M seed2 is active at this scheduled check. The remaining300/400M groups
+and all fresh-confirmation tasks continue in frozen order. Final confirmation
+and verification retain the **00:00–05:00 Madrid October2** forecast, with no
+wall deadline or promotion. The owner's ACTIVE90-minute monitor coalesces
+publications; M4 ownership continues through the eventual authorized merge.
 
 ## Complete broader 150M profile — October 1
 

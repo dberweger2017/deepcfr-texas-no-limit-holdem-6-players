@@ -153,6 +153,8 @@ certify that rare catastrophic mistakes are fixed or locate a learning plateau.
 The complete 150M profile also has inconclusive LBR (+3.06 [−10.72, +16.85]),
 pressure and selective-stackoff changes versus 100M. Selective full-stack
 losses remain 134/24,576 hands at 150M; seed/position regressions persist.
-The 200/300/400M broad groups and separate fresh 97.5% final confirmation
+The remaining300/400M broad groups and separate fresh97.5% final confirmation
 remain pending. No B500M model is promoted and no training intervention or
 release declaration follows from these preliminary endpoints.
+
+The complete200M profile remains inconclusive for LBR (+1.61 [−13.06, +16.28]) and native pressure (+10.97 [−0.99, +22.93]); selective stackoff (+4.43 [1.50,7.36]) and tight passive (+4.65 [0.46,8.84]) show positive exploratory aggregates. Seed2 loose-passive regression persists (−30.76 [−54.26,−7.27]). Selective full-stack losses total122/24,576, a descriptive count without a tail-change interval. The [200M report](reports/hu20-500m-campaign.md#complete-broader-200m-profile--october-1) retains all seed/role results and one partial300M individual; there is no300M aggregate or final confirmation yet.

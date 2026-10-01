@@ -111,3 +111,15 @@ group is expected around **17:00 Madrid**, followed by 300/400M about every
 two hours. Keep the final confirmation/verification forecast **00:00–05:00
 October 2**. These remain timing forecasts, not deadlines; poker results do
 not change the frozen queue, counts, source or gates.
+
+## Measured 200M update, October 1 at approximately 17:30 Madrid
+
+All three200M tasks completed in2,196.47 /2,229.56 /2,310.63 seconds.
+The next publication retains complete100/150/200/500M groups plus one closed
+300M seed1 individual result:13 tasks /346,112 verified hands. No incomplete
+300M aggregate is formed. B300M seed2 is active; its full group is forecast
+around18:30–19:30 Madrid, then400M about two hours later. The owner changed
+agent supervision to every90 minutes; publications can lag group closure by
+up to90 minutes. Durable worker/resource guards continue between checks.
+Keep the final confirmation/verification forecast00:00–05:00 October2.
+These are execution-time forecasts, not deadlines or changes to science.
