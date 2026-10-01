@@ -1,3 +1,5 @@
+**Follow-up complete:** the separately approved [10M continuation](hu20-history-10m-followup.md) passes the unchanged density gate in all three seed pairs. The original 2M failure below remains unchanged; no playing-strength claim or C/D rental follows.
+
 # HU20 history compression: Phase 0 M1 result
 
 **Status: the frozen 2M density gate fails. C/D paid training remains blocked.**
@@ -38,7 +40,7 @@ A separate short comparison on #143's unchanged abstraction/solver/artifact/desc
 
 GitHub's Python3.11.16 exposed a unit-test fixture issue: the observer comparison called the campaign worker's strict3.11.14 admission check. Runtime validation is now a separate function; the portable observer unit test substitutes only that check, while explicit worker tests verify rejection of a wrong Python version or engine before training. All25 focused tests pass on3.11.14 and3.11.15. The CLI worker still enforces the original runtime pin. No scientific worker was rerun, and the frozen source/results and compact evidence above remain unchanged.
 
-## Proposed next measurement — not executed
+## Proposal recorded before owner approval
 
 Recommend a **separate prospective 10M-node density continuation** of these same six retained 2M prefixes, preserving the schema, seeds, recipe and common public corpus. Apply the existing numerical median/<10/<100 requirements at the new declared boundary; retain the failed 2M result as a separate result, not a retroactive pass. At this prefix every sampled river decision lies below100 visits, so 2M cannot show a reduction at that cutoff. More unpaid sampling is a narrower next step than changing the schema or launching100M paid jobs.
 
@@ -62,4 +64,4 @@ M4 remains #136-only with its ACTIVE90-minute monitor. New Guy owns #143/B and i
 
 ## Owner-approved follow-up (October1)
 
-The owner approved the10M pivot after this report. The [prospective amendment](../hu20-history-10m-amendment.md) and pinned input plan define continuation of all six retained2M states, unchanged numerical gate and a separately labelled fixed2M-policy-reach diagnostic. Twenty-nine focused pinned-runtime checks pass, including exact continuation and fresh-process recovery. Execution is being launched on M1; the2M result above remains failed and immutable. No new strength result, paid C/D launch or M4 allocation follows.
+The owner approved the10M pivot after this report. The [prospective amendment](../hu20-history-10m-amendment.md) and pinned input plan define continuation of all six retained2M states, unchanged numerical gate and a separately labelled fixed2M-policy-reach diagnostic. Twenty-nine focused pinned-runtime checks pass, including exact continuation and fresh-process recovery. Execution completed on M1; all three paired 10M density gates and independent recovery checks passed. See the [separate follow-up report](hu20-history-10m-followup.md). The 2M result above remains failed and immutable. No new strength result, paid C/D launch or M4 allocation follows.

@@ -132,3 +132,9 @@ and all six short v1/v2 cross-patch state comparisons pass.
 ## Owner-approved10M pivot (October1)
 
 The owner approved the [separate10M amendment](hu20-history-10m-amendment.md). Continue all six retained2M states to10M total; same schema/seeds/recipe/corpus and numerical gate, failed2M retained. Freeze5M/7M descriptive milestones and the secondary fixed2M-policy-reach diagnostic before continuation. No paid C/D launch; D integration/resource/parity and an approved live-priced cap remain prerequisites. M1-only execution and #136 ACTIVE90-minute M4 supervision remain separate.
+
+## October 1: completed prospective 10M assessment
+
+The owner-approved continuation at frozen source `c48edc861e98a60e6f5943ec6453a8be7969e639` completes all six original 2M parents to 10M total each. All three seed pairs and the pooled assessment pass the unchanged numerical density gate. The original 2M failure remains failed; the fixed 2M-policy reach diagnostic is secondary and mixed. See the [separate result](reports/hu20-history-10m-followup.md) and independent recovery evidence.
+
+This admits preparation of D's exact #143 descriptor integration/resource prefix and C/D recovery parity. It does not approve a rental budget, weaken correctness/public-separation checks or establish strength. Publish measured resource projections/live quotes and obtain approval of the conservative all-in hard cap before paid launch. M4/#136 scientific work and its 90-minute supervision remain unchanged.
