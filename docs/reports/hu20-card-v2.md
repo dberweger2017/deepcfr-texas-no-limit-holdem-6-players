@@ -130,3 +130,20 @@ small LBR budget is exploratory, not a high-power primary test. A null/negative
 v2 result cannot establish that card resolution is irrelevant. #144's separate
 four-cell interaction requires its own prospective schedule; I will not pool
 this two-cell experiment into it without that common evaluation.
+
+## First rental attempt: setup failure retained
+
+At14:54:55–59UTC three approved CPU5-memory pods were created. uv0.8.22
+could not resolve the frozen Python3.11.15 Linux download; all three exited
+before tests, recovery, model loading or training. Their archives were
+transport-hash checked and retained; no work manifest exists because no
+worker ran. Teardown was API-confirmed at14:56:06UTC. Conservative
+compute+disk upper spend is$0.0315037; settled billing remains pending.
+[Raw setup logs and lease ledger](hu20-card-v2-artifacts/setup-attempt-1/manifest.json)
+retain the original source6fbffeb, exact pod IDs/names and failure.
+
+The corrected pinned uv0.12.21 catalogue includes Python3.11.15 for Linux
+x86_64; the versioned public mirror is checked locally before another
+rental. Descriptor and100M scientific budget stay frozen. A manual repair
+uses the original19:54:53UTC rental cutoff and includes failed-attempt spend
+within the same$10 cap, rather than resetting the clock.

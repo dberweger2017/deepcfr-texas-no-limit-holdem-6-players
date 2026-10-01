@@ -66,7 +66,7 @@ def test_approved_exact_name_cost_and_cutoff():
     lease={'names':[f'new-guy-hu20-card-v2-{i}-123' for i in range(3)],'started':100,'deadline':18100,'max_hourly_per_pod':.57}
     validate(lease)
     for changed in [{'deadline':18101},{'max_hourly_per_pod':.58},{'names':lease['names'][:2]},
-                    {'names':['dr2x2-other',*lease['names'][1:]]},{'names':[lease['names'][0]]*3}]:
+                    {'names':['dr2x2-other',*lease['names'][1:]]},{'names':[lease['names'][0]]*3},{'prior_cost_upper_usd':2},{'prior_cost_upper_usd':-1}]:
         with pytest.raises(ValueError):validate({**lease,**changed})
 
 

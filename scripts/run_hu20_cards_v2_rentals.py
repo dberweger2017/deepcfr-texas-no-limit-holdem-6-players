@@ -45,9 +45,9 @@ def execute(args):
     if not plan['budget_approval'].startswith('approved') or plan['provider']['max_total_cost_usd']!=10:
         raise ValueError('Approved $10 plan required')
     root=args.root.resolve();root.mkdir(parents=True,exist_ok=False);root.chmod(0o700)
-    started=time.time();deadline=started+18000;names=[f'new-guy-hu20-card-v2-{seed}-{int(started)}' for seed in plan['seeds']]
+    started=time.time();deadline=args.deadline or started+18000;names=[f'new-guy-hu20-card-v2-{seed}-{int(started)}' for seed in plan['seeds']]
     lease={'names':names,'started':started,'deadline':deadline,'max_hourly_per_pod':.57,'source_sha':source,
-           'plan_sha256':sha256(args.plan.read_bytes()).hexdigest()};validate(lease);write(root/'lease.json',lease)
+           'plan_sha256':sha256(args.plan.read_bytes()).hexdigest(),'prior_cost_upper_usd':args.prior_cost};validate(lease);write(root/'lease.json',lease)
     keyfile=root/'ssh-key';run(['ssh-keygen','-t','ed25519','-N','','-f',str(keyfile),'-C','new-guy-card-v2'])
     public=keyfile.with_suffix('.pub').read_text().strip()
     catalog=api(args.key,'/v2/catalog/cpus');write(root/'live-catalog.json',catalog)
@@ -136,10 +136,11 @@ def execute(args):
         remaining=owned_pods(api(args.key,'/v2/pods')['pods'],names)
         upper=sum(.57*(r.get('terminated',time.time())-r['attempted'])/3600 for r in rows)
         write(root/'pods.json',rows);write(root/'operator-finished.json',{'remaining_owned_ids':[p['id'] for p in remaining],
-            'compute_and_disk_upper_usd':upper,'settled_billing':'not yet verified','finished':time.time()})
+            'compute_and_disk_upper_usd':upper,'including_prior_upper_usd':upper+args.prior_cost,'settled_billing':'not yet verified','finished':time.time()})
 
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('plan','key','root','reference','baseline'):p.add_argument('--'+name,type=Path,required=True)
+    p.add_argument('--deadline',type=float);p.add_argument('--prior-cost',type=float,default=0)
     execute(p.parse_args())

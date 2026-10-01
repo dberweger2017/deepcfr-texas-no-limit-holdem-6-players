@@ -5,13 +5,16 @@ V2_SOURCE="$1"
 V2_DEADLINE="$2"
 V2_SEED="$3"
 export UV_CACHE_DIR=/workspace/uv-cache UV_PYTHON_INSTALL_DIR=/workspace/python
+export UV_PYTHON_INSTALL_MIRROR=https://github.com/astral-sh/python-build-standalone/releases/download
 export CARGO_HOME=/workspace/cargo RUSTUP_HOME=/workspace/rustup CARGO_BUILD_JOBS=1
 export PATH="$CARGO_HOME/bin:/workspace/uv:$PATH"
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 mkdir -p /workspace/results /workspace/uv
-curl -fLsS --retry 2 https://github.com/astral-sh/uv/releases/download/0.8.22/uv-x86_64-unknown-linux-gnu.tar.gz -o /workspace/uv.tar.gz
+curl -fLsS --retry 2 https://github.com/astral-sh/uv/releases/download/0.12.21/uv-x86_64-unknown-linux-gnu.tar.gz -o /workspace/uv.tar.gz
+printf '%s  %s\n' '23f02075b652bb1df64178cfae41b5caf160822e720e2663568f3f5d63bc52c0' /workspace/uv.tar.gz | sha256sum -c -
 tar -xzf /workspace/uv.tar.gz --strip-components=1 -C /workspace/uv
 curl -fLsS --retry 2 https://static.rust-lang.org/rustup/archive/1.28.2/x86_64-unknown-linux-gnu/rustup-init -o /workspace/rustup-init
+printf '%s  %s\n' '20a06e644b0d9bd2fbdbfd52d42540bdde820ea7df86e92e533c073da0cdd43c' /workspace/rustup-init | sha256sum -c -
 chmod +x /workspace/rustup-init
 /workspace/rustup-init -y --profile minimal --default-toolchain 1.90.0
 sha256sum /workspace/uv.tar.gz /workspace/rustup-init > /workspace/results/setup-downloads.sha256

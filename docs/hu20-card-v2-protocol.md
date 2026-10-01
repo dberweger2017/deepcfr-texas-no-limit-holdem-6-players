@@ -94,7 +94,8 @@ beyond 100M, paid follow-on or M4 compute.
 (`cpu5m`, 8vCPU/64GB), one worker each, $10 total hard cap, 18,000 seconds
 maximum from controller start (so each later pod has less than five hours),
 and an admitted compute+disk price <=$0.57/pod-hour ($8.55 maximum nominal
-allocation). No replacements or automatic retries of creation. Independent
+allocation). No automatic retries of creation. A recorded setup repair can restart only
+inside the original absolute cutoff, including all previous spending. Independent
 exact-name network watchdog on awake M1 survives controller/SSH loss; it
 retries teardown during provider outages. No client can guarantee a billing
 cutoff during provider/network failure; report any such failure explicitly.
@@ -127,3 +128,15 @@ Large exports may exceed M1 headroom, so final evaluation uses the same
 M1 cached v1 inputs are transferred read-only. The independent four-cell
 Doctor Research experiment uses its own schedule and ownership; this A/B
 report is not a factorial comparison. No additional compute is implied.
+
+### Setup correction before any training
+
+The first three pods exited before tests/training because uv0.8.22's bundled
+catalogue predates Python3.11.15. All were deleted; estimated compute+disk
+upper cost$0.0315037 and setup logs/archives remain retained. Pin uv0.12.21
+with its published Linux asset SHA256 and use the public versioned Python
+build mirror; verify installer hashes before execution. The installer
+correction changes no descriptor, CFR work, seed, Python version or outcome
+schedule. A manual repaired attempt retains the original19:54:53UTC cutoff
+on October1 and includes prior spending in admission. No model results
+were opened to make this change.

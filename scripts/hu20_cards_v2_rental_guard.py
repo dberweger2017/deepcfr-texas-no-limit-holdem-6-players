@@ -12,7 +12,8 @@ def validate(state):
     if (len(names)!=3 or len(set(names))!=3 or any(not n.startswith('new-guy-hu20-card-v2-') for n in names)
         or not 0<state['deadline']-state['started']<=18000
         or state['max_hourly_per_pod']>.57 or state['max_hourly_per_pod']<=0
-        or len(names)*state['max_hourly_per_pod']*(state['deadline']-state['started'])/3600>10):
+        or state.get('prior_cost_upper_usd',0)<0
+        or state.get('prior_cost_upper_usd',0)+len(names)*state['max_hourly_per_pod']*(state['deadline']-state['started'])/3600>10):
         raise ValueError('Lease differs from approved three-pod $10/5h plan')
 
 
