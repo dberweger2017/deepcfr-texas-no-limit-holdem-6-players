@@ -44,6 +44,7 @@ def test_extraction_verifies_all_accumulators_and_guard_stays(tmp_path):
     with pytest.raises(ValueError,match='separately collected'):export_policy(trainer,tmp_path/'not-production.gz',strategy='average')
     with pytest.raises(ValueError):FrozenBlueprint(Checkpoint('avg',str(output),result['sha256'],HU20_UNCAPPED_FORMAT),output)
     with pytest.raises(FileExistsError):extract(checkpoint,spec,output)
+    assert extract(checkpoint,spec,tmp_path/'same-bytes.gz')['sha256']==result['sha256']
 
 
 @pytest.mark.parametrize('average,visits', [([-1,2],1),([float('nan'),0],1),([1,1],0),([100,0],1),([1,0],True)])
@@ -74,6 +75,17 @@ def test_observation_only_inference_and_zero_mass_is_distinct(tmp_path):
     assert source.policy(17).choose_action(view)==source.policy(17).choose_action(view)
     # Equal own observations remain independent of external hidden simulator data.
     assert source.distribution(replace(view,hand_id='another-hidden-world'))==source.distribution(view)
+
+
+def test_unrevealed_holding_and_future_deck_cannot_change_average_query(tmp_path):
+    from src.blueprint.search import DECK
+    _,_,checkpoint,_,spec=fixture(tmp_path);output=tmp_path/'average.gz';result=extract(checkpoint,spec,output)
+    source=DiagnosticAverage(output,result['sha256']);deck=list(DECK);other=list(deck)
+    other[0],other[4]=other[4],other[0];other[2],other[5]=other[5],other[2];other[6:]=reversed(other[6:])
+    views=[Hand.from_deck(Table(('a','b'),(2000,2000)),hand_id='same-visible',deck=d).observe(0) for d in (deck,other)]
+    assert views[0]==views[1]
+    assert source.distribution(views[0])==source.distribution(views[1])
+    assert source.policy(19).choose_action(views[0])==source.policy(19).choose_action(views[1])
 
 
 def test_collection_weights_own_reach_not_opponent_probability(monkeypatch):
