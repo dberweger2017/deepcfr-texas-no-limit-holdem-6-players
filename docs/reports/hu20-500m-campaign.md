@@ -1,14 +1,12 @@
 # HU20 three-lineage 100M→500M campaign
 
-Status: **complete broad 100/150/200/500M profiles and preliminary light curves
-published; 300/400M and fresh final confirmation pending**.
-The latest broad snapshot contains thirteen model tasks /346,112 natively
-replayed hands: twelve tasks in complete three-seed groups and one individual
-300M task. There is no three-seed300M aggregate. The earlier150M snapshot
-retains239,616 hands. The October1,06:43UTC light snapshot contains74
-closed light tasks / 265,216 hands. All three lineages have light results through
-480M; two have individual 500M results. The missing third 500M task stays
-pending, so this snapshot has no three-lineage 500M aggregate.
+Status: **complete broad 100/150/200/300/500M profiles published; 400M
+report queued and fresh final confirmation running**.
+The latest immutable broad snapshot contains seventeen model tasks /452,608
+natively replayed hands: fifteen tasks in complete three-seed groups and two
+individual400M tasks. It has no three-seed400M aggregate. All three400M tasks
+have since closed; their separate report is queued. Earlier snapshots remain
+unchanged, including the original74-task /265,216-hand light snapshot.
 
 The owner authorized three retained B100M continuations on October 1, 2026,
 with a $10 target and a firm $15 all-in ceiling. #132/#133 are merged. The
@@ -26,14 +24,59 @@ changes. All retained archives are hash-verified on M4 and all rentals have
 terminated. All75 light tasks are complete; the snapshot below deliberately
 retains its original74-task capture.
 
-The broad 100/150/200/500M groups are complete and published. B300M is now
-running; its complete three-seed group is expected around **18:30–19:30 Madrid
-October1**, followed by400M about two hours later. Publications can lag group
-closure by up to90 minutes under the owner's supervision cadence. Fresh
-confirmation/final verification remains **00:00–05:00 October2**.
-These are timing forecasts, not deadlines.
+All broad scientific evaluations have now closed. The complete300M report is
+published below;400M awaits its queued reporting boundary. Fresh confirmation
+is running in the frozen serial order. Final confirmation/verification remains
+**00:00–05:00 Madrid October2**, with publication allowed to lag closure by up to
+90 minutes. These are timing forecasts, not deadlines.
 Publish each newly completed group with all opponents, seed/position intervals,
 paired changes and tails; pending groups cannot become smaller aggregates.
+
+## Complete broader300M profile — October1
+
+[Curves](hu20-500m-campaign-artifacts/preliminary-broad-300m-20261001/curves.md),
+[all seed/position results and tails](hu20-500m-campaign-artifacts/preliminary-broad-300m-20261001/per-seed-role.csv),
+[summary](hu20-500m-campaign-artifacts/preliminary-broad-300m-20261001/summary.json)
+and [verification](hu20-500m-campaign-artifacts/preliminary-broad-300m-20261001/verification.json)
+retain all nine opponents, all three seeds and every prior complete group.
+The capture has17closedtasks/452,608hands, with two400M individual tasks only;
+no400M aggregate or held-out confirmation is claimed. Prior inputs/results and
+summary entries are unchanged. Intervals remain unadjusted exploratory95%.
+
+| Fixed broad opponent | B300M BB/100 | Paired change versus own B100M [95%] |
+| --- | ---: | --- |
+| LBR-original-cap2 | -67.46 | -2.48 [-17.73, +12.77] |
+| Pressure-native | +121.65 | +7.60 [-4.85, +20.06] |
+| selective_stackoff | +39.89 | +4.76 [+1.54, +7.97] |
+| pot_pressure | +29.79 | +13.61 [+0.06, +27.16] |
+| passive | +128.35 | +20.31 [-5.10, +45.73] |
+| loose_passive | +30.19 | +0.37 [-14.19, +14.94] |
+| loose_aggressive | +24.69 | -0.03 [-19.44, +19.38] |
+| tight_passive | +58.63 | +5.94 [+1.26, +10.62] |
+| tight_aggressive | +47.74 | -3.01 [-11.89, +5.87] |
+
+Aggregate LBR improvement remains inconclusive, with absolute loss−67.46BB/100.
+Its paired change is−2.48[−17.73,+12.77]. The button contrast is
++25.29[+3.74,+46.84], while the big-blind contrast is−30.26[−51.80,−8.72];
+these exploratory role differences do not establish a mechanism or a plateau.
+Selective stackoff, pot pressure and tight passive show positive exploratory
+aggregate changes; other aggregate change intervals include zero. All per-seed
+negative and inconclusive contrasts remain in the CSV and summary.
+
+Selective full-stack losses are142/24,576hands (35/57/50byseed), compared with
+134(36/49/49)at100M. These are descriptive counts without a tail-change interval;
+a positive average selective return does not establish fewer catastrophic losses.
+Fresh97.5%confirmation and its frozen gates remain pending.
+
+Two reporter launch failures are preserved: attempt1 lacked NumPy; attempt2
+had an incorrect `runpy` argument bootstrap. Both stopped before raw-hand reads
+or output creation. The corrected attempt3 used the same reporter hash and
+frozen scientific inputs, completed once, and passed compact receipt/manifest
+verification on M4. [Incident records](hu20-500m-campaign-artifacts/preliminary-broad-300m-20261001/launcher-attempt-1-failure.json)
+and [attempt2](hu20-500m-campaign-artifacts/preliminary-broad-300m-20261001/launcher-attempt-2-failure.json)
+are retained alongside logs. No gameplay, training, task counts or settings were
+rerun or changed. Reporter output remains at
+`results/hu20-three-lineage-500m-20261001/preliminary-broad-300M-attempt-3` on M4.
 
 ## Complete broader 200M profile — October 1
 
@@ -455,7 +498,7 @@ External controller log:
 `/Users/dberweger/Local/hu20-500m-controller-20261001.log`.
 
 The durable controller/provider watchdog handle backups and guard resources;
-30-minute agent checks coalesce milestones/incidents and remain quiet while
+90-minute agent checks coalesce milestones/incidents and remain quiet while
 healthy. M4 performs evaluations serially; training and backups take priority.
 The M1 emergency route was authenticated and available capacity verified. Its
 root is `/Users/dberweger/Local/hu20-500m-emergency-backups-20261001`; it performs

@@ -1,0 +1,4 @@
+dependency-ready 1.26.4
+usage: dr-research-pr136-group-report.py [-h] --plan PLAN --root ROOT
+                                         [--stage {light,broad}] --out OUT
+dr-research-pr136-group-report.py: error: unrecognized arguments: /tmp/dr-research-pr136-group-report.py

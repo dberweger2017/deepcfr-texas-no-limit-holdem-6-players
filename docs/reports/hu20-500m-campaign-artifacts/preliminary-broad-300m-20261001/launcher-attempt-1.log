@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/tmp/dr-research-pr136-group-report.py", line 15, in <module>
+    from src.arena.report import estimate
+  File "/Users/dberweger/Local/hu20-500m-campaign-20261001/src/arena/report.py", line 7, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
