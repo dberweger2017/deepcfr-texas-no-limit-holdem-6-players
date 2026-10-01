@@ -86,3 +86,23 @@ decision-gap estimates and exact traces. No model promotion or strength claims.
 Publish one draft PR, all configurations/hashes, generated-fixture checks,
 calibration failures/successes, replayable simulator records, resources and
 reproduction commands. Preserve raw artifacts and report incomplete tasks honestly.
+
+### Exact postflop coefficients
+
+The assumed continuation base by own made tier is strong .98, top-pair .85,
+lower-pair .55, board-pair .30, board-only .18, weak .12. Draws raise it to at
+least .62 at price <.32, otherwise .35. Subtract 1.1×max(0, price−.20), bound
+.03–.99. Preflop continuations are .96 inside the declared price-dependent range,
+.06 otherwise. Public postflop raise likelihood is .55 for strong hands, .22 for
+top-pair/draws, .06 otherwise; wagers above one pot multiply it by .75 for strong
+hands or .25 otherwise. Check likelihood is 1−aggression; call is continuation
+×(1−aggression); fold is 1−continuation, all floored at .02.
+
+Postflop raises qualify at continuing equity ≥.58, a draw with whole-range equity
+≥.40, a nut-suit blocker with estimated folds ≥.35, or estimated folds ≥.55.
+Select among eligible actions within 50 chips of the best checkdown score using
+exp((score−best)/35). Fold scores −own current contribution. Call/check scores
+(2×equity−1)×matched contribution. A raise scores fold_probability×rival current
+contribution + continue_probability×(2×continuing_equity−1)×matched contribution.
+These are explicitly approximate one-step/checkdown utilities, not full strategic
+rollouts or a calibrated model of a particular saved blueprint.
