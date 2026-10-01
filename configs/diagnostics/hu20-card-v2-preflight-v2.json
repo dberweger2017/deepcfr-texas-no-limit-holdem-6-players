@@ -1,0 +1,23 @@
+{
+  "config": {
+    "abstraction": "hu20-native-reopening-ordered-history-card-v2",
+    "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+    "max_entries": 3000000,
+    "max_nodes": 250000,
+    "max_seconds": 300,
+    "postflop_replicates": 1,
+    "raise_cap": null,
+    "roots_per_seat": 1,
+    "seed": 2026093001
+  },
+  "max_rss_gib": 6,
+  "max_seconds": 1200,
+  "milestones": [
+    250000,
+    500000,
+    1000000,
+    2000000
+  ],
+  "min_free_gib": 8,
+  "schema": "hu20-card-v2-resource-prefix-v1"
+}
