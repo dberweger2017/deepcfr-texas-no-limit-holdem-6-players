@@ -60,11 +60,14 @@ def run(plan,seed,out,deadline):
                 log.write(json.dumps(row,sort_keys=True)+'\n')
                 if trainer.iteration%100==0:log.flush();write(out/'progress.json',progress())
                 if completed>=next_save or completed>=target:
-                    guard();path=out/f'checkpoint-{next_save}.json.gz';before=perf_counter();save_training(trainer,path)
-                    record={**progress(),'checkpoint':fingerprint(path),'path':path.name,'save_seconds':perf_counter()-before}
+                    guard();path=out/f'checkpoint-{next_save}.json.gz';save_started=time();before=perf_counter();save_training(trainer,path)
+                    save_seconds=perf_counter()-before;save_finished=time();before=perf_counter();artifact=fingerprint(path)
+                    record={**progress(),'checkpoint':artifact,'path':path.name,'save_seconds':save_seconds,
+                            'save_started':save_started,'save_finished':save_finished,'hash_seconds':perf_counter()-before}
                     result['checkpoint_milestones'].append(record);write(out/'checkpoint-milestones.json',result['checkpoint_milestones'])
                     next_save+=cadence
-        guard();before=perf_counter();export_policy(trainer,out/'current.json.gz');result['export_seconds']=perf_counter()-before
+        guard();result['export_started']=time();before=perf_counter();export_policy(trainer,out/'current.json.gz')
+        result['export_seconds']=perf_counter()-before;result['export_finished']=time()
         result.update(status='complete',**progress(),overshoot_nodes=completed-target,
                       current=fingerprint(out/'current.json.gz'),visits=sum(n.visits for n in trainer.nodes.values()),
                       mean_visits_per_key=sum(n.visits for n in trainer.nodes.values())/len(trainer.nodes))

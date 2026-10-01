@@ -61,7 +61,7 @@ per-prefix manifests pin their original bytes; [transport hashes](hu20-card-v2-a
 pin both the original and compressed logs.
 M1 macOS arm64, Python 3.11.15, pinned native engine; both workers exited.
 
-## Resource admission — pending, no paid run yet
+## Resource proposal before approval — no paid run at that checkpoint
 
 The early 1M→2M v2 entry-growth exponent is **0.944**. Extrapolating that
 local curve gives **14.11M keys** at 100M; holding the last absolute growth
@@ -86,7 +86,8 @@ actions, history or the 100M stopping rule. Approval is needed because the
 original recipe's safety capacity and the resource/cost allocation differ.
 Stop on cap/RSS/swap/disk/time failure; preserve partials. No silent coarsening,
 extra nodes, paid follow-on or model promotion. Linux parity/recovery and the
-final paired panel budget remain pending until admission.
+final paired panel budget were pending at this proposal checkpoint; the later
+approved freeze below records their resolution.
 
 ## Validation and remaining work
 
@@ -114,3 +115,18 @@ additional generated-fixture campaign tests exercise native replay, v1/v2
 schema isolation, exact tail/paired arithmetic, outcome-blind timing and
 archive verification. No paid rental or strength result has run at this
 checkpoint; the final evidence will report actual admission, failures and cost.
+
+### Independent pretraining review
+
+Claude reviewed descriptor/schema/audit at12dd2ff and found no correctness
+problem. Its useful capacity calibration is that v1's own early exponent
+overpredicted its actual100M key count by about2×; equivalent saturation is
+not guaranteed for v2. I retain the conservative approved shape and will
+compare projections to actual25/50/100M growth, late throughput, separately
+identified serialization memory windows, disk/swap and per-pod cost ledger.
+The final decision records also permit per-street visit bands0/<10/<100,
+so denser card information can be read alongside sparser visits. The unchanged
+small LBR budget is exploratory, not a high-power primary test. A null/negative
+v2 result cannot establish that card resolution is irrelevant. #144's separate
+four-cell interaction requires its own prospective schedule; I will not pool
+this two-cell experiment into it without that common evaluation.
