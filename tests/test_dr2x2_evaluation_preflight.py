@@ -4,12 +4,13 @@ import pytest
 
 from scripts.evaluate_hu20_cards_v2 import hand
 from scripts.preflight_dr2x2_evaluation import measure_model
-from src.blueprint.abstraction import HU20_COMPRESSED_SCHEMA, HU20_UNCAPPED_SCHEMA
+from src.blueprint.abstraction import HU20_COMPRESSED_SCHEMA, HU20_UNCAPPED_SCHEMA, choices, information_key
 from src.blueprint.artifact import export_policy, save_training, HU20_UNCAPPED_FORMAT
 from src.blueprint.solver import BlueprintTrainer, PilotConfig, HU20_UNCAPPED_GAME
 from src.diagnostics.saved_hu20 import load_saved
 from src.diagnostics.stackoff_tails import RecordingTarget
 from src.game.hand import Hand, Table
+from src.game.types import Action, ActionKind, Street
 
 
 def fixture(tmp_path, schema, cell):
@@ -32,11 +33,21 @@ def test_compressed_visits_use_its_own_key_and_default_contract_stays_strict(tmp
         load_saved(spec, Path('/'))
     source, visits = load_saved(spec, Path('/'), expected_schema=HU20_COMPRESSED_SCHEMA)
     decisions = []
-    view = Hand.start(trainer.table, hand_id='visits', seed=19).observe(0)
-    target = RecordingTarget(source, visits, decisions)
+    hand_state = Hand.start(trainer.table, hand_id='visits', seed=19)
+    while hand_state.observe(hand_state.actor).street != Street.RIVER:
+        view = hand_state.observe(hand_state.actor)
+        hand_state = hand_state.apply(Action(ActionKind.CHECK if ActionKind.CHECK in view.legal_actions.kinds else ActionKind.CALL))
+    view = hand_state.observe(hand_state.actor)
+    menu = choices(view, raise_cap=None, free_fold=False)
+    compressed_key = information_key(view, menu, schema=HU20_COMPRESSED_SCHEMA)
+    full_key = information_key(view, menu, schema=HU20_UNCAPPED_SCHEMA)
+    assert compressed_key != full_key
+    # Distinct probe counts catch accidentally recording the full-history lookup.
+    probe_visits = {**visits, compressed_key: 17, full_key: 999}
+    target = RecordingTarget(source, probe_visits, decisions)
     target.distribution(view)
     row = decisions[0]
-    assert row['visits'] == visits.get(row['key'], 0)
+    assert row['key'] == compressed_key and row['visits'] == 17
     assert row['trained'] == (row['key'] in source.entries)
     damaged = {**spec, 'checkpoint_sha256': '0' * 64}
     with pytest.raises(ValueError, match='hash'):
