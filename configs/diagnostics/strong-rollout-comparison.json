@@ -1,0 +1,92 @@
+{
+  "blocks": 512,
+  "budget_basis": "B100M timing-only pilot: 16 hands/352 continuation branches in 9.465s including 5.686s load; upper branch extrapolation plus six loads/gameplay ~15min, 30min safety limit. Pilot outcomes excluded.",
+  "deal_root": 202610040301,
+  "decision_sample_root": 202610040302,
+  "decisions_per_street_position": 2,
+  "max_seconds": 1800,
+  "models": [
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 40144034,
+      "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 100000000,
+      "name": "B-2026093001-100000000",
+      "path": "B-2026093001-100000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 40096108,
+      "checkpoint_sha256": "830c7c470de2a416b2cb030af6abb76bbb49b2757ff1a8300b0f30a75de3b965",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 100000000,
+      "name": "B-2026093002-100000000",
+      "path": "B-2026093002-100000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 40229571,
+      "checkpoint_sha256": "77bb18426aecdf6d9e83a9c8eb807f7e6671ab01ffafc94e348382a677e9df1b",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 100000000,
+      "name": "B-2026093003-100000000",
+      "path": "B-2026093003-100000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 70646565,
+      "checkpoint_sha256": "51876a51da9f3c2ac5b622efecb3645300a4126312525314afd299c36b9f30b1",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1098929,
+      "milestone": 500000000,
+      "name": "B-2026093001-500000000",
+      "path": "B-2026093001-500000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "e0dfb7c0a0ebde1e8a904fce89481919f4e9b32a633b912e88d241d039e69628"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 69783238,
+      "checkpoint_sha256": "bd177287272bca4fcaa78e4aff70711927e1e95ee2b41f6963b22f6cbee5425c",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1110069,
+      "milestone": 500000000,
+      "name": "B-2026093002-500000000",
+      "path": "B-2026093002-500000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "67427db96fb3d1aba3570e0235bb368a81e129978ff1a3e4c6e083b162563456"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 69363255,
+      "checkpoint_sha256": "6b409964e9c62c71d83a0e3e8fe1b5c7b41e76c315234399e84ae379cbe9436b",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1096178,
+      "milestone": 500000000,
+      "name": "B-2026093003-500000000",
+      "path": "B-2026093003-500000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "bcf7ca319b95688a0d8fcd15536b04b311310feacefdc6fff81221304662d083"
+    }
+  ],
+  "modes": [
+    "restricted",
+    "native"
+  ],
+  "opponent_freeze_sha256": "97f9e5dd1eca0b20ad4c380524570d788ac844237acc0261e4fd0af684d00fd6",
+  "selection_worlds": 32,
+  "stage": "frozen-comparison"
+}

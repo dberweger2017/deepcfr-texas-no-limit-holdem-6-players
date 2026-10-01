@@ -1,0 +1,27 @@
+{
+  "blocks": 4,
+  "deal_root": 202610040201,
+  "decision_sample_root": 202610040202,
+  "decisions_per_street_position": 1,
+  "max_seconds": 600,
+  "models": [
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 40144034,
+      "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "milestone": 100000000,
+      "name": "B-2026093001-100000000",
+      "path": "B-2026093001-100000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+    }
+  ],
+  "modes": [
+    "restricted",
+    "native"
+  ],
+  "selection_worlds": 4,
+  "stage": "timing-only-pilot"
+}

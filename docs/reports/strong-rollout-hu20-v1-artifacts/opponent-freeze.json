@@ -1,0 +1,14 @@
+{
+  "calibration_confirmation_sha256": "82015607ce07f3d8b36db3c870fa646fb76675237fd08ce2422add3ba1d8c2e3",
+  "calibration_source": "9e4f655",
+  "classification": "inspectable heuristic baseline; strength unvalidated; no strategic revisions after development",
+  "files": {
+    "configs/diagnostics/strong-rollout-hu20-v1.json": "5da85541d31b33c571f3c6bd9a9ac3aaa3c86cef9ba160df055e2dcc98800dd3",
+    "requirements.txt": "8a1a48bfd02c4f64e8d36039006a0822b8f234e9290b4697b633cdf251d39d3a",
+    "src/diagnostics/exact_ranker.py": "9865e79f5ca47a820fc858b70009f203cb2639c4b1c12c62795090ddc5578f2b",
+    "src/diagnostics/strong_rollout.py": "4bea131350d7dc3e546f123300a69aea863be3f9e6727248ecaf8207199ec584"
+  },
+  "quality_goal_passed": false,
+  "source": "ff8c7d60eb16c64f6b3a4bcb02ea63769df5ea5c",
+  "version": "strong-rollout-hu20-v1"
+}
