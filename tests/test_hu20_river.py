@@ -147,6 +147,28 @@ def test_on_tree_raise_retains_solution_without_second_solve(monkeypatch):
     assert len(p.records) == 1 and p.cache.stats['solves'] == 1
 
 
+def test_hero_bet_then_off_menu_reraise_repeats_consistent_public_solve(monkeypatch):
+    hand, root, ranges = tiny_player_world(monkeypatch);source = Uniform()
+    cache = RiverProfileCache(source);config = HU20RiverConfig(sweeps=1)
+    first = hand.observe(hand.actor);players = []
+    for _ in range(2):
+        world = _world(root, first.board, {0: ranges[0][0][0], 1: ranges[1][1][0]})
+        p = HU20RiverPlayer(source,0,config,cache);bet = p.choose_action(world.observe(world.actor))
+        assert bet.kind == ActionKind.RAISE
+        original = p.used[public_identity(first.history)][1].copy()
+        world = world.apply(bet);view = world.observe(world.actor)
+        exact = Action(ActionKind.RAISE,view.legal_actions.min_raise_to+1)
+        assert exact not in [c.action for c in choices(view,raise_cap=2,free_fold=False)]
+        world = world.apply(exact);answer = p.choose_action(world.observe(world.actor))
+        game,profile,lookup = p.solution
+        np.testing.assert_array_equal(profile[lookup[public_identity(first.history)]],original)
+        assert p.records[-1]['re_solve'] and p.records[-1]['frozen_hero_nodes'] == 1
+        players.append((p,answer))
+    assert players[0][1] == players[1][1]
+    assert players[1][0].solution is players[0][0].solution
+    assert cache.stats['solves'] == 2 and cache.stats['hits'] == 2
+
+
 def test_fixed_average_constraints_determinism_and_watchdog_failure(monkeypatch):
     hand, root, ranges = tiny_player_world(monkeypatch); game = HU20RiverGame(root, ranges)
     a = RiverCFR(game).solve(max_sweeps=10); b = RiverCFR(game).solve(max_sweeps=10)
