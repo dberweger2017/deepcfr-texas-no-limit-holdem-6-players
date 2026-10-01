@@ -39,3 +39,15 @@ Forecast after launch: **2.5–4hours for this single wave and verified retrieva
 subject to actual host throughput, table growth and saves. This replaces the
 superseded two-wave5–8hour forecast. Evaluations follow a separate runtime
 admission. #136 continues its frozen science and90-minute M4 supervision.
+
+## Launch record
+
+Three approved C pods created20:08UTC October1 at the admitted$0.13/h
+compute rate; independent watchdog armed first. Frozen runtime source
+`e45b297cdab45a2f4eb70f0325415794883c2163` has green full CI/GitGuardian,
+34 pinned focused checks and allthree exact M1 direct/fresh/prior-C comparisons.
+[Compact launch record](reports/dr2x2-c-launch-20261001.json) identifies each
+owned pod, quote, source, plan hash and lowered spending reserve. Pod setup
+and Linux gates precede main training; this record does not assert a passed
+Linux gate for a pod still provisioning. Running clone remains frozen while
+this reporting-only publication advances the branch. No D rental.
