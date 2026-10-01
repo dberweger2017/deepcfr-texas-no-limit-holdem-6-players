@@ -1,0 +1,28 @@
+{
+  "source": "Doctor Research PR136 verified closed final checkpoint receipts; current M4 stat lengths",
+  "files": [
+    {
+      "seed": 2026093001,
+      "iteration": 1098929,
+      "path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/artifacts/2026093001/attempt-1/checkpoint-500000000-1098929.json.gz",
+      "bytes": 131332745,
+      "sha256": "51876a51da9f3c2ac5b622efecb3645300a4126312525314afd299c36b9f30b1"
+    },
+    {
+      "seed": 2026093002,
+      "iteration": 1110069,
+      "path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/artifacts/2026093002/attempt-1/checkpoint-500000000-1110069.json.gz",
+      "bytes": 129627466,
+      "sha256": "bd177287272bca4fcaa78e4aff70711927e1e95ee2b41f6963b22f6cbee5425c"
+    },
+    {
+      "seed": 2026093003,
+      "iteration": 1096178,
+      "path": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/artifacts/2026093003/attempt-1/checkpoint-500000000-1096178.json.gz",
+      "bytes": 128901358,
+      "sha256": "6b409964e9c62c71d83a0e3e8fe1b5c7b41e76c315234399e84ae379cbe9436b"
+    }
+  ],
+  "total_bytes": 389861569,
+  "constraints": "One read-only SSH/SFTP connection; M1 destination hash verification before parsing; no M4 hashing/model loads/compute or changes to originals; priority to PR136; release note required."
+}

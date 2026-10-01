@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "numpy": "1.26.4",
+    "pokers": "0.2.0",
+    "pytest": "9.0.3",
+    "scipy": "1.17.1"
+  },
+  "gameplay_hashes": {
+    "scripts/evaluate_hu20_river.py": "ef8f139c4779c6e33cfe3f41e8cbc76c1b7429abe3701655de886ca9e2e7c40d",
+    "src/blueprint/hu20_river.py": "c5bd75f187c7d0012b6d1100352ce23236ab7a9cbc805114f37a78fdda6aaad9",
+    "src/blueprint/river_cfr.py": "0629d191b4fefcc714eb670e0a360c401bfc4e32c7f8911fcfdcc317f0807015",
+    "src/blueprint/river_game.py": "ebc6e61ad8f62963fe6d58e7fc4534e0a5edd0eaea7079d1d413172db1c80135"
+  },
+  "gameplay_source": "845bd45",
+  "installed_engine_direct_url": {
+    "url": "https://github.com/dberweger2017/pokers.git",
+    "vcs_info": {
+      "commit_id": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+      "requested_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+      "vcs": "git"
+    }
+  },
+  "native_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "source": "a00465326599976e91c88e687e4c7d840513dd02",
+  "tests": "61 staged focused tests passed; full CI green at a00465326599976e91c88e687e4c7d840513dd02; final evidence commit has documentation/data changes only",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  }
+}
