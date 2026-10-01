@@ -103,7 +103,7 @@ def projection(records, templates, *, bucket=None, per_line=False):
             if bucket is None:
                 group = factored_key(template, descriptor(holding, row["board"]))
             else:
-                group = (line, len(row["board"]), bucket(row, holding))
+                group = factored_key(template, ["equity-bucket", bucket(row, holding)])
             if per_line:
                 group = (line, group)
             groups.append(group)

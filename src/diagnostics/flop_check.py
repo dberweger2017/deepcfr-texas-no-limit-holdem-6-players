@@ -39,7 +39,9 @@ def atomic_json(path, document):
 def fixture_root(kind, *, seed=202610010901, street=Street.FLOP, button=0):
     """Outcome-blind public roots; no private holding is part of their identity."""
     lines = {"limped": ("call", "check"), "min-raised": ("min", "call"),
-             "pot-raised": ("pot", "call"), "3-bet": ("min", "min", "call")}
+             "pot-raised": ("pot", "call"), "3-bet": ("min", "min", "call"),
+             "short-spr": ("pot", "pot", "min", "call"),
+             "tiny-spr": ("min",) * 18 + ("call",)}
     hand = Hand.start(Table(("a", "b"), (2000, 2000), button=button),
                       hand_id="exact-flop-fixture", seed=seed)
     for label in lines[kind]:

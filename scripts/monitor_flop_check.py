@@ -15,8 +15,10 @@ class Monitor:
         if hasattr(writer, "add_custom_scalars"):
             writer.add_custom_scalars({
                 "Monitoring only": {
-                    metric: ["Margin", [f"results/monitoring_only/{metric}/{x}"
-                              for x in ("mean", "ci95_lower", "ci95_upper")]]
+                    f"{group}/{strategy}/{metric}": ["Margin", [
+                        f"results/monitoring_only/{group}/{strategy}/{metric}/{x}"
+                        for x in ("mean", "ci95_lower", "ci95_upper")]]
+                    for group in ("A", "B") for strategy in ("current", "stored-average")
                     for metric in ("e_bp", "e_v1proj", "e_eq50", "e_eq200")},
                 "Overfold": {"Blueprint and equilibrium": ["Multiline", [
                     "overfold/fold_bp", "overfold/fold_eq"]]},
@@ -54,20 +56,24 @@ class Monitor:
             self.scalar(f'validation/gates_passed/{row["gate"]}', int(row["passed"]), self.events)
         if row.get("event") != "spot_complete":
             return
-        key = (row["spot"], row["lineage"], row["strategy"])
+        key = (row["set"], row["spot"], row["lineage"], row["strategy"])
         self.spots[key] = row
         for name in ("fold_bp", "fold_eq"):
             self.scalar("overfold/" + name, row.get(name), len(self.spots))
         for group in sorted({r["set"] for r in self.spots.values()}):
             count = len({r["spot"] for r in self.spots.values() if r["set"] == group})
             self.scalar("run/spots_completed_by_set/" + group, count, len(self.spots))
-        for metric in ("e_bp", "e_v1proj", "e_eq50", "e_eq200"):
-            summary = bootstrap_spots(list(self.spots.values()), metric, resamples=200)
-            prefix = "results/monitoring_only/" + metric
-            self.scalar(prefix + "/mean", summary["mean"], len(self.spots))
-            if summary["ci95"]:
-                self.scalar(prefix + "/ci95_lower", summary["ci95"][0], len(self.spots))
-                self.scalar(prefix + "/ci95_upper", summary["ci95"][1], len(self.spots))
+        groups = sorted({(r["set"], r["strategy"]) for r in self.spots.values()})
+        for group, strategy in groups:
+            rows = [r for r in self.spots.values()
+                    if (r["set"], r["strategy"]) == (group, strategy)]
+            for metric in ("e_bp", "e_v1proj", "e_eq50", "e_eq200"):
+                summary = bootstrap_spots(rows, metric, resamples=200)
+                prefix = f"results/monitoring_only/{group}/{strategy}/{metric}"
+                self.scalar(prefix + "/mean", summary["mean"], len(rows))
+                if summary["ci95"]:
+                    self.scalar(prefix + "/ci95_lower", summary["ci95"][0], len(rows))
+                    self.scalar(prefix + "/ci95_upper", summary["ci95"][1], len(rows))
 
 
 def main():
