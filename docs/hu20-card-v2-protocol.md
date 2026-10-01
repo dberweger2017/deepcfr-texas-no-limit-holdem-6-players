@@ -79,4 +79,4 @@ Missing keys retain uniform fallback; do not add a translator or nearest lookup.
 One focused draft PR with schema/tests, model-free/preflight evidence, frozen
 configuration, Linux recovery/hash evidence, paired tables, raw replay records,
 resources and reproduction commands. No automatic merge, promotion, training
-beyond 100M, paid follow-on or M4 access.
+beyond 100M, paid follow-on or M4 compute.
