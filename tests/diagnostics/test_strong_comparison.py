@@ -67,3 +67,25 @@ def test_full_runner_keeps_input_root_separate_from_metadata(tmp_path,monkeypatc
     result=run(plan,config,{},tmp_path/'out',input_root)
     assert result['status']=='complete' and result['hands']==4
     assert result['inputs'][0]['name']=='fixture' and result['decision_diagnostics']
+
+
+def test_closed_files_can_be_audited_without_policy_loading(tmp_path,monkeypatch):
+    from scripts.compare_strong_hu20 import run
+    from scripts.audit_strong_hu20 import audit
+    from src.blueprint.abstraction import choices
+    class Uniform:
+        description={'fixture':True}
+        def distribution(self,view):
+            menu=choices(view,raise_cap=None,free_fold=False)
+            return menu,tuple(1/len(menu) for _ in menu),False
+    monkeypatch.setattr('scripts.compare_strong_hu20.load_policy',lambda *args:Uniform())
+    config=json.loads(Path('configs/diagnostics/strong-rollout-hu20-v1.json').read_text());config={**config,'particles':8,'equity_worlds':4}
+    plan={'models':[{'name':'fixture','seed':1,'milestone':100000000,'bytes':1,'sha256':'fixture'}],
+          'modes':['restricted','native'],'blocks':2,'decision_sample_root':93,'deal_root':94,
+          'decisions_per_street_position':1,'selection_worlds':2,'max_seconds':30}
+    out=tmp_path/'out';assert run(plan,config,{},out,tmp_path)['status']=='complete'
+    result=audit(out)
+    assert result['actual_hands_replayed']==8 and result['first_world_branches_replayed']>0
+    assert result['no_models_loaded']
+    (out/'summary.json').write_text((out/'summary.json').read_text()+' ')
+    with pytest.raises(ValueError,match='bytes'):audit(out)
