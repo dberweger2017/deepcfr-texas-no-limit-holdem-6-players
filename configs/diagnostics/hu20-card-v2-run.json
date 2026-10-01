@@ -1,0 +1,138 @@
+{
+  "budget_approval": "approved three CPU5 8-vCPU64GB one-worker pods, $10 hard total,5h/pod,20M safety entries",
+  "checkpoint_every_nodes": 25000000,
+  "config": {
+    "abstraction": "hu20-native-reopening-ordered-history-card-v2",
+    "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+    "max_entries": 20000000,
+    "max_nodes": 250000,
+    "max_seconds": 300,
+    "postflop_replicates": 1,
+    "raise_cap": null,
+    "roots_per_seat": 1
+  },
+  "descriptor_sha256": "190d530ce66d65a031334d95600ce0f005d81324a7353170dcebf1d64a6ccd92",
+  "descriptor_version": "hu20-contribution-kicker-draw-descriptor-v2",
+  "engine_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+  "evaluation": {
+    "blocks": 256,
+    "chance_samples": 4,
+    "lbr_blocks": 128,
+    "lbr_seconds": 5,
+    "maximum_seconds_per_seed": 1800,
+    "panels": [
+      {
+        "blocks": 256,
+        "contract": "menu",
+        "name": "uniform",
+        "rule": "hu20_uniform"
+      },
+      {
+        "blocks": 256,
+        "contract": "menu",
+        "name": "passive",
+        "rule": "passive"
+      },
+      {
+        "blocks": 256,
+        "contract": "menu",
+        "name": "minraise-cap2",
+        "rule": "minraise"
+      },
+      {
+        "blocks": 256,
+        "contract": "menu",
+        "name": "pressure-cap2",
+        "rule": "pressure"
+      },
+      {
+        "blocks": 256,
+        "contract": "secondary",
+        "name": "tight_passive",
+        "rule": "tight_passive"
+      },
+      {
+        "blocks": 256,
+        "contract": "secondary",
+        "name": "loose_passive",
+        "rule": "loose_passive"
+      },
+      {
+        "blocks": 256,
+        "contract": "secondary",
+        "name": "tight_aggressive",
+        "rule": "tight_aggressive"
+      },
+      {
+        "blocks": 256,
+        "contract": "secondary",
+        "name": "loose_aggressive",
+        "rule": "loose_aggressive"
+      },
+      {
+        "blocks": 256,
+        "contract": "secondary",
+        "name": "pot_pressure",
+        "rule": "pot_pressure"
+      },
+      {
+        "blocks": 256,
+        "contract": "secondary",
+        "name": "train_pressure",
+        "rule": "train_pressure"
+      },
+      {
+        "blocks": 256,
+        "contract": "native",
+        "name": "native-pressure",
+        "rule": "pressure"
+      },
+      {
+        "blocks": 256,
+        "contract": "menu",
+        "name": "selective-stackoff",
+        "rule": "selective_stackoff"
+      },
+      {
+        "blocks": 128,
+        "contract": "menu",
+        "name": "lbr",
+        "rule": "lbr"
+      }
+    ],
+    "projection_multiplier": 1.25,
+    "root": 202610010701,
+    "timing_blocks": 4,
+    "timing_root": 202610010702
+  },
+  "limits": {
+    "max_container_fraction": 0.8,
+    "max_entries": 20000000,
+    "max_owned_rss_gib": 45,
+    "max_swap_growth_gib": 0.5,
+    "min_free_disk_gib": 8,
+    "no_silent_coarsening": true
+  },
+  "nodes_per_seed": 100000000,
+  "provider": {
+    "container_disk_gb": 40,
+    "cpu_id": "cpu5m",
+    "max_compute_hourly_usd": 0.52,
+    "max_total_cost_usd": 10,
+    "max_total_hourly_usd_per_pod": 0.57,
+    "pods": 3,
+    "ram_gb": 64,
+    "rental_cutoff_seconds": 18000,
+    "vcpus": 8,
+    "workers_per_pod": 1
+  },
+  "python": "3.11.15",
+  "rust": "1.90.0",
+  "schema": "hu20-card-v2-ab-v1",
+  "seeds": [
+    2026093001,
+    2026093002,
+    2026093003
+  ],
+  "uv": "0.8.22"
+}

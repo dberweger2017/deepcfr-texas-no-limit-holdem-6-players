@@ -28,7 +28,7 @@
     "no_silent_coarsening": true
   },
   "not_launched": true,
-  "only_recipe_difference_besides_card_schema": "inactive safety entry capacity; requires explicit approval",
+  "only_recipe_difference_besides_card_schema": "inactive 20M safety entry capacity explicitly approved; trainer math unchanged",
   "proposed_max_entries": 20000000,
   "provider": {
     "container_disk_gb": 40,
@@ -50,7 +50,7 @@
     "total_hourly_ceiling_times_three_times_five_hours_usd": 8.55
   },
   "schema": "hu20-native-reopening-ordered-history-card-v2",
-  "status": "pending capacity/cost approval",
+  "status": "approved 2026-10-01 before rentals",
   "training_seeds": [
     2026093001,
     2026093002,

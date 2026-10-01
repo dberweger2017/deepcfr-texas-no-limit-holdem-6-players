@@ -32,23 +32,30 @@ Before training or strength outcomes:
    paid training or opening comparisons. Complete iterations may overshoot;
    report the actual work. Stop rather than silently coarsen or add training.
 
-## Candidate card distinctions
+## Frozen card distinctions
 
 Keep v1's category/top band/draw/paired-board tuple as a prefix, ensuring a
 refinement. Add own-card contribution to the best made hand, hole participation
 in made groups, board-relative made-group ranks, kicker bands, suited-card/nut
 potential and distinct straight-out quality. Use only own cards and current
 public board. No equity table, opponent policy, hidden cards, future deck,
-learned clustering or betting-history redesign. Exact tuple definitions and
-source hash will be frozen after their correctness audit, before training.
+learned clustering or betting-history redesign. The exact tuple implementation is `src/blueprint/cards_v2.py`, frozen SHA-256
+`190d530ce66d65a031334d95600ce0f005d81324a7353170dcebf1d64a6ccd92`,
+version `hu20-contribution-kicker-draw-descriptor-v2`. Its source at `334cd7d`
+and all five highlighted separation checks passed before this freeze. Rank
+bands are 2–7 / 8–T / J–Q / K–A; own contribution, grouped private ranks,
+board-relative group rank, kicker bands, flush stage/private count/nut band
+and straight completion count/private contribution/high band/backdoor form
+the fixed refinement. Residual collisions remain part of this experiment.
 
 ## Training and recovery
 
 Train three independent v2 lineages from zero on RunPod; one worker per pod,
 no M4/#136 work. Compare matching existing v1 B100M lineages, never pick a seed.
-The retained v1 recipe has a 3M-entry bound; assess its feasibility explicitly
-before admission. Resource/recipe changes require an explicit decision, not
-silent compensation for v2. No node budget increase after outcomes.
+The retained v1 recipe has a 3M-entry safety bound. The measured 2M prefix
+projected 14–17M v2 entries at100M, with considerable uncertainty. I approved
+a 20M safety ceiling on October1 before rentals; it does not change CFR
+updates, and exceeding it stops the run. No node budget increase after outcomes.
 
 Reuse pinned Linux engine/build and verified complete-iteration checkpoint,
 hash-before-load, fresh-process recovery and next-iteration state equality.
@@ -80,3 +87,43 @@ One focused draft PR with schema/tests, model-free/preflight evidence, frozen
 configuration, Linux recovery/hash evidence, paired tables, raw replay records,
 resources and reproduction commands. No automatic merge, promotion, training
 beyond 100M, paid follow-on or M4 compute.
+
+## Approved rental and evaluation freeze
+
+`configs/diagnostics/hu20-card-v2-run.json` freezes three CPU5 memory pods
+(`cpu5m`, 8vCPU/64GB), one worker each, $10 total hard cap, 18,000 seconds
+maximum from controller start (so each later pod has less than five hours),
+and an admitted compute+disk price <=$0.57/pod-hour ($8.55 maximum nominal
+allocation). No replacements or automatic retries of creation. Independent
+exact-name network watchdog on awake M1 survives controller/SSH loss; it
+retries teardown during provider outages. No client can guarantee a billing
+cutoff during provider/network failure; report any such failure explicitly.
+No provider credential is copied to pods. Memory45GiB /80% of actual cgroup,
+swap-growth0.5GiB and disk8GiB guards protect each owned process tree.
+
+Keep 25/50/75/100M complete-iteration checkpoints (including stored averages),
+final current exports and all iteration/resource logs. Never resume the
+preflight as a production lineage. Before each production run, compare
+every decompressed final/current/next-iteration byte between the100k-node
+M1 reference, Linux direct run and fresh-process midpoint resume. Distinct
+gzip framing is recorded separately. Linux Python3.11.15, Rust1.90.0,
+NumPy1.26.4, SciPy1.17.1 and pinned engine5db20e3d are recorded.
+
+Evaluation root202610010701 and outcome-free timing root202610010702, plus
+fixed panel indices, are distinct from prior comparisons. Thirteen panels
+are the retained #141 uniform/passive/original-cap2 minraise/pressure, six
+styles, native-pressure, frozen selective-stackoff and bounded LBR. Each
+standard panel has256 independent paired-deal blocks, two positions per arm;
+LBR has128blocks, four chance samples and its unchanged5-second soft guard.
+The already validated exact rank/cache executor changes cost, not actions.
+Each seed first runs four disjoint validation blocks per arm/panel without
+chip outcomes. Admit LBR only if1.25 × the sum of per-arm maximum hand times
+× final hands projects all panels within1800seconds/seed. If even the cheap
+panels exceed that bound, stop the comparison rather than shrink its counts.
+Any deadline interruption remains incomplete, with its original records.
+
+Large exports may exceed M1 headroom, so final evaluation uses the same
+64GB Linux pods inside the approved rental cutoff, not M4. Hash-verified
+M1 cached v1 inputs are transferred read-only. The independent four-cell
+Doctor Research experiment uses its own schedule and ownership; this A/B
+report is not a factorial comparison. No additional compute is implied.

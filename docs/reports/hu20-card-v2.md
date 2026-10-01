@@ -102,3 +102,15 @@ That was a brief network-only coordination action; no M4 compute, allocation,
 campaign-file changes or extra transfers occurred. I use already cached M1
 baseline artifacts, separate RunPod ownership and cost accounting. #136 stays
 untouched.
+
+## Approved execution freeze (October1, before rentals)
+
+I approved three CPU5 8vCPU/64GB pods, one worker each, $10 total /five hours
+maximum per pod and a20M entry safety ceiling. The descriptor and scientific
+100M/seed budget remain frozen. The [run plan](../../configs/diagnostics/hu20-card-v2-run.json)
+and [protocol](../hu20-card-v2-protocol.md#approved-rental-and-evaluation-freeze)
+pin the recovery, resource, checkpoint and paired-evaluation rules. The
+additional generated-fixture campaign tests exercise native replay, v1/v2
+schema isolation, exact tail/paired arithmetic, outcome-blind timing and
+archive verification. No paid rental or strength result has run at this
+checkpoint; the final evidence will report actual admission, failures and cost.
