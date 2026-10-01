@@ -1,0 +1,10 @@
+{
+  "actual_hands_replayed": 12288,
+  "decision_cases_verified": 192,
+  "first_world_branches_replayed": 844,
+  "input_manifest_sha256": "33c3ce68f52519a966896b43482695886140eea65ec6dcde0e740701199d5f8e",
+  "no_models_loaded": true,
+  "peak_rss_bytes": 575782912,
+  "seconds": 6.226106207992416,
+  "status": "complete"
+}

@@ -1,0 +1,23 @@
+{
+  "computation_host": "M1",
+  "engine_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+  "focused_tests": {
+    "files": [
+      "tests/diagnostics/test_strong_rollout.py",
+      "tests/diagnostics/test_decision_counterfactual.py",
+      "tests/diagnostics/test_strong_comparison.py"
+    ],
+    "passed": 17
+  },
+  "machine": "arm64",
+  "models_or_services_left_running": false,
+  "packages": {
+    "numpy": "1.26.4",
+    "pokers": "0.2.0",
+    "pytest": "9.0.3",
+    "scipy": "1.17.1",
+    "torch": "2.14.0"
+  },
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "python": "3.11.15"
+}
