@@ -78,14 +78,14 @@ def checkpoint_changes(panels,specs):
 
 
 def run(plan,config,freeze,out,inputs):
-    out.mkdir(parents=True,exist_ok=False);start=perf_counter();all_rows=[];diagnostics=[];inputs=[];samples=[];failure=None
+    out.mkdir(parents=True,exist_ok=False);start=perf_counter();all_rows=[];diagnostics=[];loaded_inputs=[];samples=[];failure=None
     def guard():
         if perf_counter()-start>plan['max_seconds']:raise TimeoutError('Frozen execution window exceeded')
         if resource.getrusage(resource.RUSAGE_SELF).ru_maxrss>6*1024**3:raise MemoryError('M1 process RSS limit exceeded')
     try:
         for spec in plan['models']:
             guard();load_start=perf_counter();source=load_policy(spec,inputs)
-            inputs.append({'name':spec['name'],'bytes':spec['bytes'],'sha256':spec['sha256'],
+            loaded_inputs.append({'name':spec['name'],'bytes':spec['bytes'],'sha256':spec['sha256'],
                            'model':source.description,'load_seconds':perf_counter()-load_start})
             guard()
             with gzip.open(out/(spec['name']+'.hands.jsonl.gz'),'wt') as records:
@@ -111,7 +111,7 @@ def run(plan,config,freeze,out,inputs):
     panels=summarize_matches(all_rows) if not failure else []
     result={'status':'incomplete' if failure else 'complete','failure':failure,'plan':plan,'plan_sha256':digest(plan),
         'source':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'opponent_freeze':freeze,
-        'inputs':inputs,'hands':len(all_rows),'panels':panels,'decision_sampling':samples,'decision_diagnostics':diagnostics,
+        'inputs':loaded_inputs,'hands':len(all_rows),'panels':panels,'decision_sampling':samples,'decision_diagnostics':diagnostics,
         'seconds':perf_counter()-start,'peak_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
     if not failure:result.update(checkpoint_changes(panels,plan['models']))
     (out/'summary.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
