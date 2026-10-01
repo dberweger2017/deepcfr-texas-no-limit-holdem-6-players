@@ -239,6 +239,98 @@ python -m scripts.analyze_hu20_card_v2_lbr \
   --out results/card-v2-lbr-posthoc-reproduction.json
 ```
 
+### Post-hoc flop fold/sizing screen
+
+I checked the review’s new lead on the same saved records, without models or
+new hands. The [fold-screen output](hu20-card-v2-artifacts/fold-posthoc.json)
+pins the input and script hashes, includes all 13 panels, seed and visit splits,
+and separates first bets, raise responses and stack-capped calls.
+
+For each reached target decision facing a wager, the screening ratio is
+`call_amount / current_pot`; the strategy measure is its recorded fold
+probability, not an inferred probability from the selected action. For an
+**uncapped first bet** of `b` into `P0`, this ratio equals `b/(P0+b)`, the
+idealized zero-equity-bluff break-even fold frequency (one minus MDF).
+For raises or capped calls it is only a sizing screen, not a general MDF
+threshold. Even for first bets, averaging selected reached holdings does not
+recover the defender’s full range or establish exploitability. All means below
+weight decisions, including repeated decisions within a hand; they are not
+independent samples or paired causal estimates.
+
+| LBR flop subset | Decisions | Mean fold probability | Actual fold fraction | Mean call/pot screen |
+| --- | ---: | ---: | ---: | ---: |
+| v1, all | 273 | 50.1% | 50.5% | 37.2% |
+| v1, uncapped first bets | 227 | 51.4% | 52.0% | 36.9% |
+| v1, ≥1,000 visits | 124 | 63.4% | 63.7% | 33.8% |
+| v2, all | 308 | 29.1% | 33.1% | 29.9% |
+| v2, uncapped first bets | 215 | 28.4% | 30.7% | 31.4% |
+
+V1’s all-decision gap is **+12.9 percentage points**, and the ≥1,000-visit
+subset’s gap is **+29.6 points**. Its three lineage means are 53.5%, 48.0%
+and 48.9%, versus screens of 36.5%, 38.8% and 36.0% (90/99/84 decisions).
+This supports investigating folding at well-visited flop keys; a visit count
+does not prove convergence. V2’s mean fold probability is 29.1%, versus a
+29.9% screen, but its realized fold fraction is **33.1%**, not within one
+percentage point of that mean.
+
+LBR bets on 227/291 (78.0%) v1 flop first-bet opportunities, versus 215/254
+(84.6%) for v2. **113/227 v1 bets are exactly pot-sized**; I do not describe
+that as a majority. Counts use the executed amount, not a preset label.
+
+Whole-hand returns split by ending clarify, but do not locate, the losses:
+
+| Flop last betting action | v1 hands / net BB | v2 hands / net BB |
+| --- | ---: | ---: |
+| Target folds | 138 / −466 | 102 / −509 |
+| Rival folds | 41 / +235 | 45 / +181 |
+| Showdown (including earlier all-ins) | 72 / −240 | 101 / −260 |
+
+The largest negative v1 flop-ending group is target folds, **but showdown
+losses are material too**. V2’s turn-ending target folds net −248 BB in 31
+hands. These remain whole-hand results; they are not the EV of folding,
+calling or any individual bet.
+
+The same all-decision screen on non-LBR panels does not show a uniform gap:
+
+| Opponent | v1 decisions | v1 fold / screen | v2 decisions | v2 fold / screen |
+| --- | ---: | ---: | ---: | ---: |
+| loose_aggressive | 160 | 39.4% / 48.6% | 127 | 34.1% / 48.0% |
+| loose_passive | 6 | 51.1% / 33.3% | 6 | 74.2% / 33.3% |
+| minraise-cap2 | 1028 | 19.3% / 14.6% | 899 | 17.3% / 14.6% |
+| native-pressure | 1105 | 18.2% / 14.8% | 963 | 18.6% / 15.5% |
+| passive | 0 | — | 0 | — |
+| pot_pressure | 78 | 28.3% / 56.7% | 77 | 27.4% / 56.3% |
+| pressure-cap2 | 783 | 23.8% / 16.5% | 659 | 20.6% / 16.8% |
+| selective-stackoff | 23 | 35.5% / 27.0% | 21 | 42.5% / 28.7% |
+| tight_aggressive | 17 | 50.0% / 45.8% | 26 | 32.1% / 44.4% |
+| tight_passive | 2 | 0.0% / 33.3% | 3 | 0.0% / 33.3% |
+| train_pressure | 82 | 30.2% / 31.5% | 81 | 36.3% / 31.9% |
+| uniform | 452 | 35.8% / 34.7% | 397 | 33.5% / 34.5% |
+
+Uniform is close to its screen; pot-pressure and loose-aggressive are below
+it, whereas min-raise/native-pressure are somewhat above. Several style
+samples have fewer than 30 decisions and are particularly unstable. Different
+opponents select different holdings, public histories and wager sizes; this
+does not isolate a pot-bet-key defect or justify interpreting the gap as a
+range-wide exploit estimate. In particular, LBR’s result cannot be generalized
+to every opponent that bets pot.
+
+My concrete lead is therefore **selected flop defence at well-visited v1
+keys**, with preflop range quality, card aliasing, action/history encoding and
+continuation values still possible contributors. #136’s larger completed
+B100M/B500M records are the appropriate next replication, coordinated with
+Doctor Research; no #136 records or M4 jobs were touched here. A future
+flop-only representation experiment would require its own frozen design and
+budget. Nothing here authorizes training or changes #144’s frozen descriptor.
+
+Reproduce all screening and ending arithmetic with a fresh output path:
+
+```sh
+python -m scripts.analyze_hu20_fold_screen \
+  --root docs/reports/hu20-card-v2-artifacts/production \
+  --out results/card-v2-fold-posthoc-reproduction.json
+```
+
 ## Training work, growth and resources
 
 Linux production/evaluation source is **`aae1036a5cf2f3372a75a1f686832a303dddd84d`**. The later independent report reader/report commits do not alter that runtime. Frozen descriptor SHA-256 is `190d530ce66d65a031334d95600ce0f005d81324a7353170dcebf1d64a6ccd92`, schema `hu20-native-reopening-ordered-history-card-v2`. All workers use Python 3.11.15, Rust 1.90.0, NumPy 1.26.4, SciPy 1.17.1 and native-engine revision `5db20e3d5d6862b32a7402035c1340b622d3b005`; native binary and host provenance are pinned in each attempt/result.
