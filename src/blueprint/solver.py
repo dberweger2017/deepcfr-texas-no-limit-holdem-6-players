@@ -15,6 +15,8 @@ from src.blueprint.abstraction import (
     SCHEMA,
     HU20_SCHEMA,
     HU20_UNCAPPED_SCHEMA,
+    HU20_COMPRESSED_SCHEMA,
+    HU20_NATIVE_SCHEMAS,
     TP20_SCHEMA,
     SHORTSTACK_SEATS,
     SUPPORTED_SCHEMAS,
@@ -30,7 +32,7 @@ FORMAT = "holdem-blueprint-v1"
 HU20_GAME = "hu20-20bb-52card-no-ante-rake-v2"
 HU20_UNCAPPED_GAME = "hu20-native-reopening-20bb-52card-no-ante-rake-v1"
 TP20_GAME = "tp20-20bb-52card-no-ante-rake-v1"
-SHORTSTACK_GAMES = {HU20_SCHEMA: HU20_GAME, HU20_UNCAPPED_SCHEMA: HU20_UNCAPPED_GAME, TP20_SCHEMA: TP20_GAME}
+SHORTSTACK_GAMES = {HU20_SCHEMA: HU20_GAME, HU20_UNCAPPED_SCHEMA: HU20_UNCAPPED_GAME, HU20_COMPRESSED_SCHEMA: HU20_UNCAPPED_GAME, TP20_SCHEMA: TP20_GAME}
 LEGACY_GAME = "legacy-blueprint-game-v1"
 
 
@@ -76,8 +78,8 @@ class PilotConfig:
                 for value in (self.seed,)
             )
             or (self.raise_cap is not None and (type(self.raise_cap) is not int or self.raise_cap < 0))
-            or (self.abstraction == HU20_UNCAPPED_SCHEMA and self.raise_cap is not None)
-            or (self.abstraction != HU20_UNCAPPED_SCHEMA and self.raise_cap is None)
+            or (self.abstraction in HU20_NATIVE_SCHEMAS and self.raise_cap is not None)
+            or (self.abstraction not in HU20_NATIVE_SCHEMAS and self.raise_cap is None)
             or any(
                 type(value) is not int or value < 1
                 for value in (self.roots_per_seat, self.max_nodes, self.max_entries)

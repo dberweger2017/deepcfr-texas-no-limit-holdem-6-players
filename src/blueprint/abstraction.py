@@ -20,10 +20,13 @@ HU20_SCHEMA = "hu20-ordered-history-card-baseline-v2"
 HU20_MENU_VERSION = "hu20-min-pot-conditional-jam-no-free-fold-v2"
 HU20_UNCAPPED_SCHEMA = "hu20-native-reopening-ordered-history-card-v1"
 HU20_UNCAPPED_MENU_VERSION = "hu20-min-pot-conditional-jam-native-reopening-v1"
+HU20_COMPRESSED_SCHEMA = "hu20-native-reopening-compressed-history-card-v1"
+HU20_NATIVE_SCHEMAS = (HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA)
+HU20_HISTORY_VERSION = "hu20-earlier-streets-public-summary-v1"
 HU20_CARD_VERSION = "legacy-postflop-descriptor-v1"
 TP20_SCHEMA = "tp20-ordered-history-card-baseline-v1"
 TP20_MENU_VERSION = "tp20-min-pot-conditional-jam-no-free-fold-v1"
-SHORTSTACK_SEATS = {HU20_SCHEMA: 2, HU20_UNCAPPED_SCHEMA: 2, TP20_SCHEMA: 3}
+SHORTSTACK_SEATS = {HU20_SCHEMA: 2, HU20_UNCAPPED_SCHEMA: 2, HU20_COMPRESSED_SCHEMA: 2, TP20_SCHEMA: 3}
 SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, *SHORTSTACK_SEATS)
 LEGACY_LOOKUP = "legacy-v1"
 BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"
@@ -192,6 +195,46 @@ def _summary_history(view: Observation) -> tuple:
     )
 
 
+def compressed_history(view: Observation, label_overrides: dict[int, str] | None = None) -> tuple:
+    """Summarize completed streets; preserve every existing current-street token."""
+    ordered = _history(view, label_overrides)
+    if view.street == Street.PREFLOP:
+        return ordered
+    pot = 0
+    remaining = list(view.history[0].stacks)
+    preflop_raises = 0
+    preflop_call = False
+    preflop_aggressor = None
+    aggressors: dict[str, int] = {}
+    start = None
+    for event in view.history:
+        if isinstance(event, BlindPosted):
+            pot += event.amount
+            remaining[event.seat] -= event.amount
+        elif isinstance(event, BoardDealt) and event.street == view.street:
+            effective = min(remaining)
+            start = (_band(pot / view.big_blind, (2, 4, 8, 16, 32)),
+                     _band(effective / max(pot, view.big_blind), (.5, 1, 2, 4, 8)))
+            break
+        elif isinstance(event, ActionTaken):
+            actor = (event.seat - view.button) % len(view.players)
+            if event.action.kind == ActionKind.RAISE:
+                aggressors[event.street.value] = actor
+                if event.street == Street.PREFLOP:
+                    preflop_raises += 1
+                    preflop_aggressor = actor
+            if event.street == Street.PREFLOP and event.action.kind == ActionKind.CALL:
+                preflop_call = True
+            pot += event.paid
+            remaining[event.seat] -= event.paid
+    if start is None:
+        raise ValueError("Missing public current-street boundary")
+    previous = (Street.FLOP, Street.TURN)[:(Street.FLOP, Street.TURN, Street.RIVER).index(view.street)]
+    return ((min(preflop_raises, 3), preflop_call, preflop_aggressor),
+            tuple((street.value, aggressors.get(street.value)) for street in previous),
+            start, tuple(token for token in ordered if token[0] == view.street.value))
+
+
 def information_key(
     view: Observation, menu: tuple[Choice, ...], *, schema: str = SCHEMA,
     lookup_mode: str = LEGACY_LOOKUP,
@@ -218,7 +261,7 @@ def information_key(
         else _postflop(view.hole_cards, view.board)
     )
     payload = (
-        schema,
+        HU20_UNCAPPED_SCHEMA if schema == HU20_COMPRESSED_SCHEMA and view.street == Street.PREFLOP else schema,
         len(view.players),
         (view.seat - view.button) % len(view.players),
         view.street.value,
@@ -229,6 +272,7 @@ def information_key(
             for offset in range(len(view.players))
         ) if lookup_mode == BUTTON_ZERO_COMPAT_LOOKUP or schema in SHORTSTACK_SEATS else
         tuple((p.folded, p.all_in) for p in view.players),
+        compressed_history(view, history_label_overrides) if schema == HU20_COMPRESSED_SCHEMA else
         _history(view, history_label_overrides) if schema in (SCHEMA, *SHORTSTACK_SEATS) else _summary_history(view),
         tuple(item.name for item in menu),
     )

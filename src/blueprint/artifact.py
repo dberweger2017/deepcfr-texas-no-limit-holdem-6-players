@@ -15,6 +15,9 @@ from src.blueprint.abstraction import (
     SCHEMA,
     HU20_SCHEMA,
     HU20_UNCAPPED_SCHEMA,
+    HU20_COMPRESSED_SCHEMA,
+    HU20_NATIVE_SCHEMAS,
+    HU20_HISTORY_VERSION,
     HU20_UNCAPPED_MENU_VERSION,
     TP20_SCHEMA,
     TP20_MENU_VERSION,
@@ -55,11 +58,13 @@ def _identity(config: PilotConfig) -> dict:
     seats = SHORTSTACK_SEATS.get(config.abstraction)
     identity = ({"game": config.game, "players": seats, "stacks": [2000] * seats,
              "small_blind": 50, "big_blind": 100,
-             "action_menu": (HU20_UNCAPPED_MENU_VERSION if config.abstraction == HU20_UNCAPPED_SCHEMA else
+             "action_menu": (HU20_UNCAPPED_MENU_VERSION if config.abstraction in HU20_NATIVE_SCHEMAS else
                              HU20_MENU_VERSION if seats == 2 else TP20_MENU_VERSION),
              "card_descriptor": HU20_CARD_VERSION} if seats else {})
-    if config.abstraction == HU20_UNCAPPED_SCHEMA:
+    if config.abstraction in HU20_NATIVE_SCHEMAS:
         identity["raise_cap_semantics"] = "none; native minimum-raise/reopening/stack bounds"
+    if config.abstraction == HU20_COMPRESSED_SCHEMA:
+        identity["history_descriptor"] = HU20_HISTORY_VERSION
     return identity
 
 
