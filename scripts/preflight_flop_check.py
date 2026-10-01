@@ -64,7 +64,7 @@ def prepare_guarded(command, out, budget, baseline):
         raise RuntimeError(result)
 
 
-def preflight(binary, plan, inputs, out):
+def preflight(binary, plan, inputs, out, prepared_root=None):
     out = Path(out); out.mkdir(parents=True, exist_ok=False)
     before = machine_snapshot(); atomic_json(out / "machine-before.json", before)
     # Reclaimable means free + inactive + speculative, not all RAM. Leave at
@@ -82,18 +82,26 @@ def preflight(binary, plan, inputs, out):
     for cap in (None, 3):
         label = "native" if cap is None else "cap3"
         heartbeat(out, f"{label} tree/range preparation", len(records), 6)
-        prepared = out / f"requests-{label}"
+        prepared = Path(prepared_root or out) / f"requests-{label}"
         command = [sys.executable, "-m", "scripts.prepare_flop_check", "--plan", str(plan),
                    "--inputs", str(inputs), "--out", str(prepared), "--memory-gib", str(budget / GIB)]
         if cap is not None:
             command += ["--raise-cap", str(cap)]
-        prepare_guarded(command, out, budget, baseline)
+        if prepared_root is None:
+            prepare_guarded(command, out, budget, baseline)
         manifest = json.loads((prepared / "manifest.json").read_text())
         for item in manifest["records"]:
             if item["status"] != "prepared":
                 records.append(item); continue
             heartbeat(out, f'{label} {item["kind"]} memory probe', len(records), 6)
             path = prepared / item["request"]
+            if file_hash(path) != item["request_sha256"]:
+                raise ValueError("Retained request hash differs")
+            if manifest["memory_budget_bytes"] != budget:
+                request = json.loads(path.read_text())
+                request["memory_budget_bytes"] = budget
+                path = out / f'{label}-{item["kind"]}-request.json'
+                atomic_json(path, request); del request
             run = out / f'{label}-{item["kind"]}'
             result = run_tool(binary, path, run, memory_bytes=budget, threads=threads,
                               seconds=600, initial_swap=baseline)
@@ -145,8 +153,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ("binary", "plan", "inputs", "out"):
         parser.add_argument("--" + name, type=Path, required=True)
+    parser.add_argument("--prepared-root", type=Path)
     args = parser.parse_args()
-    preflight(args.binary, args.plan, args.inputs, args.out)
+    preflight(args.binary, args.plan, args.inputs, args.out, args.prepared_root)
 
 
 if __name__ == "__main__":
