@@ -89,3 +89,15 @@ Retain the **00:00–05:00 October 2** final-report window until mature-endpoint
 execution timing is measured. These remain forecasts, not deadlines, and use
 execution time rather than poker outcomes. M4 file/resource ownership remains
 with Doctor Research through the owner's eventual #136 merge.
+
+## Measured endpoint update, October 1 at approximately 13:00 Madrid
+
+All three broader B500M tasks completed, in 2,377.20 /2,242.00 /2,372.30
+seconds. The paired endpoint report is complete, with the unchanged B100M
+baseline and 159,744 total raw hands verified on M4. Its results do not change
+queue priority, scientific counts or final-confirmation gates.
+
+B150M seed 1 is active. Its complete group is expected around **15:00 Madrid**,
+with 200/300/400M groups about every two hours thereafter. Keep the final
+confirmation/verification forecast **00:00–05:00 October 2**. Forecasts use
+execution timing only and are not deadlines. All rentals remain terminated.

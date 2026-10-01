@@ -137,3 +137,19 @@ the cause of the model's remaining LBR loss. The one next recommendation is a
 prospectively frozen larger-likelihood stability measurement on the same five
 cases, after an outcome-free M4 cost preflight. No training change, paid run,
 model promotion or alteration to the verified human-play command follows.
+
+## Exploratory 500M continuation (#136, analysis ongoing)
+
+The [three-lineage campaign report](reports/hu20-500m-campaign.md) retains the
+original B100M policies and human-play commands. Its complete exploratory
+B100M→B500M broad comparison does not demonstrate bounded-LBR improvement:
+the paired change is **−7.51 [95% −22.72, +7.70] BB/100**, with B500M absolute
+profit **−72.48 [−88.56, −56.40]**. Native-pressure change is +5.49
+[−6.82, +17.80]. Selective-stackoff and pot-pressure aggregate changes are
+positive on their exploratory intervals, but seed/position variation and
+regressions remain; selective full-stack losses total 134→119/24,576 hands,
+with seed 1 increasing 36→50. These unadjusted exploratory results do not
+certify that rare catastrophic mistakes are fixed or locate a learning plateau.
+The intermediate broad curves and separate fresh 97.5% final confirmation
+remain pending. No B500M model is promoted and no training intervention or
+release declaration follows from these preliminary endpoints.
