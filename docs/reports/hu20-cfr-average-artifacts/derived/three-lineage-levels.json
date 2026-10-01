@@ -1,0 +1,340 @@
+[
+  {
+    "overall": {
+      "bb_per_100": 45.1171875,
+      "blocks": 256,
+      "ci95": [
+        -3.578610987119532,
+        93.81298598711953
+      ],
+      "reason": null
+    },
+    "panel": "uniform",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": 39.35546875,
+      "blocks": 256,
+      "ci95": [
+        -7.944495952979821,
+        86.65543345297982
+      ],
+      "reason": null
+    },
+    "panel": "uniform",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": 65.98307291666667,
+      "blocks": 256,
+      "ci95": [
+        26.59411319348908,
+        105.37203263984426
+      ],
+      "reason": null
+    },
+    "panel": "passive",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": 77.734375,
+      "blocks": 256,
+      "ci95": [
+        37.57776125997526,
+        117.89098874002474
+      ],
+      "reason": null
+    },
+    "panel": "passive",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": 38.834635416666664,
+      "blocks": 256,
+      "ci95": [
+        -19.06841702621152,
+        96.73768785954485
+      ],
+      "reason": null
+    },
+    "panel": "minraise-cap2",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": 24.609374999999996,
+      "blocks": 256,
+      "ci95": [
+        -35.444728698599604,
+        84.66347869859959
+      ],
+      "reason": null
+    },
+    "panel": "minraise-cap2",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": 10.44921875,
+      "blocks": 256,
+      "ci95": [
+        -33.66754825829542,
+        54.56598575829542
+      ],
+      "reason": null
+    },
+    "panel": "pressure-cap2",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": -13.346354166666666,
+      "blocks": 256,
+      "ci95": [
+        -60.32609258904335,
+        33.63338425571002
+      ],
+      "reason": null
+    },
+    "panel": "pressure-cap2",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": 55.729166666666664,
+      "blocks": 256,
+      "ci95": [
+        43.78276792349248,
+        67.67556540984086
+      ],
+      "reason": null
+    },
+    "panel": "tight_passive",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": 50.68359375,
+      "blocks": 256,
+      "ci95": [
+        36.88589930075944,
+        64.48128819924057
+      ],
+      "reason": null
+    },
+    "panel": "tight_passive",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": 7.649739583333334,
+      "blocks": 256,
+      "ci95": [
+        -21.550267365617202,
+        36.84974653228387
+      ],
+      "reason": null
+    },
+    "panel": "loose_passive",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": 25.065104166666668,
+      "blocks": 256,
+      "ci95": [
+        -6.817287500969869,
+        56.947495834303204
+      ],
+      "reason": null
+    },
+    "panel": "loose_passive",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": 58.072916666666664,
+      "blocks": 256,
+      "ci95": [
+        41.43780725395715,
+        74.70802607937617
+      ],
+      "reason": null
+    },
+    "panel": "tight_aggressive",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": 50.032552083333336,
+      "blocks": 256,
+      "ci95": [
+        31.682673446188975,
+        68.3824307204777
+      ],
+      "reason": null
+    },
+    "panel": "tight_aggressive",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": 18.815104166666668,
+      "blocks": 256,
+      "ci95": [
+        -17.988657833119735,
+        55.618866166453074
+      ],
+      "reason": null
+    },
+    "panel": "loose_aggressive",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": 7.910156250000001,
+      "blocks": 256,
+      "ci95": [
+        -29.426211547458543,
+        45.24652404745854
+      ],
+      "reason": null
+    },
+    "panel": "loose_aggressive",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": 10.64453125,
+      "blocks": 256,
+      "ci95": [
+        -29.30209658836882,
+        50.59115908836882
+      ],
+      "reason": null
+    },
+    "panel": "pot_pressure",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": 1.7578125000000007,
+      "blocks": 256,
+      "ci95": [
+        -43.28806847094518,
+        46.80369347094518
+      ],
+      "reason": null
+    },
+    "panel": "pot_pressure",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": -4.622395833333333,
+      "blocks": 256,
+      "ci95": [
+        -33.80784353514052,
+        24.563051868473856
+      ],
+      "reason": null
+    },
+    "panel": "train_pressure",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": -2.5065104166666665,
+      "blocks": 256,
+      "ci95": [
+        -34.037053162159076,
+        29.024032328825744
+      ],
+      "reason": null
+    },
+    "panel": "train_pressure",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": 79.85026041666667,
+      "blocks": 256,
+      "ci95": [
+        20.359065646651338,
+        139.341455186682
+      ],
+      "reason": null
+    },
+    "panel": "native-pressure",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": 50.0,
+      "blocks": 256,
+      "ci95": [
+        -6.200902288682926,
+        106.20090228868293
+      ],
+      "reason": null
+    },
+    "panel": "native-pressure",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": 50.651041666666664,
+      "blocks": 256,
+      "ci95": [
+        33.81199706852459,
+        67.49008626480874
+      ],
+      "reason": null
+    },
+    "panel": "selective-stackoff",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": 47.55859375,
+      "blocks": 256,
+      "ci95": [
+        31.993135817188488,
+        63.12405168281151
+      ],
+      "reason": null
+    },
+    "panel": "selective-stackoff",
+    "strategy": "average"
+  },
+  {
+    "overall": {
+      "bb_per_100": -141.86197916666666,
+      "blocks": 128,
+      "ci95": [
+        -210.30543893227258,
+        -73.41851940106075
+      ],
+      "reason": null
+    },
+    "panel": "lbr",
+    "strategy": "current"
+  },
+  {
+    "overall": {
+      "bb_per_100": -92.31770833333333,
+      "blocks": 128,
+      "ci95": [
+        -158.3535371347611,
+        -26.281879531905545
+      ],
+      "reason": null
+    },
+    "panel": "lbr",
+    "strategy": "average"
+  }
+]

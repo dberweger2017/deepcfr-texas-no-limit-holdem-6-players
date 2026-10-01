@@ -1,0 +1,186 @@
+{
+  "budget_basis": "Timing-only pilot: 208 hands, 32.08s including two loads; LBR 1.992/3.615s per eight hands. Max pilot LBR hand extrapolation plus cheap panels and six loads, 1.25x headroom, projects under 20min; 30min absolute guard. Outcomes excluded.",
+  "expected_hands": 38400,
+  "max_seconds": 1800,
+  "models": [
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 70646565,
+      "checkpoint_bytes": 131332745,
+      "checkpoint_path": "B-2026093001-500000000.checkpoint.json.gz",
+      "checkpoint_sha256": "51876a51da9f3c2ac5b622efecb3645300a4126312525314afd299c36b9f30b1",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1098929,
+      "milestone": 500000000,
+      "name": "B-2026093001-500000000-current",
+      "path": "B-2026093001-500000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "e0dfb7c0a0ebde1e8a904fce89481919f4e9b32a633b912e88d241d039e69628",
+      "strategy": "current"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 73289592,
+      "checkpoint_bytes": 131332745,
+      "checkpoint_path": "B-2026093001-500000000.checkpoint.json.gz",
+      "checkpoint_sha256": "51876a51da9f3c2ac5b622efecb3645300a4126312525314afd299c36b9f30b1",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1098929,
+      "milestone": 500000000,
+      "name": "B-2026093001-500000000-average",
+      "path": "B-2026093001-500000000.average.jsonl.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+      "strategy": "average"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 69783238,
+      "checkpoint_bytes": 129627466,
+      "checkpoint_path": "B-2026093002-500000000.checkpoint.json.gz",
+      "checkpoint_sha256": "bd177287272bca4fcaa78e4aff70711927e1e95ee2b41f6963b22f6cbee5425c",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1110069,
+      "milestone": 500000000,
+      "name": "B-2026093002-500000000-current",
+      "path": "B-2026093002-500000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "67427db96fb3d1aba3570e0235bb368a81e129978ff1a3e4c6e083b162563456",
+      "strategy": "current"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 72263239,
+      "checkpoint_bytes": 129627466,
+      "checkpoint_path": "B-2026093002-500000000.checkpoint.json.gz",
+      "checkpoint_sha256": "bd177287272bca4fcaa78e4aff70711927e1e95ee2b41f6963b22f6cbee5425c",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1110069,
+      "milestone": 500000000,
+      "name": "B-2026093002-500000000-average",
+      "path": "B-2026093002-500000000.average.jsonl.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d",
+      "strategy": "average"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 69363255,
+      "checkpoint_bytes": 128901358,
+      "checkpoint_path": "B-2026093003-500000000.checkpoint.json.gz",
+      "checkpoint_sha256": "6b409964e9c62c71d83a0e3e8fe1b5c7b41e76c315234399e84ae379cbe9436b",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1096178,
+      "milestone": 500000000,
+      "name": "B-2026093003-500000000-current",
+      "path": "B-2026093003-500000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "bcf7ca319b95688a0d8fcd15536b04b311310feacefdc6fff81221304662d083",
+      "strategy": "current"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 71845946,
+      "checkpoint_bytes": 128901358,
+      "checkpoint_path": "B-2026093003-500000000.checkpoint.json.gz",
+      "checkpoint_sha256": "6b409964e9c62c71d83a0e3e8fe1b5c7b41e76c315234399e84ae379cbe9436b",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1096178,
+      "milestone": 500000000,
+      "name": "B-2026093003-500000000-average",
+      "path": "B-2026093003-500000000.average.jsonl.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285",
+      "strategy": "average"
+    }
+  ],
+  "outcome_use": "All final outcomes reported, no selection or extension",
+  "panels": [
+    {
+      "blocks": 256,
+      "contract": "menu",
+      "name": "uniform",
+      "rule": "uniform"
+    },
+    {
+      "blocks": 256,
+      "contract": "menu",
+      "name": "passive",
+      "rule": "passive"
+    },
+    {
+      "blocks": 256,
+      "contract": "menu",
+      "name": "minraise-cap2",
+      "rule": "minraise"
+    },
+    {
+      "blocks": 256,
+      "contract": "menu",
+      "name": "pressure-cap2",
+      "rule": "pressure"
+    },
+    {
+      "blocks": 256,
+      "contract": "style-native",
+      "name": "tight_passive",
+      "rule": "tight_passive"
+    },
+    {
+      "blocks": 256,
+      "contract": "style-native",
+      "name": "loose_passive",
+      "rule": "loose_passive"
+    },
+    {
+      "blocks": 256,
+      "contract": "style-native",
+      "name": "tight_aggressive",
+      "rule": "tight_aggressive"
+    },
+    {
+      "blocks": 256,
+      "contract": "style-native",
+      "name": "loose_aggressive",
+      "rule": "loose_aggressive"
+    },
+    {
+      "blocks": 256,
+      "contract": "style-native",
+      "name": "pot_pressure",
+      "rule": "pot_pressure"
+    },
+    {
+      "blocks": 256,
+      "contract": "style-native",
+      "name": "train_pressure",
+      "rule": "train_pressure"
+    },
+    {
+      "blocks": 256,
+      "contract": "native",
+      "name": "native-pressure",
+      "rule": "pressure"
+    },
+    {
+      "blocks": 256,
+      "contract": "menu",
+      "name": "selective-stackoff",
+      "rule": "selective_stackoff"
+    },
+    {
+      "blocks": 128,
+      "contract": "menu",
+      "name": "lbr",
+      "rule": "lbr"
+    }
+  ],
+  "root": 202610050201,
+  "stage": "frozen-final"
+}
