@@ -116,7 +116,7 @@ material environment change.
 
 Atomic recovery every10M with off-pod destination hashes before rotation;
 retain permanent25M/50M/100M checkpoints and exports. M1 is the C/D off-pod
-host, with about100GiB free at admission and30GiB retained-artifact allowance.
+host, with81.7GiB free at admission and30GiB retained-artifact allowance.
 Preserve source copies until destination hashes pass; terminate promptly after
 closed logs/final retrieval. Do not delete unrelated research or unverified Drive
 originals. No automatic model promotion, merge or300M extension.
