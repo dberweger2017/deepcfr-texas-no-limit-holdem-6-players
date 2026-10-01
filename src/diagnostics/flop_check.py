@@ -36,6 +36,11 @@ def atomic_json(path, document):
     temporary.replace(path)
 
 
+def line_key(line):
+    """Action-object key order differs between Python and the Rust JSON writer."""
+    return json.dumps(line, sort_keys=True, separators=(",", ":"))
+
+
 def fixture_root(kind, *, seed=202610010901, street=Street.FLOP, button=0):
     """Outcome-blind public roots; no private holding is part of their identity."""
     lines = {"limped": ("call", "check"), "min-raised": ("min", "call"),
@@ -234,7 +239,7 @@ def export_policy_tables(request, blueprint, codes_by_street):
             continue
         identity = blake2b(json.dumps(node["template"], separators=(",", ":")).encode(),
                            digest_size=16).hexdigest()
-        node_tables[json.dumps(node["line"], separators=(",", ":"))] = identity
+        node_tables[line_key(node["line"])] = identity
         if identity in tables:
             continue
         rows = {}

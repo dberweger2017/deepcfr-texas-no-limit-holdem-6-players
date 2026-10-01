@@ -8,7 +8,7 @@ import json
 import numpy as np
 
 from src.diagnostics.exact_ranker import exact_seven_card
-from src.diagnostics.flop_check import descriptor, factored_key
+from src.diagnostics.flop_check import descriptor, descriptor_code, factored_key, line_key
 from src.blueprint.search import DECK
 
 
@@ -58,8 +58,11 @@ def emd_clusters(histograms, k, *, seed, iterations=100):
     labels = np.full(len(features), -1)
     cumulative = np.cumsum(features, axis=1)
     for _ in range(iterations):
-        distances = np.abs(cumulative[:, None, :] - np.cumsum(centers, axis=1)[None, :, :]).sum(axis=2)
-        updated = distances.argmin(axis=1)
+        updated = np.empty(len(features), dtype=int)
+        centroid_cdf = np.cumsum(centers, axis=1)
+        for start in range(0, len(features), 512):
+            distances = np.abs(cumulative[start:start + 512, None, :] - centroid_cdf[None, :, :]).sum(axis=2)
+            updated[start:start + 512] = distances.argmin(axis=1)
         if np.array_equal(updated, labels):
             break
         labels = updated
@@ -89,10 +92,15 @@ def projection(records, templates, *, bucket=None, per_line=False):
     """
     totals = {}; mass = defaultdict(float); mapped = []
     for row in records:
-        line = json.dumps(row["line"], separators=(",", ":"))
+        line = line_key(row["line"])
         template = templates[line]; hands = row["holdings"]
         strategy = np.asarray(row["strategy"], dtype=float).reshape(-1, len(hands)).T
         weights = np.asarray(row["own_weights"], dtype=float)
+        sums = strategy.sum(axis=1)
+        blocked = np.asarray([bool(set(h).intersection(row["board"])) for h in hands])
+        if np.any(blocked & (weights > 0)):
+            raise ValueError("External profile gives a blocked holding positive reach")
+        strategy[blocked | ((weights == 0) & (sums == 0))] = 1 / strategy.shape[1]
         if (strategy.shape[0] != len(hands) or weights.shape != (len(hands),)
                 or not np.isfinite(strategy).all() or not np.isfinite(weights).all()
                 or (strategy < 0).any() or (weights < 0).any()
@@ -100,7 +108,9 @@ def projection(records, templates, *, bucket=None, per_line=False):
             raise ValueError("Invalid external profile/reach")
         groups = []
         for index, holding in enumerate(hands):
-            if bucket is None:
+            if blocked[index]:
+                group = ("blocked", line, tuple(row["board"]), tuple(holding))
+            elif bucket is None:
                 group = factored_key(template, descriptor(holding, row["board"]))
             else:
                 group = factored_key(template, ["equity-bucket", bucket(row, holding)])
@@ -123,7 +133,7 @@ def projection(records, templates, *, bucket=None, per_line=False):
 
 def bootstrap_spots(rows, metric, *, seed=202610010905, resamples=2000):
     """Resample independent roots, averaging repeated lineages within a root."""
-    grouped = defaultdict(list); weights = {}
+    grouped = defaultdict(list); weights = {}; strata = {}
     for row in rows:
         value = row.get(metric)
         if value is None or not row.get("decision_eligible", False):
@@ -135,6 +145,10 @@ def bootstrap_spots(rows, metric, *, seed=202610010905, resamples=2000):
         if row["spot"] in weights and weights[row["spot"]] != weight:
             raise ValueError("Conflicting common-corpus reach weights")
         weights[row["spot"]] = weight
+        stratum = json.dumps(row.get("stratum", (row.get("kind"), row.get("button"))), sort_keys=True)
+        if row["spot"] in strata and strata[row["spot"]] != stratum:
+            raise ValueError("Conflicting sampling strata for one root")
+        strata[row["spot"]] = stratum
     keys = sorted(grouped)
     if not keys:
         return {"mean": None, "ci95": None, "independent_spots": 0}
@@ -145,10 +159,93 @@ def bootstrap_spots(rows, metric, *, seed=202610010905, resamples=2000):
     mean = float(np.average(values, weights=w))
     if len(keys) < 2:
         return {"mean": mean, "ci95": None, "independent_spots": len(keys)}
-    draws = np.random.default_rng(seed).integers(0, len(keys), (resamples, len(keys)))
+    cells = defaultdict(list)
+    for index, key in enumerate(keys):
+        cells[strata[key]].append(index)
+    if any(len(cell) < 2 for cell in cells.values()):
+        return {"mean": mean, "ci95": None, "independent_spots": len(keys),
+                "reason": "A sampling stratum has fewer than two independent roots"}
+    rng = np.random.default_rng(seed)
+    draws = np.concatenate([np.asarray(cell)[rng.integers(0, len(cell), (resamples, len(cell)))]
+                            for _, cell in sorted(cells.items())], axis=1)
     estimates = (values[draws] * w[draws]).sum(axis=1) / w[draws].sum(axis=1)
     return {"mean": mean, "ci95": np.quantile(estimates, [0.025, 0.975]).tolist(),
-            "independent_spots": len(keys), "resamples": resamples, "seed": seed}
+            "independent_spots": len(keys), "resamples": resamples, "seed": seed,
+            "sampling_strata": len(cells)}
+
+
+def blueprint_locks(records, request, tables):
+    """Expand factored policy tables with explicit solver action reordering."""
+    nodes = {line_key(n["line"]): n
+             for n in request["nodes"] if not n["terminal"]}
+    locks = []
+    for row in records:
+        line = line_key(row["line"]); node = nodes[line]
+        table = tables["tables"][tables["node_tables"][line]]
+        if sorted(row["actions"], key=json.dumps) != sorted(node["actions"], key=json.dumps):
+            raise ValueError("Solver lock has a different native action set")
+        reorder = [node["actions"].index(a) for a in row["actions"]]
+        probabilities = []
+        for holding in row["holdings"]:
+            if set(holding).intersection(row["board"]):
+                p = [1 / len(reorder)] * len(reorder)
+            else:
+                code = str(descriptor_code(descriptor(holding, row["board"])))
+                p = table["rows"][code]
+            probabilities.append([p[i] for i in reorder])
+        locks.append(dict(row, strategy=np.asarray(probabilities).T.ravel().tolist()))
+    return locks
+
+
+def compatible_reach(holdings, weights, opponent_holdings, opponent_weights):
+    """Exact joint range marginal in O(number of hands), including blockers."""
+    own = np.asarray(weights, dtype=float); other = np.asarray(opponent_weights, dtype=float)
+    if (not np.isfinite(own).all() or not np.isfinite(other).all()
+            or (own < 0).any() or (other < 0).any()):
+        raise ValueError("Invalid range reach")
+    total = float(other.sum()); marginal = defaultdict(float); same = defaultdict(float)
+    for hand, weight in zip(opponent_holdings, other, strict=True):
+        a, b = hand; marginal[a] += weight; marginal[b] += weight
+        same[tuple(sorted(hand))] += weight
+    compatible = np.asarray([total - marginal[a] - marginal[b] + same[tuple(sorted((a, b)))]
+                             for a, b in holdings])
+    if np.min(compatible, initial=0) < -1e-12:
+        raise ValueError("Negative compatible reach")
+    return own * np.maximum(compatible, 0)
+
+
+def overfold_node(row, blueprint, *, equity, opponent_holdings, opponent_weights, template=None):
+    """Compare policies on the same equilibrium-conditioned joint range."""
+    actions = row["actions"]
+    folds = [i for i, a in enumerate(actions) if a["kind"] == "Fold"]
+    if not folds or len(row["board"]) != 3:
+        raise ValueError("Overfold tables require a flop node facing a bet")
+    hands = row["holdings"]; n = len(hands); fold = folds[0]
+    equilibrium = np.asarray(row["strategy"]).reshape(-1, n)[fold]
+    direct = np.asarray(blueprint["strategy"]).reshape(-1, n)[fold]
+    reach = compatible_reach(hands, row["own_weights"], opponent_holdings, opponent_weights)
+    if reach.sum() <= 0:
+        return {"reached": False, "fold_bp": None, "fold_eq": None, "groups": []}
+    groups = defaultdict(lambda: [0.0, 0.0, 0.0]); excess_hands = []
+    for hand, weight, bp, eq in zip(hands, reach, direct, equilibrium, strict=True):
+        decile = min(9, int(equity(hand) * 10))
+        key = (decile, descriptor(tuple(hand), row["board"]))
+        groups[key][0] += weight; groups[key][1] += weight * bp
+        groups[key][2] += weight * max(bp - eq, 0)
+        if weight > 0 and bp > eq:
+            excess_hands.append({"hand": list(hand), "equity_decile": decile,
+                                 "equity": float(equity(hand)), "reach_mass": float(weight),
+                                 "fold_bp": float(bp), "fold_eq": float(eq),
+                                 "excess_fold_probability": float(bp - eq),
+                                 "v1_key": factored_key(template, key[1]) if template else None})
+    return {"reached": True, "fold_bp": float(np.average(direct, weights=reach)),
+            "fold_eq": float(np.average(equilibrium, weights=reach)),
+            "reach_mass": float(reach.sum()), "conditioning": "common equilibrium joint reach",
+            "excess_fold_hands": excess_hands,
+            "groups": [{"equity_decile": key[0], "v1_descriptor": list(key[1]),
+                        "v1_key": factored_key(template, key[1]) if template else None,
+                        "reach_mass": values[0], "blueprint_fold_mass": values[1],
+                        "excess_blueprint_fold_mass": values[2]} for key, values in sorted(groups.items())]}
 
 
 def decision_rule(mean_bp, mean_projection, flop_share, fold_gap_pp, *, eligible):

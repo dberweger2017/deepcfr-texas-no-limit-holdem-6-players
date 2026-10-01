@@ -69,6 +69,8 @@ def run_tool(binary, request_path, out, *, memory_bytes, threads, seconds,
     request = json.loads(Path(request_path).read_text())
     if request["memory_budget_bytes"] != memory_bytes:
         raise ValueError("Request and watchdog memory budgets differ")
+    if request.get("dump_path") and Path(request["dump_path"]).exists():
+        raise FileExistsError("Preserve the existing external profile dump")
     atomic_json(out / "machine-before.json", initial)
     env = dict(os.environ, RAYON_NUM_THREADS=str(threads))
     response = out / "response.jsonl"; started = monotonic(); failure = None; seen = 0
@@ -123,6 +125,8 @@ def run_tool(binary, request_path, out, *, memory_bytes, threads, seconds,
               "exit_code": process.returncode, "elapsed_seconds": monotonic() - started,
               "binary_sha256": file_hash(binary), "request_sha256": file_hash(request_path),
               "response_sha256": file_hash(response) if response.exists() else None,
+              "profile_sha256": file_hash(request["dump_path"])
+                  if request.get("dump_path") and Path(request["dump_path"]).exists() else None,
               "memory_budget_bytes": memory_bytes, "rayon_threads": threads,
               "job_memory_budget_bytes": job_budget,
               "peak_job_rss_bytes": peak_rss, "peak_swap_used_bytes": peak_swap,

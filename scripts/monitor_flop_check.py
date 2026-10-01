@@ -49,11 +49,16 @@ class Monitor:
             self.scalar(f'solver/exploitability_pct_pot/{row.get("spot", "fixture")}',
                         row["exploitability_pct_pot"], step)
         self.scalar("resources/rss_gib", row.get("rss_bytes", 0) / 1024**3, self.events)
+        if "solver_peak_rss_bytes" in row:
+            self.scalar("resources/solver_peak_rss_gib", row["solver_peak_rss_bytes"] / 1024**3, self.events)
         estimate = row.get("compressed_bytes", row.get("uncompressed_bytes"))
         if estimate is not None:
             self.scalar("resources/memory_estimate_gib", estimate / 1024**3, self.events)
         if row.get("event") == "gate":
             self.scalar(f'validation/gates_passed/{row["gate"]}', int(row["passed"]), self.events)
+        if row.get("event") == "run_counter":
+            for group, count in row["spots_completed_by_set"].items():
+                self.scalar("run/spots_completed_by_set/" + group, count, self.events)
         if row.get("event") != "spot_complete":
             return
         key = (row["set"], row["spot"], row["lineage"], row["strategy"])

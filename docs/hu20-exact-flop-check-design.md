@@ -20,7 +20,8 @@ Source inspection confirms `ActionTree::add_line/remove_line`,
 `compute_exploitability`, `lock_current_strategy`, `compute_mes_ev`, and
 `compute_current_ev`. MES respects the responding player's own locks: unlock
 that player when measuring a best response. Both EV APIs subtract half the root
-pot; native validation uses the same centered payoff, not whole-hand profit.
+pot; native validation uses the same centered payoff. For equal-investment HU20
+roots it equals net chips from the original stack, conditional on that root.
 
 Bet syntax is not the native action menu. Export the native `choices()` tree,
 including exact street raise-to amounts and conditional jams, then add/remove

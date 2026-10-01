@@ -3,6 +3,9 @@
 from dataclasses import replace
 from itertools import combinations
 import json
+from pathlib import Path
+import subprocess
+import sys
 
 import numpy as np
 import pytest
@@ -117,6 +120,15 @@ def test_spot_bootstrap_does_not_multiply_lineage_independence():
     assert decision_rule(1, 0.1, 0.05, 4, eligible=True)["classification"] == "H3"
 
 
+def test_bootstrap_preserves_strata_and_does_not_invent_singleton_precision():
+    rows = [dict(spot=str(i), stratum="limped" if i < 2 else "3-bet",
+                 e_bp=v, decision_eligible=True) for i, v in enumerate((1, 3, 90, 110))]
+    summary = bootstrap_spots(rows, "e_bp")
+    assert summary["sampling_strata"] == 2
+    assert 45 <= summary["ci95"][0] <= summary["ci95"][1] <= 57
+    assert bootstrap_spots(rows[:3], "e_bp")["ci95"] is None
+
+
 def test_monitor_partial_records_and_resume_do_not_repeat(tmp_path):
     class Writer:
         values = []
@@ -132,3 +144,124 @@ def test_monitor_partial_records_and_resume_do_not_repeat(tmp_path):
     monitor.poll(); before = len(writer.values); monitor.poll()
     assert len(writer.values) == before
     assert ("solver/exploitability_pct_pot/x", 0.15, 20) in writer.values
+
+
+def test_monitor_keeps_selected_and_unselected_policy_sets_separate(tmp_path):
+    class Writer:
+        def __init__(self): self.values = []
+        def add_scalar(self, *args): self.values.append(args)
+        def flush(self): pass
+        def add_custom_scalars(self, value): pass
+    writer = Writer(); monitor = Monitor(tmp_path, writer)
+    base = dict(event="spot_complete", spot="root", lineage=1,
+                decision_eligible=True, reach_weight=1)
+    monitor.emit(dict(base, set="A", strategy="current", e_bp=100))
+    monitor.emit(dict(base, set="B", strategy="current", e_bp=2))
+    monitor.emit(dict(base, set="B", strategy="stored-average", e_bp=4))
+    assert ("results/monitoring_only/B/current/e_bp/mean", 2, 1) in writer.values
+    assert ("results/monitoring_only/B/stored-average/e_bp/mean", 4, 1) in writer.values
+
+
+def test_stratified_selection_preserves_reach_weights_and_fixed_seed():
+    from scripts.select_flop_check_spots import select_strata
+    population = [dict(spot=str(i), kind="limped" if i < 20 else "3-bet",
+                       button=i % 2, multiplicity=1 + i % 3) for i in range(40)]
+    a, strata = select_strata(population, 12, 7)
+    b, _ = select_strata(population[::-1], 12, 7)
+    assert a == b and len(a) == 12
+    assert len({r["spot"] for r in a}) == 12
+    assert all(r["reach_weight"] == r["multiplicity"] / r["inclusion_probability"] for r in a)
+    assert sum(s["selected"] for s in strata.values()) == 12
+
+
+def test_exact_histogram_runout_accounting_and_bucket_order_invariance(tmp_path, monkeypatch):
+    from src.diagnostics import flop_check_equity as eq
+    deck = ("2c", "3c", "4c", "5c", "6c", "7c", "8c", "9c")
+    monkeypatch.setattr(eq, "DECK", deck)
+    def river(board):
+        hands = tuple(combinations([c for c in deck if c not in board], 2))
+        values = np.asarray([(deck.index(a) + deck.index(b)) / 16 for a, b in hands])
+        return hands, values
+    monkeypatch.setattr(eq, "uniform_river_equities", river)
+    path = tmp_path / "equity.npz"; eq.build_equity_features(deck[:3], path, bins=5)
+    with np.load(path) as data:
+        assert np.allclose(data["flop_histograms"].sum(axis=1), 1)
+        totals = data["turn_histograms"].sum(axis=2)
+        assert set(np.unique(totals)) == {0, 2}
+        assert np.all(np.isfinite(data["river_equities"]).sum(axis=0) == 3)
+    bucket = eq.EquityBuckets(path, 50)
+    row = dict(board=list(deck[:3]) + ["5c", "6c"])
+    reverse = dict(board=list(deck[:3]) + ["6c", "5c"])
+    assert bucket(row, ("7c", "8c")) == bucket(reverse, ("8c", "7c"))
+    with pytest.raises(ValueError, match="Blocked"):
+        bucket(row, ("5c", "8c"))
+
+
+def test_public_selected_roots_replay_without_using_private_cards():
+    from scripts.select_flop_check_spots import root_record, replay_root
+    for button in (0, 1):
+        for kind in ("limped", "min-raised", "pot-raised", "3-bet"):
+            record = root_record(fixture_root(kind, button=button))
+            assert root_record(replay_root(record)) == record
+
+
+def test_joint_reach_marginal_and_common_range_overfold():
+    from src.diagnostics.flop_check_analysis import compatible_reach, overfold_node
+    hands = [["Ac", "Ad"], ["Kc", "Kd"]]
+    other = [["Ac", "Qs"], ["2c", "3c"], ["Kc", "Kd"]]
+    result = compatible_reach(hands, [0.4, 0.6], other, [0.2, 0.5, 0.3])
+    brute = [w * sum(v for h, v in zip(other, [0.2, 0.5, 0.3]) if not set(a) & set(h))
+             for a, w in zip(hands, [0.4, 0.6])]
+    assert result == pytest.approx(brute)
+    row = dict(board=["7s", "8s", "9d"], actions=[{"kind": "Fold"}, {"kind": "Call"}],
+               holdings=hands, own_weights=[0.4, 0.6], strategy=[0.2, 0.4, 0.8, 0.6])
+    bp = dict(row, strategy=[0.8, 0.6, 0.2, 0.4])
+    table = overfold_node(row, bp, equity=lambda h: 0.7, opponent_holdings=other,
+                          opponent_weights=[0.2, 0.5, 0.3])
+    assert table["fold_bp"] > table["fold_eq"]
+    assert sum(g["reach_mass"] for g in table["groups"]) == pytest.approx(sum(brute))
+
+
+def test_factored_locks_survive_rust_json_order_and_action_reordering():
+    from types import SimpleNamespace
+    from src.diagnostics.flop_check import export_policy_tables, line_key
+    from src.diagnostics.flop_check_analysis import blueprint_locks
+    req, _ = compile_tree(fixture_root("limped", street=Street.RIVER))
+    node = next(n for n in req["nodes"] if not n["terminal"] and n["line"]
+                and n["line"][-1].get("amount") == 100 and len(n["actions"]) == 4)
+    code = descriptor_code(descriptor(("Ac", "Ad"), req["board"]))
+    key = factored_key(node["template"], decode_descriptor(code)); p = [0.1, 0.2, 0.3, 0.4]
+    policy = SimpleNamespace(abstraction=HU20_UNCAPPED_SCHEMA, raise_cap=None,
+                             entries={key: (tuple(node["names"]), p)}, description={})
+    tables = export_policy_tables(req, policy, {"river": {code}})
+    rust_line = json.loads(json.dumps(node["line"], sort_keys=True))
+    assert line_key(rust_line) == line_key(node["line"])
+    row = dict(line=rust_line, board=req["board"], holdings=[["Ac", "Ad"]],
+               actions=node["actions"][::-1], player=node["player"])
+    result = blueprint_locks([row], req, tables)
+    assert result[0]["strategy"] == pytest.approx(p[::-1])
+
+
+@pytest.mark.skipif(sys.platform != "darwin", reason="Owner-approved Mac resource profile")
+def test_gate_failure_stops_only_the_owned_external_process_group(tmp_path):
+    from src.diagnostics.flop_check import atomic_json
+    from src.diagnostics.flop_check_runtime import run_tool
+    binary = tmp_path / "fixture-tool"
+    binary.write_text(f"#!{sys.executable}\n" + '''import json, os, subprocess, sys, time
+from pathlib import Path
+child = subprocess.Popen([sys.executable, "-c", "import time; time.sleep(60)"])
+Path(sys.argv[1] + ".pids").write_text(json.dumps([os.getpid(), child.pid]))
+with open(sys.argv[2], "w") as output:
+    output.write(json.dumps({"event": "gate", "gate": "V1", "passed": False}) + "\\n")
+    output.flush()
+time.sleep(60)
+''')
+    binary.chmod(0o755); request = tmp_path / "request.json"
+    atomic_json(request, {"spot": "expected-failure-control", "memory_budget_bytes": 1024**3})
+    result = run_tool(binary, request, tmp_path / "run", memory_bytes=1024**3,
+                      threads=1, seconds=10)
+    assert result["status"] == "failure" and result["failure"] == "V1 failed"
+    pids = json.loads(Path(str(request) + ".pids").read_text())
+    for pid in pids:
+        process = subprocess.run(["ps", "-p", str(pid), "-o", "stat="], capture_output=True, text=True)
+        assert process.returncode != 0 or process.stdout.strip().startswith("Z")

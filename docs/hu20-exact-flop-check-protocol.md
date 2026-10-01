@@ -155,7 +155,9 @@ within each subgame. Keep partial counts balanced and monitoring provisional.
 
 Set B current B500M pooled is primary. Report per-lineage and pooled weighted
 means; bootstrap independent roots with **2,000** resamples, seed **202610010905**,
-reusing each sampled root's lineages/targets together. Report current and
+resampling within sampling strata and reusing each sampled root's
+lineages/targets together. A singleton stratum has no reported bootstrap interval.
+Report current and
 stored-average separately. Keep exclusion counts, residuals and partial coverage
 beside every summary. Bootstrap intervals quantify root variation, not solver
 rounding or systematic range error.
