@@ -1,0 +1,185 @@
+{
+  "blocks": 8,
+  "comparisons": [
+    {
+      "all_batches_complete": true,
+      "block": 0,
+      "different_fields": [],
+      "fast_seconds": 0.17727366701001301,
+      "identical": true,
+      "native_seconds": 0.6761218750034459,
+      "rotation": 0
+    },
+    {
+      "all_batches_complete": true,
+      "block": 0,
+      "different_fields": [],
+      "fast_seconds": 0.24425995897036046,
+      "identical": true,
+      "native_seconds": 1.0634814170189202,
+      "rotation": 1
+    },
+    {
+      "all_batches_complete": true,
+      "block": 1,
+      "different_fields": [],
+      "fast_seconds": 0.13358154200250283,
+      "identical": true,
+      "native_seconds": 0.726872666971758,
+      "rotation": 0
+    },
+    {
+      "all_batches_complete": true,
+      "block": 1,
+      "different_fields": [],
+      "fast_seconds": 0.1421626249793917,
+      "identical": true,
+      "native_seconds": 0.6508733749506064,
+      "rotation": 1
+    },
+    {
+      "all_batches_complete": true,
+      "block": 2,
+      "different_fields": [],
+      "fast_seconds": 0.2711578339803964,
+      "identical": true,
+      "native_seconds": 0.9155143750249408,
+      "rotation": 0
+    },
+    {
+      "all_batches_complete": true,
+      "block": 2,
+      "different_fields": [],
+      "fast_seconds": 0.2309304170194082,
+      "identical": true,
+      "native_seconds": 1.0106394999893382,
+      "rotation": 1
+    },
+    {
+      "all_batches_complete": true,
+      "block": 3,
+      "different_fields": [],
+      "fast_seconds": 0.1584103750064969,
+      "identical": true,
+      "native_seconds": 0.9889425830333494,
+      "rotation": 0
+    },
+    {
+      "all_batches_complete": true,
+      "block": 3,
+      "different_fields": [],
+      "fast_seconds": 5.6124990805983543e-05,
+      "identical": true,
+      "native_seconds": 8.916697697713971e-05,
+      "rotation": 1
+    },
+    {
+      "all_batches_complete": true,
+      "block": 4,
+      "different_fields": [],
+      "fast_seconds": 0.20141195802716538,
+      "identical": true,
+      "native_seconds": 0.7745136669836938,
+      "rotation": 0
+    },
+    {
+      "all_batches_complete": true,
+      "block": 4,
+      "different_fields": [],
+      "fast_seconds": 0.13356824999209493,
+      "identical": true,
+      "native_seconds": 0.7167255419772118,
+      "rotation": 1
+    },
+    {
+      "all_batches_complete": true,
+      "block": 5,
+      "different_fields": [],
+      "fast_seconds": 0.30770241597201675,
+      "identical": true,
+      "native_seconds": 1.154391999996733,
+      "rotation": 0
+    },
+    {
+      "all_batches_complete": true,
+      "block": 5,
+      "different_fields": [],
+      "fast_seconds": 0.18185150000499561,
+      "identical": true,
+      "native_seconds": 0.7301592919975519,
+      "rotation": 1
+    },
+    {
+      "all_batches_complete": true,
+      "block": 6,
+      "different_fields": [],
+      "fast_seconds": 0.18764737498713657,
+      "identical": true,
+      "native_seconds": 0.7170804589986801,
+      "rotation": 0
+    },
+    {
+      "all_batches_complete": true,
+      "block": 6,
+      "different_fields": [],
+      "fast_seconds": 0.42437166697345674,
+      "identical": true,
+      "native_seconds": 1.3165264580165967,
+      "rotation": 1
+    },
+    {
+      "all_batches_complete": true,
+      "block": 7,
+      "different_fields": [],
+      "fast_seconds": 0.13099929195595905,
+      "identical": true,
+      "native_seconds": 0.7261075410060585,
+      "rotation": 0
+    },
+    {
+      "all_batches_complete": true,
+      "block": 7,
+      "different_fields": [],
+      "fast_seconds": 0.19992041599471122,
+      "identical": true,
+      "native_seconds": 0.762649624957703,
+      "rotation": 1
+    }
+  ],
+  "config": {
+    "chance_samples": 4,
+    "max_seconds": 5
+  },
+  "fast_seconds": 3.1253054178669117,
+  "game": {
+    "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+    "big_blind": 100,
+    "card_descriptor": "legacy-postflop-descriptor-v1",
+    "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+    "players": 2,
+    "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+    "small_blind": 50,
+    "stacks": [
+      2000,
+      2000
+    ]
+  },
+  "load_seconds": 5.356777791981585,
+  "model": {
+    "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+    "entries": 1496914,
+    "iteration": 246212,
+    "kind": "holdem-hu20-native-reopening-blueprint-v1",
+    "num_players": 2,
+    "strategy": "current",
+    "training_seed": 2026093001,
+    "weights_sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+  },
+  "native_seconds": 12.930689542903565,
+  "peak_rss_bytes": 1882374144,
+  "root": 202610030201,
+  "source": "f110feae898c16fef71dc14aaf5d1f688b8a1153",
+  "speedup": 4.13741628865477,
+  "status": "complete",
+  "version": "hu20-fast-lbr-integration-v1"
+}
