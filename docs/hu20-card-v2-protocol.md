@@ -140,3 +140,52 @@ correction changes no descriptor, CFR work, seed, Python version or outcome
 schedule. A manual repaired attempt retains the original19:54:53UTC cutoff
 on October1 and includes prior spending in admission. No model results
 were opened to make this change.
+
+## Reproduction commands
+
+Use Python3.11.15 with the pinned native engine and NumPy/SciPy versions
+in the run plan. Read the complete protocol before any paid rental. The
+following audit/tests/recovery commands use small generated artifacts on M1:
+
+```sh
+python -m scripts.audit_hu20_cards_v2 --out results/v2-audit-reproduction
+python -m pytest -q tests/test_hu20_cards_v2.py tests/test_hu20_card_v2_campaign.py \
+  tests/test_blueprint_hu20.py tests/test_blueprint_native_reopening.py
+python -m scripts.hu20_platform_pilot run \
+  --plan configs/diagnostics/hu20-card-v2-recovery.json --out results/v2-reference
+python -m scripts.hu20_platform_pilot run \
+  --plan configs/diagnostics/hu20-card-v2-recovery.json --out results/v2-resumed \
+  --resume results/v2-reference
+python -m scripts.hu20_platform_pilot compare --left results/v2-reference \
+  --right results/v2-resumed --out results/v2-recovery-comparison.json
+```
+
+The two retained resource-prefix plans run with
+`python -m scripts.preflight_hu20_cards_v2 --plan PLAN --out NEW_DIRECTORY`.
+They are independent from production and must never seed a100M lineage.
+
+For an independently approved Linux allocation, the controller CLI requires
+`--plan`, `--key` (a private local RunPod config), `--root`, `--reference` and
+`--baseline`. The baseline directory must contain the exact B100M policy
+AND training-checkpoint pairs in `hu20-stackoff-v1.json`; every byte hash is
+checked before transfer and load. Use a new empty output root. An approved
+manual setup recovery additionally passes the **original** `--deadline` and
+`--prior-cost`; omitting them is not authority to reset a failed allocation.
+Credentials stay on M1 and are excluded from results. The setup/worker scripts
+are experiment tooling, not a general account rental service.
+
+After verified teardown, reproduce independent arithmetic without loading
+models:
+
+```sh
+python -m scripts.summarize_hu20_cards_v2 \
+  --root results/card-v2-rental-20261001-repair --out results/v2-independent-report
+```
+
+Raw generated `hands.jsonl.gz` entries replay with
+`replay_row(row)` from `scripts/play_robustness.py`. The recorded source,
+model/checkpoint hashes, panel root, block, rotation, exact actions and
+event digest define each native hand. Final checkpoints and exports are
+retained outside Git; public compact manifests and raw hands identify them.
+The report states artifact availability explicitly rather than implying that
+the repository contains every trained model binary.

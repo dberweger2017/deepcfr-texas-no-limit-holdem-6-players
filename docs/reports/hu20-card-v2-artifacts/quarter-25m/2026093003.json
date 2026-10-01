@@ -1,0 +1,42 @@
+{
+  "checkpoint": {
+    "bytes": 149823111,
+    "sha256": "3a33b498c85aac4c638a7b7f7917685caebd77ce934bbaeedbc3850963843bc3",
+    "uncompressed_bytes": 447003446,
+    "uncompressed_sha256": "f4dc1e76b14d87bb3a94c5155167337a349ef7be002f15934a3e3f56bec73060"
+  },
+  "completed_nodes": 25000024,
+  "coverage": {
+    "flop:fallback": 1335058,
+    "flop:trained": 1250353,
+    "preflop:fallback": 50924,
+    "preflop:trained": 1044810,
+    "river:fallback": 5583525,
+    "river:trained": 672919,
+    "turn:fallback": 3341323,
+    "turn:trained": 966576
+  },
+  "entries": 3473452,
+  "entries_by_street": {
+    "flop": 448422,
+    "preflop": 15576,
+    "river": 1887529,
+    "turn": 1121925
+  },
+  "hash_seconds": 1.4979818440042436,
+  "iteration": 69712,
+  "nodes_per_second": 18260.28753036856,
+  "path": "checkpoint-25000000.json.gz",
+  "peak_rss_bytes": 2333020160,
+  "save_finished": 1790868501.4572186,
+  "save_seconds": 38.58120138407685,
+  "save_started": 1790868462.8760154,
+  "time": 1790868502.955196,
+  "training_seconds": 1369.0925708821742,
+  "traverser_visits_by_street": {
+    "flop": 940043,
+    "preflop": 389070,
+    "river": 2227212,
+    "turn": 1539971
+  }
+}

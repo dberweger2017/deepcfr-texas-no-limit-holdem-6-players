@@ -147,3 +147,22 @@ x86_64; the versioned public mirror is checked locally before another
 rental. Descriptor and100M scientific budget stay frozen. A manual repair
 uses the original19:54:53UTC rental cutoff and includes failed-attempt spend
 within the same$10 cap, rather than resetting the clock.
+
+## Production25M resource checkpoint — before playing outcomes
+
+All three corrected Linux pods passed29focused checks and exact M1/Linux
+plus fresh-process recovery gates before production. Sourceaae1036; the
+new independent report reader is separate from that frozen trainer runtime.
+No playing outcomes are opened here. Full CI also passed at699f332.
+
+| Seed | Completed nodes | Keys | Training nodes/sec | Checkpoint save seconds | Compressed bytes |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2026093001 | 25,000,171 | 3,480,388 | 16,693 | 39.30 | 149,865,514 |
+| 2026093002 | 25,000,323 | 3,485,822 | 18,905 | 34.36 | 150,405,709 |
+| 2026093003 | 25,000,024 | 3,473,452 | 18,260 | 38.58 | 149,823,111 |
+
+[Quarter-point metadata and complete checkpoint hashes](hu20-card-v2-artifacts/quarter-25m/)
+retain per-street key/visit/coverage counts. The20M safety ceiling remains
+inactive; the old3M ceiling would already have stopped each lineage. This
+is capacity evidence, not a strength result. Final100M exports, comparisons
+and final resource/cost audit remain pending.
