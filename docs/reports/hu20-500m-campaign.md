@@ -1,8 +1,8 @@
 # HU20 three-lineage 100M→500M campaign
 
-Status: **complete broader B100M→B500M comparison and preliminary light curves
-published; intermediate broad curves and fresh final confirmation pending**.
-The broader endpoint comparison contains six model tasks / 159,744 natively
+Status: **complete broad 100/150/500M profiles and preliminary light curves
+published; 200/300/400M and fresh final confirmation pending**.
+The latest broad snapshot contains nine model tasks /239,616 natively
 replayed hands across all three lineages. The October 1, 06:43 UTC light snapshot contains 74
 closed light tasks / 265,216 hands. All three lineages have light results through
 480M; two have individual 500M results. The missing third 500M task stays
@@ -24,13 +24,86 @@ changes. All retained archives are hash-verified on M4 and all rentals have
 terminated. All75 light tasks are complete; the snapshot below deliberately
 retains its original74-task capture.
 
-The broader baseline and endpoint are complete and published. B150M is now
-running; its complete three-seed group is expected around **15:00 Madrid
-October1**, followed by 200/300/400M about every two hours. Fresh
+The broad 100/150/500M groups are complete and published. B200M is now
+running; its complete three-seed group is expected around **17:00 Madrid
+October1**, followed by 300/400M about every two hours. Fresh
 confirmation/final verification remains **00:00–05:00 October2**.
 These are timing forecasts, not deadlines.
 Publish each newly completed group with all opponents, seed/position intervals,
 paired changes and tails; pending groups cannot become smaller aggregates.
+
+## Complete broader 150M profile — October 1
+
+All three 150M policies completed the same nine-opponent panel. The new
+[100/150/500M tables](hu20-500m-campaign-artifacts/preliminary-broad-150m-20261001/curves.md),
+[seed/position CSV](hu20-500m-campaign-artifacts/preliminary-broad-150m-20261001/per-seed-role.csv)
+and [summary](hu20-500m-campaign-artifacts/preliminary-broad-150m-20261001/summary.json)
+contain **nine complete model tasks /239,616 hands**. Prior 100M and 500M
+inputs, returns and paired changes are identical to their immutable snapshots.
+All intervals below are unadjusted exploratory 95% paired-block intervals;
+the three seed contrasts and both positions are averaged within each block.
+
+| Fixed broad opponent | B150M BB/100 | Paired change versus own B100M [95%] |
+| --- | ---: | --- |
+| Original-cap2 bounded LBR | −61.91 | +3.06 [−10.72, +16.85] |
+| Native pressure | +123.82 | +9.77 [−1.38, +20.92] |
+| Selective stackoff | +38.03 | +2.90 [−0.01, +5.81] |
+| Pot pressure | +26.30 | +10.12 [−1.72, +21.97] |
+| Passive | +133.82 | +25.78 [+4.15, +47.41] |
+| Loose passive | +32.81 | +2.99 [−10.07, +16.06] |
+| Loose aggressive | +23.97 | −0.75 [−19.01, +17.52] |
+| Tight passive | +57.44 | +4.75 [+0.25, +9.26] |
+| Tight aggressive | +55.57 | +4.82 [−2.53, +12.17] |
+
+**LBR improvement remains inconclusive.** Absolute B150M LBR return is
+−61.91 [−76.12, −47.70] BB/100. The observed 100/150/500M point estimates
+are −64.97 /−61.91 /−72.48; these do not establish a plateau or a later
+regression. There is no direct 150M-versus-500M paired interval in this snapshot.
+Native pressure and selective stackoff changes also include zero. Passive
+and tight passive have positive exploratory aggregate intervals; these are
+among many comparisons and do not establish a universal gain.
+
+### Seed variation, positions and tails
+
+| Seed | LBR change [95%] | Native-pressure change [95%] | Selective-stackoff change [95%] |
+| --- | --- | --- | --- |
+| 3001 | +15.21 [−8.13, +38.55] | +3.86 [−16.18, +23.89] | +0.24 [−4.81, +5.30] |
+| 3002 | −3.19 [−26.84, +20.47] | −9.02 [−28.80, +10.76] | +8.87 [+3.55, +14.20] |
+| 3003 | −2.83 [−26.20, +20.54] | +34.48 [+14.31, +54.64] | −0.41 [−5.12, +4.31] |
+
+LBR's button/big-blind changes are +12.31 [−7.39, +32.01] and
+−6.18 [−25.53, +13.16], both inconclusive. Native pressure's button
+change is +20.89 [+4.82, +36.95], while its big-blind interval includes
+zero. Seed 3002's loose-passive change is a retained exploratory regression:
+**−32.81 [−56.73, −8.90] BB/100**. Every opponent's seed/position data
+remain in the CSV and summary.
+
+Selective-stackoff full 20BB losses total **134 /24,576 hands at both 100M
+and 150M**, versus 119 at 500M. Seed counts change 36→44 /49→47 /49→43
+at 150M. Full-stack wins total 93, large raises 409, jams 278 and large/all-in
+calls zero. Fallback is 11/32,419 target decisions. These are descriptive
+correlated-hand counts, not tail-change confidence intervals or proof that
+catastrophic errors are repaired; whole-hand partitions are not action EV.
+
+### Verification and remaining work
+
+The existing reporter ran once on M4 after the third 150M child closed, under
+the shared heavy lock. All 239,616 closed raw hands passed frozen coordinates,
+model identity, native-replay evidence, chip/tail checks, complete pairing and
+independent return sums. The [manifest](hu20-500m-campaign-artifacts/preliminary-broad-150m-20261001/manifest.json)
+matches the compact transfers; the [verification record](hu20-500m-campaign-artifacts/preliminary-broad-150m-20261001/verification.json)
+retains closed task receipts, resource measurements and unchanged prior
+snapshot checks. The three 150M tasks took 2,337.77 /2,201.92 /2,383.05 seconds,
+with sampled process peaks 2.29 /2.30 /2.27 GiB and zero swap growth. Four
+ordering and three reporting tests already passed on M4; no new gameplay or
+scientific change was introduced for this publication.
+
+The 200/300/400M broad groups and all six fresh-confirmation tasks remain
+pending at capture. B200M is active; its complete group is expected around
+**17:00 Madrid October 1**, with 300/400M approximately every two hours
+afterward. Final confirmation/verification retains the **00:00–05:00 October 2**
+forecast. The separate 97.5% final gates remain pending; no model is promoted.
+
 
 ## Complete broader B100M→B500M comparison — October 1
 

@@ -150,6 +150,9 @@ positive on their exploratory intervals, but seed/position variation and
 regressions remain; selective full-stack losses total 134→119/24,576 hands,
 with seed 1 increasing 36→50. These unadjusted exploratory results do not
 certify that rare catastrophic mistakes are fixed or locate a learning plateau.
-The intermediate broad curves and separate fresh 97.5% final confirmation
+The complete 150M profile also has inconclusive LBR (+3.06 [−10.72, +16.85]),
+pressure and selective-stackoff changes versus 100M. Selective full-stack
+losses remain 134/24,576 hands at 150M; seed/position regressions persist.
+The 200/300/400M broad groups and separate fresh 97.5% final confirmation
 remain pending. No B500M model is promoted and no training intervention or
 release declaration follows from these preliminary endpoints.

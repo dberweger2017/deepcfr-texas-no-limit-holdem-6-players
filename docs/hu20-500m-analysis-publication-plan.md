@@ -101,3 +101,13 @@ B150M seed 1 is active. Its complete group is expected around **15:00 Madrid**,
 with 200/300/400M groups about every two hours thereafter. Keep the final
 confirmation/verification forecast **00:00–05:00 October 2**. Forecasts use
 execution timing only and are not deadlines. All rentals remain terminated.
+
+## Measured 150M update, October 1 at approximately 15:00 Madrid
+
+All three 150M tasks completed in 2,337.77 /2,201.92 /2,383.05 seconds.
+The third group publication contains 239,616 verified broad hands across
+100/150/500M; prior snapshots remain unchanged. B200M is active. Its complete
+group is expected around **17:00 Madrid**, followed by 300/400M about every
+two hours. Keep the final confirmation/verification forecast **00:00–05:00
+October 2**. These remain timing forecasts, not deadlines; poker results do
+not change the frozen queue, counts, source or gates.
