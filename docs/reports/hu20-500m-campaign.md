@@ -1,12 +1,9 @@
 # HU20 three-lineage 100M→500M campaign
 
-Status: **complete broad 100/150/200/300/500M profiles published; 400M
-report queued and fresh final confirmation running**.
-The latest immutable broad snapshot contains seventeen model tasks /452,608
-natively replayed hands: fifteen tasks in complete three-seed groups and two
-individual400M tasks. It has no three-seed400M aggregate. All three400M tasks
-have since closed; their separate report is queued. Earlier snapshots remain
-unchanged, including the original74-task /265,216-hand light snapshot.
+Status: **all six broad checkpoint groups published; fresh final confirmation running**.
+The latest immutable broad snapshot contains all eighteen model tasks /479,232
+natively replayed hands: all three seeds at100/150/200/300/400/500M. Earlier
+snapshots remain unchanged, including the original74-task light snapshot.
 
 The owner authorized three retained B100M continuations on October 1, 2026,
 with a $10 target and a firm $15 all-in ceiling. #132/#133 are merged. The
@@ -24,13 +21,54 @@ changes. All retained archives are hash-verified on M4 and all rentals have
 terminated. All75 light tasks are complete; the snapshot below deliberately
 retains its original74-task capture.
 
-All broad scientific evaluations have now closed. The complete300M report is
-published below;400M awaits its queued reporting boundary. Fresh confirmation
+All broad scientific evaluations and their complete-group reports have now
+closed. The400M group below completes the full exploratory curve. Fresh confirmation
 is running in the frozen serial order. Final confirmation/verification remains
 **00:00–05:00 Madrid October2**, with publication allowed to lag closure by up to
 90 minutes. These are timing forecasts, not deadlines.
 Publish each newly completed group with all opponents, seed/position intervals,
 paired changes and tails; pending groups cannot become smaller aggregates.
+
+## Complete broader400M profile — October1
+
+[Complete curves](hu20-500m-campaign-artifacts/preliminary-broad-400m-20261001/curves.md),
+[all seed/position returns and tails](hu20-500m-campaign-artifacts/preliminary-broad-400m-20261001/per-seed-role.csv),
+[summary](hu20-500m-campaign-artifacts/preliminary-broad-400m-20261001/summary.json)
+and [verification](hu20-500m-campaign-artifacts/preliminary-broad-400m-20261001/verification.json)
+retain all nine opponents and all six complete three-seed checkpoint groups.
+All prior inputs/results and summary entries are unchanged. The18closed tasks
+contain479,232hands; fresh confirmation remains separate and pending.
+
+| Fixed broad opponent | B400M BB/100 | Paired change versus own B100M [95%] |
+| --- | ---: | --- |
+| LBR-original-cap2 | -68.05 | -3.07 [-17.69, +11.55] |
+| Pressure-native | +126.90 | +12.86 [+0.55, +25.17] |
+| selective_stackoff | +39.22 | +4.09 [+0.90, +7.27] |
+| pot_pressure | +23.37 | +7.19 [-5.43, +19.81] |
+| passive | +129.22 | +21.18 [-3.77, +46.12] |
+| loose_passive | +32.89 | +3.08 [-12.72, +18.87] |
+| loose_aggressive | +29.79 | +5.06 [-12.88, +23.00] |
+| tight_passive | +56.38 | +3.69 [-1.22, +8.60] |
+| tight_aggressive | +54.10 | +3.35 [-5.70, +12.41] |
+
+LBR improvement remains inconclusive, with absolute loss−68.05BB/100.
+Native pressure and selective stackoff show positive exploratory aggregate
+changes; all other aggregate change intervals include zero. These unadjusted
+95% curves do not establish a plateau, a unique mechanism, or pass the separate
+fresh97.5% confirmation gates. Every seed/position negative or inconclusive
+result remains in the compact data.
+
+Selective full-stack losses total122/24,576hands (43/40/39byseed), compared
+with134(36/49/49)at100M. These descriptive counts have no tail-change interval;
+they do not establish that catastrophic mistakes are repaired. The reporter
+validated closed native-replay evidence, coordinates, models, chip accounting,
+tails and independent paired-block arithmetic without rerunning gameplay.
+M4 verification and every compact destination hash passed. Large raw files
+remain on M4 at `results/hu20-three-lineage-500m-20261001`.
+
+At the20:05UTC scheduled check, fresh seed1's own100/500 tasks were closed;
+seed2's own100 task was active. No smaller-seed final aggregate is published.
+Final verification/publication retains the00:00–05:00MadridOctober2 forecast.
 
 ## Complete broader300M profile — October1
 
