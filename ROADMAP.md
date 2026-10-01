@@ -201,6 +201,8 @@ Infrastructure and correctness PRs can merge without a strength improvement if t
 
 ## Current position
 
+- **Model-free M1 bucket-coarseness diagnostic:** the [report](docs/reports/hu20-bucket-coarseness.md) samples 3,072 uniform compatible holdings and 2,062,336 equity worlds/pairs across flop/turn/river. Broad descriptors include exact same-board river collisions; their frequency is uniform-card frequency, not policy occupancy or causal evidence. No abstraction/model changes or v2 design; active #136 is unchanged. Future separation candidates remain diagnostic questions.
+
 - **M1 fast-LBR integration smoke:** the [report](docs/reports/hu20-fast-lbr-integration.md) records 16 paired B100M hands per executor with identical actions, exact value arrays, range/RNG states and native outcomes across all four streets. Algorithm wall time is 12.93→3.13 seconds (4.14× in this small run), with 1.75 GiB process peak including one verified policy load. This is integration evidence, not a new ranker proof or strength campaign; active #136 is unchanged.
 
 - **Completed light-panel made-hand diagnostic:** the [M1 report](docs/reports/hu20-light-made-hand-trends.md) checks all 75 closed #136 light tasks and analyzes 38,400 selective-stackoff hands across 25 checkpoints. Sparse first-large-raise continuations and lineage differences remain descriptive; whole-hand profit is not bet EV. No model loads, new hands or changes to the active #136 campaign. The separate requested LBR integration and bucket-coarseness checks follow on M1.
