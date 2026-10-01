@@ -93,13 +93,18 @@ def snapshot(trainer,streets,probes,cell):
             'common_unique_keys':{s:distribution(Counter(keys.values())) for s,keys in unique.items()}}
 
 
+def validate_runtime(runtime,python_version):
+    """Keep campaign runtime admission separate from portable observer tests."""
+    engine=json.loads(runtime['engine_origin'])['vcs_info']['commit_id']
+    if tuple(python_version)!=(3,11,14) or engine!='5db20e3d5d6862b32a7402035c1340b622d3b005':
+        raise ValueError('Worker requires pinned Python 3.11.14 and engine5db20e3')
+
+
 def worker(plan,seed,cell,probe_dir,out):
     import src.blueprint.solver as solver
     out.mkdir(parents=True,exist_ok=False);start=monotonic();deadline=start+plan['limits']['worker_seconds']
     runtime=environment()
-    engine=json.loads(runtime['engine_origin'])['vcs_info']['commit_id']
-    if sys.version_info[:3]!=(3,11,14) or engine!='5db20e3d5d6862b32a7402035c1340b622d3b005':
-        raise ValueError('Worker requires pinned Python 3.11.14 and engine5db20e3')
+    validate_runtime(runtime,sys.version_info[:3])
     probe_manifest=json.loads((probe_dir/'manifest.json').read_text())
     if file_hash(probe_dir/'decisions.jsonl.gz')!=probe_manifest['decisions_sha256']:raise ValueError('Probe hash changed')
     if sha256(canonical(plan)).hexdigest()!=probe_manifest['plan_sha256']:raise ValueError('Probe plan changed')
