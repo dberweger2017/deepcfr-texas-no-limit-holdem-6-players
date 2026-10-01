@@ -84,7 +84,8 @@ known gzip OS-byte differences are distinct from semantic state divergence.
 Before rental, publish live CPU/RAM/storage prices/availability, measured C/D
 memory and throughput, conservative runtime and all-in hard cap (including
 parity prefixes, storage, failed attempts, transfers and shutdown reserve).
-Present that concrete paid budget for owner approval; no paid budget exists yet.
+The October1 owner approval admits the published additional $16 cap; freeze
+the production controller and pass Linux parity before main work.
 Never silently lower node work, change schemas or impose an entry ceiling that
 substitutes a different experiment for fitting hardware.
 
@@ -141,4 +142,4 @@ This admits preparation of D's exact #143 descriptor integration/resource prefix
 
 ## D resource admission and live budget proposal
 
-The [completed D prefix and resource quote](reports/dr2x2-resource-budget.md) uses the exact #143 descriptor, preserves A/B/C bytes and verifies all three D2M states/72sealed files. CPU5 memory C16GB/D64GB is supported by separate measurements and conservative serialization headroom. Additional expected spend is$8–11; the proposed$16hard cap includes$12training/recovery and$4common-analysis reserve, pending owner approval. No C/D pods have been created. Common schedule/counts/range law and runtime admission still freeze before common outcomes; no outcome-driven changes or #136 interference.
+The [completed D prefix and resource quote](reports/dr2x2-resource-budget.md) uses the exact #143 descriptor, preserves A/B/C bytes and verifies all three D2M states/72sealed files. CPU5 memory C16GB/D64GB is supported by separate measurements and conservative serialization headroom. Additional expected spend is$8–11; the proposed$16hard cap includes$12training/recovery and$4common-analysis reserve, approved by the owner October1. No C/D pods have been created at this snapshot. Common schedule/counts/range law and runtime admission still freeze before common outcomes; no outcome-driven changes or #136 interference.

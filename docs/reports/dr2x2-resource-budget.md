@@ -1,7 +1,8 @@
 # C/D resource admission and proposed paid budget
 
-October1,2026. **D prefixes and recovery checks complete; budget awaits owner
-approval. No C/D rental has been created.**
+October1,2026. **D prefixes and recovery checks complete. The owner approved the additional
+$16 all-in cap ($8–11 expected) on October1. Production controller and Linux
+parity are being prepared; no C/D rental has been created at this snapshot.**
 
 ## Frozen integration and measurements
 
@@ -86,10 +87,10 @@ reduction, controls safety.
   on one D-sized host at$0.57/h gives$3.42. This is a planning reserve, not a
   frozen evaluation count or a claim of measured D evaluation timing. Use M1
   where resource admission permits; M4 remains exclusively #136.
-- **Requested additional all-in hard cap: $16. Expected total: $8–11.** Start
+- **Owner-approved additional all-in hard cap: $16. Expected total: $8–11.** Start
   safe checkpoint/retrieval/shutdown at a conservative$14upper estimate,
   retaining$2reserve. Include every failed/retired attempt and storage/analysis
-  charge; never reset the ledger. No rental starts before owner approval.
+  charge; never reset the ledger. Owner approval is recorded; source/controller and Linux parity admission still apply.
 
 Already completed B/#143's$3.203879upper estimate is separate historical spend,
 not charged again against this additional cap. Billing estimates are not settled
@@ -138,3 +139,12 @@ Raw D measurements stay at
 Consult the [72-file final inventory](dr2x2-history-artifacts/d-resource-20261001/final-manifest.json)
 before copying/hashing exact checkpoints. Compact evidence is separately
 transport-hash-verified and committed. #136 continues its90-minute M4 schedule.
+
+## Approved launch forecast
+
+Allow1–2hours to freeze and verify the controller and Linux setup. After launch,
+expect5–8hours for two waves and verified retrieval, with4–6hours of pure
+training across the waves at the measured/projection rates. This is an elapsed
+time forecast, not a deadline. Common four-cell evaluation and sealing follow
+training and have a separate runtime admission. No extra parallel worker is
+implied by D’s8vCPU shape.

@@ -1,6 +1,6 @@
 {
   "schema": "dr2x2-cd-budget-proposal-v1",
-  "approval": "PENDING owner approval; no paid C/D jobs created",
+  "approval": "APPROVED by owner October 1, 2026: additional USD16 all-in ceiling, expected USD8\u201311",
   "training_nodes_per_seed": 100000000,
   "seeds": [
     2026093001,
@@ -74,5 +74,6 @@
     "memory_resize": "Only within approved incremental total cap; preserve hashes/source/science and validate resume after material environment changes"
   },
   "offpod_destination": "M1 /Users/dberweger/Local/dr2x2-cd-campaign-20261001; verify capacity and destination hashes before backup rotation or termination; M4 reserved for PR136",
-  "no_automatic_merge_promotion_or_300m": true
+  "no_automatic_merge_promotion_or_300m": true,
+  "approval_scope": "Six from-zero C/D100M lineages and prospective common factorial analysis; USD12 training/recovery + USD4 analysis, no merge/promotion/300M"
 }
