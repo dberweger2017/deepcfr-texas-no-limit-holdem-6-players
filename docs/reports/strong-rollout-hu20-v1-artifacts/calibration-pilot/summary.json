@@ -1,0 +1,1312 @@
+{
+  "blocks_per_control": 2,
+  "config": {
+    "calibration": {
+      "confirmation_blocks": 64,
+      "confirmation_root": 202610040102,
+      "controls": [
+        "random",
+        "tight_passive",
+        "loose_passive",
+        "tight_aggressive",
+        "loose_aggressive",
+        "pot_pressure",
+        "train_pressure",
+        "selective_stackoff",
+        "minraise",
+        "call",
+        "raise",
+        "jam"
+      ],
+      "development_blocks": 16,
+      "development_root": 202610040101,
+      "modes": [
+        "restricted",
+        "native"
+      ]
+    },
+    "equity_worlds": 64,
+    "likelihood_floor": 0.02,
+    "mix_temperature_chips": 35,
+    "near_best_chips": 50,
+    "particles": 128,
+    "ranges": {
+      "bb_call_open": [
+        "22+",
+        "A2s+",
+        "K2s+",
+        "Q6s+",
+        "J7s+",
+        "T7s+",
+        "97s+",
+        "86s+",
+        "75s+",
+        "65s",
+        "54s",
+        "A2o+",
+        "K8o+",
+        "Q9o+",
+        "J9o+",
+        "T9o"
+      ],
+      "blocker_reraise": [
+        "A2s",
+        "A3s",
+        "A4s",
+        "A5s",
+        "K9s",
+        "Q9s"
+      ],
+      "call_reraise": [
+        "55+",
+        "A8s+",
+        "KTs+",
+        "QTs+",
+        "JTs",
+        "ATo+",
+        "KQo"
+      ],
+      "sb_open": [
+        "22+",
+        "A2s+",
+        "K2s+",
+        "Q5s+",
+        "J7s+",
+        "T7s+",
+        "97s+",
+        "86s+",
+        "75s+",
+        "65s",
+        "54s",
+        "A2o+",
+        "K7o+",
+        "Q9o+",
+        "J9o+",
+        "T9o"
+      ],
+      "stackoff": [
+        "99+",
+        "AQs+",
+        "AKo"
+      ],
+      "value_reraise": [
+        "77+",
+        "ATs+",
+        "AJo+",
+        "KQs"
+      ]
+    },
+    "version": "strong-rollout-hu20-v1"
+  },
+  "config_sha256": "326fb60cc850fbdcb7a995a8802451326673433cd012763ae6dbfcfc793ec54f",
+  "failure": null,
+  "hands": 96,
+  "panels": [
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 3,
+        "large_actions": 1,
+        "large_opportunities": 3,
+        "no_response": 0,
+        "rival_continuations": 1,
+        "rival_folds": 0,
+        "target_decisions": 16
+      },
+      "family95_interval": [
+        -25637.97564483629,
+        25963.47564483629
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": 162.75,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        500.5,
+        -175
+      ],
+      "panel": "call",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -336,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 661.5,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 0,
+        "large_actions": 0,
+        "large_opportunities": 0,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 6
+      },
+      "family95_interval": [
+        -175.0,
+        -175.0
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": -175,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -175,
+        -175
+      ],
+      "panel": "jam",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -100,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": -250,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 4,
+        "jam_actions": 1,
+        "jam_opportunities": 3,
+        "large_actions": 1,
+        "large_opportunities": 3,
+        "no_response": 0,
+        "rival_continuations": 1,
+        "rival_folds": 0,
+        "target_decisions": 11
+      },
+      "family95_interval": [
+        -23534.377909730098,
+        24209.377909730098
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": 337.5,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        650,
+        25
+      ],
+      "panel": "loose_aggressive",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -200,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 875,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 3,
+        "large_actions": 1,
+        "large_opportunities": 3,
+        "no_response": 0,
+        "rival_continuations": 1,
+        "rival_folds": 0,
+        "target_decisions": 14
+      },
+      "family95_interval": [
+        -28211.193454431574,
+        28470.193454431574
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": 129.5,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        500.5,
+        -241.5
+      ],
+      "panel": "loose_passive",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -402.5,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 661.5,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 8,
+        "large_actions": 0,
+        "large_opportunities": 8,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 14
+      },
+      "family95_interval": [
+        -2273.902730450624,
+        1507.402730450624
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": -383.25,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -358.5,
+        -408
+      ],
+      "panel": "minraise",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -516.5,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": -250,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 2,
+        "large_actions": 0,
+        "large_opportunities": 2,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 8
+      },
+      "family95_interval": [
+        -395.40753957232937,
+        253.90753957232937
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": -70.75,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -66.5,
+        -75
+      ],
+      "panel": "pot_pressure",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -66.5,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": -75,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 3,
+        "large_actions": 0,
+        "large_opportunities": 2,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 10
+      },
+      "family95_interval": [
+        -4244.500465556816,
+        3394.5004655568164
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": -425,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -475,
+        -375
+      ],
+      "panel": "raise",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -600,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": -250,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 4,
+        "large_actions": 0,
+        "large_opportunities": 4,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 10
+      },
+      "family95_interval": [
+        -13739.989141087775,
+        13187.489141087775
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": -276.25,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -100,
+        -452.5
+      ],
+      "panel": "random",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -252.5,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": -300,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 1,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 1,
+        "jam_opportunities": 1,
+        "large_actions": 1,
+        "large_opportunities": 1,
+        "no_response": 0,
+        "rival_continuations": 1,
+        "rival_folds": 0,
+        "target_decisions": 8
+      },
+      "family95_interval": [
+        -40529.754888346564,
+        39679.754888346564
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": -425,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -950,
+        100
+      ],
+      "panel": "selective_stackoff",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -950,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 100,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 0,
+        "large_actions": 0,
+        "large_opportunities": 0,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 3
+      },
+      "family95_interval": [
+        -2752.125349167612,
+        2977.125349167612
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": 112.5,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        75,
+        150
+      ],
+      "panel": "tight_aggressive",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 50,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 175,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 0,
+        "large_actions": 0,
+        "large_opportunities": 0,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 3
+      },
+      "family95_interval": [
+        -2752.125349167612,
+        2977.125349167612
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": 112.5,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        75,
+        150
+      ],
+      "panel": "tight_passive",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 50,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 175,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 4,
+        "jam_actions": 1,
+        "jam_opportunities": 3,
+        "large_actions": 0,
+        "large_opportunities": 2,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 11
+      },
+      "family95_interval": [
+        -36205.66196236208,
+        37014.16196236208
+      ],
+      "mode": "native",
+      "overall": {
+        "bb_per_100": 404.25,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        883.5,
+        -75
+      ],
+      "panel": "train_pressure",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -66.5,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 875,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 4,
+        "jam_actions": 2,
+        "jam_opportunities": 4,
+        "large_actions": 2,
+        "large_opportunities": 4,
+        "no_response": 0,
+        "rival_continuations": 2,
+        "rival_folds": 0,
+        "target_decisions": 15
+      },
+      "family95_interval": [
+        -11608.501396670448,
+        11308.501396670448
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": -150,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        0,
+        -300
+      ],
+      "panel": "call",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -850,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 550,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 2,
+        "large_actions": 0,
+        "large_opportunities": 2,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 10
+      },
+      "family95_interval": [
+        -10023.75116389204,
+        9073.75116389204
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": -475,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -600,
+        -350
+      ],
+      "panel": "jam",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -650,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": -300,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 1,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 1,
+        "large_actions": 0,
+        "large_opportunities": 1,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 10
+      },
+      "family95_interval": [
+        -20732.252560562487,
+        21282.252560562487
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": 275,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        550,
+        0
+      ],
+      "panel": "loose_aggressive",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -300,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 850,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 1,
+        "full_stack_wins": 1,
+        "hands": 4,
+        "jam_actions": 2,
+        "jam_opportunities": 4,
+        "large_actions": 2,
+        "large_opportunities": 4,
+        "no_response": 0,
+        "rival_continuations": 2,
+        "rival_folds": 0,
+        "target_decisions": 13
+      },
+      "family95_interval": [
+        -15478.001862227266,
+        15078.001862227266
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": -200,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        0,
+        -400
+      ],
+      "panel": "loose_passive",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -950,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 550,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 8,
+        "large_actions": 0,
+        "large_opportunities": 8,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 14
+      },
+      "family95_interval": [
+        -10123.75116389204,
+        8973.75116389204
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": -575,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -450,
+        -700
+      ],
+      "panel": "minraise",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -850,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": -300,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 2,
+        "large_actions": 0,
+        "large_opportunities": 2,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 8
+      },
+      "family95_interval": [
+        -100.0,
+        -100.0
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": -100,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -100,
+        -100
+      ],
+      "panel": "pot_pressure",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -100,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": -100,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 3,
+        "large_actions": 0,
+        "large_opportunities": 3,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 10
+      },
+      "family95_interval": [
+        -10023.75116389204,
+        9073.75116389204
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": -475,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -600,
+        -350
+      ],
+      "panel": "raise",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -650,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": -300,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 2,
+        "large_actions": 0,
+        "large_opportunities": 1,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 8
+      },
+      "family95_interval": [
+        -24309.377909730098,
+        23434.377909730098
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": -437.5,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -125,
+        -750
+      ],
+      "panel": "random",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -275,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": -600,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 1,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 1,
+        "jam_opportunities": 1,
+        "large_actions": 1,
+        "large_opportunities": 1,
+        "no_response": 0,
+        "rival_continuations": 1,
+        "rival_folds": 0,
+        "target_decisions": 8
+      },
+      "family95_interval": [
+        -40529.754888346564,
+        39679.754888346564
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": -425,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -950,
+        100
+      ],
+      "panel": "selective_stackoff",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -950,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 100,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 0,
+        "large_actions": 0,
+        "large_opportunities": 0,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 3
+      },
+      "family95_interval": [
+        -3694.5004655568164,
+        3944.5004655568164
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": 125,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        75,
+        175
+      ],
+      "panel": "tight_aggressive",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 50,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 200,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 0,
+        "large_actions": 0,
+        "large_opportunities": 0,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 2
+      },
+      "family95_interval": [
+        75.0,
+        75.0
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": 75,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        75,
+        75
+      ],
+      "panel": "tight_passive",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 50,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": 100,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    },
+    {
+      "blocks": [
+        0,
+        1
+      ],
+      "counts": {
+        "full_stack_losses": 0,
+        "full_stack_wins": 0,
+        "hands": 4,
+        "jam_actions": 0,
+        "jam_opportunities": 2,
+        "large_actions": 0,
+        "large_opportunities": 2,
+        "no_response": 0,
+        "rival_continuations": 0,
+        "rival_folds": 0,
+        "target_decisions": 8
+      },
+      "family95_interval": [
+        -100.0,
+        -100.0
+      ],
+      "mode": "restricted",
+      "overall": {
+        "bb_per_100": -100,
+        "blocks": 2,
+        "ci95": null,
+        "reason": "too_few_blocks"
+      },
+      "paired_block_chips": [
+        -100,
+        -100
+      ],
+      "panel": "train_pressure",
+      "policy": "heuristic",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -100,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        },
+        "button": {
+          "bb_per_100": -100,
+          "blocks": 2,
+          "ci95": null,
+          "reason": "too_few_blocks"
+        }
+      }
+    }
+  ],
+  "peak_rss_bytes": 100794368,
+  "root": 202610040100,
+  "seconds": 0.8234994579688646,
+  "source": "9e4f65572c649f33a3ac4432ed1e576575b8b82d",
+  "stage": "pilot",
+  "status": "complete"
+}

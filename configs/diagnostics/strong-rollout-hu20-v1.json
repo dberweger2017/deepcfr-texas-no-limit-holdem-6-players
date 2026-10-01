@@ -1,0 +1,24 @@
+{
+  "version": "strong-rollout-hu20-v1",
+  "particles": 128,
+  "equity_worlds": 64,
+  "near_best_chips": 50,
+  "mix_temperature_chips": 35,
+  "likelihood_floor": 0.02,
+  "ranges": {
+    "sb_open": ["22+", "A2s+", "K2s+", "Q5s+", "J7s+", "T7s+", "97s+", "86s+", "75s+", "65s", "54s", "A2o+", "K7o+", "Q9o+", "J9o+", "T9o"],
+    "bb_call_open": ["22+", "A2s+", "K2s+", "Q6s+", "J7s+", "T7s+", "97s+", "86s+", "75s+", "65s", "54s", "A2o+", "K8o+", "Q9o+", "J9o+", "T9o"],
+    "value_reraise": ["77+", "ATs+", "AJo+", "KQs"],
+    "blocker_reraise": ["A2s", "A3s", "A4s", "A5s", "K9s", "Q9s"],
+    "call_reraise": ["55+", "A8s+", "KTs+", "QTs+", "JTs", "ATo+", "KQo"],
+    "stackoff": ["99+", "AQs+", "AKo"]
+  },
+  "calibration": {
+    "development_root": 202610040101,
+    "confirmation_root": 202610040102,
+    "development_blocks": 16,
+    "confirmation_blocks": 64,
+    "controls": ["random", "tight_passive", "loose_passive", "tight_aggressive", "loose_aggressive", "pot_pressure", "train_pressure", "selective_stackoff", "minraise", "call", "raise", "jam"],
+    "modes": ["restricted", "native"]
+  }
+}
