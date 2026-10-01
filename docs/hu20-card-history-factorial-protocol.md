@@ -128,3 +128,7 @@ but below100 remains100% in both schemas. The declared gate fails in every
 seed. No C/D paid launch follows. A separate10M prefix amendment is proposed after checking the2M histogram projection,
 not executed; preserve this failed result. Twenty-two pinned focused checks
 and all six short v1/v2 cross-patch state comparisons pass.
+
+## Owner-approved10M pivot (October1)
+
+The owner approved the [separate10M amendment](hu20-history-10m-amendment.md). Continue all six retained2M states to10M total; same schema/seeds/recipe/corpus and numerical gate, failed2M retained. Freeze5M/7M descriptive milestones and the secondary fixed2M-policy-reach diagnostic before continuation. No paid C/D launch; D integration/resource/parity and an approved live-priced cap remain prerequisites. M1-only execution and #136 ACTIVE90-minute M4 supervision remain separate.

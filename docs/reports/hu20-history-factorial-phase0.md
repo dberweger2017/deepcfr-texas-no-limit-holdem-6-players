@@ -59,3 +59,7 @@ Large prefix checkpoints, iteration logs, current exports and native-corpus prob
 Use the committed [artifact verification](dr2x2-history-artifacts/phase0-20261001/artifact-verification.json) for exact checkpoint/export paths, sizes and SHA256. Thirty checkpoint/export hashes were independently rechecked after all workers closed. Compact evidence is indexed by [manifest](dr2x2-history-artifacts/phase0-20261001/manifest.json). Preserve original copies until an independently verified archive destination exists.
 
 M4 remains #136-only with its ACTIVE90-minute monitor. New Guy owns #143/B and its independent rental ledger. All future C/D pods, volumes and artifact roots use `dr2x2-`; no C/D rental exists. A/B/C/D strength comparison will require one fresh common schedule, restricted-river range law and all five preregistered factorial contrasts. No promotion or300M extension.
+
+## Owner-approved follow-up (October1)
+
+The owner approved the10M pivot after this report. The [prospective amendment](../hu20-history-10m-amendment.md) and pinned input plan define continuation of all six retained2M states, unchanged numerical gate and a separately labelled fixed2M-policy-reach diagnostic. Twenty-nine focused pinned-runtime checks pass, including exact continuation and fresh-process recovery. Execution is being launched on M1; the2M result above remains failed and immutable. No new strength result, paid C/D launch or M4 allocation follows.
