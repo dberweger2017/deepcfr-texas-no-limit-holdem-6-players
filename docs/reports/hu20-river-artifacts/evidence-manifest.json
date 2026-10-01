@@ -1,0 +1,62 @@
+{
+  "comparison/B-2026093001-500000000.hands.jsonl.gz": {
+    "bytes": 250318,
+    "sha256": "480fb3f12364cf13a3a17f7d6606b54b6549d198a72d48fca7b58af1bd219627"
+  },
+  "comparison/B-2026093002-500000000.hands.jsonl.gz": {
+    "bytes": 242489,
+    "sha256": "4faa4644c5bc1f6be19a4e72cb95dacfc3de0f31ae7f135f6eda9077bf2996bd"
+  },
+  "comparison/B-2026093003-500000000.hands.jsonl.gz": {
+    "bytes": 234215,
+    "sha256": "0dabc204d323e782ae497e000774038cb54e12fba7f829e100419ca25f767ca6"
+  },
+  "comparison/manifest.json": {
+    "bytes": 586,
+    "sha256": "b56958ce068c115a361b2d591fccd3057fa94eddd877d9b84d1bc93e98c43f72"
+  },
+  "comparison/summary.json": {
+    "bytes": 145919,
+    "sha256": "11b1ecf40c3a9129e8aa0ae3d6ee9ed0e6a87dac19f93904e2aa9e15160d875b"
+  },
+  "derived/aggregate.json": {
+    "bytes": 3753,
+    "sha256": "cd0c6dd5e8619f3288540c212abece6392b3a0302c81187feed79d7830ae32df"
+  },
+  "derived/audit.json": {
+    "bytes": 208,
+    "sha256": "bce45b8838658948bedc62ec095bc68c98136593fd82c6bfd77475e0fb62607f"
+  },
+  "derived/manifest.json": {
+    "bytes": 633,
+    "sha256": "0fb9fd1295e71aaed246e6e0ec3ff5123f7cea2550ead313bc2c4e785fa981ae"
+  },
+  "derived/paired-changes.csv": {
+    "bytes": 6174,
+    "sha256": "56f7fd4a0ca07468e867581809a9c89c675c74e49422a367c90d4b9a70f2dabc"
+  },
+  "derived/panels.csv": {
+    "bytes": 16645,
+    "sha256": "4bbf7ffb47ce9289300a10d8ae77f09edf92f0fe3808a4be4dc258c26a7fefe1"
+  },
+  "derived/resources.csv": {
+    "bytes": 5953,
+    "sha256": "df19085a1b858916de26e02c223ca1f1ce7e61b2f752b19c518f17a371d30e26"
+  },
+  "environment.json": {
+    "bytes": 1385,
+    "sha256": "c7ea60642bc0ef66024dbff7af2e412aba64d085c5ea0f1f9c2035a201fe7c46"
+  },
+  "timing/curve.jsonl": {
+    "bytes": 11805,
+    "sha256": "f22e84b652eac69171a67a66aa32b8be2e21fa5db9f2ebbff73d2a84f4adc241"
+  },
+  "timing/manifest.json": {
+    "bytes": 254,
+    "sha256": "5163102e13ad86c223ca7b50121be30a5ce68286d118ab3009d6bf8a2083e8bd"
+  },
+  "timing/summary.json": {
+    "bytes": 17344,
+    "sha256": "57207cbd265f32d73d9815a60caaf0f228f3d69092667f92109976e7d93db533"
+  }
+}

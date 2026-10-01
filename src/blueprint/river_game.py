@@ -127,6 +127,10 @@ class RiverGame:
     removal; it must not be presented as the true conditional belief.
     """
 
+    # Subclasses select a separately versioned table/menu; defaults preserve #108.
+    table_players = 6
+    free_fold = True
+
     def __init__(
         self, root_history: tuple[PublicEvent, ...], ranges: dict[int, Range],
         *, observed_history: tuple[PublicEvent, ...] | None = None,
@@ -135,8 +139,8 @@ class RiverGame:
     ):
         hand = _representative(root_history)
         root = hand.observe(0)
-        if root.street != Street.RIVER or root.finished or len(root.players) != 6:
-            raise RiverUnsupported("Expected an active six-seat river root")
+        if root.street != Street.RIVER or root.finished or len(root.players) != self.table_players:
+            raise RiverUnsupported("Expected an active river root for this adapter")
         live = tuple(p.seat for p in root.players if not p.folded)
         if len(live) != 2 or any(root.players[seat].all_in for seat in live):
             raise RiverUnsupported("River pilot needs two active non-all-in seats")
@@ -210,7 +214,7 @@ class RiverGame:
             return node_id
         actor = hand.actor
         view = hand.observe(actor)
-        menu = choices(view, raise_cap=self.raise_cap)
+        menu = choices(view, raise_cap=self.raise_cap, free_fold=self.free_fold)
         observed = self.observed_raises.get(hand.events)
         if observed is not None and all(item.action != observed for item in menu):
             view.legal_actions.validate(observed)

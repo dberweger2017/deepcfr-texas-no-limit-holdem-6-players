@@ -1,0 +1,18 @@
+{
+  "B-2026093001-500000000.hands.jsonl.gz": {
+    "bytes": 250318,
+    "sha256": "480fb3f12364cf13a3a17f7d6606b54b6549d198a72d48fca7b58af1bd219627"
+  },
+  "B-2026093002-500000000.hands.jsonl.gz": {
+    "bytes": 242489,
+    "sha256": "4faa4644c5bc1f6be19a4e72cb95dacfc3de0f31ae7f135f6eda9077bf2996bd"
+  },
+  "B-2026093003-500000000.hands.jsonl.gz": {
+    "bytes": 234215,
+    "sha256": "0dabc204d323e782ae497e000774038cb54e12fba7f829e100419ca25f767ca6"
+  },
+  "summary.json": {
+    "bytes": 145919,
+    "sha256": "11b1ecf40c3a9129e8aa0ae3d6ee9ed0e6a87dac19f93904e2aa9e15160d875b"
+  }
+}

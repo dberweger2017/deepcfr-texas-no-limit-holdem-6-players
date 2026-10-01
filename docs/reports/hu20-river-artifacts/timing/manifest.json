@@ -1,0 +1,10 @@
+{
+  "curve.jsonl": {
+    "bytes": 11805,
+    "sha256": "f22e84b652eac69171a67a66aa32b8be2e21fa5db9f2ebbff73d2a84f4adc241"
+  },
+  "summary.json": {
+    "bytes": 17344,
+    "sha256": "57207cbd265f32d73d9815a60caaf0f228f3d69092667f92109976e7d93db533"
+  }
+}

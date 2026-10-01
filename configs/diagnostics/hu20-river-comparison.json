@@ -1,0 +1,111 @@
+{
+  "budget_basis": "250 sweep worst measured root 11.40s + 0.64s setup; prior #141 river exposure predicts 108.5 roots; 1.5x allowance for off-tree solves + 3 loads fits 2700s. No pilot payoffs select settings.",
+  "expected_hands": 1536,
+  "max_seconds": 2700,
+  "models": [
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 70646565,
+      "checkpoint_bytes": 131332745,
+      "checkpoint_path": "B-2026093001-500000000.checkpoint.json.gz",
+      "checkpoint_sha256": "51876a51da9f3c2ac5b622efecb3645300a4126312525314afd299c36b9f30b1",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1098929,
+      "milestone": 500000000,
+      "name": "B-2026093001-500000000",
+      "path": "B-2026093001-500000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093001,
+      "sha256": "e0dfb7c0a0ebde1e8a904fce89481919f4e9b32a633b912e88d241d039e69628"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 69783238,
+      "checkpoint_bytes": 129627466,
+      "checkpoint_path": "B-2026093002-500000000.checkpoint.json.gz",
+      "checkpoint_sha256": "bd177287272bca4fcaa78e4aff70711927e1e95ee2b41f6963b22f6cbee5425c",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1110069,
+      "milestone": 500000000,
+      "name": "B-2026093002-500000000",
+      "path": "B-2026093002-500000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093002,
+      "sha256": "67427db96fb3d1aba3570e0235bb368a81e129978ff1a3e4c6e083b162563456"
+    },
+    {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "bytes": 69363255,
+      "checkpoint_bytes": 128901358,
+      "checkpoint_path": "B-2026093003-500000000.checkpoint.json.gz",
+      "checkpoint_sha256": "6b409964e9c62c71d83a0e3e8fe1b5c7b41e76c315234399e84ae379cbe9436b",
+      "format": "holdem-hu20-native-reopening-blueprint-v1",
+      "iteration": 1096178,
+      "milestone": 500000000,
+      "name": "B-2026093003-500000000",
+      "path": "B-2026093003-500000000.policy.json.gz",
+      "players": 2,
+      "seed": 2026093003,
+      "sha256": "bcf7ca319b95688a0d8fcd15536b04b311310feacefdc6fff81221304662d083"
+    }
+  ],
+  "panels": [
+    {
+      "blocks": 16,
+      "contract": "menu",
+      "name": "uniform",
+      "rule": "uniform"
+    },
+    {
+      "blocks": 16,
+      "contract": "style-native",
+      "name": "tight_passive",
+      "rule": "tight_passive"
+    },
+    {
+      "blocks": 16,
+      "contract": "style-native",
+      "name": "loose_passive",
+      "rule": "loose_passive"
+    },
+    {
+      "blocks": 16,
+      "contract": "style-native",
+      "name": "tight_aggressive",
+      "rule": "tight_aggressive"
+    },
+    {
+      "blocks": 16,
+      "contract": "style-native",
+      "name": "loose_aggressive",
+      "rule": "loose_aggressive"
+    },
+    {
+      "blocks": 16,
+      "contract": "style-native",
+      "name": "pot_pressure",
+      "rule": "pot_pressure"
+    },
+    {
+      "blocks": 16,
+      "contract": "style-native",
+      "name": "train_pressure",
+      "rule": "train_pressure"
+    },
+    {
+      "blocks": 16,
+      "contract": "menu",
+      "name": "selective-stackoff",
+      "rule": "selective_stackoff"
+    }
+  ],
+  "phase": "comparison",
+  "river_config": {
+    "cache_entries": 8,
+    "raise_cap": 2,
+    "sweeps": 250,
+    "watchdog_seconds": 120
+  },
+  "root": 202610010501,
+  "rss_limit_bytes": 6442450944
+}

@@ -111,7 +111,7 @@ class RiverResult:
 
 
 class RiverCFR:
-    def __init__(self, game: RiverGame):
+    def __init__(self, game: RiverGame, *, fixed_profile: Profile | None = None):
         self.game = game
         self.regrets: Profile = {}
         self.average_numer: Profile = {}
@@ -128,6 +128,15 @@ class RiverCFR:
         self.visited_public_nodes = 0
         self.zero_external_reach_entries = 0
         self.last_played: Profile | None = None
+        self.fixed_profile = {}
+        for key, value in (fixed_profile or {}).items():
+            policy = np.asarray(value, dtype=np.float64).copy()
+            if (key not in self.regrets or policy.shape != self.regrets[key].shape
+                    or not np.isfinite(policy).all() or (policy < 0).any()
+                    or not np.allclose(policy.sum(axis=1), 1, rtol=0, atol=1e-12)):
+                raise ValueError("Invalid prior-action profile constraint")
+            policy.setflags(write=False)
+            self.fixed_profile[key] = policy
 
     def solve(self, *, max_sweeps: int, deadline: float | None = None,
               rss_limit_bytes: int | None = None) -> RiverResult:
@@ -138,6 +147,7 @@ class RiverCFR:
         for _ in range(max_sweeps):
             cycle = self.completed_sweeps + 1
             profile = _profile(self.game, self.regrets)
+            profile.update(self.fixed_profile)
             deltas = {key: np.zeros_like(value) for key, value in self.regrets.items()}
             numer = {key: np.zeros_like(value) for key, value in self.average_numer.items()}
             denom = {key: np.zeros_like(value) for key, value in self.average_denom.items()}
@@ -171,7 +181,8 @@ class RiverCFR:
             # Regrets and own-reach averages use the same pre-publication
             # profile. An interrupted sweep publishes neither accumulator.
             for key in self.regrets:
-                self.regrets[key] += deltas[key]
+                if key not in self.fixed_profile:
+                    self.regrets[key] += deltas[key]
                 self.average_numer[key] += numer[key]
                 self.average_denom[key] += denom[key]
             self.last_played = profile
@@ -190,6 +201,8 @@ class RiverCFR:
                 out=np.full_like(numerator, 1 / numerator.shape[1]),
                 where=denominator[:, None] > 0,
             )
+        # Already used policies remain fixed even on zero-own-reach rows.
+        average.update(self.fixed_profile)
         return RiverResult(self.last_played, average, self.completed_sweeps,
                            self.visited_public_nodes, self.zero_external_reach_entries,
                            missing, stop, monotonic() - started)
