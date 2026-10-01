@@ -1,0 +1,14 @@
+{
+  "dashboard.md": {
+    "bytes": 17395,
+    "sha256": "2964e32bca20117db8f9c741174ca87a44340dbbeb0d568126e6330120166274"
+  },
+  "holdings.jsonl": {
+    "bytes": 1140706,
+    "sha256": "cee68f87c445cc52396c856495053a6c5f8b8a9f8f603762bfa101ac8da2541c"
+  },
+  "summary.json": {
+    "bytes": 139022,
+    "sha256": "b6c32e301240a250aeabc5c204634138335cc9dc0c3289430e0ee474507e7a2e"
+  }
+}
