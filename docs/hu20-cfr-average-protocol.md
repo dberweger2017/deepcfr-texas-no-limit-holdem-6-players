@@ -58,3 +58,18 @@ large-action opportunity denominators and responses, full-stack wins **and**
 losses, street/mass/fallback coverage, distinct reached keys, model/checkpoint
 hashes, environment and resources. Whole-hand subgroup returns are not bet EV.
 One focused draft PR, all evidence/reproduction instructions, no automatic merge.
+
+## Final budget, frozen from the timing pilot
+
+The separate first-lineage timing pilot completed 208 hands across current/average
+and all 13 panels in 32.08 seconds including both loads. Eight LBR hands took
+1.992 seconds current and 3.615 seconds average. Using the slower measured LBR
+rate, the maximum cheap-panel rate, six loads and 1.25× headroom projects about
+18.3 minutes. Pilot payoffs are excluded from final inference.
+
+The [final plan](../configs/diagnostics/b500-cfr-average-comparison.json) fixes
+256 paired blocks/policy for each of the 12 cheap/style/native-pressure/stackoff
+panels and 128 for LBR: **38,400 hands**, all three lineages, root `202610050201`.
+Both positions are played in each block. LBR stays a separate bounded diagnostic;
+its sampled range/checkdown assumptions and any limited batches are reported.
+No outcome-dependent budget changes. Absolute final worker guard remains 30 minutes.

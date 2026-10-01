@@ -22,6 +22,10 @@ def test_real_runner_uses_both_extractions_and_exact_pairs(tmp_path):
         assert panel['counts']['hands']==4
         assert sum(panel['whole_hand_partitions'][p]['sum_chips'] for p in panel['whole_hand_partitions'])==pytest.approx(panel['overall']['bb_per_100']*4)
         assert panel['counts']['fallback']==panel['coverage'].get('missing',0)
+    from scripts.audit_hu20_cfr_average import audit_run
+    assert audit_run(tmp_path/'run')['actual_hands_replayed']==24
+    summary=tmp_path/'run/summary.json';summary.write_text(summary.read_text()+' ')
+    with pytest.raises(ValueError,match='bytes'):audit_run(tmp_path/'run')
 
 
 def test_changes_are_paired_and_positions_not_pooled(tmp_path):
