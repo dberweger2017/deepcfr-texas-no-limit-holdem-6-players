@@ -137,3 +137,26 @@ the cause of the model's remaining LBR loss. The one next recommendation is a
 prospectively frozen larger-likelihood stability measurement on the same five
 cases, after an outcome-free M4 cost preflight. No training change, paid run,
 model promotion or alteration to the verified human-play command follows.
+
+## Exploratory 500M continuation (#136, owner-stopped closeout)
+
+The [three-lineage campaign report](reports/hu20-500m-campaign.md) retains the
+original B100M policies and human-play commands. Its complete exploratory
+B100M→B500M broad comparison does not demonstrate bounded-LBR improvement:
+the paired change is **−7.51 [95% −22.72, +7.70] BB/100**, with B500M absolute
+profit **−72.48 [−88.56, −56.40]**. Native-pressure change is +5.49
+[−6.82, +17.80]. Selective-stackoff and pot-pressure aggregate changes are
+positive on their exploratory intervals, but seed/position variation and
+regressions remain; selective full-stack losses total 134→119/24,576 hands,
+with seed 1 increasing 36→50. These unadjusted exploratory results do not
+certify that rare catastrophic mistakes are fixed or locate a learning plateau.
+The complete 150M profile also has inconclusive LBR (+3.06 [−10.72, +16.85]),
+pressure and selective-stackoff changes versus 100M. Selective full-stack
+losses remain 134/24,576 hands at 150M; seed/position regressions persist.
+All six broad checkpoint groups are complete. Fresh97.5% confirmation was
+owner-stopped for M4 opportunity cost and remains incomplete; its gates cannot
+pass. Cancellation does not establish a plateau or null strength effect. No B500M model is promoted and no training intervention or
+release declaration follows from these preliminary endpoints.
+
+The complete200M profile remains inconclusive for LBR (+1.61 [−13.06, +16.28]) and native pressure (+10.97 [−0.99, +22.93]); selective stackoff (+4.43 [1.50,7.36]) and tight passive (+4.65 [0.46,8.84]) show positive exploratory aggregates. Seed2 loose-passive regression persists (−30.76 [−54.26,−7.27]). Selective full-stack losses total122/24,576, a descriptive count without a tail-change interval. The [200M report](reports/hu20-500m-campaign.md#complete-broader-200m-profile--october-1) retains all seed/role results and one partial300M individual; that historical snapshot predates the completed300/400M groups. Fresh
+confirmation remains incomplete at owner-stopped closeout.

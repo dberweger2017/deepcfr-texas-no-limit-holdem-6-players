@@ -1,0 +1,4681 @@
+{
+  "captured": 1790844232.088575,
+  "checkpoint_changes": [],
+  "completed_hands": 79872,
+  "completed_tasks": 3,
+  "frozen_training_source": "17b4c9a08ed0765d0fb8f05240c0409b21e43977",
+  "inference": "Exploratory unadjusted 95% Student-t block intervals, conditional on fixed saved lineages; no final gates.",
+  "inputs": [
+    {
+      "hands_bytes": 19985439,
+      "hands_sha256": "9eae04970fd4b0a33a3957e13c1da8c3ad4f52225be1cfec1b58bb6243e8a1b4",
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "arm": "B",
+        "checkpoint_path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093001/checkpoint-100000000.json.gz",
+        "checkpoint_sha256": "b560669df702057b9df72c90495195a60741e1c6c4b42603cc7c330e2615f64a",
+        "completed_nodes": 100000029,
+        "dual_menu_telemetry": true,
+        "entries": 1496914,
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 246212,
+        "milestone": 100000000,
+        "name": "B-2026093001-100000000",
+        "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093001/current-100000000.json.gz",
+        "players": 2,
+        "seed": 2026093001,
+        "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+      },
+      "result_sha256": "df2407c22dacd7f152b9228a4f472ee3bfd3522a8554b5efc8af7b5ead30f646",
+      "task": "broad-2026093001-100000000"
+    },
+    {
+      "hands_bytes": 19840277,
+      "hands_sha256": "1a14ace285317d5ac72009d9045aea0bf22548db3615f77879e1647f826962b5",
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "arm": "B",
+        "checkpoint_path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093002/checkpoint-100000000.json.gz",
+        "checkpoint_sha256": "830c7c470de2a416b2cb030af6abb76bbb49b2757ff1a8300b0f30a75de3b965",
+        "completed_nodes": 100000280,
+        "dual_menu_telemetry": true,
+        "entries": 1494799,
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 245406,
+        "milestone": 100000000,
+        "name": "B-2026093002-100000000",
+        "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093002/current-100000000.json.gz",
+        "players": 2,
+        "seed": 2026093002,
+        "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710"
+      },
+      "result_sha256": "2a5ff8c7c4628212635931937bdbf1ec7db51eb31ad0eee8f2f217a69e27786e",
+      "task": "broad-2026093002-100000000"
+    },
+    {
+      "hands_bytes": 19777003,
+      "hands_sha256": "5ce263684a5c477df9d10ccbc3502661b36fe5902d87242466b319f1aea40aa2",
+      "model": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "arm": "B",
+        "checkpoint_path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093003/checkpoint-100000000.json.gz",
+        "checkpoint_sha256": "77bb18426aecdf6d9e83a9c8eb807f7e6671ab01ffafc94e348382a677e9df1b",
+        "completed_nodes": 100000083,
+        "dual_menu_telemetry": true,
+        "entries": 1499679,
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 248186,
+        "milestone": 100000000,
+        "name": "B-2026093003-100000000",
+        "path": "/Users/dberweger/Local/hu20-training-scaling-pr116/results/hu20-scaling-m4-recovery-20260929-1008/training/B-2026093003/current-100000000.json.gz",
+        "players": 2,
+        "seed": 2026093003,
+        "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e"
+      },
+      "result_sha256": "26341d58652538a4e27d1232f46caf25015b7f2d1354ccf4e5bc4cbec52b62dd",
+      "task": "broad-2026093003-100000000"
+    }
+  ],
+  "panel_blocks": {
+    "LBR-original-cap2": 2048,
+    "Pressure-native": 4096,
+    "loose_aggressive": 512,
+    "loose_passive": 512,
+    "passive": 512,
+    "pot_pressure": 512,
+    "selective_stackoff": 4096,
+    "tight_aggressive": 512,
+    "tight_passive": 512
+  },
+  "pending_tasks": [
+    {
+      "milestone": 150000000,
+      "seed": 2026093001,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 200000000,
+      "seed": 2026093001,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 300000000,
+      "seed": 2026093001,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 400000000,
+      "seed": 2026093001,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 500000000,
+      "seed": 2026093001,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 150000000,
+      "seed": 2026093002,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 200000000,
+      "seed": 2026093002,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 300000000,
+      "seed": 2026093002,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 400000000,
+      "seed": 2026093002,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 500000000,
+      "seed": 2026093002,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 150000000,
+      "seed": 2026093003,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 200000000,
+      "seed": 2026093003,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 300000000,
+      "seed": 2026093003,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 400000000,
+      "seed": 2026093003,
+      "status": "not_closed"
+    },
+    {
+      "milestone": 500000000,
+      "seed": 2026093003,
+      "status": "not_closed"
+    }
+  ],
+  "per_seed": [
+    {
+      "counts": {
+        "allin_calls": 276,
+        "fallback": 29,
+        "flop_fallback": 4,
+        "flop_trained": 2828,
+        "full_stack_losses": 375,
+        "full_stack_wins": 294,
+        "hands": 4096,
+        "jam_actions": 707,
+        "jam_opportunities": 3239,
+        "large_actions": 768,
+        "large_calls": 255,
+        "large_fallback": 5,
+        "large_opportunities": 2984,
+        "large_trained": 763,
+        "no_response": 0,
+        "preflop_trained": 5349,
+        "rival_continuations": 413,
+        "rival_folds": 355,
+        "river_fallback": 10,
+        "river_trained": 384,
+        "target_decisions": 9628,
+        "trained": 9599,
+        "turn_fallback": 15,
+        "turn_trained": 1038
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": -75.54931640625,
+        "bb_per_hand": -0.7554931640625,
+        "blocks": 2048,
+        "ci95": [
+          -96.30085452447867,
+          -54.79777828802134
+        ],
+        "reason": null
+      },
+      "panel": "LBR-original-cap2",
+      "partitions": {
+        "continued": {
+          "hands": 412,
+          "target_chips": -29000
+        },
+        "folded": {
+          "hands": 354,
+          "target_chips": 256700
+        },
+        "no_large_raise": {
+          "hands": 3330,
+          "target_chips": -537150
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 90,
+            "fallback": 7,
+            "flop_fallback": 2,
+            "flop_trained": 1536,
+            "full_stack_losses": 181,
+            "full_stack_wins": 149,
+            "hands": 2048,
+            "jam_actions": 432,
+            "jam_opportunities": 1458,
+            "large_actions": 467,
+            "large_calls": 94,
+            "large_fallback": 3,
+            "large_opportunities": 1382,
+            "large_trained": 464,
+            "no_response": 0,
+            "preflop_trained": 2048,
+            "rival_continuations": 248,
+            "rival_folds": 219,
+            "river_fallback": 2,
+            "river_trained": 169,
+            "target_decisions": 4247,
+            "trained": 4240,
+            "turn_fallback": 3,
+            "turn_trained": 487
+          },
+          "partitions": {
+            "continued": {
+              "hands": 247,
+              "target_chips": -1200
+            },
+            "folded": {
+              "hands": 219,
+              "target_chips": 169200
+            },
+            "no_large_raise": {
+              "hands": 1582,
+              "target_chips": -233200
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 186,
+            "fallback": 22,
+            "flop_fallback": 2,
+            "flop_trained": 1292,
+            "full_stack_losses": 194,
+            "full_stack_wins": 145,
+            "hands": 2048,
+            "jam_actions": 275,
+            "jam_opportunities": 1781,
+            "large_actions": 301,
+            "large_calls": 161,
+            "large_fallback": 2,
+            "large_opportunities": 1602,
+            "large_trained": 299,
+            "no_response": 0,
+            "preflop_trained": 3301,
+            "rival_continuations": 165,
+            "rival_folds": 136,
+            "river_fallback": 8,
+            "river_trained": 215,
+            "target_decisions": 5381,
+            "trained": 5359,
+            "turn_fallback": 12,
+            "turn_trained": 551
+          },
+          "partitions": {
+            "continued": {
+              "hands": 165,
+              "target_chips": -27800
+            },
+            "folded": {
+              "hands": 135,
+              "target_chips": 87500
+            },
+            "no_large_raise": {
+              "hands": 1748,
+              "target_chips": -303950
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -31.8359375,
+          "bb_per_hand": -0.318359375,
+          "blocks": 2048,
+          "ci95": [
+            -70.20835484824153,
+            6.53647984824152
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": -119.2626953125,
+          "bb_per_hand": -1.192626953125,
+          "blocks": 2048,
+          "ci95": [
+            -158.21131174870018,
+            -80.31407887629982
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093001
+    },
+    {
+      "counts": {
+        "allin_calls": 660,
+        "fallback": 166,
+        "flop_fallback": 18,
+        "flop_trained": 8513,
+        "full_stack_losses": 852,
+        "full_stack_wins": 1196,
+        "hands": 8192,
+        "jam_actions": 2885,
+        "jam_opportunities": 12897,
+        "large_actions": 3013,
+        "large_calls": 224,
+        "large_fallback": 19,
+        "large_opportunities": 11689,
+        "large_trained": 2994,
+        "no_response": 0,
+        "preflop_fallback": 6,
+        "preflop_trained": 13932,
+        "rival_continuations": 1902,
+        "rival_folds": 1111,
+        "river_fallback": 52,
+        "river_trained": 2050,
+        "target_decisions": 28894,
+        "trained": 28728,
+        "turn_fallback": 90,
+        "turn_trained": 4233
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 110.357666015625,
+        "bb_per_hand": 1.10357666015625,
+        "blocks": 4096,
+        "ci95": [
+          91.66730182155088,
+          129.0480302096991
+        ],
+        "reason": null
+      },
+      "panel": "Pressure-native",
+      "partitions": {
+        "continued": {
+          "hands": 1902,
+          "target_chips": 582500
+        },
+        "folded": {
+          "hands": 1111,
+          "target_chips": 825800
+        },
+        "no_large_raise": {
+          "hands": 5179,
+          "target_chips": -504250
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 297,
+            "fallback": 97,
+            "flop_fallback": 8,
+            "flop_trained": 5622,
+            "full_stack_losses": 445,
+            "full_stack_wins": 620,
+            "hands": 4096,
+            "jam_actions": 1577,
+            "jam_opportunities": 7283,
+            "large_actions": 1626,
+            "large_calls": 140,
+            "large_fallback": 11,
+            "large_opportunities": 6695,
+            "large_trained": 1615,
+            "no_response": 0,
+            "preflop_fallback": 1,
+            "preflop_trained": 5652,
+            "rival_continuations": 960,
+            "rival_folds": 666,
+            "river_fallback": 24,
+            "river_trained": 1213,
+            "target_decisions": 15252,
+            "trained": 15155,
+            "turn_fallback": 64,
+            "turn_trained": 2668
+          },
+          "partitions": {
+            "continued": {
+              "hands": 960,
+              "target_chips": 287700
+            },
+            "folded": {
+              "hands": 666,
+              "target_chips": 530900
+            },
+            "no_large_raise": {
+              "hands": 2470,
+              "target_chips": -357000
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 363,
+            "fallback": 69,
+            "flop_fallback": 10,
+            "flop_trained": 2891,
+            "full_stack_losses": 407,
+            "full_stack_wins": 576,
+            "hands": 4096,
+            "jam_actions": 1308,
+            "jam_opportunities": 5614,
+            "large_actions": 1387,
+            "large_calls": 84,
+            "large_fallback": 8,
+            "large_opportunities": 4994,
+            "large_trained": 1379,
+            "no_response": 0,
+            "preflop_fallback": 5,
+            "preflop_trained": 8280,
+            "rival_continuations": 942,
+            "rival_folds": 445,
+            "river_fallback": 28,
+            "river_trained": 837,
+            "target_decisions": 13642,
+            "trained": 13573,
+            "turn_fallback": 26,
+            "turn_trained": 1565
+          },
+          "partitions": {
+            "continued": {
+              "hands": 942,
+              "target_chips": 294800
+            },
+            "folded": {
+              "hands": 445,
+              "target_chips": 294900
+            },
+            "no_large_raise": {
+              "hands": 2709,
+              "target_chips": -147250
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 112.6953125,
+          "bb_per_hand": 1.126953125,
+          "blocks": 4096,
+          "ci95": [
+            77.68571119075202,
+            147.70491380924798
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 108.02001953125,
+          "bb_per_hand": 1.0802001953125,
+          "blocks": 4096,
+          "ci95": [
+            74.12856559481727,
+            141.91147346768273
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093001
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 3,
+        "flop_trained": 2561,
+        "full_stack_losses": 36,
+        "full_stack_wins": 23,
+        "hands": 8192,
+        "jam_actions": 73,
+        "jam_opportunities": 384,
+        "large_actions": 116,
+        "large_calls": 0,
+        "large_fallback": 1,
+        "large_opportunities": 371,
+        "large_trained": 115,
+        "no_response": 0,
+        "preflop_trained": 5248,
+        "rival_continuations": 97,
+        "rival_folds": 19,
+        "river_fallback": 2,
+        "river_trained": 1163,
+        "target_decisions": 10659,
+        "trained": 10656,
+        "turn_fallback": 1,
+        "turn_trained": 1684
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 38.677978515625,
+        "bb_per_hand": 0.38677978515625,
+        "blocks": 4096,
+        "ci95": [
+          33.75027869442821,
+          43.60567833682179
+        ],
+        "reason": null
+      },
+      "panel": "selective_stackoff",
+      "partitions": {
+        "continued": {
+          "hands": 95,
+          "target_chips": -48300
+        },
+        "folded": {
+          "hands": 18,
+          "target_chips": 9000
+        },
+        "no_large_raise": {
+          "hands": 8079,
+          "target_chips": 356150
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 1,
+            "flop_trained": 905,
+            "full_stack_losses": 14,
+            "full_stack_wins": 6,
+            "hands": 4096,
+            "jam_actions": 26,
+            "jam_opportunities": 155,
+            "large_actions": 37,
+            "large_calls": 0,
+            "large_fallback": 1,
+            "large_opportunities": 155,
+            "large_trained": 36,
+            "no_response": 0,
+            "preflop_trained": 1119,
+            "rival_continuations": 27,
+            "rival_folds": 10,
+            "river_fallback": 1,
+            "river_trained": 521,
+            "target_decisions": 3172,
+            "trained": 3171,
+            "turn_trained": 626
+          },
+          "partitions": {
+            "continued": {
+              "hands": 27,
+              "target_chips": -16300
+            },
+            "folded": {
+              "hands": 9,
+              "target_chips": 4300
+            },
+            "no_large_raise": {
+              "hands": 4060,
+              "target_chips": 172000
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 2,
+            "flop_trained": 1656,
+            "full_stack_losses": 22,
+            "full_stack_wins": 17,
+            "hands": 4096,
+            "jam_actions": 47,
+            "jam_opportunities": 229,
+            "large_actions": 79,
+            "large_calls": 0,
+            "large_opportunities": 216,
+            "large_trained": 79,
+            "no_response": 0,
+            "preflop_trained": 4129,
+            "rival_continuations": 70,
+            "rival_folds": 9,
+            "river_fallback": 1,
+            "river_trained": 642,
+            "target_decisions": 7487,
+            "trained": 7485,
+            "turn_fallback": 1,
+            "turn_trained": 1058
+          },
+          "partitions": {
+            "continued": {
+              "hands": 68,
+              "target_chips": -32000
+            },
+            "folded": {
+              "hands": 9,
+              "target_chips": 4700
+            },
+            "no_large_raise": {
+              "hands": 4019,
+              "target_chips": 184150
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 39.0625,
+          "bb_per_hand": 0.390625,
+          "blocks": 4096,
+          "ci95": [
+            33.20611428893838,
+            44.91888571106162
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 38.29345703125,
+          "bb_per_hand": 0.3829345703125,
+          "blocks": 4096,
+          "ci95": [
+            29.91648329233415,
+            46.67043077016585
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093001
+    },
+    {
+      "counts": {
+        "allin_calls": 27,
+        "fallback": 249,
+        "flop_fallback": 71,
+        "flop_trained": 153,
+        "full_stack_losses": 31,
+        "full_stack_wins": 19,
+        "hands": 1024,
+        "jam_actions": 55,
+        "jam_opportunities": 227,
+        "large_actions": 81,
+        "large_calls": 32,
+        "large_fallback": 80,
+        "large_opportunities": 211,
+        "large_trained": 1,
+        "no_response": 0,
+        "preflop_fallback": 118,
+        "preflop_trained": 574,
+        "rival_continuations": 39,
+        "rival_folds": 42,
+        "river_fallback": 22,
+        "river_trained": 26,
+        "target_decisions": 1075,
+        "trained": 826,
+        "turn_fallback": 38,
+        "turn_trained": 73
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 21.630859375,
+        "bb_per_hand": 0.21630859375,
+        "blocks": 512,
+        "ci95": [
+          -8.046383377940678,
+          51.30810212794068
+        ],
+        "reason": null
+      },
+      "panel": "pot_pressure",
+      "partitions": {
+        "continued": {
+          "hands": 39,
+          "target_chips": -33600
+        },
+        "folded": {
+          "hands": 41,
+          "target_chips": 17700
+        },
+        "no_large_raise": {
+          "hands": 944,
+          "target_chips": 38050
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 13,
+            "fallback": 97,
+            "flop_fallback": 15,
+            "flop_trained": 53,
+            "full_stack_losses": 15,
+            "full_stack_wins": 6,
+            "hands": 512,
+            "jam_actions": 18,
+            "jam_opportunities": 91,
+            "large_actions": 30,
+            "large_calls": 16,
+            "large_fallback": 29,
+            "large_opportunities": 86,
+            "large_trained": 1,
+            "no_response": 0,
+            "preflop_fallback": 59,
+            "preflop_trained": 59,
+            "rival_continuations": 21,
+            "rival_folds": 9,
+            "river_fallback": 12,
+            "river_trained": 17,
+            "target_decisions": 253,
+            "trained": 156,
+            "turn_fallback": 11,
+            "turn_trained": 27
+          },
+          "partitions": {
+            "continued": {
+              "hands": 21,
+              "target_chips": -20400
+            },
+            "folded": {
+              "hands": 8,
+              "target_chips": 3200
+            },
+            "no_large_raise": {
+              "hands": 483,
+              "target_chips": 11950
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 14,
+            "fallback": 152,
+            "flop_fallback": 56,
+            "flop_trained": 100,
+            "full_stack_losses": 16,
+            "full_stack_wins": 13,
+            "hands": 512,
+            "jam_actions": 37,
+            "jam_opportunities": 136,
+            "large_actions": 51,
+            "large_calls": 16,
+            "large_fallback": 51,
+            "large_opportunities": 125,
+            "no_response": 0,
+            "preflop_fallback": 59,
+            "preflop_trained": 515,
+            "rival_continuations": 18,
+            "rival_folds": 33,
+            "river_fallback": 10,
+            "river_trained": 9,
+            "target_decisions": 822,
+            "trained": 670,
+            "turn_fallback": 27,
+            "turn_trained": 46
+          },
+          "partitions": {
+            "continued": {
+              "hands": 18,
+              "target_chips": -13200
+            },
+            "folded": {
+              "hands": 33,
+              "target_chips": 14500
+            },
+            "no_large_raise": {
+              "hands": 461,
+              "target_chips": 26100
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -10.25390625,
+          "bb_per_hand": -0.1025390625,
+          "blocks": 512,
+          "ci95": [
+            -50.10098581929208,
+            29.593173319292077
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 53.515625,
+          "bb_per_hand": 0.53515625,
+          "blocks": 512,
+          "ci95": [
+            6.951409713300173,
+            100.07984028669983
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093001
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 1,
+        "flop_trained": 922,
+        "full_stack_losses": 38,
+        "full_stack_wins": 92,
+        "hands": 1024,
+        "jam_actions": 134,
+        "jam_opportunities": 549,
+        "large_actions": 206,
+        "large_calls": 0,
+        "large_opportunities": 534,
+        "large_trained": 206,
+        "no_response": 0,
+        "preflop_trained": 1024,
+        "rival_continuations": 206,
+        "rival_folds": 0,
+        "river_fallback": 1,
+        "river_trained": 895,
+        "target_decisions": 3764,
+        "trained": 3763,
+        "turn_trained": 922
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 103.125,
+        "bb_per_hand": 1.03125,
+        "blocks": 512,
+        "ci95": [
+          67.24627429098682,
+          139.00372570901317
+        ],
+        "reason": null
+      },
+      "panel": "passive",
+      "partitions": {
+        "continued": {
+          "hands": 199,
+          "target_chips": 106100
+        },
+        "no_large_raise": {
+          "hands": 825,
+          "target_chips": -500
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 0,
+            "flop_trained": 512,
+            "full_stack_losses": 16,
+            "full_stack_wins": 34,
+            "hands": 512,
+            "jam_actions": 50,
+            "jam_opportunities": 276,
+            "large_actions": 83,
+            "large_calls": 0,
+            "large_opportunities": 276,
+            "large_trained": 83,
+            "no_response": 0,
+            "preflop_trained": 512,
+            "rival_continuations": 83,
+            "rival_folds": 0,
+            "river_trained": 496,
+            "target_decisions": 2032,
+            "trained": 2032,
+            "turn_trained": 512
+          },
+          "partitions": {
+            "continued": {
+              "hands": 79,
+              "target_chips": 29700
+            },
+            "no_large_raise": {
+              "hands": 433,
+              "target_chips": 11800
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 1,
+            "flop_trained": 410,
+            "full_stack_losses": 22,
+            "full_stack_wins": 58,
+            "hands": 512,
+            "jam_actions": 84,
+            "jam_opportunities": 273,
+            "large_actions": 123,
+            "large_calls": 0,
+            "large_opportunities": 258,
+            "large_trained": 123,
+            "no_response": 0,
+            "preflop_trained": 512,
+            "rival_continuations": 123,
+            "rival_folds": 0,
+            "river_fallback": 1,
+            "river_trained": 399,
+            "target_decisions": 1732,
+            "trained": 1731,
+            "turn_trained": 410
+          },
+          "partitions": {
+            "continued": {
+              "hands": 120,
+              "target_chips": 76400
+            },
+            "no_large_raise": {
+              "hands": 392,
+              "target_chips": -12300
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 81.0546875,
+          "bb_per_hand": 0.810546875,
+          "blocks": 512,
+          "ci95": [
+            9.739458778807034,
+            152.36991622119297
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 125.1953125,
+          "bb_per_hand": 1.251953125,
+          "blocks": 512,
+          "ci95": [
+            42.298675715077096,
+            208.09194928492292
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093001
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 11,
+        "flop_fallback": 1,
+        "flop_trained": 567,
+        "full_stack_losses": 16,
+        "full_stack_wins": 21,
+        "hands": 1024,
+        "jam_actions": 40,
+        "jam_opportunities": 166,
+        "large_actions": 56,
+        "large_calls": 0,
+        "large_fallback": 3,
+        "large_opportunities": 161,
+        "large_trained": 53,
+        "no_response": 0,
+        "preflop_trained": 795,
+        "rival_continuations": 53,
+        "rival_folds": 3,
+        "river_fallback": 3,
+        "river_trained": 389,
+        "target_decisions": 2201,
+        "trained": 2190,
+        "turn_fallback": 7,
+        "turn_trained": 439
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 20.361328125,
+        "bb_per_hand": 0.20361328125,
+        "blocks": 512,
+        "ci95": [
+          -4.703528106854545,
+          45.42618435685455
+        ],
+        "reason": null
+      },
+      "panel": "loose_passive",
+      "partitions": {
+        "continued": {
+          "hands": 50,
+          "target_chips": 12200
+        },
+        "folded": {
+          "hands": 3,
+          "target_chips": 1400
+        },
+        "no_large_raise": {
+          "hands": 971,
+          "target_chips": 7250
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 3,
+            "flop_fallback": 1,
+            "flop_trained": 274,
+            "full_stack_losses": 5,
+            "full_stack_wins": 5,
+            "hands": 512,
+            "jam_actions": 11,
+            "jam_opportunities": 67,
+            "large_actions": 16,
+            "large_calls": 0,
+            "large_fallback": 1,
+            "large_opportunities": 65,
+            "large_trained": 15,
+            "no_response": 0,
+            "preflop_trained": 282,
+            "rival_continuations": 14,
+            "rival_folds": 2,
+            "river_fallback": 1,
+            "river_trained": 202,
+            "target_decisions": 980,
+            "trained": 977,
+            "turn_fallback": 1,
+            "turn_trained": 219
+          },
+          "partitions": {
+            "continued": {
+              "hands": 13,
+              "target_chips": 1600
+            },
+            "folded": {
+              "hands": 2,
+              "target_chips": 1000
+            },
+            "no_large_raise": {
+              "hands": 497,
+              "target_chips": -1850
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 8,
+            "flop_trained": 293,
+            "full_stack_losses": 11,
+            "full_stack_wins": 16,
+            "hands": 512,
+            "jam_actions": 29,
+            "jam_opportunities": 99,
+            "large_actions": 40,
+            "large_calls": 0,
+            "large_fallback": 2,
+            "large_opportunities": 96,
+            "large_trained": 38,
+            "no_response": 0,
+            "preflop_trained": 513,
+            "rival_continuations": 39,
+            "rival_folds": 1,
+            "river_fallback": 2,
+            "river_trained": 187,
+            "target_decisions": 1221,
+            "trained": 1213,
+            "turn_fallback": 6,
+            "turn_trained": 220
+          },
+          "partitions": {
+            "continued": {
+              "hands": 37,
+              "target_chips": 10600
+            },
+            "folded": {
+              "hands": 1,
+              "target_chips": 400
+            },
+            "no_large_raise": {
+              "hands": 474,
+              "target_chips": 9100
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 1.46484375,
+          "bb_per_hand": 0.0146484375,
+          "blocks": 512,
+          "ci95": [
+            -33.059745892252906,
+            35.989433392252906
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 39.2578125,
+          "bb_per_hand": 0.392578125,
+          "blocks": 512,
+          "ci95": [
+            -9.582150879985441,
+            88.09777587998545
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093001
+    },
+    {
+      "counts": {
+        "allin_calls": 55,
+        "fallback": 2,
+        "flop_trained": 442,
+        "full_stack_losses": 45,
+        "full_stack_wins": 57,
+        "hands": 1024,
+        "jam_actions": 53,
+        "jam_opportunities": 299,
+        "large_actions": 47,
+        "large_calls": 51,
+        "large_opportunities": 250,
+        "large_trained": 47,
+        "no_response": 0,
+        "preflop_trained": 887,
+        "rival_continuations": 46,
+        "rival_folds": 1,
+        "river_fallback": 1,
+        "river_trained": 189,
+        "target_decisions": 1792,
+        "trained": 1790,
+        "turn_fallback": 1,
+        "turn_trained": 272
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 16.650390625,
+        "bb_per_hand": 0.16650390625,
+        "blocks": 512,
+        "ci95": [
+          -14.095357154773929,
+          47.39613840477393
+        ],
+        "reason": null
+      },
+      "panel": "loose_aggressive",
+      "partitions": {
+        "continued": {
+          "hands": 46,
+          "target_chips": 15800
+        },
+        "folded": {
+          "hands": 1,
+          "target_chips": 600
+        },
+        "no_large_raise": {
+          "hands": 977,
+          "target_chips": 650
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 27,
+            "fallback": 0,
+            "flop_trained": 204,
+            "full_stack_losses": 17,
+            "full_stack_wins": 25,
+            "hands": 512,
+            "jam_actions": 18,
+            "jam_opportunities": 117,
+            "large_actions": 16,
+            "large_calls": 33,
+            "large_opportunities": 92,
+            "large_trained": 16,
+            "no_response": 0,
+            "preflop_trained": 273,
+            "rival_continuations": 16,
+            "rival_folds": 0,
+            "river_trained": 100,
+            "target_decisions": 698,
+            "trained": 698,
+            "turn_trained": 121
+          },
+          "partitions": {
+            "continued": {
+              "hands": 16,
+              "target_chips": 3000
+            },
+            "no_large_raise": {
+              "hands": 496,
+              "target_chips": 14300
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 28,
+            "fallback": 2,
+            "flop_trained": 238,
+            "full_stack_losses": 28,
+            "full_stack_wins": 32,
+            "hands": 512,
+            "jam_actions": 35,
+            "jam_opportunities": 182,
+            "large_actions": 31,
+            "large_calls": 18,
+            "large_opportunities": 158,
+            "large_trained": 31,
+            "no_response": 0,
+            "preflop_trained": 614,
+            "rival_continuations": 30,
+            "rival_folds": 1,
+            "river_fallback": 1,
+            "river_trained": 89,
+            "target_decisions": 1094,
+            "trained": 1092,
+            "turn_fallback": 1,
+            "turn_trained": 151
+          },
+          "partitions": {
+            "continued": {
+              "hands": 30,
+              "target_chips": 12800
+            },
+            "folded": {
+              "hands": 1,
+              "target_chips": 600
+            },
+            "no_large_raise": {
+              "hands": 481,
+              "target_chips": -13650
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 33.7890625,
+          "bb_per_hand": 0.337890625,
+          "blocks": 512,
+          "ci95": [
+            -20.538971585795885,
+            88.11709658579588
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": -0.48828125,
+          "bb_per_hand": -0.0048828125,
+          "blocks": 512,
+          "ci95": [
+            -65.15262995199588,
+            64.17606745199588
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093001
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 0,
+        "flop_trained": 208,
+        "full_stack_losses": 2,
+        "full_stack_wins": 0,
+        "hands": 1024,
+        "jam_actions": 4,
+        "jam_opportunities": 13,
+        "large_actions": 7,
+        "large_calls": 0,
+        "large_opportunities": 12,
+        "large_trained": 7,
+        "no_response": 0,
+        "preflop_trained": 554,
+        "rival_continuations": 7,
+        "rival_folds": 0,
+        "river_trained": 72,
+        "target_decisions": 960,
+        "trained": 960,
+        "turn_trained": 126
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 53.02734375,
+        "bb_per_hand": 0.5302734375,
+        "blocks": 512,
+        "ci95": [
+          44.27060048683274,
+          61.78408701316726
+        ],
+        "reason": null
+      },
+      "panel": "tight_passive",
+      "partitions": {
+        "continued": {
+          "hands": 7,
+          "target_chips": -400
+        },
+        "no_large_raise": {
+          "hands": 1017,
+          "target_chips": 54700
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 0,
+            "flop_trained": 36,
+            "full_stack_losses": 2,
+            "full_stack_wins": 0,
+            "hands": 512,
+            "jam_actions": 2,
+            "jam_opportunities": 7,
+            "large_actions": 3,
+            "large_calls": 0,
+            "large_opportunities": 7,
+            "large_trained": 3,
+            "no_response": 0,
+            "preflop_trained": 41,
+            "rival_continuations": 3,
+            "rival_folds": 0,
+            "river_trained": 24,
+            "target_decisions": 125,
+            "trained": 125,
+            "turn_trained": 24
+          },
+          "partitions": {
+            "continued": {
+              "hands": 3,
+              "target_chips": -5200
+            },
+            "no_large_raise": {
+              "hands": 509,
+              "target_chips": 26800
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 0,
+            "flop_trained": 172,
+            "full_stack_losses": 0,
+            "full_stack_wins": 0,
+            "hands": 512,
+            "jam_actions": 2,
+            "jam_opportunities": 6,
+            "large_actions": 4,
+            "large_calls": 0,
+            "large_opportunities": 5,
+            "large_trained": 4,
+            "no_response": 0,
+            "preflop_trained": 513,
+            "rival_continuations": 4,
+            "rival_folds": 0,
+            "river_trained": 48,
+            "target_decisions": 835,
+            "trained": 835,
+            "turn_trained": 102
+          },
+          "partitions": {
+            "continued": {
+              "hands": 4,
+              "target_chips": 4800
+            },
+            "no_large_raise": {
+              "hands": 508,
+              "target_chips": 27900
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 42.1875,
+          "bb_per_hand": 0.421875,
+          "blocks": 512,
+          "ci95": [
+            28.451933838935417,
+            55.92306616106458
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 63.8671875,
+          "bb_per_hand": 0.638671875,
+          "blocks": 512,
+          "ci95": [
+            48.81570611068326,
+            78.91866888931675
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093001
+    },
+    {
+      "counts": {
+        "allin_calls": 14,
+        "fallback": 0,
+        "flop_trained": 205,
+        "full_stack_losses": 9,
+        "full_stack_wins": 8,
+        "hands": 1024,
+        "jam_actions": 6,
+        "jam_opportunities": 37,
+        "large_actions": 4,
+        "large_calls": 16,
+        "large_opportunities": 29,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_trained": 593,
+        "rival_continuations": 2,
+        "rival_folds": 2,
+        "river_trained": 43,
+        "target_decisions": 932,
+        "trained": 932,
+        "turn_trained": 91
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 53.857421875,
+        "bb_per_hand": 0.53857421875,
+        "blocks": 512,
+        "ci95": [
+          36.46151091448996,
+          71.25333283551004
+        ],
+        "reason": null
+      },
+      "panel": "tight_aggressive",
+      "partitions": {
+        "continued": {
+          "hands": 2,
+          "target_chips": 0
+        },
+        "folded": {
+          "hands": 2,
+          "target_chips": 1200
+        },
+        "no_large_raise": {
+          "hands": 1020,
+          "target_chips": 53950
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 9,
+            "fallback": 0,
+            "flop_trained": 31,
+            "full_stack_losses": 6,
+            "full_stack_wins": 3,
+            "hands": 512,
+            "jam_actions": 2,
+            "jam_opportunities": 12,
+            "large_actions": 1,
+            "large_calls": 10,
+            "large_opportunities": 9,
+            "large_trained": 1,
+            "no_response": 0,
+            "preflop_trained": 59,
+            "rival_continuations": 0,
+            "rival_folds": 1,
+            "river_trained": 9,
+            "target_decisions": 108,
+            "trained": 108,
+            "turn_trained": 9
+          },
+          "partitions": {
+            "folded": {
+              "hands": 1,
+              "target_chips": 600
+            },
+            "no_large_raise": {
+              "hands": 511,
+              "target_chips": 20150
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 5,
+            "fallback": 0,
+            "flop_trained": 174,
+            "full_stack_losses": 3,
+            "full_stack_wins": 5,
+            "hands": 512,
+            "jam_actions": 4,
+            "jam_opportunities": 25,
+            "large_actions": 3,
+            "large_calls": 6,
+            "large_opportunities": 20,
+            "large_trained": 3,
+            "no_response": 0,
+            "preflop_trained": 534,
+            "rival_continuations": 2,
+            "rival_folds": 1,
+            "river_trained": 34,
+            "target_decisions": 824,
+            "trained": 824,
+            "turn_trained": 82
+          },
+          "partitions": {
+            "continued": {
+              "hands": 2,
+              "target_chips": 0
+            },
+            "folded": {
+              "hands": 1,
+              "target_chips": 600
+            },
+            "no_large_raise": {
+              "hands": 509,
+              "target_chips": 33800
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 40.52734375,
+          "bb_per_hand": 0.4052734375,
+          "blocks": 512,
+          "ci95": [
+            15.870241794872044,
+            65.18444570512796
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 67.1875,
+          "bb_per_hand": 0.671875,
+          "blocks": 512,
+          "ci95": [
+            42.59864176046308,
+            91.77635823953692
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093001
+    },
+    {
+      "counts": {
+        "allin_calls": 271,
+        "fallback": 26,
+        "flop_fallback": 3,
+        "flop_trained": 2749,
+        "full_stack_losses": 355,
+        "full_stack_wins": 318,
+        "hands": 4096,
+        "jam_actions": 720,
+        "jam_opportunities": 3387,
+        "large_actions": 847,
+        "large_calls": 249,
+        "large_fallback": 5,
+        "large_opportunities": 3100,
+        "large_trained": 842,
+        "no_response": 0,
+        "preflop_trained": 5462,
+        "rival_continuations": 455,
+        "rival_folds": 392,
+        "river_fallback": 8,
+        "river_trained": 357,
+        "target_decisions": 9599,
+        "trained": 9573,
+        "turn_fallback": 15,
+        "turn_trained": 1005
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": -49.658203125,
+        "bb_per_hand": -0.49658203125,
+        "blocks": 2048,
+        "ci95": [
+          -71.05207249193296,
+          -28.264333758067046
+        ],
+        "reason": null
+      },
+      "panel": "LBR-original-cap2",
+      "partitions": {
+        "continued": {
+          "hands": 454,
+          "target_chips": 22400
+        },
+        "folded": {
+          "hands": 392,
+          "target_chips": 280200
+        },
+        "no_large_raise": {
+          "hands": 3250,
+          "target_chips": -506000
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 111,
+            "fallback": 14,
+            "flop_fallback": 2,
+            "flop_trained": 1635,
+            "full_stack_losses": 182,
+            "full_stack_wins": 169,
+            "hands": 2048,
+            "jam_actions": 428,
+            "jam_opportunities": 1543,
+            "large_actions": 470,
+            "large_calls": 123,
+            "large_fallback": 3,
+            "large_opportunities": 1435,
+            "large_trained": 467,
+            "no_response": 0,
+            "preflop_trained": 2048,
+            "rival_continuations": 255,
+            "rival_folds": 215,
+            "river_fallback": 2,
+            "river_trained": 137,
+            "target_decisions": 4306,
+            "trained": 4292,
+            "turn_fallback": 10,
+            "turn_trained": 472
+          },
+          "partitions": {
+            "continued": {
+              "hands": 255,
+              "target_chips": 27600
+            },
+            "folded": {
+              "hands": 215,
+              "target_chips": 166900
+            },
+            "no_large_raise": {
+              "hands": 1578,
+              "target_chips": -225400
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 160,
+            "fallback": 12,
+            "flop_fallback": 1,
+            "flop_trained": 1114,
+            "full_stack_losses": 173,
+            "full_stack_wins": 149,
+            "hands": 2048,
+            "jam_actions": 292,
+            "jam_opportunities": 1844,
+            "large_actions": 377,
+            "large_calls": 126,
+            "large_fallback": 2,
+            "large_opportunities": 1665,
+            "large_trained": 375,
+            "no_response": 0,
+            "preflop_trained": 3414,
+            "rival_continuations": 200,
+            "rival_folds": 177,
+            "river_fallback": 6,
+            "river_trained": 220,
+            "target_decisions": 5293,
+            "trained": 5281,
+            "turn_fallback": 5,
+            "turn_trained": 533
+          },
+          "partitions": {
+            "continued": {
+              "hands": 199,
+              "target_chips": -5200
+            },
+            "folded": {
+              "hands": 177,
+              "target_chips": 113300
+            },
+            "no_large_raise": {
+              "hands": 1672,
+              "target_chips": -280600
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -15.087890625,
+          "bb_per_hand": -0.15087890625,
+          "blocks": 2048,
+          "ci95": [
+            -54.7883603774769,
+            24.6125791274769
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": -84.228515625,
+          "bb_per_hand": -0.84228515625,
+          "blocks": 2048,
+          "ci95": [
+            -122.96915762364674,
+            -45.487873626353256
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093002
+    },
+    {
+      "counts": {
+        "allin_calls": 605,
+        "fallback": 188,
+        "flop_fallback": 37,
+        "flop_trained": 7382,
+        "full_stack_losses": 836,
+        "full_stack_wins": 1174,
+        "hands": 8192,
+        "jam_actions": 2794,
+        "jam_opportunities": 12157,
+        "large_actions": 2704,
+        "large_calls": 228,
+        "large_fallback": 26,
+        "large_opportunities": 10646,
+        "large_trained": 2678,
+        "no_response": 0,
+        "preflop_fallback": 15,
+        "preflop_trained": 13948,
+        "rival_continuations": 1745,
+        "rival_folds": 959,
+        "river_fallback": 59,
+        "river_trained": 2014,
+        "target_decisions": 27632,
+        "trained": 27444,
+        "turn_fallback": 77,
+        "turn_trained": 4100
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 121.435546875,
+        "bb_per_hand": 1.21435546875,
+        "blocks": 4096,
+        "ci95": [
+          102.9713200221172,
+          139.8997737278828
+        ],
+        "reason": null
+      },
+      "panel": "Pressure-native",
+      "partitions": {
+        "continued": {
+          "hands": 1745,
+          "target_chips": 598100
+        },
+        "folded": {
+          "hands": 959,
+          "target_chips": 746100
+        },
+        "no_large_raise": {
+          "hands": 5488,
+          "target_chips": -349400
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 319,
+            "fallback": 92,
+            "flop_fallback": 15,
+            "flop_trained": 4727,
+            "full_stack_losses": 428,
+            "full_stack_wins": 627,
+            "hands": 4096,
+            "jam_actions": 1465,
+            "jam_opportunities": 6326,
+            "large_actions": 1485,
+            "large_calls": 136,
+            "large_fallback": 12,
+            "large_opportunities": 5594,
+            "large_trained": 1473,
+            "no_response": 0,
+            "preflop_fallback": 1,
+            "preflop_trained": 5611,
+            "rival_continuations": 922,
+            "rival_folds": 563,
+            "river_fallback": 34,
+            "river_trained": 1127,
+            "target_decisions": 13866,
+            "trained": 13774,
+            "turn_fallback": 42,
+            "turn_trained": 2309
+          },
+          "partitions": {
+            "continued": {
+              "hands": 922,
+              "target_chips": 355700
+            },
+            "folded": {
+              "hands": 563,
+              "target_chips": 477400
+            },
+            "no_large_raise": {
+              "hands": 2611,
+              "target_chips": -266600
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 286,
+            "fallback": 96,
+            "flop_fallback": 22,
+            "flop_trained": 2655,
+            "full_stack_losses": 408,
+            "full_stack_wins": 547,
+            "hands": 4096,
+            "jam_actions": 1329,
+            "jam_opportunities": 5831,
+            "large_actions": 1219,
+            "large_calls": 92,
+            "large_fallback": 14,
+            "large_opportunities": 5052,
+            "large_trained": 1205,
+            "no_response": 0,
+            "preflop_fallback": 14,
+            "preflop_trained": 8337,
+            "rival_continuations": 823,
+            "rival_folds": 396,
+            "river_fallback": 25,
+            "river_trained": 887,
+            "target_decisions": 13766,
+            "trained": 13670,
+            "turn_fallback": 35,
+            "turn_trained": 1791
+          },
+          "partitions": {
+            "continued": {
+              "hands": 823,
+              "target_chips": 242400
+            },
+            "folded": {
+              "hands": 396,
+              "target_chips": 268700
+            },
+            "no_large_raise": {
+              "hands": 2877,
+              "target_chips": -82800
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 138.3056640625,
+          "bb_per_hand": 1.383056640625,
+          "blocks": 4096,
+          "ci95": [
+            103.65199102159497,
+            172.95933710340503
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 104.5654296875,
+          "bb_per_hand": 1.045654296875,
+          "blocks": 4096,
+          "ci95": [
+            70.81039295804521,
+            138.3204664169548
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093002
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 2,
+        "flop_trained": 2802,
+        "full_stack_losses": 49,
+        "full_stack_wins": 28,
+        "hands": 8192,
+        "jam_actions": 93,
+        "jam_opportunities": 421,
+        "large_actions": 137,
+        "large_calls": 0,
+        "large_opportunities": 413,
+        "large_trained": 137,
+        "no_response": 0,
+        "preflop_trained": 5245,
+        "rival_continuations": 117,
+        "rival_folds": 20,
+        "river_fallback": 1,
+        "river_trained": 1458,
+        "target_decisions": 11467,
+        "trained": 11465,
+        "turn_fallback": 1,
+        "turn_trained": 1960
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 28.497314453125,
+        "bb_per_hand": 0.28497314453125,
+        "blocks": 4096,
+        "ci95": [
+          23.18311917929684,
+          33.81150972695316
+        ],
+        "reason": null
+      },
+      "panel": "selective_stackoff",
+      "partitions": {
+        "continued": {
+          "hands": 114,
+          "target_chips": -69000
+        },
+        "folded": {
+          "hands": 19,
+          "target_chips": 10100
+        },
+        "no_large_raise": {
+          "hands": 8059,
+          "target_chips": 292350
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 0,
+            "flop_trained": 973,
+            "full_stack_losses": 18,
+            "full_stack_wins": 6,
+            "hands": 4096,
+            "jam_actions": 30,
+            "jam_opportunities": 168,
+            "large_actions": 43,
+            "large_calls": 0,
+            "large_opportunities": 167,
+            "large_trained": 43,
+            "no_response": 0,
+            "preflop_trained": 1120,
+            "rival_continuations": 36,
+            "rival_folds": 7,
+            "river_trained": 617,
+            "target_decisions": 3448,
+            "trained": 3448,
+            "turn_trained": 738
+          },
+          "partitions": {
+            "continued": {
+              "hands": 34,
+              "target_chips": -29100
+            },
+            "folded": {
+              "hands": 6,
+              "target_chips": 3200
+            },
+            "no_large_raise": {
+              "hands": 4056,
+              "target_chips": 161800
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 2,
+            "flop_trained": 1829,
+            "full_stack_losses": 31,
+            "full_stack_wins": 22,
+            "hands": 4096,
+            "jam_actions": 63,
+            "jam_opportunities": 253,
+            "large_actions": 94,
+            "large_calls": 0,
+            "large_opportunities": 246,
+            "large_trained": 94,
+            "no_response": 0,
+            "preflop_trained": 4125,
+            "rival_continuations": 81,
+            "rival_folds": 13,
+            "river_fallback": 1,
+            "river_trained": 841,
+            "target_decisions": 8019,
+            "trained": 8017,
+            "turn_fallback": 1,
+            "turn_trained": 1222
+          },
+          "partitions": {
+            "continued": {
+              "hands": 80,
+              "target_chips": -39900
+            },
+            "folded": {
+              "hands": 13,
+              "target_chips": 6900
+            },
+            "no_large_raise": {
+              "hands": 4003,
+              "target_chips": 130550
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 33.1787109375,
+          "bb_per_hand": 0.331787109375,
+          "blocks": 4096,
+          "ci95": [
+            26.858403711276253,
+            39.49901816372375
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 23.81591796875,
+          "bb_per_hand": 0.2381591796875,
+          "blocks": 4096,
+          "ci95": [
+            14.369501106679204,
+            33.2623348308208
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093002
+    },
+    {
+      "counts": {
+        "allin_calls": 34,
+        "fallback": 257,
+        "flop_fallback": 62,
+        "flop_trained": 183,
+        "full_stack_losses": 38,
+        "full_stack_wins": 24,
+        "hands": 1024,
+        "jam_actions": 57,
+        "jam_opportunities": 230,
+        "large_actions": 80,
+        "large_calls": 37,
+        "large_fallback": 77,
+        "large_opportunities": 218,
+        "large_trained": 3,
+        "no_response": 0,
+        "preflop_fallback": 119,
+        "preflop_trained": 575,
+        "rival_continuations": 44,
+        "rival_folds": 36,
+        "river_fallback": 27,
+        "river_trained": 40,
+        "target_decisions": 1146,
+        "trained": 889,
+        "turn_fallback": 49,
+        "turn_trained": 91
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 15.4296875,
+        "bb_per_hand": 0.154296875,
+        "blocks": 512,
+        "ci95": [
+          -16.777627168791945,
+          47.637002168791945
+        ],
+        "reason": null
+      },
+      "panel": "pot_pressure",
+      "partitions": {
+        "continued": {
+          "hands": 44,
+          "target_chips": -22400
+        },
+        "folded": {
+          "hands": 35,
+          "target_chips": 15300
+        },
+        "no_large_raise": {
+          "hands": 945,
+          "target_chips": 22900
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 15,
+            "fallback": 92,
+            "flop_fallback": 16,
+            "flop_trained": 50,
+            "full_stack_losses": 17,
+            "full_stack_wins": 9,
+            "hands": 512,
+            "jam_actions": 22,
+            "jam_opportunities": 86,
+            "large_actions": 35,
+            "large_calls": 17,
+            "large_fallback": 32,
+            "large_opportunities": 84,
+            "large_trained": 3,
+            "no_response": 0,
+            "preflop_fallback": 59,
+            "preflop_trained": 59,
+            "rival_continuations": 25,
+            "rival_folds": 10,
+            "river_fallback": 8,
+            "river_trained": 19,
+            "target_decisions": 253,
+            "trained": 161,
+            "turn_fallback": 9,
+            "turn_trained": 33
+          },
+          "partitions": {
+            "continued": {
+              "hands": 25,
+              "target_chips": -14000
+            },
+            "folded": {
+              "hands": 9,
+              "target_chips": 3600
+            },
+            "no_large_raise": {
+              "hands": 478,
+              "target_chips": 13050
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 19,
+            "fallback": 165,
+            "flop_fallback": 46,
+            "flop_trained": 133,
+            "full_stack_losses": 21,
+            "full_stack_wins": 15,
+            "hands": 512,
+            "jam_actions": 35,
+            "jam_opportunities": 144,
+            "large_actions": 45,
+            "large_calls": 20,
+            "large_fallback": 45,
+            "large_opportunities": 134,
+            "no_response": 0,
+            "preflop_fallback": 60,
+            "preflop_trained": 516,
+            "rival_continuations": 19,
+            "rival_folds": 26,
+            "river_fallback": 19,
+            "river_trained": 21,
+            "target_decisions": 893,
+            "trained": 728,
+            "turn_fallback": 40,
+            "turn_trained": 58
+          },
+          "partitions": {
+            "continued": {
+              "hands": 19,
+              "target_chips": -8400
+            },
+            "folded": {
+              "hands": 26,
+              "target_chips": 11700
+            },
+            "no_large_raise": {
+              "hands": 467,
+              "target_chips": 9850
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 5.17578125,
+          "bb_per_hand": 0.0517578125,
+          "blocks": 512,
+          "ci95": [
+            -36.83223838226631,
+            47.18380088226631
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 25.68359375,
+          "bb_per_hand": 0.2568359375,
+          "blocks": 512,
+          "ci95": [
+            -25.054007877986628,
+            76.42119537798663
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093002
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 2,
+        "flop_trained": 908,
+        "full_stack_losses": 37,
+        "full_stack_wins": 81,
+        "hands": 1024,
+        "jam_actions": 119,
+        "jam_opportunities": 432,
+        "large_actions": 181,
+        "large_calls": 0,
+        "large_opportunities": 429,
+        "large_trained": 181,
+        "no_response": 0,
+        "preflop_trained": 1024,
+        "rival_continuations": 181,
+        "rival_folds": 0,
+        "river_trained": 903,
+        "target_decisions": 3743,
+        "trained": 3741,
+        "turn_fallback": 2,
+        "turn_trained": 906
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 130.2734375,
+        "bb_per_hand": 1.302734375,
+        "blocks": 512,
+        "ci95": [
+          95.20998025746316,
+          165.33689474253686
+        ],
+        "reason": null
+      },
+      "panel": "passive",
+      "partitions": {
+        "continued": {
+          "hands": 171,
+          "target_chips": 100700
+        },
+        "no_large_raise": {
+          "hands": 853,
+          "target_chips": 32700
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 0,
+            "flop_trained": 512,
+            "full_stack_losses": 17,
+            "full_stack_wins": 31,
+            "hands": 512,
+            "jam_actions": 49,
+            "jam_opportunities": 233,
+            "large_actions": 83,
+            "large_calls": 0,
+            "large_opportunities": 230,
+            "large_trained": 83,
+            "no_response": 0,
+            "preflop_trained": 512,
+            "rival_continuations": 83,
+            "rival_folds": 0,
+            "river_trained": 508,
+            "target_decisions": 2044,
+            "trained": 2044,
+            "turn_trained": 512
+          },
+          "partitions": {
+            "continued": {
+              "hands": 75,
+              "target_chips": 35700
+            },
+            "no_large_raise": {
+              "hands": 437,
+              "target_chips": 29300
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 2,
+            "flop_trained": 396,
+            "full_stack_losses": 20,
+            "full_stack_wins": 50,
+            "hands": 512,
+            "jam_actions": 70,
+            "jam_opportunities": 199,
+            "large_actions": 98,
+            "large_calls": 0,
+            "large_opportunities": 199,
+            "large_trained": 98,
+            "no_response": 0,
+            "preflop_trained": 512,
+            "rival_continuations": 98,
+            "rival_folds": 0,
+            "river_trained": 395,
+            "target_decisions": 1699,
+            "trained": 1697,
+            "turn_fallback": 2,
+            "turn_trained": 394
+          },
+          "partitions": {
+            "continued": {
+              "hands": 96,
+              "target_chips": 65000
+            },
+            "no_large_raise": {
+              "hands": 416,
+              "target_chips": 3400
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 126.953125,
+          "bb_per_hand": 1.26953125,
+          "blocks": 512,
+          "ci95": [
+            59.295766305599116,
+            194.6104836944009
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 133.59375,
+          "bb_per_hand": 1.3359375,
+          "blocks": 512,
+          "ci95": [
+            56.603937790749015,
+            210.583562209251
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093002
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 10,
+        "flop_fallback": 3,
+        "flop_trained": 582,
+        "full_stack_losses": 7,
+        "full_stack_wins": 22,
+        "hands": 1024,
+        "jam_actions": 32,
+        "jam_opportunities": 137,
+        "large_actions": 47,
+        "large_calls": 1,
+        "large_fallback": 4,
+        "large_opportunities": 134,
+        "large_trained": 43,
+        "no_response": 0,
+        "preflop_trained": 798,
+        "rival_continuations": 45,
+        "rival_folds": 2,
+        "river_fallback": 2,
+        "river_trained": 404,
+        "target_decisions": 2247,
+        "trained": 2237,
+        "turn_fallback": 5,
+        "turn_trained": 453
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 52.001953125,
+        "bb_per_hand": 0.52001953125,
+        "blocks": 512,
+        "ci95": [
+          29.2712567455349,
+          74.7326495044651
+        ],
+        "reason": null
+      },
+      "panel": "loose_passive",
+      "partitions": {
+        "continued": {
+          "hands": 43,
+          "target_chips": 35200
+        },
+        "folded": {
+          "hands": 2,
+          "target_chips": 1400
+        },
+        "no_large_raise": {
+          "hands": 979,
+          "target_chips": 16650
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 4,
+            "flop_fallback": 1,
+            "flop_trained": 274,
+            "full_stack_losses": 6,
+            "full_stack_wins": 9,
+            "hands": 512,
+            "jam_actions": 16,
+            "jam_opportunities": 72,
+            "large_actions": 22,
+            "large_calls": 1,
+            "large_fallback": 2,
+            "large_opportunities": 70,
+            "large_trained": 20,
+            "no_response": 0,
+            "preflop_trained": 282,
+            "rival_continuations": 21,
+            "rival_folds": 1,
+            "river_fallback": 1,
+            "river_trained": 206,
+            "target_decisions": 991,
+            "trained": 987,
+            "turn_fallback": 2,
+            "turn_trained": 225
+          },
+          "partitions": {
+            "continued": {
+              "hands": 20,
+              "target_chips": 8200
+            },
+            "folded": {
+              "hands": 1,
+              "target_chips": 600
+            },
+            "no_large_raise": {
+              "hands": 491,
+              "target_chips": 2550
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 6,
+            "flop_fallback": 2,
+            "flop_trained": 308,
+            "full_stack_losses": 1,
+            "full_stack_wins": 13,
+            "hands": 512,
+            "jam_actions": 16,
+            "jam_opportunities": 65,
+            "large_actions": 25,
+            "large_calls": 0,
+            "large_fallback": 2,
+            "large_opportunities": 64,
+            "large_trained": 23,
+            "no_response": 0,
+            "preflop_trained": 516,
+            "rival_continuations": 24,
+            "rival_folds": 1,
+            "river_fallback": 1,
+            "river_trained": 198,
+            "target_decisions": 1256,
+            "trained": 1250,
+            "turn_fallback": 3,
+            "turn_trained": 228
+          },
+          "partitions": {
+            "continued": {
+              "hands": 23,
+              "target_chips": 27000
+            },
+            "folded": {
+              "hands": 1,
+              "target_chips": 800
+            },
+            "no_large_raise": {
+              "hands": 488,
+              "target_chips": 14100
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 22.16796875,
+          "bb_per_hand": 0.2216796875,
+          "blocks": 512,
+          "ci95": [
+            -17.02157201983114,
+            61.35750951983114
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 81.8359375,
+          "bb_per_hand": 0.818359375,
+          "blocks": 512,
+          "ci95": [
+            42.0745823974206,
+            121.5972926025794
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093002
+    },
+    {
+      "counts": {
+        "allin_calls": 58,
+        "fallback": 2,
+        "flop_trained": 460,
+        "full_stack_losses": 46,
+        "full_stack_wins": 62,
+        "hands": 1024,
+        "jam_actions": 61,
+        "jam_opportunities": 293,
+        "large_actions": 63,
+        "large_calls": 47,
+        "large_opportunities": 248,
+        "large_trained": 63,
+        "no_response": 0,
+        "preflop_trained": 881,
+        "rival_continuations": 60,
+        "rival_folds": 3,
+        "river_fallback": 1,
+        "river_trained": 203,
+        "target_decisions": 1858,
+        "trained": 1856,
+        "turn_fallback": 1,
+        "turn_trained": 312
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 36.669921875,
+        "bb_per_hand": 0.36669921875,
+        "blocks": 512,
+        "ci95": [
+          6.185052364704671,
+          67.15479138529533
+        ],
+        "reason": null
+      },
+      "panel": "loose_aggressive",
+      "partitions": {
+        "continued": {
+          "hands": 59,
+          "target_chips": 36800
+        },
+        "folded": {
+          "hands": 3,
+          "target_chips": 2400
+        },
+        "no_large_raise": {
+          "hands": 962,
+          "target_chips": -1650
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 27,
+            "fallback": 0,
+            "flop_trained": 223,
+            "full_stack_losses": 17,
+            "full_stack_wins": 27,
+            "hands": 512,
+            "jam_actions": 21,
+            "jam_opportunities": 102,
+            "large_actions": 21,
+            "large_calls": 25,
+            "large_opportunities": 84,
+            "large_trained": 21,
+            "no_response": 0,
+            "preflop_trained": 267,
+            "rival_continuations": 20,
+            "rival_folds": 1,
+            "river_trained": 95,
+            "target_decisions": 722,
+            "trained": 722,
+            "turn_trained": 137
+          },
+          "partitions": {
+            "continued": {
+              "hands": 20,
+              "target_chips": 19600
+            },
+            "folded": {
+              "hands": 1,
+              "target_chips": 900
+            },
+            "no_large_raise": {
+              "hands": 491,
+              "target_chips": 2000
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 31,
+            "fallback": 2,
+            "flop_trained": 237,
+            "full_stack_losses": 29,
+            "full_stack_wins": 35,
+            "hands": 512,
+            "jam_actions": 40,
+            "jam_opportunities": 191,
+            "large_actions": 42,
+            "large_calls": 22,
+            "large_opportunities": 164,
+            "large_trained": 42,
+            "no_response": 0,
+            "preflop_trained": 614,
+            "rival_continuations": 40,
+            "rival_folds": 2,
+            "river_fallback": 1,
+            "river_trained": 108,
+            "target_decisions": 1136,
+            "trained": 1134,
+            "turn_fallback": 1,
+            "turn_trained": 175
+          },
+          "partitions": {
+            "continued": {
+              "hands": 39,
+              "target_chips": 17200
+            },
+            "folded": {
+              "hands": 2,
+              "target_chips": 1500
+            },
+            "no_large_raise": {
+              "hands": 471,
+              "target_chips": -3650
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 43.9453125,
+          "bb_per_hand": 0.439453125,
+          "blocks": 512,
+          "ci95": [
+            -10.180830723947793,
+            98.07145572394779
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 29.39453125,
+          "bb_per_hand": 0.2939453125,
+          "blocks": 512,
+          "ci95": [
+            -38.27558912011118,
+            97.06465162011118
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093002
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 0,
+        "flop_trained": 236,
+        "full_stack_losses": 2,
+        "full_stack_wins": 3,
+        "hands": 1024,
+        "jam_actions": 5,
+        "jam_opportunities": 11,
+        "large_actions": 6,
+        "large_calls": 0,
+        "large_opportunities": 11,
+        "large_trained": 6,
+        "no_response": 0,
+        "preflop_trained": 553,
+        "rival_continuations": 6,
+        "rival_folds": 0,
+        "river_trained": 96,
+        "target_decisions": 1030,
+        "trained": 1030,
+        "turn_trained": 145
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 49.658203125,
+        "bb_per_hand": 0.49658203125,
+        "blocks": 512,
+        "ci95": [
+          38.7298151853315,
+          60.5865910646685
+        ],
+        "reason": null
+      },
+      "panel": "tight_passive",
+      "partitions": {
+        "continued": {
+          "hands": 6,
+          "target_chips": 800
+        },
+        "no_large_raise": {
+          "hands": 1018,
+          "target_chips": 50050
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 0,
+            "flop_trained": 37,
+            "full_stack_losses": 2,
+            "full_stack_wins": 1,
+            "hands": 512,
+            "jam_actions": 3,
+            "jam_opportunities": 5,
+            "large_actions": 4,
+            "large_calls": 0,
+            "large_opportunities": 5,
+            "large_trained": 4,
+            "no_response": 0,
+            "preflop_trained": 40,
+            "rival_continuations": 4,
+            "rival_folds": 0,
+            "river_trained": 22,
+            "target_decisions": 125,
+            "trained": 125,
+            "turn_trained": 26
+          },
+          "partitions": {
+            "continued": {
+              "hands": 4,
+              "target_chips": -3200
+            },
+            "no_large_raise": {
+              "hands": 508,
+              "target_chips": 26800
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 0,
+            "flop_trained": 199,
+            "full_stack_losses": 0,
+            "full_stack_wins": 2,
+            "hands": 512,
+            "jam_actions": 2,
+            "jam_opportunities": 6,
+            "large_actions": 2,
+            "large_calls": 0,
+            "large_opportunities": 6,
+            "large_trained": 2,
+            "no_response": 0,
+            "preflop_trained": 513,
+            "rival_continuations": 2,
+            "rival_folds": 0,
+            "river_trained": 74,
+            "target_decisions": 905,
+            "trained": 905,
+            "turn_trained": 119
+          },
+          "partitions": {
+            "continued": {
+              "hands": 2,
+              "target_chips": 4000
+            },
+            "no_large_raise": {
+              "hands": 510,
+              "target_chips": 23250
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 46.09375,
+          "bb_per_hand": 0.4609375,
+          "blocks": 512,
+          "ci95": [
+            31.123030536391894,
+            61.064469463608106
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 53.22265625,
+          "bb_per_hand": 0.5322265625,
+          "blocks": 512,
+          "ci95": [
+            37.04651855714235,
+            69.39879394285765
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093002
+    },
+    {
+      "counts": {
+        "allin_calls": 6,
+        "fallback": 0,
+        "flop_trained": 248,
+        "full_stack_losses": 10,
+        "full_stack_wins": 4,
+        "hands": 1024,
+        "jam_actions": 12,
+        "jam_opportunities": 46,
+        "large_actions": 9,
+        "large_calls": 9,
+        "large_opportunities": 32,
+        "large_trained": 9,
+        "no_response": 0,
+        "preflop_trained": 591,
+        "rival_continuations": 8,
+        "rival_folds": 1,
+        "river_trained": 53,
+        "target_decisions": 1009,
+        "trained": 1009,
+        "turn_trained": 117
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 41.2109375,
+        "bb_per_hand": 0.412109375,
+        "blocks": 512,
+        "ci95": [
+          24.352314987092143,
+          58.06956001290786
+        ],
+        "reason": null
+      },
+      "panel": "tight_aggressive",
+      "partitions": {
+        "continued": {
+          "hands": 8,
+          "target_chips": -6000
+        },
+        "folded": {
+          "hands": 1,
+          "target_chips": 900
+        },
+        "no_large_raise": {
+          "hands": 1015,
+          "target_chips": 47300
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 4,
+            "fallback": 0,
+            "flop_trained": 41,
+            "full_stack_losses": 3,
+            "full_stack_wins": 1,
+            "hands": 512,
+            "jam_actions": 1,
+            "jam_opportunities": 17,
+            "large_actions": 0,
+            "large_calls": 7,
+            "large_opportunities": 8,
+            "no_response": 0,
+            "preflop_trained": 55,
+            "rival_continuations": 0,
+            "rival_folds": 0,
+            "river_trained": 11,
+            "target_decisions": 126,
+            "trained": 126,
+            "turn_trained": 19
+          },
+          "partitions": {
+            "no_large_raise": {
+              "hands": 512,
+              "target_chips": 22650
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 2,
+            "fallback": 0,
+            "flop_trained": 207,
+            "full_stack_losses": 7,
+            "full_stack_wins": 3,
+            "hands": 512,
+            "jam_actions": 11,
+            "jam_opportunities": 29,
+            "large_actions": 9,
+            "large_calls": 2,
+            "large_opportunities": 24,
+            "large_trained": 9,
+            "no_response": 0,
+            "preflop_trained": 536,
+            "rival_continuations": 8,
+            "rival_folds": 1,
+            "river_trained": 42,
+            "target_decisions": 883,
+            "trained": 883,
+            "turn_trained": 98
+          },
+          "partitions": {
+            "continued": {
+              "hands": 8,
+              "target_chips": -6000
+            },
+            "folded": {
+              "hands": 1,
+              "target_chips": 900
+            },
+            "no_large_raise": {
+              "hands": 503,
+              "target_chips": 24650
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 44.23828125,
+          "bb_per_hand": 0.4423828125,
+          "blocks": 512,
+          "ci95": [
+            24.766605570128736,
+            63.70995692987127
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 38.18359375,
+          "bb_per_hand": 0.3818359375,
+          "blocks": 512,
+          "ci95": [
+            10.532876154067267,
+            65.83431134593273
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093002
+    },
+    {
+      "counts": {
+        "allin_calls": 272,
+        "fallback": 23,
+        "flop_fallback": 3,
+        "flop_trained": 2868,
+        "full_stack_losses": 385,
+        "full_stack_wins": 323,
+        "hands": 4096,
+        "jam_actions": 747,
+        "jam_opportunities": 3334,
+        "large_actions": 858,
+        "large_calls": 227,
+        "large_fallback": 4,
+        "large_opportunities": 3052,
+        "large_trained": 854,
+        "no_response": 0,
+        "preflop_trained": 5357,
+        "rival_continuations": 466,
+        "rival_folds": 392,
+        "river_fallback": 7,
+        "river_trained": 340,
+        "target_decisions": 9570,
+        "trained": 9547,
+        "turn_fallback": 13,
+        "turn_trained": 982
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": -69.71435546875,
+        "bb_per_hand": -0.6971435546875,
+        "blocks": 2048,
+        "ci95": [
+          -90.96578295177653,
+          -48.46292798572347
+        ],
+        "reason": null
+      },
+      "panel": "LBR-original-cap2",
+      "partitions": {
+        "continued": {
+          "hands": 466,
+          "target_chips": -33800
+        },
+        "folded": {
+          "hands": 392,
+          "target_chips": 283000
+        },
+        "no_large_raise": {
+          "hands": 3238,
+          "target_chips": -534750
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 118,
+            "fallback": 7,
+            "flop_trained": 1820,
+            "full_stack_losses": 207,
+            "full_stack_wins": 165,
+            "hands": 2048,
+            "jam_actions": 454,
+            "jam_opportunities": 1643,
+            "large_actions": 512,
+            "large_calls": 110,
+            "large_fallback": 1,
+            "large_opportunities": 1541,
+            "large_trained": 511,
+            "no_response": 0,
+            "preflop_trained": 2048,
+            "rival_continuations": 281,
+            "rival_folds": 231,
+            "river_fallback": 2,
+            "river_trained": 179,
+            "target_decisions": 4597,
+            "trained": 4590,
+            "turn_fallback": 5,
+            "turn_trained": 543
+          },
+          "partitions": {
+            "continued": {
+              "hands": 281,
+              "target_chips": -28500
+            },
+            "folded": {
+              "hands": 231,
+              "target_chips": 176800
+            },
+            "no_large_raise": {
+              "hands": 1536,
+              "target_chips": -240700
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 154,
+            "fallback": 16,
+            "flop_fallback": 3,
+            "flop_trained": 1048,
+            "full_stack_losses": 178,
+            "full_stack_wins": 158,
+            "hands": 2048,
+            "jam_actions": 293,
+            "jam_opportunities": 1691,
+            "large_actions": 346,
+            "large_calls": 117,
+            "large_fallback": 3,
+            "large_opportunities": 1511,
+            "large_trained": 343,
+            "no_response": 0,
+            "preflop_trained": 3309,
+            "rival_continuations": 185,
+            "rival_folds": 161,
+            "river_fallback": 5,
+            "river_trained": 161,
+            "target_decisions": 4973,
+            "trained": 4957,
+            "turn_fallback": 8,
+            "turn_trained": 439
+          },
+          "partitions": {
+            "continued": {
+              "hands": 185,
+              "target_chips": -5300
+            },
+            "folded": {
+              "hands": 161,
+              "target_chips": 106200
+            },
+            "no_large_raise": {
+              "hands": 1702,
+              "target_chips": -294050
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -45.1171875,
+          "bb_per_hand": -0.451171875,
+          "blocks": 2048,
+          "ci95": [
+            -85.84433715885342,
+            -4.390037841146587
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": -94.3115234375,
+          "bb_per_hand": -0.943115234375,
+          "blocks": 2048,
+          "ci95": [
+            -133.01675421777796,
+            -55.60629265722204
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093003
+    },
+    {
+      "counts": {
+        "allin_calls": 767,
+        "fallback": 162,
+        "flop_fallback": 18,
+        "flop_trained": 8066,
+        "full_stack_losses": 997,
+        "full_stack_wins": 1226,
+        "hands": 8192,
+        "jam_actions": 2893,
+        "jam_opportunities": 12369,
+        "large_actions": 2958,
+        "large_calls": 241,
+        "large_fallback": 25,
+        "large_opportunities": 11052,
+        "large_trained": 2933,
+        "no_response": 0,
+        "preflop_fallback": 3,
+        "preflop_trained": 13803,
+        "rival_continuations": 1957,
+        "rival_folds": 1001,
+        "river_fallback": 57,
+        "river_trained": 1993,
+        "target_decisions": 28150,
+        "trained": 27988,
+        "turn_fallback": 84,
+        "turn_trained": 4126
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 110.33935546875,
+        "bb_per_hand": 1.1033935546875,
+        "blocks": 4096,
+        "ci95": [
+          91.5665139709491,
+          129.1121969665509
+        ],
+        "reason": null
+      },
+      "panel": "Pressure-native",
+      "partitions": {
+        "continued": {
+          "hands": 1957,
+          "target_chips": 449900
+        },
+        "folded": {
+          "hands": 1001,
+          "target_chips": 765400
+        },
+        "no_large_raise": {
+          "hands": 5234,
+          "target_chips": -311400
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 358,
+            "fallback": 95,
+            "flop_fallback": 13,
+            "flop_trained": 5223,
+            "full_stack_losses": 461,
+            "full_stack_wins": 606,
+            "hands": 4096,
+            "jam_actions": 1442,
+            "jam_opportunities": 5883,
+            "large_actions": 1467,
+            "large_calls": 180,
+            "large_fallback": 13,
+            "large_opportunities": 5232,
+            "large_trained": 1454,
+            "no_response": 0,
+            "preflop_fallback": 3,
+            "preflop_trained": 5525,
+            "rival_continuations": 913,
+            "rival_folds": 554,
+            "river_fallback": 30,
+            "river_trained": 953,
+            "target_decisions": 13800,
+            "trained": 13705,
+            "turn_fallback": 49,
+            "turn_trained": 2004
+          },
+          "partitions": {
+            "continued": {
+              "hands": 913,
+              "target_chips": 276200
+            },
+            "folded": {
+              "hands": 554,
+              "target_chips": 449500
+            },
+            "no_large_raise": {
+              "hands": 2629,
+              "target_chips": -206500
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 409,
+            "fallback": 67,
+            "flop_fallback": 5,
+            "flop_trained": 2843,
+            "full_stack_losses": 536,
+            "full_stack_wins": 620,
+            "hands": 4096,
+            "jam_actions": 1451,
+            "jam_opportunities": 6486,
+            "large_actions": 1491,
+            "large_calls": 61,
+            "large_fallback": 12,
+            "large_opportunities": 5820,
+            "large_trained": 1479,
+            "no_response": 0,
+            "preflop_trained": 8278,
+            "rival_continuations": 1044,
+            "rival_folds": 447,
+            "river_fallback": 27,
+            "river_trained": 1040,
+            "target_decisions": 14350,
+            "trained": 14283,
+            "turn_fallback": 35,
+            "turn_trained": 2122
+          },
+          "partitions": {
+            "continued": {
+              "hands": 1044,
+              "target_chips": 173700
+            },
+            "folded": {
+              "hands": 447,
+              "target_chips": 315900
+            },
+            "no_large_raise": {
+              "hands": 2605,
+              "target_chips": -104900
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 126.7578125,
+          "bb_per_hand": 1.267578125,
+          "blocks": 4096,
+          "ci95": [
+            91.96459957625503,
+            161.551025423745
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 93.9208984375,
+          "bb_per_hand": 0.939208984375,
+          "blocks": 4096,
+          "ci95": [
+            57.60958399339049,
+            130.2322128816095
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093003
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 2,
+        "flop_trained": 2501,
+        "full_stack_losses": 49,
+        "full_stack_wins": 22,
+        "hands": 8192,
+        "jam_actions": 95,
+        "jam_opportunities": 436,
+        "large_actions": 146,
+        "large_calls": 0,
+        "large_opportunities": 413,
+        "large_trained": 146,
+        "no_response": 0,
+        "preflop_trained": 5246,
+        "rival_continuations": 114,
+        "rival_folds": 32,
+        "river_fallback": 1,
+        "river_trained": 1187,
+        "target_decisions": 10613,
+        "trained": 10611,
+        "turn_fallback": 1,
+        "turn_trained": 1677
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 38.214111328125,
+        "bb_per_hand": 0.38214111328125,
+        "blocks": 4096,
+        "ci95": [
+          33.17950987512456,
+          43.24871278112544
+        ],
+        "reason": null
+      },
+      "panel": "selective_stackoff",
+      "partitions": {
+        "continued": {
+          "hands": 112,
+          "target_chips": -66700
+        },
+        "folded": {
+          "hands": 31,
+          "target_chips": 16200
+        },
+        "no_large_raise": {
+          "hands": 8049,
+          "target_chips": 363550
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 1,
+            "flop_trained": 888,
+            "full_stack_losses": 22,
+            "full_stack_wins": 6,
+            "hands": 4096,
+            "jam_actions": 41,
+            "jam_opportunities": 190,
+            "large_actions": 57,
+            "large_calls": 0,
+            "large_opportunities": 181,
+            "large_trained": 57,
+            "no_response": 0,
+            "preflop_trained": 1118,
+            "rival_continuations": 38,
+            "rival_folds": 19,
+            "river_trained": 533,
+            "target_decisions": 3195,
+            "trained": 3194,
+            "turn_fallback": 1,
+            "turn_trained": 655
+          },
+          "partitions": {
+            "continued": {
+              "hands": 37,
+              "target_chips": -32200
+            },
+            "folded": {
+              "hands": 18,
+              "target_chips": 8600
+            },
+            "no_large_raise": {
+              "hands": 4041,
+              "target_chips": 172900
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 1,
+            "flop_trained": 1613,
+            "full_stack_losses": 27,
+            "full_stack_wins": 16,
+            "hands": 4096,
+            "jam_actions": 54,
+            "jam_opportunities": 246,
+            "large_actions": 89,
+            "large_calls": 0,
+            "large_opportunities": 232,
+            "large_trained": 89,
+            "no_response": 0,
+            "preflop_trained": 4128,
+            "rival_continuations": 76,
+            "rival_folds": 13,
+            "river_fallback": 1,
+            "river_trained": 654,
+            "target_decisions": 7418,
+            "trained": 7417,
+            "turn_trained": 1022
+          },
+          "partitions": {
+            "continued": {
+              "hands": 75,
+              "target_chips": -34500
+            },
+            "folded": {
+              "hands": 13,
+              "target_chips": 7600
+            },
+            "no_large_raise": {
+              "hands": 4008,
+              "target_chips": 190650
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 36.4501953125,
+          "bb_per_hand": 0.364501953125,
+          "blocks": 4096,
+          "ci95": [
+            29.99736002998117,
+            42.903030595018826
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 39.97802734375,
+          "bb_per_hand": 0.3997802734375,
+          "blocks": 4096,
+          "ci95": [
+            31.33798592396969,
+            48.61806876353031
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093003
+    },
+    {
+      "counts": {
+        "allin_calls": 28,
+        "fallback": 261,
+        "flop_fallback": 68,
+        "flop_trained": 170,
+        "full_stack_losses": 35,
+        "full_stack_wins": 18,
+        "hands": 1024,
+        "jam_actions": 60,
+        "jam_opportunities": 236,
+        "large_actions": 90,
+        "large_calls": 34,
+        "large_fallback": 86,
+        "large_opportunities": 219,
+        "large_trained": 4,
+        "no_response": 0,
+        "preflop_fallback": 122,
+        "preflop_trained": 572,
+        "rival_continuations": 43,
+        "rival_folds": 47,
+        "river_fallback": 30,
+        "river_trained": 39,
+        "target_decisions": 1126,
+        "trained": 865,
+        "turn_fallback": 41,
+        "turn_trained": 84
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 11.474609375,
+        "bb_per_hand": 0.11474609375,
+        "blocks": 512,
+        "ci95": [
+          -20.453542190420873,
+          43.402760940420876
+        ],
+        "reason": null
+      },
+      "panel": "pot_pressure",
+      "partitions": {
+        "continued": {
+          "hands": 43,
+          "target_chips": -31600
+        },
+        "folded": {
+          "hands": 46,
+          "target_chips": 20400
+        },
+        "no_large_raise": {
+          "hands": 935,
+          "target_chips": 22950
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 14,
+            "fallback": 98,
+            "flop_fallback": 16,
+            "flop_trained": 54,
+            "full_stack_losses": 18,
+            "full_stack_wins": 8,
+            "hands": 512,
+            "jam_actions": 21,
+            "jam_opportunities": 90,
+            "large_actions": 34,
+            "large_calls": 17,
+            "large_fallback": 30,
+            "large_opportunities": 85,
+            "large_trained": 4,
+            "no_response": 0,
+            "preflop_fallback": 59,
+            "preflop_trained": 59,
+            "rival_continuations": 25,
+            "rival_folds": 9,
+            "river_fallback": 13,
+            "river_trained": 14,
+            "target_decisions": 256,
+            "trained": 158,
+            "turn_fallback": 10,
+            "turn_trained": 31
+          },
+          "partitions": {
+            "continued": {
+              "hands": 25,
+              "target_chips": -19200
+            },
+            "folded": {
+              "hands": 8,
+              "target_chips": 4000
+            },
+            "no_large_raise": {
+              "hands": 479,
+              "target_chips": 11350
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 14,
+            "fallback": 163,
+            "flop_fallback": 52,
+            "flop_trained": 116,
+            "full_stack_losses": 17,
+            "full_stack_wins": 10,
+            "hands": 512,
+            "jam_actions": 39,
+            "jam_opportunities": 146,
+            "large_actions": 56,
+            "large_calls": 17,
+            "large_fallback": 56,
+            "large_opportunities": 134,
+            "no_response": 0,
+            "preflop_fallback": 63,
+            "preflop_trained": 513,
+            "rival_continuations": 18,
+            "rival_folds": 38,
+            "river_fallback": 17,
+            "river_trained": 25,
+            "target_decisions": 870,
+            "trained": 707,
+            "turn_fallback": 31,
+            "turn_trained": 53
+          },
+          "partitions": {
+            "continued": {
+              "hands": 18,
+              "target_chips": -12400
+            },
+            "folded": {
+              "hands": 38,
+              "target_chips": 16400
+            },
+            "no_large_raise": {
+              "hands": 456,
+              "target_chips": 11600
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -7.51953125,
+          "bb_per_hand": -0.0751953125,
+          "blocks": 512,
+          "ci95": [
+            -50.44032502026096,
+            35.40126252026096
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 30.46875,
+          "bb_per_hand": 0.3046875,
+          "blocks": 512,
+          "ci95": [
+            -15.049459919546784,
+            75.98695991954679
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093003
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 2,
+        "flop_trained": 926,
+        "full_stack_losses": 48,
+        "full_stack_wins": 81,
+        "hands": 1024,
+        "jam_actions": 133,
+        "jam_opportunities": 496,
+        "large_actions": 210,
+        "large_calls": 0,
+        "large_fallback": 1,
+        "large_opportunities": 495,
+        "large_trained": 209,
+        "no_response": 0,
+        "preflop_trained": 1024,
+        "rival_continuations": 210,
+        "rival_folds": 0,
+        "river_fallback": 1,
+        "river_trained": 909,
+        "target_decisions": 3786,
+        "trained": 3784,
+        "turn_fallback": 1,
+        "turn_trained": 925
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 90.72265625,
+        "bb_per_hand": 0.9072265625,
+        "blocks": 512,
+        "ci95": [
+          54.20895071474159,
+          127.23636178525841
+        ],
+        "reason": null
+      },
+      "panel": "passive",
+      "partitions": {
+        "continued": {
+          "hands": 193,
+          "target_chips": 76900
+        },
+        "no_large_raise": {
+          "hands": 831,
+          "target_chips": 16000
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 0,
+            "flop_trained": 512,
+            "full_stack_losses": 16,
+            "full_stack_wins": 28,
+            "hands": 512,
+            "jam_actions": 45,
+            "jam_opportunities": 227,
+            "large_actions": 75,
+            "large_calls": 0,
+            "large_opportunities": 227,
+            "large_trained": 75,
+            "no_response": 0,
+            "preflop_trained": 512,
+            "rival_continuations": 75,
+            "rival_folds": 0,
+            "river_trained": 504,
+            "target_decisions": 2040,
+            "trained": 2040,
+            "turn_trained": 512
+          },
+          "partitions": {
+            "continued": {
+              "hands": 68,
+              "target_chips": 24600
+            },
+            "no_large_raise": {
+              "hands": 444,
+              "target_chips": 15200
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 2,
+            "flop_trained": 414,
+            "full_stack_losses": 32,
+            "full_stack_wins": 53,
+            "hands": 512,
+            "jam_actions": 88,
+            "jam_opportunities": 269,
+            "large_actions": 135,
+            "large_calls": 0,
+            "large_fallback": 1,
+            "large_opportunities": 268,
+            "large_trained": 134,
+            "no_response": 0,
+            "preflop_trained": 512,
+            "rival_continuations": 135,
+            "rival_folds": 0,
+            "river_fallback": 1,
+            "river_trained": 405,
+            "target_decisions": 1746,
+            "trained": 1744,
+            "turn_fallback": 1,
+            "turn_trained": 413
+          },
+          "partitions": {
+            "continued": {
+              "hands": 125,
+              "target_chips": 52300
+            },
+            "no_large_raise": {
+              "hands": 387,
+              "target_chips": 800
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 77.734375,
+          "bb_per_hand": 0.77734375,
+          "blocks": 512,
+          "ci95": [
+            14.041926602189193,
+            141.4268233978108
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 103.7109375,
+          "bb_per_hand": 1.037109375,
+          "blocks": 512,
+          "ci95": [
+            19.108467319680557,
+            188.31340768031944
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093003
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 5,
+        "flop_fallback": 3,
+        "flop_trained": 551,
+        "full_stack_losses": 19,
+        "full_stack_wins": 18,
+        "hands": 1024,
+        "jam_actions": 39,
+        "jam_opportunities": 130,
+        "large_actions": 58,
+        "large_calls": 0,
+        "large_fallback": 3,
+        "large_opportunities": 129,
+        "large_trained": 55,
+        "no_response": 0,
+        "preflop_trained": 795,
+        "rival_continuations": 57,
+        "rival_folds": 1,
+        "river_fallback": 1,
+        "river_trained": 362,
+        "target_decisions": 2117,
+        "trained": 2112,
+        "turn_fallback": 1,
+        "turn_trained": 404
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 17.08984375,
+        "bb_per_hand": 0.1708984375,
+        "blocks": 512,
+        "ci95": [
+          -7.91928799468862,
+          42.09897549468862
+        ],
+        "reason": null
+      },
+      "panel": "loose_passive",
+      "partitions": {
+        "continued": {
+          "hands": 53,
+          "target_chips": -2300
+        },
+        "folded": {
+          "hands": 1,
+          "target_chips": 800
+        },
+        "no_large_raise": {
+          "hands": 970,
+          "target_chips": 19000
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 0,
+            "flop_trained": 271,
+            "full_stack_losses": 10,
+            "full_stack_wins": 5,
+            "hands": 512,
+            "jam_actions": 15,
+            "jam_opportunities": 49,
+            "large_actions": 18,
+            "large_calls": 0,
+            "large_opportunities": 49,
+            "large_trained": 18,
+            "no_response": 0,
+            "preflop_trained": 282,
+            "rival_continuations": 18,
+            "rival_folds": 0,
+            "river_trained": 195,
+            "target_decisions": 964,
+            "trained": 964,
+            "turn_trained": 216
+          },
+          "partitions": {
+            "continued": {
+              "hands": 18,
+              "target_chips": -9700
+            },
+            "no_large_raise": {
+              "hands": 494,
+              "target_chips": 6650
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 5,
+            "flop_fallback": 3,
+            "flop_trained": 280,
+            "full_stack_losses": 9,
+            "full_stack_wins": 13,
+            "hands": 512,
+            "jam_actions": 24,
+            "jam_opportunities": 81,
+            "large_actions": 40,
+            "large_calls": 0,
+            "large_fallback": 3,
+            "large_opportunities": 80,
+            "large_trained": 37,
+            "no_response": 0,
+            "preflop_trained": 513,
+            "rival_continuations": 39,
+            "rival_folds": 1,
+            "river_fallback": 1,
+            "river_trained": 167,
+            "target_decisions": 1153,
+            "trained": 1148,
+            "turn_fallback": 1,
+            "turn_trained": 188
+          },
+          "partitions": {
+            "continued": {
+              "hands": 35,
+              "target_chips": 7400
+            },
+            "folded": {
+              "hands": 1,
+              "target_chips": 800
+            },
+            "no_large_raise": {
+              "hands": 476,
+              "target_chips": 12350
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -5.95703125,
+          "bb_per_hand": -0.0595703125,
+          "blocks": 512,
+          "ci95": [
+            -42.91342073480847,
+            30.99935823480847
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 40.13671875,
+          "bb_per_hand": 0.4013671875,
+          "blocks": 512,
+          "ci95": [
+            -6.7281416550995345,
+            87.00157915509953
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093003
+    },
+    {
+      "counts": {
+        "allin_calls": 54,
+        "fallback": 2,
+        "flop_trained": 452,
+        "full_stack_losses": 54,
+        "full_stack_wins": 61,
+        "hands": 1024,
+        "jam_actions": 68,
+        "jam_opportunities": 277,
+        "large_actions": 64,
+        "large_calls": 45,
+        "large_fallback": 1,
+        "large_opportunities": 246,
+        "large_trained": 63,
+        "no_response": 0,
+        "preflop_trained": 889,
+        "rival_continuations": 62,
+        "rival_folds": 2,
+        "river_trained": 189,
+        "target_decisions": 1812,
+        "trained": 1810,
+        "turn_fallback": 2,
+        "turn_trained": 280
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 20.849609375,
+        "bb_per_hand": 0.20849609375,
+        "blocks": 512,
+        "ci95": [
+          -10.987409460550655,
+          52.68662821055065
+        ],
+        "reason": null
+      },
+      "panel": "loose_aggressive",
+      "partitions": {
+        "continued": {
+          "hands": 62,
+          "target_chips": 10000
+        },
+        "folded": {
+          "hands": 2,
+          "target_chips": 2100
+        },
+        "no_large_raise": {
+          "hands": 960,
+          "target_chips": 9250
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 22,
+            "fallback": 0,
+            "flop_trained": 217,
+            "full_stack_losses": 17,
+            "full_stack_wins": 28,
+            "hands": 512,
+            "jam_actions": 25,
+            "jam_opportunities": 106,
+            "large_actions": 21,
+            "large_calls": 22,
+            "large_opportunities": 94,
+            "large_trained": 21,
+            "no_response": 0,
+            "preflop_trained": 265,
+            "rival_continuations": 21,
+            "rival_folds": 0,
+            "river_trained": 97,
+            "target_decisions": 710,
+            "trained": 710,
+            "turn_trained": 131
+          },
+          "partitions": {
+            "continued": {
+              "hands": 21,
+              "target_chips": 11200
+            },
+            "no_large_raise": {
+              "hands": 491,
+              "target_chips": 11900
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 32,
+            "fallback": 2,
+            "flop_trained": 235,
+            "full_stack_losses": 37,
+            "full_stack_wins": 33,
+            "hands": 512,
+            "jam_actions": 43,
+            "jam_opportunities": 171,
+            "large_actions": 43,
+            "large_calls": 23,
+            "large_fallback": 1,
+            "large_opportunities": 152,
+            "large_trained": 42,
+            "no_response": 0,
+            "preflop_trained": 624,
+            "rival_continuations": 41,
+            "rival_folds": 2,
+            "river_trained": 92,
+            "target_decisions": 1102,
+            "trained": 1100,
+            "turn_fallback": 2,
+            "turn_trained": 149
+          },
+          "partitions": {
+            "continued": {
+              "hands": 41,
+              "target_chips": -1200
+            },
+            "folded": {
+              "hands": 2,
+              "target_chips": 2100
+            },
+            "no_large_raise": {
+              "hands": 469,
+              "target_chips": -2650
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 45.1171875,
+          "bb_per_hand": 0.451171875,
+          "blocks": 512,
+          "ci95": [
+            -9.541443243853543,
+            99.77581824385354
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": -3.41796875,
+          "bb_per_hand": -0.0341796875,
+          "blocks": 512,
+          "ci95": [
+            -71.49794220720759,
+            64.66200470720759
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093003
+    },
+    {
+      "counts": {
+        "allin_calls": 0,
+        "fallback": 1,
+        "flop_trained": 210,
+        "full_stack_losses": 2,
+        "full_stack_wins": 0,
+        "hands": 1024,
+        "jam_actions": 2,
+        "jam_opportunities": 13,
+        "large_actions": 3,
+        "large_calls": 0,
+        "large_opportunities": 13,
+        "large_trained": 3,
+        "no_response": 0,
+        "preflop_trained": 554,
+        "rival_continuations": 3,
+        "rival_folds": 0,
+        "river_trained": 70,
+        "target_decisions": 949,
+        "trained": 948,
+        "turn_fallback": 1,
+        "turn_trained": 114
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 55.37109375,
+        "bb_per_hand": 0.5537109375,
+        "blocks": 512,
+        "ci95": [
+          47.3324839390372,
+          63.4097035609628
+        ],
+        "reason": null
+      },
+      "panel": "tight_passive",
+      "partitions": {
+        "continued": {
+          "hands": 3,
+          "target_chips": -2800
+        },
+        "no_large_raise": {
+          "hands": 1021,
+          "target_chips": 59500
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 0,
+            "flop_trained": 37,
+            "full_stack_losses": 1,
+            "full_stack_wins": 0,
+            "hands": 512,
+            "jam_actions": 1,
+            "jam_opportunities": 7,
+            "large_actions": 2,
+            "large_calls": 0,
+            "large_opportunities": 7,
+            "large_trained": 2,
+            "no_response": 0,
+            "preflop_trained": 41,
+            "rival_continuations": 2,
+            "rival_folds": 0,
+            "river_trained": 18,
+            "target_decisions": 121,
+            "trained": 121,
+            "turn_trained": 25
+          },
+          "partitions": {
+            "continued": {
+              "hands": 2,
+              "target_chips": -800
+            },
+            "no_large_raise": {
+              "hands": 510,
+              "target_chips": 26400
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 0,
+            "fallback": 1,
+            "flop_trained": 173,
+            "full_stack_losses": 1,
+            "full_stack_wins": 0,
+            "hands": 512,
+            "jam_actions": 1,
+            "jam_opportunities": 6,
+            "large_actions": 1,
+            "large_calls": 0,
+            "large_opportunities": 6,
+            "large_trained": 1,
+            "no_response": 0,
+            "preflop_trained": 513,
+            "rival_continuations": 1,
+            "rival_folds": 0,
+            "river_trained": 52,
+            "target_decisions": 828,
+            "trained": 827,
+            "turn_fallback": 1,
+            "turn_trained": 89
+          },
+          "partitions": {
+            "continued": {
+              "hands": 1,
+              "target_chips": -2000
+            },
+            "no_large_raise": {
+              "hands": 511,
+              "target_chips": 33100
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 50,
+          "bb_per_hand": 0.5,
+          "blocks": 512,
+          "ci95": [
+            39.39745798864884,
+            60.60254201135116
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 60.7421875,
+          "bb_per_hand": 0.607421875,
+          "blocks": 512,
+          "ci95": [
+            47.68262355778599,
+            73.80175144221401
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093003
+    },
+    {
+      "counts": {
+        "allin_calls": 10,
+        "fallback": 1,
+        "flop_trained": 214,
+        "full_stack_losses": 7,
+        "full_stack_wins": 10,
+        "hands": 1024,
+        "jam_actions": 11,
+        "jam_opportunities": 40,
+        "large_actions": 8,
+        "large_calls": 9,
+        "large_opportunities": 34,
+        "large_trained": 8,
+        "no_response": 0,
+        "preflop_trained": 585,
+        "rival_continuations": 4,
+        "rival_folds": 4,
+        "river_trained": 33,
+        "target_decisions": 933,
+        "trained": 932,
+        "turn_fallback": 1,
+        "turn_trained": 100
+      },
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 57.177734375,
+        "bb_per_hand": 0.57177734375,
+        "blocks": 512,
+        "ci95": [
+          40.217669311885444,
+          74.13779943811456
+        ],
+        "reason": null
+      },
+      "panel": "tight_aggressive",
+      "partitions": {
+        "continued": {
+          "hands": 4,
+          "target_chips": -4000
+        },
+        "folded": {
+          "hands": 4,
+          "target_chips": 3300
+        },
+        "no_large_raise": {
+          "hands": 1016,
+          "target_chips": 59250
+        }
+      },
+      "positional_tails": {
+        "big_blind": {
+          "counts": {
+            "allin_calls": 7,
+            "fallback": 0,
+            "flop_trained": 35,
+            "full_stack_losses": 4,
+            "full_stack_wins": 4,
+            "hands": 512,
+            "jam_actions": 3,
+            "jam_opportunities": 16,
+            "large_actions": 3,
+            "large_calls": 7,
+            "large_opportunities": 16,
+            "large_trained": 3,
+            "no_response": 0,
+            "preflop_trained": 56,
+            "rival_continuations": 1,
+            "rival_folds": 2,
+            "river_trained": 5,
+            "target_decisions": 111,
+            "trained": 111,
+            "turn_trained": 15
+          },
+          "partitions": {
+            "continued": {
+              "hands": 1,
+              "target_chips": -2000
+            },
+            "folded": {
+              "hands": 2,
+              "target_chips": 1500
+            },
+            "no_large_raise": {
+              "hands": 509,
+              "target_chips": 25750
+            }
+          }
+        },
+        "button": {
+          "counts": {
+            "allin_calls": 3,
+            "fallback": 1,
+            "flop_trained": 179,
+            "full_stack_losses": 3,
+            "full_stack_wins": 6,
+            "hands": 512,
+            "jam_actions": 8,
+            "jam_opportunities": 24,
+            "large_actions": 5,
+            "large_calls": 2,
+            "large_opportunities": 18,
+            "large_trained": 5,
+            "no_response": 0,
+            "preflop_trained": 529,
+            "rival_continuations": 3,
+            "rival_folds": 2,
+            "river_trained": 28,
+            "target_decisions": 822,
+            "trained": 821,
+            "turn_fallback": 1,
+            "turn_trained": 85
+          },
+          "partitions": {
+            "continued": {
+              "hands": 3,
+              "target_chips": -2000
+            },
+            "folded": {
+              "hands": 2,
+              "target_chips": 1800
+            },
+            "no_large_raise": {
+              "hands": 507,
+              "target_chips": 33500
+            }
+          }
+        }
+      },
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 49.31640625,
+          "bb_per_hand": 0.4931640625,
+          "blocks": 512,
+          "ci95": [
+            26.310351194615826,
+            72.32246130538417
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 65.0390625,
+          "bb_per_hand": 0.650390625,
+          "blocks": 512,
+          "ci95": [
+            39.6981146477892,
+            90.3800103522108
+          ],
+          "reason": null
+        }
+      },
+      "seed": 2026093003
+    }
+  ],
+  "per_seed_checkpoint_changes": [],
+  "plan_sha256": "74f0c18024a4a409d223276d4781c2464b27fc8d5d32a51ccb22a224332f2219",
+  "stage": "broad",
+  "status": "preliminary",
+  "three_lineage_aggregate": [
+    {
+      "lineages": 3,
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": -64.97395833333333,
+        "bb_per_hand": -0.6497395833333333,
+        "blocks": 2048,
+        "ci95": [
+          -79.84511008351873,
+          -50.10280658314792
+        ],
+        "reason": null
+      },
+      "panel": "LBR-original-cap2",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -30.680338541666668,
+          "bb_per_hand": -0.3068033854166667,
+          "blocks": 2048,
+          "ci95": [
+            -64.33243683089736,
+            2.9717597475640325
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": -99.267578125,
+          "bb_per_hand": -0.99267578125,
+          "blocks": 2048,
+          "ci95": [
+            -131.577260350281,
+            -66.95789589971902
+          ],
+          "reason": null
+        }
+      }
+    },
+    {
+      "lineages": 3,
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 114.044189453125,
+        "bb_per_hand": 1.14044189453125,
+        "blocks": 4096,
+        "ci95": [
+          100.77766223337994,
+          127.31071667287006
+        ],
+        "reason": null
+      },
+      "panel": "Pressure-native",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 125.91959635416667,
+          "bb_per_hand": 1.2591959635416667,
+          "blocks": 4096,
+          "ci95": [
+            96.38855705369463,
+            155.45063565463872
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 102.16878255208333,
+          "bb_per_hand": 1.0216878255208333,
+          "blocks": 4096,
+          "ci95": [
+            72.86273852058284,
+            131.47482658358382
+          ],
+          "reason": null
+        }
+      }
+    },
+    {
+      "lineages": 3,
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 35.129801432291664,
+        "bb_per_hand": 0.35129801432291663,
+        "blocks": 4096,
+        "ci95": [
+          31.216187452140055,
+          39.043415412443274
+        ],
+        "reason": null
+      },
+      "panel": "selective_stackoff",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 36.23046875,
+          "bb_per_hand": 0.3623046875,
+          "blocks": 4096,
+          "ci95": [
+            31.049451136259496,
+            41.41148636374051
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 34.029134114583336,
+          "bb_per_hand": 0.34029134114583337,
+          "blocks": 4096,
+          "ci95": [
+            27.14881807574959,
+            40.90945015341708
+          ],
+          "reason": null
+        }
+      }
+    },
+    {
+      "lineages": 3,
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 16.178385416666668,
+        "bb_per_hand": 0.16178385416666669,
+        "blocks": 512,
+        "ci95": [
+          -11.548878286165628,
+          43.90564911949896
+        ],
+        "reason": null
+      },
+      "panel": "pot_pressure",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -4.19921875,
+          "bb_per_hand": -0.0419921875,
+          "blocks": 512,
+          "ci95": [
+            -42.78724030253967,
+            34.38880280253967
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 36.555989583333336,
+          "bb_per_hand": 0.36555989583333337,
+          "blocks": 512,
+          "ci95": [
+            -4.464338024819504,
+            77.57631719148617
+          ],
+          "reason": null
+        }
+      }
+    },
+    {
+      "lineages": 3,
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 108.04036458333333,
+        "bb_per_hand": 1.0804036458333333,
+        "blocks": 512,
+        "ci95": [
+          81.71556548296091,
+          134.36516368370573
+        ],
+        "reason": null
+      },
+      "panel": "passive",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 95.24739583333333,
+          "bb_per_hand": 0.9524739583333333,
+          "blocks": 512,
+          "ci95": [
+            35.945299321927564,
+            154.5494923447391
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 120.83333333333333,
+          "bb_per_hand": 1.2083333333333333,
+          "blocks": 512,
+          "ci95": [
+            47.420796548301354,
+            194.2458701183653
+          ],
+          "reason": null
+        }
+      }
+    },
+    {
+      "lineages": 3,
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 29.817708333333336,
+        "bb_per_hand": 0.29817708333333337,
+        "blocks": 512,
+        "ci95": [
+          10.857645037485195,
+          48.77777162918147
+        ],
+        "reason": null
+      },
+      "panel": "loose_passive",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 5.891927083333334,
+          "bb_per_hand": 0.05891927083333334,
+          "blocks": 512,
+          "ci95": [
+            -26.329338089564786,
+            38.11319225623146
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 53.743489583333336,
+          "bb_per_hand": 0.5374348958333334,
+          "blocks": 512,
+          "ci95": [
+            15.409974985516307,
+            92.07700418115036
+          ],
+          "reason": null
+        }
+      }
+    },
+    {
+      "lineages": 3,
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 24.723307291666668,
+        "bb_per_hand": 0.24723307291666669,
+        "blocks": 512,
+        "ci95": [
+          0.20741912743061164,
+          49.239195455902724
+        ],
+        "reason": null
+      },
+      "panel": "loose_aggressive",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 40.950520833333336,
+          "bb_per_hand": 0.40950520833333337,
+          "blocks": 512,
+          "ci95": [
+            -9.169981968610685,
+            91.07102363527736
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 8.49609375,
+          "bb_per_hand": 0.0849609375,
+          "blocks": 512,
+          "ci95": [
+            -50.522474901280866,
+            67.51466240128087
+          ],
+          "reason": null
+        }
+      }
+    },
+    {
+      "lineages": 3,
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 52.685546875,
+        "bb_per_hand": 0.52685546875,
+        "blocks": 512,
+        "ci95": [
+          45.06953056183129,
+          60.30156318816871
+        ],
+        "reason": null
+      },
+      "panel": "tight_passive",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 46.09375,
+          "bb_per_hand": 0.4609375,
+          "blocks": 512,
+          "ci95": [
+            34.874528775115145,
+            57.312971224884855
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 59.27734375,
+          "bb_per_hand": 0.5927734375,
+          "blocks": 512,
+          "ci95": [
+            47.18303503739947,
+            71.37165246260054
+          ],
+          "reason": null
+        }
+      }
+    },
+    {
+      "lineages": 3,
+      "milestone": 100000000,
+      "overall": {
+        "bb_per_100": 50.748697916666664,
+        "bb_per_hand": 0.5074869791666666,
+        "blocks": 512,
+        "ci95": [
+          36.57384018575074,
+          64.92355564758259
+        ],
+        "reason": null
+      },
+      "panel": "tight_aggressive",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 44.694010416666664,
+          "bb_per_hand": 0.44694010416666663,
+          "blocks": 512,
+          "ci95": [
+            25.343799185741236,
+            64.0442216475921
+          ],
+          "reason": null
+        },
+        "button": {
+          "bb_per_100": 56.803385416666664,
+          "bb_per_hand": 0.5680338541666666,
+          "blocks": 512,
+          "ci95": [
+            35.85947674103527,
+            77.74729409229806
+          ],
+          "reason": null
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "host": "M1 transport verification only; scientific/report checks on M4",
+  "interpretation": "Exploratory B100M baseline only; no 100M-to-500M change or final confirmation claim.",
+  "m4_baseline_wall_seconds": [
+    2224.1169748306274,
+    2202.2489562034607,
+    2218.5626389980316
+  ],
+  "m4_closed_baseline_tasks": 3,
+  "m4_native_replayed_hands": 79872,
+  "m4_order_tests_passed": 4,
+  "m4_reporting_tests_passed": 3,
+  "output_manifest": {
+    "curves.md": {
+      "bytes": 3707,
+      "sha256": "b4c682f9c7fa86bd70217670d5717ff208f81f9eb9386c59ab855834e768daa5"
+    },
+    "per-seed-role.csv": {
+      "bytes": 9169,
+      "sha256": "0740381c39b6a36a326f63b38e4a35132c215f1aca2c041670a185f726a0a5ff"
+    },
+    "summary.json": {
+      "bytes": 125636,
+      "sha256": "dd7d25fd204cba111012f70b70de8e100ffeb1c4086ad27599ebd92461c00884"
+    }
+  },
+  "provenance_files": {
+    "endpoint-order-handoff.json": {
+      "bytes": 524,
+      "sha256": "05b8db4ac0d556fb74fda210a0130c483bc0a1afc252875f2749b907a0bbf054"
+    },
+    "endpoint-order-tests.json": {
+      "bytes": 58,
+      "sha256": "f01ba35012ca1f29b1e9e4327e5f2752d4050ca463978920ed82d0fe7d847d7d"
+    },
+    "group-report-tests.json": {
+      "bytes": 142,
+      "sha256": "31bf4e4d396edc31655d3738def0ce83ba8951a1c56f86745f582091cb52c958"
+    },
+    "preliminary-broad-100M-report-job.json": {
+      "bytes": 246,
+      "sha256": "4222fd2b2925bd7a9626959c86ebb87e6ef08921f180343f13edd9b93696ead8"
+    }
+  },
+  "report_attempt": "preliminary-broad-100M-attempt-1",
+  "report_source_sha256": "165a2f7594473bc12ebc936bc95a1e3a40425b2b43bb6f9ec3191feb535b457c",
+  "verified_at_utc": "2026-10-01T09:06:06.697200+00:00"
+}
