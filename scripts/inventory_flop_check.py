@@ -37,13 +37,19 @@ def inventory(plan, repo, inputs, tool, expected):
         tool / "harness/target/release/hu20-exact-flop-tool")}
     source_paths = [*sorted((repo / "src/diagnostics").glob("flop_check*.py")),
                     *sorted((repo / "scripts").glob("*flop_check*.py")),
+                    repo / "src/diagnostics/exact_ranker.py", repo / "src/arena/endgame_quality.py",
+                    repo / "src/game/observation.py", repo / "src/game/types.py",
                     repo / "src/blueprint/abstraction.py", repo / "src/blueprint/hu20_river.py",
                     repo / "src/blueprint/river_cfr.py", repo / "src/game/hand.py"]
+    native = {module.__file__: file_hash(module.__file__)
+              for name, module in list(sys.modules.items()) if name.startswith("pokers")
+              and getattr(module, "__file__", "").endswith((".so", ".dylib", ".pyd"))}
     return {"inputs": rows, "all_inputs_verified": True, "upstream_commit": SOLVER_COMMIT,
             "upstream_files": upstream, "external_tool_files_sha256": external,
             "repository_source_sha256": {str(p.relative_to(repo)): file_hash(p) for p in source_paths},
             "python": sys.version, "pokers_version": importlib.metadata.version("pokers"),
             "pokers_package_path": pokers.__file__,
+            "pokers_native_sha256": native,
             "rustc": subprocess.check_output([str(Path.home() / ".cargo/bin/rustc"), "--version"], text=True).strip(),
             "build_flags": {"RUSTFLAGS": "-A dangerous_implicit_autorefs", "cargo": "build --release --locked"},
             "license_boundary": "external AGPL tool; no solver or harness source vendored"}

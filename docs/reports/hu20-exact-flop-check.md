@@ -70,7 +70,7 @@ Each raw request, response, process snapshot and attempt remains on the M4.
 | --- | --- |
 | K | 100,000 production/factored-key comparisons; zero mismatches across three pot types, all postflop streets, holdings and runouts |
 | V1 | Every declared fixture and preflight betting line/action matches the solver tree; zero mismatches |
-| V2 | 600 river and 300 flop-terminal samples; zero integer-chip settlement mismatches; maximum float error below 0.00008 chip |
+| V2 | 1,900 terminal samples: 600 river, 300 tiny-SPR flop and 1,000 short-SPR full-flop; zero integer-chip settlement mismatches; maximum float error below 0.00008 chip |
 | V3 | Both responder seats on limp and three-bet river fixtures agree with native `profile_quality` within 0.000001 BB |
 | V4 | All three locked-policy EVs are inside their 20,000-deal native 95% intervals; 60,000 independent deals total |
 | V5 | River residuals 0.18743% and 0.13331% pot; full flop fixture residual 0.0006314% pot; all meet the 0.2% target |
@@ -83,6 +83,13 @@ policy. The solver's physical-seat-zero EV is −3.107385 BB, within native Mont
 Carlo **−2.8593 [−3.12650, −2.59210] BB**. Subtracting half the root pot reconciles
 the equal-investment HU20 payoff with net chips from the original stack. This
 estimate is conditional on the artificial root, not an unselected policy win rate.
+
+A separate 30 BB pot / 5 BB remaining fixture covers 1,177 native public nodes,
+ordinary betting across all streets and early all-in fixed runouts. Its 1,000
+terminal checks comprise 489 folds and 511 showdowns. The external payoff-query
+helper descends the all-in chance subtree to the specified final board; this
+tests a realized settlement, rather than comparing it with an all-in node's
+expected EV. See [`full-flop payoffs`](hu20-exact-flop-check-artifacts/full-flop-payoffs.json).
 
 The separate exporter produces all **2,402 boards** (flop + 49 turns + 2,352
 ordered rivers), **1,176 root holdings**, byte descriptor arrays with blocked
@@ -152,13 +159,16 @@ holding because `_history` labels both raises `raise-1`. A projection pooled onl
 at an exact line is therefore a relaxation. The implementation retains that
 requested result separately and uses full actual-key pooling for the feasible
 v1 result. See the [`actual alias`](hu20-exact-flop-check-artifacts/public-line-alias.json).
+The full projection also measures public-history pooling; a large difference
+from the per-line result deserves a history audit before a card-only attribution.
 
 Both projections are feasible-policy constructions or relaxations, not the
 abstraction's own equilibria. Their losses upper-bound achievable abstract loss;
 a high R does not prove that v1 cannot do better. The protocol preserves the
 0.7/0.3, 25%/10% and three-point heuristic thresholds with that qualification.
 Ranges are taken as given, excluding preflop errors, and per-flop buckets favor
-this preview over a global blueprint abstraction. Nothing in the resource stop
+this preview over a global blueprint abstraction. Low per-flop R does not show
+that one shared v1 policy can fit every flop simultaneously. Nothing in the resource stop
 supports longer training or an abstraction recommendation yet.
 
 ## Provenance, failures and monitoring
@@ -168,10 +178,12 @@ values. The 34 tracked upstream files match the inventory of solver commit
 `9d1509fe5077d019825f833eed04b16d342dfda1`, without source edits. The AGPL solver,
 Rust harness and Cargo.lock remain outside this MIT repository at
 `~/Local/hu20-exact-flop-tool`, retained on both Macs. The inventory records
-source, binary, dependencies, Python, native package and Rust version hashes.
+source, binary and dependency hashes, including the exact ranker and native
+engine extension, plus Python, native-package and Rust versions.
 The build uses `RUSTFLAGS='-A dangerous_implicit_autorefs'` for the legacy
 upstream code's newer-compiler lint; that does not modify the pinned source.
-See [`inventory.json`](hu20-exact-flop-check-artifacts/inventory.json) and
+See the initial [`inventory.json`](hu20-exact-flop-check-artifacts/inventory.json),
+the latest [`terminal-validation inventory`](hu20-exact-flop-check-artifacts/inventory-terminal-payoffs.json) and
 [`upstream inventory`](hu20-exact-flop-check-artifacts/solver-source-inventory.json).
 
 Retained failed attempts and fixes:
@@ -196,6 +208,9 @@ Retained failed attempts and fixes:
   serialized line identifiers. Canonicalized line keys, retained the original
   compact table, wrote a corrected table and passed the complete lock/projection
   fixture. A regression test checks actual raised lines and action reordering.
+- Final inventory command initially referenced an unstaged local manifest path
+  on the M4. Copied the pinned manifest into the retained run directory and
+  reran the inventory; all input and upstream hashes passed.
 
 All failures remain in `results/flop-check-20261001` on the M4; none disappeared
 from a main denominator, because the main run never began. The completed

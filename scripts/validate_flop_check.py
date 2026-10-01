@@ -159,6 +159,8 @@ def validate_flop(binary, source, out, *, memory_bytes=512 * 1024**2):
         raise RuntimeError(runtime["failure"])
     rows = response_rows(out / "both-locked/response.jsonl"); final = rows[-1]
     actual = [r["payoff_chips"] for r in rows if r["event"] == "payoff_query"]
+    if len(actual) != len(expected):
+        raise RuntimeError(f"Incomplete payoff queries: {len(actual)}/{len(expected)}")
     error = np.abs(np.asarray(actual) - expected)
     payoff_gate = {"gate": "V2", "kind": "tiny-spr-flop", "samples": len(actual),
                    "integer_chip_mismatches": int(np.count_nonzero(np.rint(actual) != expected)),
@@ -186,6 +188,52 @@ def validate_flop(binary, source, out, *, memory_bytes=512 * 1024**2):
     atomic_json(out / ("result.json" if all(g["passed"] for g in gates) else "failure.json"),
                 {"gates": gates, "source": source.description})
     return gates
+
+
+def validate_full_flop_payoffs(binary, out, *, memory_bytes=1024**3):
+    """Cover ordinary multi-street bets and early all-in fixed-runout payoffs."""
+    out = Path(out); out.mkdir(parents=True, exist_ok=False)
+    root = fixture_root("short-spr"); request, _ = compile_tree(root)
+    ranges = small_ranges(request["board"]); rng = Random(202610020010)
+    view = replay(root, 0, ())
+    pairs = [(a, b) for a, _ in ranges[request["seat_map"][0]]
+             for b, _ in ranges[request["seat_map"][1]] if not set(a) & set(b)]
+    terminals = [n for n in request["nodes"] if n["terminal"]]
+    queries = []; expected = []; kinds = {}
+    for _ in range(1000):
+        node = rng.choice(terminals); a, b = rng.choice(pairs)
+        available = [c for c in DECK if c not in (*view.board, *a, *b)]
+        board = view.board + tuple(rng.sample(available, 2))
+        hands = dict(zip(request["seat_map"], (a, b), strict=True))
+        hand = native_line(root, board, hands, node["line"])
+        finish = next(e for e in hand.events if isinstance(e, HandFinished))
+        expected.append([finish.stacks[s] - view.players[s].stack - view.pot / 2
+                         for s in request["seat_map"]])
+        queries.append({"line": node["line"], "board": board, "hands": [a, b]})
+        label = "showdown" if finish.showdown else "fold"
+        kinds[label] = kinds.get(label, 0) + 1
+    request.update(mode="solve", memory_budget_bytes=memory_bytes,
+                   ranges=[[{"hand": list(h), "weight": w} for h, w in ranges[s]]
+                           for s in request["seat_map"]], terminal_queries=queries,
+                   max_iterations=1, progress_every=1, seconds=120)
+    path = out / "request.json"; atomic_json(path, request)
+    runtime = run_tool(binary, path, out / "solver", memory_bytes=memory_bytes,
+                       threads=2, seconds=180, job_memory_bytes=5 * 1024**3)
+    if runtime["status"] != "completed":
+        raise RuntimeError(runtime["failure"])
+    actual = [r["payoff_chips"] for r in response_rows(out / "solver/response.jsonl")
+              if r["event"] == "payoff_query"]
+    if len(actual) != len(expected):
+        raise RuntimeError(f"Incomplete payoff queries: {len(actual)}/{len(expected)}")
+    error = np.abs(np.asarray(actual) - expected)
+    gate = {"gate": "V2", "kind": "short-spr-full-flop", "samples": len(actual),
+            "terminal_types": kinds, "public_nodes": len(request["nodes"]),
+            "integer_chip_mismatches": int(np.count_nonzero(np.rint(actual) != expected)),
+            "maximum_float_chip_error": float(error.max()),
+            "passed": bool(np.all(np.rint(actual) == expected) and error.max() < 0.01),
+            "coverage": "multi-street non-all-in betting and early all-in fixed runouts"}
+    atomic_json(out / ("result.json" if gate["passed"] else "failure.json"), {"gates": [gate]})
+    return [gate]
 
 
 def validate(binary, source, out, *, memory_bytes=512 * 1024**2):
@@ -238,6 +286,8 @@ def validate(binary, source, out, *, memory_bytes=512 * 1024**2):
                           "passed": passed, "expected_br_bb": expected_br, "actual_br_bb": actual_br})
             if target == 0:
                 actual = [r["payoff_chips"] for r in rows if r["event"] == "payoff_query"]
+                if len(actual) != len(expected):
+                    raise RuntimeError(f"Incomplete payoff queries: {len(actual)}/{len(expected)}")
                 errors = np.abs(np.asarray(actual) - expected)
                 mismatches = int(np.count_nonzero(np.rint(actual) != expected))
                 gates.append({"gate": "V2", "kind": kind, "passed": not mismatches
@@ -283,9 +333,13 @@ def main():
     parser.add_argument("--inputs", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--flop", action="store_true")
+    parser.add_argument("--payoffs-flop", action="store_true")
     args = parser.parse_args()
-    source = load_policy(json.loads(args.plan.read_text())["policies"][0], args.inputs)
-    gates = (validate_flop if args.flop else validate)(args.binary, source, args.out)
+    if args.payoffs_flop:
+        gates = validate_full_flop_payoffs(args.binary, args.out)
+    else:
+        source = load_policy(json.loads(args.plan.read_text())["policies"][0], args.inputs)
+        gates = (validate_flop if args.flop else validate)(args.binary, source, args.out)
     if not all(g["passed"] for g in gates):
         raise SystemExit("Fixture validation gate failed")
 

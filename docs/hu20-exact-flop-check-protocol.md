@@ -114,8 +114,9 @@ nodes separately. This is not an MDF test. Report zero-reach nodes as unavailabl
 K: ≥100,000 production/factored-key samples, zero mismatches. V1: all declared
 solver lines, terminal flags and action/chip amounts match native replay, zero
 mismatches. V2: integer terminal settlements match native fixtures; retain f32
-rounding error. Early all-in terminals average undealt cards, so a single fixed
-runout is not their expected payoff. V3: unlocked responder MES agrees with
+rounding error. For early all-ins, descend the solver's chance subtree to the
+specified final board for a realized settlement comparison; the all-in node's
+expected EV averages those runouts. V3: unlocked responder MES agrees with
 native river `profile_quality`. V4: both-locked EV is inside the 95% interval of
 ≥20,000 independent native deals from the same root/ranges. V5: retain every
 equilibrium residual and apply the exclusions above. Missing/failed gates stop
@@ -177,8 +178,9 @@ Freeze the requested thresholds exactly:
 
 Report these as heuristic H1/H2-consistent classifications: a projection is a
 feasible strategy whose loss **upper-bounds** the minimum achievable abstract
-loss. High R cannot prove v1 incapable of better play; low R provides a
-constructive feasible witness. State the same limitation for the per-line
+loss. High R cannot prove v1 incapable of better play; low R provides a witness
+within each isolated flop, without proving that one shared v1 strategy fits all
+flops simultaneously. State the same limitation for the per-line
 relaxation. Give H3 priority when flop share is below 10%; do not divide by a
 zero/nonpositive mean `e_bp` or classify an unrun/incomplete experiment.
 
