@@ -1,0 +1,305 @@
+{
+  "queried_utc": "2026-10-01T18:40:19.154292+00:00",
+  "request": "GET /v2/catalog/cpus?include=AVAILABILITY&product=POD&vcpuCount=2",
+  "catalog": {
+    "cpus": [
+      {
+        "availability": "HIGH",
+        "dataCenters": [
+          {
+            "availability": "HIGH",
+            "id": "EU-CZ-1",
+            "name": "EU-CZ-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "EU-RO-1",
+            "name": "EU-RO-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "EUR-IS-1",
+            "name": "EUR-IS-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-CA-2",
+            "name": "US-CA-2"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-GA-2",
+            "name": "US-GA-2"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-IL-1",
+            "name": "US-IL-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-MD-1",
+            "name": "US-MD-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-MO-1",
+            "name": "US-MO-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-MO-2",
+            "name": "US-MO-2"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-NC-2",
+            "name": "US-NC-2"
+          },
+          {
+            "availability": "LOW",
+            "id": "US-NE-1",
+            "name": "US-NE-1"
+          }
+        ],
+        "group": "CPU3",
+        "id": "cpu3c",
+        "name": "Compute-Optimized",
+        "price": {
+          "securePerVcpu": 0.03,
+          "serverlessPerVcpu": 0.036
+        },
+        "ramGbPerVcpu": 2,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      },
+      {
+        "availability": "HIGH",
+        "dataCenters": [
+          {
+            "availability": "HIGH",
+            "id": "EU-CZ-1",
+            "name": "EU-CZ-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "EU-RO-1",
+            "name": "EU-RO-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "EUR-IS-1",
+            "name": "EUR-IS-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-CA-2",
+            "name": "US-CA-2"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-GA-2",
+            "name": "US-GA-2"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-IL-1",
+            "name": "US-IL-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-MD-1",
+            "name": "US-MD-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-MO-1",
+            "name": "US-MO-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-MO-2",
+            "name": "US-MO-2"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-NC-2",
+            "name": "US-NC-2"
+          },
+          {
+            "availability": "LOW",
+            "id": "US-NE-1",
+            "name": "US-NE-1"
+          }
+        ],
+        "group": "CPU3",
+        "id": "cpu3g",
+        "name": "General Purpose",
+        "price": {
+          "securePerVcpu": 0.04,
+          "serverlessPerVcpu": 0.05
+        },
+        "ramGbPerVcpu": 4,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      },
+      {
+        "availability": "HIGH",
+        "dataCenters": [
+          {
+            "availability": "HIGH",
+            "id": "EU-CZ-1",
+            "name": "EU-CZ-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "EU-RO-1",
+            "name": "EU-RO-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "EUR-IS-1",
+            "name": "EUR-IS-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-CA-2",
+            "name": "US-CA-2"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-GA-2",
+            "name": "US-GA-2"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-IL-1",
+            "name": "US-IL-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-MD-1",
+            "name": "US-MD-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-MO-1",
+            "name": "US-MO-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-MO-2",
+            "name": "US-MO-2"
+          },
+          {
+            "availability": "HIGH",
+            "id": "US-NC-2",
+            "name": "US-NC-2"
+          },
+          {
+            "availability": "LOW",
+            "id": "US-NE-1",
+            "name": "US-NE-1"
+          }
+        ],
+        "group": "CPU3",
+        "id": "cpu3m",
+        "name": "Memory-Optimized",
+        "price": {
+          "securePerVcpu": 0.055,
+          "serverlessPerVcpu": 0
+        },
+        "ramGbPerVcpu": 8,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      },
+      {
+        "availability": "HIGH",
+        "dataCenters": [
+          {
+            "availability": "HIGH",
+            "id": "EU-RO-1",
+            "name": "EU-RO-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "EUR-IS-1",
+            "name": "EUR-IS-1"
+          }
+        ],
+        "group": "CPU5",
+        "id": "cpu5c",
+        "name": "Compute-Optimized",
+        "price": {
+          "securePerVcpu": 0.035,
+          "serverlessPerVcpu": 0.042
+        },
+        "ramGbPerVcpu": 2,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      },
+      {
+        "availability": "HIGH",
+        "dataCenters": [
+          {
+            "availability": "HIGH",
+            "id": "EU-RO-1",
+            "name": "EU-RO-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "EUR-IS-1",
+            "name": "EUR-IS-1"
+          }
+        ],
+        "group": "CPU5",
+        "id": "cpu5g",
+        "name": "General Purpose",
+        "price": {
+          "securePerVcpu": 0.046,
+          "serverlessPerVcpu": 0.055
+        },
+        "ramGbPerVcpu": 4,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      },
+      {
+        "availability": "HIGH",
+        "dataCenters": [
+          {
+            "availability": "HIGH",
+            "id": "EU-RO-1",
+            "name": "EU-RO-1"
+          },
+          {
+            "availability": "HIGH",
+            "id": "EUR-IS-1",
+            "name": "EUR-IS-1"
+          }
+        ],
+        "group": "CPU5",
+        "id": "cpu5m",
+        "name": "Memory-Optimized",
+        "price": {
+          "securePerVcpu": 0.065,
+          "serverlessPerVcpu": 0
+        },
+        "ramGbPerVcpu": 8,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      }
+    ]
+  }
+}

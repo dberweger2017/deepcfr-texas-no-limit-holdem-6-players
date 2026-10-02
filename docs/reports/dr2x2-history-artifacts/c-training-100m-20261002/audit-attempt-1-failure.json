@@ -1,0 +1,5 @@
+{
+  "completed": [],
+  "error": "AttributeError",
+  "message": "'Node' object has no attribute 'strategy_sum'"
+}

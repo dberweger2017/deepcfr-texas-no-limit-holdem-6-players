@@ -1,0 +1,77 @@
+{
+  "source": "da42ac5285edf30a732cad930b970580640be387",
+  "files": {
+    "artifact-verification.json": {
+      "sha256": "e2b5b2a4d7f64c039f32c792dde2b25cce9cb8224583c631d4715a11ed1956d5",
+      "bytes": 9690
+    },
+    "compressed-2026093001.json": {
+      "sha256": "65b63a04a94c73b2052774913188c3f7a8bfa63ccd61dd063ea305fa36a4c283",
+      "bytes": 28148
+    },
+    "compressed-2026093002.json": {
+      "sha256": "1e119b773ef3e652a2b410aa22ee38494db0c139f73f7b3d329aa2330775b134",
+      "bytes": 28265
+    },
+    "compressed-2026093003.json": {
+      "sha256": "091e45bf8a1c241861d91d6056f82e55495e8781dd3ea0084f29f31eeeb3b020",
+      "bytes": 27771
+    },
+    "corpus-manifest.json": {
+      "sha256": "12c4a5cd7a2faf98634c765b9a8c9c9a3ae710ef6d563b3cbea07ff85bbbcc38",
+      "bytes": 483
+    },
+    "crosspatch-summary.json": {
+      "sha256": "2bbbe3e56b0b7b4b082b1a13ca6d776e2190a4ccbfbdb1ea97c11256d75bcfeb",
+      "bytes": 11604
+    },
+    "density-gate.json": {
+      "sha256": "05611ba6828a6acde2bec44580e473ebee31b7c1735e5e49ffb97efec1398d7d",
+      "bytes": 4254
+    },
+    "full-2026093001.json": {
+      "sha256": "7c489c8159a3391340ed4b2d2c2090a644ec136246cabf9aa6e1dc5d5d9ecd7e",
+      "bytes": 25165
+    },
+    "full-2026093002.json": {
+      "sha256": "9d096684d297ccc6db9113d214cc48b3cc26ff139bcceeead576dffb0cb88697",
+      "bytes": 25442
+    },
+    "full-2026093003.json": {
+      "sha256": "935a2992b1306c9062137ea9aab8bc96212670411e622c61c1a38962e07f0aed",
+      "bytes": 25032
+    },
+    "resources.csv": {
+      "sha256": "fa7bdaac70f11c71a8d02c571b5dcbbac94f1eae0a8f27ee33b888af370964e9",
+      "bytes": 1105
+    },
+    "supervisor.json": {
+      "sha256": "9355593c895e57a4c957092913f5d54bfab420d2b514fcafbceace8374824398",
+      "bytes": 848
+    },
+    "v2-descriptor-admission.json": {
+      "sha256": "7a9d80d5f77326084a3e15f157f7c001663b22aed9dabd883155a199ee5724d4",
+      "bytes": 468
+    },
+    "visits-by-street.csv": {
+      "sha256": "b555048000774772a6f5c6b880309fd862de819d6625408ae4edb612a75e3345",
+      "bytes": 29732
+    },
+    "dr2x2-phase0-supervisor.py": {
+      "sha256": "61e114d0f99a79402a25aa004ce4dd78bccebae3fe262b7be270956be0780e09",
+      "bytes": 2031
+    },
+    "dr2x2-crosspatch-check.py": {
+      "sha256": "0799f06ee4f870a895e84e3031f88dcdcc0b87f476361da4ea2836208b293a43",
+      "bytes": 2082
+    },
+    "dr2x2-baseline-check.py": {
+      "sha256": "2a94d444240a25ee9fcca0ef3f353b8b4d27715829e3dca03fbd2db362b99790",
+      "bytes": 993
+    },
+    "dr2x2-crosspatch-supervisor.py": {
+      "sha256": "3872ef3a74cbcbd1c5ebf8655c43141c55ffc6313e10eea53768952f02535709",
+      "bytes": 2812
+    }
+  }
+}

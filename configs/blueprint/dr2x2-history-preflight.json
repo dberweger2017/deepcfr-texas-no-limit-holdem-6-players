@@ -1,0 +1,45 @@
+{
+  "schema": "dr2x2-history-preflight-v1",
+  "seeds": [
+    2026093001,
+    2026093002,
+    2026093003
+  ],
+  "milestones": [
+    250000,
+    500000,
+    1000000,
+    2000000
+  ],
+  "schemas": {
+    "full": "hu20-native-reopening-ordered-history-card-v1",
+    "compressed": "hu20-native-reopening-compressed-history-card-v1"
+  },
+  "probe": {
+    "root_seed": 202610110001,
+    "blocks": 2048,
+    "both_positions": true,
+    "policy": "uniform-native-abstract-menu"
+  },
+  "gate": {
+    "street": "river",
+    "minimum_median": 2,
+    "median_ratio": 2,
+    "low_visit_fraction_reduction_pp": 5,
+    "minimum_passing_seeds": 2
+  },
+  "limits": {
+    "max_rss_gib": 6,
+    "min_free_gib": 8,
+    "worker_seconds": 1800
+  },
+  "trainer": {
+    "raise_cap": null,
+    "roots_per_seat": 1,
+    "max_nodes": 250000,
+    "max_entries": 4000000,
+    "max_seconds": 300,
+    "postflop_replicates": 1,
+    "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1"
+  }
+}

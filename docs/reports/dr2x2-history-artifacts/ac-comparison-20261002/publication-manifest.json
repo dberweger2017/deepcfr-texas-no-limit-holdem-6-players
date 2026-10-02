@@ -1,0 +1,76 @@
+{
+  "raw_audit_source": "60b39090cca0fdb2b6524f3c496ead6ebdfd31b1",
+  "science_source": "6ce14e1513ce1b6f452b59930bf8f2034ad80115",
+  "plan_sha256": "38b586b7909f834b88cb43539e172a5f3b5aedde7801b3104b37fa58d552cc2a",
+  "files": {
+    "summary.json": {
+      "bytes": 1732613,
+      "sha256": "5f7f32f09476f0a21af56de68675e0a630545e23fdf3a15e803748b63882def6"
+    },
+    "whole-hand-partitions.csv": {
+      "bytes": 100611,
+      "sha256": "c2d2ef90ac94a06858b907d9fc81241e8c69c70d5120bbfa931549c31408ff74"
+    },
+    "independent-report-attempt-1.log": {
+      "bytes": 129,
+      "sha256": "87d648cb0076b3dceb7ef2cee79683add0abf8dc8cfbbe4393f7f5b70d13c30f"
+    },
+    "visits-distribution.csv": {
+      "bytes": 265506,
+      "sha256": "f5f13962ef0aa6a96318527bde35e0febd88dbf0574b5eee63136cdbeb539f70"
+    },
+    "restricted-river-contrasts.json": {
+      "bytes": 1094,
+      "sha256": "530727b9359ae9cf4018bd5bca4810d9048810cd5d67fb09e8402a18ba3a8301"
+    },
+    "independent-report-attempt-2.log": {
+      "bytes": 855,
+      "sha256": "bf1b2362bb0932cb7098f2f9590bc8a611b06702722602f500ab0dba549e4d67"
+    },
+    "absolute.csv": {
+      "bytes": 95015,
+      "sha256": "ba2a913c7e52d6e087ca0617cfb3045b016271892977238d0cd32e17e9f7a822"
+    },
+    "observation-supplement-summary.json": {
+      "bytes": 2838,
+      "sha256": "6a30e5e217921cdc9b45511049cec5ecd296b9cfa9c03352747d5a6c3c03cf13"
+    },
+    "decision-visits.csv": {
+      "bytes": 245231,
+      "sha256": "14e8cb41c34a01bc597cd0ba80ad6a3030d670b1b3a45ab5735a2be29c048a8f"
+    },
+    "paired-changes.csv": {
+      "bytes": 88300,
+      "sha256": "86f8e8873a00b557e25af08497ae2771c4463c7730aa9268112e272255a014ae"
+    },
+    "restricted-river.csv": {
+      "bytes": 9769,
+      "sha256": "4d3171f58b601e8b97646ec22c83d4975786644554a71d9095008ab1e4e3b036"
+    },
+    "progress.json": {
+      "bytes": 121,
+      "sha256": "a5c4f19749b55608633aa1a01d75c39faa4f5a680e09dd7a43cef9eed3bb8776"
+    },
+    "tails.csv": {
+      "bytes": 65107,
+      "sha256": "b90c86953cd34585550da244a4cd6266cec7364001210d3f36b20943b8af3124"
+    },
+    "observation-supplement-manifest.json": {
+      "bytes": 448,
+      "sha256": "3eeb808609195f38d64dccec8c166e80db81df0a2b8a0e6d0c3eb5c63563ba5c"
+    },
+    "lbr-observation-coverage.csv": {
+      "bytes": 3048,
+      "sha256": "fb6f93801ef69da51a3ad0a263a43c7cc8f49df8b214daedf15a8bf1fcbc449f"
+    },
+    "raw-report-manifest.json": {
+      "bytes": 901,
+      "sha256": "832bade062ac1a53d2212461f58b863b5f69484bf8f839a506097a24abc90bd6"
+    },
+    "resources-and-incidents.json": {
+      "bytes": 6512,
+      "sha256": "e623197792899765adf20655d03bc31ccac83268ed7eabafeebba667ef02fa05"
+    }
+  },
+  "lbr_internal_telemetry": "Unavailable due to frozen observation-wrapper capture defect; not zero. Realized returns fully audited."
+}

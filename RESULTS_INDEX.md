@@ -1,5 +1,22 @@
 # Research results index
 
+## PR144 C-only A/C comparison evidence — October2
+
+- Training: `/Users/dberweger/Local/dr2x2-c-campaign-20261001`, all three100M
+  checkpoints/current exports,33acknowledgements and198 retained archive members.
+- Evaluation: `/Users/dberweger/Local/dr2x2-ac-evaluation-attempt-2-20261002`,
+  three closed per-seed `jobs/SEED/final.tar` archives, closed-task backups and
+  all controller/lease/watchdog/resource/failed-attempt provenance.
+- Independent report: `independent-report-attempt-3` under that evaluation root.
+  Earlier report attempts1/2 and first pre-science rental root
+  `/Users/dberweger/Local/dr2x2-ac-evaluation-20261002` remain retained.
+- [Readable report and precise archive retrieval commands](docs/reports/dr2x2-ac-comparison.md)
+  / [compact publication hashes](docs/reports/dr2x2-history-artifacts/ac-comparison-20261002/publication-manifest.json).
+  All165,888 hands/36profiles audited; no paid rentals or volumes remain.
+- Original A inputs and C checkpoints/averages remain untouched; unverified
+  Drive copies do not authorize local removal. D deferred, no model promotion.
+
+
 Large untracked training/evaluation artifacts are indexed here so a PR can link to their location without checking them into Git. Working files may live wherever convenient. During cleanup, archive them to the owner-designated [Google Drive folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s).
 
 ## Current archive state

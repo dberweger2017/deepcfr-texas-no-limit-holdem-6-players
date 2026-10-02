@@ -1,0 +1,211 @@
+{
+  "pid": 20502,
+  "status": "complete",
+  "source_files": {
+    "src/blueprint/abstraction.py": "d77455180b9a5abdd9f4c693c80617a97d796a9dec46e9472c09abf6685c5d58",
+    "src/blueprint/solver.py": "87af7f1a9c8926b5fe4408ebeb0ce7b5928a520fee5ea99c2b777d74b47bc420",
+    "src/blueprint/artifact.py": "a802715c5d1694184b57ab0c26ba8498b357006b4ca18e0cb72b3ba4f5131a6e",
+    "src/blueprint/cards_v2.py": "190d530ce66d65a031334d95600ce0f005d81324a7353170dcebf1d64a6ccd92"
+  },
+  "comparisons": [
+    {
+      "schema": "hu20-native-reopening-ordered-history-card-v1",
+      "seed": 2026093001,
+      "direct": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v1",
+        "seed": 2026093001,
+        "iteration": 254,
+        "completed_nodes": 100066,
+        "entries": 17493,
+        "work_sha256": "6a7d73812226730f5672b79d3c773b91eb363248b0e5b5787770cc8526193f17",
+        "rng_sha256": "e6fef939c68f21b74135c05a1a2d77c2a581ccfe33b4920e0b0037ee16e535a1",
+        "checkpoint_sha256": "bee430f7677b7ff1c99282d25796a684ae900530d311d418559604db3470477d",
+        "export_sha256": "5667303c061e0d4b0ac4f50cbfb832e73718f9b0637effca974aa8ab4e318fed",
+        "checkpoint_payload_sha256": "07dccd8c17b23a6d31094a8562d7e0144dde251537fa02b852907bfdc6dd0602",
+        "export_payload_sha256": "8b7081ca76136a1b9f46d2a499ad0edb9aee06a777490cd2667920b567c5a18a"
+      },
+      "fresh-next": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v1",
+        "seed": 2026093001,
+        "iteration": 255,
+        "completed_nodes": 390,
+        "entries": 17550,
+        "work_sha256": "ea0ca532bd8f8c9fceb2e42126f1b3298b05ab4be287cce5b5abdea110fb7cf0",
+        "rng_sha256": "cc6d4c3d56af9933679a2f25c2c38b91381fe4f77e09037b1dc9152c89c7ad89",
+        "checkpoint_sha256": "8444821aaa23d25fe70b387561165dd59394e1d6847c8b6c31e2546bd910b20c",
+        "export_sha256": "f96f08104b7a2322bd9311a587397e33a16e7aad4218e1a7816072fbbafdc35b",
+        "checkpoint_payload_sha256": "009684ca94617539643978f404a88a6514d82d1b50a3183553a3f82ffb201ccd",
+        "export_payload_sha256": "f1d1508938a0c0e6258f4db6c4310b9078a891a511fd44abc9a3e24f74245543"
+      },
+      "passed": true
+    },
+    {
+      "schema": "hu20-native-reopening-ordered-history-card-v1",
+      "seed": 2026093002,
+      "direct": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v1",
+        "seed": 2026093002,
+        "iteration": 248,
+        "completed_nodes": 100462,
+        "entries": 17719,
+        "work_sha256": "8a291ec9a43a9a2ec056974cc52570ddd96ca03f647b707534cb4ee2f3d9d305",
+        "rng_sha256": "df931bdd06860168adde381af321cc7b401825a442fc504f7130fa0e0be0b3e7",
+        "checkpoint_sha256": "98ca9fd916b327cc40f96efa83e23081f5e9d6eae1fdb00fdadb06bb25b28c90",
+        "export_sha256": "d70f435963f31619a237dbe34d5316e5519fcb042e7ea195b9626af690f09ab4",
+        "checkpoint_payload_sha256": "76b60a37a5223a9e788b7cd6278e9816f62453e04401ef0cfa8cc8e1b8739679",
+        "export_payload_sha256": "935bfca2fb98cd1e3d5f3a298efa99adacd2dc476a063a683f390c2e7c82043b"
+      },
+      "fresh-next": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v1",
+        "seed": 2026093002,
+        "iteration": 249,
+        "completed_nodes": 452,
+        "entries": 17787,
+        "work_sha256": "8cba58692d2f28eef8aad58ad3b37bf2c213f3b9aa62d7401ff6313c4652eeaf",
+        "rng_sha256": "d75738177013d2377533e150247d01d5671d40effdcdb0622be2202916b47e15",
+        "checkpoint_sha256": "a14067bc1056d82e38f50b7d4cb756d67239debdc958f224ea6925320e6fb439",
+        "export_sha256": "c7e53756c0705654f20671e6289fe28fff79254f26ff33570503edf1a6750df8",
+        "checkpoint_payload_sha256": "a3fe3736840e65a7effdf029e23d42d03dd3cc2e450e25bbd1d954d50bfd58bd",
+        "export_payload_sha256": "bf2f71a4b0bafb433d15c5154d394fbade927099e187c4535511128902762e62"
+      },
+      "passed": true
+    },
+    {
+      "schema": "hu20-native-reopening-ordered-history-card-v1",
+      "seed": 2026093003,
+      "direct": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v1",
+        "seed": 2026093003,
+        "iteration": 248,
+        "completed_nodes": 100271,
+        "entries": 17631,
+        "work_sha256": "52e804c4d2a8389223811514a28e9a787df8d8d62b56c5d359423520214d2f48",
+        "rng_sha256": "e8d74263087ee3de371eb8dc0f587bf9390949547c4f140b9b517c95c3263170",
+        "checkpoint_sha256": "2546db6b2fe4216f3e4ebd496b06e530021970312a110ba1a371a556d09f446f",
+        "export_sha256": "552b9ee1b6c3f4e0396557ee9718560f2b4da1f0497aac5727bd0f9c4724fb15",
+        "checkpoint_payload_sha256": "746fd76c6db6ecc8ae59cdf306930a02b4e1609bea54da44fc8df6dd2ae85523",
+        "export_payload_sha256": "440499bec199253fc4485ab8b589ffd94d76816b08cf08b60c874bba5e5f47e7"
+      },
+      "fresh-next": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v1",
+        "seed": 2026093003,
+        "iteration": 249,
+        "completed_nodes": 334,
+        "entries": 17677,
+        "work_sha256": "893ec3452b675c686abb92d07b19351964f69b466df4ac67382ccbb7b49eb185",
+        "rng_sha256": "ce4c677cfeeb073efc7ad185aa98ef7cb0cbf782691f20314b2908e0dfd88cd4",
+        "checkpoint_sha256": "4ae9022a344f9516582dec56dff98a890be2d280baeab8001afe0136178df45b",
+        "export_sha256": "dffba8d9efce8d5c67d34c734169e09ba018b4e41571fc35c94a701e232fa881",
+        "checkpoint_payload_sha256": "f7a30ddc79f6373f8f1f2cc8cc8514fa7c50c0754b43896a1124f17e8f388dec",
+        "export_payload_sha256": "b7250c4829d469d757538a0df53c8d988c966c7eb198b1e9504931aa25596db6"
+      },
+      "passed": true
+    },
+    {
+      "schema": "hu20-native-reopening-ordered-history-card-v2",
+      "seed": 2026093001,
+      "direct": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v2",
+        "seed": 2026093001,
+        "iteration": 245,
+        "completed_nodes": 100195,
+        "entries": 19644,
+        "work_sha256": "d8bf18728a6baee3b8fb70611bf4b0402c821d05b8efd34b00d82c06e4f5cc59",
+        "rng_sha256": "6e06d7111347d62f6337872dfddc97f957a9b645709fb51cf248e973a2f419ce",
+        "checkpoint_sha256": "68c3f58a6d00ba269a8ab9ef8e21128adb30630dd788b00324f6d15dd6cf4785",
+        "export_sha256": "ea126cddb3940845d0e95b672fd0bb4c2287c276e9a92fc5d62c6d9f6b0c8436",
+        "checkpoint_payload_sha256": "5ba656241f012b9ff7541b28ee73a22236f37b9988d4e4be7f6f486bdfa40455",
+        "export_payload_sha256": "64729c60e085102d5d58e309385cc299ba6bcc82d6b472cde6ac0a7081a482c7"
+      },
+      "fresh-next": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v2",
+        "seed": 2026093001,
+        "iteration": 246,
+        "completed_nodes": 140,
+        "entries": 19669,
+        "work_sha256": "029e113f1267fac42fff7351e22c94a9854aa7603904e1c4ccb3402bbdd215ab",
+        "rng_sha256": "5bcfb5f6d9febb2ae10db0115127e8d468b29f16599dc621fd78440e6b79daf3",
+        "checkpoint_sha256": "90f4deb41d34c2da0c5500cd6980ef80ab51d68da3abfad742d88b7c22c44374",
+        "export_sha256": "8f97292c833f94e4b5f72f94063eb95dd07f7cfe19c12bc9868401973ebecb61",
+        "checkpoint_payload_sha256": "37fab5e5377baf7cb89d078b630d78afb2fe952e20198b8fd9c67e7661451ffc",
+        "export_payload_sha256": "9d1b1237a821acf1351775d822dcf43b3bb94d5ad323cffbe9c82df5e583faf8"
+      },
+      "passed": true
+    },
+    {
+      "schema": "hu20-native-reopening-ordered-history-card-v2",
+      "seed": 2026093002,
+      "direct": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v2",
+        "seed": 2026093002,
+        "iteration": 242,
+        "completed_nodes": 100227,
+        "entries": 19618,
+        "work_sha256": "c5f5d9434dff834ee41cb3b158a97f340d548a147af639cec92074db3874717e",
+        "rng_sha256": "2310a9924918a926ccb6979bba29c5e1c2d2b21375edd1bc30e4cfd4660a54e6",
+        "checkpoint_sha256": "5635206039349ac9147ec59bfd0dfb4179368195c347dea65b75f59fae2510c4",
+        "export_sha256": "34b0a1ec5f27f96b792c02560531adfcf2cafdaeb1a4137b5adab352f5be5aee",
+        "checkpoint_payload_sha256": "afadb1142d336d6853e498573a50a10a10fb829338e9a1a540c92847d1d566ff",
+        "export_payload_sha256": "1e00a46e69bc479cb6b8b4f4ec0f5bd003526b3f807e490612960c088f70e56b"
+      },
+      "fresh-next": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v2",
+        "seed": 2026093002,
+        "iteration": 243,
+        "completed_nodes": 491,
+        "entries": 19711,
+        "work_sha256": "1163934023bec039a2c497b2c2950187134b565396ed903cd8b65efc8f484fe8",
+        "rng_sha256": "b01f7cbfe6243feb796a94c92abf714c7fad8a3820882d25135f0657cd83a258",
+        "checkpoint_sha256": "63632fe773e61e2128c6ee30e4d3343f672d3d459b76c720ba4c007b7e78cb9a",
+        "export_sha256": "bd86b8d51a434512b59998c0d48bccdd6528dae03a8ab4b6841a5ae26e3a496f",
+        "checkpoint_payload_sha256": "26d7c67c7af185b21e5665a49318ce4b33e7537ea0482edf24f20b720c2a7344",
+        "export_payload_sha256": "832a28ea200511f6b788a7d4695fa71ff3d5398fb7169de637936e3dc60b1329"
+      },
+      "passed": true
+    },
+    {
+      "schema": "hu20-native-reopening-ordered-history-card-v2",
+      "seed": 2026093003,
+      "direct": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v2",
+        "seed": 2026093003,
+        "iteration": 239,
+        "completed_nodes": 100030,
+        "entries": 19527,
+        "work_sha256": "71c0336dd65cc648248d7f7753fa9f72f1db3c28fdbeaed85a17e0915134cd5f",
+        "rng_sha256": "570f313e75c7e8b5179e3ba8deb76964b53bff50164e4fdfaa237b14d14f89a7",
+        "checkpoint_sha256": "82b7eb2910cc0c6496a3d2eaa34cda5986b491bc598e81ffeb60d2961a95788f",
+        "export_sha256": "6fee1d14db49a62472a05cbfb0a4eabdf0cb059015a41f519dafac607ad6bf6b",
+        "checkpoint_payload_sha256": "6bb1c79393bd4823146a2ee2f8ba295fa9d6990ea660bd3aee1da80785fde785",
+        "export_payload_sha256": "12afbf1419318faa3a954527728ff4828693beefd1ba20698bb4c1a14bf14572"
+      },
+      "fresh-next": {
+        "python": "3.11.14 (main, Feb 12 2026, 00:41:29) [Clang 21.1.4 ]",
+        "schema": "hu20-native-reopening-ordered-history-card-v2",
+        "seed": 2026093003,
+        "iteration": 240,
+        "completed_nodes": 347,
+        "entries": 19588,
+        "work_sha256": "07aabeaba86d33f8080f4a44bb3057e9635a509925c92eeb356172c2e0404a4b",
+        "rng_sha256": "cc9ba3273f40c10f0297fcadbcfe088e2c4ff05ab292047faef11cfc283628ac",
+        "checkpoint_sha256": "a7682fddbb2879b7c95d36433bbf2be064199b8ef3b3e7c8e927cb1a97d65825",
+        "export_sha256": "25dc1f21708f391cc54b092f1b91bc14ee02aa1af31675774c7f2acee8606713",
+        "checkpoint_payload_sha256": "f04ba8b4eb04334c2a6b6a6cace20f891bb4cb0101ff5b50364a67cd68f1a14b",
+        "export_payload_sha256": "cc84a7a4c6c9328ecf09bb77510eb8bcc531d2576c50f5fb9aa15eec36648e53"
+      },
+      "passed": true
+    }
+  ],
+  "finished": 1790867121.241518
+}
