@@ -19,7 +19,7 @@ from src.blueprint.hu20_turn_search import HU20TurnSearchPolicy, TurnSearchConfi
 from src.blueprint.hu20_turn_solver import ExternalTurnSolver, SolveFailure, file_hash
 from src.diagnostics.hu20_search_protocol import qualify_curve
 from src.game.hand import Hand, Table
-from src.game.observation import BoardDealt
+from src.game.observation import BoardDealt, replay
 from src.game.types import Action, ActionKind, Street
 
 
@@ -93,6 +93,11 @@ def quality_row(source, binary, config, item, bot, out, guard, *, quality_second
     started=monotonic()
     try:
         guard();solution=policy._resolve(root,bot,started+30)
+        public=replay(root,replay(root,0,()).actor,())
+        matrix=solution.matrix(root)
+        completed=policy._complete_matrix(public,matrix)
+        policy._remember_play(public,completed,False,supported=matrix.holdings)
+        policy._check(started+30)
         row["cold_seconds"]=monotonic()-started
         row["range_coverage"]=solution.coverage
     except SolveFailure as exc:

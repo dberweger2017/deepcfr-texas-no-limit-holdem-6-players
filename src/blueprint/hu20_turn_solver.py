@@ -71,6 +71,18 @@ def parse_profiles(request, path):
             profiles[key] = PolicyMatrix(menu, holdings, p)
     if set(profiles) != set(nodes):
         raise SolveFailure("invalid_response", "Incomplete current-round profile")
+    for lock in request.get("locks",[]):
+        key=line_key(lock["line"])
+        matrix=profiles.get(key)
+        if matrix is None:continue
+        node=nodes[key]
+        if lock["actions"]!=node["actions"] or lock["player"]!=node["player"]:
+            raise SolveFailure("invalid_response","Hero lock identity differs")
+        lookup={tuple(sorted(h)):i for i,h in enumerate(lock["holdings"])}
+        values=np.asarray(lock["strategy"]).reshape(len(node["actions"]),-1).T
+        expected=np.asarray([values[lookup[h]] for h in matrix.holdings])
+        if not np.allclose(matrix.probabilities,expected,atol=2e-5,rtol=0):
+            raise SolveFailure("invalid_response","Exported strategy violates a prior hero lock")
     return profiles
 
 

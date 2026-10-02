@@ -160,6 +160,37 @@ def test_exact_insertions_follow_pinned_solver_action_order():
                              {"kind":"Bet","amount":333},{"kind":"AllIn","amount":1000}]
 
 
+def test_live_fallback_locks_survive_probe_eviction_and_new_hand_resets():
+    class Recovering(FakeSolver):
+        def solve(self,request,deadline):
+            if not self.requests:
+                self.requests.append(request)
+                raise SolveFailure("timeout","First live solve failed")
+            profiles=super().solve(request,deadline)
+            locks={line_key(n["line"]) for n in request["locks"]}
+            for key,matrix in list(profiles.items()):
+                if key in locks:continue
+                column=next((i for i,c in enumerate(matrix.menu) if c.action.kind==ActionKind.RAISE),0)
+                p=np.zeros_like(matrix.probabilities);p[:,column]=1;p.setflags(write=False)
+                profiles[key]=PolicyMatrix(matrix.menu,matrix.holdings,p)
+            return profiles
+    hand=fixture();bot=hand.actor;source=Uniform();solver=Recovering()
+    policy=HU20TurnSearchPolicy(source,solver,TurnSearchConfig(cache_entries=1))
+    assert policy.distribution(hand.observe(bot),query_kind="play")==source.distribution(hand.observe(bot))
+    played=dict(policy.played)
+    hypothetical=hand.apply(Action(ActionKind.CHECK)).apply(Action(ActionKind.RAISE,444))
+    policy.distribution(hypothetical.observe(bot))
+    assert policy.played==played
+    actual=hand.apply(Action(ActionKind.CHECK)).apply(Action(ActionKind.RAISE,333))
+    policy.distribution(actual.observe(bot),query_kind="play")
+    lock=next(n for n in solver.requests[-1]["locks"] if n["line"]==[])
+    assert np.allclose(np.asarray(lock["strategy"]),1/len(lock["actions"]))
+    assert policy.distribution(hand.observe(bot))==source.distribution(hand.observe(bot))
+    fresh=Hand.start(Table(("a","b"),(2000,2000),button=0),hand_id="fresh",seed=33)
+    policy.distribution(fresh.observe(fresh.actor),query_kind="play")
+    assert not policy.played and policy.live_hand_id=="fresh"
+
+
 @pytest.mark.parametrize("cause", ["solver_unavailable", "timeout", "memory_refusal", "invalid_response"])
 def test_failed_search_is_a_legal_base_fallback_and_is_cached(cause):
     class Failed(FakeSolver):
@@ -199,6 +230,21 @@ def test_profile_parser_rejects_tampering_and_missing_rows(tmp_path):
     path.write_text("")
     with pytest.raises(SolveFailure, match="Incomplete"):
         parse_profiles(request, path)
+
+
+def test_profile_parser_rejects_normalized_strategy_that_violates_hero_lock(tmp_path):
+    hand=fixture(Street.RIVER);request=compile_tree(hand.events,hand.events)
+    cards=[c for c in ("2c","2d","3c","3d","4c","4d","5c","5d") if c not in request["board"]]
+    request["ranges"]=[[{"hand":cards[:2],"weight":1}],[{"hand":cards[2:4],"weight":1}]]
+    request["locks"]=[];profiles=FakeSolver().solve(request,monotonic()+30)
+    nodes={line_key(n["line"]):n for n in request["nodes"] if not n["terminal"]}
+    rows=[{"line":nodes[k]["line"],"board":request["board"],"player":nodes[k]["player"],
+        "actions":nodes[k]["actions"],"holdings":m.holdings,"strategy":m.probabilities.T.ravel().tolist()}
+        for k,m in profiles.items()]
+    path=tmp_path/"profiles.jsonl";path.write_text("".join(json.dumps(r)+"\n" for r in rows))
+    lock=dict(rows[0],strategy=[1]+[0]*(len(rows[0]["actions"])-1))
+    request["locks"]=[lock]
+    with pytest.raises(SolveFailure,match="prior hero lock"):parse_profiles(request,path)
 
 
 def test_process_timeout_kills_child_and_retains_receipt(tmp_path):

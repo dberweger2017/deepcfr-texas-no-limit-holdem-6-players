@@ -133,3 +133,23 @@ def test_quote_refuses_omitted_speculative_lbr_or_stale_offer():
     assert result["worker_seconds"]==630 and result["owner_approved"] is False
     with pytest.raises(ValueError):quote(plan,calibration,dict(timing,includes_lbr_speculative_solves=False),offer,workers=2,now=1001)
     with pytest.raises(ValueError):quote(plan,calibration,timing,offer,workers=2,now=10000)
+
+
+def test_guard_stop_retains_incomplete_native_hand(tmp_path):
+    class Uniform:
+        description={"fixture":"uniform"};abstraction=HU20_UNCAPPED_SCHEMA
+        def distribution(self,view):
+            menu=choices(view,raise_cap=None,free_fold=False)
+            return menu,(1/len(menu),)*len(menu),False
+    count=0
+    def guard():
+        nonlocal count
+        count+=1
+        if count==2:raise TimeoutError("Frozen phase expired")
+    spec={"name":"fixture","strategy":"average","seed":1}
+    panel={"name":"uniform","rule":"uniform","contract":"native"}
+    with pytest.raises(TimeoutError):campaign.play(Uniform(),spec,panel,42,0,0,guard,failure_dir=tmp_path)
+    files=list(tmp_path.glob("*.json"));assert len(files)==1
+    partial=json.loads(files[0].read_text())
+    assert partial["status"]=="incomplete" and len(partial["actions"])==1
+    assert "Frozen phase expired" in partial["failure"]
