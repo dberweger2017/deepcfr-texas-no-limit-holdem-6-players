@@ -1,0 +1,13 @@
+{
+  "automatic_resume": false,
+  "model_process_observed": {
+    "name": "Ollama llama-server",
+    "pid": 70614,
+    "rss_kib": 5588144
+  },
+  "owner_instruction": "Clean up your work on the M4; stop for now; Ollama takes priority",
+  "primary_stop": "Measured job headroom fell below budget",
+  "source": "read-only ps/vm_stat/sysctl observations after the main guard; later full snapshot retained separately",
+  "subsequent_swap_mib": 2314.88,
+  "swap_baseline_mib": 745.38
+}

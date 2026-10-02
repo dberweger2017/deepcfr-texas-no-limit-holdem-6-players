@@ -87,3 +87,19 @@ def test_selected_fold_coverage_counts_excluded_frozen_roots():
     result=selected_folds(rows,expected_total=4.)
     assert result['coverage']==.5 and result['covered_weight']==2.
     assert not result['H0']
+
+
+def test_interrupted_turn_report_excludes_every_frozen_unstarted_root(tmp_path):
+    from scripts.report_turn_check import report
+    from src.diagnostics.flop_check import atomic_json
+    config=tmp_path/'configs/diagnostics/protocol.json';config.parent.mkdir(parents=True)
+    for group in ('A','B'):atomic_json(tmp_path/f'{group}.json',{'roots':[{'spot':group}]})
+    policies=[{'name':str(i),'seed':i//2,'strategy':'current' if i%2 else 'stored-average'} for i in range(6)]
+    atomic_json(config,{'policies':policies,'corpus':{g:{'path':g+'.json'} for g in ('A','B')},
+                       'selected_lbr_decision_weight':1,'lbr_live_turn_fraction':.2,'jobs_total':12})
+    run=tmp_path/'run';(run/'spots').mkdir(parents=True);atomic_json(run/'failure.json',{'error':'memory guard'})
+    result=report(config,run,tmp_path/'report')
+    assert len(result['common_exclusions']['A'])==len(result['common_exclusions']['B'])==1
+    assert result['summaries']['B/pooled']['independent_roots']==0
+    assert result['decision']['classification']=='incomplete frozen campaign; no hypothesis decision'
+    assert not result['selected_turn_overfold']['H0']

@@ -56,6 +56,14 @@ def report(protocol,run,out):
     admitted={};exclusions={}
     for group in ('A','B'):
         admitted[group],exclusions[group]=common_rows([r for r in rows if r['set']==group],config['policies'])
+        # An interrupted campaign must count never-started frozen roots too.
+        corpus_path=Path(protocol).resolve().parents[2]/config['corpus'][group]['path']
+        present={r['spot'] for r in rows if r['set']==group}
+        for root in json.loads(corpus_path.read_text())['roots']:
+            if root['spot'] not in present:
+                exclusions[group].append({'spot':root['spot'],'present_policies':[],
+                    'expected_policies':[p['name'] for p in config['policies']],
+                    'reason':'no completed profile from the frozen campaign'})
     summaries={}
     for group in ('A','B'):
         views={'pooled':admitted[group]}
