@@ -14,6 +14,13 @@ preserving all five complete jobs and charging the failed attempt to the same
 has a common six-export root, so no hypothesis decision is available. The
 following records the preceding owner-stopped attempt.
 
+The [retried root](hu20-exact-turn-check-artifacts/resource-readmission-retry.json)
+completed in 466.05 solver seconds, peak owned RSS 4.493 GiB, residual 0.194949%
+of pot, no swap growth. All ten primary values are bit-identical to those
+emitted before the preceding incomplete attempt stopped; the new run also
+completes both-blueprint EV and the final result. Full Linux CI passes at the
+[resource readmission commit](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37012098854).
+
 During resumed execution, a reporting review added an explicit check for wholly
 absent Set B strata. The frozen decision already requires two eligible roots in
 each of eight strata; an absent bootstrap cell now blocks that decision too.
