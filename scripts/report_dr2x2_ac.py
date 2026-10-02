@@ -157,8 +157,12 @@ def report(root,plan,inputs,out):
                                         if action['logical_player']==0:
                                             c=coverage[(*group,observed['street'])];v=observed['visits'];c.update(decisions=1,zero=v==0,below10=v<10,below100=v<100)
                                             c[observed['readout_mass_status']]+=1
-                                        if 'lbr' in action:
-                                            telemetry=action['lbr'];c=counts[group];c.update(lbr_decisions=1,lbr_completed=telemetry['completed'],lbr_limited=not telemetry['completed'],lbr_over_soft=telemetry['over_soft_budget'],lbr_samples=telemetry['samples'],lbr_zero_likelihood_events=telemetry['zero_likelihood_events'])
+                                        if row['panel']=='lbr' and action['logical_player']==1:
+                                            c=counts[group];c['lbr_decisions']+=1
+                                            if 'lbr' not in action:
+                                                c['lbr_metadata_missing']+=1
+                                                continue
+                                            telemetry=action['lbr'];c.update(lbr_completed=telemetry['completed'],lbr_limited=not telemetry['completed'],lbr_over_soft=telemetry['over_soft_budget'],lbr_samples=telemetry['samples'],lbr_zero_likelihood_events=telemetry['zero_likelihood_events'])
                                             if telemetry['requested_samples']!=plan['chance_samples']:raise ValueError('LBR K differs')
                                 raw_hands+=1;raw_actions+=len(row['actions'])
                                 if raw_hands%1024==0:write(out/'progress.json',{'hands':raw_hands,'seed':spec['seed'],'cell':spec['cell'],'readout':readout,'seconds':time.time()-started,'peak_rss_bytes':peak_rss()})

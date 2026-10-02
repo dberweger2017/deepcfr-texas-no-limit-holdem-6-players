@@ -3,6 +3,20 @@ import pytest
 from scripts.report_dr2x2_ac import block_values,interval,SEEDS
 
 
+def test_lbr_completion_metadata_survives_observation_wrapper_without_another_action():
+    from scripts.evaluate_robustness import last_lbr_telemetry
+    from src.diagnostics.robustness import LocalBestResponse
+    from src.diagnostics.stackoff_tails import RecordingOpponent
+    opponent=object.__new__(LocalBestResponse)
+    trace={'requested_samples':4,'samples':2,'completed':False,'zero_likelihood_events':3}
+    opponent.telemetry=[trace]
+    wrapped=RecordingOpponent(opponent,[])
+    assert last_lbr_telemetry(opponent) is trace
+    assert last_lbr_telemetry(wrapped) is trace
+    assert len(opponent.telemetry)==1 and wrapped.decisions==[]
+    assert last_lbr_telemetry(object()) is None
+
+
 def test_call_tails_come_from_decisions_without_optional_legacy_totals():
     from scripts.report_dr2x2_ac import call_counts
     row={'actions':[{'logical_player':p,'kind':k,'observation':{'call_amount':call,'stack':stack}}

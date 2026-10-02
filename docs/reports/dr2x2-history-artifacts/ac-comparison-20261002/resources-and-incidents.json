@@ -1,0 +1,160 @@
+{
+  "resources": [
+    {
+      "seed": 2026093001,
+      "pod_id": "as0w6463in7nr1",
+      "name": "dr2x2-EVAL-2026093001-1790902742",
+      "terminated": 1790904952.728658,
+      "created_epoch": 1790902747.061,
+      "rental_seconds": 2205.667657852173,
+      "worker_seconds": 1434.6818017959595,
+      "evaluation_seconds": 1396.797693759203,
+      "peak_owned_rss_bytes": 1826144256,
+      "swap_growth_bytes": 0,
+      "linux_parity": {
+        "actual_file_sha256": "73c7e9a2955de57801fe9033dbffb41ffcce1174d3bd7c14384220cc5fdd43cd",
+        "hands": 160,
+        "passed": true,
+        "plan_sha256": "38b586b7909f834b88cb43539e172a5f3b5aedde7801b3104b37fa58d552cc2a",
+        "reference_file_sha256": "64aaaa915e75dd6d5429dba333b9dc985caa113ad432941be345c9e6de7efcf1",
+        "scientific_comparison": "exact fingerprints; latency removed; completion/fallback retained",
+        "source": "6ce14e1513ce1b6f452b59930bf8f2034ad80115"
+      },
+      "linux_capacity": {
+        "admission_allowance_seconds": 10800,
+        "fixed_margin": 2,
+        "note": "capacity gate before outcomes, not a healthy-run wall cutoff; budget watchdog remains authoritative",
+        "passed": true,
+        "projected_playing_seconds": 3222.224166378379
+      },
+      "retrieval": {
+        "passed": true,
+        "verified_files": 36
+      },
+      "archive_path": "/Users/dberweger/Local/dr2x2-ac-evaluation-attempt-2-20261002/jobs/2026093001/final.tar",
+      "archive_bytes": 37273600,
+      "archive_sha256": "80af0b0c5ae7e9a7be7e8b4e0ea0159303c72e735611b0a12dd89e253470b49f",
+      "closed_task_backups": 6,
+      "status": "retrieved-complete"
+    },
+    {
+      "seed": 2026093002,
+      "pod_id": "tb77dc3t24mlai",
+      "name": "dr2x2-EVAL-2026093002-1790902742",
+      "terminated": 1790904301.7497568,
+      "created_epoch": 1790902745.852,
+      "rental_seconds": 1555.8977568149567,
+      "worker_seconds": 1413.6899464130402,
+      "evaluation_seconds": 1375.9581995233893,
+      "peak_owned_rss_bytes": 1807683584,
+      "swap_growth_bytes": 0,
+      "linux_parity": {
+        "actual_file_sha256": "170a2387dd3d2bf2d7f87f765b0b73fb5df7841c2dc6ff07f88dc8698c83fbaa",
+        "hands": 160,
+        "passed": true,
+        "plan_sha256": "38b586b7909f834b88cb43539e172a5f3b5aedde7801b3104b37fa58d552cc2a",
+        "reference_file_sha256": "db1cf700fc4f2b81cc06b364ac4b331c5750a533274ece9c1217ef5634df9cbd",
+        "scientific_comparison": "exact fingerprints; latency removed; completion/fallback retained",
+        "source": "6ce14e1513ce1b6f452b59930bf8f2034ad80115"
+      },
+      "linux_capacity": {
+        "admission_allowance_seconds": 10800,
+        "fixed_margin": 2,
+        "note": "capacity gate before outcomes, not a healthy-run wall cutoff; budget watchdog remains authoritative",
+        "passed": true,
+        "projected_playing_seconds": 3359.8199279233813
+      },
+      "retrieval": {
+        "passed": true,
+        "verified_files": 36
+      },
+      "archive_path": "/Users/dberweger/Local/dr2x2-ac-evaluation-attempt-2-20261002/jobs/2026093002/final.tar",
+      "archive_bytes": 37017600,
+      "archive_sha256": "48b1150363731b44333ec321c6c4a9e60d4e69993b92823de52dfd0774b577a1",
+      "closed_task_backups": 6,
+      "status": "retrieved-complete"
+    },
+    {
+      "seed": 2026093003,
+      "pod_id": "0plxsh642yv3fv",
+      "name": "dr2x2-EVAL-2026093003-1790902742",
+      "terminated": 1790904190.642167,
+      "created_epoch": 1790902748.178,
+      "rental_seconds": 1442.4641671180725,
+      "worker_seconds": 1308.6336152553558,
+      "evaluation_seconds": 1270.789310296066,
+      "peak_owned_rss_bytes": 1813942272,
+      "swap_growth_bytes": 0,
+      "linux_parity": {
+        "actual_file_sha256": "dae56af3901007d090c88e11fcb9fde8c7a89b26369eb44c97a323697f03d34d",
+        "hands": 160,
+        "passed": true,
+        "plan_sha256": "38b586b7909f834b88cb43539e172a5f3b5aedde7801b3104b37fa58d552cc2a",
+        "reference_file_sha256": "f8e53778ab9712558c3433c3a58b25e550aa1aa1ea15d3e27268f10f69d17ce4",
+        "scientific_comparison": "exact fingerprints; latency removed; completion/fallback retained",
+        "source": "6ce14e1513ce1b6f452b59930bf8f2034ad80115"
+      },
+      "linux_capacity": {
+        "admission_allowance_seconds": 10800,
+        "fixed_margin": 2,
+        "note": "capacity gate before outcomes, not a healthy-run wall cutoff; budget watchdog remains authoritative",
+        "passed": true,
+        "projected_playing_seconds": 3462.710997619666
+      },
+      "retrieval": {
+        "passed": true,
+        "verified_files": 36
+      },
+      "archive_path": "/Users/dberweger/Local/dr2x2-ac-evaluation-attempt-2-20261002/jobs/2026093003/final.tar",
+      "archive_bytes": 36864000,
+      "archive_sha256": "3249937523a98bb70d7aaef60243257206add68b10e997d217ef7bdbfea4966c",
+      "closed_task_backups": 6,
+      "status": "retrieved-complete"
+    }
+  ],
+  "incidents": {
+    "rental_attempt_1": {
+      "remaining_ids": [],
+      "status": "incomplete-retained",
+      "time": 1790902570.190939,
+      "upper_cost_usd": 0.0018185582995414733
+    },
+    "report_launcher_attempt_1": {
+      "status": "failed-retained",
+      "pid": 83756,
+      "child_pid": 83758,
+      "exitcode": 2,
+      "finished": 1790905165.8795002,
+      "source": "1dcf3c9cd32ea64998f7c4c2be2dcfc1eb8be488",
+      "out": "/Users/dberweger/Local/dr2x2-ac-evaluation-attempt-2-20261002/independent-report-attempt-1"
+    },
+    "report_attempt_2": {
+      "status": "failed-retained",
+      "pid": 83844,
+      "child_pid": 83846,
+      "exitcode": 1,
+      "finished": 1790905204.081995,
+      "source": "1dcf3c9cd32ea64998f7c4c2be2dcfc1eb8be488",
+      "out": "/Users/dberweger/Local/dr2x2-ac-evaluation-attempt-2-20261002/independent-report-attempt-2"
+    },
+    "report_attempt_3": {
+      "status": "complete",
+      "pid": 84009,
+      "child_pid": 84011,
+      "exitcode": 0,
+      "finished": 1790905588.300361,
+      "source": "60b39090cca0fdb2b6524f3c496ead6ebdfd31b1",
+      "out": "/Users/dberweger/Local/dr2x2-ac-evaluation-attempt-2-20261002/independent-report-attempt-3"
+    },
+    "no_gameplay_retry": true
+  },
+  "finished": {
+    "remaining_ids": [],
+    "status": "evaluation-complete",
+    "time": 1790904954.402632,
+    "upper_cost_usd": 0.2620200373888016
+  },
+  "prior_training_upper_usd": 1.0041844655513763,
+  "incremental_all_in_upper_usd": 1.2662045029401778,
+  "posted_billing": "unavailable; upper estimate, not settled invoice"
+}

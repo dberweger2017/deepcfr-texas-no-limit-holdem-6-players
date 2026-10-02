@@ -1,0 +1,16 @@
+{
+  "files": {
+    "summary.json": {
+      "sha256": "6a30e5e217921cdc9b45511049cec5ecd296b9cfa9c03352747d5a6c3c03cf13",
+      "bytes": 2838
+    },
+    "visits-distribution.csv": {
+      "sha256": "f5f13962ef0aa6a96318527bde35e0febd88dbf0574b5eee63136cdbeb539f70",
+      "bytes": 265506
+    },
+    "lbr-observation-coverage.csv": {
+      "sha256": "fb6f93801ef69da51a3ad0a263a43c7cc8f49df8b214daedf15a8bf1fcbc449f",
+      "bytes": 3048
+    }
+  }
+}
