@@ -21,6 +21,13 @@ emitted before the preceding incomplete attempt stopped; the new run also
 completes both-blueprint EV and the final result. Full Linux CI passes at the
 [resource readmission commit](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37012098854).
 
+The resumed campaign passed its [25% milestone](hu20-exact-turn-check-artifacts/milestone-25.json):
+the first 72 scheduled jobs contain 69 completed solves and three literal
+zero-policy-support exclusions, with 12 recorded jobs per export (A=28, B=44).
+All completed V1/V5 gates pass, every solve meets the 0.2%-of-pot target
+(maximum 0.197630%), peak owned RSS is 4.493 GiB, and swap has not grown.
+No root yet has all six exports; no pooled hypothesis decision is admitted.
+
 During resumed execution, a reporting review added an explicit check for wholly
 absent Set B strata. The frozen decision already requires two eligible roots in
 each of eight strata; an absent bootstrap cell now blocks that decision too.
