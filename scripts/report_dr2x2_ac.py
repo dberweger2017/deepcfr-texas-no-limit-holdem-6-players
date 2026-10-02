@@ -60,6 +60,15 @@ def csv_rows(path,rows):
         writer.writeheader();writer.writerows(rows)
 
 
+def call_counts(row):
+    # These evaluator rows retain concrete decisions rather than the optional
+    # preaggregated call fields used by the older 500M reporter.
+    own=[a for a in row['actions'] if a['logical_player']==0 and a['kind']=='call']
+    return {'large_calls':sum(a['observation']['call_amount']>=800 for a in own),
+            'allin_calls':sum(a['observation']['call_amount']==a['observation']['stack']
+                              and a['observation']['stack']>0 for a in own)}
+
+
 def replay_saved(row,source,visits,spec,readout,guard):
     rot=row['rotation'];ids=tuple(f'player-{(seat-rot)%2}' for seat in range(2))
     native=Hand.start(Table(ids,(2000,2000),button=row['button']),
@@ -141,7 +150,7 @@ def report(root,plan,inputs,out):
                                 role='button' if rot==row['button'] else 'big_blind';key=(stage,row['panel'],spec['seed'],spec['cell'],readout)
                                 series.setdefault(key,{}).setdefault(block,{})[role]=row['target_chips']
                                 for position in ('overall',role):
-                                    group=(*key,position);counts[group].update(row['tails']['counts']);counts[group]['large_calls']+=row['large_calls'];counts[group]['allin_calls']+=row['allin_calls']
+                                    group=(*key,position);counts[group].update(row['tails']['counts']);counts[group].update(call_counts(row))
                                     part=row['tails']['first_large_raise_response'];parts[(*group,part)]['hands']+=1;parts[(*group,part)]['target_chips']+=row['target_chips']
                                     for action in row['actions']:
                                         observed=action['observation']

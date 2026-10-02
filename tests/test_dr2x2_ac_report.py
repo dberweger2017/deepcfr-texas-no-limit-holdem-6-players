@@ -3,6 +3,13 @@ import pytest
 from scripts.report_dr2x2_ac import block_values,interval,SEEDS
 
 
+def test_call_tails_come_from_decisions_without_optional_legacy_totals():
+    from scripts.report_dr2x2_ac import call_counts
+    row={'actions':[{'logical_player':p,'kind':k,'observation':{'call_amount':call,'stack':stack}}
+                    for p,k,call,stack in [(0,'call',800,1000),(0,'call',500,500),(0,'call',0,0),(1,'call',1200,1200),(0,'raise',900,900)]]}
+    assert call_counts(row)=={'large_calls':1,'allin_calls':1}
+
+
 def test_three_seed_contrasts_are_inside_the_deal_block_and_roles():
     series={}
     for i,s in enumerate(SEEDS):
