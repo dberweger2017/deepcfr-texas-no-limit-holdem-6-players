@@ -1,7 +1,7 @@
 """Real native size aliases and production keys, rather than mocked labels."""
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, choices, information_key
 from src.diagnostics.flop_check import fixture_root
-from src.diagnostics.history_alias import signature, action_record
+from src.diagnostics.history_alias import signature, action_record, token_identity
 from src.arena.endgame_quality import _world
 from src.game.observation import replay
 
@@ -21,6 +21,7 @@ def test_minimum_and_pot_bets_merge_but_unequal_menus_do_not():
     assert signature(*a)==signature(*b)
     assert information_key(*a,schema=HU20_UNCAPPED_SCHEMA)==information_key(*b,schema=HU20_UNCAPPED_SCHEMA)
     assert signature(a[0],a[1][:-1])!=signature(*a)
+    assert token_identity(signature(a[0],a[1][:-1])[1])==token_identity(signature(*a)[1])
 
 
 def test_action_record_uses_paid_amount_and_menu_name():

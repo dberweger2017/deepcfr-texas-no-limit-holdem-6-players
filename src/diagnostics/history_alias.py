@@ -37,6 +37,31 @@ def action_record(view, item):
                      view.legal_actions.call_amount if item.action.kind == ActionKind.CALL else 0)}
 
 
+def token_identity(payload):
+    # A band collision alone need not be a policy alias: the legal menu is
+    # also in information_key and can split the two public contexts.
+    value = json.loads(payload) if isinstance(payload, str) else payload
+    return sha256(json.dumps(value[:-1], separators=(",", ":")).encode()).hexdigest()
+
+
+def history_token_counts(db):
+    counts = Counter()
+    for payload, n in db.execute("SELECT payload,n FROM groups"):
+        counts[token_identity(payload)] += n
+    return counts
+
+
+def alias_origin(db, sig, cache):
+    if sig not in cache:
+        contexts = [json.loads(c) for (c,) in db.execute(
+            "SELECT context FROM nodes WHERE sig=?", (sig,))]
+        a, b = contexts[:2]
+        index = next(i for i, (x, y) in enumerate(zip(a["line"], b["line"], strict=True)) if x != y)
+        cache[sig] = {"action_index": index, "street": a["line"][index]["street"],
+                      "alternatives": [a["line"][index], b["line"][index]]}
+    return cache[sig]
+
+
 def enumerate_aliases(out, *, max_decisions=5_000_000, seconds=1200, seed=202610020101):
     """Complete fixed-card tree; cards never change betting legality.
 
@@ -112,7 +137,8 @@ def enumerate_aliases(out, *, max_decisions=5_000_000, seconds=1200, seed=202610
 def exposure(db_path, hands, plan, out):
     """Exact stored replay; do not infer unseen off-menu alternate histories."""
     db = sqlite3.connect(f"file:{Path(db_path).resolve()}?mode=ro",uri=True)
-    counts = Counter(); strata = defaultdict(Counter); decisions=[]; sources=[]
+    tokens = history_token_counts(db)
+    counts = Counter(); strata = defaultdict(Counter); decisions=[]; sources=[]; origins={}
     for relative, expected in sorted(plan["stored_hands"].items()):
         path=Path(hands)/relative
         if file_hash(path)!=expected: raise ValueError("Stored hand hash mismatch")
@@ -123,26 +149,50 @@ def exposure(db_path, hands, plan, out):
                 if row["version"]!="v1" or row["panel"]!="lbr": continue
                 hand=Hand.start(Table(("a","b"),(2000,2000),button=row["button"]),
                                 hand_id="alias-exposure",seed=row["deal_seed"])
+                first_bet = None
                 for recorded in row["actions"]:
                     view=hand.observe(hand.actor)
                     if recorded["seat"]!=view.seat or list(view.hole_cards)!=recorded["observation"]["hole_cards"]:
                         raise ValueError("Stored action/deal replay mismatch")
+                    is_first = (recorded["logical_player"] == 1 and view.street.value == "flop"
+                        and recorded["kind"] == "raise" and not any(
+                            isinstance(e,ActionTaken) and e.street.value == "flop"
+                            and e.action.kind == ActionKind.RAISE for e in hand.events))
+                    if is_first:
+                        paid = recorded["raise_to"]-view.players[view.seat].street_bet
+                        first_bet = {"pot_sized":paid == view.pot}
+                        counts['lbr_flop_first_bets'] += 1
+                        counts['lbr_flop_first_bets_pot_sized'] += first_bet['pot_sized']
                     if recorded["logical_player"]==0:
-                        menu=choices(view,raise_cap=None,free_fold=False); sig,_=signature(view,menu)
+                        menu=choices(view,raise_cap=None,free_fold=False); sig,payload=signature(view,menu)
                         found=db.execute("SELECT n FROM groups WHERE sig=?",(sig,)).fetchone()
                         aliased=found is not None and found[0]>1
+                        token_aliased = tokens[token_identity(payload)] > 1
+                        origin = alias_origin(db,sig,origins) if aliased else None
+                        if first_bet is not None:
+                            counts['lbr_first_bet_full_alias'] += aliased
+                            counts['lbr_pot_first_bet_full_alias'] += aliased and first_bet['pot_sized']
+                            first_bet = None
                         group=view.street.value+('/facing-bet' if view.legal_actions.call_amount>0 else '/free')
                         counts['decisions']+=1; counts['aliased']+=aliased
+                        counts['history_token_aliased'] += token_aliased
                         strata[group]['decisions']+=1; strata[group]['aliased']+=aliased
+                        strata[group]['history_token_aliased'] += token_aliased
                         strata[group]['outside_native_tree']+=found is None
+                        if origin:
+                            strata[group]['first_alias_'+origin['street']] += 1
                         if view.legal_actions.call_amount>0:
                             counts['facing_bet']+=1; counts['facing_bet_aliased']+=aliased
+                            counts['facing_bet_history_token_aliased'] += token_aliased
                             if view.street.value=='flop':
                                 counts['set_a']+=1; counts['set_a_aliased']+=aliased
+                                counts['set_a_history_token_aliased'] += token_aliased
                         decisions.append({"source_sha256":expected,"source_line":number,
                             "action_index":recorded['index'],"street":view.street.value,
                             "facing_bet":view.legal_actions.call_amount>0,"signature":sig,
                             "aliased":aliased,"native_contexts":found[0] if found else None,
+                            "history_token_aliased":token_aliased,
+                            "alias_origin":origin,
                             "real_key":information_key(view,menu,schema=HU20_UNCAPPED_SCHEMA)})
                     hand=hand.apply(Action(ActionKind(recorded['kind']),recorded['raise_to']))
     if counts['set_a']!=273: raise ValueError("Pinned Set A decisions differ")
@@ -155,21 +205,25 @@ def exposure(db_path, hands, plan, out):
 def self_play_exposure(db_path, source, out, *, deals=3000, seed=202610020102):
     """Fresh realized context mixture; exports lack per-concrete-size visit counts."""
     db=sqlite3.connect(f"file:{Path(db_path).resolve()}?mode=ro",uri=True)
-    deal_rng=Random(seed);action_rng=Random(seed+1);counts=Counter();groups={}
+    tokens = history_token_counts(db)
+    deal_rng=Random(seed);action_rng=Random(seed+1);counts=Counter();groups={};origins={}
     for index in range(deals):
         hand=Hand.start(Table(('a','b'),(2000,2000),button=index%2),hand_id='alias-self-play',seed=deal_rng.getrandbits(64))
         path=[]
         while not hand.finished:
             view=hand.observe(hand.actor);menu,p,trained=source.distribution(view)
-            sig,_=signature(view,menu);found=db.execute('SELECT n FROM groups WHERE sig=?',(sig,)).fetchone()
+            sig,payload=signature(view,menu);found=db.execute('SELECT n FROM groups WHERE sig=?',(sig,)).fetchone()
             counts['decisions']+=1
+            counts['history_token_aliased_decisions'] += tokens[token_identity(payload)] > 1
             if found and found[0]>1:
                 counts['aliased_decisions']+=1
                 key=information_key(view,menu,schema=HU20_UNCAPPED_SCHEMA)
                 group=groups.setdefault(key,{"key":key,"signature":sig,"street":view.street.value,
-                    "trained_key_present":trained,"native_distinct_lines":found[0],"observed_contexts":{}})
+                    "trained_key_present":trained,"native_distinct_lines":found[0],
+                    "alias_origin":alias_origin(db,sig,origins),"observed_contexts":{}})
                 identity=json.dumps(path,separators=(',',':'))
                 cell=group['observed_contexts'].setdefault(identity,{"line":path,"decisions":0,
+                    "first_aliased_action":path[group['alias_origin']['action_index']],
                     "last_raise":next((a for a in reversed(path) if a['kind']=='raise'),None),
                     "probabilities":list(p)})
                 cell['decisions']+=1
