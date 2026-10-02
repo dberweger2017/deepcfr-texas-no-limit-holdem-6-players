@@ -5,6 +5,12 @@ The [readmission note](../hu20-exact-turn-check-resume.md) preserves the two
 completed jobs and all frozen scientific choices; final resumed results remain
 pending. The following records the preceding stopped attempt.
 
+During resumed execution, a reporting review added an explicit check for wholly
+absent Set B strata. The frozen decision already requires two eligible roots in
+each of eight strata; an absent bootstrap cell now blocks that decision too.
+This reporting-only correction does not change solver inputs, values, selection
+or thresholds. Its regression and the diagnostic suite pass (110 tests).
+
 The owner had stopped this work to prioritize Ollama on the M4. **2 of 288 frozen
 spot-policy jobs completed; zero roots have all six exports.** No pooled values,
 bootstrap intervals, R decision, H0 decision or training recommendation are

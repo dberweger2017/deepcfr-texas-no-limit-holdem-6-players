@@ -4,6 +4,7 @@ import numpy as np
 from src.diagnostics.turn_campaign import METRICS
 
 COLUMNS=METRICS+tuple(n+'_pct_pot' for n in METRICS)+('alias_difference_bb',)
+TURN_STRATA=tuple((kind,button) for kind in ('limped','min-raised','pot-raised','3-bet') for button in (0,1))
 
 
 def common_rows(rows,policies):
@@ -55,7 +56,11 @@ def decision(summary,*,turn_fraction,loss_bb_per_hand=.65):
     means=summary['means'];r=summary['ratios'].get('R',{}).get('point')
     bp=means.get('e_bp');share=None if bp is None else turn_fraction*bp/loss_bb_per_hand
     alias=summary['ratios'].get('alias_cost',{}).get('point')
-    if summary['independent_roots']<16 or summary.get('reason') or r is None:
+    # A wholly excluded stratum is absent from the observed bootstrap cells.
+    # Count it explicitly before admitting the frozen eight-stratum decision.
+    counts=summary.get('sampling_strata',{})
+    insufficient=[list(cell) for cell in TURN_STRATA if counts.get(str(cell),0)<2]
+    if summary['independent_roots']<16 or summary.get('reason') or r is None or insufficient:
         label='insufficient eligible Set B coverage for the frozen decision'
     elif share<.10:label='H3-turn: little measured turn contribution; audit earlier streets, including the flop'
     elif r>=.7 and share>=.25:label='H1-turn heuristic: high feasible-v1 projection loss'
@@ -65,4 +70,5 @@ def decision(summary,*,turn_fraction,loss_bb_per_hand=.65):
                  else 'small signed public-line pooling difference' if alias<=.10 else 'intermediate public-line pooling')
     return {'classification':label,'R':r,'alias_cost':alias,'alias_interpretation':alias_label,
             'descriptive_turn_share':share,'live_turn_fraction':turn_fraction,'lbr_loss_bb_per_hand':loss_bb_per_hand,
+            'insufficient_sampling_strata':insufficient,
             'limitation':'conditional turn/river diagnosis; does not classify the original flop hypotheses'}

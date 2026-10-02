@@ -89,6 +89,19 @@ def test_selected_fold_coverage_counts_excluded_frozen_roots():
     assert not result['H0']
 
 
+def test_turn_decision_counts_wholly_excluded_sampling_strata():
+    from src.diagnostics.turn_report import decision,TURN_STRATA
+    summary={'independent_roots':16,'means':{'e_bp':1.},
+             'ratios':{'R':{'point':.2},'alias_cost':{'point':0.}},
+             'sampling_strata':{str(cell):2 for cell in TURN_STRATA}}
+    assert decision(summary,turn_fraction=.2)['classification'].startswith('H2-turn')
+    # The total root count still passes when one absent cell is offset elsewhere.
+    counts=summary['sampling_strata'].copy();counts.pop(str(TURN_STRATA[-1]));counts[str(TURN_STRATA[0])]=4
+    result=decision(summary|{'sampling_strata':counts},turn_fraction=.2)
+    assert result['classification'].startswith('insufficient eligible Set B coverage')
+    assert result['insufficient_sampling_strata']==[list(TURN_STRATA[-1])]
+
+
 def test_interrupted_turn_report_excludes_every_frozen_unstarted_root(tmp_path):
     from scripts.report_turn_check import report
     from src.diagnostics.flop_check import atomic_json
