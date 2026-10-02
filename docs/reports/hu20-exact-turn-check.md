@@ -28,6 +28,14 @@ All completed V1/V5 gates pass, every solve meets the 0.2%-of-pot target
 (maximum 0.197630%), peak owned RSS is 4.493 GiB, and swap has not grown.
 No root yet has all six exports; no pooled hypothesis decision is admitted.
 
+The [50% milestone](hu20-exact-turn-check-artifacts/milestone-50.json) records
+the first 144 scheduled jobs: 141 completed solves and three zero-support
+exclusions, 24 jobs per export (A=48, B=96). All completed V1/V5 gates pass and
+every solve meets the target (maximum residual 0.199734% of pot). Peak owned
+RSS remains 4.493 GiB with no swap growth. Each root has three of its six
+exports at this milestone; the common six-export intersection is still empty.
+Partial values remain monitoring only, with no hypothesis decision admitted.
+
 During resumed execution, a reporting review added an explicit check for wholly
 absent Set B strata. The frozen decision already requires two eligible roots in
 each of eight strata; an absent bootstrap cell now blocks that decision too.
