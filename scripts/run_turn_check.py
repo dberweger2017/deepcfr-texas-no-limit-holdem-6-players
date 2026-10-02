@@ -1,6 +1,6 @@
 """Run the frozen, file-boundary turn campaign, one guarded solver at a time."""
 import argparse
-from datetime import datetime,timezone
+from datetime import datetime,timedelta,timezone
 import fcntl
 import json
 import math
@@ -20,6 +20,12 @@ from src.diagnostics.turn_campaign import jobs,secondary_ranges,summarize
 from src.diagnostics.turn_check import export,replay_root
 
 GIB=1024**3
+HEAVY_FIELDS={'fold_nodes','overfold_groups','selected_lbr_nodes','target_metrics','secondary_metrics'}
+
+
+def counter_record(row):
+    """Keep per-hand evidence on disk, rather than accumulating it in the driver."""
+    return {k:v for k,v in row.items() if k not in HEAVY_FIELDS}
 
 
 def prepare_job(job_path,inputs,out,stored):
@@ -50,6 +56,9 @@ def status(out,stage,done,total,started,*,job=None,error=None):
 def run(a):
     config=json.loads(a.protocol.read_text());corpus={g:json.loads((a.repo/config['corpus'][g]['path']).read_text()) for g in ('A','B')}
     if file_hash(a.repo/config['protocol_path'])!=config['protocol_text_sha256']:raise ValueError('Frozen prose protocol differs')
+    if config.get('resume_amendment'):
+        note=config['resume_amendment']
+        if file_hash(a.repo/note['path'])!=note['sha256']:raise ValueError('Resume amendment differs')
     for g in ('A','B'):
         if file_hash(a.repo/config['corpus'][g]['path'])!=config['corpus'][g]['sha256']:raise ValueError('Frozen corpus hash differs')
     if file_hash(a.repo/config['inventory_path'])!=config['inventory_sha256']:raise ValueError('Frozen inventory hash differs')
@@ -65,6 +74,8 @@ def run(a):
     if before['swap_used_bytes']-baseline>GIB:raise MemoryError('Run-baseline swap threshold exceeded before startup')
     schedule=jobs(corpus,config['policies'],config['order_seed']);a.out.mkdir(parents=True,exist_ok=True)
     if len(schedule)!=config['jobs_total']:raise ValueError('Frozen job count differs')
+    for relative,wanted in config.get('resume',{}).get('preserved_results',{}).items():
+        if file_hash(a.out/relative)!=wanted:raise ValueError('Preserved result differs: '+relative)
     lock=(a.out/'campaign.lock').open('a+');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     admission_path=a.out/'admission.json'
     if admission_path.exists():
@@ -72,10 +83,13 @@ def run(a):
         if admission['protocol_sha256']!=file_hash(a.protocol):raise ValueError('Resume protocol differs')
         
     else:
+        prior=config.get('resume',{}).get('previous_active_seconds',0.)
+        if not 0<=prior<config['main_seconds_ceiling']:raise ValueError('Invalid prior campaign time')
         admission={'protocol_sha256':file_hash(a.protocol),'source_commit':a.source_commit,
                    'budget_bytes':budget,'swap_baseline_bytes':baseline,'seconds_ceiling':config['main_seconds_ceiling'],
-                   'jobs_total':len(schedule),'machine_before':before,'elapsed_seconds':0,
-                   'started_utc':datetime.now(timezone.utc).isoformat()}
+                   'jobs_total':len(schedule),'machine_before':before,'elapsed_seconds':prior,
+                   'resumed_from':config.get('resume'),
+                   'started_utc':(datetime.now(timezone.utc)-timedelta(seconds=prior)).isoformat()}
         atomic_json(admission_path,admission)
     started=monotonic()-(datetime.now(timezone.utc)-datetime.fromisoformat(admission['started_utc'])).total_seconds()
     completed=[];outcomes=[];current=None
@@ -88,7 +102,7 @@ def run(a):
     for job in schedule:
         path=a.out/'spots'/job['job']/'result.json'
         if path.exists():
-            row=json.loads(path.read_text());outcomes.append(row)
+            row=counter_record(json.loads(path.read_text()));outcomes.append(row)
             if row.get('event')=='spot_complete':completed.append(row)
     done=len(outcomes);deadline=config['main_seconds_ceiling']
     try:
@@ -136,17 +150,18 @@ def run(a):
                     raise MemoryError('Native root does not fit; stop before any capped or paid run')
                 result=summarize(job,policy,request,rows,runtime,corpus['A'])
                 result['request_sha256']=file_hash(path);result['attempt_path']=str(attempt_out)
-                completed.append(result)
-            atomic_json(base/'result.json',result);outcomes.append(result);done+=1
+                completed.append(counter_record(result))
+            atomic_json(base/'result.json',result);outcomes.append(counter_record(result));done+=1
             # Heavy per-node tables stay in atomic results, not the monitor stream.
-            omitted={'fold_nodes','overfold_groups','selected_lbr_nodes','target_metrics','secondary_metrics'}
-            append(a.out/'progress.jsonl',{k:v for k,v in result.items() if k not in omitted})
+            append(a.out/'progress.jsonl',counter_record(result))
             append(a.out/'progress.jsonl',{'event':'run_counter','jobs_completed':done,'jobs_total':len(schedule),
                 'spots_completed_by_set':{g:len({r['spot'] for r in outcomes if r['set']==g}) for g in ('A','B')},
                 'jobs_completed_by_set':{g:sum(r['set']==g for r in outcomes) for g in ('A','B')},
                 'roots_fully_completed_by_set':{g:sum(sum(r['spot']==root['spot'] for r in outcomes)==6 for root in corpus[g]['roots']) for g in ('A','B')}})
             admission['elapsed_seconds']=monotonic()-started;atomic_json(admission_path,admission)
             status(a.out,'between jobs',done,len(schedule),started)
+            # Release the last verbose solver response before the next worker.
+            result=None;request=None;rows=None
         atomic_json(a.out/'result.json',{'status':'completed','jobs_done':done,'jobs_total':len(schedule),
             'valid_solved_jobs':len(completed),'elapsed_seconds':monotonic()-started,'machine_after':machine_snapshot()})
         status(a.out,'campaign complete; report pending',done,len(schedule),started)

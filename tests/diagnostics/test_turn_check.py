@@ -103,3 +103,40 @@ def test_interrupted_turn_report_excludes_every_frozen_unstarted_root(tmp_path):
     assert result['summaries']['B/pooled']['independent_roots']==0
     assert result['decision']['classification']=='incomplete frozen campaign; no hypothesis decision'
     assert not result['selected_turn_overfold']['H0']
+
+
+def test_owner_readmission_preserves_results_and_charges_prior_compute(tmp_path,monkeypatch):
+    import json
+    from scripts import readmit_turn_check as module
+    from src.diagnostics.flop_check import atomic_json
+    from src.diagnostics.saved_hu20 import file_hash
+    old=tmp_path/'old';leaf=old/'spots/job/attempt-01';(leaf/'prepared').mkdir(parents=True);(leaf/'solver').mkdir()
+    atomic_json(leaf/'prepared/request.json',{'fixed':'request'});(leaf/'solver/response.jsonl').write_text('{}\n')
+    result={'event':'spot_complete','set':'A','spot':'root','policy':'policy','attempt_path':str(leaf),
+            'request_sha256':file_hash(leaf/'prepared/request.json'),
+            'runtime':{'response_sha256':file_hash(leaf/'solver/response.jsonl')}}
+    atomic_json(old/'spots/job/result.json',result)
+    inv={'all_inputs_verified':True,'upstream_commit':'pin','external_tool_files_sha256':{'binary':'hash'},
+         'pokers_native_sha256':{'native':'hash'},'repository_source_sha256':{'scripts/run_turn_check.py':'original'}}
+    atomic_json(tmp_path/'old-inventory.json',inv);atomic_json(tmp_path/'new-inventory.json',inv)
+    config={'inventory_path':'old-inventory.json','inventory_sha256':file_hash(tmp_path/'old-inventory.json'),
+            'main_seconds_ceiling':86400,'memory_budget_gib':4,'jobs_total':288,'corpus':{'unchanged':True}}
+    atomic_json(tmp_path/'original.json',config)
+    atomic_json(old/'admission.json',{'protocol_sha256':file_hash(tmp_path/'original.json')})
+    atomic_json(old/'failure.json',{'elapsed_seconds':80.7,'jobs_done':1})
+    folder=tmp_path/'docs/reports/hu20-exact-turn-check-artifacts';folder.mkdir(parents=True)
+    atomic_json(folder/'main-file-inventory.json',{'files':{'spots/job/result.json':{'sha256':file_hash(old/'spots/job/result.json')}}})
+    (tmp_path/'amendment.md').write_text('Owner explicitly resumed the frozen campaign.')
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(module,'machine_snapshot',lambda:{'reclaimable_bytes':10*1024**3,'swap_used_bytes':123})
+    summary=module.prepare('original.json','new-inventory.json','old','new','resumed.json',tmp_path,'amendment.md')
+    resumed=json.loads((tmp_path/'resumed.json').read_text())
+    assert summary['remaining_seconds']==86400-80.7 and resumed['corpus']==config['corpus']
+    assert resumed['swap_baseline_bytes']==123
+    assert file_hash(tmp_path/'new/spots/job/result.json')==file_hash(old/'spots/job/result.json')
+    # Tampered source evidence cannot be admitted to another run.
+    (old/'spots/job/result.json').write_text('{}')
+    import pytest
+    with pytest.raises(ValueError,match='Original completed result differs'):
+        module.prepare('original.json','new-inventory.json','old','bad','bad.json',tmp_path,'amendment.md')
+    assert not (tmp_path/'bad').exists()
