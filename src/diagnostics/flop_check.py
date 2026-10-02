@@ -114,8 +114,8 @@ def _menu(view, cap):
     menu = choices(view, raise_cap=None, free_fold=False)
     if cap is None:
         return menu
-    if type(cap) is not int or cap < 3:
-        raise ValueError("Diagnostic fallback cap must be at least three")
+    if type(cap) is not int or cap < 2:
+        raise ValueError("Diagnostic fallback cap must be at least two")
     raises = sum(isinstance(e, ActionTaken) and e.street == view.street
                  and e.action.kind == ActionKind.RAISE for e in view.history)
     if raises < cap:
@@ -133,6 +133,8 @@ def compile_tree(root, *, raise_cap=None, max_nodes=300_000, seconds=600):
     A compilation guard never turns a partial tree into a valid solver request.
     """
     public = replay(root, 0, ())
+    if raise_cap == 2 and public.street != Street.TURN:
+        raise ValueError("Flop/river fallback cap must be at least three; cap two is turn-root only")
     if (public.street not in STREETS or public.finished or public.actor is None
             or public.players[0].stack != public.players[1].stack
             or tuple(p.starting_stack for p in public.players) != (2000, 2000)

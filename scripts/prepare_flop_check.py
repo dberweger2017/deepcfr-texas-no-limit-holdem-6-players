@@ -31,12 +31,13 @@ def load_policy(spec, inputs):
     return policy
 
 
-def prepare(spec, inputs, out, *, memory_bytes, cap=None, max_nodes=300_000):
+def prepare(spec, inputs, out, *, memory_bytes, cap=None, max_nodes=300_000,
+            street=Street.FLOP):
     out = Path(out); out.mkdir(parents=True, exist_ok=False)
     source = load_policy(spec, inputs)
     records = []
     for kind in ("limped", "min-raised", "3-bet"):
-        root = fixture_root(kind)
+        root = fixture_root(kind, street=street)
         ranges, coverage = public_ranges(source, root)
         try:
             request, _ = compile_tree(root, raise_cap=cap, max_nodes=max_nodes)
@@ -66,6 +67,7 @@ def main():
     parser.add_argument("--memory-gib", type=float, default=6)
     parser.add_argument("--raise-cap", type=int)
     parser.add_argument("--policy-index", type=int, default=0)
+    parser.add_argument("--street", choices=("flop", "turn"), default="flop")
     args = parser.parse_args()
     if args.gate_k:
         compilations = [compile_tree(fixture_root(kind, street=street),
@@ -81,7 +83,8 @@ def main():
             parser.error("Real requests require --plan and --inputs")
         specs = json.loads(args.plan.read_text())["policies"]
         prepare(specs[args.policy_index], args.inputs, args.out,
-                memory_bytes=int(args.memory_gib * 1024**3), cap=args.raise_cap)
+                memory_bytes=int(args.memory_gib * 1024**3), cap=args.raise_cap,
+                street=Street(args.street))
 
 
 if __name__ == "__main__":
