@@ -124,3 +124,13 @@ now freezes165,888 total hands and36 restricted profiles. A separate serialized
 validation pilot uses roots202610120601–610 before paid creation. Its scientific
 fingerprints permit Linux comparison without printing chip outcomes. Exact-plan
 Linux admission, serialized runtime and the separate live quote remain pending.
+
+## Serialized admission passed and paid quote published
+
+[Serialized evidence and quote](reports/dr2x2-ac-serialized-timing-and-quote.md)
+verifies all480 hands/33 manifest members:89.19 aggregate child seconds,
+2.036GiB peak, zeroswap. Fixed2× full playing projection2.74 aggregate M1 hours;
+Linux admission remains mandatory. ThreeCPU5memory2vCPU16GB pods at$.13/hour
+compute +$.05/hour storage allowance, expected$.80–1.50 additional analysis,
+operational$4 analysis cap/safe stop$3/reserve$1 within approved incremental$16.
+This quote is published before creation. Counts/source/schema remain frozen.

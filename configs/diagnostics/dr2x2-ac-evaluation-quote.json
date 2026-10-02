@@ -1,0 +1,127 @@
+{
+  "all_in_ceiling_usd": 16,
+  "analysis_subcap_usd": 4,
+  "availability_not_guaranteed_by_catalog": true,
+  "checked_epoch": 1790901928.42863,
+  "compute_usd_per_pod_hour": 0.13,
+  "conservative_three_job_allocation_usd": 1.62,
+  "container_disk_gb": 30,
+  "cpu_id": "cpu5m",
+  "data_centers": [
+    "EU-RO-1",
+    "EUR-IS-1"
+  ],
+  "expected_analysis_usd": [
+    0.8,
+    1.5
+  ],
+  "frozen_source": "6ce14e1513ce1b6f452b59930bf8f2034ad80115",
+  "heavy_workers_per_pod": 1,
+  "linux_admission": "exact scientific fingerprints for160validationhands perseed;2xplayingprojection<=10800sec before main;fixed counts165888hands/36profiles;never shrink science tofitquote",
+  "max_concurrent_pods": 3,
+  "measured_aggregate_playing_hours": 2.737699647301051,
+  "measured_peak_gib": 2.0355072021484375,
+  "no_D_new_training_extension_or_automatic_merge": true,
+  "plan_sha256": "38b586b7909f834b88cb43539e172a5f3b5aedde7801b3104b37fa58d552cc2a",
+  "planned_hours_per_pod_including_setup_retrieval": 3,
+  "planning_hours_not_wall_cutoff": true,
+  "previous_B_excluded_from_incremental_cap": true,
+  "previous_C_training_upper_usd": 1.0041844655513763,
+  "provider_cpu_catalog": {
+    "cpus": [
+      {
+        "group": "CPU3",
+        "id": "cpu3c",
+        "name": "Compute-Optimized",
+        "price": {
+          "securePerVcpu": 0.03,
+          "serverlessPerVcpu": 0.036
+        },
+        "ramGbPerVcpu": 2,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      },
+      {
+        "group": "CPU3",
+        "id": "cpu3g",
+        "name": "General Purpose",
+        "price": {
+          "securePerVcpu": 0.04,
+          "serverlessPerVcpu": 0.05
+        },
+        "ramGbPerVcpu": 4,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      },
+      {
+        "group": "CPU3",
+        "id": "cpu3m",
+        "name": "Memory-Optimized",
+        "price": {
+          "securePerVcpu": 0.055,
+          "serverlessPerVcpu": 0
+        },
+        "ramGbPerVcpu": 8,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      },
+      {
+        "group": "CPU5",
+        "id": "cpu5c",
+        "name": "Compute-Optimized",
+        "price": {
+          "securePerVcpu": 0.035,
+          "serverlessPerVcpu": 0.042
+        },
+        "ramGbPerVcpu": 2,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      },
+      {
+        "group": "CPU5",
+        "id": "cpu5g",
+        "name": "General Purpose",
+        "price": {
+          "securePerVcpu": 0.046,
+          "serverlessPerVcpu": 0.055
+        },
+        "ramGbPerVcpu": 4,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      },
+      {
+        "group": "CPU5",
+        "id": "cpu5m",
+        "name": "Memory-Optimized",
+        "price": {
+          "securePerVcpu": 0.065,
+          "serverlessPerVcpu": 0
+        },
+        "ramGbPerVcpu": 8,
+        "vcpu": {
+          "max": 32,
+          "min": 2
+        }
+      }
+    ]
+  },
+  "provider_variance_margin": 2,
+  "ram_gb_per_pod": 16,
+  "safe_stop_upper_usd": 3,
+  "schema": "dr2x2-ac-analysis-live-quote-v1",
+  "setup_transfer_retrieval_allowance_hours": 0.75,
+  "shutdown_reserve_usd": 1,
+  "storage_allowance_usd_per_pod_hour": 0.05,
+  "upper_rate_usd_per_pod_hour": 0.18,
+  "vcpus_per_pod": 2
+}
