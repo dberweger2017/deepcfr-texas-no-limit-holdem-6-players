@@ -1,6 +1,11 @@
-# HU20 exact turn check: owner-stopped campaign
+# HU20 exact turn check: interruption and resumption
 
-The owner stopped this work to prioritize Ollama on the M4. **2 of 288 frozen
+On 2026-10-02 the owner authorized resumption after the M4 became free again.
+The [readmission note](../hu20-exact-turn-check-resume.md) preserves the two
+completed jobs and all frozen scientific choices; final resumed results remain
+pending. The following records the preceding stopped attempt.
+
+The owner had stopped this work to prioritize Ollama on the M4. **2 of 288 frozen
 spot-policy jobs completed; zero roots have all six exports.** No pooled values,
 bootstrap intervals, R decision, H0 decision or training recommendation are
 admitted. The diagnostic and its new monitoring sidecar exited. Existing
