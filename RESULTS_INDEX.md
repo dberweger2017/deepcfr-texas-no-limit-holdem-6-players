@@ -1,27 +1,21 @@
 # Research results index
 
-## PR144 C-only A/C comparison evidence — October2
+## October 2 archive and local cleanup
 
-- Training: `/Users/dberweger/Local/dr2x2-c-campaign-20261001`, all three100M
-  checkpoints/current exports,33acknowledgements and198 retained archive members.
-- Evaluation: `/Users/dberweger/Local/dr2x2-ac-evaluation-attempt-2-20261002`,
-  three closed per-seed `jobs/SEED/final.tar` archives, closed-task backups and
-  all controller/lease/watchdog/resource/failed-attempt provenance.
-- Independent report: `independent-report-attempt-3` under that evaluation root.
-  Earlier report attempts1/2 and first pre-science rental root
-  `/Users/dberweger/Local/dr2x2-ac-evaluation-20261002` remain retained.
-- [Readable report and precise archive retrieval commands](docs/reports/dr2x2-ac-comparison.md)
-  / [compact publication hashes](docs/reports/dr2x2-history-artifacts/ac-comparison-20261002/publication-manifest.json).
-  All165,888 hands/36profiles audited; no paid rentals or volumes remain.
-- Original A inputs and C checkpoints/averages remain untouched; unverified
-  Drive copies do not authorize local removal. D deferred, no model promotion.
+The owner accepted Google Drive desktop's **Successfully uploaded / Synced** status as the upload acceptance check. Inactive copies have now been removed: **8,722 files / 41,249,100,807 logical bytes (38.42 GiB)** across the primary checkout, PR144 evidence and temporary archive staging. The full removal/restore receipt is `LOCAL-CLEANUP-20261002.json` in the research Drive folder; the [compact cleanup record](docs/artifacts/local-cleanup-20261002.json) preserves totals, archive hashes, paths and exclusions.
+
+- **PR144:** six complete archives in [PR-144-history-compression](https://drive.google.com/drive/folders/1EnCmKftt50pebTWVtu1MvTUQEaw_5hCV). Download `archive-manifest.json` and `SHA256SUMS` from that folder; verify the selected archive, then extract its member path under a fresh restoration directory. The manifest maps every archive prefix to its original working root. Failed/partial attempts and all closed raw evidence remain in these archives. The original local retrieval paths in the [scientific report](docs/reports/dr2x2-ac-comparison.md) now require this restoration step.
+- **Preserved locally:** original A inputs, six final C checkpoint/current files, six A/C average exports referenced by symlinks, working blueprint trees, tracked reports, private credentials and other agents' work.
+- **Still uploading:** `branching-comparison.tar.gz` (14,041,643,443 bytes). Its original remains local until the desktop confirms completion.
+- **M4:** read-only serial archival transfer started for 27 closed research result roots, including PR136, into separate PR/root folders. Uploads are **pending**, and every M4 original remains intact. Active exact-flop/turn experiment and its input root are excluded. Durable local progress: `/Users/dberweger/Local/research-archive-preparation-20261002/m4-archive-status.json`.
+- **Git housekeeping:** 411 abandoned, unindexed temporary Git files were removed after checking age and open handles. All four repository HEAD trees remained readable. Free disk was about **120 GiB** immediately afterward; ongoing archive staging changes that figure. No committed Git pack, branch or scientific source was removed.
 
 
 Large untracked training/evaluation artifacts are indexed here so a PR can link to their location without checking them into Git. Working files may live wherever convenient. During cleanup, archive them to the owner-designated [Google Drive folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s).
 
 ## Current archive state
 
-September 30, 2026: **8,117 files / 208 top-level entries / 48,465,009,999 logical bytes (45.14 GiB)** from the primary checkout were cloned into the streamed Drive folder. **Uploads are pending verification; originals are retained.** A local clone or visible Drive placeholder does not establish a verified cloud backup. The owner will request upload/hash checks later. No local deletion, cache eviction or sync pause is authorized by this index.
+The September 30 catalog remains the original inventory: **8,117 files / 208 top-level entries / 48,465,009,999 logical bytes**. October 2 cleanup removed completed inactive entries after owner acceptance of Drive upload completion. The [catalog](docs/artifacts/results-catalog.json) now marks each removed or retained top-level entry. The branching archive remains pending; working blueprint inputs remain local.
 
 - Original root: `/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results`.
 - Streamed destination: `/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results`.
@@ -32,7 +26,7 @@ September 30, 2026: **8,117 files / 208 top-level entries / 48,465,009,999 logic
 
 1. Keep active checkpoints, recovery slots and other agents’ input dependencies in their working location. Coordinate before cleanup.
 2. Preserve every attempt, failed/partial output, source/config/model identity, manifest/hash and exact retrieval command. Add the PR/report and archive relative path to this index. Never replace scientific evidence with a success-only archive.
-3. Let Drive upload. Before any later local deletion/eviction, verify the remote archive against its original manifest/hash and confirm sufficient restoration evidence. This step remains pending for the initial batch. Obtain owner authorization for destructive removal.
+3. Let Drive upload. Under the owner's October 2 decision, accept the desktop's Successfully uploaded/Synced status, check exact cloud names/sizes and preserve archive member hashes and restoration evidence. A placeholder or filename alone is insufficient. Remove only owner-authorized inactive local copies; keep pending uploads and active dependencies.
 4. Before analysis, restore the needed immutable files into a working directory, verify their hashes and source/model identities, and keep restored heavy computation on the authorized host. Do not train or audit inside a streamed folder.
 
 ## Recent work outside the initial batch
@@ -47,7 +41,7 @@ These locations are **retained at their working roots; not included in the prima
 
 ## Initial batch table of contents
 
-**Every row has upload/hash verification pending and its original retained.** Report links below are exact-name references, not cloud verification. Associated PRs identify the latest report-changing PR found in main history; they do not assert which run originally produced a file. Legacy/unmapped entries are retained for later identification.
+**Historical inventory; current removed/retained states are in the machine-readable catalog and October 2 cleanup record.** Report links identify associated research. Associated PRs identify the latest report-changing PR found in main history; they do not assert which run originally produced a file. Legacy/unmapped entries are retained for later identification.
 
 | Entry relative to Drive folder | Logical bytes | Files | Report / associated PR |
 | --- | ---: | ---: | --- |
