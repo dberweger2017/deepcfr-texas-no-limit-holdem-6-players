@@ -37,8 +37,8 @@ def inventory(plan, repo, inputs, tool, expected):
         tool / "harness/target/release/hu20-exact-flop-tool")}
     source_paths = [*sorted((repo / "src/diagnostics").glob("flop_check*.py")),
                     *sorted((repo / "scripts").glob("*flop_check*.py")),
-                    *sorted((repo / "scripts").glob("*turn*check*.py")),
-                    repo / "src/diagnostics/turn_check.py",
+                    *sorted((repo / "scripts").glob("*turn*.py")),
+                    *sorted((repo / "src/diagnostics").glob("turn_*.py")),
                     repo / "src/diagnostics/exact_ranker.py", repo / "src/arena/endgame_quality.py",
                     repo / "src/game/observation.py", repo / "src/game/types.py",
                     repo / "src/blueprint/abstraction.py", repo / "src/blueprint/hu20_river.py",

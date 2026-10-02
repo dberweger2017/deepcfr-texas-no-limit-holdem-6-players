@@ -55,4 +55,10 @@ action. The retained LBR population has 67 unique selected roots behind 74
 bet-facing decisions; 134 of 768 LBR-panel hands reach a live turn root. The fresh
 population stops at the turn, samples no turn outcomes, and has 1,088 live roots
 from 3,000 deals. Native replay reproduces every root identity. These are
-populations, not a frozen main sample or permission to launch one.
+populations. The [frozen turn protocol](hu20-exact-turn-check-protocol.md) selects
+16 A and 32 B roots across all six exports, with a conservative 21.06-hour cost
+estimate and a hard cumulative 24-hour ceiling. Complete native compressed
+preflight costs are 360.58/128.78/89.52 seconds; all qualification gates pass.
+The machine-readable config and source inventory pin admission before main
+values. Within-root alias cost cannot measure aliases inherited across different
+preflop/flop roots.

@@ -42,12 +42,14 @@ def features(board,*,bins=20,seed=202610020204):
             'histogram_bins':bins,'seed':seed,'occupied_buckets':occupied}
 
 
-def export(root,spec,inputs,out,*,raise_cap=None):
+def export(root,spec,inputs,out,*,raise_cap=None,source=None):
     out=Path(out);out.mkdir(parents=True,exist_ok=False)
     request,_=compile_tree(root,raise_cap=raise_cap)
     if request['initial_street']!='turn':raise ValueError('Turn export needs turn root')
     if raise_cap is not None:raise ValueError('Capped export requires a completed removed-reach audit')
-    data=features(request['board']);source=load_policy(spec,inputs)
+    data=features(request['board']);source=load_policy(spec,inputs) if source is None else source
+    if source.description['weights_sha256']!=spec['sha256']:
+        raise ValueError('Export source differs from the pinned policy')
     codes=np.asarray(data['codes']);by_street={'turn':set(map(int,np.unique(codes[:1])))-{255},
                                              'river':set(map(int,np.unique(codes[1:])))-{255}}
     tables=export_policy_tables(request,source,by_street)
