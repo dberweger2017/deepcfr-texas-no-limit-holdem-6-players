@@ -3,7 +3,16 @@
 On 2026-10-02 the owner authorized resumption after the M4 became free again.
 The [readmission note](../hu20-exact-turn-check-resume.md) preserves the two
 completed jobs and all frozen scientific choices; final resumed results remain
-pending. The following records the preceding stopped attempt.
+pending. The first resumed attempt (`main-02`) stopped after five complete jobs
+at its 4-GiB owned-RSS guard: the sixth, full-range stored-average limped root
+peaked at 4.016 GiB during the final both-blueprint lock. Swap did not grow.
+Its incomplete response is retained and excluded. The
+[resource readmission](../hu20-exact-turn-check-resource-readmission.md)
+freezes a 5-GiB limit within measured headroom and the owner's ≤10-GiB ceiling,
+preserving all five complete jobs and charging the failed attempt to the same
+24-hour allowance. `main-03` has 283 remaining jobs. Neither stopped attempt
+has a common six-export root, so no hypothesis decision is available. The
+following records the preceding owner-stopped attempt.
 
 During resumed execution, a reporting review added an explicit check for wholly
 absent Set B strata. The frozen decision already requires two eligible roots in
@@ -119,6 +128,7 @@ All unsuccessful qualification attempts remain in the local archive:
 | compact-validation-alias-07 | Full native HU20 fixture passes after worker separation, peak 2.815 GiB. |
 | cost-preflight-limp-01 | Typo in worker executable path; exit 127, no allocation. Corrected limp-02 passes. |
 | main-01 | Two completed atomic jobs, then memory admission refused the third. Subsequent swap exceeds baseline +1 GiB; owner stops and requests cleanup. |
+| main-02 | Five complete jobs, then 4-GiB owned RSS guard stops the sixth at 4.016 GiB; no swap growth. The incomplete response is excluded. Frozen 5-GiB resource readmission retains the same solver, corpus and remaining cumulative clock. |
 
 No failed attempt disappears from the record. No capped loss values were
 admitted without removed-reach auditing. The native→3→2 cap ladder remains a

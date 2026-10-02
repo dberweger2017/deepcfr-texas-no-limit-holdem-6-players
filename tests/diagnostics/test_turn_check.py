@@ -147,9 +147,18 @@ def test_owner_readmission_preserves_results_and_charges_prior_compute(tmp_path,
     assert summary['remaining_seconds']==86400-80.7 and resumed['corpus']==config['corpus']
     assert resumed['swap_baseline_bytes']==123
     assert file_hash(tmp_path/'new/spots/job/result.json')==file_hash(old/'spots/job/result.json')
+    atomic_json(tmp_path/'original.json',config|{'swap_baseline_bytes':100})
+    atomic_json(old/'admission.json',{'protocol_sha256':file_hash(tmp_path/'original.json')})
+    module.prepare('original.json','new-inventory.json','old','resource','resource.json',tmp_path,'amendment.md',memory_budget_gib=5)
+    resource=json.loads((tmp_path/'resource.json').read_text())
+    assert resource['memory_budget_gib']==5 and resource['swap_baseline_bytes']==100
+    import pytest
+    monkeypatch.setattr(module,'machine_snapshot',lambda:{'reclaimable_bytes':10*1024**3,'swap_used_bytes':100+1024**3+1})
+    with pytest.raises(MemoryError,match='cannot reset a failed swap guard'):
+        module.prepare('original.json','new-inventory.json','old','swap','swap.json',tmp_path,'amendment.md',memory_budget_gib=5)
+    assert not (tmp_path/'swap').exists()
     # Tampered source evidence cannot be admitted to another run.
     (old/'spots/job/result.json').write_text('{}')
-    import pytest
     with pytest.raises(ValueError,match='Original completed result differs'):
         module.prepare('original.json','new-inventory.json','old','bad','bad.json',tmp_path,'amendment.md')
     assert not (tmp_path/'bad').exists()
