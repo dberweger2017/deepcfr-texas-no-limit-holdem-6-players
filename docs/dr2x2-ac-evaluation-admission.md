@@ -114,3 +114,13 @@ and partial exports. No paid job, strength run or change to training is authoriz
 by this plan. Seventeen focused schema/average/projection/common-law and prior
 playing-admission tests passed on pinned Python3.11.14. Final playing evidence
 serialization, Linux parity and the separate live rental quote remain pending.
+
+## Mechanism pilot closed; evidence executor frozen prospectively
+
+[Mechanism timing result](reports/dr2x2-ac-mechanism-timing.md) verifies all six
+averages and16 manifest files;232.16seconds/2.313GiB/zeroswap. No candidate quality
+or playing outcomes were inspected. The [comparison plan](../configs/diagnostics/dr2x2-ac-comparison.json)
+now freezes165,888 total hands and36 restricted profiles. A separate serialized
+validation pilot uses roots202610120601–610 before paid creation. Its scientific
+fingerprints permit Linux comparison without printing chip outcomes. Exact-plan
+Linux admission, serialized runtime and the separate live quote remain pending.
