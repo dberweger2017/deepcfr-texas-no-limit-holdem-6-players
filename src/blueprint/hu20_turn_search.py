@@ -71,6 +71,9 @@ class HU20TurnSearchPolicy:
 
     def __init__(self, blueprint, solver, config=TurnSearchConfig()):
         self.blueprint = blueprint
+        self.abstraction = getattr(blueprint, "abstraction", None)
+        self.raise_cap = getattr(blueprint, "raise_cap", None)
+        self.game = getattr(blueprint, "game", None)
         self.solver = solver
         self.config = config
         self.description = {"version": VERSION, "base": blueprint.description,

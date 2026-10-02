@@ -67,6 +67,9 @@ def check(binary, out, reference=None):
                 index = game.seats.index(seat)
                 if abs(quality["current_ev_chips"][i]/100-oracle["profile_values_bb"][index]) > .001/100:
                     raise ValueError("External/native river oracle value differs")
+                if abs(quality["mes_ev_chips"][i]/100-(oracle["profile_values_bb"][index]
+                        +oracle["best_response_gains_bb"][index])) > .001/100:
+                    raise ValueError("External/native river best response differs")
         rows.append({"street": street.value, "request_sha256": digest(request),
             "cold_seconds": cold, "repeat_max_absolute_difference": max(differences),
             "profiles": [{"line": list(k), "menu": [asdict(c) for c in m.menu],
@@ -90,7 +93,9 @@ def check(binary, out, reference=None):
                 for field in ("current_ev_chips", "mes_ev_chips"):
                     if not np.allclose(a[field], b[field], atol=.001, rtol=0):
                         raise ValueError("Cross-platform value parity failed")
-        result["cross_platform_parity"] = "passed"
+        comparison = ("cross_platform_parity" if old["platform"] != result["platform"]
+                      or old["architecture"] != result["architecture"] else "repeat_reference_parity")
+        result[comparison] = "passed"
         result["reference_sha256"] = file_hash(reference)
     (out / "reference.json").write_text(json.dumps(result, sort_keys=True, allow_nan=False)+"\n")
     print(json.dumps({k: v for k, v in result.items() if k != "rows"}))

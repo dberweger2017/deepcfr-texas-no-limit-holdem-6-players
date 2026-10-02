@@ -83,12 +83,13 @@ def file_hash(path):
 
 
 class ExternalTurnSolver:
-    def __init__(self, executable, evidence_dir, *, expected_sha256=None):
+    def __init__(self, executable, evidence_dir, *, expected_sha256=None, resource_check=lambda: None):
         self.executable = Path(executable).expanduser().resolve()
         self.evidence_dir = Path(evidence_dir).expanduser().resolve()
         self.expected_sha256 = expected_sha256 or (
             file_hash(self.executable) if self.executable.is_file() else None)
         self.records = []
+        self.resource_check = resource_check
 
     def solve(self, request, deadline, *, mode="play"):
         if mode not in ("play", "quality"):
@@ -120,6 +121,7 @@ class ExternalTurnSolver:
                 except OSError as exc:
                     raise SolveFailure("solver_unavailable", str(exc)) from exc
                 while process.poll() is None:
+                    self.resource_check()
                     remaining = deadline - monotonic()
                     if remaining <= 0:
                         raise SolveFailure("timeout", "External solve deadline")
@@ -147,9 +149,10 @@ class ExternalTurnSolver:
         except SolveFailure as exc:
             record.update(cause=exc.cause, reason=str(exc))
             raise
-        except (ValueError, KeyError, OSError, TypeError) as exc:
-            record.update(cause="invalid_response", reason=str(exc))
-            raise SolveFailure("invalid_response", str(exc)) from exc
+        except (ValueError, KeyError, OSError, TypeError, MemoryError, TimeoutError) as exc:
+            cause = "memory_refusal" if isinstance(exc, MemoryError) else "timeout" if isinstance(exc, TimeoutError) else "invalid_response"
+            record.update(cause=cause, reason=str(exc))
+            raise SolveFailure(cause, str(exc)) from exc
         finally:
             if process is not None and process.poll() is None:
                 process.kill()
