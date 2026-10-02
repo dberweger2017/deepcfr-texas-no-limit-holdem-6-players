@@ -19,3 +19,14 @@ def test_turn_cap_two_retains_native_lookup_and_legal_jams():
             if jam:assert c.name in node['names']
         removed+=len(node['native_names'])-len(node['names'])
     assert removed>0
+
+
+def test_turn_root_identity_survives_real_native_replay_and_rejects_tampering():
+    from src.diagnostics.turn_check import root_record,replay_root
+    import pytest
+    for kind in ('limped','min-raised','pot-raised','3-bet'):
+        for button in (0,1):
+            record=root_record(fixture_root(kind,street=Street.TURN,button=button))
+            assert root_record(replay_root(record))==record
+            with pytest.raises(ValueError,match='replay mismatch'):
+                replay_root(dict(record,spot='tampered'))

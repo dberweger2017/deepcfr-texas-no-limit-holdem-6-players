@@ -182,7 +182,8 @@ def blueprint_locks(records, request, tables):
     for row in records:
         line = line_key(row["line"]); node = nodes[line]
         table = tables["tables"][tables["node_tables"][line]]
-        if sorted(row["actions"], key=json.dumps) != sorted(node["actions"], key=json.dumps):
+        canonical = lambda a: json.dumps(a, sort_keys=True)
+        if sorted(row["actions"], key=canonical) != sorted(node["actions"], key=canonical):
             raise ValueError("Solver lock has a different native action set")
         reorder = [node["actions"].index(a) for a in row["actions"]]
         probabilities = []

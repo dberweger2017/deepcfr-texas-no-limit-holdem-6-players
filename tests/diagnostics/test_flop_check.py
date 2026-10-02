@@ -237,7 +237,8 @@ def test_factored_locks_survive_rust_json_order_and_action_reordering():
     rust_line = json.loads(json.dumps(node["line"], sort_keys=True))
     assert line_key(rust_line) == line_key(node["line"])
     row = dict(line=rust_line, board=req["board"], holdings=[["Ac", "Ad"]],
-               actions=node["actions"][::-1], player=node["player"])
+               actions=json.loads(json.dumps(node["actions"][::-1], sort_keys=True)),
+               player=node["player"])
     result = blueprint_locks([row], req, tables)
     assert result[0]["strategy"] == pytest.approx(p[::-1])
 

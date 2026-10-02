@@ -73,3 +73,10 @@ different root occupancies prevent causal whole-hand attribution.
 4. Admit the main run only if all gates pass and projected M4 work fits the
    owner's approximately 24-hour ceiling; otherwise propose a smaller Set B.
 5. Complete the report and roadmap entry, with no promotion or automatic merge.
+
+## Owner-requested turn follow-up
+
+The [turn-only extension](hu20-exact-turn-check-design.md) preserves this flop
+experiment and its resource failure. It introduces a separately validated and
+frozen turn corpus, and a turn-only cap-two fallback after cap three. No turn
+result answers the flop-root question.
