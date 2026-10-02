@@ -36,7 +36,7 @@ def test_part_a_retry_clock_includes_pilot_failures_and_holds_lock(tmp_path,monk
     path.write_text(json.dumps({"limit_seconds":86400,"used_seconds":21590,
         "attempts":[{"phase":"pilot","seconds":300},{"phase":"part-a","seconds":21290}]}))
     budget=RunBudget(path,tmp_path,"part-a",21600,admission())
-    assert budget.deadline-budget.started==10
+    assert budget.deadline-budget.started==pytest.approx(10,abs=1e-6)
     with pytest.raises(BlockingIOError):RunBudget(path,tmp_path,"part-a",21600,admission())
     budget.close("failed","retained test")
     assert json.loads(path.read_text())["used_seconds"]>=21590
@@ -101,3 +101,35 @@ def test_staged_finalists_use_speed_before_quality():
     chosen=finalists(rows,{"opponent_likelihood_floor":[0,.01],"iterations":[25,100],
                            "staging":{"finalist_settings_per_floor":2}})
     assert len(chosen)==8 and {c.threads for c in chosen}=={1,2}
+
+
+def test_river_sampling_slots_balance_strata_seats_and_lineages():
+    from collections import Counter
+    from scripts.validate_hu20_search_rivers import slots
+    items=[{"root":{"kind":kind,"button":button,"spot":str(spot)},"policy":{"seed":seed}}
+        for kind in ("limped","min-raised","pot-raised","3-bet") for button in (0,1)
+        for spot in (0,1) for seed in (1,2,3)]
+    sample=slots(items)
+    assert len(sample)==32 and Counter(s["bot"] for s in sample)=={0:16,1:16}
+    assert sorted(Counter(s["item"]["policy"]["seed"] for s in sample).values())==[10,11,11]
+    assert set(Counter((s["item"]["root"]["kind"],s["item"]["root"]["button"]) for s in sample).values())=={4}
+
+
+def test_quote_refuses_omitted_speculative_lbr_or_stale_offer():
+    from src.arena.schedule import digest
+    from scripts.quote_hu20_search_arena import quote
+    calibration={"status":"qualified","selected":{"config":asdict(TurnSearchConfig())}}
+    plan={"stage":"frozen-final","calibration_sha256":digest(calibration),"expected_hands":36,
+          "panels":[{"name":"lbr","blocks":3}]}
+    timing={"configuration_sha256":digest(calibration["selected"]["config"]),
+        "includes_preparation":True,"includes_parsing":True,"includes_lbr_speculative_solves":True,
+        "includes_base_and_search_arms":True,"panels":{"lbr":{"paired_blocks":1,"seconds_per_joint_block_p95":60}},
+        "reserves_seconds_per_worker":{k:60 for k in ("setup_build","actual_pod_parity","replay_verification",
+            "retrieval_hash_verification","shutdown")},"required_storage_gb_per_worker":20,"rss_limit_bytes_per_worker":5*1024**3}
+    offer={"retrieved_at":1000,"source_url":"https://www.runpod.io/","architecture":"x86_64",
+        "provider":"RunPod","gpu":False,"available_workers":2,"compute_hourly_usd":.2,
+        "container_disk_hourly_usd":.01,"storage_gb":30}
+    result=quote(plan,calibration,timing,offer,workers=2,now=1001)
+    assert result["worker_seconds"]==630 and result["owner_approved"] is False
+    with pytest.raises(ValueError):quote(plan,calibration,dict(timing,includes_lbr_speculative_solves=False),offer,workers=2,now=1001)
+    with pytest.raises(ValueError):quote(plan,calibration,timing,offer,workers=2,now=10000)

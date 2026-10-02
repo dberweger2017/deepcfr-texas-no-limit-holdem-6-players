@@ -13,7 +13,7 @@ import numpy as np
 
 from scripts.calibrate_hu20_turn_search import replay_root
 from scripts.evaluate_hu20_turn_search import load
-from scripts.hu20_search_runtime import RunBudget, atomic_json
+from scripts.hu20_search_runtime import RunBudget, atomic_json, install_stop_handlers
 from src.arena.endgame_quality import _world
 from src.arena.schedule import digest
 from src.blueprint.hu20_turn_search import HU20TurnSearchPolicy, TurnSearchConfig, observed_likelihood
@@ -133,16 +133,27 @@ def run(references,config,inputs,binary,out,budget):
 
 
 def main():
+    install_stop_handlers()
     p=argparse.ArgumentParser(description=__doc__)
     for n in ("references","config","inputs","binary","out","admission","budget"):
         p.add_argument("--"+n,type=Path,required=True)
     a=p.parse_args();a.out.parent.mkdir(parents=True,exist_ok=True)
     budget=RunBudget(a.budget,a.out.parent,"river-validation",86400,json.loads(a.admission.read_text()))
     status="failed"
+    reason=None
     try:
         result=run(json.loads(a.references.read_text()),TurnSearchConfig(**json.loads(a.config.read_text())),
                    a.inputs,a.binary,a.out,budget);status=result["status"]
-    finally:budget.close(status)
+    except BaseException as exc:
+        reason=f"{type(exc).__name__}: {exc}"
+        a.out.mkdir(parents=True,exist_ok=True)
+        atomic_json(a.out/"failure.json",{"status":"failed","reason":reason})
+        atomic_json(a.out/"status.json",{"status":"failed","reason":reason})
+        (a.out/"status.md").write_text(f"River validation stopped: {reason}\n")
+        atomic_json(a.out/"manifest.json",{str(p.relative_to(a.out)):{"sha256":file_hash(p),"bytes":p.stat().st_size}
+            for p in a.out.rglob("*") if p.is_file() and p.name!="manifest.json"})
+        raise
+    finally:budget.close(status,reason)
     if status!="complete":raise SystemExit(1)
 
 

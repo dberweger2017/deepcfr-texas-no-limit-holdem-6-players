@@ -1,16 +1,22 @@
 {
   "architecture": "arm64",
-  "binary_sha256": "178e6e7dcf7318d7322a3e8348257c7913dd50431f27580df5f7387cb97d0634",
+  "binary_sha256": "557e510d29703b784908fdec50139d10aff087095921761aa6a8e4d17b6ca890",
+  "config": null,
+  "full_reference": {
+    "bytes": 73628,
+    "path": "/Users/dberweger/Local/hu20-turn-search-20261002/m1-parity-reference-08/reference.json",
+    "sha256": "c03e79302f0c76405e4e0afb09aa5c94119117d2f65511c5e5a064591d3fdd92"
+  },
   "platform": "macOS-27.2-arm64-arm-64bit",
   "python": "3.11.15",
-  "status": "passed",
-  "tolerances": {
-    "strategy_absolute": 1e-05,
-    "value_chips_absolute": 0.001
-  },
   "rows": [
     {
-      "cold_seconds": 0.5462688750121742,
+      "cold_seconds": 0.3257213339675218,
+      "lock_check": {
+        "request_sha256": "151a20ba4329f4bbce32c2d1901df677c73fcf30d148e4b1ee6c0c1d714e0df5",
+        "request_without_threads_sha256": "599bca6c16a2d0e300b4d2c452cf0388ae93f9126e8969b9d0abe5b02b2eb864",
+        "root_matrix_max_difference": 0.0
+      },
       "quality": [
         {
           "current_ev_chips": [
@@ -24,16 +30,41 @@
             -22.23419952392578,
             36.7689208984375
           ],
-          "solver_peak_rss_bytes": 20414464
+          "solver_peak_rss_bytes": 20496384
+        },
+        {
+          "current_ev_chips": [
+            619.989990234375,
+            -619.989990234375
+          ],
+          "event": "quality",
+          "exploitability_pct_pot": 3.2534088134765624,
+          "input_mass": [
+            1.0,
+            0.9999999999999999
+          ],
+          "law": "reference",
+          "mes_ev_chips": [
+            706.742431640625,
+            -576.6060791015625
+          ],
+          "retained_mass": [
+            1.0,
+            0.9999999999999999
+          ],
+          "solver_peak_rss_bytes": 20545536,
+          "supported": true
         }
       ],
       "repeat_max_absolute_difference": 0.0,
       "request_sha256": "999a5cacc2c698f8910356e2e514e7b3735c0e6b50d9b24c5e60c4f62fa3c6dd",
+      "request_without_threads_sha256": "6ef9e4b94e29aba156f3bd762a8d5b282f7af4e15698f843feea797eab9b7c0a",
       "river_oracle": null,
       "street": "turn"
     },
     {
-      "cold_seconds": 0.016652958001941442,
+      "cold_seconds": 0.015134875022340566,
+      "lock_check": null,
       "quality": [
         {
           "current_ev_chips": [
@@ -47,11 +78,35 @@
             -24.63105010986328,
             30.65776824951172
           ],
-          "solver_peak_rss_bytes": 3981312
+          "solver_peak_rss_bytes": 4014080
+        },
+        {
+          "current_ev_chips": [
+            638.8624267578125,
+            -638.8624267578125
+          ],
+          "event": "quality",
+          "exploitability_pct_pot": 5.1265716552734375,
+          "input_mass": [
+            1.0,
+            0.9999999999999999
+          ],
+          "law": "reference",
+          "mes_ev_chips": [
+            770.560791015625,
+            -565.4979248046875
+          ],
+          "retained_mass": [
+            1.0,
+            0.9999999999999999
+          ],
+          "solver_peak_rss_bytes": 4030464,
+          "supported": true
         }
       ],
       "repeat_max_absolute_difference": 0.0,
       "request_sha256": "58123134303787c918cbb16b1b4278f6f87133e3d00030788b3585d07231f12b",
+      "request_without_threads_sha256": "fe66acc3e8c3a358ff130dd8b43821b5b30c7c75c962fc2221b1a08449f8f88d",
       "river_oracle": {
         "best_response_gains_bb": [
           0.03896086579427527,
@@ -63,14 +118,53 @@
           0.26761621082967046,
           -0.2676162108296709
         ],
+        "reference_law": {
+          "best_response_gains_bb": [
+            0.7336448400678446,
+            1.3169836410356437
+          ],
+          "exploitability_bb": 1.0253142405517441,
+          "exploitability_root_pot": 0.05126571202758721,
+          "profile_values_bb": [
+            -6.388624533029864,
+            6.388624533029864
+          ],
+          "zero_sum_error_bb": 0.0
+        },
         "zero_sum_error_bb": 4.440892098500626e-16
       },
       "street": "river"
     }
   ],
-  "full_reference": {
-    "path": "/Users/dberweger/Local/hu20-turn-search-20261002/m1-parity-reference-01/reference.json",
-    "sha256": "5015a1124bf59ec2732e189e1cfd1b95de578b7d56507b05dd0c019507a69da7",
-    "bytes": 46851
+  "status": "passed",
+  "thread_comparisons": [
+    {
+      "max_strategy_difference": 0.0,
+      "max_value_chips_difference": 0.0,
+      "path": "/Users/dberweger/Local/hu20-turn-search-20261002/m1-thread-parity-t1/reference.json",
+      "sha256": "b0fac0d9a35271ebbcb1c3359a00c9c5ff88bef1f9ed531c3678a7370e5d712b",
+      "status": "passed",
+      "threads": 1
+    },
+    {
+      "max_strategy_difference": 0.0,
+      "max_value_chips_difference": 0.0,
+      "path": "/Users/dberweger/Local/hu20-turn-search-20261002/m1-thread-parity-t4/reference.json",
+      "sha256": "8dc18ba29ccd6e3e0d4c6cb17965bf4fbdd8300642012a121188966105151047",
+      "status": "passed",
+      "threads": 4
+    },
+    {
+      "max_strategy_difference": 0.0,
+      "max_value_chips_difference": 0.0,
+      "path": "/Users/dberweger/Local/hu20-turn-search-20261002/m1-thread-parity-t6/reference.json",
+      "sha256": "7b390fdf56b13fcbb024983dee4ccfb9871358fe698dddb386ca37743ba48668",
+      "status": "passed",
+      "threads": 6
+    }
+  ],
+  "tolerances": {
+    "strategy_absolute": 1e-05,
+    "value_chips_absolute": 0.001
   }
 }

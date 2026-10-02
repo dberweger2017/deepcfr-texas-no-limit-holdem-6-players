@@ -6,9 +6,16 @@ import os
 from pathlib import Path
 import re
 import shutil
+import signal
 import subprocess
 import sys
 from time import monotonic, time
+
+
+def install_stop_handlers():
+    def stop(signum, frame):
+        raise RuntimeError(f"Experiment interrupted by signal {signum}; retain partial evidence")
+    for signum in (signal.SIGTERM,signal.SIGINT):signal.signal(signum,stop)
 
 
 def atomic_json(path, data):

@@ -47,22 +47,46 @@ def arena_plan(planned, part_a, calibration):
     return plan
 
 
+def calibration_plan(planned, references):
+    if planned["stage"]!="planned-not-admitted" or not references.get("145_final_report_pushed"):
+        raise ValueError("Fresh calibration freeze needs published references")
+    result=deepcopy(planned)
+    result.update(stage="frozen-final",reference_index_sha256=digest(references),
+                  final_report_sha256=references["final_report_sha256"],base=references["base"])
+    return result
+
+
+def timing_pilot_plan(planned):
+    result=deepcopy(planned)
+    result.update(stage="frozen-timing-pilot",root=202610020802,max_seconds=300,
+                  outcome_use="retained but excluded from sizing and base selection")
+    for panel in result["panels"]:panel["blocks"]=1
+    result["expected_hands"]=12*len(result["panels"])
+    return result
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--planned",type=Path,required=True);p.add_argument("--out",type=Path,required=True)
     p.add_argument("--pilot",type=Path);p.add_argument("--remaining-part-a-seconds",type=float)
     p.add_argument("--part-a",type=Path);p.add_argument("--calibration",type=Path)
+    p.add_argument("--references",type=Path)
+    p.add_argument("--make-timing-pilot",action="store_true")
     a=p.parse_args()
     if a.out.exists():raise FileExistsError("Never overwrite a protocol freeze")
     planned=json.loads(a.planned.read_text())
-    if a.pilot:
+    if a.make_timing_pilot:
+        result=timing_pilot_plan(planned)
+    elif a.references:
+        result=calibration_plan(planned,json.loads(a.references.read_text()))
+    elif a.pilot:
         if a.remaining_part_a_seconds is None:p.error("Deduct pilots/failures from six-hour allowance")
         result=freeze_timing(planned,a.pilot,a.remaining_part_a_seconds)
     else:
         if not a.part_a or not a.calibration:p.error("Supply timing pilot or Part A/calibration summaries")
         result=arena_plan(planned,json.loads(a.part_a.read_text()),json.loads(a.calibration.read_text()))
     atomic_json(a.out,result)
-    print(json.dumps({"sha256":file_hash(a.out),"hands":result["expected_hands"],"stage":result["stage"]}))
+    print(json.dumps({"sha256":file_hash(a.out),"hands":result.get("expected_hands"),"stage":result["stage"]}))
 
 
 if __name__ == "__main__":main()

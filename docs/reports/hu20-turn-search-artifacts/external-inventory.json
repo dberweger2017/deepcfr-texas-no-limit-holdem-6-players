@@ -1,36 +1,39 @@
 {
-  "upstream_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
-  "upstream_source_symlink": "/Users/dberweger/Local/hu20-exact-flop-tool/upstream",
+  "build_flags": "RUSTFLAGS=-A dangerous_implicit_autorefs; CARGO_BUILD_JOBS=2",
+  "external_source_commit": "ac7e2a6d3b3026e9febc74054abd4cb791e1a4ef",
   "external_sources": {
-    "harness/src/compact.rs": {
-      "bytes": 9930,
-      "sha256": "5a5c52e47737d210df60c96ece4a887bb73ffa5e7cd637799c653e3aa443da7f"
-    },
-    "harness/src/weighted.rs": {
-      "bytes": 4155,
-      "sha256": "ad4e105d568f9af527db55b1a7ffb95296ab9cb98da174551189fb776978f5ab"
-    },
-    "harness/src/main.rs": {
-      "bytes": 16531,
-      "sha256": "f895f1b9e69596ff72c57c46ecf40c970fb91f4841248000e4d48c818d760ec4"
-    },
-    "harness/Cargo.toml": {
-      "bytes": 241,
-      "sha256": "abfb551f1cb3361f8d8b8918d7e397698d8fb04bd45530759ab825e6c21ddcbd"
+    "README.md": {
+      "bytes": 918,
+      "sha256": "2fbab7f6dc1fb78f68bc24eb6e7f89e315ecd6f2afca70d1e99f8ac97c83cdde"
     },
     "harness/Cargo.lock": {
       "bytes": 7916,
       "sha256": "33613db4ada49e23efee77838315e70d91000769ca3da1d4b4f50b62918ca7a2"
     },
-    "README.md": {
-      "bytes": 799,
-      "sha256": "69a4c3e706ef00abfef68e31e1ac8be6ad3625c08616b27fec1a1d8a72c19b5b"
+    "harness/Cargo.toml": {
+      "bytes": 241,
+      "sha256": "abfb551f1cb3361f8d8b8918d7e397698d8fb04bd45530759ab825e6c21ddcbd"
+    },
+    "harness/src/compact.rs": {
+      "bytes": 9930,
+      "sha256": "5a5c52e47737d210df60c96ece4a887bb73ffa5e7cd637799c653e3aa443da7f"
+    },
+    "harness/src/main.rs": {
+      "bytes": 16624,
+      "sha256": "bc5f10a77d2cbeb624462d2352b84568a309fafae81e7af9f9094d3fcc4a0aaa"
+    },
+    "harness/src/weighted.rs": {
+      "bytes": 4155,
+      "sha256": "ad4e105d568f9af527db55b1a7ffb95296ab9cb98da174551189fb776978f5ab"
     }
   },
-  "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25) (Homebrew)\nbinary: rustc\ncommit-hash: ac68faa20c58cbccd01ee7208bf3b6e93a7d7f96\ncommit-date: 2026-05-25\nhost: aarch64-apple-darwin\nrelease: 1.96.0\nLLVM version: 22.1.6\n",
-  "build_flags": "RUSTFLAGS=-A dangerous_implicit_autorefs; CARGO_BUILD_JOBS=2",
-  "original_binary_sha256": "7ffd781c6d0493baa86b5be4e0830292f895e6cf1a3cf29ed6292916e88ffe7c",
-  "new_binary_sha256": "178e6e7dcf7318d7322a3e8348257c7913dd50431f27580df5f7387cb97d0634",
   "first_build_failure": "Compiler denies dangerous_implicit_autorefs in unchanged pinned upstream; isolated flag used on retry.",
-  "linux_runtime_parity": "pending; no emulation or paid hardware used"
+  "fixes": "Sort exact inserted wagers in pinned ActionTree order; uncompressed play refuses oversize rather than silently compressing.",
+  "linux_runtime_parity": "pending; no emulation or paid hardware used",
+  "new_binary_sha256": "557e510d29703b784908fdec50139d10aff087095921761aa6a8e4d17b6ca890",
+  "original_binary_sha256": "7ffd781c6d0493baa86b5be4e0830292f895e6cf1a3cf29ed6292916e88ffe7c",
+  "retained_fixture_failure": "/Users/dberweger/Local/hu20-turn-search-20261002/m1-parity-reference-04",
+  "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25) (Homebrew)\nbinary: rustc\ncommit-hash: ac68faa20c58cbccd01ee7208bf3b6e93a7d7f96\ncommit-date: 2026-05-25\nhost: aarch64-apple-darwin\nrelease: 1.96.0\nLLVM version: 22.1.6\n",
+  "upstream_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+  "upstream_source_symlink": "/Users/dberweger/Local/hu20-exact-flop-tool/upstream"
 }

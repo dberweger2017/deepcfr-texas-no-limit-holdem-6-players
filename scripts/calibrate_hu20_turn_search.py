@@ -1,7 +1,8 @@
 """Guarded public-root calibration; quality work is separate from play latency."""
 
 import argparse
-from dataclasses import replace
+from dataclasses import asdict, replace
+from hashlib import sha256
 import gc
 import itertools
 import json
@@ -11,7 +12,7 @@ from time import monotonic
 import numpy as np
 
 from scripts.evaluate_hu20_turn_search import load
-from scripts.hu20_search_runtime import RunBudget, atomic_json
+from scripts.hu20_search_runtime import RunBudget, atomic_json, install_stop_handlers
 from src.arena.endgame_quality import _world
 from src.arena.schedule import digest
 from src.blueprint.hu20_turn_search import HU20TurnSearchPolicy, TurnSearchConfig
@@ -35,6 +36,9 @@ def replay_root(record):
                   if isinstance(e,BoardDealt) else e for e in hand.events)
     root=_world(history,board,{}).events
     if len(board)!=4 or root[-1].seat is None:raise ValueError("Need a live public turn root")
+    events=[asdict(replace(e,hand_id="")) if index==0 else asdict(e) for index,e in enumerate(root)]
+    identity=sha256(json.dumps(events,sort_keys=True,separators=(",",":")).encode()).hexdigest()
+    if identity!=record["spot"]:raise ValueError("Frozen public root identity differs")
     return root
 
 
@@ -59,7 +63,6 @@ def screen_items(items):
 
 
 def finalists(rows, protocol):
-    from dataclasses import asdict
     settings={}
     for row in rows:
         if row["config"]["menu"]=="native":
@@ -136,6 +139,8 @@ def run(protocol, references, inputs, binary, out, budget):
         raise ValueError("Push staged corpus/settings freeze before calibration")
     if references.get("145_final_report_pushed") is not True or not references.get("final_report_sha256"):
         raise ValueError("Calibration requires published #145 final report")
+    if protocol.get("reference_index_sha256")!=digest(references):
+        raise ValueError("Frozen reference index differs")
     items=references["items"]
     coordinates=[f"{i['root']['spot']}/{i['policy']['seed']}/{s}" for i in items for s in (0,1)]
     if len(set(coordinates))!=len(coordinates):raise ValueError("Duplicate reference root/lineage")
@@ -181,6 +186,7 @@ def run(protocol, references, inputs, binary, out, budget):
 
 
 def main():
+    install_stop_handlers()
     p=argparse.ArgumentParser(description=__doc__)
     for n in ("protocol","references","inputs","binary","out","admission","budget"):
         p.add_argument("--"+n,type=Path,required=True)

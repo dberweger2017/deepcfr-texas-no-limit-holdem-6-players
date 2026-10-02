@@ -11,7 +11,7 @@ import subprocess
 from time import perf_counter
 
 from scripts.evaluate_hu20_cfr_average import opponent, summarize
-from scripts.hu20_search_runtime import RunBudget, PaidWorkerBudget, atomic_json
+from scripts.hu20_search_runtime import RunBudget, PaidWorkerBudget, atomic_json, install_stop_handlers
 from src.arena.catalog import Checkpoint
 from src.arena.runner import public_events
 from src.arena.schedule import digest, stream_seed
@@ -41,7 +41,7 @@ def load(spec, inputs):
     return source
 
 
-def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, search=None, arm=None):
+def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, search=None, arm=None, failure_dir=None):
     deal = stream_seed(root,"test","deal",2,block)
     random = Random(stream_seed(root,"test","action",2,block,0))
     rival = opponent(panel, search or source, stream_seed(root,"test","opponent",2,block,1))
@@ -50,30 +50,40 @@ def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, searc
     records_begin = len(search.records) if search else 0
     stats_before = Counter(search.stats) if search else Counter()
     actions = []; coverage = Counter(); started = perf_counter()
-    for index in range(1000):
-        guard()
-        if hand.finished: break
-        view = hand.observe(hand.actor); logical = int(hand.actor != rotation)
-        key = mass_status = None
-        base_trained = None
-        if not logical:
-            base_menu, base_p, base_trained = source.distribution(view)
-            key = information_key(view,base_menu,schema=source.abstraction)
-            mass_status = ("missing" if not base_trained else "zero_mass" if key in getattr(source,"zero_mass",())
-                           else "positive_mass" if isinstance(source,DiagnosticAverage) else "current")
-            menu,p,trained = search.distribution(view,query_kind="play") if search else (base_menu,base_p,base_trained)
-            action = random.choices(menu,weights=p,k=1)[0].action
-            coverage[mass_status] += 1; coverage[view.street.value+":"+mass_status] += 1
-        else:
-            menu = choices(view,raise_cap=None,free_fold=False); p = trained = None
-            action = rival.choose_action(view)
-        observed = snapshot(view,menu,p,trained,None); observed["logical_player"] = logical
-        entry = {"index":index,"seat":hand.actor,"logical_player":logical,"street":view.street.value,
-            "kind":action.kind.value,"raise_to":action.raise_to,"observation":observed,
-            "target_key":key,"average_mass_status":mass_status,"base_trained":base_trained}
-        if logical and hasattr(rival,"telemetry"):
-            entry["lbr"] = dict(rival.telemetry[-1])
-        view.legal_actions.validate(action); actions.append(entry); hand = hand.apply(action)
+    try:
+        for index in range(1000):
+            guard()
+            if hand.finished: break
+            view = hand.observe(hand.actor); logical = int(hand.actor != rotation)
+            key = mass_status = None
+            base_trained = None
+            if not logical:
+                base_menu, base_p, base_trained = source.distribution(view)
+                key = information_key(view,base_menu,schema=source.abstraction)
+                mass_status = ("missing" if not base_trained else "zero_mass" if key in getattr(source,"zero_mass",())
+                               else "positive_mass" if isinstance(source,DiagnosticAverage) else "current")
+                menu,p,trained = search.distribution(view,query_kind="play") if search else (base_menu,base_p,base_trained)
+                action = random.choices(menu,weights=p,k=1)[0].action
+                coverage[mass_status] += 1; coverage[view.street.value+":"+mass_status] += 1
+            else:
+                menu = choices(view,raise_cap=None,free_fold=False); p = trained = None
+                action = rival.choose_action(view)
+            observed = snapshot(view,menu,p,trained,None); observed["logical_player"] = logical
+            entry = {"index":index,"seat":hand.actor,"logical_player":logical,"street":view.street.value,
+                "kind":action.kind.value,"raise_to":action.raise_to,"observation":observed,
+                "target_key":key,"average_mass_status":mass_status,"base_trained":base_trained}
+            if logical and hasattr(rival,"telemetry"):
+                entry["lbr"] = dict(rival.telemetry[-1])
+            view.legal_actions.validate(action); actions.append(entry); hand = hand.apply(action)
+    except BaseException as exc:
+        if failure_dir:
+            failure_dir.mkdir(parents=True,exist_ok=True)
+            coordinate=[spec["name"],arm or spec["strategy"],panel["name"],block,rotation]
+            atomic_json(failure_dir/(digest(coordinate)+".json"),{
+                "status":"incomplete","coordinate":coordinate,"hand_id":hand_id,
+                "deal_seed":deal,"root_seed":root,"button":block%2,"actions":actions,
+                "failure":f"{type(exc).__name__}: {exc}"})
+        raise
     if not hand.finished: raise RuntimeError("Native hand decision limit")
     chips = [p.stack-2000 for p in hand.observe(0).players]
     replay = Hand.start(hand.table,hand_id=hand_id,seed=deal)
@@ -103,6 +113,15 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
         raise ValueError("Invalid independent worker coordinate")
     if phase != "arena" and worker_count != 1:
         raise ValueError("M4 phases use one guarded worker")
+    if phase=="arena":
+        from dataclasses import asdict
+        if (plan.get("stage")!="frozen-final" or len(plan["models"])!=3
+                or len({s["seed"] for s in plan["models"]})!=3
+                or plan.get("selected_search_config")!=asdict(search_config)
+                or not plan.get("part_a_summary_sha256") or not plan.get("calibration_sha256")):
+            raise ValueError("Arena must bind all three selected-base lineages and published science")
+        if any(p["blocks"]!=(2048 if p["name"] in ("lbr","native-pressure") else 256) for p in plan["panels"]):
+            raise ValueError("Do not shrink the scientific arena to fit M4")
     expected = (2*len(plan["models"])*(2 if phase == "arena" else 1)
                 *sum(len(range(worker_index,p["blocks"],worker_count)) for p in plan["panels"]))
     out.mkdir(parents=True,exist_ok=False)
@@ -124,7 +143,7 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
                         for block in range(worker_index,panel["blocks"],worker_count):
                             for rotation in (0,1):
                                 row = play(source,spec,panel,plan["root"],block,rotation,budget.check,
-                                    search=policy if arm == "average" and phase == "arena" else None,arm=arm)
+                                    search=policy if arm == "average" and phase == "arena" else None,arm=arm,failure_dir=out/"partials")
                                 stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+"\n");stream.flush()
                                 compact = {k:v for k,v in row.items() if k not in
                                     ("actions","search_records","search_counts","lbr_zero_likelihood")}
@@ -161,6 +180,7 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
 
 
 def main():
+    install_stop_handlers()
     p=argparse.ArgumentParser(description=__doc__)
     for name in ("plan","inputs","out"):
         p.add_argument("--"+name,type=Path,required=True)

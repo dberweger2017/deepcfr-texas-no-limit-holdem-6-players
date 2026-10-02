@@ -96,6 +96,10 @@ def compile_tree(root, observed_history, *, menu="native", max_nodes=300_000,
             view.legal_actions.validate(action)
             if action not in [c.action for c in options]:
                 options.append(Choice("inserted", action))
+        # The pinned ActionTree sorts variants and amounts, including inserted sizes.
+        order={"Fold":0,"Check":1,"Call":2,"Bet":3,"Raise":4,"AllIn":5}
+        options.sort(key=lambda c:(order[solver_action(view,c.action)["kind"]],
+                                   solver_action(view,c.action).get("amount",0)))
         node.update(street=view.street.value, player=seat_map.index(view.seat),
                     actions=[solver_action(view, c.action) for c in options],
                     names=[c.name for c in options],

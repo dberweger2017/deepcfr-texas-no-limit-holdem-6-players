@@ -138,6 +138,28 @@ def test_river_ranges_use_turn_solution_instead_of_blueprint():
     assert policy.solver.requests[-1]["initial_street"] == "river"
 
 
+def test_sampled_river_conditioning_independently_matches_used_matrices():
+    from random import Random
+    from scripts.validate_hu20_search_rivers import sampled_river,check_conditioning
+    hand=fixture();bot=hand.actor
+    policy=HU20TurnSearchPolicy(Uniform(),FakeSolver())
+    river,counts=sampled_river(policy,hand.events,bot,Random(77),lambda:None)
+    root=round_root(river.events)
+    solution=policy._resolve(root,bot,monotonic()+30)
+    assert counts["attempts"]>=1
+    assert check_conditioning(policy,root,bot,solution.ranges)<=1e-10
+    assert all(not set(h).intersection(river.observe(bot).board)
+               for rows in solution.ranges.values() for h,w in rows)
+
+
+def test_exact_insertions_follow_pinned_solver_action_order():
+    hand=fixture();later=hand.apply(Action(ActionKind.CHECK)).apply(Action(ActionKind.RAISE,333))
+    request=compile_tree(hand.events,later.events)
+    node=next(n for n in request["nodes"] if n["line"]==[{"kind":"Check"}])
+    assert node["actions"]==[{"kind":"Check"},{"kind":"Bet","amount":100},
+                             {"kind":"Bet","amount":333},{"kind":"AllIn","amount":1000}]
+
+
 @pytest.mark.parametrize("cause", ["solver_unavailable", "timeout", "memory_refusal", "invalid_response"])
 def test_failed_search_is_a_legal_base_fallback_and_is_cached(cause):
     class Failed(FakeSolver):

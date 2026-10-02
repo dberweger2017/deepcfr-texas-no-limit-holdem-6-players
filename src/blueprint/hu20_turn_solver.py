@@ -138,6 +138,9 @@ class ExternalTurnSolver:
                 raise SolveFailure(cause, "Solver did not complete fixed play work")
             if completion[-1]["iterations"] != request["max_iterations"]:
                 raise SolveFailure("timeout", "Partial solver iterations")
+            if (completion[-1].get("solver_commit") != request["solver_commit"]
+                    or completion[-1].get("compressed") != request["compress"]):
+                raise SolveFailure("invalid_response", "Solver source/compression identity differs")
             if max(e.get("solver_peak_rss_bytes", 0) for e in events) > request["memory_budget_bytes"]:
                 raise SolveFailure("memory_refusal", "Solver RSS exceeds request budget")
             profiles = parse_profiles(request, out / "profile.jsonl")
