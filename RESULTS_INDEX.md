@@ -253,3 +253,10 @@ These locations are **retained at their working roots; not included in the prima
 | `write-representation-report.py` | 5,622 | 1 | Unmapped legacy/local evidence |
 | `write_snapshot_report.py` | 11,092 | 1 | Unmapped legacy/local evidence |
 | `write_strategy_summary.py` | 11,610 | 1 | Unmapped legacy/local evidence |
+
+## HU20 turn-search development (PR #148)
+
+- External AGPL play/quality harness: `/Users/dberweger/Local/hu20-turn-search-tool`; upstream is a symlink to the unchanged pinned `/Users/dberweger/Local/hu20-exact-flop-tool/upstream`. Restore with commit 9d1509fe5077d019825f833eed04b16d342dfda1. Source/binary fingerprints: `docs/reports/hu20-turn-search-artifacts/external-inventory.json`. Never vendor these sources into MIT.
+- M1 reference, requests, responses, logs, profiles and receipts: `/Users/dberweger/Local/hu20-turn-search-20261002/m1-parity-reference-01`. Compact counts/hash: `docs/reports/hu20-turn-search-artifacts/m1-parity.json`; full reference retained for Linux parity. No M4 experiment or rental has started.
+- Inputs remain the preserved six exports in `/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-inputs`; they remain other agents' dependencies.
+- Keep all originals and failed builds/requests. Archive to the existing designated Drive destination with complete manifests and symlink retrieval provenance at cleanup. No local deletion is authorized.

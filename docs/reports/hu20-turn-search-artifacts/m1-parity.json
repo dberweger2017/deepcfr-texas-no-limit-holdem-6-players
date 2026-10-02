@@ -1,0 +1,76 @@
+{
+  "architecture": "arm64",
+  "binary_sha256": "178e6e7dcf7318d7322a3e8348257c7913dd50431f27580df5f7387cb97d0634",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "python": "3.11.15",
+  "status": "passed",
+  "tolerances": {
+    "strategy_absolute": 1e-05,
+    "value_chips_absolute": 0.001
+  },
+  "rows": [
+    {
+      "cold_seconds": 0.5462688750121742,
+      "quality": [
+        {
+          "current_ev_chips": [
+            -30.479629516601562,
+            30.479637145996094
+          ],
+          "event": "quality",
+          "exploitability_pct_pot": 0.36336803436279297,
+          "law": "search",
+          "mes_ev_chips": [
+            -22.23419952392578,
+            36.7689208984375
+          ],
+          "solver_peak_rss_bytes": 20414464
+        }
+      ],
+      "repeat_max_absolute_difference": 0.0,
+      "request_sha256": "999a5cacc2c698f8910356e2e514e7b3735c0e6b50d9b24c5e60c4f62fa3c6dd",
+      "river_oracle": null,
+      "street": "turn"
+    },
+    {
+      "cold_seconds": 0.016652958001941442,
+      "quality": [
+        {
+          "current_ev_chips": [
+            -26.761615753173828,
+            26.76165008544922
+          ],
+          "event": "quality",
+          "exploitability_pct_pot": 0.15066795349121093,
+          "law": "search",
+          "mes_ev_chips": [
+            -24.63105010986328,
+            30.65776824951172
+          ],
+          "solver_peak_rss_bytes": 3981312
+        }
+      ],
+      "repeat_max_absolute_difference": 0.0,
+      "request_sha256": "58123134303787c918cbb16b1b4278f6f87133e3d00030788b3585d07231f12b",
+      "river_oracle": {
+        "best_response_gains_bb": [
+          0.03896086579427527,
+          0.021305736629973815
+        ],
+        "exploitability_bb": 0.03013330121212454,
+        "exploitability_root_pot": 0.001506665060606227,
+        "profile_values_bb": [
+          0.26761621082967046,
+          -0.2676162108296709
+        ],
+        "zero_sum_error_bb": 4.440892098500626e-16
+      },
+      "street": "river"
+    }
+  ],
+  "full_reference": {
+    "path": "/Users/dberweger/Local/hu20-turn-search-20261002/m1-parity-reference-01/reference.json",
+    "sha256": "5015a1124bf59ec2732e189e1cfd1b95de578b7d56507b05dd0c019507a69da7",
+    "bytes": 46851
+  }
+}

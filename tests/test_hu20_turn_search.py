@@ -1,0 +1,198 @@
+"""Public-state search, exact insertion, likelihood floors and failure contracts."""
+
+from dataclasses import asdict, replace
+import json
+from pathlib import Path
+from time import monotonic
+
+import numpy as np
+import pytest
+
+from src.arena.endgame_quality import _world
+from src.blueprint.abstraction import Choice, choices
+from src.blueprint.hu20_turn_search import HU20TurnSearchPolicy, TurnSearchConfig
+from src.blueprint.hu20_turn_solver import ExternalTurnSolver, PolicyMatrix, SolveFailure, parse_profiles
+from src.blueprint.hu20_turn_tree import betting_line, compile_tree, line_key, round_root
+from src.game.hand import Hand, Table
+from src.game.types import Action, ActionKind, Street
+
+
+class Uniform:
+    description = {"fixture": "uniform"}
+
+    def distribution(self, view):
+        menu = choices(view, raise_cap=None, free_fold=False)
+        return menu, (1 / len(menu),) * len(menu), False
+
+
+class FakeSolver:
+    expected_sha256 = "fixture"
+
+    def __init__(self):
+        self.requests = []
+
+    def solve(self, request, deadline):
+        self.requests.append(request)
+        result = {}
+        locks = {line_key(n["line"]): n for n in request["locks"]}
+        for node in request["nodes"]:
+            if node["terminal"] or node["street"] != request["initial_street"]:
+                continue
+            holdings = tuple(tuple(sorted(r["hand"])) for r in request["ranges"][node["player"]]
+                             if r["weight"] > 0)
+            p = np.full((len(holdings), len(node["actions"])), 1 / len(node["actions"]))
+            if line_key(node["line"]) in locks:
+                lock = locks[line_key(node["line"])]
+                lookup = {tuple(sorted(h)): i for i, h in enumerate(lock["holdings"])}
+                values = np.asarray(lock["strategy"]).reshape(len(node["actions"]), -1).T
+                p = np.asarray([values[lookup[h]] for h in holdings])
+            p.setflags(write=False)
+            menu = tuple(Choice(name, Action(ActionKind(a["kind"]), a["raise_to"]))
+                         for name, a in zip(node["names"], node["native_actions"], strict=True))
+            result[line_key(node["line"])] = PolicyMatrix(menu, holdings, p)
+        return result
+
+
+def fixture(street=Street.TURN, *, deep=False):
+    hand = Hand.start(Table(("a", "b"), (2000, 2000), button=0), hand_id="search", seed=31)
+    if not deep:
+        hand = hand.apply(Action(ActionKind.RAISE, 1000))
+    while hand.observe(hand.actor).street != street:
+        view = hand.observe(hand.actor)
+        hand = hand.apply(Action(ActionKind.CHECK if ActionKind.CHECK in view.legal_actions.kinds else ActionKind.CALL))
+    return hand
+
+
+def test_holding_queries_share_one_public_solution_and_hidden_worlds():
+    hand = fixture(); view = hand.observe(hand.actor); solver = FakeSolver()
+    policy = HU20TurnSearchPolicy(Uniform(), solver)
+    first = policy.distribution(view)
+    available = [c for c in ("2c", "2d", "3c", "3d", "4c", "4d", "5c", "5d") if c not in view.board + view.hole_cards]
+    other = _world(view.history, view.board, {view.seat: tuple(available[:2])})
+    second = policy.distribution(other.observe(view.seat))
+    assert first == second and len(solver.requests) == 1
+    changed = _world(view.history, view.board, {view.seat: view.hole_cards,
+                                              1 - view.seat: tuple(available[2:4])})
+    assert policy.distribution(changed.observe(view.seat)) == first
+    assert "hole_cards" not in json.dumps(solver.requests)
+
+
+def test_on_tree_bet_is_retained_and_exact_off_menu_relocks_hero():
+    hand = fixture(); solver = FakeSolver(); policy = HU20TurnSearchPolicy(Uniform(), solver)
+    actor = hand.actor; view = hand.observe(actor); policy.distribution(view)
+    first = solver.requests[0]
+    hand = hand.apply(Action(ActionKind.CHECK))
+    native = min((c.action for c in choices(hand.observe(hand.actor), raise_cap=None, free_fold=False)
+                  if c.action.kind == ActionKind.RAISE), key=lambda a: a.raise_to)
+    on_tree = hand.apply(native)
+    policy.distribution(on_tree.observe(actor))
+    assert len(solver.requests) == 1
+    off_tree = hand.apply(Action(ActionKind.RAISE, 333))
+    policy.distribution(off_tree.observe(actor))
+    assert len(solver.requests) == 2
+    req = solver.requests[-1]
+    assert any(a.get("amount") == 333 for n in req["nodes"] if not n["terminal"] for a in n["actions"])
+    assert len(req["locks"]) == 1
+    lock = req["locks"][0]
+    assert lock["actions"] == first["nodes"][0]["actions"]
+    p = np.asarray(lock["strategy"]).reshape(len(lock["actions"]), -1)
+    assert np.allclose(p, 1 / len(lock["actions"]))
+
+
+def test_opponent_floor_restores_action_support_but_not_cards_or_own_support():
+    class ZeroCall(Uniform):
+        def distribution(self, view):
+            menu, _, trained = super().distribution(view)
+            weights = [float(c.action.kind != ActionKind.CALL) for c in menu]
+            return menu, tuple(w / sum(weights) for w in weights), trained
+    root = fixture(deep=True).events
+    with pytest.raises(SolveFailure, match="no support") as caught:
+        HU20TurnSearchPolicy(ZeroCall(), FakeSolver(), TurnSearchConfig(opponent_likelihood_floor=0))._ranges(root, 1, monotonic()+30)
+    assert caught.value.cause == "zero_support_opponent"
+    policy = HU20TurnSearchPolicy(ZeroCall(), FakeSolver())
+    ranges, counts = policy._ranges(root, 1, monotonic()+30)
+    assert counts["floored_opponent_factors"] > 0
+    board = fixture(deep=True).observe(1).board
+    assert all(not set(h).intersection(board) for rows in ranges.values() for h, _ in rows)
+    with pytest.raises(SolveFailure) as caught:
+        policy._ranges(root, 0, monotonic()+30)
+    assert caught.value.cause == "zero_support_own"
+
+
+def test_river_ranges_use_turn_solution_instead_of_blueprint():
+    class BetOnly(Uniform):
+        def distribution(self, view):
+            menu, p, trained = super().distribution(view)
+            if view.street == Street.TURN:
+                p = tuple(float(c.action.kind == ActionKind.RAISE) for c in menu)
+                p = tuple(v / sum(p) for v in p)
+            return menu, p, trained
+    hand = fixture(); bot = hand.actor
+    policy = HU20TurnSearchPolicy(BetOnly(), FakeSolver(), TurnSearchConfig(opponent_likelihood_floor=0))
+    policy.distribution(hand.observe(bot))
+    hand = hand.apply(Action(ActionKind.CHECK)).apply(Action(ActionKind.CHECK))
+    ranges, counts = policy._ranges(round_root(hand.events), bot, monotonic()+30)
+    assert counts["turn_solution_factors"] > 0
+    assert all(sum(w for _, w in ranges[s]) == pytest.approx(1) for s in (0, 1))
+    policy.distribution(hand.observe(hand.actor))
+    assert policy.solver.requests[-1]["initial_street"] == "river"
+
+
+@pytest.mark.parametrize("cause", ["solver_unavailable", "timeout", "memory_refusal", "invalid_response"])
+def test_failed_search_is_a_legal_base_fallback_and_is_cached(cause):
+    class Failed(FakeSolver):
+        def solve(self, request, deadline):
+            self.requests.append(request)
+            raise SolveFailure(cause, "retained failure")
+    hand = fixture(); view = hand.observe(hand.actor); source = Uniform()
+    solver = Failed(); policy = HU20TurnSearchPolicy(source, solver)
+    assert policy.distribution(view, query_kind="play") == source.distribution(view)
+    assert policy.distribution(view) == source.distribution(view)
+    assert len(solver.requests) == 1
+    assert policy.stats["play:fallback:" + cause] == 1
+
+
+def test_new_hand_and_probe_do_not_mutate_prior_context():
+    hand = fixture(); policy = HU20TurnSearchPolicy(Uniform(), FakeSolver())
+    view = hand.observe(hand.actor); initial = policy.distribution(view)
+    original = list(policy.solver.requests)
+    hypothetical = hand.apply(Action(ActionKind.CHECK))
+    hypothetical = hypothetical.apply(Action(ActionKind.RAISE, 333))
+    policy.distribution(hypothetical.observe(view.seat))
+    assert policy.distribution(view) == initial
+    assert policy.solver.requests[0] == original[0]
+    assert policy.distribution(replace(view, hand_id="another")) == policy.distribution(view)
+
+
+def test_profile_parser_rejects_tampering_and_missing_rows(tmp_path):
+    hand = fixture(Street.RIVER)
+    request = compile_tree(hand.events, hand.events)
+    request["ranges"] = [[{"hand": ["2c", "2d"], "weight": 1}], [{"hand": ["3c", "3d"], "weight": 1}]]
+    node = request["nodes"][0]
+    row = {"line": [], "board": request["board"], "player": node["player"],
+           "actions": node["actions"], "holdings": [["4c", "4d"]], "strategy": [1]}
+    path = tmp_path / "profiles.jsonl"; path.write_text(json.dumps(row)+"\n")
+    with pytest.raises(SolveFailure, match="holdings"):
+        parse_profiles(request, path)
+    path.write_text("")
+    with pytest.raises(SolveFailure, match="Incomplete"):
+        parse_profiles(request, path)
+
+
+def test_process_timeout_kills_child_and_retains_receipt(tmp_path):
+    executable = tmp_path / "slow"
+    executable.write_text("#!/usr/bin/env python3\nimport time\ntime.sleep(10)\n")
+    executable.chmod(0o755)
+    solver = ExternalTurnSolver(executable, tmp_path / "evidence")
+    with pytest.raises(SolveFailure) as caught:
+        solver.solve({"spot": "fixture", "threads": 1}, monotonic()+.15)
+    assert caught.value.cause == "timeout"
+    assert solver.records[-1]["cause"] == "timeout"
+    receipt = Path(solver.records[-1]["path"])
+    assert (receipt / "manifest.json").is_file() and (receipt / "stderr.log").is_file()
+
+
+@pytest.mark.parametrize("kw", [{"decision_seconds":31}, {"iterations":0},
+    {"opponent_likelihood_floor":.05}, {"menu":"unknown"}, {"compress":1}])
+def test_configuration_rejects_undeclared_settings(kw):
+    with pytest.raises(ValueError): TurnSearchConfig(**kw)
