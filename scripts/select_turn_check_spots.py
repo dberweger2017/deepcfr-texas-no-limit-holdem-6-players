@@ -1,15 +1,17 @@
 """Outcome-blind retained LBR and fresh self-play turn-root populations."""
 import argparse
-from collections import Counter
+from collections import Counter,defaultdict
 import gzip
 import json
 from pathlib import Path
 from random import Random
-from src.diagnostics.flop_check import atomic_json
+from src.diagnostics.flop_check import atomic_json,solver_action
 from src.diagnostics.saved_hu20 import file_hash
 from src.diagnostics.turn_check import root_record
 from src.game.hand import Hand,Table
 from src.game.types import Action,ActionKind,Street
+from src.game.observation import ActionTaken
+from types import SimpleNamespace
 from scripts.prepare_flop_check import load_policy
 from scripts.select_flop_check_spots import select_strata
 
@@ -19,8 +21,13 @@ def kind(history):
     return 'limped' if not raises else '3-bet' if len(raises)>1 else 'min-raised' if raises[0].action.raise_to==200 else 'pot-raised'
 
 
+def preflop_line(history,button):
+    return json.dumps([{'position':(e.seat-button)%2,'kind':e.action.kind.value,'raise_to':e.action.raise_to}
+                      for e in history if isinstance(e,ActionTaken) and e.street==Street.PREFLOP],sort_keys=True)
+
+
 def stored(plan,hands):
-    roots={};decisions=[];counts=Counter();sources=[]
+    roots={};decisions=[];counts=Counter();sources=[];empirical=defaultdict(Counter)
     for relative,wanted in sorted(plan['stored_hands'].items()):
         path=Path(hands)/relative
         if file_hash(path)!=wanted:raise ValueError('Stored turn source hash mismatch')
@@ -31,21 +38,33 @@ def stored(plan,hands):
                 if row['panel']!='lbr' or row['version']!='v1':continue
                 counts['lbr_v1_hands']+=1
                 hand=Hand.start(Table(('a','b'),(2000,2000),button=row['button']),hand_id='turn-selection',seed=row['deal_seed'])
-                record=None
+                record=None;turn_line=[];empirical_saved=False
+                first_opp=next((a for a in row['actions'] if a['logical_player']==1),None)
                 for action in row['actions']:
                     view=hand.observe(hand.actor)
                     if view.seat!=action['seat'] or list(view.hole_cards)!=action['observation']['hole_cards']:
                         raise ValueError('Stored turn native replay differs')
+                    if view.street!=Street.PREFLOP and not empirical_saved:
+                        if first_opp is None:raise ValueError('Live postflop LBR hand has no opponent observation')
+                        group=preflop_line(hand.events,row['button'])
+                        position=(first_opp['seat']-row['button'])%2
+                        empirical[(group,position)][tuple(sorted(first_opp['observation']['hole_cards']))]+=1
+                        empirical_saved=True
                     if record is None and view.street==Street.TURN:
                         record=dict(root_record(hand.events),kind=kind(hand.events),multiplicity=0)
                         counts['hands_with_live_turn_root']+=1
                     if view.street==Street.TURN and action['logical_player']==0 and view.legal_actions.call_amount>0:
                         roots.setdefault(record['spot'],record);roots[record['spot']]['multiplicity']+=1
                         decisions.append({'spot':record['spot'],'source_sha256':wanted,'source_line':number,
-                                          'action_index':action['index'],'target_position':(view.seat-view.button)%2})
-                    hand=hand.apply(Action(ActionKind(action['kind']),action['raise_to']))
+                                          'action_index':action['index'],'target_position':(view.seat-view.button)%2,
+                                          'target_solver_seat':1-(view.seat-view.button)%2,'line':list(turn_line)})
+                    native_action=Action(ActionKind(action['kind']),action['raise_to'])
+                    if view.street==Street.TURN:turn_line.append(solver_action(view,SimpleNamespace(action=native_action)))
+                    hand=hand.apply(native_action)
     if len(decisions)!=74:raise ValueError('Pinned turn decision count differs')
     return {'set':'A','roots':list(roots.values()),'decisions':decisions,'counts':dict(counts),'sources':sources,
+            'empirical_preflop_ranges':[{'preflop_line':line,'position':position,'hands':[{'hand':list(h),'count':count} for h,count in sorted(weights.items())]}
+                for (line,position),weights in sorted(empirical.items())],
             'selection_uses_payoffs':False,'root_definition':'start of turn, before any turn action'}
 
 
