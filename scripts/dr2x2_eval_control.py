@@ -51,7 +51,7 @@ def verify_closed_archive(path):
 
 def patch_control(ssh, fields):
     program="import fcntl,json,os;from pathlib import Path;p=Path('/workspace/control.json');lock=p.with_suffix('.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX);v=json.loads(p.read_text()) if p.exists() else {};v.update(json.loads(input()));t=p.with_suffix('.tmp');t.write_text(json.dumps(v));t.replace(p)"
-    subprocess.run(ssh+['python3 -c '+shlex.quote(program)],input=json.dumps(fields)+'\n',stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,check=True,timeout=30)
+    subprocess.run(ssh+['python3 -c '+shlex.quote(program)],input=(json.dumps(fields)+'\n').encode(),stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,check=True,timeout=30)
 
 
 def check_credit(key_path, root):
@@ -93,7 +93,7 @@ def watch(a):
             for p in live:
                 if p['id'] not in indexed:indexed[p['id']]={'id':p['id'],'name':p['name'],'created_epoch':datetime.fromisoformat(p['createdAt'].replace('Z','+00:00')).timestamp(),'upper_rate':max(.18,float(p.get('cost') or .13)+.05)}
             ledger=list(indexed.values());write(a.root/'watchdog-ledger.json',ledger)
-            upper=estimated_cost(ledger,time.time());heartbeat=a.root/'controller-heartbeat.json'
+            upper=lease.get('previous_analysis_upper_usd',0)+estimated_cost(ledger,time.time());heartbeat=a.root/'controller-heartbeat.json'
             age=time.time()-json.loads(heartbeat.read_text())['heartbeat'] if heartbeat.exists() else time.time()-lease['started']
             stop=a.root/'budget-stop.json'
             if upper>=3 or age>900:
@@ -143,7 +143,7 @@ def execute(a):
     stamp=int(time.time());jobs=[{'seed':s,'name':f'dr2x2-EVAL-{s}-{stamp}','status':'uncreated'} for s in (2026093001,2026093002,2026093003)]
     names={r['name'] for r in jobs}
     if owned_pods(api(a.key,'/v2/pods')['pods'],names):raise ValueError('Owned names existed before arming')
-    write(a.root/'lease.json',{'names':sorted(names),'subcap_usd':4,'reserve_usd':1,'started':time.time(),'source':quote['frozen_source'],'plan_sha256':digest(plan),'all_in_ceiling_usd':16,'previous_training_upper_usd':1.0041844655513763})
+    write(a.root/'lease.json',{'names':sorted(names),'subcap_usd':4,'reserve_usd':1,'started':time.time(),'source':quote['frozen_source'],'plan_sha256':digest(plan),'all_in_ceiling_usd':16,'previous_training_upper_usd':1.0041844655513763,'previous_analysis_upper_usd':quote.get('previous_analysis_upper_usd',0)})
     write(a.root/'plan.json',plan);write(a.root/'quote.json',quote);write(a.root/'pods.json',jobs)
     run(['ssh-keygen','-t','ed25519','-N','','-f',str(a.root/'pod-key'),'-C','dr2x2-evaluation-owned'])
     write(a.root/'controller-heartbeat.json',{'heartbeat':time.time(),'pid':os.getpid()})
@@ -158,7 +158,7 @@ def execute(a):
     flavor=next(c for c in catalog['cpus'] if c['id']=='cpu5m')
     if flavor['price']['securePerVcpu']>.065+1e-9:raise ValueError('Live compute price exceeds quote')
     coordination('Doctor Research A/C evaluation ownership BEFOREcreation: '+json.dumps(sorted(names))+'. One worker/pod, USD4 analysis subcap/reserve1 within approved USD16; Ctraining1.004184 upper retained; no D/newtraining/M4 science. Root '+str(a.root))
-    closed=threading.Event();lock=threading.Lock()
+    closed=threading.Event();lock=threading.Lock();allocation_lock=threading.Lock()
     def publish():
         with lock:write(a.root/'pods.json',jobs)
     def leases():
@@ -175,7 +175,10 @@ def execute(a):
     def workload(row):
         folder=a.root/'jobs'/str(row['seed']);folder.mkdir(parents=True)
         try:
-            pod=api(a.key,'/v2/pods','POST',{'name':row['name'],'cloud':'SECURE','cpu':{'id':'cpu5m','vcpuCount':2},'image':'runpod/base:0.7.0-ubuntu2004','disk':30,'dataCenterIds':['EU-RO-1','EUR-IS-1'],'ports':['22/tcp'],'startSsh':True,'env':{'PUBLIC_KEY':(a.root/'pod-key.pub').read_text().strip()}})
+            # Serialize provider allocations; the scientific workers still run in
+            # parallel. A failed POST is reconciled once and never retried here.
+            with allocation_lock:
+                pod=api(a.key,'/v2/pods','POST',{'name':row['name'],'cloud':'SECURE','cpu':{'id':'cpu5m','vcpuCount':2},'image':'runpod/base:0.7.0-ubuntu2004','disk':30,'dataCenterIds':['EU-RO-1','EUR-IS-1'],'ports':['22/tcp'],'startSsh':True,'env':{'PUBLIC_KEY':(a.root/'pod-key.pub').read_text().strip()}})
             pod=pod.get('pod',pod)
             row.update(id=pod['id'],created_epoch=datetime.fromisoformat(pod['createdAt'].replace('Z','+00:00')).timestamp(),upper_rate=max(.18,float(pod['cost'])+.05),quote=pod,status='provisioning');publish()
             if not check_quote({'cpu_id':'cpu5m','vcpus':2,'ram_gb':16},pod,.13):raise ValueError('Actual CPU/RAM/price exceeds frozen quote')
@@ -258,7 +261,7 @@ def execute(a):
     with ThreadPoolExecutor(max_workers=3) as pool:list(pool.map(workload,jobs))
     remaining=owned_pods(api(a.key,'/v2/pods')['pods'],names)
     status='evaluation-complete' if all(r.get('status')=='retrieved-complete' for r in jobs) and not remaining else 'incident-needs-recovery'
-    write(a.root/'operator-finished.json',{'status':status,'remaining_ids':[p['id'] for p in remaining],'time':time.time(),'upper_cost_usd':estimated_cost(jobs,time.time())})
+    write(a.root/'operator-finished.json',{'status':status,'remaining_ids':[p['id'] for p in remaining],'time':time.time(),'upper_cost_usd':quote.get('previous_analysis_upper_usd',0)+estimated_cost(jobs,time.time())})
     event(a.root,status)
     while remaining:
         time.sleep(30);remaining=owned_pods(api(a.key,'/v2/pods')['pods'],names)
@@ -269,7 +272,7 @@ def execute(a):
             row.update(terminated=watched['terminated'],forced_teardown=True)
     publish()
     write(a.root/'operator-finished.json',{'status':'evaluation-complete' if all(r['status']=='retrieved-complete' for r in jobs) else 'incomplete-retained',
-          'remaining_ids':[],'time':time.time(),'upper_cost_usd':estimated_cost(jobs,time.time())})
+          'remaining_ids':[],'time':time.time(),'upper_cost_usd':quote.get('previous_analysis_upper_usd',0)+estimated_cost(jobs,time.time())})
     closed.set()
 
 

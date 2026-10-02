@@ -82,3 +82,20 @@ A persistent transport/controller/budget emergency preserves the latest verified
 closed tasks and uses the reserved shutdown interval; lost/unretrievable partials
 must be reported as incomplete. No automatic strength pass, model promotion,
 merge, D, extension or300M. Factorial interaction remains unanswered.
+
+## Retained setup allocation attempt and bounded repair
+
+First allocation attempt created one pod; two provider POST requests returned
+HTTP500 and exact-name reconciliation found no uncertain extra allocation. The
+created pod was terminated before scientific setup/playing after a controller
+transport bug passed text to a byte-mode subprocess. No validation or gameplay
+ran. All rentals are closed, with conservative upper cost$0.001819 retained in
+the next attempt's analysis budget. The earlier pre-import launcher failure also
+remains recorded and incurred no rental.
+
+The proven controller-only correction encodes JSON as bytes; a real local
+subprocess round-trip verifies atomic lease updates preserve Linux admission
+proof. Nine controller/evidence focused tests pass. Allocation POSTs are now
+serialized, with exact-name reconciliation and no blind POST retry. Scientific
+source6ce14e1, all inputs, panels, counts and parity requirements remain unchanged.
+[Retained incident](dr2x2-history-artifacts/ac-evaluation-launch-20261002/attempt-1.json).

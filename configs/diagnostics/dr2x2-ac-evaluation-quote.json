@@ -123,5 +123,9 @@
   "shutdown_reserve_usd": 1,
   "storage_allowance_usd_per_pod_hour": 0.05,
   "upper_rate_usd_per_pod_hour": 0.18,
-  "vcpus_per_pod": 2
+  "vcpus_per_pod": 2,
+  "previous_analysis_upper_usd": 0.0018185582995414733,
+  "previous_analysis_attempts": [
+    "/Users/dberweger/Local/dr2x2-ac-evaluation-20261002"
+  ]
 }

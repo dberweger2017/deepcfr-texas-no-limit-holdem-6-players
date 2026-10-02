@@ -9,6 +9,22 @@ from scripts.dr2x2_eval_control import valid_eval_lease, verify_closed_archive
 from scripts.dr2x2_eval_pod import same_reference
 
 
+def test_control_transport_sends_bytes_and_preserves_admission_fields(tmp_path,monkeypatch):
+    import shlex
+    import subprocess
+    from scripts.dr2x2_eval_control import patch_control
+    control=tmp_path/'control.json'
+    control.write_text(json.dumps({'linux_reference_match':True,'admitted_plan_sha256':'frozen'}))
+    original=subprocess.run
+    def local_remote(cmd,**kwargs):
+        assert isinstance(kwargs['input'],bytes)
+        remote=shlex.split(cmd[-1]);remote[-1]=remote[-1].replace('/workspace/control.json',str(control))
+        return original(remote,**kwargs)
+    monkeypatch.setattr(subprocess,'run',local_remote)
+    patch_control(['ssh','fixture'],{'lease_until':123,'stop':None})
+    assert json.loads(control.read_text())=={'linux_reference_match':True,'admitted_plan_sha256':'frozen','lease_until':123,'stop':None}
+
+
 def test_watchdog_rejects_other_campaign_names_counts_and_budgets():
     lease={'names':[f'dr2x2-EVAL-{s}-123' for s in (2026093001,2026093002,2026093003)],'subcap_usd':4,'reserve_usd':1}
     assert valid_eval_lease(lease)
