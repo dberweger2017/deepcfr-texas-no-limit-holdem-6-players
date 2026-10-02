@@ -153,3 +153,15 @@ pass. The stopped-run reporter additionally counts every unstarted frozen root;
 its regression brings the local diagnostic suite to 108 passing tests. The
 report-source inventory distinguishes that reporting correction from the frozen
 solver source. Draft PRs only.
+
+## Owner-requested TensorBoard shutdown
+
+After the initial verified workspace cleanup, the owner also requested stopping
+TensorBoard and unnecessary background work to prioritize Ollama. Both servers
+(ports 6006 and 16008) and an orphaned thermal-monitor shell/pmset/tail family
+were terminated; their exit and closed listener ports were verified. No poker
+training, solver or monitor process remains. Ollama and remote-access/system
+services are preserved. TensorBoard logs stay in their original directories;
+[cleanup/restart records](hu20-exact-turn-check-artifacts/tensorboard-cleanup.json)
+also remain in the M1 archive. There is no automatic restart. Earlier cleanup
+records showing the servers alive describe the preceding cleanup stage.
