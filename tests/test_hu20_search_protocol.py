@@ -46,6 +46,18 @@ def test_fallback_quality_is_included_in_the_gate():
     assert qualify_curve(rows,["a","b"])["selected"] is None
 
 
+def test_latency_tails_and_timeout_causes_are_reported_per_host():
+    rows=[row("one","a",host="m4",seconds=5),
+          row("one","b",host="pod",seconds=30,fallback=True,
+              failures=[{"phase":"play","cause":"timeout"}])]
+    selected=qualify_curve(rows,["a","b"])["selected"]
+    assert selected["cold_p99_seconds"]==pytest.approx(29.75)
+    assert selected["cold_max_seconds"]==30
+    assert selected["latency_by_host"]["m4"]["timeout_fallback_rate"]==0
+    assert selected["latency_by_host"]["pod"]["timeout_fallback_rate"]==1
+    assert selected["latency_by_host"]["pod"]["fallback_causes"]=={"timeout":1}
+
+
 def test_base_defaults_average_and_switches_only_beyond_frozen_upper_margin():
     summary={"three_lineage_changes":[{"panel":p,"average_minus_current":{"ci95":[-50,upper]}}
         for p,upper in [("lbr",-10),("native-pressure",-20),("selective-stackoff",-10)]]}

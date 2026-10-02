@@ -189,6 +189,47 @@ def test_live_fallback_locks_survive_probe_eviction_and_new_hand_resets():
     fresh=Hand.start(Table(("a","b"),(2000,2000),button=0),hand_id="fresh",seed=33)
     policy.distribution(fresh.observe(fresh.actor),query_kind="play")
     assert not policy.played and policy.live_hand_id=="fresh"
+    assert not policy.live_solutions and not policy.live_turn_models and not policy.last_turn_source
+
+
+def test_live_turn_profiles_survive_lbr_eviction_without_river_resolve():
+    class NoSecondTurn(FakeSolver):
+        def solve(self,request,deadline):
+            if self.requests and request["initial_street"]=="turn":
+                raise SolveFailure("timeout","Evicted turn must not be re-solved")
+            return super().solve(request,deadline)
+    hand=fixture();bot=hand.actor;solver=NoSecondTurn()
+    policy=HU20TurnSearchPolicy(Uniform(),solver,TurnSearchConfig(cache_entries=1))
+    policy.distribution(hand.observe(bot),query_kind="play")
+    retained=policy.live_solutions[bot,hand.events]
+    live=dict(policy.live_solutions)
+    probe=hand.apply(Action(ActionKind.CHECK)).apply(Action(ActionKind.RAISE,333))
+    policy.distribution(probe.observe(bot))
+    assert policy.live_solutions==live and policy.last_turn_source[bot][1] is retained
+    policy.cache.clear();policy.range_cache.clear()
+    river=hand.apply(Action(ActionKind.CHECK)).apply(Action(ActionKind.CHECK))
+    policy.distribution(river.observe(bot),query_kind="play")
+    assert [r["initial_street"] for r in solver.requests]==["turn","river"]
+    assert not any(k.startswith("range:turn_conditioning_fallback:") for k in policy.stats)
+    assert policy.records[-2]["range_coverage"]["turn_solution_factors"]>0
+
+
+def test_failed_first_live_turn_keeps_declared_base_opponent_model():
+    class FailTurn(FakeSolver):
+        def solve(self,request,deadline):
+            if request["initial_street"]=="turn":
+                self.requests.append(request)
+                raise SolveFailure("timeout","Declared base turn fallback")
+            return super().solve(request,deadline)
+    hand=fixture().apply(Action(ActionKind.CHECK));bot=hand.actor
+    policy=HU20TurnSearchPolicy(Uniform(),FailTurn())
+    policy.distribution(hand.observe(bot),query_kind="play")
+    turn_attempts=len(policy.solver.requests)
+    river=hand.apply(Action(ActionKind.CHECK));policy.cache.clear();policy.range_cache.clear()
+    solution=policy._resolve(round_root(river.events),bot,monotonic()+30)
+    assert solution.coverage["played_base_turn_actions"]==1
+    assert [r["initial_street"] for r in policy.solver.requests]==["turn"]*turn_attempts+["river"]
+    assert not any(k.startswith("range:turn_conditioning_fallback:") for k in policy.stats)
 
 
 @pytest.mark.parametrize("cause", ["solver_unavailable", "timeout", "memory_refusal", "invalid_response"])

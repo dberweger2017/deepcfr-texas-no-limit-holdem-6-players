@@ -2,7 +2,7 @@
 
 import argparse
 from collections import Counter
-from dataclasses import asdict
+from dataclasses import asdict, replace
 import gc
 import json
 from pathlib import Path
@@ -53,11 +53,19 @@ def sampled_river(policy, root, bot, random, guard):
             if not set(holes[0]).intersection(holes[1]):break
         else:raise SolveFailure("zero_joint_support","River sampling compatible-deal refusal")
         river=random.choice([c for c in DECK if c not in board+holes[0]+holes[1]])
-        hand=_world(root,board+(river,),holes)
+        attempt_root=(replace(root[0],hand_id=root[0].hand_id+f"/sample/{attempt}"),)+root[1:]
+        hand=_world(attempt_root,board+(river,),holes)
+        # Each prospective trajectory is a fresh hand; probes never reset live state.
+        policy._start_live_hand(attempt_root[0].hand_id)
         while not hand.finished and hand.observe(hand.actor).street==Street.TURN:
             view=hand.observe(hand.actor)
-            matrix=policy._resolve(view.history,bot,monotonic()+30).matrix(view.history)
-            action=random.choices(matrix.menu,weights=matrix.row(holes[view.seat]),k=1)[0].action
+            if view.seat==bot:
+                menu,p,_=policy.distribution(view,query_kind="play")
+            else:
+                matrix=policy._resolve(view.history,bot,monotonic()+30).matrix(view.history)
+                policy.live_turn_models[bot,view.history]=matrix
+                menu,p=matrix.menu,matrix.row(holes[view.seat])
+            action=random.choices(menu,weights=p,k=1)[0].action
             view.legal_actions.validate(action);hand=hand.apply(action)
         if not hand.finished and hand.observe(hand.actor).street==Street.RIVER:
             counts["attempts"]=attempt+1
@@ -73,10 +81,17 @@ def check_conditioning(policy, history, bot, conditioned):
     expected={s:{h:w for h,w in initial[s] if not set(h).intersection(river_board)} for s in (0,1)}
     for index,event in enumerate(history):
         if not isinstance(event,ActionTaken) or event.street!=Street.TURN:continue
-        matrix=policy._resolve(history[:index],bot,monotonic()+30).matrix(history[:index])
+        prior=history[:index]
+        matrix=policy._played_matrix(prior,bot) if event.seat==bot else None
+        known=False
+        if matrix is None:known,matrix=policy._turn_model(prior,bot)
+        if matrix is None and not known:raise ValueError("Sampled turn matrix was not retained")
         for holding in expected[event.seat]:
             if expected[event.seat][holding]==0:continue
-            factor=observed_likelihood(matrix.menu,matrix.row(holding),event.action)
+            if matrix is None:
+                menu,p,_=policy.blueprint.distribution(replay(prior,event.seat,holding))
+                factor=observed_likelihood(menu,p,event.action)
+            else:factor=observed_likelihood(matrix.menu,matrix.row(holding),event.action)
             if event.seat!=bot:factor=max(factor,policy.config.opponent_likelihood_floor)
             expected[event.seat][holding]*=factor
     difference=0
@@ -105,6 +120,8 @@ def run(references,config,inputs,binary,out,budget):
             root=round_root(hand.events);cold=monotonic()
             solution=policy._resolve(root,slot["bot"],cold+30)
             row["cold_seconds"]=monotonic()-cold
+            row["turn_conditioning_gap_count"]=sum(v for k,v in solution.coverage.items() if k.startswith("turn_conditioning_fallback:"))
+            if row["turn_conditioning_gap_count"]:raise ValueError("Live turn conditioning gap exceeds frozen zero tolerance")
             row["conditioning_max_absolute_difference"]=check_conditioning(policy,root,slot["bot"],solution.ranges)
             for node in solution.request["nodes"]:
                 if node["terminal"]:continue

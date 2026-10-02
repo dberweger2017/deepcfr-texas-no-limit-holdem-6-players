@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from time import perf_counter
 
-from scripts.evaluate_hu20_cfr_average import summarize
+from scripts.evaluate_hu20_turn_search import summarize_phase
 from scripts.hu20_search_runtime import atomic_json, owned_rss
 from src.arena.runner import public_events
 from src.arena.schedule import digest, stream_seed
@@ -19,7 +19,7 @@ from src.game.types import Action, ActionKind
 
 
 def audit(directories):
-    started=perf_counter();seen=set();rows=[];search_counts=Counter();lbr=Counter();latencies=[]
+    started=perf_counter();seen=set();rows=[];search_counts=Counter();lbr=Counter();latencies=[];host_decisions={}
     plan=None;phase=None;worker_ids=set();manifest_ids=[]
     for directory in directories:
         summary=json.loads((directory/"summary.json").read_text())
@@ -40,8 +40,9 @@ def audit(directories):
             with gzip.open(path,"rt") as stream:
                 for line in stream:
                     row=json.loads(line);spec=specs[row["policy"]]
-                    coord=(row["policy"],row["strategy"],row["panel"],row["block"],row["rotation"])
+                    coord=(row["policy"],row["arm"],row["panel"],row["block"],row["rotation"])
                     if coord in seen:raise ValueError("Duplicate paired coordinate")
+                    if row["strategy"]!=spec["strategy"]:raise ValueError("Actual base strategy differs")
                     if row["seed"]!=spec["seed"] or row["button"]!=row["block"]%2:
                         raise ValueError("Lineage/position differs")
                     if row["deal_seed"]!=stream_seed(plan["root"],"test","deal",2,row["block"]):
@@ -79,6 +80,11 @@ def audit(directories):
                     if dict(coverage)!=row["coverage"] or hand_tails(row)!=row["tails"]:
                         raise ValueError("Coverage/tails differ")
                     search_counts.update(row["search_counts"])
+                    host=host_decisions.setdefault(row["host"],{"seconds":[],"fallback_causes":Counter()})
+                    for record in row["search_records"]:
+                        if record["status"]=="decision" or record["status"]=="fallback" and record.get("query_kind")=="play":
+                            host["seconds"].append(record["seconds"])
+                            if record["status"]=="fallback":host["fallback_causes"][record["cause"]]+=1
                     latencies.extend(r["seconds"] for r in row["search_records"]
                         if r["status"]=="decision" or r["status"]=="fallback" and r.get("query_kind")=="play")
                     compact={k:v for k,v in row.items() if k not in ("actions","search_records","search_counts","lbr_zero_likelihood")}
@@ -86,16 +92,31 @@ def audit(directories):
                         **({"lbr":{"completed":a["lbr"]["completed"]}} if "lbr" in a else {})} for a in row["actions"]]
                     rows.append(compact);seen.add(coord)
     expected={(s["name"],arm,p["name"],b,r) for s in plan["models"]
-        for arm in (("current","average") if phase=="arena" else (s["strategy"],))
+        for arm in (("base","search") if phase=="arena" else (s["strategy"],))
         for p in plan["panels"] for b in range(p["blocks"]) for r in (0,1)}
     if seen!=expected or len(rows)!=plan["expected_hands"]:raise ValueError("Frozen arena coverage incomplete")
     if len(directories)==1:
-        for k,v in summarize(rows).items():
+        for k,v in summarize_phase(rows,phase).items():
             if summary[k]!=v:raise ValueError("Paired report arithmetic differs")
     return {"status":"verified","hands":len(rows),"phase":phase,"plan_sha256":digest(plan),
         "manifest_sha256":manifest_ids,"seconds":perf_counter()-started,"owned_rss_bytes":owned_rss(),
         "no_models_loaded":True,"search_counts":dict(search_counts),"decision_seconds":latencies,
-        "lbr":dict(lbr),**summarize(rows)}
+        "turn_conditioning_gap_count":sum(v for k,v in search_counts.items() if k.startswith("range:turn_conditioning_fallback:")),
+        "turn_conditioning_gap_tolerance":0,
+        "turn_conditioning_within_tolerance":not any(v for k,v in search_counts.items()
+            if k.startswith("range:turn_conditioning_fallback:")),
+        "lbr":dict(lbr),"decision_latency_by_host":latency_report(host_decisions),**summarize_phase(rows,phase)}
+
+
+def latency_report(hosts):
+    import numpy as np
+    return {host:{"decisions":len(data["seconds"]),
+        "p95_seconds":float(np.percentile(data["seconds"],95)) if data["seconds"] else None,
+        "p99_seconds":float(np.percentile(data["seconds"],99)) if data["seconds"] else None,
+        "max_seconds":max(data["seconds"],default=None),
+        "fallback_causes":dict(data["fallback_causes"]),
+        "timeout_fallback_rate":data["fallback_causes"]["timeout"]/len(data["seconds"]) if data["seconds"] else None}
+        for host,data in hosts.items()}
 
 
 def main():

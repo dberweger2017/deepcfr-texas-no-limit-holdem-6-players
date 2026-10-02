@@ -51,6 +51,7 @@
     "reduced_menu": "screen timing, support and speculative LBR cost; unqualified until full-native quality verified"
   },
   "river_sample_roots": 32,
+  "live_turn_conditioning_gap_tolerance": 0,
   "arena_expected_paid": true,
   "x86_emulation_allowed": false
 }

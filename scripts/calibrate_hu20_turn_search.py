@@ -6,6 +6,7 @@ from hashlib import sha256
 import gc
 import itertools
 import json
+import platform
 from pathlib import Path
 from time import monotonic
 
@@ -83,6 +84,7 @@ def quality_row(source, binary, config, item, bot, out, guard, *, quality_second
     root=replay_root(item["root"]);identity=digest(asdict(config))
     row={"root":f"{item['root']['spot']}/{item['policy']['seed']}/{bot}",
         "configuration_id":identity,"config":asdict(config),"bot_seat":bot,
+        "host":platform.node(),"architecture":platform.machine(),
         "weight":item["root"].get("reach_weight",item["root"].get("multiplicity",1)),
         "blueprint_pct_pot":item.get("e_bp_pct_pot"),"reference_supported":False,
         "played_strategy_verified":False,"full_native_verified":False,"fallback":False,

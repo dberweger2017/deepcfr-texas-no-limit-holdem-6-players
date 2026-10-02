@@ -1,5 +1,6 @@
 """Prospective power, budget and strict-first native search selection."""
 
+from collections import Counter
 from copy import deepcopy
 from math import ceil, isfinite, sqrt
 
@@ -81,6 +82,23 @@ def qualify_curve(rows, expected_roots):
                         for r in items))
         row = {"configuration_id": identity, "config": config, "complete": eligible,
                "strict": False, "relaxed": False, "roots": len(items)}
+        row["turn_conditioning_gap_count"]=sum(v for item in items
+            for k,v in item.get("range_coverage",{}).items() if k.startswith("turn_conditioning_fallback:"))
+        row["turn_conditioning_gap_tolerance"]=0
+        hosts={}
+        for item in items:
+            hosts.setdefault(item.get("host","unrecorded"),[]).append(item)
+        row["latency_by_host"]={host:{"roots":len(values),
+            "timeout_fallback_rate":sum(v.get("fallback",False) and any(
+                f.get("phase")=="play" and f.get("cause")=="timeout" for f in v.get("failures",[]))
+                for v in values)/len(values),
+            "fallback_causes":dict(Counter(f["cause"] for v in values for f in v.get("failures",[])
+                if f.get("phase")=="play")),
+            "cold_p99_seconds":float(np.percentile([v["cold_seconds"] for v in values],99))
+                if all(isinstance(v.get("cold_seconds"),(int,float)) and isfinite(v["cold_seconds"]) for v in values) else None,
+            "cold_max_seconds":max((v["cold_seconds"] for v in values),default=None)
+                if all(isinstance(v.get("cold_seconds"),(int,float)) and isfinite(v["cold_seconds"]) for v in values) else None}
+            for host,values in hosts.items()}
         if eligible:
             values = [r["residual_pct_pot"] for r in items]
             weights = [r["weight"] for r in items]
@@ -90,7 +108,9 @@ def qualify_curve(rows, expected_roots):
             median = float(np.median([r["cold_seconds"] for r in items]))
             native = config["menu"] == "native"
             row.update(mean_pct_pot=mean, p95_pct_pot=p95, cold_p95_seconds=latency,
-                       cold_median_seconds=median, fallbacks=sum(r.get("fallback", False) for r in items))
+                       cold_median_seconds=median,
+                       cold_p99_seconds=float(np.percentile([r["cold_seconds"] for r in items],99)),
+                       cold_max_seconds=max(r["cold_seconds"] for r in items), fallbacks=sum(r.get("fallback", False) for r in items))
             row["strict"] = native and latency <= 30 and mean <= .5 and p95 <= .5
             row["relaxed"] = (native and latency <= 30 and mean <= 1 and p95 <= 2
                 and all(r["residual_pct_pot"] < .1*r["blueprint_pct_pot"] for r in items))

@@ -153,3 +153,23 @@ def test_guard_stop_retains_incomplete_native_hand(tmp_path):
     partial=json.loads(files[0].read_text())
     assert partial["status"]=="incomplete" and len(partial["actions"])==1
     assert "Frozen phase expired" in partial["failure"]
+
+
+def test_arena_rows_keep_actual_base_strategy_and_explicit_arm():
+    class Uniform:
+        description={"fixture":"uniform"};abstraction=HU20_UNCAPPED_SCHEMA
+        def distribution(self,view):
+            menu=choices(view,raise_cap=None,free_fold=False)
+            return menu,(1/len(menu),)*len(menu),False
+    spec={"name":"fixture","strategy":"average","seed":1}
+    panel={"name":"uniform","rule":"uniform","contract":"native"}
+    rows=[campaign.play(Uniform(),spec,panel,42,0,rotation,lambda:None,arm=arm)
+          for arm in ("base","search") for rotation in (0,1)]
+    assert [r["arm"] for r in rows]==["base","base","search","search"]
+    assert all(r["strategy"]=="average" and r["host"] and r["architecture"] for r in rows)
+    assert rows[0]["deal_seed"]==rows[1]["deal_seed"]
+    # Aliases belong only to the paired estimator, never the retained hand.
+    summary=campaign.summarize_phase(rows,"arena")
+    assert {p["arm"] for p in summary["panels"]}=={"base","search"}
+    assert all(p["strategy"]=="average" for p in summary["panels"])
+    assert all(r["strategy"]=="average" for r in rows)

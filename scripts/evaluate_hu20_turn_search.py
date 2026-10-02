@@ -5,6 +5,7 @@ from collections import Counter
 import gc
 import gzip
 import json
+import platform
 from pathlib import Path
 from random import Random
 import subprocess
@@ -95,7 +96,8 @@ def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, searc
             or [p.stack-2000 for p in replay.observe(0).players] != chips
             or digest(public_events(replay.events)) != events):
         raise ValueError("Native settlement/events differ")
-    row = {"status":"complete","policy":spec["name"],"strategy":arm or spec["strategy"],
+    row = {"status":"complete","policy":spec["name"],"strategy":spec["strategy"],"arm":arm or spec["strategy"],
+        "host":platform.node(),"architecture":platform.machine(),
         "seed":spec["seed"],"players":2,"panel":panel["name"],"contract":panel["contract"],
         "block":block,"rotation":rotation,"button":block%2,"root_seed":root,"deal_seed":deal,
         "hand_id":hand_id,"actions":actions,"target_chips":chips[rotation],"net_chips_by_seat":chips,
@@ -105,6 +107,22 @@ def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, searc
         "search_counts":dict(search.stats-stats_before) if search else {}}
     row["tails"] = hand_tails(row)
     return row
+
+
+def summarize_phase(rows,phase):
+    # The existing paired estimator uses current/average names. Keep those aliases
+    # inside arithmetic only; retained hands identify their actual policy and arm.
+    analysis=[dict(row,strategy={"base":"current","search":"average"}[row["arm"]])
+              for row in rows] if phase=="arena" else rows
+    result=summarize(analysis)
+    if phase=="arena":
+        bases={row["seed"]:row["strategy"] for row in rows}
+        for panel in result["panels"]:
+            panel["arm"]={"current":"base","average":"search"}[panel["strategy"]]
+            panel["strategy"]=bases[panel["seed"]]
+        for change in result["three_lineage_changes"]:
+            change["search_minus_base"]=change.pop("average_minus_current")
+    return result
 
 
 def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config=None,
@@ -136,14 +154,14 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
             solver = ExternalTurnSolver(binary,out / "solver" / spec["name"],
                                         resource_check=budget.check) if phase == "arena" else None
             policy = HU20TurnSearchPolicy(source,solver,search_config) if solver else None
-            arms = ("current","average") if phase == "arena" else (spec["strategy"],)
+            arms = ("base","search") if phase == "arena" else (spec["strategy"],)
             for arm in arms:
                 with gzip.open(out / (spec["name"]+"."+arm+".hands.jsonl.gz"),"wt") as stream:
                     for panel in plan["panels"]:
                         for block in range(worker_index,panel["blocks"],worker_count):
                             for rotation in (0,1):
                                 row = play(source,spec,panel,plan["root"],block,rotation,budget.check,
-                                    search=policy if arm == "average" and phase == "arena" else None,arm=arm,failure_dir=out/"partials")
+                                    search=policy if arm == "search" and phase == "arena" else None,arm=arm,failure_dir=out/"partials")
                                 stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+"\n");stream.flush()
                                 compact = {k:v for k,v in row.items() if k not in
                                     ("actions","search_records","search_counts","lbr_zero_likelihood")}
@@ -160,7 +178,7 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
                                     (out/"status.md").write_text(f"Phase: {phase}\n\nHands: {len(rows)}/{plan['expected_hands']}\n\nElapsed: {perf_counter()-started:.1f}s\n")
             del policy,solver,source; gc.collect()
         if len(rows) != expected: raise ValueError("Frozen schedule coverage differs")
-        aggregate = summarize(rows)
+        aggregate = summarize_phase(rows,phase)
         decision = select_base(aggregate) if phase == "part-a" else None
     except Exception as exc:
         failure = f"{type(exc).__name__}: {exc}"; aggregate = {}; decision = None
@@ -168,7 +186,7 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
         "source":source_commit,"plan_sha256":digest(plan),"plan":plan,"hands":len(rows),"loaded":loaded,
         "worker_index":worker_index,"worker_count":worker_count,"expected_worker_hands":expected,
         "seconds":perf_counter()-started,"base_decision":decision,
-        "strategy_labels":{"current":"base-only","average":"base-plus-search"} if phase=="arena" else None,
+        "arm_labels":{"base":"base-only","search":"base-plus-search"} if phase=="arena" else None,
         **aggregate}
     atomic_json(out/"summary.json",result)
     atomic_json(out/"status.json",{k:result[k] for k in ("status","phase","hands","seconds","failure")})

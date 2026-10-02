@@ -86,6 +86,9 @@ class HU20TurnSearchPolicy:
         self.stats = Counter()
         self.played = {}
         self.live_hand_id = None
+        self.live_solutions = {}
+        self.live_turn_models = {}
+        self.last_turn_source = {}
 
     def _key(self, history, bot_seat):
         locks=[value[2] for (seat,prior),value in self.played.items()
@@ -95,6 +98,45 @@ class HU20TurnSearchPolicy:
     def _played_matrix(self, history, bot_seat):
         value=self.played.get((bot_seat,history))
         return value[0] if value else None
+
+    def _start_live_hand(self, hand_id):
+        if hand_id != self.live_hand_id:
+            self.played.clear()
+            self.live_solutions.clear()
+            self.live_turn_models.clear()
+            self.last_turn_source.clear()
+            self.live_hand_id=hand_id
+
+    def _turn_model(self, history, bot_seat):
+        key=bot_seat,history
+        if key in self.live_turn_models:
+            return True,self.live_turn_models[key]
+        last=self.last_turn_source.get(bot_seat)
+        if last and len(last[0])<=len(history) and history[:len(last[0])]==last[0]:
+            if last[1] is None:return True,None
+            try:return True,last[1].matrix(history)
+            except KeyError:pass
+        return False,None
+
+    def _observe_live_turn(self, history, bot_seat):
+        for index,event in enumerate(history):
+            if isinstance(event,ActionTaken) and event.street==Street.TURN and event.seat!=bot_seat:
+                prior=history[:index]
+                known,matrix=self._turn_model(prior,bot_seat)
+                if known:self.live_turn_models.setdefault((bot_seat,prior),matrix)
+
+    def _pin_live(self, view, solution=None, failure=None):
+        # These references survive probe LRU eviction and only real play writes them.
+        self.live_solutions[view.seat,view.history]=solution if solution is not None else failure
+        if view.street==Street.TURN:
+            for index,event in enumerate(view.history):
+                if isinstance(event,ActionTaken) and event.street==Street.TURN and event.seat!=view.seat:
+                    prior=view.history[:index]
+                    if solution is None:self.live_turn_models.setdefault((view.seat,prior),None)
+                    else:
+                        try:self.live_turn_models.setdefault((view.seat,prior),solution.matrix(prior))
+                        except KeyError:pass
+            self.last_turn_source[view.seat]=(view.history,solution)
 
     def _remember_play(self, view, matrix, fallback, *, cause=None, supported=None):
         identity=digest([public_identity(view.history),fallback,
@@ -161,11 +203,16 @@ class HU20TurnSearchPolicy:
             matrix = None
             if event.street == Street.TURN:
                 matrix=self._played_matrix(prior,bot_seat) if event.seat==bot_seat else None
+                known=False
                 if matrix is None:
+                    known,matrix=self._turn_model(prior,bot_seat)
+                    if known and matrix is None:counts["played_base_turn_actions"]+=1
+                if matrix is None and not known:
                     try:
                         matrix = self._resolve(prior, bot_seat, deadline).matrix(prior)
                     except SolveFailure as exc:
                         counts["turn_conditioning_fallback:" + exc.cause] += 1
+                        self.stats["range:turn_conditioning_fallback:"+exc.cause]+=1
             for j, pair in enumerate(pairs):
                 self._check(deadline)
                 if matrix is not None and tuple(sorted(pair)) in matrix.holding_indices:
@@ -220,6 +267,11 @@ class HU20TurnSearchPolicy:
 
     def _resolve(self, history, bot_seat, deadline):
         self._check(deadline)
+        pinned=self.live_solutions.get((bot_seat,history))
+        if pinned is not None:
+            self.stats["live_solution_hits"]+=1
+            if isinstance(pinned,SolveFailure):raise pinned
+            return pinned
         key = self._key(history, bot_seat)
         if key in self.cache:
             result = self.cache[key]
@@ -318,11 +370,10 @@ class HU20TurnSearchPolicy:
         if view.finished or view.actor != view.seat:
             raise ValueError("Search policy requires an acting-seat observation")
         self.stats[query_kind+":queries:"+view.street.value]+=1
-        if query_kind=="play" and view.hand_id!=self.live_hand_id:
-            self.played.clear()
-            self.live_hand_id=view.hand_id
+        if query_kind=="play":self._start_live_hand(view.hand_id)
         if view.street not in (Street.TURN, Street.RIVER):
             return self.blueprint.distribution(view)
+        if query_kind=="play":self._observe_live_turn(view.history,view.seat)
         used=self.played.get((view.seat,view.history))
         if used is not None:
             self.stats["played_matrix_hits"]+=1
@@ -347,6 +398,7 @@ class HU20TurnSearchPolicy:
             self.stats[query_kind + ":search"] += 1
             if query_kind == "play":
                 self._remember_play(view,played_matrix,False,supported=matrix.holdings)
+                self._pin_live(view,solution=solution)
                 self.records.append({"status": "decision", "street": view.street.value,
                     "public_history": public_identity(view.history),
                     "seconds": monotonic() - started, "fallback": False})
@@ -363,9 +415,11 @@ class HU20TurnSearchPolicy:
             if query_kind=="play":
                 if cause=="unsupported_holding":
                     self._remember_play(view,played_matrix,False,supported=matrix.holdings)
+                    self._pin_live(view,solution=solution)
                 else:
                     pairs=tuple(tuple(sorted(h)) for h in combinations((c for c in DECK if c not in view.board),2))
                     self._remember_play(view,self._base_matrix(view.history,pairs),True,cause=cause)
+                    self._pin_live(view,failure=SolveFailure(cause,str(exc)))
             return menu, p, trained
 
 

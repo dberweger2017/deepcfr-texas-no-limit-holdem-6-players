@@ -18,3 +18,5 @@ On the approved x86_64 Linux pod:
 Use independent worker coordinates `block % worker_count == worker_index`; each coordinate keeps both policies, positions and all three lineages. Replay every completed hand again with `scripts.audit_hu20_turn_search`. Keep partial attempts, failures and hashes. The 30-second player watchdog returns a legal base policy on failure. Resource and cumulative-budget failures stop the experiment and retain evidence.
 
 Never delete originals or other agents' inputs. RESULTS_INDEX records evidence locations; archiving and any destructive cleanup require the repository's separate owner-authorized workflow.
+
+Report selected-setting cold p95/p99/max latency and timeout fallback rates separately for each host. Distinguish host-load fallback differences from strategy differences on successful identical requests and from thread-level floating differences. A timed-out request is a runtime outcome, not a successful matrix parity comparison.
