@@ -134,3 +134,16 @@ Linux admission remains mandatory. ThreeCPU5memory2vCPU16GB pods at$.13/hour
 compute +$.05/hour storage allowance, expected$.80–1.50 additional analysis,
 operational$4 analysis cap/safe stop$3/reserve$1 within approved incremental$16.
 This quote is published before creation. Counts/source/schema remain frozen.
+
+## Paid evaluation allocated after quote publication
+
+Three exact-owned `dr2x2-EVAL-` CPU5memory2vCPU16GB pods are provisioning,
+with independent watchdog armed before creation and one worker per pod.
+Controller source456f7c1, frozen scientific executor6ce14e1 and canonical
+plan38b586b7 remain distinct. Linux exact-fingerprint and capacity admission
+must pass for each seed before that seed's full55296hands/12riverprofiles.
+[Launch record](reports/dr2x2-history-artifacts/ac-evaluation-launch-20261002/attempt-2.json).
+The first pre-science allocation attempt was closed and retained at$0.001819;
+that cost is included in the new lease. No gameplay rerun or outcome inspected.
+Durable leases, closed-task hash backups, archive-member verification and
+retrieval-before-teardown run independently of the agent's30minute checks.
