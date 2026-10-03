@@ -1,0 +1,41 @@
+{
+  "aggregate_rss_bytes": 11811160064,
+  "arena_bytes": 4294967296,
+  "availability_observed": "High",
+  "compute_usd_per_hour": 0.13,
+  "container_disk_gb": 100,
+  "container_disk_usd_per_hour": 0.014,
+  "cpu_family": "5GHz Memory-Optimized",
+  "expected_hours_tentative": [
+    12,
+    20
+  ],
+  "maximum_hours": 24,
+  "memory_admission_fraction": 0.8,
+  "merchant": "RunPod",
+  "minimum_disk_free_bytes": 21474836480,
+  "network_volume": false,
+  "observed_utc": "2026-10-03T07:54:00Z",
+  "ram_gb": 16,
+  "rate_ceiling_usd_per_hour": 0.15,
+  "retrieval_shutdown_reserve_seconds": 7200,
+  "screenshots": [
+    {
+      "path": "/Users/dberweger/Local/hu20-board-pooling-20261003/runpod-quote-full.jpg",
+      "sha256": "0e28df88c1cae6b36de389d4cb5f3ae2085352bb149b71eddfad10da2858ab7e"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-board-pooling-20261003/runpod-quote-checkout.jpg",
+      "sha256": "fd0afe249f070cde1478eb5003989195216afc37ad7a2ac949e4e2f6757deefe"
+    }
+  ],
+  "status": "owner approval pending; no paid compute",
+  "threads_per_worker": 1,
+  "total_cap_usd": 4,
+  "total_usd_per_hour": 0.144,
+  "transfer_fee_usd": 0,
+  "url": "https://console.runpod.io/deploy",
+  "vcpus": 2,
+  "worker_rss_bytes": 5368709120,
+  "workers": 2
+}
