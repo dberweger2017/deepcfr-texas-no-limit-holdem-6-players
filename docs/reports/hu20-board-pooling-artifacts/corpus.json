@@ -1,0 +1,7315 @@
+{
+  "action_seed": 202610030302,
+  "button": 0,
+  "chosen_line": "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]",
+  "counts": {
+    "earlier_terminal": 1925,
+    "live_turn": 1075,
+    "trained": 10814
+  },
+  "deal_seed": 202610030301,
+  "deals": 3000,
+  "format": "hu20-board-pooling-corpus-v1",
+  "index": {
+    "bytes": 400510976,
+    "index_sha256": "556992924e266db1b1adc68b428ce2622aa05795be4d0c0456313f2ddbed5733",
+    "path": "/Users/dberweger/Local/hu20-board-pooling-20261003/selection-average.sqlite",
+    "rows": 2701878,
+    "source_sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa"
+  },
+  "occupancy": {
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 135,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 51,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 7,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",800],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",500],[\"flop\",0,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 33,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",400],[\"flop\",0,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",400],[\"flop\",0,\"raise\",1400],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 52,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 27,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",600],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",800],[\"flop\",1,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 39,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",1000],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",700],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",400],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 21,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 6,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 4,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"raise\",400],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",500],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",700],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",400],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"raise\",600],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 38,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 6,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"raise\",400],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",600],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 54,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 7,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"raise\",400],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",600],[\"flop\",0,\"call\",null]]": 4,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",500],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 3,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",500],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",900],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",900],[\"preflop\",1,\"raise\",1500],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",900],[\"preflop\",1,\"raise\",1500],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 115,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 66,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 33,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"call\",null]]": 12,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"raise\",400],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",700],[\"flop\",0,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",400],[\"flop\",1,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",800],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",800],[\"flop\",0,\"raise\",1200],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 56,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 18,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 6,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",500],[\"flop\",0,\"raise\",600],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",700],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",400],[\"flop\",0,\"call\",null]]": 11,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",400],[\"flop\",0,\"raise\",800],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 23,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 9,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 5,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",600],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",400],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",400],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",400],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",400],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",900],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 13,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 20,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",1200],[\"flop\",0,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"raise\",1800],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"raise\",1800],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 21,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 35,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 7,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",900],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",600],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 21,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 7,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",500],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",600],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",600],[\"flop\",0,\"raise\",1200],[\"flop\",1,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",500],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",500],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 4,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",500],[\"preflop\",0,\"raise\",1500],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",500],[\"preflop\",0,\"raise\",1500],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",500],[\"preflop\",0,\"raise\",700],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",900],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",900],[\"preflop\",0,\"raise\",1500],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 4
+  },
+  "roots": [
+    {
+      "board": [
+        "Ad",
+        "Td",
+        "7s",
+        "Qc"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "Ad",
+            "Td",
+            "7s"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Qc"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "cd8511f851948a2ea410adeb133b13d1cfcbdd9f8336cecf050fa303a13209a9"
+    },
+    {
+      "board": [
+        "7s",
+        "2c",
+        "Jd",
+        "4h"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "7s",
+            "2c",
+            "Jd"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "4h"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "a429f36e397d9e2996ac4eb056e4b8488c0c3b4e7d088803f77dfe829ebbcd19"
+    },
+    {
+      "board": [
+        "3s",
+        "7d",
+        "4d",
+        "Ad"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "3s",
+            "7d",
+            "4d"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Ad"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "72498995b4a7d87f2816541db7d8eb49097b70e6dffebc931609c686a1b37190"
+    },
+    {
+      "board": [
+        "Qc",
+        "Ac",
+        "8d",
+        "6h"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "Qc",
+            "Ac",
+            "8d"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "6h"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "a029f3123a0e70dbb24dc8a4fc192a909d9d76410e2f31b7cafff58ab35a5bc9"
+    },
+    {
+      "board": [
+        "7h",
+        "5s",
+        "8d",
+        "5d"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "7h",
+            "5s",
+            "8d"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "5d"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "89552c06cae7723eeb988ddda1ca9a14c2aa5d154ce47bc3d9a38a7a0e5938d6"
+    },
+    {
+      "board": [
+        "Jd",
+        "2h",
+        "Qd",
+        "Kd"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "Jd",
+            "2h",
+            "Qd"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Kd"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "1890edf8c3f363c724d32c1ba898784785faff40fb354cc177580cfed9471108"
+    },
+    {
+      "board": [
+        "2h",
+        "4c",
+        "4d",
+        "Td"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "2h",
+            "4c",
+            "4d"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Td"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "ab3c7c9698834131487a5247081b0ce253ca74ccd80c03e4821f978f315a7d7c"
+    },
+    {
+      "board": [
+        "8c",
+        "Ts",
+        "Kc",
+        "3c"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "8c",
+            "Ts",
+            "Kc"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "3c"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "903a469b6d90380307a12acb70a3cbf81267b8d1d8c27c05a67d68cdc4a0e122"
+    },
+    {
+      "board": [
+        "9s",
+        "3h",
+        "Kd",
+        "Qs"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "9s",
+            "3h",
+            "Kd"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Qs"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "53e4241fa562fb97cd885b0e259db268ad95718de2bf3a3ca245068d1d423861"
+    },
+    {
+      "board": [
+        "9s",
+        "Js",
+        "4s",
+        "Th"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "9s",
+            "Js",
+            "4s"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Th"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "7369763e3891e24093acda21f6c181441335496961b38c4288bd26939b48eee2"
+    },
+    {
+      "board": [
+        "Jd",
+        "9d",
+        "5s",
+        "9s"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "Jd",
+            "9d",
+            "5s"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "9s"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "a224a31c4ca4a8756e0a69cb33607bdb3ccb28e07f6cbc837d67930d1f509f43"
+    },
+    {
+      "board": [
+        "5s",
+        "Kc",
+        "Qc",
+        "Ks"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "5s",
+            "Kc",
+            "Qc"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Ks"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "6345480212a2dfbe2eb1d7e40e16a9e2608b8ece43df926782da31b66ca68df2"
+    },
+    {
+      "board": [
+        "Jc",
+        "Jh",
+        "5d",
+        "Ah"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "Jc",
+            "Jh",
+            "5d"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Ah"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "5341dd74ae80ed30228315dacaff8b2de5c5d3e9af9b531798074ca3121f6322"
+    },
+    {
+      "board": [
+        "4h",
+        "Kd",
+        "8d",
+        "Tc"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "4h",
+            "Kd",
+            "8d"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Tc"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "1d532cdb2041088a1b6af28f32c21abbfbba7b7f66d3e61120ae91bfd4565812"
+    },
+    {
+      "board": [
+        "Kd",
+        "2c",
+        "4h",
+        "7c"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "Kd",
+            "2c",
+            "4h"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "7c"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "a459a9cf4f1b7cd21f954a55fbaf65294439a0d288063bf7b3c7dd1f01f04659"
+    },
+    {
+      "board": [
+        "2d",
+        "6d",
+        "4c",
+        "6c"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "2d",
+            "6d",
+            "4c"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "6c"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "0b81c12566abe8e4a59d467049cb51e1b848526852b6e64f071720da5bf4b64d"
+    },
+    {
+      "board": [
+        "5d",
+        "Ac",
+        "Qh",
+        "2d"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "5d",
+            "Ac",
+            "Qh"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "2d"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "30ab13d5a8d0c5c5641ebc4cc2d7b482ed227ddfc16b1fb0268c133f4ecc9cbd"
+    },
+    {
+      "board": [
+        "4d",
+        "Td",
+        "7s",
+        "7c"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "4d",
+            "Td",
+            "7s"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "7c"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "7260782c55ce8360620022bfa6e2fe0190ba5e9017b5abcd74106231abcca8d4"
+    },
+    {
+      "board": [
+        "5h",
+        "7c",
+        "2h",
+        "2c"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "5h",
+            "7c",
+            "2h"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "2c"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "0c267449c1da9a38592aeaaf011b3fabe8cf0cb9b2a2a14d1d6c241fd17c3bb5"
+    },
+    {
+      "board": [
+        "Ah",
+        "Jc",
+        "3s",
+        "Jh"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "Ah",
+            "Jc",
+            "3s"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Jh"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "9222d4f0b310b70b7f9558d97bc79cd85d705bfa22908af083aa51e7e1696a32"
+    },
+    {
+      "board": [
+        "6h",
+        "Qd",
+        "7d",
+        "Kd"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "6h",
+            "Qd",
+            "7d"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Kd"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "aa381f76be175db8653254254efbc6524fcffb7956863b30d7de8a8b8add8997"
+    },
+    {
+      "board": [
+        "4h",
+        "Qd",
+        "8s",
+        "9c"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "4h",
+            "Qd",
+            "8s"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "9c"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "7af8bce47aa246edeed1e89b2d2c02a4ab7394f3747c5c0a431825c332b8f6ea"
+    },
+    {
+      "board": [
+        "4h",
+        "7s",
+        "Qs",
+        "Qh"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "4h",
+            "7s",
+            "Qs"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Qh"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "ba0c3059268cac7deb3147ef0d1f371f49c43e7b4cd7d5158f2740bd8f4bae4e"
+    },
+    {
+      "board": [
+        "As",
+        "Tc",
+        "Th",
+        "6d"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "As",
+            "Tc",
+            "Th"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "6d"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "a86a1768504c632076c8df609fe5ca2b3f0cb83d8b75d822802cbf5e223d976d"
+    },
+    {
+      "board": [
+        "Qc",
+        "5c",
+        "Kh",
+        "6s"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "Qc",
+            "5c",
+            "Kh"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "6s"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "3951cb0488b51c5f88c496e8e1e146e5d600b7a9f119538702d0d3fc4f3cec37"
+    },
+    {
+      "board": [
+        "Kc",
+        "5d",
+        "3s",
+        "5h"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "Kc",
+            "5d",
+            "3s"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "5h"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "9531a85d1c2de598c9f7c5cae46a6bef804d66770cf1b82a7544a468e249636e"
+    },
+    {
+      "board": [
+        "Tc",
+        "6h",
+        "9d",
+        "Ks"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "Tc",
+            "6h",
+            "9d"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Ks"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "7f3e3b8eabfe1b15c21567269aefc9e9fd5192877a263c27b74d16c6753376b8"
+    },
+    {
+      "board": [
+        "4d",
+        "Qh",
+        "Ts",
+        "5d"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "4d",
+            "Qh",
+            "Ts"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "5d"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "3407252b973fa2fb3ab2e85ef725782bb54cae3040af07a21d555cd77cf7af1c"
+    },
+    {
+      "board": [
+        "4c",
+        "4h",
+        "8s",
+        "Qc"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "4c",
+            "4h",
+            "8s"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Qc"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "391c312b437e6500516d08bed1f7df418383f03a06f46de65468a24968249fc9"
+    },
+    {
+      "board": [
+        "5d",
+        "7c",
+        "8h",
+        "3d"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "5d",
+            "7c",
+            "8h"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "3d"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "45bef674287a7e4d85ca6b4f8efb22b71d611e9413b3e3d16cf6a0f51230dc8e"
+    },
+    {
+      "board": [
+        "2h",
+        "9s",
+        "8h",
+        "Ah"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "2h",
+            "9s",
+            "8h"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Ah"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "a01400f834ff6e79ef32ce9cb0a3d563761d238bad9804bb27ecf0ffcb644530"
+    },
+    {
+      "board": [
+        "As",
+        "Qc",
+        "6d",
+        "Qh"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "As",
+            "Qc",
+            "6d"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Qh"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "ba670c415e93dfb959e63e45d63961e03fd94196ea3f65f37807fa94ddde081d"
+    },
+    {
+      "board": [
+        "4c",
+        "Ts",
+        "5s",
+        "3h"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "4c",
+            "Ts",
+            "5s"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "3h"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "6012bad52688551e474a1d2a4e8eeea6ece1112bc5bd98a2ddf8e07f2ba7f8d9"
+    },
+    {
+      "board": [
+        "9h",
+        "As",
+        "5s",
+        "6h"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "9h",
+            "As",
+            "5s"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "6h"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "8f06157139e571d29983672bc6a62ac77fcc62fec696bbaeb888be43f904bda0"
+    },
+    {
+      "board": [
+        "2s",
+        "Jd",
+        "7c",
+        "3h"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "2s",
+            "Jd",
+            "7c"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "3h"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "0278db84e39f02a5c0c6e0ac21bf6ceec8459600a7e94a0d80a444993ca565e9"
+    },
+    {
+      "board": [
+        "8d",
+        "Th",
+        "3h",
+        "3d"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "8d",
+            "Th",
+            "3h"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "3d"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "6703e5b8a44e5c73f7dd029f1a1b39c1cdd2ef8df1c9ad41923ad5f6bc704a24"
+    },
+    {
+      "board": [
+        "2h",
+        "Ac",
+        "4h",
+        "Kh"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "2h",
+            "Ac",
+            "4h"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "Kh"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "997fc7bb647498a7a1a79ac51672d4d8cd593a681f33eda9a81a53a022d0419d"
+    },
+    {
+      "board": [
+        "9c",
+        "6s",
+        "Th",
+        "8c"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "9c",
+            "6s",
+            "Th"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "8c"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "6a284eb8ea5566a91c28e73e95be98d30e3b885a20d330a273dc7829998b97b0"
+    },
+    {
+      "board": [
+        "Th",
+        "Jc",
+        "7h",
+        "4c"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "Th",
+            "Jc",
+            "7h"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "4c"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "c672c6f11e843b07b895822f2570fa326c93e74f48a0591443525fd198501b51"
+    },
+    {
+      "board": [
+        "9h",
+        "Th",
+        "6d",
+        "8h"
+      ],
+      "board_weight": 3.375,
+      "button": 0,
+      "effective_stack": 1900,
+      "events": [
+        {
+          "big_blind": 100,
+          "button": 0,
+          "capacity": 2,
+          "chip_unit": "0.01",
+          "hand_id": "",
+          "player_ids": [
+            "a",
+            "b"
+          ],
+          "rules_profile": "nlhe-cash-auto-muck-v1",
+          "schema_version": 2,
+          "seat_numbers": [
+            0,
+            1
+          ],
+          "session_profile": null,
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ],
+          "table_seats": [
+            {
+              "player_id": "a",
+              "seat": 0,
+              "stack": 2000,
+              "status": "playing"
+            },
+            {
+              "player_id": "b",
+              "seat": 1,
+              "stack": 2000,
+              "status": "playing"
+            }
+          ]
+        },
+        {
+          "amount": 50,
+          "seat": 0
+        },
+        {
+          "amount": 100,
+          "seat": 1
+        },
+        {
+          "legal_actions": {
+            "call_amount": 50,
+            "kinds": [
+              "fold",
+              "call",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "call",
+            "raise_to": null
+          },
+          "paid": 50,
+          "seat": 0,
+          "street": "preflop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 2000,
+            "min_raise_to": 200
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "preflop"
+        },
+        {
+          "cards": [
+            "9h",
+            "Th",
+            "6d"
+          ],
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 1,
+          "street": "flop"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 0
+        },
+        {
+          "action": {
+            "kind": "check",
+            "raise_to": null
+          },
+          "paid": 0,
+          "seat": 0,
+          "street": "flop"
+        },
+        {
+          "cards": [
+            "8h"
+          ],
+          "street": "turn"
+        },
+        {
+          "legal_actions": {
+            "call_amount": 0,
+            "kinds": [
+              "fold",
+              "check",
+              "raise"
+            ],
+            "max_raise_to": 1900,
+            "min_raise_to": 100
+          },
+          "seat": 1
+        }
+      ],
+      "inclusion_probability": 0.2962962962962963,
+      "multiplicity": 1,
+      "pot": 200,
+      "spot": "e4c648672f8521ba3de6654d0ce0bd5bb58be85f2ae8c73e1778e62cb699907c"
+    }
+  ],
+  "selection_seed": 202610030303,
+  "selection_uses_payoffs": false,
+  "source": {
+    "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+    "entries": 2701878,
+    "iteration": 1098929,
+    "strategy": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+    "training_seed": 2026093001,
+    "weights_sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa"
+  },
+  "turn_actions_sampled": 0,
+  "unique_boards_by_line": {
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 135,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 51,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 7,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",800],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",500],[\"flop\",0,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 33,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",400],[\"flop\",0,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",400],[\"flop\",0,\"raise\",1400],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 52,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 27,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",600],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"check\",null],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",800],[\"flop\",1,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 39,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",1000],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",700],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",400],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 21,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 6,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 4,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"raise\",400],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",500],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",700],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",400],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",200],[\"preflop\",0,\"raise\",600],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 38,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 6,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"raise\",400],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",600],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 54,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 7,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"raise\",400],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",600],[\"flop\",0,\"call\",null]]": 4,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",500],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 3,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",500],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",900],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",900],[\"preflop\",1,\"raise\",1500],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"call\",null],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",900],[\"preflop\",1,\"raise\",1500],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 115,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 66,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 33,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"call\",null]]": 12,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"raise\",400],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",700],[\"flop\",0,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",400],[\"flop\",1,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",800],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",800],[\"flop\",0,\"raise\",1200],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 56,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 18,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 6,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",500],[\"flop\",0,\"raise\",600],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",700],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",400],[\"flop\",0,\"call\",null]]": 11,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",400],[\"flop\",0,\"raise\",800],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 23,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 9,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 5,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",600],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",400],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",400],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",400],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",400],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",300],[\"preflop\",0,\"raise\",900],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 13,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 20,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",1200],[\"flop\",0,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"raise\",1800],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",200],[\"preflop\",1,\"raise\",600],[\"preflop\",0,\"raise\",1800],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 21,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 35,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 7,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"raise\",300],[\"flop\",1,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",900],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",600],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 21,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"call\",null]]": 7,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"call\",null]]": 2,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"raise\",200],[\"flop\",1,\"raise\",300],[\"flop\",0,\"raise\",400],[\"flop\",1,\"raise\",500],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",600],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",600],[\"flop\",0,\"raise\",1200],[\"flop\",1,\"call\",null]]": 3,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",500],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",500],[\"preflop\",0,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 4,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",500],[\"preflop\",0,\"raise\",1500],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",500],[\"preflop\",0,\"raise\",1500],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"raise\",200],[\"flop\",0,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",500],[\"preflop\",0,\"raise\",700],[\"preflop\",1,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"check\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",900],[\"preflop\",0,\"call\",null],[\"flop\",1,\"check\",null],[\"flop\",0,\"raise\",100],[\"flop\",1,\"call\",null]]": 1,
+    "[[\"preflop\",0,\"raise\",300],[\"preflop\",1,\"raise\",900],[\"preflop\",0,\"raise\",1500],[\"preflop\",1,\"call\",null],[\"flop\",1,\"raise\",100],[\"flop\",0,\"call\",null]]": 4
+  }
+}
