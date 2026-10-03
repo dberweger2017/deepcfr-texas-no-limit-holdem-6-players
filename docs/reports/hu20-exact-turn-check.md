@@ -36,6 +36,13 @@ RSS remains 4.493 GiB with no swap growth. Each root has three of its six
 exports at this milestone; the common six-export intersection is still empty.
 Partial values remain monitoring only, with no hypothesis decision admitted.
 
+The [100% milestone](hu20-exact-turn-check-artifacts/milestone-100.json) records
+all 288 jobs: 284 completed solves and four literal zero-support exclusions.
+All completed gates pass and every solve meets the target. The campaign finished
+in 43,102.43 cumulative seconds, including preceding failed compute. Peak owned
+RSS remains 4.493 GiB with no swap growth. The driver and sidecar have exited;
+TensorBoard 6006 remains running. Common eligible-root reporting is pending.
+
 During resumed execution, a reporting review added an explicit check for wholly
 absent Set B strata. The frozen decision already requires two eligible roots in
 each of eight strata; an absent bootstrap cell now blocks that decision too.
