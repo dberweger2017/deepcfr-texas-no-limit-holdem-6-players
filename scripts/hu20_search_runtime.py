@@ -64,6 +64,21 @@ def validate_admission(admission, *, now=None):
         raise ValueError("Admission needs final-report and ownership evidence")
 
 
+def native_allocation_budget(budget, requested_bytes):
+    """Reserve family headroom before the native process allocates its tree."""
+    budget.check()
+    admission = budget.admission if hasattr(budget, "admission") else budget.approval
+    reserve = admission.get("solver_allocation_reserve_bytes", 256*1024**2)
+    if type(reserve) is not int or not 0 < reserve < admission["rss_limit_bytes"]:
+        raise ValueError("Invalid native allocation reserve")
+    if type(requested_bytes) is not int or requested_bytes <= 0:
+        raise ValueError("Invalid configured native memory ceiling")
+    available = admission["rss_limit_bytes"]-owned_rss()-reserve
+    # Round down; the reserve covers native input/tree overhead and transport.
+    available = max(0, available // 1024**2 * 1024**2)
+    return min(requested_bytes, available)
+
+
 def start_resource_watchdog(budget):
     """Guard blocking imports/loads as well as cooperative hand/solver checks."""
     stop=threading.Event()
@@ -145,6 +160,9 @@ class RunBudget:
         atomic_json(self.path, self.data)
         self.lock.close()
 
+    def native_allocation_budget(self, requested_bytes):
+        return native_allocation_budget(self, requested_bytes)
+
 
 class PaidWorkerBudget:
     """Approved independent worker clock; does not debit the M4 allowance."""
@@ -179,3 +197,6 @@ class PaidWorkerBudget:
         atomic_json(self.out / ("worker-budget-"+str(os.getpid())+".json"), {
             "status": status, "reason": reason, "seconds": monotonic()-self.started,
             "peak_owned_rss_bytes": self.peak_rss, "approval": self.approval})
+
+    def native_allocation_budget(self, requested_bytes):
+        return native_allocation_budget(self, requested_bytes)

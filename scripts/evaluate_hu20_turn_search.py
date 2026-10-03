@@ -152,7 +152,8 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
             budget.check(); begun = perf_counter(); source = load(spec,inputs)
             loaded.append({"model":spec,"seconds":perf_counter()-begun,"description":source.description})
             solver = ExternalTurnSolver(binary,out / "solver" / spec["name"],
-                                        resource_check=budget.check) if phase == "arena" else None
+                resource_check=budget.check,
+                allocation_budget=getattr(budget,"native_allocation_budget",None)) if phase == "arena" else None
             policy = HU20TurnSearchPolicy(source,solver,search_config) if solver else None
             arms = ("base","search") if phase == "arena" else (spec["strategy"],)
             for arm in arms:

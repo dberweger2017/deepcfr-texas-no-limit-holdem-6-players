@@ -198,3 +198,19 @@ finally:stop()
     assert result.returncode==0 and "blocking load interrupted" in result.stdout
     failure=json.loads(next(tmp_path.glob("resource-guard-failure-*.json")).read_text())
     assert failure["cause"]=="TimeoutError" and failure["elapsed_seconds"]<5
+
+
+def test_native_allocation_reserves_measured_family_rss_and_overhead(monkeypatch):
+    from types import SimpleNamespace
+    import scripts.hu20_search_runtime as runtime
+    gib=1024**3
+    checked=[]
+    budget=SimpleNamespace(admission={'rss_limit_bytes':int(4.25*gib),
+        'solver_allocation_reserve_bytes':256*1024**2},check=lambda:checked.append(True))
+    monkeypatch.setattr(runtime,'owned_rss',lambda:2*gib+17)
+    admitted=runtime.native_allocation_budget(budget,5*gib)
+    assert admitted < 2*gib and admitted+2*gib+17+256*1024**2 <= int(4.25*gib)
+    assert runtime.native_allocation_budget(budget,512*1024**2)==512*1024**2
+    monkeypatch.setattr(runtime,'owned_rss',lambda:4*gib)
+    assert runtime.native_allocation_budget(budget,5*gib)==0
+    assert len(checked)==3

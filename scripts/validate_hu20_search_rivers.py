@@ -111,7 +111,8 @@ def run(references,config,inputs,binary,out,budget):
     rows=[];started=monotonic()
     for slot in sample:
         budget.check();item=slot["item"];source=load(item["policy"],inputs)
-        solver=ExternalTurnSolver(binary,out/"solves"/str(slot["slot"]),resource_check=budget.check)
+        solver=ExternalTurnSolver(binary,out/"solves"/str(slot["slot"]),resource_check=budget.check,
+                                  allocation_budget=getattr(budget,"native_allocation_budget",None))
         policy=HU20TurnSearchPolicy(source,solver,config)
         row={"slot":slot["slot"],"lineage":item["policy"]["seed"],"bot":slot["bot"],
             "stratum":[item["root"]["kind"],item["root"]["button"]],"status":"failed"}

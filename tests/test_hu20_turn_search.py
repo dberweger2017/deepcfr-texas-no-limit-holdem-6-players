@@ -305,3 +305,32 @@ def test_process_timeout_kills_child_and_retains_receipt(tmp_path):
     {"opponent_likelihood_floor":.05}, {"menu":"unknown"}, {"compress":1}])
 def test_configuration_rejects_undeclared_settings(kw):
     with pytest.raises(ValueError): TurnSearchConfig(**kw)
+
+
+def test_native_memory_refusal_uses_family_cap_and_keeps_requested_identity(tmp_path):
+    executable=tmp_path/'refuse'
+    executable.write_text('#!/usr/bin/env python3\nimport json,sys\n'
+        'r=json.load(open(sys.argv[1]))\n'
+        'assert r["memory_budget_bytes"]==64*1024**2\n'
+        'assert r["requested_memory_budget_bytes"]==5*1024**3\n'
+        'open(sys.argv[2],"w").write(json.dumps({"event":"completion","status":"oversize","allocated":False})+"\\n")\n')
+    executable.chmod(0o755)
+    solver=ExternalTurnSolver(executable,tmp_path/'evidence',allocation_budget=lambda requested:64*1024**2)
+    request={'spot':'fixture','threads':1,'memory_budget_bytes':5*1024**3}
+    with pytest.raises(SolveFailure) as caught:solver.solve(request,monotonic()+5)
+    assert caught.value.cause=='memory_refusal'
+    assert request['memory_budget_bytes']==5*1024**3 and 'requested_memory_budget_bytes' not in request
+    receipt=solver.records[-1]
+    assert receipt['memory_admission']=={'configured_bytes':5*1024**3,'admitted_bytes':64*1024**2}
+    assert json.loads((Path(receipt['path'])/'manifest.json').read_text())['request.json']['bytes']>0
+
+
+def test_empty_family_headroom_refuses_without_launching_native_process(tmp_path,monkeypatch):
+    executable=tmp_path/'unused';executable.write_text('not executed')
+    def forbidden(*args,**kwargs):raise AssertionError('A native process must not start')
+    monkeypatch.setattr('src.blueprint.hu20_turn_solver.subprocess.Popen',forbidden)
+    solver=ExternalTurnSolver(executable,tmp_path/'evidence',allocation_budget=lambda requested:0)
+    with pytest.raises(SolveFailure) as caught:
+        solver.solve({'spot':'fixture','threads':1,'memory_budget_bytes':5*1024**3},monotonic()+5)
+    assert caught.value.cause=='memory_refusal'
+    assert solver.records[-1]['memory_admission']['admitted_bytes']==0

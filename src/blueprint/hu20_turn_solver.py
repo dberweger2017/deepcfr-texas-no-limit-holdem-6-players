@@ -95,13 +95,15 @@ def file_hash(path):
 
 
 class ExternalTurnSolver:
-    def __init__(self, executable, evidence_dir, *, expected_sha256=None, resource_check=lambda: None):
+    def __init__(self, executable, evidence_dir, *, expected_sha256=None,
+                 resource_check=lambda: None, allocation_budget=None):
         self.executable = Path(executable).expanduser().resolve()
         self.evidence_dir = Path(evidence_dir).expanduser().resolve()
         self.expected_sha256 = expected_sha256 or (
             file_hash(self.executable) if self.executable.is_file() else None)
         self.records = []
         self.resource_check = resource_check
+        self.allocation_budget = allocation_budget
 
     def solve(self, request, deadline, *, mode="play"):
         if mode not in ("play", "quality"):
@@ -122,6 +124,16 @@ class ExternalTurnSolver:
             if self.expected_sha256 and identity != self.expected_sha256:
                 raise SolveFailure("solver_identity", "Executable SHA-256 differs")
             record["executable_sha256"] = identity
+            if self.allocation_budget is not None:
+                requested = request["memory_budget_bytes"]
+                admitted = self.allocation_budget(requested)
+                if type(admitted) is not int or not 0 <= admitted <= requested:
+                    raise ValueError("Invalid native allocation admission")
+                request.update(memory_budget_bytes=admitted, requested_memory_budget_bytes=requested)
+                record["memory_admission"] = {"configured_bytes": requested, "admitted_bytes": admitted}
+                (out / "request.json").write_text(json.dumps(request, allow_nan=False, sort_keys=True)+"\n")
+                if admitted == 0:
+                    raise SolveFailure("memory_refusal", "No native allocation headroom in owned family")
             if monotonic() >= deadline:
                 raise SolveFailure("timeout", "No startup budget remains")
             with (out / "stdout.log").open("wb") as stdout, (out / "stderr.log").open("wb") as stderr:

@@ -79,7 +79,8 @@ def finalists(rows, protocol):
     return selected
 
 
-def quality_row(source, binary, config, item, bot, out, guard, *, quality_seconds=300):
+def quality_row(source, binary, config, item, bot, out, guard, *, quality_seconds=300,
+                allocation_budget=None):
     from dataclasses import asdict
     root=replay_root(item["root"]);identity=digest(asdict(config))
     row={"root":f"{item['root']['spot']}/{item['policy']['seed']}/{bot}",
@@ -90,7 +91,7 @@ def quality_row(source, binary, config, item, bot, out, guard, *, quality_second
         "played_strategy_verified":False,"full_native_verified":False,"fallback":False,
         "stratum":[item["root"]["kind"],item["root"]["button"]],
         "reference_provenance":item.get("provenance"),"failures":[]}
-    solver=ExternalTurnSolver(binary,out,resource_check=guard)
+    solver=ExternalTurnSolver(binary,out,resource_check=guard,allocation_budget=allocation_budget)
     policy=HU20TurnSearchPolicy(source,solver,config)
     started=monotonic()
     try:
@@ -169,7 +170,8 @@ def run(protocol, references, inputs, binary, out, budget):
                         if item["policy"]["name"]!=name:continue
                         budget.check()
                         path=out/"solves"/stage/digest([name,config.__repr__(),item["root"]["spot"],bot])
-                        row=quality_row(source,binary,config,item,bot,path,budget.check)
+                        row=quality_row(source,binary,config,item,bot,path,budget.check,
+                            allocation_budget=getattr(budget,"native_allocation_budget",None))
                         row["stage"]=stage
                         (screen if stage=="screen" else rows).append(row)
                         with (out/"curve.jsonl").open("a") as stream:
