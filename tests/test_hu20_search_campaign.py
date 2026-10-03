@@ -4,6 +4,8 @@ from dataclasses import asdict
 import gzip
 import json
 from pathlib import Path
+import subprocess
+import sys
 
 import pytest
 
@@ -173,3 +175,26 @@ def test_arena_rows_keep_actual_base_strategy_and_explicit_arm():
     assert {p["arm"] for p in summary["panels"]}=={"base","search"}
     assert all(p["strategy"]=="average" for p in summary["panels"])
     assert all(r["strategy"]=="average" for r in rows)
+
+
+def test_watchdog_interrupts_blocking_load_and_retains_guard_reason(tmp_path):
+    code='''
+from pathlib import Path
+from time import monotonic,sleep
+from types import SimpleNamespace
+from scripts.hu20_search_runtime import install_stop_handlers,start_resource_watchdog,swap_bytes
+install_stop_handlers()
+b=SimpleNamespace(out=Path(__import__('sys').argv[1]),started=monotonic(),
+    deadline=monotonic()+.1,admission={'rss_limit_bytes':10*1024**3},
+    peak_rss=0,swap_baseline=swap_bytes())
+stop=start_resource_watchdog(b)
+try:
+    sleep(20)
+except RuntimeError:
+    print('blocking load interrupted')
+finally:stop()
+'''
+    result=subprocess.run([sys.executable,"-c",code,str(tmp_path)],capture_output=True,text=True,timeout=5)
+    assert result.returncode==0 and "blocking load interrupted" in result.stdout
+    failure=json.loads(next(tmp_path.glob("resource-guard-failure-*.json")).read_text())
+    assert failure["cause"]=="TimeoutError" and failure["elapsed_seconds"]<5

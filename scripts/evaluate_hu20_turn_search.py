@@ -12,7 +12,7 @@ import subprocess
 from time import perf_counter
 
 from scripts.evaluate_hu20_cfr_average import opponent, summarize
-from scripts.hu20_search_runtime import RunBudget, PaidWorkerBudget, atomic_json, install_stop_handlers
+from scripts.hu20_search_runtime import RunBudget, PaidWorkerBudget, atomic_json, install_stop_handlers, start_resource_watchdog
 from src.arena.catalog import Checkpoint
 from src.arena.runner import public_events
 from src.arena.schedule import digest, stream_seed
@@ -225,13 +225,15 @@ def main():
         if not args.admission or not args.budget: p.error("M4 phases need admission and cumulative budget journal")
         admission=json.loads(args.admission.read_text())
         budget=RunBudget(args.budget,args.out.parent,args.phase,limit,admission)
+    watchdog=start_resource_watchdog(budget)
     status="failed"; reason=None
     try:
         result=run(plan,args.inputs,args.out,budget,phase=args.phase,binary=args.binary,search_config=config,
                    worker_index=args.worker_index,worker_count=args.worker_count)
         status=result["status"];reason=result["failure"]
         print(json.dumps({k:result[k] for k in ("status","hands","failure","base_decision")}))
-    finally: budget.close(status,reason)
+    finally:
+        watchdog();budget.close(status,reason)
     if status != "complete":raise SystemExit(1)
 
 

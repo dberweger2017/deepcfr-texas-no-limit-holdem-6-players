@@ -13,7 +13,7 @@ from time import monotonic
 import numpy as np
 
 from scripts.evaluate_hu20_turn_search import load
-from scripts.hu20_search_runtime import RunBudget, atomic_json, install_stop_handlers
+from scripts.hu20_search_runtime import RunBudget, atomic_json, install_stop_handlers, start_resource_watchdog
 from src.arena.endgame_quality import _world
 from src.arena.schedule import digest
 from src.blueprint.hu20_turn_search import HU20TurnSearchPolicy, TurnSearchConfig
@@ -199,12 +199,14 @@ def main():
         p.add_argument("--"+n,type=Path,required=True)
     a=p.parse_args();a.out.parent.mkdir(parents=True,exist_ok=True)
     budget=RunBudget(a.budget,a.out.parent,"calibration",86400,json.loads(a.admission.read_text()))
+    watchdog=start_resource_watchdog(budget)
     status="failed";reason=None
     try:
         result=run(json.loads(a.protocol.read_text()),json.loads(a.references.read_text()),
                    a.inputs,a.binary,a.out,budget)
         status=result["status"];reason=result.get("failure")
-    finally:budget.close(status,reason)
+    finally:
+        watchdog();budget.close(status,reason)
     if status not in ("qualified","owner-decision-needed"):raise SystemExit(1)
 
 

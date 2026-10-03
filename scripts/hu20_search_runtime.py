@@ -9,6 +9,7 @@ import shutil
 import signal
 import subprocess
 import sys
+import threading
 from time import monotonic, time
 
 
@@ -61,6 +62,32 @@ def validate_admission(admission, *, now=None):
         raise ValueError("RSS admission exceeds measured headroom or owner ceiling")
     if not admission.get("145_report_sha256") or not admission.get("ownership_evidence"):
         raise ValueError("Admission needs final-report and ownership evidence")
+
+
+def start_resource_watchdog(budget):
+    """Guard blocking imports/loads as well as cooperative hand/solver checks."""
+    stop=threading.Event()
+    limit=(budget.admission if hasattr(budget,"admission") else budget.approval)["rss_limit_bytes"]
+    def watch():
+        while not stop.wait(.25):
+            try:
+                if monotonic()>=budget.deadline:raise TimeoutError("Frozen phase/cumulative clock expired during blocking work")
+                rss=owned_rss();budget.peak_rss=max(budget.peak_rss,rss)
+                if rss>=limit:raise MemoryError("Owned family RSS guard during blocking work")
+                if swap_bytes()-budget.swap_baseline>1024**3:raise MemoryError("Swap growth guard during blocking work")
+                if shutil.disk_usage(budget.out).free<8*1024**3:raise OSError("Free disk guard during blocking work")
+            except Exception as exc:
+                if stop.is_set():return
+                atomic_json(budget.out/("resource-guard-failure-"+str(os.getpid())+".json"),{
+                    "cause":type(exc).__name__,"reason":str(exc),"pid":os.getpid(),
+                    "elapsed_seconds":monotonic()-budget.started,"peak_owned_rss_bytes":budget.peak_rss})
+                if not stop.is_set():os.kill(os.getpid(),signal.SIGTERM)
+                return
+    thread=threading.Thread(target=watch,name="hu20-resource-watchdog",daemon=True)
+    thread.start()
+    def close():
+        stop.set();thread.join(timeout=2)
+    return close
 
 
 class RunBudget:
