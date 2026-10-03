@@ -253,3 +253,126 @@ def test_final_forecast_counts_quality_and_conditional_research_work_without_usi
     assert one['phases'][0]['quality_seconds']>0 and one['river_reserve_seconds']==10800
     for r in rows:r['residual_pct_pot']=0
     assert budget_forecast(rows,used_seconds=12000)==result
+
+
+def test_exact_unlocked_solver_reuses_full_matrices_but_not_failures_or_different_requests():
+    from copy import deepcopy
+    from time import monotonic
+    from scripts.hu20_search_resume import SharedRootSolver
+    from src.blueprint.hu20_turn_solver import SolveFailure
+    from tests.test_hu20_turn_search import FakeSolver, Uniform, fixture
+    from src.blueprint.hu20_turn_search import HU20TurnSearchPolicy
+    import numpy as np
+    solvers=[FakeSolver(),FakeSolver()]
+    policies=[HU20TurnSearchPolicy(Uniform(),s,TurnSearchConfig(opponent_likelihood_floor=0)) for s in solvers]
+    solutions=[p._resolve(fixture().events,bot,monotonic()+30) for bot,p in enumerate(policies)]
+    class Native:
+        expected_sha256='fixture'
+        def __init__(self):self.records=[];self.calls=[];self.fail=False
+        def solve(self,request,deadline,mode='play'):
+            self.calls.append((deepcopy(request),mode))
+            self.records.append({'seconds':.2,'status':'failure' if self.fail else 'completed','path':'fixture'})
+            if self.fail:raise SolveFailure('timeout','retained timeout')
+            return solutions[0].profiles
+    native=Native();shared=SharedRootSolver(native)
+    shared.start_coordinate();a=shared.solve(solutions[0].request,monotonic()+30)
+    shared.start_coordinate();b=shared.solve(solutions[1].request,monotonic()+30)
+    assert len(native.calls)==1 and shared.records[0]['shared'] and shared.records[0]['seconds']==0
+    assert shared.reused_play_seconds==.2
+    for key in a:
+        assert a[key].holdings==b[key].holdings
+        np.testing.assert_array_equal(a[key].probabilities,b[key].probabilities)
+    shared.solve(dict(solutions[1].request,locks=[{'line':[]}]),monotonic()+30)
+    shared.solve(dict(solutions[1].request,memory_budget_bytes=1),monotonic()+30)
+    shared.solve(solutions[1].request,monotonic()+30,mode='quality')
+    assert len(native.calls)==4
+    native.fail=True
+    other=SharedRootSolver(native)
+    for _ in range(2):
+        other.start_coordinate()
+        with pytest.raises(SolveFailure):other.solve(solutions[0].request,monotonic()+30)
+        assert other.records[-1]['status']=='failure'
+    assert len(native.calls)==6 and not other.cache
+
+
+def test_retained_screen_resume_preserves_every_coordinate_and_shares_only_epsilon_zero(tmp_path,monkeypatch):
+    from collections import Counter
+    from scripts import calibrate_hu20_turn_search as calibration
+    from src.arena.schedule import digest
+    from src.blueprint.hu20_turn_solver import file_hash
+    from tests.test_hu20_turn_search import FakeSolver, Uniform, fixture
+    native_calls=[]
+    class Native(FakeSolver):
+        def __init__(self,*a,**kw):super().__init__();self.records=[]
+        def solve(self,request,deadline,mode='play'):
+            native_calls.append(mode)
+            profiles=super().solve(request,deadline)
+            self.records.append({'seconds':.005,'status':'completed','path':'fixture',
+                'quality':[{'law':'reference','exploitability_pct_pot':.01,'retained_mass':[1,1]}]})
+            return profiles
+    class Budget:
+        def check(self):pass
+    monkeypatch.setattr(calibration,'load',lambda spec,inputs:Uniform())
+    monkeypatch.setattr(calibration,'replay_root',lambda root:fixture().events)
+    monkeypatch.setattr(calibration,'ExternalTurnSolver',Native)
+    items=[{'root':{'kind':kind,'button':button,'spot':f'{kind}/{button}'},
+        'policy':{'name':'fixture','seed':1},'reference_ranges':[[{'weight':1}],[{'weight':1}]],
+        'reference_native_verified':True,'e_bp_pct_pot':2}
+        for kind in ('limped','min-raised','pot-raised','3-bet') for button in (0,1)]
+    refs={'items':items,'exclusions':[],'145_final_report_pushed':True,'final_report_sha256':'report'}
+    protocol={'stage':'frozen-final','reference_index_sha256':digest(refs),
+        'menus':['native'],'iterations':[25,100],'threads':[6],'compress':[False],
+        'opponent_likelihood_floor':[0,.01],'decision_seconds':30,'share_identical_unlocked_seats':True,
+        'staging':{'screen_iterations':100,'finalist_settings_per_floor':1}}
+    screen=[]
+    for floor in (0,.01):
+        config=asdict(TurnSearchConfig(iterations=100,threads=6,compress=False,opponent_likelihood_floor=floor))
+        for item,bot in calibration.screen_items(items):
+            screen.append({'stage':'screen','root':f"{item['root']['spot']}/1/{bot}",
+                'configuration_id':digest(config),'config':config,'cold_seconds':2,'fallback':False})
+    retained=tmp_path/'retained.jsonl';retained.write_text(''.join(json.dumps(r)+'\n' for r in screen))
+    protocol['resume_screen']={'path':str(retained),'sha256':file_hash(retained),'rows':len(screen)}
+    protocol['finalist_configuration_ids']=[digest(asdict(c)) for c in calibration.finalists(screen,protocol)]
+    result=calibration.run(protocol,refs,tmp_path,tmp_path/'binary',tmp_path/'resumed',Budget())
+    assert result['status']=='qualified' and result['roots']==64 and result['screen_curve']==screen
+    rows=[json.loads(line) for line in (tmp_path/'resumed'/'curve.jsonl').read_text().splitlines()]
+    assert rows[:len(screen)]==screen and all(r['stage']=='final' for r in rows[len(screen):])
+    assert Counter(native_calls)=={'play':48,'quality':48}
+    final=rows[len(screen):]
+    for row in final:
+        reused=any(r.get('shared') for r in row['receipts'])
+        assert reused==(row['config']['opponent_likelihood_floor']==0 and row['bot_seat']==1)
+        if reused:
+            assert row['cold_seconds']>=row['actual_cold_seconds']+.005
+            first=next(r for r in final if r['configuration_id']==row['configuration_id']
+                and r['root']==row['root'].rsplit('/',1)[0]+'/0')
+            assert row['cold_seconds']>=first['cold_seconds']
+    before=len(native_calls)
+    retained.write_text(retained.read_text()+'\n')
+    with pytest.raises(ValueError,match='hash differs'):
+        calibration.run(protocol,refs,tmp_path,tmp_path/'binary',tmp_path/'refused',Budget())
+    assert len(native_calls)==before and not (tmp_path/'refused').exists()
+
+
+def test_shared_cold_deadline_still_returns_measured_blueprint_fallback(tmp_path,monkeypatch):
+    from scripts import calibrate_hu20_turn_search as calibration
+    from scripts.hu20_search_resume import SharedRootSolver
+    from tests.test_hu20_turn_search import FakeSolver, Uniform, fixture
+    class Native(FakeSolver):
+        def __init__(self):super().__init__();self.records=[]
+        def solve(self,request,deadline,mode='play'):
+            profiles=super().solve(request,deadline)
+            self.records.append({'seconds':31,'status':'completed','path':'fixture',
+                'quality':[{'law':'reference','exploitability_pct_pot':.01,'retained_mass':[1,1]}]})
+            return profiles
+    monkeypatch.setattr(calibration,'replay_root',lambda root:fixture().events)
+    item={'root':{'spot':'fixture','button':0,'kind':'limped'},'policy':{'seed':1},
+        'reference_ranges':[[{'weight':1}],[{'weight':1}]],'reference_native_verified':True,'e_bp_pct_pot':2}
+    native=Native();shared=SharedRootSolver(native)
+    config=TurnSearchConfig(opponent_likelihood_floor=0)
+    first=calibration.quality_row(Uniform(),tmp_path/'binary',config,item,0,tmp_path,lambda:None,shared_solver=shared)
+    second=calibration.quality_row(Uniform(),tmp_path/'binary',config,item,1,tmp_path,lambda:None,shared_solver=shared)
+    assert not first['fallback'] and second['fallback'] and second['fallback_cause']=='timeout'
+    assert second['cold_seconds']>=31 and second['residual_pct_pot']==2
+    assert second['full_native_verified'] and second['played_strategy_verified']
+    assert second['receipts'][0]['shared'] and len(native.requests)==2

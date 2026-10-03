@@ -13,6 +13,7 @@ from time import monotonic
 import numpy as np
 
 from scripts.evaluate_hu20_turn_search import load
+from scripts.hu20_search_resume import SharedRootSolver, retained_screen
 from scripts.hu20_search_runtime import RunBudget, atomic_json, install_stop_handlers, start_resource_watchdog
 from src.arena.endgame_quality import _world
 from src.arena.schedule import digest
@@ -81,7 +82,7 @@ def finalists(rows, protocol):
 
 
 def quality_row(source, binary, config, item, bot, out, guard, *, quality_seconds=300,
-                allocation_budget=None):
+                allocation_budget=None, shared_solver=None):
     from dataclasses import asdict
     root=replay_root(item["root"]);identity=digest(asdict(config))
     row={"root":f"{item['root']['spot']}/{item['policy']['seed']}/{bot}",
@@ -92,7 +93,8 @@ def quality_row(source, binary, config, item, bot, out, guard, *, quality_second
         "played_strategy_verified":False,"full_native_verified":False,"fallback":False,
         "stratum":[item["root"]["kind"],item["root"]["button"]],
         "reference_provenance":item.get("provenance"),"failures":[]}
-    solver=ExternalTurnSolver(binary,out,resource_check=guard,allocation_budget=allocation_budget)
+    solver=shared_solver or ExternalTurnSolver(binary,out,resource_check=guard,allocation_budget=allocation_budget)
+    if shared_solver:shared_solver.start_coordinate()
     policy=HU20TurnSearchPolicy(source,solver,config)
     started=monotonic()
     try:
@@ -103,9 +105,19 @@ def quality_row(source, binary, config, item, bot, out, guard, *, quality_second
         policy._remember_play(public,completed,False,supported=matrix.holdings)
         policy._check(started+config.decision_seconds)
         row["cold_seconds"]=monotonic()-started
+        row["actual_cold_seconds"]=row["cold_seconds"]
         row["range_coverage"]=solution.coverage
+        if shared_solver:
+            if solver.reused_play_seconds:
+                row["cold_seconds"]=max(row["cold_seconds"]+solver.reused_play_seconds,
+                    solver.source_cold_seconds or 0)
+                row["cold_latency_accounting"]="remeasured preparation + retained native receipt; at least source cold"
+                if row["cold_seconds"]>=config.decision_seconds:
+                    raise SolveFailure("timeout","Reconstructed shared cold decision exceeds deadline")
+            else:
+                solver.source_cold_seconds=row["cold_seconds"]
     except SolveFailure as exc:
-        row.update(cold_seconds=monotonic()-started,fallback=True,
+        row.update(cold_seconds=max(row.get("cold_seconds",0),monotonic()-started),fallback=True,
                    fallback_cause=exc.cause,residual_pct_pot=item.get("e_bp_pct_pot"))
         row["failures"].append({"phase":"play","cause":exc.cause,"reason":str(exc)})
         # A complete native #145 blueprint metric evaluates the policy actually used.
@@ -156,7 +168,21 @@ def run(protocol, references, inputs, binary, out, budget):
     if {tuple((i['root']['kind'],i['root']['button'])) for i in items} != {
         (k,b) for k in ("limped","min-raised","pot-raised","3-bet") for b in (0,1)}:
         raise ValueError("Calibration needs all eight frozen strata")
-    out.mkdir(parents=True,exist_ok=False);rows=[];screen=[];failure=None;started=monotonic()
+    screen=[]
+    if protocol.get("resume_screen"):
+        if protocol.get("research_latency_fallback") or protocol["decision_seconds"]!=30:
+            raise ValueError("Retained resume is approved for the 30-second final only")
+        screening=[asdict(c) for c in configurations(protocol)
+                   if c.iterations==100 and c.menu=="native"]
+        screen=retained_screen(protocol["resume_screen"],screening,screen_items(items))
+        selected=finalists(screen,protocol)
+        if [digest(asdict(c)) for c in selected] != protocol["finalist_configuration_ids"]:
+            raise ValueError("Prospectively frozen timing-only finalists differ")
+    out.mkdir(parents=True,exist_ok=False);rows=[];failure=None;started=monotonic()
+    if screen:
+        atomic_json(out/"retained-screen-provenance.json",protocol["resume_screen"])
+        with (out/"curve.jsonl").open("x") as stream:
+            for row in screen:stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+"\n")
     # Keep all attempted cells; only final-stage rows can qualify for play.
     try:
         deadlines=[protocol["decision_seconds"]]
@@ -166,20 +192,28 @@ def run(protocol, references, inputs, binary, out, budget):
             if decision_seconds != protocol["decision_seconds"] and qualify_curve(rows,coordinates)["selected"]:
                 break
             active_protocol=dict(protocol,decision_seconds=decision_seconds)
-            deadline_screen=[]
+            deadline_screen=list(screen) if protocol.get("resume_screen") else []
             screening=[c for c in configurations(active_protocol) if c.iterations==protocol["staging"]["screen_iterations"]]
             specs={i["policy"]["name"]:i["policy"] for i in items}
-            for stage in ("screen","final"):
+            for stage in (("final",) if protocol.get("resume_screen") else ("screen","final")):
                 candidates=screening if stage=="screen" else finalists(deadline_screen,active_protocol)
                 for config in candidates:
                     targets=screen_items(items) if stage=="screen" else [(i,b) for i in items for b in (0,1)]
                     for name,spec in sorted(specs.items()):
                         budget.check();source=load(spec,inputs)
+                        shared_solver=None
                         for item,bot in targets:
                             if item["policy"]["name"]!=name:continue
                             budget.check()
                             path=out/"solves"/stage/digest([name,config.__repr__(),item["root"]["spot"],bot])
+                            if stage=="final" and protocol.get("share_identical_unlocked_seats") and config.opponent_likelihood_floor==0:
+                                if bot==0:
+                                    shared_solver=SharedRootSolver(ExternalTurnSolver(binary,path,
+                                        resource_check=budget.check,
+                                        allocation_budget=getattr(budget,"native_allocation_budget",None)))
+                            else:shared_solver=None
                             row=quality_row(source,binary,config,item,bot,path,budget.check,
+                                shared_solver=shared_solver,
                                 allocation_budget=getattr(budget,"native_allocation_budget",None))
                             row["stage"]=stage
                             row["decision_deadline_seconds"]=decision_seconds
@@ -191,7 +225,7 @@ def run(protocol, references, inputs, binary, out, budget):
                                 "stage":stage,"decision_deadline_seconds":decision_seconds,"seconds":monotonic()-started,
                                 "fallbacks":sum(r['fallback'] for r in rows+screen)})
                             (out/"status.md").write_text(f"Calibration roots: {len(rows)}\n\nElapsed: {monotonic()-started:.1f}s\n")
-                        del source;gc.collect()
+                        del source;shared_solver=None;gc.collect()
     except Exception as exc:failure=f"{type(exc).__name__}: {exc}"
     result=qualify_curve(rows,coordinates,research_deadline=
         protocol.get("research_latency_fallback",{}).get("decision_seconds"))
@@ -212,11 +246,15 @@ def main():
     for n in ("protocol","references","inputs","binary","out","admission","budget"):
         p.add_argument("--"+n,type=Path,required=True)
     a=p.parse_args();a.out.parent.mkdir(parents=True,exist_ok=True)
-    budget=RunBudget(a.budget,a.out.parent,"calibration",86400,json.loads(a.admission.read_text()))
+    protocol=json.loads(a.protocol.read_text())
+    reserve=protocol.get("river_reserve_seconds",0)
+    remaining=86400-json.loads(a.budget.read_text())["used_seconds"]-reserve
+    if remaining<=0:raise TimeoutError("No calibration allowance after frozen river reserve")
+    budget=RunBudget(a.budget,a.out.parent,"calibration",remaining,json.loads(a.admission.read_text()))
     watchdog=start_resource_watchdog(budget)
     status="failed";reason=None
     try:
-        result=run(json.loads(a.protocol.read_text()),json.loads(a.references.read_text()),
+        result=run(protocol,json.loads(a.references.read_text()),
                    a.inputs,a.binary,a.out,budget)
         status=result["status"];reason=result.get("failure")
     finally:
