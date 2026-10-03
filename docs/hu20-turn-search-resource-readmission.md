@@ -60,3 +60,7 @@ The [new prospective settings](../configs/diagnostics/hu20-turn-search-calibrati
 Quality uses the existing second native request. Successful full matrices and quality results are shared only when the complete request data match and neither request has locks. For the second seat, cold latency includes remeasured preparation/completion plus the retained native receipt duration, and is at least the first seat's measured cold duration. A reconstructed deadline overrun remains a base fallback evaluated under the original reference law. Retain actual elapsed and reconstructed latency separately; cached wall time cannot qualify as cold latency. The external harness/binary stays unchanged.
 
 Before launch, push settings and tested code, confirm CI, refresh source-bound resource/ownership admission, and push admission evidence. Keep the heartbeat paused until the single worker is confirmed. No completed Part A/build/reference work repeats, no original evidence changes, and no calibration-01 timings enter selection.
+
+## Resumed final launch
+
+The bounded owner-approved final is running as calibration-03, worker 87830 and sidecar 87831. Tested source 93d55eb passed full CI, and fresh admission 70e445d was pushed before final outcomes. [Launch evidence](reports/hu20-turn-search-artifacts/calibration-03-launch.json) and the active status supersede preparation/paused statements above. The recurring task is ACTIVE for quiet checks; all guards, separate 120-second approval and three-hour river reserve remain.
