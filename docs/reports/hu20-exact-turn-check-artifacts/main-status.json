@@ -1,0 +1,1 @@
+{"elapsed_seconds": 80.69987712521106, "eta_seconds": 11540.082428905182, "job": "A-8cc070516f6be671cfe5c90b5fafd76a80cb16f7cfa945a4360673225d190bf4-2", "jobs_done": 2, "jobs_total": 288, "last_error": "MemoryError('Measured job headroom fell below budget')", "stage": "stopped", "updated_utc": "2026-10-02T07:43:59.177582+00:00"}
