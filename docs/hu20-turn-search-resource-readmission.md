@@ -1,6 +1,6 @@
 # HU20 calibration resource readmission proposal
 
-**Owner-approved October 3, 2026; fresh admission is required before launch.** Calibration-01 stopped at the family RSS guard. Its [complete attempted curve and stop evidence](reports/hu20-turn-search-calibration.md) stay published. The recurring continuation stays paused until a single replacement worker is admitted and its PID recorded. This proposal does not claim a quality qualifier or authorize paid compute.
+**Owner-approved October 3, 2026; calibration-02 is freshly admitted and running.** Calibration-01 stopped at the family RSS guard. Its [complete attempted curve and stop evidence](reports/hu20-turn-search-calibration.md) stay published. One replacement worker (18889) and sidecar (18890) are recorded in the [launch evidence](reports/hu20-turn-search-artifacts/calibration-02-launch.json); the recurring continuation is active. This proposal does not claim a quality qualifier or authorize paid compute.
 
 The [approved plan](hu20-turn-search-approved-plan.md) says: “No duplicate worker, automatic restart after a guard failure, budget reset or paid allocation is authorized by the recurring check.” The owner’s continuation instruction additionally requires retaining partial evidence and asking the owner after a guard stop.
 
