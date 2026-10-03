@@ -63,3 +63,36 @@ def common_mask(manifest, results, policies):
         if row["spot"] in admitted:
             admitted.remove(row["spot"])
     return {"admitted": admitted, "excluded": sorted(excluded)}
+
+
+def check_lock_only(first, actual, pot, reference_hash):
+    reference = completion(first)
+    final = actual[-1]
+    if (final.get("status") != "locked-evaluated" or final.get("iterations") != 0
+            or final.get("reference_response_sha256") != reference_hash
+            or not any(r.get("gate") == "V1" and r["passed"] for r in actual)
+            or not np.allclose(final["reference_equilibrium_ev_chips"], reference["current_ev_chips"], atol=1e-5*pot, rtol=0)):
+        raise ValueError("Lock-only result lost its validated equilibrium reference")
+    for row in (r for r in actual if r["event"] == "pooling_metric"):
+        seat = row["target_solver_seat"] ^ 1
+        value = row["reference_responder_value_chips"]
+        if (not np.isfinite([value, row["responder_br_chips"], row["gain_bb"], row["gain_pct_pot"]]).all()
+                or abs(value-reference["current_ev_chips"][seat]) > 1e-5*pot
+                or abs(row["gain_bb"]*100 - (row["responder_br_chips"]-value)) > 1e-5*pot):
+            raise ValueError("Invalid locked best-response value/reference")
+    return {"gate": "lock-only-reference", "passed": True, "equilibrium_iterations": reference["iterations"],
+            "equilibrium_residual_pct_pot": reference["exploitability_pct_pot"], "reference_response_sha256": reference_hash}
+
+
+def check_locked_br_parity(fresh, solved, pot):
+    key = lambda r: (r["metric"], r["target_solver_seat"])
+    a = {key(r): r for r in fresh if r["event"] == "pooling_metric"}
+    b = {key(r): r for r in solved if r["event"] == "pooling_metric"}
+    if not a or set(a) != set(b):
+        raise ValueError("Lock-only/replay measurement identities differ")
+    for identity in a:
+        for field in ("gain_bb", "gain_pct_pot", "responder_br_chips", "reference_responder_value_chips"):
+            tolerance = 1e-5 * (pot / 100 if field == "gain_bb" else 100 if field == "gain_pct_pot" else pot)
+            if not np.isclose(a[identity][field], b[identity][field], atol=tolerance, rtol=0):
+                raise ValueError("Lock-only BR differs from solved-tree BR")
+    return {"gate": "lock-only-vs-solved-BR", "passed": True, "measurements": len(a)}

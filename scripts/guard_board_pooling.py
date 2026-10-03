@@ -19,8 +19,8 @@ def main():
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("command", nargs=argparse.REMAINDER)
     a = p.parse_args(); budget = json.loads(a.approval.read_text())
-    if not budget["owner_approved_quote"]:
-        raise ValueError("No owner-approved paid quote")
+    if not budget["owner_approved_quote"] or not budget.get("owner_resumed"):
+        raise ValueError("Paid budget approval and owner resume are required after rental deferral")
     command = a.command[1:] if a.command[:1] == ["--"] else a.command
     if not command:
         raise ValueError("A guarded stage command is required")

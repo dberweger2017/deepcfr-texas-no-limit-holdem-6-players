@@ -9,7 +9,7 @@ import numpy as np
 from src.blueprint.hu20_river import public_ranges
 from src.diagnostics.board_pooling import public_line
 from src.diagnostics.board_pooling_policy import DiskAverage, build_index
-from src.diagnostics.board_pooling_features import card_features, shared_codebook, add_pool_keys
+from src.diagnostics.board_pooling_features import card_features, crossfit_codebooks, add_pool_keys
 from src.diagnostics.flop_check import atomic_json, compile_tree, export_policy_tables, gate_k
 from src.diagnostics.saved_hu20 import file_hash
 from src.diagnostics.turn_check import replay_root
@@ -20,6 +20,10 @@ def prepare(plan_path, inputs, out, *, memory_bytes=5 * 1024**3):
     if file_hash(corpus_path) != plan["corpus"]["sha256"]:
         raise ValueError("Frozen corpus hash differs")
     corpus = json.loads(corpus_path.read_text()); roots = corpus["roots"]
+    split_path = Path(plan["crossfit"]["path"])
+    if file_hash(split_path) != plan["crossfit"]["sha256"]:
+        raise ValueError("Frozen crossfit split hash differs")
+    split = json.loads(split_path.read_text())
     if len(roots) != plan["boards"] or len({r["spot"] for r in roots}) != len(roots):
         raise ValueError("Frozen corpus count/uniqueness differs")
     out.mkdir(parents=True, exist_ok=False)
@@ -33,8 +37,9 @@ def prepare(plan_path, inputs, out, *, memory_bytes=5 * 1024**3):
     atomic_json(out / "gate-k.json", key_gate)
     if not key_gate["passed"]:
         raise ValueError("Gate K failed")
-    features, codebook = shared_codebook([card_features(r["board"], plan["equity_histogram_bins"])
-                                         for r in roots], k=plan["equity_k"], seed=plan["equity_cluster_seed"])
+    features, codebook = crossfit_codebooks([card_features(r["board"], plan["equity_histogram_bins"])
+                                         for r in roots], [split["folds"][r["spot"]] for r in roots],
+                                         k=plan["equity_k"], seed=plan["equity_cluster_seed"])
     atomic_json(out / "codebook.json", codebook)
     jobs = []; exclusions = []
     for policy_index, spec in enumerate(plan["policies"]):
@@ -67,6 +72,8 @@ def prepare(plan_path, inputs, out, *, memory_bytes=5 * 1024**3):
             atomic_json(leaf / "request.json", exported)
             jobs.append({"job": job, "spot": record["spot"], "lineage": spec["seed"],
                          "policy_index": policy_index, "board_weight": record["board_weight"],
+                         "evaluation_fold": split["folds"][record["spot"]],
+                         "replay_sample": record["spot"] in split["replay_boards"],
                          "request": str((leaf / "request.json").resolve()),
                          "request_sha256": file_hash(leaf / "request.json"),
                          "compact_sha256": file_hash(leaf / "compact.json")})

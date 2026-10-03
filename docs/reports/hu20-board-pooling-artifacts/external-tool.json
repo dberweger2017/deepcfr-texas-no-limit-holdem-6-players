@@ -1,56 +1,20 @@
 {
-  "external_root": "/Users/dberweger/Local/hu20-board-pooling-tool",
-  "upstream_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
-  "upstream_worktree_status": "",
-  "sources": [
-    {
-      "path": "harness/src/compact.rs",
-      "sha256": "655972fd208db83d6cc282b67752bfda7cca2ddc6efa067260a26acba0cd52d2",
-      "bytes": 10073
-    },
-    {
-      "path": "harness/src/main.rs",
-      "sha256": "40e07ad2cc821fb48eadef41fd3d775e32297d319cfc1214631b08329be8f095",
-      "bytes": 15167
-    },
-    {
-      "path": "harness/src/pooling.rs",
-      "sha256": "39075d9ee582ab1b58cb2b841543c0c984e75a8313e8a530f1ea27fab5aceb38",
-      "bytes": 7067
-    },
-    {
-      "path": "harness/src/weighted.rs",
-      "sha256": "cd18221dc7bc96d0dde3bab79ff72cc0445bc1e3eb66dad91e2693f601975893",
-      "bytes": 2866
-    },
-    {
-      "path": "harness/Cargo.toml",
-      "sha256": "abfb551f1cb3361f8d8b8918d7e397698d8fb04bd45530759ab825e6c21ddcbd",
-      "bytes": 241
-    },
-    {
-      "path": "harness/Cargo.lock",
-      "sha256": "33613db4ada49e23efee77838315e70d91000769ca3da1d4b4f50b62918ca7a2",
-      "bytes": 7916
-    }
-  ],
-  "mac_binary_sha256": "e628adb26ce68437b2e683bf8f6e043e68ce3dc0e61fdd772e0e319451836ab6",
-  "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25) (Homebrew)\nbinary: rustc\ncommit-hash: ac68faa20c58cbccd01ee7208bf3b6e93a7d7f96\ncommit-date: 2026-05-25\nhost: aarch64-apple-darwin\nrelease: 1.96.0\nLLVM version: 22.1.6\n",
   "build_flags": "-A dangerous_implicit_autorefs",
-  "reuse": "original compact mode remains available; AGPL sources/binaries stay external",
+  "external_root": "/Users/dberweger/Local/hu20-board-pooling-tool",
   "linux_binary": "not built; awaits owner-approved pod",
+  "mac_binary_sha256": "4f22f58bd677c6fb46e980c69fcfd14f13cadd850417c0aca711983aaacc7792",
   "preparation_incidents": [
     {
-      "stage": "first-build",
-      "reason": "upstream legacy implicit raw-pointer references rejected by Rust 1.96; same recorded #145 compiler flag required"
+      "reason": "upstream legacy implicit raw-pointer references rejected by Rust 1.96; same recorded #145 compiler flag required",
+      "stage": "first-build"
     },
     {
-      "stage": "pooling-module-build",
-      "reason": "JSON macro indexed array syntax error corrected before any fixture execution"
+      "reason": "JSON macro indexed array syntax error corrected before any fixture execution",
+      "stage": "pooling-module-build"
     },
     {
-      "stage": "two-board-test",
-      "reason": "chosen first fixture had trips while second was unpaired, so no shared card descriptor; replaced with two unpaired predetermined fixtures"
+      "reason": "chosen first fixture had trips while second was unpaired, so no shared card descriptor; replaced with two unpaired predetermined fixtures",
+      "stage": "two-board-test"
     }
   ],
   "reference_sources": [
@@ -74,5 +38,43 @@
       "path": "reference-harness/Cargo.lock",
       "sha256": "33613db4ada49e23efee77838315e70d91000769ca3da1d4b4f50b62918ca7a2"
     }
-  ]
+  ],
+  "reuse": "original compact mode remains available; AGPL sources/binaries stay external",
+  "revision": "two-fold-held-out, fold-fitted codebooks, fresh-tree zero-CFR BR; historical v1 harness/source remains retained separately",
+  "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25) (Homebrew)\nbinary: rustc\ncommit-hash: ac68faa20c58cbccd01ee7208bf3b6e93a7d7f96\ncommit-date: 2026-05-25\nhost: aarch64-apple-darwin\nrelease: 1.96.0\nLLVM version: 22.1.6\n",
+  "sources": [
+    {
+      "bytes": 10073,
+      "path": "harness/src/compact.rs",
+      "sha256": "655972fd208db83d6cc282b67752bfda7cca2ddc6efa067260a26acba0cd52d2"
+    },
+    {
+      "bytes": 15167,
+      "path": "harness/src/main.rs",
+      "sha256": "21ba9c7434671f61493f565ac680e299ccb2c5327f8edfc7e29ac5e815578cf1"
+    },
+    {
+      "bytes": 7067,
+      "path": "harness/src/pooling.rs",
+      "sha256": "e29ca52ba102232763fd710e17d510782ed43c54aad580d18831d949cb43c8df"
+    },
+    {
+      "bytes": 2866,
+      "path": "harness/src/weighted.rs",
+      "sha256": "cd18221dc7bc96d0dde3bab79ff72cc0445bc1e3eb66dad91e2693f601975893"
+    },
+    {
+      "bytes": 241,
+      "path": "harness/Cargo.toml",
+      "sha256": "abfb551f1cb3361f8d8b8918d7e397698d8fb04bd45530759ab825e6c21ddcbd"
+    },
+    {
+      "bytes": 7916,
+      "path": "harness/Cargo.lock",
+      "sha256": "33613db4ada49e23efee77838315e70d91000769ca3da1d4b4f50b62918ca7a2"
+    }
+  ],
+  "tool_root": "/Users/dberweger/Local/hu20-board-pooling-tool-v2",
+  "upstream_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+  "upstream_worktree_status": ""
 }

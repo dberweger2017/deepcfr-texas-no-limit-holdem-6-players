@@ -84,3 +84,20 @@ def readout(bp, local, pooled):
     return {"gap_bb": gap, "board_pooling_difference_bb": pooled - local,
             "placement": position, "classification": label,
             "limitation": "feasible projection losses, not an abstraction lower bound"}
+
+
+def crossfit_policies(records, folds):
+    """Fit evaluation-fold policies using only the opposite frozen half."""
+    if set(folds.values()) != {0, 1}:
+        raise ValueError("Exactly two frozen folds are required")
+    if any(r["spot"] not in folds for r in records):
+        raise ValueError("Root missing from frozen split")
+    result = {}
+    for evaluation_fold in (0, 1):
+        training = [r for r in records if folds[r["spot"]] != evaluation_fold]
+        if not training:
+            raise ValueError("No eligible training roots in a frozen half")
+        policy = pool_statistics(training)
+        result[str(evaluation_fold)] = dict(policy, evaluation_fold=evaluation_fold,
+                training_fold=1-evaluation_fold, training_spots=sorted({r["spot"] for r in training}))
+    return result

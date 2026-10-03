@@ -13,6 +13,8 @@ from src.diagnostics.flop_check import atomic_json
 from src.diagnostics.pooling_runtime import run_portable_tool
 from src.diagnostics.saved_hu20 import file_hash
 from src.diagnostics.turn_check import replay_root
+from src.diagnostics.board_pooling import pool_statistics
+from src.diagnostics.board_pooling_results import statistics, check_lock_only, check_locked_br_parity
 
 
 def parity(binary, fixtures, out):
@@ -70,7 +72,7 @@ def real_v4(binary, plan, prepared, out):
     if file_hash(prepared / "policy-0.sqlite") != index_inventory["index_sha256"]:
         raise ValueError("Immutable pilot index hash differs")
     source = DiskAverage(prepared / "policy-0.sqlite", spec)
-    out.mkdir(parents=True, exist_ok=False); gates = []
+    out.mkdir(parents=True, exist_ok=False); gates = []; locked_seconds = []
     for index, root in enumerate(selected):
         job = next(j for j in manifest["jobs"] if j["spot"] == root["spot"] and j["policy_index"] == 0)
         request = json.loads(Path(job["request"]).read_text()); request.pop("pooling_phase")
@@ -79,7 +81,7 @@ def real_v4(binary, plan, prepared, out):
         request.update(max_iterations=1, progress_every=1, compact_kind="bp-ev")
         path = out / f"pilot-{index}.json"; atomic_json(path, request)
         runtime = run_portable_tool(binary, path, out / f"pilot-{index}",
-            memory_bytes=request["memory_budget_bytes"], threads=1, seconds=600, job_memory_bytes=5 * 1024**3)
+            memory_bytes=request["memory_budget_bytes"], threads=2, seconds=600, job_memory_bytes=5 * 1024**3)
         if runtime["status"] != "completed":
             raise RuntimeError(runtime["failure"])
         response = [json.loads(line) for line in (out / f"pilot-{index}/response.jsonl").read_text().splitlines()]
@@ -97,7 +99,7 @@ def real_v4(binary, plan, prepared, out):
         equilibrium = json.loads(Path(job["request"]).read_text())
         path = out / f"pilot-{index}-equilibrium.json"; atomic_json(path, equilibrium)
         runtime = run_portable_tool(binary, path, out / f"pilot-{index}-equilibrium",
-            memory_bytes=equilibrium["memory_budget_bytes"], threads=1,
+            memory_bytes=equilibrium["memory_budget_bytes"], threads=2,
             seconds=equilibrium["seconds"] + 300, job_memory_bytes=5 * 1024**3)
         if runtime["status"] != "completed":
             raise RuntimeError(runtime["failure"])
@@ -109,8 +111,36 @@ def real_v4(binary, plan, prepared, out):
         atomic_json(out / "gates.json", {"passed": all(g["passed"] for g in gates), "gates": gates})
         if not gates[-1]["passed"]:
             raise ValueError("Real pilot convergence failed")
+        pool_path = out / f"pilot-{index}-pool.json"
+        atomic_json(pool_path, pool_statistics([dict(job, groups=statistics(response))]))
+        measures = [{"metric": name, "projection_metric": projection, "policy_path": str(pool_path.resolve())}
+                    for name, projection in (("e_board_v1", "v1"), ("e_board_eq50", "eq50"),
+                       ("e_cross_v1", "v1"), ("e_cross_eq50", f'eq50-fit{1-job["evaluation_fold"]}'))]
+        fresh = dict(equilibrium, pooling_phase="lock-only", max_iterations=0,
+                     reference_equilibrium_ev_chips=final["current_ev_chips"],
+                     reference_response_sha256=file_hash(out / f"pilot-{index}-equilibrium/response.jsonl"),
+                     pooling_measurements=measures)
+        fresh_path = out / f"pilot-{index}-locked.json"; atomic_json(fresh_path, fresh)
+        locked = run_portable_tool(binary, fresh_path, out / f"pilot-{index}-locked",
+            memory_bytes=fresh["memory_budget_bytes"], threads=2, seconds=fresh["seconds"]+300,
+            job_memory_bytes=5*1024**3)
+        if locked["status"] != "completed":
+            raise RuntimeError(locked["failure"])
+        actual = [json.loads(line) for line in (out / f"pilot-{index}-locked/response.jsonl").read_text().splitlines()]
+        gates.append(check_lock_only(response, actual, fresh["pot"], fresh["reference_response_sha256"]))
+        locked_seconds.append(locked["elapsed_seconds"])
+        replay = dict(fresh, pooling_phase="relock", max_iterations=final["iterations"], target_pct_pot=-1)
+        replay_path = out / f"pilot-{index}-locked-replay.json"; atomic_json(replay_path, replay)
+        replay_runtime = run_portable_tool(binary, replay_path, out / f"pilot-{index}-locked-replay",
+            memory_bytes=replay["memory_budget_bytes"], threads=2, seconds=replay["seconds"]+300,
+            job_memory_bytes=5*1024**3)
+        if replay_runtime["status"] != "completed":
+            raise RuntimeError(replay_runtime["failure"])
+        solved = [json.loads(line) for line in (out / f"pilot-{index}-locked-replay/response.jsonl").read_text().splitlines()]
+        gates.append(check_locked_br_parity(actual, solved, fresh["pot"]))
+        atomic_json(out / "gates.json", {"passed": all(g["passed"] for g in gates), "gates": gates})
     source.db.close(); source.get.cache_clear()
-    return gates
+    return gates, locked_seconds
 
 
 def main():
@@ -124,9 +154,11 @@ def main():
         raise ValueError("Prepared key factorization gate failed")
     gates = [gate_k] + parity(a.binary, a.river_fixtures, a.out / "river-parity")
     gates += singleton(a.binary, a.reference_binary, a.fixture, a.out / "singleton")["gates"]
-    gates += real_v4(a.binary, a.plan, a.prepared, a.out / "real-v4")
+    real_gates, locked_seconds = real_v4(a.binary, a.plan, a.prepared, a.out / "real-v4")
+    gates += real_gates
     atomic_json(a.out / "qualification.json", {"passed": all(g["passed"] for g in gates), "gates": gates,
-                "binary_sha256": file_hash(a.binary), "plan_sha256": file_hash(a.plan)})
+                "binary_sha256": file_hash(a.binary), "plan_sha256": file_hash(a.plan),
+                "lock_only_pilot_seconds": locked_seconds})
 
 
 if __name__ == "__main__":

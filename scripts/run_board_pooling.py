@@ -11,8 +11,9 @@ import subprocess
 import sys
 from time import sleep, time
 
-from src.diagnostics.board_pooling import pool_statistics
-from src.diagnostics.board_pooling_results import completion, statistics, check_replay, common_mask
+from src.diagnostics.board_pooling import pool_statistics, crossfit_policies
+from src.diagnostics.board_pooling_results import (completion, statistics, check_replay, common_mask,
+                                                  check_lock_only, check_locked_br_parity)
 from src.diagnostics.flop_check import atomic_json
 from src.diagnostics.flop_check_runtime import append, rss_for_tree
 from src.diagnostics.pooling_runtime import linux_snapshot, run_linux_tool
@@ -35,10 +36,24 @@ def worker(a):
         raise ValueError("Prepared compact features/policy hash differs")
     destination = a.out / a.phase / job["job"]; destination.mkdir(parents=True, exist_ok=False)
     if a.phase == "relock":
-        first = rows(a.out / "collect" / job["job"] / "solver/response.jsonl")
+        reference_path = a.out / "collect" / job["job"] / "solver/response.jsonl"
+        first = rows(reference_path)
         final = completion(first)
-        request.update(pooling_phase="relock", max_iterations=final["iterations"], target_pct_pot=-1,
-                       pooled_policy_path=str((a.out / "pooled-policy.json").resolve()))
+        fit_fold = 1 - job["evaluation_fold"]
+        shared = str((a.out / "pooled-policy.json").resolve())
+        heldout = str((a.out / f'crossfit-{job["evaluation_fold"]}.json').resolve())
+        request.update(pooling_phase="lock-only", max_iterations=0,
+                       reference_equilibrium_ev_chips=final["current_ev_chips"],
+                       reference_response_sha256=file_hash(reference_path),
+                       pooling_measurements=[
+                           {"metric": "e_cross_v1", "projection_metric": "v1", "policy_path": heldout, "allow_missing": True},
+                           {"metric": "e_cross_eq50", "projection_metric": f"eq50-fit{fit_fold}", "policy_path": heldout, "allow_missing": True},
+                           {"metric": "e_board_v1", "projection_metric": "v1", "policy_path": shared},
+                           {"metric": "e_board_eq50", "projection_metric": "eq50", "policy_path": shared}])
+        inventory = json.loads((a.out / "pool-inventory.json").read_text())
+        for policy_path in (shared, heldout):
+            if file_hash(policy_path) != inventory[Path(policy_path).name]:
+                raise ValueError("Pooled policy hash differs")
     path = destination / "request.json"; atomic_json(path, request)
     runtime = run_linux_tool(a.binary, path, destination / "solver",
                              memory_bytes=budget["arena_bytes"], threads=budget["threads_per_worker"],
@@ -46,14 +61,29 @@ def worker(a):
                              job_memory_bytes=budget["worker_rss_bytes"], initial_swap=budget["swap_baseline_bytes"])
     if runtime["status"] != "completed":
         raise RuntimeError(runtime["failure"])
-    actual = rows(destination / "solver/response.jsonl"); final = completion(actual)
-    gate = check_replay(first, actual, request["pot"]) if a.phase == "relock" else None
+    actual = rows(destination / "solver/response.jsonl"); gates = []
+    if a.phase == "relock":
+        final = actual[-1]
+        gates.append(check_lock_only(first, actual, request["pot"], request["reference_response_sha256"]))
+        if job["replay_sample"]:
+            replay_request = dict(request, pooling_phase="relock", max_iterations=completion(first)["iterations"], target_pct_pot=-1)
+            replay_path = destination / "replay-request.json"; atomic_json(replay_path, replay_request)
+            replay_runtime = run_linux_tool(a.binary, replay_path, destination / "replay-solver",
+                memory_bytes=budget["arena_bytes"], threads=budget["threads_per_worker"],
+                seconds=request["seconds"] + 300, job_memory_bytes=budget["worker_rss_bytes"], initial_swap=budget["swap_baseline_bytes"])
+            if replay_runtime["status"] != "completed":
+                raise RuntimeError(replay_runtime["failure"])
+            replay_rows = rows(destination / "replay-solver/response.jsonl")
+            gates += [check_replay(first, replay_rows, request["pot"]), check_locked_br_parity(actual, replay_rows, request["pot"])]
+    else:
+        final = completion(actual)
     metrics = [r for r in actual if r["event"] == "pooling_metric"]
-    expected = {"e_bp", "e_root_v1"} if a.phase == "collect" else {"e_board_v1", "e_board_eq50"}
-    if {(r["metric"], r["target_solver_seat"]) for r in metrics} != {(m, s) for m in expected for s in (0, 1)} or len(metrics) != 4:
+    expected = {"e_bp", "e_root_v1"} if a.phase == "collect" else {"e_cross_v1", "e_cross_eq50", "e_board_v1", "e_board_eq50"}
+    if {(r["metric"], r["target_solver_seat"]) for r in metrics} != {(m, s) for m in expected for s in (0, 1)} or len(metrics) != 2*len(expected):
         raise ValueError("Missing/duplicate pooled loss measurements")
     atomic_json(destination / "result.json", {"job": job, "eligible": True, "metrics": metrics,
-                "completion": final, "runtime": runtime, "replay_gate": gate})
+                "completion": final, "runtime": runtime, "gates": gates,
+                "replay_gate": {"passed": all(g["passed"] for g in gates), "sampled": job.get("replay_sample", False)}})
 
 
 def stop(processes):
@@ -118,10 +148,12 @@ def parallel(a, jobs, phase, budget):
 
 
 def campaign(a):
+    if json.loads(a.plan.read_text())["format"] != "hu20-board-pooling-plan-v2":
+        raise ValueError("Only the held-out revision-2 protocol is admitted")
     signal.signal(signal.SIGTERM, lambda *_: (_ for _ in ()).throw(SystemExit("Owned campaign stopped")))
     budget = json.loads(a.approval.read_text())
-    if not budget.get("owner_approved_quote") or not budget.get("qualification_passed"):
-        raise ValueError("Owner quote approval and Linux parity/real-export gates are required")
+    if not budget.get("owner_approved_quote") or not budget.get("owner_resumed") or not budget.get("qualification_passed"):
+        raise ValueError("Owner resume, quote approval and Linux parity/real-export gates are required")
     if file_hash(a.binary) != budget["binary_sha256"] or file_hash(a.plan) != budget["plan_sha256"]:
         raise ValueError("Approved binary/protocol fingerprint differs")
     if file_hash(budget["qualification_path"]) != budget["qualification_sha256"]:
@@ -129,6 +161,9 @@ def campaign(a):
     qualification = json.loads(Path(budget["qualification_path"]).read_text())
     if not qualification["passed"] or not all(r["passed"] for r in qualification["gates"]):
         raise ValueError("Qualification gates did not pass")
+    if (qualification["binary_sha256"] != budget["binary_sha256"]
+            or qualification["plan_sha256"] != budget["plan_sha256"]):
+        raise ValueError("Qualification belongs to another binary or protocol")
     pilots = [r["runtime"]["elapsed_seconds"] for r in qualification["gates"] if r["gate"] == "real-pilot-V5"]
     if len(pilots) != 3:
         raise ValueError("Three fixed resource/convergence pilots are required")
@@ -142,7 +177,11 @@ def campaign(a):
     plan = json.loads(a.plan.read_text()); manifest = json.loads((a.prepared / "manifest.json").read_text())
     if manifest["plan_sha256"] != file_hash(a.plan):
         raise ValueError("Prepared plan differs")
-    forecast = 1.5 * max(pilots) * 2 * plan["jobs_total"] / budget["workers"]
+    locked_pilots = qualification["lock_only_pilot_seconds"]
+    if len(locked_pilots) != 3:
+        raise ValueError("Three locked-evaluation timings are required")
+    forecast = 1.5 * (max(pilots)*(plan["jobs_total"]+plan["replay_jobs"])
+                       + max(locked_pilots)*(plan["jobs_total"]+plan["replay_jobs"])) / budget["workers"]
     remaining = budget["rental_deadline_epoch"] - time() - budget["retrieval_shutdown_reserve_seconds"]
     atomic_json(a.out / "forecast-admission.json", {"conservative_main_seconds": forecast,
                 "remaining_main_seconds": remaining, "pilot_seconds": pilots, "passed": forecast <= remaining})
@@ -166,6 +205,15 @@ def campaign(a):
         eligible = [j for j in jobs if j["spot"] in mask["admitted"]]
         records = [dict(j, groups=statistics(rows(a.out / "collect" / j["job"] / "solver/response.jsonl"))) for j in eligible]
         atomic_json(a.out / "pooled-policy.json", pool_statistics(records))
+        split_path = Path(plan["crossfit"]["path"])
+        if file_hash(split_path) != plan["crossfit"]["sha256"]:
+            raise ValueError("Frozen split fingerprint differs")
+        split = json.loads(split_path.read_text())
+        policies = crossfit_policies(records, split["folds"])
+        for fold, policy in policies.items():
+            atomic_json(a.out / f"crossfit-{fold}.json", policy)
+        names = ["pooled-policy.json", "crossfit-0.json", "crossfit-1.json"]
+        atomic_json(a.out / "pool-inventory.json", {name: file_hash(a.out/name) for name in names})
         parallel(a, eligible, "relock", budget)
         atomic_json(a.out / "completion.json", {"status": "completed", "phase1_jobs": len(jobs),
                     "phase2_jobs": len(eligible), "common_boards": len(mask["admitted"]),

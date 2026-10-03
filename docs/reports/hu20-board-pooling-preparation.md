@@ -3,7 +3,7 @@
 No new main solver outcomes and no paid compute. The corpus and thresholds
 were committed in 69b7c02 before new fixture solves. Draft PR #149 retains the
 prospective [protocol](../hu20-board-pooling-protocol.md),
-[pending quote](../hu20-board-pooling-runpod-quote.md) and
+[revised resource quote](../hu20-board-pooling-runpod-quote.md) and
 [execution recipe](../hu20-board-pooling-execution.md).
 
 The 3,000-deal, seed-1 average census selected a limped pot with flop check-check:
@@ -48,7 +48,7 @@ existing flop/turn diagnostic tests passed **36 tests**. Independent tests cover
 two physically different boards sharing a real information key, shared equity
 labels, named-action alignment, disk-policy inference, paired board intervals
 and an incomplete campaign's inability to classify. Linux parity, real-export
-V4 and resource pilots remain pending paid approval, not claimed passed.
+V4 and resource pilots remain pending owner resume and pod availability, not claimed passed.
 
 Retained preparation incidents: the initial compiler rejected legacy upstream
 implicit raw-pointer references; the same recorded #145 compiler flag resolved
@@ -86,3 +86,43 @@ compression comparison both retained negative strength point estimates; do not
 combine their changes into an uncontrolled follow-up or extend v1 to another
 long campaign solely because its visit counts are high. Freeze that follow-up
 protocol and obtain its own compute approval before starting it.
+
+## Prospective revision 2 after owner review
+
+The owner identified optimistic in-sample fitting and redundant re-solving
+before any main values existed. The 40 boards are now split into seeded 20/20
+halves, with six frozen replay boards (three per half), all in
+[crossfit.json](hu20-board-pooling-artifacts/crossfit.json). Primary v1 policies
+fit only opposite-half statistics per lineage; equity-50 codebook centers and
+river edges fit that training half only. Absent/zero-mass training keys use
+uniform probabilities, with fallback coverage reported by street and metric.
+The all-board estimates remain secondary. D's .3/.7 thresholds and .1-BB gap
+floor are unchanged, now applied to held-out P. At least 16 common boards per
+half qualify; incomplete campaigns still cannot classify.
+
+Phase 2 allocates a fresh native tree, locks every target node and computes BR
+with zero CFR iterations. Its reference is phase 1's hash-linked equilibrium
+EV, not the fresh profile's EV. Only 18 frozen jobs re-solve; their EV, residual,
+statistics and all locked measurements must match. The reporter separates six
+losses, primary/secondary ratios and fallback reach. The single-pod scheduler
+interleaves lineages across four two-thread workers under measured admission.
+
+The revised [13 Mac gates](hu20-board-pooling-artifacts/mac-crossfit-gates.json)
+pass against the retained #145 fixture, including all eight locked measurements,
+zero-iteration reference linkage and absent-key fallback parity against a solved
+tree. The Python diagnostic suite now passes **42 tests**, including held-out
+action-mass/feature leakage checks and paused-production/billing-lease guards.
+The revised external tool is retained separately in
+`/Users/dberweger/Local/hu20-board-pooling-tool-v2`; the original remains intact.
+Its [source archive](hu20-board-pooling-artifacts/external-source-archive.json)
+and [Mac build receipt](hu20-board-pooling-artifacts/mac-build-v2-verified.json)
+are fingerprinted without putting Rust sources in this MIT repo.
+
+The owner first approved $5 and requested immediate reservation, then withdrew
+that instruction before any pod was deployed. The final recommendation is one
+3-GHz General Purpose 8-vCPU/32-GB pod, listed at $0.32/hour plus $0.014/hour
+for 100 GB disk, currently unavailable. The $5 ceiling remains recorded; the
+12-hour maximum includes two hours for retrieval/shutdown and all setup/idle
+time. Code preparation is complete; Linux parity/real-export/resource gates
+and provider access/retrieval qualification await owner resume. No automatic
+reservation, paid process, training, M4 work or promotion was started.

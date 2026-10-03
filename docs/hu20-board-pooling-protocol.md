@@ -1,8 +1,13 @@
 # HU20 cross-board pooling protocol
 
-Frozen before any new solver outcomes. The machine-readable plan is
+Revision 2 prospectively amends the original freeze before any main outcomes.
+The owner requested two-fold held-out fitting and lock-only evaluation on
+October 3. Tiny fixture outcomes validate engineering only and did not choose
+the split, replay sample or analysis thresholds. The machine-readable plan is
 [hu20-board-pooling.json](../configs/diagnostics/hu20-board-pooling.json).
-Paid execution remains unapproved; the separate quote must be approved first.
+The owner approved a $5 ceiling, then deferred renting until code preparation
+is complete and the recommended shape is available. No pod was deployed.
+The quote records this deferral; preparation does not authorize a rental now.
 No training, promotion or automatic merge. M4 belongs to #148 and is not used.
 M1 is limited to development, short tests and the solver-free companion.
 
@@ -45,7 +50,7 @@ export's preflop policy, exactly as #145. Normalize as that function does; do no
 substitute empirical ranges. Evaluate both target seats, average seats equally,
 and average the three lineages equally within each board for the pooled readout.
 
-## Four losses
+## Primary and secondary losses
 
 Every loss is responder best-response value minus responder equilibrium value,
 in BB=100 chips and percent root pot. Report achieved exploitability and each
@@ -55,18 +60,28 @@ cap, menu approximation or off-menu action translation is admitted.
 1. **e_bp:** target locked to the actual immutable average export.
 2. **e_root_v1:** own-range/own-equilibrium-action-reach projection onto actual
    full v1 keys within one root, pooling aliased public lines and river runouts.
-3. **e_board_v1:** the same sufficient statistics, multiplied by board weight
-   once, pooled across common eligible boards **per lineage and actual full v1
-   hash**. Expand that one resulting policy back onto every root, then compute
-   the best response there. Positive and zero reach contexts share the same key
-   policy; globally zero mass uses uniform probabilities in the actual menu.
-4. **e_board_eq50:** analogous pooling onto one shared equity codebook. Compute
-   exact uniform-opponent turn histograms (20 bins), fit one K=50 mean-centroid
-   clustering with cumulative-L1/EMD assignment across all 40 boards' compatible
-   holdings (seed 202610030305), and one shared river equity-quantile edge set.
-   Equal histograms/equities get equal labels. Independent per-root bucket
-   numbering is forbidden. These features are outcome-free and frozen before
-   equilibrium values; the codebook is shared across lineages.
+3. **e_cross_v1 (primary P):** split the 40 boards into two seeded, frozen
+   halves of 20. For each evaluation half, pool the other half's sufficient
+   statistics **per lineage and actual full v1 hash**, multiplying board weight
+   once. No evaluation-half action masses enter that policy. Apply it to the
+   held-out roots and compute responder best responses. Fit the opposite
+   direction and swap. The [split and replay sample](reports/hu20-board-pooling-artifacts/crossfit.json)
+   records seeds 202610030307–309 and its hash is pinned in the plan.
+   Positive/zero-reach contexts share the fitted policy. A key absent from the
+   training half, or with globally zero training mass, uses uniform
+   probabilities in its actual menu. Record missing-key coverage and target
+   reach mass; never fill it from the evaluation half or blueprint.
+4. **e_cross_eq50:** the same held-out policy procedure with a K=50 codebook
+   fitted on the training half only: exact uniform-opponent turn histograms
+   (20 bins), mean-centroid cumulative-L1/EMD clustering, and shared river
+   equity-quantile edges. Assign held-out features using those frozen centers
+   and edges. Equal features receive equal labels; independent per-root bucket
+   numbering is forbidden. Seeds are 202610030305 plus training-fold index;
+   codebooks are shared across lineages. No held-out features fit centers/edges.
+5. **e_board_v1 / e_board_eq50 (secondary):** fit and evaluate on all common
+   eligible boards, preserving the original optimistic in-sample comparator.
+   Use a separate all-board codebook with seed 202610030305; never mix these
+   estimates into the held-out primary D.
 
 The template retains street, relative actor, complete v1 history and menu names.
 Pool action masses by name, never by an unchecked solver index. Chance constants
@@ -101,13 +116,33 @@ floating probability/EV/statistic parity tolerance is 1e-5 of root pot (EV)
 and 2e-5 absolute (probabilities / normalized masses).
 
 Avoid enormous per-hand profile dumps or game snapshots. Phase 1 solves each
-root/lineage and atomically writes sufficient statistics and local losses.
-After all 120 outcomes, freeze the common eligibility mask using only support,
-gates and convergence. Build pooled policies on that mask. Phase 2 deterministically
-replays each eligible solve to its phase-1 iteration count with identical
-binary, compression and thread count; verify equilibrium EV, residual and
-sufficient statistics against phase 1 before any pooled loss counts. Keep both
-raw responses. Replay mismatch is a mandatory stop, not a relaxed tolerance.
+root/lineage once and atomically writes sufficient statistics, local losses,
+equilibrium EV and convergence evidence. After all 120 outcomes, freeze the
+common eligibility mask using only support, gates and convergence. Fit both
+training-half policies and the secondary all-board policy on that common mask.
+
+Phase 2 builds each native tree anew, allocates under the same budget, locks
+the target policy at every target node and calls `compute_mes_ev` with **zero
+CFR iterations**. Subtract the responder's hash-linked phase-1 equilibrium EV;
+no fresh uniform-profile EV is an equilibrium reference. BR against the fully
+locked target must not depend on the responder's strategy. Validate this
+against solved-tree BR on fixtures, including both responder seats.
+
+The frozen replay sample has three boards per half, six boards × three
+lineages = 18/120 jobs (15%). Deterministically re-solve only these jobs with
+the original iteration count, binary, compression and thread count; compare
+EV, residual, sufficient statistics and all lock-only BR measurements. Preserve
+both responses. A mismatch stops the campaign without relaxing tolerances.
+No replacement replay root after outcomes; a support-excluded sampled root is
+recorded as excluded. Lock-only completion is labelled evaluated, never solved;
+its convergence qualification is inherited explicitly from phase 1.
+
+The owner subsequently requested the most efficient single-pod plan and
+deferred rental. Use one General Purpose 8-vCPU / 32-GB pod and four independent
+workers, two Rayon threads each, only after measured memory admission. Each
+worker owns one root/lineage job; the coordinator waits for all phase-1 results
+before fitting the common mask and distributing hash-pinned pooled policies.
+Any worker guard/gate failure stops all owned work.
 
 Parallel independent workers only after measured cgroup/RSS admission. Inspect
 memory estimates before allocation; compression then nonzero range trimming
@@ -116,19 +151,21 @@ quote clock/cost exhaustion or oversize root stops owned production and
 preserves partial evidence. No automatic restart. OS and aggregate worker
 limits, worker count, disk, hard clock and retrieval/shutdown reserves belong
 in the owner-approved resource quote. Never bypass guards to fill the corpus.
-Interleave boards and lineages with seed 202610030306. Keep atomic results,
+Interleave boards and lineages with seed 202610030306; record actual worker
+progress/order. Keep atomic results,
 append-only progress, failures, RSS/memory/CPU and the unreset rental clock.
 
 ## Frozen analysis and thresholds
 
 Only boards eligible and completed across all three exports enter primary
 inference. Require the complete frozen campaign, at least 32/40 common boards
-and >=80% frozen board weight. Otherwise report descriptive values and no
+and >=80% frozen board weight, including at least 16 common boards in each
+frozen half. Otherwise report descriptive values and no
 hypothesis decision. Record all missing/excluded/oversize roots without
-replacement, and the reason and retained weight. This mask is common to all
-four loss estimates and to the pooled policy fit.
+replacement, and the reason and retained weight. This mask is common to all loss estimates; each held-out policy fit uses
+only the opposite half of that mask.
 
-Let B, L, P be weighted means of e_bp, e_root_v1 and e_board_v1. The placement
+Let B, L, P be weighted means of e_bp, e_root_v1 and **e_cross_v1** (held-out). The placement
 is D=(P-L)/(B-L), defined only when B-L>=0.1 BB. D>=0.7 is board-pooling
 consistent; D<=0.3 is trainer/coverage consistent; otherwise mixed. Below the
 gap floor no attribution is made. Report signed P-L, B-P, all BB/pot means,
@@ -139,7 +176,7 @@ causal decomposition or high P as proof that the abstraction cannot improve.
 Bootstrap independent boards 2,000 times with seed 202610030304, preserving
 lineage/seat pairing and board weights; use ratios of weighted means. Report
 pooled, lineage and seat results. Intervals are **conditional on the fitted
-pooled policy/codebook**, which are not refit and re-solved in every bootstrap
+two training-half policies/codebooks**, which are not refit and re-solved in every bootstrap
 draw. They do not include policy-fitting uncertainty. Classification uses the
 frozen point thresholds; show intervals and whether they cross thresholds.
 
@@ -162,8 +199,12 @@ values cannot answer the flop question, inherited aliases across other root
 lines, full-game strength or which trainer mechanism is faulty. Both projections
 are feasible witnesses on the sampled corpus, not abstraction equilibria or
 lower bounds. Corpus-fitted equity buckets are more favorable than fixed global
-blueprint buckets. The same boards fit and evaluate the pooled policy; report
-this in-sample scope rather than claiming held-out generalization.
+blueprint buckets. Primary policies are fitted on one half and evaluated on the other. This
+removes direct action-value fitting leakage for the 40-board sample, but does
+not establish coverage of all boards or independent uncertainty across fitted
+policies. Report the optimistic all-board comparator separately. Absent-key
+fallback can increase held-out loss; show its coverage rather than treating
+that increase as an abstraction lower bound.
 
 Retrieve all raw attempts, results, fingerprints and resources, verify member
 hashes against the remote manifest, then terminate the owned pod and its

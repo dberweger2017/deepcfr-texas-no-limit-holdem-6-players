@@ -133,7 +133,7 @@ def test_report_bootstraps_paired_boards_and_ratio_of_means():
     for spot, bp in (("a", 1.), ("b", 9.)):
         for lineage in (1, 2, 3):
             for seat in (0, 1):
-                values = {"e_bp": bp, "e_root_v1": .2 * bp, "e_board_v1": .6 * bp, "e_board_eq50": .3 * bp}
+                values = {"e_bp": bp, "e_root_v1": .2 * bp, "e_cross_v1": .6 * bp, "e_cross_eq50": .3 * bp, "e_board_v1": .4 * bp, "e_board_eq50": .2 * bp}
                 rows.append({"spot": spot, "board_weight": 1., "lineage": lineage, "seat": seat,
                              **values, **{k + "_pct_pot": v * 50 for k, v in values.items()}})
     result = summarize(rows, resamples=100)
@@ -149,12 +149,107 @@ def test_incomplete_campaign_report_cannot_classify(tmp_path):
     from scripts.report_board_pooling import report
     corpus = tmp_path / "corpus.json"
     corpus.write_text(json.dumps({"roots": [{"spot": "a", "board_weight": 1.}]}))
+    split = tmp_path / "split.json"
+    split.write_text(json.dumps({"folds": {"a": 0}}))
     plan = tmp_path / "plan.json"
     plan.write_text(json.dumps({"corpus": {"path": str(corpus), "sha256": file_hash(corpus)},
                               "policies": [{"seed": s} for s in (1, 2, 3)], "bootstrap_seed": 1,
                               "bootstrap_resamples": 20, "minimum_common_boards": 32,
-                              "minimum_common_board_weight_fraction": .8}))
+                              "minimum_common_board_weight_fraction": .8, "minimum_common_boards_per_fold": 16,
+                              "crossfit": {"path": str(split), "sha256": file_hash(split)}}))
     run = tmp_path / "run"; run.mkdir()
     result = report(plan, run, tmp_path / "report")
     assert result["common_boards"] == 0
     assert result["classification"] == "incomplete or insufficient common coverage; no hypothesis decision"
+
+
+def test_crossfit_never_uses_evaluation_half_action_masses():
+    from copy import deepcopy
+    from src.diagnostics.board_pooling import crossfit_policies
+    rows = [{"lineage": 1, "spot": spot, "board_weight": 1,
+             "groups": [{"metric": "v1", "key": "shared", "names": ["fold", "call"],
+                         "mass": 1, "action_mass": action}]}
+            for spot, action in (("a", [1, 0]), ("b", [0, 1]))]
+    split = {"a": 0, "b": 1}
+    policies = crossfit_policies(rows, split)
+    assert policies["0"]["groups"][0]["probabilities"] == [0, 1]
+    assert policies["1"]["groups"][0]["probabilities"] == [1, 0]
+    changed = deepcopy(rows); changed[0]["groups"][0]["action_mass"] = [.2, .8]
+    assert crossfit_policies(changed, split)["0"] == policies["0"]
+    assert policies["0"]["training_spots"] == ["b"]
+
+
+def test_frozen_crossfit_split_and_replay_inventory():
+    import json
+    from pathlib import Path
+    from src.diagnostics.saved_hu20 import file_hash
+    plan = json.loads(Path("configs/diagnostics/hu20-board-pooling.json").read_text())
+    path = Path(plan["crossfit"]["path"])
+    assert file_hash(path) == plan["crossfit"]["sha256"]
+    frozen = json.loads(path.read_text())
+    assert sorted(frozen["folds"].values()).count(0) == 20
+    assert sorted(frozen["folds"].values()).count(1) == 20
+    assert len(set(frozen["replay_boards"])) == 6
+    assert [sum(frozen["folds"][s] == f for s in frozen["replay_boards"]) for f in (0, 1)] == [3, 3]
+    assert frozen["replay_jobs"] == plan["replay_jobs"] == 18
+
+
+def test_heldout_features_cannot_change_training_codebook():
+    import numpy as np
+    from copy import deepcopy
+    from src.diagnostics.board_pooling_features import crossfit_codebooks
+    def feature(hist, equity):
+        return {"board": [], "boards": [], "holdings": [["a", "b"], ["c", "d"]],
+                "histograms": np.asarray(hist), "codes": np.zeros((2, 2), dtype=int),
+                "river_equity": np.asarray([equity])}
+    features = [feature([[1., 0.], [0., 1.]], [.1, .9]), feature([[.5, .5], [.2, .8]], [.4, .6])]
+    _, original = crossfit_codebooks(features, [0, 1], k=2, seed=7)
+    changed = deepcopy(features)
+    changed[1]["histograms"] = np.asarray([[.9, .1], [.8, .2]])
+    changed[1]["river_equity"] = np.asarray([[.8, .9]])
+    _, result = crossfit_codebooks(changed, [0, 1], k=2, seed=7)
+    assert result["0"] == original["0"]
+    assert result["1"] != original["1"]
+
+
+def test_lock_only_requires_hash_linked_equilibrium_not_uniform_ev():
+    from src.diagnostics.board_pooling_results import check_lock_only
+    reference = [{"event": "gate", "gate": "V1", "passed": True},
+                 {"event": "completion", "status": "solved", "iterations": 20,
+                  "current_ev_chips": [20., -20.], "exploitability_pct_pot": .1}]
+    fresh = [{"event": "gate", "gate": "V1", "passed": True},
+             {"event": "pooling_metric", "target_solver_seat": 0, "responder_br_chips": 30.,
+              "reference_responder_value_chips": -20., "gain_bb": .5, "gain_pct_pot": 25.},
+             {"event": "completion", "status": "locked-evaluated", "iterations": 0,
+              "reference_equilibrium_ev_chips": [20., -20.], "reference_response_sha256": "fixed"}]
+    assert check_lock_only(reference, fresh, 200, "fixed")["passed"]
+    with pytest.raises(ValueError, match="reference"):
+        check_lock_only(reference, fresh, 200, "different")
+    fresh[-1]["reference_equilibrium_ev_chips"] = [0., 0.]
+    with pytest.raises(ValueError, match="reference"):
+        check_lock_only(reference, fresh, 200, "fixed")
+
+
+def test_provider_lease_respects_pause_clock_and_fee_reserve():
+    from scripts.watch_board_pooling_rental import validate_lease
+    quote = {"maximum_hours": 12, "rate_ceiling_usd_per_hour": .34, "total_cap_usd": 5}
+    lease = {"owner_resumed": True, "owner_approved_quote": True, "name": "one-owned-pod",
+             "cpu_id": "qualified-cpu", "started": 100, "deadline": 43300,
+             "upper_rate": .34, "fee_reserve_usd": .92}
+    validate_lease(lease, quote)
+    for change in ({"owner_resumed": False}, {"deadline": 43301},
+                   {"upper_rate": .35}, {"fee_reserve_usd": .1}):
+        with pytest.raises(ValueError, match="lease"):
+            validate_lease(dict(lease, **change), quote)
+
+
+def test_paused_production_never_reaches_machine_or_solver(tmp_path, monkeypatch):
+    import json
+    from argparse import Namespace
+    import scripts.run_board_pooling as runner
+    plan = tmp_path / "plan.json"; plan.write_text(json.dumps({"format": "hu20-board-pooling-plan-v2"}))
+    approval = tmp_path / "approval.json"
+    approval.write_text(json.dumps({"owner_approved_quote": True, "owner_resumed": False, "qualification_passed": True}))
+    monkeypatch.setattr(runner, "linux_snapshot", lambda: pytest.fail("Paused work inspected production machine"))
+    with pytest.raises(ValueError, match="required"):
+        runner.campaign(Namespace(plan=plan, approval=approval))
