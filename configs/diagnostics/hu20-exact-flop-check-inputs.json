@@ -1,0 +1,53 @@
+{
+  "format": "hu20-exact-flop-check-inputs-v1",
+  "policies": [
+    {
+      "name": "B-2026093001-500000000",
+      "path": "B-2026093001-500000000.policy.json.gz",
+      "sha256": "e0dfb7c0a0ebde1e8a904fce89481919f4e9b32a633b912e88d241d039e69628",
+      "seed": 2026093001,
+      "strategy": "current"
+    },
+    {
+      "name": "B-2026093002-500000000",
+      "path": "B-2026093002-500000000.policy.json.gz",
+      "sha256": "67427db96fb3d1aba3570e0235bb368a81e129978ff1a3e4c6e083b162563456",
+      "seed": 2026093002,
+      "strategy": "current"
+    },
+    {
+      "name": "B-2026093003-500000000",
+      "path": "B-2026093003-500000000.policy.json.gz",
+      "sha256": "bcf7ca319b95688a0d8fcd15536b04b311310feacefdc6fff81221304662d083",
+      "seed": 2026093003,
+      "strategy": "current"
+    },
+    {
+      "name": "B-2026093001-500000000-stored-average",
+      "path": "B-2026093001-500000000.average.jsonl.gz",
+      "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+      "seed": 2026093001,
+      "strategy": "stored-average"
+    },
+    {
+      "name": "B-2026093002-500000000-stored-average",
+      "path": "B-2026093002-500000000.average.jsonl.gz",
+      "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d",
+      "seed": 2026093002,
+      "strategy": "stored-average"
+    },
+    {
+      "name": "B-2026093003-500000000-stored-average",
+      "path": "B-2026093003-500000000.average.jsonl.gz",
+      "sha256": "c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285",
+      "seed": 2026093003,
+      "strategy": "stored-average"
+    }
+  ],
+  "stored_hands": {
+    "2026093001/evaluation/hands.jsonl.gz": "81c82e2d914b28c57dc49134a5653562aeaf63e0590e2d3bcc8ecf8094f8a5d2",
+    "2026093002/evaluation/hands.jsonl.gz": "7e5366049b0657a30f1b5b0391daab40c428cc1004947e10109271a9ab43e0bc",
+    "2026093003/evaluation/hands.jsonl.gz": "2af3e4bff4ca29da2921ed5e848b2c077fe46468d1fc4f43fd5b1cdce15b1b82"
+  },
+  "source": "#141 audited extraction and #143 fold-posthoc hashes"
+}

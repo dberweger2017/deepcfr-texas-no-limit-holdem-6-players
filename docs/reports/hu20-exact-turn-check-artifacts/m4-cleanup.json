@@ -1,0 +1,44 @@
+{
+  "archive_verification": {
+    "archive": "/Users/dberweger/Local/hu20-m4-archive-20261002",
+    "bytes": 3152458858,
+    "mismatches": [],
+    "original_roots": [
+      "/Users/dberweger/Local/hu20-exact-flop-check-20261001",
+      "/Users/dberweger/Local/hu20-exact-flop-check-inputs",
+      "/Users/dberweger/Local/hu20-exact-flop-tool",
+      "/Users/dberweger/Local/deepcfr-training/results/tensorboard-m4-continuous/hu20-exact-turn-check-20261002"
+    ],
+    "records": 3103,
+    "source_manifest_sha256": "bdcbe77e115bbea246ecb77f5a17112ec26649cfac4c75ecdfdeeadfd6475cd0",
+    "verified": true
+  },
+  "cleanup": {
+    "all_absent": true,
+    "automatic_resume": false,
+    "deleted_roots": [
+      "/Users/dberweger/Local/hu20-exact-flop-check-20261001",
+      "/Users/dberweger/Local/hu20-exact-flop-check-inputs",
+      "/Users/dberweger/Local/hu20-exact-flop-tool",
+      "/Users/dberweger/Local/deepcfr-training/results/tensorboard-m4-continuous/hu20-exact-turn-check-20261002"
+    ],
+    "preserved_services": [
+      {
+        "alive": true,
+        "pid": 54306
+      },
+      {
+        "alive": true,
+        "pid": 91174
+      },
+      {
+        "alive": true,
+        "pid": 69648
+      },
+      {
+        "alive": true,
+        "pid": 70614
+      }
+    ]
+  }
+}

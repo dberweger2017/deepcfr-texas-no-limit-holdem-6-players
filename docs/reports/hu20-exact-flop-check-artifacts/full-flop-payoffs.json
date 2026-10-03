@@ -1,0 +1,1 @@
+{"gates": [{"coverage": "multi-street non-all-in betting and early all-in fixed runouts", "gate": "V2", "integer_chip_mismatches": 0, "kind": "short-spr-full-flop", "maximum_float_chip_error": 7.942915544845164e-05, "passed": true, "public_nodes": 1177, "samples": 1000, "terminal_types": {"fold": 489, "showdown": 511}}]}
