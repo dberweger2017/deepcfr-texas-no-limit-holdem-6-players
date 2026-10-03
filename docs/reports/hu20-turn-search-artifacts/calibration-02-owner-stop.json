@@ -1,0 +1,59 @@
+{
+  "status": "owner-approved-clean-stop; forecast-blocked; no restart",
+  "owner_decision_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148#issuecomment-5967372814",
+  "running_source": "410541962eacce2ecd2bb31e966b8e7e0b2a3a4b",
+  "protocol_sha256": "5db4cd937d1138770940a9a27d5586846643b8cdbf9d3a0d6a93e22f717bafab",
+  "rows_by_stage": {
+    "screen": 238
+  },
+  "rows_by_menu": {
+    "native": 128,
+    "cap2": 110
+  },
+  "fallback_causes": {
+    "timeout": 64
+  },
+  "failure_causes": {
+    "timeout": 64,
+    "reduced_full_native_evaluation_unavailable": 110
+  },
+  "missing_screen_rows": 18,
+  "final_rows": 0,
+  "selected": null,
+  "stop_reason": "RuntimeError: Experiment interrupted by signal 15; retain partial evidence",
+  "calibration_seconds_charged": 6312.986627042061,
+  "journal_used_seconds": 12053.465135375325,
+  "journal_remaining_seconds": 74346.53486462467,
+  "stop_request": {
+    "active": {
+      "elapsed_seconds": 6305.303057833109,
+      "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+      "phase": "calibration",
+      "pid": 18889,
+      "started_at": 1791011401.503895,
+      "swap_baseline_bytes": 901513216
+    },
+    "budget_used_seconds": 5740.478508333264,
+    "checked_at": 1791017712.916924,
+    "owner_decision_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148#issuecomment-5967372814",
+    "rows_by_stage": {
+      "screen": 238
+    }
+  },
+  "owned_processes_exited": true,
+  "swap_bytes_after_stop": 901513216,
+  "guard_failure": false,
+  "raw_m4": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-02",
+  "verified_m1_copy": "/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-02-owner-stop",
+  "verification": {
+    "manifest_members": 1752,
+    "bytes": 1614849743,
+    "all_hashes_match": true,
+    "verified_on": "M1",
+    "manifest_sha256": "f4baa507749e4765d09d85a7659d9919efce19eb15348d8ad9f369e69c322874"
+  },
+  "curve_sha256": "4cc4391960a09a7d8b0c4fbd302054c1780cb805e82aa093185331c943ac8eae",
+  "reference_coordinates_per_config": 288,
+  "selection_outcome_fields_used": [],
+  "screen_residuals_retained_but_not_used_for_forecast": true
+}

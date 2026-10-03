@@ -355,6 +355,7 @@ def test_unlocked_turn_requests_and_full_matrices_are_identical_for_both_seats_a
         np.testing.assert_array_equal(a.probabilities,b.probabilities)
     altered=dict(results[1].request,locks=[{'line':[]}])
     assert not requests_shareable(results[0].request,altered)
+    assert not requests_shareable(results[0].request,dict(results[0].request,seconds=1))
 
 
 def test_opponent_only_floor_can_make_unlocked_requests_seat_dependent():

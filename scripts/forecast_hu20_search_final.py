@@ -10,9 +10,7 @@ def requests_shareable(left, right):
     """Only identical unlocked requests may share a full solve across bot seats."""
     if left.get('locks') or right.get('locks'):
         return False
-    transport = {'seconds', 'dump_path'}
-    return ({k: v for k, v in left.items() if k not in transport}
-            == {k: v for k, v in right.items() if k not in transport})
+    return left == right
 
 
 def budget_forecast(screen, *, used_seconds, reference_pairs=144, reserve_seconds=10800):
