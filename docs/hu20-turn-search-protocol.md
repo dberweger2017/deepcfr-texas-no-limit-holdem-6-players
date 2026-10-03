@@ -1,6 +1,6 @@
 # HU20 average-policy play and turn/river search
 
-Owner-approved protocol, October 2, 2026. No outcomes have been generated for this task.
+Owner-approved protocol, October 2, 2026. Declared before final Part A, calibration or arena outcomes; the separate timing pilot retains outcomes but excludes them from sizing and base selection.
 
 ## Sequencing and resources
 
@@ -12,7 +12,7 @@ The new task has 24 cumulative M4 compute hours including pilots, failed attempt
 
 [Planned inputs and counts](../configs/diagnostics/hu20-turn-search-part-a.json) reuse the six #141 exports and all 13 opponent definitions: 2,048 paired blocks each for original-cap2 bounded LBR and native pressure, 256 for every other panel. Three lineages, both positions and current/average yield 82,944 hands. Root 202610020801 is reserved; pilot 202610020802 and arena 202610020803 are disjoint. Verify against prior manifests before admission.
 
-Prior primary SD is 317.8 BB/100 at the independent shared-deal-block level. Target 80% power for 20 BB/100 at two-sided alpha .05; the normal approximation needs 1,982 blocks. Compute noncentral-t power for the actual frozen count. A separate timing pilot excludes payoffs from sizing. Freeze counts before final outcomes; use 1.5x timing headroom and the largest balanced primary count fitting six hours if 2,048 does not fit. Do not extend after outcomes.
+Prior primary SD is 317.8 BB/100 at the independent shared-deal-block level. Target 80% power for 20 BB/100 at two-sided alpha .05; the normal approximation needs 1,982 blocks. Compute noncentral-t power for the actual frozen count. A separate timing pilot excludes payoffs from sizing. Freeze counts before final outcomes; use 1.5x timing headroom and the largest balanced primary count fitting six hours if 2,048 does not fit. Do not extend after outcomes. The outcome-excluded M4 pilot now freezes 1,557 primary blocks (69.91% expected power), with secondary counts unchanged; see [the timing freeze](reports/hu20-turn-search-artifacts/part-a-timing-freeze.json).
 
 Average is the default. Switch all lineages to current only when the paired 95% upper bound of average-minus-current is below -10 BB/100 for LBR, -20 for native pressure, or -10 for selective-stackoff. Average lineage contrasts within shared deal blocks before Student-t intervals. Publish all outcomes, seed/position details and decision before arena execution. Zero average mass remains uniform and separate from missing-key fallback.
 
