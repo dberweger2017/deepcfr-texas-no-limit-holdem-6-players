@@ -340,3 +340,35 @@ def test_research_deadline_is_explicit_and_bounded():
     assert TurnSearchConfig(decision_seconds=120).decision_seconds==120
     assert TurnSearchConfig().decision_seconds==30
     with pytest.raises(ValueError):TurnSearchConfig(decision_seconds=121)
+
+
+def test_unlocked_turn_requests_and_full_matrices_are_identical_for_both_seats_at_epsilon_zero():
+    from scripts.forecast_hu20_search_final import requests_shareable
+    hand=fixture();solvers=[FakeSolver(),FakeSolver()]
+    policies=[HU20TurnSearchPolicy(Uniform(),s,TurnSearchConfig(opponent_likelihood_floor=0)) for s in solvers]
+    results=[p._resolve(hand.events,bot,monotonic()+30) for bot,p in enumerate(policies)]
+    assert requests_shareable(results[0].request,results[1].request)
+    assert results[0].request==results[1].request and not results[0].request['locks']
+    for key in results[0].profiles:
+        a,b=results[0].profiles[key],results[1].profiles[key]
+        assert a.menu==b.menu and a.holdings==b.holdings
+        np.testing.assert_array_equal(a.probabilities,b.probabilities)
+    altered=dict(results[1].request,locks=[{'line':[]}])
+    assert not requests_shareable(results[0].request,altered)
+
+
+def test_opponent_only_floor_can_make_unlocked_requests_seat_dependent():
+    from scripts.forecast_hu20_search_final import requests_shareable
+    class RareAction(Uniform):
+        def distribution(self,view):
+            menu,_,trained=super().distribution(view)
+            if all(c.action.kind!=ActionKind.CALL for c in menu):
+                return menu,(1/len(menu),)*len(menu),trained
+            rare=.001 if any(c.startswith('2') for c in view.hole_cards) else .02
+            other=sum(c.action.kind!=ActionKind.CALL for c in menu)
+            p=[rare if c.action.kind==ActionKind.CALL else (1-rare)/other for c in menu]
+            return menu,tuple(p),trained
+    root=fixture(deep=True).events
+    results=[HU20TurnSearchPolicy(RareAction(),FakeSolver(),TurnSearchConfig(opponent_likelihood_floor=.01))._resolve(
+        root,bot,monotonic()+30) for bot in (0,1)]
+    assert not requests_shareable(results[0].request,results[1].request)

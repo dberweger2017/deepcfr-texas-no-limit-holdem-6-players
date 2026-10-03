@@ -231,3 +231,25 @@ File-backed pages: 327680.
     validate_admission(a,now=1001)
     a["sidecar_reserved_bytes"]=20*1024**3
     with pytest.raises(ValueError):validate_admission(a,now=1001)
+
+
+def test_final_forecast_counts_quality_and_conditional_research_work_without_using_outcomes():
+    from scripts.forecast_hu20_search_final import budget_forecast
+    rows=[]
+    for floor in (0,.01):
+        for thread in (4,6):
+            config=asdict(TurnSearchConfig(threads=thread,opponent_likelihood_floor=floor))
+            for n in range(8):
+                rows.append({'configuration_id':f'{floor}/{thread}','config':config,
+                    'cold_seconds':20 if thread==6 else 25,'fallback':False,
+                    'receipts':[{'seconds':19},{'seconds':22}], 'residual_pct_pot':999})
+    result=budget_forecast(rows,used_seconds=12000)
+    assert result['status']=='owner-decision-needed' and result['outcome_fields_used']==[]
+    one=result['options'][1]
+    assert one['phases'][0]['entries'][0]['iterations']==[25,50,100]
+    assert one['phases'][1]['entries'][0]['iterations']==[25,50,100,200,400]
+    assert one['phases'][0]['entries'][0]['unique_solves_per_iteration']==144
+    assert one['phases'][0]['entries'][1]['unique_solves_per_iteration']==288
+    assert one['phases'][0]['quality_seconds']>0 and one['river_reserve_seconds']==10800
+    for r in rows:r['residual_pct_pot']=0
+    assert budget_forecast(rows,used_seconds=12000)==result
