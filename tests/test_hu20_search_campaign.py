@@ -214,3 +214,20 @@ def test_native_allocation_reserves_measured_family_rss_and_overhead(monkeypatch
     monkeypatch.setattr(runtime,'owned_rss',lambda:4*gib)
     assert runtime.native_allocation_budget(budget,5*gib)==0
     assert len(checked)==3
+
+
+def test_cache_inclusive_readmission_records_components_and_sidecar():
+    from scripts.hu20_search_runtime import macos_memory_admission
+    vm="""Mach Virtual Memory Statistics: (page size of 16384 bytes)
+Pages free: 131072.
+Pages inactive: 327680.
+Pages speculative: 8192.
+File-backed pages: 327680.
+"""
+    measured=macos_memory_admission(vm)
+    assert measured["reclaimable_bytes"]==sum(measured["memory_components_bytes"].values())
+    assert measured["rss_limit_bytes"]==8*1024**3
+    a=dict(admission(),**measured)
+    validate_admission(a,now=1001)
+    a["sidecar_reserved_bytes"]=20*1024**3
+    with pytest.raises(ValueError):validate_admission(a,now=1001)

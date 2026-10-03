@@ -43,7 +43,7 @@ def slots(items):
 
 
 def sampled_river(policy, root, bot, random, guard):
-    solution=policy._resolve(root,bot,monotonic()+30)
+    solution=policy._resolve(root,bot,monotonic()+policy.config.decision_seconds)
     ranges=solution.ranges;board=replay(root,0,()).board;counts=Counter()
     for attempt in range(200):
         guard()
@@ -62,7 +62,7 @@ def sampled_river(policy, root, bot, random, guard):
             if view.seat==bot:
                 menu,p,_=policy.distribution(view,query_kind="play")
             else:
-                matrix=policy._resolve(view.history,bot,monotonic()+30).matrix(view.history)
+                matrix=policy._resolve(view.history,bot,monotonic()+policy.config.decision_seconds).matrix(view.history)
                 policy.live_turn_models[bot,view.history]=matrix
                 menu,p=matrix.menu,matrix.row(holes[view.seat])
             action=random.choices(menu,weights=p,k=1)[0].action
@@ -76,7 +76,7 @@ def sampled_river(policy, root, bot, random, guard):
 
 def check_conditioning(policy, history, bot, conditioned):
     """Recompute normalized turn matrix factors independently, including blockers."""
-    root=round_root(history,Street.TURN);initial,_=policy._ranges(root,bot,monotonic()+30)
+    root=round_root(history,Street.TURN);initial,_=policy._ranges(root,bot,monotonic()+policy.config.decision_seconds)
     river_board=replay(history,0,()).board
     expected={s:{h:w for h,w in initial[s] if not set(h).intersection(river_board)} for s in (0,1)}
     for index,event in enumerate(history):
@@ -119,7 +119,7 @@ def run(references,config,inputs,binary,out,budget):
         try:
             hand,counts=sampled_river(policy,replay_root(item["root"]),slot["bot"],Random(slot["sampling_seed"]),budget.check)
             root=round_root(hand.events);cold=monotonic()
-            solution=policy._resolve(root,slot["bot"],cold+30)
+            solution=policy._resolve(root,slot["bot"],cold+config.decision_seconds)
             row["cold_seconds"]=monotonic()-cold
             row["turn_conditioning_gap_count"]=sum(v for k,v in solution.coverage.items() if k.startswith("turn_conditioning_fallback:"))
             if row["turn_conditioning_gap_count"]:raise ValueError("Live turn conditioning gap exceeds frozen zero tolerance")
@@ -128,7 +128,7 @@ def run(references,config,inputs,binary,out,budget):
                 if node["terminal"]:continue
                 # Request's native actions were validated by the exact native compiler.
                 if node["street"]!="river":raise ValueError("River validation crossed rounds")
-            profiles=solver.solve(solution.request,monotonic()+300,mode="quality")
+            profiles=solver.solve(solution.request,monotonic()+policy.config.decision_seconds0,mode="quality")
             difference=max(float(np.max(np.abs(m.probabilities-profiles[k].probabilities)))
                            for k,m in solution.profiles.items())
             if difference>1e-5:raise ValueError("River played/quality profile differs")

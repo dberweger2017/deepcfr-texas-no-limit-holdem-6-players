@@ -39,7 +39,7 @@ class TurnSearchConfig:
                 raise ValueError(f"Invalid {name}")
         if (type(self.compress) is not bool or self.menu not in ("native", "cap2")
                 or self.opponent_likelihood_floor not in (0, .01)
-                or not isfinite(self.decision_seconds) or not 0 < self.decision_seconds <= 30
+                or not isfinite(self.decision_seconds) or not (0 < self.decision_seconds <= 30 or self.decision_seconds == 120)
                 or self.memory_budget_bytes > 10 * 1024**3):
             raise ValueError("Invalid search settings")
 

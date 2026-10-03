@@ -80,3 +80,26 @@ def test_power_and_budget_freeze_are_outcome_independent():
     assert frozen["timing_admission"]["forecast_seconds"]<=21600
     assert frozen["power"]["achieved_design_power"]==power(frozen["panels"][0]["blocks"])
     with pytest.raises(ValueError):freeze_part_a(frozen,{},load_seconds=0,pilot_hash="sealed")
+
+
+def test_research_strict_fallback_preserves_engineering_selection_and_deadline():
+    engineering=row("engineering", "a", residual=.8, seconds=10)
+    research=row("research", "a", residual=.2, seconds=45)
+    research["config"]["decision_seconds"]=120
+    result=qualify_curve([engineering,research],["a"],research_deadline=120)
+    assert result["selected"]["configuration_id"]=="engineering" and result["tier"]=="relaxed"
+    result=qualify_curve([research],["a"],research_deadline=120)
+    assert result["tier"]=="research_strict" and result["selected_deadline_seconds"]==120
+    assert result["research_latency"] and not result["engineering_30s_qualified"]
+    assert qualify_curve([research],["a"])["selected"] is None
+    for change in ({"residual_pct_pot":.8},{"cold_seconds":120.01}):
+        assert qualify_curve([dict(research,**change)],["a"],research_deadline=120)["selected"] is None
+
+
+def test_research_fallback_still_selects_fastest_strict_native_complete_setting():
+    rows=[row("slow", "a", seconds=100,residual=.1),row("fast", "a",seconds=45,residual=.49)]
+    for r in rows:r["config"]["decision_seconds"]=120
+    assert qualify_curve(rows,["a"],research_deadline=120)["selected"]["configuration_id"]=="fast"
+    rows[1]["config"]["menu"]="cap2"
+    assert qualify_curve(rows,["a"],research_deadline=120)["selected"]["configuration_id"]=="slow"
+    assert qualify_curve(rows,["a","b"],research_deadline=120)["selected"] is None

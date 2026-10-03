@@ -49,6 +49,25 @@ def swap_bytes():
     return (int(values["SwapTotal"].split()[0])-int(values["SwapFree"].split()[0]))*1024
 
 
+def macos_memory_admission(vm_stat, *, sidecar_bytes=512*1024**2):
+    """Owner-approved cache-inclusive law for the calibration readmission."""
+    page = int(re.search(r"page size of (\d+)", vm_stat).group(1))
+    counts = {k: int(v) for k, v in re.findall(r"^([^:\n]+):\s*(\d+)\.", vm_stat, re.M)}
+    keys = ("Pages free", "Pages inactive", "Pages speculative", "File-backed pages")
+    if any(k not in counts for k in keys):
+        raise ValueError("Missing memory admission component")
+    components = {k: page*counts[k] for k in keys}
+    reclaimable = sum(components.values())
+    limit = min(8*1024**3, int(.8*reclaimable)-sidecar_bytes)
+    if limit <= 0:
+        raise MemoryError("No family headroom after sidecar reservation")
+    return {"memory_components_bytes": components, "page_size_bytes": page,
+            "reclaimable_bytes": reclaimable, "rss_limit_bytes": limit,
+            "sidecar_reserved_bytes": sidecar_bytes,
+            "reclaimable_formula": "free + inactive + speculative + file-backed",
+            "family_cap_formula": "min(8 GiB, 0.8 * reclaimable - 0.5 GiB sidecar)"}
+
+
 def validate_admission(admission, *, now=None):
     now = time() if now is None else now
     for field in ("145_main_complete", "145_final_report_pushed", "145_processes_empty"):
@@ -60,6 +79,8 @@ def validate_admission(admission, *, now=None):
     rss = admission.get("rss_limit_bytes", 0)
     if not 0 < rss <= min(10*1024**3, .8*admission.get("reclaimable_bytes", 0)):
         raise ValueError("RSS admission exceeds measured headroom or owner ceiling")
+    if rss+admission.get("sidecar_reserved_bytes", 0) > .8*admission.get("reclaimable_bytes", 0):
+        raise ValueError("Family plus sidecar exceeds measured headroom")
     if not admission.get("145_report_sha256") or not admission.get("ownership_evidence"):
         raise ValueError("Admission needs final-report and ownership evidence")
 

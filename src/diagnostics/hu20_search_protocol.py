@@ -63,8 +63,10 @@ def weighted_quantile(values, weights, q):
     return float(np.asarray(values)[order][min(index, len(order)-1)])
 
 
-def qualify_curve(rows, expected_roots):
+def qualify_curve(rows, expected_roots, *, research_deadline=None):
     """Failures require measured fallback quality; missing rows block qualification."""
+    if research_deadline not in (None, 120):
+        raise ValueError("Undeclared research deadline")
     expected = set(expected_roots)
     if not expected: raise ValueError("Need a frozen nonempty corpus")
     groups = {}
@@ -81,7 +83,7 @@ def qualify_curve(rows, expected_roots):
                         and r["residual_pct_pot"] >= 0 and r["blueprint_pct_pot"] >= 0
                         for r in items))
         row = {"configuration_id": identity, "config": config, "complete": eligible,
-               "strict": False, "relaxed": False, "roots": len(items)}
+               "strict": False, "relaxed": False, "research_strict": False, "roots": len(items)}
         row["turn_conditioning_gap_count"]=sum(v for item in items
             for k,v in item.get("range_coverage",{}).items() if k.startswith("turn_conditioning_fallback:"))
         row["turn_conditioning_gap_tolerance"]=0
@@ -111,13 +113,21 @@ def qualify_curve(rows, expected_roots):
                        cold_median_seconds=median,
                        cold_p99_seconds=float(np.percentile([r["cold_seconds"] for r in items],99)),
                        cold_max_seconds=max(r["cold_seconds"] for r in items), fallbacks=sum(r.get("fallback", False) for r in items))
-            row["strict"] = native and latency <= 30 and mean <= .5 and p95 <= .5
-            row["relaxed"] = (native and latency <= 30 and mean <= 1 and p95 <= 2
+            engineering = config.get("decision_seconds", 30) <= 30
+            row["strict"] = native and engineering and latency <= 30 and mean <= .5 and p95 <= .5
+            row["research_strict"] = (native and research_deadline == 120
+                and config.get("decision_seconds") == 120 and latency <= 120 and mean <= .5 and p95 <= .5)
+            row["relaxed"] = (native and engineering and latency <= 30 and mean <= 1 and p95 <= 2
                 and all(r["residual_pct_pot"] < .1*r["blueprint_pct_pot"] for r in items))
         summaries.append(row)
-    tier = "strict" if any(r["strict"] for r in summaries) else "relaxed"
+    engineering_tier = "strict" if any(r["strict"] for r in summaries) else "relaxed"
+    engineering_qualified = any(r[engineering_tier] for r in summaries)
+    tier = engineering_tier if engineering_qualified else "research_strict" if research_deadline else "relaxed"
     candidates = [r for r in summaries if r[tier]]
     chosen = min(candidates, key=lambda r: (r["cold_p95_seconds"], r["cold_median_seconds"],
         -r["config"]["opponent_likelihood_floor"], r["configuration_id"])) if candidates else None
     return {"status": "qualified" if chosen else "owner-decision-needed", "tier": tier if chosen else None,
-            "selected": chosen, "full_curve": summaries}
+            "selected": chosen, "full_curve": summaries,
+            "engineering_30s_qualified": engineering_qualified,
+            "selected_deadline_seconds": chosen["config"].get("decision_seconds", 30) if chosen else None,
+            "research_latency": bool(chosen and tier == "research_strict")}

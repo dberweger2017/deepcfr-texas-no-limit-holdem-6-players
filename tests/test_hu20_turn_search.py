@@ -334,3 +334,9 @@ def test_empty_family_headroom_refuses_without_launching_native_process(tmp_path
         solver.solve({'spot':'fixture','threads':1,'memory_budget_bytes':5*1024**3},monotonic()+5)
     assert caught.value.cause=='memory_refusal'
     assert solver.records[-1]['memory_admission']['admitted_bytes']==0
+
+
+def test_research_deadline_is_explicit_and_bounded():
+    assert TurnSearchConfig(decision_seconds=120).decision_seconds==120
+    assert TurnSearchConfig().decision_seconds==30
+    with pytest.raises(ValueError):TurnSearchConfig(decision_seconds=121)

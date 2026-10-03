@@ -49,7 +49,8 @@ def configurations(protocol):
         protocol["menus"],protocol["iterations"],protocol["threads"],
         protocol["compress"],protocol["opponent_likelihood_floor"]):
         yield TurnSearchConfig(menu=menu,iterations=iterations,threads=threads,
-                              compress=compress,opponent_likelihood_floor=floor)
+                              compress=compress,opponent_likelihood_floor=floor,
+                              decision_seconds=protocol["decision_seconds"])
 
 
 def screen_items(items):
@@ -95,12 +96,12 @@ def quality_row(source, binary, config, item, bot, out, guard, *, quality_second
     policy=HU20TurnSearchPolicy(source,solver,config)
     started=monotonic()
     try:
-        guard();solution=policy._resolve(root,bot,started+30)
+        guard();solution=policy._resolve(root,bot,started+config.decision_seconds)
         public=replay(root,replay(root,0,()).actor,())
         matrix=solution.matrix(root)
         completed=policy._complete_matrix(public,matrix)
         policy._remember_play(public,completed,False,supported=matrix.holdings)
-        policy._check(started+30)
+        policy._check(started+config.decision_seconds)
         row["cold_seconds"]=monotonic()-started
         row["range_coverage"]=solution.coverage
     except SolveFailure as exc:
@@ -158,31 +159,42 @@ def run(protocol, references, inputs, binary, out, budget):
     out.mkdir(parents=True,exist_ok=False);rows=[];screen=[];failure=None;started=monotonic()
     # Keep all attempted cells; only final-stage rows can qualify for play.
     try:
-        screening=[c for c in configurations(protocol) if c.iterations==protocol["staging"]["screen_iterations"]]
-        specs={i["policy"]["name"]:i["policy"] for i in items}
-        for stage in ("screen","final"):
-            candidates=screening if stage=="screen" else finalists(screen,protocol)
-            for config in candidates:
-                targets=screen_items(items) if stage=="screen" else [(i,b) for i in items for b in (0,1)]
-                for name,spec in sorted(specs.items()):
-                    budget.check();source=load(spec,inputs)
-                    for item,bot in targets:
-                        if item["policy"]["name"]!=name:continue
-                        budget.check()
-                        path=out/"solves"/stage/digest([name,config.__repr__(),item["root"]["spot"],bot])
-                        row=quality_row(source,binary,config,item,bot,path,budget.check,
-                            allocation_budget=getattr(budget,"native_allocation_budget",None))
-                        row["stage"]=stage
-                        (screen if stage=="screen" else rows).append(row)
-                        with (out/"curve.jsonl").open("a") as stream:
-                            stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+"\n")
-                        atomic_json(out/"status.json",{"status":"running","roots":len(rows),
-                            "stage":stage,"seconds":monotonic()-started,
-                            "fallbacks":sum(r['fallback'] for r in rows+screen)})
-                        (out/"status.md").write_text(f"Calibration roots: {len(rows)}\n\nElapsed: {monotonic()-started:.1f}s\n")
-                    del source;gc.collect()
+        deadlines=[protocol["decision_seconds"]]
+        if protocol.get("research_latency_fallback"):
+            deadlines.append(protocol["research_latency_fallback"]["decision_seconds"])
+        for decision_seconds in deadlines:
+            if decision_seconds != protocol["decision_seconds"] and qualify_curve(rows,coordinates)["selected"]:
+                break
+            active_protocol=dict(protocol,decision_seconds=decision_seconds)
+            deadline_screen=[]
+            screening=[c for c in configurations(active_protocol) if c.iterations==protocol["staging"]["screen_iterations"]]
+            specs={i["policy"]["name"]:i["policy"] for i in items}
+            for stage in ("screen","final"):
+                candidates=screening if stage=="screen" else finalists(deadline_screen,active_protocol)
+                for config in candidates:
+                    targets=screen_items(items) if stage=="screen" else [(i,b) for i in items for b in (0,1)]
+                    for name,spec in sorted(specs.items()):
+                        budget.check();source=load(spec,inputs)
+                        for item,bot in targets:
+                            if item["policy"]["name"]!=name:continue
+                            budget.check()
+                            path=out/"solves"/stage/digest([name,config.__repr__(),item["root"]["spot"],bot])
+                            row=quality_row(source,binary,config,item,bot,path,budget.check,
+                                allocation_budget=getattr(budget,"native_allocation_budget",None))
+                            row["stage"]=stage
+                            row["decision_deadline_seconds"]=decision_seconds
+                            (screen if stage=="screen" else rows).append(row)
+                            if stage=="screen":deadline_screen.append(row)
+                            with (out/"curve.jsonl").open("a") as stream:
+                                stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+"\n")
+                            atomic_json(out/"status.json",{"status":"running","roots":len(rows),
+                                "stage":stage,"decision_deadline_seconds":decision_seconds,"seconds":monotonic()-started,
+                                "fallbacks":sum(r['fallback'] for r in rows+screen)})
+                            (out/"status.md").write_text(f"Calibration roots: {len(rows)}\n\nElapsed: {monotonic()-started:.1f}s\n")
+                        del source;gc.collect()
     except Exception as exc:failure=f"{type(exc).__name__}: {exc}"
-    result=qualify_curve(rows,coordinates)
+    result=qualify_curve(rows,coordinates,research_deadline=
+        protocol.get("research_latency_fallback",{}).get("decision_seconds"))
     if failure:result.update(status="incomplete",failure=failure,selected=None,tier=None)
     result.update(protocol=protocol,reference_index_sha256=digest(references),
         seconds=monotonic()-started,roots=len(rows),screen_curve=screen,
