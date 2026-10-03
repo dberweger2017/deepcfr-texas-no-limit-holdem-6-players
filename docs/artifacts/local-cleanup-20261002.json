@@ -1,0 +1,287 @@
+{
+  "date": "2026-10-02",
+  "owner_acceptance": "Google Drive desktop Successfully uploaded/Synced accepted by owner; no independent cloud redownload required. Local archive construction/restore hashes and exact source mapping retained.",
+  "uploaded_local_files_removed": 8722,
+  "logical_bytes_removed": 41249100807,
+  "git_temporary_files_removed": 411,
+  "git_temporary_logical_bytes_removed": 87228030381,
+  "free_after_git_cleanup_bytes": 129349832704,
+  "preserved_repository_HEADs": {
+    "/Users/dberweger/Local/dr2x2-ac-controller-20261002": "993c9d93f22cf9cf7ab658a10c2506d06baee692",
+    "/Users/dberweger/Local/dr2x2-c-runtime-20261001": "e45b297cdab45a2f4eb70f0325415794883c2163",
+    "/Users/dberweger/Local/dr2x2-cd-runtime-20261001": "1142a624dd60381b0f8bff5ae686d50e4f426183",
+    "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players": "bc2883dc15228f0e454dd57b77737a791dbb0d3f"
+  },
+  "retained": [
+    {
+      "path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093001/attempt-1/checkpoint-100000000-236698.json.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093001/attempt-1/current-100000000-236698.json.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093002/attempt-1/checkpoint-100000000-232796.json.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093002/attempt-1/current-100000000-232796.json.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093003/attempt-1/checkpoint-100000000-239157.json.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001/artifacts/C/2026093003/attempt-1/current-100000000-239157.json.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/dr2x2-ac-mechanism-timing-20261002/attempt-1/A-2026093001.average.jsonl.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/dr2x2-ac-mechanism-timing-20261002/attempt-1/A-2026093002.average.jsonl.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/dr2x2-ac-mechanism-timing-20261002/attempt-1/A-2026093003.average.jsonl.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/dr2x2-ac-mechanism-timing-20261002/attempt-1/C-2026093001.average.jsonl.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/dr2x2-ac-mechanism-timing-20261002/attempt-1/C-2026093002.average.jsonl.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/dr2x2-ac-mechanism-timing-20261002/attempt-1/C-2026093003.average.jsonl.gz",
+      "reason": "referenced model/input symlink target"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/.DS_Store",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-04-ops",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-history-fixed-coverage-m4",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-history-summary-learning-m4",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-history-summary-v1-m4",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-m4-slice-v1-continued-m4",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-m4-slice-v1-m4",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-pilot-v1-m4",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-runpod-check-v1",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-search-m4-smoke-20260924",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-search-m4-smoke-final-20260924",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-search-m4-smoke-pinned-20260924",
+      "reason": "working blueprint input tree / OS metadata"
+    },
+    {
+      "path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/branching-comparison.tar.gz",
+      "reason": "pending upload"
+    }
+  ],
+  "receipt_local": "/Users/dberweger/Local/research-archive-preparation-20261002/local-cleanup-receipt.json",
+  "receipt_drive_relative": "LOCAL-CLEANUP-20261002.json",
+  "pr144_folder_url": "https://drive.google.com/drive/folders/1EnCmKftt50pebTWVtu1MvTUQEaw_5hCV",
+  "pr144_archives": [
+    {
+      "name": "01-density-evidence.tar",
+      "bytes": 1885511680,
+      "sha256": "0bdd055c8859f03815dcc0dec6b9724106f646c69f162663c07fa97b673b04da",
+      "cloud_file_id": "1L-b4apjUG-TmSjwgsVka2TYRU0gXMPv2",
+      "cloud_url": "https://drive.google.com/file/d/1L-b4apjUG-TmSjwgsVka2TYRU0gXMPv2/view?usp=drivesdk",
+      "roots": [
+        {
+          "prefix": "density-2m",
+          "original_path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results"
+        },
+        {
+          "prefix": "density-10m",
+          "original_path": "/Users/dberweger/Local/dr2x2-history-10m-20261001/results"
+        }
+      ]
+    },
+    {
+      "name": "02-d-resource-preflight.tar",
+      "bytes": 350443520,
+      "sha256": "0751bcb5d9328b06dd1aff1ec5515c40a9842d301d142f29ec1b175452cbcc6c",
+      "cloud_file_id": "1OGvo8eHVTkdDwJm2i1ElSaX9qrixcxW_",
+      "cloud_url": "https://drive.google.com/file/d/1OGvo8eHVTkdDwJm2i1ElSaX9qrixcxW_/view?usp=drivesdk",
+      "roots": [
+        {
+          "prefix": "d-resource",
+          "original_path": "/Users/dberweger/Local/dr2x2-d-resource-20261001/results"
+        }
+      ]
+    },
+    {
+      "name": "03-c-training.tar",
+      "bytes": 1833195520,
+      "sha256": "365fafce71670a67c9132c8f903aa52614a7f26e1d9aef73b26852e0d4782370",
+      "cloud_file_id": "18yI78_LVKj8NVaXEnugp8BSigS6GzhfM",
+      "cloud_url": "https://drive.google.com/file/d/18yI78_LVKj8NVaXEnugp8BSigS6GzhfM/view?usp=drivesdk",
+      "roots": [
+        {
+          "prefix": "c-training",
+          "original_path": "/Users/dberweger/Local/dr2x2-c-campaign-20261001"
+        }
+      ]
+    },
+    {
+      "name": "04-ac-comparison.tar",
+      "bytes": 872878080,
+      "sha256": "a86b65dc20c699fe82fe7d78432eaf69930a4bce2ac605550076b90cc978cf68",
+      "cloud_file_id": "1hgpAjzO-ayOouplN6w2dCP2NMaB13-0q",
+      "cloud_url": "https://drive.google.com/file/d/1hgpAjzO-ayOouplN6w2dCP2NMaB13-0q/view?usp=drivesdk",
+      "roots": [
+        {
+          "prefix": "ac-comparison",
+          "original_path": "/Users/dberweger/Local/dr2x2-ac-evaluation-attempt-2-20261002"
+        }
+      ]
+    },
+    {
+      "name": "05-admission-and-incidents.tar",
+      "bytes": 401991680,
+      "sha256": "5354091abea5ce57d4fbee4bb9a1bc83d7d6d639db8783f9491c13306d908f48",
+      "cloud_file_id": "1IC6KqqqDWZBF3e0B8w5NXwouAHM1GtzX",
+      "cloud_url": "https://drive.google.com/file/d/1IC6KqqqDWZBF3e0B8w5NXwouAHM1GtzX/view?usp=drivesdk",
+      "roots": [
+        {
+          "prefix": "evaluation-setup-attempt-1",
+          "original_path": "/Users/dberweger/Local/dr2x2-ac-evaluation-20261002"
+        },
+        {
+          "prefix": "mechanism-timing",
+          "original_path": "/Users/dberweger/Local/dr2x2-ac-mechanism-timing-20261002"
+        },
+        {
+          "prefix": "serialized-timing",
+          "original_path": "/Users/dberweger/Local/dr2x2-ac-serialized-timing-20261002"
+        },
+        {
+          "prefix": "current-timing",
+          "original_path": "/Users/dberweger/Local/dr2x2-ac-timing-20261002"
+        },
+        {
+          "prefix": "c-references",
+          "original_path": "/Users/dberweger/Local/dr2x2-c-reference-20261001"
+        },
+        {
+          "prefix": "historical-cd-references",
+          "original_path": "/Users/dberweger/Local/dr2x2-cd-reference-20261001"
+        }
+      ]
+    },
+    {
+      "name": "06-reports-and-plans.tar",
+      "bytes": 4136960,
+      "sha256": "75ac26bb469e292526f8c6df3a8203fdfdb8f62ba781ba6d0dc486cb1d623531",
+      "cloud_file_id": "1nmmgvm7DENSbY8x36Y82ZZ_a6dr69-GU",
+      "cloud_url": "https://drive.google.com/file/d/1nmmgvm7DENSbY8x36Y82ZZ_a6dr69-GU/view?usp=drivesdk",
+      "roots": [
+        {
+          "prefix": "reports",
+          "original_path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/docs/reports/dr2x2-history-artifacts"
+        },
+        {
+          "prefix": "comparison-report",
+          "original_path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/docs/reports/dr2x2-ac-comparison.md"
+        },
+        {
+          "prefix": "training-report",
+          "original_path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/docs/reports/dr2x2-c-training-100m.md"
+        },
+        {
+          "prefix": "results-index",
+          "original_path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/RESULTS_INDEX.md"
+        },
+        {
+          "prefix": "comparison-plan",
+          "original_path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/configs/diagnostics/dr2x2-ac-comparison.json"
+        },
+        {
+          "prefix": "training-plan",
+          "original_path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/configs/blueprint/dr2x2-c-campaign.json"
+        },
+        {
+          "prefix": "model-card",
+          "original_path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/docs/dr2x2-c-only-model-card.md"
+        }
+      ]
+    }
+  ],
+  "m4_archive": {
+    "state": "read_only_transfer_running_upload_pending",
+    "pid": 10518,
+    "source_roots": [
+      "hu20-500m-campaign-20261001",
+      "hu20-training-scaling-pr116",
+      "blueprint-extraction-pr111",
+      "postflop-replication-pr110",
+      "blueprint-seat-symmetry-pr109",
+      "blueprint-local-cfr",
+      "blueprint-search-pr103",
+      "blueprint-search-followup",
+      "blueprint-search-followup-m4",
+      "blueprint-history-coverage",
+      "hu20-native-reopening-ab",
+      "hu20-exact-lbr-ranker-pr126",
+      "hu20-reverse-lbr-pr121",
+      "hu20-lbr-kernel-profile-pr123",
+      "hu20-posterior-audit-v2",
+      "hu20-b100-diagnosis-pr117",
+      "hu20-b100-posterior-pr119",
+      "hu20-pr112",
+      "robustness-pr114",
+      "tp20-pr113",
+      "trainer-observation-reuse-20260930",
+      "observation-reuse-ci-repair-20260930",
+      "runpod-mature-cpu-20260930",
+      "runpod-mature-cpu-six-20260930",
+      "local-cfr-conditional-diagnostic",
+      "deepcfr-training",
+      "deepcfr-texas-no-limit-holdem-6-players"
+    ],
+    "originals_retained": true,
+    "excluded_active_roots": [
+      "hu20-exact-flop-check-20261001",
+      "hu20-exact-flop-check-inputs"
+    ],
+    "local_status": "/Users/dberweger/Local/research-archive-preparation-20261002/m4-archive-status.json"
+  }
+}

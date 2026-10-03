@@ -1,0 +1,63 @@
+{
+  "started": 1790902741.8860219,
+  "controller_source": "456f7c15a48de3f1cfcfaefe24dfc64012218f3f",
+  "scientific_source": "6ce14e1513ce1b6f452b59930bf8f2034ad80115",
+  "root": "/Users/dberweger/Local/dr2x2-ac-evaluation-attempt-2-20261002",
+  "frozen_clone": "/Users/dberweger/Local/dr2x2-ac-controller-attempt-2-20261002",
+  "previous_attempt": "/Users/dberweger/Local/dr2x2-ac-evaluation-20261002",
+  "files": {
+    "scripts/dr2x2_eval_control.py": "227f998d7d1d9235b81adcc7491b35408c2015fc92be4229061711bb7a485345",
+    "scripts/dr2x2_eval_pod.py": "00c4b206f350fee04a2222b99c67dde0653904177b34ed86375c67de71ea33f3",
+    "scripts/dr2x2_eval_setup.sh": "b1cd0fd723c11fa920e6646894389936ccaa256a927015477de0f56a6dafba3a",
+    "configs/diagnostics/dr2x2-ac-evaluation-quote.json": "e9e4d6f8845a9678b78b217ca8faf726eab40f256ec982f223d4189783733cd3",
+    "configs/diagnostics/dr2x2-ac-comparison.json": "c4d73cd50ee027f28f15827cfb81cb9f2901c7cff1528d49fb870d66a6e33d8b"
+  },
+  "controller_pid": 80261,
+  "caffeinate_pid": 80262,
+  "lease": {
+    "all_in_ceiling_usd": 16,
+    "names": [
+      "dr2x2-EVAL-2026093001-1790902742",
+      "dr2x2-EVAL-2026093002-1790902742",
+      "dr2x2-EVAL-2026093003-1790902742"
+    ],
+    "plan_sha256": "38b586b7909f834b88cb43539e172a5f3b5aedde7801b3104b37fa58d552cc2a",
+    "previous_analysis_upper_usd": 0.0018185582995414733,
+    "previous_training_upper_usd": 1.0041844655513763,
+    "reserve_usd": 1,
+    "source": "6ce14e1513ce1b6f452b59930bf8f2034ad80115",
+    "started": 1790902743.3915699,
+    "subcap_usd": 4
+  },
+  "watchdog_pid": 80266,
+  "pods": [
+    {
+      "created_epoch": 1790902747.061,
+      "id": "as0w6463in7nr1",
+      "name": "dr2x2-EVAL-2026093001-1790902742",
+      "seed": 2026093001,
+      "status": "provisioning",
+      "upper_rate": 0.18
+    },
+    {
+      "created_epoch": 1790902745.852,
+      "id": "tb77dc3t24mlai",
+      "name": "dr2x2-EVAL-2026093002-1790902742",
+      "seed": 2026093002,
+      "status": "provisioning",
+      "upper_rate": 0.18
+    },
+    {
+      "created_epoch": 1790902748.178,
+      "id": "0plxsh642yv3fv",
+      "name": "dr2x2-EVAL-2026093003-1790902742",
+      "seed": 2026093003,
+      "status": "provisioning",
+      "upper_rate": 0.18
+    }
+  ],
+  "quote_comment": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/144#issuecomment-5943500836",
+  "linux_parity_pending": true,
+  "no_strength_outcomes_inspected": true,
+  "focused_controller_and_executor_tests": 9
+}

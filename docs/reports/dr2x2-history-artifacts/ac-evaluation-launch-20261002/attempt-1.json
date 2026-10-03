@@ -1,0 +1,58 @@
+{
+  "root": "/Users/dberweger/Local/dr2x2-ac-evaluation-20261002",
+  "operator_finished": {
+    "remaining_ids": [],
+    "status": "incomplete-retained",
+    "time": 1790902570.190939,
+    "upper_cost_usd": 0.0018185582995414733
+  },
+  "pods": [
+    {
+      "created_epoch": 1790902533.275,
+      "failure": "memoryview: a bytes-like object is required, not 'str'",
+      "id": "zpjt3tk33gpvez",
+      "name": "dr2x2-EVAL-2026093001-1790902529",
+      "seed": 2026093001,
+      "status": "operational-incident",
+      "terminated": 1790902569.646166,
+      "upper_rate": 0.18
+    },
+    {
+      "failure": "Provider HTTP 500, POST /v2/pods: failed to create pod",
+      "name": "dr2x2-EVAL-2026093002-1790902529",
+      "seed": 2026093002,
+      "status": "operational-incident"
+    },
+    {
+      "failure": "Provider HTTP 500, POST /v2/pods: failed to create pod",
+      "name": "dr2x2-EVAL-2026093003-1790902529",
+      "seed": 2026093003,
+      "status": "operational-incident"
+    }
+  ],
+  "no_scientific_child_started": true,
+  "allocation_reconciliation": {
+    "checked": 1790902596.80072,
+    "exact_owned_names": [
+      "dr2x2-EVAL-2026093001-1790902529",
+      "dr2x2-EVAL-2026093002-1790902529",
+      "dr2x2-EVAL-2026093003-1790902529"
+    ],
+    "live": [],
+    "unallocated_names": [
+      "dr2x2-EVAL-2026093002-1790902529",
+      "dr2x2-EVAL-2026093003-1790902529"
+    ],
+    "no_gameplay_launched_for_unallocated": true
+  },
+  "correction": "Encode lease control JSON as bytes; verified atomic roundtrip preserves admission proof. Serialize provider POST requests; no POST retry. All previous costs remain included.",
+  "focused_tests": 9,
+  "launcher_pre_import_incident": {
+    "phase": "pre-controller-import",
+    "failure": "Controller attempted before async clone completion; module missing",
+    "no_root_created": true,
+    "no_provider_call": true,
+    "science_rerun": false,
+    "log": "/Users/dberweger/Local/dr2x2-ac-evaluation-20261002-launcher-attempt-1.log"
+  }
+}

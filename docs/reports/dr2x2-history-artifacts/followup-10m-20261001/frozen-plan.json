@@ -1,0 +1,108 @@
+{
+  "execution": "sequential one M1 worker; Python3.11.14/engine5db20e3; no paid rentals",
+  "gate": {
+    "low_visit_fraction_reduction_pp": 5,
+    "median_ratio": 2,
+    "minimum_median": 2,
+    "minimum_passing_seeds": 2,
+    "street": "river"
+  },
+  "limits": {
+    "campaign_seconds": 7200,
+    "max_rss_gib": 6,
+    "min_free_gib": 8,
+    "worker_seconds": 1800
+  },
+  "milestones": [
+    5000000,
+    7000000,
+    10000000
+  ],
+  "original_plan": "configs/blueprint/dr2x2-history-preflight.json",
+  "original_plan_sha256": "df41a80bf5d34afca5952ae186de7458a0fec76291914eb67b625bf5d50aa734",
+  "owner_approved_pivot": "2026-10-01",
+  "parents": {
+    "compressed-2026093001": {
+      "checkpoint": "results/dr2x2-history-preflight-m1-20261001/compressed-2026093001/checkpoint-2000000.json.gz",
+      "checkpoint_sha256": "a637e1166aebff5f13c48efcba4a46d9bdd9e0f9a5191eb253e642ba8bab0892",
+      "completed_nodes": 2000099,
+      "iteration": 5558,
+      "result": "results/dr2x2-history-preflight-m1-20261001/compressed-2026093001/result.json",
+      "result_sha256": "65b63a04a94c73b2052774913188c3f7a8bfa63ccd61dd063ea305fa36a4c283"
+    },
+    "compressed-2026093002": {
+      "checkpoint": "results/dr2x2-history-preflight-m1-20261001/compressed-2026093002/checkpoint-2000000.json.gz",
+      "checkpoint_sha256": "18ae4483be2a9e1bf11c280d1885f3bada258ab5f7c3ad1dfdfaf652f547c469",
+      "completed_nodes": 2000539,
+      "iteration": 5662,
+      "result": "results/dr2x2-history-preflight-m1-20261001/compressed-2026093002/result.json",
+      "result_sha256": "1e119b773ef3e652a2b410aa22ee38494db0c139f73f7b3d329aa2330775b134"
+    },
+    "compressed-2026093003": {
+      "checkpoint": "results/dr2x2-history-preflight-m1-20261001/compressed-2026093003/checkpoint-2000000.json.gz",
+      "checkpoint_sha256": "5d18820e4569f9b02de8b1512df1b42a49ca0ad729417a7971235de19f3f6add",
+      "completed_nodes": 2000319,
+      "iteration": 5776,
+      "result": "results/dr2x2-history-preflight-m1-20261001/compressed-2026093003/result.json",
+      "result_sha256": "091e45bf8a1c241861d91d6056f82e55495e8781dd3ea0084f29f31eeeb3b020"
+    },
+    "full-2026093001": {
+      "checkpoint": "results/dr2x2-history-preflight-m1-20261001/full-2026093001/checkpoint-2000000.json.gz",
+      "checkpoint_sha256": "4b58cbfe1d4f9f3844dcdebb422d39b9a946f6911f6fb93e3b4748da477fb6d9",
+      "completed_nodes": 2000143,
+      "iteration": 5549,
+      "result": "results/dr2x2-history-preflight-m1-20261001/full-2026093001/result.json",
+      "result_sha256": "7c489c8159a3391340ed4b2d2c2090a644ec136246cabf9aa6e1dc5d5d9ecd7e"
+    },
+    "full-2026093002": {
+      "checkpoint": "results/dr2x2-history-preflight-m1-20261001/full-2026093002/checkpoint-2000000.json.gz",
+      "checkpoint_sha256": "61a5466aa0fe35622bd54740623acf438a9d1aef81a6459b9d08bec87b402696",
+      "completed_nodes": 2000104,
+      "iteration": 5583,
+      "result": "results/dr2x2-history-preflight-m1-20261001/full-2026093002/result.json",
+      "result_sha256": "9d096684d297ccc6db9113d214cc48b3cc26ff139bcceeead576dffb0cb88697"
+    },
+    "full-2026093003": {
+      "checkpoint": "results/dr2x2-history-preflight-m1-20261001/full-2026093003/checkpoint-2000000.json.gz",
+      "checkpoint_sha256": "9ecce1e32808facb7775ee709fdbe22b5f1bc6c623933fbab013d45b5fd8c113",
+      "completed_nodes": 2000207,
+      "iteration": 5673,
+      "result": "results/dr2x2-history-preflight-m1-20261001/full-2026093003/result.json",
+      "result_sha256": "935a2992b1306c9062137ea9aab8bc96212670411e622c61c1a38962e07f0aed"
+    }
+  },
+  "policy_reach_probe": {
+    "blocks": 512,
+    "both_positions": true,
+    "classification": "secondary descriptive; does not replace primary uniform corpus or its gate",
+    "record_terminal_payoffs": false,
+    "reference_policies": "both frozen2M full/compressed per seed, each versus uniform native menu",
+    "root_seed": 202610110002
+  },
+  "probe": {
+    "decisions": "results/dr2x2-history-preflight-m1-20261001/corpus/decisions.jsonl.gz",
+    "decisions_sha256": "18e45e3daaa463fd8f419bc77b9a7f5f1aa3a32d27909eccfb7bd4e7ed0efa4f",
+    "manifest": "results/dr2x2-history-preflight-m1-20261001/corpus/manifest.json",
+    "manifest_sha256": "12c4a5cd7a2faf98634c765b9a8c9c9a3ae710ef6d563b3cbea07ff85bbbcc38"
+  },
+  "recovery_interval_nodes": 1000000,
+  "schema": "dr2x2-history-10m-followup-v1",
+  "schemas": {
+    "compressed": "hu20-native-reopening-compressed-history-card-v1",
+    "full": "hu20-native-reopening-ordered-history-card-v1"
+  },
+  "seeds": [
+    2026093001,
+    2026093002,
+    2026093003
+  ],
+  "trainer": {
+    "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+    "max_entries": 4000000,
+    "max_nodes": 250000,
+    "max_seconds": 300,
+    "postflop_replicates": 1,
+    "raise_cap": null,
+    "roots_per_seat": 1
+  }
+}

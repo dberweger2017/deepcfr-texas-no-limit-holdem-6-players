@@ -1,0 +1,157 @@
+{
+  "verified_artifacts": [
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093001/checkpoint-250000.json.gz",
+      "sha256": "4364691eb56fc92320b22dddda6cf8514a9f616adab88b0b5289bb3bbb2687de",
+      "bytes": 1712316
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093001/checkpoint-500000.json.gz",
+      "sha256": "e495d3a1ada866f352c445f363dd6e2103ae5488fd3d463a5356184e8fcde37b",
+      "bytes": 3036904
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093001/checkpoint-1000000.json.gz",
+      "sha256": "1a73f1ea2681a3192e3d50c22da39c9c47ad7664e61bc794ff2a7145759a0189",
+      "bytes": 5176933
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093001/checkpoint-2000000.json.gz",
+      "sha256": "4b58cbfe1d4f9f3844dcdebb422d39b9a946f6911f6fb93e3b4748da477fb6d9",
+      "bytes": 8474461
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093001/current.json.gz",
+      "sha256": "77471bffa73789d1ad4ea5e8cbee9d19665069f2e7e34b258ecf38a770e9b4a3",
+      "bytes": 5319608
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093001/checkpoint-250000.json.gz",
+      "sha256": "34d67afac07c1517ca51f91784a9014cb6090667a0423f044a1ebda9bac4b5c9",
+      "bytes": 1475242
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093001/checkpoint-500000.json.gz",
+      "sha256": "e92b1f9785448582e9acb2ff772886073ca353979e0bf5a195bfd4af3adfa493",
+      "bytes": 2477994
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093001/checkpoint-1000000.json.gz",
+      "sha256": "82e6f0a44a7e1ae9d15dc26f59ed4e338f3100adc3a9640eaa7fcbfdae458532",
+      "bytes": 4021955
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093001/checkpoint-2000000.json.gz",
+      "sha256": "a637e1166aebff5f13c48efcba4a46d9bdd9e0f9a5191eb253e642ba8bab0892",
+      "bytes": 6176070
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093001/current.json.gz",
+      "sha256": "bdef78622ff42334b608447cbf7fb216a1b9556c4aeca70e13c7b06bf6e50479",
+      "bytes": 3734897
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093002/checkpoint-250000.json.gz",
+      "sha256": "346fc604f184b780e311e37d9788a45f16a81bfc61c9c6b2fa2f87e2f0e76ba3",
+      "bytes": 1710976
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093002/checkpoint-500000.json.gz",
+      "sha256": "952c204215b2684b441b42caee6652dddcd1388709f79bff6d01dcc07726e4a2",
+      "bytes": 2994277
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093002/checkpoint-1000000.json.gz",
+      "sha256": "00a4161207b3ef8911d4f75bc74b532f06901f6412ed7a43869aed2726b4ac8e",
+      "bytes": 5120416
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093002/checkpoint-2000000.json.gz",
+      "sha256": "61a5466aa0fe35622bd54740623acf438a9d1aef81a6459b9d08bec87b402696",
+      "bytes": 8376057
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093002/current.json.gz",
+      "sha256": "a76bf0120fc37e5e2a66cc9598bf4c2eb3f28d963e1d5f5c278c670e124f3d4c",
+      "bytes": 5252103
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093002/checkpoint-250000.json.gz",
+      "sha256": "cb17e845e23bcb29d1c1089c3efa7536ddac8128918ad42786cead0a6503c3b0",
+      "bytes": 1471700
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093002/checkpoint-500000.json.gz",
+      "sha256": "015c60901fb83790915177856692e7427845952109f68c944ee046a5e523c77b",
+      "bytes": 2450828
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093002/checkpoint-1000000.json.gz",
+      "sha256": "0b520a83fc2b8a26c84d488ac0db8711811d8b4475186eb3ccda86788e14a1ad",
+      "bytes": 3947156
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093002/checkpoint-2000000.json.gz",
+      "sha256": "18ae4483be2a9e1bf11c280d1885f3bada258ab5f7c3ad1dfdfaf652f547c469",
+      "bytes": 6074057
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093002/current.json.gz",
+      "sha256": "92f81784738ed02713aa499f892a977c957798ea42c999c954c919fd502160fd",
+      "bytes": 3693565
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093003/checkpoint-250000.json.gz",
+      "sha256": "bfb7cbab8306940fd7e3902749e1b3513645260f962db2cb8842859bd61e0239",
+      "bytes": 1732353
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093003/checkpoint-500000.json.gz",
+      "sha256": "b8c1caf070bfd3379d853b36a91cea4f8379636f8020b6f48b22058eb85b4cfb",
+      "bytes": 2992325
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093003/checkpoint-1000000.json.gz",
+      "sha256": "62fe48539ea31f94cbcb6602bfaf785a27e0936e2bd9cdfde1b16e1d9ad15255",
+      "bytes": 5096755
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093003/checkpoint-2000000.json.gz",
+      "sha256": "9ecce1e32808facb7775ee709fdbe22b5f1bc6c623933fbab013d45b5fd8c113",
+      "bytes": 8362195
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/full-2026093003/current.json.gz",
+      "sha256": "75cb536eb498cdc1b96fcf571016c6037e0145f3b5e9a469342f339aca1aed2c",
+      "bytes": 5251149
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093003/checkpoint-250000.json.gz",
+      "sha256": "5dc993a6c434f9c28b62738ce7d83065eb3da1621ef1b980f3b2c4982cce3221",
+      "bytes": 1487983
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093003/checkpoint-500000.json.gz",
+      "sha256": "81f2677c3a730b26dc50c62c863711b52a6145d74a226c26653ddc9895506fa6",
+      "bytes": 2484041
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093003/checkpoint-1000000.json.gz",
+      "sha256": "eaf4834ea3fb8538216097b5de67c9981b0cf2e1f6f0f3366282575552ef401f",
+      "bytes": 3995544
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093003/checkpoint-2000000.json.gz",
+      "sha256": "5d18820e4569f9b02de8b1512df1b42a49ca0ad729417a7971235de19f3f6add",
+      "bytes": 6126547
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001/compressed-2026093003/current.json.gz",
+      "sha256": "b4515a4eb905503576ab1e6e7a4343e8b749e62ff53f9352c6bc6be5b52a31d7",
+      "bytes": 3717920
+    }
+  ],
+  "artifacts": 30,
+  "status": "passed",
+  "large_root": "/Users/dberweger/.codex/worktrees/hu20-history-2x2/deepcfr-texas-no-limit-holdem-6-players/results/dr2x2-history-preflight-m1-20261001"
+}

@@ -1,0 +1,89 @@
+{
+  "status": "verified",
+  "hands": 165888,
+  "seconds": 12.096068143844604,
+  "peak_rss_bytes": 83607552,
+  "primary_visit_distribution": [
+    {
+      "cell": "A",
+      "street": "flop",
+      "decisions": 30154,
+      "mean_visits": 6228.979770511375,
+      "median_visits": 2641.0,
+      "zero_fraction": 0.008655568083836307,
+      "below10_fraction": 0.018770312396365323,
+      "below100_fraction": 0.08529548318631028
+    },
+    {
+      "cell": "A",
+      "street": "preflop",
+      "decisions": 53632,
+      "mean_visits": 1084.8642974343675,
+      "median_visits": 732.0,
+      "zero_fraction": 0.007103967780429594,
+      "below10_fraction": 0.012529832935560859,
+      "below100_fraction": 0.0814998508353222
+    },
+    {
+      "cell": "A",
+      "street": "river",
+      "decisions": 10899,
+      "mean_visits": 854.3025965684925,
+      "median_visits": 316.0,
+      "zero_fraction": 0.01890081658867786,
+      "below10_fraction": 0.07798880631250574,
+      "below100_fraction": 0.29332966327185983
+    },
+    {
+      "cell": "A",
+      "street": "turn",
+      "decisions": 17488,
+      "mean_visits": 1330.5194419030192,
+      "median_visits": 431.0,
+      "zero_fraction": 0.01578225068618481,
+      "below10_fraction": 0.06575937785910338,
+      "below100_fraction": 0.2620654162854529
+    },
+    {
+      "cell": "C",
+      "street": "flop",
+      "decisions": 30709,
+      "mean_visits": 5780.307531993878,
+      "median_visits": 2574.0,
+      "zero_fraction": 0.007978117164349213,
+      "below10_fraction": 0.01608648930281025,
+      "below100_fraction": 0.07554788498485786
+    },
+    {
+      "cell": "C",
+      "street": "preflop",
+      "decisions": 53321,
+      "mean_visits": 1044.643011196339,
+      "median_visits": 699.0,
+      "zero_fraction": 0.0070516306895969695,
+      "below10_fraction": 0.012696686108662628,
+      "below100_fraction": 0.08797659458749836
+    },
+    {
+      "cell": "C",
+      "street": "river",
+      "decisions": 10861,
+      "mean_visits": 752.5363226222263,
+      "median_visits": 383.0,
+      "zero_fraction": 0.007642021913267655,
+      "below10_fraction": 0.025964459994475646,
+      "below100_fraction": 0.18911702421508148
+    },
+    {
+      "cell": "C",
+      "street": "turn",
+      "decisions": 17842,
+      "mean_visits": 1104.402813585921,
+      "median_visits": 489.0,
+      "zero_fraction": 0.01092926801928035,
+      "below10_fraction": 0.04349288196390539,
+      "below100_fraction": 0.2063669992153346
+    }
+  ],
+  "lbr_metadata_limitation": "Frozen evaluator checked LocalBestResponse on RecordingOpponent wrapper; raw rows omit LBR metadata. Completion/limited/zero-likelihood fields are unavailable, not zero. Realized payoffs/native replay/probabilities/visits remain independently verified. Future capture fix does not change closed campaign or rerun hands."
+}

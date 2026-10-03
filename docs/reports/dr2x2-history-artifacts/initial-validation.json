@@ -1,0 +1,46 @@
+{
+  "phase": "correctness-before-density",
+  "pinned_python": "3.11.14",
+  "engine_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+  "earlier_attempts": [
+    {
+      "python": "3.11.15",
+      "passed": 17,
+      "failed": 2,
+      "cause": "new test fixture used nonexistent Hand.street property"
+    },
+    {
+      "python": "3.11.15",
+      "passed": 19,
+      "failed": 1,
+      "cause": "fixture incorrectly required identical keys when the acting player's own cards changed"
+    },
+    {
+      "python": "3.11.15",
+      "passed": 22,
+      "failed": 0
+    },
+    {
+      "python": "3.11.14",
+      "collection_failure": "numpy absent from minimal old parity venv"
+    },
+    {
+      "python": "3.11.14",
+      "setup_failure": "prepending unrelated site-packages shadowed stdlib argparse; corrected by appending dependencies with site.addsitedir"
+    }
+  ],
+  "primary_density_results": "not started",
+  "paid_jobs": 0,
+  "pinned_focused_tests": {
+    "passed": 22,
+    "failed": 0,
+    "seconds": 2.3
+  },
+  "full_history_main_571bcb2_vs_candidate_exact": {
+    "iteration": 32,
+    "entries": 2649,
+    "work_sha256": "c657f7f85d83a6a55d5cd5fcd44cc7adf65f24ddb039b5b0fb787d3aef8486f5",
+    "checkpoint_sha256": "f5e22d6dc07ee95e689c35a13d972421d2e077367c23b94ce2dff0170e70547e",
+    "export_sha256": "e5911fcebedd1ed342458d13a321b53ce18155d7f34877483103de01a00d1859"
+  }
+}

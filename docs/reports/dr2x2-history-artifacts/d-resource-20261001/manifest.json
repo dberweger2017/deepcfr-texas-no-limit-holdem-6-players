@@ -1,0 +1,50 @@
+{
+  "D-2026093001.json": {
+    "bytes": 15230,
+    "sha256": "f60736fec51f3adb76f872be02b8937e30d445789773f0acf90be46b7ce63ccd"
+  },
+  "D-2026093002.json": {
+    "bytes": 15266,
+    "sha256": "b4b1e55f347ae4a761bb77da07fac9de251cb7b5116f22bf6bdba9f16f42dafc"
+  },
+  "D-2026093003.json": {
+    "bytes": 15562,
+    "sha256": "a70a071c711e294428703c1d3e8ce5d8405aeee6d66071c4947435ba085a2ebc"
+  },
+  "final-manifest.json": {
+    "bytes": 10009,
+    "sha256": "195c5cfa84c02c5248c6226eac8bae56a0453ea9d38d1f22281879f473797fc9"
+  },
+  "frozen-plan.json": {
+    "bytes": 1009,
+    "sha256": "aefedbf3f885ca4d9d00ae3f94829815dd537a860571218174abb89feec28c76"
+  },
+  "live-cpu-availability.json": {
+    "bytes": 7039,
+    "sha256": "1db36c6b426b98654272df9323be25a6d5a8504211c1e1996a92f8ec989e35c4"
+  },
+  "live-d-shape-availability.json": {
+    "bytes": 649,
+    "sha256": "d283acdb64a01a83959337964f7863b112ffdbf1e6ac5c71f0371b4147304298"
+  },
+  "offpod-capacity.json": {
+    "bytes": 316,
+    "sha256": "49e5388601c5d2f9e007572584b8649c9bfe8c51e9c4811433fef6c5d9797277"
+  },
+  "resource-summary.json": {
+    "bytes": 1514,
+    "sha256": "271031a97108dbd847e84608385cd68d59386e1a37c52e1c0abe4fd06ada163e"
+  },
+  "resources.csv": {
+    "bytes": 1176,
+    "sha256": "a5a28d98f2e7e3de59c18903d6e0cf5ca177d8d4970a4ca29098197c018c2227"
+  },
+  "supervisor.json": {
+    "bytes": 1077,
+    "sha256": "bcbb274543bd3f46545791859b6f490caa0b64848800e78542694d8a51a51c96"
+  },
+  "verification.json": {
+    "bytes": 639,
+    "sha256": "12a70e16658cdb85b59a1a1db3ff4716737d2a5383d1afdcda6788b62f7dcb91"
+  }
+}

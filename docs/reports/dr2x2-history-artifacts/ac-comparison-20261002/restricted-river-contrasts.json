@@ -1,0 +1,35 @@
+[
+  {
+    "root": 202610120301,
+    "A_current": 1.2317815754835946,
+    "A_average": 0.6711292307928295,
+    "C_current": 1.094828305484346,
+    "C_average": 0.6022248077936913,
+    "current_C_minus_A": -0.13695326999924862,
+    "average_C_minus_A": -0.06890442299913824,
+    "A_average_minus_current": -0.5606523446907651,
+    "C_average_minus_current": -0.4926034976906547
+  },
+  {
+    "root": 202610120302,
+    "A_current": 4.158213105461066,
+    "A_average": 4.158213105461066,
+    "C_current": 5.046797422716754,
+    "C_average": 4.2888251195053035,
+    "current_C_minus_A": 0.8885843172556882,
+    "average_C_minus_A": 0.13061201404423795,
+    "A_average_minus_current": 0.0,
+    "C_average_minus_current": -0.7579723032114503
+  },
+  {
+    "root": 202610120303,
+    "A_current": 5.719869680461674,
+    "A_average": 5.719869680461674,
+    "C_current": 2.7913557520289287,
+    "C_average": 4.73679874793897,
+    "current_C_minus_A": -2.928513928432745,
+    "average_C_minus_A": -0.983070932522704,
+    "A_average_minus_current": 0.0,
+    "C_average_minus_current": 1.945442995910041
+  }
+]

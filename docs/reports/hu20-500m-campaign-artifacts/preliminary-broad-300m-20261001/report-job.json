@@ -1,0 +1,12 @@
+{
+  "pid": 92869,
+  "out": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/preliminary-broad-300M-attempt-3",
+  "log": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/preliminary-broad-300M-attempt-3.log",
+  "source_sha256": "165a2f7594473bc12ebc936bc95a1e3a40425b2b43bb6f9ec3191feb535b457c",
+  "dependency_site_packages": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/lib/python3.11/site-packages",
+  "waiting_on": "shared heavy lock; complete B300 group",
+  "prior_failed_attempts": [
+    "preliminary-broad-300M-attempt-1-failure.json",
+    "preliminary-broad-300M-attempt-2-failure.json"
+  ]
+}

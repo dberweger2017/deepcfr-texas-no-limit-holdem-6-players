@@ -1,0 +1,9 @@
+{
+  "all_480_hands_payoff_suppressed": true,
+  "all_six_input_identities_match": true,
+  "compact_destination_hashes_match": true,
+  "manifest_files_verified": 16,
+  "raw_root": "/Users/dberweger/Local/dr2x2-ac-mechanism-timing-20261002/attempt-1",
+  "source": "afb22671f06bbad87340a6e3a9dcdff5b378c165",
+  "status": "verified"
+}

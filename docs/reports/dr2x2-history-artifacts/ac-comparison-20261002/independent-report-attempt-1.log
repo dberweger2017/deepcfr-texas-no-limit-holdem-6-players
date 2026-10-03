@@ -1,0 +1,2 @@
+usage: --root [-h] --root ROOT --plan PLAN --inputs INPUTS --out OUT
+--root: error: the following arguments are required: --root
