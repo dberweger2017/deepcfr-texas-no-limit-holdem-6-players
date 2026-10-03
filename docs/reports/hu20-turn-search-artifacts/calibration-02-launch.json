@@ -1,0 +1,24 @@
+{
+  "admission_path": "calibration-02-admission-refresh-01.json",
+  "binary_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+  "first_status": {
+    "decision_deadline_seconds": 30,
+    "fallbacks": 2,
+    "guard_failure": false,
+    "stage": "screen"
+  },
+  "focused_tests": 55,
+  "fresh_admission_commit": "a5f4d48",
+  "heartbeat": "ACTIVE every 30 minutes; brief read-only checks while unchanged",
+  "journal_used_before_active_phase_seconds": 5740.478508333264,
+  "monitor_pid": 18890,
+  "pid": 18889,
+  "protocol_sha256": "5db4cd937d1138770940a9a27d5586846643b8cdbf9d3a0d6a93e22f717bafab",
+  "raw_root_m4": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-02",
+  "restart_approval": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148#issuecomment-5966496087",
+  "resumed_comment": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148#issuecomment-5966647411",
+  "source_commit": "410541962eacce2ecd2bb31e966b8e7e0b2a3a4b",
+  "source_full_ci_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37104886954",
+  "started_at": 1791011400.774807,
+  "status": "running"
+}

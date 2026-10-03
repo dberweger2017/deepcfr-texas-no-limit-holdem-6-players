@@ -1,0 +1,181 @@
+{
+  "budget_snapshot": {
+    "attempts": [
+      {
+        "elapsed_seconds": 0.0020376669708639383,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 22380544,
+        "phase": "part-a-verification",
+        "pid": 64868,
+        "reason": null,
+        "seconds": 0.18007208406925201,
+        "started_at": 1790992578.328353,
+        "status": "complete",
+        "stopped_at": 1790992578.506793,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "phase": "part-a-verification",
+        "reason": "Admission helper invoked outside module path: ModuleNotFoundError scripts; no admission or worker started",
+        "seconds": 0.162389,
+        "status": "failed",
+        "stopped_at": 1790992619.860926
+      },
+      {
+        "elapsed_seconds": 61.830106999957934,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 3415310336,
+        "phase": "pilot",
+        "pid": 64911,
+        "reason": null,
+        "seconds": 63.091375957941636,
+        "started_at": 1790992620.457419,
+        "status": "complete",
+        "stopped_at": 1790992683.5441191,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 0,
+        "phase": "part-a-verification",
+        "pid": 65366,
+        "reason": null,
+        "seconds": 0.18150570802390575,
+        "started_at": 1790992788.833623,
+        "status": "complete",
+        "stopped_at": 1790992789.012053,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 4978.924456875073,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 3628908544,
+        "phase": "part-a",
+        "pid": 65553,
+        "reason": null,
+        "seconds": 4979.80666112504,
+        "started_at": 1790993104.0258,
+        "status": "complete",
+        "stopped_at": 1790998083.955976,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 69.50756229204126,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 721240064,
+        "phase": "part-a-verification",
+        "pid": 7413,
+        "reason": "'base_decision'",
+        "seconds": 69.53353283298202,
+        "started_at": 1790999380.752278,
+        "status": "complete",
+        "stopped_at": 1790999450.2847009,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 0.3808491670060903,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 102416384,
+        "phase": "part-a-verification",
+        "pid": 8019,
+        "reason": null,
+        "seconds": 0.3942230420652777,
+        "started_at": 1790999500.8617442,
+        "status": "complete",
+        "stopped_at": 1790999501.254467,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 0,
+        "phase": "native-build-parity",
+        "pid": 8101,
+        "reason": "Command '['git', 'clone', '/Users/dberweger/Local/hu20-turn-search-20261003/upstream-9d1509f.bundle', '/Users/dberweger/Local/hu20-turn-search-tool/upstream']' returned non-zero exit status 128.",
+        "seconds": 0.04749029106460512,
+        "started_at": 1790999624.7818081,
+        "status": "failed",
+        "stopped_at": 1790999624.8278139,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 12.400198833085597,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 621461504,
+        "phase": "native-build-parity",
+        "pid": 8196,
+        "reason": null,
+        "seconds": 13.184220040915534,
+        "started_at": 1790999749.385834,
+        "status": "complete",
+        "stopped_at": 1790999762.568602,
+        "swap_baseline_bytes": 901513216
+      }
+    ],
+    "limit_seconds": 86400,
+    "used_seconds": 5126.581470082102
+  },
+  "fixture": {
+    "architecture": "arm64",
+    "binary_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+    "config": null,
+    "cross_platform_parity": "passed",
+    "platform": "macOS-26.6-arm64-arm-64bit",
+    "python": "3.11.14",
+    "reference_max_strategy_absolute_difference": 0.0,
+    "reference_max_value_chips_absolute_difference": 0.0,
+    "reference_sha256": "c03e79302f0c76405e4e0afb09aa5c94119117d2f65511c5e5a064591d3fdd92",
+    "status": "passed",
+    "tolerances": {
+      "strategy_absolute": 1e-05,
+      "value_chips_absolute": 0.001
+    }
+  },
+  "inventory": {
+    "architecture": "arm64",
+    "binary_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+    "cargo": "cargo 1.89.0 (c24e10642 2025-06-23)\n",
+    "compiler": "rustc 1.89.0 (29483883e 2025-08-04)\nbinary: rustc\ncommit-hash: 29483883eed69d5fb4db01964cdf2af4d86e9cb2\ncommit-date: 2025-08-04\nhost: aarch64-apple-darwin\nrelease: 1.89.0\nLLVM version: 20.1.7\n",
+    "flags": "CARGO_BUILD_JOBS=2; RUSTFLAGS=-A dangerous_implicit_autorefs; cargo --locked --release",
+    "original_binary_sha256": "cdc46b10d985d64747982ed1e3d40a1697d533cfbc444c0d16ed284cc4148952",
+    "source_commit": "ac7e2a6d3b3026e9febc74054abd4cb791e1a4ef",
+    "sources": {
+      "README.md": {
+        "bytes": 918,
+        "sha256": "2fbab7f6dc1fb78f68bc24eb6e7f89e315ecd6f2afca70d1e99f8ac97c83cdde"
+      },
+      "harness/Cargo.lock": {
+        "bytes": 7916,
+        "sha256": "33613db4ada49e23efee77838315e70d91000769ca3da1d4b4f50b62918ca7a2"
+      },
+      "harness/Cargo.toml": {
+        "bytes": 241,
+        "sha256": "abfb551f1cb3361f8d8b8918d7e397698d8fb04bd45530759ab825e6c21ddcbd"
+      },
+      "harness/src/compact.rs": {
+        "bytes": 9930,
+        "sha256": "5a5c52e47737d210df60c96ece4a887bb73ffa5e7cd637799c653e3aa443da7f"
+      },
+      "harness/src/main.rs": {
+        "bytes": 16624,
+        "sha256": "bc5f10a77d2cbeb624462d2352b84568a309fafae81e7af9f9094d3fcc4a0aaa"
+      },
+      "harness/src/weighted.rs": {
+        "bytes": 4155,
+        "sha256": "ad4e105d568f9af527db55b1a7ffb95296ab9cb98da174551189fb776978f5ab"
+      }
+    },
+    "upstream_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+    "upstream_relocation": "/Users/dberweger/Local/hu20-turn-search-20261003/upstream-search-9d1509f"
+  },
+  "linux_runtime_parity": "pending actual approved pod",
+  "relocation": {
+    "prior_link": "/Users/dberweger/Local/hu20-exact-flop-tool/upstream",
+    "reason": "M1 checkout tracked an absolute source symlink; M4 original has no Git metadata; dedicated pinned clone preserves original source/binary",
+    "resolved_link": "/Users/dberweger/Local/hu20-turn-search-20261003/upstream-search-9d1509f"
+  },
+  "setup_failure": {
+    "reason": "Command '['git', 'clone', '/Users/dberweger/Local/hu20-turn-search-20261003/upstream-9d1509f.bundle', '/Users/dberweger/Local/hu20-turn-search-tool/upstream']' returned non-zero exit status 128.",
+    "status": "failed"
+  }
+}

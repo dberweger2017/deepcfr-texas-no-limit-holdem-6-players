@@ -1,0 +1,52 @@
+{
+  "145_final_report_pushed": true,
+  "145_main_complete": true,
+  "145_processes_empty": true,
+  "145_report_sha256": "b423951703ad5a6ec52c51b6121fa6320b04f837282731f01cc8d97c7deef68e",
+  "approved_forecast_seconds": 48872.06532889721,
+  "architecture": "arm64",
+  "checked_at": 1791043527.700098,
+  "disk_free_bytes": 62724222976,
+  "family_cap_formula": "min(8 GiB, 0.8 * reclaimable - 0.5 GiB sidecar)",
+  "followup_claim": "none",
+  "journal_used_seconds": 12055.517149959325,
+  "memory_components_bytes": {
+    "File-backed pages": 6598017024,
+    "Pages free": 159350784,
+    "Pages inactive": 6159417344,
+    "Pages speculative": 267927552
+  },
+  "owner_decision_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148#issuecomment-5970668869",
+  "ownership_evidence": "#145 reporting heartbeat PAUSED; reporting chat idle; Dr. Research idle cleanup only; M4 access chat idle launcher only; no new compute claim; pgrep empty",
+  "page_size_bytes": 16384,
+  "prior_turn_action_counts": {
+    "0": 144,
+    "1": 0
+  },
+  "process_check_stdout": "",
+  "protocol_sha256": "5c80e96718a02877f1b05ec2fbf4be7b49a95e7a7d6cc4edcdb5d864d33956a4",
+  "reclaimable_bytes": 13184712704,
+  "reclaimable_formula": "free + inactive + speculative + file-backed",
+  "remaining_seconds": 74344.48285004067,
+  "river_reserve_seconds": 10800,
+  "rss_limit_bytes": 8589934592,
+  "sidecar_reserved_bytes": 536870912,
+  "solver_allocation_reserve_bytes": 268435456,
+  "source_commit": "93d55ebb522d3c09c869ca0f3448716f5bb2ae2f",
+  "source_full_ci": "passed",
+  "source_full_ci_proof": {
+    "conclusion": "success",
+    "databaseId": 37134911943,
+    "headSha": "93d55ebb522d3c09c869ca0f3448716f5bb2ae2f",
+    "status": "completed",
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37134911943"
+  },
+  "source_full_ci_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37134911943",
+  "swap": "vm.swapusage: total = 2048.00M  used = 859.75M  free = 1188.25M  (encrypted)\n",
+  "verified_hashes": {
+    "binary": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+    "report": "b423951703ad5a6ec52c51b6121fa6320b04f837282731f01cc8d97c7deef68e",
+    "retained_screen": "4cc4391960a09a7d8b0c4fbd302054c1780cb805e82aa093185331c943ac8eae"
+  },
+  "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9726.\nPages active:                                 391594.\nPages inactive:                               375941.\nPages speculative:                             16353.\nPages throttled:                                   0.\nPages wired down:                             148450.\nPages purgeable:                               20079.\n\"Translation faults\":                    10533753066.\nPages copy-on-write:                       524688437.\nPages zero filled:                        2646932055.\nPages reactivated:                        1707771509.\nPages purged:                               58678963.\nFile-backed pages:                            402711.\nAnonymous pages:                              381177.\nPages stored in compressor:                   373815.\nPages occupied by compressor:                  65094.\nDecompressions:                           2577089133.\nCompressions:                             2676277855.\nPageins:                                   150787406.\nPageouts:                                    4516948.\nSwapins:                                    42854572.\nSwapouts:                                   50018155.\n"
+}
