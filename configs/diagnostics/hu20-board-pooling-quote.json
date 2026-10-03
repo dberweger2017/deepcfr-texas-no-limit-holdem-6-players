@@ -1,0 +1,42 @@
+{
+  "aggregate_rss_bytes": 22548578304,
+  "arena_bytes": 4294967296,
+  "availability_observed": "Unavailable",
+  "compute_usd_per_hour": 0.32,
+  "container_disk_gb": 100,
+  "container_disk_usd_per_hour": 0.014,
+  "cpu_family": "3GHz General Purpose",
+  "deployment_authorized_now": false,
+  "expected_hours_tentative": [
+    3,
+    6
+  ],
+  "maximum_hours": 12,
+  "memory_admission_fraction": 0.8,
+  "merchant": "RunPod",
+  "minimum_disk_free_bytes": 21474836480,
+  "network_volume": false,
+  "observed_window_utc": [
+    "2026-10-03T08:30:05Z",
+    "2026-10-03T08:55:46Z"
+  ],
+  "pods": 1,
+  "ram_gb": 32,
+  "rate_ceiling_usd_per_hour": 0.34,
+  "retrieval_shutdown_reserve_seconds": 7200,
+  "screenshots": [
+    {
+      "path": "/Users/dberweger/Local/hu20-board-pooling-20261003/runpod-gp8-quote.jpg",
+      "sha256": "bceba5b90acb978a5df94536a0727892bc61ac3b920f454a2017c7e87f779c1c"
+    }
+  ],
+  "status": "budget approved up to $5; owner deferred rental until code prepared and later resume",
+  "threads_per_worker": 2,
+  "total_cap_usd": 5,
+  "total_usd_per_hour": 0.334,
+  "transfer_fee_usd": 0,
+  "url": "https://console.runpod.io/deploy",
+  "vcpus": 8,
+  "worker_rss_bytes": 5368709120,
+  "workers": 4
+}

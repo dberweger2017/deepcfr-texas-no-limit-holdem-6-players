@@ -1,0 +1,66 @@
+{
+  "boards": 40,
+  "bootstrap_resamples": 2000,
+  "bootstrap_seed": 202610030304,
+  "companion_keys_per_set": 20,
+  "corpus": {
+    "path": "docs/reports/hu20-board-pooling-artifacts/corpus.json",
+    "sha256": "482af346e395ed27fa5ae87245ba1af4c051d8b4f0a41b0e749dc51677e4bc85"
+  },
+  "crossfit": {
+    "path": "docs/reports/hu20-board-pooling-artifacts/crossfit.json",
+    "sha256": "ae6bd8bd9f2d049bbd8fcecaa3e41d273150479b936418881738b3c8c61daf67"
+  },
+  "engine_commit": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+  "equity_cluster_seed": 202610030305,
+  "equity_histogram_bins": 20,
+  "equity_k": 50,
+  "format": "hu20-board-pooling-plan-v2",
+  "gap_floor_bb": 0.1,
+  "jobs_total": 120,
+  "maximum_iterations": 10000,
+  "minimum_common_board_weight_fraction": 0.8,
+  "minimum_common_boards": 32,
+  "minimum_common_boards_per_fold": 16,
+  "native_menu": true,
+  "paid_compute_status": "budget-approved-5-usd; rental-deferred-by-owner",
+  "per_solve_seconds": 1800,
+  "phase2": "fresh-tree-lock-only",
+  "placement_thresholds": [
+    0.3,
+    0.7
+  ],
+  "policies": [
+    {
+      "name": "B-2026093001-500000000-stored-average",
+      "path": "B-2026093001-500000000.average.jsonl.gz",
+      "seed": 2026093001,
+      "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+      "strategy": "stored-average"
+    },
+    {
+      "name": "B-2026093002-500000000-stored-average",
+      "path": "B-2026093002-500000000.average.jsonl.gz",
+      "seed": 2026093002,
+      "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d",
+      "strategy": "stored-average"
+    },
+    {
+      "name": "B-2026093003-500000000-stored-average",
+      "path": "B-2026093003-500000000.average.jsonl.gz",
+      "seed": 2026093003,
+      "sha256": "c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285",
+      "strategy": "stored-average"
+    }
+  ],
+  "primary_pooling": "two-fold-held-out",
+  "production_admission": "revision-2 qualification and owner resume required",
+  "progress_every": 25,
+  "qualified_mac_binary_sha256": "cdc46b10d985d64747982ed1e3d40a1697d533cfbc444c0d16ed284cc4148952",
+  "raise_cap": null,
+  "replay_fraction": 0.15,
+  "replay_jobs": 18,
+  "schedule_seed": 202610030306,
+  "solver_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+  "target_pct_pot": 0.2
+}
