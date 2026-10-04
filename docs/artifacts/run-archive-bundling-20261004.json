@@ -805,5 +805,19 @@
     "head": "da8dc2860d1bd138b5a48247fe1d56ee17d296a6",
     "all_ci": "passed",
     "merge": "2f065f7d9d4c6c8a3d9223d7467bc38554bc0f4c"
+  },
+  "m4_packaging_incident": {
+    "state": "retained-partial-before-publication-of-failed-archive",
+    "completed_archives_preserved": 26,
+    "failed_archive": "PR-113-TP20/M4-results-20261004.tar.gz",
+    "cause": "tarfile.gettarinfo returned hardlink metadata for policy-0.json.gz, a regular file with nlink=2 and the same inode as preceding current.json.gz. The helper incorrectly required regular metadata.",
+    "repair": "A separate resumed helper uses dereference=True plus explicit content hardlink encoding and unchanged member hash verification. It skips all 26 verified archives and retains the first failed partial.",
+    "evidence": "Both paths have expected SHA256 9ba3de611fdac90d3d250ce9888eb09eac58707a47acbc0b5b4916d3a69ccc9d. No source deleted, no scientific work."
+  },
+  "shared_archive_restoration": {
+    "archive": "PR-148-turn-calibration/M4-closed-research--calibration-03-20261004.tar.gz",
+    "embedded_prefix": "M4-closed-research/calibration-03",
+    "equivalent_M1_prefix": "M1-closed-research/m4-calibration-03-complete",
+    "identity": "All relative paths after those prefixes, sizes and hashes match; restore the archive once and point either original run path at the extracted calibration-03 directory."
   }
 }
