@@ -14,7 +14,7 @@ Play, inspect and reproduce a learning poker agent. This project began with neur
 | [Human benchmark sessions](docs/play-web-benchmark.md) | A planned number of HU20 hands against the same pinned policy, with restart, abort and sanitized result export. These record raw human results, not human strength. |
 | [Three-player research](docs/tp20-model-card.md) | Separate TP20 artifacts and experimental results; not supported by the web table or B100M. |
 | [Scripted multiplayer sandbox](docs/benchmarks.md) | Exercises four-to-six-player rules, sessions and evaluation. It is not a trained six-player agent. |
-| [Six-player, 100 BB research](docs/research-history.md) | Historical neural and blueprint experiments; the v0.5 strength criterion remains unmet. |
+| [Six-player, 100 BB research](docs/research-history.md) | Historical neural and blueprint experiments; the six-player strength target remains unmet. |
 
 The v0.4 source workflow uses Python 3.11 with a pinned Rust-backed [pokers engine](https://github.com/dberweger2017/pokers/tree/5db20e3d5d6862b32a7402035c1340b622d3b005). The web table runs **locally on loopback**, with an access token. It is not a hosted poker service. We have not validated every operating system or published a new PyPI package.
 
@@ -57,13 +57,30 @@ The featured first-seed B100M is **one saved inference export**, not the three-l
 
 The separate [completed #116 diagnostics](docs/reports/hu20-scaling-diagnostics.md) found improvements against minraise and passive controls relative to each B lineage's own 20M policy, but small secondary panels were mixed. Pot-pressure profit was only +3.29 BB/100 in a 256-block-per-policy panel, with frequent fallback after off-menu histories. [#117's diagnosis](docs/reports/hu20-b100-diagnosis-m4.md) used a **different** fresh 512-block schedule and must not be pooled with #116 estimates. Independent late-street trained coverage stayed thin (first-seed river 56.2% on a 4,248-observation fixture). These are research outcomes, not a claim that the released seed beats human players.
 
-## Limits and next milestones
+## Limits
 
 B100M supports only its specified heads-up 20 BB, no-rake/no-ante game. Each hand resets stacks; this is not tournament play. Free sizing can push histories outside the bot's trained abstraction. No six-player or 100 BB strength follows from these results, and the older neural Deep CFR work is not a complete Pluribus reproduction. Historical failures and the full trail remain in the [research index](docs/research-history.md) and [roadmap](ROADMAP.md).
 
+## Release plan
+
+This is a rough blueprint that will change as evidence comes in. Patch releases improve the current heads-up 20 BB game; minor releases move to deeper stacks and more players. Each release must beat its predecessor in a paired arena comparison. Milestones from 0.5 onward add the multi-seed confirmation described in the [roadmap](ROADMAP.md#release-milestones).
+
+| Release | Game | Focus |
+| --- | --- | --- |
+| **0.4.0** (current) | Heads-up, 20 BB | Rebuilt preview: tabular B100M policy, local table and replay |
+| **0.4.x** | Heads-up, 20 BB | The Pluribus recipe on a small game: average-policy play with turn/river search, a native trainer, a better card abstraction or training procedure, then search from the flop |
+| **0.5** | Heads-up, 100 BB | Deep stacks and a first external benchmark against an established heads-up bot |
+| **0.6** | Three players | Multiway blueprint and search |
+| **0.7** | Four and five players | A blueprint for each table size |
+| **0.8** | Six players, 100 BB | Reliable positive profit against the scripted opponent pool across independent training seeds on fresh deals |
+| **0.9** | Four to six players | The full table: changing lineups, unequal stacks, 20–200 BB, opponent adaptation and a decision inspector |
+| **1.0** | Six players | Lower-end professional standard |
+
+The order of the 0.4.x steps follows the evidence. The [roadmap's current position](ROADMAP.md#current-position) records the work in progress.
+
 ### What 1.0 means
 
-The [formal v0.5 and v1.0 criteria](ROADMAP.md#release-milestones) remain unchanged. v0.5 requires reliable positive six-player 100 BB profit against the scripted pool on fresh held-out deals across at least two independent seeds. v1.0 requires a credible professional reference benchmark, predeclared confirmation, multiple training seeds, legal information-safe play and complete reproducibility. v0.4 qualifies neither milestone.
+1.0 requires a credible professional reference benchmark, predeclared confirmation, multiple training seeds, legal information-safe play and complete reproducibility. v0.4 makes no strength claim.
 
 ## Developers and licenses
 

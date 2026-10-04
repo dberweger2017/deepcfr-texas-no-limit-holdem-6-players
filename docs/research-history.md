@@ -12,4 +12,4 @@ The current [README](../readme.md) leads with what can be played. These reports 
 | HU20 card representation | [Model-free bucket collisions](reports/hu20-bucket-coarseness.md), [frozen v2 100M A/B and negative results](reports/hu20-card-v2.md) |
 | Protocols and current direction | [Roadmap](../ROADMAP.md), [rules](rules.md), [observations](observations.md), [model card](hu20-native-reopening-model-card.md) |
 
-Older source releases and tags are preserved as historical artifacts unless I separately approve an exact cleanup. Their version numbers do not map onto the current v0.5 and v1.0 strength criteria.
+Older source releases and tags are preserved as historical artifacts unless I separately approve an exact cleanup. Their version numbers do not map onto the current [release plan](../readme.md#release-plan).
