@@ -267,3 +267,14 @@ any frozen input, solver arithmetic, menu, arena, threads, pilot identity,
 coverage restriction, inference threshold or replay sample. Retain old evidence
 and separately fingerprint the external build. A failed parity/forecast stops;
 no extension or rental is authorized. See the execution record.
+
+
+October 4 bounded-memory engineering continuation: the eager Python fit retained
+all root statistics and was preemptively stopped after one main collect result.
+A data-only M1 repair streams one lineage/root at a time, preserving the exact
+per-key summation order and byte-identical all-board/cross-fit outputs on three
+real pilot fixtures with synthetic split metadata. A sequential owned fit child
+releases allocations before native work resumes. Numeric pooling, every frozen
+scientific field and resource/clock limit remain unchanged. The repair is not
+yet deployed or admitted on M4; no automatic restart. See the execution record
+and report for verified evidence, incomplete readout and owner readmission.

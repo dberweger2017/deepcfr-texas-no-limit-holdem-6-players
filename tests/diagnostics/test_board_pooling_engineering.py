@@ -103,3 +103,65 @@ def test_verified_first_pilot_reuses_exact_results_and_runs_fresh_replay(tmp_pat
     assert calls[0][0]["max_iterations"] == 25
     assert calls[0][1]["threads"] == 6
     assert (out / "pilot-0-resources.json").exists()
+
+
+def test_streamed_campaign_pools_match_eager_fits_exactly(tmp_path):
+    from scripts.run_board_pooling import write_pooled_policies
+    from src.diagnostics.board_pooling import pool_statistics, crossfit_policies
+    jobs = [{"job": str(i), "spot": f"board-{i//2}", "lineage": i % 2,
+             "board_weight": [1., .7, 2.1, .3, .2, 1.3][i]} for i in range(6)]
+    folds = {"board-0": 0, "board-1": 1, "board-2": 0}
+    records = []
+    for i, job in enumerate(jobs):
+        groups = [{"metric": "v1", "key": "shared", "names": ["call", "fold"] if i % 2 else ["fold", "call"],
+                   "mass": .1 + i/10, "action_mass": [.01*(i+1), .09*(i+1)]}]
+        records.append(dict(job, groups=groups))
+        (tmp_path / (job["job"] + ".jsonl")).write_text(json.dumps({"event": "pooling_statistics", "groups": groups}) + "\n")
+    expected = {"pooled-policy.json": pool_statistics(records)}
+    expected.update({f"crossfit-{f}.json": p for f,p in crossfit_policies(records, folds).items()})
+    write_pooled_policies(jobs, lambda j: tmp_path / (j["job"] + ".jsonl"), tmp_path, folds)
+    for name, value in expected.items():
+        # Canonical serialization preserves exact floats, menu order and metadata.
+        assert (tmp_path / name).read_text() == json.dumps(value, sort_keys=True) + "\n"
+
+
+def test_streamed_campaign_never_retains_all_root_groups(tmp_path, monkeypatch):
+    from scripts import run_board_pooling as runner
+    import gc
+    import weakref
+    class Groups(list):
+        pass
+    previous = []
+    peak = 0
+    def load(path):
+        nonlocal peak
+        gc.collect()
+        alive = sum(ref() is not None for ref in previous)
+        # The active consumer may retain its previous yielded record until next().
+        assert alive <= 1
+        groups = Groups([{"metric": "v1", "key": "key", "names": ["check"], "mass": 1., "action_mass": [1.]}])
+        previous.append(weakref.ref(groups)); peak = max(peak, alive + 1)
+        return [{"event": "pooling_statistics", "groups": groups}]
+    monkeypatch.setattr(runner, "rows", load)
+    jobs = [{"spot": str(i), "lineage": 0, "board_weight": 1.} for i in range(20)]
+    runner.write_pooled_policies(jobs, lambda j: j["spot"], tmp_path, {str(i):i%2 for i in range(20)})
+    assert peak <= 2
+    with pytest.raises(ValueError):
+        runner.write_pooled_policies(jobs, lambda j: j["spot"], tmp_path, {"0":0})
+
+
+def test_fit_child_rejects_changed_atomic_response(tmp_path):
+    from scripts.fit_board_pooling import fit
+    from src.diagnostics.saved_hu20 import file_hash
+    split = tmp_path / "split.json"; split.write_text(json.dumps({"folds": {"a":0, "b":1}}))
+    plan = tmp_path / "plan.json"; plan.write_text(json.dumps({"crossfit": {"path":str(split),"sha256":file_hash(split)}}))
+    approval = tmp_path / "approval.json"; approval.write_text(json.dumps({"plan_sha256":file_hash(plan),"qualification_passed":True}))
+    job = {"job":"a-0","spot":"a","lineage":0,"board_weight":1.}
+    (tmp_path / "schedule.json").write_text(json.dumps([job]))
+    (tmp_path / "common-mask.json").write_text(json.dumps({"admitted":["a"]}))
+    root = tmp_path / "collect/a-0"; (root / "solver").mkdir(parents=True)
+    (root / "solver/response.jsonl").write_text("changed\n")
+    (root / "result.json").write_text(json.dumps({"eligible":True,"job":job,"runtime":{"response_sha256":"old"}}))
+    with pytest.raises(ValueError, match="Fit response differs"):
+        fit(plan,tmp_path,approval)
+    assert not (tmp_path / "pooled-policy.json").exists()

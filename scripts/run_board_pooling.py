@@ -11,7 +11,7 @@ import subprocess
 import sys
 from time import sleep, time
 
-from src.diagnostics.board_pooling import pool_statistics, crossfit_policies, covered_context_policy
+from src.diagnostics.board_pooling import pool_statistics, covered_context_policy
 from src.diagnostics.board_pooling_results import (completion, statistics, check_replay, common_mask,
                                                   check_lock_only, check_locked_br_parity)
 from src.diagnostics.flop_check import atomic_json
@@ -150,6 +150,69 @@ def parallel(a, jobs, phase, budget):
         stop(active)
 
 
+def write_pooled_policies(jobs, response_path, out, folds):
+    """Fit one lineage at a time with the original per-group summation order."""
+    if set(folds.values()) != {0, 1} or any(j["spot"] not in folds for j in jobs):
+        raise ValueError("Frozen split lacks an eligible root or half")
+
+    def write(path, selected, metadata):
+        metadata = dict(metadata, format="hu20-board-pooling-policy-v1", groups=None,
+                        root_lineage_records=len(selected), zero_mass_rule="uniform within the actual menu")
+        temporary = path.with_suffix(path.suffix + ".tmp")
+        with temporary.open("w") as stream:
+            stream.write("{")
+            for field_index, name in enumerate(sorted(metadata)):
+                if field_index:
+                    stream.write(", ")
+                stream.write(json.dumps(name) + ": ")
+                if name != "groups":
+                    stream.write(json.dumps(metadata[name], sort_keys=True))
+                    continue
+                stream.write("["); count = 0
+                for lineage in sorted({j["lineage"] for j in selected}):
+                    records = (dict(j, groups=statistics(rows(response_path(j))))
+                               for j in selected if j["lineage"] == lineage)
+                    policy = pool_statistics(records)
+                    for group in policy["groups"]:
+                        if count:
+                            stream.write(", ")
+                        stream.write(json.dumps(group, sort_keys=True)); count += 1
+                    del policy
+                stream.write("]")
+            stream.write("}\n")
+        temporary.replace(path)
+
+    write(out / "pooled-policy.json", jobs, {})
+    for evaluation_fold in (0, 1):
+        training = [j for j in jobs if folds[j["spot"]] != evaluation_fold]
+        if not training:
+            raise ValueError("No eligible training roots in a frozen half")
+        write(out / f"crossfit-{evaluation_fold}.json", training,
+              {"evaluation_fold": evaluation_fold, "training_fold": 1-evaluation_fold,
+               "training_spots": sorted({j["spot"] for j in training})})
+
+
+def fit_pools(a, budget):
+    """A sequential owned child releases all fitting allocations before solvers resume."""
+    command = ["nice", "-n", "10", sys.executable, "-m", "scripts.fit_board_pooling",
+               "--plan", str(a.plan), "--run", str(a.out), "--approval", str(a.approval)]
+    atomic_json(a.out / "status.json", {"phase": "pool-fit", "done": 0, "total": 3,
+                "timestamp": time(), "experiment_deadline_epoch": budget["experiment_deadline_epoch"]})
+    with (a.out / "pool-fit.log").open("x") as output:
+        process = subprocess.Popen(command, stdout=output, stderr=output, start_new_session=True)
+        try:
+            while process.poll() is None:
+                if time() + budget["retrieval_shutdown_reserve_seconds"] >= budget["experiment_deadline_epoch"]:
+                    raise RuntimeError("Pool fit reached retrieval reserve")
+                if rss_for_tree(process.pid) > budget["worker_rss_bytes"]:
+                    raise RuntimeError("Pool fit worker RSS exceeded")
+                sleep(.5)
+            if process.returncode:
+                raise RuntimeError(f"Pool fit failed ({process.returncode})")
+        finally:
+            stop([(process, {})])
+
+
 def campaign(a):
     if json.loads(a.plan.read_text())["format"] != "hu20-board-pooling-plan-v3":
         raise ValueError("Only the held-out revision-3 protocol is admitted")
@@ -207,15 +270,7 @@ def campaign(a):
         mask = common_mask(manifest, results, plan["policies"])
         atomic_json(a.out / "common-mask.json", mask)
         eligible = [j for j in jobs if j["spot"] in mask["admitted"]]
-        records = [dict(j, groups=statistics(rows(a.out / "collect" / j["job"] / "solver/response.jsonl"))) for j in eligible]
-        atomic_json(a.out / "pooled-policy.json", pool_statistics(records))
-        split_path = Path(plan["crossfit"]["path"])
-        if file_hash(split_path) != plan["crossfit"]["sha256"]:
-            raise ValueError("Frozen split fingerprint differs")
-        split = json.loads(split_path.read_text())
-        policies = crossfit_policies(records, split["folds"])
-        for fold, policy in policies.items():
-            atomic_json(a.out / f"crossfit-{fold}.json", policy)
+        fit_pools(a, budget)
         names = ["pooled-policy.json", "crossfit-0.json", "crossfit-1.json"]
         atomic_json(a.out / "pool-inventory.json", {name: file_hash(a.out/name) for name in names})
         parallel(a, eligible, "relock", budget)
