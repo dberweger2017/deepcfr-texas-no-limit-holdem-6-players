@@ -1,0 +1,809 @@
+{
+  "captured_utc": "2026-10-04T11:14:33.423672+00:00",
+  "owner_instruction": "Use whole archives organized by PR and distinct run, including pending individual-file uploads.",
+  "state": "archive-build-and-native-upload-pending",
+  "originals_deleted": false,
+  "cloud_payload_acceptance_still_required": true,
+  "policy": {
+    "format": "one whole .tar.gz per distinct run; no chunks",
+    "preservation": "Every original relative path, source hash, failed/partial attempt and restoration instructions retained. Repeated identical contents within an archive use standard tar hardlinks.",
+    "private_credentials": "Excluded from archives and retained locally.",
+    "duplicate_calibration03": "17,850 matching names/sizes/hashes; one M4 archive represents both hosts; sources remain until accepted upload."
+  },
+  "calibration03_proof": {
+    "state": "exact-cross-host-duplicate",
+    "M1_prefix": "m4-calibration-03-complete",
+    "M4_prefix": "calibration-03",
+    "files": 17850,
+    "bytes": 29491888105,
+    "file_name_size_sha256_all_match": true,
+    "shared_archive_source_host": "m4",
+    "keep_both_sources_until_archive_uploaded": true
+  },
+  "m1_export_incident": {
+    "state": "stop-requested-before-first-folder-rename-completed",
+    "pid": 62268,
+    "reason": "FileProvider move-out is blocked and appears to hydrate a 31GB source. Preserve source and avoid consuming scarce M1 storage, including the 29.5GB already matched cross-host duplicate. No payload deletion or archive publication occurred on M1.",
+    "free_bytes": 14701170688,
+    "old_native_folder_present": true,
+    "retained_source_not_created": true,
+    "time": 1791112256.903934
+  },
+  "hosts": [
+    {
+      "host": "m4",
+      "pid": 18425,
+      "state_at_capture": "stopped-originals-and-partials-retained",
+      "all_sources_preflight_passed": true,
+      "original_sources": [
+        {
+          "original_working_path": "/Users/dberweger/Local/tp20-pr113/results",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-113-TP20/M4-results",
+          "retained_source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-113-TP20--M4-results",
+          "state": "originals-retained-local-loose-upload-withdrawn",
+          "shared_archive_reference": null
+        },
+        {
+          "original_working_path": "/Users/dberweger/Local/trainer-observation-reuse-20260930/results",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-132-observation-reuse/M4-results",
+          "retained_source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-132-observation-reuse--M4-results",
+          "state": "originals-retained-local-loose-upload-withdrawn",
+          "shared_archive_reference": null
+        },
+        {
+          "original_working_path": "/Users/dberweger/Local/observation-reuse-ci-repair-20260930/results",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-132-observation-reuse/M4-CI-repair-results",
+          "retained_source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-132-observation-reuse--M4-CI-repair-results",
+          "state": "originals-retained-local-loose-upload-withdrawn",
+          "shared_archive_reference": null
+        },
+        {
+          "original_working_path": "/Users/dberweger/Local/runpod-mature-cpu-20260930/results",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-133-mature-CPU/M4-initial-results",
+          "retained_source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-133-mature-CPU--M4-initial-results",
+          "state": "originals-retained-local-loose-upload-withdrawn",
+          "shared_archive_reference": null
+        },
+        {
+          "original_working_path": "/Users/dberweger/Local/runpod-mature-cpu-six-20260930/results",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-133-mature-CPU/M4-six-lineage-results",
+          "retained_source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-133-mature-CPU--M4-six-lineage-results",
+          "state": "originals-retained-local-loose-upload-withdrawn",
+          "shared_archive_reference": null
+        },
+        {
+          "original_working_path": "/Users/dberweger/Local/local-cfr-conditional-diagnostic/results",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-local-CFR-diagnostic/results",
+          "retained_source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-local-CFR-diagnostic--results",
+          "state": "originals-retained-local-loose-upload-withdrawn",
+          "shared_archive_reference": null
+        },
+        {
+          "original_working_path": "/Users/dberweger/Local/deepcfr-training/results",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results",
+          "retained_source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+          "state": "originals-retained-local-loose-upload-withdrawn",
+          "shared_archive_reference": null
+        },
+        {
+          "original_working_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-145-exact-flop/M4-results",
+          "retained_source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-145-exact-flop--M4-results",
+          "state": "originals-retained-local-loose-upload-withdrawn",
+          "shared_archive_reference": null
+        },
+        {
+          "original_working_path": "/Users/dberweger/Local/hu20-turn-search-20261003",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M4-closed-research",
+          "retained_source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-148-turn-calibration--M4-closed-research",
+          "state": "originals-retained-local-loose-upload-withdrawn",
+          "shared_archive_reference": null
+        }
+      ],
+      "planned_archives": [
+        {
+          "name": "results--overnight-recovery-verification-20261004.tar.gz",
+          "run": "overnight-recovery-verification",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 2,
+          "original_bytes": 1066,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 1304,
+          "archive_sha256": "f95fe065467453f13c5520da0840a0e3b08c733aa88e3ee681b654bf8b0222fd",
+          "verified_members": 2
+        },
+        {
+          "name": "M4-CI-repair-results-20261004.tar.gz",
+          "run": "M4-CI-repair-results",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-132-observation-reuse",
+          "files": 5,
+          "original_bytes": 3570,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 2618,
+          "archive_sha256": "9f3506cb043b4d215a446591d054b5818d43dd0035e2d2d9ca962ed1ee3ef7ce",
+          "verified_members": 5
+        },
+        {
+          "name": "results--review-notes-20261004.tar.gz",
+          "run": "review-notes",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 1,
+          "original_bytes": 3676,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 2663,
+          "archive_sha256": "72f5646929d5c4cb21fc1081374a91b2a5df1a95d994c7a103ed21726130de14",
+          "verified_members": 1
+        },
+        {
+          "name": "results--m4-thread-benchmark-20261004.tar.gz",
+          "run": "m4-thread-benchmark",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 7,
+          "original_bytes": 12447,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 3541,
+          "archive_sha256": "3ff168403cc8c414936742f4d0dfaf308a1e412ec2afb7bf9562b018994db713",
+          "verified_members": 7
+        },
+        {
+          "name": "results--tensorboard-local-fullgame-simple-20261004.tar.gz",
+          "run": "tensorboard-local-fullgame-simple",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 2,
+          "original_bytes": 33603,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 8966,
+          "archive_sha256": "e3080ab848ad05009b3bdea80f1d2395bd3c63b2bee5e5d1db8688e7d8d1b61e",
+          "verified_members": 2
+        },
+        {
+          "name": "results--tensorboard-local-fullgame-simple-v2-20261004.tar.gz",
+          "run": "tensorboard-local-fullgame-simple-v2",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 2,
+          "original_bytes": 72262,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 18614,
+          "archive_sha256": "6eec2d51c2845f6280abfa6ea4345596636dcb21b5a1a702bb9c2f811edfecf3",
+          "verified_members": 2
+        },
+        {
+          "name": "M4-closed-research--pilot-01-20261004.tar.gz",
+          "run": "pilot-01",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 10,
+          "original_bytes": 255637,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 152255,
+          "archive_sha256": "ff2972566ede0b1d6acc3db75486e6381bee9adf294cfd9ad9cb5508ed167f68",
+          "verified_members": 10
+        },
+        {
+          "name": "results-20261004.tar.gz",
+          "run": "results",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-local-CFR-diagnostic",
+          "files": 19,
+          "original_bytes": 292525,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 75610,
+          "archive_sha256": "ffe83b67cfe625cdb299ab3e40befbad8713cc226fc6024222e39741aec48974",
+          "verified_members": 19
+        },
+        {
+          "name": "M4-closed-research--upstream-search-9d1509f-20261004.tar.gz",
+          "run": "upstream-search-9d1509f",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 34,
+          "original_bytes": 537702,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 137987,
+          "archive_sha256": "6c96c1a7274c5f1266cd7a45f43af6ee87b4c916f196d06edd5cbf95a607ec75",
+          "verified_members": 34
+        },
+        {
+          "name": "results--continuous-supervisor-smoke-20261004.tar.gz",
+          "run": "continuous-supervisor-smoke",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 33,
+          "original_bytes": 1706723,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 664511,
+          "archive_sha256": "82c01e88bbd06f2ad7d6c67443fa51a8a25d9c5769a190762cd10429ca5d1cbf",
+          "verified_members": 33
+        },
+        {
+          "name": "M4-closed-research--m4-parity-01-20261004.tar.gz",
+          "run": "m4-parity-01",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 36,
+          "original_bytes": 1896155,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 119566,
+          "archive_sha256": "c6217f6b540a5104bb69e0e6e698c3c5c0b20f4f58862c3b9676c8851d832a85",
+          "verified_members": 36
+        },
+        {
+          "name": "results--coordination-and-metadata-20261004.tar.gz",
+          "run": "coordination-and-metadata",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 79,
+          "original_bytes": 4509338,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 602947,
+          "archive_sha256": "af2041ef71e986a5bb2227e000e68b3442e0bb3279081813345eb77d42bb1124",
+          "verified_members": 79
+        },
+        {
+          "name": "results--tensorboard-m4-continuous-20261004.tar.gz",
+          "run": "tensorboard-m4-continuous",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 15,
+          "original_bytes": 6671447,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 1366428,
+          "archive_sha256": "d08c04cac022aa03d11f124ee00a58949e13bf06a8e9ab4770f121db73b2a10a",
+          "verified_members": 15
+        },
+        {
+          "name": "results--local-fullgame-20261004.tar.gz",
+          "run": "local-fullgame",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 92,
+          "original_bytes": 13520914,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 1228563,
+          "archive_sha256": "80a816aa022e974cd5a10e75d87b1d0af7b10bd36c0645a049a43cfb9eb512f5",
+          "verified_members": 92
+        },
+        {
+          "name": "results--day-pilot-current-16k-20261004.tar.gz",
+          "run": "day-pilot-current-16k",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 10,
+          "original_bytes": 15459342,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 14832477,
+          "archive_sha256": "09130c7183ba6a15014551e729655a97e7c305310eb56a6046c33761d44d9495",
+          "verified_members": 10
+        },
+        {
+          "name": "results--day-pilot-current-4k-20261004.tar.gz",
+          "run": "day-pilot-current-4k",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 10,
+          "original_bytes": 15467619,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 14840452,
+          "archive_sha256": "3fb048418fa4352e1a61589407e6ccae318c1ba9ca36c2065d493672d195ff58",
+          "verified_members": 10
+        },
+        {
+          "name": "M4-closed-research--coordination-and-metadata-20261004.tar.gz",
+          "run": "coordination-and-metadata",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 78,
+          "original_bytes": 21140248,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 4005368,
+          "archive_sha256": "90a3c58bf91b33b9f8e01a811053b0aa5f88963b36f55d30c82399f8e3d42d82",
+          "verified_members": 78
+        },
+        {
+          "name": "results--day-pilot-paper-16k-20261004.tar.gz",
+          "run": "day-pilot-paper-16k",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 10,
+          "original_bytes": 41485873,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 38949888,
+          "archive_sha256": "89d58f7bd9edd1ef1e8d55a5d4c03000f6c5aa4b68edca8e1419242dbe4bf8a9",
+          "verified_members": 10
+        },
+        {
+          "name": "M4-closed-research--calibration-01-20261004.tar.gz",
+          "run": "calibration-01",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 113,
+          "original_bytes": 46649589,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 1778433,
+          "archive_sha256": "974d04f1e309cd920bc72ea1fbba65084481b7986ac8d792bf3900a29a161c6c",
+          "verified_members": 113
+        },
+        {
+          "name": "results--continuous-replay-pilot-20261004.tar.gz",
+          "run": "continuous-replay-pilot",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 9,
+          "original_bytes": 57823960,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 5587223,
+          "archive_sha256": "28838e959d4bed5c5478158fa8d7dae524d4392a8e9e7ca988e46b323589ac45",
+          "verified_members": 9
+        },
+        {
+          "name": "M4-closed-research--part-a-01-20261004.tar.gz",
+          "run": "part-a-01",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 10,
+          "original_bytes": 62362002,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 61654432,
+          "archive_sha256": "dad0c4e8b20ee4a998ddb7cd448f6e0eac77b87993d16418428366516ddcb1a1",
+          "verified_members": 10
+        },
+        {
+          "name": "results--continuous-branching-pilot-20261004.tar.gz",
+          "run": "continuous-branching-pilot",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 9,
+          "original_bytes": 89202647,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 8063867,
+          "archive_sha256": "1445dc4e1dc5cdfae77d06b1c3ef6abdd318a65abd54d1304e594e43f6e66c78",
+          "verified_members": 9
+        },
+        {
+          "name": "M4-closed-research--calibration-03-20261004.tar.gz",
+          "run": "calibration-03",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 17850,
+          "original_bytes": 29491888105,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 8447111167,
+          "archive_sha256": "b4673e86d8a23241528f8097fbc4af9b1aba07558ef24c7a0a8eb00b52f4a421",
+          "verified_members": 17850
+        },
+        {
+          "name": "M4-closed-research--repo-20261004.tar.gz",
+          "run": "repo",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 2064,
+          "original_bytes": 209113205,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 157086184,
+          "archive_sha256": "3f7aa2f032c414252ba1f517b7e66af13a600d8a0cc11f8d92fae5d32a562582",
+          "verified_members": 2064
+        },
+        {
+          "name": "M4-initial-results-20261004.tar.gz",
+          "run": "M4-initial-results",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-133-mature-CPU",
+          "files": 35,
+          "original_bytes": 589382317,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 292470205,
+          "archive_sha256": "873b854d5cd3c4e30f42dcea3d904646c78af7bdcaa6872c27585e1606ebac8f",
+          "verified_members": 35
+        },
+        {
+          "name": "M4-results-20261004.tar.gz",
+          "run": "M4-results",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-132-observation-reuse",
+          "files": 226,
+          "original_bytes": 2824619559,
+          "state": "whole-archive-native-upload-pending",
+          "archive_bytes": 541014588,
+          "archive_sha256": "0b9f66bdd9885fef24c8d8e91fa6a74d1ba165a5fd00115d1bd3463756b129a0",
+          "verified_members": 226
+        },
+        {
+          "name": "M4-results-20261004.tar.gz",
+          "run": "M4-results",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-113-TP20",
+          "files": 1074,
+          "original_bytes": 934482640,
+          "state": "building",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "results--m4-host-benchmark-20261004.tar.gz",
+          "run": "m4-host-benchmark",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 95,
+          "original_bytes": 1288306455,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "results--day-current-4k-2026091902-20261004.tar.gz",
+          "run": "day-current-4k-2026091902",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 48,
+          "original_bytes": 3427690838,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "results--day-current-16k-2026091902-20261004.tar.gz",
+          "run": "day-current-16k-2026091902",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 48,
+          "original_bytes": 3617357575,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M4-closed-research--calibration-02-20261004.tar.gz",
+          "run": "calibration-02",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 2055,
+          "original_bytes": 1615432066,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M4-six-lineage-results-20261004.tar.gz",
+          "run": "M4-six-lineage-results",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-133-mature-CPU",
+          "files": 300,
+          "original_bytes": 3680199941,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M4-results-20261004.tar.gz",
+          "run": "M4-results",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-145-exact-flop",
+          "files": 3865,
+          "original_bytes": 4236886674,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "results--replay-continuous-2026091901-20261004.tar.gz",
+          "run": "replay-continuous-2026091901",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 113,
+          "original_bytes": 8594092131,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "results--branching-continuous-2026091901-20261004.tar.gz",
+          "run": "branching-continuous-2026091901",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 169,
+          "original_bytes": 6766186662,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "results--baseline-continuous-2026091901-20261004.tar.gz",
+          "run": "baseline-continuous-2026091901",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 175,
+          "original_bytes": 6944509922,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "results--day-paper-16k-2026091902-20261004.tar.gz",
+          "run": "day-paper-16k-2026091902",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training",
+          "files": 49,
+          "original_bytes": 21860108081,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        }
+      ],
+      "free_bytes_at_capture": 38375497728,
+      "completed_archive_verifications_at_capture": 26,
+      "durable_state_path": "/Users/dberweger/Local/research-archive-preparation-20261002/bundle-m4-status.json"
+    },
+    {
+      "host": "m1",
+      "pid": 63966,
+      "state_at_capture": "building-archives",
+      "all_sources_preflight_passed": true,
+      "original_sources": [
+        {
+          "original_working_path": "/Users/dberweger/Local/hu20-turn-search-20261002",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M1-closed-research",
+          "retained_source": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M1-closed-research",
+          "state": "native-originals-retained-in-place-until-archive-confirmation",
+          "shared_archive_reference": {
+            "host": "m4",
+            "archive": "M4-closed-research--calibration-03-20261004.tar.gz",
+            "proof": "calibration03-cross-host-archive-dedup-20261004.json"
+          }
+        },
+        {
+          "original_working_path": "/Users/dberweger/Local/hu20-exact-turn-main-20261002",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M1-exact-turn-evidence",
+          "retained_source": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M1-exact-turn-evidence",
+          "state": "native-originals-retained-in-place-until-archive-confirmation",
+          "shared_archive_reference": null
+        },
+        {
+          "original_working_path": "/Users/dberweger/Local/hu20-board-pooling-20261003",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M1-board-pooling/closed-evidence",
+          "retained_source": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M1-board-pooling/closed-evidence",
+          "state": "native-originals-retained-in-place-until-archive-confirmation",
+          "shared_archive_reference": null
+        },
+        {
+          "original_working_path": "/Users/dberweger/Local/hu20-alias-audit-20261002",
+          "old_native_folder": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M1-alias-audit/closed-evidence",
+          "retained_source": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M1-alias-audit/closed-evidence",
+          "state": "native-originals-retained-in-place-until-archive-confirmation",
+          "shared_archive_reference": null
+        }
+      ],
+      "planned_archives": [
+        {
+          "name": "M1-closed-research--m4-pilot-metadata-01-20261004.tar.gz",
+          "run": "m4-pilot-metadata-01",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 5,
+          "original_bytes": 109754,
+          "state": "building",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m4-pilot-01-20261004.tar.gz",
+          "run": "m4-pilot-01",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 10,
+          "original_bytes": 255637,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m1-parity-reference-01-20261004.tar.gz",
+          "run": "m1-parity-reference-01",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 29,
+          "original_bytes": 1273973,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m1-parity-reference-02-20261004.tar.gz",
+          "run": "m1-parity-reference-02",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 29,
+          "original_bytes": 1274094,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m1-parity-reference-03-20261004.tar.gz",
+          "run": "m1-parity-reference-03",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 29,
+          "original_bytes": 1274096,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--calibration-03-tensorboard-20261004.tar.gz",
+          "run": "calibration-03-tensorboard",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 1,
+          "original_bytes": 1326333,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m1-parity-reference-04-20261004.tar.gz",
+          "run": "m1-parity-reference-04",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 21,
+          "original_bytes": 1671113,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m1-parity-reference-05-20261004.tar.gz",
+          "run": "m1-parity-reference-05",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 36,
+          "original_bytes": 1892761,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m1-parity-reference-06-20261004.tar.gz",
+          "run": "m1-parity-reference-06",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 36,
+          "original_bytes": 1895724,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m1-parity-reference-07-20261004.tar.gz",
+          "run": "m1-parity-reference-07",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 36,
+          "original_bytes": 1895931,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m1-parity-reference-08-20261004.tar.gz",
+          "run": "m1-parity-reference-08",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 36,
+          "original_bytes": 1896025,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m4-parity-01-20261004.tar.gz",
+          "run": "m4-parity-01",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 36,
+          "original_bytes": 1896155,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m1-thread-parity-t6-20261004.tar.gz",
+          "run": "m1-thread-parity-t6",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 36,
+          "original_bytes": 1896428,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m1-thread-parity-t1-20261004.tar.gz",
+          "run": "m1-thread-parity-t1",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 36,
+          "original_bytes": 1896434,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m1-thread-parity-t4-20261004.tar.gz",
+          "run": "m1-thread-parity-t4",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 36,
+          "original_bytes": 1896441,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--coordination-and-metadata-20261004.tar.gz",
+          "run": "coordination-and-metadata",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 67,
+          "original_bytes": 14917150,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m4-calibration-01-20261004.tar.gz",
+          "run": "m4-calibration-01",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 117,
+          "original_bytes": 46657743,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m4-part-a-01-20261004.tar.gz",
+          "run": "m4-part-a-01",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 14,
+          "original_bytes": 63088680,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "closed-evidence-20261004.tar.gz",
+          "run": "closed-evidence",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M1-board-pooling",
+          "files": 188,
+          "original_bytes": 801984305,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-closed-research--m4-calibration-02-owner-stop-20261004.tar.gz",
+          "run": "m4-calibration-02-owner-stop",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 2059,
+          "original_bytes": 1615437444,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "closed-evidence-20261004.tar.gz",
+          "run": "closed-evidence",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M1-alias-audit",
+          "files": 71,
+          "original_bytes": 1721595607,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        },
+        {
+          "name": "M1-exact-turn-evidence-20261004.tar.gz",
+          "run": "M1-exact-turn-evidence",
+          "parent": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration",
+          "files": 3859,
+          "original_bytes": 4205500248,
+          "state": "queued",
+          "archive_bytes": null,
+          "archive_sha256": null,
+          "verified_members": null
+        }
+      ],
+      "free_bytes_at_capture": 14652448768,
+      "completed_archive_verifications_at_capture": 0,
+      "durable_state_path": "/Users/dberweger/Local/research-archive-preparation-20261002/bundle-m1-attempt-2-status.json"
+    }
+  ],
+  "pr153": {
+    "head": "da8dc2860d1bd138b5a48247fe1d56ee17d296a6",
+    "all_ci": "passed",
+    "merge": "2f065f7d9d4c6c8a3d9223d7467bc38554bc0f4c"
+  }
+}
