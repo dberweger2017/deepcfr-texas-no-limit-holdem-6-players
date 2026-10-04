@@ -1,8 +1,9 @@
 # HU20 board-blind pooling — revision 3 M4 stop report
 
-**Cannot classify: the first preparation stopped before any solver value existed.**
-Owner-authorized preparation resumed October 4 with fresh disk/memory admission;
-qualification and main results remain pending.
+**Cannot classify: both preparation attempts stopped before any solver value existed.**
+The owner-authorized resumption completed 80/120 exports, then stopped because
+the shared input directory had been archived. All three original sources are
+now restored and hash-verified in an isolated folder; no restart occurred.
 The forty-board / three-average-export frozen campaign remains unattempted.
 This is a resource stop, not a convergence, playing-strength or abstraction result.
 Draft [PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149)
@@ -34,8 +35,8 @@ full-game sensitivity is not conditional EV or a causal decomposition.
 | Source/engine/tool/three average export fingerprints | Verified on M4; engine 5db20e3d5d6862b32a7402035c1340b622d3b005 |
 | Corpus tree compilation and card features | All 40 generated; raw card features were transient, codebooks retained |
 | K | 100,000 comparisons, zero mismatches, passed |
-| Immutable average index | Seed-1 index complete; other two not started |
-| Compact policy exports | 9 complete, tenth partial, all seed 1 |
+| Immutable average index | First attempt: seed 1. Resumed attempt: seeds 1 and 2 complete; seed 3 not started |
+| Compact policy exports | First attempt: 9 complete, tenth partial. Resumed attempt: 80 complete, all 40 boards for each of seeds 1 and 2 |
 | New M4 V1–V3 / singleton fixtures | Not run |
 | Real-export V4 | Not run; zero of 60,000 intended pilot deals |
 | First/middle/last memory/time/convergence pilots | Not run; no memory API estimates or solve-time forecast |
@@ -59,7 +60,7 @@ changes. Final review also repaired paid-worker approval-only watchdog compatibi
 two blocking-disk regression cases pass and no M4 value or guard outcome changed.
 CI status is recorded on the PR, independently of these local checks.
 
-## Resources and failure chronology
+## First-attempt resources and failure chronology
 
 Initial M4 inspection found zero swap, about 37 GiB free disk and existing
 archive/Drive activity plus idle Ollama. These were left untouched. Native
@@ -86,7 +87,7 @@ The first local reporting invocation lacked PYTHONPATH for the temporary helper;
 it exited before verification and was rerun with the checkout on PYTHONPATH.
 No solver, evidence or estimate changed.
 
-## Retrieval, provenance and cost
+## First-attempt retrieval, provenance and cost
 
 All **2,418 files / 1,084,490,993 bytes** match the M4 manifest, with
 zero hash mismatches. The manifest excludes itself and its own hash was verified
@@ -107,8 +108,8 @@ RunPod budget $5 unused.** No TensorBoard was started.
 ## Meaning for the next 0.4.x step
 
 This attempt gives **no new basis to choose abstraction work or trainer changes**.
-The next step is completing the already frozen diagnostic after restored disk
-headroom and an explicit owner resume following this mandatory stop, within the
+The next step is completing the already frozen diagnostic after an explicit owner resume following the latest mandatory stop,
+using the isolated restored inputs, within the
 remaining original allowance. Real-export V4, all three fixed memory/time pilots
 and the posted production forecast remain prerequisites. Do not infer that the
 large trees fit, converge or finish in 4–10 hours without those pilots.
@@ -133,3 +134,56 @@ The original absolute deadline, cumulative journal, corpus, halves, policies,
 thresholds and resource floors are unchanged. No new solver values are
 admitted by resumption; qualification and the measured production forecast
 remain prerequisites. This is explicit owner readmission, not automatic restart.
+
+## Resumed preparation stop and restored inputs
+
+The resumed attempt stopped on October 4 at 13:34:34 UTC after
+**1,603.875 seconds (26.73 minutes)**, peaking at **1.670 GiB owned RSS**.
+Its first two immutable indexes and all eighty corresponding compact exports
+completed. When the third index was opened, the source was absent:
+`/Users/dberweger/Local/hu20-exact-flop-check-inputs/B-2026093003-500000000.average.jsonl.gz`.
+The shared directory had been replaced by an `ARCHIVED-RESTORE-20261004.json`
+pointer. This is an input-availability failure, not a hash mismatch,
+convergence failure or memory/disk stop. Qualification never started; there
+are still zero native solver values, real-export V4 deals or main results.
+
+The guard recorded `Stage exit 1`; the continuation watcher recorded the
+upstream failure and stopped before qualification. The journal retains both
+attempts, **1,871.342 seconds (31.19 minutes)** total. Its original absolute
+deadline remains October 5 at 11:19:43 UTC. No clock, floor or science changed.
+The heartbeat is paused; no automatic restart occurred. Free disk at closeout was 97.65 GiB, comfortably above the
+20-GiB floor; the exact measured snapshot is retained in raw evidence.
+
+All three source exports were recovered from the retained M1 archive copy at
+`/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-inputs`.
+The original frozen hashes match on both Macs. They now live separately at
+`/Users/dberweger/Local/hu20-board-pooling-20261004/inputs-restored-02`.
+The shared archived alias and Drive were untouched. The retained cloud archive
+pointer is provenance; restoration used the local copy, with no cloud download.
+A defensive exporter fix checks all frozen lineage inputs before costly
+preparation; the existing index builder still rechecks each source before use.
+**21 board-pooling tests pass**, including a missing-later-lineage regression
+that confirms no prepared output or tree work starts. The failed M4 attempt
+used source `482b0af2f5bebd2fa2e1beb855e70bda3ed3deb4`; the preflight fix was
+made afterward and did not alter the failed attempt.
+
+The second full raw retrieval and generated reporter summary retain both
+failures, the eighty exports, original and resumed journals, restored input
+provenance and all hashes. No metric, bootstrap interval, missing-key coverage,
+D, covered-context D or equity headroom is estimable for any lineage or seat.
+The reporter records zero common eligible three-export boards and cannot
+classify. Missing scheduled roots are unattempted, not observed solver exclusions.
+No paid compute, training, promotion, merge or new TensorBoard occurred.
+
+The second retrieval verifies **2,623 files / 4,697,713,515 bytes**, with zero
+member mismatches. Its manifest hash is
+`38710bfd86d9d18c73b93e059ef95bc67b0d501597a276406957507c7595d8f5`.
+[Verification and restored-input receipt](hu20-board-pooling-artifacts/m4-stop-02-retrieval.json).
+[Generated reporter summary](hu20-board-pooling-artifacts/m4-stop-02/summary.json).
+The fresh M1 copy is
+`/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-02-20261004`.
+The first verified M1 copy and its immutable receipt remain preserved.
+The dated M4 originals, partials and isolated input dependencies remain retained
+for the existing RESULTS_INDEX archival destination. No cloud completion or
+permission to delete is implied by retrieval. An explicit owner resume is
+required before another attempt; qualification and forecast remain mandatory.
