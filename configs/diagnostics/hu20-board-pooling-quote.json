@@ -30,7 +30,7 @@
       "sha256": "bceba5b90acb978a5df94536a0727892bc61ac3b920f454a2017c7e87f779c1c"
     }
   ],
-  "status": "budget approved up to $5; owner deferred rental until code prepared and later resume",
+  "status": "superseded October 4 by owner-authorized M4 revision 3; no pod rented; $5 unused",
   "threads_per_worker": 2,
   "total_cap_usd": 5,
   "total_usd_per_hour": 0.334,

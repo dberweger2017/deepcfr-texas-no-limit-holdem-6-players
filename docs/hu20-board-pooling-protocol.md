@@ -1,15 +1,16 @@
 # HU20 cross-board pooling protocol
 
-Revision 2 prospectively amends the original freeze before any main outcomes.
-The owner requested two-fold held-out fitting and lock-only evaluation on
-October 3. Tiny fixture outcomes validate engineering only and did not choose
-the split, replay sample or analysis thresholds. The machine-readable plan is
-[hu20-board-pooling.json](../configs/diagnostics/hu20-board-pooling.json).
-The owner approved a $5 ceiling, then deferred renting until code preparation
-is complete and the recommended shape is available. No pod was deployed.
-The quote records this deferral; preparation does not authorize a rental now.
-No training, promotion or automatic merge. M4 belongs to #148 and is not used.
-M1 is limited to development, short tests and the solver-free companion.
+Revision 3 records the October 4 owner-authorized M4 execution before any main
+outcomes. Revision 2's corpus, 20/20 halves, cross-fitting, thresholds, replay
+sample, bootstrap and classification point rule remain frozen. Only host,
+runtime admission and worker shape change, plus the owner-requested prospective
+coverage restriction and covered-context sensitivity. The machine-readable
+[plan](../configs/diagnostics/hu20-board-pooling.json) and
+[M4 budget](../configs/diagnostics/hu20-board-pooling-m4.json) record this revision.
+#148 merged and released the M4. No pod was ever rented; the RunPod quote and
+rental watchdog are superseded historical records. The $5 budget is unused.
+No training, promotion or automatic merge. M1 is for development, retrieval and
+reporting only; no solves. M4 owns all new qualification and production work.
 
 ## Question and prior evidence
 
@@ -95,11 +96,12 @@ The AGPL upstream and new harness live outside this MIT repo. Pin upstream
 9d1509fe5077d019825f833eed04b16d342dfda1 and native engine
 5db20e3d5d6862b32a7402035c1340b622d3b005. Preserve #145's original external tool
 and macOS binary cdc46b10d985d64747982ed1e3d40a1697d533cfbc444c0d16ed284cc4148952.
-Fingerprint new sources, lockfile, toolchains and macOS/Linux binaries. Build
-x86_64 Linux natively on the quoted pod; no emulation. Publish an external-tool
-manifest reusable by #148 without placing AGPL code in this repository.
+Copy and hash-verify the retained Mac v2 harness and original reference binary
+into a fresh external directory. Preserve source/lockfile/toolchain fingerprints.
+No AGPL source or binary enters this MIT repository. Linux parity is **not run**;
+it is no longer an applicable admission gate.
 
-Run #145 K/V1–V5 fixtures on both platforms. V1 requires zero tree/chip
+Run #145 K/V1–V5 fixtures on M4 against the retained Mac references. V1 requires zero tree/chip
 mismatches, V2 exact terminal settlements, V3 river toy MES/native BR agreement,
 K at least 100,000 full-key/factored-key comparisons with zero mismatches. V4
 must additionally use the real exports (20,000 native range deals per admitted
@@ -110,7 +112,7 @@ All #145 payoff and root-centering conventions remain unchanged.
 
 Cross-board gates add a two-board contradictory-strategy oracle, singleton
 reproduction of full per-root v1 projection, exact menu/actual-key coverage,
-shared equity label identity, and a cross-platform comparison of sufficient
+shared equity label identity, and a same-host reference comparison of sufficient
 statistics and relocked losses. Compare exact trees/keys/hashes discretely;
 floating probability/EV/statistic parity tolerance is 1e-5 of root pot (EV)
 and 2e-5 absolute (probabilities / normalized masses).
@@ -137,23 +139,34 @@ No replacement replay root after outcomes; a support-excluded sampled root is
 recorded as excluded. Lock-only completion is labelled evaluated, never solved;
 its convergence qualification is inherited explicitly from phase 1.
 
-The owner subsequently requested the most efficient single-pod plan and
-deferred rental. Use one General Purpose 8-vCPU / 32-GB pod and four independent
-workers, two Rayon threads each, only after measured memory admission. Each
-worker owns one root/lineage job; the coordinator waits for all phase-1 results
-before fitting the common mask and distributing hash-pinned pooled policies.
-Any worker guard/gate failure stops all owned work.
+Use one worker with six native Rayon threads, nice 10; freeze this count before
+pilots and keep it for the 18 replay jobs. Each worker has a 5-GiB owned RSS
+ceiling and a 4-GiB native arena ceiling checked before allocation. The family
+cap is #148's `macos_memory_admission`: min(8 GiB, 0.8 * (free + inactive +
+speculative + file-backed) - 0.5 GiB sidecar). Reuse `validate_admission`,
+`RunBudget`, `machine_snapshot`, `rss_for_tree` and the existing swap guard;
+do not introduce another memory law. Two workers are not admitted in revision 3.
+Record other processes, pressure and disk before admission; leave them alone.
 
-Parallel independent workers only after measured cgroup/RSS admission. Inspect
-memory estimates before allocation; compression then nonzero range trimming
-are allowed, no cap. A guard failure, nonfinite value, parity/gate failure,
-quote clock/cost exhaustion or oversize root stops owned production and
-preserves partial evidence. No automatic restart. OS and aggregate worker
-limits, worker count, disk, hard clock and retrieval/shutdown reserves belong
-in the owner-approved resource quote. Never bypass guards to fill the corpus.
-Interleave boards and lineages with seed 202610030306; record actual worker
-progress/order. Keep atomic results,
-append-only progress, failures, RSS/memory/CPU and the unreset rental clock.
+Approved cumulative allowance is 24 M4-hours including preparation, tests,
+failures and retrieval. Record one append-preserving clock and an unreset
+24-hour absolute deadline (a conservative bound including idle time). Reserve
+one hour for retrieval/reporting. Keep >=20 GiB free disk, stop on swap growth
+>1 GiB, any RSS/clock/disk/nonfinite/gate failure, and preserve all partials.
+No deletion, automatic restart, replacement root, raise cap or science change.
+Compression and nonzero-range trimming only. If the current disk does not fit,
+wait or ask the owner; increasing future capacity is not present admission.
+
+The first/middle/last frozen seed-1 corpus roots are mandatory real-export V4
+and memory/convergence pilots (20,000 native deals each). They are limped
+2-BB pots with 19-BB stacks: record both memory estimates, achieved residual,
+solve/lock time and peak RSS. Before production post the conservative forecast:
+1.5 * (slowest solve * 138 + slowest locked pass * 138), one worker. This must
+fit the remaining allowance including reserve. If pilots fail or exclusions
+would violate >=32 common boards / >=16 each half, report before production.
+
+Interleave boards and lineages with unchanged seed 202610030306; retain atomic
+results, append-only progress, failure records, estimates and resource history.
 
 ## Frozen analysis and thresholds
 
@@ -179,6 +192,24 @@ pooled, lineage and seat results. Intervals are **conditional on the fitted
 two training-half policies/codebooks**, which are not refit and re-solved in every bootstrap
 draw. They do not include policy-fitting uncertainty. Classification uses the
 frozen point thresholds; show intervals and whether they cross thresholds.
+
+### Missing-key coverage restriction (prospective revision 3)
+
+Report own-target-policy decision reach and missing/zero-training-mass reach
+per evaluation fold, lineage and street. Aggregate using frozen board weights
+and both target seats. If the missing fraction exceeds 5% on either street in
+any fold/lineage, or coverage is unavailable, primary D is **descriptive only**.
+Also report totals across streets, whose scale differs by chance-node count;
+the stricter per-street restriction prevents river context count masking turn
+coverage. Coverage uses the harness's retained own-policy reach convention,
+not joint reach under the best response.
+
+Report `D_covered` with the same B/L denominator and paired-board bootstrap:
+lock the held-out policy on covered actual keys and the per-root v1 witness on
+absent/zero-mass keys. Its loss `e_cross_v1_covered` is a full-game hybrid
+sensitivity isolating changes at covered contexts; it is not a conditional EV,
+a causal decomposition, a new primary fit or a coverage-gate bypass.
+The main policy retains its frozen uniform fallback unchanged.
 
 ## Solver-free companion
 
@@ -206,8 +237,10 @@ policies. Report the optimistic all-board comparator separately. Absent-key
 fallback can increase held-out loss; show its coverage rather than treating
 that increase as an abstraction lower bound.
 
-Retrieve all raw attempts, results, fingerprints and resources, verify member
-hashes against the remote manifest, then terminate the owned pod and its
-ephemeral storage. No network volume. Report actual billed/estimated cost and
-any distinction, every failure and exclusion, source/input/output hashes,
-companion limits and Linux qualification. Keep the PR draft until owner review.
+Retrieve all raw attempts, results, fingerprints and resource journals to M1;
+verify every member against the M4 manifest. Retain raw evidence in the dated
+M4 folder for Drive archiving under RESULTS_INDEX. Do not delete anything or
+touch CloudStorage/GoogleDrive. Cost is zero paid compute; $5 unused. Report
+every failure, exclusion, interval and cannot-classify result. Update ROADMAP,
+report and PR, keep draft. State the next 0.4.x implication explicitly, limited
+to this seed-1-selected limp/check-through line, not raised pots or all boards.

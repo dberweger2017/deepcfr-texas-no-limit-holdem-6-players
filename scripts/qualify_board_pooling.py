@@ -1,4 +1,4 @@
-"""Run retained macOS fixtures and real-export V4 before Linux production."""
+"""Run retained macOS fixtures and real-export V4 before M4 production."""
 
 import argparse
 import json
@@ -27,7 +27,7 @@ def parity(binary, fixtures, out):
         if request.get("compact_path") or request.get("dump_path"):
             raise ValueError("Recorded river parity fixtures must have no host-specific external paths")
         runtime = run_portable_tool(binary, path, out / path.stem,
-            memory_bytes=request["memory_budget_bytes"], threads=2, seconds=300, job_memory_bytes=6 * 1024**3)
+            memory_bytes=request["memory_budget_bytes"], threads=6, seconds=300, job_memory_bytes=6 * 1024**3)
         if runtime["status"] != "completed":
             raise RuntimeError(runtime["failure"])
         actual = [json.loads(line) for line in (out / path.stem / "response.jsonl").read_text().splitlines()]
@@ -41,9 +41,9 @@ def parity(binary, fixtures, out):
             raise ValueError("Recorded fixture convergence recipe differs")
         for field in ("current_ev_chips", "mes_ev_chips"):
             error = float(np.max(np.abs(np.asarray(a[field]) - b[field])))
-            checks.append({"gate": "mac-linux-" + field, "fixture": path.name,
+            checks.append({"gate": "mac-mac-" + field, "fixture": path.name,
                            "maximum_chip_error": error, "passed": error <= 1e-5 * request["pot"]})
-        checks.append({"gate": "mac-linux-residual", "fixture": path.name, "passed":
+        checks.append({"gate": "mac-mac-residual", "fixture": path.name, "passed":
                        abs(a["exploitability_pct_pot"] - b["exploitability_pct_pot"]) <= .001})
         queries = [r for r in actual if r["event"] == "payoff_query"]
         original = [r for r in expected if r["event"] == "payoff_query"]
@@ -52,7 +52,7 @@ def parity(binary, fixtures, out):
         if queries:
             errors = [abs(x - y) for a, b in zip(queries, original, strict=True)
                       for x, y in zip(a["payoff_chips"], b["payoff_chips"], strict=True)]
-            checks.append({"gate": "mac-linux-V2", "fixture": path.name,
+            checks.append({"gate": "mac-mac-V2", "fixture": path.name,
                            "samples": len(queries), "maximum_chip_error": max(errors),
                            "passed": max(errors) < .01})
         if not all(r["passed"] for r in checks):
@@ -81,7 +81,7 @@ def real_v4(binary, plan, prepared, out):
         request.update(max_iterations=1, progress_every=1, compact_kind="bp-ev")
         path = out / f"pilot-{index}.json"; atomic_json(path, request)
         runtime = run_portable_tool(binary, path, out / f"pilot-{index}",
-            memory_bytes=request["memory_budget_bytes"], threads=2, seconds=600, job_memory_bytes=5 * 1024**3)
+            memory_bytes=request["memory_budget_bytes"], threads=6, seconds=600, job_memory_bytes=5 * 1024**3)
         if runtime["status"] != "completed":
             raise RuntimeError(runtime["failure"])
         response = [json.loads(line) for line in (out / f"pilot-{index}/response.jsonl").read_text().splitlines()]
@@ -99,7 +99,7 @@ def real_v4(binary, plan, prepared, out):
         equilibrium = json.loads(Path(job["request"]).read_text())
         path = out / f"pilot-{index}-equilibrium.json"; atomic_json(path, equilibrium)
         runtime = run_portable_tool(binary, path, out / f"pilot-{index}-equilibrium",
-            memory_bytes=equilibrium["memory_budget_bytes"], threads=2,
+            memory_bytes=equilibrium["memory_budget_bytes"], threads=6,
             seconds=equilibrium["seconds"] + 300, job_memory_bytes=5 * 1024**3)
         if runtime["status"] != "completed":
             raise RuntimeError(runtime["failure"])
@@ -115,14 +115,14 @@ def real_v4(binary, plan, prepared, out):
         atomic_json(pool_path, pool_statistics([dict(job, groups=statistics(response))]))
         measures = [{"metric": name, "projection_metric": projection, "policy_path": str(pool_path.resolve())}
                     for name, projection in (("e_board_v1", "v1"), ("e_board_eq50", "eq50"),
-                       ("e_cross_v1", "v1"), ("e_cross_eq50", f'eq50-fit{1-job["evaluation_fold"]}'))]
+                       ("e_cross_v1", "v1"), ("e_cross_v1_covered", "v1"), ("e_cross_eq50", f'eq50-fit{1-job["evaluation_fold"]}'))]
         fresh = dict(equilibrium, pooling_phase="lock-only", max_iterations=0,
                      reference_equilibrium_ev_chips=final["current_ev_chips"],
                      reference_response_sha256=file_hash(out / f"pilot-{index}-equilibrium/response.jsonl"),
                      pooling_measurements=measures)
         fresh_path = out / f"pilot-{index}-locked.json"; atomic_json(fresh_path, fresh)
         locked = run_portable_tool(binary, fresh_path, out / f"pilot-{index}-locked",
-            memory_bytes=fresh["memory_budget_bytes"], threads=2, seconds=fresh["seconds"]+300,
+            memory_bytes=fresh["memory_budget_bytes"], threads=6, seconds=fresh["seconds"]+300,
             job_memory_bytes=5*1024**3)
         if locked["status"] != "completed":
             raise RuntimeError(locked["failure"])
@@ -132,7 +132,7 @@ def real_v4(binary, plan, prepared, out):
         replay = dict(fresh, pooling_phase="relock", max_iterations=final["iterations"], target_pct_pot=-1)
         replay_path = out / f"pilot-{index}-locked-replay.json"; atomic_json(replay_path, replay)
         replay_runtime = run_portable_tool(binary, replay_path, out / f"pilot-{index}-locked-replay",
-            memory_bytes=replay["memory_budget_bytes"], threads=2, seconds=replay["seconds"]+300,
+            memory_bytes=replay["memory_budget_bytes"], threads=6, seconds=replay["seconds"]+300,
             job_memory_bytes=5*1024**3)
         if replay_runtime["status"] != "completed":
             raise RuntimeError(replay_runtime["failure"])
@@ -153,12 +153,13 @@ def main():
     if not gate_k["passed"]:
         raise ValueError("Prepared key factorization gate failed")
     gates = [gate_k] + parity(a.binary, a.river_fixtures, a.out / "river-parity")
-    gates += singleton(a.binary, a.reference_binary, a.fixture, a.out / "singleton")["gates"]
+    gates += singleton(a.binary, a.reference_binary, a.fixture, a.out / "singleton", threads=6)["gates"]
     real_gates, locked_seconds = real_v4(a.binary, a.plan, a.prepared, a.out / "real-v4")
     gates += real_gates
     atomic_json(a.out / "qualification.json", {"passed": all(g["passed"] for g in gates), "gates": gates,
                 "binary_sha256": file_hash(a.binary), "plan_sha256": file_hash(a.plan),
-                "lock_only_pilot_seconds": locked_seconds})
+                "lock_only_pilot_seconds": locked_seconds, "threads_per_worker": 6,
+                "linux_parity": {"status": "not-run", "reason": "M4 revision 3; no Linux deployment"}})
 
 
 if __name__ == "__main__":

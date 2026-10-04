@@ -1,4 +1,7 @@
-"""Independent provider cutoff for one exact, prospectively owned rental name."""
+"""Superseded rental watchdog retained as history; #149 now runs on M4.
+
+No lease is armed and the $5 pod budget is unused.
+"""
 
 import argparse
 import json

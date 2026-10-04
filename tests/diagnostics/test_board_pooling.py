@@ -247,9 +247,44 @@ def test_paused_production_never_reaches_machine_or_solver(tmp_path, monkeypatch
     import json
     from argparse import Namespace
     import scripts.run_board_pooling as runner
-    plan = tmp_path / "plan.json"; plan.write_text(json.dumps({"format": "hu20-board-pooling-plan-v2"}))
+    plan = tmp_path / "plan.json"; plan.write_text(json.dumps({"format": "hu20-board-pooling-plan-v3"}))
     approval = tmp_path / "approval.json"
     approval.write_text(json.dumps({"owner_approved_quote": True, "owner_resumed": False, "qualification_passed": True}))
-    monkeypatch.setattr(runner, "linux_snapshot", lambda: pytest.fail("Paused work inspected production machine"))
+    monkeypatch.setattr(runner, "resource_snapshot", lambda: pytest.fail("Paused work inspected production machine"))
     with pytest.raises(ValueError, match="required"):
         runner.campaign(Namespace(plan=plan, approval=approval))
+
+
+def test_covered_sensitivity_only_fills_absent_or_zero_training_groups():
+    from src.diagnostics.board_pooling import covered_context_policy
+    train = pool_statistics([row("train", ["fold", "call"], [1, 0])])
+    local = pool_statistics([row("local", ["fold", "call"], [0, 1])])
+    assert covered_context_policy(train, local)["groups"][0]["probabilities"] == [1, 0]
+    train["groups"][0]["mass"] = 0
+    assert covered_context_policy(train, local)["groups"][0]["probabilities"] == [0, 1]
+    assert covered_context_policy(dict(train, groups=[]), local)["groups"][0]["probabilities"] == [0, 1]
+
+
+def test_m4_admission_reuses_cache_inclusive_law_and_refuses_four_workers():
+    from scripts.hu20_search_runtime import macos_memory_admission
+    from src.diagnostics.pooling_runtime import admit_m4
+    vm = "Mach Virtual Memory Statistics: (page size of 16384 bytes)\n" + "\n".join(f"{key}: 200000." for key in ("Pages free", "Pages inactive", "Pages speculative", "File-backed pages"))
+    snapshot = dict(macos_memory_admission(vm), effective_cores=10)
+    budget = {"workers": 1, "threads_per_worker": 6, "worker_rss_bytes": 5*1024**3,
+              "aggregate_rss_bytes": 8*1024**3, "148_merged": True, "148_processes_empty": True,
+              "149_owner_authorized": True, "ownership_evidence": "owner released M4", "followup_claim": "none",
+              "minimum_disk_free_bytes": 20*1024**3}
+    assert admit_m4(budget, snapshot)["rss_limit_bytes"] == 8*1024**3
+    with pytest.raises(ValueError, match="worker shape"):
+        admit_m4(dict(budget, workers=4), snapshot)
+
+
+def test_missing_key_coverage_preserves_fold_lineage_and_street():
+    from scripts.report_board_pooling import coverage_by_fold
+    records = [{"evaluation_fold": f, "lineage": l, "board_weight": 2,
+                "fallback_by_metric": {"e_cross_v1": {"turn": [10, m, 1]}}}
+               for f,l,m in ((0,1,.6),(1,1,0),(0,2,0))]
+    result = coverage_by_fold(records)
+    assert result[0]["fraction"] == pytest.approx(.06)
+    assert len(result) == 3
+    assert result[0]["missing_key_reach_mass"] == 1.2

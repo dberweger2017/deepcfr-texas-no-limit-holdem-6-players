@@ -1,4 +1,4 @@
-"""Parallel native-Linux two-phase diagnostic with one immutable quote clock."""
+"""Guarded M4 two-phase diagnostic with one cumulative experiment clock."""
 
 import argparse
 import json
@@ -11,12 +11,12 @@ import subprocess
 import sys
 from time import sleep, time
 
-from src.diagnostics.board_pooling import pool_statistics, crossfit_policies
+from src.diagnostics.board_pooling import pool_statistics, crossfit_policies, covered_context_policy
 from src.diagnostics.board_pooling_results import (completion, statistics, check_replay, common_mask,
                                                   check_lock_only, check_locked_br_parity)
 from src.diagnostics.flop_check import atomic_json
 from src.diagnostics.flop_check_runtime import append, rss_for_tree
-from src.diagnostics.pooling_runtime import linux_snapshot, run_linux_tool
+from src.diagnostics.pooling_runtime import resource_snapshot, run_owned_tool, admit_m4
 from src.diagnostics.saved_hu20 import file_hash
 
 
@@ -50,12 +50,17 @@ def worker(a):
                            {"metric": "e_cross_eq50", "projection_metric": f"eq50-fit{fit_fold}", "policy_path": heldout, "allow_missing": True},
                            {"metric": "e_board_v1", "projection_metric": "v1", "policy_path": shared},
                            {"metric": "e_board_eq50", "projection_metric": "eq50", "policy_path": shared}])
+        covered_path = destination / "covered-policy.json"
+        local = pool_statistics([dict(job, groups=statistics(first))])
+        atomic_json(covered_path, covered_context_policy(json.loads(Path(heldout).read_text()), local))
+        request["pooling_measurements"].append({"metric": "e_cross_v1_covered", "projection_metric": "v1",
+            "policy_path": str(covered_path.resolve()), "allow_missing": True})
         inventory = json.loads((a.out / "pool-inventory.json").read_text())
         for policy_path in (shared, heldout):
             if file_hash(policy_path) != inventory[Path(policy_path).name]:
                 raise ValueError("Pooled policy hash differs")
     path = destination / "request.json"; atomic_json(path, request)
-    runtime = run_linux_tool(a.binary, path, destination / "solver",
+    runtime = run_owned_tool(a.binary, path, destination / "solver",
                              memory_bytes=budget["arena_bytes"], threads=budget["threads_per_worker"],
                              seconds=request["seconds"] + 300,
                              job_memory_bytes=budget["worker_rss_bytes"], initial_swap=budget["swap_baseline_bytes"])
@@ -68,7 +73,7 @@ def worker(a):
         if job["replay_sample"]:
             replay_request = dict(request, pooling_phase="relock", max_iterations=completion(first)["iterations"], target_pct_pot=-1)
             replay_path = destination / "replay-request.json"; atomic_json(replay_path, replay_request)
-            replay_runtime = run_linux_tool(a.binary, replay_path, destination / "replay-solver",
+            replay_runtime = run_owned_tool(a.binary, replay_path, destination / "replay-solver",
                 memory_bytes=budget["arena_bytes"], threads=budget["threads_per_worker"],
                 seconds=request["seconds"] + 300, job_memory_bytes=budget["worker_rss_bytes"], initial_swap=budget["swap_baseline_bytes"])
             if replay_runtime["status"] != "completed":
@@ -78,7 +83,7 @@ def worker(a):
     else:
         final = completion(actual)
     metrics = [r for r in actual if r["event"] == "pooling_metric"]
-    expected = {"e_bp", "e_root_v1"} if a.phase == "collect" else {"e_cross_v1", "e_cross_eq50", "e_board_v1", "e_board_eq50"}
+    expected = {"e_bp", "e_root_v1"} if a.phase == "collect" else {"e_cross_v1", "e_cross_eq50", "e_board_v1", "e_board_eq50", "e_cross_v1_covered"}
     if {(r["metric"], r["target_solver_seat"]) for r in metrics} != {(m, s) for m in expected for s in (0, 1)} or len(metrics) != 2*len(expected):
         raise ValueError("Missing/duplicate pooled loss measurements")
     atomic_json(destination / "result.json", {"job": job, "eligible": True, "metrics": metrics,
@@ -99,28 +104,26 @@ def stop(processes):
 
 def parallel(a, jobs, phase, budget):
     pending = list(jobs); active = []; completed = []
-    initial = linux_snapshot(); last_log = 0
+    initial = resource_snapshot(); last_log = 0
     try:
         while pending or active:
-            snapshot = linux_snapshot(); rss = rss_for_tree(os.getpid())
-            if time() + budget["retrieval_shutdown_reserve_seconds"] >= budget["rental_deadline_epoch"]:
+            snapshot = resource_snapshot(); rss = rss_for_tree(os.getpid())
+            if time() + budget["retrieval_shutdown_reserve_seconds"] >= budget["experiment_deadline_epoch"]:
                 raise RuntimeError("Quote clock reached retrieval/shutdown reserve")
             if rss > budget["aggregate_rss_bytes"]:
                 raise RuntimeError("Aggregate owned RSS budget exceeded")
             if snapshot["swap_used_bytes"] - budget["swap_baseline_bytes"] > 1024**3:
                 raise RuntimeError("Aggregate swap growth exceeds 1 GiB")
-            if snapshot["memory_events"] != initial["memory_events"]:
-                raise RuntimeError("Cgroup memory event changed")
             if shutil.disk_usage(a.out).free < budget["minimum_disk_free_bytes"]:
                 raise RuntimeError("Disk retrieval reserve violated")
             if time() - last_log >= 5:
                 append(a.out / "progress.jsonl", {"event": "resources", "phase": phase, "timestamp": time(),
                     "rss_bytes": rss, "active_workers": len(active), "completed_phase_jobs": len(completed),
-                    "pending_phase_jobs": len(pending), "cgroup_used_bytes": snapshot["cgroup_used_bytes"],
+                    "pending_phase_jobs": len(pending), "memory_pressure": snapshot["memory_pressure"],
                     "swap_used_bytes": snapshot["swap_used_bytes"]})
                 atomic_json(a.out / "status.json", {"phase": phase, "done": len(completed),
                             "total": len(jobs), "active": [j["job"] for _, j in active], "timestamp": time(),
-                            "rental_deadline_epoch": budget["rental_deadline_epoch"]})
+                            "experiment_deadline_epoch": budget["experiment_deadline_epoch"]})
                 last_log = time()
             for process, job in list(active):
                 if process.poll() is None:
@@ -148,12 +151,12 @@ def parallel(a, jobs, phase, budget):
 
 
 def campaign(a):
-    if json.loads(a.plan.read_text())["format"] != "hu20-board-pooling-plan-v2":
-        raise ValueError("Only the held-out revision-2 protocol is admitted")
+    if json.loads(a.plan.read_text())["format"] != "hu20-board-pooling-plan-v3":
+        raise ValueError("Only the held-out revision-3 protocol is admitted")
     signal.signal(signal.SIGTERM, lambda *_: (_ for _ in ()).throw(SystemExit("Owned campaign stopped")))
     budget = json.loads(a.approval.read_text())
-    if not budget.get("owner_approved_quote") or not budget.get("owner_resumed") or not budget.get("qualification_passed"):
-        raise ValueError("Owner resume, quote approval and Linux parity/real-export gates are required")
+    if not budget.get("149_owner_authorized") or not budget.get("owner_resumed") or not budget.get("qualification_passed"):
+        raise ValueError("Owner resume, M4 authorization and real-export gates are required")
     if file_hash(a.binary) != budget["binary_sha256"] or file_hash(a.plan) != budget["plan_sha256"]:
         raise ValueError("Approved binary/protocol fingerprint differs")
     if file_hash(budget["qualification_path"]) != budget["qualification_sha256"]:
@@ -161,17 +164,16 @@ def campaign(a):
     qualification = json.loads(Path(budget["qualification_path"]).read_text())
     if not qualification["passed"] or not all(r["passed"] for r in qualification["gates"]):
         raise ValueError("Qualification gates did not pass")
+    if qualification.get("threads_per_worker") != budget["threads_per_worker"]:
+        raise ValueError("Replay thread count differs from fixed pilots")
     if (qualification["binary_sha256"] != budget["binary_sha256"]
             or qualification["plan_sha256"] != budget["plan_sha256"]):
         raise ValueError("Qualification belongs to another binary or protocol")
     pilots = [r["runtime"]["elapsed_seconds"] for r in qualification["gates"] if r["gate"] == "real-pilot-V5"]
     if len(pilots) != 3:
         raise ValueError("Three fixed resource/convergence pilots are required")
-    snapshot = linux_snapshot()
-    if (budget["workers"] * budget["threads_per_worker"] > snapshot["effective_cores"]
-            or budget["aggregate_rss_bytes"] > .8 * snapshot["available_bytes"]
-            or budget["workers"] * budget["worker_rss_bytes"] > budget["aggregate_rss_bytes"]):
-        raise ValueError("Quote worker shape exceeds measured free memory/CPU")
+    snapshot = resource_snapshot()
+    admit_m4(budget, snapshot)
     a.out.mkdir(parents=True, exist_ok=False)
     atomic_json(a.out / "admission.json", {"budget": budget, "machine": snapshot})
     plan = json.loads(a.plan.read_text()); manifest = json.loads((a.prepared / "manifest.json").read_text())
@@ -182,7 +184,7 @@ def campaign(a):
         raise ValueError("Three locked-evaluation timings are required")
     forecast = 1.5 * (max(pilots)*(plan["jobs_total"]+plan["replay_jobs"])
                        + max(locked_pilots)*(plan["jobs_total"]+plan["replay_jobs"])) / budget["workers"]
-    remaining = budget["rental_deadline_epoch"] - time() - budget["retrieval_shutdown_reserve_seconds"]
+    remaining = budget["experiment_deadline_epoch"] - time() - budget["retrieval_shutdown_reserve_seconds"]
     atomic_json(a.out / "forecast-admission.json", {"conservative_main_seconds": forecast,
                 "remaining_main_seconds": remaining, "pilot_seconds": pilots, "passed": forecast <= remaining})
     if forecast > remaining:

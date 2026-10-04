@@ -1,3 +1,7 @@
+# Superseded October 4: M4 revision 3
+
+No pod was ever rented. The $5 budget is unused. This quote is retained as history; do not deploy from it. See [revision 3](hu20-board-pooling-protocol.md).
+
 # RunPod quote revision 2 — rental deferred
 
 The owner approved **up to $5**, then withdrew immediate reservation and asked

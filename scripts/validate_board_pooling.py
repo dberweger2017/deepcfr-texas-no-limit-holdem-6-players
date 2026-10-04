@@ -13,7 +13,7 @@ from src.diagnostics.pooling_runtime import run_portable_tool
 from src.diagnostics.saved_hu20 import file_hash
 
 
-def validate(binary, reference_binary, fixture, out):
+def validate(binary, reference_binary, fixture, out, *, threads=2):
     out.mkdir(parents=True, exist_ok=False)
     request = json.loads((fixture / "request.json").read_text())
     data = json.loads((fixture / "export/compact.json").read_text())
@@ -28,7 +28,7 @@ def validate(binary, reference_binary, fixture, out):
                               ("collect", binary, {"pooling_phase": "collect"})):
         path = out / (name + ".json"); atomic_json(path, dict(request, **extra))
         runtime = run_portable_tool(tool, path, out / name, memory_bytes=1024**3,
-                                    job_memory_bytes=1024**3, threads=2, seconds=240)
+                                    job_memory_bytes=1024**3, threads=threads, seconds=240)
         if runtime["status"] != "completed":
             raise RuntimeError(runtime["failure"])
         gate_rows[name] = [json.loads(line) for line in (out / name / "response.jsonl").read_text().splitlines()]
@@ -44,7 +44,7 @@ def validate(binary, reference_binary, fixture, out):
                                   ("e_cross_v1", "v1"), ("e_cross_eq50", "eq50-fit0"))]
     path = out / "relock.json"; atomic_json(path, relock)
     runtime = run_portable_tool(binary, path, out / "relock", memory_bytes=1024**3,
-                                job_memory_bytes=1024**3, threads=2, seconds=240)
+                                job_memory_bytes=1024**3, threads=threads, seconds=240)
     if runtime["status"] != "completed":
         raise RuntimeError(runtime["failure"])
     replay = [json.loads(line) for line in (out / "relock/response.jsonl").read_text().splitlines()]
@@ -65,7 +65,7 @@ def validate(binary, reference_binary, fixture, out):
                  reference_response_sha256=file_hash(out / "collect/response.jsonl"))
     path = out / "lock-only.json"; atomic_json(path, fresh)
     runtime = run_portable_tool(binary, path, out / "lock-only", memory_bytes=1024**3,
-                                job_memory_bytes=1024**3, threads=2, seconds=240)
+                                job_memory_bytes=1024**3, threads=threads, seconds=240)
     if runtime["status"] != "completed":
         raise RuntimeError(runtime["failure"])
     fresh_rows = [json.loads(line) for line in (out / "lock-only/response.jsonl").read_text().splitlines()]
@@ -80,7 +80,7 @@ def validate(binary, reference_binary, fixture, out):
                           ("missing-solved", dict(relock, pooling_measurements=measures))):
         path = out / (name + ".json"); atomic_json(path, config)
         runtime = run_portable_tool(binary, path, out / name, memory_bytes=1024**3,
-                                    job_memory_bytes=1024**3, threads=2, seconds=240)
+                                    job_memory_bytes=1024**3, threads=threads, seconds=240)
         if runtime["status"] != "completed":
             raise RuntimeError(runtime["failure"])
         measured[name] = [json.loads(line) for line in (out / name / "response.jsonl").read_text().splitlines()]

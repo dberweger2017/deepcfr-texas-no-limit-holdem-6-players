@@ -101,3 +101,18 @@ def crossfit_policies(records, folds):
         result[str(evaluation_fold)] = dict(policy, evaluation_fold=evaluation_fold,
                 training_fold=1-evaluation_fold, training_spots=sorted({r["spot"] for r in training}))
     return result
+
+
+def covered_context_policy(training, local):
+    """Keep held-out fitted groups; use the per-root witness only where absent.
+
+    This sensitivity isolates changes on covered decision contexts. It is a
+    hybrid full-game value, not a conditional EV or another primary fit.
+    """
+    groups = {(r["lineage"], r["metric"], r["key"]): r for r in training["groups"]}
+    for r in local["groups"]:
+        key = (r["lineage"], r["metric"], r["key"])
+        if key not in groups or groups[key]["mass"] == 0:
+            groups[key] = r
+    return dict(training, groups=[groups[k] for k in sorted(groups)],
+                sensitivity="per-root witness on missing training contexts")

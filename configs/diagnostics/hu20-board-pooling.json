@@ -7,6 +7,8 @@
     "path": "docs/reports/hu20-board-pooling-artifacts/corpus.json",
     "sha256": "482af346e395ed27fa5ae87245ba1af4c051d8b4f0a41b0e749dc51677e4bc85"
   },
+  "coverage_rule": "D descriptive only if any v1 fold/lineage missing decision reach exceeds 5%",
+  "covered_context_readout": "heldout policy on covered keys; per-root v1 witness on missing/zero-mass keys",
   "crossfit": {
     "path": "docs/reports/hu20-board-pooling-artifacts/crossfit.json",
     "sha256": "ae6bd8bd9f2d049bbd8fcecaa3e41d273150479b936418881738b3c8c61daf67"
@@ -15,15 +17,16 @@
   "equity_cluster_seed": 202610030305,
   "equity_histogram_bins": 20,
   "equity_k": 50,
-  "format": "hu20-board-pooling-plan-v2",
+  "format": "hu20-board-pooling-plan-v3",
   "gap_floor_bb": 0.1,
   "jobs_total": 120,
   "maximum_iterations": 10000,
   "minimum_common_board_weight_fraction": 0.8,
   "minimum_common_boards": 32,
   "minimum_common_boards_per_fold": 16,
+  "missing_key_reach_threshold": 0.05,
   "native_menu": true,
-  "paid_compute_status": "budget-approved-5-usd; rental-deferred-by-owner",
+  "paid_compute_status": "superseded; no pod rented; 5 USD unused",
   "per_solve_seconds": 1800,
   "phase2": "fresh-tree-lock-only",
   "placement_thresholds": [
@@ -54,7 +57,7 @@
     }
   ],
   "primary_pooling": "two-fold-held-out",
-  "production_admission": "revision-2 qualification and owner resume required",
+  "production_admission": "revision-3 M4 pilots and guards required",
   "progress_every": 25,
   "qualified_mac_binary_sha256": "cdc46b10d985d64747982ed1e3d40a1697d533cfbc444c0d16ed284cc4148952",
   "raise_cap": null,

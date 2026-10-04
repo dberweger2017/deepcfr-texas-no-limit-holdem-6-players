@@ -70,7 +70,10 @@ def macos_memory_admission(vm_stat, *, sidecar_bytes=512*1024**2):
 
 def validate_admission(admission, *, now=None):
     now = time() if now is None else now
-    for field in ("145_main_complete", "145_final_report_pushed", "145_processes_empty"):
+    fields = (("148_merged", "148_processes_empty", "149_owner_authorized")
+              if admission.get("experiment") == "hu20-board-pooling" else
+              ("145_main_complete", "145_final_report_pushed", "145_processes_empty"))
+    for field in fields:
         if admission.get(field) is not True: raise ValueError("#145 has not released M4: " + field)
     if admission.get("followup_claim") != "none":
         raise ValueError("M4 follow-up ownership needs owner clarification")
@@ -81,7 +84,7 @@ def validate_admission(admission, *, now=None):
         raise ValueError("RSS admission exceeds measured headroom or owner ceiling")
     if rss+admission.get("sidecar_reserved_bytes", 0) > .8*admission.get("reclaimable_bytes", 0):
         raise ValueError("Family plus sidecar exceeds measured headroom")
-    if not admission.get("145_report_sha256") or not admission.get("ownership_evidence"):
+    if not admission.get("ownership_evidence") or not (admission.get("experiment") == "hu20-board-pooling" or admission.get("145_report_sha256")):
         raise ValueError("Admission needs final-report and ownership evidence")
 
 
@@ -111,7 +114,7 @@ def start_resource_watchdog(budget):
                 rss=owned_rss();budget.peak_rss=max(budget.peak_rss,rss)
                 if rss>=limit:raise MemoryError("Owned family RSS guard during blocking work")
                 if swap_bytes()-budget.swap_baseline>1024**3:raise MemoryError("Swap growth guard during blocking work")
-                if shutil.disk_usage(budget.out).free<8*1024**3:raise OSError("Free disk guard during blocking work")
+                if shutil.disk_usage(budget.out).free<budget.admission.get("minimum_disk_free_bytes",8*1024**3):raise OSError("Free disk guard during blocking work")
             except Exception as exc:
                 if stop.is_set():return
                 atomic_json(budget.out/("resource-guard-failure-"+str(os.getpid())+".json"),{
@@ -167,7 +170,7 @@ class RunBudget:
         self.peak_rss = max(self.peak_rss, owned_rss())
         if self.peak_rss >= self.admission["rss_limit_bytes"]: raise MemoryError("Owned family RSS guard")
         if swap_bytes()-self.swap_baseline > 1024**3: raise MemoryError("Swap growth guard")
-        if shutil.disk_usage(self.out).free < 8*1024**3: raise OSError("Free disk guard")
+        if shutil.disk_usage(self.out).free < self.admission.get("minimum_disk_free_bytes", 8*1024**3): raise OSError("Free disk guard")
         self.record["elapsed_seconds"] = now-self.started
         atomic_json(self.path, self.data)
 

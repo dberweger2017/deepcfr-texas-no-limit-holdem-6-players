@@ -13,6 +13,18 @@ from src.diagnostics.saved_hu20 import file_hash
 METRICS = ("e_bp", "e_root_v1", "e_cross_v1", "e_cross_eq50", "e_board_v1", "e_board_eq50")
 
 
+def coverage_by_fold(rows):
+    totals = defaultdict(lambda: [0., 0.])
+    for r in rows:
+        for street, values in r.get("fallback_by_metric", {}).get("e_cross_v1", {}).items():
+            key = (r["evaluation_fold"], r["lineage"], street)
+            totals[key][0] += r["board_weight"] * values[0]
+            totals[key][1] += r["board_weight"] * values[1]
+    return [{"fold": f, "lineage": l, "street": s, "target_decision_reach_mass": t,
+             "missing_key_reach_mass": m, "fraction": m/t if t else None}
+            for (f,l,s), (t,m) in sorted(totals.items())]
+
+
 def summarize(rows, *, seed=202610030304, resamples=2000):
     grouped = defaultdict(list); weights = {}
     for row in rows:
@@ -79,11 +91,12 @@ def report(plan_path, run, out):
         values = result["metrics"] + second["metrics"]
         for seat in (0, 1):
             selected = [m for m in values if m["target_solver_seat"] == seat]
-            if len(selected) != len(METRICS) or {m["metric"] for m in selected} != set(METRICS):
+            if not set(METRICS) <= {m["metric"] for m in selected} or len({m["metric"] for m in selected}) != len(selected):
                 raise ValueError("Incomplete held-out/secondary seat record")
             found.setdefault((job["spot"], job["policy_index"]), []).append({
                 "spot": job["spot"], "lineage": job["lineage"], "seat": seat,
                 "board_weight": job["board_weight"],
+                "evaluation_fold": job["evaluation_fold"],
                 "fallback_by_metric": {m["metric"]: m.get("fallback_coverage", {}) for m in selected},
                 **{m["metric"]: m["gain_bb"] for m in selected},
                 **{m["metric"] + "_pct_pot": m["gain_pct_pot"] for m in selected}})
@@ -105,7 +118,14 @@ def report(plan_path, run, out):
     admitted = (completed and len(eligible) >= plan["minimum_common_boards"]
                 and weight_fraction >= plan["minimum_common_board_weight_fraction"]
                 and min(fold_counts.values()) >= plan["minimum_common_boards_per_fold"])
+    fallback = coverage_by_fold(rows)
+    coverage_ok = bool(fallback) and all(r["fraction"] is not None and r["fraction"] <= plan.get("missing_key_reach_threshold", .05) for r in fallback)
+    covered_rows = [dict(r, e_cross_v1=r["e_cross_v1_covered"], e_cross_v1_pct_pot=r["e_cross_v1_covered_pct_pot"])
+                    for r in rows if "e_cross_v1_covered" in r]
+    covered_summary = summarize(covered_rows, seed=plan["bootstrap_seed"], resamples=plan["bootstrap_resamples"])
     classification = summaries["pooled"].get("readout", {}).get("classification") if admitted else "incomplete or insufficient common coverage; no hypothesis decision"
+    if admitted and not coverage_ok:
+        classification = "missing-key reach exceeds 5% or unavailable; D descriptive only"
     exclusions = [{"spot": r["spot"], "missing_policy_indices": [i for i in range(3) if (r["spot"], i) not in found]}
                   for r in corpus["roots"] if r["spot"] not in eligible]
     failures = [{"path": str(p.relative_to(run)), "evidence": json.loads(p.read_text())} for p in run.rglob("failure.json")]
@@ -113,7 +133,9 @@ def report(plan_path, run, out):
                  for p in sorted(run.rglob("*")) if p.is_file()]
     billing = json.loads((run / "billing.json").read_text()) if (run / "billing.json").exists() else {"actual_cost": None, "reason": "itemized provider billing unavailable"}
     result = {"completed": completed, "common_boards": len(eligible), "common_weight_fraction": weight_fraction,
-              "classification": classification, "common_fold_counts": fold_counts, "summaries": summaries, "rows": rows, "exclusions": exclusions,
+              "classification": classification, "missing_key_coverage_passed": coverage_ok,
+              "missing_key_reach_by_fold_lineage": fallback, "covered_context_sensitivity": covered_summary,
+              "common_fold_counts": fold_counts, "summaries": summaries, "rows": rows, "exclusions": exclusions,
               "failures": failures, "billing": billing, "inventory": inventory, "plan_sha256": file_hash(plan_path),
               "admission": json.loads(manifest_path.read_text()) if manifest_path.exists() else None}
     out.mkdir(parents=True, exist_ok=False); atomic_json(out / "summary.json", result)
@@ -125,9 +147,9 @@ def report(plan_path, run, out):
             value = summary["metrics"].get(metric)
             values.append("unavailable" if value is None else f'{value["mean"]:.4f}' + (f' [{value["ci95"][0]:.4f}, {value["ci95"][1]:.4f}]' if value["ci95"] else ""))
         lines.append("| " + name + " | " + " | ".join(values) + " |")
-    lines += ["", "Intervals condition on the fitted pooled policies/codebook; they omit fitting uncertainty. Signed placement, ratios, pot-percent intervals, every seat result, exclusion, failure, resource/clock admission and hashes are retained in summary.json.",
-              "", f"Actual provider cost evidence: `{json.dumps(billing, sort_keys=True)}`.",
-              "", "These are conditional turn/river feasible witnesses on one sampled public line. Ranges are taken as given; preflop errors and flop strategy are excluded. Projections are not abstraction equilibria or lower bounds. Primary policies and codebooks fit only the opposite frozen half; in-sample losses remain secondary. Absent or zero-mass training keys use uniform probabilities, with raw per-street fallback reach coverage retained. This does not establish coverage of all boards or full-game strength.",
+    lines += ["", "Covered-context D uses the held-out strategy on covered keys and the per-root witness on absent/zero-mass keys. This is a hybrid sensitivity, not conditional EV or a causal decomposition. The primary D is descriptive only if either fold/lineage exceeds 5% missing target decision reach on either street. Detailed coverage and sensitivity intervals are in summary.json.", "", "Intervals condition on the fitted pooled policies/codebook; they omit fitting uncertainty. Signed placement, ratios, pot-percent intervals, every seat result, exclusion, failure, resource/clock admission and hashes are retained in summary.json.",
+              "", f"Cost evidence: `{json.dumps(billing, sort_keys=True)}`.",
+              "", "These are conditional turn/river feasible witnesses on the seed-1-selected limped/check-through public line, not a verdict on raised pots. Ranges are taken as given; preflop errors and flop strategy are excluded. Projections are not abstraction equilibria or lower bounds. Primary policies and codebooks fit only the opposite frozen half; in-sample losses remain secondary. Absent or zero-mass training keys use uniform probabilities, with raw per-street fallback reach coverage retained. This does not establish coverage of all boards or full-game strength.",
               "", "The solver-free companion reports diagnostic board diversity, not unretained historical training occupancy. No training, promotion or automatic merge."]
     (out / "report.md").write_text("\n".join(lines) + "\n")
     return {"classification": classification, "common_boards": len(eligible)}
