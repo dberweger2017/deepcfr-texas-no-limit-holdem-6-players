@@ -63,3 +63,16 @@ Third explicit owner readmission increases only worker RSS to 7 GiB, with the
 The qualifier reads the approved worker ceiling and writes per-pilot stage
 resource records. All three fixed pilots and the retained fixtures run fresh.
 Post forecast before main; failure stops without retry or further budget change.
+
+Readmission-04 source `2dfde352bd2d229146fc894a0694ab4db552b724` verified
+253 preparation/source members against retrieval-manifest-03 and all 120
+request/compact pairs in place. Arena remains exactly 4 GiB. Fresh admission
+allows the unchanged 8-GiB family with 93.88 GiB free disk; the original
+allowance leaves about 18.1 hours before its one-hour reserve at admission.
+Qualification guard PID 46437 runs alone; heartbeat is active for forecast/main
+admission and eventual verified closeout. [Receipt](reports/hu20-board-pooling-artifacts/m4-resume-04.json).
+Twenty-five Python tests pass, including fixed-budget amendment rejection and
+separate solve/lock RSS retention on a simulated lock failure. All native
+qualification is M4-only. A launch-helper import initially lacked PYTHONPATH;
+it failed before admission or any native work and was rerun with the checkout
+on PYTHONPATH. The absolute deadline includes that administration time.

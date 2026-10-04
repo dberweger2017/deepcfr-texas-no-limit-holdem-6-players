@@ -218,3 +218,11 @@ No main value existed when the amendment was approved. The earlier failure and
 all three verified retrievals remain intact. Bounded-memory engineering is now
 the fallback if the amended pilot fails, rather than a prerequisite to this
 explicit owner-approved resumption. Forecast admission remains mandatory.
+
+Fresh [readmission receipt](hu20-board-pooling-artifacts/m4-resume-04.json)
+verifies 253 preparation/source members plus all 120 request/compact pairs,
+with 93.88 GiB free disk and the unchanged 8-GiB family cap admitted.
+`qualification-04` runs alone from source 2dfde352bd2d229146fc894a0694ab4db552b724;
+monitoring is active again. Twenty-five Python tests pass. Main still requires
+complete fresh gates and posted forecast. These are continuation facts, not
+new campaign results or a rewrite of the earlier stop receipts.
