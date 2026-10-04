@@ -1,6 +1,142 @@
-# HU20 board-blind pooling — revision 3 qualification stop
+# HU20 board-blind pooling — M4 forecast stop
 
-**Prior qualification stop retained; owner has now approved M4-only 7-GiB readmission. Main remains unattempted.**
+**The owner-approved 7-GiB worker limit passed the first fresh solve and lock-only
+pilot. The frozen conservative main forecast cannot fit the original clock:
+31.182 hours minimum versus 17.899 hours remaining before closeout reserve.
+Main never started; no hypothesis decision is possible.** All owned processes
+are stopped and the heartbeat is paused. Draft [PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149)
+retains every attempt; paid cost is $0.
+
+## Resource amendment and latest completed work
+
+The owner explicitly approved changing M4 worker RSS from 5 to 7 GiB before
+any main values. The 8-GiB family cap, 4-GiB solver arena, one worker/six
+threads, nice 10, 20-GiB disk floor, original start/deadline and all failed
+time stayed fixed. Corpus, halves, policies, codebooks, native menu, thresholds,
+coverage rule, bootstrap and eighteen replay jobs did not change. The
+[amendment](../hu20-board-pooling-protocol.md#owner-approved-m4-rss-amendment-before-main-values)
+was posted on the PR before execution. No AGPL binary/source change occurred.
+
+Readmission-04 reverified 253 preparation/source members and every one of the
+120 native request/compact pairs before reusing `prepared-03`. No prior solver
+completion was reused. K100k was inherited from the hash-pinned unchanged
+preparation; 34 retained river checks and thirteen singleton checks ran fresh
+and passed. The first fixed seed-1 root's fresh 20,000-deal V4 and V5 passed.
+Its unchanged equilibrium request SHA-256 is
+`02aa2b9869cefdf43e067c73d484e29f9892ffa5f45f0800e770a9314eb3bc25`.
+Residual remained 0.1831579% pot in 225 iterations. Both memory estimates
+remained 3,908,266,992 bytes uncompressed / 1,968,657,456 compressed, below the
+unchanged 4-GiB arena; compression was used. Native-policy V4 solver EV
+0.3684459 BB remains inside MC CI [0.2940080, 0.4075920] BB.
+
+| First fresh pilot stage | Completed seconds | Peak worker RSS | Outcome |
+|---|---:|---:|---|
+| V4 locked EV | 32.577 | 4.465 GiB | Passed, then independent 20,000-deal native MC |
+| Solve pipeline | 256.901 | 4.902 GiB | Passed V1/V5, metrics and statistics completed |
+| Lock-only pipeline | 285.396 | 5.568 GiB | Completed ten measurements; reference-lock gate passed |
+| Real replay | Incomplete | 2.818 GiB observed before interruption | Deliberately stopped when forecast admission became impossible |
+
+Completed stages remained below 7 GiB. Swap baseline and peak stayed at
+34,015,805 bytes. The outer family sampled peak was 5.559 GiB and the nested
+lock-only worker recorded 5.568 GiB; these separate sampling observations are
+below their respective limits. Interrupted replay observations are not a
+completed peak or timing. Middle/last pilots were unattempted, so full
+qualification and the eighteen main replays are not certified. Linux parity
+remains not-run. No 7-GiB breach or fresh convergence failure occurred.
+
+The completed first lock was checked again offline against the hashed fresh
+equilibrium response after shutdown; `check_lock_only` passed. This recheck
+performed no native solve and did not admit qualification or main values.
+[Compact latest qualification evidence](hu20-board-pooling-artifacts/m4-qualification-stop-04.json).
+
+## Measured forecast and stop
+
+The predeclared formula is 1.5 × (slowest completed solve pipeline × 138 +
+slowest lock-only pipeline × 138), for one worker. Already with the first
+completed pilot, **1.5 × (256.900991 + 285.396349) × 138 = 112,255.549 seconds
+(31.182097 hours)**. The original absolute deadline left **64,437.759 seconds
+(17.899378 hours)** for main after reserving 3,600 seconds for retrieval.
+This is a measured **lower bound** on the final three-pilot forecast, not an
+assertion that unattempted pilots are equally fast. Adding pilots cannot lower
+either maximum. The full three-pilot timing distribution is unavailable.
+
+The owner's instruction explicitly says to stop if the forecast plus reserve
+cannot fit. Continuing the remaining qualification could not restore admission,
+so the owned guard received SIGTERM on October 4 at 16:25:45 UTC
+(18:25:45 CEST). Its interruption record is preserved; it is an intentional
+forecast stop, not a spontaneous RSS/solver gate failure. No main directory,
+production approval or main solver value was created. No original-clock reset,
+resource increase or scientific change was inferred. The measured forecast was
+[posted before main](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149#issuecomment-5982075615).
+
+Qualification-04 consumed **693.705460 guarded seconds** including the
+interrupted replay. The append-only total is **3,773.578918 seconds
+(62.893 minutes / 1.048216 guarded hours)** across all five stages. The original
+absolute start 1791112783.505676 and deadline 1791199183.505676 stay unchanged;
+the latter is October 5 at 11:19:43 UTC (13:19:43 CEST). Guarded time does not
+replace wall allowance: idle, administration and retrieval also consume the
+absolute deadline. Closeout free disk was 93.52 GiB, above the floor.
+
+## Outcomes and intervals
+
+The [fresh frozen-plan reporter](hu20-board-pooling-artifacts/m4-stop-04/report.md)
+and [summary](hu20-board-pooling-artifacts/m4-stop-04/summary.json) record
+**0/40 common three-export boards, zero common weight and zero in each half**.
+All forty main roots are unattempted, not observed solver/support exclusions.
+Preparation has zero support exclusions. All pooled, lineage and target-seat
+BB/pot-percent campaign estimates and bootstrap intervals are unavailable.
+There is no D, covered-context D, held-out coverage by fold/lineage, equity
+headroom or classification. Incomplete pilot values never count in the primary
+mask. No point estimate is silently treated as a confidence interval.
+
+For completeness, these are **first-pilot qualification points only**. The
+pilot pool uses that single root; labels such as `e_cross_v1` here do not mean
+that the frozen opposite twenty-board half has been fitted. They are engineering
+comparators, not forty-board held-out results or an inferred abstraction gap.
+There is no board-bootstrap interval for these points.
+
+| Native pilot metric | Target solver seat 0 BB (% pot) | Target solver seat 1 BB (% pot) |
+|---|---:|---:|
+| e_bp | 0.777066 (38.8533%) | 1.145156 (57.2578%) |
+| e_root_v1 | 0.284480 (14.2240%) | 0.418938 (20.9469%) |
+| e_board_v1 | 0.284480 (14.2240%) | 0.418938 (20.9469%) |
+| e_board_eq50 | 0.184433 (9.2217%) | 0.260130 (13.0065%) |
+| e_cross_v1 | 0.284480 (14.2240%) | 0.418938 (20.9469%) |
+| e_cross_eq50 | 0.186205 (9.3103%) | 0.257971 (12.8985%) |
+| e_cross_v1_covered | 0.284480 (14.2240%) | 0.418938 (20.9469%) |
+
+## Latest verified retrieval and next 0.4.x step
+
+The fresh fourth M1 copy is
+`/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-04-20261004`.
+All **3,198 members / 10,473,469,109 logical bytes / 7,644,215,726 unique-inode
+bytes**, and **82 hard-link groups** verify with zero mismatches. Manifest
+SHA-256 is `8089e51629c5358f34530af062a3fcfd2cf9e814043d496e63e0c484b15b56d7`.
+[Fourth verification receipt](hu20-board-pooling-artifacts/m4-stop-04-retrieval.json).
+All three older copies' manifest members were independently reverified too.
+LAN SSH used the pinned M4 key. The fresh retrieval shares unchanged files via
+`--link-dest` with the third copy to avoid another physical duplicate; old
+member contents and immutable receipts are verified, and nothing was deleted.
+All M4 originals, isolated inputs, prepared recovery dependencies, failed
+attempts, partial replay and external tools remain preserved. No cloud upload
+completion is claimed. The existing RESULTS_INDEX archive destination remains
+unchanged. Source 2dfde352bd2d229146fc894a0694ab4db552b724; plan and both native
+binary fingerprints below remain fixed. Twenty-five Python diagnostic tests
+pass, including resource amendment rejection and separate solve/lock RSS
+retention on failure; publication checks confirm no main rows or inference.
+
+For the next 0.4.x step, **this run supplies no new evidence to choose trainer
+changes over board-key changes**. It shows that the first fresh lock fits the
+approved worker allowance, while the one-worker M4 campaign cannot fit the
+frozen conservative forecast within the original clock. Keep the forty-board
+science and seek an owner-approved longer M4 allowance or a faster-compute
+quote/qualification plan. Other pilots may require more time or fail resource
+gates; first-pilot success is not a whole-campaign guarantee. Bounded-memory
+engineering remains the fallback for an actual future 7-GiB breach, not a
+conclusion forced by this forecast stop. No training, promotion, rental or
+merge occurred; PR stays draft, paid cost $0, monitoring paused.
+
+## Preserved 5-GiB stop, preparation history and original scope
 
 **Preparation completed 120/120 exports. Qualification stopped at the frozen
 5-GiB worker RSS ceiling; main execution never started. No hypothesis decision

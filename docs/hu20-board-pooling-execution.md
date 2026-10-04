@@ -76,3 +76,15 @@ separate solve/lock RSS retention on a simulated lock failure. All native
 qualification is M4-only. A launch-helper import initially lacked PYTHONPATH;
 it failed before admission or any native work and was rerun with the checkout
 on PYTHONPATH. The absolute deadline includes that administration time.
+
+Qualification-04 stopped under the owner's forecast condition after the first
+fresh solve (256.901 seconds, 4.902 GiB) and lock-only pass (285.396 seconds,
+5.568 GiB). Both fit 7 GiB; first V4/V5 and reference-lock check passed.
+The frozen formula already lower-bounds main at 31.182 hours versus 17.899
+remaining before reserve. Adding pilots cannot decrease either maximum.
+First replay was deliberately interrupted; middle/last pilots unattempted.
+No full qualification or main admission. Guarded total 3773.578917582996
+seconds, original clock/deadline unchanged; heartbeat paused. All owned work
+exited. Further execution needs owner-approved allowance/compute action;
+no automatic restart or further RSS increase. Fourth fresh retrieval and
+all three prior copies are hash-verified; see the latest report and receipt.
