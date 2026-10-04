@@ -1,12 +1,120 @@
-# HU20 board-blind pooling — engineered qualification in progress
+# HU20 board-blind pooling — qualified pipeline, interrupted main
 
-**The owner-authorized wrapper engineering passed exact pilot-0 scientific
-parity and reduced the provisional forecast to 15.542 hours, versus 17.102
-remaining before reserve. Remaining qualification is running; main has not
-started and no hypothesis decision is available.** The original 31.182-hour
-forecast stop and every prior attempt remain preserved below. Draft
-[PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149)
-retains all evidence; paid cost is $0.
+**All 61 qualification gates passed, and pilot-0 scientific values reproduce
+exactly after engineering. Main was admitted under the original clock, then
+stopped preemptively after one completed collect job and one partial when a
+separate eager-pooling memory defect was found. No resource threshold was
+breached. A byte-identical streaming repair is ready on M1; M4 remains stopped
+pending explicit owner readmission.** No hypothesis decision is available.
+Draft [PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149)
+remains a draft; paid cost is $0. Every prior failure remains below.
+
+## Completed qualification, measured admission and main stop
+
+[Qualification, stage resources, clock and stop receipt](hu20-board-pooling-artifacts/m4-qualified-stop-05.json)
+records 61/61 passing gates: K, retained river fixtures, singleton projection,
+three fixed real-export V4 checks with 20,000 independent native deals each,
+three converged equilibria and lock/replay comparisons. First-pilot recovery
+pins every old/fresh hash and requires identical fresh blueprint EV before
+retaining its fixed V4 Monte Carlo. Middle/last pilots and all previously
+unfinished replay work are fresh. Linux parity remains not-run.
+
+| Fixed pilot | Solve s / owned GiB | Lock-only s / owned GiB | Replay s / owned GiB | Residual % pot | Native memory estimate, plain / compressed GiB |
+|---|---:|---:|---:|---:|---:|
+| First | 173.617 / 5.171 | 96.686 / 5.502 | 239.650 / 5.035 | 0.183158 | 3.640 / 1.833 |
+| Middle | 138.209 / 4.156 | 93.338 / 4.278 | 204.704 / 4.557 | 0.170967 | 2.656 / 1.338 |
+| Last | 138.674 / 4.581 | 93.378 / 5.070 | 208.343 / 4.587 | 0.167133 | 2.656 / 1.338 |
+
+V4 solver EVs 0.368446 / 0.639241 / 0.736151 BB lie inside the respective
+95% native Monte Carlo intervals [0.294008, 0.407592], [0.516404, 0.676996]
+and [0.589207, 0.769393]. All residuals are below the fixed 0.2% pot target.
+The conservative final forecast was **55,952.809 seconds / 15.542 hours**,
+`1.5 × 138 × (173.617301 + 96.686125)`, versus **60,058.807 seconds /
+16.683 hours** before the one-hour reserve at admission. It was
+[posted before main values](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149#issuecomment-5982659835).
+Main used source f2ad9e7 and the hash-pinned engineered native binary.
+
+At 17:43:28 UTC on October 4, the owned guard was deliberately signalled after
+finding that the Python phase transition retained all 120 parsed statistics
+records. This was a preventable driver capacity defect, distinct from the
+successful native optimization. **One atomic collect result and one partial
+are preserved; no relock or common board is complete.** The full clock now
+charges **5,497.866452 guarded seconds**, including every failed attempt.
+The original deadline remains October 5, 11:19:43 UTC, with a one-hour
+retrieval reserve; idle time also consumes this absolute allowance. Owned
+processes are verified absent, the heartbeat is paused, swap stayed at
+34,015,805 bytes, and the stop inventory recorded 92.354 GiB free disk.
+No RSS, disk, swap, convergence or scientific parity gate was bypassed.
+
+## Bounded-memory pooling engineering
+
+The [data-only M1 preflight](hu20-board-pooling-artifacts/engineering-pooling-memory-05.json)
+uses three real pilot statistics with synthetic identities/folds for byte
+parity and capacity inspection only. Eager fitting peaks at **2.565 GiB**;
+lineage-streamed fitting peaks at **1.662 GiB**, taking 32.394 seconds versus
+26.043 seconds. All-board and both cross-fit policy files are **byte identical**,
+including probabilities, floating addition order, menus, keys and metadata.
+Root containers alone occupy 182–188 MB each: extrapolating the smallest to
+120 roots gives **20.379 GiB**, before strings/numbers. That is a capacity
+extrapolation, not a measured 120-root peak.
+
+The repair processes one lineage and one root at a time with the unchanged
+numeric pooling function, then writes each file atomically. A single sequential
+owned Python child releases the fitting heap before native workers resume.
+The existing family/disk/swap/clock guard remains active and the child keeps
+the same 7-GiB worker cap. This changes representation/lifetime only; requests,
+4-GiB arena, six threads, forty boards, three averages, halves, codebooks,
+coverage, bootstrap, eighteen replays and every estimator remain frozen.
+**35 Python tests pass.** No M1 solve was run. The driver repair is prepared
+on M1 and has not been deployed or qualified for a new M4 attempt. Native
+engineering froze after about 24 minutes; the later data-only repair remained
+inside the owner's approximately two-hour engineering box.
+
+The [closeout scheduling warning](hu20-board-pooling-artifacts/engineering-closeout-forecast-05.json)
+uses the same conservative multiplier/count but the slower completed main
+collect (195.462 seconds): **16.799 hours**, versus about **16.0 hours** before
+reserve at closeout, excluding fit overhead. The fixed-pilot forecast remains
+15.542 hours; this new observation explains why its earlier admission is not
+fresh admission now. No outcome threshold or inference changed. Continuing
+requires an owner budget/host decision and fresh admission; neither a longer
+allowance nor a rental is authorized.
+
+## Incomplete scientific readout and verified closeout
+
+The [frozen-plan reporter](hu20-board-pooling-artifacts/m4-stop-05/report.md)
+and [summary](hu20-board-pooling-artifacts/m4-stop-05/summary.json) admit
+**zero common boards**. Pooled/lineage/seat BB and pot-percent bootstrap
+intervals, missing-key coverage by fold/lineage, D and covered-context sensitivity
+are unavailable. Every one of the forty planned boards remains excluded from
+primary inference because complete three-lineage collect/relock coverage is
+absent. No trainer-versus-abstraction classification is permitted.
+
+The one completed phase-1 root is descriptive only (seed-1-selected limped,
+check-through line, lineage 2026093001). Seat-0/1 blueprint losses are
+0.887957 / 1.126317 BB (44.397850 / 56.315834% pot); per-root v1 losses are
+0.310904 / 0.437559 BB (15.545183 / 21.877939% pot). Its residual is
+0.196663% pot at 275 iterations, elapsed 195.462 seconds and owned peak
+5.086 GiB. These points have no spot-level interval and are excluded from the
+pooled readout; the interrupted second job never counts. Raw hashes and all
+metric/coverage records are in the stop receipt and retained atomic result.
+
+The [fifth retrieval verification](hu20-board-pooling-artifacts/m4-stop-05-retrieval.json)
+checks **3,476 files / 12,124,413,687 logical bytes / 9,295,160,304 unique-inode
+bytes**, including 82 hard-link groups, with zero mismatches. All four prior
+immutable copies were independently reverified. Original M4 evidence, source,
+binaries, exports, isolated inputs and receipts remain untouched. Nothing was
+deleted or sent to Drive; cloud completion is not claimed. No paid allocation,
+training, promotion or merge occurred.
+
+**Next 0.4.x step:** finish this frozen diagnostic only after explicit owner
+readmission and a fresh forecast against the shrinking original deadline.
+The streaming repair is concrete and reviewable; restarting requires owner
+input under the protocol's no-automatic-restart rule. These incomplete outcomes
+cannot justify choosing longer v1 training, changing the board key or promoting
+a policy. Any eventual conclusion is restricted to this seed-1-selected
+limped/check-through line. Projections are feasible witnesses rather than
+abstraction equilibria; covered-context hybrid sensitivity cannot replace the
+primary missing-key coverage requirement.
 
 ## Engineering amendment and fresh parity
 
@@ -52,14 +160,13 @@ seconds. Repeated root replay/unlock work, rather than native locking or CFR,
 explains the removed overhead. Remaining policy construction/aggregation is
 measured wrapper work, not all inherent solver cost.
 
-Qualification-05 runs retained fixtures and the remaining fixed roots afresh.
+Qualification-05 subsequently completed retained fixtures and the remaining fixed roots afresh.
 The new first solve/lock can be reused only through pinned exact comparison;
 first V4's fixed 20k native MC additionally requires its blueprint EV to match
 the fresh value exactly. Its previously unfinished deterministic replay runs
 fresh. Every pilot retains separate solve/lock RSS and timings. All old
 failures, clock charges, science, 7/8/4-GiB limits and reserve remain unchanged.
-**32 Python tests pass.** Full raw retrieval awaits terminal closeout; compact
-receipts above are copied locally, while all raw M4 originals remain intact.
+**32 Python tests passed at native admission; the subsequent driver repair raises this to 35.** Full raw retrieval is now verified above; all M4 originals remain intact.
 
 ## Qualification-04 resource amendment and completed work
 

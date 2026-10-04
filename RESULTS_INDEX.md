@@ -354,3 +354,21 @@ PR149 owner-approved 7-GiB worker readmission retains `prepared-03` and all thre
 PR149 readmission-04 forecast stop: fresh M1 `/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-04-20261004`, **3,198 files / 10,473,469,109 logical bytes / 7,644,215,726 unique-inode bytes**, 82 verified hard-link groups, zero mismatches; [receipt](docs/reports/hu20-board-pooling-artifacts/m4-stop-04-retrieval.json). All three older copies' manifest members reverified. The new copy uses rsync `--link-dest` for unchanged third-copy members, without changing their contents; preserve all copies/receipts and M4 originals. First fresh solve/lock fit 7 GiB, but forecast lower bound 31.182 hours exceeds 17.899 available before reserve; first replay interrupted, other pilots/main unattempted. Retain all 120 exports, isolated inputs, prepared-02/-03 recovery dependencies, new approval/resource/forecast-stop records and partial replay. Heartbeat paused; no inference, deletion/cloud completion or additional budget authorization; $0 paid cost. Existing PR149 Drive destination remains the eventual archive target after dependency review.
 
 PR149 engineering amendment: external M1 `/Users/dberweger/Local/hu20-board-pooling-engineering-20261004` retains the fresh AGPL source/build, zero-CFR tests, parsing benchmark and copied compact M4 receipts. New M4 binary `pooling-engineering-05-mac`, source archive, exact pilot-0 reruns in `engineering-parity-05`, approval/clock append and `qualification-05` remain in the dated campaign. [Fingerprint](docs/reports/hu20-board-pooling-artifacts/engineering-amendment-05.json); [exact parity](docs/reports/hu20-board-pooling-artifacts/engineering-parity-05.json). Preserve all four prior verified copies/receipts and original binaries, prepared exports and isolated inputs. Compact new receipts are locally retained; full fresh retrieval is pending closeout. No cloud completion, deletion, extended allowance or rental is implied; eventual archive remains the existing PR149 destination.
+
+
+PR149 engineering-05/main preemptive memory stop: fifth verified M1 copy
+`/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-05-20261004`, **3,476 files /
+12,124,413,687 logical bytes / 9,295,160,304 unique-inode bytes**, 82 hard-link
+groups, zero mismatches; [verification](docs/reports/hu20-board-pooling-artifacts/m4-stop-05-retrieval.json).
+All four older immutable copies and manifest members reverified; retain them
+and the dated M4 original unchanged. New qualification-05 passes 61 gates;
+main-05 retains one atomic collect and one partial, zero common boards.
+External M1 `hu20-board-pooling-engineering-20261004/real-pool-preflight` holds
+three data-only statistics fixtures, eager/streamed byte-identical policy files
+and capacity receipts; synthetic split metadata is engineering-only. New
+bounded driver repair remains on M1, not deployed/readmitted to M4. Native
+engineering source/binary, archive, prepared exports, isolated inputs and
+clock/stop/admission receipts remain valuable dependencies. Heartbeat PAUSED,
+owned work stopped, $0 paid cost. Existing PR149 Drive destination remains the
+eventual archive target after dependency review; no upload/cloud completion,
+delete authorization, automatic restart or extra allowance is implied.

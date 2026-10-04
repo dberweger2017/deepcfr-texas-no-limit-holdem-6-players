@@ -120,3 +120,34 @@ V4's fixed 20k-deal native MC may be reused only when every evidence hash is
 pinned and the fresh blueprint EV matches exactly. A failed forecast stops
 for the owner's allowance/compute decision. Production requires all original
 gates and the final measured forecast; no automatic retry of a failure.
+
+
+Engineering-05 closeout (October 4): exact pilot-0 solve/lock scientific hashes
+match qualification-04. The external native binary is
+`fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f`;
+source archive SHA is
+`a5ee6998617b8b94a62f79835851c5f62e8ac4eb6c458ff5fbe297634abed5c8`.
+Qualification-05 completed 61/61 gates, all three fixed V4 checks (20k deals
+each), converged solves and fresh unfinished replays. Qualification SHA
+`a1914726d352a179e55e75706b245eb867060bb3a5ae9242889664e224b128c0`.
+Final forecast 55,952.809 s fit 60,058.807 s before reserve at admission and
+was posted before main values. Main-05 used f2ad9e7 and prepared-03 unchanged.
+
+Main-05 was deliberately stopped at 17:43:28 UTC upon discovering eager fit
+retains all 120 huge parsed statistics. No guard threshold breach; one atomic
+collect result and one partial retained, zero relock/common boards. All owned
+processes exited; heartbeat PAUSED. Clock charges 5,497.8664519159975 guarded
+seconds, original start/deadline/reserve unchanged. No automatic restart.
+
+M1-only bounded fit repair uses original pooling arithmetic, streams each
+lineage/root in original per-group order, and writes byte-identical policies.
+A sequential owned Python child exits before native workers resume; same RSS,
+family, swap, disk and clock guards apply. Three actual pilot fixtures with
+synthetic split/identity metadata: 2.565→1.662-GiB peak, 26.043→32.394 seconds,
+all three policy hashes equal. This is not a forty-board memory measurement
+or a main scientific readout. Thirty-five Python tests pass, zero M1 CFR.
+The driver repair is not deployed to M4. Owner readmission and a fresh
+remaining-clock forecast precede any continuation; no extension/rental is
+implied. [Current report](reports/hu20-board-pooling.md) records every outcome,
+raw inventory, exclusions and unavailable intervals. Fifth fresh retrieval
+verifies all 3,476 files and all four older immutable copies. Nothing deleted.
