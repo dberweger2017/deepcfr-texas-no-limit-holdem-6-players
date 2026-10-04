@@ -1,0 +1,80 @@
+{
+  "owner_approved_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148#issuecomment-5970668869",
+  "scope": "30-second final only; 120-second work requires separate approval",
+  "source_screen_sha256": "4cc4391960a09a7d8b0c4fbd302054c1780cb805e82aa093185331c943ac8eae",
+  "timing_outcome_fields_used": [],
+  "phase": {
+    "deadline_seconds": 30,
+    "entries": [
+      {
+        "configuration_id": "e51f558ee9c8e1e3dcb00316cca0f68e840ac3cca27f3977f4166d7e597a73c1",
+        "config": {
+          "cache_entries": 32,
+          "compress": false,
+          "decision_seconds": 30,
+          "iterations": 100,
+          "max_public_nodes": 300000,
+          "memory_budget_bytes": 5368709120,
+          "menu": "native",
+          "opponent_likelihood_floor": 0,
+          "threads": 6
+        },
+        "cold_p95_seconds": 27.354417604592157,
+        "cold_median_seconds": 19.523305437527597,
+        "quality_p95_seconds": 23.054614757862872,
+        "quality_timing_samples": 7,
+        "iterations": [
+          25,
+          50,
+          100
+        ],
+        "unique_solves_per_iteration": 144,
+        "play_seconds": 6893.313236357224,
+        "quality_seconds": 5809.762918981443,
+        "optimistic_all_seats_shared_play_seconds": 6893.313236357224
+      },
+      {
+        "configuration_id": "d463365f8ea749b379117b1292f0d8c5ea51c18e077a4201e124226ea5e6e607",
+        "config": {
+          "cache_entries": 32,
+          "compress": false,
+          "decision_seconds": 30,
+          "iterations": 100,
+          "max_public_nodes": 300000,
+          "memory_budget_bytes": 5368709120,
+          "menu": "native",
+          "opponent_likelihood_floor": 0.01,
+          "threads": 6
+        },
+        "cold_p95_seconds": 27.3216021124972,
+        "cold_median_seconds": 19.54003370855935,
+        "quality_p95_seconds": 23.013693866785616,
+        "quality_timing_samples": 7,
+        "iterations": [
+          25,
+          50,
+          100
+        ],
+        "unique_solves_per_iteration": 288,
+        "play_seconds": 13770.087464698589,
+        "quality_seconds": 11598.90170885995,
+        "optimistic_all_seats_shared_play_seconds": 6885.043732349294
+      }
+    ],
+    "play_seconds": 20663.400701055813,
+    "quality_seconds": 17408.664627841394,
+    "optimistic_all_seats_shared_play_seconds": 13778.356968706517
+  },
+  "river_reserve_seconds": 10800,
+  "required_remaining_seconds": 48872.06532889721,
+  "remaining_seconds_at_owner_decision": 74346.53486462467,
+  "uncounted_overhead_headroom_seconds": 25474.46953572746,
+  "not_a_runtime_guarantee": true,
+  "native_calls_saving_failure_limit": "failures are not shared and can require additional requests charged to headroom",
+  "cold_timing_accounting": "remeasured preparation plus retained play receipt duration; at least first-seat cold; deadline still enforced",
+  "full_coordinates_per_configuration": 288,
+  "final_configurations": 6,
+  "final_rows": 1728,
+  "successful_unique_requests_per_mode_if_all_epsilon_zero_pairs_match": 1296,
+  "additional_quality_work_counted": true
+}

@@ -1,6 +1,65 @@
 # Research results index
 
-## October 2 archive and local cleanup
+## October 4 organization and native Drive uploads
+
+[Canonical repository index](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/main/RESULTS_INDEX.md). Repository-relative report links below resolve there; the Drive folder links work independently.
+
+This is the existing research index. Its September inventory and October 2 receipts remain below; the current locations and upload states in this section supersede those earlier snapshots.
+
+Both Macs use Google Drive desktop in streaming mode, with `~/Local/Research-Cloud` pointing to the same [research folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s). Whole archives and experiment folders go through the desktop app. The connector's observed 536,870,912-byte ingestion ceiling does not apply to this route; no research payload was split for the native uploads.
+
+- **Organization verified:** 207 existing entries moved into [Historical-experiments](https://drive.google.com/drive/folders/1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr), and five cleanup records into [Archive-receipts](https://drive.google.com/drive/folders/10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX). IDs and existing links are preserved. The [relocation receipt](docs/artifacts/native-drive-relocations-20261004.json) records every original parent, destination and verified item ID.
+- **M4 upload queue:** nine closed scopes, **28,756 files / 96,459,366,205 logical bytes (89.83 GiB)**, hashed before relocation into the streamed folder. Includes closed training and flop/turn evidence. Local payloads remain under Drive management while uploading.
+- **M1 upload queue:** four closed scopes, **24,637 files / 37,983,420,181 logical bytes (35.37 GiB)**, likewise hashed and staged. The first attempt stopped before moving any file because newly created cloud folders had not appeared locally; after those folders synchronized, staging completed. The failed attempt is retained.
+- **PR136 upload queue:** the intact `hu20-500m-campaign-20261001-archive-20261002.tar.gz`, **23,509,934,825 bytes**, is uploading from M1. SHA256: `c0dbb3879eeae5f89be888ca3b29a6c571f6adb214c9d23c6095d0cab007636d`. The separate M4 originals remain until upload confirmation.
+- **Already confirmed:** the 14,041,643,443-byte branching archive, the overnight archive, PR144's six archives and 18 earlier M4 archives. Their previous cloud IDs remain valid; the branching archive now lives under `Historical-experiments/`.
+- **Pending means pending:** native staging is not cloud-upload confirmation. An hourly archival follow-up checks completion and remaining duplicate/input dependencies. The [compact staging receipt](docs/artifacts/native-drive-staging-20261004.json) records exact source paths, destination paths, counts and manifest names. Logical totals include separately retained evidence and do not measure unique or physical disk use.
+
+### October 4 scheduled follow-up and cleanup
+
+The index/organization change passed all CI and merged in [PR #151](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/151). The [cleanup progress receipt](docs/artifacts/drive-cleanup-progress-20261004.json) records the following subsequent actions:
+
+- **M1:** removed 26 abandoned, unindexed Git temporary packs (6,362,104,120 bytes), 12 separately retained staging archives with fresh cloud ID/name/size readback and matching archive SHA256 (3,522,030,679 bytes), and four obsolete connector parts (2,097,152,000 bytes). The parts matched the corresponding bytes of the intact recovered archive. Total removed logical bytes: **11,981,286,799 (11.16 GiB)**. Valid Git packs/indexes and readable HEAD trees remain intact. Physical free-space changes also depend on APFS sharing and ongoing Drive cache activity.
+- **M4:** removed **1,826 files / 6,418,060,050 bytes** from separately retained, cloud-confirmed legacy archive roots after checking each member hash, current stat identity, tracked files, symlink/input dependencies and open handles. The complete per-file restore receipt remains `~/Local/research-archive-preparation-20261002/m4-remaining-duplicate-cleanup-20261004.json`; original relative member paths and cloud archive IDs are retained. M4 had **42.54 GiB free** after this cleanup. No synced Drive payload was deleted.
+- **PR136 upload incident:** Drive logs record a completed CancelUpload at `2026-10-04T08:24:40Z`; the initiating actor is unknown. The file was absent from the upload folder/cloud listing but retained intact in Drive desktop's `canceled_uploads` recovery directory. Its full 23,509,934,825 bytes rehashed to the original SHA256 above. It was moved back into the native upload folder at about `09:35 UTC`, without rebuilding research or making another archive. **Upload remains pending**, and M4 originals remain retained. The recovery receipt is included in the compact progress record; do not confuse queueing with cloud completion.
+
+Native upload queues are still processing. The hourly follow-up remains active; no cache eviction, new science or rental was performed.
+
+### Later October 4 cleanup
+
+[PR #152](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/152) passed all checks and merged. Ten older blueprint experiment folders now use their existing `Historical-experiments/` cloud folders through links at the original M1 paths. Removed **149 separate local duplicate files / 3,547,485,700 logical bytes (3.30 GiB)** after exact cloud relative-name/size readback, unchanged September inventory checks, source hashes, tracked-file checks and open-handle checks. `blueprint-04-ops` code remains local. Full per-file cloud IDs/hashes are retained in Drive `Archive-receipts/M1-blueprint-duplicate-cleanup-20261004.json`; the [compact cleanup receipt](docs/artifacts/blueprint-drive-cleanup-20261004.json) records every affected scope. No synced payload was removed.
+
+The first cleanup validation compared access time, which changed during its own hash read; it stopped before any payload change. Its receipt/helper were retained, and the corrected check uses size, modification time, inode and device. All subsequent removals completed.
+
+At the hourly check M4 had **46.67 GiB free**. M1 had **16.36 GiB free** after cleanup while Drive was still filling its streaming cache; removed logical bytes do not promise equal physical reclamation. Both native upload queues are progressing, and PR136 remains pending with M4 originals retained. Hourly chat updates continue.
+
+For additional unstaged experiments, prefer one whole `.tar.gz` archive per experiment inside its PR folder to reduce small-file sync overhead. Preserve existing cloud IDs and uploads already in progress; no chunks or forced cache eviction.
+
+### Current folder layout
+
+Paths are relative to the research Drive folder. Upload status is a snapshot on October 4, not a promise of completion. Each newly staged experiment contains `ARCHIVE-MANIFEST-20261004.json` with member sizes/hashes and `RESTORE-README.txt`.
+
+| Folder | Evidence / location within it | State |
+| --- | --- | --- |
+| [PR-113-TP20](https://drive.google.com/drive/folders/1bvceeB1paom93UQyGbbR29gXxco5_H3M) | `M4-results/` | Native upload queued |
+| [PR-132-observation-reuse](https://drive.google.com/drive/folders/1l8T_GUwa2uJ8LfqmplrMglQx_3hDn1lC) | `M4-results/`, `M4-CI-repair-results/` | Native upload queued |
+| [PR-133-mature-CPU](https://drive.google.com/drive/folders/1xH2hQ8budf3n9tOhCxcMj3A4d5e9pllL) | `M4-initial-results/`, `M4-six-lineage-results/` | Native upload queued |
+| [PR-136-HU20-500M](https://drive.google.com/drive/folders/1Jjg9yvbPQ25nws_wW1IupyMYCfnNVFc_) | Whole 23.51-GB campaign archive and recovery manifest | Whole archive uploading |
+| [PR-144-history-compression](https://drive.google.com/drive/folders/1EnCmKftt50pebTWVtu1MvTUQEaw_5hCV) | Six complete archives; `archive-manifest.json`, `SHA256SUMS` | Confirmed uploaded |
+| [PR-145-exact-flop](https://drive.google.com/drive/folders/1ciOOpSaLHqvCSI8wzhWDQORtizfeCrxZ) | `M4-results/`, including retained flop attempts and exact-turn follow-up | Native upload queued |
+| [PR-148-turn-calibration](https://drive.google.com/drive/folders/1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5) | `M4-closed-research/`, `M1-closed-research/`, `M1-exact-turn-evidence/` | Native upload queued |
+| [M4-closed-training](https://drive.google.com/drive/folders/1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ) | `results/` from `deepcfr-training` | Native upload queued |
+| [M4-local-CFR-diagnostic](https://drive.google.com/drive/folders/1i9HAiFFXKTgS0FLzGUtwsrEeNLaCiQsT) | `results/` | Native upload queued |
+| [M1-board-pooling](https://drive.google.com/drive/folders/13SUnP_d1ZVtcyJAp-oqRecg5Wv3SYIfy) | `closed-evidence/` | Native upload queued |
+| [M1-alias-audit](https://drive.google.com/drive/folders/18cCPHR6EfXLUBGbwmNukxttySSUUj0Rf) | `closed-evidence/` | Native upload queued |
+| [Historical-experiments](https://drive.google.com/drive/folders/1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr) | Earlier inventory entries, retaining names and IDs | Organization verified |
+| [Archive-receipts](https://drive.google.com/drive/folders/10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX) | Cleanup and restoration receipts | Organization verified |
+
+Other existing PR/M4 archive folders remain at the research root. Original experiment paths are now directory or member symlinks where staged; they are restoration conveniences, not independent backups. Private credentials, Git internals and reproducible environments/caches were excluded and retained locally. Ordinary coding checkouts and fixtures remain available.
+
+Let streaming reclaim cache space gradually, as requested by the owner. No immediate forced offloading is needed. **Never delete within the synced folder to free local space:** that deletes the cloud copy too. Separately retained inactive originals may be removed only after the accepted desktop completion check and dependency review. Restore research into a local working directory and verify the manifest before future computation.
+
+## Historical October 2 archive and local cleanup
 
 The owner accepted Google Drive desktop's **Successfully uploaded / Synced** status as the upload acceptance check. Inactive copies have now been removed: **8,722 files / 41,249,100,807 logical bytes (38.42 GiB)** across the primary checkout, PR144 evidence and temporary archive staging. The full removal/restore receipt is `LOCAL-CLEANUP-20261002.json` in the research Drive folder; the [compact cleanup record](docs/artifacts/local-cleanup-20261002.json) preserves totals, archive hashes, paths and exclusions.
 
@@ -15,11 +74,11 @@ Large untracked training/evaluation artifacts are indexed here so a PR can link 
 
 ## Current archive state
 
-The September 30 catalog remains the original inventory: **8,117 files / 208 top-level entries / 48,465,009,999 logical bytes**. October 2 cleanup removed completed inactive entries after owner acceptance of Drive upload completion. The [catalog](docs/artifacts/results-catalog.json) now marks each removed or retained top-level entry. The branching archive remains pending; working blueprint inputs remain local.
+The September 30 catalog remains the original inventory: **8,117 files / 208 top-level entries / 48,465,009,999 logical bytes**. October 2 cleanup removed completed inactive entries after owner acceptance of Drive upload completion. The [catalog](docs/artifacts/results-catalog.json) now marks each removed or retained top-level entry. The October 4 section records subsequent completed branching upload and native staging; retained input dependencies still require review before duplicate cleanup.
 
 - Original root: `/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results`.
 - Streamed destination: `/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results`.
-- Each listed entry is directly beneath that destination, retaining its original relative path.
+- The original inventory names are retained. Current legacy paths gain the `Historical-experiments/` prefix where recorded in the October 4 relocation receipt; existing PR folders remain at the root.
 - [Machine-readable catalog](docs/artifacts/results-catalog.json) records exact bytes/files and report references. Logical sizes include duplicate retained archives/extracted copies; they do not measure physical APFS storage.
 
 ## Cleanup and retrieval policy
@@ -31,7 +90,7 @@ The September 30 catalog remains the original inventory: **8,117 files / 208 top
 
 ## Recent work outside the initial batch
 
-These locations are **retained at their working roots; not included in the primary-checkout Drive batch**. Follow the same archive policy at cleanup.
+These are the original working roots, outside the initial primary-checkout batch. October 4 staging places #132/#133 evidence in the PR folders above and preserves old paths as cloud links. #134 input dependencies remain local pending review.
 
 | PR | Retained location / evidence |
 | --- | --- |
@@ -44,7 +103,7 @@ These locations are **retained at their working roots; not included in the prima
 
 **Historical inventory; current removed/retained states are in the machine-readable catalog and October 2 cleanup record.** Report links identify associated research. Associated PRs identify the latest report-changing PR found in main history; they do not assert which run originally produced a file. Legacy/unmapped entries are retained for later identification.
 
-| Entry relative to Drive folder | Logical bytes | Files | Report / associated PR |
+| Entry in original inventory | Logical bytes | Files | Report / associated PR |
 | --- | ---: | ---: | --- |
 | `.DS_Store` | 32,772 | 1 | Unmapped legacy/local evidence |
 | `analyze-fitting.py` | 1,348 | 1 | Unmapped legacy/local evidence |
@@ -254,3 +313,30 @@ These locations are **retained at their working roots; not included in the prima
 | `write-representation-report.py` | 5,622 | 1 | Unmapped legacy/local evidence |
 | `write_snapshot_report.py` | 11,092 | 1 | Unmapped legacy/local evidence |
 | `write_strategy_summary.py` | 11,610 | 1 | Unmapped legacy/local evidence |
+
+## HU20 turn-search development (PR #148)
+
+- External AGPL play/quality harness: `/Users/dberweger/Local/hu20-turn-search-tool`; upstream is a symlink to the unchanged pinned `/Users/dberweger/Local/hu20-exact-flop-tool/upstream`. Restore with commit 9d1509fe5077d019825f833eed04b16d342dfda1. Source/binary fingerprints: `docs/reports/hu20-turn-search-artifacts/external-inventory.json`. Never vendor these sources into MIT.
+- M1 references, requests, responses, logs, profiles and receipts: `/Users/dberweger/Local/hu20-turn-search-20261002/m1-parity-reference-01` through `-08`; `-04` retains the failed inserted-wager fixture. Current reference is `-08`; thread comparisons are `m1-thread-parity-t1`, `-t4`, `-t6` under the same parent. Compact counts/hashes: `docs/reports/hu20-turn-search-artifacts/m1-parity.json`. Full profiles, the parent `status.md`, old references and both build logs remain retained. The M4 phase is indexed below; no rental has started.
+- Inputs remain the preserved six exports in `/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-inputs`; they remain other agents' dependencies.
+- Keep all originals and failed builds/requests. Archive to the existing designated Drive destination with complete manifests and symlink retrieval provenance at cleanup. No local deletion is authorized.
+
+- HU20 #148 M4 admission/pilot and future Part A: `/Users/dberweger/Local/hu20-turn-search-20261003` on M4; isolated MIT checkout `repo`, source 75cbda7 for the 156-hand pilot. Includes immutable admission, six input hashes, published #145 report copy, cumulative `budget.json`, initial helper startup failure, pilot log/launch, complete `pilot-01` hand archives/manifests and independent `pilot-01-verification.json`. Local transfer-verified copies: `/Users/dberweger/Local/hu20-turn-search-20261002/m4-pilot-01` and `m4-pilot-metadata-01`; helper/report provenance is retained in the same parent. Compact prospective count/power proof: `docs/reports/hu20-turn-search-artifacts/part-a-timing-freeze.json`. No artifact deletion or paid allocation is authorized by this entry.
+
+- HU20 #148 final Part A: M4 `/Users/dberweger/Local/hu20-turn-search-20261003/part-a-01`, pushed source 5e4de63, 77,052 complete hands. Local full transfer-verified copy `/Users/dberweger/Local/hu20-turn-search-20261002/m4-part-a-01` includes original summary/manifest, replay, post-replay console failure and selection verification. Compact publication: `docs/reports/hu20-turn-search-part-a.md` and `hu20-turn-search-artifacts/part-a-result.json`. Preserve the original journal and attempts. External M4 harness uses a dedicated pinned upstream clone; build setup symlink failure/relocation and build/parity evidence remain at the same M4 root. No cleanup, paid allocation or original #145 binary replacement.
+
+- HU20 #148 reference-bound calibration: full immutable ranges `/Users/dberweger/Local/hu20-turn-search-20261003/calibration-references-01.json` (19,002,241 bytes), proof `reference-freeze-proof-01.json`, external native sources/build logs/failures and `m4-parity-01` remain under the same M4 root. Compact index/settings are committed; all 144 selected-base references and original report/range/result hashes remain retrievable. Original #145 bytes/binary remain unchanged. No evidence eviction is authorized.
+
+- HU20 #148 stopped calibration-01: M4 `/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01` and full M1 copy `/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-01`. All 94 manifest members (46,619,321 bytes) independently size/SHA verified. Guard/admission/launch/clock snapshots, 17 timeout rows, interrupted eighteenth request, logs and TensorBoard remain retained. Publication: [stopped curve](docs/reports/hu20-turn-search-calibration.md) and `docs/reports/hu20-turn-search-artifacts/calibration-01-stopped.json`. Family RSS guard stopped at 4.341 GiB against 4.25 GiB; processes exited, no swap growth, cumulative journal 5740.47 seconds. Recurring continuation is paused; [proposed readmission](docs/hu20-turn-search-resource-readmission.md) requires owner restart approval. No qualified setting, evidence eviction, automatic restart or rental.
+
+- HU20 #148 owner-approved calibration-02: prospective settings `configs/diagnostics/hu20-turn-search-calibration-readmission-02.json`, source 2d761ca, fresh admission `docs/reports/hu20-turn-search-artifacts/calibration-02-admission.json`. Raw/preliminary admission and launch helpers retained at M4 `/Users/dberweger/Local/hu20-turn-search-20261003`; no new outcomes precede this freeze. Original stopped calibration-01 is retained separately, with no timing stitching or budget reset.
+
+- HU20 calibration-02 is running from tested source 4105419, worker 18889/sidecar 18890. Final fresh admission snapshot was pushed at a5f4d48 before outcomes; preliminary snapshot is retained. Compact source/settings/admission/PID/clock provenance: [launch evidence](docs/reports/hu20-turn-search-artifacts/calibration-02-launch.json). Complete requests/responses/curve/status/TensorBoard/clock remain at M4 root `calibration-02`; local launch/helper/admission/validation evidence in `/Users/dberweger/Local/hu20-turn-search-20261002`. Original calibration-01 and #145 evidence stay untouched; no cleanup or paid allocation.
+
+- HU20 #148 owner-approved clean stop of calibration-02: M4 `/Users/dberweger/Local/hu20-turn-search-20261003/calibration-02`, complete M1 copy `/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-02-owner-stop`. All 1,752 manifest members / 1,614,849,743 bytes independently size/SHA verified. The full 238-row curve, requests/responses/receipts/manifests, TensorBoard, original incomplete summary, SIGTERM reason, owner stop request and append-preserving journal are retained. [Budget report](docs/reports/hu20-turn-search-calibration-02-budget.md), complete committed screen curve, stop/verification and timing-only forecast identify zero final rows, 18 unattempted reduced screen rows and no selected setting. Processes exited, swap unchanged, cumulative 12,053.465 seconds charged. The forecast-blocked settings proposal cannot launch; heartbeat PAUSED pending owner budget/scope decision. No calibration-01 stitching, evidence eviction or paid allocation. Earlier running/launch entries are historical.
+
+- HU20 #148 approved retained-screen final preparation: `configs/diagnostics/hu20-turn-search-calibration-final-30-only-03.json` and `docs/reports/hu20-turn-search-artifacts/calibration-03-approved-forecast.json` prospectively bind the original 238-row screen hash, all six timing-selected configurations and 1,728 final coordinates. Three-hour river reserve enforced; 120-second continuation requires separate approval. Original calibration-02 remains immutable; new final evidence will use M4 `calibration-03`. No launch or cleanup is implied by this preparation entry.
+
+- HU20 #148 calibration-03 resumed final: M4 `/Users/dberweger/Local/hu20-turn-search-20261003/calibration-03`, actual source 93d55eb (full CI passed), worker 87830/sidecar 87831. Fresh admission 70e445d preceded final outcomes. [Launch provenance](docs/reports/hu20-turn-search-artifacts/calibration-03-launch.json) pins settings/binary/source/admission/clock; full launch/helpers, charged preflight, CI proof and local status retained at `/Users/dberweger/Local/hu20-turn-search-20261002`. All 238 prior screen rows are copied with provenance; no screen rerun, no calibration-01 stitching or evidence cleanup. Expected 1,728 final coordinates, three-hour river reserve enforced. Preserve full raw requests/responses/shared receipts/curve/TensorBoard and original append-preserving journal. No paid allocation or automatic 120-second fallback.
+
+- HU20 #148 completed calibration-03: all 1,728 final coordinates, no strict/relaxed thirty-second qualifier, all workers exited without guard failure. [Complete report](docs/reports/hu20-turn-search-calibration-03.md), [all 1,966 final/retained-screen rows](docs/reports/hu20-turn-search-artifacts/calibration-03-full-curve.jsonl) and [result/verification/journal](docs/reports/hu20-turn-search-artifacts/calibration-03-result.json) preserve every coordinate, law, receipt, timeout and exclusion. Raw M4 `/Users/dberweger/Local/hu20-turn-search-20261003/calibration-03`: 15,292 manifest members / 29,486,803,777 bytes independently size/SHA verified. Complete M1 retrieval `/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-03-complete`, all 15,292 members independently size/SHA verified on M1; [retrieval proof](docs/reports/hu20-turn-search-artifacts/calibration-03-retrieval-verification.json) records final cumulative 42,294.351 seconds and retained TensorBoard hashes. The local publication/verifier helpers, admission, original journal snapshots and TensorBoard remain indexed there. Heartbeat PAUSED for owner decision; separate 120-second proposal/quote remains unapproved. Preserve originals and prior attempts; no eviction, rental, automatic restart or budget reset. Earlier running entries are historical.

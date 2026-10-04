@@ -1,0 +1,2129 @@
+{
+  "date": "2026-10-04",
+  "cloud_root_id": "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s",
+  "state": "cloud-folder-reorganization-verified",
+  "moves": [
+    {
+      "id": "11iK4jFs8eT0wEG0ZdvL4BMVnRtbWjavP",
+      "name": "m4-cleanup-receipt-20261002.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX",
+      "relative_path": "Archive-receipts/m4-cleanup-receipt-20261002.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1im6Fyu8j8uSq8NZQWTgbpjaIIveqmoLz",
+      "name": "uploaded-copy-cleanup-summary-20261002.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX",
+      "relative_path": "Archive-receipts/uploaded-copy-cleanup-summary-20261002.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1wo9IOTIn0JZ5Ir-mtM3qlacUK39tfu1o",
+      "name": "branching-cleanup-receipt-20261002.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX",
+      "relative_path": "Archive-receipts/branching-cleanup-receipt-20261002.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1oXY3_Qfo30IvQnPKSWOKh26-wFHBy1Pl",
+      "name": "Pasted 2026-10-02 at 2.48.01 PM.textClipping",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/Pasted 2026-10-02 at 2.48.01 PM.textClipping",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1EG2riapJDWCw3whqh2iWrF3tARErv5Z-",
+      "name": "LOCAL-CLEANUP-20261002.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX",
+      "relative_path": "Archive-receipts/LOCAL-CLEANUP-20261002.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1pmSU0vhx7DQZQ84-MfJe7w4Eznmx-7QV",
+      "name": "blueprint-runpod-check-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/blueprint-runpod-check-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Z1BMdYa1FHpeh1UlyNsyzFPcmwITfzYT",
+      "name": "opponents-validation",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/opponents-validation",
+      "verified_in_destination": true
+    },
+    {
+      "id": "12k1AANJSwWtQVzrfmNwCsOghAlpisJEI",
+      "name": "multistreet-integration",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-integration",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1NIvBErlHwLA64GlIAiUC1uTqVzEKxLFy",
+      "name": "blueprint-m4-slice-v1-m4",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/blueprint-m4-slice-v1-m4",
+      "verified_in_destination": true
+    },
+    {
+      "id": "13QdUM45wHjmpmeiGhcmgCEj2hTe49eda",
+      "name": "branching-operations-local",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-operations-local",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1xu7ha-JxCtDEiUX9zi6UpXgQpi1DamQg",
+      "name": "strategy-fitting-retrieved",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-fitting-retrieved",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1dHdCcAuA5Oz5q3idwJ7vxQ_BV501x2gX",
+      "name": "branching-pilot-second-resumed",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-pilot-second-resumed",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1UmX3l1_eyGaZX18VJGJK5mxPC_-F4gL-",
+      "name": "neural-convergence-kuhn-47",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-convergence-kuhn-47",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1UFsQd3xostSF7c0ENQa2xpi3YBco56u0",
+      "name": "longer-05-retrieved",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-05-retrieved",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1pXHg87dy5BD1FJlCQEmk_vp2eiVPVjBh",
+      "name": "collector-branching",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/collector-branching",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1qtQr_OvX57QsBFnBqVsIQFWC51Tp7Ggx",
+      "name": "strategy-fitting-smoke",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-fitting-smoke",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1AAILLPs8ipWvA1nucT-MwxDdgKXehbSR",
+      "name": "tabular-reference-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/tabular-reference-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1cGpSaLujqiGpMbrRq5-2DMsTPlh1kJD0",
+      "name": "neural-convergence-kuhn-summary",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-convergence-kuhn-summary",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1AffFJJPMq_LRYwSqvZxAwWA2DwNkgHFv",
+      "name": "neural-kuhn-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-kuhn-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "12D6tKNLX7ZsnCkufG_fk-3NEr-GxaAY8",
+      "name": "sampling-comparison",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampling-comparison",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1bLo_b_8dZ_lJJJJZXZu99SYtinN1MuYf",
+      "name": "blueprint-m4-slice-v1-continued-m4",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/blueprint-m4-slice-v1-continued-m4",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1LXLdJ3LjZr1a4AyHMdK5jyJJxS2IA_ko",
+      "name": "multistreet-pilot",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-pilot",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1etaoINIB_pBBt0WHV-S-52t6q5l1jfde",
+      "name": "persistent-critic",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/persistent-critic",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1q7VkXdZBGGMknLmbv8A26WOUaIgnW5_A",
+      "name": "m4-review",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/m4-review",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1vmLA-P2fjJJBJXqT8A3pymmZoCnbV5jj",
+      "name": "neural-convergence-leduc-47",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-convergence-leduc-47",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1F-nmaEEw22bzNg-zAV4gPKNWdFdvw_Op",
+      "name": "blueprint-search-m4-smoke-20260924",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/blueprint-search-m4-smoke-20260924",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1uT465PbUUl-6qK-pmKL-y0ZAYEFghQNO",
+      "name": "blueprint-history-fixed-coverage-m4",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/blueprint-history-fixed-coverage-m4",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1K_5lMOGKBcXdn88DNFLbAll9GQ2sZzZm",
+      "name": "neural-fitting-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-fitting-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1_MYOUXUwO1jFq7UhSZtJBb5bYhRiMgl5",
+      "name": "opponents-validation-replay",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/opponents-validation-replay",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1yRBIoenDe5BgpRSHD9hFG_nW8sEAqRNq",
+      "name": "blueprint-history-summary-v1-m4",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/blueprint-history-summary-v1-m4",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1rvEr82IkPpNbFdKaVgz4o70-q7_gRwbz",
+      "name": "sampled-pilot",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampled-pilot",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1X25YbPMckxj_BkGX6RcESl88O8aVA3lm",
+      "name": "multistreet-process-smoke-4",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-process-smoke-4",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1ILweRev7LFLTstpDiYIrNg2x5m5VoEgv",
+      "name": "blueprint-search-m4-smoke-final-20260924",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/blueprint-search-m4-smoke-final-20260924",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1qMsJEOURmlOx-jRET_vnlnJlfRaQvo7h",
+      "name": "multistreet-retrieved",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-retrieved",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1McacqRsG-8MgkwI6zBJawTEi8tbl9dqe",
+      "name": "historical-validation",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/historical-validation",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1LyTVNaYGP5xp-NaEh1yH0VUiRxpqZ-sZ",
+      "name": "tensorboard-calibration-check",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/tensorboard-calibration-check",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1ISN5gKRbqrau9eIfY788dYz9EbKQZn0E",
+      "name": "arena-dev-1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/arena-dev-1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1u2WoXBcas1QUP6R9z_eTee1-8w5pnJ_P",
+      "name": "representation",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/representation",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1OPZMxJECqckq_dwK5NrGUFrtXrlZVShp",
+      "name": "snapshot-smoke-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/snapshot-smoke-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1sN02UxNYjfd6TZ3-_sPnjQSTFWxq2tD7",
+      "name": "tournament_phase1_20k_early",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/tournament_phase1_20k_early",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1AZZIwW6YjXgCUjcriTXHjWeYcvhU_HJQ",
+      "name": "blueprint-04-ops",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/blueprint-04-ops",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1RRggEoMEncXwBU5biPdOP4UnQNeC9AUC",
+      "name": "tournament_phase1_20k_1500_to_4000_step500",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/tournament_phase1_20k_1500_to_4000_step500",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1qIFnQB4eXtva-Y6l_k_TdeL8GPmuoGez",
+      "name": "arena-sensitivity-20260915",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/arena-sensitivity-20260915",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Ud-IfVh0Y_I71ZqYMl3z_Bi11LoC3Dxa",
+      "name": "frozen-fitting",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/frozen-fitting",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1aVAFbIptD8_r2-Wvat3flP_XQriaFiSl",
+      "name": "neural-convergence-leduc-11-paused",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-convergence-leduc-11-paused",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1VTOLR-C2_ChWj3yMOcRt2CINrz_VHDAe",
+      "name": "multistreet-calibration-optimized",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-calibration-optimized",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1OipjnpRfloxFxelzGVK62VhzDorPWpc5",
+      "name": "blueprint-search-m4-smoke-pinned-20260924",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/blueprint-search-m4-smoke-pinned-20260924",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1pmi3wn_sGU05BrBKqus_Eat73q9aoPyf",
+      "name": "strategy-capacity-calibration-copy",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-capacity-calibration-copy",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1mHgz5iBQs00N25xHKJcjkc0BYBk5F6Be",
+      "name": "tournament_selfplay_from_3000_3500_to_6000_10k",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/tournament_selfplay_from_3000_3500_to_6000_10k",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1u0F0rto71elO3uB3QyhvRknVZ2jfbPsb",
+      "name": "policy-comparison",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/policy-comparison",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1GKWJjjN4hQDs2-LVhjGDbWJOdYfmh0dc",
+      "name": "neural-convergence-kuhn-11",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-convergence-kuhn-11",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Xh0wMDAw-3OGMJ0ZDOoIpiIWAwf6D45j",
+      "name": "neural-convergence-kuhn-29",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-convergence-kuhn-29",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1VH-1rOVFlZbgPUPg8edAqMYxUfRj7SOH",
+      "name": "neural-leduc-refit-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-leduc-refit-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1cDsMDRHDeQrzByMp16k4A1iaTCs-CkOy",
+      "name": "multistreet-operations-local",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-operations-local",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1sbA-NG56G8LDM6j_c-jdRr36A5ZXGn5V",
+      "name": "card-diversity",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/card-diversity",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1ut3fOmjbr2Rjj9ZhPrcwaJDMi-4Vs-mL",
+      "name": "sampled-pilot-verified",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampled-pilot-verified",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1X-jcUo_thjJb_34uWIU9BZIP-Vaei0-m",
+      "name": "card-diversity-campaign",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/card-diversity-campaign",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1trPNHcztxkyxVpeVvd7kydOzg61aH10a",
+      "name": "strategy-capacity-remote-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-capacity-remote-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1AB_0dl_y-uJcF4efO3nN1YoLS3Ykx-V7",
+      "name": "multistreet-calibration-original",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-calibration-original",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1P2mgA4YJWqcS6c2gx2UYeo7-f2aFj0yI",
+      "name": "neural-convergence-leduc-summary",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-convergence-leduc-summary",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1JP_2CdusYNgu5jax4jIOKGTnxLaaDfNJ",
+      "name": "snapshot-readiness-retrieved",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/snapshot-readiness-retrieved",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1YtbawEsYOenK24FWHJgQLweJHZOZwwP-",
+      "name": "local-training-proposal-20260918",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/local-training-proposal-20260918",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1RVH4MkWtqsIOqKUsjaC9hmvr35cQA3je",
+      "name": "decision-errors",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/decision-errors",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1PPdKcGgfd2geCDd6nfBAaMc2k-fED-BH",
+      "name": "longer-calibration",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-calibration",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1eET7DZsxP2K9jif3807oSPENLoCUaK7r",
+      "name": "branching-retrieved",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-retrieved",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1lG7XxFLGeIeUUDTWqj2kS0d8sQRacFbU",
+      "name": "branching-pilot-second",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-pilot-second",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1oG-F4Vz28iSLSIcSMAcOwteM7c_tPZ6u",
+      "name": "arena-final-control-replay",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/arena-final-control-replay",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1kZbotF3nSnk3Lr-8C1pYXJwQE36zxKN_",
+      "name": "neural-convergence-leduc-11",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-convergence-leduc-11",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1gbDfPcCaKJG4_GODbzmz_OlE3124hL0P",
+      "name": "neural-convergence-leduc-29",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-convergence-leduc-29",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1ChaTYGSxyuSyAynJ60tT2zCJDSXFUUrm",
+      "name": "card-diversity-retry",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/card-diversity-retry",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1BMWOSrC_1VB4x85hubymDOOy4WzploHP",
+      "name": "cpu-pilot-remote-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/cpu-pilot-remote-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1sbFByNZI9gu44wkLbCyAYmdCI8jPoD_o",
+      "name": "longer-calibration-verified",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-calibration-verified",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1ynUs_LUD3OKo6wjn0iEoS4MI11ZcJMkA",
+      "name": "cpu-pilot-replays",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/cpu-pilot-replays",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1H65VB8tenr3iueo1g8x1LSVmIq469rb4",
+      "name": "tournament_phase1_20k_500_to_3000_step500",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/tournament_phase1_20k_500_to_3000_step500",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1TuSPsoaPa9rq0NRDLztJVrG4kld0OYXd",
+      "name": "neural-strategy-refit-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-strategy-refit-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Rt9Mov3TZ4UFB-R3HCha9ZqFlGT7g8sX",
+      "name": "strategy-fitting-inputs",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-fitting-inputs",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1zugKmIYGDUIcygA2KQBs5HdPs_1kxnE5",
+      "name": "neural-readiness-retrieved",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-readiness-retrieved",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1sp1FFuQo8mbXAOJkzQiMjB8G81o2YDUR",
+      "name": "tournament_phase1_20k_2500_3000",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/tournament_phase1_20k_2500_3000",
+      "verified_in_destination": true
+    },
+    {
+      "id": "16kxNgDsmU1S3_UFBBvXTsH7UsG6iY2eu",
+      "name": "historical-validation-replay",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/historical-validation-replay",
+      "verified_in_destination": true
+    },
+    {
+      "id": "17G5QQLMUYjOpQa3AWXLYPJFhXV9NsPel",
+      "name": "tabular-reference-v1-replay",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/tabular-reference-v1-replay",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1ZOqROQAijNQny8swDborANO2bZJTahcP",
+      "name": "card-diversity-idle-calibration",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/card-diversity-idle-calibration",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1VdDPlsxnElMvkNoES0NR0lZ0nBco5fa-",
+      "name": "holdem-baseline-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/holdem-baseline-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1pIjPuL5KAdan9cfSkHjt3bFvTh4_3DS2",
+      "name": "sampled-pilot-verification-initial",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampled-pilot-verification-initial",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1tuqnpXgqCaOo1_zNHp0-LR4BI2sUJw-O",
+      "name": "arena-final-control",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/arena-final-control",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1SINVeLh3gtOu6eEerq5rSOAMoK6k3tBp",
+      "name": "multistreet-process-smoke-1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-process-smoke-1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1PH9dNJvFK4DVhFNk1tLMjGGwEoIbI9ft",
+      "name": "branching-pilot-first",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-pilot-first",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1dEMinPAHCOZdfzvfXNA1GuMUdKSqtwTx",
+      "name": "blueprint-pilot-v1-m4",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/blueprint-pilot-v1-m4",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1sGXceIUbu3TKk83aIDy5q66WjA9CPhAK",
+      "name": "collection-performance",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/collection-performance",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1wYQgPN6Jq8tAwbWAaVTYlT2oaVvSgahd",
+      "name": "holdem-baseline-resumed-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/holdem-baseline-resumed-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1d7FVwhXEg5_93k7Js1QWGYqdhV73KCMq",
+      "name": "river-reference",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/river-reference",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1WCUg7qJjT3hMQR7HRNmj4-dF5GXXrtAu",
+      "name": "blueprint-history-summary-learning-m4",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/blueprint-history-summary-learning-m4",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1qGMVL3LYMzw5F6H3OkQX-X8iDjYTDjCp",
+      "name": "snapshot-operations-local",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/snapshot-operations-local",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1WnsA4HIEwvRPZyY-Ilxac249D304UQM7",
+      "name": "arena-final-smoke",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/arena-final-smoke",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1vcIjwcuckk3gtZgWg_Nr8skjMLywWn-X",
+      "name": "branching-pilot-first-resumed",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-pilot-first-resumed",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1pSdd_azM5M5JmFbnh61F7ZqVOg2M-4ID",
+      "name": "core-v1-baseline",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/core-v1-baseline",
+      "verified_in_destination": true
+    },
+    {
+      "id": "12Q8wr1B3xYkf7g0NQzUNcBPoW9G7x3UP",
+      "name": "cpu-pilot-local-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/cpu-pilot-local-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Jgv3x67BRmOf4z2hRloVuJIEkfCDJlVC",
+      "name": "tournament_phase1_20k_2500_to_5000_step500",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/tournament_phase1_20k_2500_to_5000_step500",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1X8TNirjeWTKEBYDp6hGLRQKs4G13VCfP",
+      "name": "tournament_selfplay_from_3000_3500_to_6000_100",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/tournament_selfplay_from_3000_3500_to_6000_100",
+      "verified_in_destination": true
+    },
+    {
+      "id": "16c4b-sUTFC9RybBILMWsllwrWzTnEK27",
+      "name": "tournament_phase1_20k_2500_to_5000_step500_10k",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/tournament_phase1_20k_2500_to_5000_step500_10k",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1ybm4q-mB9HWKy3RNGjn7f-BBMbrVeibv",
+      "name": "m4-overnight-20260919",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/m4-overnight-20260919",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1gXUKDssTnSJLGpmKmhRtEbjg6sd4b440",
+      "name": "arena-sensitivity-replay-20260915",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/arena-sensitivity-replay-20260915",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1hjttWr4mzqZaKQm7Xafko2MFqg-F6fvi",
+      "name": "sampling-variance",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampling-variance",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1XE1fPrLyAKSRBKZ8MemPaE93wLuU8L-9",
+      "name": "neural-leduc-v1",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-leduc-v1",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1e-os7G-TZVWYiRjf7mgLAesrB_OVc2uJ",
+      "name": "arena-final-smoke-replay",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/arena-final-smoke-replay",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1nnp2Gc0m9yENvbUoK-jdM81vereitRjB",
+      "name": "sampling-comparison.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampling-comparison.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1V1AKFJgvDywZKio0TSN_yd62pGiQjEMi",
+      "name": "longer-05.tar.gz.sha256",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-05.tar.gz.sha256",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1JiQI4va6KVViGeL4sm3p8yfw1HhnBPwS",
+      "name": "m4-overnight-20260919.tar.zst.sha256",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/m4-overnight-20260919.tar.zst.sha256",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1aEayPKemoWDB7h0QUtc1q1FDBRnls_k9",
+      "name": "m4-overnight-20260919.tar.zst",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/m4-overnight-20260919.tar.zst",
+      "verified_in_destination": true
+    },
+    {
+      "id": "13uDTgeL0WmQufzIDGLt-6OiEAu-L07Ig",
+      "name": "multistreet-handoff.md",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-handoff.md",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Pqy_o6XUe-BuZO9dH20JlKCukUiufo1I",
+      "name": "multistreet-reference-stability.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-reference-stability.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1MfO9cNcSb4PQBEd9fF7-bHdTNvLQghBD",
+      "name": "multistreet-campaign.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-campaign.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "11cQ6Yv68cBf4gNynEsrkGwG3BDaxQ-R7",
+      "name": "multistreet-process-smoke-4.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-process-smoke-4.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1i9lkZMSC8ZLwrx_VM0U-ltwMTqL3MpL-",
+      "name": "multistreet-process-smoke-1.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-process-smoke-1.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1oBWuUjFG4iblW6CO1xf-FVKI5Qg0yTrG",
+      "name": "multistreet-integration.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-integration.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1kfe-bUDE4oT1Oq_7ADF7QmTYeR6hytqr",
+      "name": "multistreet-source-310258a.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-source-310258a.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "10Z4iJn7za6SVuJmP3V6MoZss9CBccc-M",
+      "name": "multistreet-integration-plan.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/multistreet-integration-plan.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1eBI8qtiHkj1819Fuo-7w0XzdtLcvLGvj",
+      "name": "representation-run.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/representation-run.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "13yd2K4-m9Oj8flv2SVaKeiLxTZ18ksZZ",
+      "name": "write-representation-report.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/write-representation-report.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "18ZVcAhlrM1y6K4MHwDb-cCbN0JH5j7Nx",
+      "name": "audit-representation.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/audit-representation.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1hEU5d_dcRjUnuC4pyzVHZF_k402YuZhY",
+      "name": "summarize-representation.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/summarize-representation.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "12hUgOBcsKdowKB2Rek3tw_etMjLybo-Y",
+      "name": "branching-handoff.md",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-handoff.md",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Fq4pVshNAYOZ5p8lQg5EF5UD_NNy6ljI",
+      "name": "branching-rental.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-rental.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1DabTiuYpOrGe_fEpnc4yV6bPtBADg2eO",
+      "name": "branching-comparison.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-comparison.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1GzIbL_1MFIeHeIPVYN-iAS9L0iovVlwH",
+      "name": "branching-comparison-provisional.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-comparison-provisional.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1IkzVzsiyCrwGHNjFShGDPLTnKNbK3t3c",
+      "name": "branching-handoff-history.md",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-handoff-history.md",
+      "verified_in_destination": true
+    },
+    {
+      "id": "10wQDtN9qvLBF63bOMHBGVmVvMqpgw0LL",
+      "name": "branching-host-gate.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-host-gate.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1bGD7yL823B0_oMiGaDndgv3PkRwwflyS",
+      "name": "branching-pilot-verification.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/branching-pilot-verification.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1splWXcAxPeaoWg7F3SdqqFyukQEWjIFO",
+      "name": "longer-05-handoff.md",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-05-handoff.md",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1JHcu1Sxd4u8ViQ_PBloGH-yd6x1b9Rwb",
+      "name": "river-reference.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/river-reference.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "13rRCS8mAv3fPg3aYP7eCsAUn4SinA8jJ",
+      "name": "policy-comparison-supervisor.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/policy-comparison-supervisor.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Tc3gSSJjg7MnVnuXfKAETrYrdbe6MtJW",
+      "name": "frozen-fitting-supervisor.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/frozen-fitting-supervisor.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1zb2-eHxpJvYmh1k1I0UruTiURLexbg_9",
+      "name": "longer-05-rental.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-05-rental.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1W72luahKY7-nfqGcSeOkr9ygi2VjQf3o",
+      "name": "longer-05-integrity-second.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-05-integrity-second.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1SAsjyg7vJxd2hW90eETZj2TjccajhKSy",
+      "name": "longer-05-integrity.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-05-integrity.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1sXJ5dsuN5tW_hHSeQSYit5Mw7_EYyvaX",
+      "name": "verify-longer-archive.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/verify-longer-archive.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1gewMVyIEzwY5lWKIbHVE8sbAFx3gBJo-",
+      "name": "longer-05-integrity.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-05-integrity.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "16DLe08op8SIr-MMGVtE7c0SdmBqLEFIE",
+      "name": "longer-05-verification.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-05-verification.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "11uoc3LSEuORE82dlu63rez8KBdnFS70D",
+      "name": "longer-05.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-05.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "19530d73GK98hGlBfcHKlnDEjW1q5sTuu",
+      "name": "longer-05-summary.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-05-summary.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Br6ef8DJgs1vj18Pket7C9z-nGCiy6DT",
+      "name": "longer-calibration.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-calibration.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1LpL67h049U-IMK1shABfYj1DG__ovf89",
+      "name": "longer-calibration-tests.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-calibration-tests.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "11u8ZHn1Vaj2eJkKP4FHgDRXfhJWHMly1",
+      "name": "longer-calibration-verification.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-calibration-verification.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1AvquteBwxdouIp8zTIWtSYMs3B5LZ0kt",
+      "name": "longer-calibration-verification.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-calibration-verification.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1p3mHSotDXeQuiS2Ah32MCQ3JZqia6bwr",
+      "name": "longer-calibration.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/longer-calibration.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1PkPcgnSa8BVV71rRBcthiW9_zlH0UzVW",
+      "name": "sampled-pilot.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampled-pilot.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1i2Q4agGwCuON03bZI34D_gJNrcpcDCsU",
+      "name": "sampled-full-tests.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampled-full-tests.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1SDM2Xbqw4EAdkZewjE5Wo5czMqg9nSwd",
+      "name": "sampled-pilot-verification.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampled-pilot-verification.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1HortW47fm8_XW5-vYNr47GSny6Psbmbj",
+      "name": "verify-sampled-pilot.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/verify-sampled-pilot.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1ucYQ7vSUcK4VShHjTkIybu0tpphh5EhE",
+      "name": "sampled-pilot-verification-initial.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampled-pilot-verification-initial.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1y8b50yVMuf5wf4VYsiNkWzmcn56UxHXK",
+      "name": "verify-sampled-pilot-initial.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/verify-sampled-pilot-initial.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1bKOUG_-PU3q4tkNpPY4Brb2Mfksp17nP",
+      "name": "sampled-pilot-run.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampled-pilot-run.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1_GYpjT2KTGzYKIXnhxt7EoaG99CplIqt",
+      "name": "summarize-sampled-pilot.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/summarize-sampled-pilot.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1uIBKRt-LeY9KC0I7q1O8LHZC7V4f-NN8",
+      "name": "sampling-variance.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/sampling-variance.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1zefVVzAioY4Cc-p7s1HV25XrnjtkSVob",
+      "name": "snapshot-readiness-handoff.md",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/snapshot-readiness-handoff.md",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1A5uB3R-KKm_u9xKtC2juM7fcWTWtKENP",
+      "name": "update_snapshot_docs.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/update_snapshot_docs.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1_Vjc8K7MWFYnBem0W6wLNWHBSGQzQKUm",
+      "name": "write_snapshot_report.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/write_snapshot_report.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1I6HKVG0MXhhOq8WXvJ_BK_RWoXjVQvMD",
+      "name": "snapshot-readiness-audit.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/snapshot-readiness-audit.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1F-MZxX9LoNiLyDbare4FE0mrHe-kJRkI",
+      "name": "audit_snapshot_readiness.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/audit_snapshot_readiness.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1rsYH3deR7priUbxWljvPpZkUMz__KtFi",
+      "name": "snapshot-readiness.sha256",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/snapshot-readiness.sha256",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1UkhLIJ2hLz3duSAP2S59tuL2wYCRDfMa",
+      "name": "snapshot-readiness.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/snapshot-readiness.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1_icoxqbaEoMNQXWBjNwL0nfyaClP_LsU",
+      "name": "snapshot-preview-manifest.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/snapshot-preview-manifest.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1h9PNUs3r-spysXzMOi16ncXBj3ARzdxp",
+      "name": "snapshot-preview-report.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/snapshot-preview-report.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1UTVBUE19y5LpBONN076tNc-q_3kyskE7",
+      "name": "neural-readiness-handoff.md",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-readiness-handoff.md",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Alm6u70LUeqiE-bJQKCeRU7NdV5WgxJ-",
+      "name": "readiness-cleanup.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX",
+      "relative_path": "Archive-receipts/readiness-cleanup.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1EXHY1mRDPtLXj4SPrqqja7vegkEpLcVL",
+      "name": "update-readiness-docs.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/update-readiness-docs.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1x1bsYbjlc1x8fZJVqCP1qyXfcNaNR8Hu",
+      "name": "write-readiness-report.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/write-readiness-report.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "18QHzT2XXyAMazgTecAD8cTbFEFtBlWbz",
+      "name": "readiness-audit.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/readiness-audit.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1ortnIcGHagN1rLTJ85Hdh-P3YXqUgkNf",
+      "name": "audit-readiness.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/audit-readiness.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "18hflSmwlBoPoh7R3j3_3Uu2fzFWmb_zQ",
+      "name": "readiness-collector.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/readiness-collector.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1vTAEeBLRQlJJoLXrbcss5lH70Nutzc8z",
+      "name": "neural-readiness.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/neural-readiness.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "133OIS6SjnHQG8HzIIo-i5Tu1x38-ZAiD",
+      "name": "readiness-launch-manifest.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/readiness-launch-manifest.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "15DB68M9o8zfgWWflEK9oHENL1xOrmEhM",
+      "name": "readiness-runtime.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/readiness-runtime.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1pm7Yl-nC4ZoIsrzKRw2riIUnqAWtSShO",
+      "name": "readiness-collector.pid",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/readiness-collector.pid",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1oUfDbQXSguIOcnRTQVhI4l3luuoX4hNy",
+      "name": "readiness-collector.log",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/readiness-collector.log",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1ECUW54QecOmpK0s7yhtF-3ZUvdmLS6Ao",
+      "name": "collect-readiness.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/collect-readiness.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Les7JyLsdfufH_-qxx4lDFmUOgieAxGr",
+      "name": "launch-readiness.sh",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/launch-readiness.sh",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1JgvsbXAUJK-Y7JqsM2djnmVBQb9jeSQC",
+      "name": "readiness-provider-stop.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/readiness-provider-stop.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "10U5oSJ3_17HyEpXkKL7VKmb59gDGkHPC",
+      "name": "strategy-fitting-handoff.md",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-fitting-handoff.md",
+      "verified_in_destination": true
+    },
+    {
+      "id": "152HiTYSD7sDU-rA9uDgjconoB4yfl2Cl",
+      "name": "build-fitting-report.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/build-fitting-report.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1FQdENziq9Na1ep47-QeCuhcvKVLANvp3",
+      "name": "strategy-fitting-rental.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-fitting-rental.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1cx6HfGdJhntbRblwyB810yk5tee1PYmo",
+      "name": "analyze-fitting.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/analyze-fitting.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1mTrHt1uX15kP8C7EqB5SzoUQjvdSDrUS",
+      "name": "strategy-fitting-remote.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-fitting-remote.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1HGwXrIFaCj6MvMNXyJUSE4mP533KFe65",
+      "name": "check-fitting.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/check-fitting.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1v8nWKScbMBFdG9mKkUYsjMEdJBkYwFxU",
+      "name": "launch-fitting.sh",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/launch-fitting.sh",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1zYbKZno40Uj7GkzT449L_HmzpjJbYkmd",
+      "name": "setup-fitting.sh",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/setup-fitting.sh",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1hd0GvQpNgm3FUv-MGHnZOH1XTPbn5TX7",
+      "name": "strategy-fitting-inputs.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-fitting-inputs.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "19NGU4A0uuQQem0KnL08BeXFs5yGN7_MR",
+      "name": "strategy-fitting-input-audit.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-fitting-input-audit.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1193ZsQUM0ZWrib1y6Kw5TVNHaKdeDfok",
+      "name": "strategy-capacity-handoff.md",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-capacity-handoff.md",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1hB8ftnsFw0fgvoKs7IE1ndZN0pibyLhP",
+      "name": "strategy-capacity-summary.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-capacity-summary.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1mVpEICjNpnacnkxIDrlPt8qxdQXqn7uY",
+      "name": "strategy-capacity-rental.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-capacity-rental.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1jdEz9gBth0JnRCHBdYIvvCpt5BwiImPr",
+      "name": "write_strategy_summary.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/write_strategy_summary.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "14L27cbALtlaei6hDun0bqksQepd4AnYc",
+      "name": "strategy-capacity.png",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-capacity.png",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1w2pIbgERUjtzzBDcud766g9KTrJfbdWp",
+      "name": "strategy-capacity-remote-v1.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/strategy-capacity-remote-v1.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "14wn5ZVajTx1iK1MoqaB0x9lSSmKCzmyk",
+      "name": "plot_strategy_report.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/plot_strategy_report.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1XWhbZFsfmCRHUmyMVSDwVQfzV6_pPofj",
+      "name": "build_strategy_report.py",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/build_strategy_report.py",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1011Hjyd3c-nNJYK2quWWgUaOeWtU8wAt",
+      "name": "cpu-pilot-rental.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/cpu-pilot-rental.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1mhGRaeLRzqR3t831wdRNRBVemZKdTmdZ",
+      "name": "cpu-pilot-remote-v1.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/cpu-pilot-remote-v1.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1lYF5xFs-q02rNGxAGXq-5RTz2qyJtC9X",
+      "name": "cpu-pilot-replays.tar.gz",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/cpu-pilot-replays.tar.gz",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1EYghu_zPOk4BKXvFvfyB_UnZfmITaG-t",
+      "name": "selfplay_from_3000_eval_3500_to_6000.csv",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/selfplay_from_3000_eval_3500_to_6000.csv",
+      "verified_in_destination": true
+    },
+    {
+      "id": "17uap2VKC1bM5gDeH94lZg8keXX5rkQqA",
+      "name": "selfplay_from_3000_eval_3500_to_6000.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/selfplay_from_3000_eval_3500_to_6000.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1K8ArV-1o7KO8wOTy2oQ4dkvayRbIuUxD",
+      "name": "standard_phase1_20k_2500_5000.csv",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1_20k_2500_5000.csv",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1pM9Xe51irBGaixLjlzEbRYMYC-wiKLEc",
+      "name": "standard_phase1_20k_2500_5000.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1_20k_2500_5000.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1WkakZ9EJDvmLfNNVSmGtC3NePnK5WNUB",
+      "name": "standard_phase1_20k_1500_4000.csv",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1_20k_1500_4000.csv",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1yYVniQAS83spqDjSPbG9eyvyX4beNkcL",
+      "name": "standard_phase1_20k_1500_4000.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1_20k_1500_4000.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1G814uWTiE4K3Zpqhc0ynZp6wAsOaeMdY",
+      "name": "standard_phase1_20k_2500_3000.csv",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1_20k_2500_3000.csv",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1rxH8bhtvRoL5KfzfgskSSnk0OtDZ357e",
+      "name": "standard_phase1_20k_2500_3000.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1_20k_2500_3000.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1uHrRN4bHZfa6WK82LxauRJkzXjYLDQuZ",
+      "name": "standard_phase1_20k_early.csv",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1_20k_early.csv",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1m729TOirC2VcIvP41XsJzI1yWAmiIoKw",
+      "name": "standard_phase1_20k_early.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1_20k_early.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1aWNIjqsS6KiliN_TRrkuZyyCAObWKW5h",
+      "name": "standard_phase1_top.csv",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1_top.csv",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1LMnzrADmBhOggq0UhqsX39kY0Qygr25v",
+      "name": "standard_phase1_top.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1_top.json",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1Mmislj7CTnSNZJEai5Ukt0plmNxkXfDi",
+      "name": "standard_phase1.csv",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1.csv",
+      "verified_in_destination": true
+    },
+    {
+      "id": "1qL8HBoNqwmx3T9HNqkwmsk5VPA0M_p1Y",
+      "name": "standard_phase1.json",
+      "previous_parent_ids": [
+        "188bEt6i0RHqegCCdvpf3wPzUiRw78N2s"
+      ],
+      "destination_parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+      "relative_path": "Historical-experiments/standard_phase1.json",
+      "verified_in_destination": true
+    }
+  ],
+  "payload_deleted": false,
+  "sharing_changed": false
+}
