@@ -144,6 +144,29 @@ M1 measured free space is **26,401,132,544 bytes (24.59 GiB)**; M4 after the new
 
 Next: finish dependency/restore review for these small accepted originals, final closed-evidence inventory and routine documentation CI. Earlier snapshots below remain historical; hourly chat updates continue.
 
+### Closed evidence inventory — October 4 17:39 UTC follow-up
+
+[PR #160](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/160) passed all required checks with no findings and merged. The [inventory/closeout receipt](docs/artifacts/drive-final-inventory-20261004.json) classifies the remaining local material and preserves each new archive identity.
+
+Four more whole files are **accepted uploaded**, with native uploaded/not-uploading/no-conflict/exact-size plus current cloud ID/name/size/parent proof:
+
+| Whole archive | Cloud file | Bytes |
+| --- | --- | ---: |
+| `PR145-M1-hu20-exact-turn-report-20261003-main03-20261004.tar.gz` | [archive](https://drive.google.com/file/d/1uF41GRo6_Jgz_HGSlVN_ljm1k8smzM4V/view) | 30,971,221 |
+| `PR145-M1-hu20-exact-turn-report-20261003-main03-local-replay-20261004.tar.gz` | [archive](https://drive.google.com/file/d/1YV3PqWObk8ZcYSKmOhgxe8GIrqSPrztT/view) | 13,287,815 |
+| `M1-archival-provenance-snapshot-20261004.tar.gz` | [archive](https://drive.google.com/file/d/10Tii-_oNXmxa5jYWWvpfNdRjufxJcTdR/view) | 594,617,807 |
+| `M4-archival-provenance-snapshot-20261004.tar.gz` | [archive](https://drive.google.com/file/d/1g7579f9m5wYVvBhIK_r8tMM58I7m1cnS/view) | 90,543,889 |
+
+The two PR145 folders preserve six published main03 report files and three independent local-replay output files: 44,766,307 source bytes. Their nine source hashes were absent from the earlier native manifests. The two host-specific archival-provenance snapshots preserve 267 M1 members / 678,862,476 source bytes and 119 M4 members / 193,607,825 source bytes, including retained packaging failures/partials, helpers, catalogs and cleanup receipts. Snapshot manifests explicitly define their freeze; subsequent small receipts remain separate. All embedded source/member hashes verified. Private credentials are excluded. The intact 594,617,807-byte M1 snapshot uploaded through native Drive without chunking or the connector ingestion ceiling.
+
+Cleanup removed **566 closed M4 pilot/web files / 15,223,811 bytes**, preserving **425 access-token/browser-profile files** for private/everyday dependencies. [Receipt](https://drive.google.com/file/d/1YZFuZPJpvot5hIFMGOy_GcsIm3MWHavC/view) and [full journal](https://drive.google.com/file/d/1qrTqWrPbrXt4FeD0UtAKmTK1lhQjaidk/view). Separately retained PR145 report copies and closed staging/partial archive bytes were removed only after accepted archive/member hash, fresh stat, tracked-file, symlink, handle and future-input checks: **13 M1 files / 625,968,177 bytes** and **one M4 partial / 75,280,207 bytes**. Every failed-partial byte remains in the accepted provenance snapshots, with original path/hash restore mappings. [M1 receipt](https://drive.google.com/file/d/1EpJ6UXK-5G8gad9e6VJjq1Om0F1RVpQS/view), [M1 journal](https://drive.google.com/file/d/1-h4G7pJY7YKoNczhNOlzieTvihVeuvoK/view), [M4 receipt](https://drive.google.com/file/d/1i4WrAv0mYUImnBKoNFw6b1JMna6DFXgO/view), [M4 journal](https://drive.google.com/file/d/1HYi1mwNNey1No6j9EsMkUZD-qSx8J1c8/view). No synced cloud payload was deleted.
+
+The metadata-only sweep inspected 61 M1 and 35 M4 relevant scopes with zero access errors, excluding symlink payloads, Git/environments/build/browser caches, private credentials and unrelated projects. All identified **closed heavy evidence** in this inventory has accepted cloud coverage. Required A/default/C/average inputs and HU20/TP20/fresh-install fixtures remain local; source checkout reports/configs and the tracked `deepcfr-test` matrix dataset are coding material. Small current archive-management manifests/helpers/restore stubs remain available for lookup. This inventory is not permission to remove future inputs or an assertion that active research is closed.
+
+**PR149 is now running its owner-authorized main phase** after all 61 qualification checks; its revised forecast is 15.54 hours against 16.69 available before reserve. This supersedes the earlier stopped-forecast snapshots. Its entire M4 campaign, every dated M1 retrieval root and every declared future/original input remain protected. The current inventory found about 19.3 GB logical bytes across four M1 retrieval roots; metadata counts overlap source copies and do not measure unique physical storage. Archival will not touch them before the owning task's verified closeout/canonical manifest.
+
+After this cleanup M1 measured **27,178,016,768 bytes (25.31 GiB)** free and M4 **99,169,501,184 bytes (92.36 GiB)** free. Native cache and active PR149 writes explain changes between readings; no forced offload. Next: documentation CI and later protected-task archival only after verified closure. Hourly checks/chat updates continue while that authorized work remains.
+
 ### Current archive folders
 
 Paths are relative to the research Drive folder. Upload status is a snapshot on October 4, not a promise of completion. The older folder manifests remain historical evidence; new whole archives embed member hashes and restoration instructions.
