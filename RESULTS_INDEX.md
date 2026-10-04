@@ -89,6 +89,37 @@ Hourly checks continue upload acceptance, remaining inventory, restore mapping a
 - **Active PR149 remains protected:** its owning task has resumed from isolated hash-verified inputs; the third lineage is exporting. The earlier interruption/restoration record remains unchanged. Both M1 retrieval roots, original six input exports and the M4 campaign/isolated inputs remain protected through verified owning-task closeout. Archival does not launch or resume science.
 - **Remaining inventory:** metadata found older result roots in the averaged-extraction worktree (1,385,757,798 bytes), postflop-replication (47,271,792), local-CFR (11,204,339), blueprint-search-followup (31,095,006) and fresh-install smoke/replay (3,163,375). Archive coverage, ownership and future dependencies must be checked before moving or removing these. Git, environments, default inputs, private credentials and unrelated projects remain available. Hourly checks/chat updates continue; the selected batch is complete, not the entire archival task.
 
+### Older worktree evidence — October 4 15:38 UTC follow-up
+
+[PR #158](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/158) passed all required checks with no findings and merged. The [worktree archival receipt](docs/artifacts/drive-worktree-archives-20261004.json) records the next admitted scopes and exact source/member identities.
+
+Six previously uncovered M1 scopes are now accepted in Drive with exact cloud ID/name/size/parent readback after archive member verification:
+
+| Whole archive | Cloud file | Bytes |
+| --- | --- | ---: |
+| PR105 M1 search-followup log supplement | [archive](https://drive.google.com/file/d/1x1Rzb0awwECqiDBTpu0vsft-bYiziyKO/view) | 939 |
+| v0.4.0 fresh-install validation | [archive](https://drive.google.com/file/d/1NGbjkLSpOGPWlDjCFbLujCChF4vqyFbx/view) | 382,028 |
+| PR116 M1 scaling supplement | [archive](https://drive.google.com/file/d/1loH7PI8KE8iVnVCEgJUKCxNRHHdd5WUi/view) | 546,185 |
+| PR113 M1 TP20 resource preflight | [archive](https://drive.google.com/file/d/1XKIC3ZU_TkEuxZvpHSjVGJpAK69QyUAC/view) | 4,246 |
+| PR113 M1 demo evidence | [archive](https://drive.google.com/file/d/19MasgLs-yY50TA9KsQv0xw1e4SJ53LtI/view) | 50,098,498 |
+| PR112 M1 human smoke evidence | [archive](https://drive.google.com/file/d/1ydTgsD-KTrVYe5fqAt2SUIYXWnrL67oz/view) | 2,516 |
+
+The 43-member scaling supplement and one-member search log supplement preserve M1 byte variants absent from earlier M4 archives; original failure/preflight/recovery provenance remains retained. The [accepted supplement receipt](https://drive.google.com/file/d/19VnUbGifCHbpb6ykVX_O1OmBKknLI51I/view) pins archive SHA256, parents and counts. Six separate staging archive duplicates outside Drive, 51,034,412 bytes, were removed only after accepted upload/hash/stat/open-handle checks. Demo/default and original training-parent inputs stay local for coding and future dependencies.
+
+Cleanup removed **234 closed worktree files / 1,155,068,143 logical bytes (1.08 GiB)** from scaling, local-CFR and search-followup roots. Each matches either an already accepted historical archive member or the new exact supplement; current source hashes, stat identity, Git tracking, external symlinks, handles and PR149's future-input plan were checked. No retained candidates; restore stubs and the [complete per-file journal](https://drive.google.com/file/d/1oYI1s6iX1ktCKtbjtpmMvH4n3-8ck5_o/view) record the original namespace, SHA256 and cloud archive/member. [Cleanup receipt](https://drive.google.com/file/d/1WdO0dELyuqbhJ0PrhKPjsmukNVNO78_3/view). No synced Drive payload was removed.
+
+Three additional M4 closed v0.4.0 validation projects are now whole member-verified archives in Historical-experiments and **accepted** by native uploaded/not-uploading/exact-size plus cloud metadata:
+
+- [Final candidate validation](https://drive.google.com/file/d/1EvNvbDwG5eSyMIZwScOsSa16fm_9uDhE/view): 221 members / 45,748,783 source bytes; 41,553,141 compressed bytes.
+- [Release validation](https://drive.google.com/file/d/1dznPFtSqhvw3arGSdaELUKi6VQ8aS2Y1/view): 303 members / 46,256,373 source bytes; 41,926,664 compressed bytes.
+- [Benchmark candidate validation](https://drive.google.com/file/d/1NxYZfSkL93YqzRSPoew-oWDOonCuGsFU/view): 1,466 members / 117,258,316 source bytes; 88,929,227 compressed bytes.
+
+All three M4 sources remain local pending closure/dependency/restore review. Reproducible browser/node/build dependencies were excluded; archived member counts differ from raw directory totals for that reason. Packaging worker 45080 has closed; do not duplicate these archives.
+
+Measured M1 free space after worktree cleanup was **27,135,582,208 bytes (25.27 GiB)**, and M4 after release packaging **100,750,036,992 bytes (93.83 GiB)**. M1 DriveFS currently accounts for about 22.43 GiB allocated storage and the second PR149 retrieval about 4.39 GiB; automatic streaming cache reclamation remains gradual, with no forced offload.
+
+PR149's owning task completed 120/120 exports, but lock-only qualification exceeded 5 GiB and stopped before main execution. Its 3,029 evidence files are retrieved/hash-verified; monitoring is paused awaiting memory engineering and explicit owner readmission. This is not permission for archival to delete its campaign, isolated/original inputs or any dated retrieval copy. Preserve all future dependencies through owning-task closeout. Remaining M4 inventory includes older primary blueprint roots (333,924,067 bytes, historical folders exist) and web smoke/benchmark evidence (22,238,751 bytes including browser dependencies); classify exact archive coverage and coding dependencies before further cleanup. Hourly follow-up remains active.
+
 ### Current archive folders
 
 Paths are relative to the research Drive folder. Upload status is a snapshot on October 4, not a promise of completion. The older folder manifests remain historical evidence; new whole archives embed member hashes and restoration instructions.
