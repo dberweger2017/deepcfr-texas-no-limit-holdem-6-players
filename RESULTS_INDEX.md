@@ -120,6 +120,30 @@ Measured M1 free space after worktree cleanup was **27,135,582,208 bytes (25.27 
 
 PR149's owning task completed 120/120 exports, but lock-only qualification exceeded 5 GiB and stopped before main execution. Its 3,029 evidence files are retrieved/hash-verified; monitoring is paused awaiting memory engineering and explicit owner readmission. This is not permission for archival to delete its campaign, isolated/original inputs or any dated retrieval copy. Preserve all future dependencies through owning-task closeout. Remaining M4 inventory includes older primary blueprint roots (333,924,067 bytes, historical folders exist) and web smoke/benchmark evidence (22,238,751 bytes including browser dependencies); classify exact archive coverage and coding dependencies before further cleanup. Hourly follow-up remains active.
 
+### Smaller M4 evidence — October 4 16:39 UTC follow-up
+
+[PR #159](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/159) passed scope/full0/full1/test and GitGuardian with no findings and merged. The [small archive receipt](docs/artifacts/drive-m4-small-archives-20261004.json) records the new accepted files and cleanup proof.
+
+Seven distinct pilot/web runs are now whole archives in Historical-experiments, **accepted uploaded** with native status and exact cloud ID/name/size/parent proof. They contain 991 source members / 21,973,467 source bytes and 6,390,066 compressed bytes. Browser dependencies, code, environments, private files and active research were excluded; original run files remain pending dependency/restore review.
+
+| Whole archive | Cloud file | Bytes |
+| --- | --- | ---: |
+| `M4-blueprint-pilot-v1-diagnostic-evidence-20261004.tar.gz` | [archive](https://drive.google.com/file/d/1alfEi4jF_e5W1L0hli0vESmr1QFpxRHF/view) | 60,710 |
+| `M4-blueprint-pilot-v1-first-evidence-20261004.tar.gz` | [archive](https://drive.google.com/file/d/1ukZ0ujrJj8Sws7MMg6UHRBWOoKGcETHq/view) | 41,987 |
+| `M4-blueprint-pilot-v1-full-evidence-20261004.tar.gz` | [archive](https://drive.google.com/file/d/1vWUg4DjHlXJVVDHZYbl8qmjXzK2pEwJt/view) | 60,409 |
+| `M4-blueprint-pilot-v1-reproduced-evidence-20261004.tar.gz` | [archive](https://drive.google.com/file/d/1b3vlEWLO-gZeTjSrw7_jSn1b-euy14l0/view) | 28,220 |
+| `M4-blueprint-pilot-v1-resumed-evidence-20261004.tar.gz` | [archive](https://drive.google.com/file/d/1XCNVAO5nLyXOUqixuiwl9uMaQsYEFSGz/view) | 60,460 |
+| `M4-play-web-evidence-20261004.tar.gz` | [archive](https://drive.google.com/file/d/1uFqaDsECgGfaXObsg0dNru3CLliNs81a/view) | 2,638,016 |
+| `M4-play-web-benchmark-evidence-20261004.tar.gz` | [archive](https://drive.google.com/file/d/1pp_OI0kYTBKN_xDo7qti4b99xDRj54ig/view) | 3,500,264 |
+
+Every archive embeds `ARCHIVE-MANIFEST.json` and `RESTORE-README.txt`. Extract into a fresh directory; restore members beneath their original `Local/` project prefixes and verify the recorded SHA256. [Accepted receipt](https://drive.google.com/file/d/1aFqhov369NW_u096KjYroomLHbcQw3jp/view) and [native proof](https://drive.google.com/file/d/11bf8oPtR5fWhcDiWDiFuYyscVBi4mwzF/view) preserve all file IDs, hashes and counts. A read-only metadata helper encountered missing `os.listxattr` in macOS system Python; the retained incident uses `/usr/bin/xattr` instead, with no payload mutation.
+
+Guarded cleanup removed **2,000 separate M4 originals / 542,265,399 bytes (0.51 GiB)**: 1,990 release-validation files matching the three previously accepted whole archives, and ten primary six-player slice files matching the existing exact Historical cloud files. No new duplicate slice archive was uploaded. Current source/member hashes, stable stat identities, Git tracking, external symlinks, open handles and current PR149 approval/future-input plans were checked before deletion. Excluded coding/browser files remain. Each root has an `ARCHIVED-RESTORE-20261004.json` stub. [Cleanup receipt](https://drive.google.com/file/d/1rTrA7DKpWWPNuTdTl3UIGMEkEEc-D4Y4/view) and [full per-file journal](https://drive.google.com/file/d/1PxmACpU9l_9V5YqMGhocEFCrOMST_cNX/view) map original paths to exact cloud IDs/members/hashes. Synced Drive payloads were untouched.
+
+M1 measured free space is **26,401,132,544 bytes (24.59 GiB)**; M4 after the new packaging is **101,046,308,864 bytes (94.11 GiB)**. Cache reclamation remains gradual. PR149's owner-approved 7-GiB pilot now fits memory, but its forecast is at least 31.2 main hours against 17.9 available; the owning task stopped before main and awaits a compute decision. All 3,198 retrieved evidence files, its whole campaign, isolated/original inputs and every dated retrieval root remain protected. No archival-triggered science or restart is authorized.
+
+Next: finish dependency/restore review for these small accepted originals, final closed-evidence inventory and routine documentation CI. Earlier snapshots below remain historical; hourly chat updates continue.
+
 ### Current archive folders
 
 Paths are relative to the research Drive folder. Upload status is a snapshot on October 4, not a promise of completion. The older folder manifests remain historical evidence; new whole archives embed member hashes and restoration instructions.
