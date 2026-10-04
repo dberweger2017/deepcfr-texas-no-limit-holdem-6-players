@@ -1,6 +1,8 @@
 # HU20 board-blind pooling — revision 3 M4 stop report
 
-**Cannot classify: preparation stopped before any solver value existed.**
+**Cannot classify: the first preparation stopped before any solver value existed.**
+Owner-authorized preparation resumed October 4 with fresh disk/memory admission;
+qualification and main results remain pending.
 The forty-board / three-average-export frozen campaign remains unattempted.
 This is a resource stop, not a convergence, playing-strength or abstraction result.
 Draft [PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149)
@@ -118,3 +120,16 @@ abstraction equilibria or lower bounds; empirical coverage and bootstrap
 intervals condition on the fixed fitted policies/codebooks. The solver-free
 companion measures retained diagnostic board diversity, not historical training
 board occupancy. No new training or release claim follows from this stop.
+
+## Owner-authorized resumption
+
+Following the owner’s explicit resume instruction, fresh admission at
+2026-10-04 13:07 UTC measured 30.2 GiB free disk and admitted the unchanged
+8-GiB aggregate ceiling. Source `482b0af2f5bebd2fa2e1beb855e70bda3ed3deb4`
+includes the previously tested shared-watchdog compatibility fix. Guarded
+preparation uses fresh `prepared-02` and `guard-prepare-02` directories,
+leaving the first partial attempt intact. [Readmission receipt](hu20-board-pooling-artifacts/m4-resume-02.json).
+The original absolute deadline, cumulative journal, corpus, halves, policies,
+thresholds and resource floors are unchanged. No new solver values are
+admitted by resumption; qualification and the measured production forecast
+remain prerequisites. This is explicit owner readmission, not automatic restart.
