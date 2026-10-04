@@ -45,6 +45,15 @@ The owner subsequently approved converting the pending small-file batches to **o
 
 Building or queueing an archive is **not upload confirmation**. M4 originals remain separately retained; M1 originals remain in their existing native folders pending archive acceptance and later safe reconciliation. Existing confirmed historical archives and PR136's whole upload are unchanged. Free-space guards reserve 8 GiB, and no cache is forcibly evicted. Hourly chat updates continue. [PR #153](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/153) passed all checks and merged before this update.
 
+### October 4 12:30 UTC follow-up
+
+[PR #154](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/154) passed all checks and merged. The [hourly progress receipt](docs/artifacts/drive-archive-progress-20261004-1230.json) distinguishes packaged files, exact cloud name/size matches and accepted native completion.
+
+- **M1:** all **22 run archives / 1,687,920,071 compressed bytes** are built and every source/member hash verified. Originals remain in place. The earlier read stopped when FileProvider changed one timestamp by 30 ns; content SHA256, size and inode stayed identical. A retained incident proves the exact double-seconds-to-timespec conversion. The new helper permits only that exact timestamp transformation after content validation; other identity changes still stop it. The failed partial is retained. No scientific work reran.
+- **M4:** **36/37 archives / 29,743,314,324 compressed bytes** are built. The last `day-paper-16k-2026091902` run waits for sufficient free disk, retaining its originals. The prepared resume helper has not launched. A separate **427,324,620-byte PR145 six-input archive** finished with all six member hashes verified; it is queued in the existing PR145 folder, with originals retained.
+- **PR136:** the full **23,509,934,825-byte** archive is now visible in the correct cloud folder as [this exact item](https://drive.google.com/file/d/19mPzvR0fF1vHzr-cRMsueTlHiQtthOcB/view). Its local native item ID matches. The app still reports one pending file, and explicit native completion for this archive is unconfirmed; separate M4 originals remain protected.
+- **Storage:** approximately **11–12 GiB free per Mac** during this check while native uploads/cache continue. No originals were removed. Accepted upload cleanup will provide headroom; no forced eviction or chunking is used. Hourly updates continue.
+
 ### Current folder layout
 
 Paths are relative to the research Drive folder. Upload status is a snapshot on October 4, not a promise of completion. The older folder manifests remain historical evidence; new whole archives embed member hashes and restoration instructions.
