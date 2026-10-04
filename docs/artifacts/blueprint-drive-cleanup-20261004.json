@@ -1,0 +1,87 @@
+{
+  "captured_utc": "2026-10-04T10:36:15.403007+00:00",
+  "state": "complete",
+  "removed_files": 149,
+  "removed_logical_bytes": 3547485700,
+  "original_paths": "replaced with links to existing Historical-experiments folders",
+  "proof": "Every cloud relative name/size matched the unchanged September 30 catalog and native folder; separate local source hashes and stat identities retained; no cloud download or synced-file deletion.",
+  "groups": [
+    {
+      "source": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-history-fixed-coverage-m4",
+      "destination": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/blueprint-history-fixed-coverage-m4",
+      "files": 10,
+      "bytes": 168896207
+    },
+    {
+      "source": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-history-summary-learning-m4",
+      "destination": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/blueprint-history-summary-learning-m4",
+      "files": 22,
+      "bytes": 520841454
+    },
+    {
+      "source": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-history-summary-v1-m4",
+      "destination": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/blueprint-history-summary-v1-m4",
+      "files": 19,
+      "bytes": 684819417
+    },
+    {
+      "source": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-m4-slice-v1-continued-m4",
+      "destination": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/blueprint-m4-slice-v1-continued-m4",
+      "files": 5,
+      "bytes": 256135764
+    },
+    {
+      "source": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-m4-slice-v1-m4",
+      "destination": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/blueprint-m4-slice-v1-m4",
+      "files": 5,
+      "bytes": 76866163
+    },
+    {
+      "source": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-pilot-v1-m4",
+      "destination": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/blueprint-pilot-v1-m4",
+      "files": 14,
+      "bytes": 198609
+    },
+    {
+      "source": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-runpod-check-v1",
+      "destination": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/blueprint-runpod-check-v1",
+      "files": 53,
+      "bytes": 1839316262
+    },
+    {
+      "source": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-search-m4-smoke-20260924",
+      "destination": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/blueprint-search-m4-smoke-20260924",
+      "files": 7,
+      "bytes": 137076
+    },
+    {
+      "source": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-search-m4-smoke-final-20260924",
+      "destination": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/blueprint-search-m4-smoke-final-20260924",
+      "files": 7,
+      "bytes": 137667
+    },
+    {
+      "source": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/blueprint-search-m4-smoke-pinned-20260924",
+      "destination": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/blueprint-search-m4-smoke-pinned-20260924",
+      "files": 7,
+      "bytes": 137081
+    }
+  ],
+  "full_receipt": "M1-blueprint-duplicate-cleanup-20261004.json in Drive Archive-receipts",
+  "incident": {
+    "state": "stopped-before-any-payload-change",
+    "cause": "Whole stat comparison included access time changed by the source hash read. Repair compares only size, modification time, inode and device, as the native staging helper does.",
+    "original_receipt_retained": "blueprint-duplicate-cleanup-20261004.json.attempt-1-retained"
+  },
+  "pr152": {
+    "head": "6a8929f70ab36845cb04c83c1d0967821f2b590a",
+    "ci": "all passed",
+    "merge": "a265c6d968e0526714f5a1b0088946074b518a72"
+  },
+  "native_uploads": "ongoing, PR136 archive still pending; M4 originals retained",
+  "measured_free_bytes": {
+    "m1_after_cleanup": 17565069312,
+    "m4_at_scheduled_check": 50110795776
+  },
+  "archive_policy": "Whole archive per additional unstaged experiment within its PR folder; preserve healthy uploads already in progress. No chunking or forced eviction."
+}

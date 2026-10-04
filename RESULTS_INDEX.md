@@ -25,6 +25,16 @@ The index/organization change passed all CI and merged in [PR #151](https://gith
 
 Native upload queues are still processing. The hourly follow-up remains active; no cache eviction, new science or rental was performed.
 
+### Later October 4 cleanup
+
+[PR #152](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/152) passed all checks and merged. Ten older blueprint experiment folders now use their existing `Historical-experiments/` cloud folders through links at the original M1 paths. Removed **149 separate local duplicate files / 3,547,485,700 logical bytes (3.30 GiB)** after exact cloud relative-name/size readback, unchanged September inventory checks, source hashes, tracked-file checks and open-handle checks. `blueprint-04-ops` code remains local. Full per-file cloud IDs/hashes are retained in Drive `Archive-receipts/M1-blueprint-duplicate-cleanup-20261004.json`; the [compact cleanup receipt](docs/artifacts/blueprint-drive-cleanup-20261004.json) records every affected scope. No synced payload was removed.
+
+The first cleanup validation compared access time, which changed during its own hash read; it stopped before any payload change. Its receipt/helper were retained, and the corrected check uses size, modification time, inode and device. All subsequent removals completed.
+
+At the hourly check M4 had **46.67 GiB free**. M1 had **16.36 GiB free** after cleanup while Drive was still filling its streaming cache; removed logical bytes do not promise equal physical reclamation. Both native upload queues are progressing, and PR136 remains pending with M4 originals retained. Hourly chat updates continue.
+
+For additional unstaged experiments, prefer one whole `.tar.gz` archive per experiment inside its PR folder to reduce small-file sync overhead. Preserve existing cloud IDs and uploads already in progress; no chunks or forced cache eviction.
+
 ### Current folder layout
 
 Paths are relative to the research Drive folder. Upload status is a snapshot on October 4, not a promise of completion. Each newly staged experiment contains `ARCHIVE-MANIFEST-20261004.json` with member sizes/hashes and `RESTORE-README.txt`.
