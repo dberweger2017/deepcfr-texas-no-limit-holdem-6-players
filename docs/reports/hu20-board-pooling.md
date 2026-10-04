@@ -1,6 +1,8 @@
 # HU20 board-blind pooling — revision 3 M4 stop report
 
-**Cannot classify: both preparation attempts stopped before any solver value existed.**
+**Cannot classify yet: both prior preparation attempts stopped before any solver value existed.**
+The owner has explicitly resumed again; guarded recovery is running in
+`prepared-03` from isolated, verified inputs.
 The owner-authorized resumption completed 80/120 exports, then stopped because
 the shared input directory had been archived. All three original sources are
 now restored and hash-verified in an isolated folder; no restart occurred.
@@ -187,3 +189,19 @@ The dated M4 originals, partials and isolated input dependencies remain retained
 for the existing RESULTS_INDEX archival destination. No cloud completion or
 permission to delete is implied by retrieval. An explicit owner resume is
 required before another attempt; qualification and forecast remain mandatory.
+
+## Second explicit readmission
+
+The owner resumed after the missing-input stop. [Fresh admission](hu20-board-pooling-artifacts/m4-resume-03.json)
+recorded 97.46 GiB free disk, with unchanged worker/family limits, both prior
+attempts charged and the original absolute deadline preserved. Source
+`fd5ebcd653c325e4d54cfa40f056f49c6a528ed7` adds exporter recovery: pin and
+verify previous member hashes, recompute K/features/codebooks and ranges,
+compare the complete native-menu request, then share only identical immutable
+index/compact files into fresh `prepared-03`. The third lineage is computed
+normally. Old evidence is not rewritten. This changes recovery mechanics,
+not the corpus, strategy, scientific thresholds or any solver result.
+Twenty-three tests pass, including altered artifact, range and feature rejection.
+Qualification follows only successful guarded preparation; main still requires
+all gates, three fixed pilots and a posted forecast. Heartbeat continuation is
+active again; no automatic restart after any new guard or gate failure.
