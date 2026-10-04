@@ -308,3 +308,85 @@ def test_missing_key_coverage_preserves_fold_lineage_and_street():
     assert result[0]["fraction"] == pytest.approx(.06)
     assert len(result) == 3
     assert result[0]["missing_key_reach_mass"] == 1.2
+
+
+def test_recovery_refuses_changed_artifact_or_unpinned_inventory(tmp_path):
+    import json
+    from scripts.prepare_board_pooling import recovery_files
+    from src.diagnostics.saved_hu20 import file_hash
+    prior = tmp_path / "prior"; prior.mkdir()
+    data = prior / "compact.json"; data.write_text("original")
+    inventory = tmp_path / "inventory.json"
+    inventory.write_text(json.dumps({"files": [{"path": "prior/compact.json",
+        "bytes": data.stat().st_size, "sha256": file_hash(data)}]}))
+    digest = file_hash(inventory)
+    with pytest.raises(ValueError, match="inventory fingerprint"):
+        recovery_files(prior, inventory, "0" * 64)
+    checked = recovery_files(prior, inventory, digest)
+    assert checked("compact.json") == data
+    data.write_text("changed!")
+    with pytest.raises(ValueError, match="Recovery artifact"):
+        checked("compact.json")
+
+
+def test_preparation_reuses_export_only_after_range_and_feature_checks(tmp_path, monkeypatch):
+    import json
+    from types import SimpleNamespace
+    from scripts import prepare_board_pooling as exporter
+    from src.diagnostics.flop_check import atomic_json
+    from src.diagnostics.saved_hu20 import file_hash
+
+    raw = tmp_path / "average.gz"; raw.write_bytes(b"immutable input")
+    spec = {"path": raw.name, "sha256": file_hash(raw), "seed": 123}
+    corpus = tmp_path / "corpus.json"
+    atomic_json(corpus, {"chosen_line": "fixed", "roots": [
+        {"spot": "root", "button": 0, "board": [1, 2, 3, 4], "board_weight": 1}]})
+    split = tmp_path / "split.json"
+    atomic_json(split, {"folds": {"root": 0}, "replay_boards": ["root"]})
+    plan = tmp_path / "plan.json"
+    atomic_json(plan, {"policies": [spec], "corpus": {"path": str(corpus), "sha256": file_hash(corpus)},
+        "crossfit": {"path": str(split), "sha256": file_hash(split)}, "boards": 1, "equity_histogram_bins": 20,
+        "equity_k": 50, "equity_cluster_seed": 1, "jobs_total": 1, "maximum_iterations": 10,
+        "progress_every": 1, "target_pct_pot": .2, "per_solve_seconds": 60})
+    feature = {"board": [1, 2, 3, 4], "codes": [[1], [2]]}
+    calls = []
+    def index(spec, inputs, path):
+        path.write_bytes(b"immutable index")
+        return {"source_sha256": spec["sha256"], "index_sha256": file_hash(path), "path": str(path)}
+    def tables(*args):
+        calls.append("export")
+        return {"strategy": [0.25, 0.75]}
+    monkeypatch.setattr(exporter, "build_index", index)
+    monkeypatch.setattr(exporter, "DiskAverage", lambda *args: SimpleNamespace(
+        db=SimpleNamespace(close=lambda: None), get=SimpleNamespace(cache_clear=lambda: None)))
+    monkeypatch.setattr(exporter, "replay_root", lambda record: record)
+    monkeypatch.setattr(exporter, "public_line", lambda *args: "fixed")
+    monkeypatch.setattr(exporter, "compile_tree", lambda root: ({"seat_map": [0, 1], "board": root["board"],
+        "template": [(False, False), (False, False)]}, None))
+    monkeypatch.setattr(exporter, "gate_k", lambda *args: {"passed": True, "samples": 100000})
+    monkeypatch.setattr(exporter, "card_features", lambda *args: None)
+    monkeypatch.setattr(exporter, "crossfit_codebooks", lambda *args, **kwargs: ([feature], {"seed": 1}))
+    monkeypatch.setattr(exporter, "add_pool_keys", lambda *args: {"key": "fixed"})
+    monkeypatch.setattr(exporter, "export_policy_tables", tables)
+    ranges = {0: [((5, 6), 1.)], 1: [((7, 8), 1.)]}
+    monkeypatch.setattr(exporter, "public_ranges", lambda *args: (ranges, {}))
+    prior = tmp_path / "prior"
+    exporter.prepare(plan, tmp_path, prior)
+    inventory = tmp_path / "inventory.json"
+    atomic_json(inventory, {"files": [{"path": str(p.relative_to(tmp_path)),
+        "bytes": p.stat().st_size, "sha256": file_hash(p)} for p in prior.rglob("*") if p.is_file()]})
+    out = tmp_path / "recovered"
+    args = dict(reuse_prepared=prior, reuse_manifest=inventory, reuse_manifest_sha256=file_hash(inventory))
+    exporter.prepare(plan, tmp_path, out, **args)
+    assert calls == ["export"]
+    assert (out / "jobs/root-0/compact.json").read_bytes() == (prior / "jobs/root-0/compact.json").read_bytes()
+    exported = json.loads((out / "jobs/root-0/request.json").read_text())
+    assert exported["compact_path"] == str(out / "jobs/root-0/compact.json")
+    # Immutable old bytes alone do not authorize reuse under changed ranges.
+    ranges[0] = [((5, 6), .5)]
+    with pytest.raises(ValueError, match="request/ranges/menu"):
+        exporter.prepare(plan, tmp_path, tmp_path / "changed-ranges", **args)
+    ranges[0] = [((5, 6), 1.)]
+    feature["codes"] = [[9], [2]]
+    with pytest.raises(ValueError, match="card features"):
+        exporter.prepare(plan, tmp_path, tmp_path / "changed-features", **args)
