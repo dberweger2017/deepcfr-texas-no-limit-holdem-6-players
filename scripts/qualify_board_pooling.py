@@ -6,6 +6,7 @@ from pathlib import Path
 import signal
 import numpy as np
 
+from scripts.check_board_pooling_engineering import compare
 from scripts.validate_board_pooling import validate as singleton
 from scripts.validate_flop_check import monte_carlo
 from src.diagnostics.board_pooling_policy import DiskAverage
@@ -14,7 +15,7 @@ from src.diagnostics.pooling_runtime import run_portable_tool, worker_rss_limit
 from src.diagnostics.saved_hu20 import file_hash
 from src.diagnostics.turn_check import replay_root
 from src.diagnostics.board_pooling import pool_statistics
-from src.diagnostics.board_pooling_results import statistics, check_lock_only, check_locked_br_parity
+from src.diagnostics.board_pooling_results import statistics, check_lock_only, check_locked_br_parity, check_replay
 
 
 def parity(binary, fixtures, out, *, worker_rss_bytes=6 * 1024**3):
@@ -63,7 +64,7 @@ def parity(binary, fixtures, out, *, worker_rss_bytes=6 * 1024**3):
     return checks
 
 
-def real_v4(binary, plan, prepared, out, *, worker_rss_bytes=5 * 1024**3):
+def real_v4(binary, plan, prepared, out, *, worker_rss_bytes=5 * 1024**3, engineering_recovery=None):
     config = json.loads(plan.read_text()); corpus = json.loads(Path(config["corpus"]["path"]).read_text())
     manifest = json.loads((prepared / "manifest.json").read_text())
     selected = [corpus["roots"][i] for i in (0, len(corpus["roots"]) // 2, len(corpus["roots"]) - 1)]
@@ -74,12 +75,20 @@ def real_v4(binary, plan, prepared, out, *, worker_rss_bytes=5 * 1024**3):
     source = DiskAverage(prepared / "policy-0.sqlite", spec)
     out.mkdir(parents=True, exist_ok=False); gates = []; locked_seconds = []
     for index, root in enumerate(selected):
+        job = next(j for j in manifest["jobs"] if j["spot"] == root["spot"] and j["policy_index"] == 0)
+        if index == 0 and engineering_recovery is not None:
+            recovered_gates, locked_time = recover_engineering_pilot(binary, engineering_recovery, out,
+                worker_rss_bytes=worker_rss_bytes, expected_job=job, expected_policy=spec)
+            if recovered_gates[0]["spot"] != root["spot"]:
+                raise ValueError("Recovered first pilot is not the frozen first root")
+            gates.extend(recovered_gates); locked_seconds.append(locked_time)
+            atomic_json(out / "gates.json", {"passed": True, "gates": gates})
+            continue
         resources = {}
         def record(stage, runtime):
             resources[stage] = runtime
             atomic_json(out / f"pilot-{index}-resources.json", {"spot": root["spot"],
                 "pilot_index": index, "worker_rss_bytes": worker_rss_bytes, "stages": resources})
-        job = next(j for j in manifest["jobs"] if j["spot"] == root["spot"] and j["policy_index"] == 0)
         request = json.loads(Path(job["request"]).read_text()); request.pop("pooling_phase")
         if file_hash(job["request"]) != job["request_sha256"] or file_hash(request["compact_path"]) != job["compact_sha256"]:
             raise ValueError("Pilot request/features hash differs")
@@ -152,12 +161,83 @@ def real_v4(binary, plan, prepared, out, *, worker_rss_bytes=5 * 1024**3):
     return gates, locked_seconds
 
 
+def recover_engineering_pilot(binary, receipt_path, out, *, worker_rss_bytes, expected_job, expected_policy):
+    """Reuse only the exact owner-authorized first-pilot comparison, then replay fresh."""
+    receipt = json.loads(Path(receipt_path).read_text())
+    if not receipt["passed"] or receipt["binary_sha256"] != file_hash(binary):
+        raise ValueError("Engineering recovery binary or gate differs")
+    baseline, actual = Path(receipt["baseline"]), Path(receipt["actual"])
+    required = [baseline / name for name in ("pilot-0-equilibrium.json", "pilot-0-locked.json",
+        "gates.json", "pilot-0/response.jsonl", "pilot-0-equilibrium/response.jsonl", "pilot-0-locked/response.jsonl")]
+    required += [actual / stage / name for stage in ("solve", "lock-only") for name in ("response.jsonl", "result.json")]
+    if not all(str(path) in receipt["pinned_files"] for path in required):
+        raise ValueError("Engineering recovery has unpinned required evidence")
+    if file_hash(baseline / "pilot-0-equilibrium.json") != expected_job["request_sha256"]:
+        raise ValueError("Recovered first pilot is not the frozen prepared request")
+    for path, digest in receipt["pinned_files"].items():
+        if file_hash(path) != digest:
+            raise ValueError("Engineering recovery evidence hash differs")
+    pairs = ((baseline / "pilot-0-equilibrium/response.jsonl", actual / "solve/response.jsonl"),
+             (baseline / "pilot-0-locked/response.jsonl", actual / "lock-only/response.jsonl"))
+    for old, new in pairs:
+        compare(old, new)
+    eq = [json.loads(line) for line in pairs[0][1].read_text().splitlines()]
+    locked = [json.loads(line) for line in pairs[1][1].read_text().splitlines()]
+    first_v4 = next(g for g in json.loads((baseline / "gates.json").read_text())["gates"]
+                    if g["gate"] == "real-export-V4")
+    if (not first_v4["passed"] or first_v4["native_mc"]["deals"] < 20000
+            or first_v4["source_sha256"] != expected_policy["sha256"]):
+        raise ValueError("Recovered V4 lacks the fixed 20k-deal gate")
+    original_v4 = [json.loads(line) for line in (baseline / "pilot-0/response.jsonl").read_text().splitlines()]
+    bp = lambda rows: next(r["current_ev_chips"] for r in rows if r["event"] == "both_blueprint_ev")
+    if bp(original_v4) != bp(eq):
+        raise ValueError("Fresh engineering blueprint EV differs from the inherited V4")
+    request = json.loads((baseline / "pilot-0-equilibrium.json").read_text())
+    fresh = json.loads((baseline / "pilot-0-locked.json").read_text())
+    if file_hash(request["compact_path"]) != expected_job["compact_sha256"]:
+        raise ValueError("Recovered first pilot compact features differ")
+    resources = {}
+    for label, directory in (("solve", "solve"), ("lock_only", "lock-only")):
+        runtime = json.loads((actual / directory / "result.json").read_text())
+        request_path = baseline / ("pilot-0-equilibrium.json" if label == "solve" else "pilot-0-locked.json")
+        if (runtime["status"] != "completed" or runtime["binary_sha256"] != receipt["binary_sha256"]
+                or runtime["request_sha256"] != file_hash(request_path)
+                or runtime["job_memory_budget_bytes"] != worker_rss_bytes
+                or runtime["memory_budget_bytes"] != 4 * 1024**3 or runtime["rayon_threads"] != 6):
+            raise ValueError("Engineering recovery runtime/requests/budget differs")
+        resources[label] = runtime
+    completion = eq[-1]
+    if completion["status"] != "solved" or completion["exploitability_pct_pot"] > .2:
+        raise ValueError("Engineering first pilot convergence failed")
+    gates = [dict(first_v4, engineering_recovery_sha256=file_hash(receipt_path),
+                  recovery="Fixed native MC retained; fresh blueprint EV identical"),
+             {"gate": "real-pilot-V5", "spot": request["spot"], "passed": True,
+              "completion": completion, "runtime": resources["solve"]},
+             check_lock_only(eq, locked, fresh["pot"], fresh["reference_response_sha256"])]
+    # Replay was incomplete in qualification-04, so it cannot be inherited.
+    replay = dict(fresh, pooling_phase="relock", max_iterations=completion["iterations"], target_pct_pot=-1)
+    path = out / "pilot-0-locked-replay.json"; atomic_json(path, replay)
+    runtime = run_portable_tool(binary, path, out / "pilot-0-locked-replay",
+        memory_bytes=replay["memory_budget_bytes"], threads=6, seconds=replay["seconds"]+300,
+        job_memory_bytes=worker_rss_bytes)
+    resources["replay"] = runtime
+    atomic_json(out / "pilot-0-resources.json", {"spot": request["spot"], "pilot_index": 0,
+        "worker_rss_bytes": worker_rss_bytes, "stages": resources,
+        "engineering_recovery_receipt": str(Path(receipt_path).resolve())})
+    if runtime["status"] != "completed":
+        raise RuntimeError(runtime["failure"])
+    solved = [json.loads(line) for line in (out / "pilot-0-locked-replay/response.jsonl").read_text().splitlines()]
+    gates.extend([check_replay(eq, solved, fresh["pot"]), check_locked_br_parity(locked, solved, fresh["pot"])])
+    return gates, resources["lock_only"]["elapsed_seconds"]
+
+
 def main():
     signal.signal(signal.SIGTERM, lambda *_: (_ for _ in ()).throw(SystemExit("Owned qualification stopped")))
     p = argparse.ArgumentParser(description=__doc__)
     for name in ("binary", "reference-binary", "fixture", "river-fixtures", "plan", "prepared", "out"):
         p.add_argument("--" + name, type=Path, required=True)
     p.add_argument("--approval", type=Path, required=True)
+    p.add_argument("--engineering-recovery", type=Path)
     a = p.parse_args()
     approval = json.loads(a.approval.read_text())
     rss_limit = worker_rss_limit(approval)
@@ -169,7 +249,11 @@ def main():
         raise ValueError("Prepared key factorization gate failed")
     gates = [gate_k] + parity(a.binary, a.river_fixtures, a.out / "river-parity", worker_rss_bytes=rss_limit)
     gates += singleton(a.binary, a.reference_binary, a.fixture, a.out / "singleton", threads=6)["gates"]
-    real_gates, locked_seconds = real_v4(a.binary, a.plan, a.prepared, a.out / "real-v4", worker_rss_bytes=rss_limit)
+    if a.engineering_recovery:
+        receipt = json.loads(a.engineering_recovery.read_text())
+        if receipt["plan_sha256"] != file_hash(a.plan):
+            raise ValueError("Engineering recovery belongs to another frozen plan")
+    real_gates, locked_seconds = real_v4(a.binary, a.plan, a.prepared, a.out / "real-v4", worker_rss_bytes=rss_limit, engineering_recovery=a.engineering_recovery)
     gates += real_gates
     atomic_json(a.out / "qualification.json", {"passed": all(g["passed"] for g in gates), "gates": gates,
                 "binary_sha256": file_hash(a.binary), "plan_sha256": file_hash(a.plan),

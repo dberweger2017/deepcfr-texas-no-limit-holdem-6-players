@@ -256,3 +256,14 @@ any 7-GiB breach; no further ceiling increase is authorized. After every gate
 passes, post the measured forecast and start main only if it fits the original
 remaining allowance including the one-hour closeout reserve. No main outcomes
 existed when this resource amendment was approved.
+
+October 4 engineering amendment: the owner authorizes about two hours of M1
+wrapper engineering and fresh guarded M4 pilot-0 parity checks, preserving the
+original 24-hour deadline and reserve. Cache lifetime, lock clearing and
+interpreter traversal may change only if the original requests and **every
+scientific response value** reproduce exactly against qualification-04.
+Timing/RSS alone may differ. This amendment changes neither the estimator nor
+any frozen input, solver arithmetic, menu, arena, threads, pilot identity,
+coverage restriction, inference threshold or replay sample. Retain old evidence
+and separately fingerprint the external build. A failed parity/forecast stops;
+no extension or rental is authorized. See the execution record.

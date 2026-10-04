@@ -88,3 +88,35 @@ seconds, original clock/deadline unchanged; heartbeat paused. All owned work
 exited. Further execution needs owner-approved allowance/compute action;
 no automatic restart or further RSS increase. Fourth fresh retrieval and
 all three prior copies are hash-verified; see the latest report and receipt.
+
+Owner-authorized engineering amendment (October 4, 16:45 UTC): no longer
+allowance or rental. Up to about two hours of M1 development/short tests,
+with no M4 solves during engineering. The external build caches each distinct
+pooled file through its last use, clears native locks directly and traverses
+with exact copies of interpreter state instead of replaying every prefix.
+Lock normalization, solver arithmetic/storage, tree, original requests, 4-GiB
+arena, six threads and all frozen science are unchanged. Sources remain
+outside the MIT checkout; the old binary and raw responses stay immutable.
+An independent timing sidecar records parsing, tree/arena construction, CFR,
+policy construction/locking, BR, blueprint EV and serialization.
+
+M1 zero-CFR tests compare 33,984 decision contexts across compressed/plain,
+rainbow/monotone turn trees, including nonuniform locks and zero reaches;
+weights/strategies and twelve BR comparisons match exactly. Input-only parsing
+of the retained 112-MB pilot policy takes 4.472 seconds for five loads versus
+0.677 seconds for one cached load, so repeated parsing alone cannot explain
+285 seconds. The new traversal/locking speedup still needs measurement.
+[External fingerprint](reports/hu20-board-pooling-artifacts/engineering-amendment-05.json).
+Thirty-two Python tests pass, including strict response comparison and pinned
+first-pilot recovery. No M1 production solve or M4 engineering solve occurred.
+
+Next: the expressly authorized guarded M4 pilot-0 solve and lock-only reruns
+use the **original request files**. Require exact scientific response hashes;
+ignore only top-level elapsed time and peak RSS. Differences stop without
+relaxing tolerance. Reforecast as `1.5 * 138 * (slowest solve + slowest lock)`.
+Only if that fits the remaining original deadline minus the one-hour reserve,
+run remaining fixed pilots/fixtures and the unfinished first replay. First
+V4's fixed 20k-deal native MC may be reused only when every evidence hash is
+pinned and the fresh blueprint EV matches exactly. A failed forecast stops
+for the owner's allowance/compute decision. Production requires all original
+gates and the final measured forecast; no automatic retry of a failure.
