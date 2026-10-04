@@ -151,3 +151,29 @@ remaining-clock forecast precede any continuation; no extension/rental is
 implied. [Current report](reports/hu20-board-pooling.md) records every outcome,
 raw inventory, exclusions and unavailable intervals. Fifth fresh retrieval
 verifies all 3,476 files and all four older immutable copies. Nothing deleted.
+
+Owner-delegated takeover (October 4, evening): the owner handed the remaining
+launch decisions to Claude. Three changes, none to the science:
+
+1. **Per-lineage pooled policies.** The native loader parses a whole policy
+   file into memory and then keeps only its job's lineage. A combined
+   three-lineage, forty-board file would be about three times the 117-MB
+   single-root pool the lock-only pilots used, which is untested against the
+   7-GiB worker ceiling. The fit now writes `pooled-policy-<lineage>.json` and
+   `crossfit-<fold>-<lineage>.json`; each holds exactly the groups the native
+   filter kept from the combined file (tested), so every lock is unchanged.
+   The covered-context policy is built in a short-lived child, so its parsed
+   dictionaries are released before the native lock pass allocates.
+   Pilot pools show the key space saturating across boards (v1 keys 75–94k
+   per root, 110k over three boards; equity keys ~140k each), so a
+   per-lineage file should stay near the tested size.
+2. **Crash-safe resume.** `--resume` continues an interrupted campaign in
+   its own folder. Retained collect/relock results are kept only after their
+   response hash matches the atomic record; partial job folders and logs are
+   set aside, not deleted, and rerun. The schedule and common mask must match
+   the retained ones; a valid pool inventory skips refitting. The forecast
+   applies the frozen conservative law to the remaining work. A resume still
+   needs an explicit owner instruction; nothing restarts automatically.
+3. **Fresh allowance.** A new 24-hour wall-clock window starts at the main-06
+   launch. The cumulative guarded clock (86,400 seconds, all earlier attempts
+   charged) is unchanged, so the effective limit is the smaller of the two.

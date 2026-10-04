@@ -117,12 +117,43 @@ def test_streamed_campaign_pools_match_eager_fits_exactly(tmp_path):
                    "mass": .1 + i/10, "action_mass": [.01*(i+1), .09*(i+1)]}]
         records.append(dict(job, groups=groups))
         (tmp_path / (job["job"] + ".jsonl")).write_text(json.dumps({"event": "pooling_statistics", "groups": groups}) + "\n")
-    expected = {"pooled-policy.json": pool_statistics(records)}
-    expected.update({f"crossfit-{f}.json": p for f,p in crossfit_policies(records, folds).items()})
+    expected = {}
+    for lineage in (0, 1):
+        own = [r for r in records if r["lineage"] == lineage]
+        expected[f"pooled-policy-{lineage}.json"] = dict(pool_statistics(own), lineage=lineage)
+        for f, p in crossfit_policies(own, folds).items():
+            expected[f"crossfit-{f}-{lineage}.json"] = dict(p, lineage=lineage)
     write_pooled_policies(jobs, lambda j: tmp_path / (j["job"] + ".jsonl"), tmp_path, folds)
     for name, value in expected.items():
         # Canonical serialization preserves exact floats, menu order and metadata.
         assert (tmp_path / name).read_text() == json.dumps(value, sort_keys=True) + "\n"
+    # The native loader keeps only its job's lineage, so per-lineage files lock
+    # exactly the groups the former combined file supplied to each job.
+    combined = {"pooled-policy": pool_statistics(records)}
+    combined.update({f"crossfit-{f}": p for f, p in crossfit_policies(records, folds).items()})
+    for stem, policy in combined.items():
+        for lineage in (0, 1):
+            own = json.loads((tmp_path / f"{stem}-{lineage}.json").read_text())["groups"]
+            assert own == [g for g in policy["groups"] if g["lineage"] == lineage]
+
+
+def test_resume_keeps_verified_results_and_sets_partials_aside(tmp_path):
+    from scripts.run_board_pooling import reconcile
+    from src.diagnostics.saved_hu20 import file_hash
+    jobs = [{"job": name, "spot": name, "lineage": 0} for name in ("done", "partial", "fresh")]
+    done = tmp_path / "collect/done"; (done / "solver").mkdir(parents=True)
+    (done / "solver/response.jsonl").write_text("{}\n")
+    (done / "result.json").write_text(json.dumps({"job": jobs[0], "eligible": True,
+        "runtime": {"response_sha256": file_hash(done / "solver/response.jsonl")}}))
+    (tmp_path / "collect/partial/solver").mkdir(parents=True)
+    (tmp_path / "collect-partial.log").write_text("interrupted\n")
+    completed, pending = reconcile(tmp_path, jobs, "collect")
+    assert completed == jobs[:1] and pending == jobs[1:]
+    assert not (tmp_path / "collect/partial").exists() and not (tmp_path / "collect-partial.log").exists()
+    assert len(list((tmp_path / "collect").glob("partial.partial-*"))) == 1
+    (done / "solver/response.jsonl").write_text("changed\n")
+    with pytest.raises(ValueError, match="differs from its atomic record"):
+        reconcile(tmp_path, jobs, "collect")
 
 
 def test_streamed_campaign_never_retains_all_root_groups(tmp_path, monkeypatch):

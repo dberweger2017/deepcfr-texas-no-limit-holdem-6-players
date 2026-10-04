@@ -24,10 +24,25 @@ def rows(path):
     return [json.loads(line) for line in Path(path).read_text().splitlines()]
 
 
+def policy_names(lineages):
+    """One file per lineage: the native loader parses a whole file, then keeps only its lineage."""
+    return [name for lineage in sorted(lineages)
+            for name in (f"pooled-policy-{lineage}.json", f"crossfit-0-{lineage}.json", f"crossfit-1-{lineage}.json")]
+
+
+def write_covered_policy(reference_path, heldout_path, job, covered_path):
+    local = pool_statistics([dict(job, groups=statistics(rows(reference_path)))])
+    atomic_json(covered_path, covered_context_policy(json.loads(Path(heldout_path).read_text()), local))
+
+
 def worker(a):
     signal.signal(signal.SIGTERM, lambda *_: (_ for _ in ()).throw(SystemExit("Owned worker stopped")))
     manifest = json.loads(a.prepared.joinpath("manifest.json").read_text())
     job = next(j for j in manifest["jobs"] if j["job"] == a.job)
+    reference_path = a.out / "collect" / job["job"] / "solver/response.jsonl"
+    if a.phase == "cover":
+        write_covered_policy(reference_path, a.heldout, job, a.covered)
+        return
     budget = json.loads(a.approval.read_text())
     request = json.loads(Path(job["request"]).read_text())
     if file_hash(job["request"]) != job["request_sha256"]:
@@ -36,12 +51,14 @@ def worker(a):
         raise ValueError("Prepared compact features/policy hash differs")
     destination = a.out / a.phase / job["job"]; destination.mkdir(parents=True, exist_ok=False)
     if a.phase == "relock":
-        reference_path = a.out / "collect" / job["job"] / "solver/response.jsonl"
-        first = rows(reference_path)
-        final = completion(first)
+        final = completion(rows(reference_path))
         fit_fold = 1 - job["evaluation_fold"]
-        shared = str((a.out / "pooled-policy.json").resolve())
-        heldout = str((a.out / f'crossfit-{job["evaluation_fold"]}.json').resolve())
+        shared = str((a.out / f'pooled-policy-{job["lineage"]}.json').resolve())
+        heldout = str((a.out / f'crossfit-{job["evaluation_fold"]}-{job["lineage"]}.json').resolve())
+        inventory = json.loads((a.out / "pool-inventory.json").read_text())
+        for policy_path in (shared, heldout):
+            if file_hash(policy_path) != inventory[Path(policy_path).name]:
+                raise ValueError("Pooled policy hash differs")
         request.update(pooling_phase="lock-only", max_iterations=0,
                        reference_equilibrium_ev_chips=final["current_ev_chips"],
                        reference_response_sha256=file_hash(reference_path),
@@ -51,14 +68,14 @@ def worker(a):
                            {"metric": "e_board_v1", "projection_metric": "v1", "policy_path": shared},
                            {"metric": "e_board_eq50", "projection_metric": "eq50", "policy_path": shared}])
         covered_path = destination / "covered-policy.json"
-        local = pool_statistics([dict(job, groups=statistics(first))])
-        atomic_json(covered_path, covered_context_policy(json.loads(Path(heldout).read_text()), local))
+        # A short-lived child builds the covered policy so its parsed dictionaries
+        # are returned to the OS before the native lock pass allocates its tree.
+        subprocess.run([sys.executable, "-m", "scripts.run_board_pooling", "--worker", "--phase", "cover",
+                        "--job", job["job"], "--plan", str(a.plan), "--prepared", str(a.prepared),
+                        "--out", str(a.out), "--binary", str(a.binary), "--approval", str(a.approval),
+                        "--heldout", heldout, "--covered", str(covered_path)], check=True)
         request["pooling_measurements"].append({"metric": "e_cross_v1_covered", "projection_metric": "v1",
             "policy_path": str(covered_path.resolve()), "allow_missing": True})
-        inventory = json.loads((a.out / "pool-inventory.json").read_text())
-        for policy_path in (shared, heldout):
-            if file_hash(policy_path) != inventory[Path(policy_path).name]:
-                raise ValueError("Pooled policy hash differs")
     path = destination / "request.json"; atomic_json(path, request)
     runtime = run_owned_tool(a.binary, path, destination / "solver",
                              memory_bytes=budget["arena_bytes"], threads=budget["threads_per_worker"],
@@ -68,6 +85,7 @@ def worker(a):
         raise RuntimeError(runtime["failure"])
     actual = rows(destination / "solver/response.jsonl"); gates = []
     if a.phase == "relock":
+        first = rows(reference_path)
         final = actual[-1]
         gates.append(check_lock_only(first, actual, request["pot"], request["reference_response_sha256"]))
         if job["replay_sample"]:
@@ -102,8 +120,35 @@ def stop(processes):
             os.killpg(process.pid, signal.SIGKILL); process.wait()
 
 
+def reconcile(out, jobs, phase):
+    """Keep hash-verified atomic results from an interrupted run; set partials aside."""
+    completed, pending = [], []
+    stamp = str(int(time()))
+    for job in jobs:
+        root = out / phase / job["job"]
+        result_path = root / "result.json"
+        if result_path.exists():
+            result = json.loads(result_path.read_text())
+            response = root / "solver/response.jsonl"
+            if (result["job"] != job or not result["eligible"]
+                    or file_hash(response) != result["runtime"]["response_sha256"]):
+                raise ValueError(f'Retained {phase} result for {job["job"]} differs from its atomic record')
+            completed.append(job)
+            continue
+        if root.exists():
+            root.rename(root.with_name(root.name + ".partial-" + stamp))
+        log = out / (phase + "-" + job["job"] + ".log")
+        if log.exists():
+            log.rename(log.with_name(log.name + ".partial-" + stamp))
+        pending.append(job)
+    return completed, pending
+
+
 def parallel(a, jobs, phase, budget):
-    pending = list(jobs); active = []; completed = []
+    completed, pending = reconcile(a.out, jobs, phase); active = []
+    if completed:
+        append(a.out / "progress.jsonl", {"event": "resume", "phase": phase, "retained_jobs": len(completed),
+                                         "pending_jobs": len(pending), "timestamp": time()})
     initial = resource_snapshot(); last_log = 0
     try:
         while pending or active:
@@ -182,23 +227,29 @@ def write_pooled_policies(jobs, response_path, out, folds):
             stream.write("}\n")
         temporary.replace(path)
 
-    write(out / "pooled-policy.json", jobs, {})
     for evaluation_fold in (0, 1):
-        training = [j for j in jobs if folds[j["spot"]] != evaluation_fold]
-        if not training:
+        if not [j for j in jobs if folds[j["spot"]] != evaluation_fold]:
             raise ValueError("No eligible training roots in a frozen half")
-        write(out / f"crossfit-{evaluation_fold}.json", training,
-              {"evaluation_fold": evaluation_fold, "training_fold": 1-evaluation_fold,
-               "training_spots": sorted({j["spot"] for j in training})})
+    for lineage in sorted({j["lineage"] for j in jobs}):
+        own = [j for j in jobs if j["lineage"] == lineage]
+        write(out / f"pooled-policy-{lineage}.json", own, {"lineage": lineage})
+        for evaluation_fold in (0, 1):
+            training = [j for j in own if folds[j["spot"]] != evaluation_fold]
+            write(out / f"crossfit-{evaluation_fold}-{lineage}.json", training,
+                  {"lineage": lineage, "evaluation_fold": evaluation_fold, "training_fold": 1-evaluation_fold,
+                   "training_spots": sorted({j["spot"] for j in training})})
 
 
 def fit_pools(a, budget):
     """A sequential owned child releases all fitting allocations before solvers resume."""
     command = ["nice", "-n", "10", sys.executable, "-m", "scripts.fit_board_pooling",
                "--plan", str(a.plan), "--run", str(a.out), "--approval", str(a.approval)]
-    atomic_json(a.out / "status.json", {"phase": "pool-fit", "done": 0, "total": 3,
+    atomic_json(a.out / "status.json", {"phase": "pool-fit", "done": 0, "total": 9,
                 "timestamp": time(), "experiment_deadline_epoch": budget["experiment_deadline_epoch"]})
-    with (a.out / "pool-fit.log").open("x") as output:
+    log = a.out / "pool-fit.log"
+    if log.exists():
+        log.rename(log.with_name(log.name + ".partial-" + str(int(time()))))
+    with log.open("x") as output:
         process = subprocess.Popen(command, stdout=output, stderr=output, start_new_session=True)
         try:
             while process.poll() is None:
@@ -239,18 +290,32 @@ def campaign(a):
         raise ValueError("Three fixed resource/convergence pilots are required")
     snapshot = resource_snapshot()
     admit_m4(budget, snapshot)
-    a.out.mkdir(parents=True, exist_ok=False)
-    atomic_json(a.out / "admission.json", {"budget": budget, "machine": snapshot})
+    if a.resume:
+        # Owner-approved resume of an interrupted campaign: retained atomic results are
+        # re-verified, partial job directories are set aside and rerun.
+        if not (a.out / "schedule.json").exists():
+            raise ValueError("Resume needs the interrupted campaign's frozen schedule")
+        stamp = str(int(time()))
+        for name in ("failure.json", "admission.json", "forecast-admission.json"):
+            if (a.out / name).exists():
+                (a.out / name).rename(a.out / (name + ".interrupted-" + stamp))
+    else:
+        a.out.mkdir(parents=True, exist_ok=False)
+    atomic_json(a.out / "admission.json", {"budget": budget, "machine": snapshot, "resume": a.resume})
     plan = json.loads(a.plan.read_text()); manifest = json.loads((a.prepared / "manifest.json").read_text())
     if manifest["plan_sha256"] != file_hash(a.plan):
         raise ValueError("Prepared plan differs")
     locked_pilots = qualification["lock_only_pilot_seconds"]
     if len(locked_pilots) != 3:
         raise ValueError("Three locked-evaluation timings are required")
-    forecast = 1.5 * (max(pilots)*(plan["jobs_total"]+plan["replay_jobs"])
-                       + max(locked_pilots)*(plan["jobs_total"]+plan["replay_jobs"])) / budget["workers"]
+    # The frozen conservative law, applied to the work not yet retained.
+    done = {phase: sum((a.out / phase / j["job"] / "result.json").exists() for j in manifest["jobs"])
+            for phase in ("collect", "relock")}
+    replays = plan["replay_jobs"] * (plan["jobs_total"] - done["relock"]) / plan["jobs_total"]
+    forecast = 1.5 * (max(pilots)*(plan["jobs_total"]-done["collect"]+replays)
+                       + max(locked_pilots)*(plan["jobs_total"]-done["relock"]+replays)) / budget["workers"]
     remaining = budget["experiment_deadline_epoch"] - time() - budget["retrieval_shutdown_reserve_seconds"]
-    atomic_json(a.out / "forecast-admission.json", {"conservative_main_seconds": forecast,
+    atomic_json(a.out / "forecast-admission.json", {"conservative_main_seconds": forecast, "retained_jobs": done,
                 "remaining_main_seconds": remaining, "pilot_seconds": pilots, "passed": forecast <= remaining})
     if forecast > remaining:
         atomic_json(a.out / "failure.json", {"error": "Pilot forecast exceeds approved clock", "timestamp": time(), "automatic_restart": False})
@@ -263,16 +328,27 @@ def campaign(a):
     roots = sorted({j["spot"] for j in jobs}); Random(plan["schedule_seed"]).shuffle(roots)
     jobs = [j for round_no in range(3) for index, spot in enumerate(roots) for j in jobs
             if j["spot"] == spot and j["policy_index"] == (index + round_no) % 3]
-    atomic_json(a.out / "schedule.json", jobs)
+    if a.resume:
+        if json.loads((a.out / "schedule.json").read_text()) != jobs:
+            raise ValueError("Resumed campaign's frozen schedule differs")
+    else:
+        atomic_json(a.out / "schedule.json", jobs)
     try:
         parallel(a, jobs, "collect", budget)
         results = {j["job"]: json.loads((a.out / "collect" / j["job"] / "result.json").read_text()) for j in jobs}
         mask = common_mask(manifest, results, plan["policies"])
+        if (a.out / "common-mask.json").exists() and json.loads((a.out / "common-mask.json").read_text()) != mask:
+            raise ValueError("Recomputed common mask differs from the retained one")
         atomic_json(a.out / "common-mask.json", mask)
         eligible = [j for j in jobs if j["spot"] in mask["admitted"]]
-        fit_pools(a, budget)
-        names = ["pooled-policy.json", "crossfit-0.json", "crossfit-1.json"]
-        atomic_json(a.out / "pool-inventory.json", {name: file_hash(a.out/name) for name in names})
+        names = policy_names({j["lineage"] for j in eligible})
+        inventory_path = a.out / "pool-inventory.json"
+        retained = (inventory_path.exists() and sorted(json.loads(inventory_path.read_text())) == sorted(names)
+                    and all(file_hash(a.out/name) == digest for name, digest in json.loads(inventory_path.read_text()).items()))
+        if not retained:
+            inventory_path.unlink(missing_ok=True)
+            fit_pools(a, budget)
+            atomic_json(inventory_path, {name: file_hash(a.out/name) for name in names})
         parallel(a, eligible, "relock", budget)
         atomic_json(a.out / "completion.json", {"status": "completed", "phase1_jobs": len(jobs),
                     "phase2_jobs": len(eligible), "common_boards": len(mask["admitted"]),
@@ -288,8 +364,11 @@ def main():
     for name in ("plan", "prepared", "out", "binary", "approval"):
         p.add_argument("--" + name, type=Path, required=True)
     p.add_argument("--worker", action="store_true")
-    p.add_argument("--phase", choices=("collect", "relock"))
+    p.add_argument("--resume", action="store_true", help="continue an interrupted campaign in --out")
+    p.add_argument("--phase", choices=("collect", "relock", "cover"))
     p.add_argument("--job")
+    p.add_argument("--heldout", type=Path)
+    p.add_argument("--covered", type=Path)
     a = p.parse_args()
     if a.worker:
         worker(a)
