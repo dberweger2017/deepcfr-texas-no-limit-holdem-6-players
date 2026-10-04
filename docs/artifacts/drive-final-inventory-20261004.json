@@ -1,0 +1,171 @@
+{
+  "scheduled_check_utc": "2026-10-04T17:39:44Z",
+  "previous_documentation_pr": {
+    "number": 160,
+    "head": "cf57dc6331accf3c77d12cb26464253c970a0cfe",
+    "merge": "8ac7ed991f8dd5a1e0f84c48c3d760bd93b3a7a9",
+    "Tests37218459993": "scope/full0/full1/test success",
+    "GitGuardian": "success",
+    "unresolved_findings": 0
+  },
+  "new_accepted_pr145_report_archives": [
+    {
+      "name": "PR145-M1-hu20-exact-turn-report-20261003-main03-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Local/Research-Cloud/PR-145-exact-flop/PR145-M1-hu20-exact-turn-report-20261003-main03-20261004.tar.gz",
+      "bytes": 30971221,
+      "sha256": "d3561782b5c74e4161b77ab3c00b165b8511443eacf3e11f2eaff3ba61c445d0",
+      "members": 6,
+      "source_bytes": 31386426,
+      "state": "native-and-cloud-accepted-originals-retained",
+      "originals_retained": true,
+      "cloud_id": "1uF41GRo6_Jgz_HGSlVN_ljm1k8smzM4V"
+    },
+    {
+      "name": "PR145-M1-hu20-exact-turn-report-20261003-main03-local-replay-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Local/Research-Cloud/PR-145-exact-flop/PR145-M1-hu20-exact-turn-report-20261003-main03-local-replay-20261004.tar.gz",
+      "bytes": 13287815,
+      "sha256": "2989ead6b3b885cbfc2cdb51e091255ca1f32c398d0cf35b128174bdb6b2a8a8",
+      "members": 3,
+      "source_bytes": 13379881,
+      "state": "native-and-cloud-accepted-originals-retained",
+      "originals_retained": true,
+      "cloud_id": "1YV3PqWObk8ZcYSKmOhgxe8GIrqSPrztT"
+    }
+  ],
+  "new_accepted_archival_provenance_snapshots": [
+    {
+      "state": "native-and-cloud-accepted-originals-retained",
+      "pid": 44687,
+      "host": "M1",
+      "source": "/Users/dberweger/Local/research-archive-preparation-20261002",
+      "private_exclusions": [],
+      "originals_retained": true,
+      "started": 1791136036.8757849,
+      "name": "M1-archival-provenance-snapshot-20261004.tar.gz",
+      "bytes": 594617807,
+      "sha256": "fbf9cf7d53e6de7f1666c013b6a3210bd3e9c685397a24792bdeb4874fbe1562",
+      "members": 267,
+      "source_bytes": 678862476,
+      "native_path": "/Users/dberweger/Local/Research-Cloud/Archive-receipts/M1-archival-provenance-snapshot-20261004.tar.gz",
+      "finished": 1791136051.1416872,
+      "free_after": 27482230784,
+      "cloud_id": "10Tii-_oNXmxa5jYWWvpfNdRjufxJcTdR"
+    },
+    {
+      "state": "native-and-cloud-accepted-originals-retained",
+      "pid": 69192,
+      "host": "M4",
+      "source": "/Users/dberweger/Local/research-archive-preparation-20261002",
+      "private_exclusions": [],
+      "originals_retained": true,
+      "started": 1791136036.609477,
+      "name": "M4-archival-provenance-snapshot-20261004.tar.gz",
+      "bytes": 90543889,
+      "sha256": "0cada03eed493931b1fbca3411abe42111c2d268143a5f6d1b86f220a922be4c",
+      "members": 119,
+      "source_bytes": 193607825,
+      "native_path": "/Users/dberweger/Local/Research-Cloud/Archive-receipts/M4-archival-provenance-snapshot-20261004.tar.gz",
+      "finished": 1791136039.5202959,
+      "free_after": 99082084352,
+      "cloud_id": "1g7579f9m5wYVvBhIK_r8tMM58I7m1cnS"
+    }
+  ],
+  "upload_acceptance": "Native uploaded=1/uploading=0/no conflicts/exact documentSize; native item-ID matched current cloud ID/name/size/parent. Full source/member SHA256 verified before native queue.",
+  "m4_pilot_web_cleanup": {
+    "state": "complete",
+    "pid": 66933,
+    "started": 1791135709.664875,
+    "removed_files": 566,
+    "removed_bytes": 15223811,
+    "synced_payloads_removed": false,
+    "free_before": 99195400192,
+    "active_future_dependency_admission": {
+      "approval_sha256": "e153b9f23c63a71302757013d23ab6ffed905882a426c452bd0553148b096c6e",
+      "forecast_sha256": "f237b02b563080dbb3676e8c9dd124c6319daa41e2908873b087140c1e544e14",
+      "inputs_path": "/Users/dberweger/Local/hu20-board-pooling-20261004/inputs-restored-02",
+      "whole_campaign_protected": "/Users/dberweger/Local/hu20-board-pooling-20261004",
+      "review": "Current PR149 engineering approval and guarded-main continuation plus owner chat checked; resumed main campaign and every future isolated/original input protected. Candidates are closed old pilot/web validation records. Local access tokens/browser profiles/default fixtures remain."
+    },
+    "external_symlink_dependencies": [],
+    "finished": 1791135714.8344908,
+    "free_after": 99195088896
+  },
+  "m4_retained_private_browser_files": {
+    "count": 425,
+    "reason": "Private access tokens or everyday browser profiles; no cloud deletion or default auth replacement"
+  },
+  "final_archive_duplicate_cleanup": {
+    "M1": {
+      "host": "M1",
+      "pid": 45224,
+      "state": "complete",
+      "removed_files": 13,
+      "removed_bytes": 625968177,
+      "retained": [],
+      "active_future_dependencies_checked": "PR149 current engineering-05 approval/continuation-main-05 and declared isolated inputs reviewed this scheduled hour. Whole M4 campaign/all dated M1 retrieval roots/original six inputs/default A/C/averages protected; no candidates inside those roots.",
+      "synced_payloads_removed": false,
+      "free_before": 26534383616,
+      "external_symlink_dependencies": [],
+      "finished": 1791136328.1646872,
+      "free_after": 27178016768
+    },
+    "M4": {
+      "host": "M4",
+      "pid": 69457,
+      "state": "complete",
+      "removed_files": 1,
+      "removed_bytes": 75280207,
+      "retained": [],
+      "active_future_dependencies_checked": "PR149 current engineering-05 approval/continuation-main-05 and declared isolated inputs reviewed this scheduled hour. Whole M4 campaign/all dated M1 retrieval roots/original six inputs/default A/C/averages protected; no candidates inside those roots.",
+      "synced_payloads_removed": false,
+      "free_before": 99094274048,
+      "external_symlink_dependencies": [],
+      "finished": 1791136320.005285,
+      "free_after": 99169501184
+    }
+  },
+  "receipt_ids": {
+    "pilot_web_cleanup": "1YZFuZPJpvot5hIFMGOy_GcsIm3MWHavC",
+    "pilot_web_journal": "1qrTqWrPbrXt4FeD0UtAKmTK1lhQjaidk",
+    "m1_report_partial_cleanup": "1EpJ6UXK-5G8gad9e6VJjq1Om0F1RVpQS",
+    "m1_report_partial_journal": "1-h4G7pJY7YKoNczhNOlzieTvihVeuvoK",
+    "m4_partial_cleanup": "1i4WrAv0mYUImnBKoNFw6b1JMna6DFXgO",
+    "m4_partial_journal": "1HYi1mwNNey1No6j9EsMkUZD-qSx8J1c8"
+  },
+  "metadata_inventory": {
+    "M1": {
+      "file": "remaining-research-final-metadata-M1-20261004-1739.json",
+      "sha256": "0627a129c24a548bf12045c49b3da2de4f2ef67dcabaa90dbc6ccac781e5858f",
+      "scopes": 61,
+      "errors": 0,
+      "metadata_only": true,
+      "no_model_loads": true
+    },
+    "M4": {
+      "file": "remaining-research-final-metadata-M4-20261004-1739.json",
+      "sha256": "3632d94e2a8f4c36838d2429c58d63aecff3d71b9fc27398e0dd8bbe47cfa7b9",
+      "scopes": 35,
+      "errors": 0,
+      "metadata_only": true,
+      "no_model_loads": true
+    }
+  },
+  "classification": {
+    "closed_heavy_evidence": "All identified closed heavy evidence in the current DeepCFR inventory has accepted archive coverage. New report variants and packaging failures were preserved in this check.",
+    "protected_active_research": "PR149 guarded main now running after all61 qualification checks, forecast15.54h vs16.69h available. Whole M4 campaign, EVERY dated M1 retrieval copy, isolated/original/future inputs remain protected through owning-task verified closeout.",
+    "required_models_default_inputs": "Original A/main-isolated inputs, C/average symlink inputs, HU20/TP20 demos and fresh-install model/default fixture bytes have accepted cloud coverage but remain local for coding/future dependencies.",
+    "tracked_code_and_dependencies": "Frozen checkout docs/configs/Git/environments are source/reproducible dependency material, excluded from deletion. deepcfr-test matrix/data.zip is Git tracked. Unrelated poker-blueprint projects untouched.",
+    "archive_management_provenance": "Small current helpers/manifests/journals/restore stubs stay local for continued archival and restore lookup; closed heavy partial bytes now exist in accepted host snapshots and separate originals removed."
+  },
+  "free_after_cleanup_bytes": {
+    "M1": 27178016768,
+    "M4": 99169501184
+  },
+  "remaining": [
+    "Routine documentation CI/review/merge",
+    "Protected PR149 evidence is active, not an archive-cleanup candidate; future archival only on owning-task verified closeout and canonical source/member manifests"
+  ],
+  "science_or_rental_started": false,
+  "forced_cache_eviction": false,
+  "synced_payload_deletion": false
+}
