@@ -33,29 +33,39 @@ The first cleanup validation compared access time, which changed during its own 
 
 At the hourly check M4 had **46.67 GiB free**. M1 had **16.36 GiB free** after cleanup while Drive was still filling its streaming cache; removed logical bytes do not promise equal physical reclamation. Both native upload queues are progressing, and PR136 remains pending with M4 originals retained. Hourly chat updates continue.
 
-For additional unstaged experiments, prefer one whole `.tar.gz` archive per experiment inside its PR folder to reduce small-file sync overhead. Preserve existing cloud IDs and uploads already in progress; no chunks or forced cache eviction.
+### Whole archives by PR and run — owner-approved update
+
+The owner subsequently approved converting the pending small-file batches to **one whole `.tar.gz` per distinct run inside its existing PR/experiment folder**. This supersedes the earlier preference limited to unstaged experiments. The [archive transition receipt](docs/artifacts/run-archive-bundling-20261004.json) lists every planned archive and its original source.
+
+- **M4:** 37 run/experiment archives are building. All nine sources passed membership/link/open-handle checks before relocation to `~/Local/research-native-originals-m4-20261004/`; old working paths point there. Their loose upload folders were withdrawn, with every original payload retained. Whole archives enter the unchanged PR parent folders only after source hashes and every archived member verify.
+- **M1:** 22 archives are building from the four existing native source folders in place. The first attempt to export a large native folder blocked and appeared to hydrate it; that worker was stopped before the first rename completed. Sources remain unchanged. The replacement avoids folder export and reads only the selected members.
+- **Packaging incident retained:** after verifying 26 M4 archives, the helper rejected tarfile’s automatic hardlink metadata for an existing regular hard-linked file. The resumed helper disables automatic inode encoding, applies explicit content deduplication and the same full member hash checks, skips completed archives and retains the failed partial. No source was removed.
+- **One shared calibration archive:** M1 `m4-calibration-03-complete` and M4 `calibration-03` have **17,850 identical relative names/sizes/hashes / 29,491,888,105 bytes**. Upload `M4-closed-research--calibration-03-20261004.tar.gz` once from M4; preserve both source locations until upload acceptance. No second archive is made on M1. For M1 restoration, extract `M4-closed-research/calibration-03/` and point the old `m4-calibration-03-complete` run path at it; names below that prefix and all member hashes are identical.
+- **Restoration:** each archive includes `ARCHIVE-MANIFEST.json` and `RESTORE-README.txt`. Extract with `tar -xzf ARCHIVE.tar.gz` into a fresh local directory, then verify member SHA256 entries. Exact duplicate contents inside an archive may use standard tar hardlinks, preserving all relative paths; treat restored evidence as read-only. Private credentials remain outside the archives.
+
+Building or queueing an archive is **not upload confirmation**. M4 originals remain separately retained; M1 originals remain in their existing native folders pending archive acceptance and later safe reconciliation. Existing confirmed historical archives and PR136's whole upload are unchanged. Free-space guards reserve 8 GiB, and no cache is forcibly evicted. Hourly chat updates continue. [PR #153](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/153) passed all checks and merged before this update.
 
 ### Current folder layout
 
-Paths are relative to the research Drive folder. Upload status is a snapshot on October 4, not a promise of completion. Each newly staged experiment contains `ARCHIVE-MANIFEST-20261004.json` with member sizes/hashes and `RESTORE-README.txt`.
+Paths are relative to the research Drive folder. Upload status is a snapshot on October 4, not a promise of completion. The older folder manifests remain historical evidence; new whole archives embed member hashes and restoration instructions.
 
 | Folder | Evidence / location within it | State |
 | --- | --- | --- |
-| [PR-113-TP20](https://drive.google.com/drive/folders/1bvceeB1paom93UQyGbbR29gXxco5_H3M) | `M4-results/` | Native upload queued |
-| [PR-132-observation-reuse](https://drive.google.com/drive/folders/1l8T_GUwa2uJ8LfqmplrMglQx_3hDn1lC) | `M4-results/`, `M4-CI-repair-results/` | Native upload queued |
-| [PR-133-mature-CPU](https://drive.google.com/drive/folders/1xH2hQ8budf3n9tOhCxcMj3A4d5e9pllL) | `M4-initial-results/`, `M4-six-lineage-results/` | Native upload queued |
+| [PR-113-TP20](https://drive.google.com/drive/folders/1bvceeB1paom93UQyGbbR29gXxco5_H3M) | `M4-results-20261004.tar.gz` | Archive building/upload pending |
+| [PR-132-observation-reuse](https://drive.google.com/drive/folders/1l8T_GUwa2uJ8LfqmplrMglQx_3hDn1lC) | `M4-results-20261004.tar.gz`, `M4-CI-repair-results-20261004.tar.gz` | Archive building/upload pending |
+| [PR-133-mature-CPU](https://drive.google.com/drive/folders/1xH2hQ8budf3n9tOhCxcMj3A4d5e9pllL) | `M4-initial-results-20261004.tar.gz`, `M4-six-lineage-results-20261004.tar.gz` | Archive building/upload pending |
 | [PR-136-HU20-500M](https://drive.google.com/drive/folders/1Jjg9yvbPQ25nws_wW1IupyMYCfnNVFc_) | Whole 23.51-GB campaign archive and recovery manifest | Whole archive uploading |
 | [PR-144-history-compression](https://drive.google.com/drive/folders/1EnCmKftt50pebTWVtu1MvTUQEaw_5hCV) | Six complete archives; `archive-manifest.json`, `SHA256SUMS` | Confirmed uploaded |
-| [PR-145-exact-flop](https://drive.google.com/drive/folders/1ciOOpSaLHqvCSI8wzhWDQORtizfeCrxZ) | `M4-results/`, including retained flop attempts and exact-turn follow-up | Native upload queued |
-| [PR-148-turn-calibration](https://drive.google.com/drive/folders/1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5) | `M4-closed-research/`, `M1-closed-research/`, `M1-exact-turn-evidence/` | Native upload queued |
-| [M4-closed-training](https://drive.google.com/drive/folders/1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ) | `results/` from `deepcfr-training` | Native upload queued |
-| [M4-local-CFR-diagnostic](https://drive.google.com/drive/folders/1i9HAiFFXKTgS0FLzGUtwsrEeNLaCiQsT) | `results/` | Native upload queued |
-| [M1-board-pooling](https://drive.google.com/drive/folders/13SUnP_d1ZVtcyJAp-oqRecg5Wv3SYIfy) | `closed-evidence/` | Native upload queued |
-| [M1-alias-audit](https://drive.google.com/drive/folders/18cCPHR6EfXLUBGbwmNukxttySSUUj0Rf) | `closed-evidence/` | Native upload queued |
+| [PR-145-exact-flop](https://drive.google.com/drive/folders/1ciOOpSaLHqvCSI8wzhWDQORtizfeCrxZ) | `M4-results-20261004.tar.gz`, including retained flop attempts and exact-turn follow-up | Archive building/upload pending |
+| [PR-148-turn-calibration](https://drive.google.com/drive/folders/1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5) | `M4-closed-research--RUN-20261004.tar.gz`, `M1-closed-research--RUN-20261004.tar.gz`, `M1-exact-turn-evidence-20261004.tar.gz` | Archive building/upload pending; calibration03 shared once |
+| [M4-closed-training](https://drive.google.com/drive/folders/1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ) | `results--RUN-20261004.tar.gz` from `deepcfr-training` | Archive building/upload pending |
+| [M4-local-CFR-diagnostic](https://drive.google.com/drive/folders/1i9HAiFFXKTgS0FLzGUtwsrEeNLaCiQsT) | `results-20261004.tar.gz` | Archive building/upload pending |
+| [M1-board-pooling](https://drive.google.com/drive/folders/13SUnP_d1ZVtcyJAp-oqRecg5Wv3SYIfy) | `closed-evidence-20261004.tar.gz` | Archive building/upload pending |
+| [M1-alias-audit](https://drive.google.com/drive/folders/18cCPHR6EfXLUBGbwmNukxttySSUUj0Rf) | `closed-evidence-20261004.tar.gz` | Archive building/upload pending |
 | [Historical-experiments](https://drive.google.com/drive/folders/1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr) | Earlier inventory entries, retaining names and IDs | Organization verified |
 | [Archive-receipts](https://drive.google.com/drive/folders/10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX) | Cleanup and restoration receipts | Organization verified |
 
-Other existing PR/M4 archive folders remain at the research root. Original experiment paths are now directory or member symlinks where staged; they are restoration conveniences, not independent backups. Private credentials, Git internals and reproducible environments/caches were excluded and retained locally. Ordinary coding checkouts and fixtures remain available.
+Other existing PR/M4 archive folders remain at the research root. M4 original paths now link to the retained local source folders during compression. M1 links still resolve to the native folders pending archive acceptance. These working links are restoration conveniences, not independent backups. Private credentials, Git internals and reproducible environments/caches were excluded and retained locally. Ordinary coding checkouts and fixtures remain available.
 
 Let streaming reclaim cache space gradually, as requested by the owner. No immediate forced offloading is needed. **Never delete within the synced folder to free local space:** that deletes the cloud copy too. Separately retained inactive originals may be removed only after the accepted desktop completion check and dependency review. Restore research into a local working directory and verify the manifest before future computation.
 
