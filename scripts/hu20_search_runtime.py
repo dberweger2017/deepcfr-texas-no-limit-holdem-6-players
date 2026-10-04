@@ -106,7 +106,8 @@ def native_allocation_budget(budget, requested_bytes):
 def start_resource_watchdog(budget):
     """Guard blocking imports/loads as well as cooperative hand/solver checks."""
     stop=threading.Event()
-    limit=(budget.admission if hasattr(budget,"admission") else budget.approval)["rss_limit_bytes"]
+    admission=budget.admission if hasattr(budget,"admission") else budget.approval
+    limit=admission["rss_limit_bytes"]
     def watch():
         while not stop.wait(.25):
             try:
@@ -114,7 +115,7 @@ def start_resource_watchdog(budget):
                 rss=owned_rss();budget.peak_rss=max(budget.peak_rss,rss)
                 if rss>=limit:raise MemoryError("Owned family RSS guard during blocking work")
                 if swap_bytes()-budget.swap_baseline>1024**3:raise MemoryError("Swap growth guard during blocking work")
-                if shutil.disk_usage(budget.out).free<budget.admission.get("minimum_disk_free_bytes",8*1024**3):raise OSError("Free disk guard during blocking work")
+                if shutil.disk_usage(budget.out).free<admission.get("minimum_disk_free_bytes",8*1024**3):raise OSError("Free disk guard during blocking work")
             except Exception as exc:
                 if stop.is_set():return
                 atomic_json(budget.out/("resource-guard-failure-"+str(os.getpid())+".json"),{
