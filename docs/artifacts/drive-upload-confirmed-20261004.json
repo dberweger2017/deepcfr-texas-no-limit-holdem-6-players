@@ -1,0 +1,1273 @@
+{
+  "captured_utc": "2026-10-04T13:31:25.320410+00:00",
+  "scope": "Completed selected run archive batch; remaining closed-input inventory and raw-backup organization continue",
+  "acceptance": "Owner-accepted native uploaded/synced state plus current cloud ID/name/size and previously verified source/member identities; no cloud payload re-download",
+  "M1_archives": [
+    {
+      "name": "M1-closed-research--m4-pilot-metadata-01-20261004.tar.gz",
+      "bytes": 11707,
+      "sha256": "ee2f8259c4fc4de334eb3b089d0a20a2030f0dfbc37e4e8abbec174b4188f31b",
+      "cloud": {
+        "id": "1Gf0JYxwtpIZWYJgSo4QSZGS_6RdVCTRj",
+        "name": "M1-closed-research--m4-pilot-metadata-01-20261004.tar.gz",
+        "bytes": 11707,
+        "url": "https://drive.google.com/file/d/1Gf0JYxwtpIZWYJgSo4QSZGS_6RdVCTRj/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m4-pilot-01-20261004.tar.gz",
+      "bytes": 152106,
+      "sha256": "1b1600011d4ca89356645ba23a4b5aa7e178867b2a522648c25779df799e089e",
+      "cloud": {
+        "id": "1A-pldjz7qflRnOzRYFEXU2nxcqjbPz__",
+        "name": "M1-closed-research--m4-pilot-01-20261004.tar.gz",
+        "bytes": 152106,
+        "url": "https://drive.google.com/file/d/1A-pldjz7qflRnOzRYFEXU2nxcqjbPz__/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m1-parity-reference-01-20261004.tar.gz",
+      "bytes": 76793,
+      "sha256": "ebfd50fbc2e6aefafd9a7fea24d510660c5b53e4efc2cc69bb511ab57c99e170",
+      "cloud": {
+        "id": "1ZXzpcTclHtWY_DkjcoAmWVH1_Kzt9kEP",
+        "name": "M1-closed-research--m1-parity-reference-01-20261004.tar.gz",
+        "bytes": 76793,
+        "url": "https://drive.google.com/file/d/1ZXzpcTclHtWY_DkjcoAmWVH1_Kzt9kEP/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m1-parity-reference-02-20261004.tar.gz",
+      "bytes": 83676,
+      "sha256": "8f3aee6292e36254d500894083cdc0e05113d47f42078d9ec283846a87a003a6",
+      "cloud": {
+        "id": "1zeaRKtCiSOJ8vslpqFx0G7MwnBIY_lpC",
+        "name": "M1-closed-research--m1-parity-reference-02-20261004.tar.gz",
+        "bytes": 83676,
+        "url": "https://drive.google.com/file/d/1zeaRKtCiSOJ8vslpqFx0G7MwnBIY_lpC/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m1-parity-reference-03-20261004.tar.gz",
+      "bytes": 83350,
+      "sha256": "d59bb145d8c1055f119ac54771252ed82d6d3dadd9a2323344eff9cf86ae9f30",
+      "cloud": {
+        "id": "1YT9LKeMrAB5n1-X54857bSUOBDVzLlR8",
+        "name": "M1-closed-research--m1-parity-reference-03-20261004.tar.gz",
+        "bytes": 83350,
+        "url": "https://drive.google.com/file/d/1YT9LKeMrAB5n1-X54857bSUOBDVzLlR8/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--calibration-03-tensorboard-20261004.tar.gz",
+      "bytes": 213608,
+      "sha256": "b0c84f497c23ef4845e283305e6f9595e7c384f37a21d96cfef7c251b85a2ef5",
+      "cloud": {
+        "id": "13jZerK17EE37ry508uJOdBibhmsQt26N",
+        "name": "M1-closed-research--calibration-03-tensorboard-20261004.tar.gz",
+        "bytes": 213608,
+        "url": "https://drive.google.com/file/d/13jZerK17EE37ry508uJOdBibhmsQt26N/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m1-parity-reference-04-20261004.tar.gz",
+      "bytes": 84970,
+      "sha256": "00a6ae3aeca55e64a541466a144820e39b26b851cf3c583cac7adbe5945dd6b4",
+      "cloud": {
+        "id": "1SeyYIc--mpEbbZiMV01zBJhz4EOiGUK2",
+        "name": "M1-closed-research--m1-parity-reference-04-20261004.tar.gz",
+        "bytes": 84970,
+        "url": "https://drive.google.com/file/d/1SeyYIc--mpEbbZiMV01zBJhz4EOiGUK2/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m1-parity-reference-05-20261004.tar.gz",
+      "bytes": 118281,
+      "sha256": "8659b1b3270fe7a27dcde9da4d2a7f5e06773f2810a3d95dcfca4351099276a2",
+      "cloud": {
+        "id": "1bjEnQfqMNcMcxf8N_AeLk5oGZ2gtVhDj",
+        "name": "M1-closed-research--m1-parity-reference-05-20261004.tar.gz",
+        "bytes": 118281,
+        "url": "https://drive.google.com/file/d/1bjEnQfqMNcMcxf8N_AeLk5oGZ2gtVhDj/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m1-parity-reference-06-20261004.tar.gz",
+      "bytes": 119506,
+      "sha256": "2b144c9c36667e903f8c1f73487a668f1a2d5d0a5a3d9669eef9d496f367231c",
+      "cloud": {
+        "id": "16Y62TcIOEW7ShvNow_vAWYAWwPddUpHw",
+        "name": "M1-closed-research--m1-parity-reference-06-20261004.tar.gz",
+        "bytes": 119506,
+        "url": "https://drive.google.com/file/d/16Y62TcIOEW7ShvNow_vAWYAWwPddUpHw/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m1-parity-reference-07-20261004.tar.gz",
+      "bytes": 119475,
+      "sha256": "56847569af2d841891d4dd2269531bf3d9c98fde6bb643aecb0c3b9629a0776d",
+      "cloud": {
+        "id": "1A8gtAUf2LycdMw_7c5GF8YcifKHeGxNO",
+        "name": "M1-closed-research--m1-parity-reference-07-20261004.tar.gz",
+        "bytes": 119475,
+        "url": "https://drive.google.com/file/d/1A8gtAUf2LycdMw_7c5GF8YcifKHeGxNO/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m1-parity-reference-08-20261004.tar.gz",
+      "bytes": 118862,
+      "sha256": "679b1c812dffb4e994b4730f4c3f57115995d86f5b0946f7bac8629c686958bd",
+      "cloud": {
+        "id": "1pR8_EjmQSlY92uUPzYNISpqtWxz1D1jl",
+        "name": "M1-closed-research--m1-parity-reference-08-20261004.tar.gz",
+        "bytes": 118862,
+        "url": "https://drive.google.com/file/d/1pR8_EjmQSlY92uUPzYNISpqtWxz1D1jl/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m4-parity-01-20261004.tar.gz",
+      "bytes": 119205,
+      "sha256": "f705dcc0e9ff6115c4c9e109729d30030371d521d8b4f258822fe69b9e55f219",
+      "cloud": {
+        "id": "1A5M_l34hgB28-Kf6e_jYiy8nlvXXvRF8",
+        "name": "M1-closed-research--m4-parity-01-20261004.tar.gz",
+        "bytes": 119205,
+        "url": "https://drive.google.com/file/d/1A5M_l34hgB28-Kf6e_jYiy8nlvXXvRF8/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m1-thread-parity-t6-20261004.tar.gz",
+      "bytes": 119633,
+      "sha256": "16ec55fc9ed5c2e428298d6e0301af63ebe7abdff78c8161ed5e06de83182c8a",
+      "cloud": {
+        "id": "1FdzhkmqqaQCCWCXmPOalDFr0ImxKKtTx",
+        "name": "M1-closed-research--m1-thread-parity-t6-20261004.tar.gz",
+        "bytes": 119633,
+        "url": "https://drive.google.com/file/d/1FdzhkmqqaQCCWCXmPOalDFr0ImxKKtTx/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m1-thread-parity-t1-20261004.tar.gz",
+      "bytes": 119694,
+      "sha256": "7e7d5db64921a1c9651e2324a057252eddfa8e4d71b770c07ec27c068fc2c9f3",
+      "cloud": {
+        "id": "13E0eRyvjyOhLV4QB89Uhh1Or_oEYaWTf",
+        "name": "M1-closed-research--m1-thread-parity-t1-20261004.tar.gz",
+        "bytes": 119694,
+        "url": "https://drive.google.com/file/d/13E0eRyvjyOhLV4QB89Uhh1Or_oEYaWTf/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m1-thread-parity-t4-20261004.tar.gz",
+      "bytes": 119488,
+      "sha256": "f855c2d7c87cd7e7c4772845c5cb2f8dccfec8542c9ed4a1d39a60ee90ef97b7",
+      "cloud": {
+        "id": "1Xoo45_a7sHadA-dgSvj230PNJ5DlY_4B",
+        "name": "M1-closed-research--m1-thread-parity-t4-20261004.tar.gz",
+        "bytes": 119488,
+        "url": "https://drive.google.com/file/d/1Xoo45_a7sHadA-dgSvj230PNJ5DlY_4B/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--coordination-and-metadata-20261004.tar.gz",
+      "bytes": 2636861,
+      "sha256": "aa88700c137e596a537ea643f16d99527961aa87255b0b8652fd275454817e2e",
+      "cloud": {
+        "id": "1DMa5BTBMuyJ2xjoRoEn5k2d8x-zCtTP2",
+        "name": "M1-closed-research--coordination-and-metadata-20261004.tar.gz",
+        "bytes": 2636861,
+        "url": "https://drive.google.com/file/d/1DMa5BTBMuyJ2xjoRoEn5k2d8x-zCtTP2/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m4-calibration-01-20261004.tar.gz",
+      "bytes": 1781639,
+      "sha256": "6beb53ddd076c44f1c7f75f8ea8de56c49a2b2de862a077fbfde7a10825a60f1",
+      "cloud": {
+        "id": "1sRZVNHEkhOkOFwW-yBy6nteKU4byAPum",
+        "name": "M1-closed-research--m4-calibration-01-20261004.tar.gz",
+        "bytes": 1781639,
+        "url": "https://drive.google.com/file/d/1sRZVNHEkhOkOFwW-yBy6nteKU4byAPum/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "M1-closed-research--m4-part-a-01-20261004.tar.gz",
+      "bytes": 61836155,
+      "sha256": "548e0f50a0cd679b7c924b2477238a61a8bfb78cce7bdf8800f2584e580ece09",
+      "cloud": {
+        "id": "1BOc8BkFz2BwkgNPHDsHmoBaTzHhS4jMJ",
+        "name": "M1-closed-research--m4-part-a-01-20261004.tar.gz",
+        "bytes": 61836155,
+        "url": "https://drive.google.com/file/d/1BOc8BkFz2BwkgNPHDsHmoBaTzHhS4jMJ/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "closed-evidence-20261004.tar.gz",
+      "bytes": 511813025,
+      "sha256": "2b0aba6805bd6649c8a69d3a41816b79a986639e5e5b940021f8b49c4d36c5f0",
+      "cloud": {
+        "id": "1U0SVgEkqtK4smNLg6kz7-ECPl_mFuopv",
+        "name": "closed-evidence-20261004.tar.gz",
+        "bytes": 511813025,
+        "url": "https://drive.google.com/file/d/1U0SVgEkqtK4smNLg6kz7-ECPl_mFuopv/view?usp=drivesdk",
+        "parent_id": "13SUnP_d1ZVtcyJAp-oqRecg5Wv3SYIfy"
+      }
+    },
+    {
+      "name": "M1-closed-research--m4-calibration-02-owner-stop-20261004.tar.gz",
+      "bytes": 388436086,
+      "sha256": "92b4d619fbfd00fd518d024cb312e6a8e3db0542d30e647bfcf849732672c36b",
+      "cloud": {
+        "id": "1D6ftQX2R0-TR1riODt7Ey6c8aI1xDgHE",
+        "name": "M1-closed-research--m4-calibration-02-owner-stop-20261004.tar.gz",
+        "bytes": 388436086,
+        "url": "https://drive.google.com/file/d/1D6ftQX2R0-TR1riODt7Ey6c8aI1xDgHE/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    },
+    {
+      "name": "closed-evidence-20261004.tar.gz",
+      "bytes": 341587397,
+      "sha256": "e68431eac6b2dcf10afd01563924a3d98dab41f3caa487dd725d8743e64bf9bb",
+      "cloud": {
+        "id": "1uORSHHNzMpLfrIgV72xPp81N7sS1u9R5",
+        "name": "closed-evidence-20261004.tar.gz",
+        "bytes": 341587397,
+        "url": "https://drive.google.com/file/d/1uORSHHNzMpLfrIgV72xPp81N7sS1u9R5/view?usp=drivesdk",
+        "parent_id": "18cCPHR6EfXLUBGbwmNukxttySSUUj0Rf"
+      }
+    },
+    {
+      "name": "M1-exact-turn-evidence-20261004.tar.gz",
+      "bytes": 378168554,
+      "sha256": "a0e241e89a413db2fe4684c2a3235fe02dd13b580491fe5608edf795b5156099",
+      "cloud": {
+        "id": "1wSIcbWoyC2qoziE-SJkoN2B8IaTwqoVf",
+        "name": "M1-exact-turn-evidence-20261004.tar.gz",
+        "bytes": 378168554,
+        "url": "https://drive.google.com/file/d/1wSIcbWoyC2qoziE-SJkoN2B8IaTwqoVf/view?usp=drivesdk",
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5"
+      }
+    }
+  ],
+  "M4_archives": [
+    {
+      "name": "results--overnight-recovery-verification-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--overnight-recovery-verification-20261004.tar.gz",
+      "archive_bytes": 1304,
+      "archive_sha256": "f95fe065467453f13c5520da0840a0e3b08c733aa88e3ee681b654bf8b0222fd",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "1304",
+        "itemIdentifier": "69102"
+      },
+      "cloud_id": "1Yiz54IESIzZMybNoBVGArgR0e_OasVDg",
+      "accepted": true,
+      "cloud": {
+        "id": "1Yiz54IESIzZMybNoBVGArgR0e_OasVDg",
+        "name": "results--overnight-recovery-verification-20261004.tar.gz",
+        "bytes": 1304,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1Yiz54IESIzZMybNoBVGArgR0e_OasVDg/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-CI-repair-results-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-132-observation-reuse/M4-CI-repair-results-20261004.tar.gz",
+      "archive_bytes": 2618,
+      "archive_sha256": "9f3506cb043b4d215a446591d054b5818d43dd0035e2d2d9ca962ed1ee3ef7ce",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-132-observation-reuse--M4-CI-repair-results",
+      "root_prefix": "M4-CI-repair-results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "2618",
+        "itemIdentifier": "69104"
+      },
+      "cloud_id": "1UAQCYOCMvsHEnCWQK_v_Fi4_CrM-WGkC",
+      "accepted": true,
+      "cloud": {
+        "id": "1UAQCYOCMvsHEnCWQK_v_Fi4_CrM-WGkC",
+        "name": "M4-CI-repair-results-20261004.tar.gz",
+        "bytes": 2618,
+        "parent_id": "1l8T_GUwa2uJ8LfqmplrMglQx_3hDn1lC",
+        "url": "https://drive.google.com/file/d/1UAQCYOCMvsHEnCWQK_v_Fi4_CrM-WGkC/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--review-notes-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--review-notes-20261004.tar.gz",
+      "archive_bytes": 2663,
+      "archive_sha256": "72f5646929d5c4cb21fc1081374a91b2a5df1a95d994c7a103ed21726130de14",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "2663",
+        "itemIdentifier": "69106"
+      },
+      "cloud_id": "17pPaem7ZduyqHMW-_jhwB_FtnZaSiQMf",
+      "accepted": true,
+      "cloud": {
+        "id": "17pPaem7ZduyqHMW-_jhwB_FtnZaSiQMf",
+        "name": "results--review-notes-20261004.tar.gz",
+        "bytes": 2663,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/17pPaem7ZduyqHMW-_jhwB_FtnZaSiQMf/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--m4-thread-benchmark-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--m4-thread-benchmark-20261004.tar.gz",
+      "archive_bytes": 3541,
+      "archive_sha256": "3ff168403cc8c414936742f4d0dfaf308a1e412ec2afb7bf9562b018994db713",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "3541",
+        "itemIdentifier": "69108"
+      },
+      "cloud_id": "1YEswQ3NWqVOoTzL6x5veVw_x3GdI3WPo",
+      "accepted": true,
+      "cloud": {
+        "id": "1YEswQ3NWqVOoTzL6x5veVw_x3GdI3WPo",
+        "name": "results--m4-thread-benchmark-20261004.tar.gz",
+        "bytes": 3541,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1YEswQ3NWqVOoTzL6x5veVw_x3GdI3WPo/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--tensorboard-local-fullgame-simple-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--tensorboard-local-fullgame-simple-20261004.tar.gz",
+      "archive_bytes": 8966,
+      "archive_sha256": "e3080ab848ad05009b3bdea80f1d2395bd3c63b2bee5e5d1db8688e7d8d1b61e",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "8966",
+        "itemIdentifier": "69078"
+      },
+      "cloud_id": "16V4NP88UQatFxlAfqMAArw_PDl6wVavR",
+      "accepted": true,
+      "cloud": {
+        "id": "16V4NP88UQatFxlAfqMAArw_PDl6wVavR",
+        "name": "results--tensorboard-local-fullgame-simple-20261004.tar.gz",
+        "bytes": 8966,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/16V4NP88UQatFxlAfqMAArw_PDl6wVavR/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--tensorboard-local-fullgame-simple-v2-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--tensorboard-local-fullgame-simple-v2-20261004.tar.gz",
+      "archive_bytes": 18614,
+      "archive_sha256": "6eec2d51c2845f6280abfa6ea4345596636dcb21b5a1a702bb9c2f811edfecf3",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "18614",
+        "itemIdentifier": "69110"
+      },
+      "cloud_id": "1KD6sWhdcZ8S24sK4XvBVOUilkwkHsNoQ",
+      "accepted": true,
+      "cloud": {
+        "id": "1KD6sWhdcZ8S24sK4XvBVOUilkwkHsNoQ",
+        "name": "results--tensorboard-local-fullgame-simple-v2-20261004.tar.gz",
+        "bytes": 18614,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1KD6sWhdcZ8S24sK4XvBVOUilkwkHsNoQ/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-closed-research--pilot-01-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M4-closed-research--pilot-01-20261004.tar.gz",
+      "archive_bytes": 152255,
+      "archive_sha256": "ff2972566ede0b1d6acc3db75486e6381bee9adf294cfd9ad9cb5508ed167f68",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-148-turn-calibration--M4-closed-research",
+      "root_prefix": "M4-closed-research",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "152255",
+        "itemIdentifier": "69112"
+      },
+      "cloud_id": "1ajKOw4uxESoKqZy3nVD-h9gubzojJech",
+      "accepted": true,
+      "cloud": {
+        "id": "1ajKOw4uxESoKqZy3nVD-h9gubzojJech",
+        "name": "M4-closed-research--pilot-01-20261004.tar.gz",
+        "bytes": 152255,
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5",
+        "url": "https://drive.google.com/file/d/1ajKOw4uxESoKqZy3nVD-h9gubzojJech/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-local-CFR-diagnostic/results-20261004.tar.gz",
+      "archive_bytes": 75610,
+      "archive_sha256": "ffe83b67cfe625cdb299ab3e40befbad8713cc226fc6024222e39741aec48974",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-local-CFR-diagnostic--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "75610",
+        "itemIdentifier": "69080"
+      },
+      "cloud_id": "1qHlnvSznpxQh9EFcjMoQOA9p8D3OPQAW",
+      "accepted": true,
+      "cloud": {
+        "id": "1qHlnvSznpxQh9EFcjMoQOA9p8D3OPQAW",
+        "name": "results-20261004.tar.gz",
+        "bytes": 75610,
+        "parent_id": "1i9HAiFFXKTgS0FLzGUtwsrEeNLaCiQsT",
+        "url": "https://drive.google.com/file/d/1qHlnvSznpxQh9EFcjMoQOA9p8D3OPQAW/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-closed-research--upstream-search-9d1509f-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M4-closed-research--upstream-search-9d1509f-20261004.tar.gz",
+      "archive_bytes": 137987,
+      "archive_sha256": "6c96c1a7274c5f1266cd7a45f43af6ee87b4c916f196d06edd5cbf95a607ec75",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-148-turn-calibration--M4-closed-research",
+      "root_prefix": "M4-closed-research",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "137987",
+        "itemIdentifier": "69114"
+      },
+      "cloud_id": "1CkMXktSJncuYUOGLizuX7XAvtImbvxyF",
+      "accepted": true,
+      "cloud": {
+        "id": "1CkMXktSJncuYUOGLizuX7XAvtImbvxyF",
+        "name": "M4-closed-research--upstream-search-9d1509f-20261004.tar.gz",
+        "bytes": 137987,
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5",
+        "url": "https://drive.google.com/file/d/1CkMXktSJncuYUOGLizuX7XAvtImbvxyF/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--continuous-supervisor-smoke-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--continuous-supervisor-smoke-20261004.tar.gz",
+      "archive_bytes": 664511,
+      "archive_sha256": "82c01e88bbd06f2ad7d6c67443fa51a8a25d9c5769a190762cd10429ca5d1cbf",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "664511",
+        "itemIdentifier": "69116"
+      },
+      "cloud_id": "1R9w2LCdxt0R6xRgHz5oNtlTohZjqeigY",
+      "accepted": true,
+      "cloud": {
+        "id": "1R9w2LCdxt0R6xRgHz5oNtlTohZjqeigY",
+        "name": "results--continuous-supervisor-smoke-20261004.tar.gz",
+        "bytes": 664511,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1R9w2LCdxt0R6xRgHz5oNtlTohZjqeigY/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-closed-research--m4-parity-01-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M4-closed-research--m4-parity-01-20261004.tar.gz",
+      "archive_bytes": 119566,
+      "archive_sha256": "c6217f6b540a5104bb69e0e6e698c3c5c0b20f4f58862c3b9676c8851d832a85",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-148-turn-calibration--M4-closed-research",
+      "root_prefix": "M4-closed-research",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "119566",
+        "itemIdentifier": "69082"
+      },
+      "cloud_id": "1qaOleoU_YbfZAGEYtA7iO7kjqhwjkQyT",
+      "accepted": true,
+      "cloud": {
+        "id": "1qaOleoU_YbfZAGEYtA7iO7kjqhwjkQyT",
+        "name": "M4-closed-research--m4-parity-01-20261004.tar.gz",
+        "bytes": 119566,
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5",
+        "url": "https://drive.google.com/file/d/1qaOleoU_YbfZAGEYtA7iO7kjqhwjkQyT/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--coordination-and-metadata-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--coordination-and-metadata-20261004.tar.gz",
+      "archive_bytes": 602947,
+      "archive_sha256": "af2041ef71e986a5bb2227e000e68b3442e0bb3279081813345eb77d42bb1124",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "602947",
+        "itemIdentifier": "69084"
+      },
+      "cloud_id": "1uFQNrcuEuY8UTaT0QlZUlOmWGq501b9H",
+      "accepted": true,
+      "cloud": {
+        "id": "1uFQNrcuEuY8UTaT0QlZUlOmWGq501b9H",
+        "name": "results--coordination-and-metadata-20261004.tar.gz",
+        "bytes": 602947,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1uFQNrcuEuY8UTaT0QlZUlOmWGq501b9H/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--tensorboard-m4-continuous-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--tensorboard-m4-continuous-20261004.tar.gz",
+      "archive_bytes": 1366428,
+      "archive_sha256": "d08c04cac022aa03d11f124ee00a58949e13bf06a8e9ab4770f121db73b2a10a",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "1366428",
+        "itemIdentifier": "69086"
+      },
+      "cloud_id": "1X2oxBYaZmwvnq0XJz0y5oizUF8_8XC1c",
+      "accepted": true,
+      "cloud": {
+        "id": "1X2oxBYaZmwvnq0XJz0y5oizUF8_8XC1c",
+        "name": "results--tensorboard-m4-continuous-20261004.tar.gz",
+        "bytes": 1366428,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1X2oxBYaZmwvnq0XJz0y5oizUF8_8XC1c/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--local-fullgame-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--local-fullgame-20261004.tar.gz",
+      "archive_bytes": 1228563,
+      "archive_sha256": "80a816aa022e974cd5a10e75d87b1d0af7b10bd36c0645a049a43cfb9eb512f5",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "1228563",
+        "itemIdentifier": "69088"
+      },
+      "cloud_id": "1_FkV_10ZJE2RNUgr0447wwp2ckYUeauM",
+      "accepted": true,
+      "cloud": {
+        "id": "1_FkV_10ZJE2RNUgr0447wwp2ckYUeauM",
+        "name": "results--local-fullgame-20261004.tar.gz",
+        "bytes": 1228563,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1_FkV_10ZJE2RNUgr0447wwp2ckYUeauM/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--day-pilot-current-16k-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--day-pilot-current-16k-20261004.tar.gz",
+      "archive_bytes": 14832477,
+      "archive_sha256": "09130c7183ba6a15014551e729655a97e7c305310eb56a6046c33761d44d9495",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "14832477",
+        "itemIdentifier": "69118"
+      },
+      "cloud_id": "1gYQgFfjhbxoEuVWfp3QtWpJWOYiLtK78",
+      "accepted": true,
+      "cloud": {
+        "id": "1gYQgFfjhbxoEuVWfp3QtWpJWOYiLtK78",
+        "name": "results--day-pilot-current-16k-20261004.tar.gz",
+        "bytes": 14832477,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1gYQgFfjhbxoEuVWfp3QtWpJWOYiLtK78/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--day-pilot-current-4k-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--day-pilot-current-4k-20261004.tar.gz",
+      "archive_bytes": 14840452,
+      "archive_sha256": "3fb048418fa4352e1a61589407e6ccae318c1ba9ca36c2065d493672d195ff58",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "14840452",
+        "itemIdentifier": "69090"
+      },
+      "cloud_id": "1jdHXGFyXkvHzK8X-dnrkMRGdK78xsE1X",
+      "accepted": true,
+      "cloud": {
+        "id": "1jdHXGFyXkvHzK8X-dnrkMRGdK78xsE1X",
+        "name": "results--day-pilot-current-4k-20261004.tar.gz",
+        "bytes": 14840452,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1jdHXGFyXkvHzK8X-dnrkMRGdK78xsE1X/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-closed-research--coordination-and-metadata-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M4-closed-research--coordination-and-metadata-20261004.tar.gz",
+      "archive_bytes": 4005368,
+      "archive_sha256": "90a3c58bf91b33b9f8e01a811053b0aa5f88963b36f55d30c82399f8e3d42d82",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-148-turn-calibration--M4-closed-research",
+      "root_prefix": "M4-closed-research",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "4005368",
+        "itemIdentifier": "69092"
+      },
+      "cloud_id": "10XdMDXdNxlFEeXEm7ibqw3WKGy7V-bT5",
+      "accepted": true,
+      "cloud": {
+        "id": "10XdMDXdNxlFEeXEm7ibqw3WKGy7V-bT5",
+        "name": "M4-closed-research--coordination-and-metadata-20261004.tar.gz",
+        "bytes": 4005368,
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5",
+        "url": "https://drive.google.com/file/d/10XdMDXdNxlFEeXEm7ibqw3WKGy7V-bT5/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--day-pilot-paper-16k-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--day-pilot-paper-16k-20261004.tar.gz",
+      "archive_bytes": 38949888,
+      "archive_sha256": "89d58f7bd9edd1ef1e8d55a5d4c03000f6c5aa4b68edca8e1419242dbe4bf8a9",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "38949888",
+        "itemIdentifier": "69120"
+      },
+      "cloud_id": "1Q7PLpwZtk-5-tQMhMFr8E0QkxCvzUpkV",
+      "accepted": true,
+      "cloud": {
+        "id": "1Q7PLpwZtk-5-tQMhMFr8E0QkxCvzUpkV",
+        "name": "results--day-pilot-paper-16k-20261004.tar.gz",
+        "bytes": 38949888,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1Q7PLpwZtk-5-tQMhMFr8E0QkxCvzUpkV/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-closed-research--calibration-01-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M4-closed-research--calibration-01-20261004.tar.gz",
+      "archive_bytes": 1778433,
+      "archive_sha256": "974d04f1e309cd920bc72ea1fbba65084481b7986ac8d792bf3900a29a161c6c",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-148-turn-calibration--M4-closed-research",
+      "root_prefix": "M4-closed-research",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "1778433",
+        "itemIdentifier": "69094"
+      },
+      "cloud_id": "1pZABNssVcNB4UEPblHiJSqQZU8K0r91P",
+      "accepted": true,
+      "cloud": {
+        "id": "1pZABNssVcNB4UEPblHiJSqQZU8K0r91P",
+        "name": "M4-closed-research--calibration-01-20261004.tar.gz",
+        "bytes": 1778433,
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5",
+        "url": "https://drive.google.com/file/d/1pZABNssVcNB4UEPblHiJSqQZU8K0r91P/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--continuous-replay-pilot-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--continuous-replay-pilot-20261004.tar.gz",
+      "archive_bytes": 5587223,
+      "archive_sha256": "28838e959d4bed5c5478158fa8d7dae524d4392a8e9e7ca988e46b323589ac45",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "5587223",
+        "itemIdentifier": "69096"
+      },
+      "cloud_id": "1wHtZ_1_EZY_BcHQUaSHYdqVRm43jktfJ",
+      "accepted": true,
+      "cloud": {
+        "id": "1wHtZ_1_EZY_BcHQUaSHYdqVRm43jktfJ",
+        "name": "results--continuous-replay-pilot-20261004.tar.gz",
+        "bytes": 5587223,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1wHtZ_1_EZY_BcHQUaSHYdqVRm43jktfJ/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-closed-research--part-a-01-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M4-closed-research--part-a-01-20261004.tar.gz",
+      "archive_bytes": 61654432,
+      "archive_sha256": "dad0c4e8b20ee4a998ddb7cd448f6e0eac77b87993d16418428366516ddcb1a1",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-148-turn-calibration--M4-closed-research",
+      "root_prefix": "M4-closed-research",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "61654432",
+        "itemIdentifier": "69098"
+      },
+      "cloud_id": "1giScbPvDa_pCvVkJvHek_9VAXB8zrZGG",
+      "accepted": true,
+      "cloud": {
+        "id": "1giScbPvDa_pCvVkJvHek_9VAXB8zrZGG",
+        "name": "M4-closed-research--part-a-01-20261004.tar.gz",
+        "bytes": 61654432,
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5",
+        "url": "https://drive.google.com/file/d/1giScbPvDa_pCvVkJvHek_9VAXB8zrZGG/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--continuous-branching-pilot-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--continuous-branching-pilot-20261004.tar.gz",
+      "archive_bytes": 8063867,
+      "archive_sha256": "1445dc4e1dc5cdfae77d06b1c3ef6abdd318a65abd54d1304e594e43f6e66c78",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "8063867",
+        "itemIdentifier": "69100"
+      },
+      "cloud_id": "1MjJAHNDtGhJj22HFCZHj8SZSBOvHSjDN",
+      "accepted": true,
+      "cloud": {
+        "id": "1MjJAHNDtGhJj22HFCZHj8SZSBOvHSjDN",
+        "name": "results--continuous-branching-pilot-20261004.tar.gz",
+        "bytes": 8063867,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1MjJAHNDtGhJj22HFCZHj8SZSBOvHSjDN/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-closed-research--calibration-03-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M4-closed-research--calibration-03-20261004.tar.gz",
+      "archive_bytes": 8447111167,
+      "archive_sha256": "b4673e86d8a23241528f8097fbc4af9b1aba07558ef24c7a0a8eb00b52f4a421",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-148-turn-calibration--M4-closed-research",
+      "root_prefix": "M4-closed-research",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "8447111167",
+        "itemIdentifier": "69122"
+      },
+      "cloud_id": "1TPj7Q2JdlkZ40SFE6VifKYG1NHfWcmkg",
+      "accepted": true,
+      "cloud": {
+        "id": "1TPj7Q2JdlkZ40SFE6VifKYG1NHfWcmkg",
+        "name": "M4-closed-research--calibration-03-20261004.tar.gz",
+        "bytes": 8447111167,
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5",
+        "url": "https://drive.google.com/file/d/1TPj7Q2JdlkZ40SFE6VifKYG1NHfWcmkg/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-closed-research--repo-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M4-closed-research--repo-20261004.tar.gz",
+      "archive_bytes": 157086184,
+      "archive_sha256": "3f7aa2f032c414252ba1f517b7e66af13a600d8a0cc11f8d92fae5d32a562582",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-148-turn-calibration--M4-closed-research",
+      "root_prefix": "M4-closed-research",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "157086184",
+        "itemIdentifier": "69124"
+      },
+      "cloud_id": "1YmPeRbmT1sHt6d8DlIl5mEmmEOxZvGXM",
+      "accepted": true,
+      "cloud": {
+        "id": "1YmPeRbmT1sHt6d8DlIl5mEmmEOxZvGXM",
+        "name": "M4-closed-research--repo-20261004.tar.gz",
+        "bytes": 157086184,
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5",
+        "url": "https://drive.google.com/file/d/1YmPeRbmT1sHt6d8DlIl5mEmmEOxZvGXM/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-initial-results-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-133-mature-CPU/M4-initial-results-20261004.tar.gz",
+      "archive_bytes": 292470205,
+      "archive_sha256": "873b854d5cd3c4e30f42dcea3d904646c78af7bdcaa6872c27585e1606ebac8f",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-133-mature-CPU--M4-initial-results",
+      "root_prefix": "M4-initial-results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "292470205",
+        "itemIdentifier": "69126"
+      },
+      "cloud_id": "1kbO9WMhYS9da16V8zdpDCl2LZFmK-eJM",
+      "accepted": true,
+      "cloud": {
+        "id": "1kbO9WMhYS9da16V8zdpDCl2LZFmK-eJM",
+        "name": "M4-initial-results-20261004.tar.gz",
+        "bytes": 292470205,
+        "parent_id": "1xH2hQ8budf3n9tOhCxcMj3A4d5e9pllL",
+        "url": "https://drive.google.com/file/d/1kbO9WMhYS9da16V8zdpDCl2LZFmK-eJM/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-results-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-132-observation-reuse/M4-results-20261004.tar.gz",
+      "archive_bytes": 541014588,
+      "archive_sha256": "0b9f66bdd9885fef24c8d8e91fa6a74d1ba165a5fd00115d1bd3463756b129a0",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-132-observation-reuse--M4-results",
+      "root_prefix": "M4-results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "541014588",
+        "itemIdentifier": "69128"
+      },
+      "cloud_id": "1jk_9g66dbp3F_PFAnivpQ7W4ZehaKusK",
+      "accepted": true,
+      "cloud": {
+        "id": "1jk_9g66dbp3F_PFAnivpQ7W4ZehaKusK",
+        "name": "M4-results-20261004.tar.gz",
+        "bytes": 541014588,
+        "parent_id": "1l8T_GUwa2uJ8LfqmplrMglQx_3hDn1lC",
+        "url": "https://drive.google.com/file/d/1jk_9g66dbp3F_PFAnivpQ7W4ZehaKusK/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-results-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-113-TP20/M4-results-20261004.tar.gz",
+      "archive_bytes": 536666380,
+      "archive_sha256": "3b1c3f601db9b5195143d8b864c1de8030f4302122a81f3a42d5d8873bdab318",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-113-TP20--M4-results",
+      "root_prefix": "M4-results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "536666380",
+        "itemIdentifier": "69131"
+      },
+      "cloud_id": "1Y19xTAlZqEX9J-yE49k_YFnypAMoq8SP",
+      "accepted": true,
+      "cloud": {
+        "id": "1Y19xTAlZqEX9J-yE49k_YFnypAMoq8SP",
+        "name": "M4-results-20261004.tar.gz",
+        "bytes": 536666380,
+        "parent_id": "1bvceeB1paom93UQyGbbR29gXxco5_H3M",
+        "url": "https://drive.google.com/file/d/1Y19xTAlZqEX9J-yE49k_YFnypAMoq8SP/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--m4-host-benchmark-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--m4-host-benchmark-20261004.tar.gz",
+      "archive_bytes": 118312029,
+      "archive_sha256": "123055b30eb43edeed4be82552b214912adbfa818a4f145089c142ec6b3e0b71",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "118312029",
+        "itemIdentifier": "69133"
+      },
+      "cloud_id": "1t2cP3rDH6HHmqeyb7_6fLfyYrj3n4E_o",
+      "accepted": true,
+      "cloud": {
+        "id": "1t2cP3rDH6HHmqeyb7_6fLfyYrj3n4E_o",
+        "name": "results--m4-host-benchmark-20261004.tar.gz",
+        "bytes": 118312029,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1t2cP3rDH6HHmqeyb7_6fLfyYrj3n4E_o/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--day-current-4k-2026091902-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--day-current-4k-2026091902-20261004.tar.gz",
+      "archive_bytes": 1283805484,
+      "archive_sha256": "11b16adfd66c54efa03ba4981c46ed99f17067e11f1401dc244b55b8a0f99d7a",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "1283805484",
+        "itemIdentifier": "69135"
+      },
+      "cloud_id": "1s-D-48RWoLx1RfO6ES38QRCyfDfU2Ues",
+      "accepted": true,
+      "cloud": {
+        "id": "1s-D-48RWoLx1RfO6ES38QRCyfDfU2Ues",
+        "name": "results--day-current-4k-2026091902-20261004.tar.gz",
+        "bytes": 1283805484,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1s-D-48RWoLx1RfO6ES38QRCyfDfU2Ues/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--day-current-16k-2026091902-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--day-current-16k-2026091902-20261004.tar.gz",
+      "archive_bytes": 1378736098,
+      "archive_sha256": "4bdf55e7294f11295f2ed8dc99822a49fe215b55a321cefa6ff088e09450c06a",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "1378736098",
+        "itemIdentifier": "69137"
+      },
+      "cloud_id": "1d9ynZM5Ssx-hcHQM9VPRQye9GoT6V-1R",
+      "accepted": true,
+      "cloud": {
+        "id": "1d9ynZM5Ssx-hcHQM9VPRQye9GoT6V-1R",
+        "name": "results--day-current-16k-2026091902-20261004.tar.gz",
+        "bytes": 1378736098,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1d9ynZM5Ssx-hcHQM9VPRQye9GoT6V-1R/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-closed-research--calibration-02-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M4-closed-research--calibration-02-20261004.tar.gz",
+      "archive_bytes": 388433537,
+      "archive_sha256": "d8865e12dd2100ee955eb60f53c35c2c5f75730029f3d2de51580b8214ed6923",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-148-turn-calibration--M4-closed-research",
+      "root_prefix": "M4-closed-research",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "388433537",
+        "itemIdentifier": "69139"
+      },
+      "cloud_id": "1Pc6RBFq-Irl7JI4u8iGcDiMOE97P5kq1",
+      "accepted": true,
+      "cloud": {
+        "id": "1Pc6RBFq-Irl7JI4u8iGcDiMOE97P5kq1",
+        "name": "M4-closed-research--calibration-02-20261004.tar.gz",
+        "bytes": 388433537,
+        "parent_id": "1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5",
+        "url": "https://drive.google.com/file/d/1Pc6RBFq-Irl7JI4u8iGcDiMOE97P5kq1/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-six-lineage-results-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-133-mature-CPU/M4-six-lineage-results-20261004.tar.gz",
+      "archive_bytes": 2056708087,
+      "archive_sha256": "40de4fda96c8d2ced35593c9b1abd820803e6c5d68b9661b42c1a8f795d67f09",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-133-mature-CPU--M4-six-lineage-results",
+      "root_prefix": "M4-six-lineage-results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "2056708087",
+        "itemIdentifier": "69141"
+      },
+      "cloud_id": "1m9yNIlPfWwoA5L6S_ufV-yN9aQB3-kmf",
+      "accepted": true,
+      "cloud": {
+        "id": "1m9yNIlPfWwoA5L6S_ufV-yN9aQB3-kmf",
+        "name": "M4-six-lineage-results-20261004.tar.gz",
+        "bytes": 2056708087,
+        "parent_id": "1xH2hQ8budf3n9tOhCxcMj3A4d5e9pllL",
+        "url": "https://drive.google.com/file/d/1m9yNIlPfWwoA5L6S_ufV-yN9aQB3-kmf/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-results-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-145-exact-flop/M4-results-20261004.tar.gz",
+      "archive_bytes": 409201106,
+      "archive_sha256": "869b4e55ff5287e21019aa4f5033b3cef5aefac153189b885b4f82cceeb16213",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/PR-145-exact-flop--M4-results",
+      "root_prefix": "M4-results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "409201106",
+        "itemIdentifier": "69143"
+      },
+      "cloud_id": "10KfaHpzQihgGTv8X4iKWocNj-VkU97UL",
+      "accepted": true,
+      "cloud": {
+        "id": "10KfaHpzQihgGTv8X4iKWocNj-VkU97UL",
+        "name": "M4-results-20261004.tar.gz",
+        "bytes": 409201106,
+        "parent_id": "1ciOOpSaLHqvCSI8wzhWDQORtizfeCrxZ",
+        "url": "https://drive.google.com/file/d/10KfaHpzQihgGTv8X4iKWocNj-VkU97UL/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--replay-continuous-2026091901-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--replay-continuous-2026091901-20261004.tar.gz",
+      "archive_bytes": 3253889045,
+      "archive_sha256": "ce43dbc7e9231715e4d741c38b895d02bbf63cda0b3ef6877ac16f6ea9d23432",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "3253889045",
+        "itemIdentifier": "69145"
+      },
+      "cloud_id": "1YDAw1QkKNgyaOkN7C9IoSpnaIqmrctkQ",
+      "accepted": true,
+      "cloud": {
+        "id": "1YDAw1QkKNgyaOkN7C9IoSpnaIqmrctkQ",
+        "name": "results--replay-continuous-2026091901-20261004.tar.gz",
+        "bytes": 3253889045,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1YDAw1QkKNgyaOkN7C9IoSpnaIqmrctkQ/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--branching-continuous-2026091901-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--branching-continuous-2026091901-20261004.tar.gz",
+      "archive_bytes": 5289160296,
+      "archive_sha256": "caf043279fa0a5f0dc304275815997e466dc06612771c0aa234996aff132a151",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "5289160296",
+        "itemIdentifier": "69147"
+      },
+      "cloud_id": "1jWCPxEq0-VnDYLAOe-suS9-jdBCuiwcW",
+      "accepted": true,
+      "cloud": {
+        "id": "1jWCPxEq0-VnDYLAOe-suS9-jdBCuiwcW",
+        "name": "results--branching-continuous-2026091901-20261004.tar.gz",
+        "bytes": 5289160296,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1jWCPxEq0-VnDYLAOe-suS9-jdBCuiwcW/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--baseline-continuous-2026091901-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--baseline-continuous-2026091901-20261004.tar.gz",
+      "archive_bytes": 5436622405,
+      "archive_sha256": "89d27e0f8af027f4a3447e0f39fa5d9ef5db73a737839f06992072a223c241cb",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "5436622405",
+        "itemIdentifier": "69149"
+      },
+      "cloud_id": "1yof6mBGp4B8tUSB5MY-TJbXp8HDqjmru",
+      "accepted": true,
+      "cloud": {
+        "id": "1yof6mBGp4B8tUSB5MY-TJbXp8HDqjmru",
+        "name": "results--baseline-continuous-2026091901-20261004.tar.gz",
+        "bytes": 5436622405,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1yof6mBGp4B8tUSB5MY-TJbXp8HDqjmru/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "results--day-paper-16k-2026091902-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M4-closed-training/results--day-paper-16k-2026091902-20261004.tar.gz",
+      "archive_bytes": 8097625352,
+      "archive_sha256": "26c105e47054a0a769e2183fee911bc837e156dc77f7aa5add8cd66407de25e2",
+      "source": "/Users/dberweger/Local/research-native-originals-m4-20261004/M4-closed-training--results",
+      "root_prefix": "results",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "8097625352",
+        "itemIdentifier": "74410"
+      },
+      "cloud_id": "1tOdOVT5ciWbW1iT8DTK-tBwKEIcTYkLl",
+      "accepted": true,
+      "cloud": {
+        "id": "1tOdOVT5ciWbW1iT8DTK-tBwKEIcTYkLl",
+        "name": "results--day-paper-16k-2026091902-20261004.tar.gz",
+        "bytes": 8097625352,
+        "parent_id": "1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ",
+        "url": "https://drive.google.com/file/d/1tOdOVT5ciWbW1iT8DTK-tBwKEIcTYkLl/view?usp=drivesdk"
+      }
+    },
+    {
+      "name": "M4-exact-flop-inputs-20261004.tar.gz",
+      "native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-145-exact-flop/M4-exact-flop-inputs-20261004.tar.gz",
+      "archive_bytes": 427324620,
+      "archive_sha256": "60b8c3268be89ab7538ffa5c89765dadfe8e7bc8d921c61d5200b82d061c6d75",
+      "source": "/Users/dberweger/Local/hu20-exact-flop-check-inputs",
+      "root_prefix": "hu20-exact-flop-check-inputs",
+      "native": {
+        "isUploaded": "1",
+        "isUploading": "0",
+        "hasUnresolvedConflicts": "0",
+        "documentSize": "427324620",
+        "itemIdentifier": "74401"
+      },
+      "cloud_id": "11PvhwMpV6RrCXHxelCRFvDOSL1ZgMzmV",
+      "accepted": true,
+      "cloud": {
+        "id": "11PvhwMpV6RrCXHxelCRFvDOSL1ZgMzmV",
+        "name": "M4-exact-flop-inputs-20261004.tar.gz",
+        "bytes": 427324620,
+        "parent_id": "1ciOOpSaLHqvCSI8wzhWDQORtizfeCrxZ",
+        "url": "https://drive.google.com/file/d/11PvhwMpV6RrCXHxelCRFvDOSL1ZgMzmV/view?usp=drivesdk"
+      }
+    }
+  ],
+  "PR136_archive": {
+    "id": "19mPzvR0fF1vHzr-cRMsueTlHiQtthOcB",
+    "name": "hu20-500m-campaign-20261001-archive-20261002.tar.gz",
+    "bytes": 23509934825,
+    "url": "https://drive.google.com/file/d/19mPzvR0fF1vHzr-cRMsueTlHiQtthOcB/view?usp=drivesdk",
+    "parent_id": "1Jjg9yvbPQ25nws_wW1IupyMYCfnNVFc_"
+  },
+  "cleanup": {
+    "M4_selected_runs": {
+      "removed_files": 28758,
+      "removed_logical_bytes": 96886556351,
+      "retained_members": 0,
+      "free_after": 107177549824,
+      "receipt": "m4-verified-run-original-cleanup-m4-captured-20261004.json",
+      "journal": "m4-verified-run-original-cleanup-20261004.jsonl.gz"
+    },
+    "M4_PR136": {
+      "removed_files": 1218,
+      "removed_logical_bytes": 23524835844,
+      "retained_members": 0,
+      "receipt": "pr136-accepted-original-cleanup-m4-captured-20261004.json"
+    },
+    "M1_canceled_duplicates": {
+      "removed_files": 5,
+      "removed_logical_bytes": 84502367174,
+      "free_after": 52697604096,
+      "receipts": [
+        "pr136-canceled-duplicate-cleanup-20261004.json",
+        "legacy-canceled-duplicate-cleanup-20261004.json"
+      ]
+    }
+  },
+  "preserved": [
+    "Private credentials/keys",
+    "Everyday coding source/fixtures",
+    "Valid Git packs and environments",
+    "Failure/partial provenance and restore manifests",
+    "Dependency inputs pending review",
+    "Cloud payloads and native streaming cache"
+  ],
+  "remaining": [
+    "M1 hu20-platform-parity-pr129 closed results coverage",
+    "M1 hu20-m4-archive-20261002 duplicate restoration/dependency mapping",
+    "Original A and final C/average input dependencies",
+    "Organize four native raw-backup folders after canonical archive acceptance",
+    "Remaining host inventory and documentation CI"
+  ],
+  "cloud_payloads_removed": false,
+  "science_rerun": false,
+  "forced_cache_eviction": false,
+  "chunking": false,
+  "cloud_receipts": [
+    {
+      "name": "m4-verified-run-original-cleanup-m4-captured-20261004.json",
+      "id": "1hMP4xltV_Dnv23RSo_GXzWFn1wqygUnq",
+      "url": "https://drive.google.com/file/d/1hMP4xltV_Dnv23RSo_GXzWFn1wqygUnq/view?usp=drivesdk"
+    },
+    {
+      "name": "m4-verified-run-original-cleanup-20261004.jsonl.gz",
+      "id": "1PE25ZTR-0fYepxNRn5rauhEWa16W0KOd",
+      "url": "https://drive.google.com/file/d/1PE25ZTR-0fYepxNRn5rauhEWa16W0KOd/view?usp=drivesdk"
+    },
+    {
+      "name": "m4-accepted-archive-cleanup-proof-20261004.json",
+      "id": "1sc4Pg-sg_AKEoy40EjI70EHNgSXravHe",
+      "url": "https://drive.google.com/file/d/1sc4Pg-sg_AKEoy40EjI70EHNgSXravHe/view?usp=drivesdk"
+    },
+    {
+      "name": "pr136-accepted-original-cleanup-m4-captured-20261004.json",
+      "id": "1OKiQrFjObHOiJWBfkrVWm8bYn3U9si_I",
+      "url": "https://drive.google.com/file/d/1OKiQrFjObHOiJWBfkrVWm8bYn3U9si_I/view?usp=drivesdk"
+    },
+    {
+      "name": "legacy-canceled-duplicate-cleanup-20261004.json",
+      "id": "1XlD8RN76qFsXmBUYK7kRSTUS9l1gyxdN",
+      "url": "https://drive.google.com/file/d/1XlD8RN76qFsXmBUYK7kRSTUS9l1gyxdN/view?usp=drivesdk"
+    },
+    {
+      "name": "pr136-canceled-duplicate-cleanup-20261004.json",
+      "id": "1DRi8-h5YNe0eu0Pduruxj-e8YLjjTRcU",
+      "url": "https://drive.google.com/file/d/1DRi8-h5YNe0eu0Pduruxj-e8YLjjTRcU/view?usp=drivesdk"
+    },
+    {
+      "name": "native-upload-confirmation-cloud-proof-20261004.json",
+      "id": "1VGZCNdtxwVQrb91wbIf22RmpxrmbvK-8",
+      "url": "https://drive.google.com/file/d/1VGZCNdtxwVQrb91wbIf22RmpxrmbvK-8/view?usp=drivesdk"
+    }
+  ]
+}

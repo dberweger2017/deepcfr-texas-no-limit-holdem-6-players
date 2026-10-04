@@ -54,27 +54,39 @@ Building or queueing an archive is **not upload confirmation**. M4 originals rem
 - **PR136:** the full **23,509,934,825-byte** archive is now visible in the correct cloud folder as [this exact item](https://drive.google.com/file/d/19mPzvR0fF1vHzr-cRMsueTlHiQtthOcB/view). Its local native item ID matches. The app still reports one pending file, and explicit native completion for this archive is unconfirmed; separate M4 originals remain protected.
 - **Storage:** approximately **11–12 GiB free per Mac** during this check while native uploads/cache continue. No originals were removed. Accepted upload cleanup will provide headroom; no forced eviction or chunking is used. Hourly updates continue.
 
-### Current folder layout
+### Accepted uploads and safe cleanup — October 4 owner-requested check
+
+This confirmation supersedes the pending states in the historical snapshots above. [PR #155](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/155) passed all checks and merged. The [accepted-upload receipt](docs/artifacts/drive-upload-confirmed-20261004.json) records every current archive ID, name, size, source hash and restore prefix.
+
+- **All 22 M1 run archives accepted:** 1,687,920,071 compressed bytes; native desktop reports Up to date/Synced and the current cloud names/sizes match every verified archive.
+- **All 38 M4 archives accepted:** the 37 run archives plus the separate six-file PR145 input archive, totaling 38,268,264,296 compressed bytes. Read-only native FileProvider metadata reports `isUploaded=1`, `isUploading=0`, no unresolved conflict and the exact document size for each item. Native item IDs match the cloud IDs and exact names/sizes. No cloud re-download was required.
+- **PR136 accepted:** the intact 23,509,934,825-byte archive is [confirmed uploaded](https://drive.google.com/file/d/19mPzvR0fF1vHzr-cRMsueTlHiQtthOcB/view). Its earlier cancellation/recovery and all failed attempts remain documented. The separate M4 originals were removed only after upload acceptance and per-member/dependency checks: 1,218 files / 23,524,835,844 logical bytes.
+- **M4 run originals cleaned:** 28,758 separate local files / 96,886,556,351 logical bytes removed after member SHA256, unchanged stat, tracked-file, symlink-dependency and open-handle checks. The 38 archive IDs and original paths remain in restore stubs and the [full removal journal](https://drive.google.com/file/d/1PE25ZTR-0fYepxNRn5rauhEWa16W0KOd/view). Keys, coding source, valid Git/environment data and cloud payloads were preserved.
+- **M1 canceled duplicates cleaned:** five abandoned copies outside the synced folder, 84,502,367,174 logical bytes, matched already accepted PR136/branching/overnight archives by exact SHA256 and identity. Their receipts and restoration links are retained in [Archive-receipts](https://drive.google.com/drive/folders/10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX).
+- **Measured physical free storage after cleanup:** M4 **106,754,224,128 bytes (99.42 GiB)**; M1 **52,697,604,096 bytes (49.08 GiB)**. Logical removed bytes can share APFS blocks, so these figures are actual filesystem measurements rather than a subtraction estimate.
+- **Remaining work:** inventory smaller closed evidence outside this batch, preserve current input dependencies until restore mappings are established, and reconcile the four M1 native raw-backup folders with their accepted canonical archives. These managed cloud folders remain intact; no synced data was deleted to free cache. Hourly follow-up and chat updates continue.
+
+### Confirmed folder layout
 
 Paths are relative to the research Drive folder. Upload status is a snapshot on October 4, not a promise of completion. The older folder manifests remain historical evidence; new whole archives embed member hashes and restoration instructions.
 
 | Folder | Evidence / location within it | State |
 | --- | --- | --- |
-| [PR-113-TP20](https://drive.google.com/drive/folders/1bvceeB1paom93UQyGbbR29gXxco5_H3M) | `M4-results-20261004.tar.gz` | Archive building/upload pending |
-| [PR-132-observation-reuse](https://drive.google.com/drive/folders/1l8T_GUwa2uJ8LfqmplrMglQx_3hDn1lC) | `M4-results-20261004.tar.gz`, `M4-CI-repair-results-20261004.tar.gz` | Archive building/upload pending |
-| [PR-133-mature-CPU](https://drive.google.com/drive/folders/1xH2hQ8budf3n9tOhCxcMj3A4d5e9pllL) | `M4-initial-results-20261004.tar.gz`, `M4-six-lineage-results-20261004.tar.gz` | Archive building/upload pending |
-| [PR-136-HU20-500M](https://drive.google.com/drive/folders/1Jjg9yvbPQ25nws_wW1IupyMYCfnNVFc_) | Whole 23.51-GB campaign archive and recovery manifest | Whole archive uploading |
+| [PR-113-TP20](https://drive.google.com/drive/folders/1bvceeB1paom93UQyGbbR29gXxco5_H3M) | `M4-results-20261004.tar.gz` | Confirmed uploaded |
+| [PR-132-observation-reuse](https://drive.google.com/drive/folders/1l8T_GUwa2uJ8LfqmplrMglQx_3hDn1lC) | `M4-results-20261004.tar.gz`, `M4-CI-repair-results-20261004.tar.gz` | Confirmed uploaded |
+| [PR-133-mature-CPU](https://drive.google.com/drive/folders/1xH2hQ8budf3n9tOhCxcMj3A4d5e9pllL) | `M4-initial-results-20261004.tar.gz`, `M4-six-lineage-results-20261004.tar.gz` | Confirmed uploaded |
+| [PR-136-HU20-500M](https://drive.google.com/drive/folders/1Jjg9yvbPQ25nws_wW1IupyMYCfnNVFc_) | Whole 23.51-GB campaign archive and recovery manifest | Confirmed uploaded; separate originals cleaned |
 | [PR-144-history-compression](https://drive.google.com/drive/folders/1EnCmKftt50pebTWVtu1MvTUQEaw_5hCV) | Six complete archives; `archive-manifest.json`, `SHA256SUMS` | Confirmed uploaded |
-| [PR-145-exact-flop](https://drive.google.com/drive/folders/1ciOOpSaLHqvCSI8wzhWDQORtizfeCrxZ) | `M4-results-20261004.tar.gz`, including retained flop attempts and exact-turn follow-up | Archive building/upload pending |
-| [PR-148-turn-calibration](https://drive.google.com/drive/folders/1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5) | `M4-closed-research--RUN-20261004.tar.gz`, `M1-closed-research--RUN-20261004.tar.gz`, `M1-exact-turn-evidence-20261004.tar.gz` | Archive building/upload pending; calibration03 shared once |
-| [M4-closed-training](https://drive.google.com/drive/folders/1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ) | `results--RUN-20261004.tar.gz` from `deepcfr-training` | Archive building/upload pending |
-| [M4-local-CFR-diagnostic](https://drive.google.com/drive/folders/1i9HAiFFXKTgS0FLzGUtwsrEeNLaCiQsT) | `results-20261004.tar.gz` | Archive building/upload pending |
-| [M1-board-pooling](https://drive.google.com/drive/folders/13SUnP_d1ZVtcyJAp-oqRecg5Wv3SYIfy) | `closed-evidence-20261004.tar.gz` | Archive building/upload pending |
-| [M1-alias-audit](https://drive.google.com/drive/folders/18cCPHR6EfXLUBGbwmNukxttySSUUj0Rf) | `closed-evidence-20261004.tar.gz` | Archive building/upload pending |
+| [PR-145-exact-flop](https://drive.google.com/drive/folders/1ciOOpSaLHqvCSI8wzhWDQORtizfeCrxZ) | `M4-results-20261004.tar.gz`, including retained flop/turn attempts; `M4-exact-flop-inputs-20261004.tar.gz` | Confirmed uploaded |
+| [PR-148-turn-calibration](https://drive.google.com/drive/folders/1pmu8GZww8SHQBkVgWM5a-Rn5txeERxC5) | `M4-closed-research--RUN-20261004.tar.gz`, `M1-closed-research--RUN-20261004.tar.gz`, `M1-exact-turn-evidence-20261004.tar.gz` | Confirmed uploaded; calibration03 shared once |
+| [M4-closed-training](https://drive.google.com/drive/folders/1Nm2vyxf2GbEk9t30--vPluJ-IFrk-TbQ) | `results--RUN-20261004.tar.gz` from `deepcfr-training` | Confirmed uploaded |
+| [M4-local-CFR-diagnostic](https://drive.google.com/drive/folders/1i9HAiFFXKTgS0FLzGUtwsrEeNLaCiQsT) | `results-20261004.tar.gz` | Confirmed uploaded |
+| [M1-board-pooling](https://drive.google.com/drive/folders/13SUnP_d1ZVtcyJAp-oqRecg5Wv3SYIfy) | `closed-evidence-20261004.tar.gz` | Confirmed uploaded |
+| [M1-alias-audit](https://drive.google.com/drive/folders/18cCPHR6EfXLUBGbwmNukxttySSUUj0Rf) | `closed-evidence-20261004.tar.gz` | Confirmed uploaded |
 | [Historical-experiments](https://drive.google.com/drive/folders/1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr) | Earlier inventory entries, retaining names and IDs | Organization verified |
 | [Archive-receipts](https://drive.google.com/drive/folders/10cG2BTBZLcE7lO10TgBZ0Ud32quaf_BX) | Cleanup and restoration receipts | Organization verified |
 
-Other existing PR/M4 archive folders remain at the research root. M4 original paths now link to the retained local source folders during compression. M1 links still resolve to the native folders pending archive acceptance. These working links are restoration conveniences, not independent backups. Private credentials, Git internals and reproducible environments/caches were excluded and retained locally. Ordinary coding checkouts and fixtures remain available.
+Other existing PR/M4 archive folders remain at the research root. M4 original paths retain restore stubs after accepted-upload cleanup; restore the recorded archive into a fresh local directory before computation. M1 links still resolve to the native raw-backup folders during reconciliation. These links are restoration conveniences, not independent backups. Private credentials, Git internals and reproducible environments/caches were excluded and retained locally. Ordinary coding checkouts and fixtures remain available.
 
 Let streaming reclaim cache space gradually, as requested by the owner. No immediate forced offloading is needed. **Never delete within the synced folder to free local space:** that deletes the cloud copy too. Separately retained inactive originals may be removed only after the accepted desktop completion check and dependency review. Restore research into a local working directory and verify the manifest before future computation.
 
