@@ -1,0 +1,750 @@
+{
+  "budget_snapshot": {
+    "attempts": [
+      {
+        "elapsed_seconds": 0.0020376669708639383,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 22380544,
+        "phase": "part-a-verification",
+        "pid": 64868,
+        "reason": null,
+        "seconds": 0.18007208406925201,
+        "started_at": 1790992578.328353,
+        "status": "complete",
+        "stopped_at": 1790992578.506793,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "phase": "part-a-verification",
+        "reason": "Admission helper invoked outside module path: ModuleNotFoundError scripts; no admission or worker started",
+        "seconds": 0.162389,
+        "status": "failed",
+        "stopped_at": 1790992619.860926
+      },
+      {
+        "elapsed_seconds": 61.830106999957934,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 3415310336,
+        "phase": "pilot",
+        "pid": 64911,
+        "reason": null,
+        "seconds": 63.091375957941636,
+        "started_at": 1790992620.457419,
+        "status": "complete",
+        "stopped_at": 1790992683.5441191,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 0,
+        "phase": "part-a-verification",
+        "pid": 65366,
+        "reason": null,
+        "seconds": 0.18150570802390575,
+        "started_at": 1790992788.833623,
+        "status": "complete",
+        "stopped_at": 1790992789.012053,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 4978.924456875073,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 3628908544,
+        "phase": "part-a",
+        "pid": 65553,
+        "reason": null,
+        "seconds": 4979.80666112504,
+        "started_at": 1790993104.0258,
+        "status": "complete",
+        "stopped_at": 1790998083.955976,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 69.50756229204126,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 721240064,
+        "phase": "part-a-verification",
+        "pid": 7413,
+        "reason": "'base_decision'",
+        "seconds": 69.53353283298202,
+        "started_at": 1790999380.752278,
+        "status": "complete",
+        "stopped_at": 1790999450.2847009,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 0.3808491670060903,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 102416384,
+        "phase": "part-a-verification",
+        "pid": 8019,
+        "reason": null,
+        "seconds": 0.3942230420652777,
+        "started_at": 1790999500.8617442,
+        "status": "complete",
+        "stopped_at": 1790999501.254467,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 0,
+        "phase": "native-build-parity",
+        "pid": 8101,
+        "reason": "Command '['git', 'clone', '/Users/dberweger/Local/hu20-turn-search-20261003/upstream-9d1509f.bundle', '/Users/dberweger/Local/hu20-turn-search-tool/upstream']' returned non-zero exit status 128.",
+        "seconds": 0.04749029106460512,
+        "started_at": 1790999624.7818081,
+        "status": "failed",
+        "stopped_at": 1790999624.8278139,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 12.400198833085597,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 621461504,
+        "phase": "native-build-parity",
+        "pid": 8196,
+        "reason": null,
+        "seconds": 13.184220040915534,
+        "started_at": 1790999749.385834,
+        "status": "complete",
+        "stopped_at": 1790999762.568602,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 13.928330459166318,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 408371200,
+        "phase": "reference-freeze",
+        "pid": 8535,
+        "reason": null,
+        "seconds": 13.942721959203482,
+        "started_at": 1791000010.919484,
+        "status": "complete",
+        "stopped_at": 1791000024.8604338,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 598.7923200840596,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 4660592640,
+        "phase": "calibration",
+        "pid": 8747,
+        "reason": "RuntimeError: Experiment interrupted by signal 15; retain partial evidence",
+        "seconds": 599.9497895420063,
+        "started_at": 1791000155.4104881,
+        "status": "incomplete",
+        "stopped_at": 1791000755.356896,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 0,
+        "phase": "calibration-preflight",
+        "pid": 18884,
+        "reason": null,
+        "seconds": 0.004526749951764941,
+        "started_at": 1791011400.7697449,
+        "status": "complete",
+        "stopped_at": 1791011400.772566,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 6305.303057833109,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 6245253120,
+        "phase": "calibration",
+        "pid": 18889,
+        "reason": "RuntimeError: Experiment interrupted by signal 15; retain partial evidence",
+        "seconds": 6312.986627042061,
+        "started_at": 1791011401.503895,
+        "status": "incomplete",
+        "stopped_at": 1791017714.555994,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 1.011544708,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 224559104,
+        "phase": "calibration-preparation",
+        "pid": 87556,
+        "reason": null,
+        "seconds": 1.2774236669999999,
+        "started_at": 1791043038.499716,
+        "status": "complete",
+        "stopped_at": 1791043039.775569,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "phase": "calibration-preparation-short-read",
+        "reason": "Earlier short read-only public reference/root inspection; charged tool wall duration conservatively",
+        "seconds": 0.774590917,
+        "status": "complete",
+        "stopped_at": 1791043171.332167
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 0,
+        "phase": "calibration-preflight",
+        "pid": 87825,
+        "reason": null,
+        "seconds": 0.005297541000000003,
+        "started_at": 1791043530.001673,
+        "status": "complete",
+        "stopped_at": 1791043530.00543,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 29528.482412917074,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 6310330368,
+        "phase": "calibration",
+        "pid": 87830,
+        "reason": null,
+        "seconds": 29549.599690541858,
+        "started_at": 1791043530.71315,
+        "status": "owner-decision-needed",
+        "stopped_at": 1791073080.480282,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 18.03626966709271,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 39649280,
+        "phase": "calibration-verification",
+        "pid": 68075,
+        "reason": null,
+        "seconds": 18.87865229207091,
+        "started_at": 1791074822.959907,
+        "status": "complete",
+        "stopped_at": 1791074841.837185,
+        "swap_baseline_bytes": 884736000
+      }
+    ],
+    "limit_seconds": 86400,
+    "used_seconds": 41624.000790334256
+  },
+  "engineering_30s_qualified": false,
+  "exclusions": [],
+  "final_coordinates": 1728,
+  "final_failures": {
+    "timeout": 67
+  },
+  "full_curve": [
+    {
+      "actual_cold_median_seconds": 1.0702498538885266,
+      "cold_max_seconds": 12.698759999824688,
+      "cold_median_seconds": 4.705869791912846,
+      "cold_p95_seconds": 9.334323375020176,
+      "cold_p99_seconds": 12.588846417143941,
+      "complete": true,
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 25,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 6
+      },
+      "configuration_id": "680848784c77bcf40b666a155d4f321c9f90493865552d584f8080c563137e94",
+      "fallbacks": 0,
+      "latency_by_host": {
+        "dberwegerch-m4.local": {
+          "cold_max_seconds": 12.698759999824688,
+          "cold_p99_seconds": 12.588846417143941,
+          "fallback_causes": {},
+          "roots": 288,
+          "timeout_fallback_rate": 0.0
+        }
+      },
+      "mean_pct_pot": 7.287564245485423,
+      "p95_pct_pot": 15.82426929473877,
+      "range_coverage": {
+        "holdings_per_seat": 324864,
+        "missing": 48,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 323968,
+        "positive_holdings:1": 323928,
+        "trained": 1617504,
+        "zero_average_mass": 1562,
+        "zero_likelihood:opponent": 916,
+        "zero_likelihood:own": 916
+      },
+      "reference_law_completed_only": {
+        "mean": 7.287564245485425,
+        "p95": 15.82426929473877
+      },
+      "relaxed": false,
+      "relaxed_root_ratio_violations": 230,
+      "research_strict": false,
+      "roots": 288,
+      "search_law_completed_only": {
+        "mean": 7.287564245485425,
+        "p95": 15.82426929473877
+      },
+      "search_law_measured_coordinates": 288,
+      "search_law_unmeasured_fallback_coordinates": 0,
+      "shared_receipts": 288,
+      "strict": false,
+      "turn_conditioning_gap_count": 0,
+      "turn_conditioning_gap_tolerance": 0,
+      "zero_support_fallback_count": 0
+    },
+    {
+      "actual_cold_median_seconds": 4.897346291691065,
+      "cold_max_seconds": 13.15623641712591,
+      "cold_median_seconds": 4.897346291691065,
+      "cold_p95_seconds": 9.677037839242256,
+      "cold_p99_seconds": 12.896523567356635,
+      "complete": true,
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 25,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 6
+      },
+      "configuration_id": "a60e2f9dfa8036a8bb0222b977baea5e607084a3fb133f1d4ffc689fabbc16af",
+      "fallbacks": 0,
+      "latency_by_host": {
+        "dberwegerch-m4.local": {
+          "cold_max_seconds": 13.15623641712591,
+          "cold_p99_seconds": 12.896523567356635,
+          "fallback_causes": {},
+          "roots": 288,
+          "timeout_fallback_rate": 0.0
+        }
+      },
+      "mean_pct_pot": 7.250209121858418,
+      "p95_pct_pot": 15.709720611572266,
+      "range_coverage": {
+        "floored_opponent_factors": 102477,
+        "holdings_per_seat": 324864,
+        "missing": 48,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 324416,
+        "positive_holdings:1": 324396,
+        "trained": 1617504,
+        "zero_average_mass": 1562,
+        "zero_likelihood:opponent": 916,
+        "zero_likelihood:own": 916
+      },
+      "reference_law_completed_only": {
+        "mean": 7.250209121858418,
+        "p95": 15.709720611572266
+      },
+      "relaxed": false,
+      "relaxed_root_ratio_violations": 235,
+      "research_strict": false,
+      "roots": 288,
+      "search_law_completed_only": {
+        "mean": 7.269442562554828,
+        "p95": 15.678548812866211
+      },
+      "search_law_measured_coordinates": 288,
+      "search_law_unmeasured_fallback_coordinates": 0,
+      "shared_receipts": 0,
+      "strict": false,
+      "turn_conditioning_gap_count": 0,
+      "turn_conditioning_gap_tolerance": 0,
+      "zero_support_fallback_count": 0
+    },
+    {
+      "actual_cold_median_seconds": 1.5806931039551273,
+      "cold_max_seconds": 24.791940125171095,
+      "cold_median_seconds": 8.952577500022016,
+      "cold_p95_seconds": 18.02275379211642,
+      "cold_p99_seconds": 24.509461082983762,
+      "complete": true,
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 50,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 6
+      },
+      "configuration_id": "3dfe89bd529b66388395f64b7b6be08a7e2571ff0977b9ac8ea40563a753677b",
+      "fallbacks": 0,
+      "latency_by_host": {
+        "dberwegerch-m4.local": {
+          "cold_max_seconds": 24.791940125171095,
+          "cold_p99_seconds": 24.509461082983762,
+          "fallback_causes": {},
+          "roots": 288,
+          "timeout_fallback_rate": 0.0
+        }
+      },
+      "mean_pct_pot": 1.3904876091923934,
+      "p95_pct_pot": 2.9292678833007812,
+      "range_coverage": {
+        "holdings_per_seat": 324864,
+        "missing": 48,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 323968,
+        "positive_holdings:1": 323928,
+        "trained": 1617504,
+        "zero_average_mass": 1562,
+        "zero_likelihood:opponent": 916,
+        "zero_likelihood:own": 916
+      },
+      "reference_law_completed_only": {
+        "mean": 1.3904876091923934,
+        "p95": 2.9292678833007812
+      },
+      "relaxed": false,
+      "relaxed_root_ratio_violations": 0,
+      "research_strict": false,
+      "roots": 288,
+      "search_law_completed_only": {
+        "mean": 1.3904876091923934,
+        "p95": 2.9292678833007812
+      },
+      "search_law_measured_coordinates": 288,
+      "search_law_unmeasured_fallback_coordinates": 0,
+      "shared_receipts": 288,
+      "strict": false,
+      "turn_conditioning_gap_count": 0,
+      "turn_conditioning_gap_tolerance": 0,
+      "zero_support_fallback_count": 0
+    },
+    {
+      "actual_cold_median_seconds": 9.480240728938952,
+      "cold_max_seconds": 26.02028500009328,
+      "cold_median_seconds": 9.480240728938952,
+      "cold_p95_seconds": 18.941598735132718,
+      "cold_p99_seconds": 25.293647507645655,
+      "complete": true,
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 50,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 6
+      },
+      "configuration_id": "a06c272538fa22af8c921432df19545865f8e87d36752efa804c8ed94b20c856",
+      "fallbacks": 0,
+      "latency_by_host": {
+        "dberwegerch-m4.local": {
+          "cold_max_seconds": 26.02028500009328,
+          "cold_p99_seconds": 25.293647507645655,
+          "fallback_causes": {},
+          "roots": 288,
+          "timeout_fallback_rate": 0.0
+        }
+      },
+      "mean_pct_pot": 1.4359542719114697,
+      "p95_pct_pot": 2.8444337844848633,
+      "range_coverage": {
+        "floored_opponent_factors": 102477,
+        "holdings_per_seat": 324864,
+        "missing": 48,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 324416,
+        "positive_holdings:1": 324396,
+        "trained": 1617504,
+        "zero_average_mass": 1562,
+        "zero_likelihood:opponent": 916,
+        "zero_likelihood:own": 916
+      },
+      "reference_law_completed_only": {
+        "mean": 1.4359542719114697,
+        "p95": 2.8444337844848633
+      },
+      "relaxed": false,
+      "relaxed_root_ratio_violations": 0,
+      "research_strict": false,
+      "roots": 288,
+      "search_law_completed_only": {
+        "mean": 1.4166181318417537,
+        "p95": 2.8469715118408203
+      },
+      "search_law_measured_coordinates": 288,
+      "search_law_unmeasured_fallback_coordinates": 0,
+      "shared_receipts": 0,
+      "strict": false,
+      "turn_conditioning_gap_count": 0,
+      "turn_conditioning_gap_tolerance": 0,
+      "zero_support_fallback_count": 0
+    },
+    {
+      "actual_cold_median_seconds": 11.963662416441366,
+      "cold_max_seconds": 30.160132167162374,
+      "cold_median_seconds": 17.346889478969388,
+      "cold_p95_seconds": 30.036481893796008,
+      "cold_p99_seconds": 30.070179625707677,
+      "complete": true,
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 6
+      },
+      "configuration_id": "e51f558ee9c8e1e3dcb00316cca0f68e840ac3cca27f3977f4166d7e597a73c1",
+      "fallbacks": 32,
+      "latency_by_host": {
+        "dberwegerch-m4.local": {
+          "cold_max_seconds": 30.160132167162374,
+          "cold_p99_seconds": 30.070179625707677,
+          "fallback_causes": {
+            "timeout": 32
+          },
+          "roots": 288,
+          "timeout_fallback_rate": 0.1111111111111111
+        }
+      },
+      "mean_pct_pot": 8.225221010670053,
+      "p95_pct_pot": 62.27730941772461,
+      "range_coverage": {
+        "holdings_per_seat": 289896,
+        "missing": 48,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 289015,
+        "positive_holdings:1": 288980,
+        "trained": 1469736,
+        "zero_average_mass": 1562,
+        "zero_likelihood:opponent": 900,
+        "zero_likelihood:own": 897
+      },
+      "reference_law_completed_only": {
+        "mean": 0.3436733508571742,
+        "p95": 0.6994949579238892
+      },
+      "relaxed": false,
+      "relaxed_root_ratio_violations": 32,
+      "research_strict": false,
+      "roots": 288,
+      "search_law_completed_only": {
+        "mean": 0.3436733508571742,
+        "p95": 0.6994949579238892
+      },
+      "search_law_measured_coordinates": 256,
+      "search_law_unmeasured_fallback_coordinates": 32,
+      "shared_receipts": 256,
+      "strict": false,
+      "turn_conditioning_gap_count": 0,
+      "turn_conditioning_gap_tolerance": 0,
+      "zero_support_fallback_count": 0
+    },
+    {
+      "actual_cold_median_seconds": 17.64759983343538,
+      "cold_max_seconds": 30.220257624983788,
+      "cold_median_seconds": 17.64759983343538,
+      "cold_p95_seconds": 30.040300887601916,
+      "cold_p99_seconds": 30.081395609665197,
+      "complete": true,
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 6
+      },
+      "configuration_id": "d463365f8ea749b379117b1292f0d8c5ea51c18e077a4201e124226ea5e6e607",
+      "fallbacks": 35,
+      "latency_by_host": {
+        "dberwegerch-m4.local": {
+          "cold_max_seconds": 30.220257624983788,
+          "cold_p99_seconds": 30.081395609665197,
+          "fallback_causes": {
+            "timeout": 35
+          },
+          "roots": 288,
+          "timeout_fallback_rate": 0.12152777777777778
+        }
+      },
+      "mean_pct_pot": 8.36571338116725,
+      "p95_pct_pot": 62.27730941772461,
+      "range_coverage": {
+        "floored_opponent_factors": 95056,
+        "holdings_per_seat": 285384,
+        "missing": 48,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 284951,
+        "positive_holdings:1": 284932,
+        "trained": 1447176,
+        "zero_average_mass": 1562,
+        "zero_likelihood:opponent": 894,
+        "zero_likelihood:own": 885
+      },
+      "reference_law_completed_only": {
+        "mean": 0.4177655072853092,
+        "p95": 0.8889093399047852
+      },
+      "relaxed": false,
+      "relaxed_root_ratio_violations": 35,
+      "research_strict": false,
+      "roots": 288,
+      "search_law_completed_only": {
+        "mean": 0.37408879231440195,
+        "p95": 0.7214374542236328
+      },
+      "search_law_measured_coordinates": 253,
+      "search_law_unmeasured_fallback_coordinates": 35,
+      "shared_receipts": 0,
+      "strict": false,
+      "turn_conditioning_gap_count": 0,
+      "turn_conditioning_gap_tolerance": 0,
+      "zero_support_fallback_count": 0
+    }
+  ],
+  "heartbeat": "PAUSED",
+  "independent_arithmetic_verification": "all 1728 coordinates, exact expected sets, weighted mean/p95, cold p95, strict/relaxed gates, native quality events and fallback reference values",
+  "local_copy": "/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-03-complete",
+  "local_copy_verification_status": "transfer-running",
+  "max_repeat_strategy_absolute_difference": 0.0,
+  "missing_final_references": 0,
+  "native_receipts": 2557,
+  "notes": [
+    "Search-law aggregates cover completed coordinates only; no search-law quality imputed for timeout fallback.",
+    "Cold latency includes retained native duration for shared requests; actual elapsed does not qualify cold speed.",
+    "The complete 238-row retained screen remains separate from the 1728 final selection rows."
+  ],
+  "protocol": {
+    "allocation": {
+      "law": "min(configured, floor_to_MiB(max(0, family_cap - measured_family_RSS - reserve)))",
+      "reserve_bytes": 268435456
+    },
+    "arena_expected_paid": true,
+    "base": "average",
+    "cold_shared_latency": "remeasured preparation plus retained play receipt duration; at least first-seat cold; deadline still enforced",
+    "compress": [
+      true,
+      false
+    ],
+    "decision_seconds": 30,
+    "final_report_sha256": "b423951703ad5a6ec52c51b6121fa6320b04f837282731f01cc8d97c7deef68e",
+    "finalist_configuration_ids": [
+      "680848784c77bcf40b666a155d4f321c9f90493865552d584f8080c563137e94",
+      "3dfe89bd529b66388395f64b7b6be08a7e2571ff0977b9ac8ea40563a753677b",
+      "e51f558ee9c8e1e3dcb00316cca0f68e840ac3cca27f3977f4166d7e597a73c1",
+      "a60e2f9dfa8036a8bb0222b977baea5e607084a3fb133f1d4ffc689fabbc16af",
+      "a06c272538fa22af8c921432df19545865f8e87d36752efa804c8ed94b20c856",
+      "d463365f8ea749b379117b1292f0d8c5ea51c18e077a4201e124226ea5e6e607"
+    ],
+    "iterations": [
+      25,
+      50,
+      100
+    ],
+    "live_turn_conditioning_gap_tolerance": 0,
+    "m4_cumulative_seconds": 86400,
+    "menus": [
+      "native",
+      "cap2"
+    ],
+    "opponent_likelihood_floor": [
+      0,
+      0.01
+    ],
+    "owner_decision_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148#issuecomment-5970668869",
+    "owner_restart_approved": true,
+    "part_a_max_seconds": 21600,
+    "prior_attempt": "calibration-01 retained separately; no timing stitching",
+    "quality": "turn-profile-with-internal-river-continuation-in-full-native-tree",
+    "quality_evaluation": "separate existing native quality request; no native harness change",
+    "reference_index_sha256": "68168484b8f8085131c683d62bdff0c29292196297ee6029281dae3f73b4905d",
+    "relaxed": {
+      "each_blueprint_ratio_below": 0.1,
+      "mean_pct_pot": 1,
+      "p95_pct_pot": 2
+    },
+    "research_latency_requires_separate_owner_approval": true,
+    "resource_readmission": {
+      "family_cap_formula": "min(8 GiB, 80% * reclaimable - 0.5 GiB sidecar)",
+      "max_worker_family_bytes": 8589934592,
+      "minimum_free_disk_bytes": 8589934592,
+      "reclaimable_formula": "free + inactive + speculative + file-backed",
+      "swap_growth_bytes": 1073741824
+    },
+    "resume_screen": {
+      "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-02/curve.jsonl",
+      "prior_protocol_sha256": "5db4cd937d1138770940a9a27d5586846643b8cdbf9d3a0d6a93e22f717bafab",
+      "rows": 238,
+      "sha256": "4cc4391960a09a7d8b0c4fbd302054c1780cb805e82aa093185331c943ac8eae"
+    },
+    "river_reserve_seconds": 10800,
+    "river_sample_roots": 32,
+    "selection": "fastest-native-strict-first",
+    "share_identical_unlocked_seats": true,
+    "stage": "frozen-final",
+    "staging": {
+      "final_iterations": [
+        25,
+        50,
+        100
+      ],
+      "final_roots": "all eligible frozen reference roots, three selected-base lineages and both bot seats",
+      "finalist_rule": "native settings ranked by screen cold p95 then median; no quality/outcome screening",
+      "finalist_settings_per_floor": 1,
+      "reduced_menu": "retain 110 attempted screen rows and eighteen unattempted coordinates; no new reduced screen solves",
+      "screen_iterations": 100,
+      "screen_root_rule": "lowest spot hash in each stratum; rotate lineage and bot seat in sorted stratum order",
+      "seat_sharing": "epsilon zero only, exact request equality and no locks; success only; no shared failures"
+    },
+    "strict": {
+      "mean_pct_pot": 0.5,
+      "p95_pct_pot": 0.5
+    },
+    "threads": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "upstream_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+    "version": "hu20-turn-search-v3-final-30-only",
+    "x86_emulation_allowed": false
+  },
+  "raw_root_m4": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-03",
+  "raw_verification": {
+    "all_manifest_members_verified": true,
+    "bytes": 29486803777,
+    "final_rows": 1728,
+    "manifest_sha256": "dd39458bbd629ab0ca3416506a48b8210081e20cf5e9c9f0b07c25850ff3015a",
+    "members": 15292,
+    "no_owned_worker_solver_sidecar_processes": true,
+    "raw_root": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-03",
+    "retained_screen_rows": 238,
+    "source_commit": "93d55ebb522d3c09c869ca0f3448716f5bb2ae2f",
+    "status": "verified"
+  },
+  "reference_index_sha256": "68168484b8f8085131c683d62bdff0c29292196297ee6029281dae3f73b4905d",
+  "restart_authorized": false,
+  "retained_screen_rows": 238,
+  "retained_screen_sha256": "4cc4391960a09a7d8b0c4fbd302054c1780cb805e82aa093185331c943ac8eae",
+  "screen_failures": {
+    "reduced_full_native_evaluation_unavailable": 110,
+    "timeout": 64
+  },
+  "selected": null,
+  "shared_receipts": 832,
+  "status": "owner-decision-needed",
+  "support_gaps_final": 0,
+  "tier": null,
+  "unattempted_reduced_screen_coordinates": 18
+}

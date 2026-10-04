@@ -64,3 +64,7 @@ Before launch, push settings and tested code, confirm CI, refresh source-bound r
 ## Resumed final launch
 
 The bounded owner-approved final is running as calibration-03, worker 87830 and sidecar 87831. Tested source 93d55eb passed full CI, and fresh admission 70e445d was pushed before final outcomes. [Launch evidence](reports/hu20-turn-search-artifacts/calibration-03-launch.json) and the active status supersede preparation/paused statements above. The recurring task is ACTIVE for quiet checks; all guards, separate 120-second approval and three-hour river reserve remain.
+
+## Completed thirty-second final — October 4
+
+Calibration-03 completed all 1,728 final coordinates without a guard failure. [The complete report](reports/hu20-turn-search-calibration-03.md) records no strict or relaxed thirty-second qualifier. All worker/native/sidecar processes exited; the heartbeat is PAUSED as required by owner-approved comment 5970668869. No new worker or automatic 120-second campaign is authorized. Recommend preparing a separate native 120-second RunPod calibration proposal/quote; the strict quality gate, original corpus and independent paid-compute approval remain. Verification/retrieval are charged to the original append-preserving journal. Earlier launch/running sections above are historical.
