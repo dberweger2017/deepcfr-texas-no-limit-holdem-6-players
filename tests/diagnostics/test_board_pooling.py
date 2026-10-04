@@ -390,3 +390,68 @@ def test_preparation_reuses_export_only_after_range_and_feature_checks(tmp_path,
     feature["codes"] = [[9], [2]]
     with pytest.raises(ValueError, match="card features"):
         exporter.prepare(plan, tmp_path, tmp_path / "changed-features", **args)
+
+
+def test_m4_seven_gib_amendment_keeps_family_arena_and_worker_shape():
+    from src.diagnostics.pooling_runtime import worker_rss_limit
+    budget = {"host": "m4", "workers": 1, "threads_per_worker": 6,
+              "worker_rss_bytes": 7*1024**3, "aggregate_rss_bytes": 8*1024**3,
+              "arena_bytes": 4*1024**3,
+              "worker_rss_amendment": "owner-approved-m4-7gib-before-main"}
+    assert worker_rss_limit(budget) == 7*1024**3
+    for change in ({"host": "linux"}, {"worker_rss_amendment": ""},
+                   {"worker_rss_bytes": 8*1024**3}, {"aggregate_rss_bytes": 9*1024**3},
+                   {"arena_bytes": 5*1024**3}, {"workers": 2}, {"threads_per_worker": 8}):
+        with pytest.raises(ValueError, match="owner-approved M4"):
+            worker_rss_limit(dict(budget, **change))
+
+
+def test_real_pilot_records_separate_rss_and_stops_at_failed_lock(tmp_path, monkeypatch):
+    import json
+    from types import SimpleNamespace
+    from scripts import qualify_board_pooling as q
+    from src.diagnostics.flop_check import atomic_json
+    from src.diagnostics.saved_hu20 import file_hash
+    prepared = tmp_path / "prepared"; prepared.mkdir()
+    corpus = tmp_path / "corpus.json"
+    atomic_json(corpus, {"roots": [{"spot": str(i)} for i in range(3)]})
+    plan = tmp_path / "plan.json"
+    atomic_json(plan, {"corpus": {"path": str(corpus)}, "policies": [{"sha256": "pinned"}]})
+    index = prepared / "policy-0.sqlite"; index.write_bytes(b"index")
+    atomic_json(prepared / "policy-0-index.json", {"index_sha256": file_hash(index)})
+    compact = prepared / "compact.json"; compact.write_text('{}')
+    request = prepared / "request.json"
+    atomic_json(request, {"spot": "0", "pooling_phase": "collect", "pot": 200,
+                "ranges": [[], []], "seat_map": [0,1], "memory_budget_bytes": 4*1024**3,
+                "compact_path": str(compact), "seconds": 1})
+    job = {"spot": "0", "policy_index": 0, "request": str(request),
+           "request_sha256": file_hash(request), "compact_sha256": file_hash(compact),
+           "evaluation_fold": 0}
+    atomic_json(prepared / "manifest.json", {"jobs": [job]})
+    monkeypatch.setattr(q, "DiskAverage", lambda *a: SimpleNamespace())
+    monkeypatch.setattr(q, "replay_root", lambda r: r)
+    monkeypatch.setattr(q, "monte_carlo", lambda *a, **k: {"ci95": [-1,1], "deals": 20000})
+    monkeypatch.setattr(q, "statistics", lambda r: [])
+    monkeypatch.setattr(q, "pool_statistics", lambda r: {"groups": []})
+    calls = []
+    def tool(binary, path, out, **limits):
+        req = json.loads(path.read_text()); calls.append((req, limits))
+        out.mkdir()
+        (out / 'response.jsonl').write_text(json.dumps({"event": "both_blueprint_ev", "current_ev_chips": [0,0]})+'\n'+
+            json.dumps({"event": "completion", "status": "solved", "exploitability_pct_pot": .1,
+                        "current_ev_chips": [0,0], "iterations": 25})+'\n')
+        failed = req.get("pooling_phase") == "lock-only"
+        return {"status": "failure" if failed else "completed", "failure": "RSS budget exceeded" if failed else None,
+                "peak_job_rss_bytes": (7*1024**3+1) if failed else len(calls)*1024**3,
+                "elapsed_seconds": len(calls)}
+    monkeypatch.setattr(q, "run_portable_tool", tool)
+    out = tmp_path / "qualify"
+    with pytest.raises(RuntimeError, match="RSS budget exceeded"):
+        q.real_v4(tmp_path/'binary', plan, prepared, out, worker_rss_bytes=7*1024**3)
+    assert len(calls) == 3
+    assert all(l['job_memory_bytes']==7*1024**3 and l['memory_bytes']==4*1024**3 for _,l in calls)
+    assert json.loads(request.read_text())["pooling_phase"] == "collect"
+    resources = json.loads((out/'pilot-0-resources.json').read_text())["stages"]
+    assert resources['solve']['peak_job_rss_bytes'] == 2*1024**3
+    assert resources['lock_only']['peak_job_rss_bytes'] == 7*1024**3+1
+    assert not (out/'pilot-1.json').exists()

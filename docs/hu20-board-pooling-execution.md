@@ -12,7 +12,7 @@ the retained Mac v2 and reference binaries/source receipt. No new M1 solves.
 
 Record an external approval.json with source/binary/plan fingerprints, observed
 swap baseline, shared append-preserving clock path, original start and unreset
-24-hour deadline. One worker, six threads; 5-GiB worker / cache-inclusive 8-GiB
+24-hour deadline. One worker, six threads; owner-amended 7-GiB worker / cache-inclusive 8-GiB
 family ceiling; 20-GiB disk floor. Use `scripts.guard_board_pooling` for every
 stage; it reuses #148's admission and RunBudget. Detached jobs survive SSH.
 Use `ssh -n m4` in loops. No deletion or CloudStorage changes.
@@ -56,3 +56,10 @@ The journal retains 3079.873457832997 guarded seconds with the original
 absolute deadline. Memory engineering plus explicit owner readmission and
 remaining gates are prerequisites for another attempt; current limits and
 science are not waived.
+
+Third explicit owner readmission increases only worker RSS to 7 GiB, with the
+8-GiB family and 4-GiB arena unchanged. Use fresh `approval-resume-04.json`,
+`qualification-04` and `guard-qualify-04`; reuse pinned `prepared-03` unchanged.
+The qualifier reads the approved worker ceiling and writes per-pilot stage
+resource records. All three fixed pilots and the retained fixtures run fresh.
+Post forecast before main; failure stops without retry or further budget change.

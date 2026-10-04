@@ -140,8 +140,8 @@ recorded as excluded. Lock-only completion is labelled evaluated, never solved;
 its convergence qualification is inherited explicitly from phase 1.
 
 Use one worker with six native Rayon threads, nice 10; freeze this count before
-pilots and keep it for the 18 replay jobs. Each worker has a 5-GiB owned RSS
-ceiling and a 4-GiB native arena ceiling checked before allocation. The family
+pilots and keep it for the 18 replay jobs. Following the owner-approved October 4 resource-only amendment, each M4
+worker has a 7-GiB owned RSS ceiling (previously 5 GiB) and a 4-GiB native arena ceiling checked before allocation. The family
 cap is #148's `macos_memory_admission`: min(8 GiB, 0.8 * (free + inactive +
 speculative + file-backed) - 0.5 GiB sidecar). Reuse `validate_admission`,
 `RunBudget`, `machine_snapshot`, `rss_for_tree` and the existing swap guard;
@@ -244,3 +244,15 @@ touch CloudStorage/GoogleDrive. Cost is zero paid compute; $5 unused. Report
 every failure, exclusion, interval and cannot-classify result. Update ROADMAP,
 report and PR, keep draft. State the next 0.4.x implication explicitly, limited
 to this seed-1-selected limp/check-through line, not raised pots or all boards.
+
+## Owner-approved M4 RSS amendment (before main values)
+
+On October 4 the owner raised only the M4 per-worker RSS ceiling to 7 GiB.
+The 8-GiB family cap, 4-GiB native arena, one worker/six threads, disk floor,
+original clock/deadline and all scientific fields remain unchanged. Keep the
+failed 5-GiB attempt intact. Reuse verified preparation; run the three fixed
+pilots fresh and record solve/lock-only/replay peak RSS separately. Stop on
+any 7-GiB breach; no further ceiling increase is authorized. After every gate
+passes, post the measured forecast and start main only if it fits the original
+remaining allowance including the one-hour closeout reserve. No main outcomes
+existed when this resource amendment was approved.

@@ -1,5 +1,7 @@
 # HU20 board-blind pooling — revision 3 qualification stop
 
+**Prior qualification stop retained; owner has now approved M4-only 7-GiB readmission. Main remains unattempted.**
+
 **Preparation completed 120/120 exports. Qualification stopped at the frozen
 5-GiB worker RSS ceiling; main execution never started. No hypothesis decision
 is possible.** The first real-export V4 check and first equilibrium solve passed,
@@ -205,3 +207,14 @@ engineering hypothesis, not a measured attribution of the peak. Raising the
 ceiling or repeating the same failed job is not automatic continuation.
 All real locked/replay checks, remaining fixed V4 pilots and the posted
 conservative forecast must still pass before main values.
+
+## Owner-approved resource-only readmission
+
+After this immutable stop report was published, the owner raised the M4 worker
+RSS ceiling from 5 to 7 GiB and authorized fresh qualification. The 8-GiB family
+cap, 4-GiB solver requests, all frozen science and original clock stay unchanged.
+Fresh first/middle/last solve, lock-only and replay resource records are required.
+No main value existed when the amendment was approved. The earlier failure and
+all three verified retrievals remain intact. Bounded-memory engineering is now
+the fallback if the amended pilot fails, rather than a prerequisite to this
+explicit owner-approved resumption. Forecast admission remains mandatory.

@@ -164,6 +164,8 @@ def campaign(a):
     qualification = json.loads(Path(budget["qualification_path"]).read_text())
     if not qualification["passed"] or not all(r["passed"] for r in qualification["gates"]):
         raise ValueError("Qualification gates did not pass")
+    if qualification.get("worker_rss_bytes") != budget["worker_rss_bytes"]:
+        raise ValueError("Worker RSS ceiling differs from qualification")
     if qualification.get("threads_per_worker") != budget["threads_per_worker"]:
         raise ValueError("Replay thread count differs from fixed pilots")
     if (qualification["binary_sha256"] != budget["binary_sha256"]

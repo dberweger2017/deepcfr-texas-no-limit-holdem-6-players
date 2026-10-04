@@ -15,6 +15,7 @@
   "paid_cost_usd": 0,
   "retrieval_shutdown_reserve_seconds": 3600,
   "threads_per_worker": 6,
-  "worker_rss_bytes": 5368709120,
+  "worker_rss_amendment": "owner-approved-m4-7gib-before-main",
+  "worker_rss_bytes": 7516192768,
   "workers": 1
 }

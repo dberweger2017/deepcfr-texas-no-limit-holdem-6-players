@@ -10,14 +10,14 @@ from scripts.validate_board_pooling import validate as singleton
 from scripts.validate_flop_check import monte_carlo
 from src.diagnostics.board_pooling_policy import DiskAverage
 from src.diagnostics.flop_check import atomic_json
-from src.diagnostics.pooling_runtime import run_portable_tool
+from src.diagnostics.pooling_runtime import run_portable_tool, worker_rss_limit
 from src.diagnostics.saved_hu20 import file_hash
 from src.diagnostics.turn_check import replay_root
 from src.diagnostics.board_pooling import pool_statistics
 from src.diagnostics.board_pooling_results import statistics, check_lock_only, check_locked_br_parity
 
 
-def parity(binary, fixtures, out):
+def parity(binary, fixtures, out, *, worker_rss_bytes=6 * 1024**3):
     out.mkdir(parents=True, exist_ok=False); checks = []
     for path in sorted(fixtures.glob("*.json")):
         request = json.loads(path.read_text())
@@ -27,7 +27,7 @@ def parity(binary, fixtures, out):
         if request.get("compact_path") or request.get("dump_path"):
             raise ValueError("Recorded river parity fixtures must have no host-specific external paths")
         runtime = run_portable_tool(binary, path, out / path.stem,
-            memory_bytes=request["memory_budget_bytes"], threads=6, seconds=300, job_memory_bytes=6 * 1024**3)
+            memory_bytes=request["memory_budget_bytes"], threads=6, seconds=300, job_memory_bytes=worker_rss_bytes)
         if runtime["status"] != "completed":
             raise RuntimeError(runtime["failure"])
         actual = [json.loads(line) for line in (out / path.stem / "response.jsonl").read_text().splitlines()]
@@ -63,7 +63,7 @@ def parity(binary, fixtures, out):
     return checks
 
 
-def real_v4(binary, plan, prepared, out):
+def real_v4(binary, plan, prepared, out, *, worker_rss_bytes=5 * 1024**3):
     config = json.loads(plan.read_text()); corpus = json.loads(Path(config["corpus"]["path"]).read_text())
     manifest = json.loads((prepared / "manifest.json").read_text())
     selected = [corpus["roots"][i] for i in (0, len(corpus["roots"]) // 2, len(corpus["roots"]) - 1)]
@@ -74,6 +74,11 @@ def real_v4(binary, plan, prepared, out):
     source = DiskAverage(prepared / "policy-0.sqlite", spec)
     out.mkdir(parents=True, exist_ok=False); gates = []; locked_seconds = []
     for index, root in enumerate(selected):
+        resources = {}
+        def record(stage, runtime):
+            resources[stage] = runtime
+            atomic_json(out / f"pilot-{index}-resources.json", {"spot": root["spot"],
+                "pilot_index": index, "worker_rss_bytes": worker_rss_bytes, "stages": resources})
         job = next(j for j in manifest["jobs"] if j["spot"] == root["spot"] and j["policy_index"] == 0)
         request = json.loads(Path(job["request"]).read_text()); request.pop("pooling_phase")
         if file_hash(job["request"]) != job["request_sha256"] or file_hash(request["compact_path"]) != job["compact_sha256"]:
@@ -81,7 +86,8 @@ def real_v4(binary, plan, prepared, out):
         request.update(max_iterations=1, progress_every=1, compact_kind="bp-ev")
         path = out / f"pilot-{index}.json"; atomic_json(path, request)
         runtime = run_portable_tool(binary, path, out / f"pilot-{index}",
-            memory_bytes=request["memory_budget_bytes"], threads=6, seconds=600, job_memory_bytes=5 * 1024**3)
+            memory_bytes=request["memory_budget_bytes"], threads=6, seconds=600, job_memory_bytes=worker_rss_bytes)
+        record("v4", runtime)
         if runtime["status"] != "completed":
             raise RuntimeError(runtime["failure"])
         response = [json.loads(line) for line in (out / f"pilot-{index}/response.jsonl").read_text().splitlines()]
@@ -100,7 +106,8 @@ def real_v4(binary, plan, prepared, out):
         path = out / f"pilot-{index}-equilibrium.json"; atomic_json(path, equilibrium)
         runtime = run_portable_tool(binary, path, out / f"pilot-{index}-equilibrium",
             memory_bytes=equilibrium["memory_budget_bytes"], threads=6,
-            seconds=equilibrium["seconds"] + 300, job_memory_bytes=5 * 1024**3)
+            seconds=equilibrium["seconds"] + 300, job_memory_bytes=worker_rss_bytes)
+        record("solve", runtime)
         if runtime["status"] != "completed":
             raise RuntimeError(runtime["failure"])
         response = [json.loads(line) for line in (out / f"pilot-{index}-equilibrium/response.jsonl").read_text().splitlines()]
@@ -123,7 +130,8 @@ def real_v4(binary, plan, prepared, out):
         fresh_path = out / f"pilot-{index}-locked.json"; atomic_json(fresh_path, fresh)
         locked = run_portable_tool(binary, fresh_path, out / f"pilot-{index}-locked",
             memory_bytes=fresh["memory_budget_bytes"], threads=6, seconds=fresh["seconds"]+300,
-            job_memory_bytes=5*1024**3)
+            job_memory_bytes=worker_rss_bytes)
+        record("lock_only", locked)
         if locked["status"] != "completed":
             raise RuntimeError(locked["failure"])
         actual = [json.loads(line) for line in (out / f"pilot-{index}-locked/response.jsonl").read_text().splitlines()]
@@ -133,7 +141,8 @@ def real_v4(binary, plan, prepared, out):
         replay_path = out / f"pilot-{index}-locked-replay.json"; atomic_json(replay_path, replay)
         replay_runtime = run_portable_tool(binary, replay_path, out / f"pilot-{index}-locked-replay",
             memory_bytes=replay["memory_budget_bytes"], threads=6, seconds=replay["seconds"]+300,
-            job_memory_bytes=5*1024**3)
+            job_memory_bytes=worker_rss_bytes)
+        record("replay", replay_runtime)
         if replay_runtime["status"] != "completed":
             raise RuntimeError(replay_runtime["failure"])
         solved = [json.loads(line) for line in (out / f"pilot-{index}-locked-replay/response.jsonl").read_text().splitlines()]
@@ -148,17 +157,25 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     for name in ("binary", "reference-binary", "fixture", "river-fixtures", "plan", "prepared", "out"):
         p.add_argument("--" + name, type=Path, required=True)
-    a = p.parse_args(); a.out.mkdir(parents=True, exist_ok=False)
+    p.add_argument("--approval", type=Path, required=True)
+    a = p.parse_args()
+    approval = json.loads(a.approval.read_text())
+    rss_limit = worker_rss_limit(approval)
+    if file_hash(a.binary) != approval["binary_sha256"] or file_hash(a.plan) != approval["plan_sha256"]:
+        raise ValueError("Approved qualification binary/plan differs")
+    a.out.mkdir(parents=True, exist_ok=False)
     gate_k = json.loads((a.prepared / "gate-k.json").read_text())
     if not gate_k["passed"]:
         raise ValueError("Prepared key factorization gate failed")
-    gates = [gate_k] + parity(a.binary, a.river_fixtures, a.out / "river-parity")
+    gates = [gate_k] + parity(a.binary, a.river_fixtures, a.out / "river-parity", worker_rss_bytes=rss_limit)
     gates += singleton(a.binary, a.reference_binary, a.fixture, a.out / "singleton", threads=6)["gates"]
-    real_gates, locked_seconds = real_v4(a.binary, a.plan, a.prepared, a.out / "real-v4")
+    real_gates, locked_seconds = real_v4(a.binary, a.plan, a.prepared, a.out / "real-v4", worker_rss_bytes=rss_limit)
     gates += real_gates
     atomic_json(a.out / "qualification.json", {"passed": all(g["passed"] for g in gates), "gates": gates,
                 "binary_sha256": file_hash(a.binary), "plan_sha256": file_hash(a.plan),
                 "lock_only_pilot_seconds": locked_seconds, "threads_per_worker": 6,
+                "worker_rss_bytes": rss_limit, "approval_sha256": file_hash(a.approval),
+                "pilot_resource_files": [str(a.out / "real-v4" / f"pilot-{i}-resources.json") for i in range(3)],
                 "linux_parity": {"status": "not-run", "reason": "M4 revision 3; no Linux deployment"}})
 
 
