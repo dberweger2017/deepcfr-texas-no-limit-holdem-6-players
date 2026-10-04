@@ -1,207 +1,207 @@
-# HU20 board-blind pooling — revision 3 M4 stop report
+# HU20 board-blind pooling — revision 3 qualification stop
 
-**Cannot classify yet: both prior preparation attempts stopped before any solver value existed.**
-The owner has explicitly resumed again; guarded recovery is running in
-`prepared-03` from isolated, verified inputs.
-The owner-authorized resumption completed 80/120 exports, then stopped because
-the shared input directory had been archived. All three original sources are
-now restored and hash-verified in an isolated folder; no restart occurred.
-The forty-board / three-average-export frozen campaign remains unattempted.
-This is a resource stop, not a convergence, playing-strength or abstraction result.
+**Preparation completed 120/120 exports. Qualification stopped at the frozen
+5-GiB worker RSS ceiling; main execution never started. No hypothesis decision
+is possible.** The first real-export V4 check and first equilibrium solve passed,
+but the fresh lock-only evaluation exceeded its RSS budget. All owned experiment
+processes exited; the heartbeat is paused and no automatic restart occurred.
 Draft [PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149)
-remains open; no training, promotion, rental or merge occurred.
+remains open. Paid cost is **$0**, with the $5 RunPod allowance unused.
 
-## Prospective revision 3
+## Frozen question and inference limits
 
 The October 4 owner request released M4 after #148 merged and replaced the
-RunPod plan. No pod was ever rented; $5 goes unused. The
-[protocol](../hu20-board-pooling-protocol.md) keeps corpus, halves, cross-fitting,
-seeds, thresholds, bootstrap and point classification frozen. The M4 budget uses
-one six-thread worker, nice 10 for native work, a 5-GiB worker / cache-inclusive
-<=8-GiB family ceiling, the existing #148 admission/RunBudget and #145 native
-process guard, >=20-GiB free disk and a cumulative 24-hour allowance including
-tests, preparation, failures and closeout. No M1 solves. An unreset absolute
-24-hour deadline conservatively includes idle and retrieval time.
+RunPod plan. The [protocol](../hu20-board-pooling-protocol.md) retains forty
+boards on the seed-1-occupancy-selected limped, BB-check, flop-check-through
+line, three B500M stored-average exports, the frozen 20/20 halves, seeds,
+cross-fitting, classification thresholds and 2,000 paired-board bootstrap draws.
+Ranges are taken as given. Target convergence is at most 0.2% pot, using the
+native reopening menu without raise caps or substitutions.
 
-Before any main value, the owner-requested missing-key rule was frozen: if
-missing own-target-policy decision reach exceeds 5% on either street in any
-fold/lineage, D is descriptive only. Primary uniform fallback stays unchanged.
-The supplementary covered-context D replaces missing/zero-mass keys with the
-per-root v1 witness and uses held-out strategies at covered keys. This hybrid
-full-game sensitivity is not conditional EV or a causal decomposition.
+D = (held-out board-blind v1 loss − per-root v1 loss) / (blueprint loss −
+per-root v1 loss), with the predeclared 0.1-BB gap floor. D <=0.3 supports the
+trainer/coverage interpretation; D >=0.7 supports board pooling; otherwise the
+readout is mixed. Classification additionally requires a complete campaign,
+32 common three-export boards, 80% common weight and sixteen boards in each
+half. Missing own-target-policy decision reach above 5% on either street in any
+fold/lineage makes D descriptive only. The covered-context sensitivity uses
+the held-out policy at covered keys and the per-root witness at missing or
+zero-mass keys; it is a hybrid full-game policy, not conditional EV or a causal
+loss decomposition. Uniform fallback remains the primary rule.
 
-## Outcomes and gates
+All these fields were frozen before main outcomes. Projections are feasible
+witnesses, not abstraction equilibria or lower bounds. Any eventual readout
+applies to this selected public line; it cannot settle raised pots, flop
+strategy, preflop range error or full-game strength. Bootstrap intervals would
+condition on fixed fitted policies/codebooks and omit fitting uncertainty.
+The [solver-free companion](hu20-board-pooling-preparation.md) reports retained
+diagnostic board diversity, not historical training board occupancy.
+
+## Completed preparation and partial qualification
 
 | Work | Recorded outcome |
 |---|---|
-| Source/engine/tool/three average export fingerprints | Verified on M4; engine 5db20e3d5d6862b32a7402035c1340b622d3b005 |
-| Corpus tree compilation and card features | All 40 generated; raw card features were transient, codebooks retained |
+| Three stored-average sources, engine and external tools | Frozen hashes verified; sources isolated in `inputs-restored-02` |
+| Corpus, card features, codebooks and native trees | All forty boards exported for all three lineages |
 | K | 100,000 comparisons, zero mismatches, passed |
-| Immutable average index | First attempt: seed 1. Resumed attempt: seeds 1 and 2 complete; seed 3 not started |
-| Compact policy exports | First attempt: 9 complete, tenth partial. Resumed attempt: 80 complete, all 40 boards for each of seeds 1 and 2 |
-| New M4 V1–V3 / singleton fixtures | Not run |
-| Real-export V4 | Not run; zero of 60,000 intended pilot deals |
-| First/middle/last memory/time/convergence pilots | Not run; no memory API estimates or solve-time forecast |
-| Linux parity | Not run; superseded by M4 execution |
-| Phase-1 solves | 0/120; all unattempted, no observed solver exclusions |
-| Phase-2 locked evaluations / 18 replay jobs | Not run |
-| Common three-export boards | 0/40; common-mask inference unavailable |
-| Blueprint/per-root/held-out v1/equity50/in-sample losses | Unavailable for every lineage and target seat |
-| D, covered D, intervals, missing-key coverage and equity headroom | Unavailable; no hypothesis decision |
+| Compact exports | 120/120 complete, zero support exclusions |
+| Immutable recovery | Eighty prior exports accepted only after pinned hashes, regenerated features/codebooks, freshly recomputed ranges and exact complete requests matched; third lineage newly exported |
+| River fixture parity | 34 checks over eight retained fixtures passed; 600 terminal payoff queries, zero chip error |
+| Singleton qualification | Thirteen checks passed, including lock-only BR parity and missing-key fallback |
+| First real-export V4 | Passed, 20,000 independent native-policy deals |
+| First real V1 and V5 | 9,369 native-tree nodes matched; 225 iterations, 0.1831579% pot residual |
+| First fresh lock-only evaluation | RSS guard failure; no completion or loss values |
+| First real replay and middle/last pilots | Unattempted after the stop |
+| Full qualification and production forecast | Not admitted; no completed qualification receipt |
+| Linux parity | Not run; M4 same-host evidence does not constitute Linux parity |
+| Main collect / locked / eighteen replay jobs | 0/120 main solves; all main work unattempted |
+| Common three-export boards | 0/40, zero common weight, zero in each half |
 
-The [generated reporter summary](hu20-board-pooling-artifacts/m4-stop-01/summary.json)
-retains every scheduled root missing from analysis, per-lineage/seat unavailable
-metrics, failure records and file inventory. Missing outcomes are not evidence
-of zero loss or a solver exclusion. No confidence interval can be estimated.
-The unchanged corpus/halves and prospective point rule cannot admit inference
-from this incomplete attempt. Prior thirteen Mac fixture checks are retained
-revision-2 engineering evidence, not new M4 qualification. Forty-five focused
-Python diagnostic checks and twenty-five shared #148 runtime checks pass;
-the twenty board-pooling checks were repeated after export telemetry/reporting
-changes. Final review also repaired paid-worker approval-only watchdog compatibility;
-two blocking-disk regression cases pass and no M4 value or guard outcome changed.
-CI status is recorded on the PR, independently of these local checks.
+The `real-v4/gates.json` partial file says `passed: true` for the first V4 and
+V5 checks accumulated so far. It does **not** certify all qualification gates,
+lock checks, three pilots or a production forecast. The V4 stage uses a
+one-iteration locked EV check; its large residual is not a failed equilibrium
+solve. Only the later 225-iteration solve is convergence-qualified.
 
-## First-attempt resources and failure chronology
+The [generated frozen-plan report](hu20-board-pooling-artifacts/m4-stop-03/report.md)
+and [summary](hu20-board-pooling-artifacts/m4-stop-03/summary.json) contain no
+campaign rows. Pooled, each lineage and each target-seat BB/pot-percent losses,
+bootstrap intervals, D, covered-context D, equity50 headroom and held-out
+missing-key coverage are **unavailable**. Forty scheduled roots are recorded
+as missing all policy indices; they are unattempted, not observed solver
+exclusions. Incomplete pilot values never count toward the campaign mask.
 
-Initial M4 inspection found zero swap, about 37 GiB free disk and existing
-archive/Drive activity plus idle Ollama. These were left untouched. Native
-sources stayed outside the MIT checkout. Guarded preparation started
-2026-10-04T11:20:51.824222+00:00, and the 20-GiB free-disk guard stopped it at
-2026-10-04T11:25:19.288782+00:00. The attempt consumed **267.468 seconds
-(4.46 M4-minutes)** and peaked at
-**1.654 GiB** owned RSS. No RSS or swap
-stop occurred. Free disk was 16.18 GiB at the
-retained closeout snapshot; it continued to fall as unrelated archival work
-proceeded. The owner expects more free space after cleanup, but future capacity
-does not waive the current floor. No experiment process remains running and
-no automatic restart was attempted.
+## First fixed real pilot — descriptive qualification evidence only
 
-The journal debits guarded time; the unreset absolute deadline additionally
-bounds administration, idle and retrieval time. At retrieval verification the
-conservative elapsed allowance was 0.742
-hours, including the failed test/export and closeout. Neither clock nor resource
-floor was reset. The original deadline is 2026-10-05T11:19:43.505676+00:00.
-Uncompressed and then compressed Tailscale retrievals were interrupted for low
-throughput. Final retrieval used LAN SSH with the existing pinned M4 host key;
-only owned transfer processes were stopped. Source evidence remained intact.
-The first local reporting invocation lacked PYTHONPATH for the temporary helper;
-it exited before verification and was rerun with the checkout on PYTHONPATH.
-No solver, evidence or estimate changed.
+Spot `cd8511f851948a2ea410adeb133b13d1cfcbdd9f8336cecf050fa303a13209a9`,
+seed 2026093001, root pot 200 chips (2 BB). This fixed pilot was selected by the
+qualification protocol. It is not a main outcome or cross-fit board sample.
 
-## First-attempt retrieval, provenance and cost
+The real-policy locked solver EV was **0.3684459 BB**, inside the native
+Monte Carlo 95% interval **[0.2940080, 0.4075920] BB** (mean 0.3508 BB,
+20,000 independent deals, seed 202610030310, weighted holdings with blocker
+rejection). V4 passed. Both solver memory estimates were called before
+allocation: **3,908,266,992 bytes uncompressed (3.640 GiB)** and
+**1,968,657,456 compressed (1.833 GiB)**, below the 4-GiB arena budget.
+Compression was used.
 
-All **2,418 files / 1,084,490,993 bytes** match the M4 manifest, with
-zero hash mismatches. The manifest excludes itself and its own hash was verified
-separately: `05c82c25f050958894658cb732b1e187844e383a690f76d4a5443bcdd897122f`.
-[Verification receipt](hu20-board-pooling-artifacts/m4-stop-retrieval.json).
-Source: `cf9af2b11181fe64fec13bc2247248829b4454db`; Mac v2 binary: `4f22f58bd677c6fb46e980c69fcfd14f13cadd850417c0aca711983aaacc7792`;
-original reference binary: `b48284303f120acaf6694b60ff344cb466f08aaabe4cc5d9bf1af64c7acd10eb`.
-Corpus and half hashes remain pinned in the tracked plan; the three average
-source hashes and external AGPL source archive/lockfile hashes are in setup and
-the retrieval inventory. No incomplete attempt values enter an estimate.
+| Target solver seat | Blueprint loss BB (% pot) | Per-root v1 loss BB (% pot) |
+|---|---:|---:|
+| 0 | 0.777066 (38.8533%) | 0.284480 (14.2240%) |
+| 1 | 1.145156 (57.2578%) | 0.418938 (20.9469%) |
 
-M4 raw evidence remains at `/Users/dberweger/Local/hu20-board-pooling-20261004`;
-verified M1 copy is `/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-20261004`.
-Keep both for the PR149 Drive archival destination in RESULTS_INDEX. Nothing
-was deleted on M4, and CloudStorage/GoogleDrive was left alone. **Paid cost $0;
-RunPod budget $5 unused.** No TensorBoard was started.
+These are first-pilot points only; no board-bootstrap interval can be estimated
+from them. They do not measure board-blind loss, coverage, D or headroom.
+The completed equilibrium pipeline took **255.950 seconds** by watchdog
+(255.677 seconds emitted by native completion), with **4,956,536,832 bytes
+(4.616 GiB)** peak guarded worker RSS. Equilibrium EVs were
+[-35.8770638, 35.8770638] chips; achieved residual was 0.1831579% pot.
 
-## Meaning for the next 0.4.x step
+The subsequent fresh lock-only job stopped after **22.322 seconds** at
+**5,372,346,368 bytes (5.003388 GiB)** against **5,368,709,120 bytes (5 GiB)**.
+No locked measurements completed. Its swap baseline and peak were unchanged
+at 34,015,805 bytes. The outer family guard sampled a 4.998-GiB peak; the
+nested worker sample caught the RSS breach. These different samples do not
+imply the 8-GiB aggregate ceiling was exceeded. Arena estimates fitting does
+not establish that decoded policies, statistics and strategy locks fit the
+complete worker RSS budget.
 
-This attempt gives **no new basis to choose abstraction work or trainer changes**.
-The next step is completing the already frozen diagnostic after an explicit owner resume following the latest mandatory stop,
-using the isolated restored inputs, within the
-remaining original allowance. Real-export V4, all three fixed memory/time pilots
-and the posted production forecast remain prerequisites. Do not infer that the
-large trees fit, converge or finish in 4–10 hours without those pilots.
+[Compact qualification evidence](hu20-board-pooling-artifacts/m4-qualification-stop-03.json)
+retains gate details, runtimes, point metrics and raw response hashes. The
+failed lock response contains tree/memory evidence only, no fabricated losses.
 
-Any eventual conclusion is limited to the seed-1-census-selected limped,
-flop-check-through line. It cannot settle raised pots, flop strategy, preflop
-range error or full-game strength. Projections are feasible witnesses, not
-abstraction equilibria or lower bounds; empirical coverage and bootstrap
-intervals condition on the fixed fitted policies/codebooks. The solver-free
-companion measures retained diagnostic board diversity, not historical training
-board occupancy. No new training or release claim follows from this stop.
+## Every attempt and resource stop
 
-## Owner-authorized resumption
+One six-thread worker, nice 10 for native work, 5-GiB worker / at most 8-GiB
+owned family RSS, 4-GiB arena and a 20-GiB free-disk floor were preserved.
+Unrelated jobs were left untouched; no new TensorBoard or M1 solve ran.
 
-Following the owner’s explicit resume instruction, fresh admission at
-2026-10-04 13:07 UTC measured 30.2 GiB free disk and admitted the unchanged
-8-GiB aggregate ceiling. Source `482b0af2f5bebd2fa2e1beb855e70bda3ed3deb4`
-includes the previously tested shared-watchdog compatibility fix. Guarded
-preparation uses fresh `prepared-02` and `guard-prepare-02` directories,
-leaving the first partial attempt intact. [Readmission receipt](hu20-board-pooling-artifacts/m4-resume-02.json).
-The original absolute deadline, cumulative journal, corpus, halves, policies,
-thresholds and resource floors are unchanged. No new solver values are
-admitted by resumption; qualification and the measured production forecast
-remain prerequisites. This is explicit owner readmission, not automatic restart.
+| Stage | Guarded seconds | Peak owned RSS | Outcome |
+|---|---:|---:|---|
+| Prepare 01 | 267.468 | 1.654 GiB | Free-disk guard; nine exports complete, tenth partial |
+| Prepare 02 | 1,603.875 | 1.670 GiB | Missing third source after shared input alias archived; eighty exports complete |
+| Prepare 03 | 879.817 | 2.016 GiB | All 120 exports completed under verified recovery |
+| Qualify 03 | 328.714 | 4.998 GiB outer sampled; 5.003 GiB nested worker | First fresh real lock exceeded RSS; outer stage exited 1 |
 
-## Resumed preparation stop and restored inputs
+The first disk stop occurred October 4 at 11:25:19 UTC; the missing-input
+stop at 13:34:34 UTC; the qualification stop at 14:47:56 UTC. Both resumptions
+followed explicit owner instructions, with fresh approvals and output folders.
+No automatic restart followed a guard failure. The append-only journal totals
+**3,079.873 seconds (51.331 minutes / 0.8555 guarded hours)**, including all
+failed attempts. Original start 1791112783.505676 and absolute deadline
+1791199183.505676 (October 5 at 11:19:43 UTC) remain unchanged. The absolute
+deadline also bounds idle, administration and retrieval; guarded hours alone
+are not remaining wall allowance. The 3,600-second closeout reserve was not
+converted into production time. There is no complete slowest-lock timing, so
+no conservative production forecast can be admitted.
 
-The resumed attempt stopped on October 4 at 13:34:34 UTC after
-**1,603.875 seconds (26.73 minutes)**, peaking at **1.670 GiB owned RSS**.
-Its first two immutable indexes and all eighty corresponding compact exports
-completed. When the third index was opened, the source was absent:
-`/Users/dberweger/Local/hu20-exact-flop-check-inputs/B-2026093003-500000000.average.jsonl.gz`.
-The shared directory had been replaced by an `ARCHIVED-RESTORE-20261004.json`
-pointer. This is an input-availability failure, not a hash mismatch,
-convergence failure or memory/disk stop. Qualification never started; there
-are still zero native solver values, real-export V4 deals or main results.
+The stop snapshot recorded 94.21 GiB free disk, above the floor. The latest
+failure was neither disk nor swap growth. The first guard stopped correctly
+as unrelated archive work reduced disk; future promised free capacity never
+waived the current floor. Early low-throughput Tailscale retrievals were
+interrupted, then transferred over LAN using the existing pinned host key.
+A first reporting helper invocation lacked PYTHONPATH and was rerun before
+verification; it changed no experimental evidence.
 
-The guard recorded `Stage exit 1`; the continuation watcher recorded the
-upstream failure and stopped before qualification. The journal retains both
-attempts, **1,871.342 seconds (31.19 minutes)** total. Its original absolute
-deadline remains October 5 at 11:19:43 UTC. No clock, floor or science changed.
-The heartbeat is paused; no automatic restart occurred. Free disk at closeout was 97.65 GiB, comfortably above the
-20-GiB floor; the exact measured snapshot is retained in raw evidence.
+## Provenance, recovery and retained evidence
 
-All three source exports were recovered from the retained M1 archive copy at
-`/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-inputs`.
-The original frozen hashes match on both Macs. They now live separately at
-`/Users/dberweger/Local/hu20-board-pooling-20261004/inputs-restored-02`.
-The shared archived alias and Drive were untouched. The retained cloud archive
-pointer is provenance; restoration used the local copy, with no cloud download.
-A defensive exporter fix checks all frozen lineage inputs before costly
-preparation; the existing index builder still rechecks each source before use.
-**21 board-pooling tests pass**, including a missing-later-lineage regression
-that confirms no prepared output or tree work starts. The failed M4 attempt
-used source `482b0af2f5bebd2fa2e1beb855e70bda3ed3deb4`; the preflight fix was
-made afterward and did not alter the failed attempt.
+The missing-source stop retained the original shared restoration pointer.
+All three original average exports were restored from the retained M1
+`/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-inputs`
+copy into the isolated M4 `inputs-restored-02`; frozen hashes matched on both
+hosts. Drive and the archived shared alias were untouched. Source
+`fd5ebcd653c325e4d54cfa40f056f49c6a528ed7` prechecks all inputs and implements
+pinned exporter recovery. Twenty-three Python board-pooling tests pass,
+including corruption, range/feature changes, missing later sources and exact
+JSON-normalized request equality. Immutable hard links preserve accepted
+index/compact files; old attempts and receipts remain intact. This is exporter
+recovery, not reused solver results or a scientific change.
 
-The second full raw retrieval and generated reporter summary retain both
-failures, the eighty exports, original and resumed journals, restored input
-provenance and all hashes. No metric, bootstrap interval, missing-key coverage,
-D, covered-context D or equity headroom is estimable for any lineage or seat.
-The reporter records zero common eligible three-export boards and cannot
-classify. Missing scheduled roots are unattempted, not observed solver exclusions.
-No paid compute, training, promotion, merge or new TensorBoard occurred.
-
-The second retrieval verifies **2,623 files / 4,697,713,515 bytes**, with zero
-member mismatches. Its manifest hash is
+The full third retrieval verifies **3,029 files / 10,125,291,134 logical bytes**,
+**7,296,037,751 unique-inode bytes**, with **82 hard-link groups** preserved
+and zero member mismatches. Its manifest excludes itself and has separately
+verified SHA-256 `cd970496c4a1cff3564410de51916d8902aa4c52c4a81a521eec4c8c9365b944`.
+[Third verification receipt](hu20-board-pooling-artifacts/m4-stop-03-retrieval.json).
+The first immutable [receipt](hu20-board-pooling-artifacts/m4-stop-retrieval.json)
+retains 2,418 files / 1,084,490,993 bytes, manifest
+`05c82c25f050958894658cb732b1e187844e383a690f76d4a5443bcdd897122f`.
+The second [receipt](hu20-board-pooling-artifacts/m4-stop-02-retrieval.json)
+retains 2,623 files / 4,697,713,515 bytes, manifest
 `38710bfd86d9d18c73b93e059ef95bc67b0d501597a276406957507c7595d8f5`.
-[Verification and restored-input receipt](hu20-board-pooling-artifacts/m4-stop-02-retrieval.json).
-[Generated reporter summary](hu20-board-pooling-artifacts/m4-stop-02/summary.json).
-The fresh M1 copy is
-`/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-02-20261004`.
-The first verified M1 copy and its immutable receipt remain preserved.
-The dated M4 originals, partials and isolated input dependencies remain retained
-for the existing RESULTS_INDEX archival destination. No cloud completion or
-permission to delete is implied by retrieval. An explicit owner resume is
-required before another attempt; qualification and forecast remain mandatory.
+Both prior copies remain unchanged.
 
-## Second explicit readmission
+Engine commit `5db20e3d5d6862b32a7402035c1340b622d3b005`; AGPL upstream
+`9d1509fe5077d019825f833eed04b16d342dfda1` remains outside the MIT repo.
+Mac v2 binary SHA-256
+`4f22f58bd677c6fb46e980c69fcfd14f13cadd850417c0aca711983aaacc7792`;
+reference Mac binary
+`b48284303f120acaf6694b60ff344cb466f08aaabe4cc5d9bf1af64c7acd10eb`.
+Frozen plan SHA-256
+`754eac947757ecef9638e665007e8dbf7975b2e02a876267fb6e5e623f462db1`.
+Every member hash, source export and codebook/corpus/half hash is retained in
+the generated inventory and linked receipts. The equilibrium response hash is
+`b4a0c29d2be4ac7050af15f44e9ff9575f9c25a5ec5ec11a628eb0ebec876998`;
+the failed lock response hash is
+`a1b2c9895f6dea99c0e011cd28482525b7dd806ee8b7a18da3fa35e72d2808e0`.
 
-The owner resumed after the missing-input stop. [Fresh admission](hu20-board-pooling-artifacts/m4-resume-03.json)
-recorded 97.46 GiB free disk, with unchanged worker/family limits, both prior
-attempts charged and the original absolute deadline preserved. Source
-`fd5ebcd653c325e4d54cfa40f056f49c6a528ed7` adds exporter recovery: pin and
-verify previous member hashes, recompute K/features/codebooks and ranges,
-compare the complete native-menu request, then share only identical immutable
-index/compact files into fresh `prepared-03`. The third lineage is computed
-normally. Old evidence is not rewritten. This changes recovery mechanics,
-not the corpus, strategy, scientific thresholds or any solver result.
-Twenty-three tests pass, including altered artifact, range and feature rejection.
-Qualification follows only successful guarded preparation; main still requires
-all gates, three fixed pilots and a posted forecast. Heartbeat continuation is
-active again; no automatic restart after any new guard or gate failure.
+M4 originals remain at `/Users/dberweger/Local/hu20-board-pooling-20261004`.
+The latest fresh M1 retrieval is
+`/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-03-20261004`; both
+prior dated retrievals remain. Sources, prepared-02 recovery dependencies,
+prepared-03 and all external tools/failed attempts are retained for the
+existing PR149 Drive destination in RESULTS_INDEX. No cloud completion,
+cleanup or deletion authorization is implied. **Paid cost $0; no rental,
+training, model promotion or merge.**
+
+## Next implementation step
+
+This stop gives no new basis to choose trainer or abstraction changes. First
+reduce peak memory in the lock pipeline, then seek explicit owner readmission
+with fresh resource qualification under the frozen science and original clock.
+A source inspection suggests streaming/narrowing decoded statistics and
+releasing large Python reference responses before fresh lock calls; native
+pooled-file loading and dense locks also deserve measurement. This is an
+engineering hypothesis, not a measured attribution of the peak. Raising the
+ceiling or repeating the same failed job is not automatic continuation.
+All real locked/replay checks, remaining fixed V4 pilots and the posted
+conservative forecast must still pass before main values.

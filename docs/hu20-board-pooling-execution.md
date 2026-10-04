@@ -45,3 +45,14 @@ computed. This is deterministic exporter recovery, not changed science or
 solver-result reuse. `continue_board_m4_03.py` queues `qualification-03` only
 after successful guarded preparation; it never starts main or restarts failure.
 The original clock retains both failed attempts (1871.3424450419989 seconds).
+
+Qualification-03 mandatory stop: preparation completed 120/120 exports; K,
+retained river/singleton fixtures, first real-export V4 (20,000 deals) and
+first V5 (0.1832% pot) passed. Fresh first lock-only evaluation exceeded the
+5-GiB worker RSS limit at 5.0034 GiB. No full qualification/forecast/main was
+admitted. All owned processes exited; heartbeat paused; no automatic restart.
+See the [stop report](reports/hu20-board-pooling.md) and third retrieval receipt.
+The journal retains 3079.873457832997 guarded seconds with the original
+absolute deadline. Memory engineering plus explicit owner readmission and
+remaining gates are prerequisites for another attempt; current limits and
+science are not waived.
