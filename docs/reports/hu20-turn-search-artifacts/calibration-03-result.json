@@ -220,10 +220,49 @@
         "status": "complete",
         "stopped_at": 1791074841.837185,
         "swap_baseline_bytes": 884736000
+      },
+      {
+        "evidence_id": "calibration-03-final-retrieval-01",
+        "local_verification": {
+          "all_manifest_members_verified": true,
+          "bytes": 29486803777,
+          "local_copy": "/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-03-complete",
+          "manifest_sha256": "dd39458bbd629ab0ca3416506a48b8210081e20cf5e9c9f0b07c25850ff3015a",
+          "members": 15292,
+          "method": "independent streaming SHA256 and exact size of every original manifest member",
+          "status": "verified",
+          "verification_seconds": 20.962883249972947,
+          "verified_at": 1791075500.7335732
+        },
+        "metadata_seconds_conservative": 10,
+        "note": "Read-only evidence transfer; includes full transfer wall time plus local verification, conservatively without subtracting overlap. No solver reran.",
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "phase": "calibration-retrieval-and-verification",
+        "seconds": 640.350402371143,
+        "started_at": 1791074845.408886,
+        "status": "complete",
+        "stopped_at": 1791075534.194036,
+        "transfer": {
+          "destination": "/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-03-complete",
+          "exit_code": 0,
+          "seconds": 609.38751912117,
+          "source": "m4:/Users/dberweger/Local/hu20-turn-search-20261003/calibration-03/",
+          "started_at": 1791074845.408886,
+          "stopped_at": 1791075454.796404
+        }
+      },
+      {
+        "evidence_id": "calibration-03-metadata-supplement-01",
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "phase": "calibration-verification-metadata",
+        "reason": "Conservative supplement for small metadata/admission/verifier installation, TensorBoard hash/retrieval and final journal/process reads; no solver work",
+        "seconds": 30,
+        "status": "complete",
+        "stopped_at": 1791075605.650956
       }
     ],
     "limit_seconds": 86400,
-    "used_seconds": 41624.000790334256
+    "used_seconds": 42294.3511927054
   },
   "engineering_30s_qualified": false,
   "exclusions": [],
@@ -238,6 +277,10 @@
       "cold_median_seconds": 4.705869791912846,
       "cold_p95_seconds": 9.334323375020176,
       "cold_p99_seconds": 12.588846417143941,
+      "compatible_holdings_with_zero_posterior_mass_by_seat": {
+        "0": 896,
+        "1": 936
+      },
       "complete": true,
       "config": {
         "cache_entries": 32,
@@ -300,6 +343,10 @@
       "cold_median_seconds": 4.897346291691065,
       "cold_p95_seconds": 9.677037839242256,
       "cold_p99_seconds": 12.896523567356635,
+      "compatible_holdings_with_zero_posterior_mass_by_seat": {
+        "0": 448,
+        "1": 468
+      },
       "complete": true,
       "config": {
         "cache_entries": 32,
@@ -363,6 +410,10 @@
       "cold_median_seconds": 8.952577500022016,
       "cold_p95_seconds": 18.02275379211642,
       "cold_p99_seconds": 24.509461082983762,
+      "compatible_holdings_with_zero_posterior_mass_by_seat": {
+        "0": 896,
+        "1": 936
+      },
       "complete": true,
       "config": {
         "cache_entries": 32,
@@ -425,6 +476,10 @@
       "cold_median_seconds": 9.480240728938952,
       "cold_p95_seconds": 18.941598735132718,
       "cold_p99_seconds": 25.293647507645655,
+      "compatible_holdings_with_zero_posterior_mass_by_seat": {
+        "0": 448,
+        "1": 468
+      },
       "complete": true,
       "config": {
         "cache_entries": 32,
@@ -488,6 +543,10 @@
       "cold_median_seconds": 17.346889478969388,
       "cold_p95_seconds": 30.036481893796008,
       "cold_p99_seconds": 30.070179625707677,
+      "compatible_holdings_with_zero_posterior_mass_by_seat": {
+        "0": 881,
+        "1": 916
+      },
       "complete": true,
       "config": {
         "cache_entries": 32,
@@ -552,6 +611,10 @@
       "cold_median_seconds": 17.64759983343538,
       "cold_p95_seconds": 30.040300887601916,
       "cold_p99_seconds": 30.081395609665197,
+      "compatible_holdings_with_zero_posterior_mass_by_seat": {
+        "0": 433,
+        "1": 452
+      },
       "complete": true,
       "config": {
         "cache_entries": 32,
@@ -615,7 +678,18 @@
   "heartbeat": "PAUSED",
   "independent_arithmetic_verification": "all 1728 coordinates, exact expected sets, weighted mean/p95, cold p95, strict/relaxed gates, native quality events and fallback reference values",
   "local_copy": "/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-03-complete",
-  "local_copy_verification_status": "transfer-running",
+  "local_copy_verification": {
+    "all_manifest_members_verified": true,
+    "bytes": 29486803777,
+    "local_copy": "/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-03-complete",
+    "manifest_sha256": "dd39458bbd629ab0ca3416506a48b8210081e20cf5e9c9f0b07c25850ff3015a",
+    "members": 15292,
+    "method": "independent streaming SHA256 and exact size of every original manifest member",
+    "status": "verified",
+    "verification_seconds": 20.962883249972947,
+    "verified_at": 1791075500.7335732
+  },
+  "local_copy_verification_status": "verified",
   "max_repeat_strategy_absolute_difference": 0.0,
   "missing_final_references": 0,
   "native_receipts": 2557,
@@ -744,7 +818,18 @@
   "selected": null,
   "shared_receipts": 832,
   "status": "owner-decision-needed",
-  "support_gaps_final": 0,
+  "support_gaps_final": {
+    "hypothetical_holding_coverage": "Calibration exports full supported matrices; individual live holding fallback rates require arena measurement.",
+    "missing_reference_coordinates": 0,
+    "reference_retained_mass_failures": 0,
+    "whole_range_zero_support_fallbacks": 0
+  },
+  "tensorboard_manifest": {
+    "events.out.tfevents.1791043530.dberwegerch-m4.local.87831.0": {
+      "bytes": 1326333,
+      "sha256": "42694be84449b3f4491cb4e39c994b40f1e7416f960e91f17ce3ffbd88636681"
+    }
+  },
   "tier": null,
   "unattempted_reduced_screen_coordinates": 18
 }

@@ -45,15 +45,26 @@ Coverage remains cause-specific. Missing blueprint keys and zero-average-mass un
 | 100 | 0 | 48 | 1562 | 897 / 900 | 0 |
 | 100 | 0.01 | 48 | 1562 | 885 / 894 | 95056 |
 
+Whole-range support failures are 0/1,728 (0%). Some compatible individual holdings retain zero posterior mass under the frozen action factors; this is separate from whole-range failure. Counts below cover coordinates with returned range telemetry. Live holding-query fallback rates remain unmeasured until the arena. Structural board-card incompatibilities are removed before the 1,128 compatible holdings per seat and are never revived by flooring.
+
+| Iterations | Floor | Compatible holdings with zero posterior mass: seat 0 / seat 1 |
+| --- | --- | --- |
+| 25 | 0 | 896 / 936 |
+| 25 | 0.01 | 448 / 468 |
+| 50 | 0 | 896 / 936 |
+| 50 | 0.01 | 448 / 468 |
+| 100 | 0 | 881 / 916 |
+| 100 | 0.01 | 433 / 452 |
+
 ## Full screening evidence, reuse and verification
 
 The full [1,966-row curve](hu20-turn-search-artifacts/calibration-03-full-curve.jsonl) publishes every final root, lineage, seat, residual, range law, coverage, receipt, failure and original reference provenance, plus the 238 hash-bound retained screen rows. The [compact result and independent arithmetic proof](hu20-turn-search-artifacts/calibration-03-result.json) include all six aggregate rows and exact gate decisions. The retained screen covers 128 native and 110 reduced-menu coordinates across 1/2/4/6 threads, compression and both floors; eighteen reduced coordinates remain unattempted. All 64 retained screen play failures are timeouts, and 110 reduced rows lack full-native quality/extra speculative LBR costing, so no reduced setting is qualified. The original [screen and timing forecast](hu20-turn-search-calibration-02-budget.md) remain separate, with no calibration-01 timing stitching.
 
 There are 2,557 native receipts and 832 shared receipts (play and quality) from successful exactly identical unlocked epsilon-zero requests. Epsilon=0.01 and failed requests are separate. Completed play versus quality requests have maximum observed full-matrix absolute difference zero. Conservative reconstructed cold latency, actual wall time and retained native receipt duration are all published; cached wall time does not establish cold performance.
 
-The native attempt consumed 29549.600 charged seconds (about 8.208 hours), with peak owned family RSS 5.877 GiB below its 8-GiB admission and no resource guard stop. Worker, native children and sidecar exited. Swap fell from 859.75 MiB to 843.75 MiB. Verification is separately charged; the final journal snapshot will include retrieval too. The three-hour river reserve remains unconsumed.
+The native attempt consumed 29549.600 charged seconds (about 8.208 hours), with peak owned family RSS 5.877 GiB below its 8-GiB admission and no resource guard stop. Worker, native children and sidecar exited. Swap fell from 859.75 MiB to 843.75 MiB. Verification and retrieval are separately charged. Final cumulative M4 journal use is **42294.351 seconds (11.748 hours)**; **12.252 hours remain** of the original 24. The three-hour river reserve remains unconsumed.
 
-All 15,292 raw manifest members / 29,486,803,777 bytes passed independent size/SHA checking on M4. Original raw records remain at `/Users/dberweger/Local/hu20-turn-search-20261003/calibration-03`. A local copy is being independently checked at `/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-03-complete`; final transfer verification and journal totals are recorded below once complete. The manifest SHA256 is `dd39458bbd629ab0ca3416506a48b8210081e20cf5e9c9f0b07c25850ff3015a`. Source 93d55eb, immutable settings, source CI, original references and external binary are unchanged. AGPL solver/harness remain outside MIT; the original #145 binary and earlier failed attempts remain preserved.
+All 15,292 raw manifest members / 29,486,803,777 bytes passed independent size/SHA checking on M4. Original raw records remain at `/Users/dberweger/Local/hu20-turn-search-20261003/calibration-03`. The complete local copy at `/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-03-complete` independently passed exact size/streaming SHA256 checks for **all 15,292 members**. [Retrieval/verification and final clock proof](hu20-turn-search-artifacts/calibration-03-retrieval-verification.json) retain both checks, conservative full-wall-time charges and TensorBoard hashes. No local or M4 original was deleted. The manifest SHA256 is `dd39458bbd629ab0ca3416506a48b8210081e20cf5e9c9f0b07c25850ff3015a`. Source 93d55eb, immutable settings, source CI, original references and external binary are unchanged. AGPL solver/harness remain outside MIT; the original #145 binary and earlier failed attempts remain preserved.
 
 ## Required owner decision
 
