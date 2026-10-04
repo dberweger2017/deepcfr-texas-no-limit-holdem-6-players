@@ -1,0 +1,48 @@
+{
+  "captured_utc": "2026-10-04T09:45:27.455449+00:00",
+  "accepted_upload_integrity": "owner-accepted native Drive completed-upload status plus exact cloud names/sizes and retained member hashes",
+  "pr151": {
+    "head": "d581fdff65d3dbaaace2127e17ac7bb5f229652d",
+    "full_ci": "passed",
+    "merge": "1f628220086af976f130426a8ae9eb13d31cbaf6"
+  },
+  "m1": {
+    "git_tmp_files": 26,
+    "git_tmp_bytes": 6362104120,
+    "staging_archives": 12,
+    "staging_bytes": 3522030679,
+    "obsolete_parts": 4,
+    "obsolete_parts_bytes": 2097152000,
+    "free_bytes_at_capture": 21051387904
+  },
+  "m4": {
+    "removed_files": 1826,
+    "removed_bytes": 6418060050,
+    "retained_files": 0,
+    "free_bytes_after_cleanup": 45641109504,
+    "state": "complete"
+  },
+  "pr136_upload_recovery": {
+    "time": 1791106545.01525,
+    "cause": "Drive CancelUpload completed at 2026-10-04T08:24:40Z; native app retained intact canceled_uploads copy; initiating actor unknown",
+    "recovered_from": "/Users/dberweger/Library/Application Support/Google/DriveFS/canceled_uploads/112330202331069005318/hu20-500m-campaign-20261001-archive-20261002.tar.gz",
+    "destination": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-136-HU20-500M/hu20-500m-campaign-20261001-archive-20261002.tar.gz",
+    "bytes": 23509934825,
+    "sha256": "c0dbb3879eeae5f89be888ca3b29a6c571f6adb214c9d23c6095d0cab007636d",
+    "hash_verified": true,
+    "state": "whole-archive-requeued-native-upload-pending",
+    "M4_originals_retained": true,
+    "no_scientific_rerun": true,
+    "cloud_upload_confirmed": false
+  },
+  "pending": "all native-scope uploads and requeued PR136 archive still require completion confirmation; keep separately retained PR136 originals",
+  "receipts": {
+    "git": "git-temp-cleanup-20261004.json",
+    "staging": "staging-duplicate-cleanup-20261004.json",
+    "parts": "obsolete-parts-cleanup-20261004.json",
+    "m4": "m4-remaining-duplicate-cleanup-20261004-captured.json"
+  },
+  "forced_cache_eviction": false,
+  "synced_payload_deletions": false,
+  "new_science_or_rentals": false
+}
