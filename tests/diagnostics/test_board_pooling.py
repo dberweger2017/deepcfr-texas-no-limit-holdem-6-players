@@ -66,6 +66,26 @@ def test_disk_average_preserves_actual_policy_inference_and_source_hash(tmp_path
         build_index(dict(indexed, sha256="0" * 64), tmp_path, tmp_path / "wrong.sqlite")
 
 
+def test_missing_later_lineage_stops_before_preparation(tmp_path, monkeypatch):
+    import json
+    from scripts import prepare_board_pooling as exporter
+    from src.diagnostics.saved_hu20 import file_hash
+
+    present = tmp_path / "first.gz"
+    present.write_bytes(b"retained source")
+    plan = tmp_path / "plan.json"
+    plan.write_text(json.dumps({"policies": [
+        {"path": present.name, "sha256": file_hash(present)},
+        {"path": "archived-later.gz", "sha256": "0" * 64}]}))
+    def forbidden_tree(*args, **kwargs):
+        pytest.fail("Tree preparation preceded lineage admission")
+    monkeypatch.setattr(exporter, "compile_tree", forbidden_tree)
+    out = tmp_path / "prepared"
+    with pytest.raises(FileNotFoundError, match="archived-later"):
+        exporter.prepare(plan, tmp_path, out)
+    assert not out.exists()
+
+
 def test_companion_compares_named_actions_and_keeps_missing_lineages():
     from scripts.audit_board_pooling_keys import compare, selected_keys
     assert selected_keys({"top_keys_by_excess_mass": {"A": [{"v1_key": "x"}], "B": [{"v1_key": "x"}, {"v1_key": "y"}]}}, 1) == ["x"]

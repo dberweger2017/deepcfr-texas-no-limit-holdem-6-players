@@ -17,7 +17,14 @@ from src.diagnostics.turn_check import replay_root
 
 
 def prepare(plan_path, inputs, out, *, memory_bytes=5 * 1024**3):
-    plan = json.loads(plan_path.read_text()); corpus_path = Path(plan["corpus"]["path"])
+    plan = json.loads(plan_path.read_text())
+    # Shared working aliases can be archived while this campaign is idle.
+    # Refuse a missing or changed lineage before expensive feature exports.
+    for spec in plan["policies"]:
+        source = inputs / spec["path"]
+        if file_hash(source) != spec["sha256"]:
+            raise ValueError(f"Average export hash differs: {source}")
+    corpus_path = Path(plan["corpus"]["path"])
     if file_hash(corpus_path) != plan["corpus"]["sha256"]:
         raise ValueError("Frozen corpus hash differs")
     corpus = json.loads(corpus_path.read_text()); roots = corpus["roots"]
