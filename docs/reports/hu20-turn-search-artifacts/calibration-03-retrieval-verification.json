@@ -1,0 +1,66 @@
+{
+  "budget_sha256": "916cec4f80ffb32451e31dfb1cdfd92822c4e84fca14e2dd71feea31e3cab06f",
+  "final_budget_used_seconds": 42294.3511927054,
+  "local_verification": {
+    "all_manifest_members_verified": true,
+    "bytes": 29486803777,
+    "local_copy": "/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-03-complete",
+    "manifest_sha256": "dd39458bbd629ab0ca3416506a48b8210081e20cf5e9c9f0b07c25850ff3015a",
+    "members": 15292,
+    "method": "independent streaming SHA256 and exact size of every original manifest member",
+    "status": "verified",
+    "verification_seconds": 20.962883249972947,
+    "verified_at": 1791075500.7335732
+  },
+  "m4_verification": {
+    "all_manifest_members_verified": true,
+    "bytes": 29486803777,
+    "final_rows": 1728,
+    "manifest_sha256": "dd39458bbd629ab0ca3416506a48b8210081e20cf5e9c9f0b07c25850ff3015a",
+    "members": 15292,
+    "no_owned_worker_solver_sidecar_processes": true,
+    "raw_root": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-03",
+    "retained_screen_rows": 238,
+    "source_commit": "93d55ebb522d3c09c869ca0f3448716f5bb2ae2f",
+    "status": "verified"
+  },
+  "remaining_seconds": 44105.6488072946,
+  "retrieval_charge": {
+    "evidence_id": "calibration-03-final-retrieval-01",
+    "local_verification": {
+      "all_manifest_members_verified": true,
+      "bytes": 29486803777,
+      "local_copy": "/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-03-complete",
+      "manifest_sha256": "dd39458bbd629ab0ca3416506a48b8210081e20cf5e9c9f0b07c25850ff3015a",
+      "members": 15292,
+      "method": "independent streaming SHA256 and exact size of every original manifest member",
+      "status": "verified",
+      "verification_seconds": 20.962883249972947,
+      "verified_at": 1791075500.7335732
+    },
+    "metadata_seconds_conservative": 10,
+    "note": "Read-only evidence transfer; includes full transfer wall time plus local verification, conservatively without subtracting overlap. No solver reran.",
+    "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+    "phase": "calibration-retrieval-and-verification",
+    "seconds": 640.350402371143,
+    "started_at": 1791074845.408886,
+    "status": "complete",
+    "stopped_at": 1791075534.194036,
+    "transfer": {
+      "destination": "/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-03-complete",
+      "exit_code": 0,
+      "seconds": 609.38751912117,
+      "source": "m4:/Users/dberweger/Local/hu20-turn-search-20261003/calibration-03/",
+      "started_at": 1791074845.408886,
+      "stopped_at": 1791075454.796404
+    }
+  },
+  "river_reserve_seconds": 10800,
+  "tensorboard_manifest": {
+    "events.out.tfevents.1791043530.dberwegerch-m4.local.87831.0": {
+      "bytes": 1326333,
+      "sha256": "42694be84449b3f4491cb4e39c994b40f1e7416f960e91f17ce3ffbd88636681"
+    }
+  },
+  "verification_admission_sha256": "3320b7108f397dbc2e7fd5d6d1d86668a139eb546dd6d0bd6b36b715f978c388"
+}

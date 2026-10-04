@@ -1,0 +1,96 @@
+{
+  "allocation": {
+    "law": "min(configured, floor_to_MiB(max(0, family_cap - measured_family_RSS - reserve)))",
+    "reserve_bytes": 268435456
+  },
+  "arena_expected_paid": true,
+  "base": "average",
+  "compress": [
+    true,
+    false
+  ],
+  "decision_seconds": 30,
+  "final_report_sha256": "b423951703ad5a6ec52c51b6121fa6320b04f837282731f01cc8d97c7deef68e",
+  "iterations": [
+    25,
+    50,
+    100
+  ],
+  "live_turn_conditioning_gap_tolerance": 0,
+  "m4_cumulative_seconds": 86400,
+  "menus": [
+    "native",
+    "cap2"
+  ],
+  "opponent_likelihood_floor": [
+    0,
+    0.01
+  ],
+  "owner_decision_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148#issuecomment-5970668869",
+  "owner_restart_approved": true,
+  "part_a_max_seconds": 21600,
+  "prior_attempt": "calibration-01 retained separately; no timing stitching",
+  "quality": "turn-profile-with-internal-river-continuation-in-full-native-tree",
+  "reference_index_sha256": "68168484b8f8085131c683d62bdff0c29292196297ee6029281dae3f73b4905d",
+  "relaxed": {
+    "each_blueprint_ratio_below": 0.1,
+    "mean_pct_pot": 1,
+    "p95_pct_pot": 2
+  },
+  "resource_readmission": {
+    "family_cap_formula": "min(8 GiB, 80% * reclaimable - 0.5 GiB sidecar)",
+    "max_worker_family_bytes": 8589934592,
+    "minimum_free_disk_bytes": 8589934592,
+    "reclaimable_formula": "free + inactive + speculative + file-backed",
+    "swap_growth_bytes": 1073741824
+  },
+  "river_sample_roots": 32,
+  "selection": "fastest-native-strict-first",
+  "stage": "frozen-final",
+  "staging": {
+    "final_iterations": [
+      25,
+      50,
+      100
+    ],
+    "final_roots": "all eligible frozen reference roots, three selected-base lineages and both bot seats",
+    "finalist_rule": "native settings ranked by screen cold p95 then median; no quality/outcome screening",
+    "finalist_settings_per_floor": 1,
+    "reduced_menu": "retain 110 attempted screen rows and eighteen unattempted coordinates; no new reduced screen solves",
+    "screen_iterations": 100,
+    "screen_root_rule": "lowest spot hash in each stratum; rotate lineage and bot seat in sorted stratum order",
+    "seat_sharing": "epsilon zero only, exact request equality and no locks; success only; no shared failures"
+  },
+  "strict": {
+    "mean_pct_pot": 0.5,
+    "p95_pct_pot": 0.5
+  },
+  "threads": [
+    1,
+    2,
+    4,
+    6
+  ],
+  "upstream_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+  "version": "hu20-turn-search-v3-final-30-only",
+  "x86_emulation_allowed": false,
+  "river_reserve_seconds": 10800,
+  "share_identical_unlocked_seats": true,
+  "quality_evaluation": "separate existing native quality request; no native harness change",
+  "cold_shared_latency": "remeasured preparation plus retained play receipt duration; at least first-seat cold; deadline still enforced",
+  "resume_screen": {
+    "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-02/curve.jsonl",
+    "sha256": "4cc4391960a09a7d8b0c4fbd302054c1780cb805e82aa093185331c943ac8eae",
+    "rows": 238,
+    "prior_protocol_sha256": "5db4cd937d1138770940a9a27d5586846643b8cdbf9d3a0d6a93e22f717bafab"
+  },
+  "research_latency_requires_separate_owner_approval": true,
+  "finalist_configuration_ids": [
+    "680848784c77bcf40b666a155d4f321c9f90493865552d584f8080c563137e94",
+    "3dfe89bd529b66388395f64b7b6be08a7e2571ff0977b9ac8ea40563a753677b",
+    "e51f558ee9c8e1e3dcb00316cca0f68e840ac3cca27f3977f4166d7e597a73c1",
+    "a60e2f9dfa8036a8bb0222b977baea5e607084a3fb133f1d4ffc689fabbc16af",
+    "a06c272538fa22af8c921432df19545865f8e87d36752efa804c8ed94b20c856",
+    "d463365f8ea749b379117b1292f0d8c5ea51c18e077a4201e124226ea5e6e607"
+  ]
+}

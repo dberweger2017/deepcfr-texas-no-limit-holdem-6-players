@@ -1,0 +1,1378 @@
+{
+  "admission": {
+    "145_final_report_pushed": true,
+    "145_main_complete": true,
+    "145_processes_empty": true,
+    "145_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+    "145_report_sha256": "b423951703ad5a6ec52c51b6121fa6320b04f837282731f01cc8d97c7deef68e",
+    "architecture": "arm64",
+    "checked_at": 1791000154.8217568,
+    "followup_claim": "none",
+    "frozen_plan_sha256": "6cf90b54af525f917cf16fa1ea20a49cccba191cfd0686b30136473d6858a474",
+    "ownership_evidence": "#145 report-done PR comment 5964058025; reporting heartbeat PAUSED; reporting chat idle; no follow-on; process check empty; other research chat completed cleanup only; Part A/replay/native-build/reference-freeze exited; reporting chat idle and no new follow-up claim at 2026-10-03 04:06 UTC",
+    "physical_bytes": 17179869184,
+    "pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\n\nStats: \nPages free: 42241 \nPages purgeable: 8438 \nPages purged: 58373772 \n\nSwap I/O:\nSwapins: 42854263 \nSwapouts: 50018155 \n\nPage Q counts:\nPages active: 310793 \nPages inactive: 304658 \nPages speculative: 65022 \nPages throttled: 0 \nPages wired down: 152803 \n\nCompressor Stats:\nPages used by compressor: 131793 \nPages decompressed: 2575446315 \nPages compressed: 2674839214 \n\nFile I/O:\nPageins: 149662592 \nPageouts: 4511120 \n\nSystem-wide memory free percentage: 71%\n",
+    "process_check_stdout": "",
+    "reclaimable_bytes": 6540640256,
+    "rss_limit_bytes": 4563402752,
+    "sidecar_reserved_bytes": 536870912,
+    "source_commit": "0ed08ea66ff8701fa125083eef110e6e5bf10961",
+    "swap": "vm.swapusage: total = 2048.00M  used = 859.75M  free = 1188.25M  (encrypted)\n",
+    "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    44265.\nPages active:                                 319041.\nPages inactive:                               284311.\nPages speculative:                             70633.\nPages throttled:                                   0.\nPages wired down:                             151903.\nPages purgeable:                                8805.\n\"Translation faults\":                    10340031363.\nPages copy-on-write:                       507407344.\nPages zero filled:                        2572384253.\nPages reactivated:                        1706397625.\nPages purged:                               58402238.\nFile-backed pages:                            418908.\nAnonymous pages:                              255077.\nPages stored in compressor:                   535443.\nPages occupied by compressor:                 137178.\nDecompressions:                           2575562004.\nCompressions:                             2674884792.\nPageins:                                   149851210.\nPageouts:                                    4511837.\nSwapins:                                    42854296.\nSwapouts:                                   50018155.\n"
+  },
+  "budget_snapshot": {
+    "attempts": [
+      {
+        "elapsed_seconds": 0.0020376669708639383,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 22380544,
+        "phase": "part-a-verification",
+        "pid": 64868,
+        "reason": null,
+        "seconds": 0.18007208406925201,
+        "started_at": 1790992578.328353,
+        "status": "complete",
+        "stopped_at": 1790992578.506793,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "phase": "part-a-verification",
+        "reason": "Admission helper invoked outside module path: ModuleNotFoundError scripts; no admission or worker started",
+        "seconds": 0.162389,
+        "status": "failed",
+        "stopped_at": 1790992619.860926
+      },
+      {
+        "elapsed_seconds": 61.830106999957934,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 3415310336,
+        "phase": "pilot",
+        "pid": 64911,
+        "reason": null,
+        "seconds": 63.091375957941636,
+        "started_at": 1790992620.457419,
+        "status": "complete",
+        "stopped_at": 1790992683.5441191,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 0,
+        "phase": "part-a-verification",
+        "pid": 65366,
+        "reason": null,
+        "seconds": 0.18150570802390575,
+        "started_at": 1790992788.833623,
+        "status": "complete",
+        "stopped_at": 1790992789.012053,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 4978.924456875073,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 3628908544,
+        "phase": "part-a",
+        "pid": 65553,
+        "reason": null,
+        "seconds": 4979.80666112504,
+        "started_at": 1790993104.0258,
+        "status": "complete",
+        "stopped_at": 1790998083.955976,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 69.50756229204126,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 721240064,
+        "phase": "part-a-verification",
+        "pid": 7413,
+        "reason": "'base_decision'",
+        "seconds": 69.53353283298202,
+        "started_at": 1790999380.752278,
+        "status": "complete",
+        "stopped_at": 1790999450.2847009,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 0.3808491670060903,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 102416384,
+        "phase": "part-a-verification",
+        "pid": 8019,
+        "reason": null,
+        "seconds": 0.3942230420652777,
+        "started_at": 1790999500.8617442,
+        "status": "complete",
+        "stopped_at": 1790999501.254467,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 0,
+        "phase": "native-build-parity",
+        "pid": 8101,
+        "reason": "Command '['git', 'clone', '/Users/dberweger/Local/hu20-turn-search-20261003/upstream-9d1509f.bundle', '/Users/dberweger/Local/hu20-turn-search-tool/upstream']' returned non-zero exit status 128.",
+        "seconds": 0.04749029106460512,
+        "started_at": 1790999624.7818081,
+        "status": "failed",
+        "stopped_at": 1790999624.8278139,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 12.400198833085597,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 621461504,
+        "phase": "native-build-parity",
+        "pid": 8196,
+        "reason": null,
+        "seconds": 13.184220040915534,
+        "started_at": 1790999749.385834,
+        "status": "complete",
+        "stopped_at": 1790999762.568602,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 13.928330459166318,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 408371200,
+        "phase": "reference-freeze",
+        "pid": 8535,
+        "reason": null,
+        "seconds": 13.942721959203482,
+        "started_at": 1791000010.919484,
+        "status": "complete",
+        "stopped_at": 1791000024.8604338,
+        "swap_baseline_bytes": 901513216
+      },
+      {
+        "elapsed_seconds": 598.7923200840596,
+        "out": "/Users/dberweger/Local/hu20-turn-search-20261003",
+        "peak_owned_rss_bytes": 4660592640,
+        "phase": "calibration",
+        "pid": 8747,
+        "reason": "RuntimeError: Experiment interrupted by signal 15; retain partial evidence",
+        "seconds": 599.9497895420063,
+        "started_at": 1791000155.4104881,
+        "status": "incomplete",
+        "stopped_at": 1791000755.356896,
+        "swap_baseline_bytes": 901513216
+      }
+    ],
+    "limit_seconds": 86400,
+    "used_seconds": 5740.473981583312
+  },
+  "failure": "RuntimeError: Experiment interrupted by signal 15; retain partial evidence",
+  "final_rows": 0,
+  "full_curve": [],
+  "guard": {
+    "cause": "MemoryError",
+    "elapsed_seconds": 599.6331071250606,
+    "peak_owned_rss_bytes": 4660592640,
+    "pid": 8747,
+    "reason": "Owned family RSS guard during blocking work"
+  },
+  "heartbeat": "PAUSED",
+  "interrupted_request": {
+    "board": [
+      "As",
+      "9s",
+      "8d",
+      "Qc"
+    ],
+    "compress": false,
+    "max_iterations": 100,
+    "memory_budget_bytes": 5368709120,
+    "native_memory_estimate": {
+      "allocated": false,
+      "compressed_bytes": 1968657456,
+      "elapsed_seconds": 0.054696458,
+      "event": "memory",
+      "memory_budget_bytes": 5368709120,
+      "solver_peak_rss_bytes": 154058752,
+      "uncompressed_bytes": 3908266992
+    },
+    "path": "/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-01/solves/screen/310caa35358f5c8789b1030192c0991b406a31fd07da5006b5eb970428e776fb/b5b56c32409040ddb3e5f19d75519280/request.json",
+    "receipt": {
+      "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+      "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/310caa35358f5c8789b1030192c0991b406a31fd07da5006b5eb970428e776fb/b5b56c32409040ddb3e5f19d75519280",
+      "seconds": 1.4770118750166148,
+      "spot": "578225d9a17e26805e3e0ab02cb31f7e8f459c45ab9f3389b7054497570cf2b9",
+      "status": "failure"
+    },
+    "sha256": "fe48ad8fad230d5bca2ecdfb18db0e41459305ffced780c3ac916c305b0dec74",
+    "threads": 1
+  },
+  "local_copy": "/Users/dberweger/Local/hu20-turn-search-20261002/m4-calibration-01",
+  "no_owned_processes_remaining": true,
+  "protocol": {
+    "arena_expected_paid": true,
+    "base": "average",
+    "compress": [
+      true,
+      false
+    ],
+    "decision_seconds": 30,
+    "final_report_sha256": "b423951703ad5a6ec52c51b6121fa6320b04f837282731f01cc8d97c7deef68e",
+    "iterations": [
+      25,
+      50,
+      100,
+      200,
+      400
+    ],
+    "live_turn_conditioning_gap_tolerance": 0,
+    "m4_cumulative_seconds": 86400,
+    "menus": [
+      "native",
+      "cap2"
+    ],
+    "opponent_likelihood_floor": [
+      0,
+      0.01
+    ],
+    "part_a_max_seconds": 21600,
+    "quality": "turn-profile-with-internal-river-continuation-in-full-native-tree",
+    "reference_index_sha256": "68168484b8f8085131c683d62bdff0c29292196297ee6029281dae3f73b4905d",
+    "relaxed": {
+      "each_blueprint_ratio_below": 0.1,
+      "mean_pct_pot": 1,
+      "p95_pct_pot": 2
+    },
+    "river_sample_roots": 32,
+    "selection": "fastest-native-strict-first",
+    "stage": "frozen-final",
+    "staging": {
+      "final_iterations": [
+        25,
+        50,
+        100,
+        200,
+        400
+      ],
+      "final_roots": "all eligible frozen reference roots, three selected-base lineages and both bot seats",
+      "finalist_rule": "native settings ranked by screen cold p95 then median; no quality/outcome screening",
+      "finalist_settings_per_floor": 2,
+      "reduced_menu": "screen timing, support and speculative LBR cost; unqualified until full-native quality verified",
+      "screen_iterations": 100,
+      "screen_root_rule": "lowest spot hash in each stratum; rotate lineage and bot seat in sorted stratum order"
+    },
+    "strict": {
+      "mean_pct_pot": 0.5,
+      "p95_pct_pot": 0.5
+    },
+    "threads": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "upstream_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+    "version": "hu20-turn-search-v1",
+    "x86_emulation_allowed": false
+  },
+  "raw_root_m4": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01",
+  "reference_index_sha256": "68168484b8f8085131c683d62bdff0c29292196297ee6029281dae3f73b4905d",
+  "restart_authorized": false,
+  "screen_curve": [
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 12.813941955566406,
+      "bot_seat": 0,
+      "cold_seconds": 30.00830858410336,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 1
+      },
+      "configuration_id": "6b0e39c42c5c350237bff2ec8b38c438a3d1a1c66a62833bf0fdcdf354bbdb13",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/001232720b8a9afc4759a420d57eae4c474508d104c99bc72f30ef30c3e3f783/bfac52a389c44f6d9a02f469318bbce8",
+          "reason": "External solve deadline",
+          "seconds": 29.767243625130504,
+          "spot": "16fcd5ad78c227bde5e3056a73673c81b8d5cc02e81dc640e3f1cd72f6fbd445",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "0cd2bd1a3ffd977b7b28798f1c02bc1253bc2af5e87a55a1a1598990931387fc",
+        "original_policy": {
+          "name": "B-2026093001-500000000-stored-average",
+          "path": "B-2026093001-500000000.average.jsonl.gz",
+          "seed": 2026093001,
+          "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "7cf844322f253c51a5d34674b505f6b0db2cecab86bd4daf70163acbf9121791",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-16fcd5ad78c227bde5e3056a73673c81b8d5cc02e81dc640e3f1cd72f6fbd445-3/result.json",
+        "result_sha256": "3982c287ba529cd5b44933ebb1e23ef174426931ddf2e792050908fb36b2c71f"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 12.813941955566406,
+      "root": "16fcd5ad78c227bde5e3056a73673c81b8d5cc02e81dc640e3f1cd72f6fbd445/2026093001/0",
+      "stage": "screen",
+      "stratum": [
+        "3-bet",
+        0
+      ],
+      "weight": 17.25
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 54.44573211669922,
+      "bot_seat": 1,
+      "cold_seconds": 30.028831915929914,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 1
+      },
+      "configuration_id": "6b0e39c42c5c350237bff2ec8b38c438a3d1a1c66a62833bf0fdcdf354bbdb13",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/4104cf014bc1f6b272ccd254421fd7dfd8a4e3089536ec1af5433455004de58d/282bb64e7e53423391b7a7aeffd203cd",
+          "reason": "External solve deadline",
+          "seconds": 29.393142082961276,
+          "spot": "578225d9a17e26805e3e0ab02cb31f7e8f459c45ab9f3389b7054497570cf2b9",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "1f3251c5fae951e39d5bb3c74b3e12f0514008730ca2a1825feef81e5d31771f",
+        "original_policy": {
+          "name": "B-2026093001-500000000-stored-average",
+          "path": "B-2026093001-500000000.average.jsonl.gz",
+          "seed": 2026093001,
+          "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "8584fe965bcbcfe99dcb512f7ef9ed4129f10eb6c8b26fc551a561643cc59978",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-578225d9a17e26805e3e0ab02cb31f7e8f459c45ab9f3389b7054497570cf2b9-3/result.json",
+        "result_sha256": "7fb9c2f05d35128791e2f02682379b97211290da89df08220b5afb047d608c30"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 54.44573211669922,
+      "root": "578225d9a17e26805e3e0ab02cb31f7e8f459c45ab9f3389b7054497570cf2b9/2026093001/1",
+      "stage": "screen",
+      "stratum": [
+        "limped",
+        1
+      ],
+      "weight": 48.5
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 34.99871317545573,
+      "bot_seat": 0,
+      "cold_seconds": 30.011359916999936,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 1
+      },
+      "configuration_id": "6b0e39c42c5c350237bff2ec8b38c438a3d1a1c66a62833bf0fdcdf354bbdb13",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/2382e82c55f735f7731758faac5bf5591f5dad49b3aa5654bc2e0a3ae549c4c8/d79bec9be30b4b8b8c3e8ef89c25636b",
+          "reason": "External solve deadline",
+          "seconds": 29.715868291910738,
+          "spot": "00e247481171ec3bedeeacd653efa7ea2e528c1c3ffe2b6085e11e6403e3ab43",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "4882793e188e917950f66d46dc3d6e91d7086bc5312730a9cb2edc8f317da8cd",
+        "original_policy": {
+          "name": "B-2026093001-500000000-stored-average",
+          "path": "B-2026093001-500000000.average.jsonl.gz",
+          "seed": 2026093001,
+          "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "c4ee9b0f4a181ea53e099a673ae2d54b7e15222241783e78512712c64d0efa9e",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/A-00e247481171ec3bedeeacd653efa7ea2e528c1c3ffe2b6085e11e6403e3ab43-3/result.json",
+        "result_sha256": "43964f2f8bdff473579833473c14d7ad0a3de2a564bc12d8d7709af134de6303"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 34.99871317545573,
+      "root": "00e247481171ec3bedeeacd653efa7ea2e528c1c3ffe2b6085e11e6403e3ab43/2026093001/0",
+      "stage": "screen",
+      "stratum": [
+        "pot-raised",
+        0
+      ],
+      "weight": 7.5
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 23.77699915568034,
+      "bot_seat": 1,
+      "cold_seconds": 30.022681333124638,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 1
+      },
+      "configuration_id": "6b0e39c42c5c350237bff2ec8b38c438a3d1a1c66a62833bf0fdcdf354bbdb13",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/21469104888b59894e851337d8b0ccb062633bb60a87511b1f51c089c324f78e/8ab81898dc2b4a1e9ea4538d2e4c4a2f",
+          "reason": "External solve deadline",
+          "seconds": 29.649610334075987,
+          "spot": "03b764dde8b03aa16e49e7dd5e5404a4e1fe0cc8cee0399a931a487ef2349fb4",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "c95205d45644cdcdca1e87648d63bdd1ecbcb399bb1a028116b0cf517bbf2ec1",
+        "original_policy": {
+          "name": "B-2026093002-500000000-stored-average",
+          "path": "B-2026093002-500000000.average.jsonl.gz",
+          "seed": 2026093002,
+          "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "904e8b81da74287ed08f19f8a4227a22784fa5b4fd14fa29f81985ac99c70850",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-03b764dde8b03aa16e49e7dd5e5404a4e1fe0cc8cee0399a931a487ef2349fb4-4/result.json",
+        "result_sha256": "c24d5f9f74af7398ec745f2e7471cdc23c1a08508303387d602538cb9e89cee1"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 23.77699915568034,
+      "root": "03b764dde8b03aa16e49e7dd5e5404a4e1fe0cc8cee0399a931a487ef2349fb4/2026093002/1",
+      "stage": "screen",
+      "stratum": [
+        "3-bet",
+        1
+      ],
+      "weight": 14.75
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 32.674635569254555,
+      "bot_seat": 0,
+      "cold_seconds": 30.023658958030865,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 1
+      },
+      "configuration_id": "6b0e39c42c5c350237bff2ec8b38c438a3d1a1c66a62833bf0fdcdf354bbdb13",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/66dc302fcfa8ecdd8c1066c797f2f6783d0320baf4dac462561775842fa7db4a/e65718f828eb488dab311373dce717a0",
+          "reason": "External solve deadline",
+          "seconds": 29.723916499875486,
+          "spot": "3fcba4c314977f3ff4f07be8951e7bc1e1d77d8253679d61681a4337458f0960",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "e4f4477c9484105f2ec79087957556379c6f9927fa795d05240766b01464fcbb",
+        "original_policy": {
+          "name": "B-2026093002-500000000-stored-average",
+          "path": "B-2026093002-500000000.average.jsonl.gz",
+          "seed": 2026093002,
+          "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "bf7ec94d7ce0a68c6b8d485eeb7ba008ba37f4bbeaa48a828d247c0bf300ff39",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-3fcba4c314977f3ff4f07be8951e7bc1e1d77d8253679d61681a4337458f0960-4/result.json",
+        "result_sha256": "668d19e1c17ac26f87b07a8dcde75a7c57feaea1cf3835a27ee33f76b16625d7"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 32.674635569254555,
+      "root": "3fcba4c314977f3ff4f07be8951e7bc1e1d77d8253679d61681a4337458f0960/2026093002/0",
+      "stage": "screen",
+      "stratum": [
+        "min-raised",
+        0
+      ],
+      "weight": 44.0
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 18.03520965576172,
+      "bot_seat": 1,
+      "cold_seconds": 30.033180665923283,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 1
+      },
+      "configuration_id": "6b0e39c42c5c350237bff2ec8b38c438a3d1a1c66a62833bf0fdcdf354bbdb13",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/d412ec30834b9a1f804829c4090daa9e6898ad0302759b0c1110038549facc34/e314261118fa458db0724e324b4a9b99",
+          "reason": "External solve deadline",
+          "seconds": 29.76050891703926,
+          "spot": "5d3effc1f6140680ac91b3aefce6e2115e022d8e9150608e62dcdb6e7520cded",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "c4fee438229f80ebf7aecfb87a900a6ba43ca1a8ebd5357b7df65884ae52d307",
+        "original_policy": {
+          "name": "B-2026093002-500000000-stored-average",
+          "path": "B-2026093002-500000000.average.jsonl.gz",
+          "seed": 2026093002,
+          "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "c411d2fb5bf0623e50723b0cfb06c60be83fb69d4343f6bc32ac373def7feaf1",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-5d3effc1f6140680ac91b3aefce6e2115e022d8e9150608e62dcdb6e7520cded-4/result.json",
+        "result_sha256": "1a8010f80ffb483e87602522dc7ce7fba973036e3b91f0a607b69dddb0b2ce9c"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 18.03520965576172,
+      "root": "5d3effc1f6140680ac91b3aefce6e2115e022d8e9150608e62dcdb6e7520cded/2026093002/1",
+      "stage": "screen",
+      "stratum": [
+        "pot-raised",
+        1
+      ],
+      "weight": 27.0
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 65.26810455322266,
+      "bot_seat": 0,
+      "cold_seconds": 30.026993207866326,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 1
+      },
+      "configuration_id": "6b0e39c42c5c350237bff2ec8b38c438a3d1a1c66a62833bf0fdcdf354bbdb13",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/6f98ac20d20aec6028849d2c64ade665abfcf6236eb862b7736c7e80067aa23f/2ecb189935a34aabbd63a12a12bc7fe5",
+          "reason": "External solve deadline",
+          "seconds": 29.633812709013,
+          "spot": "060cdcbf2db19c2a8ad4ba4ad948c0321932630077e03436596d3a4fef2e6506",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "5a1c17da60c6e9205ed6287bac0f362d15cb16645c265a83ca9b74d9b41f5943",
+        "original_policy": {
+          "name": "B-2026093003-500000000-stored-average",
+          "path": "B-2026093003-500000000.average.jsonl.gz",
+          "seed": 2026093003,
+          "sha256": "c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "0622923f5f0dc1a38444f3a612e303af6d846c59a263dd0a0e4136f7a193e653",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-060cdcbf2db19c2a8ad4ba4ad948c0321932630077e03436596d3a4fef2e6506-5/result.json",
+        "result_sha256": "9f4470e90ea4573227f179f689befc33fbbe9c555ab794ae0079407b57baf8e2"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 65.26810455322266,
+      "root": "060cdcbf2db19c2a8ad4ba4ad948c0321932630077e03436596d3a4fef2e6506/2026093003/0",
+      "stage": "screen",
+      "stratum": [
+        "limped",
+        0
+      ],
+      "weight": 47.75
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 48.34202194213867,
+      "bot_seat": 1,
+      "cold_seconds": 30.02525583282113,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 1
+      },
+      "configuration_id": "6b0e39c42c5c350237bff2ec8b38c438a3d1a1c66a62833bf0fdcdf354bbdb13",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/27bc363f530336c866ab742cc3405ebcc7f3088be5d02144d558f6dcb948e0ea/358fd322466d4f9b95e98ea5cbfd4c38",
+          "reason": "External solve deadline",
+          "seconds": 29.724966750014573,
+          "spot": "10a08d18ebe42eeead30b34b35ffab886077a0ca154b70ed0251ec01c56acb7e",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "452c80fb85d5c0f74ddc1aada05e0e79134757442285e9d7d636962c302efb94",
+        "original_policy": {
+          "name": "B-2026093003-500000000-stored-average",
+          "path": "B-2026093003-500000000.average.jsonl.gz",
+          "seed": 2026093003,
+          "sha256": "c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "fa668fe219c2d0f3d769feb7c2ce74f072b05b312d66e421775f3776d2e591f4",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-10a08d18ebe42eeead30b34b35ffab886077a0ca154b70ed0251ec01c56acb7e-5/result.json",
+        "result_sha256": "a3bd849def61f4cb516717e471d2c8c40e2dac79879ac62defa5f3d9a785305e"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 48.34202194213867,
+      "root": "10a08d18ebe42eeead30b34b35ffab886077a0ca154b70ed0251ec01c56acb7e/2026093003/1",
+      "stage": "screen",
+      "stratum": [
+        "min-raised",
+        1
+      ],
+      "weight": 46.75
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 12.813941955566406,
+      "bot_seat": 0,
+      "cold_seconds": 30.005886749830097,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 1
+      },
+      "configuration_id": "065951123321dc8b03288c8e9fbef166febf09322bc2483d953a77e9c255dcce",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/8e95df3177ea0f2709fc17967ef63a6d2ced481d53bcff5628f8c598513c7943/c33b0e4d36c8486dacf84897b0532c34",
+          "reason": "External solve deadline",
+          "seconds": 29.751575333066285,
+          "spot": "16fcd5ad78c227bde5e3056a73673c81b8d5cc02e81dc640e3f1cd72f6fbd445",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "0cd2bd1a3ffd977b7b28798f1c02bc1253bc2af5e87a55a1a1598990931387fc",
+        "original_policy": {
+          "name": "B-2026093001-500000000-stored-average",
+          "path": "B-2026093001-500000000.average.jsonl.gz",
+          "seed": 2026093001,
+          "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "7cf844322f253c51a5d34674b505f6b0db2cecab86bd4daf70163acbf9121791",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-16fcd5ad78c227bde5e3056a73673c81b8d5cc02e81dc640e3f1cd72f6fbd445-3/result.json",
+        "result_sha256": "3982c287ba529cd5b44933ebb1e23ef174426931ddf2e792050908fb36b2c71f"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 12.813941955566406,
+      "root": "16fcd5ad78c227bde5e3056a73673c81b8d5cc02e81dc640e3f1cd72f6fbd445/2026093001/0",
+      "stage": "screen",
+      "stratum": [
+        "3-bet",
+        0
+      ],
+      "weight": 17.25
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 54.44573211669922,
+      "bot_seat": 1,
+      "cold_seconds": 30.037198249949142,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 1
+      },
+      "configuration_id": "065951123321dc8b03288c8e9fbef166febf09322bc2483d953a77e9c255dcce",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/fb432e035647b36c9d62914949037affc483f74f2693300aa1045cd34b834fc2/e34b6297f93846c6b7c48a989a2a3e85",
+          "reason": "External solve deadline",
+          "seconds": 29.56542554195039,
+          "spot": "578225d9a17e26805e3e0ab02cb31f7e8f459c45ab9f3389b7054497570cf2b9",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "1f3251c5fae951e39d5bb3c74b3e12f0514008730ca2a1825feef81e5d31771f",
+        "original_policy": {
+          "name": "B-2026093001-500000000-stored-average",
+          "path": "B-2026093001-500000000.average.jsonl.gz",
+          "seed": 2026093001,
+          "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "8584fe965bcbcfe99dcb512f7ef9ed4129f10eb6c8b26fc551a561643cc59978",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-578225d9a17e26805e3e0ab02cb31f7e8f459c45ab9f3389b7054497570cf2b9-3/result.json",
+        "result_sha256": "7fb9c2f05d35128791e2f02682379b97211290da89df08220b5afb047d608c30"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 54.44573211669922,
+      "root": "578225d9a17e26805e3e0ab02cb31f7e8f459c45ab9f3389b7054497570cf2b9/2026093001/1",
+      "stage": "screen",
+      "stratum": [
+        "limped",
+        1
+      ],
+      "weight": 48.5
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 34.99871317545573,
+      "bot_seat": 0,
+      "cold_seconds": 30.03025145805441,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 1
+      },
+      "configuration_id": "065951123321dc8b03288c8e9fbef166febf09322bc2483d953a77e9c255dcce",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/f1f88b1817f2c423320e5723f5d98366676222eef6e3df18bb663e61c2abac68/57e74df1cf2a460cb62b4dc592a40df3",
+          "reason": "External solve deadline",
+          "seconds": 29.733269750140607,
+          "spot": "00e247481171ec3bedeeacd653efa7ea2e528c1c3ffe2b6085e11e6403e3ab43",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "4882793e188e917950f66d46dc3d6e91d7086bc5312730a9cb2edc8f317da8cd",
+        "original_policy": {
+          "name": "B-2026093001-500000000-stored-average",
+          "path": "B-2026093001-500000000.average.jsonl.gz",
+          "seed": 2026093001,
+          "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "c4ee9b0f4a181ea53e099a673ae2d54b7e15222241783e78512712c64d0efa9e",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/A-00e247481171ec3bedeeacd653efa7ea2e528c1c3ffe2b6085e11e6403e3ab43-3/result.json",
+        "result_sha256": "43964f2f8bdff473579833473c14d7ad0a3de2a564bc12d8d7709af134de6303"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 34.99871317545573,
+      "root": "00e247481171ec3bedeeacd653efa7ea2e528c1c3ffe2b6085e11e6403e3ab43/2026093001/0",
+      "stage": "screen",
+      "stratum": [
+        "pot-raised",
+        0
+      ],
+      "weight": 7.5
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 23.77699915568034,
+      "bot_seat": 1,
+      "cold_seconds": 30.022891250206158,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 1
+      },
+      "configuration_id": "065951123321dc8b03288c8e9fbef166febf09322bc2483d953a77e9c255dcce",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/ab1bb2c4156daf785230a762b33bba0a69887fc5fe1d1120e5539351e2c48f91/d2b6fc3462734769a33946ae1de932dc",
+          "reason": "External solve deadline",
+          "seconds": 29.649659000104293,
+          "spot": "03b764dde8b03aa16e49e7dd5e5404a4e1fe0cc8cee0399a931a487ef2349fb4",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "c95205d45644cdcdca1e87648d63bdd1ecbcb399bb1a028116b0cf517bbf2ec1",
+        "original_policy": {
+          "name": "B-2026093002-500000000-stored-average",
+          "path": "B-2026093002-500000000.average.jsonl.gz",
+          "seed": 2026093002,
+          "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "904e8b81da74287ed08f19f8a4227a22784fa5b4fd14fa29f81985ac99c70850",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-03b764dde8b03aa16e49e7dd5e5404a4e1fe0cc8cee0399a931a487ef2349fb4-4/result.json",
+        "result_sha256": "c24d5f9f74af7398ec745f2e7471cdc23c1a08508303387d602538cb9e89cee1"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 23.77699915568034,
+      "root": "03b764dde8b03aa16e49e7dd5e5404a4e1fe0cc8cee0399a931a487ef2349fb4/2026093002/1",
+      "stage": "screen",
+      "stratum": [
+        "3-bet",
+        1
+      ],
+      "weight": 14.75
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 32.674635569254555,
+      "bot_seat": 0,
+      "cold_seconds": 30.02500579203479,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 1
+      },
+      "configuration_id": "065951123321dc8b03288c8e9fbef166febf09322bc2483d953a77e9c255dcce",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/6b5e3688aa1151bad04701af0490c4f1fd518ac43e318b82ee063a3d1702f8ea/afa42304c3db4ff3a31e30858077e220",
+          "reason": "External solve deadline",
+          "seconds": 29.718510875012726,
+          "spot": "3fcba4c314977f3ff4f07be8951e7bc1e1d77d8253679d61681a4337458f0960",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "e4f4477c9484105f2ec79087957556379c6f9927fa795d05240766b01464fcbb",
+        "original_policy": {
+          "name": "B-2026093002-500000000-stored-average",
+          "path": "B-2026093002-500000000.average.jsonl.gz",
+          "seed": 2026093002,
+          "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "bf7ec94d7ce0a68c6b8d485eeb7ba008ba37f4bbeaa48a828d247c0bf300ff39",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-3fcba4c314977f3ff4f07be8951e7bc1e1d77d8253679d61681a4337458f0960-4/result.json",
+        "result_sha256": "668d19e1c17ac26f87b07a8dcde75a7c57feaea1cf3835a27ee33f76b16625d7"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 32.674635569254555,
+      "root": "3fcba4c314977f3ff4f07be8951e7bc1e1d77d8253679d61681a4337458f0960/2026093002/0",
+      "stage": "screen",
+      "stratum": [
+        "min-raised",
+        0
+      ],
+      "weight": 44.0
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 18.03520965576172,
+      "bot_seat": 1,
+      "cold_seconds": 30.0294904159382,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 1
+      },
+      "configuration_id": "065951123321dc8b03288c8e9fbef166febf09322bc2483d953a77e9c255dcce",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/b183cc10a5ae7a4ba82fe0679361a50b76eb84500871328566099730e52f67a3/e5d20b80c14a450d8f58dd2a69f661d9",
+          "reason": "External solve deadline",
+          "seconds": 29.757361291907728,
+          "spot": "5d3effc1f6140680ac91b3aefce6e2115e022d8e9150608e62dcdb6e7520cded",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "c4fee438229f80ebf7aecfb87a900a6ba43ca1a8ebd5357b7df65884ae52d307",
+        "original_policy": {
+          "name": "B-2026093002-500000000-stored-average",
+          "path": "B-2026093002-500000000.average.jsonl.gz",
+          "seed": 2026093002,
+          "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "c411d2fb5bf0623e50723b0cfb06c60be83fb69d4343f6bc32ac373def7feaf1",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-5d3effc1f6140680ac91b3aefce6e2115e022d8e9150608e62dcdb6e7520cded-4/result.json",
+        "result_sha256": "1a8010f80ffb483e87602522dc7ce7fba973036e3b91f0a607b69dddb0b2ce9c"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 18.03520965576172,
+      "root": "5d3effc1f6140680ac91b3aefce6e2115e022d8e9150608e62dcdb6e7520cded/2026093002/1",
+      "stage": "screen",
+      "stratum": [
+        "pot-raised",
+        1
+      ],
+      "weight": 27.0
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 65.26810455322266,
+      "bot_seat": 0,
+      "cold_seconds": 30.0273728328757,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 1
+      },
+      "configuration_id": "065951123321dc8b03288c8e9fbef166febf09322bc2483d953a77e9c255dcce",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/8e9cae005cb740059d78a12d5eaa382c9ac13378ef7c681f87fddaeaef0f4e8c/ff5de71fb2fa460ebc871845ce687368",
+          "reason": "External solve deadline",
+          "seconds": 29.634886542102322,
+          "spot": "060cdcbf2db19c2a8ad4ba4ad948c0321932630077e03436596d3a4fef2e6506",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "5a1c17da60c6e9205ed6287bac0f362d15cb16645c265a83ca9b74d9b41f5943",
+        "original_policy": {
+          "name": "B-2026093003-500000000-stored-average",
+          "path": "B-2026093003-500000000.average.jsonl.gz",
+          "seed": 2026093003,
+          "sha256": "c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "0622923f5f0dc1a38444f3a612e303af6d846c59a263dd0a0e4136f7a193e653",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-060cdcbf2db19c2a8ad4ba4ad948c0321932630077e03436596d3a4fef2e6506-5/result.json",
+        "result_sha256": "9f4470e90ea4573227f179f689befc33fbbe9c555ab794ae0079407b57baf8e2"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 65.26810455322266,
+      "root": "060cdcbf2db19c2a8ad4ba4ad948c0321932630077e03436596d3a4fef2e6506/2026093003/0",
+      "stage": "screen",
+      "stratum": [
+        "limped",
+        0
+      ],
+      "weight": 47.75
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 48.34202194213867,
+      "bot_seat": 1,
+      "cold_seconds": 30.024944958044216,
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 1
+      },
+      "configuration_id": "065951123321dc8b03288c8e9fbef166febf09322bc2483d953a77e9c255dcce",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/c14adfa783812b0f4f072982fd3a6da2968796519c89a287ad855e6c299283b8/7931f60062e34084b89ab8f63389d49b",
+          "reason": "External solve deadline",
+          "seconds": 29.723889832850546,
+          "spot": "10a08d18ebe42eeead30b34b35ffab886077a0ca154b70ed0251ec01c56acb7e",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "452c80fb85d5c0f74ddc1aada05e0e79134757442285e9d7d636962c302efb94",
+        "original_policy": {
+          "name": "B-2026093003-500000000-stored-average",
+          "path": "B-2026093003-500000000.average.jsonl.gz",
+          "seed": 2026093003,
+          "sha256": "c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "fa668fe219c2d0f3d769feb7c2ce74f072b05b312d66e421775f3776d2e591f4",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-10a08d18ebe42eeead30b34b35ffab886077a0ca154b70ed0251ec01c56acb7e-5/result.json",
+        "result_sha256": "a3bd849def61f4cb516717e471d2c8c40e2dac79879ac62defa5f3d9a785305e"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 48.34202194213867,
+      "root": "10a08d18ebe42eeead30b34b35ffab886077a0ca154b70ed0251ec01c56acb7e/2026093003/1",
+      "stage": "screen",
+      "stratum": [
+        "min-raised",
+        1
+      ],
+      "weight": 46.75
+    },
+    {
+      "architecture": "arm64",
+      "blueprint_pct_pot": 12.813941955566406,
+      "bot_seat": 0,
+      "cold_seconds": 30.029633875004947,
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 1
+      },
+      "configuration_id": "7897182745f48668b56520af40090aebee074292ae53198f16583ddb71f40e89",
+      "failures": [
+        {
+          "cause": "timeout",
+          "phase": "play",
+          "reason": "External solve deadline"
+        }
+      ],
+      "fallback": true,
+      "fallback_cause": "timeout",
+      "full_native_verified": true,
+      "host": "dberwegerch-m4.local",
+      "played_strategy_verified": true,
+      "receipts": [
+        {
+          "cause": "timeout",
+          "executable_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+          "path": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-01/solves/screen/640114c7952121c6dd3d65dffc107d16f99b3e9dcece2c2609d66cc958d4729a/d139567b976f4265afea37db58441808",
+          "reason": "External solve deadline",
+          "seconds": 29.74772399989888,
+          "spot": "16fcd5ad78c227bde5e3056a73673c81b8d5cc02e81dc640e3f1cd72f6fbd445",
+          "status": "failure"
+        }
+      ],
+      "reference_provenance": {
+        "final_report_commit": "6b04bfa008193b0f6ce901c4536903b7fdf5990d",
+        "job_sha256": "0cd2bd1a3ffd977b7b28798f1c02bc1253bc2af5e87a55a1a1598990931387fc",
+        "original_policy": {
+          "name": "B-2026093001-500000000-stored-average",
+          "path": "B-2026093001-500000000.average.jsonl.gz",
+          "seed": 2026093001,
+          "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+          "strategy": "stored-average"
+        },
+        "request_sha256": "7cf844322f253c51a5d34674b505f6b0db2cecab86bd4daf70163acbf9121791",
+        "result_path": "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-03/spots/B-16fcd5ad78c227bde5e3056a73673c81b8d5cc02e81dc640e3f1cd72f6fbd445-3/result.json",
+        "result_sha256": "3982c287ba529cd5b44933ebb1e23ef174426931ddf2e792050908fb36b2c71f"
+      },
+      "reference_supported": true,
+      "residual_pct_pot": 12.813941955566406,
+      "root": "16fcd5ad78c227bde5e3056a73673c81b8d5cc02e81dc640e3f1cd72f6fbd445/2026093001/0",
+      "stage": "screen",
+      "stratum": [
+        "3-bet",
+        0
+      ],
+      "weight": 17.25
+    }
+  ],
+  "screen_rows": 17,
+  "selected": null,
+  "status": "incomplete",
+  "swap_growth_bytes": 0,
+  "tier": null,
+  "verification": {
+    "all_transferred_members_verified": true,
+    "bytes": 46619321,
+    "manifest_sha256": "98b129475e0fda25b2262f61a942d9296c2590655b76584b59d9beaafb828e43",
+    "members": 94
+  }
+}
