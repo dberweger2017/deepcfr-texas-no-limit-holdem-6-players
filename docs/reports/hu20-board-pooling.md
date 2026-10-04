@@ -1,13 +1,67 @@
-# HU20 board-blind pooling — M4 forecast stop
+# HU20 board-blind pooling — engineered qualification in progress
 
-**The owner-approved 7-GiB worker limit passed the first fresh solve and lock-only
-pilot. The frozen conservative main forecast cannot fit the original clock:
-31.182 hours minimum versus 17.899 hours remaining before closeout reserve.
-Main never started; no hypothesis decision is possible.** All owned processes
-are stopped and the heartbeat is paused. Draft [PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149)
-retains every attempt; paid cost is $0.
+**The owner-authorized wrapper engineering passed exact pilot-0 scientific
+parity and reduced the provisional forecast to 15.542 hours, versus 17.102
+remaining before reserve. Remaining qualification is running; main has not
+started and no hypothesis decision is available.** The original 31.182-hour
+forecast stop and every prior attempt remain preserved below. Draft
+[PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149)
+retains all evidence; paid cost is $0.
 
-## Resource amendment and latest completed work
+## Engineering amendment and fresh parity
+
+The owner authorized about two hours of M1 development without M4 solves
+during engineering, followed by exact M4 pilot-0 solve/lock reruns. No longer
+allowance or rental was approved. Development finished in about 24 minutes;
+M1 tests used zero CFR iterations. The external build caches a pooled file
+through its final use, clears the same native locks directly and copies
+interpreter state for depth-first traversal. Native lock normalization, solver
+arithmetic/storage, original request files, tree, arena and science are fixed.
+[Source/build fingerprint](hu20-board-pooling-artifacts/engineering-amendment-05.json).
+
+Both fresh M4 responses reproduce **every scientific field exactly** against
+qualification-04, including all action masses, coverage, gains, EVs, iterations,
+residual and both memory estimates. Only top-level time/RSS are excluded;
+float values and signed zero are retained. Solve scientific SHA-256
+`70c43785081be85d57764914c03b44bc051415fdc7a304653b284922910124f0`;
+[full exact comparison and evidence pins](hu20-board-pooling-artifacts/engineering-parity-05.json).
+This engineering parity does not create main outcomes.
+
+| Pilot-0 pipeline | Qualification-04 | Engineered | Owned peak RSS |
+|---|---:|---:|---:|
+| Solve | 256.901 s | 173.617 s | 5.171 GiB |
+| Lock-only | 285.396 s | 96.686 s | 5.502 GiB |
+
+[Timings and provisional forecast](hu20-board-pooling-artifacts/engineering-forecast-05.json):
+1.5 × 138 × (173.617301 + 96.686125) = 55,952.809 seconds / **15.542 hours**,
+versus 61,565.835 seconds / **17.102 hours** remaining before the one-hour
+reserve at measurement. This lower bound permits remaining qualification;
+only the final slowest-pilot forecast may admit main.
+
+The [solve profile](hu20-board-pooling-artifacts/engineering-05-solve-profile.json)
+records CFR 105.550 seconds, sufficient-statistics collection 37.555 seconds,
+node-policy construction 15.972 seconds and locked BR 2.041 seconds.
+The [lock profile](hu20-board-pooling-artifacts/engineering-05-lock-profile.json)
+records policy construction 72.405 seconds, actual lock calls 2.622 seconds,
+BR 6.114 seconds, one pooled-file load 0.539 seconds, blueprint EV 0.699
+seconds and twelve bulk unlocks 0.095 seconds. Traversal totals **include**
+policy/lock time; do not add nested timers. Tree construction/validation,
+compact parsing and writing are each under a second. A data-only M1 benchmark
+measured five repeated loads at 4.472 seconds versus one cached load at 0.677
+seconds. Repeated root replay/unlock work, rather than native locking or CFR,
+explains the removed overhead. Remaining policy construction/aggregation is
+measured wrapper work, not all inherent solver cost.
+
+Qualification-05 runs retained fixtures and the remaining fixed roots afresh.
+The new first solve/lock can be reused only through pinned exact comparison;
+first V4's fixed 20k native MC additionally requires its blueprint EV to match
+the fresh value exactly. Its previously unfinished deterministic replay runs
+fresh. Every pilot retains separate solve/lock RSS and timings. All old
+failures, clock charges, science, 7/8/4-GiB limits and reserve remain unchanged.
+**32 Python tests pass.** Full raw retrieval awaits terminal closeout; compact
+receipts above are copied locally, while all raw M4 originals remain intact.
+
+## Qualification-04 resource amendment and completed work
 
 The owner explicitly approved changing M4 worker RSS from 5 to 7 GiB before
 any main values. The 8-GiB family cap, 4-GiB solver arena, one worker/six
