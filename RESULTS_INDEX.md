@@ -15,6 +15,16 @@ Both Macs use Google Drive desktop in streaming mode, with `~/Local/Research-Clo
 - **Already confirmed:** the 14,041,643,443-byte branching archive, the overnight archive, PR144's six archives and 18 earlier M4 archives. Their previous cloud IDs remain valid; the branching archive now lives under `Historical-experiments/`.
 - **Pending means pending:** native staging is not cloud-upload confirmation. An hourly archival follow-up checks completion and remaining duplicate/input dependencies. The [compact staging receipt](docs/artifacts/native-drive-staging-20261004.json) records exact source paths, destination paths, counts and manifest names. Logical totals include separately retained evidence and do not measure unique or physical disk use.
 
+### October 4 scheduled follow-up and cleanup
+
+The index/organization change passed all CI and merged in [PR #151](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/151). The [cleanup progress receipt](docs/artifacts/drive-cleanup-progress-20261004.json) records the following subsequent actions:
+
+- **M1:** removed 26 abandoned, unindexed Git temporary packs (6,362,104,120 bytes), 12 separately retained staging archives with fresh cloud ID/name/size readback and matching archive SHA256 (3,522,030,679 bytes), and four obsolete connector parts (2,097,152,000 bytes). The parts matched the corresponding bytes of the intact recovered archive. Total removed logical bytes: **11,981,286,799 (11.16 GiB)**. Valid Git packs/indexes and readable HEAD trees remain intact. Physical free-space changes also depend on APFS sharing and ongoing Drive cache activity.
+- **M4:** removed **1,826 files / 6,418,060,050 bytes** from separately retained, cloud-confirmed legacy archive roots after checking each member hash, current stat identity, tracked files, symlink/input dependencies and open handles. The complete per-file restore receipt remains `~/Local/research-archive-preparation-20261002/m4-remaining-duplicate-cleanup-20261004.json`; original relative member paths and cloud archive IDs are retained. M4 had **42.54 GiB free** after this cleanup. No synced Drive payload was deleted.
+- **PR136 upload incident:** Drive logs record a completed CancelUpload at `2026-10-04T08:24:40Z`; the initiating actor is unknown. The file was absent from the upload folder/cloud listing but retained intact in Drive desktop's `canceled_uploads` recovery directory. Its full 23,509,934,825 bytes rehashed to the original SHA256 above. It was moved back into the native upload folder at about `09:35 UTC`, without rebuilding research or making another archive. **Upload remains pending**, and M4 originals remain retained. The recovery receipt is included in the compact progress record; do not confuse queueing with cloud completion.
+
+Native upload queues are still processing. The hourly follow-up remains active; no cache eviction, new science or rental was performed.
+
 ### Current folder layout
 
 Paths are relative to the research Drive folder. Upload status is a snapshot on October 4, not a promise of completion. Each newly staged experiment contains `ARCHIVE-MANIFEST-20261004.json` with member sizes/hashes and `RESTORE-README.txt`.
