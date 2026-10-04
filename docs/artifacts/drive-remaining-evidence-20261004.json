@@ -1,0 +1,133 @@
+{
+  "captured": 1791121695.668496,
+  "raw_backup_organization": {
+    "state": "cloud-moves-verified-aliases-reconciled",
+    "moves": [
+      {
+        "cloud_id": "1yPAEPcROWU2QGSGIhemjcDNs21g7U2Z6",
+        "working_alias": "/Users/dberweger/Local/hu20-turn-search-20261002",
+        "old_native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M1-closed-research",
+        "new_name": "PR148--M1-closed-research--raw-backup-20261004",
+        "new_native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/Historical-experiments/PR148--M1-closed-research--raw-backup-20261004",
+        "current_alias_target": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M1-closed-research",
+        "new_native_exists": true,
+        "native_cloud_id": "1yPAEPcROWU2QGSGIhemjcDNs21g7U2Z6",
+        "alias_retargeted": true
+      },
+      {
+        "cloud_id": "1xa00-JhIVtUSB6Qw2oB11yxuqDHGTy4K",
+        "working_alias": "/Users/dberweger/Local/hu20-exact-turn-main-20261002",
+        "old_native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M1-exact-turn-evidence",
+        "new_name": "PR148--M1-exact-turn-evidence--raw-backup-20261004",
+        "new_native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/Historical-experiments/PR148--M1-exact-turn-evidence--raw-backup-20261004",
+        "current_alias_target": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-148-turn-calibration/M1-exact-turn-evidence",
+        "new_native_exists": true,
+        "native_cloud_id": "1xa00-JhIVtUSB6Qw2oB11yxuqDHGTy4K",
+        "alias_retargeted": true
+      },
+      {
+        "cloud_id": "1krx2zNq9nIbhrFCP5bAQnhL-znBeCmEj",
+        "working_alias": "/Users/dberweger/Local/hu20-board-pooling-20261003",
+        "old_native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M1-board-pooling/closed-evidence",
+        "new_name": "M1-board-pooling--closed-evidence--raw-backup-20261004",
+        "new_native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/Historical-experiments/M1-board-pooling--closed-evidence--raw-backup-20261004",
+        "current_alias_target": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M1-board-pooling/closed-evidence",
+        "new_native_exists": true,
+        "native_cloud_id": "1krx2zNq9nIbhrFCP5bAQnhL-znBeCmEj",
+        "alias_retargeted": true
+      },
+      {
+        "cloud_id": "1OqO1UUt0eRNJr09vcm3JzWE8-FVvn4e5",
+        "working_alias": "/Users/dberweger/Local/hu20-alias-audit-20261002",
+        "old_native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M1-alias-audit/closed-evidence",
+        "new_name": "M1-alias-audit--closed-evidence--raw-backup-20261004",
+        "new_native_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/Historical-experiments/M1-alias-audit--closed-evidence--raw-backup-20261004",
+        "current_alias_target": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/M1-alias-audit/closed-evidence",
+        "new_native_exists": true,
+        "native_cloud_id": "1OqO1UUt0eRNJr09vcm3JzWE8-FVvn4e5",
+        "alias_retargeted": true
+      }
+    ],
+    "cloud_payloads_deleted": false,
+    "cloud_move_readback_verified": true,
+    "updated": 1791121233.5407581
+  },
+  "raw_backup_receipt_cloud_id": "1uIf5ZCn61A3WCXeLd9eNbcqHFzIowr5d",
+  "parity_archive": {
+    "state": "native-and-cloud-accepted-originals-retained",
+    "pid": 95676,
+    "started": 1791121203.121483,
+    "sources": [
+      "/Users/dberweger/Local/hu20-platform-parity-pr129/results",
+      "/Users/dberweger/Local/runpod-hu20-parity-artifacts"
+    ],
+    "originals_removed": false,
+    "cloud_upload_confirmed": true,
+    "member_count": 91,
+    "source_bytes": 173805058,
+    "archive": "/Users/dberweger/Local/research-archive-preparation-20261002/PR129-platform-parity-20261004.tar.gz",
+    "archive_bytes": 149683235,
+    "archive_sha256": "95f1099b2587d6002b32e08ac7aed8c67c0b1e90b93588a8f4ce4e5289580023",
+    "finished": 1791121206.4253912,
+    "native_path": "/Users/dberweger/Local/Research-Cloud/PR-129-platform-parity/PR129-platform-parity-20261004.tar.gz",
+    "cloud_parent_id": "1SHrAg6PQV5wdG-tV3-WEu9AeO5eil5ft",
+    "cloud_id": "1utMZPG-zV4lMIwgI7ouw0l2EJyyjOoKC",
+    "native_acceptance": {
+      "isUploaded": 1,
+      "isUploading": 0,
+      "hasUnresolvedConflicts": 0,
+      "documentSize": 149683235
+    },
+    "current_cloud_name_size_verified": true
+  },
+  "flop_archive": {
+    "state": "native-queued-originals-retained",
+    "pid": 96687,
+    "started": 1791121523.7343822,
+    "sources": [
+      "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-20261001/results/flop-check-20261001"
+    ],
+    "originals_removed": false,
+    "cloud_upload_confirmed": false,
+    "member_count": 501,
+    "source_bytes": 565822969,
+    "archive": "/Users/dberweger/Local/research-archive-preparation-20261002/PR145-flop-retained-attempts-20261004.tar.gz",
+    "archive_bytes": 18600998,
+    "archive_sha256": "500b269afce4799d313a9c49788b367f4f49e310a8a04723ba7cc609a6b3dff6",
+    "finished": 1791121526.2017438,
+    "native_path": "/Users/dberweger/Local/Research-Cloud/PR-145-exact-flop/PR145-flop-retained-attempts-20261004.tar.gz",
+    "cloud_parent_id": "1ciOOpSaLHqvCSI8wzhWDQORtizfeCrxZ"
+  },
+  "duplicate_coverage": {
+    "covered_files": 193,
+    "covered_bytes": 16075493,
+    "uncovered_files": 819,
+    "uncovered_bytes": 2469278300,
+    "sources_retained": true,
+    "uncovered_note": "819 historical retrieval result entries include both flop and turn snapshots; archive each intact current run, preserve all originals until upload acceptance and restoration mapping"
+  },
+  "prior_confirmation_PR156": "d0bd18db817d1c63b5a8efbadbcab1e81d7921ea",
+  "science_rerun": false,
+  "cloud_payloads_deleted": false,
+  "packaging_launch_incident": "pr145-flop-prestart-launch-incident-20261004.json",
+  "turn_snapshot_archive": {
+    "state": "native-queued-originals-retained",
+    "pid": 97034,
+    "started": 1791121647.070722,
+    "sources": [
+      "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-20261001/results/turn-check-20261002"
+    ],
+    "originals_removed": false,
+    "cloud_upload_confirmed": false,
+    "member_count": 507,
+    "source_bytes": 1919529239,
+    "archive": "/Users/dberweger/Local/research-archive-preparation-20261002/PR145-turn-retrieval-snapshot-20261004.tar.gz",
+    "archive_bytes": 108091354,
+    "archive_sha256": "8dd3d8621d8628a1a04e01947c0abdaf3eeb136bb6c332ce4c3209b7e0374422",
+    "finished": 1791121656.24839,
+    "native_path": "/Users/dberweger/Local/Research-Cloud/PR-145-exact-flop/PR145-turn-retrieval-snapshot-20261004.tar.gz",
+    "cloud_parent_id": "1ciOOpSaLHqvCSI8wzhWDQORtizfeCrxZ"
+  },
+  "shared_input_incident": "shared-input-archival-incident-20261004.json",
+  "other_owner_board_pooling": "Owner resumed October4; preparation stopped during archival of shared inputs; inputs restored and hashes verified by owning task; all related evidence and inputs protected through verified closeout"
+}
