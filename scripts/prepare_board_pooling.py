@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 import signal
+from time import time
 import numpy as np
 
 from src.blueprint.hu20_river import public_ranges
@@ -27,22 +28,31 @@ def prepare(plan_path, inputs, out, *, memory_bytes=5 * 1024**3):
     if len(roots) != plan["boards"] or len({r["spot"] for r in roots}) != len(roots):
         raise ValueError("Frozen corpus count/uniqueness differs")
     out.mkdir(parents=True, exist_ok=False)
+    def status(stage, done, total):
+        atomic_json(out / "status.json", {"stage": stage, "done": done, "total": total, "timestamp": time()})
     compilations = []
+    status("tree-export", 0, len(roots))
     for record in roots:
         root = replay_root(record)
         if public_line(root, record["button"]) != corpus["chosen_line"]:
             raise ValueError("Frozen root belongs to another public line")
         compilations.append(compile_tree(root))
+        status("tree-export", len(compilations), len(roots))
     key_gate = gate_k(compilations)
     atomic_json(out / "gate-k.json", key_gate)
     if not key_gate["passed"]:
         raise ValueError("Gate K failed")
-    features, codebook = crossfit_codebooks([card_features(r["board"], plan["equity_histogram_bins"])
-                                         for r in roots], [split["folds"][r["spot"]] for r in roots],
+    raw_features = []
+    for record in roots:
+        status("card-features", len(raw_features), len(roots))
+        raw_features.append(card_features(record["board"], plan["equity_histogram_bins"]))
+    status("frozen-codebooks", 0, 3)
+    features, codebook = crossfit_codebooks(raw_features, [split["folds"][r["spot"]] for r in roots],
                                          k=plan["equity_k"], seed=plan["equity_cluster_seed"])
     atomic_json(out / "codebook.json", codebook)
     jobs = []; exclusions = []
     for policy_index, spec in enumerate(plan["policies"]):
+        status("policy-index", policy_index, len(plan["policies"]))
         index = out / f"policy-{policy_index}.sqlite"
         inventory = build_index(spec, inputs, index)
         atomic_json(out / f"policy-{policy_index}-index.json", inventory)
@@ -70,6 +80,7 @@ def prepare(plan_path, inputs, out, *, memory_bytes=5 * 1024**3):
                             progress_every=plan["progress_every"], target_pct_pot=plan["target_pct_pot"],
                             seconds=plan["per_solve_seconds"])
             atomic_json(leaf / "request.json", exported)
+            status("policy-export", len(jobs)+1, plan["jobs_total"])
             jobs.append({"job": job, "spot": record["spot"], "lineage": spec["seed"],
                          "policy_index": policy_index, "board_weight": record["board_weight"],
                          "evaluation_fold": split["folds"][record["spot"]],
@@ -81,6 +92,7 @@ def prepare(plan_path, inputs, out, *, memory_bytes=5 * 1024**3):
     manifest = {"jobs": jobs, "support_exclusions": exclusions, "plan_sha256": file_hash(plan_path),
                 "codebook_sha256": file_hash(out / "codebook.json"), "gate_k": key_gate}
     atomic_json(out / "manifest.json", manifest)
+    status("prepared", len(jobs)+len(exclusions), plan["jobs_total"])
     return {"jobs": len(jobs), "support_exclusions": len(exclusions)}
 
 

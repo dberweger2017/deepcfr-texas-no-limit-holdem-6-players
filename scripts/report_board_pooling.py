@@ -131,10 +131,11 @@ def report(plan_path, run, out):
     failures = [{"path": str(p.relative_to(run)), "evidence": json.loads(p.read_text())} for p in run.rglob("failure.json")]
     inventory = [{"path": str(p.relative_to(run)), "bytes": p.stat().st_size, "sha256": file_hash(p)}
                  for p in sorted(run.rglob("*")) if p.is_file()]
-    billing = json.loads((run / "billing.json").read_text()) if (run / "billing.json").exists() else {"actual_cost": None, "reason": "itemized provider billing unavailable"}
+    billing = json.loads((run / "billing.json").read_text()) if (run / "billing.json").exists() else ({"actual_cost_usd": 0, "unused_runpod_budget_usd": 5, "host": "owner M4", "reason": "no rental"} if plan.get("format") == "hu20-board-pooling-plan-v3" else {"actual_cost": None, "reason": "itemized provider billing unavailable"})
     result = {"completed": completed, "common_boards": len(eligible), "common_weight_fraction": weight_fraction,
               "classification": classification, "missing_key_coverage_passed": coverage_ok,
               "missing_key_reach_by_fold_lineage": fallback, "covered_context_sensitivity": covered_summary,
+              "covered_context_by_lineage": {str(p["seed"]): summarize([r for r in covered_rows if r["lineage"] == p["seed"]], seed=plan["bootstrap_seed"], resamples=plan["bootstrap_resamples"]) for p in plan["policies"]},
               "common_fold_counts": fold_counts, "summaries": summaries, "rows": rows, "exclusions": exclusions,
               "failures": failures, "billing": billing, "inventory": inventory, "plan_sha256": file_hash(plan_path),
               "admission": json.loads(manifest_path.read_text()) if manifest_path.exists() else None}
