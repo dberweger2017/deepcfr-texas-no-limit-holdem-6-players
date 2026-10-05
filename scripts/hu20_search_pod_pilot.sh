@@ -35,6 +35,8 @@ export PYTHONPATH=/workspace/repo
 
 step solver
 tar -xzf "$B/external.tar.gz" -C /workspace
+# The archive keeps the Mac owner's uid; git refuses such a checkout for root without this.
+git config --global --add safe.directory /workspace/hu20-turn-search-tool/upstream
 bash scripts/build_hu20_search_solver.sh /workspace/hu20-turn-search-tool native > "$E/build.log" 2>&1
 BIN=/workspace/hu20-turn-search-tool/harness/target/release/hu20-exact-flop-tool
 sha256sum "$BIN" > "$E/binary.sha256"
