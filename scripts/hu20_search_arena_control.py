@@ -74,6 +74,11 @@ class ArenaControl:
             raise ValueError("Financial dispatch must preserve the four-dollar closeout reserve")
         if self.charge() >= dispatch:
             self.stop(f"Conservative campaign charge reached ${dispatch} dispatch stop")
+        if self.state['status']=='preflight' and ledger.get('admission_allowance_usd') is not None:
+            admission_charge=sum(max(0,p.get('terminated_at',self.clock())-p['created_at'])/3600*p['hourly_usd']
+                                 for p in ledger['pods'])
+            if admission_charge>=ledger['admission_allowance_usd']:
+                self.stop('Predeclared financial admission allowance exhausted; preserve partial checks')
         for pod in ledger["pods"]:
             if (ledger.get("work_protocol")!="hu20-fixed50-no-fallback-v1"
                     and not pod.get("terminated_at") and self.clock()>=pod["production_stop_at"]):

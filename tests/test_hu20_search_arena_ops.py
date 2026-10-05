@@ -347,3 +347,18 @@ def test_equivalent_layout_keeps_quote_pricing_rules():
     assert (equivalent['expected_cost_usd'],equivalent['maximum_forecast_cost_usd'])==(4.79,16.96)
     assert equivalent['minimum_quota_cpus']==30 and equivalent['minimum_ram_bytes']==51*10**9
     assert equivalent['hard_ceiling_usd']==20 and equivalent['dispatch_stop_usd']==16
+
+
+def test_admission_spending_stops_before_campaign_dispatch(tmp_path):
+    import json
+    from scripts.hu20_search_arena_control import ArenaControl
+    now=[100]
+    ledger=tmp_path/'ledger.json'
+    ledger.write_text(json.dumps({'work_protocol':'hu20-fixed50-no-fallback-v1',
+        'hard_ceiling_usd':20,'dispatch_stop_usd':16,'admission_allowance_usd':.5,
+        'pods':[{'id':'new-owned-host','created_at':100,'hourly_usd':1}]}))
+    control=ArenaControl(tmp_path/'journal.json',ledger,clock=lambda:now[0])
+    assert control.request({'op':'check'})['status']=='preflight'
+    now[0]=1900
+    result=control.request({'op':'check'})
+    assert result['status']=='stopped' and 'financial admission allowance' in result['reason']

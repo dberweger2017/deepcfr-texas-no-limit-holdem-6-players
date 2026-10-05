@@ -86,7 +86,10 @@ def main():
     if fleet_quote:
         assert ceiling==20 and owner['equivalent_fleet_delegation']
         assert hashlib.sha256((root/'approved-fleet-quote.json').read_bytes()).hexdigest()==owner['fleet_quote_sha256']
-        assert fleet_quote['maximum_forecast_cost_usd']<=ceiling and len(pods)==fleet_quote['pods']
+        assert len(pods)==fleet_quote['pods']
+        if fleet_quote.get('admission_only_until_measured_quote'):
+            assert fleet_quote['admission_allowance_usd']<=.50
+        else:assert fleet_quote['maximum_forecast_cost_usd']<=ceiling
         assert all(h['gpu_id']==fleet_quote['gpu_id'] and h['gpu_count']==fleet_quote['gpu_count'] for h in pods)
     else:assert len(pods)==2 and ceiling==25
     assert not any(h['id'] in PROTECTED or h.get('terminated_at')
