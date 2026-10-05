@@ -64,6 +64,8 @@ From v0.5 on, every milestone is confirmed on fresh held-out deals with several 
 
 *October 5, 2026*
 
+- **M1 archival check:** [RESULTS_INDEX](RESULTS_INDEX.md) now maps merged #149/#162/#164/#165 M1 evidence to the same Research-Cloud folder, with canonical payload references, member hashes and restore instructions. All three new #149/#162/#164 uploads verify. Open #146/#166 roots/dependencies and shared Git remain protected; originals remain.
+
 - **Research archives organized:** both Macs use `~/Local/Research-Cloud` for the same Drive folder. [RESULTS_INDEX](RESULTS_INDEX.md) maps recent large M4 folders to their PRs and archives; #149/#162/#163 uploads now verify. The previously copied #166 river/pilot snapshot is confirmed uploaded; its open PR work root and dependencies are protected from further archival changes. Check owning PR status before touching research files. Originals and input dependencies remain.
 
 - **v0.4.1 arena complete; release rule not met** ([#165](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165), [report](docs/reports/hu20-v041-arena.md)): all 165,888 hands / 850,106 actions independently replay; all 52 contrasts independently recompute. O−R LBR improves **+30.83 [14.03, 47.63] BB/100**. Native pressure is **inconclusive, not a measured regression**: **+0.44 [−18.47, 19.34]**, near zero with an interval too wide to establish the required lower bound > −10. The severe-scenario check passes. All panels, lineage/position splits and street fallback/zero-mass counts are retained; [archives](RESULTS_INDEX.md) have confirmed uploads and originals remain.

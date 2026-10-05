@@ -1,5 +1,19 @@
 # Research results index
 
+## Find recent M1 runs — October 5, 2026
+
+M1 uses the same `~/Local/Research-Cloud` shortcut and [project Drive folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s) as M4. Initial free space was **13.3 GB**. The primary poker checkout is about **23.2 GB**, including **19.7 GB of shared Git data**, which remains protected alongside unclassified `planning/` files. Open #146/#166 folders, worktrees and dependencies are excluded from archival.
+
+| Merged PR | M1 originals, under `~/Local` | Drive archive / restoration |
+| --- | --- | --- |
+| [#149 — board pooling](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149) | `hu20-board-pooling-m4-retrieval-20261004`, `-02/-03/-04/-05-20261004`, compact `-06-20261005`; `hu20-board-pooling-engineering-20261004` | [M1 history folder](https://drive.google.com/drive/folders/13RWLf779O6DpKZQ2rBKuEg-PpHOH7xX8) · [310.7-MB supplement](https://drive.google.com/file/d/17woiEOQSDwHvyq6eNzLhm5U2cl0nCQan/view) plus [canonical M4 campaign](https://drive.google.com/file/d/1NNSkCO811USN6U9L2p6lBbti1-6Q9r2X/view); exact per-file restore mappings; confirmed uploaded |
+| [#162 — trainer bench](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/162) | `hu20-trainer-bench-monitor-20261005` | [M1 monitor folder](https://drive.google.com/drive/folders/1Kq-JMOj5u4Rlnvevvb8QXfWRb_nCSKzT) · [305-KB supplement](https://drive.google.com/file/d/1bC5YnXxAfvsmMJwM-5eD-bukXM6BTSZb/view) plus [canonical M4 bench](https://drive.google.com/file/d/1_6dRapLReZ9-sAMPaePNX-nehXowGwki/view); confirmed uploaded |
+| [#164 — native trainer parity](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/164) | `hu20-native-gate-20261005` | [M1 native gate folder](https://drive.google.com/drive/folders/1MCnYU8wXQ0y2aTkWS9NVVaJ9aBDksRp3) · [1.34-GB whole archive](https://drive.google.com/file/d/13aotv71LxwK4QQ0x3XIpP4sz4m42K9B_/view); confirmed uploaded; pre-fix failures preserved |
+| [#165 — native average / frozen arena](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165) | `hu20-native-average-20261005`, `hu20-v041-archives-20261005`, `hu20-v041-closeout-20261005` | [Existing PR-165 folder](https://drive.google.com/drive/folders/1IXMpL2f18EVb1FfoFTvAaOGIzdrRpeD2): campaign and audit/source archives already confirmed; fresh local archive hashes and cloud readbacks pass |
+
+[Full M1 record](docs/artifacts/m1-drive-organization-20261005.md), [upload acceptance](https://drive.google.com/file/d/1JPuWeSbPIbMsHhXpyghuo0o6gaVyqKnP/view) and [retained prior Drive index](https://drive.google.com/file/d/1Zydk8goU3Hg4VUGbGPQ-pRCb1yGRpmR6/view) give exact hashes, original paths and restore commands. The three new archives preserve **14,614 source records / 42.18 GB logical bytes** using **1.65 GB of compressed archives**, with exact references to already accepted payloads. Each included payload and source hash was verified. Logical totals include repeated snapshots/hard links and do not measure reclaimable storage. Original files remain unchanged; no deletion or cache eviction.
+
+
 ## Find recent M4 runs — October 5, 2026
 
 Both Macs use `~/Local/Research-Cloud` for [deepcfr-research-results](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s). The shortcut points to `~/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results`. Use the same archive folders from M1 or M4; the archives preserve whole runs, member manifests, failures, source provenance and restoration instructions.
