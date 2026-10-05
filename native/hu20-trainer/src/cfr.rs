@@ -7,19 +7,40 @@
 //! the Python trainer does. Sums use Python's correctly rounded `math.fsum`,
 //! so a traversal reproduces Python's deltas bit for bit.
 
-use crate::game::{Hand, STACK, BIG_BLIND};
-use crate::key::{key_bytes, menu};
+use crate::game::{Hand, BIG_BLIND, STACK};
+use crate::key::{key_bytes, menu, names_of};
 use std::collections::HashMap;
+use std::hash::{BuildHasherDefault, Hasher};
 
 pub type Key = [u8; 16];
+pub const MAX_ACTIONS: usize = 5;
+
+/// Keys are already uniform BLAKE2b digests, so their first eight bytes are the hash.
+#[derive(Default)]
+pub struct KeyHasher(u64);
+impl Hasher for KeyHasher {
+    fn write(&mut self, bytes: &[u8]) {
+        for chunk in bytes.chunks(8) {
+            let mut word = [0u8; 8];
+            word[..chunk.len()].copy_from_slice(chunk);
+            self.0 ^= u64::from_le_bytes(word);
+        }
+    }
+    fn write_usize(&mut self, _: usize) {}
+    fn finish(&self) -> u64 {
+        self.0
+    }
+}
+pub type Table = HashMap<Key, Node, BuildHasherDefault<KeyHasher>>;
 
 /// CPython's `math.fsum` (Shewchuk partials with a final rounding correction).
 pub fn fsum(values: impl IntoIterator<Item = f64>) -> f64 {
-    let mut partials: Vec<f64> = Vec::new();
+    let mut partials = [0f64; 16];
+    let mut count = 0;
     for value in values {
         let mut x = value;
         let mut i = 0;
-        for j in 0..partials.len() {
+        for j in 0..count {
             let mut y = partials[j];
             if x.abs() < y.abs() {
                 std::mem::swap(&mut x, &mut y);
@@ -32,14 +53,13 @@ pub fn fsum(values: impl IntoIterator<Item = f64>) -> f64 {
             }
             x = hi;
         }
-        partials.truncate(i);
-        partials.push(x);
+        partials[i] = x;
+        count = i + 1;
     }
-    let mut n = partials.len();
-    if n == 0 {
+    if count == 0 {
         return 0.0;
     }
-    n -= 1;
+    let mut n = count - 1;
     let mut hi = partials[n];
     let mut lo = 0.0;
     while n > 0 {
@@ -64,28 +84,35 @@ pub fn fsum(values: impl IntoIterator<Item = f64>) -> f64 {
     hi
 }
 
-pub fn regret_match(regrets: &[f64]) -> Vec<f64> {
-    let positive: Vec<f64> = regrets.iter().map(|&r| if r > 0.0 { r } else { 0.0 }).collect();
-    let total = fsum(positive.iter().copied());
-    if total > 0.0 {
-        positive.iter().map(|&p| p / total).collect()
-    } else {
-        vec![1.0 / regrets.len() as f64; regrets.len()]
+pub fn regret_match(regrets: &[f64]) -> [f64; MAX_ACTIONS] {
+    let mut positive = [0f64; MAX_ACTIONS];
+    for (p, &r) in positive.iter_mut().zip(regrets) {
+        *p = if r > 0.0 { r } else { 0.0 };
     }
+    let total = fsum(positive[..regrets.len()].iter().copied());
+    let mut out = [0f64; MAX_ACTIONS];
+    for i in 0..regrets.len() {
+        out[i] = if total > 0.0 { positive[i] / total } else { 1.0 / regrets.len() as f64 };
+    }
+    out
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Copy, Debug)]
 pub struct Node {
-    pub names: Vec<&'static str>,
-    pub regrets: Vec<f64>,
-    pub average: Vec<f64>,
+    /// Menu bitmask (`key::NAMES`); stored to catch any key whose menu changes.
+    pub code: u8,
+    pub len: u8,
+    pub regrets: [f64; MAX_ACTIONS],
+    pub average: [f64; MAX_ACTIONS],
     pub visits: u64,
 }
 
 impl Node {
-    pub fn empty(names: Vec<&'static str>) -> Node {
-        let n = names.len();
-        Node { names, regrets: vec![0.0; n], average: vec![0.0; n], visits: 0 }
+    pub fn empty(code: u8, len: usize) -> Node {
+        Node { code, len: len as u8, regrets: [0.0; MAX_ACTIONS], average: [0.0; MAX_ACTIONS], visits: 0 }
+    }
+    pub fn names(&self) -> Vec<&'static str> {
+        names_of(self.code)
     }
 }
 
@@ -121,11 +148,11 @@ impl Stream {
 }
 impl Sampler for Stream {
     fn sample(&mut self, policy: &[f64]) -> usize {
-        let mut cumulative = Vec::with_capacity(policy.len());
+        let mut cumulative = [0f64; MAX_ACTIONS];
         let mut running = 0.0;
-        for &p in policy {
+        for (c, &p) in cumulative.iter_mut().zip(policy) {
             running += p;
-            cumulative.push(running);
+            *c = running;
         }
         let target = self.unit() * running;
         cumulative[..policy.len() - 1].partition_point(|&c| c <= target)
@@ -133,54 +160,68 @@ impl Sampler for Stream {
 }
 
 pub struct Traversal<'a, S: Sampler> {
-    pub table: &'a HashMap<Key, Node>,
+    pub table: &'a Table,
     pub iteration: u64,
     pub traverser: usize,
     pub sampler: S,
-    pub deltas: HashMap<Key, Node>,
+    pub deltas: Table,
     pub nodes: u64,
     pub terminals: u64,
 }
 
 impl<'a, S: Sampler> Traversal<'a, S> {
-    pub fn new(table: &'a HashMap<Key, Node>, iteration: u64, traverser: usize, sampler: S) -> Self {
-        Traversal { table, iteration, traverser, sampler, deltas: HashMap::new(), nodes: 0, terminals: 0 }
+    pub fn new(table: &'a Table, iteration: u64, traverser: usize, sampler: S) -> Self {
+        Self::with_deltas(table, iteration, traverser, sampler, Table::default())
     }
 
-    pub fn run(&mut self, hand: &Hand) -> f64 {
+    /// Reuses an emptied delta map's allocation across iterations.
+    pub fn with_deltas(table: &'a Table, iteration: u64, traverser: usize, sampler: S, mut deltas: Table) -> Self {
+        deltas.clear();
+        Traversal { table, iteration, traverser, sampler, deltas, nodes: 0, terminals: 0 }
+    }
+
+    pub fn run(&mut self, hand: &mut Hand) -> f64 {
         self.visit(hand, 1.0)
     }
 
-    fn visit(&mut self, hand: &Hand, own_reach: f64) -> f64 {
+    fn visit(&mut self, hand: &mut Hand, own_reach: f64) -> f64 {
         self.nodes += 1;
         if hand.finished() {
             self.terminals += 1;
             let stack = hand.final_stacks()[self.traverser];
             return (stack as f64 - STACK as f64) / BIG_BLIND as f64;
         }
-        let choices = menu(hand);
-        let names: Vec<&'static str> = choices.iter().map(|c| c.name).collect();
-        let key = key_bytes(hand, &choices);
+        let options = menu(hand);
+        let choices = options.as_slice();
+        let n = choices.len();
+        let key = key_bytes(hand, choices);
         let policy = match self.table.get(&key) {
             Some(node) => {
-                assert!(node.names == names, "a v1 key changed its action menu");
-                regret_match(&node.regrets)
+                assert!(node.code == options.code, "a v1 key changed its action menu");
+                regret_match(&node.regrets[..n])
             }
-            None => vec![1.0 / names.len() as f64; names.len()],
+            None => [1.0 / n as f64; MAX_ACTIONS],
         };
         if hand.actor.unwrap() as usize != self.traverser {
-            let index = self.sampler.sample(&policy);
-            return self.visit(&hand.apply(choices[index].action), own_reach);
+            let index = self.sampler.sample(&policy[..n]);
+            let saved = hand.save();
+            hand.apply_mut(choices[index].action);
+            let value = self.visit(hand, own_reach);
+            hand.restore(saved);
+            return value;
         }
-        let mut values = Vec::with_capacity(choices.len());
-        for (index, choice) in choices.iter().enumerate() {
-            values.push(self.visit(&hand.apply(choice.action), own_reach * policy[index]));
+        let mut values = [0f64; MAX_ACTIONS];
+        for index in 0..n {
+            let saved = hand.save();
+            hand.apply_mut(choices[index].action);
+            values[index] = self.visit(hand, own_reach * policy[index]);
+            hand.restore(saved);
         }
-        let value = fsum(policy.iter().zip(&values).map(|(p, v)| p * v));
+        let value = fsum((0..n).map(|i| policy[i] * values[i]));
         let t = self.iteration as f64;
-        let delta = self.deltas.entry(key).or_insert_with(|| Node::empty(names.clone()));
-        assert!(delta.names == names, "a v1 key changed its action menu");
-        for index in 0..choices.len() {
+        let delta = self.deltas.entry(key).or_insert_with(|| Node::empty(options.code, n));
+        assert!(delta.code == options.code, "a v1 key changed its action menu");
+        for index in 0..n {
             delta.regrets[index] += t * (values[index] - value);
             delta.average[index] += t * own_reach * policy[index];
         }

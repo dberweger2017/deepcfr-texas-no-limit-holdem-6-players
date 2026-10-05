@@ -7,6 +7,9 @@
 //! when the opponent cannot contest chips above the current wager. With equal
 //! stacks heads-up, that also covers the per-player reopening rule: a short
 //! all-in leaves the raiser's opponent nothing to raise against.
+//!
+//! For speed the hand is mutated in place and restored with `save`/`restore`,
+//! and the key's public-history JSON is appended as events happen.
 
 use hu20_buckets::evaluate;
 
@@ -74,15 +77,7 @@ pub struct Action {
     pub raise_to: u32,
 }
 
-/// Public events in the order the key's history walks them.
 #[derive(Clone, Copy, Debug)]
-pub enum Event {
-    Blind { seat: u8, amount: u32 },
-    Board { street: Street },
-    Act { street: Street, seat: u8, kind: Kind, paid: u32 },
-}
-
-#[derive(Clone, Debug)]
 pub struct Legal {
     pub fold: bool,
     pub check: bool,
@@ -93,8 +88,9 @@ pub struct Legal {
     pub max_raise_to: u32,
 }
 
-#[derive(Clone, Debug)]
-pub struct Hand {
+/// Every scalar of a hand; copying it is a complete snapshot apart from the history bytes.
+#[derive(Clone, Copy, Debug)]
+pub struct Core {
     pub button: u8,
     pub holes: [[u8; 2]; 2],
     pub board: [u8; 5],
@@ -105,10 +101,34 @@ pub struct Hand {
     pub contributed: [u32; 2],
     pub folded: [bool; 2],
     pub actor: Option<u8>,
-    pub events: Vec<Event>,
     max_bet: u32,
     min_raise: u32,
     acted: [bool; 2],
+}
+
+#[derive(Clone, Debug)]
+pub struct Hand {
+    pub core: Core,
+    /// Comma-joined JSON tokens of the key's ordered public history.
+    pub history: Vec<u8>,
+}
+
+pub struct Saved(Core, usize);
+
+impl std::ops::Deref for Hand {
+    type Target = Core;
+    fn deref(&self) -> &Core {
+        &self.core
+    }
+}
+
+fn push_token(history: &mut Vec<u8>, parts: &[&[u8]]) {
+    if !history.is_empty() {
+        history.push(b',');
+    }
+    for part in parts {
+        history.extend_from_slice(part);
+    }
 }
 
 impl Hand {
@@ -125,7 +145,7 @@ impl Hand {
 
     pub fn new(button: u8, holes: [[u8; 2]; 2], board: [u8; 5]) -> Hand {
         let (sb, bb) = (button as usize, 1 - button as usize);
-        let mut hand = Hand {
+        let mut core = Core {
             button,
             holes,
             board,
@@ -136,20 +156,29 @@ impl Hand {
             contributed: [0; 2],
             folded: [false; 2],
             actor: Some(sb as u8),
-            events: Vec::with_capacity(24),
             max_bet: BIG_BLIND,
             min_raise: BIG_BLIND,
             acted: [false; 2],
         };
         for (seat, amount) in [(sb, SMALL_BLIND), (bb, BIG_BLIND)] {
-            hand.stack[seat] -= amount;
-            hand.street_bet[seat] += amount;
-            hand.contributed[seat] += amount;
-            hand.events.push(Event::Blind { seat: seat as u8, amount });
+            core.stack[seat] -= amount;
+            core.street_bet[seat] += amount;
+            core.contributed[seat] += amount;
         }
-        hand
+        Hand { core, history: Vec::with_capacity(256) }
     }
 
+    pub fn save(&self) -> Saved {
+        Saved(self.core, self.history.len())
+    }
+
+    pub fn restore(&mut self, saved: Saved) {
+        self.core = saved.0;
+        self.history.truncate(saved.1);
+    }
+}
+
+impl Core {
     pub fn finished(&self) -> bool {
         self.actor.is_none()
     }
@@ -184,78 +213,6 @@ impl Hand {
         }
     }
 
-    pub fn apply(&self, action: Action) -> Hand {
-        let mut next = self.clone();
-        next.apply_mut(action);
-        next
-    }
-
-    pub fn apply_mut(&mut self, action: Action) {
-        let a = self.actor.expect("cannot act in a finished hand") as usize;
-        let o = 1 - a;
-        let legal = self.legal();
-        let paid = match action.kind {
-            Kind::Fold => {
-                assert!(legal.fold);
-                self.folded[a] = true;
-                0
-            }
-            Kind::Check => {
-                assert!(legal.check);
-                0
-            }
-            Kind::Call => {
-                assert!(legal.call);
-                legal.call_amount
-            }
-            Kind::Raise => {
-                assert!(legal.raise && legal.min_raise_to <= action.raise_to && action.raise_to <= legal.max_raise_to,
-                        "illegal raise {action:?} {legal:?}");
-                let increment = action.raise_to - self.max_bet;
-                if increment >= self.min_raise {
-                    self.min_raise = increment;
-                }
-                self.max_bet = action.raise_to;
-                self.acted[o] = false;
-                action.raise_to - self.street_bet[a]
-            }
-        };
-        self.stack[a] -= paid;
-        self.street_bet[a] += paid;
-        self.contributed[a] += paid;
-        self.acted[a] = true;
-        self.events.push(Event::Act { street: self.street, seat: a as u8, kind: action.kind, paid });
-        if action.kind == Kind::Fold {
-            self.actor = None;
-            return;
-        }
-        let matched = self.street_bet[a] == self.street_bet[o] || self.all_in(a) && self.street_bet[a] <= self.street_bet[o];
-        let round_over = (self.acted[o] || self.all_in(o)) && matched;
-        if !round_over {
-            self.actor = Some(o as u8);
-            return;
-        }
-        // Run out the board once at most one player can still bet.
-        let runout = self.all_in(0) || self.all_in(1);
-        loop {
-            if self.street == Street::River {
-                self.actor = None;
-                return;
-            }
-            self.street = self.street.next();
-            self.dealt = self.street.board_cards();
-            self.events.push(Event::Board { street: self.street });
-            self.street_bet = [0; 2];
-            self.max_bet = 0;
-            self.min_raise = BIG_BLIND;
-            self.acted = [false; 2];
-            if !runout {
-                self.actor = Some(1 - self.button);
-                return;
-            }
-        }
-    }
-
     /// Final stacks: the pot to the non-folder, or a showdown split.
     pub fn final_stacks(&self) -> [u32; 2] {
         assert!(self.finished());
@@ -286,5 +243,101 @@ impl Hand {
             stacks[1] += pot / 2;
         }
         stacks
+    }
+}
+
+impl Hand {
+    pub fn apply(&self, action: Action) -> Hand {
+        let mut next = self.clone();
+        next.apply_mut(action);
+        next
+    }
+
+    pub fn apply_mut(&mut self, action: Action) {
+        let c = &mut self.core;
+        let a = c.actor.expect("cannot act in a finished hand") as usize;
+        let o = 1 - a;
+        let legal = c.legal();
+        let pot_before = c.contributed[0] + c.contributed[1];
+        let stack_before = c.stack[a];
+        let paid = match action.kind {
+            Kind::Fold => {
+                assert!(legal.fold);
+                c.folded[a] = true;
+                0
+            }
+            Kind::Check => {
+                assert!(legal.check);
+                0
+            }
+            Kind::Call => {
+                assert!(legal.call);
+                legal.call_amount
+            }
+            Kind::Raise => {
+                assert!(legal.raise && legal.min_raise_to <= action.raise_to && action.raise_to <= legal.max_raise_to,
+                        "illegal raise {action:?} {legal:?}");
+                let increment = action.raise_to - c.max_bet;
+                if increment >= c.min_raise {
+                    c.min_raise = increment;
+                }
+                c.max_bet = action.raise_to;
+                c.acted[o] = false;
+                action.raise_to - c.street_bet[a]
+            }
+        };
+        c.stack[a] -= paid;
+        c.street_bet[a] += paid;
+        c.contributed[a] += paid;
+        c.acted[a] = true;
+        // Key token: street, actor relative to the button, label with the raise-size bucket.
+        let relative: &[u8] = if (a as u8 + 2 - c.button) % 2 == 0 { b"0" } else { b"1" };
+        let label: &[u8] = match action.kind {
+            Kind::Raise => {
+                let base = pot_before.max(BIG_BLIND);
+                let all_in = paid == stack_before;
+                match (if 2 * paid < base { 0 } else if 2 * paid < 3 * base { 1 } else if paid < 3 * base { 2 } else { 3 }, all_in) {
+                    (0, false) => b"raise-0",
+                    (1, false) => b"raise-1",
+                    (2, false) => b"raise-2",
+                    (_, false) => b"raise-3",
+                    (0, true) => b"raise-0-all-in",
+                    (1, true) => b"raise-1-all-in",
+                    (2, true) => b"raise-2-all-in",
+                    (_, true) => b"raise-3-all-in",
+                }
+            }
+            other => other.name().as_bytes(),
+        };
+        push_token(&mut self.history, &[b"[\"", c.street.name().as_bytes(), b"\",", relative, b",\"", label, b"\"]"]);
+        if action.kind == Kind::Fold {
+            c.actor = None;
+            return;
+        }
+        let matched = c.street_bet[a] == c.street_bet[o] || c.all_in(a) && c.street_bet[a] <= c.street_bet[o];
+        let round_over = (c.acted[o] || c.all_in(o)) && matched;
+        if !round_over {
+            c.actor = Some(o as u8);
+            return;
+        }
+        // Run out the board once at most one player can still bet.
+        let runout = c.all_in(0) || c.all_in(1);
+        loop {
+            if c.street == Street::River {
+                c.actor = None;
+                return;
+            }
+            c.street = c.street.next();
+            c.dealt = c.street.board_cards();
+            push_token(&mut self.history, &[b"[\"", c.street.name().as_bytes(), b"\",\"board\"]"]);
+            c.street_bet = [0; 2];
+            c.max_bet = 0;
+            c.min_raise = BIG_BLIND;
+            c.acted = [false; 2];
+            if !runout {
+                c.actor = Some(1 - c.button);
+                return;
+            }
+        }
     }
 }

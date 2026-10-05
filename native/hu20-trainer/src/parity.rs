@@ -56,16 +56,17 @@ pub fn check_hand(record: &Value) -> Option<String> {
             return at("raise bounds", format!("{}..{}", legal.min_raise_to, legal.max_raise_to),
                       format!("{}..{}", decision["min_raise_to"], decision["max_raise_to"]));
         }
-        let choices = menu(&hand);
+        let options = menu(&hand);
+        let choices = options.as_slice();
         let mine: Vec<String> = choices.iter().map(|c| format!("{}:{}", c.name, c.action.raise_to)).collect();
         let theirs: Vec<String> = decision["menu"].as_array().unwrap().iter()
             .map(|c| format!("{}:{}", c[0].as_str().unwrap(), c[1].as_u64().unwrap_or(0))).collect();
         if mine != theirs {
             return at("menu", format!("{mine:?}"), format!("{theirs:?}"));
         }
-        let key = key_hex(&hand, &choices);
+        let key = key_hex(&hand, choices);
         if key != decision["key"].as_str().unwrap() {
-            return at("key", format!("{key} {}", crate::key::payload(&hand, &choices)), decision["key"].to_string());
+            return at("key", format!("{key} {}", crate::key::payload(&hand, choices)), decision["key"].to_string());
         }
         let chosen = Action { kind: kind(action[0].as_str().unwrap()), raise_to: action[1].as_u64().unwrap_or(0) as u32 };
         hand.apply_mut(chosen);
@@ -103,19 +104,22 @@ pub fn hex_key(text: &str) -> crate::cfr::Key {
 }
 
 pub fn node_from(row: &Value) -> crate::cfr::Node {
-    let floats = |v: &Value| v.as_array().unwrap().iter().map(|x| x.as_f64().unwrap()).collect::<Vec<f64>>();
-    crate::cfr::Node {
-        names: row[0].as_array().unwrap().iter().map(|n| static_name(n.as_str().unwrap())).collect(),
-        regrets: floats(&row[1]),
-        average: floats(&row[2]),
-        visits: row[3].as_u64().unwrap(),
+    let names: Vec<&str> = row[0].as_array().unwrap().iter().map(|n| static_name(n.as_str().unwrap())).collect();
+    let mut node = crate::cfr::Node::empty(crate::key::code_of(&names), names.len());
+    for (i, x) in row[1].as_array().unwrap().iter().enumerate() {
+        node.regrets[i] = x.as_f64().unwrap();
     }
+    for (i, x) in row[2].as_array().unwrap().iter().enumerate() {
+        node.average[i] = x.as_f64().unwrap();
+    }
+    node.visits = row[3].as_u64().unwrap();
+    node
 }
 
 /// Compare native traversal deltas with recorded Python `_collect_root` deltas, bit for bit.
 pub fn check_traversals(document: &Value) -> (usize, Vec<String>) {
     use crate::cfr::{Forced, Traversal};
-    let table: std::collections::HashMap<_, _> = document["nodes"].as_object().unwrap().iter()
+    let table: crate::cfr::Table = document["nodes"].as_object().unwrap().iter()
         .map(|(k, row)| (hex_key(k), node_from(row))).collect();
     let button = document["table_button"].as_u64().unwrap() as u8;
     let mut problems = Vec::new();
@@ -125,7 +129,7 @@ pub fn check_traversals(document: &Value) -> (usize, Vec<String>) {
         let draws: Vec<usize> = case["draws"].as_array().unwrap().iter().map(|d| d.as_u64().unwrap() as usize).collect();
         let mut traversal = Traversal::new(&table, case["iteration"].as_u64().unwrap(), case["seat"].as_u64().unwrap() as usize,
                                            Forced(draws.iter()));
-        traversal.run(&Hand::from_deck(button, &deck));
+        traversal.run(&mut Hand::from_deck(button, &deck));
         let expected: std::collections::HashMap<_, _> = case["deltas"].as_object().unwrap().iter()
             .map(|(k, row)| (hex_key(k), node_from(row))).collect();
         let mut problem = None;
@@ -138,8 +142,8 @@ pub fn check_traversals(document: &Value) -> (usize, Vec<String>) {
                 match traversal.deltas.get(key) {
                     None => { problem = Some("missing delta key".into()); break; }
                     Some(mine) => {
-                        let same = |a: &[f64], b: &[f64]| a.len() == b.len() && a.iter().zip(b).all(|(x, y)| x.to_bits() == y.to_bits());
-                        if mine.names != theirs.names || mine.visits != theirs.visits
+                        let same = |a: &[f64], b: &[f64]| a.iter().zip(b).all(|(x, y)| x.to_bits() == y.to_bits());
+                        if mine.code != theirs.code || mine.len != theirs.len || mine.visits != theirs.visits
                             || !same(&mine.regrets, &theirs.regrets) || !same(&mine.average, &theirs.average) {
                             problem = Some(format!("delta differs: native {mine:?} python {theirs:?}"));
                             break;

@@ -5,13 +5,12 @@
 //! then applies them, exactly like `BlueprintTrainer.step`. Production HU20 runs
 //! use one root per seat; more roots per seat run in parallel.
 
-use crate::cfr::{Key, Node, Stream, Traversal};
+use crate::cfr::{Node, Stream, Table, Traversal};
 use crate::game::Hand;
 use flate2::write::GzEncoder;
 use flate2::Compression;
 use rayon::prelude::*;
 use serde_json::json;
-use std::collections::HashMap;
 use std::io::Write;
 use std::path::Path;
 
@@ -19,7 +18,9 @@ pub const GAME: &str = "hu20-native-reopening-20bb-52card-no-ante-rake-v1";
 pub const FORMAT: &str = "holdem-hu20-native-reopening-blueprint-v1";
 
 pub struct Trainer {
-    pub table: HashMap<Key, Node>,
+    pub table: Table,
+    /// Per-task delta maps, emptied and reused every iteration.
+    scratch: Vec<Table>,
     pub iteration: u64,
     pub seed: u64,
     pub roots_per_seat: usize,
@@ -47,7 +48,7 @@ pub fn deal(seed: u64) -> Vec<u8> {
 
 impl Trainer {
     pub fn new(seed: u64, roots_per_seat: usize) -> Trainer {
-        Trainer { table: HashMap::new(), iteration: 0, seed, roots_per_seat, nodes: 0 }
+        Trainer { table: Table::default(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0 }
     }
 
     pub fn step(&mut self) -> u64 {
@@ -56,37 +57,40 @@ impl Trainer {
             (0..2).flat_map(|seat| (0..self.roots_per_seat).map(move |sample| (seat, sample))).collect();
         let table = &self.table;
         let seed = self.seed;
-        let run = |&(seat, sample): &(usize, usize)| {
+        let mut scratch = std::mem::take(&mut self.scratch);
+        scratch.resize_with(tasks.len(), Table::default);
+        let run = |(&(seat, sample), deltas): (&(usize, usize), Table)| {
             let deck = deal(mix(&[seed, iteration, seat as u64, sample as u64, 1]));
             let sampler = Stream(mix(&[seed, iteration, seat as u64, sample as u64, 2]));
-            let mut traversal = Traversal::new(table, iteration, seat, sampler);
-            traversal.run(&Hand::from_deck(0, &deck));
+            let mut traversal = Traversal::with_deltas(table, iteration, seat, sampler, deltas);
+            traversal.run(&mut Hand::from_deck(0, &deck));
             (traversal.deltas, traversal.nodes)
         };
-        let results: Vec<(HashMap<Key, Node>, u64)> = if tasks.len() > 2 {
-            tasks.par_iter().map(run).collect()
+        let results: Vec<(Table, u64)> = if tasks.len() > 2 {
+            tasks.par_iter().zip(scratch.into_par_iter()).map(run).collect()
         } else {
-            tasks.iter().map(run).collect()
+            tasks.iter().zip(scratch).map(run).collect()
         };
         // Merge in task order, then apply: identical floating-point order to Python.
-        let mut merged: HashMap<Key, Node> = HashMap::new();
+        let mut merged = Table::default();
         let mut nodes = 0;
-        for (deltas, count) in results {
+        for (deltas, count) in &results {
             nodes += count;
             for (key, delta) in deltas {
-                let target = merged.entry(key).or_insert_with(|| Node::empty(delta.names.clone()));
-                assert!(target.names == delta.names, "an abstract infoset changed its action labels");
-                for i in 0..delta.names.len() {
+                let target = merged.entry(*key).or_insert_with(|| Node::empty(delta.code, delta.len as usize));
+                assert!(target.code == delta.code, "an abstract infoset changed its action labels");
+                for i in 0..delta.len as usize {
                     target.regrets[i] += delta.regrets[i];
                     target.average[i] += delta.average[i];
                 }
                 target.visits += delta.visits;
             }
         }
+        self.scratch = results.into_iter().map(|(deltas, _)| deltas).collect();
         for (key, delta) in merged {
-            let node = self.table.entry(key).or_insert_with(|| Node::empty(delta.names.clone()));
-            assert!(node.names == delta.names, "an abstract infoset changed its action labels");
-            for i in 0..delta.names.len() {
+            let node = self.table.entry(key).or_insert_with(|| Node::empty(delta.code, delta.len as usize));
+            assert!(node.code == delta.code, "an abstract infoset changed its action labels");
+            for i in 0..delta.len as usize {
                 node.regrets[i] += delta.regrets[i];
                 node.average[i] += delta.average[i];
                 assert!(node.regrets[i].is_finite() && node.average[i].is_finite(), "non-finite blueprint update");
@@ -120,12 +124,13 @@ impl Trainer {
             let file = std::fs::File::create(&temporary)?;
             let mut out = GzEncoder::new(std::io::BufWriter::new(file), Compression::default());
             writeln!(out, "{}", serde_json::to_string(&header).unwrap())?;
-            let mut keys: Vec<&Key> = self.table.keys().collect();
+            let mut keys: Vec<&crate::cfr::Key> = self.table.keys().collect();
             keys.sort();
             for key in keys {
                 let node = &self.table[key];
                 let hex: String = key.iter().map(|b| format!("{b:02x}")).collect();
-                let row = json!([hex, node.names, node.regrets, node.average, node.visits]);
+                let n = node.len as usize;
+                let row = json!([hex, node.names(), &node.regrets[..n], &node.average[..n], node.visits]);
                 writeln!(out, "{}", serde_json::to_string(&row).unwrap())?;
             }
             out.finish()?.flush()?;
