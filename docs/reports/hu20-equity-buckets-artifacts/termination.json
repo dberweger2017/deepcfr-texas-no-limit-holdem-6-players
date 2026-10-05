@@ -1,0 +1,19 @@
+{
+  "pod": "90gceq0t9mqz6q",
+  "started_at": "2026-10-05T06:47:47.739Z",
+  "delete_request_utc": "2026-10-05T07:28:22.761948+00:00",
+  "delete_response_utc": "2026-10-05T07:28:24.102615+00:00",
+  "lifetime_seconds_upper_bound": 2436.363615,
+  "rate_usd_per_hour": 0.22,
+  "estimated_compute_usd": 0.14888888758333335,
+  "retrieval_verified_before_delete": "2026-10-05T07:27:41.432939+00:00",
+  "mcp_delete_response_file": "delete-pod-90gceq0t9mqz6q.json",
+  "confirmed_gone": true,
+  "get_after_status": 404,
+  "older_pods_unchanged": {
+    "43z4itur3hwnyv": "EXITED",
+    "cl0riravggku4r": "EXITED",
+    "xu414eguzakxfr": "EXITED",
+    "k9rdph2fwhym87": "EXITED"
+  }
+}
