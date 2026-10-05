@@ -301,6 +301,64 @@ def test_process_timeout_kills_child_and_retains_receipt(tmp_path):
     assert (receipt / "manifest.json").is_file() and (receipt / "stderr.log").is_file()
 
 
+def test_profile_sample_has_fixed_hash_boundary():
+    from src.blueprint.hu20_turn_solver import sampled_profile
+    threshold=2**256//100
+    assert sampled_profile(f"{threshold-1:064x}")
+    assert not sampled_profile(f"{threshold:064x}")
+    assert not sampled_profile("f"*64)
+
+
+@pytest.mark.parametrize("selected,failed",[(False,False),(True,False),(False,True),(True,True)])
+def test_profile_retention_preserves_hash_and_live_matrices(tmp_path,monkeypatch,selected,failed):
+    import src.blueprint.hu20_turn_solver as boundary
+    executable=tmp_path/'native'
+    event={"event":"completion","status":"oversize" if failed else "play_complete",
+           "iterations":50,"solver_commit":"fixture","compressed":False}
+    executable.write_text('#!/usr/bin/env python3\nimport json,sys\n'
+        'r=json.load(open(sys.argv[1]))\n'
+        'open(r["dump_path"],"w").write("profile-body\\n")\n'
+        f'open(sys.argv[2],"w").write({json.dumps(json.dumps(event)+chr(10))})\n')
+    executable.chmod(0o755)
+    monkeypatch.setattr(boundary,"sampled_profile",lambda request_hash:selected)
+    monkeypatch.setattr(boundary,"parse_profiles",lambda request,path:{"loaded":path.read_text()})
+    solver=ExternalTurnSolver(executable,tmp_path/'evidence',profile_retention=boundary.PROFILE_RETENTION_RULE)
+    request={"spot":"fixture","threads":1,"max_iterations":50,"solver_commit":"fixture",
+             "compress":False,"memory_budget_bytes":1024}
+    if failed:
+        with pytest.raises(SolveFailure):solver.solve(request,monotonic()+5)
+    else:
+        assert solver.solve(request,monotonic()+5)=={"loaded":"profile-body\n"}
+    folder=Path(solver.records[-1]["path"])
+    receipt=json.loads((folder/'receipt.json').read_text())
+    retention=receipt['profile_retention']
+    assert retention['request_sha256']==boundary.file_hash(folder/'request.json')
+    assert retention['profile_sha256']==boundary.sha256(b'profile-body\n').hexdigest()
+    assert retention['profile_bytes']==13 and retention['body_retained']==selected
+    assert (folder/'profile.jsonl').exists()==selected
+    manifest=json.loads((folder/'manifest.json').read_text())
+    assert ('profile.jsonl' in manifest)==selected
+    for name in ('request.json','receipt.json','response.jsonl'):
+        assert manifest[name]['sha256']==boundary.file_hash(folder/name)
+
+
+def test_retention_never_deletes_before_receipt_fsync(tmp_path,monkeypatch):
+    import src.blueprint.hu20_turn_solver as boundary
+    executable=tmp_path/'native'
+    executable.write_text('#!/usr/bin/env python3\nimport json,sys\n'
+        'r=json.load(open(sys.argv[1]))\n'
+        'open(r["dump_path"],"w").write("partial-profile")\n'
+        'open(sys.argv[2],"w").write(json.dumps({"event":"completion","status":"oversize"})+"\\n")\n')
+    executable.chmod(0o755)
+    monkeypatch.setattr(boundary,"sampled_profile",lambda request_hash:False)
+    def fail_sync(fd):raise OSError("receipt not durable")
+    monkeypatch.setattr(boundary.os,"fsync",fail_sync)
+    solver=ExternalTurnSolver(executable,tmp_path/'evidence',profile_retention=boundary.PROFILE_RETENTION_RULE)
+    with pytest.raises(OSError,match="not durable"):
+        solver.solve({"spot":"fixture","threads":1},monotonic()+5)
+    assert next((tmp_path/'evidence').glob('*/profile.jsonl')).read_text()=="partial-profile"
+
+
 @pytest.mark.parametrize("kw", [{"decision_seconds":31}, {"iterations":0},
     {"opponent_likelihood_floor":.05}, {"menu":"unknown"}, {"compress":1}])
 def test_configuration_rejects_undeclared_settings(kw):

@@ -1,0 +1,29 @@
+{
+  "retrieved_at": 1791208397.2479901,
+  "method": "tools/call",
+  "name": "get-gpu-type",
+  "arguments": {
+    "id": "NVIDIA GeForce RTX 3090",
+    "include": [
+      "AVAILABILITY"
+    ],
+    "product": [
+      "POD"
+    ],
+    "cloud": "COMMUNITY",
+    "count": 1
+  },
+  "response": {
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"availability\": \"NONE\",\n  \"community\": true,\n  \"cudaVersions\": [\n    {\n      \"available\": false,\n      \"version\": \"12.4\"\n    },\n    {\n      \"available\": false,\n      \"version\": \"12.5\"\n    },\n    {\n      \"available\": false,\n      \"version\": \"12.7\"\n    },\n    {\n      \"available\": false,\n      \"version\": \"12.8\"\n    },\n    {\n      \"available\": false,\n      \"version\": \"12.9\"\n    },\n    {\n      \"available\": false,\n      \"version\": \"13.0\"\n    },\n    {\n      \"available\": false,\n      \"version\": \"13.2\"\n    },\n    {\n      \"available\": false,\n      \"version\": \"13.3\"\n    }\n  ],\n  \"id\": \"NVIDIA GeForce RTX 3090\",\n  \"manufacturer\": \"NVIDIA\",\n  \"maxCount\": {\n    \"community\": 8,\n    \"secure\": 8\n  },\n  \"memory\": 24,\n  \"name\": \"RTX 3090\",\n  \"pool\": \"AMPERE_24\",\n  \"price\": {\n    \"community\": 0.22,\n    \"secure\": 0.5,\n    \"serverless\": 0.69\n  },\n  \"secure\": true\n}"
+        }
+      ],
+      "isError": false
+    },
+    "jsonrpc": "2.0",
+    "id": 10
+  }
+}

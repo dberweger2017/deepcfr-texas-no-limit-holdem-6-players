@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from hashlib import sha256
 from functools import cached_property
 import json
+import os
 from pathlib import Path
 import subprocess
 from time import monotonic
@@ -94,9 +95,21 @@ def file_hash(path):
     return h.hexdigest()
 
 
+PROFILE_RETENTION_RULE = "request-sha256-lowest-1pct-v1"
+
+
+def sampled_profile(request_sha256):
+    """A fixed one-percent hash-space predicate, independent of solve outcomes."""
+    if len(request_sha256)!=64:
+        raise ValueError("Request SHA-256 must contain 64 hex digits")
+    return int(request_sha256,16)<2**256//100
+
+
 class ExternalTurnSolver:
     def __init__(self, executable, evidence_dir, *, expected_sha256=None,
-                 resource_check=lambda: None, allocation_budget=None):
+                 resource_check=lambda: None, allocation_budget=None, profile_retention=None):
+        if profile_retention not in (None,PROFILE_RETENTION_RULE):
+            raise ValueError("Unknown profile retention rule")
         self.executable = Path(executable).expanduser().resolve()
         self.evidence_dir = Path(evidence_dir).expanduser().resolve()
         self.expected_sha256 = expected_sha256 or (
@@ -104,6 +117,7 @@ class ExternalTurnSolver:
         self.records = []
         self.resource_check = resource_check
         self.allocation_budget = allocation_budget
+        self.profile_retention = profile_retention
 
     def solve(self, request, deadline, *, mode="play"):
         if mode not in ("play", "quality"):
@@ -137,8 +151,10 @@ class ExternalTurnSolver:
             if monotonic() >= deadline:
                 raise SolveFailure("timeout", "No startup budget remains")
             with (out / "stdout.log").open("wb") as stdout, (out / "stderr.log").open("wb") as stderr:
-                import os
                 env = dict(os.environ, RAYON_NUM_THREADS=str(request["threads"]))
+                if self.profile_retention:
+                    # The final request bytes are frozen before process launch.
+                    record["request_sha256"] = file_hash(out / "request.json")
                 try:
                     process = subprocess.Popen([str(self.executable), str(out / "request.json"),
                         str(out / "response.jsonl")], stdout=stdout, stderr=stderr, env=env)
@@ -185,8 +201,34 @@ class ExternalTurnSolver:
                 process.kill()
                 process.wait()
             record["seconds"] = monotonic() - started
-            self.records.append(record)
-            (out / "receipt.json").write_text(json.dumps(record, sort_keys=True) + "\n")
             files = {p.name: {"bytes": p.stat().st_size, "sha256": file_hash(p)}
                      for p in out.iterdir() if p.is_file() and p.name != "manifest.json"}
+            if self.profile_retention:
+                request_hash=files["request.json"]["sha256"]
+                if record.get("request_sha256",request_hash)!=request_hash:
+                    raise ValueError("Request changed after sample selection")
+                selected=sampled_profile(request_hash)
+                profile=files.get("profile.jsonl")
+                record["profile_retention"]={"rule":self.profile_retention,
+                    "request_sha256":request_hash,"sample_selected":selected,
+                    "profile_sha256":profile["sha256"] if profile else None,
+                    "profile_bytes":profile["bytes"] if profile else 0,
+                    "profile_generated":profile is not None,
+                    "body_retained":selected and profile is not None}
+            self.records.append(record)
+            receipt=out / "receipt.json"
+            with receipt.open("w") as stream:
+                stream.write(json.dumps(record, sort_keys=True) + "\n")
+                if self.profile_retention:
+                    stream.flush();os.fsync(stream.fileno())
+            if self.profile_retention:
+                directory=os.open(out,os.O_RDONLY)
+                try:os.fsync(directory)
+                finally:os.close(directory)
+                # Live matrices have already been parsed into memory. Persist
+                # the body hash in the receipt before removing only this dump.
+                if profile is not None and not selected:
+                    (out / "profile.jsonl").unlink()
+                    files.pop("profile.jsonl")
+            files["receipt.json"]={"bytes":receipt.stat().st_size,"sha256":file_hash(receipt)}
             (out / "manifest.json").write_text(json.dumps(files, sort_keys=True) + "\n")
