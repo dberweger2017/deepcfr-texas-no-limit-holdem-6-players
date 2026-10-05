@@ -1,0 +1,97 @@
+[
+  {
+    "calls": 1,
+    "seconds": 0.020513208,
+    "stage": "action_tree_build_validate"
+  },
+  {
+    "calls": 147804,
+    "seconds": 1.6164455999999126,
+    "stage": "blueprint_policy_build"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.629698125,
+    "stage": "both_blueprint_ev"
+  },
+  {
+    "calls": 1,
+    "seconds": 105.5501615,
+    "stage": "cfr_progress_loop"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.034716708,
+    "stage": "compact_data_build"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.071902833,
+    "stage": "compact_load_parse"
+  },
+  {
+    "calls": 1,
+    "seconds": 1.236117125,
+    "stage": "equilibrium_ev_br_residual"
+  },
+  {
+    "calls": 1,
+    "seconds": 37.554793084,
+    "stage": "equilibrium_statistics_collect"
+  },
+  {
+    "calls": 4,
+    "seconds": 2.040535876,
+    "stage": "locked_best_response"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.000495125,
+    "stage": "native_allocate"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.009496292,
+    "stage": "native_tree_card_build"
+  },
+  {
+    "calls": 443412,
+    "seconds": 1.407675583999365,
+    "stage": "node_lock_calls"
+  },
+  {
+    "calls": 295608,
+    "seconds": 15.972264805000359,
+    "stage": "node_policy_build"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.018807209,
+    "stage": "projection_keys_build"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.033992417,
+    "stage": "request_load_parse"
+  },
+  {
+    "calls": 19,
+    "seconds": 0.130551872,
+    "stage": "result_serialization_write"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.661829625,
+    "stage": "statistics_json_build"
+  },
+  {
+    "calls": 6,
+    "seconds": 62.26430383299999,
+    "stage": "traversal"
+  },
+  {
+    "calls": 6,
+    "seconds": 0.035500041999999996,
+    "stage": "unlock_all"
+  }
+]

@@ -1,0 +1,269 @@
+{
+  "aggregate_rss_bytes": 8589934592,
+  "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+  "build_flags": "-A dangerous_implicit_autorefs",
+  "changed_paths": [
+    "harness/src/compact.rs",
+    "harness/src/engineering_tests.rs",
+    "harness/src/main.rs",
+    "harness/src/pooling.rs",
+    "harness/src/profile.rs",
+    "upstream/src/game/interpreter.rs",
+    "upstream/src/game/mod.rs"
+  ],
+  "deadline_epoch": 1791199183.505676,
+  "disk_floor_bytes": 21474836480,
+  "engineering_code_frozen_epoch": 1791133646.6955168,
+  "engineering_started_utc": "2026-10-04T16:45:21Z",
+  "external_root": "/Users/dberweger/Local/hu20-board-pooling-engineering-20261004",
+  "format": "hu20-board-pooling-engineering-amendment-v1",
+  "input_only_profile": [
+    {
+      "calls": 5,
+      "seconds": 4.471605249,
+      "stage": "baseline_repeated_policy_load"
+    },
+    {
+      "calls": 1,
+      "seconds": 0.676529792,
+      "stage": "cached_policy_load"
+    },
+    {
+      "calls": 1,
+      "seconds": 0.0451855,
+      "stage": "compact_data_build"
+    },
+    {
+      "calls": 1,
+      "seconds": 0.102639708,
+      "stage": "compact_load_parse"
+    },
+    {
+      "calls": 6,
+      "seconds": 4.483019665,
+      "stage": "pooled_policy_load_parse_build"
+    },
+    {
+      "calls": 1,
+      "seconds": 0.024384584,
+      "stage": "projection_keys_build"
+    },
+    {
+      "calls": 1,
+      "seconds": 0.076235208,
+      "stage": "request_load_parse"
+    }
+  ],
+  "m1_tests": {
+    "cfr_iterations": 0,
+    "decision_comparisons": 33984,
+    "equilibrium_br_bit_comparisons": 12,
+    "range_tree_combinations": 4,
+    "test_log_sha256": "45a9725e40c86af5a3fcda7689e97b3800b2c211473213f75d92e049c3422bf3"
+  },
+  "owner_authorization": "M1 engineering <=about 2h; fresh M4 pilot-0 solve and lock exact parity; existing clock/forecast only",
+  "parity": "pending M4; no production values",
+  "prior_binary_sha256": "4f22f58bd677c6fb46e980c69fcfd14f13cadd850417c0aca711983aaacc7792",
+  "python_tests_passed": 32,
+  "requests_changed": false,
+  "science_changed": false,
+  "solver_arena_bytes": 4294967296,
+  "source_files": [
+    {
+      "bytes": 10422,
+      "path": "harness/src/compact.rs",
+      "prior_sha256": "655972fd208db83d6cc282b67752bfda7cca2ddc6efa067260a26acba0cd52d2",
+      "sha256": "f1c2897bb06c804899fba98abfdd0fc486a0ce00b715803b8423ef3a340944a5"
+    },
+    {
+      "bytes": 3654,
+      "path": "harness/src/engineering_tests.rs",
+      "prior_sha256": null,
+      "sha256": "9f8c9b1b8aac10776abab2aaad4cabc452d6ee332d385a0aac6461fa1ecd8f1f"
+    },
+    {
+      "bytes": 16694,
+      "path": "harness/src/main.rs",
+      "prior_sha256": "21ba9c7434671f61493f565ac680e299ccb2c5327f8edfc7e29ac5e815578cf1",
+      "sha256": "4708c2bcfd6438fe9739f052541da05e5fee82737ad87cca6763da32a8226131"
+    },
+    {
+      "bytes": 11817,
+      "path": "harness/src/pooling.rs",
+      "prior_sha256": "e29ca52ba102232763fd710e17d510782ed43c54aad580d18831d949cb43c8df",
+      "sha256": "1d96f8fc56d706cbf65b11ed4509df0a2996a83fdb8b28b5ed04492956fa7e83"
+    },
+    {
+      "bytes": 843,
+      "path": "harness/src/profile.rs",
+      "prior_sha256": null,
+      "sha256": "025551fbece8e2df7b722ca24413cd341cc88842c657d530ee38c2141bffef1d"
+    },
+    {
+      "bytes": 2866,
+      "path": "harness/src/weighted.rs",
+      "prior_sha256": "cd18221dc7bc96d0dde3bab79ff72cc0445bc1e3eb66dad91e2693f601975893",
+      "sha256": "cd18221dc7bc96d0dde3bab79ff72cc0445bc1e3eb66dad91e2693f601975893"
+    },
+    {
+      "bytes": 37005,
+      "path": "upstream/src/action_tree.rs",
+      "prior_sha256": "bc07d637cf128b96e2b7f8be6bcdf01c8721846c411b44f44e816620dfd13008",
+      "sha256": "bc07d637cf128b96e2b7f8be6bcdf01c8721846c411b44f44e816620dfd13008"
+    },
+    {
+      "bytes": 4006,
+      "path": "upstream/src/alloc.rs",
+      "prior_sha256": "e0006d8d4163a781c9938b1400fb28d5b0abf723990fef7a1e4226d182065d78",
+      "sha256": "e0006d8d4163a781c9938b1400fb28d5b0abf723990fef7a1e4226d182065d78"
+    },
+    {
+      "bytes": 1356,
+      "path": "upstream/src/atomic_float.rs",
+      "prior_sha256": "80fe3c6bb0d03b93bf9430a40bec76956715b45bd03ab35812dea3cdba8e02cb",
+      "sha256": "80fe3c6bb0d03b93bf9430a40bec76956715b45bd03ab35812dea3cdba8e02cb"
+    },
+    {
+      "bytes": 11568,
+      "path": "upstream/src/bet_size.rs",
+      "prior_sha256": "9dd07a1231afc4f933d0f94804c3e649aa1bc1acdaba0cbe0367d3ed4669f3a2",
+      "sha256": "9dd07a1231afc4f933d0f94804c3e649aa1bc1acdaba0cbe0367d3ed4669f3a2"
+    },
+    {
+      "bytes": 35380,
+      "path": "upstream/src/bunching.rs",
+      "prior_sha256": "c4b8f4a61ebd134d75a25756bd040beee5b2a5c086591a883622b6d68f3d1e83",
+      "sha256": "c4b8f4a61ebd134d75a25756bd040beee5b2a5c086591a883622b6d68f3d1e83"
+    },
+    {
+      "bytes": 14994,
+      "path": "upstream/src/card.rs",
+      "prior_sha256": "ee54dbd06cbe8c470db77b7826ce05e97a133b04a8e931867eb8cb0f7c41738a",
+      "sha256": "ee54dbd06cbe8c470db77b7826ce05e97a133b04a8e931867eb8cb0f7c41738a"
+    },
+    {
+      "bytes": 13155,
+      "path": "upstream/src/file.rs",
+      "prior_sha256": "4b66b143c9fee93589d42058c2737c17b875781d603f21114de3c7e5629cc18e",
+      "sha256": "4b66b143c9fee93589d42058c2737c17b875781d603f21114de3c7e5629cc18e"
+    },
+    {
+      "bytes": 52518,
+      "path": "upstream/src/game/base.rs",
+      "prior_sha256": "80a72aba87f1426cc5c26940d33490f27f2008fc055f3dd658bcd3a27ec6e8b1",
+      "sha256": "80a72aba87f1426cc5c26940d33490f27f2008fc055f3dd658bcd3a27ec6e8b1"
+    },
+    {
+      "bytes": 14259,
+      "path": "upstream/src/game/evaluation.rs",
+      "prior_sha256": "eaee5b2cb7c16482edb181cb626d6674bb39d3664791f6bca091ec3bb6e15f13",
+      "sha256": "eaee5b2cb7c16482edb181cb626d6674bb39d3664791f6bca091ec3bb6e15f13"
+    },
+    {
+      "bytes": 48855,
+      "path": "upstream/src/game/interpreter.rs",
+      "prior_sha256": "9d93bb9ef1e7f394c6626689166fd4d918e0394b82439ca7c411d6d805670150",
+      "sha256": "0873467f4cdb24a51a26a5632eb2485cfc9f8fa3ae11a585187ca99c130e228c"
+    },
+    {
+      "bytes": 4666,
+      "path": "upstream/src/game/mod.rs",
+      "prior_sha256": "4808a198b2fa23ba842609cea70fbdec3e5ad32e33ff6f5c7f8e5b02e50e0087",
+      "sha256": "d45ae0dfdc52d47d3a903765f98fb0444b534d4bbed65b12ce96a12872b7e3a5"
+    },
+    {
+      "bytes": 6424,
+      "path": "upstream/src/game/node.rs",
+      "prior_sha256": "c4fca5b36526e9e239e887d0a2fde3bdc43db1d5c64f4d22a68b0f3bd279e270",
+      "sha256": "c4fca5b36526e9e239e887d0a2fde3bdc43db1d5c64f4d22a68b0f3bd279e270"
+    },
+    {
+      "bytes": 12253,
+      "path": "upstream/src/game/serialization.rs",
+      "prior_sha256": "5e6a0a08261277997ddd77c590a32c9a3618048b0767c59359c395036b384702",
+      "sha256": "5e6a0a08261277997ddd77c590a32c9a3618048b0767c59359c395036b384702"
+    },
+    {
+      "bytes": 46789,
+      "path": "upstream/src/game/tests.rs",
+      "prior_sha256": "9696df2965e73639b5f78ecfd867274d005a8997b4331b2a9c17f229a353762b",
+      "sha256": "9696df2965e73639b5f78ecfd867274d005a8997b4331b2a9c17f229a353762b"
+    },
+    {
+      "bytes": 5812,
+      "path": "upstream/src/hand.rs",
+      "prior_sha256": "b450ce3d080215b2c37c20f3e91a6e6b2ceaf75e302e8bc8cf8e67808a4e0445",
+      "sha256": "b450ce3d080215b2c37c20f3e91a6e6b2ceaf75e302e8bc8cf8e67808a4e0445"
+    },
+    {
+      "bytes": 51912,
+      "path": "upstream/src/hand_table.rs",
+      "prior_sha256": "04de80a95fab23693a4cf188f889f5aa5f1ea4b7e884313346a59971b06e69fc",
+      "sha256": "04de80a95fab23693a4cf188f889f5aa5f1ea4b7e884313346a59971b06e69fc"
+    },
+    {
+      "bytes": 7889,
+      "path": "upstream/src/interface.rs",
+      "prior_sha256": "4ae05741395c191480b4fac24dfc7eefca5818ef8370b7c1511a984350de4469",
+      "sha256": "4ae05741395c191480b4fac24dfc7eefca5818ef8370b7c1511a984350de4469"
+    },
+    {
+      "bytes": 3835,
+      "path": "upstream/src/lib.rs",
+      "prior_sha256": "c31b971964c663da4e6db272ddabeb56428fe562966e3e0c603b8712a74aa5e3",
+      "sha256": "c31b971964c663da4e6db272ddabeb56428fe562966e3e0c603b8712a74aa5e3"
+    },
+    {
+      "bytes": 3105,
+      "path": "upstream/src/mutex_like.rs",
+      "prior_sha256": "47e8de73971797217095f7789a1739c3c6875e952856e9828b4d30dd1e9dabd9",
+      "sha256": "47e8de73971797217095f7789a1739c3c6875e952856e9828b4d30dd1e9dabd9"
+    },
+    {
+      "bytes": 38764,
+      "path": "upstream/src/range.rs",
+      "prior_sha256": "e40562f500b4945a621b4f9b72191dd2eef76986fc0d67d7845edebd3e110d3f",
+      "sha256": "e40562f500b4945a621b4f9b72191dd2eef76986fc0d67d7845edebd3e110d3f"
+    },
+    {
+      "bytes": 6488,
+      "path": "upstream/src/sliceop.rs",
+      "prior_sha256": "0812930cf7b0fc7bdca45ae06ea97b310d5491c2c3fb75d27098b4fd9a76dbc1",
+      "sha256": "0812930cf7b0fc7bdca45ae06ea97b310d5491c2c3fb75d27098b4fd9a76dbc1"
+    },
+    {
+      "bytes": 14638,
+      "path": "upstream/src/solver.rs",
+      "prior_sha256": "1b198e038de70b05abe59d6e36186fbf9d51e50bef27eb6827bac3705e61e3db",
+      "sha256": "1b198e038de70b05abe59d6e36186fbf9d51e50bef27eb6827bac3705e61e3db"
+    },
+    {
+      "bytes": 28295,
+      "path": "upstream/src/utility.rs",
+      "prior_sha256": "00892538b43dbf332cd7315a17be2eac91a4a079d0c181449c7dec4a80e4bf33",
+      "sha256": "00892538b43dbf332cd7315a17be2eac91a4a079d0c181449c7dec4a80e4bf33"
+    },
+    {
+      "bytes": 241,
+      "path": "harness/Cargo.toml",
+      "prior_sha256": "abfb551f1cb3361f8d8b8918d7e397698d8fb04bd45530759ab825e6c21ddcbd",
+      "sha256": "abfb551f1cb3361f8d8b8918d7e397698d8fb04bd45530759ab825e6c21ddcbd"
+    },
+    {
+      "bytes": 7916,
+      "path": "harness/Cargo.lock",
+      "prior_sha256": "33613db4ada49e23efee77838315e70d91000769ca3da1d4b4f50b62918ca7a2",
+      "sha256": "33613db4ada49e23efee77838315e70d91000769ca3da1d4b4f50b62918ca7a2"
+    },
+    {
+      "bytes": 661,
+      "path": "upstream/Cargo.toml",
+      "prior_sha256": "2b7f563ac5db2bbf86224c0074c9988f326ebe55775818767ca62c89ff6de7d8",
+      "sha256": "2b7f563ac5db2bbf86224c0074c9988f326ebe55775818767ca62c89ff6de7d8"
+    }
+  ],
+  "threads": 6,
+  "upstream_pin": "9d1509fe5077d019825f833eed04b16d342dfda1",
+  "worker_rss_bytes": 7516192768,
+  "workers": 1
+}

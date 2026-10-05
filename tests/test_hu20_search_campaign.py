@@ -376,3 +376,27 @@ def test_shared_cold_deadline_still_returns_measured_blueprint_fallback(tmp_path
     assert second['cold_seconds']>=31 and second['residual_pct_pot']==2
     assert second['full_native_verified'] and second['played_strategy_verified']
     assert second['receipts'][0]['shared'] and len(native.requests)==2
+
+
+@pytest.mark.parametrize("floor,expected_failure", [(None, False), (20*1024**3, True)])
+def test_blocking_watchdog_keeps_paid_worker_approval_interface(tmp_path, monkeypatch, floor, expected_failure):
+    from types import SimpleNamespace
+    from time import monotonic, sleep
+    import scripts.hu20_search_runtime as runtime
+    approval = {"rss_limit_bytes": 8*1024**3}
+    if floor is not None: approval["minimum_disk_free_bytes"] = floor
+    budget = SimpleNamespace(approval=approval, out=tmp_path, started=monotonic(),
+        deadline=monotonic()+30, peak_rss=0, swap_baseline=0)
+    monkeypatch.setattr(runtime, "owned_rss", lambda: 100)
+    monkeypatch.setattr(runtime, "swap_bytes", lambda: 0)
+    monkeypatch.setattr(runtime.shutil, "disk_usage", lambda _: SimpleNamespace(free=12*1024**3))
+    signals=[]
+    monkeypatch.setattr(runtime.os, "kill", lambda *args: signals.append(args))
+    close=runtime.start_resource_watchdog(budget)
+    try: sleep(.6)
+    finally: close()
+    assert bool(signals) == expected_failure
+    failures=list(tmp_path.glob("resource-guard-failure-*.json"))
+    if expected_failure:
+        assert json.loads(failures[0].read_text())["cause"] == "OSError"
+    else: assert not failures

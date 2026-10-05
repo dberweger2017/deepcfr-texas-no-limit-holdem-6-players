@@ -1,0 +1,82 @@
+{
+  "byte_identical_policy_files": true,
+  "cfr_iterations": 0,
+  "eager": {
+    "cfr_iterations": 0,
+    "containers": [
+      {
+        "container_only_bytes": 185217608,
+        "groups": 500970
+      },
+      {
+        "container_only_bytes": 182342504,
+        "groups": 492990
+      },
+      {
+        "container_only_bytes": 187802600,
+        "groups": 508110
+      }
+    ],
+    "hashes": {
+      "crossfit-0.json": "7eb2cfbf28b4fd600ff98d36f61c3f9013b10f9d9bdb88f3825b62bd51d7ae7f",
+      "crossfit-1.json": "2ba680e678ad2622c976961f954682560581510649962465a1c908a5dcb397ae",
+      "pooled-policy.json": "45c0d29aa6c22576f385514d7c414c92d6e4fb82b5e3d69930309195d1ff2d42"
+    },
+    "inputs": [
+      {
+        "bytes": 94596279,
+        "path": "/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-04-20261004/qualification-04/real-v4/pilot-0-equilibrium/response.jsonl",
+        "sha256": "b911c540ca422201525df1b6bcb058157c9d692a048d935a60b3cfb8bc788c9c"
+      },
+      {
+        "bytes": 92727233,
+        "path": "/Users/dberweger/Local/hu20-board-pooling-engineering-20261004/real-pool-preflight/pilot-1.jsonl",
+        "sha256": "bdca97df78c9b1573afa0d7dbeeb691e2035e7e6751122494023c78bb1575d65"
+      },
+      {
+        "bytes": 93584641,
+        "path": "/Users/dberweger/Local/hu20-board-pooling-engineering-20261004/real-pool-preflight/pilot-2.jsonl",
+        "sha256": "b1963e96a8382e1ffabebabb1758d7deefe4d4f166e29cd00e10127602de663b"
+      }
+    ],
+    "mode": "eager",
+    "peak_rss_bytes": 2754215936,
+    "seconds": 26.04332237492781
+  },
+  "engineering_only": true,
+  "extrapolated_120_container_only_bytes": 21881100480,
+  "fixture_scope": "Three retained real pilot statistics, synthetic identities/folds, one lineage; not a science sample",
+  "full_campaign_capacity_measured": false,
+  "lineage_streamed": {
+    "cfr_iterations": 0,
+    "containers": null,
+    "hashes": {
+      "crossfit-0.json": "7eb2cfbf28b4fd600ff98d36f61c3f9013b10f9d9bdb88f3825b62bd51d7ae7f",
+      "crossfit-1.json": "2ba680e678ad2622c976961f954682560581510649962465a1c908a5dcb397ae",
+      "pooled-policy.json": "45c0d29aa6c22576f385514d7c414c92d6e4fb82b5e3d69930309195d1ff2d42"
+    },
+    "inputs": [
+      {
+        "bytes": 94596279,
+        "path": "/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-04-20261004/qualification-04/real-v4/pilot-0-equilibrium/response.jsonl",
+        "sha256": "b911c540ca422201525df1b6bcb058157c9d692a048d935a60b3cfb8bc788c9c"
+      },
+      {
+        "bytes": 92727233,
+        "path": "/Users/dberweger/Local/hu20-board-pooling-engineering-20261004/real-pool-preflight/pilot-1.jsonl",
+        "sha256": "bdca97df78c9b1573afa0d7dbeeb691e2035e7e6751122494023c78bb1575d65"
+      },
+      {
+        "bytes": 93584641,
+        "path": "/Users/dberweger/Local/hu20-board-pooling-engineering-20261004/real-pool-preflight/pilot-2.jsonl",
+        "sha256": "b1963e96a8382e1ffabebabb1758d7deefe4d4f166e29cd00e10127602de663b"
+      }
+    ],
+    "mode": "lineage-streamed",
+    "peak_rss_bytes": 1785053184,
+    "seconds": 32.394415583927184
+  },
+  "m4_deployed": false,
+  "no_science_change": true,
+  "source_archive_sha256": "a5ee6998617b8b94a62f79835851c5f62e8ac4eb6c458ff5fbe297634abed5c8"
+}

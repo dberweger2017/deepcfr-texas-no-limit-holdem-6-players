@@ -1,0 +1,1084 @@
+{
+  "automatic_restart": false,
+  "clock": {
+    "attempts": [
+      {
+        "elapsed_seconds": 266.14892891599993,
+        "out": "/Users/dberweger/Local/hu20-board-pooling-20261004/guard-prepare-01",
+        "peak_owned_rss_bytes": 1775534080,
+        "phase": "board-pooling",
+        "pid": 19659,
+        "reason": "Free disk guard",
+        "seconds": 267.46768075,
+        "started_at": 1791112851.8242218,
+        "status": "failed",
+        "stopped_at": 1791113119.2887821,
+        "swap_baseline_bytes": 0
+      },
+      {
+        "elapsed_seconds": 1602.8383736249998,
+        "out": "../guard-prepare-02",
+        "peak_owned_rss_bytes": 1793146880,
+        "phase": "board-pooling",
+        "pid": 30164,
+        "reason": "Stage exit 1",
+        "seconds": 1603.8747642919989,
+        "started_at": 1791119270.393762,
+        "status": "failed",
+        "stopped_at": 1791120874.409991,
+        "swap_baseline_bytes": 42404413
+      },
+      {
+        "elapsed_seconds": 879.2947985829996,
+        "out": "../guard-prepare-03",
+        "peak_owned_rss_bytes": 2164539392,
+        "phase": "board-pooling",
+        "pid": 37491,
+        "reason": null,
+        "seconds": 879.8166869579982,
+        "started_at": 1791124061.194528,
+        "status": "completed",
+        "stopped_at": 1791124940.961792,
+        "swap_baseline_bytes": 34015805
+      },
+      {
+        "elapsed_seconds": 328.185852417002,
+        "out": "/Users/dberweger/Local/hu20-board-pooling-20261004/guard-qualify-03",
+        "peak_owned_rss_bytes": 5366759424,
+        "phase": "board-pooling",
+        "pid": 39921,
+        "reason": "Stage exit 1",
+        "seconds": 328.71432583299975,
+        "started_at": 1791124947.8175209,
+        "status": "failed",
+        "stopped_at": 1791125276.529463,
+        "swap_baseline_bytes": 34015805
+      },
+      {
+        "elapsed_seconds": 692.9322654579992,
+        "out": "/Users/dberweger/Local/hu20-board-pooling-20261004/guard-qualify-04",
+        "peak_owned_rss_bytes": 5969068032,
+        "phase": "board-pooling",
+        "pid": 46437,
+        "reason": "Experiment interrupted by signal 15; retain partial evidence",
+        "seconds": 693.7054597499991,
+        "started_at": 1791130452.183209,
+        "status": "failed",
+        "stopped_at": 1791131145.898735,
+        "swap_baseline_bytes": 34015805
+      },
+      {
+        "elapsed_seconds": 275.41174874999706,
+        "out": "/Users/dberweger/Local/hu20-board-pooling-20261004/guard-engineering-05",
+        "peak_owned_rss_bytes": 5944901632,
+        "phase": "board-pooling",
+        "pid": 53627,
+        "reason": null,
+        "seconds": 275.9430072910036,
+        "started_at": 1791133741.8588648,
+        "status": "completed",
+        "stopped_at": 1791134017.7979991,
+        "swap_baseline_bytes": 34015805
+      },
+      {
+        "elapsed_seconds": 1177.451336166996,
+        "out": "/Users/dberweger/Local/hu20-board-pooling-20261004/guard-qualify-05",
+        "peak_owned_rss_bytes": 5462802432,
+        "phase": "board-pooling",
+        "pid": 55677,
+        "reason": null,
+        "seconds": 1177.9780804170005,
+        "started_at": 1791134240.3786612,
+        "status": "completed",
+        "stopped_at": 1791135418.378144,
+        "swap_baseline_bytes": 34015805
+      },
+      {
+        "elapsed_seconds": 269.35412762500346,
+        "out": "/Users/dberweger/Local/hu20-board-pooling-20261004/guard-main-05",
+        "peak_owned_rss_bytes": 5589483520,
+        "phase": "board-pooling",
+        "pid": 63449,
+        "reason": "Experiment interrupted by signal 15; retain partial evidence",
+        "seconds": 270.3664466249975,
+        "started_at": 1791135538.36769,
+        "status": "failed",
+        "stopped_at": 1791135808.732861,
+        "swap_baseline_bytes": 34015805
+      }
+    ],
+    "limit_seconds": 86400,
+    "used_seconds": 5497.8664519159975
+  },
+  "common_boards": 0,
+  "complete_collect_jobs": 1,
+  "complete_relock_jobs": 0,
+  "exact_parity_sha256": "9c04cba844765e2f40b134a1a5a3d203122c96b954169f48fdb0ed453c49f83d",
+  "forecast": {
+    "forecast_seconds": 55952.80921656975,
+    "locks": [
+      96.6861250840011,
+      93.33838008300518,
+      93.37829058300122
+    ],
+    "remaining_before_reserve_seconds": 60058.80743408203,
+    "solves": [
+      173.61730108300253,
+      138.20877604199632,
+      138.67434983300336
+    ],
+    "timestamp": 1791135538.213054
+  },
+  "free_disk_bytes": 99163979776,
+  "intentional_signal": 15,
+  "main_results": [
+    {
+      "completion": {
+        "compressed": true,
+        "compressed_bytes": 1968657456,
+        "current_ev_chips": [
+          -44.9693489074707,
+          44.9693489074707
+        ],
+        "elapsed_seconds": 195.051155458,
+        "event": "completion",
+        "exploitability_pct_pot": 0.19666290283203125,
+        "iterations": 275,
+        "mes_ev_chips": [
+          -44.50988006591797,
+          45.296531677246094
+        ],
+        "solver_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+        "solver_peak_rss_bytes": 5016190976,
+        "status": "solved",
+        "uncompressed_bytes": 3908266992,
+        "value_convention": "root-centered; root_pot/2 subtracted"
+      },
+      "eligible": true,
+      "job": {
+        "board_weight": 3.375,
+        "compact_sha256": "308e10f60f1aaf7cd0b69da7d2580c45b648146f7f8878e08979c0c394c0f4e5",
+        "evaluation_fold": 0,
+        "job": "7f3e3b8eabfe1b15c21567269aefc9e9fd5192877a263c27b74d16c6753376b8-0",
+        "lineage": 2026093001,
+        "policy_index": 0,
+        "replay_sample": false,
+        "request": "/Users/dberweger/Local/hu20-board-pooling-20261004/prepared-03/jobs/7f3e3b8eabfe1b15c21567269aefc9e9fd5192877a263c27b74d16c6753376b8-0/request.json",
+        "request_sha256": "87d3d31cbd31d54150edbaa2270c1e01e1b04aec00788071baa9200be0e1b1c4",
+        "spot": "7f3e3b8eabfe1b15c21567269aefc9e9fd5192877a263c27b74d16c6753376b8"
+      },
+      "metrics": [
+        {
+          "event": "pooling_metric",
+          "fallback_coverage": {},
+          "fallback_rule": "uniform if absent or zero training mass; coverage is per-street own-policy decision reach",
+          "gain_bb": 0.8879570007324219,
+          "gain_pct_pot": 44.397850036621094,
+          "metric": "e_bp",
+          "reference_responder_value_chips": 44.9693489074707,
+          "responder_br_chips": 133.76504516601562,
+          "solver_peak_rss_bytes": 4304109568,
+          "target_solver_seat": 0
+        },
+        {
+          "event": "pooling_metric",
+          "fallback_coverage": {},
+          "fallback_rule": "uniform if absent or zero training mass; coverage is per-street own-policy decision reach",
+          "gain_bb": 1.126316680908203,
+          "gain_pct_pot": 56.315834045410156,
+          "metric": "e_bp",
+          "reference_responder_value_chips": -44.9693489074707,
+          "responder_br_chips": 67.66231536865234,
+          "solver_peak_rss_bytes": 4304109568,
+          "target_solver_seat": 1
+        },
+        {
+          "event": "pooling_metric",
+          "fallback_coverage": {
+            "river": [
+              284.2620154022421,
+              0.11613353073596691,
+              36762015
+            ],
+            "turn": [
+              3.4031257469094887,
+              0.0021858941041429008,
+              55448
+            ]
+          },
+          "fallback_rule": "uniform if absent or zero training mass; coverage is per-street own-policy decision reach",
+          "gain_bb": 0.3109036636352539,
+          "gain_pct_pot": 15.545183181762695,
+          "metric": "e_root_v1",
+          "reference_responder_value_chips": 44.9693489074707,
+          "responder_br_chips": 76.0597152709961,
+          "solver_peak_rss_bytes": 4304109568,
+          "target_solver_seat": 0
+        },
+        {
+          "event": "pooling_metric",
+          "fallback_coverage": {
+            "river": [
+              671.5459422102987,
+              0.08493838623373473,
+              12301722
+            ],
+            "turn": [
+              5.625116645026096,
+              0.0,
+              15203
+            ]
+          },
+          "fallback_rule": "uniform if absent or zero training mass; coverage is per-street own-policy decision reach",
+          "gain_bb": 0.4375587844848633,
+          "gain_pct_pot": 21.877939224243164,
+          "metric": "e_root_v1",
+          "reference_responder_value_chips": -44.9693489074707,
+          "responder_br_chips": -1.2134714126586914,
+          "solver_peak_rss_bytes": 4304109568,
+          "target_solver_seat": 1
+        }
+      ],
+      "path": "/Users/dberweger/Local/hu20-board-pooling-20261004/main-05/collect/7f3e3b8eabfe1b15c21567269aefc9e9fd5192877a263c27b74d16c6753376b8-0/result.json",
+      "runtime": {
+        "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+        "elapsed_seconds": 195.46211916699394,
+        "exit_code": 0,
+        "failure": null,
+        "job_memory_budget_bytes": 7516192768,
+        "memory_budget_bytes": 4294967296,
+        "peak_job_rss_bytes": 5460393984,
+        "peak_swap_used_bytes": 34015805,
+        "profile_sha256": null,
+        "rayon_threads": 6,
+        "request_sha256": "87d3d31cbd31d54150edbaa2270c1e01e1b04aec00788071baa9200be0e1b1c4",
+        "response_sha256": "8a8651fe877a0a2d87351432b87ff146b0ccabcacdfbf38dc80371cf96fd8001",
+        "status": "completed",
+        "swap_baseline_bytes": 0
+      },
+      "sha256": "2ab4a8330895b3624ef1e532f7819eb5f63953c34efa4dc42c125bd1485a00ec"
+    }
+  ],
+  "no_guard_breach": true,
+  "no_hypothesis_decision": true,
+  "owned_processes": [],
+  "owner_readmission_needed": true,
+  "paid_cost_usd": 0,
+  "partial_collect_directories": 1,
+  "pilot_resources": [
+    {
+      "engineering_recovery_receipt": "/Users/dberweger/Local/hu20-board-pooling-20261004/engineering-parity-05.json",
+      "pilot_index": 0,
+      "spot": "cd8511f851948a2ea410adeb133b13d1cfcbdd9f8336cecf050fa303a13209a9",
+      "stages": {
+        "lock_only": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 96.6861250840011,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 5907955712,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "bf47aacbe4eb4409ded775d25fb503dcb1d7505275057a5c93acc7ce2cb05ffc",
+          "response_sha256": "7b1788e0bbaa353e089208ef09ae73c6448cc869cc5107868e556b8b6878ccf4",
+          "status": "completed",
+          "swap_baseline_bytes": 0
+        },
+        "replay": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 239.649936582995,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 5406867456,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "a246030f39c4d8bfeb80b7362a74165dedf510941eff98065f851e1b6c30b5d9",
+          "response_sha256": "9d093149b4cb65d4342221cae94d85f26ec9039496d5294b0a45585d0b65e703",
+          "status": "completed",
+          "swap_baseline_bytes": 34015805
+        },
+        "solve": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 173.61730108300253,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 5552668672,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "02aa2b9869cefdf43e067c73d484e29f9892ffa5f45f0800e770a9314eb3bc25",
+          "response_sha256": "630f87ae052050bbb89dfc9b6c1a48a5937af9af224179f9b2ab54d1127ae4df",
+          "status": "completed",
+          "swap_baseline_bytes": 0
+        }
+      },
+      "worker_rss_bytes": 7516192768
+    },
+    {
+      "pilot_index": 1,
+      "spot": "aa381f76be175db8653254254efbc6524fcffb7956863b30d7de8a8b8add8997",
+      "stages": {
+        "lock_only": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 93.33838008300518,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 4593811456,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "c63c1fbdc30351e80a02fcf0bd4757df89edd8e3be1537011597afff95a86360",
+          "response_sha256": "a5f765e0352ed7e46b3fb243eca2295934b05525d2f61cdd5922f8559cd929b2",
+          "status": "completed",
+          "swap_baseline_bytes": 34015805
+        },
+        "replay": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 204.7036992919966,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 4893360128,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "ada422bc994533126e4d026d39271fff535f2d6b1a56d3ee037fcb70f0f82e33",
+          "response_sha256": "cf2024e33a6b20a34e0dd4a5c1c9c7025c85551a6bf05f06a8126f22beb77e81",
+          "status": "completed",
+          "swap_baseline_bytes": 34015805
+        },
+        "solve": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 138.20877604199632,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 4462788608,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "bc099feaa4e4791cd48a1ac58fd9f5fd07e135644131dc48d6206e9dfc33e7ab",
+          "response_sha256": "bdca97df78c9b1573afa0d7dbeeb691e2035e7e6751122494023c78bb1575d65",
+          "status": "completed",
+          "swap_baseline_bytes": 34015805
+        },
+        "v4": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 6.410519417004252,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 3993255936,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "82a04e814a44cec9808685ea97777d408344a4c98be0c1c37ee5396e88ddfdc7",
+          "response_sha256": "3c2bed2527a4d4287e8cab9c5b1e455143d2808010199db05da041f6ee9f67ae",
+          "status": "completed",
+          "swap_baseline_bytes": 34015805
+        }
+      },
+      "worker_rss_bytes": 7516192768
+    },
+    {
+      "pilot_index": 2,
+      "spot": "e4c648672f8521ba3de6654d0ce0bd5bb58be85f2ae8c73e1778e62cb699907c",
+      "stages": {
+        "lock_only": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 93.37829058300122,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 5444157440,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "0af21d628b0df8d0d3fd1bdc602027f3f3724e2db5ab7767a6222e28fb807af5",
+          "response_sha256": "b39af251c173b2f8c39545feebcd6c06544da5354c8e09e9cbd19a78824dfc54",
+          "status": "completed",
+          "swap_baseline_bytes": 34015805
+        },
+        "replay": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 208.34294516700174,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 4924964864,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "67cfde001918372e5f4199200ba8eda05667512263ac48cc98f538727e35ffeb",
+          "response_sha256": "769641b2ea8eebc2d661e6bddf21ba304f35cfd8328490d928e765dfb773deb3",
+          "status": "completed",
+          "swap_baseline_bytes": 34015805
+        },
+        "solve": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 138.67434983300336,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 4918460416,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "151959666001a4f658790626bcef17f321988d8ec28b90d7c3655f941877d24f",
+          "response_sha256": "b1963e96a8382e1ffabebabb1758d7deefe4d4f166e29cd00e10127602de663b",
+          "status": "completed",
+          "swap_baseline_bytes": 34015805
+        },
+        "v4": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 6.375431499996921,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 4745740288,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "26983132594c0df1dcf3ed28fc4c46b53060e66cf990b1dae61e1c0076fc466d",
+          "response_sha256": "b86bc19dd874426928f0030f26ad4850a59eecc98de944afde80695372c94911",
+          "status": "completed",
+          "swap_baseline_bytes": 34015805
+        }
+      },
+      "worker_rss_bytes": 7516192768
+    }
+  ],
+  "qualification": {
+    "approval_sha256": "e153b9f23c63a71302757013d23ab6ffed905882a426c452bd0553148b096c6e",
+    "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+    "gates": [
+      {
+        "gate": "K",
+        "mismatches": [],
+        "passed": true,
+        "samples": 100000,
+        "seed": 202610010902,
+        "strata": {
+          "0/river": 2375,
+          "0/turn": 125,
+          "1/river": 2373,
+          "1/turn": 127,
+          "10/river": 2378,
+          "10/turn": 122,
+          "11/river": 2374,
+          "11/turn": 126,
+          "12/river": 2357,
+          "12/turn": 143,
+          "13/river": 2372,
+          "13/turn": 128,
+          "14/river": 2379,
+          "14/turn": 121,
+          "15/river": 2387,
+          "15/turn": 113,
+          "16/river": 2393,
+          "16/turn": 107,
+          "17/river": 2385,
+          "17/turn": 115,
+          "18/river": 2384,
+          "18/turn": 116,
+          "19/river": 2388,
+          "19/turn": 112,
+          "2/river": 2362,
+          "2/turn": 138,
+          "20/river": 2373,
+          "20/turn": 127,
+          "21/river": 2376,
+          "21/turn": 124,
+          "22/river": 2392,
+          "22/turn": 108,
+          "23/river": 2393,
+          "23/turn": 107,
+          "24/river": 2380,
+          "24/turn": 120,
+          "25/river": 2396,
+          "25/turn": 104,
+          "26/river": 2366,
+          "26/turn": 134,
+          "27/river": 2380,
+          "27/turn": 120,
+          "28/river": 2368,
+          "28/turn": 132,
+          "29/river": 2383,
+          "29/turn": 117,
+          "3/river": 2388,
+          "3/turn": 112,
+          "30/river": 2388,
+          "30/turn": 112,
+          "31/river": 2387,
+          "31/turn": 113,
+          "32/river": 2380,
+          "32/turn": 120,
+          "33/river": 2380,
+          "33/turn": 120,
+          "34/river": 2388,
+          "34/turn": 112,
+          "35/river": 2382,
+          "35/turn": 118,
+          "36/river": 2380,
+          "36/turn": 120,
+          "37/river": 2393,
+          "37/turn": 107,
+          "38/river": 2371,
+          "38/turn": 129,
+          "39/river": 2390,
+          "39/turn": 110,
+          "4/river": 2369,
+          "4/turn": 131,
+          "5/river": 2398,
+          "5/turn": 102,
+          "6/river": 2352,
+          "6/turn": 148,
+          "7/river": 2349,
+          "7/turn": 151,
+          "8/river": 2391,
+          "8/turn": 109,
+          "9/river": 2376,
+          "9/turn": 124
+        }
+      },
+      {
+        "fixture": "3-bet-both-locked.json",
+        "gate": "V1",
+        "nodes": 255,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-both-locked.json",
+        "gate": "mac-mac-current_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-both-locked.json",
+        "gate": "mac-mac-mes_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-both-locked.json",
+        "gate": "mac-mac-residual",
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-equilibrium.json",
+        "gate": "V1",
+        "nodes": 255,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-equilibrium.json",
+        "gate": "mac-mac-current_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-equilibrium.json",
+        "gate": "mac-mac-mes_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-equilibrium.json",
+        "gate": "mac-mac-residual",
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-target-0.json",
+        "gate": "V1",
+        "nodes": 255,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-target-0.json",
+        "gate": "mac-mac-current_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-target-0.json",
+        "gate": "mac-mac-mes_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-target-0.json",
+        "gate": "mac-mac-residual",
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-target-0.json",
+        "gate": "mac-mac-V2",
+        "maximum_chip_error": 0.0,
+        "passed": true,
+        "samples": 300
+      },
+      {
+        "fixture": "3-bet-target-1.json",
+        "gate": "V1",
+        "nodes": 255,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-target-1.json",
+        "gate": "mac-mac-current_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-target-1.json",
+        "gate": "mac-mac-mes_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "3-bet-target-1.json",
+        "gate": "mac-mac-residual",
+        "passed": true
+      },
+      {
+        "fixture": "limped-both-locked.json",
+        "gate": "V1",
+        "nodes": 465,
+        "passed": true
+      },
+      {
+        "fixture": "limped-both-locked.json",
+        "gate": "mac-mac-current_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "limped-both-locked.json",
+        "gate": "mac-mac-mes_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "limped-both-locked.json",
+        "gate": "mac-mac-residual",
+        "passed": true
+      },
+      {
+        "fixture": "limped-equilibrium.json",
+        "gate": "V1",
+        "nodes": 465,
+        "passed": true
+      },
+      {
+        "fixture": "limped-equilibrium.json",
+        "gate": "mac-mac-current_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "limped-equilibrium.json",
+        "gate": "mac-mac-mes_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "limped-equilibrium.json",
+        "gate": "mac-mac-residual",
+        "passed": true
+      },
+      {
+        "fixture": "limped-target-0.json",
+        "gate": "V1",
+        "nodes": 465,
+        "passed": true
+      },
+      {
+        "fixture": "limped-target-0.json",
+        "gate": "mac-mac-current_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "limped-target-0.json",
+        "gate": "mac-mac-mes_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "limped-target-0.json",
+        "gate": "mac-mac-residual",
+        "passed": true
+      },
+      {
+        "fixture": "limped-target-0.json",
+        "gate": "mac-mac-V2",
+        "maximum_chip_error": 0.0,
+        "passed": true,
+        "samples": 300
+      },
+      {
+        "fixture": "limped-target-1.json",
+        "gate": "V1",
+        "nodes": 465,
+        "passed": true
+      },
+      {
+        "fixture": "limped-target-1.json",
+        "gate": "mac-mac-current_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "limped-target-1.json",
+        "gate": "mac-mac-mes_ev_chips",
+        "maximum_chip_error": 0.0,
+        "passed": true
+      },
+      {
+        "fixture": "limped-target-1.json",
+        "gate": "mac-mac-residual",
+        "passed": true
+      },
+      {
+        "gate": "deterministic-pooling-replay",
+        "groups": 368,
+        "iterations": 25,
+        "passed": true
+      },
+      {
+        "error_bb": 0.0,
+        "gate": "singleton-e_bp",
+        "passed": true,
+        "target_solver_seat": 0
+      },
+      {
+        "error_bb": 0.0,
+        "gate": "singleton-e_bp",
+        "passed": true,
+        "target_solver_seat": 1
+      },
+      {
+        "error_bb": 0.0,
+        "gate": "singleton-e_root_v1",
+        "passed": true,
+        "target_solver_seat": 0
+      },
+      {
+        "error_bb": 0.0,
+        "gate": "singleton-e_root_v1",
+        "passed": true,
+        "target_solver_seat": 1
+      },
+      {
+        "error_bb": 0.0,
+        "gate": "singleton-e_board_v1",
+        "passed": true,
+        "target_solver_seat": 0
+      },
+      {
+        "error_bb": 0.0,
+        "gate": "singleton-e_board_v1",
+        "passed": true,
+        "target_solver_seat": 1
+      },
+      {
+        "error_bb": 0.0,
+        "gate": "singleton-e_board_eq50",
+        "passed": true,
+        "target_solver_seat": 0
+      },
+      {
+        "error_bb": 0.0,
+        "gate": "singleton-e_board_eq50",
+        "passed": true,
+        "target_solver_seat": 1
+      },
+      {
+        "equilibrium_iterations": 25,
+        "equilibrium_residual_pct_pot": 0.009182296301189222,
+        "gate": "lock-only-reference",
+        "passed": true,
+        "reference_response_sha256": "3bdde108b348759cdfd610c54af80fe62780fe39d6c166f2ee79affeb6e26efa"
+      },
+      {
+        "gate": "lock-only-vs-solved-BR",
+        "measurements": 8,
+        "passed": true
+      },
+      {
+        "gate": "lock-only-vs-solved-BR",
+        "measurements": 2,
+        "passed": true
+      },
+      {
+        "gate": "held-out-missing-key-uniform-fallback",
+        "passed": true
+      },
+      {
+        "engineering_recovery_sha256": "9c04cba844765e2f40b134a1a5a3d203122c96b954169f48fdb0ed453c49f83d",
+        "gate": "real-export-V4",
+        "native_mc": {
+          "ci95": [
+            0.29400804209579556,
+            0.40759195790420444
+          ],
+          "deals": 20000,
+          "independent_deals": true,
+          "mean_bb": 0.3508,
+          "range_sampler": "independent weighted holdings, reject blockers",
+          "seed": 202610030310
+        },
+        "passed": true,
+        "recovery": "Fixed native MC retained; fresh blueprint EV identical",
+        "solver_ev_bb": 0.3684458923339844,
+        "source_sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+        "spot": "cd8511f851948a2ea410adeb133b13d1cfcbdd9f8336cecf050fa303a13209a9"
+      },
+      {
+        "completion": {
+          "compressed": true,
+          "compressed_bytes": 1968657456,
+          "current_ev_chips": [
+            -35.8770637512207,
+            35.8770637512207
+          ],
+          "elapsed_seconds": 173.244536041,
+          "event": "completion",
+          "exploitability_pct_pot": 0.18315792083740234,
+          "iterations": 225,
+          "mes_ev_chips": [
+            -35.51431655883789,
+            36.2469482421875
+          ],
+          "solver_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+          "solver_peak_rss_bytes": 5040537600,
+          "status": "solved",
+          "uncompressed_bytes": 3908266992,
+          "value_convention": "root-centered; root_pot/2 subtracted"
+        },
+        "gate": "real-pilot-V5",
+        "passed": true,
+        "runtime": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 173.61730108300253,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 5552668672,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "02aa2b9869cefdf43e067c73d484e29f9892ffa5f45f0800e770a9314eb3bc25",
+          "response_sha256": "630f87ae052050bbb89dfc9b6c1a48a5937af9af224179f9b2ab54d1127ae4df",
+          "status": "completed",
+          "swap_baseline_bytes": 0
+        },
+        "spot": "cd8511f851948a2ea410adeb133b13d1cfcbdd9f8336cecf050fa303a13209a9"
+      },
+      {
+        "equilibrium_iterations": 225,
+        "equilibrium_residual_pct_pot": 0.18315792083740234,
+        "gate": "lock-only-reference",
+        "passed": true,
+        "reference_response_sha256": "b911c540ca422201525df1b6bcb058157c9d692a048d935a60b3cfb8bc788c9c"
+      },
+      {
+        "gate": "deterministic-pooling-replay",
+        "groups": 500970,
+        "iterations": 225,
+        "passed": true
+      },
+      {
+        "gate": "lock-only-vs-solved-BR",
+        "measurements": 10,
+        "passed": true
+      },
+      {
+        "gate": "real-export-V4",
+        "native_mc": {
+          "ci95": [
+            0.5164042905062982,
+            0.6769957094937018
+          ],
+          "deals": 20000,
+          "independent_deals": true,
+          "mean_bb": 0.5967,
+          "range_sampler": "independent weighted holdings, reject blockers",
+          "seed": 202610030311
+        },
+        "passed": true,
+        "solver_ev_bb": 0.63924072265625,
+        "source_sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+        "spot": "aa381f76be175db8653254254efbc6524fcffb7956863b30d7de8a8b8add8997"
+      },
+      {
+        "completion": {
+          "compressed": true,
+          "compressed_bytes": 1436475904,
+          "current_ev_chips": [
+            -34.67596435546875,
+            34.67596435546875
+          ],
+          "elapsed_seconds": 137.986390042,
+          "event": "completion",
+          "exploitability_pct_pot": 0.17096710205078125,
+          "iterations": 225,
+          "mes_ev_chips": [
+            -34.32708740234375,
+            35.010955810546875
+          ],
+          "solver_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+          "solver_peak_rss_bytes": 3859677184,
+          "status": "solved",
+          "uncompressed_bytes": 2851436848,
+          "value_convention": "root-centered; root_pot/2 subtracted"
+        },
+        "gate": "real-pilot-V5",
+        "passed": true,
+        "runtime": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 138.20877604199632,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 4462788608,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "bc099feaa4e4791cd48a1ac58fd9f5fd07e135644131dc48d6206e9dfc33e7ab",
+          "response_sha256": "bdca97df78c9b1573afa0d7dbeeb691e2035e7e6751122494023c78bb1575d65",
+          "status": "completed",
+          "swap_baseline_bytes": 34015805
+        },
+        "spot": "aa381f76be175db8653254254efbc6524fcffb7956863b30d7de8a8b8add8997"
+      },
+      {
+        "equilibrium_iterations": 225,
+        "equilibrium_residual_pct_pot": 0.17096710205078125,
+        "gate": "lock-only-reference",
+        "passed": true,
+        "reference_response_sha256": "bdca97df78c9b1573afa0d7dbeeb691e2035e7e6751122494023c78bb1575d65"
+      },
+      {
+        "gate": "lock-only-vs-solved-BR",
+        "measurements": 10,
+        "passed": true
+      },
+      {
+        "gate": "real-export-V4",
+        "native_mc": {
+          "ci95": [
+            0.5892066386534017,
+            0.7693933613465983
+          ],
+          "deals": 20000,
+          "independent_deals": true,
+          "mean_bb": 0.6793,
+          "range_sampler": "independent weighted holdings, reject blockers",
+          "seed": 202610030312
+        },
+        "passed": true,
+        "solver_ev_bb": 0.7361510467529296,
+        "source_sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+        "spot": "e4c648672f8521ba3de6654d0ce0bd5bb58be85f2ae8c73e1778e62cb699907c"
+      },
+      {
+        "completion": {
+          "compressed": true,
+          "compressed_bytes": 1436475904,
+          "current_ev_chips": [
+            -39.27229690551758,
+            39.27229690551758
+          ],
+          "elapsed_seconds": 138.015352834,
+          "event": "completion",
+          "exploitability_pct_pot": 0.16713333129882812,
+          "iterations": 225,
+          "mes_ev_chips": [
+            -38.92237854003906,
+            39.590911865234375
+          ],
+          "solver_commit": "9d1509fe5077d019825f833eed04b16d342dfda1",
+          "solver_peak_rss_bytes": 3770073088,
+          "status": "solved",
+          "uncompressed_bytes": 2851436848,
+          "value_convention": "root-centered; root_pot/2 subtracted"
+        },
+        "gate": "real-pilot-V5",
+        "passed": true,
+        "runtime": {
+          "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+          "elapsed_seconds": 138.67434983300336,
+          "exit_code": 0,
+          "failure": null,
+          "job_memory_budget_bytes": 7516192768,
+          "memory_budget_bytes": 4294967296,
+          "peak_job_rss_bytes": 4918460416,
+          "peak_swap_used_bytes": 34015805,
+          "profile_sha256": null,
+          "rayon_threads": 6,
+          "request_sha256": "151959666001a4f658790626bcef17f321988d8ec28b90d7c3655f941877d24f",
+          "response_sha256": "b1963e96a8382e1ffabebabb1758d7deefe4d4f166e29cd00e10127602de663b",
+          "status": "completed",
+          "swap_baseline_bytes": 34015805
+        },
+        "spot": "e4c648672f8521ba3de6654d0ce0bd5bb58be85f2ae8c73e1778e62cb699907c"
+      },
+      {
+        "equilibrium_iterations": 225,
+        "equilibrium_residual_pct_pot": 0.16713333129882812,
+        "gate": "lock-only-reference",
+        "passed": true,
+        "reference_response_sha256": "b1963e96a8382e1ffabebabb1758d7deefe4d4f166e29cd00e10127602de663b"
+      },
+      {
+        "gate": "lock-only-vs-solved-BR",
+        "measurements": 10,
+        "passed": true
+      }
+    ],
+    "linux_parity": {
+      "reason": "M4 revision 3; no Linux deployment",
+      "status": "not-run"
+    },
+    "lock_only_pilot_seconds": [
+      96.6861250840011,
+      93.33838008300518,
+      93.37829058300122
+    ],
+    "passed": true,
+    "pilot_resource_files": [
+      "/Users/dberweger/Local/hu20-board-pooling-20261004/qualification-05/real-v4/pilot-0-resources.json",
+      "/Users/dberweger/Local/hu20-board-pooling-20261004/qualification-05/real-v4/pilot-1-resources.json",
+      "/Users/dberweger/Local/hu20-board-pooling-20261004/qualification-05/real-v4/pilot-2-resources.json"
+    ],
+    "plan_sha256": "754eac947757ecef9638e665007e8dbf7975b2e02a876267fb6e5e623f462db1",
+    "threads_per_worker": 6,
+    "worker_rss_bytes": 7516192768
+  },
+  "qualification_passed": true,
+  "qualification_sha256": "a1914726d352a179e55e75706b245eb867060bb3a5ae9242889664e224b128c0",
+  "raw_inventory_sha256": "d166acfdbbd0b6797dc7a6ddfe34896dc60de86c6d8cbf7960bac597335a2cae",
+  "raw_stop_sha256": "8aacbfd738ee9351db39654f939ff8371ea5c004d83f16fbd57c49f7a15b7b4d",
+  "reason": "Preemptive owner-scope engineering stop: production pooling retained all 120 large statistics records in one Python list; bounded streaming fit prepared on M1",
+  "timestamp": 1791136973.9415839
+}

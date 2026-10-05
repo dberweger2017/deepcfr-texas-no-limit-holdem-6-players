@@ -1,0 +1,21 @@
+{
+  "148_merged": true,
+  "148_processes_empty": true,
+  "149_owner_authorized": true,
+  "aggregate_rss_bytes": 8589934592,
+  "arena_bytes": 4294967296,
+  "followup_claim": "none",
+  "format": "hu20-board-pooling-m4-v3",
+  "host": "m4",
+  "linux_parity": "not-run",
+  "maximum_hours": 24,
+  "minimum_disk_free_bytes": 21474836480,
+  "owner_resumed": true,
+  "ownership_evidence": "Owner request October 4: #148 merged; run #149 on M4; up to 24 M4 hours incl tests/failures",
+  "paid_cost_usd": 0,
+  "retrieval_shutdown_reserve_seconds": 3600,
+  "threads_per_worker": 6,
+  "worker_rss_amendment": "owner-approved-m4-7gib-before-main",
+  "worker_rss_bytes": 7516192768,
+  "workers": 1
+}
