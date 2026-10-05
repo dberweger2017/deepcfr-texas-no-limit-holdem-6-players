@@ -1,0 +1,700 @@
+{
+  "status": "owner-decision-needed",
+  "used_seconds": 12053.465135375325,
+  "remaining_seconds": 74346.53486462467,
+  "options": [
+    {
+      "finalists_per_floor": 2,
+      "phases": [
+        {
+          "deadline_seconds": 30,
+          "entries": [
+            {
+              "configuration_id": "e51f558ee9c8e1e3dcb00316cca0f68e840ac3cca27f3977f4166d7e597a73c1",
+              "config": {
+                "cache_entries": 32,
+                "compress": false,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.354417604592157,
+              "cold_median_seconds": 19.523305437527597,
+              "quality_p95_seconds": 23.054614757862872,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100
+              ],
+              "unique_solves_per_iteration": 144,
+              "play_seconds": 6893.313236357224,
+              "quality_seconds": 5809.762918981443,
+              "optimistic_all_seats_shared_play_seconds": 6893.313236357224
+            },
+            {
+              "configuration_id": "717ab4c8ca60bfd2ba83c040e9a8d1c7618414c56782483cb33785362ae37c3c",
+              "config": {
+                "cache_entries": 32,
+                "compress": true,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.672819835355035,
+              "cold_median_seconds": 20.475446250056848,
+              "quality_p95_seconds": 23.980904275132342,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100
+              ],
+              "unique_solves_per_iteration": 144,
+              "play_seconds": 6973.550598509469,
+              "quality_seconds": 6043.18787733335,
+              "optimistic_all_seats_shared_play_seconds": 6973.550598509469
+            },
+            {
+              "configuration_id": "d463365f8ea749b379117b1292f0d8c5ea51c18e077a4201e124226ea5e6e607",
+              "config": {
+                "cache_entries": 32,
+                "compress": false,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0.01,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.3216021124972,
+              "cold_median_seconds": 19.54003370855935,
+              "quality_p95_seconds": 23.013693866785616,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100
+              ],
+              "unique_solves_per_iteration": 288,
+              "play_seconds": 13770.087464698589,
+              "quality_seconds": 11598.90170885995,
+              "optimistic_all_seats_shared_play_seconds": 6885.043732349294
+            },
+            {
+              "configuration_id": "1bd0136dfc267d502e4de3017e418d2bfb20677574f552dd3f6811abf30e6c60",
+              "config": {
+                "cache_entries": 32,
+                "compress": true,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0.01,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.66869291249895,
+              "cold_median_seconds": 20.55163208360318,
+              "quality_p95_seconds": 23.95216211255174,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100
+              ],
+              "unique_solves_per_iteration": 288,
+              "play_seconds": 13945.021227899471,
+              "quality_seconds": 12071.889704726076,
+              "optimistic_all_seats_shared_play_seconds": 6972.510613949736
+            }
+          ],
+          "play_seconds": 41581.97252746476,
+          "quality_seconds": 35523.74220990082,
+          "optimistic_all_seats_shared_play_seconds": 27724.418181165725
+        },
+        {
+          "deadline_seconds": 120,
+          "entries": [
+            {
+              "configuration_id": "e51f558ee9c8e1e3dcb00316cca0f68e840ac3cca27f3977f4166d7e597a73c1",
+              "config": {
+                "cache_entries": 32,
+                "compress": false,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.354417604592157,
+              "cold_median_seconds": 19.523305437527597,
+              "quality_p95_seconds": 23.054614757862872,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100,
+                200,
+                400
+              ],
+              "unique_solves_per_iteration": 144,
+              "play_seconds": 30527.53004672485,
+              "quality_seconds": 25728.950069774965,
+              "optimistic_all_seats_shared_play_seconds": 30527.53004672485
+            },
+            {
+              "configuration_id": "717ab4c8ca60bfd2ba83c040e9a8d1c7618414c56782483cb33785362ae37c3c",
+              "config": {
+                "cache_entries": 32,
+                "compress": true,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.672819835355035,
+              "cold_median_seconds": 20.475446250056848,
+              "quality_p95_seconds": 23.980904275132342,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100,
+                200,
+                400
+              ],
+              "unique_solves_per_iteration": 144,
+              "play_seconds": 30882.866936256218,
+              "quality_seconds": 26762.689171047696,
+              "optimistic_all_seats_shared_play_seconds": 30882.866936256218
+            },
+            {
+              "configuration_id": "d463365f8ea749b379117b1292f0d8c5ea51c18e077a4201e124226ea5e6e607",
+              "config": {
+                "cache_entries": 32,
+                "compress": false,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0.01,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.3216021124972,
+              "cold_median_seconds": 19.54003370855935,
+              "quality_p95_seconds": 23.013693866785616,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100,
+                200,
+                400
+              ],
+              "unique_solves_per_iteration": 288,
+              "play_seconds": 60981.81591509375,
+              "quality_seconds": 51366.564710665494,
+              "optimistic_all_seats_shared_play_seconds": 30490.907957546875
+            },
+            {
+              "configuration_id": "1bd0136dfc267d502e4de3017e418d2bfb20677574f552dd3f6811abf30e6c60",
+              "config": {
+                "cache_entries": 32,
+                "compress": true,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0.01,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.66869291249895,
+              "cold_median_seconds": 20.55163208360318,
+              "quality_p95_seconds": 23.95216211255174,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100,
+                200,
+                400
+              ],
+              "unique_solves_per_iteration": 288,
+              "play_seconds": 61756.52258069766,
+              "quality_seconds": 53461.22583521548,
+              "optimistic_all_seats_shared_play_seconds": 30878.26129034883
+            }
+          ],
+          "play_seconds": 184148.7354787725,
+          "quality_seconds": 157319.42978670364,
+          "optimistic_all_seats_shared_play_seconds": 122779.56623087678
+        }
+      ],
+      "final_play_and_quality_seconds": 418573.8800028417,
+      "river_reserve_seconds": 10800,
+      "required_remaining_seconds": 429373.8800028417,
+      "fits_remaining_budget": false,
+      "optimistic_all_seats_shared_play_only_plus_river_seconds": 161303.9844120425
+    },
+    {
+      "finalists_per_floor": 1,
+      "phases": [
+        {
+          "deadline_seconds": 30,
+          "entries": [
+            {
+              "configuration_id": "e51f558ee9c8e1e3dcb00316cca0f68e840ac3cca27f3977f4166d7e597a73c1",
+              "config": {
+                "cache_entries": 32,
+                "compress": false,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.354417604592157,
+              "cold_median_seconds": 19.523305437527597,
+              "quality_p95_seconds": 23.054614757862872,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100
+              ],
+              "unique_solves_per_iteration": 144,
+              "play_seconds": 6893.313236357224,
+              "quality_seconds": 5809.762918981443,
+              "optimistic_all_seats_shared_play_seconds": 6893.313236357224
+            },
+            {
+              "configuration_id": "d463365f8ea749b379117b1292f0d8c5ea51c18e077a4201e124226ea5e6e607",
+              "config": {
+                "cache_entries": 32,
+                "compress": false,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0.01,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.3216021124972,
+              "cold_median_seconds": 19.54003370855935,
+              "quality_p95_seconds": 23.013693866785616,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100
+              ],
+              "unique_solves_per_iteration": 288,
+              "play_seconds": 13770.087464698589,
+              "quality_seconds": 11598.90170885995,
+              "optimistic_all_seats_shared_play_seconds": 6885.043732349294
+            }
+          ],
+          "play_seconds": 20663.400701055813,
+          "quality_seconds": 17408.664627841394,
+          "optimistic_all_seats_shared_play_seconds": 13778.356968706517
+        },
+        {
+          "deadline_seconds": 120,
+          "entries": [
+            {
+              "configuration_id": "e51f558ee9c8e1e3dcb00316cca0f68e840ac3cca27f3977f4166d7e597a73c1",
+              "config": {
+                "cache_entries": 32,
+                "compress": false,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.354417604592157,
+              "cold_median_seconds": 19.523305437527597,
+              "quality_p95_seconds": 23.054614757862872,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100,
+                200,
+                400
+              ],
+              "unique_solves_per_iteration": 144,
+              "play_seconds": 30527.53004672485,
+              "quality_seconds": 25728.950069774965,
+              "optimistic_all_seats_shared_play_seconds": 30527.53004672485
+            },
+            {
+              "configuration_id": "d463365f8ea749b379117b1292f0d8c5ea51c18e077a4201e124226ea5e6e607",
+              "config": {
+                "cache_entries": 32,
+                "compress": false,
+                "decision_seconds": 30,
+                "iterations": 100,
+                "max_public_nodes": 300000,
+                "memory_budget_bytes": 5368709120,
+                "menu": "native",
+                "opponent_likelihood_floor": 0.01,
+                "threads": 6
+              },
+              "cold_p95_seconds": 27.3216021124972,
+              "cold_median_seconds": 19.54003370855935,
+              "quality_p95_seconds": 23.013693866785616,
+              "quality_timing_samples": 7,
+              "iterations": [
+                25,
+                50,
+                100,
+                200,
+                400
+              ],
+              "unique_solves_per_iteration": 288,
+              "play_seconds": 60981.81591509375,
+              "quality_seconds": 51366.564710665494,
+              "optimistic_all_seats_shared_play_seconds": 30490.907957546875
+            }
+          ],
+          "play_seconds": 91509.3459618186,
+          "quality_seconds": 77095.51478044046,
+          "optimistic_all_seats_shared_play_seconds": 61018.438004271724
+        }
+      ],
+      "final_play_and_quality_seconds": 206676.92607115628,
+      "river_reserve_seconds": 10800,
+      "required_remaining_seconds": 217476.92607115628,
+      "fits_remaining_budget": false,
+      "optimistic_all_seats_shared_play_only_plus_river_seconds": 85596.79497297824
+    }
+  ],
+  "timing_cells": [
+    {
+      "configuration_id": "6b0e39c42c5c350237bff2ec8b38c438a3d1a1c66a62833bf0fdcdf354bbdb13",
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 1
+      },
+      "cold_p95_seconds": 30.03608979146229,
+      "cold_median_seconds": 30.01319158298429,
+      "quality_p95_seconds": null,
+      "quality_timing_samples": 0
+    },
+    {
+      "configuration_id": "065951123321dc8b03288c8e9fbef166febf09322bc2483d953a77e9c255dcce",
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 1
+      },
+      "cold_p95_seconds": 30.026141658471897,
+      "cold_median_seconds": 30.01252820843365,
+      "quality_p95_seconds": null,
+      "quality_timing_samples": 0
+    },
+    {
+      "configuration_id": "7897182745f48668b56520af40090aebee074292ae53198f16583ddb71f40e89",
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 1
+      },
+      "cold_p95_seconds": 30.054346616449767,
+      "cold_median_seconds": 30.028360999538563,
+      "quality_p95_seconds": null,
+      "quality_timing_samples": 0
+    },
+    {
+      "configuration_id": "0345abe4b7089f979098522044633180a45dc32875f43dd94df269032a679466",
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 1
+      },
+      "cold_p95_seconds": 30.039639506139793,
+      "cold_median_seconds": 30.0188786664512,
+      "quality_p95_seconds": null,
+      "quality_timing_samples": 0
+    },
+    {
+      "configuration_id": "ccb41f67642ca1c3173655bbd48f084aecc6d7344b9683108d6f15ff7bb4a015",
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 2
+      },
+      "cold_p95_seconds": 30.02072093402967,
+      "cold_median_seconds": 30.011264625005424,
+      "quality_p95_seconds": 29.609047035931145,
+      "quality_timing_samples": 2
+    },
+    {
+      "configuration_id": "6099d4f4f3135708b14e0356d120afc40ee6bd3dfad847334d2473e403c269f3",
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 2
+      },
+      "cold_p95_seconds": 30.041929499898107,
+      "cold_median_seconds": 30.02537616691552,
+      "quality_p95_seconds": 28.53484023405472,
+      "quality_timing_samples": 2
+    },
+    {
+      "configuration_id": "13153c305ab8e09a134481ebb0a110444300cd47a17d018b159a6c36c1187706",
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 2
+      },
+      "cold_p95_seconds": 30.044176612654702,
+      "cold_median_seconds": 30.02288931258954,
+      "quality_p95_seconds": 27.51788481018739,
+      "quality_timing_samples": 2
+    },
+    {
+      "configuration_id": "65d67c2ee8cc2ed37f5b9234e740026cb060dd0b2c6090ceb292ff0b60a9214c",
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 2
+      },
+      "cold_p95_seconds": 30.040433156187646,
+      "cold_median_seconds": 30.02443529199809,
+      "quality_p95_seconds": 27.655977006675677,
+      "quality_timing_samples": 2
+    },
+    {
+      "configuration_id": "3917246db344918a0d1895e60c8e8b7a200039afa1ebaf4871b21dad78dbe96c",
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 4
+      },
+      "cold_p95_seconds": 29.288775888143572,
+      "cold_median_seconds": 24.452701354632154,
+      "quality_p95_seconds": 28.749215554259717,
+      "quality_timing_samples": 7
+    },
+    {
+      "configuration_id": "7300dcc3452bceaf615b0d08ea0bff0941d8719b7980a19144ab72019219573f",
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 4
+      },
+      "cold_p95_seconds": 29.277197804686146,
+      "cold_median_seconds": 24.531987728900276,
+      "quality_p95_seconds": 28.84896072880365,
+      "quality_timing_samples": 7
+    },
+    {
+      "configuration_id": "72d984e265b2755b2ed8e1be6f69bc0cfa9232d05785e93cd57a3d88589b2c53",
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 4
+      },
+      "cold_p95_seconds": 28.843321102450133,
+      "cold_median_seconds": 23.31167233362794,
+      "quality_p95_seconds": 27.735672487248667,
+      "quality_timing_samples": 7
+    },
+    {
+      "configuration_id": "3417fd21283cb7bcacc702f3b9310c3b8c3a944525bfa413dcaa31abe75cdc95",
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 4
+      },
+      "cold_p95_seconds": 28.81575501479674,
+      "cold_median_seconds": 23.31872433400713,
+      "quality_p95_seconds": 27.600100174848922,
+      "quality_timing_samples": 7
+    },
+    {
+      "configuration_id": "717ab4c8ca60bfd2ba83c040e9a8d1c7618414c56782483cb33785362ae37c3c",
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 6
+      },
+      "cold_p95_seconds": 27.672819835355035,
+      "cold_median_seconds": 20.475446250056848,
+      "quality_p95_seconds": 23.980904275132342,
+      "quality_timing_samples": 7
+    },
+    {
+      "configuration_id": "1bd0136dfc267d502e4de3017e418d2bfb20677574f552dd3f6811abf30e6c60",
+      "config": {
+        "cache_entries": 32,
+        "compress": true,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 6
+      },
+      "cold_p95_seconds": 27.66869291249895,
+      "cold_median_seconds": 20.55163208360318,
+      "quality_p95_seconds": 23.95216211255174,
+      "quality_timing_samples": 7
+    },
+    {
+      "configuration_id": "e51f558ee9c8e1e3dcb00316cca0f68e840ac3cca27f3977f4166d7e597a73c1",
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 6
+      },
+      "cold_p95_seconds": 27.354417604592157,
+      "cold_median_seconds": 19.523305437527597,
+      "quality_p95_seconds": 23.054614757862872,
+      "quality_timing_samples": 7
+    },
+    {
+      "configuration_id": "d463365f8ea749b379117b1292f0d8c5ea51c18e077a4201e124226ea5e6e607",
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 100,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0.01,
+        "threads": 6
+      },
+      "cold_p95_seconds": 27.3216021124972,
+      "cold_median_seconds": 19.54003370855935,
+      "quality_p95_seconds": 23.013693866785616,
+      "quality_timing_samples": 7
+    }
+  ],
+  "outcome_fields_used": [],
+  "forecast_scope": "30s final plus conditional 120s final with one/two finalists and three-hour river reserve",
+  "not_included_nonnegative_costs": [
+    "remaining eighteen reduced-menu screen rows",
+    "120s new screen",
+    "preparation/load/parse outside solver receipts",
+    "verification/build/setup"
+  ],
+  "scaling_limit": "Linear screen-p95 planning estimate; timeout-censored roots may cost more; not a runtime guarantee",
+  "restart_authorized_by_forecast": false,
+  "owner_amendment_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148#issuecomment-5967372814",
+  "running_source": "410541962eacce2ecd2bb31e966b8e7e0b2a3a4b",
+  "screen_rows": 238,
+  "screen_curve_sha256": "4cc4391960a09a7d8b0c4fbd302054c1780cb805e82aa093185331c943ac8eae",
+  "calibration_01_timings_used": false
+}

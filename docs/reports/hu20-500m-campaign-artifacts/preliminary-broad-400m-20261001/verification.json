@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "verified_at_utc": "2026-10-01T20:06:15.653199+00:00",
+  "host": "M4 compact closed-report verification; no model/gameplay loads",
+  "closed_tasks": 18,
+  "hands": 479232,
+  "new_400m_closed": [
+    {
+      "task": "broad-2026093001-400000000",
+      "result_sha256": "61efac99773c3de44fdf27b8f622b89c5f08e98a42ca88c4a42dac37e3109959"
+    },
+    {
+      "task": "broad-2026093002-400000000",
+      "result_sha256": "42518a29c3ae6e2f8178e64ad09500526a5b03af8376fc9229919ff9cefffe7c"
+    },
+    {
+      "task": "broad-2026093003-400000000",
+      "result_sha256": "07536d6053daa973be59c062324e23cf23ee4514a9293742135582e7414da50e"
+    }
+  ],
+  "all_prior_input_and_result_entries_unchanged": true,
+  "output_manifest": {
+    "summary.json": {
+      "bytes": 826278,
+      "sha256": "4d06c7fafe564bf19ed7c2789d8a2a3b1fcdcd607bbad1e07a00e05e1353cf19"
+    },
+    "curves.md": {
+      "bytes": 8765,
+      "sha256": "5900bb3251b701e388fea883a7336fb71a7bb015b69bcc1259c80784a7b94b41"
+    },
+    "per-seed-role.csv": {
+      "bytes": 54785,
+      "sha256": "e58978476c6f8581406b08c60b923b18ee5a1013fafb93e8e9273302f9bd0231"
+    }
+  },
+  "reporter_sha256": "165a2f7594473bc12ebc936bc95a1e3a40425b2b43bb6f9ec3191feb535b457c",
+  "all_six_three_seed_broad_groups_complete": true,
+  "all_heldout_pending_at_capture": true
+}

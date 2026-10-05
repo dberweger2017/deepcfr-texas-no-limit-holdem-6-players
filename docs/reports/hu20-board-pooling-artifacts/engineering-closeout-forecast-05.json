@@ -1,0 +1,15 @@
+{
+  "absolute_deadline_epoch": 1791199183.505676,
+  "automatic_restart": false,
+  "fit_overhead_not_included": true,
+  "formula": "1.5 * 138 * (slowest observed solve + slowest qualified lock)",
+  "frozen_pilot_forecast_seconds": 55952.80921656975,
+  "main_capacity_repair_not_readmitted": true,
+  "observed_completed_collect_seconds": 195.46211916699394,
+  "observed_runtime_warning_seconds": 60474.686559955975,
+  "remaining_before_reserve_seconds": 57610.79444003105,
+  "reserve_seconds": 3600,
+  "science_or_threshold_change": false,
+  "slowest_qualified_lock_seconds": 96.6861250840011,
+  "timestamp": 1791137972.711236
+}

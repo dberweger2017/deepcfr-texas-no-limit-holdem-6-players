@@ -1,0 +1,22 @@
+# HU20 search Linux build and production parity
+
+The MIT repository contains the public request adapter and tests. The AGPL upstream and harness stay in `/Users/dberweger/Local/hu20-turn-search-tool`, with their source/build fingerprints in [the inventory](reports/hu20-turn-search-artifacts/external-inventory.json). Preserve `/Users/dberweger/Local/hu20-exact-flop-tool` and its original #145 binary. Distribution of a playable AGPL-dependent bot remains an owner licensing decision.
+
+The M1 native integration checks use small stipulated ranges. They do not establish full-range speed or macOS↔Linux runtime parity. Neither cargo-zigbuild nor Zig was available during preparation; the approved alternative is a native x86_64 build at the beginning of the approved paid run. No paid hardware has been allocated and no x86 emulation was used. A short native ARM Linux check is permitted but cannot replace actual production x86 parity.
+
+Before rental, freeze and publish the selected settings, all source/Cargo.lock hashes, arena plan, measured end-to-end cost evidence and live RunPod quote. Include setup/build, parity, every speculative LBR solve, independent replay, transfer/hash verification, storage and shutdown. The quote generator refuses omitted costs, stale offers and incomplete calibration. Approval is required before provisioning; the worker never provisions hardware.
+
+On the approved x86_64 Linux pod:
+
+1. Verify `uname -m` is `x86_64`. Copy the separately retained external source snapshot and restore the pinned upstream checkout at `9d1509fe5077d019825f833eed04b16d342dfda1`. Verify the external inventory before building. Keep external sources outside the MIT checkout.
+2. Install the recorded Rust toolchain and Python 3.11 dependencies, preserving exact installation/build logs. Run `bash scripts/build_hu20_search_solver.sh /external/hu20-turn-search-tool native`. The script verifies a clean pinned upstream, uses `--locked`, two build jobs and the recorded lint flag. Record `rustc -Vv`, Python/NumPy versions, OS/architecture, Cargo.lock and executable SHA-256.
+3. Run the focused information/range/lock tests on Linux. Generate a fresh macOS reference with the selected configuration: `python -m scripts.check_hu20_turn_search_solver --binary /external/binary --config /frozen/selected.json --out /evidence/macos-selected`. Transfer and hash-verify this reference and inputs.
+4. On Linux run the same checker with `--reference /frozen/macos-selected/reference.json`, the selected JSON, and the newly fingerprinted binary. The checker validates native menus, holding indexing, repeated matrices, exact wager insertion, hero locks, and independent river EV/BR under primary and asymmetric reference ranges. Strategy absolute tolerance is `1e-5`; values are within `.001` chips. Run public-only range conditioning tests too. Cross-compilation alone cannot pass this gate.
+5. Compare selected-work full-range requests from the frozen calibration on both hosts, including both seats, nonuniform ranges, card zeros, river conditioning and prior hero locks. Preserve every matrix discrepancy and failure. Record repeat-request and thread-count differences; the short checker supports `--compare-threads` while allowing only thread-count request differences.
+6. Independently replay the frozen paired worker fixtures to verify observations, payout/event hashes and coupled action streams. Bind the actual-pod parity report, selected settings and plan hashes to the approved worker document. Production is blocked until this passes. The native M4 allowance and each paid worker use separate clocks.
+
+Use independent worker coordinates `block % worker_count == worker_index`; each coordinate keeps both policies, positions and all three lineages. Replay every completed hand again with `scripts.audit_hu20_turn_search`. Keep partial attempts, failures and hashes. The 30-second player watchdog returns a legal base policy on failure. Resource and cumulative-budget failures stop the experiment and retain evidence.
+
+Never delete originals or other agents' inputs. RESULTS_INDEX records evidence locations; archiving and any destructive cleanup require the repository's separate owner-authorized workflow.
+
+Report selected-setting cold p95/p99/max latency and timeout fallback rates separately for each host. Distinguish host-load fallback differences from strategy differences on successful identical requests and from thread-level floating differences. A timed-out request is a runtime outcome, not a successful matrix parity comparison.

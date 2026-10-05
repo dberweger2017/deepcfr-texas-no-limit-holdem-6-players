@@ -1,0 +1,26 @@
+{
+  "boards": 40,
+  "bootstrap_draws": 2000,
+  "bootstrap_seed": 202610050002,
+  "all_estimates_match": true,
+  "primary_classification": "CFR's v1 fixed point is poor even with dense training",
+  "primary_Q": 0.9513943797388653,
+  "opponent_sampled_Q": 0.7308295742058725,
+  "delta_3M_minus_1M_bb": {
+    "average-traverser-reach": {
+      "mean": -0.011830952644348103,
+      "low": -0.04167607021331785,
+      "high": 0.01766272258758545
+    },
+    "average-opponent-sampled": {
+      "mean": 0.0011523933410644894,
+      "low": -0.013938310623168897,
+      "high": 0.01521068382263185
+    },
+    "current": {
+      "mean": 0.10205637359619142,
+      "low": -0.3372098903656006,
+      "high": 0.5508755741119385
+    }
+  }
+}

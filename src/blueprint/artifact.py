@@ -15,8 +15,11 @@ from src.blueprint.abstraction import (
     SCHEMA,
     HU20_SCHEMA,
     HU20_UNCAPPED_SCHEMA,
-    HU20_CARD_V2_SCHEMA,
+    HU20_COMPRESSED_SCHEMA,
+    HU20_COMPRESSED_SCHEMAS,
+    HU20_CARD_V2_SCHEMAS,
     HU20_NATIVE_SCHEMAS,
+    HU20_HISTORY_VERSION,
     HU20_UNCAPPED_MENU_VERSION,
     TP20_SCHEMA,
     TP20_MENU_VERSION,
@@ -60,11 +63,13 @@ def _identity(config: PilotConfig) -> dict:
              "action_menu": (HU20_UNCAPPED_MENU_VERSION if config.abstraction in HU20_NATIVE_SCHEMAS else
                              HU20_MENU_VERSION if seats == 2 else TP20_MENU_VERSION),
              "card_descriptor": HU20_CARD_VERSION} if seats else {})
-    if config.abstraction == HU20_CARD_V2_SCHEMA:
+    if config.abstraction in HU20_CARD_V2_SCHEMAS:
         from src.blueprint.cards_v2 import VERSION
         identity["card_descriptor"] = VERSION
     if config.abstraction in HU20_NATIVE_SCHEMAS:
         identity["raise_cap_semantics"] = "none; native minimum-raise/reopening/stack bounds"
+    if config.abstraction in HU20_COMPRESSED_SCHEMAS:
+        identity["history_descriptor"] = HU20_HISTORY_VERSION
     return identity
 
 
@@ -204,6 +209,9 @@ def load_training(path: Path) -> BlueprintTrainer:
 def _load_training_document(document: dict, rows) -> BlueprintTrainer:
     if document.get("kind") != "training":
         raise ValueError("An inference export cannot resume training")
+    if document.get("average_rule", "traverser-reach") != "traverser-reach":
+        # Continuing here would add this trainer's traverser-reach increments to it.
+        raise ValueError("Only traverser-reach average checkpoints can resume in Python")
     table_data = document["table"]
     table = Table(
         tuple(table_data["player_ids"]),

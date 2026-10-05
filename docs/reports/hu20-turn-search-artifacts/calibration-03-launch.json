@@ -1,0 +1,26 @@
+{
+  "status": "running",
+  "pid": 87830,
+  "monitor_pid": 87831,
+  "source_commit": "93d55ebb522d3c09c869ca0f3448716f5bb2ae2f",
+  "source_full_ci_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37134911943",
+  "protocol_sha256": "5c80e96718a02877f1b05ec2fbf4be7b49a95e7a7d6cc4edcdb5d864d33956a4",
+  "binary_sha256": "a5821a60b88c8dd640dffebc4a31fe549495558bea286311e481c9bc7538c865",
+  "admission_commit": "70e445d",
+  "owner_approval_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148#issuecomment-5970668869",
+  "raw_m4": "/Users/dberweger/Local/hu20-turn-search-20261003/calibration-03",
+  "started_at": 1791043530.0078971,
+  "final_expected_rows": 1728,
+  "retained_screen_rows": 238,
+  "unattempted_reduced_screen_rows": 18,
+  "first_status": {
+    "stage": "final",
+    "roots": 26,
+    "aggregate_fallbacks_including_retained_screen": 64,
+    "guard_failure": false
+  },
+  "journal_closed_used_seconds": 12055.522447500325,
+  "river_reserve_seconds": 10800,
+  "heartbeat": "ACTIVE every thirty minutes; brief read-only check then end while unchanged",
+  "120_second_campaign": "separate owner approval required; no automatic fallback"
+}

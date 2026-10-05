@@ -1,0 +1,65 @@
+{
+  "source": "c48edc861e98a60e6f5943ec6453a8be7969e639",
+  "files": {
+    "compressed-2026093001.json": {
+      "bytes": 101424,
+      "sha256": "54d775b1c69c312b682b9c63a4e10a37e6232e4249a62328769fdfc59816e2fd"
+    },
+    "compressed-2026093002.json": {
+      "bytes": 101574,
+      "sha256": "1ea94df54d8b6921c6c0b02c24477418e4d5a2529fddb8635f1b267fc9639d6b"
+    },
+    "compressed-2026093003.json": {
+      "bytes": 100696,
+      "sha256": "9f0bd3648de2144bcee382aef2313a888dac5bed319b9a98d4ae139d444ed911"
+    },
+    "density-by-street.csv": {
+      "bytes": 28391,
+      "sha256": "57b655d2389203a65b62f6247eab5b7105969cee5166a01aef3390a2c0617549"
+    },
+    "density-gate.json": {
+      "bytes": 9468,
+      "sha256": "cfbaf1ac373b2488e3ae0174aa0ac964e6d197cb43db20c040f62bd90950eeac"
+    },
+    "final-manifest.json": {
+      "bytes": 26542,
+      "sha256": "24b83c391d7e1916aca5290e0ad8e12843f5ef9c2dc820941dc23ef693826642"
+    },
+    "fixed-policy-reach.csv": {
+      "bytes": 15183,
+      "sha256": "eb60460b0fb3ab807fa37a71712f84f8c4ada1486a0b060263a2967522993d8a"
+    },
+    "frozen-plan.json": {
+      "bytes": 4832,
+      "sha256": "e8c8c990db52852b324fa7b501ef0a07d4d2eed84edb44f6c394184ba4fc750e"
+    },
+    "full-2026093001.json": {
+      "bytes": 93234,
+      "sha256": "a6363080d7c9d31bef674317b2a140126cb14d4409adde7d8e46d96f0472bc5a"
+    },
+    "full-2026093002.json": {
+      "bytes": 94528,
+      "sha256": "7954aa23cd04d0342807e4d963b74ec4965ad2e50960a9f0a38ddb2dc20ea90f"
+    },
+    "full-2026093003.json": {
+      "bytes": 93909,
+      "sha256": "0dd15ee124ff84911a8b4b2d0118d845f8df95946ee38836793f12ffcdb4cc87"
+    },
+    "policy-reach-manifest.json": {
+      "bytes": 2654,
+      "sha256": "611003999ce45981afe48000d8b1a2846b24be44f0f680aad933e832fc70a71a"
+    },
+    "resources.csv": {
+      "bytes": 1120,
+      "sha256": "b22c9cd28f636ae81808ae6060b0549f8911d6addaec351d98eacf13d8ab10c2"
+    },
+    "supervisor.json": {
+      "bytes": 601,
+      "sha256": "13f2b8b0c90899c3a8efceacdff1372c877d8d2264202f2fc2beb5ecf13ff917"
+    },
+    "verification.json": {
+      "bytes": 3693,
+      "sha256": "95321c335cf35356d296ff010c4f02f6aa6d395d0ac42416474cc7cfba823b97"
+    }
+  }
+}

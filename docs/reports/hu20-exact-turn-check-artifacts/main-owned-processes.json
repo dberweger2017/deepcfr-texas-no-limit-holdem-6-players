@@ -1,0 +1,38 @@
+{
+  "driver": {
+    "pid": 70184,
+    "command": [
+      "nice",
+      "-n",
+      "10",
+      "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "-m",
+      "scripts.run_turn_check",
+      "--binary",
+      "/Users/dberweger/Local/hu20-exact-flop-tool/harness/target/release/hu20-exact-flop-tool",
+      "--protocol",
+      "configs/diagnostics/hu20-exact-turn-check.json",
+      "--inputs",
+      "/Users/dberweger/Local/hu20-exact-flop-check-inputs",
+      "--out",
+      "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-01",
+      "--source-commit",
+      "31030f4270b92f6780937edd90282e058b9a05b4"
+    ]
+  },
+  "monitor": {
+    "pid": 70185,
+    "command": [
+      "nice",
+      "-n",
+      "10",
+      "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+      "-m",
+      "scripts.monitor_turn_check",
+      "--run",
+      "/Users/dberweger/Local/hu20-exact-flop-check-20261001/results/turn-check-20261002/main-01",
+      "--logdir",
+      "/Users/dberweger/Local/deepcfr-training/results/tensorboard-m4-continuous/hu20-exact-turn-check-20261002/main-01"
+    ]
+  }
+}

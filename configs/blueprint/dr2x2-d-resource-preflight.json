@@ -1,0 +1,50 @@
+{
+  "schema": "dr2x2-card-v2-compressed-resource-preflight-v1",
+  "seeds": [
+    2026093001,
+    2026093002,
+    2026093003
+  ],
+  "milestones": [
+    250000,
+    500000,
+    1000000,
+    2000000
+  ],
+  "schemas": {
+    "full": "hu20-native-reopening-ordered-history-card-v2",
+    "compressed": "hu20-native-reopening-compressed-history-card-v2"
+  },
+  "probe": {
+    "root_seed": 202610110001,
+    "blocks": 2048,
+    "both_positions": true,
+    "policy": "uniform-native-abstract-menu"
+  },
+  "gate": {
+    "street": "river",
+    "minimum_median": 2,
+    "median_ratio": 2,
+    "low_visit_fraction_reduction_pp": 5,
+    "minimum_passing_seeds": 2
+  },
+  "limits": {
+    "max_rss_gib": 6,
+    "min_free_gib": 8,
+    "worker_seconds": 1800
+  },
+  "trainer": {
+    "raise_cap": null,
+    "roots_per_seat": 1,
+    "max_nodes": 250000,
+    "max_entries": 4000000,
+    "max_seconds": 300,
+    "postflop_replicates": 1,
+    "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1"
+  },
+  "execution_cells": [
+    "compressed"
+  ],
+  "descriptor_sha256": "190d530ce66d65a031334d95600ce0f005d81324a7353170dcebf1d64a6ccd92",
+  "purpose": "D resource sizing only; no strength outcomes; B prefix retained from PR143; no new density acceptance gate"
+}

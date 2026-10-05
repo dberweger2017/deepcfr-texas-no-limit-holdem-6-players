@@ -1,0 +1,72 @@
+{
+  "files": [
+    {
+      "bytes": 439,
+      "path": "2026093001-checks.json",
+      "sha256": "d5f91692db037c646a354b7853bb09f0941f4396626b13c079e1cb706cd9a7d6"
+    },
+    {
+      "bytes": 36,
+      "path": "2026093001-retrieval.json",
+      "sha256": "1cf7143da83d23eabbe20fb508f7d5ea3111c12c05a121894f5c830cdb2fa1ed"
+    },
+    {
+      "bytes": 438,
+      "path": "2026093002-checks.json",
+      "sha256": "49b11c1ae366c20b7dc44fc29b97687715ad3808749eabbf9cb48af65c07d659"
+    },
+    {
+      "bytes": 36,
+      "path": "2026093002-retrieval.json",
+      "sha256": "1cf7143da83d23eabbe20fb508f7d5ea3111c12c05a121894f5c830cdb2fa1ed"
+    },
+    {
+      "bytes": 439,
+      "path": "2026093003-checks.json",
+      "sha256": "fb99841ac4f1ec03d92e3739765e2d9d34d2b0f872e88021f3d317a857d7165d"
+    },
+    {
+      "bytes": 36,
+      "path": "2026093003-retrieval.json",
+      "sha256": "1cf7143da83d23eabbe20fb508f7d5ea3111c12c05a121894f5c830cdb2fa1ed"
+    },
+    {
+      "bytes": 113,
+      "path": "audit-attempt-1-failure.json",
+      "sha256": "b336c0d271f5cc090ce57f84a5db68a61072cfe2cccabd809c9bb8669cf90649"
+    },
+    {
+      "bytes": 626,
+      "path": "audit-attempt-1.log",
+      "sha256": "89298493a657f1a13331c050f313ff583b9843b832fd1db380f746870b34f8d2"
+    },
+    {
+      "bytes": 60,
+      "path": "audit-attempt-2.log",
+      "sha256": "9deb229a8f6d515ed8ecefb80c1c01b4170b20ff75454a436c601f2518b6448a"
+    },
+    {
+      "bytes": 6844,
+      "path": "audit.py",
+      "sha256": "258bbc0ec6318f3d4f29404d7ca0bb1305674d5ae86754c952d8c288c6daa1ac"
+    },
+    {
+      "bytes": 907,
+      "path": "cost.json",
+      "sha256": "0523c2190398e1c7739e8ed58f41a3105215086e115f88dabc1129d1f98eb12d"
+    },
+    {
+      "bytes": 111,
+      "path": "operator-finished.json",
+      "sha256": "3e76738fe9d5520b4507c3ab726997577cdf038f5c428fd1a6f7121244c28a07"
+    },
+    {
+      "bytes": 11017,
+      "path": "summary.json",
+      "sha256": "cbd987454e2df479c1f2849646f61bb5564e199a73d598b1a4a4bd7c1094ca9f"
+    }
+  ],
+  "plan_sha256": "d6c01b4685dff805de93ac566a007778e065e9493b075656a7f279e93a24a36c",
+  "raw_root": "/Users/dberweger/Local/dr2x2-c-campaign-20261001",
+  "source": "e45b297cdab45a2f4eb70f0325415794883c2163"
+}

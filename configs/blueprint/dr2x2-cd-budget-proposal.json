@@ -1,0 +1,79 @@
+{
+  "schema": "dr2x2-cd-budget-proposal-v1",
+  "approval": "APPROVED by owner October 1, 2026: additional USD16 all-in ceiling, expected USD8\u201311",
+  "training_nodes_per_seed": 100000000,
+  "seeds": [
+    2026093001,
+    2026093002,
+    2026093003
+  ],
+  "frozen_executable": "5f8a3941c0bf009c00695a5a0fbb4ef9a0c0c1e8",
+  "descriptor_sha256": "190d530ce66d65a031334d95600ce0f005d81324a7353170dcebf1d64a6ccd92",
+  "max_concurrent_pods": 4,
+  "heavy_workers_per_pod": 1,
+  "ownership_prefix": "dr2x2-",
+  "python": "3.11.14",
+  "engine_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+  "configurations": [
+    {
+      "cell": "C",
+      "cpu_id": "cpu5m",
+      "vcpus": 2,
+      "ram_gb": 16,
+      "max_compute_usd_per_hour": 0.13,
+      "max_total_usd_per_hour": 0.18
+    },
+    {
+      "cell": "D",
+      "cpu_id": "cpu5m",
+      "vcpus": 8,
+      "ram_gb": 64,
+      "max_compute_usd_per_hour": 0.52,
+      "max_total_usd_per_hour": 0.57
+    }
+  ],
+  "container_disk_gb": 30,
+  "storage_allowance_usd_per_pod_hour": 0.05,
+  "data_center_ids": [
+    "EU-RO-1",
+    "EUR-IS-1"
+  ],
+  "expected_training_total_usd": [
+    6,
+    8
+  ],
+  "training_recovery_all_in_subcap_usd": 12,
+  "common_analysis_reserved_subcap_usd": 4,
+  "max_additional_total_cost_usd": 16,
+  "safe_checkpoint_shutdown_reserve_usd": 2,
+  "watchdog_safe_stop_upper_estimate_usd": 14,
+  "previous_B_upper_estimate_usd": 3.203879,
+  "previous_B_excluded_from_additional_cap": true,
+  "planned_rental_hours_per_training_job": 4,
+  "planning_hours_are_not_scientific_cutoff": true,
+  "training_nodes_per_second_floor_for_projection": 10000,
+  "pure_training_hours_at_floor": 2.7777777777777777,
+  "setup_recovery_save_retrieval_allowance_hours": 0.75,
+  "conservative_six_job_full_allocation_usd": 9.0,
+  "common_analysis_compute_hours_allowance": 6,
+  "common_analysis_max_total_hourly_usd": 0.57,
+  "common_analysis_full_allocation_usd": 3.42,
+  "common_analysis_counts_roots_intervals_and_range_law": "Separate committed common A/B/C/D plan after outcome-free runtime admission, before common playing outcomes; no unilateral count reduction to fit this cap",
+  "recovery_interval_nodes": 10000000,
+  "retained_full_milestones": [
+    25000000,
+    50000000,
+    100000000
+  ],
+  "cross_platform_gate": "Each cell exact training-state/observations/keys/menu/RNG/work and fresh-process recovery; only documented gzip OS byte distinction allowed",
+  "resources": {
+    "max_rss_fraction_of_container_memory": 0.8,
+    "min_free_disk_gib": 8,
+    "max_swap_growth_gib": 0.5,
+    "entry_limits": "Prefix 4M guard is not inherited for 100M. Production engineering allowance must be declared before launch from these measurements; no eviction or hidden work reduction; any recorded revision must preserve full work/recipe and pass recovery.",
+    "memory_resize": "Only within approved incremental total cap; preserve hashes/source/science and validate resume after material environment changes"
+  },
+  "offpod_destination": "M1 /Users/dberweger/Local/dr2x2-cd-campaign-20261001; verify capacity and destination hashes before backup rotation or termination; M4 reserved for PR136",
+  "no_automatic_merge_promotion_or_300m": true,
+  "approval_scope": "Six from-zero C/D100M lineages and prospective common factorial analysis; USD12 training/recovery + USD4 analysis, no merge/promotion/300M"
+}

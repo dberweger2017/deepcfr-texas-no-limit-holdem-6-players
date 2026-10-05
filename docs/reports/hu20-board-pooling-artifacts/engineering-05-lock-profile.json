@@ -1,0 +1,82 @@
+[
+  {
+    "calls": 1,
+    "seconds": 0.018115791,
+    "stage": "action_tree_build_validate"
+  },
+  {
+    "calls": 147804,
+    "seconds": 1.5952334339999512,
+    "stage": "blueprint_policy_build"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.698948125,
+    "stage": "both_blueprint_ev"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.034622,
+    "stage": "compact_data_build"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.0736275,
+    "stage": "compact_load_parse"
+  },
+  {
+    "calls": 10,
+    "seconds": 6.114481374,
+    "stage": "locked_best_response"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.000490375,
+    "stage": "native_allocate"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.007736,
+    "stage": "native_tree_card_build"
+  },
+  {
+    "calls": 886824,
+    "seconds": 2.6222199799997066,
+    "stage": "node_lock_calls"
+  },
+  {
+    "calls": 739020,
+    "seconds": 72.40455893099691,
+    "stage": "node_policy_build"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.538511125,
+    "stage": "pooled_policy_load_parse_build"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.015015791,
+    "stage": "projection_keys_build"
+  },
+  {
+    "calls": 1,
+    "seconds": 0.035390625,
+    "stage": "request_load_parse"
+  },
+  {
+    "calls": 15,
+    "seconds": 0.0007492489999999999,
+    "stage": "result_serialization_write"
+  },
+  {
+    "calls": 11,
+    "seconds": 88.694546542,
+    "stage": "traversal"
+  },
+  {
+    "calls": 12,
+    "seconds": 0.09465475000000001,
+    "stage": "unlock_all"
+  }
+]

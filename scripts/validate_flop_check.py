@@ -66,11 +66,20 @@ def monte_carlo(root, ranges, source, *, deals=20_000, seed=202610010904):
     if deals < 20_000:
         raise ValueError("V4 requires at least 20,000 independent deals")
     rng = Random(seed); view = replay(root, 0, ())
-    compatible = [(a, b, wa * wb) for a, wa in ranges[0] for b, wb in ranges[1]
-                  if not set(a) & set(b)]
-    weights = [x[2] for x in compatible]; values = []
+    # Rejection of independent weighted holdings gives the exact compatible
+    # product law, without rebuilding a quadratic cumulative vector per deal.
+    from bisect import bisect
+    from itertools import accumulate
+    pairs = {s:[h for h,w in ranges[s] if w>0] for s in (0,1)}
+    cumulative = {s:list(accumulate(w for h,w in ranges[s] if w>0)) for s in (0,1)}
+    if any(not cumulative[s] for s in (0,1)):
+        raise ValueError("Empty Monte Carlo range")
+    values = []
     for _ in range(deals):
-        a, b, _ = rng.choices(compatible, weights=weights, k=1)[0]
+        for attempt in range(100_000):
+            a,b = (pairs[s][bisect(cumulative[s],rng.random()*cumulative[s][-1])] for s in (0,1))
+            if not set(a) & set(b):break
+        else:raise ValueError("Compatible range rejection failed")
         available = [c for c in DECK if c not in (*view.board, *a, *b)]
         board = view.board + tuple(rng.sample(available, 5 - len(view.board)))
         hand = _world(root, board, {0: a, 1: b})
@@ -81,7 +90,8 @@ def monte_carlo(root, ranges, source, *, deals=20_000, seed=202610010904):
         values.append((finish.stacks[0] - view.players[0].stack - view.pot / 2) / 100)
     mean = float(np.mean(values)); half = 1.96 * float(np.std(values, ddof=1)) / sqrt(deals)
     return {"mean_bb": mean, "ci95": [mean - half, mean + half],
-            "deals": deals, "seed": seed, "independent_deals": True}
+            "deals": deals, "seed": seed, "independent_deals": True,
+            "range_sampler":"independent weighted holdings, reject blockers"}
 
 
 def response_rows(path):
@@ -91,8 +101,9 @@ def response_rows(path):
 def locks_for_runouts(request, histories, ranges, source):
     """Replay the real Python policy on every chance context of a small fixture."""
     flop = tuple(request["board"]); available = [c for c in DECK if c not in flop]
-    boards = {"flop": [flop], "turn": [flop + (c,) for c in available],
-              "river": [flop + p for p in permutations(available, 2)]}
+    boards = ({"flop": [flop], "turn": [flop + (c,) for c in available],
+               "river": [flop + p for p in permutations(available, 2)]} if len(flop)==3
+              else {"turn":[flop],"river":[flop+(c,) for c in available]})
     rows = []
     for node, history in zip(request["nodes"], histories, strict=True):
         if node["terminal"]:

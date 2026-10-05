@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-05T07:31:05.247945+00:00",
+  "archive": "/Users/dberweger/Local/hu20-equity-buckets-closeout-20261005/hu20-equity-buckets-20261005.tar.gz",
+  "staged_archive": "/Users/dberweger/Local/Research-Cloud/PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz",
+  "archive_bytes": 1991949530,
+  "archive_sha256": "03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca",
+  "manifest_sha256": "a5d64a7882da34840dad53905e4a03284f822487732ce691ecc82cdf1585bdef",
+  "member_count": 29,
+  "member_bytes": 2768143080,
+  "member_mismatches": 0,
+  "source_reverified": true,
+  "stage_hash_verified": true,
+  "cloud_upload_confirmed": false,
+  "originals_retained": true,
+  "free_bytes": 34902372352,
+  "elapsed_seconds": 48.83795899999677,
+  "drive_folder_url": "https://drive.google.com/drive/folders/1gwungsUq-b9uey8InGy0yOD2GbaMRhp-"
+}

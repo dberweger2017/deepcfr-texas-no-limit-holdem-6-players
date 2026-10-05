@@ -1,0 +1,171 @@
+{
+  "scheduled_check_utc": "2026-10-04T14:37:37Z",
+  "previous_docs_pr": {
+    "number": 157,
+    "head": "595bef3ec13bf876966e6020f90a198bdef6c0ad",
+    "merge": "0a582c9d6eb0c4ff85b3f01a64bc653af0feacf7",
+    "all_required_checks": "passed",
+    "unresolved_findings": 0
+  },
+  "accepted_pr145_snapshots": [
+    {
+      "name": "PR145-flop-retained-attempts-20261004.tar.gz",
+      "id": "1jEmvLPJsmnjmh-zZSrVevA0ura17dGlK",
+      "bytes": 18600998,
+      "sha256": "500b269afce4799d313a9c49788b367f4f49e310a8a04723ba7cc609a6b3dff6"
+    },
+    {
+      "name": "PR145-turn-retrieval-snapshot-20261004.tar.gz",
+      "id": "1GNyipWYxTImoXI9gJpkIzMSbCeBngEOk",
+      "bytes": 108091354,
+      "sha256": "8dd3d8621d8628a1a04e01947c0abdaf3eeb136bb6c332ce4c3209b7e0374422"
+    }
+  ],
+  "acceptance": "native isUploaded=1/isUploading=0/no conflict/exact document size plus current cloud name/size/parent",
+  "retrieval_provenance": {
+    "state": "cloud-accepted-original-metadata-retained",
+    "members": [
+      {
+        "path": "/Users/dberweger/Local/hu20-m4-archive-20261002/cleanup.json",
+        "member": "M1-retrieval-provenance/cleanup.json",
+        "bytes": 482,
+        "sha256": "0d93510c02427eee66c70a874854d6e8b43cc795596ee46ab54893e6c4ab5686"
+      },
+      {
+        "path": "/Users/dberweger/Local/hu20-m4-archive-20261002/source-manifest.json",
+        "member": "M1-retrieval-provenance/source-manifest.json",
+        "bytes": 591443,
+        "sha256": "bdcbe77e115bbea246ecb77f5a17112ec26649cfac4c75ecdfdeeadfd6475cd0"
+      },
+      {
+        "path": "/Users/dberweger/Local/hu20-m4-archive-20261002/tensorboard-cleanup.json",
+        "member": "M1-retrieval-provenance/tensorboard-cleanup.json",
+        "bytes": 1663,
+        "sha256": "bfa2063ef5e2fac5517d2570a45964cffe1d497df1e86b127b4eb341bc98bb78"
+      },
+      {
+        "path": "/Users/dberweger/Local/hu20-m4-archive-20261002/verification.json",
+        "member": "M1-retrieval-provenance/verification.json",
+        "bytes": 554,
+        "sha256": "038a401d87920cbcf3b96da1d146d6071a1388535142ba3e305c0b01420f63f8"
+      },
+      {
+        "path": "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-tool/build-turn-01.log",
+        "member": "M1-retrieval-provenance/hu20-exact-flop-tool/build-turn-01.log",
+        "bytes": 4003,
+        "sha256": "f9cbb5cc7c8b1cd3724bcf21025ae3751d84d95d0e8e2b8be9ff2a31e76532fd"
+      }
+    ],
+    "archive_bytes": 146598,
+    "archive_sha256": "30040539276a5f57d5564de8d7c48a506b2dddf583cb6317ef8c46ff4462c355",
+    "source_bytes": 598145,
+    "originals_retained": true,
+    "created": 1791124748.894696,
+    "cloud_id": "1Z1JnP3CrveLDfVpTUsxxe-WAXBZPoJbk",
+    "cloud_size_verified": 146598,
+    "cloud_parent_id": "1ciOOpSaLHqvCSI8wzhWDQORtizfeCrxZ"
+  },
+  "validation_provenance": {
+    "state": "cloud-accepted-original-small-logs-retained",
+    "archive": "/Users/dberweger/Local/research-archive-preparation-20261002/PR145-validation-provenance-20261004.tar.gz",
+    "bytes": 1326,
+    "sha256": "d0e4f6c50f261f83e62516a66611b7f4c6c3ce79f6509e7fd06dc48ea5626828",
+    "members": [
+      {
+        "source": "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-20261001/results/turn-compact-validation-01.log",
+        "path": "results/turn-compact-validation-01.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "source": "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-20261001/results/turn-compact-validation-alias-01.log",
+        "path": "results/turn-compact-validation-alias-01.log",
+        "bytes": 792,
+        "sha256": "ee7a74e4d55ade7ac52563a6fdefb8d7416e8b69c2f7d0b677177c8482fe88ec"
+      },
+      {
+        "source": "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-20261001/results/turn-compact-validation-alias-02.log",
+        "path": "results/turn-compact-validation-alias-02.log",
+        "bytes": 793,
+        "sha256": "bcbae3fc8a7eb1066671a0db2384c39d6e4281b80f91870d6b1eedf3de04896a"
+      },
+      {
+        "source": "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-20261001/results/turn-preflight-20261002.log",
+        "path": "results/turn-preflight-20261002.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "created_utc": "2026-10-04T14:47:25Z",
+    "originals_retained": true,
+    "cloud_id": "1ssb70KWXwUsf2qltsm8phum_leMsSjIJ",
+    "cloud_parent_id": "1ciOOpSaLHqvCSI8wzhWDQORtizfeCrxZ",
+    "cloud_size_verified": 1326
+  },
+  "closed_original_cleanup": {
+    "state": "complete",
+    "pid": 6951,
+    "started": 1791124897.2136161,
+    "removed_files": 1099,
+    "removed_bytes": 2659157266,
+    "retained": [],
+    "protected_prefixes": [
+      "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-inputs",
+      "/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-20261004",
+      "/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-02-20261004"
+    ],
+    "active_campaign_plan_checked": "PR149 frozen plan/execution specifies isolated restored inputs; all declared M1 original average inputs protected",
+    "free_before": 47905484800,
+    "synced_payloads_removed": false,
+    "science_rerun": false,
+    "external_symlink_dependencies": [],
+    "finished": 1791125045.310273,
+    "free_after": 50607751168
+  },
+  "cleanup_receipt_cloud_id": "1wXZF-2AXJ5A7GvwdZgRJ1KePkBKN6K4E",
+  "full_restore_journal_cloud_id": "1-qgLdo0RMbxhPovbnkymMRJEl-L7bsyD",
+  "m4_free_bytes_measured": 102100340736,
+  "active_owner_task": {
+    "pr": 149,
+    "status": "owner-resumed after exact input restoration; third lineage exporting",
+    "chat": "01a0f933-e4c5-7700-afcf-07f2b6a3913c",
+    "protected": [
+      "M4 hu20-board-pooling-20261004 including inputs-restored-02",
+      "M1 hu20-board-pooling-m4-retrieval-20261004",
+      "M1 hu20-board-pooling-m4-retrieval-02-20261004",
+      "M1 hu20-m4-archive-20261002/hu20-exact-flop-check-inputs"
+    ],
+    "cleanup_admission": "active frozen plan/execution and every declared future input checked before cleanup",
+    "no_archival_science_restart": true
+  },
+  "remaining_results_inventory": [
+    {
+      "path": "/Users/dberweger/Local/blueprint-search-followup/results",
+      "files": 36,
+      "bytes": 31095006
+    },
+    {
+      "path": "/Users/dberweger/Local/v04-fresh-install-new-guy/results",
+      "files": 51,
+      "bytes": 3163375
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/blueprint-local-cfr/deepcfr-texas-no-limit-holdem-6-players/results",
+      "files": 69,
+      "bytes": 11204339
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/blueprint-averaged-extraction/deepcfr-texas-no-limit-holdem-6-players/results",
+      "files": 154,
+      "bytes": 1385757798
+    },
+    {
+      "path": "/Users/dberweger/.codex/worktrees/postflop-replication/deepcfr-texas-no-limit-holdem-6-players/results",
+      "files": 3,
+      "bytes": 47271792
+    }
+  ],
+  "remaining_action": "classify older worktree result coverage/dependencies; active PR149 protected until owning-task verified closure; routine documentation CI",
+  "synced_data_removed": false,
+  "forced_cache_eviction": false
+}

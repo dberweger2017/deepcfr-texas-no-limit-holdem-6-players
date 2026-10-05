@@ -1,0 +1,2765 @@
+{
+  "captured_date": "2026-09-30",
+  "drive_folder_url": "https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s",
+  "drive_stream_path": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results",
+  "entries": [
+    {
+      "bytes": 32772,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 1,
+      "latest_mtime": 1790192993.1344736,
+      "name": ".DS_Store",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": ".DS_Store",
+      "report_last_change_prs": [],
+      "reports": []
+    },
+    {
+      "bytes": 1348,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789492913.8770666,
+      "name": "analyze-fitting.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "analyze-fitting.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1cx6HfGdJhntbRblwyB810yk5tee1PYmo"
+    },
+    {
+      "bytes": 578287,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1789471199.2881258,
+      "name": "arena-dev-1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "arena-dev-1",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1ISN5gKRbqrau9eIfY788dYz9EbKQZn0E"
+    },
+    {
+      "bytes": 4320079,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1789471668.5051115,
+      "name": "arena-final-control",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "arena-final-control",
+      "report_last_change_prs": [
+        44
+      ],
+      "reports": [
+        "docs/reports/arena-validation.md"
+      ],
+      "cloud_file_id": "1tuqnpXgqCaOo1_zNHp0-LR4BI2sUJw-O"
+    },
+    {
+      "bytes": 4319658,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1789471671.9508047,
+      "name": "arena-final-control-replay",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "arena-final-control-replay",
+      "report_last_change_prs": [
+        44
+      ],
+      "reports": [
+        "docs/reports/arena-validation.md"
+      ],
+      "cloud_file_id": "1oG-F4Vz28iSLSIcSMAcOwteM7c_tPZ6u"
+    },
+    {
+      "bytes": 684241,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1789471673.3188684,
+      "name": "arena-final-smoke",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "arena-final-smoke",
+      "report_last_change_prs": [
+        44
+      ],
+      "reports": [
+        "docs/reports/arena-validation.md"
+      ],
+      "cloud_file_id": "1WnsA4HIEwvRPZyY-Ilxac249D304UQM7"
+    },
+    {
+      "bytes": 684214,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1789471674.7422707,
+      "name": "arena-final-smoke-replay",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "arena-final-smoke-replay",
+      "report_last_change_prs": [
+        44
+      ],
+      "reports": [
+        "docs/reports/arena-validation.md"
+      ],
+      "cloud_file_id": "1e-os7G-TZVWYiRjf7mgLAesrB_OVc2uJ"
+    },
+    {
+      "bytes": 4323714,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1789471483.9329455,
+      "name": "arena-sensitivity-20260915",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "arena-sensitivity-20260915",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1qIFnQB4eXtva-Y6l_k_TdeL8GPmuoGez"
+    },
+    {
+      "bytes": 4323594,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1789471529.5465786,
+      "name": "arena-sensitivity-replay-20260915",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "arena-sensitivity-replay-20260915",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1gXUKDssTnSJLGpmKmhRtEbjg6sd4b440"
+    },
+    {
+      "bytes": 6455,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789500421.7686312,
+      "name": "audit-readiness.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "audit-readiness.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1ortnIcGHagN1rLTJ85Hdh-P3YXqUgkNf"
+    },
+    {
+      "bytes": 1355,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789626217.7279851,
+      "name": "audit-representation.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "audit-representation.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "18ZVcAhlrM1y6K4MHwDb-cCbN0JH5j7Nx"
+    },
+    {
+      "bytes": 7300,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789545942.5949588,
+      "name": "audit_snapshot_readiness.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "audit_snapshot_readiness.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1F-MZxX9LoNiLyDbare4FE0mrHe-kJRkI"
+    },
+    {
+      "bytes": 13368,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 2,
+      "latest_mtime": 1790257600.02284,
+      "name": "blueprint-04-ops",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": "blueprint-04-ops",
+      "report_last_change_prs": [],
+      "reports": []
+    },
+    {
+      "bytes": 168896207,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 10,
+      "latest_mtime": 1790252175.0,
+      "name": "blueprint-history-fixed-coverage-m4",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": "blueprint-history-fixed-coverage-m4",
+      "report_last_change_prs": [],
+      "reports": []
+    },
+    {
+      "bytes": 520841454,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 22,
+      "latest_mtime": 1790252094.0,
+      "name": "blueprint-history-summary-learning-m4",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": "blueprint-history-summary-learning-m4",
+      "report_last_change_prs": [],
+      "reports": []
+    },
+    {
+      "bytes": 684819417,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 19,
+      "latest_mtime": 1790252000.49594,
+      "name": "blueprint-history-summary-v1-m4",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": "blueprint-history-summary-v1-m4",
+      "report_last_change_prs": [],
+      "reports": []
+    },
+    {
+      "bytes": 256135764,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 5,
+      "latest_mtime": 1790240521.0,
+      "name": "blueprint-m4-slice-v1-continued-m4",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": "blueprint-m4-slice-v1-continued-m4",
+      "report_last_change_prs": [
+        95
+      ],
+      "reports": [
+        "docs/reports/blueprint-m4-slice-v1.md"
+      ]
+    },
+    {
+      "bytes": 76866163,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 5,
+      "latest_mtime": 1790237774.0,
+      "name": "blueprint-m4-slice-v1-m4",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": "blueprint-m4-slice-v1-m4",
+      "report_last_change_prs": [
+        95
+      ],
+      "reports": [
+        "docs/reports/blueprint-m4-slice-v1.md"
+      ]
+    },
+    {
+      "bytes": 198609,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 14,
+      "latest_mtime": 1790232714.0,
+      "name": "blueprint-pilot-v1-m4",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": "blueprint-pilot-v1-m4",
+      "report_last_change_prs": [
+        91
+      ],
+      "reports": [
+        "docs/reports/blueprint-pilot-v1.md"
+      ]
+    },
+    {
+      "bytes": 1839316262,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 53,
+      "latest_mtime": 1790246885.1946406,
+      "name": "blueprint-runpod-check-v1",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": "blueprint-runpod-check-v1",
+      "report_last_change_prs": [
+        97
+      ],
+      "reports": [
+        "docs/reports/blueprint-runpod-sizing-v1.md"
+      ]
+    },
+    {
+      "bytes": 137076,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 7,
+      "latest_mtime": 1790285981.0,
+      "name": "blueprint-search-m4-smoke-20260924",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": "blueprint-search-m4-smoke-20260924",
+      "report_last_change_prs": [],
+      "reports": []
+    },
+    {
+      "bytes": 137667,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 7,
+      "latest_mtime": 1790286200.0,
+      "name": "blueprint-search-m4-smoke-final-20260924",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": "blueprint-search-m4-smoke-final-20260924",
+      "report_last_change_prs": [
+        103
+      ],
+      "reports": [
+        "docs/reports/blueprint-postflop-search-m4-smoke.md"
+      ]
+    },
+    {
+      "bytes": 137081,
+      "cloud_state": "upload_pending_not_verified",
+      "files": 7,
+      "latest_mtime": 1790286094.0,
+      "name": "blueprint-search-m4-smoke-pinned-20260924",
+      "original_state": "retained_working_inputs_or_metadata",
+      "relative_drive_path": "blueprint-search-m4-smoke-pinned-20260924",
+      "report_last_change_prs": [],
+      "reports": []
+    },
+    {
+      "bytes": 225760,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789607881.043114,
+      "name": "branching-comparison-provisional.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-comparison-provisional.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1GzIbL_1MFIeHeIPVYN-iAS9L0iovVlwH"
+    },
+    {
+      "bytes": 14041643443,
+      "cloud_state": "upload_in_progress",
+      "files": 1,
+      "latest_mtime": 1789611007.8422358,
+      "name": "branching-comparison.tar.gz",
+      "original_state": "retained",
+      "relative_drive_path": "branching-comparison.tar.gz",
+      "report_last_change_prs": [
+        79
+      ],
+      "reports": [
+        "docs/reports/holdem-branching-online.md"
+      ]
+    },
+    {
+      "bytes": 9691,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789607843.979623,
+      "name": "branching-handoff-history.md",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-handoff-history.md",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1IkzVzsiyCrwGHNjFShGDPLTnKNbK3t3c"
+    },
+    {
+      "bytes": 1251,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789615955.207618,
+      "name": "branching-handoff.md",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-handoff.md",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "12hUgOBcsKdowKB2Rek3tw_etMjLybo-Y"
+    },
+    {
+      "bytes": 1869,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789601153.1518896,
+      "name": "branching-host-gate.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-host-gate.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "10wQDtN9qvLBF63bOMHBGVmVvMqpgw0LL"
+    },
+    {
+      "bytes": 72238,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 24,
+      "latest_mtime": 1789612853.0292869,
+      "name": "branching-operations-local",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-operations-local",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "13QdUM45wHjmpmeiGhcmgCEj2hTe49eda"
+    },
+    {
+      "bytes": 59322226,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 20,
+      "latest_mtime": 1789599452.661467,
+      "name": "branching-pilot-first",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-pilot-first",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1PH9dNJvFK4DVhFNk1tLMjGGwEoIbI9ft"
+    },
+    {
+      "bytes": 38757526,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 16,
+      "latest_mtime": 1789599566.144196,
+      "name": "branching-pilot-first-resumed",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-pilot-first-resumed",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1vcIjwcuckk3gtZgWg_Nr8skjMLywWn-X"
+    },
+    {
+      "bytes": 76793883,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 20,
+      "latest_mtime": 1789599506.7723746,
+      "name": "branching-pilot-second",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-pilot-second",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1lG7XxFLGeIeUUDTWqj2kS0d8sQRacFbU"
+    },
+    {
+      "bytes": 45502176,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 16,
+      "latest_mtime": 1789599590.8063734,
+      "name": "branching-pilot-second-resumed",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-pilot-second-resumed",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1dHdCcAuA5Oz5q3idwJ7vxQ_BV501x2gX"
+    },
+    {
+      "bytes": 5136,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789599591.2156427,
+      "name": "branching-pilot-verification.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-pilot-verification.json",
+      "report_last_change_prs": [
+        78
+      ],
+      "reports": [
+        "docs/reports/holdem-branching-pilot.md"
+      ],
+      "cloud_file_id": "1bGD7yL823B0_oMiGaDndgv3PkRwwflyS"
+    },
+    {
+      "bytes": 1297,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789612079.6335752,
+      "name": "branching-rental.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-rental.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1Fq4pVshNAYOZ5p8lQg5EF5UD_NNy6ljI"
+    },
+    {
+      "bytes": 1502864548,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 507,
+      "latest_mtime": 1789611083.4122603,
+      "name": "branching-retrieved",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "branching-retrieved",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1eET7DZsxP2K9jif3807oSPENLoCUaK7r"
+    },
+    {
+      "bytes": 3137,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789493065.2204354,
+      "name": "build-fitting-report.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "build-fitting-report.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "152HiTYSD7sDU-rA9uDgjconoB4yfl2Cl"
+    },
+    {
+      "bytes": 6776,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789484988.2977273,
+      "name": "build_strategy_report.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "build_strategy_report.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1XWhbZFsfmCRHUmyMVSDwVQfzV6_pPofj"
+    },
+    {
+      "bytes": 1368388,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 3,
+      "latest_mtime": 1789655691.0758493,
+      "name": "card-diversity",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "card-diversity",
+      "report_last_change_prs": [
+        81,
+        82,
+        85,
+        87
+      ],
+      "reports": [
+        "docs/reports/holdem-multistreet-preliminary.md",
+        "docs/reports/holdem-card-diversity-admission.md",
+        "docs/reports/holdem-next-training-analysis.md",
+        "docs/reports/holdem-card-diversity-runtime-amendment.md"
+      ],
+      "cloud_file_id": "1sbA-NG56G8LDM6j_c-jdRr36A5ZXGn5V"
+    },
+    {
+      "bytes": 127485011,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 29,
+      "latest_mtime": 1789659406.670009,
+      "name": "card-diversity-campaign",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "card-diversity-campaign",
+      "report_last_change_prs": [
+        82
+      ],
+      "reports": [
+        "docs/reports/holdem-card-diversity.md"
+      ],
+      "cloud_file_id": "1X-jcUo_thjJb_34uWIU9BZIP-Vaei0-m"
+    },
+    {
+      "bytes": 1350148,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 2,
+      "latest_mtime": 1789656851.501847,
+      "name": "card-diversity-idle-calibration",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "card-diversity-idle-calibration",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1ZOqROQAijNQny8swDborANO2bZJTahcP"
+    },
+    {
+      "bytes": 1368390,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 3,
+      "latest_mtime": 1789655747.9218242,
+      "name": "card-diversity-retry",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "card-diversity-retry",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1ChaTYGSxyuSyAynJ60tT2zCJDSXFUUrm"
+    },
+    {
+      "bytes": 796,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789490664.9908552,
+      "name": "check-fitting.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "check-fitting.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1HGwXrIFaCj6MvMNXyJUSE4mP533KFe65"
+    },
+    {
+      "bytes": 3347,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789496688.1859877,
+      "name": "collect-readiness.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "collect-readiness.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1ECUW54QecOmpK0s7yhtF-3ZUvdmLS6Ao"
+    },
+    {
+      "bytes": 288750,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 32,
+      "latest_mtime": 1789548056.2158477,
+      "name": "collection-performance",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "collection-performance",
+      "report_last_change_prs": [
+        66,
+        67
+      ],
+      "reports": [
+        "docs/reports/holdem-collection-performance.md",
+        "docs/reports/holdem-sampling-comparison.md"
+      ],
+      "cloud_file_id": "1sGXceIUbu3TKk83aIDy5q66WjA9CPhAK"
+    },
+    {
+      "bytes": 16955607,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 4,
+      "latest_mtime": 1789597865.5346124,
+      "name": "collector-branching",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "collector-branching",
+      "report_last_change_prs": [
+        77
+      ],
+      "reports": [
+        "docs/reports/holdem-collector-branching.md"
+      ],
+      "cloud_file_id": "1pXHg87dy5BD1FJlCQEmk_vp2eiVPVjBh"
+    },
+    {
+      "bytes": 19364403,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1789472965.321143,
+      "name": "core-v1-baseline",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "core-v1-baseline",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1pSdd_azM5M5JmFbnh61F7ZqVOg2M-4ID"
+    },
+    {
+      "bytes": 5827614,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 35,
+      "latest_mtime": 1789482543.4519985,
+      "name": "cpu-pilot-local-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "cpu-pilot-local-v1",
+      "report_last_change_prs": [
+        49
+      ],
+      "reports": [
+        "docs/reports/cpu-pilot.md"
+      ],
+      "cloud_file_id": "12Q8wr1B3xYkf7g0NQzUNcBPoW9G7x3UP"
+    },
+    {
+      "bytes": 14166605,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 130,
+      "latest_mtime": 1789482995.0,
+      "name": "cpu-pilot-remote-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "cpu-pilot-remote-v1",
+      "report_last_change_prs": [
+        49
+      ],
+      "reports": [
+        "docs/reports/cpu-pilot.md"
+      ],
+      "cloud_file_id": "1BMWOSrC_1VB4x85hubymDOOy4WzploHP"
+    },
+    {
+      "bytes": 2062422,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789483009.6549542,
+      "name": "cpu-pilot-remote-v1.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "cpu-pilot-remote-v1.tar.gz",
+      "report_last_change_prs": [
+        49
+      ],
+      "reports": [
+        "docs/reports/cpu-pilot.md"
+      ],
+      "cloud_file_id": "1mhGRaeLRzqR3t831wdRNRBVemZKdTmdZ"
+    },
+    {
+      "bytes": 793,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789483317.0475707,
+      "name": "cpu-pilot-rental.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "cpu-pilot-rental.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1011Hjyd3c-nNJYK2quWWgUaOeWtU8wAt"
+    },
+    {
+      "bytes": 3113433,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1789482482.0035884,
+      "name": "cpu-pilot-replays",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "cpu-pilot-replays",
+      "report_last_change_prs": [
+        49
+      ],
+      "reports": [
+        "docs/reports/cpu-pilot.md"
+      ],
+      "cloud_file_id": "1ynUs_LUD3OKo6wjn0iEoS4MI11ZcJMkA"
+    },
+    {
+      "bytes": 3057126,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789482747.2412777,
+      "name": "cpu-pilot-replays.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "cpu-pilot-replays.tar.gz",
+      "report_last_change_prs": [
+        49
+      ],
+      "reports": [
+        "docs/reports/cpu-pilot.md"
+      ],
+      "cloud_file_id": "1lYF5xFs-q02rNGxAGXq-5RTz2qyJtC9X"
+    },
+    {
+      "bytes": 18943875,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 2,
+      "latest_mtime": 1789766368.5691779,
+      "name": "decision-errors",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "decision-errors",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1RVH4MkWtqsIOqKUsjaC9hmvr35cQA3je"
+    },
+    {
+      "bytes": 1440341426,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 86,
+      "latest_mtime": 1789566272.6052334,
+      "name": "frozen-fitting",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "frozen-fitting",
+      "report_last_change_prs": [
+        72,
+        74,
+        76,
+        87
+      ],
+      "reports": [
+        "docs/reports/holdem-persistent-critic.md",
+        "docs/reports/holdem-frozen-fitting.md",
+        "docs/reports/holdem-next-training-analysis.md",
+        "docs/reports/holdem-policy-comparison.md"
+      ],
+      "cloud_file_id": "1Ud-IfVh0Y_I71ZqYMl3z_Bi11LoC3Dxa"
+    },
+    {
+      "bytes": 0,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789565739.3910923,
+      "name": "frozen-fitting-supervisor.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "frozen-fitting-supervisor.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1Tc3gSSJjg7MnVnuXfKAETrYrdbe6MtJW"
+    },
+    {
+      "bytes": 3734237,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 8,
+      "latest_mtime": 1789472949.7726998,
+      "name": "historical-validation",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "historical-validation",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1McacqRsG-8MgkwI6zBJawTEi8tbl9dqe"
+    },
+    {
+      "bytes": 3734238,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 8,
+      "latest_mtime": 1789472951.8461282,
+      "name": "historical-validation-replay",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "historical-validation-replay",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "16kxNgDsmU1S3_UFBBvXTsH7UsG6iY2eu"
+    },
+    {
+      "bytes": 67894936,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 73,
+      "latest_mtime": 1789540648.909328,
+      "name": "holdem-baseline-resumed-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "holdem-baseline-resumed-v1",
+      "report_last_change_prs": [
+        61
+      ],
+      "reports": [
+        "docs/reports/holdem-baseline.md"
+      ],
+      "cloud_file_id": "1wYQgPN6Jq8tAwbWAaVTYlT2oaVvSgahd"
+    },
+    {
+      "bytes": 94276325,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 93,
+      "latest_mtime": 1789540508.729933,
+      "name": "holdem-baseline-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "holdem-baseline-v1",
+      "report_last_change_prs": [
+        61,
+        66,
+        67,
+        68
+      ],
+      "reports": [
+        "docs/reports/holdem-collection-performance.md",
+        "docs/reports/holdem-variance.md",
+        "docs/reports/holdem-sampling-comparison.md",
+        "docs/reports/holdem-baseline.md"
+      ],
+      "cloud_file_id": "1VdDPlsxnElMvkNoES0NR0lZ0nBco5fa-"
+    },
+    {
+      "bytes": 1229,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789490628.4053175,
+      "name": "launch-fitting.sh",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "launch-fitting.sh",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1v8nWKScbMBFdG9mKkUYsjMEdJBkYwFxU"
+    },
+    {
+      "bytes": 926,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789496607.6285927,
+      "name": "launch-readiness.sh",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "launch-readiness.sh",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1Les7JyLsdfufH_-qxx4lDFmUOgieAxGr"
+    },
+    {
+      "bytes": 133431692,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 23,
+      "latest_mtime": 1789743044.8231804,
+      "name": "local-training-proposal-20260918",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "local-training-proposal-20260918",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1YtbawEsYOenK24FWHJgQLweJHZOZwwP-"
+    },
+    {
+      "bytes": 24044,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789598628.2220633,
+      "name": "longer-05-handoff.md",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-05-handoff.md",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1splWXcAxPeaoWg7F3SdqqFyukQEWjIFO"
+    },
+    {
+      "bytes": 318,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789564849.8076665,
+      "name": "longer-05-integrity-second.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-05-integrity-second.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1W72luahKY7-nfqGcSeOkr9ygi2VjQf3o"
+    },
+    {
+      "bytes": 310,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789564849.8075173,
+      "name": "longer-05-integrity.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-05-integrity.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1SAsjyg7vJxd2hW90eETZj2TjccajhKSy"
+    },
+    {
+      "bytes": 369,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789564783.2450361,
+      "name": "longer-05-integrity.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-05-integrity.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1gewMVyIEzwY5lWKIbHVE8sbAFx3gBJo-"
+    },
+    {
+      "bytes": 732,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789564897.006051,
+      "name": "longer-05-rental.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-05-rental.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1zb2-eHxpJvYmh1k1I0UruTiURLexbg_9"
+    },
+    {
+      "bytes": 992906569,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 231,
+      "latest_mtime": 1789564849.8055968,
+      "name": "longer-05-retrieved",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-05-retrieved",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1UFsQd3xostSF7c0ENQa2xpi3YBco56u0"
+    },
+    {
+      "bytes": 82825,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789563795.4592972,
+      "name": "longer-05-summary.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-05-summary.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "19530d73GK98hGlBfcHKlnDEjW1q5sTuu"
+    },
+    {
+      "bytes": 10578536,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789564761.8737423,
+      "name": "longer-05-verification.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-05-verification.tar.gz",
+      "report_last_change_prs": [
+        73
+      ],
+      "reports": [
+        "docs/reports/holdem-longer-training.md"
+      ],
+      "cloud_file_id": "16DLe08op8SIr-MMGVtE7c0SdmBqLEFIE"
+    },
+    {
+      "bytes": 6623622300,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789564747.0970302,
+      "name": "longer-05.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-05.tar.gz",
+      "report_last_change_prs": [
+        73
+      ],
+      "reports": [
+        "docs/reports/holdem-longer-training.md"
+      ],
+      "cloud_file_id": "11uoc3LSEuORE82dlu63rez8KBdnFS70D"
+    },
+    {
+      "bytes": 94,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789563651.060266,
+      "name": "longer-05.tar.gz.sha256",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-05.tar.gz.sha256",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1V1AKFJgvDywZKio0TSN_yd62pGiQjEMi"
+    },
+    {
+      "bytes": 49494973,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 25,
+      "latest_mtime": 1789555922.0448844,
+      "name": "longer-calibration",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-calibration",
+      "report_last_change_prs": [
+        70
+      ],
+      "reports": [
+        "docs/reports/holdem-longer-calibration.md"
+      ],
+      "cloud_file_id": "1PPdKcGgfd2geCDd6nfBAaMc2k-fED-BH"
+    },
+    {
+      "bytes": 672,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789556128.1115804,
+      "name": "longer-calibration-tests.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-calibration-tests.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1LpL67h049U-IMK1shABfYj1DG__ovf89"
+    },
+    {
+      "bytes": 1570,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789556128.1006465,
+      "name": "longer-calibration-verification.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-calibration-verification.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "11u8ZHn1Vaj2eJkKP4FHgDRXfhJWHMly1"
+    },
+    {
+      "bytes": 49,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789556046.5697727,
+      "name": "longer-calibration-verification.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-calibration-verification.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1AvquteBwxdouIp8zTIWtSYMs3B5LZ0kt"
+    },
+    {
+      "bytes": 49493734,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 24,
+      "latest_mtime": 1789556046.5372758,
+      "name": "longer-calibration-verified",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-calibration-verified",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1sbFByNZI9gu44wkLbCyAYmdCI8jPoD_o"
+    },
+    {
+      "bytes": 826,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789555922.554375,
+      "name": "longer-calibration.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-calibration.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1p3mHSotDXeQuiS2Ah32MCQ3JZqia6bwr"
+    },
+    {
+      "bytes": 16997428,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789556129.1117182,
+      "name": "longer-calibration.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "longer-calibration.tar.gz",
+      "report_last_change_prs": [
+        70
+      ],
+      "reports": [
+        "docs/reports/holdem-longer-calibration.md"
+      ],
+      "cloud_file_id": "1Br6ef8DJgs1vj18Pket7C9z-nGCiy6DT"
+    },
+    {
+      "bytes": 1014177619,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 459,
+      "latest_mtime": 1789813733.9732041,
+      "name": "m4-overnight-20260919",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "m4-overnight-20260919",
+      "report_last_change_prs": [
+        88
+      ],
+      "reports": [
+        "docs/reports/holdem-continuous-m4.md"
+      ],
+      "cloud_file_id": "1ybm4q-mB9HWKy3RNGjn7f-BBMbrVeibv"
+    },
+    {
+      "bytes": 9399210638,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789811435.0,
+      "name": "m4-overnight-20260919.tar.zst",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "m4-overnight-20260919.tar.zst",
+      "report_last_change_prs": [
+        88
+      ],
+      "reports": [
+        "docs/reports/holdem-continuous-m4.md"
+      ],
+      "cloud_file_id": "1aEayPKemoWDB7h0QUtc1q1FDBRnls_k9"
+    },
+    {
+      "bytes": 144,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789811483.6197863,
+      "name": "m4-overnight-20260919.tar.zst.sha256",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "m4-overnight-20260919.tar.zst.sha256",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1JiQI4va6KVViGeL4sm3p8yfw1HhnBPwS"
+    },
+    {
+      "bytes": 3676,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789757928.7685971,
+      "name": "m4-review",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "m4-review",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1q7VkXdZBGGMknLmbv8A26WOUaIgnW5_A"
+    },
+    {
+      "bytes": 422056,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 3,
+      "latest_mtime": 1789739071.0998077,
+      "name": "multistreet-calibration-optimized",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-calibration-optimized",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1VTOLR-C2_ChWj3yMOcRt2CINrz_VHDAe"
+    },
+    {
+      "bytes": 421467,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 2,
+      "latest_mtime": 1789736381.632446,
+      "name": "multistreet-calibration-original",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-calibration-original",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1AB_0dl_y-uJcF4efO3nN1YoLS3Ykx-V7"
+    },
+    {
+      "bytes": 20793652,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789759879.442063,
+      "name": "multistreet-campaign.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-campaign.tar.gz",
+      "report_last_change_prs": [
+        85
+      ],
+      "reports": [
+        "docs/reports/holdem-multistreet-campaign.md"
+      ],
+      "cloud_file_id": "1MfO9cNcSb4PQBEd9fF7-bHdTNvLQghBD"
+    },
+    {
+      "bytes": 14085,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789763298.9138927,
+      "name": "multistreet-handoff.md",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-handoff.md",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "13uDTgeL0WmQufzIDGLt-6OiEAu-L07Ig"
+    },
+    {
+      "bytes": 1303943,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 11,
+      "latest_mtime": 1789664032.9268718,
+      "name": "multistreet-integration",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-integration",
+      "report_last_change_prs": [
+        83
+      ],
+      "reports": [
+        "docs/reports/holdem-multistreet-pilot.md"
+      ],
+      "cloud_file_id": "12k1AANJSwWtQVzrfmNwCsOghAlpisJEI"
+    },
+    {
+      "bytes": 6322,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789663930.8926463,
+      "name": "multistreet-integration-plan.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-integration-plan.json",
+      "report_last_change_prs": [
+        83
+      ],
+      "reports": [
+        "docs/reports/holdem-multistreet-pilot.md"
+      ],
+      "cloud_file_id": "10Z4iJn7za6SVuJmP3V6MoZss9CBccc-M"
+    },
+    {
+      "bytes": 52967,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789664032.9292767,
+      "name": "multistreet-integration.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-integration.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1oBWuUjFG4iblW6CO1xf-FVKI5Qg0yTrG"
+    },
+    {
+      "bytes": 46882,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 23,
+      "latest_mtime": 1789760446.196528,
+      "name": "multistreet-operations-local",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-operations-local",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1cDsMDRHDeQrzByMp16k4A1iaTCs-CkOy"
+    },
+    {
+      "bytes": 9796,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 2,
+      "latest_mtime": 1789664257.2457347,
+      "name": "multistreet-pilot",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-pilot",
+      "report_last_change_prs": [
+        83
+      ],
+      "reports": [
+        "docs/reports/holdem-multistreet-pilot.md"
+      ],
+      "cloud_file_id": "1LXLdJ3LjZr1a4AyHMdK5jyJJxS2IA_ko"
+    },
+    {
+      "bytes": 19758,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 12,
+      "latest_mtime": 1789732075.4095788,
+      "name": "multistreet-process-smoke-1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-process-smoke-1",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1SINVeLh3gtOu6eEerq5rSOAMoK6k3tBp"
+    },
+    {
+      "bytes": 486,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789732075.410155,
+      "name": "multistreet-process-smoke-1.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-process-smoke-1.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1i9lkZMSC8ZLwrx_VM0U-ltwMTqL3MpL-"
+    },
+    {
+      "bytes": 19754,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 12,
+      "latest_mtime": 1789732096.8315105,
+      "name": "multistreet-process-smoke-4",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-process-smoke-4",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1X25YbPMckxj_BkGX6RcESl88O8aVA3lm"
+    },
+    {
+      "bytes": 486,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789732097.279669,
+      "name": "multistreet-process-smoke-4.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-process-smoke-4.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "11cQ6Yv68cBf4gNynEsrkGwG3BDaxQ-R7"
+    },
+    {
+      "bytes": 378831,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789762624.9935575,
+      "name": "multistreet-reference-stability.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-reference-stability.json",
+      "report_last_change_prs": [
+        85
+      ],
+      "reports": [
+        "docs/reports/holdem-multistreet-campaign.md"
+      ],
+      "cloud_file_id": "1Pqy_o6XUe-BuZO9dH20JlKCukUiufo1I"
+    },
+    {
+      "bytes": 87765231,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 2713,
+      "latest_mtime": 1789759867.0,
+      "name": "multistreet-retrieved",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-retrieved",
+      "report_last_change_prs": [
+        85
+      ],
+      "reports": [
+        "docs/reports/holdem-multistreet-campaign.md"
+      ],
+      "cloud_file_id": "1qMsJEOURmlOx-jRET_vnlnJlfRaQvo7h"
+    },
+    {
+      "bytes": 2321096,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789663931.167667,
+      "name": "multistreet-source-310258a.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "multistreet-source-310258a.tar.gz",
+      "report_last_change_prs": [
+        83
+      ],
+      "reports": [
+        "docs/reports/holdem-multistreet-pilot.md"
+      ],
+      "cloud_file_id": "1kfe-bUDE4oT1Oq_7ADF7QmTYeR6hytqr"
+    },
+    {
+      "bytes": 33130869,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 11,
+      "latest_mtime": 1789478386.7755282,
+      "name": "neural-convergence-kuhn-11",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-convergence-kuhn-11",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1GKWJjjN4hQDs2-LVhjGDbWJOdYfmh0dc"
+    },
+    {
+      "bytes": 33205100,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 11,
+      "latest_mtime": 1789478503.2842622,
+      "name": "neural-convergence-kuhn-29",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-convergence-kuhn-29",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1Xh0wMDAw-3OGMJ0ZDOoIpiIWAwf6D45j"
+    },
+    {
+      "bytes": 33201917,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 11,
+      "latest_mtime": 1789478631.932986,
+      "name": "neural-convergence-kuhn-47",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-convergence-kuhn-47",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1UmX3l1_eyGaZX18VJGJK5mxPC_-F4gL-"
+    },
+    {
+      "bytes": 36210,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 2,
+      "latest_mtime": 1789478643.519817,
+      "name": "neural-convergence-kuhn-summary",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-convergence-kuhn-summary",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1cGpSaLujqiGpMbrRq5-2DMsTPlh1kJD0"
+    },
+    {
+      "bytes": 50966099,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 9,
+      "latest_mtime": 1789479121.1778889,
+      "name": "neural-convergence-leduc-11",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-convergence-leduc-11",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1kZbotF3nSnk3Lr-8C1pYXJwQE36zxKN_"
+    },
+    {
+      "bytes": 41587271,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 8,
+      "latest_mtime": 1789478872.1913562,
+      "name": "neural-convergence-leduc-11-paused",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-convergence-leduc-11-paused",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1aVAFbIptD8_r2-Wvat3flP_XQriaFiSl"
+    },
+    {
+      "bytes": 92894296,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 12,
+      "latest_mtime": 1789479610.6262364,
+      "name": "neural-convergence-leduc-29",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-convergence-leduc-29",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1gbDfPcCaKJG4_GODbzmz_OlE3124hL0P"
+    },
+    {
+      "bytes": 93137412,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 12,
+      "latest_mtime": 1789480110.7335334,
+      "name": "neural-convergence-leduc-47",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-convergence-leduc-47",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1vmLA-P2fjJJBJXqT8A3pymmZoCnbV5jj"
+    },
+    {
+      "bytes": 36387,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 2,
+      "latest_mtime": 1789480136.0272853,
+      "name": "neural-convergence-leduc-summary",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-convergence-leduc-summary",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1P2mgA4YJWqcS6c2gx2UYeo7-f2aFj0yI"
+    },
+    {
+      "bytes": 4121,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 2,
+      "latest_mtime": 1789476536.5154662,
+      "name": "neural-fitting-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-fitting-v1",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1K_5lMOGKBcXdn88DNFLbAll9GQ2sZzZm"
+    },
+    {
+      "bytes": 68573,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 3,
+      "latest_mtime": 1789476594.7296653,
+      "name": "neural-kuhn-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-kuhn-v1",
+      "report_last_change_prs": [
+        47
+      ],
+      "reports": [
+        "docs/reports/neural-validation.md"
+      ],
+      "cloud_file_id": "1AffFJJPMq_LRYwSqvZxAwWA2DwNkgHFv"
+    },
+    {
+      "bytes": 4771,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 2,
+      "latest_mtime": 1789476880.541337,
+      "name": "neural-leduc-refit-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-leduc-refit-v1",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1VH-1rOVFlZbgPUPg8edAqMYxUfRj7SOH"
+    },
+    {
+      "bytes": 60300,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 3,
+      "latest_mtime": 1789476622.9429128,
+      "name": "neural-leduc-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-leduc-v1",
+      "report_last_change_prs": [
+        47
+      ],
+      "reports": [
+        "docs/reports/neural-validation.md"
+      ],
+      "cloud_file_id": "1XE1fPrLyAKSRBKZ8MemPaE93wLuU8L-9"
+    },
+    {
+      "bytes": 1598,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789500815.4640076,
+      "name": "neural-readiness-handoff.md",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-readiness-handoff.md",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1UTVBUE19y5LpBONN076tNc-q_3kyskE7"
+    },
+    {
+      "bytes": 818445367,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 312,
+      "latest_mtime": 1789499898.0,
+      "name": "neural-readiness-retrieved",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-readiness-retrieved",
+      "report_last_change_prs": [
+        55
+      ],
+      "reports": [
+        "docs/reports/neural-readiness.md"
+      ],
+      "cloud_file_id": "1zugKmIYGDUIcygA2KQBs5HdPs_1kxnE5"
+    },
+    {
+      "bytes": 138850141,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789499976.9413304,
+      "name": "neural-readiness.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-readiness.tar.gz",
+      "report_last_change_prs": [
+        55
+      ],
+      "reports": [
+        "docs/reports/neural-readiness.md"
+      ],
+      "cloud_file_id": "1vTAEeBLRQlJJoLXrbcss5lH70Nutzc8z"
+    },
+    {
+      "bytes": 9785,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 2,
+      "latest_mtime": 1789480180.143836,
+      "name": "neural-strategy-refit-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "neural-strategy-refit-v1",
+      "report_last_change_prs": [
+        48
+      ],
+      "reports": [
+        "docs/reports/neural-convergence.md"
+      ],
+      "cloud_file_id": "1TuSPsoaPa9rq0NRDLztJVrG4kld0OYXd"
+    },
+    {
+      "bytes": 850470,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1789472946.3458543,
+      "name": "opponents-validation",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "opponents-validation",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1Z1BMdYa1FHpeh1UlyNsyzFPcmwITfzYT"
+    },
+    {
+      "bytes": 850531,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1789472947.7580736,
+      "name": "opponents-validation-replay",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "opponents-validation-replay",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1_MYOUXUwO1jFq7UhSZtJBb5bYhRiMgl5"
+    },
+    {
+      "bytes": 515168017,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 29,
+      "latest_mtime": 1789595674.2412355,
+      "name": "persistent-critic",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "persistent-critic",
+      "report_last_change_prs": [
+        75,
+        76,
+        87
+      ],
+      "reports": [
+        "docs/reports/holdem-persistent-critic.md",
+        "docs/reports/holdem-next-training-analysis.md",
+        "docs/reports/holdem-river-reference.md"
+      ],
+      "cloud_file_id": "1etaoINIB_pBBt0WHV-S-52t6q5l1jfde"
+    },
+    {
+      "bytes": 3400,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789485059.5231428,
+      "name": "plot_strategy_report.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "plot_strategy_report.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "14wn5ZVajTx1iK1MoqaB0x9lSSmKCzmyk"
+    },
+    {
+      "bytes": 45668305,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 46,
+      "latest_mtime": 1789568603.3481615,
+      "name": "policy-comparison",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "policy-comparison",
+      "report_last_change_prs": [
+        74,
+        85,
+        87
+      ],
+      "reports": [
+        "docs/reports/holdem-multistreet-preliminary.md",
+        "docs/reports/holdem-next-training-analysis.md",
+        "docs/reports/holdem-policy-comparison.md"
+      ],
+      "cloud_file_id": "1u0F0rto71elO3uB3QyhvRknVZ2jfbPsb"
+    },
+    {
+      "bytes": 0,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789567526.1267111,
+      "name": "policy-comparison-supervisor.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "policy-comparison-supervisor.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "13rRCS8mAv3fPg3aYP7eCsAUn4SinA8jJ"
+    },
+    {
+      "bytes": 9881,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789500424.563166,
+      "name": "readiness-audit.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "readiness-audit.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "18QHzT2XXyAMazgTecAD8cTbFEFtBlWbz"
+    },
+    {
+      "bytes": 470,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789500689.9083195,
+      "name": "readiness-cleanup.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "readiness-cleanup.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1Alm6u70LUeqiE-bJQKCeRU7NdV5WgxJ-"
+    },
+    {
+      "bytes": 342,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789499982.2918658,
+      "name": "readiness-collector.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "readiness-collector.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "18hflSmwlBoPoh7R3j3_3Uu2fzFWmb_zQ"
+    },
+    {
+      "bytes": 0,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789496688.258338,
+      "name": "readiness-collector.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "readiness-collector.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1oUfDbQXSguIOcnRTQVhI4l3luuoX4hNy"
+    },
+    {
+      "bytes": 6,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789496688.260456,
+      "name": "readiness-collector.pid",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "readiness-collector.pid",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1pm7Yl-nC4ZoIsrzKRw2riIUnqAWtSShO"
+    },
+    {
+      "bytes": 9712,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789496797.1798084,
+      "name": "readiness-launch-manifest.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "readiness-launch-manifest.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "133OIS6SjnHQG8HzIIo-i5Tu1x38-ZAiD"
+    },
+    {
+      "bytes": 2062,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789496574.117278,
+      "name": "readiness-provider-stop.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "readiness-provider-stop.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1JgvsbXAUJK-Y7JqsM2djnmVBQb9jeSQC"
+    },
+    {
+      "bytes": 3813,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789496795.5270655,
+      "name": "readiness-runtime.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "readiness-runtime.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "15DB68M9o8zfgWWflEK9oHENL1xOrmEhM"
+    },
+    {
+      "bytes": 49446619,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 23,
+      "latest_mtime": 1789626899.1911821,
+      "name": "representation",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "representation",
+      "report_last_change_prs": [
+        52,
+        73,
+        85,
+        115
+      ],
+      "reports": [
+        "docs/reports/hu20-native-reopening-preliminary.md",
+        "docs/reports/holdem-multistreet-preliminary.md",
+        "docs/reports/holdem-longer-training.md",
+        "docs/reports/strategy-fitting.md"
+      ],
+      "cloud_file_id": "1u2WoXBcas1QUP6R9z_eTee1-8w5pnJ_P"
+    },
+    {
+      "bytes": 833,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789626873.1000524,
+      "name": "representation-run.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "representation-run.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1eBI8qtiHkj1819Fuo-7w0XzdtLcvLGvj"
+    },
+    {
+      "bytes": 17154184,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 12,
+      "latest_mtime": 1789576599.6182754,
+      "name": "river-reference",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "river-reference",
+      "report_last_change_prs": [
+        75
+      ],
+      "reports": [
+        "docs/reports/holdem-river-reference.md"
+      ],
+      "cloud_file_id": "1d7FVwhXEg5_93k7Js1QWGYqdhV73KCMq"
+    },
+    {
+      "bytes": 3306,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789576228.8019052,
+      "name": "river-reference.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "river-reference.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1JHcu1Sxd4u8ViQ_PBloGH-yd6x1b9Rwb"
+    },
+    {
+      "bytes": 672,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789554368.7103593,
+      "name": "sampled-full-tests.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampled-full-tests.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1i2Q4agGwCuON03bZI34D_gJNrcpcDCsU"
+    },
+    {
+      "bytes": 310756128,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 159,
+      "latest_mtime": 1789554246.985629,
+      "name": "sampled-pilot",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampled-pilot",
+      "report_last_change_prs": [
+        69
+      ],
+      "reports": [
+        "docs/reports/holdem-sampled-pilot.md"
+      ],
+      "cloud_file_id": "1rvEr82IkPpNbFdKaVgz4o70-q7_gRwbz"
+    },
+    {
+      "bytes": 827,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789554247.5103655,
+      "name": "sampled-pilot-run.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampled-pilot-run.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1bKOUG_-PU3q4tkNpPY4Brb2Mfksp17nP"
+    },
+    {
+      "bytes": 3515806,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 5,
+      "latest_mtime": 1789554261.2531345,
+      "name": "sampled-pilot-verification-initial",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampled-pilot-verification-initial",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1pIjPuL5KAdan9cfSkHjt3bFvTh4_3DS2"
+    },
+    {
+      "bytes": 240,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789554308.2631521,
+      "name": "sampled-pilot-verification-initial.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampled-pilot-verification-initial.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1ucYQ7vSUcK4VShHjTkIybu0tpphh5EhE"
+    },
+    {
+      "bytes": 68,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789554360.7633185,
+      "name": "sampled-pilot-verification.log",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampled-pilot-verification.log",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1SDM2Xbqw4EAdkZewjE5Wo5czMqg9nSwd"
+    },
+    {
+      "bytes": 60962178,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 49,
+      "latest_mtime": 1789554360.7630498,
+      "name": "sampled-pilot-verified",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampled-pilot-verified",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1ut3fOmjbr2Rjj9ZhPrcwaJDMi-4Vs-mL"
+    },
+    {
+      "bytes": 138909769,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789554544.919019,
+      "name": "sampled-pilot.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampled-pilot.tar.gz",
+      "report_last_change_prs": [
+        69
+      ],
+      "reports": [
+        "docs/reports/holdem-sampled-pilot.md"
+      ],
+      "cloud_file_id": "1PkPcgnSa8BVV71rRBcthiW9_zlH0UzVW"
+    },
+    {
+      "bytes": 909657,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 18,
+      "latest_mtime": 1789549316.985748,
+      "name": "sampling-comparison",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampling-comparison",
+      "report_last_change_prs": [
+        67
+      ],
+      "reports": [
+        "docs/reports/holdem-sampling-comparison.md"
+      ],
+      "cloud_file_id": "12D6tKNLX7ZsnCkufG_fk-3NEr-GxaAY8"
+    },
+    {
+      "bytes": 73982,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789549249.2946053,
+      "name": "sampling-comparison.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampling-comparison.tar.gz",
+      "report_last_change_prs": [
+        67
+      ],
+      "reports": [
+        "docs/reports/holdem-sampling-comparison.md"
+      ],
+      "cloud_file_id": "1nnp2Gc0m9yENvbUoK-jdM81vereitRjB"
+    },
+    {
+      "bytes": 2527826,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 33,
+      "latest_mtime": 1789550780.249827,
+      "name": "sampling-variance",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampling-variance",
+      "report_last_change_prs": [
+        68
+      ],
+      "reports": [
+        "docs/reports/holdem-variance.md"
+      ],
+      "cloud_file_id": "1hjttWr4mzqZaKQm7Xafko2MFqg-F6fvi"
+    },
+    {
+      "bytes": 450685,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789550780.5208127,
+      "name": "sampling-variance.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "sampling-variance.tar.gz",
+      "report_last_change_prs": [
+        68
+      ],
+      "reports": [
+        "docs/reports/holdem-variance.md"
+      ],
+      "cloud_file_id": "1uIBKRt-LeY9KC0I7q1O8LHZC7V4f-NN8"
+    },
+    {
+      "bytes": 1927,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780771527.3925383,
+      "name": "selfplay_from_3000_eval_3500_to_6000.csv",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "selfplay_from_3000_eval_3500_to_6000.csv",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1EYghu_zPOk4BKXvFvfyB_UnZfmITaG-t"
+    },
+    {
+      "bytes": 4504,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780771527.3923118,
+      "name": "selfplay_from_3000_eval_3500_to_6000.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "selfplay_from_3000_eval_3500_to_6000.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "17uap2VKC1bM5gDeH94lZg8keXX5rkQqA"
+    },
+    {
+      "bytes": 590,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789490552.0368433,
+      "name": "setup-fitting.sh",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "setup-fitting.sh",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1zYbKZno40Uj7GkzT449L_HmzpjJbYkmd"
+    },
+    {
+      "bytes": 2316,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 5,
+      "latest_mtime": 1789546117.6145809,
+      "name": "snapshot-operations-local",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "snapshot-operations-local",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1qGMVL3LYMzw5F6H3OkQX-X8iDjYTDjCp"
+    },
+    {
+      "bytes": 10444,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789545591.0252316,
+      "name": "snapshot-preview-manifest.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "snapshot-preview-manifest.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1_icoxqbaEoMNQXWBjNwL0nfyaClP_LsU"
+    },
+    {
+      "bytes": 265099,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789545589.333219,
+      "name": "snapshot-preview-report.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "snapshot-preview-report.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1h9PNUs3r-spysXzMOi16ncXBj3ARzdxp"
+    },
+    {
+      "bytes": 30993,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789545968.0676925,
+      "name": "snapshot-readiness-audit.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "snapshot-readiness-audit.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1I6HKVG0MXhhOq8WXvJ_BK_RWoXjVQvMD"
+    },
+    {
+      "bytes": 1563,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789546579.6841621,
+      "name": "snapshot-readiness-handoff.md",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "snapshot-readiness-handoff.md",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1zefVVzAioY4Cc-p7s1HV25XrnjtkSVob"
+    },
+    {
+      "bytes": 3202663274,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 360,
+      "latest_mtime": 1789545256.0,
+      "name": "snapshot-readiness-retrieved",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "snapshot-readiness-retrieved",
+      "report_last_change_prs": [
+        65
+      ],
+      "reports": [
+        "docs/reports/snapshot-readiness.md"
+      ],
+      "cloud_file_id": "1JP_2CdusYNgu5jax4jIOKGTnxLaaDfNJ"
+    },
+    {
+      "bytes": 103,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789545854.4785295,
+      "name": "snapshot-readiness.sha256",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "snapshot-readiness.sha256",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1rsYH3deR7priUbxWljvPpZkUMz__KtFi"
+    },
+    {
+      "bytes": 1869868238,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789545853.4129374,
+      "name": "snapshot-readiness.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "snapshot-readiness.tar.gz",
+      "report_last_change_prs": [
+        65
+      ],
+      "reports": [
+        "docs/reports/snapshot-readiness.md"
+      ],
+      "cloud_file_id": "1UkhLIJ2hLz3duSAP2S59tuL2wYCRDfMa"
+    },
+    {
+      "bytes": 1218915,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 85,
+      "latest_mtime": 1789542257.1968932,
+      "name": "snapshot-smoke-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "snapshot-smoke-v1",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1OPZMxJECqckq_dwK5NrGUFrtXrlZVShp"
+    },
+    {
+      "bytes": 2575,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780754054.0846705,
+      "name": "standard_phase1.csv",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1.csv",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1Mmislj7CTnSNZJEai5Ukt0plmNxkXfDi"
+    },
+    {
+      "bytes": 7180,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780754054.0844119,
+      "name": "standard_phase1.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1qL8HBoNqwmx3T9HNqkwmsk5VPA0M_p1Y"
+    },
+    {
+      "bytes": 1794,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780757643.3718054,
+      "name": "standard_phase1_20k_1500_4000.csv",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1_20k_1500_4000.csv",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1WkakZ9EJDvmLfNNVSmGtC3NePnK5WNUB"
+    },
+    {
+      "bytes": 4371,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780757643.3713076,
+      "name": "standard_phase1_20k_1500_4000.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1_20k_1500_4000.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1yYVniQAS83spqDjSPbG9eyvyX4beNkcL"
+    },
+    {
+      "bytes": 1787,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780757193.5976515,
+      "name": "standard_phase1_20k_2500_3000.csv",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1_20k_2500_3000.csv",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1G814uWTiE4K3Zpqhc0ynZp6wAsOaeMdY"
+    },
+    {
+      "bytes": 4364,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780757193.5974503,
+      "name": "standard_phase1_20k_2500_3000.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1_20k_2500_3000.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1rxH8bhtvRoL5KfzfgskSSnk0OtDZ357e"
+    },
+    {
+      "bytes": 1794,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780758058.732671,
+      "name": "standard_phase1_20k_2500_5000.csv",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1_20k_2500_5000.csv",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1K8ArV-1o7KO8wOTy2oQ4dkvayRbIuUxD"
+    },
+    {
+      "bytes": 4371,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780758058.7324471,
+      "name": "standard_phase1_20k_2500_5000.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1_20k_2500_5000.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1pM9Xe51irBGaixLjlzEbRYMYC-wiKLEc"
+    },
+    {
+      "bytes": 1350,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780756862.5820165,
+      "name": "standard_phase1_20k_early.csv",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1_20k_early.csv",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1uHrRN4bHZfa6WK82LxauRJkzXjYLDQuZ"
+    },
+    {
+      "bytes": 2913,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780756862.581816,
+      "name": "standard_phase1_20k_early.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1_20k_early.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1m729TOirC2VcIvP41XsJzI1yWAmiIoKw"
+    },
+    {
+      "bytes": 1545,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780754853.7364485,
+      "name": "standard_phase1_top.csv",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1_top.csv",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1aWNIjqsS6KiliN_TRrkuZyyCAObWKW5h"
+    },
+    {
+      "bytes": 3615,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1780754853.7362542,
+      "name": "standard_phase1_top.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "standard_phase1_top.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1LMnzrADmBhOggq0UhqsX39kY0Qygr25v"
+    },
+    {
+      "bytes": 370183,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 2,
+      "latest_mtime": 1789485118.2836168,
+      "name": "strategy-capacity-calibration-copy",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-capacity-calibration-copy",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1pmi3wn_sGU05BrBKqus_Eat73q9aoPyf"
+    },
+    {
+      "bytes": 8389,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789488711.1959367,
+      "name": "strategy-capacity-handoff.md",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-capacity-handoff.md",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1193ZsQUM0ZWrib1y6Kw5TVNHaKdeDfok"
+    },
+    {
+      "bytes": 947223673,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 584,
+      "latest_mtime": 1789487501.0,
+      "name": "strategy-capacity-remote-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-capacity-remote-v1",
+      "report_last_change_prs": [],
+      "reports": [
+        "docs/reports/strategy-capacity.md"
+      ],
+      "cloud_file_id": "1trPNHcztxkyxVpeVvd7kydOzg61aH10a"
+    },
+    {
+      "bytes": 180879752,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789488124.2912147,
+      "name": "strategy-capacity-remote-v1.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-capacity-remote-v1.tar.gz",
+      "report_last_change_prs": [],
+      "reports": [
+        "docs/reports/strategy-capacity.md"
+      ],
+      "cloud_file_id": "1w2pIbgERUjtzzBDcud766g9KTrJfbdWp"
+    },
+    {
+      "bytes": 1027,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789488506.9279804,
+      "name": "strategy-capacity-rental.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-capacity-rental.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1mVpEICjNpnacnkxIDrlPt8qxdQXqn7uY"
+    },
+    {
+      "bytes": 11356,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789488508.8738692,
+      "name": "strategy-capacity-summary.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-capacity-summary.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1hB8ftnsFw0fgvoKs7IE1ndZN0pibyLhP"
+    },
+    {
+      "bytes": 169765,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789488201.646314,
+      "name": "strategy-capacity.png",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-capacity.png",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "14L27cbALtlaei6hDun0bqksQepd4AnYc"
+    },
+    {
+      "bytes": 5328,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789493462.9875476,
+      "name": "strategy-fitting-handoff.md",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-fitting-handoff.md",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "10U5oSJ3_17HyEpXkKL7VKmb59gDGkHPC"
+    },
+    {
+      "bytes": 5398,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789488927.0059245,
+      "name": "strategy-fitting-input-audit.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-fitting-input-audit.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "19NGU4A0uuQQem0KnL08BeXFs5yGN7_MR"
+    },
+    {
+      "bytes": 13644908,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 37,
+      "latest_mtime": 1789490341.699353,
+      "name": "strategy-fitting-inputs",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-fitting-inputs",
+      "report_last_change_prs": [
+        52
+      ],
+      "reports": [
+        "docs/reports/strategy-fitting.md"
+      ],
+      "cloud_file_id": "1Rt9Mov3TZ4UFB-R3HCha9ZqFlGT7g8sX"
+    },
+    {
+      "bytes": 13361710,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789490496.5862978,
+      "name": "strategy-fitting-inputs.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-fitting-inputs.tar.gz",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1hd0GvQpNgm3FUv-MGHnZOH1XTPbn5TX7"
+    },
+    {
+      "bytes": 41128008,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789492838.204456,
+      "name": "strategy-fitting-remote.tar.gz",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-fitting-remote.tar.gz",
+      "report_last_change_prs": [
+        52
+      ],
+      "reports": [
+        "docs/reports/strategy-fitting.md"
+      ],
+      "cloud_file_id": "1mTrHt1uX15kP8C7EqB5SzoUQjvdSDrUS"
+    },
+    {
+      "bytes": 1413,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789493011.4602733,
+      "name": "strategy-fitting-rental.json",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-fitting-rental.json",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1FQdENziq9Na1ep47-QeCuhcvKVLANvp3"
+    },
+    {
+      "bytes": 123573053,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1194,
+      "latest_mtime": 1789491958.0,
+      "name": "strategy-fitting-retrieved",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-fitting-retrieved",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1xu7ha-JxCtDEiUX9zi6UpXgQpi1DamQg"
+    },
+    {
+      "bytes": 1333925,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 27,
+      "latest_mtime": 1789490408.5108023,
+      "name": "strategy-fitting-smoke",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "strategy-fitting-smoke",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1qtQr_OvX57QsBFnBqVsIQFWC51Tp7Ggx"
+    },
+    {
+      "bytes": 2435,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789626019.2729094,
+      "name": "summarize-representation.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "summarize-representation.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1hEU5d_dcRjUnuC4pyzVHZF_k402YuZhY"
+    },
+    {
+      "bytes": 3165,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789554195.2420456,
+      "name": "summarize-sampled-pilot.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "summarize-sampled-pilot.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1_GYpjT2KTGzYKIXnhxt7EoaG99CplIqt"
+    },
+    {
+      "bytes": 596913,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 10,
+      "latest_mtime": 1789474635.9882047,
+      "name": "tabular-reference-v1",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "tabular-reference-v1",
+      "report_last_change_prs": [
+        46
+      ],
+      "reports": [
+        "docs/reports/tabular-validation.md"
+      ],
+      "cloud_file_id": "1AAILLPs8ipWvA1nucT-MwxDdgKXehbSR"
+    },
+    {
+      "bytes": 596916,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 10,
+      "latest_mtime": 1789474791.9757907,
+      "name": "tabular-reference-v1-replay",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "tabular-reference-v1-replay",
+      "report_last_change_prs": [
+        46
+      ],
+      "reports": [
+        "docs/reports/tabular-validation.md"
+      ],
+      "cloud_file_id": "17G5QQLMUYjOpQa3AWXLYPJFhXV9NsPel"
+    },
+    {
+      "bytes": 8676,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789557462.5291557,
+      "name": "tensorboard-calibration-check",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "tensorboard-calibration-check",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1LyTVNaYGP5xp-NaEh1yH0VUiRxpqZ-sZ"
+    },
+    {
+      "bytes": 2446589,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1780757663.1419666,
+      "name": "tournament_phase1_20k_1500_to_4000_step500",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "tournament_phase1_20k_1500_to_4000_step500",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1RRggEoMEncXwBU5biPdOP4UnQNeC9AUC"
+    },
+    {
+      "bytes": 2209823,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1780757225.9474216,
+      "name": "tournament_phase1_20k_2500_3000",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "tournament_phase1_20k_2500_3000",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1sp1FFuQo8mbXAOJkzQiMjB8G81o2YDUR"
+    },
+    {
+      "bytes": 2265302,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1780758079.219341,
+      "name": "tournament_phase1_20k_2500_to_5000_step500",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "tournament_phase1_20k_2500_to_5000_step500",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1Jgv3x67BRmOf4z2hRloVuJIEkfCDJlVC"
+    },
+    {
+      "bytes": 5925211,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1780758161.6262555,
+      "name": "tournament_phase1_20k_2500_to_5000_step500_10k",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "tournament_phase1_20k_2500_to_5000_step500_10k",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "16c4b-sUTFC9RybBILMWsllwrWzTnEK27"
+    },
+    {
+      "bytes": 2227387,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1780757424.8107076,
+      "name": "tournament_phase1_20k_500_to_3000_step500",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "tournament_phase1_20k_500_to_3000_step500",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1H65VB8tenr3iueo1g8x1LSVmIq469rb4"
+    },
+    {
+      "bytes": 2305659,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1780756981.2658496,
+      "name": "tournament_phase1_20k_early",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "tournament_phase1_20k_early",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1sN02UxNYjfd6TZ3-_sPnjQSTFWxq2tD7"
+    },
+    {
+      "bytes": 1218995,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1780771434.3449714,
+      "name": "tournament_selfplay_from_3000_3500_to_6000_100",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "tournament_selfplay_from_3000_3500_to_6000_100",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1X8TNirjeWTKEBYDp6hGLRQKs4G13VCfP"
+    },
+    {
+      "bytes": 5460669,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 6,
+      "latest_mtime": 1780771494.5728362,
+      "name": "tournament_selfplay_from_3000_3500_to_6000_10k",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "tournament_selfplay_from_3000_3500_to_6000_10k",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1mHgz5iBQs00N25xHKJcjkc0BYBk5F6Be"
+    },
+    {
+      "bytes": 5786,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789500592.3571072,
+      "name": "update-readiness-docs.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "update-readiness-docs.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1EXHY1mRDPtLXj4SPrqqja7vegkEpLcVL"
+    },
+    {
+      "bytes": 6681,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789546164.2811952,
+      "name": "update_snapshot_docs.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "update_snapshot_docs.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1A5uB3R-KKm_u9xKtC2juM7fcWTWtKENP"
+    },
+    {
+      "bytes": 2795,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789564814.129634,
+      "name": "verify-longer-archive.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "verify-longer-archive.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1sXJ5dsuN5tW_hHSeQSYit5Mw7_EYyvaX"
+    },
+    {
+      "bytes": 2520,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789554308.2588954,
+      "name": "verify-sampled-pilot-initial.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "verify-sampled-pilot-initial.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1y8b50yVMuf5wf4VYsiNkWzmcn56UxHXK"
+    },
+    {
+      "bytes": 2544,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789554308.3096774,
+      "name": "verify-sampled-pilot.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "verify-sampled-pilot.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1HortW47fm8_XW5-vYNr47GSny6Psbmbj"
+    },
+    {
+      "bytes": 11093,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789500548.712031,
+      "name": "write-readiness-report.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "write-readiness-report.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1x1bsYbjlc1x8fZJVqCP1qyXfcNaNR8Hu"
+    },
+    {
+      "bytes": 5622,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789626349.933145,
+      "name": "write-representation-report.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "write-representation-report.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "13yd2K4-m9Oj8flv2SVaKeiLxTZ18ksZZ"
+    },
+    {
+      "bytes": 11092,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789546104.2476711,
+      "name": "write_snapshot_report.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "write_snapshot_report.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1_Vjc8K7MWFYnBem0W6wLNWHBSGQzQKUm"
+    },
+    {
+      "bytes": 11610,
+      "cloud_state": "completed_upload_accepted_by_owner",
+      "files": 1,
+      "latest_mtime": 1789488384.1536624,
+      "name": "write_strategy_summary.py",
+      "original_state": "deleted_after_upload",
+      "relative_drive_path": "write_strategy_summary.py",
+      "report_last_change_prs": [],
+      "reports": [],
+      "cloud_file_id": "1jdEz9gBth0JnRCHBdYIvvCpt5BwiImPr"
+    }
+  ],
+  "mapping_rule": "Exact top-level entry name occurs in linked report text. PR numbers are the latest report-changing main-history PR, not proof of original artifact creation. Unmapped entries remain explicit.",
+  "regular_files": 8117,
+  "schema": "research-results-index-v1",
+  "source_root": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results",
+  "status": "inactive uploaded sources removed; branching archive pending; working blueprint trees retained",
+  "top_level_entries": 208,
+  "total_logical_bytes": 48465009999,
+  "cleanup_date": "2026-10-02",
+  "cleanup_receipt": "docs/artifacts/local-cleanup-20261002.json"
+}

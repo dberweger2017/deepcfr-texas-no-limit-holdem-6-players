@@ -1,0 +1,14 @@
+{
+  "status": "failed-before-reporting",
+  "failure": "Launcher omitted established dependency site-packages; NumPy import failed before output creation or raw reads",
+  "log_sha256": "906565acdda516e197b1c8e512aa39d8a973b531b6b48944102896ef5d12fa47",
+  "job": {
+    "pid": 85287,
+    "out": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/preliminary-broad-300M-attempt-1",
+    "log": "/Users/dberweger/Local/hu20-500m-campaign-20261001/results/hu20-three-lineage-500m-20261001/preliminary-broad-300M-attempt-1.log",
+    "source_sha256": "165a2f7594473bc12ebc936bc95a1e3a40425b2b43bb6f9ec3191feb535b457c",
+    "waiting_on": "shared heavy lock; complete B300 group"
+  },
+  "recorded": 1790876487.3180742,
+  "repair": "Use unchanged Python3.11.14 plus existing primary site-packages via site.addsitedir; unchanged reporter, fresh attempt2; no scientific rerun"
+}

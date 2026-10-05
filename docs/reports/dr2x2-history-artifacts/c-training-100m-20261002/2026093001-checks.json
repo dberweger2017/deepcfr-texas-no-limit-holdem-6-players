@@ -1,0 +1,15 @@
+{
+  "all_recovery_acks": 11,
+  "all_work_chain_rows": 236698,
+  "archive_verification": {
+    "passed": true,
+    "verified_files": 66
+  },
+  "final_reload_export": true,
+  "plan_sha256": "d6c01b4685dff805de93ac566a007778e065e9493b075656a7f279e93a24a36c",
+  "pod_two_fresh_next_processes_equal": true,
+  "seed": 2026093001,
+  "source": "e45b297cdab45a2f4eb70f0325415794883c2163",
+  "status": "passed",
+  "whole_iteration_overshoot": 113
+}

@@ -16,14 +16,16 @@ from src.blueprint.solver import HU20_UNCAPPED_GAME
 from src.game.hand import Hand
 
 
-def play(policy, sha256, history, *, seed=2026146001, max_hands=None, input_fn=input, output=print):
-    source=FrozenBlueprint(Checkpoint('native-reopening-demo',str(policy),sha256,HU20_UNCAPPED_FORMAT),policy)
-    if source.game!=HU20_UNCAPPED_GAME or source.description['iteration']<1:
+def play(policy, sha256, history, *, seed=2026146001, max_hands=None, input_fn=input, output=print,
+         source=None):
+    source=source or FrozenBlueprint(Checkpoint('native-reopening-demo',str(policy),sha256,HU20_UNCAPPED_FORMAT),policy)
+    base=getattr(source,'blueprint',source)
+    if base.game!=HU20_UNCAPPED_GAME or base.description['iteration']<1:
         raise ValueError('Use a verified trained native-reopening HU20 artifact')
     if history.exists():raise FileExistsError('Choose a new history path')
     history.parent.mkdir(parents=True,exist_ok=True)
     deals=Random(seed);bot=Random(seed^0xB071);coverage=Counter();total=0;hands=0
-    output(f"HU20 native-reopening | game: {source.game} | final-current C | model: {sha256}")
+    output(f"HU20 native-reopening | game: {base.game} | model: {sha256}")
     output('Abstract min/pot/conditional-jam sizes, no artificial raise-count cap.')
     with history.open('w') as saved:
         while max_hands is None or hands<max_hands:
@@ -41,7 +43,10 @@ def play(policy, sha256, history, *, seed=2026146001, max_hands=None, input_fn=i
                         output('Choose a listed action number.')
                     action=menu[int(answer)-1].action
                 else:
-                    menu,p,trained=source.distribution(view);coverage['trained' if trained else 'fallback']+=1
+                    from src.blueprint.hu20_turn_search import HU20TurnSearchPolicy
+                    menu,p,trained=(source.distribution(view,query_kind="play")
+                        if isinstance(source,HU20TurnSearchPolicy) else source.distribution(view))
+                    coverage['trained' if trained else 'fallback']+=1
                     action=bot.choices(menu,weights=p,k=1)[0].action;output(f'Bot: {_label(action)}')
                 view.legal_actions.validate(action)
                 actions.append({'seat':hand.actor,'kind':action.kind.value,'raise_to':action.raise_to})
@@ -53,7 +58,8 @@ def play(policy, sha256, history, *, seed=2026146001, max_hands=None, input_fn=i
                 if p.shown_cards:output(f"{('You','Bot')[s]} showed: {' '.join(p.shown_cards)}")
             output(f'Hand: {net/100:+g} BB | session: {total/100:+g} BB')
             saved.write(json.dumps({'schema':'human-hu20-native-reopening-history-v1',
-                'game':source.game,'model_sha256':sha256,'hand_id':hand_id,'button':button,
+                'game':base.game,'model_sha256':sha256,'policy_description':source.description,
+                'hand_id':hand_id,'button':button,
                 'deal_seed':deal,'actions':actions,'human_chips':net,
                 'public_events_sha256':digest(public_events(hand.events))},sort_keys=True)+'\n');saved.flush()
             hands+=1

@@ -1,0 +1,51 @@
+{
+  "baseline_and_endpoint_snapshot_entries_unchanged": true,
+  "host": "M1 compact transfer/identity verification only; raw replay/arithmetic/reporting on M4",
+  "lineages": 3,
+  "m4_closed_tasks": 9,
+  "m4_native_replayed_hands": 239616,
+  "m4_order_tests_passed": 4,
+  "m4_reporting_tests_passed": 3,
+  "new_150m_task_resources": [
+    {
+      "peak_rss_bytes": 2462253056,
+      "result_sha256": "7504439c677a3b63caf5308c9eaa9ec1aa29679a186f04b865f96f4d19e17ebf",
+      "seed": 2026093001,
+      "swap_growth_bytes": 0.0,
+      "wall_seconds": 2337.7670438289642
+    },
+    {
+      "peak_rss_bytes": 2470117376,
+      "result_sha256": "0cc64b880c4acee0f643b67ada64bb0ca58d99b33dfd3829bde4e85e1e5e7061",
+      "seed": 2026093002,
+      "swap_growth_bytes": 0.0,
+      "wall_seconds": 2201.922061920166
+    },
+    {
+      "peak_rss_bytes": 2437185536,
+      "result_sha256": "62281bd34fbe15250b49c5d8816e257b4cec797eb798e1ffd32d14e972f37059",
+      "seed": 2026093003,
+      "swap_growth_bytes": 0.0,
+      "wall_seconds": 2383.052505016327
+    }
+  ],
+  "output_manifest": {
+    "curves.md": {
+      "bytes": 5730,
+      "sha256": "1b14a1c20b7ddd453998875a4afbe74eed48379b9861e86ee7cdb71aa0b1120e"
+    },
+    "per-seed-role.csv": {
+      "bytes": 27415,
+      "sha256": "613760989e7afc99e98825547b88e2a531bf46fe74bc7da1efb3a58a820704ef"
+    },
+    "summary.json": {
+      "bytes": 406018,
+      "sha256": "43a9b30d95adf2ab0015f9ff011e9e97e054f6ef909c13395aaf2ec836bbe375"
+    }
+  },
+  "panels": 9,
+  "report_job_sha256": "cd27470267792a7eea87821ec476c03d5aa150f4eaeafe8ef1900235603cada4",
+  "report_source_sha256": "165a2f7594473bc12ebc936bc95a1e3a40425b2b43bb6f9ec3191feb535b457c",
+  "scope": "Exploratory broad100/150/500 only; 9 broad and all6 heldout tasks pending at capture. No direct150-to500 paired interval claimed.",
+  "verified_at_utc": "2026-10-01T13:01:28.345920+00:00"
+}

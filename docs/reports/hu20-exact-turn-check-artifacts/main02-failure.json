@@ -1,0 +1,1 @@
+{"elapsed_seconds": 1132.6116731669754, "error": "RuntimeError('RSS budget exceeded')", "job": "B-a0f9b0e3f5379ad80fcbf8f215f74ee447473371c8aecc5f41cf60fce21e7af4-5", "jobs_done": 5, "jobs_total": 288, "stage": "main campaign stopped"}

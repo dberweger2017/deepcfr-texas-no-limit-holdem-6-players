@@ -1,0 +1,38 @@
+{
+  "all_prior_copies_reverified": [
+    {
+      "files": 2418,
+      "manifest_sha256": "05c82c25f050958894658cb732b1e187844e383a690f76d4a5443bcdd897122f",
+      "mismatches": [],
+      "path": "/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-20261004"
+    },
+    {
+      "files": 2623,
+      "manifest_sha256": "38710bfd86d9d18c73b93e059ef95bc67b0d501597a276406957507c7595d8f5",
+      "mismatches": [],
+      "path": "/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-02-20261004"
+    },
+    {
+      "files": 3029,
+      "manifest_sha256": "cd970496c4a1cff3564410de51916d8902aa4c52c4a81a521eec4c8c9365b944",
+      "mismatches": [],
+      "path": "/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-03-20261004"
+    },
+    {
+      "files": 3198,
+      "manifest_sha256": "8089e51629c5358f34530af062a3fcfd2cf9e814043d496e63e0c484b15b56d7",
+      "mismatches": [],
+      "path": "/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-04-20261004"
+    }
+  ],
+  "cloud_verified": false,
+  "deletion_authorized": false,
+  "files": 3476,
+  "hardlink_groups": 82,
+  "logical_bytes": 12124413687,
+  "manifest_sha256": "d166acfdbbd0b6797dc7a6ddfe34896dc60de86c6d8cbf7960bac597335a2cae",
+  "mismatches": [],
+  "path": "/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-05-20261004",
+  "timestamp": 1791137434.397772,
+  "unique_inode_bytes": 9295160304
+}

@@ -42,6 +42,13 @@ def guard(plan,out,deadline):
     if shutil.disk_usage(out).free<plan['limits']['min_free_gib']*1024**3: raise RuntimeError('Free disk guard')
 
 
+def last_lbr_telemetry(policy):
+    # Observation recording delegates actions to its source; retain the same
+    # completed LBR trace without making another decision or changing streams.
+    source=policy if isinstance(policy,LocalBestResponse) else getattr(policy,'source',None)
+    return source.telemetry[-1] if isinstance(source,LocalBestResponse) else None
+
+
 def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resource_only=False,opponent_policies=None):
     n=spec['players']; logical=tuple((seat-rotation)%n for seat in range(n))
     ids=tuple(f'player-{i}' for i in logical)
@@ -87,8 +94,9 @@ def play(source,spec,rules,contract,block,rotation,root,phase,config,emit,resour
                            target_visits=(getattr(source,'visits',{}).get(key,0) if who==0 and hasattr(source,'visits') else None))
             if who==0 and hasattr(source,'last_translation'):
                 row['translation']=source.last_translation
-            if who and isinstance(rivals[who],LocalBestResponse):
-                row['lbr']=rivals[who].telemetry[-1]
+            if who:
+                telemetry=last_lbr_telemetry(rivals[who])
+                if telemetry is not None:row['lbr']=telemetry
             trace.append(row);timings.append(elapsed);off_menu|=not onmenu
             original_off_menu |= not any(c.action==action for c in original_menu)
             hand=hand.apply(action)

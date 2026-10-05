@@ -8,6 +8,9 @@ import time
 from src.diagnostics.flop_check_analysis import bootstrap_spots
 
 
+METRICS=("e_bp", "e_v1proj", "e_v1proj_line", "e_eq50", "e_eq200", "alias_cost")
+
+
 class Monitor:
     def __init__(self, run, writer):
         self.run = Path(run); self.writer = writer; self.offset = 0
@@ -19,7 +22,7 @@ class Monitor:
                         f"results/monitoring_only/{group}/{strategy}/{metric}/{x}"
                         for x in ("mean", "ci95_lower", "ci95_upper")]]
                     for group in ("A", "B") for strategy in ("current", "stored-average")
-                    for metric in ("e_bp", "e_v1proj", "e_eq50", "e_eq200")},
+                    for metric in METRICS},
                 "Overfold": {"Blueprint and equilibrium": ["Multiline", [
                     "overfold/fold_bp", "overfold/fold_eq"]]},
                 "Resources": {"GiB": ["Multiline", [
@@ -46,7 +49,7 @@ class Monitor:
     def emit(self, row):
         step = row.get("iteration", self.events)
         if "exploitability_pct_pot" in row:
-            self.scalar(f'solver/exploitability_pct_pot/{row.get("spot", "fixture")}',
+            self.scalar(f'solver/exploitability_pct_pot/{row.get("series", row.get("spot", "fixture"))}',
                         row["exploitability_pct_pot"], step)
         self.scalar("resources/rss_gib", row.get("rss_bytes", 0) / 1024**3, self.events)
         if "solver_peak_rss_bytes" in row:
@@ -59,6 +62,9 @@ class Monitor:
         if row.get("event") == "run_counter":
             for group, count in row["spots_completed_by_set"].items():
                 self.scalar("run/spots_completed_by_set/" + group, count, self.events)
+        if row.get('event')=='run_counter':
+            for name in ('jobs_completed_by_set','roots_fully_completed_by_set'):
+                for group,count in row.get(name,{}).items():self.scalar('run/'+name+'/'+group,count,self.events)
         if row.get("event") != "spot_complete":
             return
         key = (row["set"], row["spot"], row["lineage"], row["strategy"])
@@ -72,7 +78,7 @@ class Monitor:
         for group, strategy in groups:
             rows = [r for r in self.spots.values()
                     if (r["set"], r["strategy"]) == (group, strategy)]
-            for metric in ("e_bp", "e_v1proj", "e_eq50", "e_eq200"):
+            for metric in METRICS:
                 summary = bootstrap_spots(rows, metric, resamples=200)
                 prefix = f"results/monitoring_only/{group}/{strategy}/{metric}"
                 self.scalar(prefix + "/mean", summary["mean"], len(rows))

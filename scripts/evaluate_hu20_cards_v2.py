@@ -23,7 +23,7 @@ from src.diagnostics.saved_hu20 import load_saved,file_hash
 from src.diagnostics.stackoff_tails import RecordingOpponent,RecordingTarget,attach_snapshots,hand_tails
 
 
-def hand(source,visits,spec,panel,block,rotation,evaluation,resource_only=False):
+def hand(source,visits,spec,panel,block,rotation,evaluation,resource_only=False,failure_sink=None):
     config=LBRConfig(evaluation['chance_samples'],evaluation['lbr_seconds'])
     rival=(RankedCachedLocalBestResponse(source,stream_seed(panel['root'],'test','opponent',2,block,1),
                  SharedProbabilityCache(source),config) if panel['rule']=='lbr'
@@ -32,6 +32,11 @@ def hand(source,visits,spec,panel,block,rotation,evaluation,resource_only=False)
     target=RecordingTarget(source,visits,observations);wrapped=RecordingOpponent(rival,observations)
     def emit(row):
         row.update(panel=panel['name'],version=spec['version'],seed=spec['seed'])
+        if row['status']!='complete' and failure_sink is not None:
+            attach_snapshots(row,observations[:len(row['actions'])])
+            failure_sink(row)
+            rows.append(row)
+            return
         if not resource_only:
             attach_snapshots(row,observations[:len(row['actions'])]);replay_row(row)
             row['native_replay_verified']=True;row['tails']=hand_tails(row)

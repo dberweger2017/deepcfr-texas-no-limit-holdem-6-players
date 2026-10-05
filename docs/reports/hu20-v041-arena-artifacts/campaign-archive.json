@@ -1,0 +1,13 @@
+{
+ "archive": "/Users/dberweger/Local/hu20-v041-archives-20261005/hu20-native-average-complete-20261005.tar.gz",
+ "bytes": 3166550740,
+ "cloud_upload_status": "not_staged",
+ "manifest": "/Users/dberweger/Local/hu20-v041-archives-20261005/hu20-native-average-complete-20261005.tar.gz.manifest.json",
+ "manifest_sha256": "094953b982c8995dd3b4e17668850725d2696f42f72c169ac70eb8e74f831f3c",
+ "members": 123,
+ "originals_retained": true,
+ "sha256": "b5b43d83cdfb9e9b25679eef94b9350c3ef4a76f8c4dad4d076090bb2c6aa898",
+ "source_and_archive_member_mismatches": 0,
+ "source_bytes": 3166550515,
+ "status": "verified"
+}

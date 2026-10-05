@@ -1,0 +1,62 @@
+{
+  "stage": "C-only paid provisioning and mandatory Linux gates",
+  "source": "e45b297cdab45a2f4eb70f0325415794883c2163",
+  "plan_sha256": "d6c01b4685dff805de93ac566a007778e065e9493b075656a7f279e93a24a36c",
+  "reference_manifest_sha256": "67faf5a52b8ac6e0bcd666a5118daef100c503b1b446e29134700a122c4479b6",
+  "all_three_M1_direct_fresh_and_prior_C_matches": true,
+  "pinned_focused_checks": 34,
+  "source_full_ci_passed": 36918427052,
+  "gitguardian": "passed",
+  "controller_pid": 49706,
+  "watchdog_pid": 49718,
+  "watchdog_status": "armed",
+  "expected_training_recovery_usd": [
+    2,
+    3
+  ],
+  "training_recovery_subcap_usd": 4,
+  "safe_stop_usd": 3,
+  "retrieval_reserve_usd": 1,
+  "original_additional_ceiling_usd": 16,
+  "settled_invoice": false,
+  "D_paid_jobs": 0,
+  "artifact_root": "/Users/dberweger/Local/dr2x2-c-campaign-20261001",
+  "pods": [
+    {
+      "id": "3mh21or26uj3gs",
+      "name": "dr2x2-C-2026093001-1790885324",
+      "seed": 2026093001,
+      "cell": "C",
+      "created_epoch": 1790885329.064,
+      "upper_rate": 0.18,
+      "compute_usd_hour": 0.13,
+      "vcpu": 2,
+      "memory_gb": 16,
+      "datacenter": "EUR-IS-1"
+    },
+    {
+      "id": "v4pz7zg2p00tic",
+      "name": "dr2x2-C-2026093002-1790885324",
+      "seed": 2026093002,
+      "cell": "C",
+      "created_epoch": 1790885331.778,
+      "upper_rate": 0.18,
+      "compute_usd_hour": 0.13,
+      "vcpu": 2,
+      "memory_gb": 16,
+      "datacenter": "EUR-IS-1"
+    },
+    {
+      "id": "2mzrhprjp997hu",
+      "name": "dr2x2-C-2026093003-1790885324",
+      "seed": 2026093003,
+      "cell": "C",
+      "created_epoch": 1790885334.007,
+      "upper_rate": 0.18,
+      "compute_usd_hour": 0.13,
+      "vcpu": 2,
+      "memory_gb": 16,
+      "datacenter": "EUR-IS-1"
+    }
+  ]
+}

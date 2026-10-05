@@ -1,0 +1,26 @@
+{
+  "source_commit": "e0c91d25b4a9b315f4c2f86d779899afc03a65a9",
+  "frozen_reporter": "scripts.report_board_pooling",
+  "source_summary_sha256": "6cdcefce0a55f9ac361966b4d298c4e9e750a9b668053054b4b2e3e09b94e91f",
+  "compact_replay_summary_sha256": "a14cb5d718db8939460048247a53c64cc4d4d42befe76af451514fe847f6f37c",
+  "compared_fields": [
+    "admission",
+    "billing",
+    "classification",
+    "common_boards",
+    "common_fold_counts",
+    "common_weight_fraction",
+    "completed",
+    "covered_context_by_lineage",
+    "covered_context_sensitivity",
+    "exclusions",
+    "failures",
+    "missing_key_coverage_passed",
+    "missing_key_reach_by_fold_lineage",
+    "plan_sha256",
+    "rows",
+    "summaries"
+  ],
+  "different_fields": [],
+  "inventory_scope": "M4 inventory contains every raw file; compact M1 replay contains the 240 hash-verified atomic result records plus admission/completion; every other summary field matches exactly."
+}

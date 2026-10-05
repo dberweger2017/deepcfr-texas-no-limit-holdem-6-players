@@ -1,0 +1,10 @@
+{
+  "files": {
+    "configs/diagnostics/hu20-exact-turn-check.json": "198ac49d00056b59bfda10f153c8cef9fa04a95df0b37e382176509097b20ada",
+    "docs/hu20-exact-turn-check-protocol.md": "005d05bc25d6ca85759397305e848c9b99e23e88978a8a849db5adab0e88290a",
+    "scripts/report_turn_check.py": "35043d6d3aa4f198ddd4f9bf5e7cb6f42e22dc21916aa2abbc351482919c981a",
+    "src/diagnostics/turn_campaign.py": "0b5ac56d82df815a7c886fe5bbbae0413f0117b60bd447ab7702a5319d26843f",
+    "src/diagnostics/turn_report.py": "dc92022c8908811c4d32312429c83f616b1d3a9641327739a5abcd9e1a8faeee"
+  },
+  "note": "Reporting correction after the stopped admission; frozen solver input/selection/thresholds unchanged"
+}

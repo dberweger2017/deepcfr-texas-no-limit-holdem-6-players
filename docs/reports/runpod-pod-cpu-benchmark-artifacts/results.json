@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-03",
+  "method": "scripts/benchmark_pod_cpu.py semantics; pods ran the identical pre-commit version passed base64-encoded in the container command, output read from container logs",
+  "image": "runpod/base:0.7.0-ubuntu2004",
+  "units": {
+    "single_zlib_MBps": "one process, zlib level 6 on a fixed 8 MiB pseudo-text block, best of 3",
+    "aggregate_zlib_MBps": "N worker processes, two compressions of 24 MiB each per worker",
+    "pyloop_Mops": "pure-Python loop rate; interpreter-dependent, not a CPU comparison across Python versions"
+  },
+  "baseline": {
+    "name": "Apple M1 (owner laptop)",
+    "python": "3.14.6",
+    "cpus": 8,
+    "ram_gb": 16,
+    "single_zlib_MBps": 55.3,
+    "pyloop_Mops": 20.14,
+    "aggregate_zlib_MBps": {"2": 106.9, "4": 204.0, "8": 274.9},
+    "rerun_committed_script_python_3_11_15": {"single_zlib_MBps": 54.5, "aggregate_zlib_MBps": {"2": 106.5, "4": 203.1, "8": 282.1}}
+  },
+  "pods": [
+    {
+      "name": "cpu5c 4 vCPU", "pod_id": "zmo9wnn9lqjlcl", "cloud": "SECURE", "data_center": "EUR-IS-1",
+      "usd_per_hour": 0.14, "listed_vcpu": 4, "listed_ram_gb": 8, "disk_gb": 20,
+      "cpu_model": "AMD EPYC 4564P 16-Core Processor", "host_threads": 32, "max_mhz": 5881,
+      "affinity": 4, "cgroup_quota": null, "memory_limit_bytes": 8000000000, "python": "3.8.10",
+      "single_zlib_MBps": 57.2, "pyloop_Mops": 20.69,
+      "aggregate_zlib_MBps": {"2": 115.5, "4": 173.0}
+    },
+    {
+      "name": "RTX 3090 community", "pod_id": "u0vd8ggvn54ev7", "cloud": "COMMUNITY", "data_center": null,
+      "usd_per_hour": 0.22, "listed_vcpu": 28, "listed_ram_gb": 62, "disk_gb": 20,
+      "cpu_model": "AMD EPYC 7663 56-Core Processor", "host_threads": 112, "max_mhz": 3541,
+      "affinity": 112, "cgroup_quota": 23.8, "memory_limit_bytes": 61999996928, "python": "3.8.10",
+      "single_zlib_MBps": 38.6, "pyloop_Mops": 12.86,
+      "aggregate_zlib_MBps": {"2": 76.6, "4": 152.9, "8": 296.2, "16": 578.0, "32": 857.9}
+    },
+    {
+      "name": "RTX 3070 community", "pod_id": "k5zavnfgbngyej", "cloud": "COMMUNITY", "data_center": null,
+      "usd_per_hour": 0.13, "listed_vcpu": 22, "listed_ram_gb": 24, "disk_gb": 10,
+      "cpu_model": "AMD EPYC 7663 56-Core Processor", "host_threads": 112, "max_mhz": 3541,
+      "affinity": 112, "cgroup_quota": 18.7, "memory_limit_bytes": 24000000000, "python": "3.8.10",
+      "single_zlib_MBps": 36.1, "pyloop_Mops": 11.87,
+      "aggregate_zlib_MBps": {"2": 70.9, "4": 140.5, "8": 274.9, "16": 515.4, "32": 531.8, "112": 373.9}
+    },
+    {
+      "name": "RTX 2000 Ada", "pod_id": "3pbp7fs1va9xqk", "cloud": "SECURE", "data_center": "EUR-IS-1",
+      "usd_per_hour": 0.24, "listed_vcpu": 32, "listed_ram_gb": 31, "disk_gb": 10,
+      "cpu_model": "AMD EPYC 7702 64-Core Processor", "host_threads": 128, "max_mhz": 2184,
+      "affinity": 128, "cgroup_quota": 27.2, "memory_limit_bytes": null, "python": "3.8.10",
+      "single_zlib_MBps": 32.8, "pyloop_Mops": 10.15,
+      "aggregate_zlib_MBps": {"2": 65.5, "4": 131.5, "8": 262.9, "16": 515.4, "32": 863.1, "128": 502.4}
+    },
+    {
+      "name": "RTX A4000", "pod_id": "v8bqis7ru96a0g", "cloud": "SECURE", "data_center": "EUR-IS-1",
+      "usd_per_hour": 0.25, "listed_vcpu": 18, "listed_ram_gb": 62, "disk_gb": 10,
+      "cpu_model": "AMD EPYC 7702 64-Core Processor", "host_threads": 128, "max_mhz": 2184,
+      "affinity": 128, "cgroup_quota": 15.3, "memory_limit_bytes": null, "python": "3.8.10",
+      "single_zlib_MBps": 32.9, "pyloop_Mops": 9.52,
+      "aggregate_zlib_MBps": {"2": 65.2, "4": 130.8, "8": 258.5, "16": 446.2, "32": 480.4}
+    },
+    {
+      "name": "RTX PRO 4500 Blackwell", "pod_id": "6ysf64wxw43jyc", "cloud": "SECURE", "data_center": "EU-RO-1",
+      "usd_per_hour": 0.72, "listed_vcpu": 28, "listed_ram_gb": 62, "disk_gb": 10,
+      "cpu_model": "AMD EPYC 7663 56-Core Processor", "host_threads": 112, "max_mhz": 3541,
+      "affinity": 112, "cgroup_quota": 23.8, "memory_limit_bytes": 61999996928, "python": "3.8.10",
+      "single_zlib_MBps": 37.5, "pyloop_Mops": 12.73,
+      "aggregate_zlib_MBps": {"2": 73.9, "4": 148.1, "8": 296.5, "16": 589.3, "32": 830.7, "112": 488.8}
+    },
+    {
+      "name": "RTX 4090", "pod_id": "gcqawq5xv394eg", "cloud": "SECURE", "data_center": "US-NC-1",
+      "usd_per_hour": 0.74, "listed_vcpu": 16, "listed_ram_gb": 62, "disk_gb": 10,
+      "cpu_model": "AMD EPYC 75F3 32-Core Processor", "host_threads": 128, "max_mhz": 4043,
+      "affinity": 128, "cgroup_quota": 13.6, "memory_limit_bytes": 61999996928, "python": "3.8.10",
+      "single_zlib_MBps": 41.8, "pyloop_Mops": 14.52,
+      "aggregate_zlib_MBps": {"2": 77.0, "4": 155.5, "8": 297.3, "16": 511.8, "32": 532.3, "128": 393.5}
+    },
+    {
+      "name": "A40", "pod_id": "vr198zxuvd3mkw", "cloud": "SECURE", "data_center": "EU-SE-1",
+      "usd_per_hour": 0.49, "listed_vcpu": 9, "listed_ram_gb": 50, "disk_gb": 10,
+      "cpu_model": "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz", "host_threads": 96, "max_mhz": 3500,
+      "affinity": 96, "cgroup_quota": 7.65, "memory_limit_bytes": 49999998976, "python": "3.8.10",
+      "single_zlib_MBps": 34.9, "pyloop_Mops": 13.29,
+      "aggregate_zlib_MBps": {"2": 61.8, "4": 111.5, "8": 211.4, "16": 197.0, "32": 204.2}
+    }
+  ],
+  "no_result": [
+    {"name": "cpu3c 8 vCPU", "pod_id": "ubtr7r5fv942rf", "data_center": "EUR-IS-1", "usd_per_hour": 0.24, "disk_gb": 20,
+     "outcome": "reported RUNNING; no container or system log lines in about 4.5 minutes; terminated"}
+  ],
+  "placement_failures": [
+    {"request": "cpu5c 8 vCPU, cpu3c 8 vCPU, cpu5g 8 vCPU, cpu3g 8 vCPU (secure, 10 GB disk)", "error": "no longer any instances available"},
+    {"request": "RTX 3090 community, 10 GB disk", "error": "no longer any instances available", "note": "a later request with 20 GB disk was placed"},
+    {"request": "RTX 4000 Ada (secure and community), RTX A4500 secure", "error": "no longer any instances available"},
+    {"request": "RTX 2000 Ada with gpu.minVcpuCountPerGpu=32", "error": "no longer any instances available", "note": "without the filter a 32-vCPU host was placed"}
+  ],
+  "cost": "estimated about $0.11 in total from listed hourly rates and 1-5 minute lifetimes; settled billing not checked",
+  "not_measured": ["Apple M4 (busy with PR #148 calibration latency measurements)"]
+}

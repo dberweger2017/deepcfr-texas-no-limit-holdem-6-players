@@ -33,10 +33,12 @@ def inventory(plan, repo, inputs, tool, expected):
     if not all(r["verified"] for r in rows + upstream):
         raise ValueError("Input or pinned source hash mismatch")
     external = {str(path.relative_to(tool)): file_hash(path) for path in (
-        tool / "harness/Cargo.toml", tool / "harness/Cargo.lock", tool / "harness/src/main.rs",
+        tool / "harness/Cargo.toml", tool / "harness/Cargo.lock", *sorted((tool / "harness/src").glob("*.rs")),
         tool / "harness/target/release/hu20-exact-flop-tool")}
     source_paths = [*sorted((repo / "src/diagnostics").glob("flop_check*.py")),
                     *sorted((repo / "scripts").glob("*flop_check*.py")),
+                    *sorted((repo / "scripts").glob("*turn*.py")),
+                    *sorted((repo / "src/diagnostics").glob("turn_*.py")),
                     repo / "src/diagnostics/exact_ranker.py", repo / "src/arena/endgame_quality.py",
                     repo / "src/game/observation.py", repo / "src/game/types.py",
                     repo / "src/blueprint/abstraction.py", repo / "src/blueprint/hu20_river.py",

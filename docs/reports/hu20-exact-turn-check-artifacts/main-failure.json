@@ -1,0 +1,1 @@
+{"elapsed_seconds": 80.6997572502587, "error": "MemoryError('Measured job headroom fell below budget')", "job": "A-8cc070516f6be671cfe5c90b5fafd76a80cb16f7cfa945a4360673225d190bf4-2", "jobs_done": 2, "jobs_total": 288, "stage": "main campaign stopped"}
