@@ -1,0 +1,15 @@
+{
+  "pooling_tests": {
+    "passed": 36,
+    "command": "python -m pytest tests/diagnostics/test_board_pooling.py tests/diagnostics/test_board_pooling_engineering.py -q"
+  },
+  "premerge_tests": {
+    "passed": 175,
+    "seconds": 20.47,
+    "command": "python -m pytest tests/diagnostics tests/test_hu20_search_campaign.py -q"
+  },
+  "working_runtime_commit": "e0c91d25b4a9b315f4c2f86d779899afc03a65a9",
+  "premerge_branch_commit": "9c33f3b",
+  "reporter_replay": "all non-inventory fields exactly identical",
+  "timestamp": 1791181638.335835
+}

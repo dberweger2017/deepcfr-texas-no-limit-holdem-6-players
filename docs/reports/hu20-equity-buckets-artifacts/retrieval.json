@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "host": "M4",
+  "destination": "/Users/dberweger/Local/hu20-equity-buckets-20261005",
+  "utc": "2026-10-05T07:27:41.432939+00:00",
+  "transport": "scp initiated on M4 via direct TCP port 8884",
+  "pod": "90gceq0t9mqz6q",
+  "source": "/workspace/hu20-buckets-out plus /workspace/build.log",
+  "files": [
+    {
+      "name": "SHA256SUMS",
+      "bytes": 788,
+      "sha256": "0ba584e2d23e62138e954a9aea1b54e11a2762ab4bf780390cd4b1c2da4fcc15"
+    },
+    {
+      "name": "build-stderr.log",
+      "bytes": 429,
+      "sha256": "31d2f2cbc9f3fdb5b152882046a6db561d7f398b6407aa028bc4e286540beadc"
+    },
+    {
+      "name": "commit.txt",
+      "bytes": 41,
+      "sha256": "006fde2b0bc402e5d93cf256d9e3c91063a3097a43c985dea546f42273ade64b"
+    },
+    {
+      "name": "flop-k200.bin",
+      "bytes": 12867944,
+      "sha256": "4fb24d2c738b4e8913eb4524648c75f815c2fb2f1f7bd3e1be8dd4133722c975"
+    },
+    {
+      "name": "flop-k50.bin",
+      "bytes": 12867944,
+      "sha256": "084e243ded9fe93ad03cd59601f22f16c3210592f51e1e3646a60983b572c111"
+    },
+    {
+      "name": "host.txt",
+      "bytes": 3509,
+      "sha256": "b5eb9e631ad4735a5c128cdf7a76bdf901bf626c066051b2164710dc3568ce7b"
+    },
+    {
+      "name": "peak-rss.txt",
+      "bytes": 22,
+      "sha256": "8a89629b0e5a51c60f6e18b9d48ed5cd4a442004eb0f8532995b0658f4df1023"
+    },
+    {
+      "name": "pod-status.json",
+      "bytes": 60,
+      "sha256": "f62edb119e798a10e5106fc629ccbcf629f47a0aed6f37964327914bd874ef95"
+    },
+    {
+      "name": "river-k200.bin",
+      "bytes": 1231562564,
+      "sha256": "b0591710df149248b2feb89f0a9c808f9745be1f7e5c4eb63aa8a2d93b78864e"
+    },
+    {
+      "name": "river-k50.bin",
+      "bytes": 1231562564,
+      "sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629"
+    },
+    {
+      "name": "status.json",
+      "bytes": 80,
+      "sha256": "fa9f52dd6dbfe518293f04f2a75d16fd844f08242ba9c52bbf12515ffc8e002c"
+    },
+    {
+      "name": "summary.json",
+      "bytes": 27399,
+      "sha256": "4417a6f119b1c6b416c030f4984751dc951edbc9db3fd9436e6fe17cca82946a"
+    },
+    {
+      "name": "tests.log",
+      "bytes": 899,
+      "sha256": "7768f954dea5648e2da2ebc78b401b23222d78efde927716f6e99feae39f2d7b"
+    },
+    {
+      "name": "turn-k200.bin",
+      "bytes": 139600524,
+      "sha256": "ccec40009426fd64cac53816e6a286adec159eb2a22c479bb273029faa1b7f6c"
+    },
+    {
+      "name": "turn-k50.bin",
+      "bytes": 139600524,
+      "sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f"
+    },
+    {
+      "name": "build.log",
+      "bytes": 1805,
+      "sha256": "cb43df2bd3e97bc36e4661ce5122c0060964e4c2fb6189e99169fae494341838"
+    }
+  ],
+  "files_verified": 16,
+  "bytes_verified": 2768097096,
+  "mismatches": 0,
+  "builder_manifest_entries": 10,
+  "free_bytes": 36896423936
+}

@@ -1,0 +1,158 @@
+{
+  "scheduled_check_utc": "2026-10-04T16:39:07Z",
+  "previous_documentation_pr": {
+    "number": 159,
+    "head": "c435ef7a073a876e3e2ebd291eb29356340e89cf",
+    "merge": "f965b85f6f5a6db9465fb1d809d7b8a80529bd46",
+    "Tests37214733835": "scope/full0/full1/test success",
+    "GitGuardian": "success",
+    "unresolved_findings": 0
+  },
+  "m4_new_archives": {
+    "state": "complete-all-uploads-accepted-originals-retained",
+    "pid": 52407,
+    "archives": [
+      {
+        "name": "M4-blueprint-pilot-v1-diagnostic-evidence-20261004.tar.gz",
+        "native_path": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/M4-blueprint-pilot-v1-diagnostic-evidence-20261004.tar.gz",
+        "bytes": 60710,
+        "sha256": "b0368457f5fcbd6b81522eaa5368b809b0faa1b25c07fb3c6178dd8f2e31adf9",
+        "members": 14,
+        "source_bytes": 198609,
+        "state": "native-and-cloud-accepted-originals-retained",
+        "originals_retained": true,
+        "cloud_id": "1alfEi4jF_e5W1L0hli0vESmr1QFpxRHF"
+      },
+      {
+        "name": "M4-blueprint-pilot-v1-first-evidence-20261004.tar.gz",
+        "native_path": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/M4-blueprint-pilot-v1-first-evidence-20261004.tar.gz",
+        "bytes": 41987,
+        "sha256": "a8f1b6d2e0d0ab460b8e88092b24e3a386048170714bcc3d87c3312d48d77aae",
+        "members": 13,
+        "source_bytes": 174989,
+        "state": "native-and-cloud-accepted-originals-retained",
+        "originals_retained": true,
+        "cloud_id": "1ukZ0ujrJj8Sws7MMg6UHRBWOoKGcETHq"
+      },
+      {
+        "name": "M4-blueprint-pilot-v1-full-evidence-20261004.tar.gz",
+        "native_path": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/M4-blueprint-pilot-v1-full-evidence-20261004.tar.gz",
+        "bytes": 60409,
+        "sha256": "265b3aa480f0294807e441c3971c234eaee829c5b383df6a9be12ec6b02ff27a",
+        "members": 13,
+        "source_bytes": 198053,
+        "state": "native-and-cloud-accepted-originals-retained",
+        "originals_retained": true,
+        "cloud_id": "1vWUg4DjHlXJVVDHZYbl8qmjXzK2pEwJt"
+      },
+      {
+        "name": "M4-blueprint-pilot-v1-reproduced-evidence-20261004.tar.gz",
+        "native_path": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/M4-blueprint-pilot-v1-reproduced-evidence-20261004.tar.gz",
+        "bytes": 28220,
+        "sha256": "a0bea97a1fff6562121498cee1172217fb39f0078c0c7a78bd91d94268ce4a27",
+        "members": 7,
+        "source_bytes": 152596,
+        "state": "native-and-cloud-accepted-originals-retained",
+        "originals_retained": true,
+        "cloud_id": "1b3vlEWLO-gZeTjSrw7_jSn1b-euy14l0"
+      },
+      {
+        "name": "M4-blueprint-pilot-v1-resumed-evidence-20261004.tar.gz",
+        "native_path": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/M4-blueprint-pilot-v1-resumed-evidence-20261004.tar.gz",
+        "bytes": 60460,
+        "sha256": "ab480f18b46981f6403e54b156093bbc280d2a53098ed7457b5598890ab4d63c",
+        "members": 13,
+        "source_bytes": 197893,
+        "state": "native-and-cloud-accepted-originals-retained",
+        "originals_retained": true,
+        "cloud_id": "1XCNVAO5nLyXOUqixuiwl9uMaQsYEFSGz"
+      },
+      {
+        "name": "M4-play-web-evidence-20261004.tar.gz",
+        "native_path": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/M4-play-web-evidence-20261004.tar.gz",
+        "bytes": 2638016,
+        "sha256": "9b487b5062cbedde33fa1f088c2ccbe412402c52ee164b20fb5884e1e0405bf1",
+        "members": 430,
+        "source_bytes": 9999066,
+        "state": "native-and-cloud-accepted-originals-retained",
+        "originals_retained": true,
+        "cloud_id": "1uFqaDsECgGfaXObsg0dNru3CLliNs81a"
+      },
+      {
+        "name": "M4-play-web-benchmark-evidence-20261004.tar.gz",
+        "native_path": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/M4-play-web-benchmark-evidence-20261004.tar.gz",
+        "bytes": 3500264,
+        "sha256": "7f6bc8db908dc5ad168cd21a72b39f63fcbdf8cf3c630f01c6c894995d0c918a",
+        "members": 501,
+        "source_bytes": 11052261,
+        "state": "native-and-cloud-accepted-originals-retained",
+        "originals_retained": true,
+        "cloud_id": "1pp_OI0kYTBKN_xDo7qti4b99xDRj54ig"
+      }
+    ],
+    "all_originals_retained": true,
+    "scope_admission": "Five old blueprint pilot variants and two closed play-web validation runs. Published v0.4.0 READINESS records owned service stopped. Current PR149 approval and forecast protect isolated board-pooling inputs; no model loads/science/source changes. Originals retained; browser-deps excluded.",
+    "current_scope": "play-web-benchmark",
+    "finished": 1791132495.367288,
+    "free_after": 101046308864,
+    "cloud_upload_confirmed": true
+  },
+  "m4_cleanup": {
+    "state": "complete",
+    "pid": 52263,
+    "started": 1791132381.713711,
+    "removed_files": 2000,
+    "removed_bytes": 542265399,
+    "retained": [],
+    "synced_payloads_removed": false,
+    "free_before": 100514414592,
+    "active_future_dependency_admission": {
+      "approval_sha256": "3426e6cb612dc8247f468a4e430c4996273cb0bd2e9f65bfb2e7f6e6fe96d2a0",
+      "forecast_sha256": "c8c50760420efe36fb2daeb34d3bfc30ffd3fe21067a93c6f168a3c450108a37",
+      "inputs_path": "/Users/dberweger/Local/hu20-board-pooling-20261004/inputs-restored-02",
+      "whole_campaign_protected": "/Users/dberweger/Local/hu20-board-pooling-20261004",
+      "review": "Current PR149 approval, frozen plan/execution and owner chat checked; all future inputs protected. Candidate roots are closed release validations and old six-player slices, not PR149 inputs. Default HU20/TP20 demo inputs retained."
+    },
+    "external_symlink_dependencies": [],
+    "finished": 1791132386.520084,
+    "free_after": 101059620864
+  },
+  "cleanup_scope_breakdown": {
+    "release_validation_files": 1990,
+    "release_validation_bytes": 209263472,
+    "already_cloud_accepted_primary_slice_files": 10,
+    "primary_slice_bytes": 333001927
+  },
+  "receipts": {
+    "accepted": "1aFqhov369NW_u096KjYroomLHbcQw3jp",
+    "native_upload_proof": "11bf8oPtR5fWhcDiWDiFuYyscVBi4mwzF",
+    "cleanup": "1rTrA7DKpWWPNuTdTl3UIGMEkEEc-D4Y4",
+    "cleanup_full_journal": "1PxmACpU9l_9V5YqMGhocEFCrOMST_cNX",
+    "native_metadata_helper_incident": "1P39FMQStVWLErrplwFpIAu6_7C57ZYy1"
+  },
+  "measured_free_bytes": {
+    "m1_coalesced_check": 26401132544,
+    "m4_after_cleanup": 101059620864,
+    "m4_after_seven_archives": 101046308864
+  },
+  "protected_active_task": {
+    "pr": 149,
+    "chat": "01a0f933-e4c5-7700-afcf-07f2b6a3913c",
+    "compact_status": "Owner-approved 7 GiB pilot fits memory; forecast lower bound 31.2 main hours exceeds 17.9 available, qualification/main incomplete. Owning task stopped jobs and paused monitoring; 3198 evidence files hash-verified. Separate owner compute decision required.",
+    "protected": [
+      "M4 ~/Local/hu20-board-pooling-20261004 including inputs-restored-02",
+      "ALL M1 ~/Local/hu20-board-pooling-m4-retrieval*-20261004 roots",
+      "M1 ~/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-inputs",
+      "Original A/default/C/average and future symlink dependencies"
+    ]
+  },
+  "remaining": [
+    "Dependency/restore review of seven newly accepted small M4 pilot/web source runs before original cleanup",
+    "Final closed-evidence metadata inventory on both hosts, excluding Git/environments/private/default and protected future inputs",
+    "Documentation CI and routine review/merge"
+  ],
+  "no_science_or_rental": true,
+  "no_forced_cache_eviction": true,
+  "no_synced_payload_deletion": true,
+  "upload_acceptance": "Native uploaded=1, uploading=0, unresolved conflicts=0, exact documentSize; native item-ID equals current cloud ID/name/size/parent; embedded source/member SHA verified before native queue."
+}
