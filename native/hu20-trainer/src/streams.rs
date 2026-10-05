@@ -22,7 +22,26 @@ impl Mt {
 
     /// `Random(seed)` for a non-negative integer seed: `init_by_array` over its 32-bit words.
     pub fn new(seed: u64) -> Mt {
-        let key: Vec<u32> = if seed >> 32 == 0 { vec![seed as u32] } else { vec![seed as u32, (seed >> 32) as u32] };
+        Mt::from_key(&if seed >> 32 == 0 { vec![seed as u32] } else { vec![seed as u32, (seed >> 32) as u32] })
+    }
+
+    /// `Random(text)`: the integer `text + sha512(text)` read big-endian, as the bench's
+    /// `Random(f"{seed}/{iteration}/{traverser}")` seeds itself.
+    pub fn from_text(text: &str) -> Mt {
+        use sha2::{Digest, Sha512};
+        let mut bytes = text.as_bytes().to_vec();
+        bytes.extend_from_slice(&Sha512::digest(text.as_bytes()));
+        bytes.reverse();
+        let mut key: Vec<u32> =
+            bytes.chunks(4).map(|c| c.iter().rev().fold(0u32, |w, &b| (w << 8) | b as u32)).collect();
+        while key.len() > 1 && *key.last().unwrap() == 0 {
+            key.pop();
+        }
+        Mt::from_key(&key)
+    }
+
+    /// `init_by_array(key)`, with the key's 32-bit words least significant first.
+    fn from_key(key: &[u32]) -> Mt {
         let mut mt = Mt::init_genrand(19650218);
         let s = &mut mt.state;
         let (mut i, mut j) = (1usize, 0usize);
@@ -141,6 +160,23 @@ mod tests {
         let mut mt = Mt::new(99);
         let draws: Vec<u32> = (0..1501).map(|_| mt.next_u32()).collect();
         assert_eq!([draws[0], draws[623], draws[624], draws[1500]], [1735072617, 1744958591, 4259065050, 2968257009]);
+    }
+
+    #[test]
+    fn text_seeds_match_cpython() {
+        // random.Random(s).shuffle(list(range(52))), then .random() and .randrange(20), from CPython 3.11.
+        for (text, prefix, next, below) in [
+            ("202610050001/1/0", [7, 39, 43, 29, 4, 41, 13, 3, 37, 31, 46, 15], 0.74301076913856, 12),
+            ("202610050001/3000000/1", [50, 38, 14, 41, 26, 47, 19, 49, 3, 11, 28, 27], 0.6110011241783581, 2),
+            ("x", [27, 31, 26, 17, 12, 44, 21, 25, 34, 13, 8, 48], 0.38498368528302307, 13),
+        ] {
+            let mut mt = Mt::from_text(text);
+            let mut deck: Vec<u32> = (0..52).collect();
+            mt.shuffle(&mut deck);
+            assert_eq!(&deck[..12], &prefix[..]);
+            assert_eq!(mt.random(), next);
+            assert_eq!(mt.below(20), below);
+        }
     }
 }
 

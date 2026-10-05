@@ -68,16 +68,16 @@ impl Trainer {
     pub fn step(&mut self) -> u64 {
         let seed = self.seed;
         self.step_with(|iteration, seat, sample| {
-            (engine_deck(python_seed(seed, iteration, seat, sample, "deal")),
+            (Hand::from_deck(0, &engine_deck(python_seed(seed, iteration, seat, sample, "deal"))),
              Mt::new(python_seed(seed, iteration, seat, sample, "actions")))
         })
     }
 
-    /// One iteration whose roots take their deck and opponent sampler from `root(iteration, seat, sample)`.
+    /// One iteration whose roots take their starting hand and opponent sampler from `root(iteration, seat, sample)`.
     pub fn step_with<S, F>(&mut self, root: F) -> u64
     where
         S: Sampler,
-        F: Fn(u64, usize, usize) -> (Vec<u8>, S) + Sync,
+        F: Fn(u64, usize, usize) -> (Hand, S) + Sync,
     {
         let iteration = self.iteration + 1;
         let tasks: Vec<(usize, usize)> =
@@ -87,10 +87,10 @@ impl Trainer {
         let mut scratch = std::mem::take(&mut self.scratch);
         scratch.resize_with(tasks.len(), Table::default);
         let run = |(&(seat, sample), deltas): (&(usize, usize), Table)| {
-            let (deck, sampler) = root(iteration, seat, sample);
+            let (mut hand, sampler) = root(iteration, seat, sample);
             let mut traversal = Traversal::with_deltas(table, iteration, seat, sampler, deltas);
             traversal.average = average;
-            traversal.run(&mut Hand::from_deck(0, &deck));
+            traversal.run(&mut hand);
             (traversal.deltas, traversal.nodes)
         };
         let results: Vec<(Table, u64)> = if tasks.len() > 2 {
