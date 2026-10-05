@@ -126,6 +126,35 @@ impl Node {
     }
 }
 
+/// Which visits accumulate the average strategy.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AverageRule {
+    /// `solver.py`'s rule: `t * own reach * policy` at the traverser's nodes. Those nodes are
+    /// reached through sampled opponent and chance actions, so the sum is also weighted by
+    /// that sampled reach, which is not the average CFR's guarantee is about.
+    TraverserReach,
+    /// The standard external-sampling average: `t * policy` at each sampled opponent node.
+    /// Opponent actions are sampled from that player's own policy, so the sum is weighted
+    /// by the player's own reach only.
+    OpponentSampled,
+}
+
+impl AverageRule {
+    pub fn name(self) -> &'static str {
+        match self {
+            AverageRule::TraverserReach => "traverser-reach",
+            AverageRule::OpponentSampled => "opponent-sampled",
+        }
+    }
+    pub fn parse(name: &str) -> AverageRule {
+        match name {
+            "traverser-reach" => AverageRule::TraverserReach,
+            "opponent-sampled" => AverageRule::OpponentSampled,
+            other => panic!("unknown average rule {other}"),
+        }
+    }
+}
+
 /// How opponent actions are drawn from the current policy.
 pub trait Sampler {
     fn sample(&mut self, policy: &[f64]) -> usize;
@@ -144,6 +173,7 @@ pub struct Traversal<'a, S: Sampler, L: Lookup = Table> {
     pub iteration: u64,
     pub traverser: usize,
     pub sampler: S,
+    pub average: AverageRule,
     pub deltas: Table,
     pub nodes: u64,
     pub terminals: u64,
@@ -157,7 +187,7 @@ impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
     /// Reuses an emptied delta map's allocation across iterations.
     pub fn with_deltas(table: &'a L, iteration: u64, traverser: usize, sampler: S, mut deltas: Table) -> Self {
         deltas.clear();
-        Traversal { table, iteration, traverser, sampler, deltas, nodes: 0, terminals: 0 }
+        Traversal { table, iteration, traverser, sampler, average: AverageRule::TraverserReach, deltas, nodes: 0, terminals: 0 }
     }
 
     pub fn run(&mut self, hand: &mut Hand) -> f64 {
@@ -183,6 +213,14 @@ impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
             None => [1.0 / n as f64; MAX_ACTIONS],
         };
         if hand.actor.unwrap() as usize != self.traverser {
+            if self.average == AverageRule::OpponentSampled {
+                let t = self.iteration as f64;
+                let delta = self.deltas.entry(key).or_insert_with(|| Node::empty(options.code, n));
+                assert!(delta.code == options.code, "a v1 key changed its action menu");
+                for index in 0..n {
+                    delta.average[index] += t * policy[index];
+                }
+            }
             let index = self.sampler.sample(&policy[..n]);
             let saved = hand.save();
             hand.apply_mut(choices[index].action);
@@ -203,7 +241,11 @@ impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
         assert!(delta.code == options.code, "a v1 key changed its action menu");
         for index in 0..n {
             delta.regrets[index] += t * (values[index] - value);
-            delta.average[index] += t * own_reach * policy[index];
+        }
+        if self.average == AverageRule::TraverserReach {
+            for index in 0..n {
+                delta.average[index] += t * own_reach * policy[index];
+            }
         }
         delta.visits += 1;
         value
