@@ -82,7 +82,7 @@ All 120 solve residuals range **0.154310–0.199842% pot** (mean 0.183155), at o
 
 ## Retrieval and archive staging
 
-Full raw retrieval verification and archive staging are recorded in the closeout receipt. All original M4 evidence, five earlier immutable M1 retrieval copies, their receipts, preparation hard-link dependencies and isolated restored average inputs remain preserved. No cloud completion or local deletion is implied.
+The entire campaign is losslessly packed as a **16,802,192,861-byte tar.gz**, with 5,740 file members / 56,262,193,754 logical bytes and member hashes, hard-link and symlink provenance. Archive SHA256 is `20ad0f67df71464e7c06bdb1cf63451c243944c14e732b83650861f8f9bbcaed`; manifest SHA256 is `d5608ba75a785dfc5633f96dc27246d1b0c7781e478e67bc31972163565fca65`. A separate APFS clone is locally hash-verified and [staged](hu20-board-pooling-artifacts/m4-main-06/drive-staging.json) in the existing PR149 Drive folder under `M1-board-pooling/M4-main-06-20261005/`. **Cloud upload completion is pending.** The fresh M1 compressed transfer and every-member verification are still in progress; the compact reporter replay is already verified. All five earlier immutable M1 copies reverify with zero mismatches. All M4 originals, prior stop receipts, preparation hard-link dependencies and isolated restored average inputs remain preserved. No deletion or eviction is authorized.
 
 ## Prior attempt chronology (historical, superseded by main-06 completion)
 
