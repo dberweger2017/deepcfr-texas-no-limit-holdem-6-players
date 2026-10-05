@@ -100,9 +100,17 @@ fn main() {
             let mut checkpoints: Vec<u64> = arg("--checkpoints").unwrap_or_default().split(',').filter(|s| !s.is_empty())
                 .map(|s| s.parse().unwrap()).filter(|&c| c < iterations).collect();
             checkpoints.push(iterations);
+            let options = hu20_trainer::cfr::Options {
+                regret_floor: arg("--regret-floor").map(|f| f.parse().unwrap()),
+                dcfr: arg("--dcfr").map(|v| {
+                    let v: Vec<f64> = v.split(',').map(|x| x.parse().unwrap()).collect();
+                    v.try_into().expect("--dcfr alpha,beta,gamma")
+                }),
+            };
             let mut trainers = [AverageRule::TraverserReach, AverageRule::OpponentSampled].map(|rule| {
                 let mut trainer = hu20_trainer::trainer::Trainer::new(seed, 1);
                 trainer.average = rule;
+                trainer.options = options;
                 trainer
             });
             let write = |path: std::path::PathBuf, value: &serde_json::Value| {
@@ -117,6 +125,7 @@ fn main() {
                     let (x, y) = rayon::join(|| bench::step(a, &roots), || bench::step(b, &roots));
                     assert_eq!(x, y, "the averaging rule changed the traversal");
                 }
+                trainers.iter_mut().for_each(|t| t.settle());
                 bench::check_lockstep(&trainers[0], &trainers[1]);
                 let current = bench::export(&trainers[1], &trainers[1], &lineage, false);
                 let folder = out.join(format!("iteration-{checkpoint}"));
@@ -139,7 +148,7 @@ fn main() {
             println!("exported {count} entries in {:.2} s", started.elapsed().as_secs_f64());
         }
         _ => {
-            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] [--average-rule traverser-reach|opponent-sampled] --out PATH | export CHECKPOINT [--current PATH] [--average PATH] | bench-train --roots ROOTS.json --seed S --iterations N [--checkpoints a,b] --lineage NAME [--variant NAME] --out FOLDER");
+            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] [--average-rule traverser-reach|opponent-sampled] --out PATH | export CHECKPOINT [--current PATH] [--average PATH] | bench-train --roots ROOTS.json --seed S --iterations N [--checkpoints a,b] --lineage NAME [--variant NAME] [--regret-floor F] [--dcfr A,B,G] --out FOLDER");
             std::process::exit(2);
         }
     }

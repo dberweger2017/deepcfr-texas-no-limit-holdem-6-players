@@ -152,7 +152,11 @@ pub fn export(sampled: &Trainer, source: &Trainer, lineage: &Value, average: boo
         json!({"lineage": lineage, "metric": "v1", "key": hex, "names": node.names(), "probabilities": p,
                "mass": mass, "roots": node.visits})
     }).collect();
-    json!({"format": "hu20-board-pooling-policy-v1", "groups": groups, "lineage": lineage,
+    let mut document = json!({"format": "hu20-board-pooling-policy-v1", "groups": groups, "lineage": lineage,
            "strategy": if average { strategy(source.average) } else { "current" }, "iteration": source.iteration,
-           "zero_mass_rule": "uniform within the actual menu"})
+           "zero_mass_rule": "uniform within the actual menu"});
+    if let Some(label) = source.options.label() {
+        document["training_options"] = json!(label);
+    }
+    document
 }

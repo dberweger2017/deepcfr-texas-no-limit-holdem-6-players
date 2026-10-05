@@ -45,3 +45,35 @@ def test_native_bench_equals_subgame_trainer(tmp_path, count, checkpoints):
         for strategy in ("current", "average-traverser-reach", "average-opponent-sampled"):
             native = json.loads((tmp_path / "native" / f"iteration-{checkpoint}" / f"base.{strategy}.json").read_text())
             assert native == trainer.export("L", strategy), (checkpoint, strategy)
+
+
+@pytest.mark.parametrize("flags,label", [(["--regret-floor", "0"], "regret-floor-0"), (["--dcfr", "1.5,0,2"], "dcfr-1.5-0-2")])
+def test_options_are_labeled_and_keep_both_averages_on_one_trajectory(tmp_path, flags, label):
+    """bench-train refuses to export unless both averaging trainers kept bit-identical regrets."""
+    (tmp_path / "roots.json").write_text(json.dumps([r.to_native() for r in roots(3, 5)]))
+    common = [str(BINARY), "bench-train", "--roots", str(tmp_path / "roots.json"), "--seed", "3", "--iterations", "300",
+              "--lineage", "L", "--out", str(tmp_path / "out")]
+    subprocess.run([*common, "--variant", "base"], check=True, capture_output=True)
+    subprocess.run([*common, "--variant", "option", *flags], check=True, capture_output=True)
+    for strategy in ("current", "average-traverser-reach", "average-opponent-sampled"):
+        base = json.loads((tmp_path / "out/iteration-300" / f"base.{strategy}.json").read_text())
+        option = json.loads((tmp_path / "out/iteration-300" / f"option.{strategy}.json").read_text())
+        assert "training_options" not in base and option["training_options"] == label
+        assert option["groups"] != base["groups"]
+
+
+def test_python_refuses_to_continue_a_checkpoint_trained_with_options(tmp_path):
+    import gzip
+    from src.blueprint.artifact import load_training
+    checkpoint = tmp_path / "native.json.gz"
+    subprocess.run([str(BINARY), "train", "--nodes", "20000", "--seed", "4", "--out", str(checkpoint)], check=True,
+                   capture_output=True)
+    lines = gzip.open(checkpoint, "rt").read().splitlines()
+    header = json.loads(lines[0])
+    header["training_options"] = "regret-floor-0"
+    labeled = tmp_path / "labeled.json.gz"
+    with gzip.open(labeled, "wt") as stream:
+        stream.write("\n".join([json.dumps(header), *lines[1:]]) + "\n")
+    load_training(checkpoint)
+    with pytest.raises(ValueError, match="native options"):
+        load_training(labeled)
