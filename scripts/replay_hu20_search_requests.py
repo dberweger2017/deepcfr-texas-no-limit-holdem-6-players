@@ -94,8 +94,9 @@ def replay(binary, solve, out):
         canonical = lambda rows: [{k:v for k,v in r.items() if k not in descriptive} for r in rows]
         mine_quality = [e for e in events(work / "response.jsonl") if e.get("event") == "quality"]
         reference_quality = [e for e in events(solve / "response.jsonl") if e.get("event") == "quality"]
-        exact = (canonical(mine) == canonical(theirs) and canonical(completions) == canonical(reference_completions)
-                 and canonical(mine_quality) == canonical(reference_quality))
+        encoded = lambda rows: json.dumps(canonical(rows),sort_keys=True,separators=(",", ":"),allow_nan=False)
+        exact = (encoded(mine) == encoded(theirs) and encoded(completions) == encoded(reference_completions)
+                 and encoded(mine_quality) == encoded(reference_quality))
         difference = 0.0 if exact else None
         row["exact_scientific_outputs"] = exact
         row["scientific_profile_sha256"] = hashlib.sha256(json.dumps(canonical(mine),sort_keys=True,separators=(",", ":")).encode()).hexdigest()
