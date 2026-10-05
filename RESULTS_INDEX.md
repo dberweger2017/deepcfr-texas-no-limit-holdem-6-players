@@ -1,5 +1,13 @@
 # Research results index
 
+## PR163 full-deck equity buckets — October 5 closeout
+
+M4 originals: `/Users/dberweger/Local/hu20-equity-buckets-20261005/`. Frozen builder commit `4ade72cc18e512ed9f11fa6afa83c701a55069c8`; all six `{flop,turn,river}-k{50,200}.bin` tables, `summary.json`, original `SHA256SUMS`, status/host/test/memory files and complete `build.log` are retained. All 16 original files / **2,768,097,096 bytes** independently SHA256-verified on M4 before rental termination; the builder's ten manifest entries pass. `verification/` retains the exact reader, sanity/retrieval scripts and receipts, supplemental full-file hashes and complete pod MCP responses. [Report and pending validation plan](docs/reports/hu20-equity-buckets.md), [retrieval](docs/reports/hu20-equity-buckets-artifacts/retrieval.json), [sanity](docs/reports/hu20-equity-buckets-artifacts/sanity.json), [termination](docs/reports/hu20-equity-buckets-artifacts/termination.json).
+
+Whole archive: M4 `/Users/dberweger/Local/hu20-equity-buckets-closeout-20261005/hu20-equity-buckets-20261005.tar.gz`, **1,991,949,530 bytes**, SHA256 `03d4828f030082f213c8ce82e29fa0fa8fd97288bd8035ad0056de85bc0816ca`. All **29 source members / 2,768,143,080 logical bytes**, archive members and retained originals match; manifest SHA256 `a5d64a7882da34840dad53905e4a03284f822487732ce691ecc82cdf1585bdef`. Restore by extracting the archive into a fresh directory, then verify every `ARCHIVE-MANIFEST.json` member plus the original `SHA256SUMS`; `RESTORE-README.txt` records the directory prefix.
+
+A separate APFS copy is hash-verified and staged through native Drive desktop at `~/Local/Research-Cloud/PR-163-equity-buckets/hu20-equity-buckets-20261005.tar.gz` in [the PR163 archive folder](https://drive.google.com/drive/folders/1gwungsUq-b9uey8InGy0yOD2GbaMRhp-). Manifest, restore README and [staging receipt](docs/reports/hu20-equity-buckets-artifacts/drive-staging.json) accompany it. **Upload completion is unconfirmed.** Original table folder and separate local archive remain; no deletion or forced cache eviction occurred. M4 free space after staging: **32.505 GiB**, above 20 GiB. These tables are active inputs for validation proposed on #163, awaiting explicit owner approval. Pod `90gceq0t9mqz6q` is gone; the four older exited pods are unchanged. Estimated compute $0.148889. No table files enter Git; no validation, training, new rental or merge has run.
+
 ## October 4 organization and native Drive uploads
 
 [Canonical repository index](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/blob/main/RESULTS_INDEX.md). Repository-relative report links below resolve there; the Drive folder links work independently.

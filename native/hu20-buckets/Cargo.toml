@@ -1,0 +1,15 @@
+[package]
+name = "hu20-buckets"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Equity-distribution card abstraction tables for HU20 (flop, turn, river)"
+publish = false
+
+[dependencies]
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
