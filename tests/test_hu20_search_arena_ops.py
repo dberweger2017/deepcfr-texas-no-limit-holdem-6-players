@@ -212,3 +212,48 @@ def test_public_controller_requires_authentication(tmp_path):
     control=controller(tmp_path)
     with pytest.raises(ValueError,match='authentication'):
         serve(control,0,bind='0.0.0.0')
+
+
+def test_first_stop_reason_survives_worker_closeout(tmp_path):
+    control=controller(tmp_path)
+    control.request({'op':'stop','reason':'Fallback rate exceeds 5%'})
+    control.request({'op':'stop','reason':'Worker exited incompletely'})
+    assert control.state['reason']=='Fallback rate exceeds 5%'
+
+
+def test_partial_start_never_admits_an_unchecked_joining_host(tmp_path):
+    control=controller(tmp_path)
+    ledger=json.loads(control.ledger.read_text())
+    ledger['start_required_pods']=['pod-0','pod-1']
+    ledger['pods'][2]['parity_retention_passed']=False
+    control.ledger.write_text(json.dumps(ledger))
+    fresh=ArenaControl(tmp_path/'partial.json',control.ledger,clock=lambda:200)
+    assert fresh.request({'op':'start'})['status']=='running'
+    with pytest.raises(ValueError,match='Unknown owned'):
+        fresh.request({'op':'acquire','event':'6/1','pod':'pod-2','worker':6})
+    ledger['pods'][2]['parity_retention_passed']=True
+    control.ledger.write_text(json.dumps(ledger))
+    assert fresh.request({'op':'acquire','event':'6/1','pod':'pod-2','worker':6})['status']=='running'
+
+
+def test_compressed_native_audit_keeps_original_manifests_and_rejects_changed_seal(tmp_path):
+    import gzip
+    from pathlib import Path
+    from scripts.finish_hu20_mixed_arena import materialize_hands,ArchivedFile
+    evidence=tmp_path/'evidence';worker=evidence/'arena/worker-0';worker.mkdir(parents=True)
+    (worker/'summary.json').write_text(json.dumps({'worker_index':0,'status':'complete'}))
+    (worker/'request.json').write_text('all request bytes')
+    with gzip.open(worker/'base.hands.jsonl.gz','wt') as stream:stream.write('{}\n')
+    original={'request.json':{'bytes':17,'sha256':file_hash(worker/'request.json')}}
+    (worker/'manifest.json').write_text(json.dumps(original))
+    root=tmp_path/'supervisor';out=root/'retrieved/pod';out.parent.mkdir(parents=True)
+    pack(evidence,out)
+    (out/'retrieval-verified.json').write_text(json.dumps({**verify_archives(out),'archive_manifest_sha256':file_hash(out/'manifest.json')}))
+    directories,summaries,proofs=materialize_hands(root)
+    assert summaries[0]['worker_index']==0 and proofs[0]['pod_id']=='pod'
+    virtual=directories[0]/'request.json'
+    assert isinstance(virtual,ArchivedFile) and virtual.stat().st_size==len('all request bytes')
+    assert virtual.spec==original['request.json']
+    assert json.loads((root/'audit-hands/worker-0/manifest.json').read_text())==original
+    (out/'manifest.json').write_text((out/'manifest.json').read_text()+' ')
+    with pytest.raises(ValueError,match='manifest changed'):materialize_hands(root)

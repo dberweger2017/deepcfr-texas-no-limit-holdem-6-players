@@ -56,7 +56,8 @@ class ArenaControl:
             "event_file": str(self.event_path)})
 
     def stop(self, reason):
-        self.state.update(status="stopped", reason=reason)
+        if self.state["status"] != "stopped":
+            self.state.update(status="stopped", reason=reason)
 
     def charge(self):
         ledger = json.loads(self.ledger.read_text())
@@ -103,8 +104,9 @@ class ArenaControl:
                 ledger = json.loads(self.ledger.read_text())
                 if len([p for p in ledger["pods"] if not p.get("terminated_at")]) != ledger.get("expected_active_pods", 3):
                     raise ValueError("All owner-approved active pods required")
-                if not all(p.get("parity_retention_passed") for p in ledger["pods"] if not p.get("terminated_at")):
-                    raise ValueError("Every actual host must pass parity and retention")
+                required=ledger.get("start_required_pods",[p["id"] for p in ledger["pods"] if not p.get("terminated_at")])
+                if not required or not all(p.get("parity_retention_passed") for p in ledger["pods"] if p["id"] in required):
+                    raise ValueError("Every initial host must pass parity and retention")
                 self.state["status"] = "running"
             elif op == "stop":
                 self.stop(body["reason"])
@@ -112,7 +114,8 @@ class ArenaControl:
                 key, pod = body["event"], body["pod"]
                 ledger = json.loads(self.ledger.read_text())
                 matching = [p for p in ledger["pods"] if p["id"] == pod and not p.get("terminated_at")]
-                if len(matching) != 1 or body["worker"] not in matching[0]["workers"]:
+                if (len(matching) != 1 or not matching[0].get("parity_retention_passed")
+                        or body["worker"] not in matching[0]["workers"]):
                     raise ValueError("Unknown owned pod/worker")
                 if key in self.state["completed"]:
                     raise ValueError("Decision already completed")
@@ -156,7 +159,7 @@ class ControlClient:
 
     def request(self, op, **kwargs):
         body = {"op": op, "pod": self.pod, "worker": self.worker, **kwargs}
-        headers = {"Content-Type": "application/json"}
+        headers = {"Content-Type": "application/json", "User-Agent": "Mozilla/5.0 (compatible; HU20Arena/1.0)"}
         if self.token:
             headers["Authorization"] = "Bearer " + self.token
         request = urllib.request.Request(self.url, json.dumps(body).encode(), headers)

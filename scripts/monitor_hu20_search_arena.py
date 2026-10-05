@@ -21,7 +21,7 @@ import threading
 from time import sleep, time
 
 from scripts.hu20_search_arena_control import ArenaControl, durable_json, serve
-from scripts.hu20_search_evidence import verify_archives
+from scripts.hu20_search_evidence import verify_archives, file_hash
 
 PROTECTED = {"43z4itur3hwnyv", "cl0riravggku4r", "xu414eguzakxfr", "k9rdph2fwhym87"}
 
@@ -49,7 +49,7 @@ def download(pod, remote_path, destination, root):
         return
     code="910-"+secrets.token_hex(12)
     log="/workspace/transfer-"+secrets.token_hex(6)+".log"
-    ssh(pod,"nohup runpodctl send "+shlex.quote(remote_path)+" --code "+code+
+    ssh(pod,"nohup $(test -x /workspace/runpodctl && echo /workspace/runpodctl || echo runpodctl) send "+shlex.quote(remote_path)+" --code "+code+
         " > "+log+" 2>&1 < /dev/null &")
     actual=None
     for _ in range(30):
@@ -67,7 +67,7 @@ class RemoteControl:
     def __init__(self,url,token,ledger):self.url,self.token,self.ledger=url,token,ledger
     def request(self,body):
         request=urllib.request.Request(self.url,json.dumps(body).encode(),
-            {"Content-Type":"application/json","Authorization":"Bearer "+self.token})
+            {"Content-Type":"application/json","User-Agent":"Mozilla/5.0 (compatible; HU20Arena/1.0)","Authorization":"Bearer "+self.token})
         with urllib.request.urlopen(request,timeout=10) as response:return json.load(response)
     def charge(self):
         ledger=json.loads(self.ledger.read_text())
@@ -93,8 +93,17 @@ def cancel_owned_workers(pod):
     command += "pids=[]\nfor p in Path('/workspace/evidence/arena').glob('worker-*.pid'):\n"
     command += " pid=int(p.read_text());pids.append(pid)\n"
     command += " try:os.killpg(pid,signal.SIGTERM)\n except ProcessLookupError:pass\n"
+    # Stop only descendants of this arena's exact preflight script, so partial
+    # setup/parity files stop changing before hashing and archive creation.
+    command += "parents={};roots=[]\nfor p in Path('/proc').glob('[0-9]*/cmdline'):\n"
+    command += " try:\n  args=p.read_bytes().split(b'\\0');pid=int(p.parent.name);stat=(p.parent/'stat').read_text();parents[pid]=int(stat[stat.rfind(')')+2:].split()[1])\n"
+    command += " except (OSError,ValueError):continue\n"
+    command += " if len(args)>1 and args[0].endswith(b'bash') and args[1]==b'/workspace/bundle/preflight.sh':roots.append(pid)\n"
+    command += "owned=set(roots)\nwhile True:\n more={pid for pid,parent in parents.items() if parent in owned}-owned\n if not more:break\n owned.update(more)\n"
+    command += "for pid in sorted(owned,reverse=True):\n try:os.kill(pid,signal.SIGTERM)\n except ProcessLookupError:pass\n"
     command += "time.sleep(10)\nfor pid in pids:\n"
-    command += " try:os.killpg(pid,signal.SIGKILL)\n except ProcessLookupError:pass\nPY"
+    command += " try:os.killpg(pid,signal.SIGKILL)\n except ProcessLookupError:pass\n"
+    command += "for pid in sorted(owned,reverse=True):\n try:os.kill(pid,signal.SIGKILL)\n except ProcessLookupError:pass\nPY"
     ssh(pod, command)
 
 
@@ -113,7 +122,7 @@ def closeout(pod, root, mcp_call, ledger, lock):
     cancel_owned_workers(pod)
     # The preflight outputs and every arena file, including interrupted hands and
     # partial solver outputs, stay inside the persistent /workspace evidence tree.
-    command = "if test -d /workspace/repo && test -x /workspace/venv/bin/python; then "
+    command = "if test -f /workspace/repo/scripts/hu20_search_evidence.py && test -x /workspace/venv/bin/python; then "
     command += "cd /workspace/repo && . /workspace/venv/bin/activate && export PYTHONPATH=/workspace/repo && "
     command += "for worker in /workspace/evidence/arena/worker-*/solver; do "
     command += "test -d \"$worker\" || continue; name=$(basename \"$(dirname \"$worker\")\"); "
@@ -144,7 +153,7 @@ def closeout(pod, root, mcp_call, ledger, lock):
             raise ValueError("Unexpected transfer chunk")
         download(pod,"/workspace/archives/"+row["path"],destination/row["path"],root)
     verified = verify_archives(destination)
-    durable_json(destination/"retrieval-verified.json", {**verified, "pod_id": pod["id"], "at": time()})
+    durable_json(destination/"retrieval-verified.json", {**verified, "pod_id": pod["id"], "archive_manifest_sha256":file_hash(destination/"manifest.json"), "at": time()})
     readback = mcp_call("tools/call", {"name": "get-pod", "arguments": {"id": pod["id"]}}, 400)
     if readback["result"].get("isError"):
         raise RuntimeError("Cannot verify owned pod before termination")
@@ -207,15 +216,23 @@ def main():
             failures += 1
             durable_json(root/"supervisor-poll-failure.json", {"failures": failures, "reason": str(exc), "at": time()})
             if failures >= 3:
-                control.request({"op": "stop", "reason": "Three consecutive supervision failures"})
+                try:control.request({"op": "stop", "reason": "Three consecutive supervision failures"})
+                except Exception:pass  # Cancel all owned groups during closeout even if the controller is unreachable.
                 finished = True
     # Read the persisted stop reason without restarting the scientific run.
-    state=control.request({"op":"check"})
+    try:state=control.request({"op":"check"})
+    except Exception:state={"status":"stopped","reason":"Controller unavailable; cancel owned work and retain partials"}
     durable_json(root/"final-control.json",state)
-    control.request({"op": "stop", "reason": state.get("reason") or "All frozen workers complete; closeout"})
+    try:control.request({"op": "stop", "reason": state.get("reason") or "All frozen workers complete; closeout"})
+    except Exception:pass
     ledger = json.loads((root/"ledger.json").read_text())
     lock = threading.Lock()
     try:
+        active=[p for p in ledger['pods'] if not p.get('terminated_at')]
+        with ThreadPoolExecutor(max_workers=4) as pool:list(pool.map(cancel_owned_workers,active))
+        for p in active:
+            if p['id']=='m5pxmipuqyjtoo':
+                ssh(p,"python3 - <<'FREEZE'\nimport os,signal,shutil\nfrom pathlib import Path\np=Path('/workspace/controller-v2.pid')\nif p.exists():\n pid=int(p.read_text())\n try:\n  args=Path('/proc/'+str(pid)+'/cmdline').read_bytes().split(b'\\0')\n  assert b'scripts.hu20_search_arena_control' in args and b'/workspace/evidence/control-v2.json' in args\n  os.kill(pid,signal.SIGTERM)\n except FileNotFoundError:pass\nfor p in Path('/workspace').glob('controller*.log'):\n shutil.copy2(p,Path('/workspace/evidence')/p.name)\nFREEZE")
         with ThreadPoolExecutor(max_workers=4) as pool:
             jobs = [pool.submit(closeout, pod, root, helper.call, ledger, lock)
                     for pod in ledger["pods"] if not pod.get("terminated_at")]
