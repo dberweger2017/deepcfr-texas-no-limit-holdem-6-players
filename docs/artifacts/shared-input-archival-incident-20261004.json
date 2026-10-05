@@ -1,0 +1,53 @@
+{
+  "incident": "Archival removed shared M4 input exports while a separately resumed PR149 preparation still depended on unopened future lineage inputs",
+  "archival_authorization_assumption": "Owner had stated all science closed; this became stale after the separate owner-approved October4 resume",
+  "missed_guard": "Open-handle and narrow process/symlink checks did not detect an unopened future input declared in the active campaign plan",
+  "scientific_effect": {
+    "reason": "Required third average export disappeared from shared input alias during preparation",
+    "completed_exports": 80,
+    "native_solver_jobs": 0,
+    "main_results": 0,
+    "automatic_restart": false
+  },
+  "input_restoration": {
+    "automatic_restart": false,
+    "destination": "/Users/dberweger/Local/hu20-board-pooling-20261004/inputs-restored-02",
+    "expected_archive_cloud_id": "11PvhwMpV6RrCXHxelCRFvDOSL1ZgMzmV",
+    "files": [
+      {
+        "bytes": 73289592,
+        "name": "B-2026093001-500000000.average.jsonl.gz",
+        "path": "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-inputs/B-2026093001-500000000.average.jsonl.gz",
+        "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa"
+      },
+      {
+        "bytes": 72263239,
+        "name": "B-2026093002-500000000.average.jsonl.gz",
+        "path": "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-inputs/B-2026093002-500000000.average.jsonl.gz",
+        "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d"
+      },
+      {
+        "bytes": 71845946,
+        "name": "B-2026093003-500000000.average.jsonl.gz",
+        "path": "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-inputs/B-2026093003-500000000.average.jsonl.gz",
+        "sha256": "c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285"
+      }
+    ],
+    "m4_verified": true,
+    "m4_verified_at_epoch": 1791121658.258626,
+    "paid_cost_usd": 0,
+    "source": "retained M1 exact-flop input archive copy",
+    "timestamp": 1791121598.8992
+  },
+  "inputs_lost": false,
+  "archived_copy_preserved": true,
+  "separate_M1_inputs_preserved": true,
+  "future_guard": "Read active task/campaign plans and durable approval/continuation state; protect every declared input through owning-task verified closeout, even without open handles",
+  "protected_scopes": [
+    "M4 hu20-board-pooling-20261004",
+    "M1 hu20-board-pooling-m4-retrieval-20261004",
+    "M1 hu20-board-pooling-m4-retrieval-02-20261004",
+    "M1 hu20-m4-archive-20261002/hu20-exact-flop-check-inputs"
+  ],
+  "archival_will_not_resume_science": true
+}

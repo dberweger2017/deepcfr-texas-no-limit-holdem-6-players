@@ -1,0 +1,232 @@
+{
+  "scheduled_check_utc": "2026-10-04T15:38:07Z",
+  "previous_documentation_pr": {
+    "number": 158,
+    "head": "3231f334e1e9fd4daa9a4946f7acfcfc1b100b5f",
+    "merge": "dc48e78691f09eff1cd736ce756616a8f2f31eb9",
+    "Tests37210742471": "scope/full0/full1/test success",
+    "GitGuardian": "success",
+    "unresolved_findings": 0
+  },
+  "m1_supplement_archives": {
+    "archives": [
+      {
+        "state": "cloud-accepted-originals-retained",
+        "name": "PR105-M1-search-followup-supplement-20261004.tar.gz",
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/PR105-M1-search-followup-supplement-20261004.tar.gz",
+        "parent_id": "1rhGV45mqLEG0zosI4LnhetD8zHKv2fB2",
+        "members": 1,
+        "source_bytes": 139,
+        "bytes": 939,
+        "sha256": "91c101f7dcec9e7eb8a698277acb7df6e449fe2f59ca471dfd68e4df760ee95a",
+        "cloud_id": "1x1Rzb0awwECqiDBTpu0vsft-bYiziyKO"
+      },
+      {
+        "state": "cloud-accepted-originals-retained",
+        "name": "v0.4.0-fresh-install-validation-20261004.tar.gz",
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/v0.4.0-fresh-install-validation-20261004.tar.gz",
+        "parent_id": "1AIsc7LBHc7ziwrpOuwMuCPnvZpCJS1Zr",
+        "members": 51,
+        "source_bytes": 3163375,
+        "bytes": 382028,
+        "sha256": "e6f53a82b8b8fe275490b77dcb9ca6adf39051808d163c75b6a3e5f86e23d8d1",
+        "cloud_id": "1NGbjkLSpOGPWlDjCFbLujCChF4vqyFbx"
+      },
+      {
+        "state": "cloud-accepted-originals-retained",
+        "name": "PR116-M1-scaling-supplement-20261004.tar.gz",
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/PR116-M1-scaling-supplement-20261004.tar.gz",
+        "parent_id": "11GTp3vCt4ukl2AC6UyP-7JdGq90H-CU8",
+        "members": 43,
+        "source_bytes": 5162486,
+        "bytes": 546185,
+        "sha256": "df2367df1bd4d64e6902df28f0d3d291944c9c9245e5d6f1808fc99fcbe0aab0",
+        "cloud_id": "1loH7PI8KE8iVnVCEgJUKCxNRHHdd5WUi"
+      },
+      {
+        "state": "cloud-accepted-originals-retained",
+        "name": "PR113-M1-tp20-preflight-20261004.tar.gz",
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/PR113-M1-tp20-preflight-20261004.tar.gz",
+        "parent_id": "1bvceeB1paom93UQyGbbR29gXxco5_H3M",
+        "members": 2,
+        "source_bytes": 30669,
+        "bytes": 4246,
+        "sha256": "6e074803e6c9d4498ec231cb283ca23734b888cdd223b6c60da0d63d680fad04",
+        "cloud_id": "1XKIC3ZU_TkEuxZvpHSjVGJpAK69QyUAC"
+      },
+      {
+        "state": "cloud-accepted-originals-retained",
+        "name": "PR113-M1-demo-evidence-20261004.tar.gz",
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/PR113-M1-demo-evidence-20261004.tar.gz",
+        "parent_id": "1bvceeB1paom93UQyGbbR29gXxco5_H3M",
+        "members": 4,
+        "source_bytes": 50091984,
+        "bytes": 50098498,
+        "sha256": "c04b9bae49b09e1a52f6a2a84b0e6ea05f56e4fb934f41cebf5b523266bd7313",
+        "cloud_id": "19MasgLs-yY50TA9KsQv0xw1e4SJ53LtI"
+      },
+      {
+        "state": "cloud-accepted-originals-retained",
+        "name": "PR112-M1-human-smoke-evidence-20261004.tar.gz",
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/PR112-M1-human-smoke-evidence-20261004.tar.gz",
+        "parent_id": "16XG3GqF4vflkcsqvika0ZYideXUjSw_W",
+        "members": 1,
+        "source_bytes": 14059,
+        "bytes": 2516,
+        "sha256": "e495852614e8e96b6e4bd07b6e672f825d747fea62decb0871b98da9ca9e62a1",
+        "cloud_id": "1ydTgsD-KTrVYe5fqAt2SUIYXWnrL67oz"
+      }
+    ],
+    "all_originals_retained": true,
+    "metadata_readback_verified": true
+  },
+  "m1_closed_worktree_cleanup": {
+    "state": "complete",
+    "pid": 20893,
+    "started": 1791128710.742215,
+    "removed_files": 234,
+    "removed_bytes": 1155068143,
+    "retained": [],
+    "protected_prefixes": [
+      "/Users/dberweger/Local/hu20-m4-archive-20261002/hu20-exact-flop-check-inputs",
+      "/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-20261004",
+      "/Users/dberweger/Local/hu20-board-pooling-m4-retrieval-02-20261004",
+      "/Users/dberweger/.codex/worktrees/blueprint-averaged-extraction/deepcfr-texas-no-limit-holdem-6-players/results/hu20-scaling-both-macs-20260929/inputs"
+    ],
+    "active_campaign_plan_checked": "qualification stopped pending explicit memory readmission; its original six inputs/isolated campaign/retrieval protected; frozen execution and plans do not name any selected result roots",
+    "free_before": 25917767680,
+    "synced_payloads_removed": false,
+    "science_rerun": false,
+    "external_symlink_dependencies": [],
+    "finished": 1791128747.544529,
+    "free_after": 27135582208
+  },
+  "cleanup_receipt_cloud_id": "1WdO0dELyuqbhJ0PrhKPjsmukNVNO78_3",
+  "restore_journal_cloud_id": "1oYI1s6iX1ktCKtbjtpmMvH4n3-8ck5_o",
+  "m4_release_validation": {
+    "state": "complete-all-uploads-accepted-originals-retained",
+    "pid": 45080,
+    "archives": [
+      {
+        "name": "M4-v04-final-candidate-new-guy-validation-20261004.tar.gz",
+        "native_path": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/M4-v04-final-candidate-new-guy-validation-20261004.tar.gz",
+        "bytes": 41553141,
+        "sha256": "978abb3f28395bd1dcea6998535d5f1d890601b8d80c9fd71272400f1847f33e",
+        "members": 221,
+        "source_bytes": 45748783,
+        "state": "native-and-cloud-accepted-originals-retained",
+        "originals_retained": true,
+        "cloud_id": "1EvNvbDwG5eSyMIZwScOsSa16fm_9uDhE"
+      },
+      {
+        "name": "M4-v04-release-new-guy-validation-20261004.tar.gz",
+        "native_path": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/M4-v04-release-new-guy-validation-20261004.tar.gz",
+        "bytes": 41926664,
+        "sha256": "12a380339363cbb57dbc2780084445399679b89e844d0ea38754eec0292f02ec",
+        "members": 303,
+        "source_bytes": 46256373,
+        "state": "native-and-cloud-accepted-originals-retained",
+        "originals_retained": true,
+        "cloud_id": "1dznPFtSqhvw3arGSdaELUKi6VQ8aS2Y1"
+      },
+      {
+        "name": "M4-v04-benchmark-candidate-new-guy-validation-20261004.tar.gz",
+        "native_path": "/Users/dberweger/Local/Research-Cloud/Historical-experiments/M4-v04-benchmark-candidate-new-guy-validation-20261004.tar.gz",
+        "bytes": 88929227,
+        "sha256": "f7b4f729948992b1c6ac5b5c616b995f84077b41e04e64dca2e7695d2e61eaba",
+        "members": 1466,
+        "source_bytes": 117258316,
+        "state": "native-and-cloud-accepted-originals-retained",
+        "originals_retained": true,
+        "cloud_id": "1NxYZfSkL93YqzRSPoew-oWDOonCuGsFU"
+      }
+    ],
+    "all_originals_retained": true,
+    "scope_admission": "Closed v0.4.0 validation evidence; published readiness/release and PR135 owner-merged. No source, environments or PR149 input/campaign changes.",
+    "current_scope": "v04-benchmark-candidate-new-guy",
+    "finished": 1791128936.4683561,
+    "free_after": 100750036992
+  },
+  "m4_metadata_inventory": [
+    {
+      "root": "v04-final-candidate-new-guy/results",
+      "files": 270,
+      "bytes": 46570277
+    },
+    {
+      "root": "v04-release-new-guy/results",
+      "files": 352,
+      "bytes": 47077755
+    },
+    {
+      "root": "v04-benchmark-candidate-new-guy/results",
+      "files": 1515,
+      "bytes": 118079866
+    },
+    {
+      "root": "deepcfr-texas-no-limit-holdem-6-players/results",
+      "files": 70,
+      "bytes": 333924067
+    },
+    {
+      "root": "hu20-play-web-codex/results",
+      "files": 1026,
+      "bytes": 22238751
+    }
+  ],
+  "excluded_reproducible_dependencies": "Release archive counts are smaller than source-root totals because node_modules/browser dependencies, symlinks and build/env directories are excluded. Every admitted regular member verified. Sources remain intact.",
+  "storage_context": {
+    "m1_DriveFS_allocated_KiB": 23518712,
+    "m1_second_PR149_retrieval_allocated_KiB": 4607696,
+    "forced_eviction": false
+  },
+  "PR149_owning_chat_status": "Preparation120/120 exports. First real-policy validation/convergence passed, lock-only exceeded5GiB; main never started. All3029 files retrieved/hashverified. Ownedjobs stopped/monitoringpaused; memory engineering and explicitreadmission needed. Allfuture-inputs/campaign/retrieval remainprotected.",
+  "remaining": "Confirm restoration/closure/default dependencies for M4 release/primary/web evidence before cleanup; old primary blueprints have historical folders; web dependencies may be coding fixtures. Keep all active/future PR149 inputs, M1 training-parent inputs and demos/defaults.",
+  "science_restarted": false,
+  "synced_payload_deleted": false,
+  "m1_uploaded_archive_staging_duplicates_removed": {
+    "state": "complete",
+    "removed": [
+      {
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/PR105-M1-search-followup-supplement-20261004.tar.gz",
+        "cloud_id": "1x1Rzb0awwECqiDBTpu0vsft-bYiziyKO",
+        "bytes": 939,
+        "sha256": "91c101f7dcec9e7eb8a698277acb7df6e449fe2f59ca471dfd68e4df760ee95a"
+      },
+      {
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/v0.4.0-fresh-install-validation-20261004.tar.gz",
+        "cloud_id": "1NGbjkLSpOGPWlDjCFbLujCChF4vqyFbx",
+        "bytes": 382028,
+        "sha256": "e6f53a82b8b8fe275490b77dcb9ca6adf39051808d163c75b6a3e5f86e23d8d1"
+      },
+      {
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/PR116-M1-scaling-supplement-20261004.tar.gz",
+        "cloud_id": "1loH7PI8KE8iVnVCEgJUKCxNRHHdd5WUi",
+        "bytes": 546185,
+        "sha256": "df2367df1bd4d64e6902df28f0d3d291944c9c9245e5d6f1808fc99fcbe0aab0"
+      },
+      {
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/PR113-M1-tp20-preflight-20261004.tar.gz",
+        "cloud_id": "1XKIC3ZU_TkEuxZvpHSjVGJpAK69QyUAC",
+        "bytes": 4246,
+        "sha256": "6e074803e6c9d4498ec231cb283ca23734b888cdd223b6c60da0d63d680fad04"
+      },
+      {
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/PR113-M1-demo-evidence-20261004.tar.gz",
+        "cloud_id": "19MasgLs-yY50TA9KsQv0xw1e4SJ53LtI",
+        "bytes": 50098498,
+        "sha256": "c04b9bae49b09e1a52f6a2a84b0e6ea05f56e4fb934f41cebf5b523266bd7313"
+      },
+      {
+        "path": "/Users/dberweger/Local/research-archive-preparation-20261002/PR112-M1-human-smoke-evidence-20261004.tar.gz",
+        "cloud_id": "1ydTgsD-KTrVYe5fqAt2SUIYXWnrL67oz",
+        "bytes": 2516,
+        "sha256": "e495852614e8e96b6e4bd07b6e672f825d747fea62decb0871b98da9ca9e62a1"
+      }
+    ],
+    "bytes": 51034412,
+    "cloud_payloads_removed": false,
+    "all_archive_members_previously_verified": true,
+    "finished": 1791129122.86911
+  }
+}
