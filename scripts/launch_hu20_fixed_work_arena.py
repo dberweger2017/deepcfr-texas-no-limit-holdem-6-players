@@ -89,8 +89,12 @@ def main():
         assert len(pods)==fleet_quote['pods']
         if fleet_quote.get('admission_only_until_measured_quote'):
             assert fleet_quote['admission_allowance_usd']<=.50
+        elif fleet_quote.get('held_fleet_measured_quote_gate'):
+            pass  # Pods are already held; the measured actual-host quote below is the cost gate.
         else:assert fleet_quote['maximum_forecast_cost_usd']<=ceiling
-        assert all(h['gpu_id']==fleet_quote['gpu_id'] and h['gpu_count']==fleet_quote['gpu_count'] for h in pods)
+        # A held fleet may mix GPU models; 'gpu_ids' lists every model the owner delegation allows.
+        allowed=fleet_quote.get('gpu_ids',[fleet_quote['gpu_id']])
+        assert all(h['gpu_id'] in allowed and h['gpu_count']==fleet_quote['gpu_count'] for h in pods)
     else:assert len(pods)==2 and ceiling==25
     assert not any(h['id'] in PROTECTED or h.get('terminated_at')
                    or h['compute_hourly_usd']>(fleet_quote['maximum_compute_hourly_usd'] if fleet_quote else .13) for h in pods)
