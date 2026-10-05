@@ -104,18 +104,12 @@ fn main() {
                 regret_floor: arg("--regret-floor").map(|f| f.parse().unwrap()),
                 dcfr: arg("--dcfr").map(|v| {
                     let v: Vec<f64> = v.split(',').map(|x| x.parse().unwrap()).collect();
-                    let v: [f64; 3] = v.try_into().expect("--dcfr alpha,beta,gamma");
-                    // Only for alpha > 1 is the product of positive discounts over any gap bounded below, so
-                    // lazy catch-up cannot underflow a node's positive regrets to zero where eager discounting
-                    // would still have them (or the reverse).
-                    assert!(v[0] > 1.0, "--dcfr needs alpha > 1");
-                    // Average contributions weigh t^gamma, which must stay finite and nonzero through the run.
-                    let last = (iterations as f64).powf(v[2]);
-                    assert!(v.iter().all(|x| x.is_finite()) && last.is_finite() && last > 0.0,
-                            "--dcfr needs finite exponents and a finite iterations^gamma");
-                    v
+                    v.try_into().expect("--dcfr alpha,beta,gamma")
                 }),
             };
+            if let Err(problem) = options.check(iterations) {
+                panic!("{problem}");
+            }
             let mut trainers = [AverageRule::TraverserReach, AverageRule::OpponentSampled].map(|rule| {
                 let mut trainer = hu20_trainer::trainer::Trainer::new(seed, 1);
                 trainer.average = rule;

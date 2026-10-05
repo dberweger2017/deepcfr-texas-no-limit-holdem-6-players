@@ -181,6 +181,40 @@ impl Options {
         (!parts.is_empty()).then(|| parts.join("+"))
     }
 
+    /// Rejects settings whose arithmetic would leave f64 within `iterations`, before any training.
+    pub fn check(&self, iterations: u64) -> Result<(), String> {
+        if let Some(floor) = self.regret_floor {
+            if !floor.is_finite() {
+                return Err("--regret-floor must be finite".into());
+            }
+        }
+        let Some([alpha, beta, gamma]) = self.dcfr else { return Ok(()) };
+        if ![alpha, beta, gamma].iter().all(|x| x.is_finite()) {
+            return Err("--dcfr needs finite exponents".into());
+        }
+        // Only for alpha > 1 is the product of positive discounts over any gap bounded below, so lazy
+        // catch-up cannot underflow a node's positive regrets to zero where eager discounting would
+        // still have them (or the reverse).
+        if alpha <= 1.0 {
+            return Err("--dcfr needs alpha > 1".into());
+        }
+        // Catch-up subtracts prefix endpoints, so every prefix through the run must be finite.
+        let mut discounts = Discounts::default();
+        discounts.extend([alpha, beta], iterations);
+        if !discounts.0.iter().all(|p| p.iter().all(|v| v.is_finite())) {
+            return Err("--dcfr exponents overflow the discount prefixes within --iterations".into());
+        }
+        // Each traversal adds at most one contribution of at most t^gamma to a key (policy and reach are
+        // at most 1), so a key's average stays below 2 T max(1, T^gamma); keep that well inside f64.
+        let t = iterations as f64;
+        let last = t.powf(gamma);
+        let bound = 2.0 * t * last.max(1.0);
+        if !(last > 0.0 && bound.is_finite() && bound < f64::MAX / 16.0) {
+            return Err("--dcfr gamma leaves no room for iterations^gamma weights or their sums".into());
+        }
+        Ok(())
+    }
+
     /// The regret and average weights of iteration t's deltas.
     pub fn weights(&self, iteration: u64) -> (f64, f64) {
         let t = iteration as f64;
@@ -336,7 +370,22 @@ impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
 
 #[cfg(test)]
 mod tests {
-    use super::{Discounts, Node};
+    use super::{Discounts, Node, Options};
+
+    #[test]
+    fn checks_accept_the_planned_run_and_reject_settings_that_leave_f64() {
+        let dcfr = |v: [f64; 3]| Options { regret_floor: None, dcfr: Some(v) };
+        // Planned: gamma 2 at 3M iterations; also extreme but representable betas and a negative gamma.
+        for v in [[1.5, 0.0, 2.0], [1.5, f64::MAX, 2.0], [1.5, -200.0, -2.0], [1.0 + 1e-9, 0.0, 2.0]] {
+            assert_eq!(dcfr(v).check(3_000_000), Ok(()), "{v:?}");
+        }
+        assert!(Options::default().check(3_000_000).is_ok());
+        for (v, iterations) in [([1.0, 0.0, 2.0], 10), ([1.5, 0.0, 88.5], 3000), ([1.5, -1e307, 2.0], 100),
+                                ([1.5, -f64::MAX, 2.0], 100), ([1.5, f64::NAN, 2.0], 10), ([1.5, 0.0, -400.0], 10)] {
+            assert!(dcfr(v).check(iterations).is_err(), "{v:?} at {iterations}");
+        }
+        assert!(Options { regret_floor: Some(f64::NEG_INFINITY), dcfr: None }.check(10).is_err());
+    }
 
     /// Lazy catch-up equals discounting every node after every iteration, as DCFR is defined,
     /// including strongly negative beta, whose s^-beta overflows (#169 review).

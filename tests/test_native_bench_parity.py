@@ -93,13 +93,20 @@ def test_export_cadence_cannot_change_training(tmp_path, flags):
         assert (tmp_path / "often" / name).read_bytes() == (tmp_path / "once" / name).read_bytes()
 
 
-def test_dcfr_rejects_alpha_at_most_one_and_overflowing_gamma(tmp_path):
+@pytest.mark.parametrize("dcfr,iterations,message", [
+    ("0,0,2", 10, "alpha > 1"),
+    ("1.5,0,400", 10, "iterations^gamma"),
+    ("1.5,0,-400", 10, "iterations^gamma"),
+    # #169 review: finite endpoint weight 3000^88.5, but the summed average overflows.
+    ("1.5,0,88.5", 3000, "iterations^gamma"),
+    # #169 review: finite exponents whose summed log discounts overflow within the run.
+    ("1.5,-1e307,2", 100, "discount prefixes"),
+    ("1.5,-1.7976931348623157e308,2", 100, "discount prefixes"),
+    ("1.5,nan,2", 10, "finite exponents"),
+])
+def test_dcfr_rejects_settings_that_leave_f64_before_training(tmp_path, dcfr, iterations, message):
     (tmp_path / "roots.json").write_text(json.dumps([r.to_native() for r in roots(1, 1)]))
     out = subprocess.run([str(BINARY), "bench-train", "--roots", str(tmp_path / "roots.json"), "--seed", "3",
-                          "--iterations", "10", "--lineage", "L", "--dcfr", "0,0,2", "--out", str(tmp_path / "out")],
+                          "--iterations", str(iterations), "--lineage", "L", "--dcfr", dcfr, "--out", str(tmp_path / "out")],
                          capture_output=True, text=True)
-    assert out.returncode != 0 and "alpha > 1" in out.stderr
-    out = subprocess.run([str(BINARY), "bench-train", "--roots", str(tmp_path / "roots.json"), "--seed", "3",
-                          "--iterations", "10", "--lineage", "L", "--dcfr", "1.5,0,400", "--out", str(tmp_path / "out")],
-                         capture_output=True, text=True)
-    assert out.returncode != 0 and "iterations^gamma" in out.stderr
+    assert out.returncode != 0 and message in out.stderr and not (tmp_path / "out").exists()
