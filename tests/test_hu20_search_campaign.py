@@ -400,3 +400,38 @@ def test_blocking_watchdog_keeps_paid_worker_approval_interface(tmp_path, monkey
     if expected_failure:
         assert json.loads(failures[0].read_text())["cause"] == "OSError"
     else: assert not failures
+
+
+def test_timing_pilot_runs_both_arms_and_reports_only_costs(tmp_path,monkeypatch):
+    from collections import Counter
+    class Uniform:
+        description={"fixture":"uniform"};abstraction=HU20_UNCAPPED_SCHEMA
+        def distribution(self,view):
+            menu=choices(view,raise_cap=None,free_fold=False)
+            return menu,(1/len(menu),)*len(menu),False
+    class Search(Uniform):
+        def __init__(self,source,solver,config):self.records=[];self.stats=Counter()
+        def distribution(self,view,query_kind="play"):
+            self.records.append({"status":"completed","seconds":.25})
+            return Uniform.distribution(self,view)
+    class Budget:
+        def check(self):pass
+    config=TurnSearchConfig(iterations=50,threads=6,compress=False,opponent_likelihood_floor=0)
+    models=[{"name":f"{seed}-average","seed":seed,"strategy":"average"} for seed in (1,2,3)]
+    plan={"stage":"timing-pilot","root":43,"models":models,"selected_search_config":asdict(config),
+          "panels":[{"name":"uniform","rule":"uniform","contract":"native","blocks":4}],"expected_hands":48}
+    monkeypatch.setattr(campaign,"load",lambda spec,inputs:Uniform())
+    class Solver:
+        def __init__(self,*a,**k):self.records=[]
+    monkeypatch.setattr(campaign,"ExternalTurnSolver",Solver)
+    monkeypatch.setattr(campaign,"HU20TurnSearchPolicy",Search)
+    result=campaign.run(plan,tmp_path,tmp_path/"run",Budget(),phase="timing",search_config=config,
+                        worker_index=1,worker_count=2)
+    # Worker 1 of 2 owns blocks 1 and 3: two arms, two positions, three lineages each.
+    assert result["status"]=="complete" and result["hands"]==24
+    timing=result["timing_panels"]["uniform"]
+    assert timing["paired_blocks"]==2 and timing["seconds_per_joint_block_p95"]>0
+    assert result["solves"]>0 and result["solve_seconds_mean"]==.25
+    assert "panels" not in result and "three_lineage_changes" not in result  # no payoff summary
+    with pytest.raises(ValueError,match="Timing pilot"):
+        campaign.run(dict(plan,stage="frozen-final"),tmp_path,tmp_path/"bad",Budget(),phase="timing",search_config=config)
