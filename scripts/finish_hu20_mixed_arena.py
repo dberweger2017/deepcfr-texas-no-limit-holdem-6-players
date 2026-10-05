@@ -123,6 +123,8 @@ def main():
     spend={'gross_compute_provisioning_usd':actual_compute,'disk_upper_usd':actual_disk_upper,
            'owner_excluded_sleep_usd':ledger['owner_excluded_charge_usd'],
            'cap_counted_provisioning_upper_usd':actual_compute+actual_disk_upper-ledger['owner_excluded_charge_usd'],
+           'historical_cap_charge_usd':ledger.get('historical_cap_charge_usd',0),
+           'cumulative_cap_counted_provisioning_upper_usd':ledger.get('historical_cap_charge_usd',0)+actual_compute+actual_disk_upper-ledger['owner_excluded_charge_usd'],
            'billing_basis':'provisioning wall clock × readback rates; posted billing separately retained; not an invoice claim'}
     spec=importlib.util.spec_from_file_location('billing_mcp',args.mcp_helper)
     helper=importlib.util.module_from_spec(spec);spec.loader.exec_module(helper)
@@ -140,7 +142,8 @@ def main():
         audit=load_approved_audit(args.source)
         original_hash=audit.file_hash
         audit.file_hash=lambda path:path.spec['sha256'] if isinstance(path,ArchivedFile) else original_hash(path)
-        complete=len(summaries)==6 and {s['worker_index'] for s in summaries}==set(range(6)) and all(s['status']=='complete' for s in summaries)
+        expected_workers={w for p in ledger['pods'] for w in p['workers']}
+        complete=len(summaries)==len(expected_workers) and {s['worker_index'] for s in summaries}==expected_workers and all(s['status']=='complete' for s in summaries)
         if complete:
             result=audit.audit(directories)
             result['archive_proofs']=proofs
@@ -157,7 +160,7 @@ def main():
             control=json.loads((root/'final-control.json').read_text())
             report=f"Stage 4 stopped, frozen protocol incomplete: {hands:,}/82,944 retained complete hand records. Stop reason: {control.get('reason')}.\n\nAll retained chunks/member hashes verified; all {len(ledger['pods'])} owned pods terminated and final list-pods retained. Full base-versus-base+search contrasts are unavailable because the frozen protocol did not complete. No reduced protocol, strength conclusion, retune or restart. Owner review is required before further science.\n\nPer-host descriptive latency/fallback telemetry from retained complete hands; exact guard counts below also include interrupted-hand decisions:\n\n```json\n"+json.dumps(result['decision_latency_by_host'],indent=2)+'\n```\n'
         report+='\nExact live-search fallback counts, including decisions in interrupted hands (a host with zero decisions had not reached search):\n\n```json\n'+json.dumps(guards,indent=2)+'\n```\n'
-        report+='\nSpend (sleep remains charged by the provider, but is excluded from the approved cap):\n\n```json\n'+json.dumps(spend,indent=2)+'\n```\n\nPer-pod posted billing responses are retained separately; empty/in-progress buckets are not evidence of zero cost. Evidence and manifests: M4 `~/Local/hu20-turn-search-arena-20261005/stage-4-mixed/retrieved`; native audit/partial summary and spend are in its parent. Protected historical pods and original Mac evidence remain untouched.\n'
+        report+='\nSpend (sleep remains charged by the provider, but is excluded from the approved cap):\n\n```json\n'+json.dumps(spend,indent=2)+'\n```\n\nPer-pod posted billing responses are retained separately; empty/in-progress buckets are not evidence of zero cost. Evidence and manifests are retained under the run root’s `retrieved` directory; native audit/partial summary and spend are in its parent. Protected historical pods and original Mac evidence remain untouched.\n'
     path=root/'pr166-final-results.md';path.write_text(report)
     environment=os.environ.copy();environment['GH_TOKEN']=(root/'github-token').read_text().strip()
     posted=subprocess.check_output(['/opt/homebrew/bin/gh','pr','comment','166','--repo','dberweger2017/deepcfr-texas-no-limit-holdem-6-players','--body-file',str(path)],env=environment,text=True)

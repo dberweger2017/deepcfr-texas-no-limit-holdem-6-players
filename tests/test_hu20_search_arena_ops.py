@@ -325,3 +325,25 @@ def test_fixed_controller_counts_prior_spend(tmp_path):
     controller=ArenaControl(tmp_path/'journal.json',ledger,clock=lambda:100)
     assert controller.request({'op':'check'})['status']=='stopped'
     assert controller.charge()==21.5
+
+
+def test_lower_owner_ceiling_lowers_financial_dispatch_stop(tmp_path):
+    import json
+    from scripts.hu20_search_arena_control import ArenaControl
+    ledger=tmp_path/'ledger.json';ledger.write_text(json.dumps({'work_protocol':'hu20-fixed50-no-fallback-v1','hard_ceiling_usd':20,'dispatch_stop_usd':16,'historical_cap_charge_usd':15,'pilot_reserve_usd':.5,'storage_contingency_usd':1,'pods':[]}))
+    controller=ArenaControl(tmp_path/'journal.json',ledger,clock=lambda:100)
+    state=controller.request({'op':'check'})
+    assert state['status']=='stopped' and '$16' in state['reason']
+
+
+def test_equivalent_layout_keeps_quote_pricing_rules():
+    import json
+    from pathlib import Path
+    from scripts.quote_hu20_fixed_work_arena import forecast_layout
+    original=json.loads((Path(__file__).parents[1]/'docs/reports/hu20-fixed-work-arena/fixed-work-quote.json').read_text())
+    baseline=forecast_layout(original,compute_hourly_usd=.13,workers_per_pod=3,pods=2,hard_ceiling=25)
+    assert (baseline['expected_cost_usd'],baseline['maximum_forecast_cost_usd'])==(5.48,20.43)
+    equivalent=forecast_layout(original,compute_hourly_usd=.18,workers_per_pod=5)
+    assert (equivalent['expected_cost_usd'],equivalent['maximum_forecast_cost_usd'])==(4.79,16.96)
+    assert equivalent['minimum_quota_cpus']==30 and equivalent['minimum_ram_bytes']==51*10**9
+    assert equivalent['hard_ceiling_usd']==20 and equivalent['dispatch_stop_usd']==16

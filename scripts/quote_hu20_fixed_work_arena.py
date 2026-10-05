@@ -116,4 +116,29 @@ def main():
     print(json.dumps([(o['gpu'],o['expected_cost_usd'],o['maximum_forecast_cost_usd']) for o in result['offers']]))
 
 
+def forecast_layout(original, *, compute_hourly_usd, workers_per_pod, pods=1, hard_ceiling=20):
+    """Same frozen work/pricing rules for an owner-delegated equivalent layout."""
+    if not 0<compute_hourly_usd or workers_per_pod<1 or pods<1:raise ValueError('Positive fleet required')
+    work=original['timing'];scale=work['stage4_host_cost_scale'];workers=pods*workers_per_pod
+    reserves=sum(original['reserves_seconds_per_pod'].values())
+    mean=(17100*(work['mean_reference_cpu_seconds']*scale/6+1.5)+12000)/workers
+    maximum=(17100*(work['p95_reference_cpu_seconds']*scale/6+4)+36000)/workers
+    es=ceil(mean+reserves);ms=ceil(1.5*(maximum+reserves))
+    prior=original['historical_cap_charge_usd']+original['pilot_allowance_usd']+original['storage_contingency_usd']
+    rate=compute_hourly_usd+60*.10/720
+    return {'work_protocol':WORK_PROTOCOL,'pods':pods,'minimum_workers_per_pod':workers_per_pod,
+            'threads_per_worker':6,'minimum_quota_cpus':6*workers_per_pod,
+            'minimum_ram_bytes':ceil((9*workers_per_pod+2)*1024**3/10**9)*10**9,
+            'family_rss_limit_bytes':9*1024**3,'disk_gb_per_pod':60,
+            'maximum_compute_hourly_usd':compute_hourly_usd,'disk_hourly_usd':60*.10/720,
+            'expected_seconds':es,'maximum_forecast_seconds':ms,
+            'expected_cost_usd':ceil((prior+pods*es/3600*rate)*100)/100,
+            'maximum_forecast_cost_usd':ceil((prior+pods*ms/3600*rate)*100)/100,
+            'historical_cap_charge_usd':original['historical_cap_charge_usd'],
+            'pilot_allowance_usd':original['pilot_allowance_usd'],'storage_contingency_usd':original['storage_contingency_usd'],
+            'headroom_multiplier':1.5,'reserves_seconds_per_pod':original['reserves_seconds_per_pod'],
+            'hard_ceiling_usd':hard_ceiling,'dispatch_stop_usd':hard_ceiling-4,
+            'forecast_is_completion_guarantee':False,'host_admission_required':True}
+
+
 if __name__=='__main__':main()

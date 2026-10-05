@@ -31,7 +31,7 @@ limit=cap.read_text().strip()
 if limit!='max': mem=min(mem,int(limit))
 record={'quota_cpus':quota,'admitted_ram_bytes':mem,'affinity_cpus':affinity,'workers':workers,
         'volume_free_bytes':shutil.disk_usage('/workspace').free,'minimum_cpu':workers*6,
-        'minimum_ram_bytes':max(32*10**9,workers*9*1024**3+2*1024**3)}
+        'minimum_ram_bytes':workers*9*1024**3+2*1024**3}
 Path('/workspace/evidence/host-admission.json').write_text(json.dumps(record,sort_keys=True)+'\n')
 assert quota>=record['minimum_cpu'] and mem>=record['minimum_ram_bytes'],record
 assert shutil.disk_usage('/workspace').total>=59*10**9 and record['volume_free_bytes']>=45*10**9,record

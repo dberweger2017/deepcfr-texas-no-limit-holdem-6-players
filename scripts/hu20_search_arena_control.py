@@ -68,8 +68,12 @@ class ArenaControl:
 
     def guard(self):
         ledger = json.loads(self.ledger.read_text())
-        if self.charge() >= 21:
-            self.stop("Conservative campaign charge reached $21 dispatch stop")
+        ceiling=ledger.get("hard_ceiling_usd",25)
+        dispatch=ledger.get("dispatch_stop_usd",21)
+        if not 0<dispatch<=ceiling-4:
+            raise ValueError("Financial dispatch must preserve the four-dollar closeout reserve")
+        if self.charge() >= dispatch:
+            self.stop(f"Conservative campaign charge reached ${dispatch} dispatch stop")
         for pod in ledger["pods"]:
             if (ledger.get("work_protocol")!="hu20-fixed50-no-fallback-v1"
                     and not pod.get("terminated_at") and self.clock()>=pod["production_stop_at"]):
