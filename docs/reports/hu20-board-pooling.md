@@ -1,6 +1,6 @@
 # HU20 board-blind pooling — completed held-out diagnostic
 
-**The frozen primary readout is trainer/coverage consistent: D=0.1943 [0.1550, 0.2359].** All 40 boards qualify across all three B500M stored-average exports, with 20 boards in each frozen half and 100% retained weight. All 120 collect solves, 120 lock-only evaluations and 18 sampled replays completed. No main support, convergence or replay exclusions occurred. Draft [PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149) remains draft; paid compute cost is **$0**.
+**The frozen primary readout is trainer/coverage consistent: D=0.1943 [0.1550, 0.2359].** All 40 boards qualify across all three B500M stored-average exports, with 20 boards in each frozen half and 100% retained weight. All 120 collect solves, 120 lock-only evaluations and 18 sampled replays completed. No main support, convergence or replay exclusions occurred. [PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149) has owner approval to merge after checks; paid compute cost is **$0**.
 
 ## Result and next 0.4.x step
 
@@ -82,7 +82,9 @@ All 120 solve residuals range **0.154310–0.199842% pot** (mean 0.183155), at o
 
 ## Retrieval and archive staging
 
-The entire campaign is losslessly packed as a **16,802,192,861-byte tar.gz**, with 5,740 file members / 56,262,193,754 logical bytes and member hashes, hard-link and symlink provenance. Archive SHA256 is `20ad0f67df71464e7c06bdb1cf63451c243944c14e732b83650861f8f9bbcaed`; manifest SHA256 is `d5608ba75a785dfc5633f96dc27246d1b0c7781e478e67bc31972163565fca65`. A separate APFS clone is locally hash-verified and [staged](hu20-board-pooling-artifacts/m4-main-06/drive-staging.json) in the existing PR149 Drive folder under `M1-board-pooling/M4-main-06-20261005/`. **Cloud upload completion is pending.** The fresh M1 compressed transfer and every-member verification are still in progress; the compact reporter replay is already verified. All five earlier immutable M1 copies reverify with zero mismatches. All M4 originals, prior stop receipts, preparation hard-link dependencies and isolated restored average inputs remain preserved. No deletion or eviction is authorized.
+The entire campaign is losslessly packed as a **16,802,192,861-byte tar.gz**, with 5,740 file members / 56,262,193,754 logical bytes and member hashes, hard-link and symlink provenance. Archive SHA256 is `20ad0f67df71464e7c06bdb1cf63451c243944c14e732b83650861f8f9bbcaed`; manifest SHA256 is `d5608ba75a785dfc5633f96dc27246d1b0c7781e478e67bc31972163565fca65`. A separate APFS clone is locally hash-verified and [staged](hu20-board-pooling-artifacts/m4-main-06/drive-staging.json) in the existing PR149 Drive folder under `M1-board-pooling/M4-main-06-20261005/`. **Cloud upload completion is pending.** **Full M1 retrieval now verifies all 5,740 members with zero mismatches**, including 82 hard-link groups; [closeout receipt](hu20-board-pooling-artifacts/m4-main-06/retrieval.json). Archive and manifest hashes match M4 exactly. Verification streamed every recovered member without expanding the 56-GB campaign, so the complete raw evidence fits current M1 disk space. There are no symlink members in this snapshot. All Git administration directories are excluded; all working sources, external source archives and exact runtime commit remain retained. The compact frozen reporter replay also matches exactly, and all five earlier immutable M1 copies reverify with zero mismatches. All M4 originals, prior stop receipts, preparation hard-link dependencies and isolated restored average inputs remain preserved. No deletion or eviction is authorized.
+
+The initial SCP transfer disconnected at 9,137,894,400 bytes (exit 255); an attempted rsync sender path was absent (exit 12). The existing partial resumed using the installed `/usr/bin/rsync` with append verification (exit 0). Full archive/member SHA256 verification then passed; no solver was restarted or value recomputed. These transport failures are separate from the zero main failures. The closeout receipt records conservative guarded-plus-closeout wall accounting below the cumulative 24-hour ceiling, while preserving the original append-only guarded journal.
 
 ## Prior attempt chronology (historical, superseded by main-06 completion)
 
@@ -384,7 +386,7 @@ merge occurred; PR stays draft, paid cost $0, monitoring paused.
 is possible.** The first real-export V4 check and first equilibrium solve passed,
 but the fresh lock-only evaluation exceeded its RSS budget. All owned experiment
 processes exited; the heartbeat is paused and no automatic restart occurred.
-Draft [PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149)
+[PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149)
 remains open. Paid cost is **$0**, with the $5 RunPod allowance unused.
 
 ## Frozen question and inference limits
