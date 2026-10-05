@@ -39,3 +39,24 @@ def test_python_loads_and_continues_a_native_checkpoint(tmp_path):
     for _ in range(20):
         trainer.step()  # raises if any native key carries a different menu
     export_policy(trainer, tmp_path / "current.json.gz")
+
+
+def test_native_exports_equal_python_exports(tmp_path):
+    import gzip
+    import json
+    from src.blueprint.artifact import export_policy, load_training
+    from src.diagnostics.cfr_average import extract
+    from src.diagnostics.saved_hu20 import file_hash
+    checkpoint = tmp_path / "native.json.gz"
+    subprocess.run([str(BINARY), "train", "--nodes", "300000", "--seed", "9", "--roots-per-seat", "4",
+                    "--out", str(checkpoint)], check=True)
+    trainer = load_training(checkpoint)
+    export_policy(trainer, tmp_path / "py-current.json.gz")
+    spec = {"seed": trainer.config.seed, "iteration": trainer.iteration, "checkpoint_sha256": file_hash(checkpoint)}
+    extract(checkpoint, spec, tmp_path / "py-average.jsonl.gz")
+    subprocess.run([str(BINARY), "export", str(checkpoint), "--current", str(tmp_path / "rs-current.json.gz"),
+                    "--average", str(tmp_path / "rs-average.jsonl.gz")], check=True)
+    load = lambda name: json.loads(gzip.decompress((tmp_path / name).read_bytes()))
+    lines = lambda name: [json.loads(line) for line in gzip.open(tmp_path / name, "rt")]
+    assert load("py-current.json.gz") == load("rs-current.json.gz")
+    assert lines("py-average.jsonl.gz") == lines("rs-average.jsonl.gz")

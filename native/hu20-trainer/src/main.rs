@@ -50,6 +50,13 @@ fn main() {
             println!("iterations {} nodes {} entries {} seconds {:.2} nodes_per_second {:.0}",
                      trainer.iteration, trainer.nodes, trainer.table.len(), seconds, trainer.nodes as f64 / seconds);
         }
+        Some("export") => {
+            let arg = |name: &str| args.iter().position(|a| a == name).map(|i| std::path::PathBuf::from(&args[i + 1]));
+            let checkpoint = std::path::PathBuf::from(&args[2]);
+            let started = std::time::Instant::now();
+            let count = hu20_trainer::export::export(&checkpoint, arg("--current").as_deref(), arg("--average").as_deref()).unwrap();
+            println!("exported {count} entries in {:.2} s", started.elapsed().as_secs_f64());
+        }
         _ => {
             eprintln!("usage: hu20-trainer parity FIXTURES.jsonl | traversal-parity FIXTURE.json | train --nodes N --seed S --out PATH");
             std::process::exit(2);

@@ -12,6 +12,7 @@ blake2 = "0.10"
 serde_json = { version = "1", features = ["float_roundtrip"] }
 rayon = "1.10"
 flate2 = "1"
+sha2 = "0.10"
 
 [profile.release]
 opt-level = 3
