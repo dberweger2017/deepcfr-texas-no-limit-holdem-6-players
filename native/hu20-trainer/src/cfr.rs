@@ -198,19 +198,21 @@ impl Options {
         if alpha <= 1.0 {
             return Err("--dcfr needs alpha > 1".into());
         }
+        // Stamps are u32 iterations.
+        if iterations > u32::MAX as u64 {
+            return Err("--dcfr runs stop before 2^32 iterations".into());
+        }
         // Catch-up subtracts prefix endpoints, so every prefix through the run must be finite.
         let mut discounts = Discounts::default();
         discounts.extend([alpha, beta], iterations);
         if !discounts.0.iter().all(|p| p.iter().all(|v| v.is_finite())) {
             return Err("--dcfr exponents overflow the discount prefixes within --iterations".into());
         }
-        // Each traversal adds at most one contribution of at most t^gamma to a key (policy and reach are
-        // at most 1), so a key's average stays below 2 T max(1, T^gamma); keep that well inside f64.
-        let t = iterations as f64;
-        let last = t.powf(gamma);
-        let bound = 2.0 * t * last.max(1.0);
-        if !(last > 0.0 && bound.is_finite() && bound < f64::MAX / 16.0) {
-            return Err("--dcfr gamma leaves no room for iterations^gamma weights or their sums".into());
+        // Average weights t^gamma for gamma in [0, 8] are at least 1, so they never underflow, and below
+        // (2^32)^8 = 2^256, so even 2^64 contributions of them sum far inside f64. Larger or negative gamma
+        // would need rescaled accumulators; DCFR's recommended gamma is 2.
+        if !(0.0..=8.0).contains(&gamma) {
+            return Err("--dcfr needs gamma in [0, 8] so iterations^gamma weights and their sums stay in range".into());
         }
         Ok(())
     }
@@ -376,12 +378,14 @@ mod tests {
     fn checks_accept_the_planned_run_and_reject_settings_that_leave_f64() {
         let dcfr = |v: [f64; 3]| Options { regret_floor: None, dcfr: Some(v) };
         // Planned: gamma 2 at 3M iterations; also extreme but representable betas and a negative gamma.
-        for v in [[1.5, 0.0, 2.0], [1.5, f64::MAX, 2.0], [1.5, -200.0, -2.0], [1.0 + 1e-9, 0.0, 2.0]] {
+        for v in [[1.5, 0.0, 2.0], [1.5, f64::MAX, 2.0], [1.5, -200.0, 0.0], [1.0 + 1e-9, 0.0, 2.0], [1.5, 0.0, 8.0]] {
             assert_eq!(dcfr(v).check(3_000_000), Ok(()), "{v:?}");
         }
         assert!(Options::default().check(3_000_000).is_ok());
         for (v, iterations) in [([1.0, 0.0, 2.0], 10), ([1.5, 0.0, 88.5], 3000), ([1.5, -1e307, 2.0], 100),
-                                ([1.5, -f64::MAX, 2.0], 100), ([1.5, f64::NAN, 2.0], 10), ([1.5, 0.0, -400.0], 10)] {
+                                ([1.5, -f64::MAX, 2.0], 100), ([1.5, f64::NAN, 2.0], 10), ([1.5, 0.0, -400.0], 10),
+                                ([1.5, 0.0, -107.8], 1000), ([1.5, 0.0, -0.5], 10), ([1.5, 0.0, 8.5], 10),
+                                ([1.5, 0.0, 2.0], 1 << 32)] {
             assert!(dcfr(v).check(iterations).is_err(), "{v:?} at {iterations}");
         }
         assert!(Options { regret_floor: Some(f64::NEG_INFINITY), dcfr: None }.check(10).is_err());

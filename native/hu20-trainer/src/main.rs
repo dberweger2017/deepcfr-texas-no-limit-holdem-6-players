@@ -66,6 +66,8 @@ fn main() {
             let mut milestones: Vec<u64> = arg("--milestones", "").split(',').filter(|s| !s.is_empty())
                 .map(|s| s.parse().unwrap()).filter(|&m| m < nodes).collect();
             milestones.push(nodes);
+            milestones.sort_unstable();
+            milestones.dedup();
             let mut trainer = hu20_trainer::trainer::Trainer::new(seed, roots);
             trainer.average = hu20_trainer::cfr::AverageRule::parse(&arg("--average-rule", "traverser-reach"));
             let started = std::time::Instant::now();
@@ -97,9 +99,12 @@ fn main() {
             let lineage = serde_json::from_str(&raw).unwrap_or(serde_json::Value::String(raw));
             let variant = arg("--variant").unwrap_or("base".into());
             let out = std::path::PathBuf::from(required("--out"));
+            // Like Python's sorted(set(checkpoints) | {iterations}); iteration 0 is never exported.
             let mut checkpoints: Vec<u64> = arg("--checkpoints").unwrap_or_default().split(',').filter(|s| !s.is_empty())
-                .map(|s| s.parse().unwrap()).filter(|&c| c < iterations).collect();
+                .map(|s| s.parse().unwrap()).filter(|&c| 0 < c && c < iterations).collect();
             checkpoints.push(iterations);
+            checkpoints.sort_unstable();
+            checkpoints.dedup();
             let options = hu20_trainer::cfr::Options {
                 regret_floor: arg("--regret-floor").map(|f| f.parse().unwrap()),
                 dcfr: arg("--dcfr").map(|v| {

@@ -103,6 +103,8 @@ def test_export_cadence_cannot_change_training(tmp_path, flags):
     ("1.5,-1e307,2", 100, "discount prefixes"),
     ("1.5,-1.7976931348623157e308,2", 100, "discount prefixes"),
     ("1.5,nan,2", 10, "finite exponents"),
+    # #169 review: subnormal t^gamma weights silently zeroed averages.
+    ("1.5,0,-107.8", 1000, "gamma in [0, 8]"),
 ])
 def test_dcfr_rejects_settings_that_leave_f64_before_training(tmp_path, dcfr, iterations, message):
     (tmp_path / "roots.json").write_text(json.dumps([r.to_native() for r in roots(1, 1)]))
@@ -110,3 +112,17 @@ def test_dcfr_rejects_settings_that_leave_f64_before_training(tmp_path, dcfr, it
                           "--iterations", str(iterations), "--lineage", "L", "--dcfr", dcfr, "--out", str(tmp_path / "out")],
                          capture_output=True, text=True)
     assert out.returncode != 0 and message in out.stderr and not (tmp_path / "out").exists()
+
+
+def test_checkpoints_are_sorted_and_deduplicated_like_python(tmp_path):
+    """#169 review: unsorted checkpoints wrote iteration-50 policies into iteration-10."""
+    (tmp_path / "roots.json").write_text(json.dumps([r.to_native() for r in roots(5, 12)]))
+    common = [str(BINARY), "bench-train", "--roots", str(tmp_path / "roots.json"), "--seed", "3", "--iterations", "100",
+              "--lineage", "L"]
+    subprocess.run([*common, "--checkpoints", "50,10,50,0,100,400", "--out", str(tmp_path / "unsorted")], check=True,
+                   capture_output=True)
+    subprocess.run([*common, "--checkpoints", "10,50", "--out", str(tmp_path / "sorted")], check=True, capture_output=True)
+    assert sorted(p.name for p in (tmp_path / "unsorted").iterdir()) == ["iteration-10", "iteration-100", "iteration-50"]
+    for path in (tmp_path / "sorted").glob("iteration-*/*.json"):
+        assert (tmp_path / "unsorted" / path.relative_to(tmp_path / "sorted")).read_bytes() == path.read_bytes()
+        assert json.loads(path.read_text())["iteration"] == int(path.parent.name.split("-")[1])
