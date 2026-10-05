@@ -1,0 +1,10 @@
+{
+  "roots": 40,
+  "unique_spots": 40,
+  "all_12_policies_both_seats": true,
+  "raw_native_metrics_match_summary": true,
+  "paired_PR149_references_match": true,
+  "request_response_policy_hashes_match": true,
+  "all_runtime_memory_peaks_within_7GiB": true,
+  "runtime_commit": "74ba3202396128a3823b654d05d0b002b3c4ceed"
+}

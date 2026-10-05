@@ -1,0 +1,41 @@
+{
+  "destination": "/Users/dberweger/Local/Research-Cloud/PR-162-HU20-trainer-bench/M4-run-20261005",
+  "research_drive_folder": "https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s",
+  "files": [
+    {
+      "file": "hu20-trainer-bench-m4-complete-20261005.tar.gz",
+      "bytes": 1745796815,
+      "sha256": "67d51196af43202d6e2ebff5222ccfd6a264c1d9d0eb4efdc7ccfa1fa78d3dd3"
+    },
+    {
+      "file": "ARCHIVE-MANIFEST-20261005.json",
+      "bytes": 1348073,
+      "sha256": "62aefd4d8b9dc3e4380612f772d513384c2049e6fc708d3bba1334230cf0a049"
+    },
+    {
+      "file": "ARCHIVE-RECEIPT.json",
+      "bytes": 506,
+      "sha256": "2025c4eaf74a8a1c6c89ad22db4add413080f910fcef34369e3da63e59b86ee6"
+    },
+    {
+      "file": "PROVENANCE.json",
+      "bytes": 111095,
+      "sha256": "3e35a70c67d064a70b2109bb2ae8383c71f9837695c476ca26611a5dc878de67"
+    },
+    {
+      "file": "RAW-VERIFICATION.json",
+      "bytes": 323,
+      "sha256": "121735e0e1ac8a183839b1bb523e741df4f33bb0e9e3431d0fd779dc89d60b9e"
+    },
+    {
+      "file": "RESTORE-README.txt",
+      "bytes": 955,
+      "sha256": "07ea730829eb351da4d17032f54c3aaaa14b2d0440a914eb4a5bf70377433cb0"
+    }
+  ],
+  "staged_files_hash_verified": true,
+  "cloud_upload_completion": "unconfirmed",
+  "originals_retained": true,
+  "free_disk_bytes": 26730725376,
+  "created_utc": "2026-10-05T12:10:16Z"
+}
