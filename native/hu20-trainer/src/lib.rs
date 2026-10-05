@@ -6,4 +6,5 @@ pub mod export;
 pub mod game;
 pub mod key;
 pub mod parity;
+pub mod streams;
 pub mod trainer;

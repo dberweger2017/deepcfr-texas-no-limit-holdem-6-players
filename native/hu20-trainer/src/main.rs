@@ -34,21 +34,51 @@ fn main() {
                 std::process::exit(1);
             }
         }
+        Some("run-parity") => {
+            let document: serde_json::Value = serde_json::from_str(&std::fs::read_to_string(&args[2]).unwrap()).unwrap();
+            match hu20_trainer::parity::check_run(&document) {
+                Ok((iterations, entries)) => println!("iterations {iterations} entries {entries} identical"),
+                Err(problem) => {
+                    eprintln!("{problem}");
+                    std::process::exit(1);
+                }
+            }
+        }
+        Some("engine-deal") => {
+            // Hole cards by seat and the board for button 0, as the engine deals them from a seed.
+            for seed in &args[2..] {
+                let hand = hu20_trainer::game::Hand::from_deck(0, &hu20_trainer::streams::engine_deck(seed.parse().unwrap()));
+                let name = |c: &u8| hu20_buckets::card_name(*c);
+                println!("{} {}", hand.holes.iter().flatten().map(name).collect::<Vec<_>>().join(" "),
+                         hand.board.iter().map(name).collect::<Vec<_>>().join(" "));
+            }
+        }
         Some("train") => {
             let arg = |name: &str, default: &str| args.iter().position(|a| a == name).map(|i| args[i + 1].clone()).unwrap_or(default.into());
             let nodes: u64 = arg("--nodes", "1000000").parse().unwrap();
+            // Alternatively stop after a fixed number of iterations.
+            let iterations: u64 = arg("--iterations", "0").parse().unwrap();
             let seed: u64 = arg("--seed", "1").parse().unwrap();
             let roots: usize = arg("--roots-per-seat", "1").parse().unwrap();
-            let out = std::path::PathBuf::from(arg("--out", "native-checkpoint.json.gz"));
+            let out = arg("--out", "native-checkpoint.json.gz");
+            // Optional earlier saves, like Python's milestones: the first complete iteration at or past each count.
+            // A `{nodes}` placeholder in `--out` names each save by its milestone.
+            let mut milestones: Vec<u64> = arg("--milestones", "").split(',').filter(|s| !s.is_empty())
+                .map(|s| s.parse().unwrap()).filter(|&m| m < nodes).collect();
+            milestones.push(nodes);
             let mut trainer = hu20_trainer::trainer::Trainer::new(seed, roots);
             let started = std::time::Instant::now();
-            while trainer.nodes < nodes {
-                trainer.step();
+            for milestone in milestones {
+                while trainer.nodes < milestone && (iterations == 0 || trainer.iteration < iterations) {
+                    trainer.step();
+                }
+                let seconds = started.elapsed().as_secs_f64();
+                let path = std::path::PathBuf::from(out.replace("{nodes}", &milestone.to_string()));
+                trainer.save(&path, 1_000_000_000, 1_000_000_000).unwrap();
+                println!("milestone {} iterations {} nodes {} entries {} seconds {:.2} nodes_per_second {:.0} path {}",
+                         milestone, trainer.iteration, trainer.nodes, trainer.table.len(), seconds,
+                         trainer.nodes as f64 / seconds, path.display());
             }
-            let seconds = started.elapsed().as_secs_f64();
-            trainer.save(&out, 1_000_000_000, 1_000_000_000).unwrap();
-            println!("iterations {} nodes {} entries {} seconds {:.2} nodes_per_second {:.0}",
-                     trainer.iteration, trainer.nodes, trainer.table.len(), seconds, trainer.nodes as f64 / seconds);
         }
         Some("export") => {
             let arg = |name: &str| args.iter().position(|a| a == name).map(|i| std::path::PathBuf::from(&args[i + 1]));
@@ -58,7 +88,7 @@ fn main() {
             println!("exported {count} entries in {:.2} s", started.elapsed().as_secs_f64());
         }
         _ => {
-            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl | traversal-parity FIXTURE.json | train --nodes N --seed S --out PATH");
+            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] --out PATH | export CHECKPOINT [--current PATH] [--average PATH]");
             std::process::exit(2);
         }
     }

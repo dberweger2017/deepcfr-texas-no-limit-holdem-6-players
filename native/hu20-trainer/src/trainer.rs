@@ -2,10 +2,13 @@
 //!
 //! Each iteration runs `roots_per_seat` traversals per seat against the table as
 //! it stood when the iteration began, merges their deltas in task order and only
-//! then applies them, exactly like `BlueprintTrainer.step`. Production HU20 runs
-//! use one root per seat; more roots per seat run in parallel.
+//! then applies them, exactly like `BlueprintTrainer.step`. Roots draw the Python
+//! trainer's own random streams, so a native run equals the Python run with the
+//! same seed and roots per seat. Production HU20 runs use one root per seat; more
+//! roots per seat run in parallel.
 
-use crate::cfr::{Key, Lookup, Node, Stream, Table, Traversal};
+use crate::cfr::{Key, Lookup, Node, Sampler, Table, Traversal};
+use crate::streams::{engine_deck, python_seed, Mt};
 use crate::game::Hand;
 use flate2::write::GzEncoder;
 use flate2::Compression;
@@ -54,41 +57,33 @@ pub struct Trainer {
     pub nodes: u64,
 }
 
-fn mix(parts: &[u64]) -> u64 {
-    let mut stream = Stream(0x5EED_0F_4C_0FFEE);
-    for &part in parts {
-        stream.0 ^= part;
-        stream.next_u64();
-    }
-    stream.next_u64()
-}
-
-pub fn deal(seed: u64) -> Vec<u8> {
-    let mut deck: Vec<u8> = (0..52).collect();
-    let mut stream = Stream(seed);
-    for i in (1..52).rev() {
-        let j = stream.below(i + 1);
-        deck.swap(i, j);
-    }
-    deck
-}
-
 impl Trainer {
     pub fn new(seed: u64, roots_per_seat: usize) -> Trainer {
         Trainer { table: Sharded::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0 }
     }
 
     pub fn step(&mut self) -> u64 {
+        let seed = self.seed;
+        self.step_with(|iteration, seat, sample| {
+            (engine_deck(python_seed(seed, iteration, seat, sample, "deal")),
+             Mt::new(python_seed(seed, iteration, seat, sample, "actions")))
+        })
+    }
+
+    /// One iteration whose roots take their deck and opponent sampler from `root(iteration, seat, sample)`.
+    pub fn step_with<S, F>(&mut self, root: F) -> u64
+    where
+        S: Sampler,
+        F: Fn(u64, usize, usize) -> (Vec<u8>, S) + Sync,
+    {
         let iteration = self.iteration + 1;
         let tasks: Vec<(usize, usize)> =
             (0..2).flat_map(|seat| (0..self.roots_per_seat).map(move |sample| (seat, sample))).collect();
         let table = &self.table;
-        let seed = self.seed;
         let mut scratch = std::mem::take(&mut self.scratch);
         scratch.resize_with(tasks.len(), Table::default);
         let run = |(&(seat, sample), deltas): (&(usize, usize), Table)| {
-            let deck = deal(mix(&[seed, iteration, seat as u64, sample as u64, 1]));
-            let sampler = Stream(mix(&[seed, iteration, seat as u64, sample as u64, 2]));
+            let (deck, sampler) = root(iteration, seat, sample);
             let mut traversal = Traversal::with_deltas(table, iteration, seat, sampler, deltas);
             traversal.run(&mut Hand::from_deck(0, &deck));
             (traversal.deltas, traversal.nodes)

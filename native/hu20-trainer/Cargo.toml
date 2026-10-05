@@ -11,6 +11,8 @@ hu20-buckets = { path = "../hu20-buckets" }
 blake2 = "0.10"
 serde_json = { version = "1", features = ["float_roundtrip"] }
 rayon = "1.10"
+# The pinned `pokers` engine deals with rand 0.8.8 `StdRng`; the same crate reproduces its decks.
+rand = "=0.8.8"
 flate2 = "1"
 sha2 = "0.10"
 

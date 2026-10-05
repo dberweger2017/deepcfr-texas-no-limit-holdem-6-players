@@ -139,36 +139,6 @@ impl Sampler for Forced<'_> {
     }
 }
 
-/// Splitmix64 stream; draws by cumulative weights like `random.choices`.
-pub struct Stream(pub u64);
-impl Stream {
-    pub fn next_u64(&mut self) -> u64 {
-        self.0 = self.0.wrapping_add(0x9E37_79B9_7F4A_7C15);
-        let mut z = self.0;
-        z = (z ^ (z >> 30)).wrapping_mul(0xBF58_476D_1CE4_E5B9);
-        z = (z ^ (z >> 27)).wrapping_mul(0x94D0_49BB_1331_11EB);
-        z ^ (z >> 31)
-    }
-    pub fn unit(&mut self) -> f64 {
-        (self.next_u64() >> 11) as f64 / (1u64 << 53) as f64
-    }
-    pub fn below(&mut self, n: usize) -> usize {
-        (self.unit() * n as f64) as usize % n
-    }
-}
-impl Sampler for Stream {
-    fn sample(&mut self, policy: &[f64]) -> usize {
-        let mut cumulative = [0f64; MAX_ACTIONS];
-        let mut running = 0.0;
-        for (c, &p) in cumulative.iter_mut().zip(policy) {
-            running += p;
-            *c = running;
-        }
-        let target = self.unit() * running;
-        cumulative[..policy.len() - 1].partition_point(|&c| c <= target)
-    }
-}
-
 pub struct Traversal<'a, S: Sampler, L: Lookup = Table> {
     pub table: &'a L,
     pub iteration: u64,

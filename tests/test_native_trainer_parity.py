@@ -30,6 +30,26 @@ def test_traversals_reproduce_python_deltas_bit_for_bit(tmp_path):
     assert "mismatched 0" in out.stdout
 
 
+@pytest.mark.parametrize("roots", [1, 4])
+def test_a_native_run_equals_the_python_run_with_the_same_seed(tmp_path, roots):
+    from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
+    from src.blueprint.artifact import save_training
+    from src.blueprint.solver import BlueprintTrainer, HU20_UNCAPPED_GAME, PilotConfig
+    from src.game.hand import Table
+    config = PilotConfig(seed=2026100517, raise_cap=None, abstraction=HU20_UNCAPPED_SCHEMA, game=HU20_UNCAPPED_GAME,
+                         roots_per_seat=roots, postflop_replicates=1, max_nodes=10**9, max_entries=10**9,
+                         max_seconds=900)
+    trainer = BlueprintTrainer(Table(("player-0", "player-1"), (2000, 2000)), config)
+    for _ in range(120 // roots):
+        trainer.step()
+    save_training(trainer, tmp_path / "python.json.gz")
+    subprocess.run([str(BINARY), "train", "--nodes", str(10**12), "--iterations", str(trainer.iteration),
+                    "--seed", str(config.seed), "--roots-per-seat", str(roots), "--out", str(tmp_path / "native.json.gz")],
+                   check=True, capture_output=True)
+    out = run("-m", "scripts.compare_native_lineage", str(tmp_path / "python.json.gz"), str(tmp_path / "native.json.gz"))
+    assert '"identical": true' in out.stdout
+
+
 def test_python_loads_and_continues_a_native_checkpoint(tmp_path):
     from src.blueprint.artifact import export_policy, load_training
     checkpoint = tmp_path / "native.json.gz"

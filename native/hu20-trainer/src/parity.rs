@@ -158,3 +158,52 @@ pub fn check_traversals(document: &Value) -> (usize, Vec<String>) {
     }
     (cases.len(), problems)
 }
+
+/// Replay a recorded Python training run (decks and opponent draws per root) and compare every
+/// iteration's node count, then the final table, bit for bit.
+pub fn check_run(document: &Value) -> Result<(usize, usize), String> {
+    use crate::cfr::Forced;
+    use crate::trainer::Trainer;
+    assert_eq!(document["table_button"].as_u64(), Some(0), "native training uses button 0");
+    let iterations = document["iterations"].as_array().unwrap();
+    let roots: Vec<Vec<(Vec<u8>, Vec<usize>)>> = iterations.iter().map(|it| {
+        it["roots"].as_array().unwrap().iter().map(|root| {
+            let deck = root["deck"].as_array().unwrap().iter().map(|c| parse_card(c.as_str().unwrap())).collect();
+            let draws = root["draws"].as_array().unwrap().iter().map(|d| d.as_u64().unwrap() as usize).collect();
+            (deck, draws)
+        }).collect()
+    }).collect();
+    let mut trainer = Trainer::new(0, 1);
+    for (index, recorded) in iterations.iter().enumerate() {
+        let nodes = trainer.step_with(|iteration, seat, _sample| {
+            let (deck, draws) = &roots[iteration as usize - 1][seat];
+            (deck.clone(), Forced(draws.iter()))
+        });
+        let expected = recorded["nodes"].as_u64().unwrap();
+        if nodes != expected {
+            return Err(format!("iteration {}: native {nodes} nodes, python {expected}", index + 1));
+        }
+    }
+    let expected: std::collections::HashMap<_, _> = document["nodes"].as_object().unwrap().iter()
+        .map(|(k, row)| (hex_key(k), node_from(row))).collect();
+    if expected.len() != trainer.table.len() {
+        return Err(format!("table has {} keys, python {}", trainer.table.len(), expected.len()));
+    }
+    let same = |a: &[f64], b: &[f64]| a.iter().zip(b).all(|(x, y)| x.to_bits() == y.to_bits());
+    let mut differing = 0;
+    for (key, theirs) in &expected {
+        match crate::cfr::Lookup::lookup(&trainer.table, key) {
+            None => return Err("a python key is missing natively".into()),
+            Some(mine) => {
+                if mine.code != theirs.code || mine.visits != theirs.visits
+                    || !same(&mine.regrets, &theirs.regrets) || !same(&mine.average, &theirs.average) {
+                    differing += 1;
+                }
+            }
+        }
+    }
+    if differing > 0 {
+        return Err(format!("{differing} of {} entries differ", expected.len()));
+    }
+    Ok((iterations.len(), expected.len()))
+}
