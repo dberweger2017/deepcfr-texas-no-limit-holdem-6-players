@@ -1,0 +1,12 @@
+{
+  "archive": "/Users/dberweger/Local/hu20-trainer-bench-closeout-20261005/hu20-trainer-bench-m4-complete-20261005.tar.gz",
+  "bytes": 1745796815,
+  "sha256": "67d51196af43202d6e2ebff5222ccfd6a264c1d9d0eb4efdc7ccfa1fa78d3dd3",
+  "manifest_sha256": "62aefd4d8b9dc3e4380612f772d513384c2049e6fc708d3bba1334230cf0a049",
+  "member_files": 2809,
+  "logical_bytes": 5663368615,
+  "archive_members_verified": true,
+  "originals_retained": true,
+  "cloud_completion": "pending",
+  "free_disk_bytes": 26730971136
+}
