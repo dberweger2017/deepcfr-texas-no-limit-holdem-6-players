@@ -191,3 +191,24 @@ def test_supervisor_only_terminates_attributed_pod_after_stream_hash_verificatio
         assert monitor.closeout(pod, root, mcp, ledger, threading.Lock()) == "owned"
         assert actions == ["get-pod", "delete-pod", "get-pod"]
         assert pod["retrieval_verified"] and pod["terminated_at"]
+
+
+def test_mixed_handoff_start_and_fixed_sleep_exclusion(tmp_path):
+    ledger=tmp_path/'ledger.json'
+    pods=[{'id':f'mixed-{i}','workers':([0,1] if i==0 else [i+1]),'created_at':100,
+           'hourly_usd':.2,'production_stop_at':10000,'parity_retention_passed':True} for i in range(4)]
+    ledger.write_text(json.dumps({'pods':pods,'expected_active_pods':4,'owner_excluded_charge_usd':.4}))
+    control=ArenaControl(tmp_path/'control.json',ledger,clock=lambda:1900)
+    assert control.request({'op':'start'})['status']=='running'
+    assert control.charge()==pytest.approx(1.5)
+    pods[3]['parity_retention_passed']=False
+    ledger.write_text(json.dumps({'pods':pods,'expected_active_pods':4}))
+    other=ArenaControl(tmp_path/'other.json',ledger,clock=lambda:1900)
+    with pytest.raises(ValueError,match='parity'):other.request({'op':'start'})
+
+
+def test_public_controller_requires_authentication(tmp_path):
+    from scripts.hu20_search_arena_control import serve
+    control=controller(tmp_path)
+    with pytest.raises(ValueError,match='authentication'):
+        serve(control,0,bind='0.0.0.0')

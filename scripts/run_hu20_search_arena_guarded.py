@@ -30,7 +30,19 @@ def guarded_policy(policy_class, client, guard):
 def main():
     from scripts import evaluate_hu20_turn_search as worker
     client = ControlClient(os.environ["HU20_CONTROL_URL"], os.environ["HU20_POD_ID"],
-                           int(os.environ["HU20_WORKER_INDEX"]))
+                           int(os.environ["HU20_WORKER_INDEX"]), os.environ.get("HU20_CONTROL_TOKEN"))
+    from scripts import hu20_search_runtime as runtime
+    # These community hosts mix v1/v2. Do not charge unrelated host swap to the
+    # pod when a v1 memory controller exposes its own memsw counters.
+    from pathlib import Path
+    original_swap = runtime.swap_bytes
+    def pod_swap():
+        base = Path("/sys/fs/cgroup/memory")
+        total, resident = base/"memory.memsw.usage_in_bytes", base/"memory.usage_in_bytes"
+        if total.exists() and resident.exists():
+            return max(0, int(total.read_text())-int(resident.read_text()))
+        return original_swap()
+    runtime.swap_bytes = pod_swap
     original_budget = worker.PaidWorkerBudget
     active = []
 

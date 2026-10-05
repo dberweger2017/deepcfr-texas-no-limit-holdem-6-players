@@ -1,7 +1,7 @@
 """Outcome-blind, fail-closed admission for the owner-approved paid arena.
 
-Serve on localhost only. Each pod connects through a reverse SSH tunnel; losing
-the controller cancels work rather than allowing unmonitored paid dispatch.
+An authenticated pod-hosted controller survives the operator laptop sleeping.
+Losing the controller halts dispatch; existing journals prohibit restarts.
 """
 
 import argparse
@@ -63,7 +63,7 @@ class ArenaControl:
         now = self.clock()
         return ledger.get("pilot_reserve_usd", .5) + ledger.get("storage_contingency_usd", 1) + sum(
             max(0, p.get("terminated_at", now) - p["created_at"]) / 3600 * p["hourly_usd"]
-            for p in ledger["pods"])
+            for p in ledger["pods"]) - ledger.get("owner_excluded_charge_usd", 0)
 
     def guard(self):
         ledger = json.loads(self.ledger.read_text())
@@ -101,8 +101,8 @@ class ArenaControl:
                 if self.state["status"] != "preflight":
                     raise ValueError("Arena cannot restart")
                 ledger = json.loads(self.ledger.read_text())
-                if len([p for p in ledger["pods"] if not p.get("terminated_at")]) != 3:
-                    raise ValueError("Three admitted pods required")
+                if len([p for p in ledger["pods"] if not p.get("terminated_at")]) != ledger.get("expected_active_pods", 3):
+                    raise ValueError("All owner-approved active pods required")
                 if not all(p.get("parity_retention_passed") for p in ledger["pods"] if not p.get("terminated_at")):
                     raise ValueError("Every actual host must pass parity and retention")
                 self.state["status"] = "running"
@@ -149,14 +149,17 @@ class ArenaControl:
 
 
 class ControlClient:
-    def __init__(self, url, pod, worker):
+    def __init__(self, url, pod, worker, token=None):
         self.url, self.pod, self.worker = url, pod, worker
         self.sequence = 0
+        self.token = token
 
     def request(self, op, **kwargs):
         body = {"op": op, "pod": self.pod, "worker": self.worker, **kwargs}
-        request = urllib.request.Request(self.url, json.dumps(body).encode(),
-                                         {"Content-Type": "application/json"})
+        headers = {"Content-Type": "application/json"}
+        if self.token:
+            headers["Authorization"] = "Bearer " + self.token
+        request = urllib.request.Request(self.url, json.dumps(body).encode(), headers)
         try:
             with urllib.request.urlopen(request, timeout=5) as response:
                 result = json.load(response)
@@ -179,12 +182,19 @@ class ControlClient:
             sleep(.1)
 
 
-def serve(control, port):
+def serve(control, port, *, bind="127.0.0.1", token=None):
+    import hmac
+    if bind != "127.0.0.1" and not token:
+        raise ValueError("A public controller requires authentication")
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
             pass
 
         def do_POST(self):
+            if token and not hmac.compare_digest(self.headers.get("Authorization", ""), "Bearer "+token):
+                self.send_response(403)
+                self.end_headers()
+                return
             try:
                 n = int(self.headers.get("Content-Length", "0"))
                 if not 0 < n < 4096:
@@ -201,7 +211,7 @@ def serve(control, port):
             self.send_header("Content-Type", "application/json")
             self.end_headers()
             self.wfile.write(encoded)
-    ThreadingHTTPServer(("127.0.0.1", port), Handler).serve_forever()
+    ThreadingHTTPServer((bind, port), Handler).serve_forever()
 
 
 def main():
@@ -209,8 +219,11 @@ def main():
     parser.add_argument("--journal", type=Path, required=True)
     parser.add_argument("--ledger", type=Path, required=True)
     parser.add_argument("--port", type=int, default=18066)
+    parser.add_argument("--bind", default="127.0.0.1")
+    parser.add_argument("--token-file", type=Path)
     args = parser.parse_args()
-    serve(ArenaControl(args.journal, args.ledger), args.port)
+    serve(ArenaControl(args.journal, args.ledger), args.port, bind=args.bind,
+          token=args.token_file.read_text().strip() if args.token_file else None)
 
 
 if __name__ == "__main__":

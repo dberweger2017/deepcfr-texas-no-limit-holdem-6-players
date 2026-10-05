@@ -11,22 +11,31 @@ export CARGO_HOME=/workspace/cargo RUSTUP_HOME=/workspace/rustup PATH=/workspace
 test "$(uname -m)" = x86_64
 uname -a > "$E/uname.txt"; lscpu > "$E/lscpu.txt"; free -b > "$E/free.txt"
 df -B1 / /workspace > "$E/df.txt"
-cat /sys/fs/cgroup/cpu.max > "$E/cgroup-cpu.max"
-cat /sys/fs/cgroup/memory.max > "$E/cgroup-memory.max"
-python3 - <<'PY'
+python3 - <<'PYHOST'
 import json, os, shutil
 from pathlib import Path
-cpu=Path('/sys/fs/cgroup/cpu.max').read_text().split()
-quota=len(os.sched_getaffinity(0)) if cpu[0]=='max' else min(len(os.sched_getaffinity(0)),int(cpu[0])/int(cpu[1]))
+workers=int(os.environ['HU20_HOST_WORKERS'])
+affinity=len(os.sched_getaffinity(0))
+cpu=Path('/sys/fs/cgroup/cpu.max')
+if cpu.exists():
+    parts=cpu.read_text().split()
+    quota=affinity if parts[0]=='max' else min(affinity,int(parts[0])/int(parts[1]))
+else:
+    base=next(p for p in (Path('/sys/fs/cgroup/cpu'),Path('/sys/fs/cgroup/cpu,cpuacct')) if (p/'cpu.cfs_quota_us').exists())
+    limit=int((base/'cpu.cfs_quota_us').read_text())
+    quota=affinity if limit<0 else min(affinity,limit/int((base/'cpu.cfs_period_us').read_text()))
 mem=int(next(line.split()[1] for line in Path('/proc/meminfo').read_text().splitlines() if line.startswith('MemTotal:')))*1024
-cap=Path('/sys/fs/cgroup/memory.max').read_text().strip()
-if cap!='max':mem=min(mem,int(cap))
-record={'quota_cpus':quota,'admitted_ram_bytes':mem,'affinity_cpus':len(os.sched_getaffinity(0)),
-        'volume_free_bytes':shutil.disk_usage('/workspace').free,'minimum_cpu':23.8,'minimum_ram_bytes':60*10**9}
+cap=Path('/sys/fs/cgroup/memory.max')
+if not cap.exists(): cap=Path('/sys/fs/cgroup/memory/memory.limit_in_bytes')
+limit=cap.read_text().strip()
+if limit!='max': mem=min(mem,int(limit))
+record={'quota_cpus':quota,'admitted_ram_bytes':mem,'affinity_cpus':affinity,'workers':workers,
+        'volume_free_bytes':shutil.disk_usage('/workspace').free,'minimum_cpu':workers*6+4,
+        'minimum_ram_bytes':workers*7*1024**3+2*1024**3}
 Path('/workspace/evidence/host-admission.json').write_text(json.dumps(record,sort_keys=True)+'\n')
-assert quota>=23.8 and mem>=60*10**9,record
+assert quota>=record['minimum_cpu'] and mem>=record['minimum_ram_bytes'],record
 assert record['volume_free_bytes']>=35*10**9,record
-PY
+PYHOST
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain 1.96.0 > "$E/rustup.log" 2>&1
 rustc -Vv > "$E/rustc.txt"
 curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/workspace/uv UV_NO_MODIFY_PATH=1 sh > "$E/uv.log" 2>&1
