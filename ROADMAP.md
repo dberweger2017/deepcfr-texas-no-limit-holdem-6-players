@@ -21,6 +21,26 @@ The [readme](readme.md#release-plan) summarizes this plan. It is a rough bluepri
 - **v0.9 — the full table.** Four to six players with changing lineups, unequal stacks, 20–200 BB, opponent adaptation and a decision inspector.
 - **v1.0 — demonstrated lower-end professional standard.** Meet the [README qualification requirements](readme.md#what-10-means), including independent training seeds and a credible professional reference benchmark. The redevelopment targets 1.0.
 
+### Path through v0.4.x to v0.5
+
+Planned on October 5, 2026, after the native trainer passed its run-level gate and while [PR #162](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/162)'s trainer bench was finishing. The order follows evidence; a step whose evidence comes back negative is recorded and skipped, not forced.
+
+1. **Close #162.** Its frozen decision rule says whether CFR on v1 keys reaches the held-out witness on fixed turn spots, and so whether the next lever is the averaging rule, the training procedure or the abstraction.
+2. **Native trainer on `main`** ([PR #164](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/164)). Later trainer options come as separate small PRs, each a labeled option checked against the exact Python-equivalent baseline.
+3. **v0.4.1: training procedure and average-policy play.**
+   - Run #162's bench on the native trainer (fixed roots and ranges), so each training variant costs minutes. Scoring with #149's evaluator stays about two hours per 40 roots.
+   - Measure one option at a time by Q: opponent-sampled averaging, discounting or regret floors (DCFR/CFR+), a solve-fine-then-pool-to-v1 or CFR-BR-style variant, and pruning.
+   - Train three full-game HU20 lineages with the best recipe at budgets the Python trainer could not afford (1–5B nodes).
+   - Ship an average-policy export that beats v0.4.0's current-policy export in the standard paired arena: bounded LBR, native pressure and the scenario panels.
+4. **v0.4.2: card abstraction.** Validate [PR #163](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/163)'s equity buckets on #149's 40 turn roots, with both the bucket witness and a bench run with bucket keys. If they help trained policies, add them to the native trainer as an alternative key function, with v1 kept as the reference. Then train, compare against v0.4.1 and ship.
+5. **v0.4.3 and later: search.** Turn/river search on the improved blueprint; [PR #148](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148)'s calibration found no qualifying setting at 30 seconds, and a 120-second paid calibration awaits an owner decision. Flop search last, if the evidence still supports it at 20 BB.
+6. **v0.5 groundwork, in parallel with steps 4–5:**
+   - Generalize the native trainer beyond 20 BB: configurable stacks, a deeper-stack bet menu and key schema, and rules parity against the engine, since Python has no 100 BB trainer.
+   - Compact table memory and multi-core pods.
+   - Choose the external heads-up benchmark bot, which is an owner decision, and freeze the v0.5 confirmation protocol.
+
+**Proposed v0.4.x exit criterion (owner to confirm):** the HU20 recipe is settled. Each ingredient (trainer, averaging, training procedure, abstraction, turn/river search, flop search) has been adopted or rejected on recorded evidence, and the latest patch release beats v0.4.0 in the paired arena. This defines the end of the series without a strength target that the current evidence cannot yet estimate.
+
 From v0.5 onward, each milestone confirms on fresh held-out deals with multiple independent training seeds and a declared evaluation size. No release relaxes the criteria of a later milestone.
 
 **Experiment gate:** once the sampled trainer passes correctness/recovery checks and a short end-to-end resource pilot, move to longer budgeted training. A positive or statistically significant poker result is not a prerequisite. Keep numerical failures, unbounded costs and invalid play as blockers; preserve weak or inconclusive results as evidence. Milestone 4's learning exit and default-model promotion criteria describe evidence to obtain, not a ban on exploratory training or publishing experiment reports. The v0.8 release itself must meet the scripted-opponent strength requirement above. Use the measured pilot to set runtime, seed count, checkpoint cadence and spending before starting; no new budget is implied by this release plan.
@@ -208,6 +228,13 @@ Infrastructure and correctness PRs can merge without a strength improvement if t
 - Update this roadmap in each milestone PR. Link merged PRs and training reports, state the current blocker if any, and keep the next task unambiguous. Further work runs in active development sessions or an explicitly configured follow-up; this document alone does not schedule unattended work.
 
 ## Current position
+
+- **Native HU20 trainer merged in [PR #164](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/164):** `native/hu20-trainer` (Rust) implements the HU20 rules, v1 keys and menus, external-sampling CFR updates, checkpoints and exports.
+  - **Speed:** about 2.2M nodes/s single-threaded on the M1 (about 120× Python) and about 10M with 64 roots per seat.
+  - **Parity:** it draws the Python trainer's own random streams, so a run equals the Python run with the same seed. It reproduces all three #115/#116 lineages exactly at 20M and 100M nodes: every table row, and the current-policy exports their panels played.
+  - **Bug found by the gate:** the run-level gate caught an earlier native seeding scheme that reused half of all deals, now fixed. Evidence is in the PR.
+  - **What it replaces:** native replaces Python for new HU20 training; the Python trainer remains the parity reference.
+  - **Next:** follow the v0.4.x path above, starting with #162's result.
 
 - **HU20 global equity-bucket build completed in draft [PR #163](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/163):** the frozen full-deck builder writes all K=50/200 flop, turn and river tables in 689.8 seconds at 10.321 GiB sampled peak RSS, covering 1,286,792 / 13,960,050 / 123,156,254 suit-isomorphism classes. [Closeout report](docs/reports/hu20-equity-buckets.md) records all 16 retrieved files hash-verified on M4, 30,000 successful reader lookups and no empty buckets. The target pod is confirmed terminated after verified retrieval; rate-times-lifetime compute estimate is $0.148889. Whole-archive member/source/staging hashes pass, all local copies remain, native Drive upload completion is unconfirmed and M4 has 32.505 GiB free. **Next, awaiting owner approval:** score the global K=50 primary/K=200 secondary tables on #149’s forty frozen held-out limped turn roots against v1 P=0.6567 BB and the corpus-fitted equity witness 0.3874 BB; proposed 10–12-hour M4 work, 14-hour total cap including closeout. Validation preparation, preflight, solves and lock-only scoring are unrun; no training, builder change, new rental or merge.
 
