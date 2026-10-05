@@ -118,6 +118,7 @@ def main():
               'sleep_excluded_usd':ledger['owner_excluded_charge_usd'],'dispatch_stop_usd':21,'hard_ceiling_usd':25}
         upload(pod,'/workspace/paid-approval.json',json.dumps(paid,sort_keys=True).encode())
         for worker in pod['workers']:
+            if control.request({'op':'check'})['status']!='running':raise RuntimeError('Guard stopped before coordinate dispatch')
             command='set -eu\nmkdir -p /workspace/evidence/arena\n'
             command+=f'test ! -e /workspace/evidence/arena/worker-{worker}.pid\ntest ! -e /workspace/evidence/arena/worker-{worker}\n'
             shell='cd /workspace/repo; . /workspace/venv/bin/activate; export PYTHONPATH=/workspace/repo OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1; '

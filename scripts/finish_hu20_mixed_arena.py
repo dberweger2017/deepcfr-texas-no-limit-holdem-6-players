@@ -52,21 +52,34 @@ def materialize_hands(root):
             with tarfile.open(path,'r|gz') as archive:
                 for member in archive:
                     parts=Path(member.name).parts
-                    if (len(parts)==3 and parts[0]=='arena' and parts[1].startswith('worker-') and
-                        (parts[2].endswith('.hands.jsonl.gz') or parts[2] in ('summary.json','manifest.json'))):
+                    if member.name in ('control-v2.events.jsonl','control-v2.json'):
+                        destination=root/'audit-hands/controller'/member.name
+                    elif (len(parts)==3 and parts[0]=='arena' and parts[1].startswith('worker-') and
+                          (parts[2].endswith('.hands.jsonl.gz') or parts[2] in ('summary.json','manifest.json'))):
                         destination=root/'audit-hands'/parts[1]/parts[2]
-                        destination.parent.mkdir(parents=True,exist_ok=True)
-                        if destination.exists():raise ValueError('Duplicate materialized worker member')
-                        with archive.extractfile(member) as source,destination.open('wb') as target:shutil.copyfileobj(source,target,1024**2)
-                        spec=manifest['members'][member.name]
-                        if destination.stat().st_size!=spec['bytes'] or file_hash(destination)!=spec['sha256']:
-                            raise ValueError('Materialized hand/summary differs')
+                    else:continue
+                    destination.parent.mkdir(parents=True,exist_ok=True)
+                    if destination.exists():raise ValueError('Duplicate materialized worker member')
+                    with archive.extractfile(member) as source,destination.open('wb') as target:shutil.copyfileobj(source,target,1024**2)
+                    spec=manifest['members'][member.name]
+                    if destination.stat().st_size!=spec['bytes'] or file_hash(destination)!=spec['sha256']:
+                        raise ValueError('Materialized hand/summary differs')
         for prefix in sorted({str(Path(name).parent) for name in manifest['members'] if name.startswith('arena/worker-') and name.endswith('/summary.json')}):
             directory=root/'audit-hands'/Path(prefix).name
             summaries.append(json.loads((directory/'summary.json').read_text()))
             directories.append(ArchivedDirectory(directory,prefix,manifest['members']))
         proofs.append({'pod_id':pod.name,'archive_manifest_sha256':file_hash(pod/'manifest.json'),'retrieval':verified})
     return directories,summaries,proofs
+
+
+def guard_report(root,ledger):
+    events=[json.loads(line) for line in (root/'audit-hands/controller/control-v2.events.jsonl').read_text().splitlines()]
+    def count(rows):
+        bad=sum(row['fallback'] for row in rows)
+        return {'decisions':len(rows),'fallbacks':bad,'fallback_rate':bad/len(rows) if rows else None,
+                'fallback_causes':dict(Counter(row['cause'] for row in rows if row['fallback']))}
+    return {'global':count(events),'per_pod':{pod['id']:count([row for row in events if row['pod']==pod['id']])
+            for pod in ledger['pods'] if pod['workers']}}
 
 
 def partial_counts(directories):
@@ -110,7 +123,11 @@ def main():
         report='Stage 4 stopped: closeout failed. '+failure['reason']+'\n\nUnretrieved evidence is preserved; no science will restart. Owner intervention is required. Pods not yet terminated remain billing.\n\n'+json.dumps(spend,indent=2)
     else:
         directories,summaries,proofs=materialize_hands(root)
+        guards=guard_report(root,ledger)
+        durable_json(root/'exact-search-guard-counts.json',guards)
         sys.path.insert(0,str(args.source.resolve()))
+        import scripts
+        scripts.__path__=[str(args.source.resolve()/'scripts'),*list(scripts.__path__)]
         audit_spec=importlib.util.spec_from_file_location('approved_hu20_audit',args.source/'scripts/audit_hu20_turn_search.py')
         audit=importlib.util.module_from_spec(audit_spec);audit_spec.loader.exec_module(audit)
         original_hash=audit.file_hash
@@ -130,7 +147,8 @@ def main():
             result={'status':'stopped-incomplete','hands':hands,'expected_hands':82944,'archive_proofs':proofs,'search_counts':counts,'decision_latency_by_host':audit.latency_report(hosts)}
             durable_json(root/'stopped-partial-summary.json',result)
             control=json.loads((root/'final-control.json').read_text())
-            report=f"Stage 4 stopped, frozen protocol incomplete: {hands:,}/82,944 retained complete hand records. Stop reason: {control.get('reason')}.\n\nAll retained chunks/member hashes verified; all five owned pods terminated and final list-pods retained. Full base-versus-base+search contrasts are unavailable because the frozen protocol did not complete. No reduced protocol, strength conclusion, retune or restart. Owner review is required before further science.\n\nPer-host descriptive latency/fallback telemetry:\n\n```json\n"+json.dumps(result['decision_latency_by_host'],indent=2)+'\n```\n'
+            report=f"Stage 4 stopped, frozen protocol incomplete: {hands:,}/82,944 retained complete hand records. Stop reason: {control.get('reason')}.\n\nAll retained chunks/member hashes verified; all five owned pods terminated and final list-pods retained. Full base-versus-base+search contrasts are unavailable because the frozen protocol did not complete. No reduced protocol, strength conclusion, retune or restart. Owner review is required before further science.\n\nPer-host descriptive latency/fallback telemetry from retained complete hands; exact guard counts below also include interrupted-hand decisions:\n\n```json\n"+json.dumps(result['decision_latency_by_host'],indent=2)+'\n```\n'
+        report+='\nExact live-search fallback counts, including decisions in interrupted hands (a host with zero decisions had not reached search):\n\n```json\n'+json.dumps(guards,indent=2)+'\n```\n'
         report+='\nSpend (sleep remains charged by the provider, but is excluded from the approved cap):\n\n```json\n'+json.dumps(spend,indent=2)+'\n```\n\nPer-pod posted billing responses are retained separately; empty/in-progress buckets are not evidence of zero cost. Evidence and manifests: M4 `~/Local/hu20-turn-search-arena-20261005/stage-4-mixed/retrieved`; native audit/partial summary and spend are in its parent. Protected historical pods and original Mac evidence remain untouched.\n'
     path=root/'pr166-final-results.md';path.write_text(report)
     environment=os.environ.copy();environment['GH_TOKEN']=(root/'github-token').read_text().strip()

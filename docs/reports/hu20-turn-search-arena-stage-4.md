@@ -1,5 +1,7 @@
 # HU20 turn-search arena stage 4
 
+**Stopped at the approved first-500 checkpoint:** 86/500 live search decisions timed out (17.2%, above 5%). The frozen protocol is incomplete: 13,560/82,944 complete hands retained. No training or arena job remains running, and full base-versus-base+search contrasts are unavailable. [Final results on #166](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/166#issuecomment-5999110011).
+
 The owner approved dropping the RTX 5080 `vvc7cmrepn7rtt` and running six independent worker coordinates on four transferred pods. The 5080 termination and not-found readback are retained. No new pod was rented for this approved layout.
 
 | Pod | GPU | Actual quota CPUs | Actual RAM | Coordinates | Solver threads per worker |
@@ -19,4 +21,23 @@ The authenticated controller lives on the first 3070. M4 supervises that control
 
 Every joining host must pass its own actual admission, parity and retention before its reserved coordinate is issued. At completion or a stop, owned writers are cancelled/frozen, sampled bodies replayed, all retained evidence packed in lossless ≤1 GB chunks, and every archive and member hash stream-verified before termination. Original manifests remain authoritative. Final list-pods must confirm removal; historical exited pods `43z4itur3hwnyv`, `cl0riravggku4r`, `xu414eguzakxfr`, `k9rdph2fwhym87` are protected.
 
-Evidence locations are indexed in RESULTS_INDEX.md. [ETA comment](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/166#issuecomment-5998252962) and the subsequent start comment on #166 record live progress. Final contrasts, per-host latency/fallbacks and actual spend remain pending complete verified evidence. Any stopped protocol remains incomplete and requires owner review before a new scientific run.
+Evidence locations are indexed in RESULTS_INDEX.md. [ETA comment](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/166#issuecomment-5998252962) and the subsequent start comment on #166 record live progress. The stopped result is recorded below; the incomplete protocol cannot support the planned strength contrasts. Any stopped protocol remains incomplete and requires owner review before a new scientific run.
+
+## Stopped result and verified closeout
+
+Both 3080 Ti hosts also passed actual-host admission, checker/Mac parity, 96/96 exact replay and retention before joining their reserved coordinates around 16:49–16:50 UTC. They completed base-arm hands but reached no live search decisions before the global stop. The controller stopped at exactly 500 completed live decisions with no issued/inflight decisions remaining; the original stop reason is preserved.
+
+| Pod | Exact live decisions | Timeout fallbacks | Fallback rate | p95 latency in retained complete hands |
+| --- | ---: | ---: | ---: | ---: |
+| m5pxmipuqyjtoo | 239 | 46 | 19.25% | 30.510 s |
+| mislfsw9a0bmva | 261 | 40 | 15.33% | 30.482 s |
+| 6oqjxlfdjk0bzp | 0 | 0 | unavailable | unavailable |
+| xtu3jr3utxqasx | 0 | 0 | unavailable | unavailable |
+
+Latency telemetry covers 497 decisions in retained complete hands; the exact controller counts above include three decisions in interrupted hands. Workers 0–5 retained 2,446 / 2,440 / 2,445 / 2,452 / 1,832 / 1,945 complete hands respectively. All partials and negative outcomes remain retained. Observed solver processes requested six solver threads (seven OS threads including main); this run does not establish CPU contention as the cause of the timeouts.
+
+Every retained compressed chunk and every archived member was stream-verified by SHA-256 and size. The original manifests and retrieval verification receipts are retained on M4. All five owned pods were terminated, each termination was read back, and final list-pods confirmed no active pods. The four protected historical exited pods were untouched. The Macs retain compressed evidence without expanding unsampled full profiles.
+
+Full provisioning spending is estimated at **$1.587550 gross** ($1.538851 compute plus $0.048700 conservative disk), or **$1.068661 against the owner's cap** after the agreed $0.518889 sleep exclusion. Available posted billing buckets total **$0.957235 through 16:00 UTC**; the last 16:00–17:00 UTC bucket was not posted at closeout. These estimates are not a settled invoice. The quote's unused storage/pilot contingencies are not actual spend.
+
+A local final-report import-path error occurred after evidence verification and termination. Its original failure record is preserved; the reporting import was corrected and the final report posted without restarting any pod or science. No rental, retune or further arena run is authorized by this closeout. Next: owner review of the timeout evidence before a new prospectively defined host/timing proposal and paid-run quote.
