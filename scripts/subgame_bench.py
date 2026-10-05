@@ -166,11 +166,12 @@ def report(a):
             continue
         q = summary(lambda rs, n=name: (mean(r[n] for r in rs) - mean(r["P"] for r in rs))
                     / (mean(r["B"] for r in rs) - mean(r["P"] for r in rs)))
-        label = ("near held-out witness" if q["mean"] <= .3 else "near blueprint" if q["mean"] >= .7 else "between")
+        label = ("near held-out witness" if q["mean"] <= .3 else "between" if q["mean"] < .7
+                 else "near blueprint" if q["mean"] <= 1 else "worse than blueprint")
         placements[name] = dict(q, classification=label)
     atomic_json(a.out / "summary.json", {"boards": len(rows_by_board), "estimates_bb": estimates,
                 "placement_Q": placements, "rows": rows_by_board,
-                "rule": "Q=(E-P)/(B-P) on paired held-out boards; <=0.3 near witness, >=0.7 near blueprint"})
+                "rule": "Q=(E-P)/(B-P) on paired held-out boards; <=0.3 near witness, >=0.7 near blueprint, >1 worse than blueprint"})
     print(json.dumps({"estimates_bb": {k: round(v["mean"], 4) for k, v in estimates.items()},
                       "Q": {k: (round(v["mean"], 3), v["classification"]) for k, v in placements.items()}}, indent=1))
 
