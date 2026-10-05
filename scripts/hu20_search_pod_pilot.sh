@@ -37,6 +37,9 @@ step solver
 tar -xzf "$B/external.tar.gz" -C /workspace
 # The archive keeps the Mac owner's uid; git refuses such a checkout for root without this.
 git config --global --add safe.directory /workspace/hu20-turn-search-tool/upstream
+# macOS tar adds AppleDouble metadata (._*) beside files; it is not source and dirties the checkout.
+find /workspace/hu20-turn-search-tool -name '._*' -delete
+test -z "$(git -C /workspace/hu20-turn-search-tool/upstream status --porcelain)"
 bash scripts/build_hu20_search_solver.sh /workspace/hu20-turn-search-tool native > "$E/build.log" 2>&1
 BIN=/workspace/hu20-turn-search-tool/harness/target/release/hu20-exact-flop-tool
 sha256sum "$BIN" > "$E/binary.sha256"
