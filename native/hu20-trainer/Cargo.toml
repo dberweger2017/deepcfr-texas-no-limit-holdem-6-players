@@ -9,8 +9,9 @@ publish = false
 [dependencies]
 hu20-buckets = { path = "../hu20-buckets" }
 blake2 = "0.10"
-serde_json = "1"
+serde_json = { version = "1", features = ["float_roundtrip"] }
 rayon = "1.10"
+flate2 = "1"
 
 [profile.release]
 opt-level = 3

@@ -80,3 +80,77 @@ pub fn check_hand(record: &Value) -> Option<String> {
     }
     None
 }
+
+/// Static menu names, so fixture nodes compare with traversal nodes.
+pub fn static_name(name: &str) -> &'static str {
+    match name {
+        "fold" => "fold",
+        "check" => "check",
+        "call" => "call",
+        "min" => "min",
+        "pot" => "pot",
+        "jam" => "jam",
+        other => panic!("unknown menu name {other}"),
+    }
+}
+
+pub fn hex_key(text: &str) -> crate::cfr::Key {
+    let mut key = [0u8; 16];
+    for i in 0..16 {
+        key[i] = u8::from_str_radix(&text[2 * i..2 * i + 2], 16).unwrap();
+    }
+    key
+}
+
+pub fn node_from(row: &Value) -> crate::cfr::Node {
+    let floats = |v: &Value| v.as_array().unwrap().iter().map(|x| x.as_f64().unwrap()).collect::<Vec<f64>>();
+    crate::cfr::Node {
+        names: row[0].as_array().unwrap().iter().map(|n| static_name(n.as_str().unwrap())).collect(),
+        regrets: floats(&row[1]),
+        average: floats(&row[2]),
+        visits: row[3].as_u64().unwrap(),
+    }
+}
+
+/// Compare native traversal deltas with recorded Python `_collect_root` deltas, bit for bit.
+pub fn check_traversals(document: &Value) -> (usize, Vec<String>) {
+    use crate::cfr::{Forced, Traversal};
+    let table: std::collections::HashMap<_, _> = document["nodes"].as_object().unwrap().iter()
+        .map(|(k, row)| (hex_key(k), node_from(row))).collect();
+    let button = document["table_button"].as_u64().unwrap() as u8;
+    let mut problems = Vec::new();
+    let cases = document["cases"].as_array().unwrap();
+    for (index, case) in cases.iter().enumerate() {
+        let deck: Vec<u8> = case["deck"].as_array().unwrap().iter().map(|c| parse_card(c.as_str().unwrap())).collect();
+        let draws: Vec<usize> = case["draws"].as_array().unwrap().iter().map(|d| d.as_u64().unwrap() as usize).collect();
+        let mut traversal = Traversal::new(&table, case["iteration"].as_u64().unwrap(), case["seat"].as_u64().unwrap() as usize,
+                                           Forced(draws.iter()));
+        traversal.run(&Hand::from_deck(button, &deck));
+        let expected: std::collections::HashMap<_, _> = case["deltas"].as_object().unwrap().iter()
+            .map(|(k, row)| (hex_key(k), node_from(row))).collect();
+        let mut problem = None;
+        if traversal.nodes != case["nodes"].as_u64().unwrap() || traversal.terminals != case["terminals"].as_u64().unwrap() {
+            problem = Some(format!("nodes {}/{} terminals {}/{}", traversal.nodes, case["nodes"], traversal.terminals, case["terminals"]));
+        } else if expected.len() != traversal.deltas.len() {
+            problem = Some(format!("delta keys {} vs {}", traversal.deltas.len(), expected.len()));
+        } else {
+            for (key, theirs) in &expected {
+                match traversal.deltas.get(key) {
+                    None => { problem = Some("missing delta key".into()); break; }
+                    Some(mine) => {
+                        let same = |a: &[f64], b: &[f64]| a.len() == b.len() && a.iter().zip(b).all(|(x, y)| x.to_bits() == y.to_bits());
+                        if mine.names != theirs.names || mine.visits != theirs.visits
+                            || !same(&mine.regrets, &theirs.regrets) || !same(&mine.average, &theirs.average) {
+                            problem = Some(format!("delta differs: native {mine:?} python {theirs:?}"));
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if let Some(p) = problem {
+            problems.push(format!("case {index}: {p}"));
+        }
+    }
+    (cases.len(), problems)
+}
