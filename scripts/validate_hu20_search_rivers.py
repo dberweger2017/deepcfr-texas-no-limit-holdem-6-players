@@ -24,6 +24,9 @@ from src.game.observation import ActionTaken, replay
 from src.game.types import Street
 
 
+QUALITY_SECONDS = 300
+
+
 def slots(items):
     """Four slots per stratum; both seats, all lineages, no payoff reads."""
     strata=sorted({(i["root"]["kind"],i["root"]["button"]) for i in items})
@@ -128,7 +131,8 @@ def run(references,config,inputs,binary,out,budget):
                 if node["terminal"]:continue
                 # Request's native actions were validated by the exact native compiler.
                 if node["street"]!="river":raise ValueError("River validation crossed rounds")
-            profiles=solver.solve(solution.request,monotonic()+policy.config.decision_seconds0,mode="quality")
+            # Same 300-second quality allowance as calibration; quality time never counts as play latency.
+            profiles=solver.solve(solution.request,monotonic()+QUALITY_SECONDS,mode="quality")
             difference=max(float(np.max(np.abs(m.probabilities-profiles[k].probabilities)))
                            for k,m in solution.profiles.items())
             if difference>1e-5:raise ValueError("River played/quality profile differs")
