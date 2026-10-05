@@ -102,7 +102,8 @@ def check(binary, out, reference=None, config=None, compare_threads=False):
             inserted["locks"]=[{"line":[],"board":request["board"],"player":0,
                 "actions":request["nodes"][0]["actions"],"holdings":matrix.holdings,
                 "strategy":matrix.probabilities.T.ravel().tolist()}]
-            locked=solver.solve(inserted,monotonic()+30)
+            if fixed_work:inserted["work_protocol"]="hu20-fixed50-no-fallback-v1"
+            locked=solver.solve(inserted,None if fixed_work else monotonic()+30)
             error=float(np.max(np.abs(locked[()].probabilities-matrix.probabilities)))
             if error>1e-5:raise ValueError("Frozen hero matrix changed after exact wager insertion")
             if not any(a.get("amount")==333 for n in inserted["nodes"] if not n["terminal"] for a in n["actions"]):

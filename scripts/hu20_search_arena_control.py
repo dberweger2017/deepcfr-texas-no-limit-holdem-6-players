@@ -62,7 +62,7 @@ class ArenaControl:
     def charge(self):
         ledger = json.loads(self.ledger.read_text())
         now = self.clock()
-        return ledger.get("pilot_reserve_usd", .5) + ledger.get("storage_contingency_usd", 1) + sum(
+        return ledger.get("historical_cap_charge_usd", 0) + ledger.get("pilot_reserve_usd", .5) + ledger.get("storage_contingency_usd", 1) + sum(
             max(0, p.get("terminated_at", now) - p["created_at"]) / 3600 * p["hourly_usd"]
             for p in ledger["pods"]) - ledger.get("owner_excluded_charge_usd", 0)
 

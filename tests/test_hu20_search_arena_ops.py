@@ -302,3 +302,26 @@ def test_cpu_quote_refuses_missing_censored_stratum_and_wrong_thread_pool():
     with pytest.raises(ValueError,match="thread checks"):work_estimate(stage4,sample)
     sample[0].update(cpu_seconds=1,solver_seconds=1)
     with pytest.raises(ValueError,match="hash ordering"):work_estimate(stage4,sample)
+
+
+def test_fixed_replay_rejects_small_scientific_difference(tmp_path):
+    import json
+    from scripts.replay_hu20_search_requests import replay
+    reference=tmp_path/'refs'/'slot'/'solve';reference.mkdir(parents=True)
+    request={'work_protocol':'hu20-fixed50-no-fallback-v1','max_iterations':50,'threads':6,'seconds':None,'mode':'play'}
+    completion={'event':'completion','work_protocol':request['work_protocol'],'iterations':50,'status':'play_complete','elapsed_seconds':1,'solver_peak_rss_bytes':12}
+    (reference/'request.json').write_text(json.dumps(request));(reference/'response.jsonl').write_text(json.dumps(completion)+'\n')
+    (reference/'profile.jsonl').write_text(json.dumps({'strategy':[.5,.5],'solver_peak_rss_bytes':12})+'\n')
+    binary=tmp_path/'solver';binary.write_text('#!/usr/bin/env python3\nimport json,sys\nfrom pathlib import Path\nq=json.loads(Path(sys.argv[1]).read_text())\nPath(q["dump_path"]).write_text(json.dumps({"strategy":[.5000001,.4999999],"solver_peak_rss_bytes":99})+"\\n")\nPath(sys.argv[2]).write_text('+repr(json.dumps(completion)+'\n')+')\n');binary.chmod(0o755)
+    row=replay(binary,reference,tmp_path/'out')
+    assert row['status']=='mismatch' and not row['exact_scientific_outputs']
+    assert (tmp_path/'out'/'slot'/'solve'/'request.json').exists()
+
+
+def test_fixed_controller_counts_prior_spend(tmp_path):
+    import json
+    from scripts.hu20_search_arena_control import ArenaControl
+    ledger=tmp_path/'ledger.json';ledger.write_text(json.dumps({'work_protocol':'hu20-fixed50-no-fallback-v1','historical_cap_charge_usd':20,'pilot_reserve_usd':.5,'storage_contingency_usd':1,'pods':[]}))
+    controller=ArenaControl(tmp_path/'journal.json',ledger,clock=lambda:100)
+    assert controller.request({'op':'check'})['status']=='stopped'
+    assert controller.charge()==21.5

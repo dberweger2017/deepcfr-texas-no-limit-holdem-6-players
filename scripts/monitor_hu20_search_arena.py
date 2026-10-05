@@ -71,7 +71,7 @@ class RemoteControl:
         with urllib.request.urlopen(request,timeout=10) as response:return json.load(response)
     def charge(self):
         ledger=json.loads(self.ledger.read_text())
-        return ledger.get("pilot_reserve_usd",.5)+ledger.get("storage_contingency_usd",1)+sum(
+        return ledger.get("historical_cap_charge_usd",0)+ledger.get("pilot_reserve_usd",.5)+ledger.get("storage_contingency_usd",1)+sum(
             max(0,p.get("terminated_at",time())-p["created_at"])/3600*p["hourly_usd"]
             for p in ledger["pods"])-ledger.get("owner_excluded_charge_usd",0)
 
@@ -84,7 +84,8 @@ def pod_status(pod):
         " x=json.loads(p.read_text());x['worker']=p.parent.name;workers.append(x)\n"
         "print('HU20_STATUS='+json.dumps({'preflight_passed':(r/'PREFLIGHT_PASSED').exists(),"
         "'preflight_failed':(r/'PREFLIGHT_FAILED').exists(),'workers':workers,"
-        "'resource_failures':[str(p) for p in r.rglob('resource-guard-failure-*.json')]}))\nPY")
+        "'resource_failures':[str(p) for p in r.rglob('resource-guard-failure-*.json')],"
+        "'hang_attention':[str(p) for p in r.rglob('hang-attention.json')]}))\nPY")
     return json.loads(re.search(r"HU20_STATUS=(\{[^\n]+\})",output)[1])
 
 
@@ -231,7 +232,7 @@ def main():
         active=[p for p in ledger['pods'] if not p.get('terminated_at')]
         with ThreadPoolExecutor(max_workers=4) as pool:list(pool.map(cancel_owned_workers,active))
         for p in active:
-            if p['id']=='m5pxmipuqyjtoo':
+            if p['id']==ledger.get('controller_pod_id','m5pxmipuqyjtoo'):
                 ssh(p,"python3 - <<'FREEZE'\nimport os,signal,shutil\nfrom pathlib import Path\np=Path('/workspace/controller-v2.pid')\nif p.exists():\n pid=int(p.read_text())\n try:\n  args=Path('/proc/'+str(pid)+'/cmdline').read_bytes().split(b'\\0')\n  assert b'scripts.hu20_search_arena_control' in args and b'/workspace/evidence/control-v2.json' in args\n  os.kill(pid,signal.SIGTERM)\n except FileNotFoundError:pass\nfor p in Path('/workspace').glob('controller*.log'):\n shutil.copy2(p,Path('/workspace/evidence')/p.name)\nFREEZE")
         with ThreadPoolExecutor(max_workers=4) as pool:
             jobs = [pool.submit(closeout, pod, root, helper.call, ledger, lock)

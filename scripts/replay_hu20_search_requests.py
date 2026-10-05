@@ -10,6 +10,9 @@ import argparse
 import json
 from pathlib import Path
 import subprocess
+import os
+import resource
+import hashlib
 from time import perf_counter
 
 from scripts.hu20_search_runtime import atomic_json
@@ -58,19 +61,44 @@ def replay(binary, solve, out):
     work.mkdir(parents=True, exist_ok=False)
     request["dump_path"] = str(work / "profile.jsonl")
     (work / "request.json").write_text(json.dumps(request))
+    fixed = request.get("work_protocol") == "hu20-fixed50-no-fallback-v1"
+    if fixed and (request.get("seconds") is not None or request.get("threads") != 6 or request.get("max_iterations") != 50):
+        raise ValueError("Fixed reference violates approved work settings")
     started = perf_counter()
+    cpu_before = resource.getrusage(resource.RUSAGE_CHILDREN)
     result = subprocess.run([str(binary), str(work / "request.json"), str(work / "response.jsonl")],
-                            capture_output=True, text=True, timeout=600)
+                            capture_output=True, text=True, timeout=None if fixed else 600,
+                            env=dict(os.environ, RAYON_NUM_THREADS=str(request["threads"])))
+    cpu_after = resource.getrusage(resource.RUSAGE_CHILDREN)
+    (work / "stdout.log").write_text(result.stdout)
+    (work / "stderr.log").write_text(result.stderr)
     wall = perf_counter() - started
     row = {"solve": f"{solve.parent.name}/{solve.name}", "street": request.get("initial_street"),
            "mode": request.get("mode"), "threads": request.get("threads"), "returncode": result.returncode,
-           "wall_seconds": wall, "reference_solver_seconds": completion_seconds(events(solve / "response.jsonl"))}
+           "wall_seconds": wall, "cpu_seconds": cpu_after.ru_utime + cpu_after.ru_stime - cpu_before.ru_utime - cpu_before.ru_stime, "reference_solver_seconds": completion_seconds(events(solve / "response.jsonl"))}
     if result.returncode != 0:
         row.update(status="failed", stderr=result.stderr[-2000:])
         return row
     row["solver_seconds"] = completion_seconds(events(work / "response.jsonl"))
     mine, theirs = events(work / "profile.jsonl"), events(solve / "profile.jsonl")
     difference = None if len(mine) != len(theirs) else worst_of(largest_difference(x, y) for x, y in zip(mine, theirs))
+    if fixed:
+        completions = [e for e in events(work / "response.jsonl") if e.get("event") == "completion"]
+        reference_completions = [e for e in events(solve / "response.jsonl") if e.get("event") == "completion"]
+        for completion in completions[-1:]:
+            if completion.get("work_protocol") != request["work_protocol"] or completion.get("iterations") != 50:
+                raise ValueError("Native solver did not acknowledge fixed work")
+        if not completions:
+            raise ValueError("Native fixed solve lacks completion")
+        descriptive = {"solver_peak_rss_bytes", "elapsed_seconds"}
+        canonical = lambda rows: [{k:v for k,v in r.items() if k not in descriptive} for r in rows]
+        mine_quality = [e for e in events(work / "response.jsonl") if e.get("event") == "quality"]
+        reference_quality = [e for e in events(solve / "response.jsonl") if e.get("event") == "quality"]
+        exact = (canonical(mine) == canonical(theirs) and canonical(completions) == canonical(reference_completions)
+                 and canonical(mine_quality) == canonical(reference_quality))
+        difference = 0.0 if exact else None
+        row["exact_scientific_outputs"] = exact
+        row["scientific_profile_sha256"] = hashlib.sha256(json.dumps(canonical(mine),sort_keys=True,separators=(",", ":")).encode()).hexdigest()
     row["profile_lines"] = len(theirs)
     row["max_profile_difference"] = difference
     row["status"] = "passed" if difference is not None and difference <= 1e-5 else "mismatch"
@@ -97,6 +125,7 @@ def main():
                "solver_seconds_total": sum(r["solver_seconds"] for r in timed),
                "reference_solver_seconds_total": sum(r["reference_solver_seconds"] for r in timed),
                "rows": rows}
+    summary["exact_scientific_outputs"] = all(r.get("exact_scientific_outputs", False) for r in rows) and bool(rows)
     summary["speed_ratio_this_host_over_reference"] = (summary["solver_seconds_total"]
         / summary["reference_solver_seconds_total"]) if timed else None
     atomic_json(a.out / "summary.json", summary)
