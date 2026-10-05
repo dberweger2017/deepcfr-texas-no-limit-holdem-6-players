@@ -28,10 +28,19 @@ stage "tests (including the full seven-card category gate)"
 RAYON_NUM_THREADS=$THREADS cargo test --release -- --include-ignored 2>&1 | tee "$OUT/tests.log"
 
 stage "build tables on $THREADS threads"
-/usr/bin/time -v env RAYON_NUM_THREADS=$THREADS ./target/release/hu20-buckets build --out "$OUT" \
-  --ranks 13 --ks 50,200 --bins 50 --seed 202610050003 --iterations 100 2> >(tee "$OUT/build-stderr.log" >&2)
+RAYON_NUM_THREADS=$THREADS ./target/release/hu20-buckets build --out "$OUT" \
+  --ranks 13 --ks 50,200 --bins 50 --seed 202610050003 --iterations 100 2> >(tee "$OUT/build-stderr.log" >&2) &
+BUILD=$!
+# The base image has no GNU time; sample the builder's resident memory instead.
+PEAK=0
+while kill -0 $BUILD 2>/dev/null; do
+  RSS=$(ps -o rss= -p $BUILD 2>/dev/null | tr -d ' ')
+  [ -n "$RSS" ] && [ "$RSS" -gt "$PEAK" ] && PEAK=$RSS && echo "peak_rss_kib=$PEAK" > "$OUT/peak-rss.txt"
+  sleep 5
+done
+wait $BUILD
 
 stage "checksums"
-cd "$OUT" && sha256sum *.bin summary.json host.txt tests.log > SHA256SUMS
+cd "$OUT" && sha256sum *.bin summary.json host.txt tests.log peak-rss.txt > SHA256SUMS
 git -C $WORK/poker rev-parse HEAD > "$OUT/commit.txt"
 stage "BUILD COMPLETE"
