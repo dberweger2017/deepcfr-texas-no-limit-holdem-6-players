@@ -1,0 +1,54 @@
+{
+  "stage_path": "/Users/dberweger/Local/Research-Cloud/M1-board-pooling/M4-main-06-20261005/report-closeout",
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 989752,
+      "sha256": "6cdcefce0a55f9ac361966b4d298c4e9e750a9b668053054b4b2e3e09b94e91f"
+    },
+    {
+      "path": "report.md",
+      "bytes": 2795,
+      "sha256": "b77efe6643d944aab6159d35e40eb1be73442285ec28ded46e240338e048d1ba"
+    },
+    {
+      "path": "resources.json",
+      "bytes": 489358,
+      "sha256": "fe5c5a32621e2eb8e9875e5cefc69483a63f65941c4e93dde469d128bf69c073"
+    },
+    {
+      "path": "reporter-replay.json",
+      "bytes": 948,
+      "sha256": "461ba9e7a7845c2ce7afe5695963bf62b4e65f0456fc2ce7089f366775e46aaf"
+    },
+    {
+      "path": "retrieval.json",
+      "bytes": 3774,
+      "sha256": "cf48dbcc26ea0e8cbc64ab9e4f4e6f72e7eca738eb23edc1c626fdc37547a986"
+    },
+    {
+      "path": "drive-staging.json",
+      "bytes": 587,
+      "sha256": "c374c7f7442fb5f1d2eab54ae0333b4b2c2cc70a56c48cbf574497a97db385d5"
+    },
+    {
+      "path": "final-report.md",
+      "bytes": 45943,
+      "sha256": "c352f0f6b83bbe4c3e89e6e78bc992b1dc3b0e200303a7c04a05a5f3203fb21a"
+    },
+    {
+      "path": "ROADMAP.md",
+      "bytes": 127137,
+      "sha256": "af1bb638905984b4c20cee54779f4b66ec0050736b9c6c2472b019c546f90505"
+    },
+    {
+      "path": "RESULTS_INDEX.md",
+      "bytes": 91205,
+      "sha256": "99ed9409404b5df83c3a45ac7592cb673a8078b03823624126ab133a0ea3a5a2"
+    }
+  ],
+  "local_hash_verified": true,
+  "cloud_verified": false,
+  "deletion_authorized": false,
+  "timestamp": 1791181590.228169
+}
