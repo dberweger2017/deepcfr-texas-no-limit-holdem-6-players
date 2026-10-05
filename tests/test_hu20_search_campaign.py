@@ -137,6 +137,31 @@ def test_quote_refuses_omitted_speculative_lbr_or_stale_offer():
     with pytest.raises(ValueError):quote(plan,calibration,timing,offer,workers=2,now=10000)
 
 
+def test_quote_prices_shared_cpu_workers_once_per_pod_and_refuses_contention():
+    from src.arena.schedule import digest
+    from scripts.quote_hu20_search_arena import quote
+    calibration={"status":"qualified","selected":{"config":asdict(TurnSearchConfig())}}
+    plan={"stage":"frozen-final","calibration_sha256":digest(calibration),"expected_hands":120,
+          "panels":[{"name":"lbr","blocks":10}]}
+    timing={"configuration_sha256":digest(calibration["selected"]["config"]),
+        "includes_preparation":True,"includes_parsing":True,"includes_lbr_speculative_solves":True,
+        "includes_base_and_search_arms":True,"panels":{"lbr":{"paired_blocks":8,"seconds_per_joint_block_p95":60}},
+        "reserves_seconds_per_worker":{k:60 for k in ("setup_build","actual_pod_parity","replay_verification",
+            "retrieval_hash_verification","shutdown")},"required_storage_gb_per_worker":20,"rss_limit_bytes_per_worker":5*1024**3}
+    offer={"retrieved_at":1000,"source_url":"https://mcp.getrunpod.io/","architecture":"x86_64",
+        "provider":"RunPod","gpu":True,"compute_workload":"cpu","availability":"LOW",
+        "compute_hourly_usd":.22,"container_disk_hourly_usd":.01,"storage_gb":60,
+        "minimum_cpu_per_pod":23.8,"reserved_cpu_per_pod":4,"minimum_ram_bytes_per_pod":32*1024**3}
+    result=quote(plan,calibration,timing,offer,workers=6,workers_per_pod=3,now=1001)
+    assert result["worker_seconds"]==630 and result["pods"]==2
+    assert result["maximum_cost_usd"]==.09 and result["owner_approved"] is False
+    for changes, per_pod in (({},4),({"storage_gb":59},3),
+                             ({"minimum_ram_bytes_per_pod":14*1024**3},3),
+                             ({"availability":"NONE"},3),({"compute_workload":"gpu"},3)):
+        with pytest.raises(ValueError):
+            quote(plan,calibration,timing,dict(offer,**changes),workers=6,workers_per_pod=per_pod,now=1001)
+
+
 def test_guard_stop_retains_incomplete_native_hand(tmp_path):
     class Uniform:
         description={"fixture":"uniform"};abstraction=HU20_UNCAPPED_SCHEMA
