@@ -1,0 +1,46 @@
+[
+  {
+    "gpu": "RTX 3070",
+    "provider": "RunPod",
+    "cloud": "COMMUNITY",
+    "retrieved_at": 1791220749.24961,
+    "compute_hourly_usd": 0.13,
+    "availability": "LOW",
+    "source_url": "https://mcp.getrunpod.io/",
+    "source_tool": "get-gpu-type",
+    "source_file": "mcp-gpu-3070.json"
+  },
+  {
+    "gpu": "RTX 3080 Ti",
+    "provider": "RunPod",
+    "cloud": "COMMUNITY",
+    "retrieved_at": 1791220749.309265,
+    "compute_hourly_usd": 0.18,
+    "availability": "LOW",
+    "source_url": "https://mcp.getrunpod.io/",
+    "source_tool": "get-gpu-type",
+    "source_file": "mcp-gpu-3080-ti.json"
+  },
+  {
+    "gpu": "RTX 3080",
+    "provider": "RunPod",
+    "cloud": "COMMUNITY",
+    "retrieved_at": 1791220749.309491,
+    "compute_hourly_usd": 0.17,
+    "availability": "NONE",
+    "source_url": "https://mcp.getrunpod.io/",
+    "source_tool": "get-gpu-type",
+    "source_file": "mcp-gpu-3080.json"
+  },
+  {
+    "gpu": "RTX 3090",
+    "provider": "RunPod",
+    "cloud": "COMMUNITY",
+    "retrieved_at": 1791220749.0651321,
+    "compute_hourly_usd": 0.22,
+    "availability": "LOW",
+    "source_url": "https://mcp.getrunpod.io/",
+    "source_tool": "get-gpu-type",
+    "source_file": "mcp-gpu-3090.json"
+  }
+]

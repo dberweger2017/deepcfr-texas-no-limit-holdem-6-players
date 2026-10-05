@@ -71,7 +71,8 @@ class ArenaControl:
         if self.charge() >= 21:
             self.stop("Conservative campaign charge reached $21 dispatch stop")
         for pod in ledger["pods"]:
-            if not pod.get("terminated_at") and self.clock() >= pod["production_stop_at"]:
+            if (ledger.get("work_protocol")!="hu20-fixed50-no-fallback-v1"
+                    and not pod.get("terminated_at") and self.clock()>=pod["production_stop_at"]):
                 self.stop("Quoted pod clock reached the reserved closeout boundary")
         self.state["conservative_charge_usd"] = self.charge()
 
@@ -83,6 +84,10 @@ class ArenaControl:
         return 500 if n < 500 else 500 + ((n - 500) // 100 + 1) * 100
 
     def checkpoint(self, pod=None):
+        if json.loads(self.ledger.read_text()).get("work_protocol")=="hu20-fixed50-no-fallback-v1":
+            if any(row["fallback"] for row in self.rows(pod)):
+                self.stop("Search fallback is a defect under fixed-work protocol")
+            return
         rows = self.rows(pod)
         n = len(rows)
         if n < 500 or (n - 500) % 100:
@@ -121,7 +126,7 @@ class ArenaControl:
                     raise ValueError("Decision already completed")
                 if self.state["status"] == "running" and key not in self.state["issued"]:
                     live = list(self.state["issued"].values())
-                    if (len(self.rows()) + len(live) >= self.boundary(len(self.rows()))
+                    if ledger.get("work_protocol")!="hu20-fixed50-no-fallback-v1" and (len(self.rows()) + len(live) >= self.boundary(len(self.rows()))
                             or len(self.rows(pod)) + sum(r["pod"] == pod for r in live)
                             >= self.boundary(len(self.rows(pod)))):
                         self.persist()

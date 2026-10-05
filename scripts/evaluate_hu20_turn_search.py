@@ -42,10 +42,13 @@ def load(spec, inputs):
     return source
 
 
-def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, search=None, arm=None, failure_dir=None):
+def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, search=None, arm=None, failure_dir=None, fixed_work=False):
     deal = stream_seed(root,"test","deal",2,block)
     random = Random(stream_seed(root,"test","action",2,block,0))
     rival = opponent(panel, search or source, stream_seed(root,"test","opponent",2,block,1))
+    if fixed_work and panel["rule"]=="lbr":
+        from dataclasses import replace
+        rival.config=replace(rival.config,max_seconds=None)
     hand_id = f"turn-search/{panel['name']}/{block}/{rotation}"
     hand = Hand.start(Table(("seat0","seat1"),(2000,2000),button=block%2),hand_id=hand_id,seed=deal)
     records_begin = len(search.records) if search else 0
@@ -157,6 +160,9 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
         raise ValueError("Invalid independent worker coordinate")
     if phase not in SEARCH_PHASES and worker_count != 1:
         raise ValueError("M4 phases use one guarded worker")
+    if phase=="arena" and search_config.decision_seconds is None:
+        if plan.get("work_protocol")!="hu20-fixed50-no-fallback-v1":
+            raise ValueError("Fixed-work arena requires its prospectively amended plan")
     if phase=="arena":
         from dataclasses import asdict
         if (plan.get("stage")!="frozen-final" or len(plan["models"])!=3
@@ -187,7 +193,9 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
                 resource_check=budget.check,
                 allocation_budget=getattr(budget,"native_allocation_budget",None),
                 profile_retention=plan.get("evidence_retention",{}).get("profile_rule")
-                    if phase=="arena" else None) if phase in SEARCH_PHASES else None
+                    if phase=="arena" else None,
+                hang_attention_seconds=(100*budget.approval["host_replay_p99_seconds"]
+                    if plan.get("work_protocol")=="hu20-fixed50-no-fallback-v1" else None)) if phase in SEARCH_PHASES else None
             policy = HU20TurnSearchPolicy(source,solver,search_config) if solver else None
             arms = ("base","search") if phase in SEARCH_PHASES else (spec["strategy"],)
             for arm in arms:
@@ -196,7 +204,8 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
                         for block in range(worker_index,panel["blocks"],worker_count):
                             for rotation in (0,1):
                                 row = play(source,spec,panel,plan["root"],block,rotation,budget.check,
-                                    search=policy if arm == "search" and phase in SEARCH_PHASES else None,arm=arm,failure_dir=out/"partials")
+                                    search=policy if arm == "search" and phase in SEARCH_PHASES else None,arm=arm,failure_dir=out/"partials",
+                                    fixed_work=plan.get("work_protocol")=="hu20-fixed50-no-fallback-v1")
                                 stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+"\n");stream.flush()
                                 compact = {k:v for k,v in row.items() if k not in
                                     ("actions","search_records","search_counts","lbr_zero_likelihood")}
@@ -255,6 +264,10 @@ def main():
             raise ValueError("Owner approval and selected-settings Linux/M4 parity required")
     args.out.parent.mkdir(parents=True,exist_ok=True)
     config=TurnSearchConfig(**json.loads(args.search_config.read_text())) if args.search_config else None
+    if config and config.decision_seconds is None:
+        if (plan.get("work_protocol")!="hu20-fixed50-no-fallback-v1"
+                or approval.get("work_protocol")!=plan["work_protocol"]):
+            raise ValueError("Approval must explicitly bind the no-timer protocol")
     limit=21600 if args.phase=="part-a" else 300 if args.phase=="pilot" else plan["max_seconds"]
     if args.phase in SEARCH_PHASES:
         from dataclasses import asdict

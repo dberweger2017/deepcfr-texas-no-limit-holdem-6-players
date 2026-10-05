@@ -11,15 +11,23 @@ def guarded_policy(policy_class, client, guard):
     class GuardedPolicy(policy_class):
         def distribution(self, view, *, query_kind="probe"):
             if query_kind != "play" or view.street.value not in ("turn", "river"):
-                return super().distribution(view, query_kind=query_kind)
+                try:return super().distribution(view,query_kind=query_kind)
+                except Exception as exc:
+                    client.request("stop",reason="Search/probe defect: "+str(exc))
+                    raise
             event = client.acquire(guard)
             before = Counter(self.stats)
-            result = super().distribution(view, query_kind=query_kind)
+            try:
+                result = super().distribution(view, query_kind=query_kind)
+            except Exception as exc:
+                client.request("stop",reason="Search defect: "+str(exc))
+                raise
             delta = self.stats - before
             causes = [key.split("play:fallback:", 1)[1] for key, count in delta.items()
                       if key.startswith("play:fallback:") and count]
             gap = any(k.startswith("range:turn_conditioning_fallback:") and v for k, v in delta.items())
-            if gap or any(c not in ("timeout", "memory_refusal", "unsupported_holding", "zero_support") for c in causes):
+            fixed_work=getattr(getattr(self,"config",None),"decision_seconds",30) is None
+            if gap or (fixed_work and causes) or any(c not in ("timeout", "memory_refusal", "unsupported_holding", "zero_support") for c in causes):
                 client.request("stop", reason="Correctness/conditioning guard: " + str(causes))
                 raise RuntimeError("Correctness/conditioning guard")
             client.request("complete", event=event, fallback=bool(causes), cause=",".join(sorted(causes)) or None)

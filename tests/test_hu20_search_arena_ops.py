@@ -272,3 +272,33 @@ def test_report_imports_approved_science_from_separate_checkout(tmp_path):
           f'audit=load_approved_audit(Path({str(source)!r})); '
           'assert audit.IDENTITY == "approved-science"')
     subprocess.run([sys.executable,'-c',code],cwd=Path(__file__).resolve().parents[1],check=True)
+
+
+def test_fixed_work_controller_stops_first_defect_without_latency_boundary(tmp_path):
+    control=controller(tmp_path)
+    ledger=json.loads(control.ledger.read_text())
+    ledger["work_protocol"]="hu20-fixed50-no-fallback-v1"
+    control.ledger.write_text(json.dumps(ledger))
+    control.clock=lambda:11000 # Historical per-pod production clock no longer applies.
+    assert control.request({"op":"check"})["status"]=="running"
+    assert decision(control,0,True)["status"]=="stopped"
+    assert control.state["reason"]=="Search fallback is a defect under fixed-work protocol"
+
+
+def test_fixed_work_admission_uses_quota_and_memory_without_latency_headroom():
+    from scripts.quote_hu20_fixed_work_arena import admitted_workers
+    assert admitted_workers(18,32*10**9)==3
+    assert admitted_workers(17.99,32*10**9)==2
+    assert admitted_workers(18.7,24*10**9)==2
+    assert admitted_workers(23.8,64*10**9)==3
+
+
+def test_cpu_quote_refuses_missing_censored_stratum_and_wrong_thread_pool():
+    from scripts.quote_hu20_fixed_work_arena import work_estimate
+    stage4=[{"status":"completed","request_sha256":"a","threads":6},
+            {"status":"failure","request_sha256":"b","cause":"timeout","threads":6}]
+    sample=[{"status":"completed","request_sha256":"a","threads":6,"cpu_seconds":9,
+             "wall_seconds":1,"completion":{"iterations":50,"status":"play_complete"}}]
+    with pytest.raises(ValueError,match="thread checks"):work_estimate(stage4,sample)
+    sample[0].update(cpu_seconds=1,solver_seconds=1)
+    with pytest.raises(ValueError,match="hash ordering"):work_estimate(stage4,sample)

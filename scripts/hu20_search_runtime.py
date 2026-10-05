@@ -199,12 +199,15 @@ class PaidWorkerBudget:
                 or approval.get("selected_settings_parity") != "passed"
                 or not approval.get("quote_sha256") or not approval.get("parity_sha256")):
             raise ValueError("Approved quote and actual-pod selected-settings parity required")
-        if not 0 < approval.get("worker_seconds", 0) or not 0 < approval.get("rss_limit_bytes", 0):
+        fixed_work=approval.get("work_protocol")=="hu20-fixed50-no-fallback-v1"
+        if (not fixed_work and not 0 < approval.get("worker_seconds",0)) or not 0 < approval.get("rss_limit_bytes",0):
             raise ValueError("Worker must have quoted clock and resource limits")
+        if fixed_work and approval.get("worker_seconds") is not None:
+            raise ValueError("A fixed-work worker cannot have a wall-clock cutoff")
         self.out = out
         self.approval = approval
         self.started = monotonic()
-        self.deadline = self.started + approval["worker_seconds"]
+        self.deadline = float("inf") if fixed_work else self.started+approval["worker_seconds"]
         self.peak_rss = 0
         self.swap_baseline = swap_bytes()
         self.last_check = 0

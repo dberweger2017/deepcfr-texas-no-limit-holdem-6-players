@@ -28,7 +28,7 @@ class TurnSearchConfig:
     compress: bool = True
     menu: str = "native"
     opponent_likelihood_floor: float = .01
-    decision_seconds: float = 30
+    decision_seconds: float | None = 30
     memory_budget_bytes: int = 5 * 1024**3
     max_public_nodes: int = 300_000
     cache_entries: int = 32
@@ -39,9 +39,13 @@ class TurnSearchConfig:
                 raise ValueError(f"Invalid {name}")
         if (type(self.compress) is not bool or self.menu not in ("native", "cap2")
                 or self.opponent_likelihood_floor not in (0, .01)
-                or not isfinite(self.decision_seconds) or not (0 < self.decision_seconds <= 30 or self.decision_seconds == 120)
+                or (self.decision_seconds is not None and (not isfinite(self.decision_seconds)
+                    or not (0 < self.decision_seconds <= 30 or self.decision_seconds == 120)))
                 or self.memory_budget_bytes > 10 * 1024**3):
             raise ValueError("Invalid search settings")
+        if self.decision_seconds is None and (self.iterations != 50 or self.threads != 6
+                or self.compress or self.menu != "native" or self.opponent_likelihood_floor != 0):
+            raise ValueError("Fixed-work protocol requires native, six threads, uncompressed, 50 iterations, epsilon zero")
 
 
 @dataclass(frozen=True)
@@ -184,7 +188,7 @@ class HU20TurnSearchPolicy:
 
     @staticmethod
     def _check(deadline):
-        if monotonic() >= deadline:
+        if deadline is not None and monotonic() >= deadline:
             raise SolveFailure("timeout", "Public policy preparation deadline")
 
     def _ranges(self, root, bot_seat, deadline):
@@ -211,6 +215,7 @@ class HU20TurnSearchPolicy:
                     try:
                         matrix = self._resolve(prior, bot_seat, deadline).matrix(prior)
                     except SolveFailure as exc:
+                        if self.config.decision_seconds is None:raise
                         counts["turn_conditioning_fallback:" + exc.cause] += 1
                         self.stats["range:turn_conditioning_fallback:"+exc.cause]+=1
             for j, pair in enumerate(pairs):
@@ -302,6 +307,7 @@ class HU20TurnSearchPolicy:
             except KeyError:
                 pass
             except SolveFailure:
+                if self.config.decision_seconds is None:raise
                 # Prior failed decisions stay base-policy locks, never vanish.
                 pass
         started = monotonic()
@@ -317,6 +323,7 @@ class HU20TurnSearchPolicy:
                     try:
                         matrix = self._resolve(prior, bot_seat, deadline).matrix(prior)
                     except SolveFailure:
+                        if self.config.decision_seconds is None:raise
                         holdings = [h for h, w in ranges[bot_seat] if w > 0]
                         matrix = self._base_matrix(prior, holdings)
                 fixed[line_key(betting_line(root, prior))] = matrix
@@ -345,6 +352,8 @@ class HU20TurnSearchPolicy:
                 request["locks"].append({"line": node["line"], "board": request["board"],
                     "player": node["player"], "actions": node["actions"],
                     "holdings": [list(h) for h in matrix.holdings], "strategy": policy.ravel().tolist()})
+            if self.config.decision_seconds is None:
+                request["work_protocol"]="hu20-fixed50-no-fallback-v1"
             self._check(deadline)
             profiles = self.solver.solve(request, deadline)
             self._check(deadline)
@@ -379,19 +388,22 @@ class HU20TurnSearchPolicy:
             self.stats["played_matrix_hits"]+=1
             if used[1] or tuple(sorted(view.hole_cards)) not in used[3]["supported"]:
                 cause=used[3]["cause"] if used[1] else "unsupported_holding"
+                if self.config.decision_seconds is None:raise SolveFailure(cause,"Cached search defect")
                 self.stats[query_kind+":fallback:"+cause]+=1
                 return self.blueprint.distribution(view)
             self.stats[query_kind+":search"]+=1
             try:return used[0].menu,used[0].row(view.hole_cards),True
-            except SolveFailure:return self.blueprint.distribution(view)
+            except SolveFailure:
+                if self.config.decision_seconds is None:raise
+                return self.blueprint.distribution(view)
         started = monotonic()
+        deadline=None if self.config.decision_seconds is None else started+self.config.decision_seconds
         try:
-            solution = self._resolve(view.history, view.seat,
-                                     started + self.config.decision_seconds)
+            solution = self._resolve(view.history, view.seat, deadline)
             matrix = solution.matrix(view.history)
             if query_kind=="play":
                 played_matrix=self._complete_matrix(view,matrix)
-                self._check(started+self.config.decision_seconds)
+                self._check(deadline)
             probabilities = matrix.row(view.hole_cards)
             for choice in matrix.menu:
                 view.legal_actions.validate(choice.action)
@@ -401,10 +413,18 @@ class HU20TurnSearchPolicy:
                 self._pin_live(view,solution=solution)
                 self.records.append({"status": "decision", "street": view.street.value,
                     "public_history": public_identity(view.history),
-                    "seconds": monotonic() - started, "fallback": False})
+                    "seconds": monotonic() - started, "fallback": False,
+                    "host_telemetry":getattr(self.solver,"records",[{}])[-1].get("host_telemetry")
+                        if getattr(self.solver,"records",[]) else None})
             return matrix.menu, probabilities, True
         except (SolveFailure, ValueError, KeyError) as exc:
             cause = exc.cause if isinstance(exc, SolveFailure) else "invalid_response"
+            if self.config.decision_seconds is None:
+                self.stats[query_kind+":defect:"+cause]+=1
+                self.records.append({"status":"defect","cause":cause,"query_kind":query_kind,
+                    "street":view.street.value,"public_history":public_identity(view.history),
+                    "seconds":monotonic()-started})
+                raise SolveFailure(cause,str(exc)) from exc
             self.stats[query_kind + ":fallback:" + cause] += 1
             self.records.append({"status": "fallback", "cause": cause, "query_kind": query_kind,
                 "street": view.street.value, "public_history": public_identity(view.history),

@@ -1,0 +1,11 @@
+{
+  "cache_entries": 32,
+  "compress": false,
+  "decision_seconds": null,
+  "iterations": 50,
+  "max_public_nodes": 300000,
+  "memory_budget_bytes": 5368709120,
+  "menu": "native",
+  "opponent_likelihood_floor": 0,
+  "threads": 6
+}
