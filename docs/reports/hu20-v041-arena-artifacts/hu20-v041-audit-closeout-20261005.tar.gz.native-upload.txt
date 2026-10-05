@@ -1,0 +1,105 @@
+Evaluating actions against {
+    domainUserInfo =     {
+        "ACTIVATION_RULE_DENY_COPY" = 1;
+        "ACTIVATION_RULE_DENY_SHARED_DRIVE_ROOT_MANIPULATION" = 1;
+        "CONTEXT_MENU_CREATE_CSE_EDITOR_FILES" = 0;
+        "CONTEXT_MENU_CREATE_SHARED_DRIVE" = 1;
+        "CONTEXT_MENU_FILE_REVISIONS_WEB" = 1;
+        "CONTEXT_MENU_MANAGE_SHARED_DRIVES" = 1;
+        "CONTEXT_MENU_OPEN_GEMINI_WEB" = 1;
+    };
+    fileproviderItems =     (
+                {
+            capabilities = 536871039;
+            contentModificationDate = "2026-10-05 14:43:12 +0000";
+            contentType = "org.gnu.gnu-zip-archive";
+            creationDate = "2026-10-05 14:43:12 +0000";
+            displayName = "hu20-v041-audit-closeout-20261005.tar.gz";
+            documentSize = 156392346;
+            filename = "hu20-v041-audit-closeout-20261005.tar.gz";
+            hasUnresolvedConflicts = 0;
+            inheritedUserInfo =             {
+            };
+            isDownloadRequested = 0;
+            isDownloaded = 1;
+            isDownloading = 0;
+            isExcludedFromSync = 0;
+            isFolder = 0;
+            isKeepDownloaded = 0;
+            isMostRecentVersionDownloaded = 1;
+            isRecursivelyDownloaded = 1;
+            isShared = 0;
+            isSharedByCurrentUser = 0;
+            isSyncPaused = 0;
+            isTrashed = 0;
+            isUploaded = 1;
+            isUploading = 0;
+            itemIdentifier = 105945;
+            lastUsedDate = "2026-10-05 14:44:08 +0000";
+            parentItemIdentifier = 105933;
+            resolvedUserInfo =             {
+            };
+            typeIdentifier = "org.gnu.gnu-zip-archive";
+            userInfo =             {
+                "ACTION_ADD_SHORTCUT" = 1;
+                "ACTION_COPY_LINK" = 1;
+                "ACTION_OPEN" = 1;
+                "ACTION_OPEN_REVISION_FOLDER" = 1;
+                "ACTION_PIN" = 1;
+                "ACTION_SHARE" = 1;
+                "ACTION_UNKNOWN" = 1;
+                "ACTION_UNPIN" = 0;
+                "CAN_MANAGE_MEMBERS" = 0;
+                "IS_SHARED_DRIVES" = 0;
+                "SHARED_DRIVE_ROOT" = 0;
+            };
+            versionIdentifier = {length = 51, bytes = 0x3042384c 37695641 72473867 45527a6c ... 4e4e4d6e 566a5051 };
+        }
+    );
+}
+
+Actions:
+ACTION_OPEN_GEMINI_WEB: domainUserInfo.CONTEXT_MENU_OPEN_GEMINI_WEB == 1 AND fileproviderItems.@count <= 5 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_GEMINI_WEB == 1).@count > 0 - NO
+ACTION_REFRESH_SHARED_DRIVES_ROOT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_REFRESH_SHARED_DRIVES_ROOT == 1).@count > 0 - NO
+ACTION_PIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_PIN == 1).@count > 0 - YES
+ACTION_UNPIN: SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_UNPIN == 1).@count > 0 - NO
+ACTION_OPEN: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN == 1).@count > 0 - YES
+ACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 0).@count > 0 - YES
+ACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 1).@count > 0 - NO
+ACTION_SHARE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_SHARE == 1 AND $item.userInfo.SHARED_DRIVE_ROOT == 1 AND $item.userInfo.CAN_MANAGE_MEMBERS == 0).@count > 0 - NO
+ACTION_COPY_LINK: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_COPY_LINK == 1).@count > 0 - YES
+ACTION_ADD_SHORTCUT: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_ADD_SHORTCUT == 1).@count > 0 - YES
+ACTION_VIEW_TRASH: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_VIEW_TRASH == 1).@count > 0 - NO
+ACTION_CREATE_SHARED_DRIVE: domainUserInfo.CONTEXT_MENU_CREATE_SHARED_DRIVE == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHARED_DRIVE == 1).@count > 0 - NO
+ACTION_MANAGE_SHARED_DRIVES: domainUserInfo.CONTEXT_MENU_MANAGE_SHARED_DRIVES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.IS_SHARED_DRIVES == 1).@count == 1 - NO
+ACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 0 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - NO
+ACTION_CREATE_ENCRYPTED_DOCS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_DOCS_FILE == 1).@count > 0 - NO
+ACTION_CREATE_ENCRYPTED_SHEETS_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SHEETS_FILE == 1).@count > 0 - NO
+ACTION_CREATE_ENCRYPTED_SLIDES_FILE: domainUserInfo.CONTEXT_MENU_CREATE_CSE_EDITOR_FILES == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_ENCRYPTED_SLIDES_FILE == 1).@count > 0 - NO
+ACTION_CREATE_DOCS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_DOCS_FILE == 1).@count > 0 - NO
+ACTION_CREATE_SHEETS_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SHEETS_FILE == 1).@count > 0 - NO
+ACTION_CREATE_SLIDES_FILE: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_CREATE_SLIDES_FILE == 1).@count > 0 - NO
+ACTION_FORCE_REFRESH_FOLDER: fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_FORCE_REFRESH_FOLDER == 1).@count > 0 - NO
+ACTION_OPEN_REVISION_FOLDER: domainUserInfo.CONTEXT_MENU_FILE_REVISIONS_WEB == 1 AND fileproviderItems.@count == 1 AND SUBQUERY(fileproviderItems, $item, $item.userInfo.ACTION_OPEN_REVISION_FOLDER == 1).@count > 0 - YES
+
+Decorations:
+
+Capabilities: rwdpfetT----
+
+Content Policy: 2
+
+Inherited Content Policy: 2
+
+Effective Content Policy: 2
+
+Evicted with clone: no
+
+Sync is paused: no
+
+Provider supports upload with fail on conflict: no
+
+Namespace Policy: 0
+
+Inherited Namespace Policy: 0
+
+Effective Namespace Policy: 1
