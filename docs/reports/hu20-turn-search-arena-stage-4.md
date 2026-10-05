@@ -41,3 +41,11 @@ Every retained compressed chunk and every archived member was stream-verified by
 Full provisioning spending is estimated at **$1.587550 gross** ($1.538851 compute plus $0.048700 conservative disk), or **$1.068661 against the owner's cap** after the agreed $0.518889 sleep exclusion. Available posted billing buckets total **$0.957235 through 16:00 UTC**; the last 16:00–17:00 UTC bucket was not posted at closeout. These estimates are not a settled invoice. The quote's unused storage/pilot contingencies are not actual spend.
 
 A local final-report import-path error occurred after evidence verification and termination. Its original failure record is preserved; the reporting import was corrected and the final report posted without restarting any pod or science. No rental, retune or further arena run is authorized by this closeout. Next: owner review of the timeout evidence before a new prospectively defined host/timing proposal and paid-run quote.
+
+## Archive and billing refresh
+
+The final-report import-path fix is covered by a fresh-process regression that loads the approved scientific audit from a checkout separate from the operational package. All 15 operational checks pass. Both raw evidence and reporting failure receipts remain unchanged.
+
+The verified research ZIPs are now at `~/Local/Research-Cloud/PR-166-HU20-turn-search-arena/`: `stage-4-closed-M4-20261005.zip` (541,375,924 bytes, SHA-256 `d4ff034cd19d6e6fd8db39313ceba16ff76031d86bc5bc8b74dfea87a87defc6`, 659 verified members), and `stage-4-closed-M1-20261005.zip` (6,372,654 bytes, SHA-256 `aee43e7c031cf5b2cac8b7f67b6ee6367e95fc196d11227fb4dbf11482de8777`, 74 verified members). Archive/member hashes were reverified at the destination; task credential copies and bytecode caches are excluded. Original files remain preserved.
+
+Fresh MCP billing now includes the final 16:00–17:00 UTC bucket: **$1.170743 posted gross / $0.651854 cap-counted** after the agreed sleep credit. This replaces the earlier incomplete posted sum, while preserving the separate conservative provisioning estimate. A fresh list-pods again confirms no active pods. The 13,560 stopped-run hands are historical evidence only and will not be reused in an amended arena.

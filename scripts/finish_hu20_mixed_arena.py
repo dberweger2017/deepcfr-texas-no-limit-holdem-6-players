@@ -97,6 +97,18 @@ def partial_counts(directories):
     return hands,dict(counts),hosts
 
 
+def load_approved_audit(source):
+    """Resolve scientific audit imports when operations live outside its checkout."""
+    source=source.resolve()
+    sys.path.insert(0,str(source))
+    import scripts
+    scripts.__path__=[str(source/'scripts'),*list(scripts.__path__)]
+    spec=importlib.util.spec_from_file_location('approved_hu20_audit',source/'scripts/audit_hu20_turn_search.py')
+    audit=importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(audit)
+    return audit
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root',type=Path,required=True)
@@ -125,11 +137,7 @@ def main():
         directories,summaries,proofs=materialize_hands(root)
         guards=guard_report(root,ledger)
         durable_json(root/'exact-search-guard-counts.json',guards)
-        sys.path.insert(0,str(args.source.resolve()))
-        import scripts
-        scripts.__path__=[str(args.source.resolve()/'scripts'),*list(scripts.__path__)]
-        audit_spec=importlib.util.spec_from_file_location('approved_hu20_audit',args.source/'scripts/audit_hu20_turn_search.py')
-        audit=importlib.util.module_from_spec(audit_spec);audit_spec.loader.exec_module(audit)
+        audit=load_approved_audit(args.source)
         original_hash=audit.file_hash
         audit.file_hash=lambda path:path.spec['sha256'] if isinstance(path,ArchivedFile) else original_hash(path)
         complete=len(summaries)==6 and {s['worker_index'] for s in summaries}==set(range(6)) and all(s['status']=='complete' for s in summaries)

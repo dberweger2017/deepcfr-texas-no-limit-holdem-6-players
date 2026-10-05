@@ -257,3 +257,18 @@ def test_compressed_native_audit_keeps_original_manifests_and_rejects_changed_se
     assert json.loads((root/'audit-hands/worker-0/manifest.json').read_text())==original
     (out/'manifest.json').write_text((out/'manifest.json').read_text()+' ')
     with pytest.raises(ValueError,match='manifest changed'):materialize_hands(root)
+
+
+def test_report_imports_approved_science_from_separate_checkout(tmp_path):
+    import subprocess
+    import sys
+    from pathlib import Path
+    source=tmp_path/'scientific-source'
+    (source/'scripts').mkdir(parents=True)
+    (source/'scripts/evaluate_hu20_turn_search.py').write_text('IDENTITY = "approved-science"\n')
+    (source/'scripts/audit_hu20_turn_search.py').write_text(
+        'from scripts.evaluate_hu20_turn_search import IDENTITY\n')
+    code=('from pathlib import Path; from scripts.finish_hu20_mixed_arena import load_approved_audit; '
+          f'audit=load_approved_audit(Path({str(source)!r})); '
+          'assert audit.IDENTITY == "approved-science"')
+    subprocess.run([sys.executable,'-c',code],cwd=Path(__file__).resolve().parents[1],check=True)
