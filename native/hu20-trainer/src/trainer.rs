@@ -5,7 +5,7 @@
 //! then applies them, exactly like `BlueprintTrainer.step`. Production HU20 runs
 //! use one root per seat; more roots per seat run in parallel.
 
-use crate::cfr::{Node, Stream, Table, Traversal};
+use crate::cfr::{Key, Lookup, Node, Stream, Table, Traversal};
 use crate::game::Hand;
 use flate2::write::GzEncoder;
 use flate2::Compression;
@@ -17,8 +17,35 @@ use std::path::Path;
 pub const GAME: &str = "hu20-native-reopening-20bb-52card-no-ante-rake-v1";
 pub const FORMAT: &str = "holdem-hu20-native-reopening-blueprint-v1";
 
+pub const SHARDS: usize = 64;
+
+/// The strategy table split by key so deltas merge and apply in parallel.
+#[derive(Default)]
+pub struct Sharded(pub Vec<Table>);
+
+impl Sharded {
+    fn new() -> Sharded {
+        Sharded((0..SHARDS).map(|_| Table::default()).collect())
+    }
+    pub fn shard(key: &Key) -> usize {
+        key[15] as usize % SHARDS
+    }
+    pub fn len(&self) -> usize {
+        self.0.iter().map(|t| t.len()).sum()
+    }
+    pub fn iter(&self) -> impl Iterator<Item = (&Key, &Node)> {
+        self.0.iter().flat_map(|t| t.iter())
+    }
+}
+
+impl Lookup for Sharded {
+    fn lookup(&self, key: &Key) -> Option<&Node> {
+        self.0[Self::shard(key)].get(key)
+    }
+}
+
 pub struct Trainer {
-    pub table: Table,
+    pub table: Sharded,
     /// Per-task delta maps, emptied and reused every iteration.
     scratch: Vec<Table>,
     pub iteration: u64,
@@ -48,7 +75,7 @@ pub fn deal(seed: u64) -> Vec<u8> {
 
 impl Trainer {
     pub fn new(seed: u64, roots_per_seat: usize) -> Trainer {
-        Trainer { table: Table::default(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0 }
+        Trainer { table: Sharded::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0 }
     }
 
     pub fn step(&mut self) -> u64 {
@@ -71,32 +98,49 @@ impl Trainer {
         } else {
             tasks.iter().zip(scratch).map(run).collect()
         };
-        // Merge in task order, then apply: identical floating-point order to Python.
-        let mut merged = Table::default();
-        let mut nodes = 0;
-        for (deltas, count) in &results {
-            nodes += count;
-            for (key, delta) in deltas {
-                let target = merged.entry(*key).or_insert_with(|| Node::empty(delta.code, delta.len as usize));
-                assert!(target.code == delta.code, "an abstract infoset changed its action labels");
-                for i in 0..delta.len as usize {
-                    target.regrets[i] += delta.regrets[i];
-                    target.average[i] += delta.average[i];
+        let nodes: u64 = results.iter().map(|r| r.1).sum();
+        // Group each task's deltas by shard, keeping task order inside every shard.
+        let group = |(deltas, _): &(Table, u64)| {
+                let mut by_shard: Vec<Vec<(Key, Node)>> = vec![Vec::new(); SHARDS];
+                for (key, delta) in deltas {
+                    by_shard[Sharded::shard(key)].push((*key, *delta));
                 }
-                target.visits += delta.visits;
+                by_shard
+        };
+        let grouped: Vec<Vec<Vec<(Key, Node)>>> =
+            if tasks.len() > 2 { results.par_iter().map(group).collect() } else { results.iter().map(group).collect() };
+        // Per shard: merge tasks in order, then apply. Each key sees Python's addition order.
+        let apply = |(shard, table): (usize, &mut Table)| {
+            let mut merged = Table::default();
+            for task in &grouped {
+                for (key, delta) in &task[shard] {
+                    let target = merged.entry(*key).or_insert_with(|| Node::empty(delta.code, delta.len as usize));
+                    assert!(target.code == delta.code, "an abstract infoset changed its action labels");
+                    for i in 0..delta.len as usize {
+                        target.regrets[i] += delta.regrets[i];
+                        target.average[i] += delta.average[i];
+                    }
+                    target.visits += delta.visits;
+                }
             }
+            for (key, delta) in merged {
+                let node = table.entry(key).or_insert_with(|| Node::empty(delta.code, delta.len as usize));
+                assert!(node.code == delta.code, "an abstract infoset changed its action labels");
+                for i in 0..delta.len as usize {
+                    node.regrets[i] += delta.regrets[i];
+                    node.average[i] += delta.average[i];
+                    assert!(node.regrets[i].is_finite() && node.average[i].is_finite(), "non-finite blueprint update");
+                }
+                node.visits += delta.visits;
+            }
+        };
+        // Two traversals per iteration (the production setting) are cheaper to apply serially.
+        if tasks.len() > 2 {
+            self.table.0.par_iter_mut().enumerate().for_each(apply);
+        } else {
+            self.table.0.iter_mut().enumerate().for_each(apply);
         }
         self.scratch = results.into_iter().map(|(deltas, _)| deltas).collect();
-        for (key, delta) in merged {
-            let node = self.table.entry(key).or_insert_with(|| Node::empty(delta.code, delta.len as usize));
-            assert!(node.code == delta.code, "an abstract infoset changed its action labels");
-            for i in 0..delta.len as usize {
-                node.regrets[i] += delta.regrets[i];
-                node.average[i] += delta.average[i];
-                assert!(node.regrets[i].is_finite() && node.average[i].is_finite(), "non-finite blueprint update");
-            }
-            node.visits += delta.visits;
-        }
         self.iteration = iteration;
         self.nodes += nodes;
         nodes
@@ -124,10 +168,9 @@ impl Trainer {
             let file = std::fs::File::create(&temporary)?;
             let mut out = GzEncoder::new(std::io::BufWriter::new(file), Compression::default());
             writeln!(out, "{}", serde_json::to_string(&header).unwrap())?;
-            let mut keys: Vec<&crate::cfr::Key> = self.table.keys().collect();
-            keys.sort();
-            for key in keys {
-                let node = &self.table[key];
+            let mut rows: Vec<(&Key, &Node)> = self.table.iter().collect();
+            rows.sort_by(|a, b| a.0.cmp(b.0));
+            for (key, node) in rows {
                 let hex: String = key.iter().map(|b| format!("{b:02x}")).collect();
                 let n = node.len as usize;
                 let row = json!([hex, node.names(), &node.regrets[..n], &node.average[..n], node.visits]);

@@ -33,6 +33,16 @@ impl Hasher for KeyHasher {
 }
 pub type Table = HashMap<Key, Node, BuildHasherDefault<KeyHasher>>;
 
+/// Read access to a strategy table during traversals.
+pub trait Lookup: Sync {
+    fn lookup(&self, key: &Key) -> Option<&Node>;
+}
+impl Lookup for Table {
+    fn lookup(&self, key: &Key) -> Option<&Node> {
+        self.get(key)
+    }
+}
+
 /// CPython's `math.fsum` (Shewchuk partials with a final rounding correction).
 pub fn fsum(values: impl IntoIterator<Item = f64>) -> f64 {
     let mut partials = [0f64; 16];
@@ -159,8 +169,8 @@ impl Sampler for Stream {
     }
 }
 
-pub struct Traversal<'a, S: Sampler> {
-    pub table: &'a Table,
+pub struct Traversal<'a, S: Sampler, L: Lookup = Table> {
+    pub table: &'a L,
     pub iteration: u64,
     pub traverser: usize,
     pub sampler: S,
@@ -169,13 +179,13 @@ pub struct Traversal<'a, S: Sampler> {
     pub terminals: u64,
 }
 
-impl<'a, S: Sampler> Traversal<'a, S> {
-    pub fn new(table: &'a Table, iteration: u64, traverser: usize, sampler: S) -> Self {
+impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
+    pub fn new(table: &'a L, iteration: u64, traverser: usize, sampler: S) -> Self {
         Self::with_deltas(table, iteration, traverser, sampler, Table::default())
     }
 
     /// Reuses an emptied delta map's allocation across iterations.
-    pub fn with_deltas(table: &'a Table, iteration: u64, traverser: usize, sampler: S, mut deltas: Table) -> Self {
+    pub fn with_deltas(table: &'a L, iteration: u64, traverser: usize, sampler: S, mut deltas: Table) -> Self {
         deltas.clear();
         Traversal { table, iteration, traverser, sampler, deltas, nodes: 0, terminals: 0 }
     }
@@ -195,7 +205,7 @@ impl<'a, S: Sampler> Traversal<'a, S> {
         let choices = options.as_slice();
         let n = choices.len();
         let key = key_bytes(hand, choices);
-        let policy = match self.table.get(&key) {
+        let policy = match self.table.lookup(&key) {
             Some(node) => {
                 assert!(node.code == options.code, "a v1 key changed its action menu");
                 regret_match(&node.regrets[..n])
