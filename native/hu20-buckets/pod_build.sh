@@ -27,6 +27,10 @@ cd native/hu20-buckets
 stage "tests (including the full seven-card category gate)"
 RAYON_NUM_THREADS=$THREADS cargo test --release -- --include-ignored 2>&1 | tee "$OUT/tests.log"
 
+stage "compile release binary"
+cargo build --release 2>&1 | tail -3
+test -x ./target/release/hu20-buckets
+
 stage "build tables on $THREADS threads"
 RAYON_NUM_THREADS=$THREADS ./target/release/hu20-buckets build --out "$OUT" \
   --ranks 13 --ks 50,200 --bins 50 --seed 202610050003 --iterations 100 2> >(tee "$OUT/build-stderr.log" >&2) &
