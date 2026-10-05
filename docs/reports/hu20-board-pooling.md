@@ -1,15 +1,95 @@
-# HU20 board-blind pooling — qualified pipeline, interrupted main
+# HU20 board-blind pooling — completed held-out diagnostic
 
-**All 61 qualification gates passed, and pilot-0 scientific values reproduce
-exactly after engineering. Main was admitted under the original clock, then
-stopped preemptively after one completed collect job and one partial when a
-separate eager-pooling memory defect was found. No resource threshold was
-breached. A byte-identical streaming repair is ready on M1; M4 remains stopped
-pending explicit owner readmission.** No hypothesis decision is available.
-Draft [PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149)
-remains a draft; paid cost is $0. Every prior failure remains below.
+**The frozen primary readout is trainer/coverage consistent: D=0.1943 [0.1550, 0.2359].** All 40 boards qualify across all three B500M stored-average exports, with 20 boards in each frozen half and 100% retained weight. All 120 collect solves, 120 lock-only evaluations and 18 sampled replays completed. No main support, convergence or replay exclusions occurred. Draft [PR #149](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149) remains draft; paid compute cost is **$0**.
 
-## Completed qualification, measured admission and main stop
+## Result and next 0.4.x step
+
+The held-out board-blind v1 witness loses **0.6567 BB [0.6273, 0.6868]**, compared with **1.4194 [1.3310, 1.5161]** for the actual blueprint and **0.4728 [0.4365, 0.5100]** for the per-root witness. Board pooling adds a signed 0.1839 BB to the per-root mean, while 0.7627 BB separates the blueprint from the held-out witness. D=(P−L)/(B−L)=0.1943 is below the frozen 0.3 trainer/coverage threshold, and its entire conditional 95% interval lies below 0.3. These differences describe constructed witnesses; they are not an identified causal decomposition.
+
+**Prioritize trainer changes for the next 0.4.x step.** First instrument v1 key visits, board/context occupancy, signed regret updates and lifetime-average accumulation, then check the sampler and averaging implementation against native small-game references. Propose a separately frozen, owner-approved comparison of the current trainer and the validated change with equal work and fresh held-out boards. This report authorizes no new training. The companion found visits from 18 to 12,905 and retained-average TV up to 0.8786 across lineages, but historical board occupancy was not retained; it cannot identify a specific trainer defect.
+
+The equity-50 held-out witness reaches **0.3874 BB [0.3582, 0.4190]**, or 0.5900 [0.5525, 0.6290] of held-out v1 loss. Abstraction improvement therefore remains promising, but this experiment supports investigating trainer behavior before replacing v1 solely to explain the blueprint gap. The classification is conditional on the seed-1-selected **limped/check-through public line**, forty sampled boards and frozen ranges. It does not decide raised-pot behavior, all-board/full-game strength, inherited aliases across arbitrary roots, preflop errors or flop strategy. Projections are feasible witnesses, not abstraction equilibria or lower bounds.
+
+## Frozen report and intervals
+
+[Frozen reporter output](hu20-board-pooling-artifacts/m4-main-06/report.md), [all estimates, seat rows and raw inventory](hu20-board-pooling-artifacts/m4-main-06/summary.json), [resource and replay checks](hu20-board-pooling-artifacts/m4-main-06/resources.json), and [M1 reporter replay](hu20-board-pooling-artifacts/m4-main-06/reporter-replay.json). The unchanged `scripts.report_board_pooling` ran at runtime source e0c91d25. M1 replay of all 240 hash-verified atomic records reproduces every non-inventory summary field exactly. Its compact input inventory differs from the full M4 raw inventory by design.
+
+Intervals use the frozen 2,000 paired-board bootstrap draws and seed 202610030304. They preserve lineage/seat pairing and weights, condition on the fitted opposite-half policies/codebooks and omit fitting uncertainty. No bootstrap D draw was undefined. Root pots are 2 BB, so a loss of 1 BB equals 50% pot.
+
+### BB loss — mean [95% interval]
+
+| Group | Blueprint | Per-root v1 | Held-out v1 | Held-out equity50 | In-sample v1 | In-sample equity50 |
+|---|---:|---:|---:|---:|---:|---:|
+| 2026093001 | 1.4313 [1.3220, 1.5472] | 0.4733 [0.4360, 0.5120] | 0.6670 [0.6375, 0.6972] | 0.3863 [0.3563, 0.4188] | 0.6071 [0.5812, 0.6340] | 0.3587 [0.3289, 0.3908] |
+| 2026093002 | 1.3248 [1.2436, 1.4148] | 0.4667 [0.4298, 0.5030] | 0.6496 [0.6169, 0.6833] | 0.3967 [0.3633, 0.4340] | 0.6018 [0.5731, 0.6287] | 0.3693 [0.3365, 0.4041] |
+| 2026093003 | 1.5019 [1.4061, 1.6098] | 0.4783 [0.4411, 0.5168] | 0.6533 [0.6179, 0.6898] | 0.3792 [0.3474, 0.4151] | 0.6100 [0.5773, 0.6431] | 0.3547 [0.3236, 0.3908] |
+| pooled | 1.4194 [1.3310, 1.5161] | 0.4728 [0.4365, 0.5100] | 0.6567 [0.6273, 0.6868] | 0.3874 [0.3582, 0.4190] | 0.6063 [0.5787, 0.6331] | 0.3609 [0.3318, 0.3918] |
+| seat-0 | 1.2307 [1.1335, 1.3326] | 0.4584 [0.4162, 0.4999] | 0.6133 [0.5789, 0.6492] | 0.3287 [0.3008, 0.3581] | 0.5713 [0.5390, 0.6043] | 0.2930 [0.2727, 0.3136] |
+| seat-1 | 1.6080 [1.4862, 1.7491] | 0.4871 [0.4553, 0.5202] | 0.7000 [0.6451, 0.7588] | 0.4462 [0.3915, 0.5056] | 0.6413 [0.5901, 0.6942] | 0.4288 [0.3748, 0.4855] |
+
+### Loss as percent root pot — mean [95% interval]
+
+| Group | Blueprint | Per-root v1 | Held-out v1 | Held-out equity50 | In-sample v1 | In-sample equity50 |
+|---|---:|---:|---:|---:|---:|---:|
+| 2026093001 | 71.5659 [66.1007, 77.3604] | 23.6648 [21.8022, 25.6008] | 33.3513 [31.8737, 34.8610] | 19.3166 [17.8161, 20.9387] | 30.3566 [29.0586, 31.6976] | 17.9348 [16.4466, 19.5386] |
+| 2026093002 | 66.2408 [62.1808, 70.7403] | 23.3344 [21.4905, 25.1493] | 32.4825 [30.8429, 34.1670] | 19.8374 [18.1674, 21.6997] | 30.0879 [28.6570, 31.4339] | 18.4650 [16.8264, 20.2053] |
+| 2026093003 | 75.0974 [70.3047, 80.4918] | 23.9164 [22.0535, 25.8425] | 32.6663 [30.8953, 34.4915] | 18.9622 [17.3716, 20.7574] | 30.5021 [28.8636, 32.1552] | 17.7358 [16.1794, 19.5402] |
+| pooled | 70.9680 [66.5515, 75.8058] | 23.6385 [21.8229, 25.4994] | 32.8333 [31.3634, 34.3417] | 19.3721 [17.9084, 20.9510] | 30.3155 [28.9344, 31.6556] | 18.0452 [16.5910, 19.5900] |
+| seat-0 | 61.5365 [56.6730, 66.6311] | 22.9197 [20.8099, 24.9963] | 30.6665 [28.9463, 32.4604] | 16.4332 [15.0406, 17.9040] | 28.5674 [26.9517, 30.2163] | 14.6498 [13.6326, 15.6818] |
+| seat-1 | 80.3996 [74.3079, 87.4532] | 24.3574 [22.7673, 26.0118] | 35.0002 [32.2564, 37.9381] | 22.3109 [19.5729, 25.2805] | 32.0637 [29.5025, 34.7100] | 21.4405 [18.7386, 24.2742] |
+
+| Group | Primary D [95% interval] | Covered-context D [95% interval] |
+|---|---:|---:|
+| Pooled | 0.1943 [0.1550, 0.2359] | 0.1887 [0.1493, 0.2308] |
+| 2026093001 | 0.2022 [0.1548, 0.2545] | 0.1971 [0.1500, 0.2497] |
+| 2026093002 | 0.2132 [0.1696, 0.2573] | 0.2068 [0.1653, 0.2505] |
+| 2026093003 | 0.1710 [0.1338, 0.2066] | 0.1655 [0.1279, 0.2017] |
+| seat-0 | 0.2006 [0.1625, 0.2376] | Not separately summarized by frozen reporter |
+| seat-1 | 0.1899 [0.1358, 0.2451] | Not separately summarized by frozen reporter |
+
+Covered-context held-out v1 loss is 0.6514 [0.6209, 0.6818] BB and 32.5683 [31.0468, 34.0895]% pot. This hybrid applies the held-out strategy on covered keys and the per-root witness on absent/zero-mass keys. It is a supplementary sensitivity, not conditional EV, an implementable globally board-blind policy or a causal attribution.
+
+## Missing-key coverage
+
+**The 5% coverage rule passes in all twelve fold/lineage/street cells.** Maximum missing-key own-policy decision reach is 0.80493% (fold 1, lineage 2026093003, turn); D is admitted as the primary readout, not merely descriptive. These are per-street own-decision reach fractions, not joint/chance-weighted hand frequencies. Uniform fallback on absent/zero-training-mass keys remains exactly as frozen.
+
+| Evaluation fold | Lineage | Turn missing reach % | River missing reach % |
+|---|---|---:|---:|
+| 0 | 2026093001 | 0.128350 | 0.000401 |
+| 0 | 2026093002 | 0.123509 | 0.001114 |
+| 0 | 2026093003 | 0.137361 | 0.000658 |
+| 1 | 2026093001 | 0.785350 | 0.008936 |
+| 1 | 2026093002 | 0.796106 | 0.003688 |
+| 1 | 2026093003 | 0.804926 | 0.022922 |
+
+There are **zero main exclusions and zero main failures**. No failed or interrupted prior attempt contributes a value. The in-sample pooled policies are secondary only; primary policies and equity codebooks fit the opposite frozen half. Empirical board weights reweight the evaluated equilibrium witnesses rather than solving a new empirically weighted equilibrium.
+
+## Completion, resources and validation
+
+Main-06 finished October 5 at 04:58:05 UTC / 06:58:05 CEST. Guard exit code is zero and owned campaign processes exited; no resume was used. Main guarded use is **36,740.534 seconds / 10.206 hours**; cumulative use including all eight prior stages is **42,238.400 seconds / 11.733 hours**. The owner takeover supplied a fresh main wall deadline of October 5 at 18:45:44 UTC / 20:45:44 CEST; it did not reset the append-only 86,400-second guarded clock. The one-hour closeout reserve was retained.
+
+| Stage | Count | Mean native seconds | Maximum native seconds | Maximum worker GiB |
+|---|---:|---:|---:|---:|
+| collect | 120 | 161.587 | 261.308 | 5.562 |
+| relock | 120 | 93.883 | 98.054 | 5.552 |
+| Replay solve | 18 | 219.090 | 251.543 | 6.622 |
+
+Native lock timings omit covered-policy construction, orchestration and any sampled replay. The guard recorded **6.680 GiB peak family RSS**, below the 8-GiB cap. Native worker peaks remain below 7 GiB; the 4-GiB arena, one worker/six threads/nice 10, swap-growth guard and 20-GiB disk floor were unchanged. The last live sample retained about 53 GiB free disk and swap below the initial baseline. The first three relock native peaks were 5.368, 5.371 and 5.358 GiB; their gates passed, including the first sampled replay at 6.622 GiB.
+
+All 120 solve residuals range **0.154310–0.199842% pot** (mean 0.183155), at or below the frozen 0.2% target. Every lock-only pass records zero CFR iterations and inherits its hash-linked collect equilibrium. All eighteen deterministic solve/statistics replays and lock-only versus solved-tree best-response checks pass. All 258 native response hashes agree with the frozen reporter inventory. Qualification-05 remains 61/61 passing, including the three fixed 20,000-deal V4 checks, memory estimates, fixtures and singleton gates. Linux parity remains **not-run**; this was a same-host macOS campaign.
+
+**36 pooling tests pass** on M1 after reporting; no M1 solve was run. External AGPL solver/harness sources and binaries remain outside the MIT repository. Native fingerprint `fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f`; qualification `a1914726d352a179e55e75706b245eb867060bb3a5ae9242889664e224b128c0`; frozen plan `754eac947757ecef9638e665007e8dbf7975b2e02a876267fb6e5e623f462db1`; final summary `6cdcefce0a55f9ac361966b4d298c4e9e750a9b668053054b4b2e3e09b94e91f`.
+
+## Retrieval and archive staging
+
+Full raw retrieval verification and archive staging are recorded in the closeout receipt. All original M4 evidence, five earlier immutable M1 retrieval copies, their receipts, preparation hard-link dependencies and isolated restored average inputs remain preserved. No cloud completion or local deletion is implied.
+
+## Prior attempt chronology (historical, superseded by main-06 completion)
+
+The following prior closeout records are retained verbatim. Their references to stopped work, old deadlines or pending owner readmission describe their respective October 4 stages. The owner’s [takeover](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/149#issuecomment-5983208898) and source e0c91d25 introduced per-lineage policy files and a short-lived covered-policy child, preserving scientific values, then admitted main-06 under the new wall allowance. Every earlier failure stays charged in the clock; no partial result was stitched into this readout.
+
+## Earlier qualification, measured admission and main stop
+
 
 [Qualification, stage resources, clock and stop receipt](hu20-board-pooling-artifacts/m4-qualified-stop-05.json)
 records 61/61 passing gates: K, retained river fixtures, singleton projection,
