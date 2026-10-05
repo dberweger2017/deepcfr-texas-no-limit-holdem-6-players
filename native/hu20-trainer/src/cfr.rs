@@ -211,7 +211,8 @@ impl Discounts {
 
     /// Applies the discounts of iterations `node.stamp + 1 ..= to`. A positive factor never
     /// flips a sign, so skipped iterations compose into one factor per sign; regret matching
-    /// scales every positive regret of a node alike, so play does not wait for this.
+    /// scales every positive regret of a node alike, so play does not wait for this. With
+    /// alpha > 1 the positive factor over any gap stays above exp(-sum ln(1 + s^-alpha)) > 0.
     pub fn catch_up(&self, node: &mut Node, to: u64) {
         let from = node.stamp as usize;
         let to = to as usize;

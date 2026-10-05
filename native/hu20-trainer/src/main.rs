@@ -104,7 +104,12 @@ fn main() {
                 regret_floor: arg("--regret-floor").map(|f| f.parse().unwrap()),
                 dcfr: arg("--dcfr").map(|v| {
                     let v: Vec<f64> = v.split(',').map(|x| x.parse().unwrap()).collect();
-                    v.try_into().expect("--dcfr alpha,beta,gamma")
+                    let v: [f64; 3] = v.try_into().expect("--dcfr alpha,beta,gamma");
+                    // Only for alpha > 1 is the product of positive discounts over any gap bounded below, so
+                    // lazy catch-up cannot underflow a node's positive regrets to zero where eager discounting
+                    // would still have them (or the reverse).
+                    assert!(v[0] > 1.0, "--dcfr needs alpha > 1");
+                    v
                 }),
             };
             let mut trainers = [AverageRule::TraverserReach, AverageRule::OpponentSampled].map(|rule| {
@@ -125,7 +130,6 @@ fn main() {
                     let (x, y) = rayon::join(|| bench::step(a, &roots), || bench::step(b, &roots));
                     assert_eq!(x, y, "the averaging rule changed the traversal");
                 }
-                trainers.iter_mut().for_each(|t| t.settle());
                 bench::check_lockstep(&trainers[0], &trainers[1]);
                 let current = bench::export(&trainers[1], &trainers[1], &lineage, false);
                 let folder = out.join(format!("iteration-{checkpoint}"));

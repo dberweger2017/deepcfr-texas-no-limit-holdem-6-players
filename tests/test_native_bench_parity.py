@@ -77,3 +77,24 @@ def test_python_refuses_to_continue_a_checkpoint_trained_with_options(tmp_path):
     load_training(checkpoint)
     with pytest.raises(ValueError, match="native options"):
         load_training(labeled)
+
+
+@pytest.mark.parametrize("flags", [["--dcfr", "1.5,0,2"], ["--regret-floor", "0"], ["--dcfr", "1.5,0,2", "--regret-floor", "-2"]])
+def test_export_cadence_cannot_change_training(tmp_path, flags):
+    """Long enough for beta=0 discounts to underflow negative regrets to -0.0 between exports (#169 review)."""
+    (tmp_path / "roots.json").write_text(json.dumps([r.to_native() for r in roots(5, 12)]))
+    common = [str(BINARY), "bench-train", "--roots", str(tmp_path / "roots.json"), "--seed", "3", "--iterations", "3000",
+              "--lineage", "L", *flags]
+    subprocess.run([*common, "--checkpoints", "500,1500,2999", "--out", str(tmp_path / "often")], check=True, capture_output=True)
+    subprocess.run([*common, "--out", str(tmp_path / "once")], check=True, capture_output=True)
+    for strategy in ("current", "average-traverser-reach", "average-opponent-sampled"):
+        name = f"iteration-3000/base.{strategy}.json"
+        assert (tmp_path / "often" / name).read_bytes() == (tmp_path / "once" / name).read_bytes()
+
+
+def test_dcfr_rejects_alpha_at_most_one(tmp_path):
+    (tmp_path / "roots.json").write_text(json.dumps([r.to_native() for r in roots(1, 1)]))
+    out = subprocess.run([str(BINARY), "bench-train", "--roots", str(tmp_path / "roots.json"), "--seed", "3",
+                          "--iterations", "10", "--lineage", "L", "--dcfr", "0,0,2", "--out", str(tmp_path / "out")],
+                         capture_output=True, text=True)
+    assert out.returncode != 0 and "alpha > 1" in out.stderr

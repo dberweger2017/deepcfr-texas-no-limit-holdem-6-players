@@ -120,8 +120,9 @@ pub fn check_lockstep(reach: &Trainer, sampled: &Trainer) {
     assert_eq!((reach.average, sampled.average), (AverageRule::TraverserReach, AverageRule::OpponentSampled));
     let bits = |v: &[f64]| v.iter().map(|x| x.to_bits()).collect::<Vec<_>>();
     for (key, node) in sampled.table.iter() {
+        let node = &sampled.caught_up(node);
         let n = node.len as usize;
-        match reach.table.lookup(key) {
+        match reach.table.lookup(key).map(|r| reach.caught_up(r)) {
             Some(r) => assert!(r.code == node.code && r.visits == node.visits && bits(&r.regrets[..n]) == bits(&node.regrets[..n]),
                                "the averaging rule changed the regrets"),
             None => assert!(node.visits == 0 && node.regrets[..n].iter().all(|&v| v == 0.0), "a traverser key is missing"),
@@ -137,7 +138,8 @@ pub fn export(sampled: &Trainer, source: &Trainer, lineage: &Value, average: boo
     let mut rows: Vec<_> = sampled.table.iter().collect();
     rows.sort_by(|a, b| a.0.cmp(b.0));
     let groups: Vec<Value> = rows.into_iter().map(|(key, keyed)| {
-        let node = source.table.lookup(key).copied().unwrap_or_else(|| Node::empty(keyed.code, keyed.len as usize));
+        let node = source.table.lookup(key).map(|n| source.caught_up(n))
+            .unwrap_or_else(|| Node::empty(keyed.code, keyed.len as usize));
         let n = node.len as usize;
         let (p, mass): (Vec<f64>, f64) = if average {
             let mass = fsum(node.average[..n].iter().copied());

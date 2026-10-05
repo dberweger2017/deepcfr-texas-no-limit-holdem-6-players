@@ -147,7 +147,11 @@ impl Trainer {
                     discounts.catch_up(node, iteration - 1);
                 }
                 for i in 0..delta.len as usize {
-                    node.regrets[i] += delta.regrets[i];
+                    // An opponent-only delta's regrets are +0.0; adding them would still turn a -0.0 regret
+                    // into +0.0 in this trainer alone.
+                    if regrets {
+                        node.regrets[i] += delta.regrets[i];
+                    }
                     node.average[i] += delta.average[i];
                     assert!(node.regrets[i].is_finite() && node.average[i].is_finite(), "non-finite blueprint update");
                 }
@@ -174,14 +178,14 @@ impl Trainer {
         nodes
     }
 
-    /// Brings every regret to the current iteration's discount, before reading or saving them.
-    pub fn settle(&mut self) {
+    /// `node` with its regrets brought to the current iteration's discount. Reads never write the
+    /// table, so how often a run exports or saves cannot change its training.
+    pub fn caught_up(&self, node: &Node) -> Node {
+        let mut node = *node;
         if self.options.dcfr.is_some() {
-            let (discounts, iteration) = (&self.discounts, self.iteration);
-            self.table.0.par_iter_mut().for_each(|shard| {
-                shard.values_mut().for_each(|node| discounts.catch_up(node, iteration));
-            });
+            self.discounts.catch_up(&mut node, self.iteration);
         }
+        node
     }
 
     /// A `jsonl-v2` training checkpoint that `src.blueprint.artifact.load_training` accepts.
@@ -207,8 +211,6 @@ impl Trainer {
             header["average_rule"] = json!(self.average.name());
         }
         if let Some(label) = self.options.label() {
-            assert!(self.options.dcfr.is_none() || self.table.iter().all(|(_, n)| n.stamp as u64 == self.iteration),
-                    "settle discounted regrets before saving");
             header["training_options"] = json!(label);
         }
         let temporary = path.with_extension("tmp");
@@ -219,6 +221,7 @@ impl Trainer {
             let mut rows: Vec<(&Key, &Node)> = self.table.iter().collect();
             rows.sort_by(|a, b| a.0.cmp(b.0));
             for (key, node) in rows {
+                let node = &self.caught_up(node);
                 let hex: String = key.iter().map(|b| format!("{b:02x}")).collect();
                 let n = node.len as usize;
                 let row = json!([hex, node.names(), &node.regrets[..n], &node.average[..n], node.visits]);
