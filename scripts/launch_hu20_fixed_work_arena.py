@@ -76,7 +76,10 @@ def main():
     assert ci['head_sha']==SOURCE and ci['conclusion']=='success'
     assert hashlib.sha256((root/'approved-quote-original.json').read_bytes()).hexdigest()==QUOTE
     assert digest(json.loads((root/'plan.json').read_text()))==PLAN
-    ledger=json.loads((root/'ledger.json').read_text());pods=ledger['pods']
+    ledger=json.loads((root/'ledger.json').read_text())
+    pods=[h for h in ledger['pods'] if not h.get('terminated_at')]
+    ops_ci=json.loads((root/'OPS_CI_GREEN.json').read_text())
+    assert ops_ci['conclusion']=='success' and ops_ci['head_sha']==ledger['operations_source']
     ceiling=ledger['hard_ceiling_usd'];dispatch=ledger['dispatch_stop_usd']
     assert ledger['work_protocol']==PROTOCOL and ceiling==owner['hard_ceiling_usd'] and dispatch<=ceiling-4
     fleet_quote=json.loads((root/'approved-fleet-quote.json').read_text()) if owner.get('equivalent_fleet_delegation') else None
@@ -84,6 +87,7 @@ def main():
         assert ceiling==20 and owner['equivalent_fleet_delegation']
         assert hashlib.sha256((root/'approved-fleet-quote.json').read_bytes()).hexdigest()==owner['fleet_quote_sha256']
         assert fleet_quote['maximum_forecast_cost_usd']<=ceiling and len(pods)==fleet_quote['pods']
+        assert all(h['gpu_id']==fleet_quote['gpu_id'] and h['gpu_count']==fleet_quote['gpu_count'] for h in pods)
     else:assert len(pods)==2 and ceiling==25
     assert not any(h['id'] in PROTECTED or h.get('terminated_at')
                    or h['compute_hourly_usd']>(fleet_quote['maximum_compute_hourly_usd'] if fleet_quote else .13) for h in pods)
