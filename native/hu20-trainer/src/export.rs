@@ -48,6 +48,13 @@ pub fn export(checkpoint: &Path, current: Option<&Path>, average: Option<&Path>)
     assert_eq!(header["kind"], "training");
     assert_eq!(header["checkpoint_format"], "jsonl-v2");
     let iteration = header["iteration"].as_u64().unwrap() as f64;
+    // The traverser-visit bound holds only for the production average; see `cfr::AverageRule`.
+    let rule = header.get("average_rule").and_then(Value::as_str).unwrap_or("traverser-reach");
+    let (bounded, extraction) = match rule {
+        "traverser-reach" => (true, "normalize-lifetime-iteration-own-reach-accumulator-v1"),
+        "opponent-sampled" => (false, "normalize-lifetime-iteration-opponent-sampled-accumulator-v1"),
+        other => panic!("unknown stored average rule {other}"),
+    };
     let mut entries = Map::new();
     let mut averages: Vec<Value> = Vec::new();
     for line in lines {
@@ -63,7 +70,8 @@ pub fn export(checkpoint: &Path, current: Option<&Path>, average: Option<&Path>)
         if average.is_some() {
             let total = fsum(accumulated.iter().copied());
             let bound = iteration * visits as f64;
-            assert!(total.is_finite() && total <= bound + 1e-9 * bound.max(1.0), "stored average violates the iteration/reach bound");
+            assert!(total.is_finite() && (!bounded || total <= bound + 1e-9 * bound.max(1.0)),
+                    "stored average violates the iteration/reach bound");
             let p: Vec<f64> = if total != 0.0 { accumulated.iter().map(|x| x / total).collect() } else { vec![1.0 / n as f64; n] };
             averages.push(json!([key, names, p, total, visits]));
         }
@@ -82,7 +90,7 @@ pub fn export(checkpoint: &Path, current: Option<&Path>, average: Option<&Path>)
     if let Some(path) = average {
         let metadata = json!({
             "format": "holdem-hu20-stored-cfr-average-diagnostic-v1", "kind": "diagnostic-inference",
-            "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+            "extraction": extraction,
             "source_checkpoint_sha256": sha256_file(checkpoint), "checkpoint_header": header,
             "zero_mass_rule": "uniform in retained menu; reported separately from missing keys",
         });

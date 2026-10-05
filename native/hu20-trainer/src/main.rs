@@ -67,6 +67,7 @@ fn main() {
                 .map(|s| s.parse().unwrap()).filter(|&m| m < nodes).collect();
             milestones.push(nodes);
             let mut trainer = hu20_trainer::trainer::Trainer::new(seed, roots);
+            trainer.average = hu20_trainer::cfr::AverageRule::parse(&arg("--average-rule", "traverser-reach"));
             let started = std::time::Instant::now();
             for milestone in milestones {
                 while trainer.nodes < milestone && (iterations == 0 || trainer.iteration < iterations) {
@@ -88,7 +89,7 @@ fn main() {
             println!("exported {count} entries in {:.2} s", started.elapsed().as_secs_f64());
         }
         _ => {
-            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] --out PATH | export CHECKPOINT [--current PATH] [--average PATH]");
+            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] [--average-rule traverser-reach|opponent-sampled] --out PATH | export CHECKPOINT [--current PATH] [--average PATH]");
             std::process::exit(2);
         }
     }

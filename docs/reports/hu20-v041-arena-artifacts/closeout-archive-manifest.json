@@ -1,0 +1,502 @@
+{
+ "created_utc": "2026-10-05T14:43:09Z",
+ "members": [
+  {
+   "bytes": 5354,
+   "member": "M1-closeout/archive.py",
+   "sha256": "db7bda1be6a19ff9dedc2f8c58554cfe78c6467e3e6b7955fcd4a2610a324aa9",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/archive.py",
+   "stat": [
+    16777233,
+    77589386,
+    5354,
+    1791207576596645179,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 777,
+   "member": "M1-closeout/audit-time.log",
+   "sha256": "943b336840d658467d9c22ddeff34d78aada857b57f2d355ee7670a374067d46",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/audit-time.log",
+   "stat": [
+    16777233,
+    77628169,
+    777,
+    1791211026263818967,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 238754,
+   "member": "M1-closeout/audit.json",
+   "sha256": "ae409c7e43961610a2d809b214b4cc49bebcdb3397c70c00db685de9c4401489",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/audit.json",
+   "stat": [
+    16777233,
+    77631552,
+    238754,
+    1791211026207429040,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 737,
+   "member": "M1-closeout/audit.log",
+   "sha256": "76f36594399539ad96e57721c060609ef1525399832940163d8f0cbc69210bd9",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/audit.log",
+   "stat": [
+    16777233,
+    77628168,
+    737,
+    1791211025847672748,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 10984,
+   "member": "M1-closeout/audit.py",
+   "sha256": "377dd157453a0f8489866fe32387f8b109211235f3792fac23cea1c3f318dc42",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/audit.py",
+   "stat": [
+    16777233,
+    77588349,
+    10984,
+    1791207294523174133,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 777,
+   "member": "M1-closeout/campaign-archive-time.log",
+   "sha256": "8e5f90066968dcbc93952639e9c8dd1233df4b903d312df2fd1d1f6dc2d45c20",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/campaign-archive-time.log",
+   "stat": [
+    16777233,
+    77631348,
+    777,
+    1791211077307576511,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 596,
+   "member": "M1-closeout/campaign-archive.log",
+   "sha256": "c71cf8dfe85ed51811a9d587eec8436fdc2ccad6b820d0a9bec38b88a6a6720f",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/campaign-archive.log",
+   "stat": [
+    16777233,
+    77631347,
+    596,
+    1791211077302595500,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 754,
+   "member": "M1-closeout/campaign-drive-staging.json",
+   "sha256": "a989c86efde27b9dfcc67492c4b1e096ff00b50a2845de4e8506845c09d47f2c",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/campaign-drive-staging.json",
+   "stat": [
+    16777233,
+    77636244,
+    754,
+    1791211199594210939,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 5772,
+   "member": "M1-closeout/campaign-native-status.txt",
+   "sha256": "1146b6453a2fb2592e510a56aff253b0c1bdc9a8cf0dd8e1959d63ff26cd4aef",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/campaign-native-status.txt",
+   "stat": [
+    16777233,
+    77636807,
+    5772,
+    1791211277953447632,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 98,
+   "member": "M1-closeout/focused-tests.log",
+   "sha256": "801285facaa9fdb198ce0a323cbb9feb534f778dd33bd221be2a285611c81b19",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/focused-tests.log",
+   "stat": [
+    16777233,
+    77633755,
+    98,
+    1791211133890425497,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 156257914,
+   "member": "M1-closeout/frozen-source-376763af.tar.gz",
+   "sha256": "a5fd65511c48fdcc441e63531709e04673eaed77c8977eec455aa6e47c49da84",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/frozen-source-376763af.tar.gz",
+   "stat": [
+    16777233,
+    77590643,
+    156257914,
+    1791207922399440588,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 87824,
+   "member": "M1-closeout/hu20-v041-arena-details.md",
+   "sha256": "7c3b9ea4afe493fb3d886c0b0f13986cc819a1e3df907ea25a5000e299b2748b",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/hu20-v041-arena-details.md",
+   "stat": [
+    16777233,
+    77637040,
+    87824,
+    1791211332547349904,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 11111,
+   "member": "M1-closeout/hu20-v041-arena.md",
+   "sha256": "e94dd57b9cb7767e20857ba0921e7cb9345d61118cd602671748c1d3c0ec1354",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/hu20-v041-arena.md",
+   "stat": [
+    16777233,
+    77637039,
+    11111,
+    1791211332547166610,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 315,
+   "member": "M1-closeout/m1-audit-environment.json",
+   "sha256": "79fcf63252084f91b0b5d6af411ab43b6e50771799cfb4bb95573f28bc18c2f6",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m1-audit-environment.json",
+   "stat": [
+    16777233,
+    77590649,
+    315,
+    1791207922511452184,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 1958,
+   "member": "M1-closeout/m1-policy-verification.json",
+   "sha256": "41176c957adf11a835822b0d699f30eb830b039e4a611d259e81f18b27660a7f",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m1-policy-verification.json",
+   "stat": [
+    16777233,
+    77594480,
+    1958,
+    1791208875293654739,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 1958,
+   "member": "M1-closeout/m4-policy-verification.json",
+   "sha256": "41176c957adf11a835822b0d699f30eb830b039e4a611d259e81f18b27660a7f",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-policy-verification.json",
+   "stat": [
+    16777233,
+    77594469,
+    1958,
+    1791208874981550139,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 1273,
+   "member": "M1-closeout/m4-run-manifest.json",
+   "sha256": "e2a3f1e2f7acb164da66c89b9b885701c73b00b78c3aa026d58acf3fb090d203",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-run-manifest.json",
+   "stat": [
+    16777233,
+    77614940,
+    1273,
+    1791210675569625945,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 1395,
+   "member": "M1-closeout/m4-run-transfer.json",
+   "sha256": "88edcd0106e6c1da4dcba27c9557a0d00bfae8fba39fa5ed8e22a8ffca5dd5b6",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-run-transfer.json",
+   "stat": [
+    16777233,
+    77614954,
+    1395,
+    1791210678153068812,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 41,
+   "member": "M1-closeout/m4-source-after-run.txt",
+   "sha256": "3659fa2657ae2e260b2f90bde13ed0f169c13ae90598445d6a8974269abff7c9",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-source-after-run.txt",
+   "stat": [
+    16777233,
+    77601370,
+    41,
+    1791209781184925767,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 585,
+   "member": "M1-closeout/owner-closeout-instructions.txt",
+   "sha256": "4c7b552242d353b72f404af236d7bdaeefa03a7bf26e469d6034066b70be7c4e",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/owner-closeout-instructions.txt",
+   "stat": [
+    16777233,
+    77637041,
+    585,
+    1791211332547463113,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 5938,
+   "member": "M1-closeout/plan.json",
+   "sha256": "3b98e9c467371b653a47d2ed4b7348525669a4ce0cc085a49d7779fe481ac053",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/plan.json",
+   "stat": [
+    16777233,
+    77633522,
+    5938,
+    1791211070118435702,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 10635,
+   "member": "M1-closeout/pr165-before.json",
+   "sha256": "36dc6a723fc7a5d972b2fca2bd62b7b9db359f9c0988c7ac76739225d3bb7031",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/pr165-before.json",
+   "stat": [
+    16777233,
+    77588983,
+    10635,
+    1791207429290783003,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 2,
+   "member": "M1-closeout/pr165-inline-comments-before.json",
+   "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/pr165-inline-comments-before.json",
+   "stat": [
+    16777233,
+    77588986,
+    2,
+    1791207429675547613,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 9305,
+   "member": "M1-closeout/render_report.py",
+   "sha256": "8da3338934b5f279ecb28adf0ea372bfafafd76bb71fd585f99bc9535a521488",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/render_report.py",
+   "stat": [
+    16777233,
+    77588890,
+    9305,
+    1791210963220962761,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 777,
+   "member": "M1-closeout/report-time.log",
+   "sha256": "778359f66e477c64fb511b1f090b24c248c796700fdd70ede9e97752e7e825cf",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/report-time.log",
+   "stat": [
+    16777233,
+    77614973,
+    777,
+    1791210742939439521,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 147,
+   "member": "M1-closeout/report.log",
+   "sha256": "8f8d119d7aaf9433199b4baddf11f1ac4a448c1e5fbd7089e57a7c05cbfab038",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/report.log",
+   "stat": [
+    16777233,
+    77614972,
+    147,
+    1791210742859410655,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 18343,
+   "member": "M1-closeout/summary.json",
+   "sha256": "baa1eed60be40953ff2a213a7408f2151335e6495648f8f61ab60306a147eb72",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/summary.json",
+   "stat": [
+    16777233,
+    77633523,
+    18343,
+    1791211070121185814,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 31,
+   "member": "M1-closeout/m4-arena/host-done.txt",
+   "sha256": "89eff01c21d8fadbecd5dd73f9f3be8ff5366b563729e0246acbb340d614cbdd",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-arena/host-done.txt",
+   "stat": [
+    16777233,
+    77615069,
+    31,
+    1791207931000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 5938,
+   "member": "M1-closeout/m4-arena/plan.json",
+   "sha256": "3b98e9c467371b653a47d2ed4b7348525669a4ce0cc085a49d7779fe481ac053",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-arena/plan.json",
+   "stat": [
+    16777233,
+    77615070,
+    5938,
+    1791205395000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 141,
+   "member": "M1-closeout/m4-arena/run-O-2026100601.log",
+   "sha256": "bc57c79152d91ba83cc219355b1b52a7bd10028cc7379694bbaa9d14963e185b",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-arena/run-O-2026100601.log",
+   "stat": [
+    16777233,
+    77615071,
+    141,
+    1791206650000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 141,
+   "member": "M1-closeout/m4-arena/run-O-2026100602.log",
+   "sha256": "3817598e20a4d2bdc8d7b51c3e321d34c7c6b01c0325683a4b225f8e8f462280",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-arena/run-O-2026100602.log",
+   "stat": [
+    16777233,
+    77615072,
+    141,
+    1791206672000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 142,
+   "member": "M1-closeout/m4-arena/run-O-2026100603.log",
+   "sha256": "be8b73b8b4d5b0ed1ea1739f41ca0a9867565fff802db547540c9f191dd60f76",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-arena/run-O-2026100603.log",
+   "stat": [
+    16777233,
+    77615073,
+    142,
+    1791206634000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 142,
+   "member": "M1-closeout/m4-arena/run-T-2026100601.log",
+   "sha256": "b5339f5e191f44bd3f2f71dba37dd6c09fd1f49d53c4239b1926d72cc4bbbd11",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-arena/run-T-2026100601.log",
+   "stat": [
+    16777233,
+    77615074,
+    142,
+    1791207931000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 0,
+   "member": "M1-closeout/m4-arena/run-arena.out",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-arena/run-arena.out",
+   "stat": [
+    16777233,
+    77615075,
+    0,
+    1791205395000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 583,
+   "member": "M1-closeout/m4-arena/run-arena.sh",
+   "sha256": "6eb125724b4014ce7b2b9b460189083ff510807dc0b554cac2533f8d89c7f867",
+   "source": "/Users/dberweger/Local/hu20-v041-closeout-20261005/m4-arena/run-arena.sh",
+   "stat": [
+    16777233,
+    77615076,
+    583,
+    1791205395000000000,
+    33188
+   ],
+   "type": "file"
+  }
+ ],
+ "roots": [
+  {
+   "original": "/Users/dberweger/Local/hu20-v041-closeout-20261005",
+   "prefix": "M1-closeout"
+  }
+ ],
+ "schema": "hu20-v041-lossless-archive-v1"
+}

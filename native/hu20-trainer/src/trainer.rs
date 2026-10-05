@@ -7,7 +7,7 @@
 //! same seed and roots per seat. Production HU20 runs use one root per seat; more
 //! roots per seat run in parallel.
 
-use crate::cfr::{Key, Lookup, Node, Sampler, Table, Traversal};
+use crate::cfr::{AverageRule, Key, Lookup, Node, Sampler, Table, Traversal};
 use crate::streams::{engine_deck, python_seed, Mt};
 use crate::game::Hand;
 use flate2::write::GzEncoder;
@@ -55,11 +55,14 @@ pub struct Trainer {
     pub seed: u64,
     pub roots_per_seat: usize,
     pub nodes: u64,
+    /// The production rule unless chosen otherwise; regrets and play are the same under both.
+    pub average: AverageRule,
 }
 
 impl Trainer {
     pub fn new(seed: u64, roots_per_seat: usize) -> Trainer {
-        Trainer { table: Sharded::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0 }
+        Trainer { table: Sharded::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0,
+                  average: AverageRule::TraverserReach }
     }
 
     pub fn step(&mut self) -> u64 {
@@ -80,11 +83,13 @@ impl Trainer {
         let tasks: Vec<(usize, usize)> =
             (0..2).flat_map(|seat| (0..self.roots_per_seat).map(move |sample| (seat, sample))).collect();
         let table = &self.table;
+        let average = self.average;
         let mut scratch = std::mem::take(&mut self.scratch);
         scratch.resize_with(tasks.len(), Table::default);
         let run = |(&(seat, sample), deltas): (&(usize, usize), Table)| {
             let (deck, sampler) = root(iteration, seat, sample);
             let mut traversal = Traversal::with_deltas(table, iteration, seat, sampler, deltas);
+            traversal.average = average;
             traversal.run(&mut Hand::from_deck(0, &deck));
             (traversal.deltas, traversal.nodes)
         };
@@ -158,6 +163,11 @@ impl Trainer {
                          "card_descriptor": "legacy-postflop-descriptor-v1",
                          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds"},
         });
+        let mut header = header;
+        // Only a non-production average is named, so production checkpoints stay identical to Python's.
+        if self.average != AverageRule::TraverserReach {
+            header["average_rule"] = json!(self.average.name());
+        }
         let temporary = path.with_extension("tmp");
         {
             let file = std::fs::File::create(&temporary)?;

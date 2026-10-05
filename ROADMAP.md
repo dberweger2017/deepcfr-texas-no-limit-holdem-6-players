@@ -31,7 +31,7 @@ From v0.5 on, every milestone is confirmed on fresh held-out deals with several 
 
 1. **Trainer bench** ([#162](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/162)) — done. On fixed turn spots, CFR on the v1 abstraction stays near blueprint quality even with dense training; the standard opponent-sampled average does clearly better than the production average, but not enough. The [report](docs/reports/hu20-trainer-bench.md) classifies a poor v1 CFR fixed point at 3M under the frozen rule; this budget does not prove asymptotic convergence. Next, compare abstraction-aware training and better card abstraction under a prospectively fixed protocol.
 2. **Native trainer** ([#164](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/164)) — done. Rust, about 120× faster than Python, and reproduces Python's runs exactly.
-3. **v0.4.1: average-policy play** ([#165](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165)) — arena running. 1B-node lineages with the opponent-sampled average against v0.4.0, with a release rule fixed in advance.
+3. **v0.4.1: average-policy play** ([#165](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165)) — [arena completed](docs/reports/hu20-v041-arena.md); the predeclared release rule is not met. Native pressure is inconclusive, not a measured regression. No follow-up arena is proposed or run; no release or tag.
 4. **Turn search** ([#166](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/166)) — river validation and Linux pilot passed; the paid arena quote awaits owner approval.
 5. **Better training procedure** — native trainer options measured on #162's bench, one at a time: discounting and regret floors, training against an unabstracted opponent (CFR-BR style), pruning.
 6. **Equity buckets** ([#163](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/163)) — tables built; validate on #149's turn spots before adding them as an alternative key to the native trainer, with v1 kept as the reference.
@@ -64,13 +64,13 @@ From v0.5 on, every milestone is confirmed on fresh held-out deals with several 
 
 *October 5, 2026*
 
-- **v0.4.1 arena running** ([#165](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165)): 165,888 paired hands on the M1 and M4 comparing v0.4.0 with 1B-node native lineages (opponent-sampled average, current policy, production average). The predeclared rule decides whether the opponent-sampled average becomes v0.4.1.
+- **v0.4.1 arena complete; release rule not met** ([#165](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165), [report](docs/reports/hu20-v041-arena.md)): all 165,888 hands / 850,106 actions independently replay; all 52 contrasts independently recompute. O−R LBR improves **+30.83 [14.03, 47.63] BB/100**. Native pressure is **inconclusive, not a measured regression**: **+0.44 [−18.47, 19.34]**, near zero with an interval too wide to establish the required lower bound > −10. The severe-scenario check passes. All panels, lineage/position splits and street fallback/zero-mass counts are retained; [archives](RESULTS_INDEX.md) have confirmed uploads and originals remain.
 - **Turn search ready for its arena** ([#166](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/166)): 32/32 river validations passed; the solver is bit-identical on Linux pods. Waiting for owner approval of the revised quote and RTX 3090 stock.
 - **Trainer bench finished** ([#162](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/162)): all 40 roots and both 3M folds completed. The [report](docs/reports/hu20-trainer-bench.md) gives production/opponent-sampled Q=0.9514/0.7308: both meet the frozen poor-v1-fixed-point classification. Closeout and raw-evidence staging are complete; cloud upload verification remains pending in [RESULTS_INDEX](RESULTS_INDEX.md).
 - **Native trainer merged** ([#164](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/164)): exact Python parity, including all three #116 lineages at 20M and 100M nodes.
 - **Equity buckets built** ([#163](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/163)): K=50/200 flop, turn and river tables, awaiting validation.
 
-**Blocker:** none. Next decisions: the v0.4.1 release (after #165's report) and the turn-search arena quote.
+**Release gate:** #165’s native-pressure safeguard is not established, so the frozen release rule remains not met. Shipping stays an owner decision; no release, tag or follow-up arena. The separate turn-search arena quote still awaits its owner decision.
 
 ## References
 

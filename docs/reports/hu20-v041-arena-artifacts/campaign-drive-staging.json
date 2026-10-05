@@ -1,0 +1,15 @@
+{
+ "bytes": 3166550740,
+ "cloud_upload_status": "pending",
+ "destination": "/Users/dberweger/Local/Research-Cloud/PR-165-HU20-native-average/hu20-native-average-complete-20261005.tar.gz",
+ "folder_id": "1IXMpL2f18EVb1FfoFTvAaOGIzdrRpeD2",
+ "folder_url": "https://drive.google.com/drive/folders/1IXMpL2f18EVb1FfoFTvAaOGIzdrRpeD2",
+ "manifest_sha256": "094953b982c8995dd3b4e17668850725d2696f42f72c169ac70eb8e74f831f3c",
+ "members": 123,
+ "mismatches": 0,
+ "originals_retained": true,
+ "sha256": "b5b43d83cdfb9e9b25679eef94b9350c3ef4a76f8c4dad4d076090bb2c6aa898",
+ "source_archive": "/Users/dberweger/Local/hu20-v041-archives-20261005/hu20-native-average-complete-20261005.tar.gz",
+ "staged_utc": "2026-10-05T14:39:59Z",
+ "status": "staged_hash_verified"
+}
