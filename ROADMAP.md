@@ -64,6 +64,8 @@ From v0.5 on, every milestone is confirmed on fresh held-out deals with several 
 
 *October 5, 2026*
 
+- **M4 originals cleaned after owner authorization:** verified #149/#162/#163 archived result files and separate local archive copies removed; free space rose from 19.2 to 69.3 GB. Preparation inputs, source folders, shared Git, synced archives and open #166/#169 work remain. [Cleanup receipt and retrieval details](docs/artifacts/m4-original-cleanup-20261005.md). The owner authorizes future removal of merged research originals after verified upload and dependency review; no unattended cleanup is scheduled.
+
 - **M1 archival check:** [RESULTS_INDEX](RESULTS_INDEX.md) now maps merged #149/#162/#164/#165 M1 evidence to the same Research-Cloud folder, with canonical payload references, member hashes and restore instructions. All three new #149/#162/#164 uploads verify. Open #146/#166 roots/dependencies and shared Git remain protected; originals remain.
 
 - **Research archives organized:** both Macs use `~/Local/Research-Cloud` for the same Drive folder. [RESULTS_INDEX](RESULTS_INDEX.md) maps recent large M4 folders to their PRs and archives; #149/#162/#163 uploads now verify. The previously copied #166 river/pilot snapshot is confirmed uploaded; its open PR work root and dependencies are protected from further archival changes. Check owning PR status before touching research files. Originals and input dependencies remain.
