@@ -109,6 +109,10 @@ fn main() {
                     // lazy catch-up cannot underflow a node's positive regrets to zero where eager discounting
                     // would still have them (or the reverse).
                     assert!(v[0] > 1.0, "--dcfr needs alpha > 1");
+                    // Average contributions weigh t^gamma, which must stay finite and nonzero through the run.
+                    let last = (iterations as f64).powf(v[2]);
+                    assert!(v.iter().all(|x| x.is_finite()) && last.is_finite() && last > 0.0,
+                            "--dcfr needs finite exponents and a finite iterations^gamma");
                     v
                 }),
             };

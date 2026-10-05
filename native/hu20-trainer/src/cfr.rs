@@ -195,6 +195,11 @@ impl Options {
 #[derive(Default)]
 pub struct Discounts(pub Vec<[f64; 2]>);
 
+/// ln(1 + e^x), finite for every finite x.
+fn softplus(x: f64) -> f64 {
+    if x > 0.0 { x + (-x).exp().ln_1p() } else { x.exp().ln_1p() }
+}
+
 impl Discounts {
     /// Extends the sums through `iteration`.
     pub fn extend(&mut self, exponents: [f64; 2], iteration: u64) {
@@ -204,8 +209,9 @@ impl Discounts {
         while (self.0.len() as u64) <= iteration {
             let s = self.0.len() as f64;
             let last = *self.0.last().unwrap();
-            // ln(s^e / (s^e + 1)) = -ln(1 + s^-e)
-            self.0.push([0, 1].map(|i| last[i] - s.powf(-exponents[i]).ln_1p()));
+            // ln(s^e / (s^e + 1)) = -softplus(-e ln s), without forming s^-e, which overflows for
+            // strongly negative e although the discount itself is finite.
+            self.0.push([0, 1].map(|i| last[i] - softplus(-exponents[i] * s.ln())));
         }
     }
 
@@ -332,38 +338,44 @@ impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
 mod tests {
     use super::{Discounts, Node};
 
-    /// Lazy catch-up equals discounting every node after every iteration, as DCFR is defined.
+    /// Lazy catch-up equals discounting every node after every iteration, as DCFR is defined,
+    /// including strongly negative beta, whose s^-beta overflows (#169 review).
     #[test]
     fn lazy_discounts_equal_eager_ones() {
-        let (exponents, iterations) = ([1.5, 0.0], 2000u64);
-        let mut discounts = Discounts::default();
-        discounts.extend(exponents, iterations);
-        let mut state = 12345u64;
-        let mut next = || {
-            state = state.wrapping_mul(6364136223846793005).wrapping_add(1442695040888963407);
-            (state >> 11) as f64 / (1u64 << 53) as f64
-        };
-        let (mut lazy, mut eager) = (Node::empty(0, 3), Node::empty(0, 3));
-        for t in 1..=iterations {
-            let touched = next() < 0.1;
-            let delta: Vec<f64> = (0..3).map(|_| next() * 2.0 - 1.0).collect();
-            if touched {
-                discounts.catch_up(&mut lazy, t - 1);
-                for i in 0..3 {
-                    lazy.regrets[i] += delta[i];
-                    eager.regrets[i] += delta[i];
+        for exponents in [[1.5, 0.0], [1.5, -200.0], [3.0, 2.0], [1.0 + 1e-9, -2.0], [1000.0, 200.0]] {
+            let iterations = 2000u64;
+            let mut discounts = Discounts::default();
+            discounts.extend(exponents, iterations);
+            assert!(discounts.0.iter().all(|p| p.iter().all(|v| v.is_finite())), "{exponents:?}");
+            let mut state = 12345u64;
+            let mut next = || {
+                state = state.wrapping_mul(6364136223846793005).wrapping_add(1442695040888963407);
+                (state >> 11) as f64 / (1u64 << 53) as f64
+            };
+            // s^e / (s^e + 1) = 1 / (1 + e^(-e ln s)): 0 or 1 at the extremes, never NaN.
+            let factor = |e: f64, t: f64| 1.0 / (1.0 + (-e * t.ln()).exp());
+            let (mut lazy, mut eager) = (Node::empty(0, 3), Node::empty(0, 3));
+            for t in 1..=iterations {
+                let touched = next() < 0.1;
+                let delta: Vec<f64> = (0..3).map(|_| next() * 2.0 - 1.0).collect();
+                if touched {
+                    discounts.catch_up(&mut lazy, t - 1);
+                    for i in 0..3 {
+                        lazy.regrets[i] += delta[i];
+                        eager.regrets[i] += delta[i];
+                    }
+                    discounts.catch_up(&mut lazy, t);
                 }
-                discounts.catch_up(&mut lazy, t);
+                let tf = t as f64;
+                for r in &mut eager.regrets[..3] {
+                    *r *= if *r > 0.0 { factor(exponents[0], tf) } else { factor(exponents[1], tf) };
+                }
             }
-            let tf = t as f64;
-            for r in &mut eager.regrets[..3] {
-                *r *= if *r > 0.0 { tf.powf(1.5) / (tf.powf(1.5) + 1.0) } else { 0.5 };
+            discounts.catch_up(&mut lazy, iterations);
+            for i in 0..3 {
+                let (a, b) = (lazy.regrets[i], eager.regrets[i]);
+                assert!(a.is_finite() && (a - b).abs() <= 1e-9 * b.abs() + 1e-300, "{exponents:?}: {a} vs {b}");
             }
-        }
-        discounts.catch_up(&mut lazy, iterations);
-        for i in 0..3 {
-            let (a, b) = (lazy.regrets[i], eager.regrets[i]);
-            assert!((a - b).abs() <= 1e-9 * b.abs().max(1e-300), "{a} vs {b}");
         }
     }
 }
