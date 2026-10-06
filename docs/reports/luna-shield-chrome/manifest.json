@@ -4,13 +4,28 @@
   "publicFiles": [
     {
       "path": "docs/reports/luna-shield-chrome.md",
-      "bytes": 7338,
-      "sha256": "b5d3a6fed58b4c9747939fe67683975464c3863f056d0c447af23404d84cd47e"
+      "bytes": 7962,
+      "sha256": "077e19d1864ca44040cbccf934f9ca555163818f32f7b793bb07ee573aa98d56"
+    },
+    {
+      "path": "docs/reports/luna-shield-v040-comparison.md",
+      "bytes": 7450,
+      "sha256": "c607ba1a24eece0e586d928571edd47a05b2d90d5d562c64f00bfa107c3f9dc1"
+    },
+    {
+      "path": "scripts/compare_luna_matches.py",
+      "bytes": 8120,
+      "sha256": "41935bbc0fd3d0c4b11fb46961b96465c6125f8f5c8b965ab361902aa6f0d936"
     },
     {
       "path": "docs/reports/luna-shield-chrome/audit.json",
       "bytes": 3882,
       "sha256": "871b622c633ec7609cb8a16c86c8d9a58d720ae8dead6fdad1ac405992e88a0a"
+    },
+    {
+      "path": "docs/reports/luna-shield-chrome/comparison.json",
+      "bytes": 9311,
+      "sha256": "163a646273e014087159041546fadfd8514fe781f258c4b4c9d58f62170db7fb"
     },
     {
       "path": "docs/reports/luna-shield-chrome/export.json",

@@ -18,6 +18,10 @@ Runtime `turn_context` records confirm `gpt-6-luna` with `high` effort. Shield i
 
 The journal contains **1,012 accepted human decisions**, **938 accepted bot decisions**, **938 trained lookups**, **zero fallback lookups** and zero off-menu actions. Replay checks chip conservation, each payoff, alternating positions and all public-event digests; the saved final HTTP export agrees with journal totals and identities. The owned service and sampler stopped after final export and replay. Chrome control remained with the independent player after preparation.
 
+## Comparison with Luna's earlier v0.4.0 match
+
+Luna's result changed from **+107 BB** against v0.4.0 B100M to **−82 BB** against Shield over 400 completed hands each: a **189 BB swing**, with **175 BB** coming from the button/small blind. Both runs include twelve full-stack wins; this run adds three full-stack losses. The [full comparison](luna-shield-v040-comparison.md) decomposes large-call exposure and three-bet continuations and records the changed deals, player context, stopping rule and browser audit. This is descriptive matchup evidence, not a paired estimate of relative strength or demonstrated learning.
+
 ## Why the persistent session is useful
 
 Luna can retain earlier public observations in its conversation context and try to identify how Shield plays. That makes this session useful for exploring opponent tendencies and possible adaptation across hands, beyond isolated decisions. Luna's [verbatim post-session retrospective](luna-shield-chrome/luna-retrospective.md), supplied by the owner, reports small probes, respect for larger bets and difficulty continuing against three-bets from the button/small blind.
