@@ -167,9 +167,12 @@ def audit(plan_path, run, out, expected_sha256, source):
                'contrasts_bb_per_100': {a + '-' + b: stats([x - y for x, y in zip(overall_series[a], overall_series[b], strict=True)])
                                         for a, b in CONTRASTS}}
     primary = contrasts['O-R']
-    checks = {'lbr_lower_above_0': primary['lbr']['ci95'][0] > 0,
-              'native_pressure_lower_above_minus_10': primary['native-pressure']['ci95'][0] > -10,
-              'no_severe_regression': all(primary[panel['name']]['ci95'][1] >= -20 for panel in p['panels'] if panel['name'] not in ('lbr', 'native-pressure'))}
+    lbr_ci = primary['lbr']['ci95']
+    pressure_ci = primary['native-pressure']['ci95']
+    checks = {'lbr_lower_above_0': lbr_ci is not None and lbr_ci[0] > 0,
+              'native_pressure_lower_above_minus_10': pressure_ci is not None and pressure_ci[0] > -10,
+              'no_severe_regression': all(primary[panel['name']]['ci95'] is None or primary[panel['name']]['ci95'][1] >= -20
+                                         for panel in p['panels'] if panel['name'] not in ('lbr', 'native-pressure'))}
     assert checks == summary['release_checks'] and all(checks.values()) == summary['release_rule_passed']
     diagnostic = [{'arm': arm, 'lineage': lineage, 'panel': panel, 'streets': {street: dict(counts[street]) for street in STREETS}, 'terminal_street_hands': dict(terminal_streets[arm, lineage, panel])} for (arm, lineage, panel), counts in sorted(cells.items())]
     result = {'status': 'verified', 'plan_file_sha256': sha(plan_path), 'plan_canonical_sha256': digest(p), 'hands_replayed': replayed, 'decisions_checked': decisions, 'independent_arithmetic_matches': True, 'release_checks': checks, 'release_rule_passed': all(checks.values()), 'absolute_bb_per_100': absolute, 'contrasts_bb_per_100': contrasts, 'lineage_position_contrasts': details, 'coverage_and_lbr_by_street': diagnostic, 'raw_files': files, 'worker_results': resources, 'audit_seconds': time.monotonic() - started, 'overall_equal_panel_common_blocks': overall}

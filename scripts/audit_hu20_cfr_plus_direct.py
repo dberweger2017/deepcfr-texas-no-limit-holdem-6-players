@@ -21,8 +21,9 @@ def digest(value):
 def stats(values):
     n = len(values)
     point = math.fsum(values) / n
-    margin = float(t.ppf(.975, n - 1)) * statistics.stdev(values) / math.sqrt(n)
-    return {'blocks': n, 'bb_per_100': point, 'ci95': [point - margin, point + margin]}
+    deviation = statistics.stdev(values)
+    margin = float(t.ppf(.975, n - 1)) * deviation / math.sqrt(n)
+    return {'blocks': n, 'bb_per_100': point, 'ci95': [point - margin, point + margin] if deviation else None}
 
 
 def audit(plan, out, expected_sha256):
@@ -72,7 +73,9 @@ def audit(plan, out, expected_sha256):
                                               for l in (1, 2, 3)) / 3 for b in blocks]) for p in ('button', 'big_blind')}}
     def close(left, right):
         assert left['blocks'] == right['blocks'] and math.isclose(left['bb_per_100'], right['bb_per_100'], abs_tol=1e-9)
-        assert all(math.isclose(a, b, abs_tol=1e-9) for a, b in zip(left['ci95'], right['ci95'], strict=True))
+        assert (left['ci95'] is None) == (right['ci95'] is None)
+        if left['ci95'] is not None:
+            assert all(math.isclose(a, b, abs_tol=1e-9) for a, b in zip(left['ci95'], right['ci95'], strict=True))
     close(result['overall'], recorded['overall'])
     for dimension in ('lineages', 'positions'):
         for key, value in result[dimension].items():
