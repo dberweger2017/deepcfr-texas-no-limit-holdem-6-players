@@ -1,0 +1,11 @@
+{
+  "status": "verified",
+  "files": 770,
+  "bytes": 7554372581,
+  "source_root": "/Users/dberweger/Local/hu20-v041-o-confirmation-pr176-20261006",
+  "retrieved_root": "/Users/dberweger/Local/hu20-v041-o-confirmation-20261006",
+  "all_pilot_and_final_raw_files_match_independent_audits": true,
+  "all_native_responses_match_independent_audit": true,
+  "verified_at": 1791288914.313597,
+  "originals_retained": true
+}

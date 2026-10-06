@@ -1,0 +1,13 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-176-HU20-v041-O-confirmation/hu20-v041-O-confirmation-complete-20261006.zip",
+  "archive_bytes": 3389594093,
+  "cloud_upload_status": "Local ZIP readback verified; independent cloud upload confirmation pending",
+  "logical_bytes": 8038176698,
+  "manifest_sha256": "6cd6cca672569b42c062837de823043c08d7fd8dfc1d3fb4587fe5628ec875fe",
+  "members_verified": 792,
+  "originals_retained": true,
+  "sha256": "9f473aa22b16037549716e8fd938b4b47670ca89e29b398bf241b1448fe597a3",
+  "status": "verified",
+  "synced_files_deleted_or_evicted": false,
+  "verified_at": 1791289276.833788
+}

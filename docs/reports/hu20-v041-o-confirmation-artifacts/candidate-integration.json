@@ -1,0 +1,28 @@
+{
+  "status": "verified",
+  "source": "f23a609928bd970d6a7be6cb4053a4dff15fed36",
+  "model_sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+  "hands": [
+    {
+      "session": "3aIqWKh8AdN6iAhu2Z4mpvYV",
+      "mode": "restricted",
+      "hands": 1,
+      "humanChips": 400,
+      "botLookups": 4,
+      "offMenuRaiseTo": null
+    },
+    {
+      "session": "D1iPctxKowh4FUC68V516zjm",
+      "mode": "free",
+      "hands": 1,
+      "humanChips": -1003,
+      "botLookups": 4,
+      "offMenuRaiseTo": 201
+    }
+  ],
+  "native_replay": 2,
+  "restart_replay": 2,
+  "seconds": 23.862645864486694,
+  "peak_rss_bytes": 3162914816,
+  "scope": "Real pinned O1B, loopback HTTP, restricted/free, exact off-menu raise, hidden-information and durable replay"
+}

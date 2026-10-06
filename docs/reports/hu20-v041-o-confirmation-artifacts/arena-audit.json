@@ -1,0 +1,4837 @@
+{
+ "absolute_bb_per_100": {
+  "O": {
+   "lbr": {
+    "bb_per_100": -28.173828125,
+    "blocks": 5632,
+    "ci95": [
+     -38.41786802349253,
+     -17.929788226507473
+    ]
+   },
+   "loose_aggressive": {
+    "bb_per_100": 48.33984375,
+    "blocks": 256,
+    "ci95": [
+     7.510873781201909,
+     89.16881371879809
+    ]
+   },
+   "loose_passive": {
+    "bb_per_100": 14.225260416666666,
+    "blocks": 256,
+    "ci95": [
+     -21.043848984651852,
+     49.49436981798518
+    ]
+   },
+   "minraise-cap2": {
+    "bb_per_100": 82.03125,
+    "blocks": 256,
+    "ci95": [
+     24.20682832639146,
+     139.85567167360853
+    ]
+   },
+   "native-pressure": {
+    "bb_per_100": 130.72611490885416,
+    "blocks": 16384,
+    "ci95": [
+     123.53182577760417,
+     137.92040404010413
+    ]
+   },
+   "passive": {
+    "bb_per_100": 103.64583333333333,
+    "blocks": 256,
+    "ci95": [
+     61.73789961710834,
+     145.5537670495583
+    ]
+   },
+   "pot_pressure": {
+    "bb_per_100": 32.389322916666664,
+    "blocks": 256,
+    "ci95": [
+     -12.861752654232255,
+     77.64039848756559
+    ]
+   },
+   "pressure-cap2": {
+    "bb_per_100": 31.119791666666668,
+    "blocks": 256,
+    "ci95": [
+     -17.24292102398844,
+     79.48250435732177
+    ]
+   },
+   "selective-stackoff": {
+    "bb_per_100": 49.251302083333336,
+    "blocks": 256,
+    "ci95": [
+     29.394452255192306,
+     69.10815191147437
+    ]
+   },
+   "tight_aggressive": {
+    "bb_per_100": 54.19921875,
+    "blocks": 256,
+    "ci95": [
+     31.309994830148028,
+     77.08844266985197
+    ]
+   },
+   "tight_passive": {
+    "bb_per_100": 60.221354166666664,
+    "blocks": 256,
+    "ci95": [
+     45.932525949470275,
+     74.51018238386305
+    ]
+   },
+   "train_pressure": {
+    "bb_per_100": 29.6875,
+    "blocks": 256,
+    "ci95": [
+     -7.032431022673265,
+     66.40743102267326
+    ]
+   },
+   "uniform": {
+    "bb_per_100": 124.8046875,
+    "blocks": 256,
+    "ci95": [
+     71.61792083119065,
+     177.99145416880935
+    ]
+   }
+  },
+  "R": {
+   "lbr": {
+    "bb_per_100": -65.7315340909091,
+    "blocks": 5632,
+    "ci95": [
+     -74.62266076527112,
+     -56.84040741654706
+    ]
+   },
+   "loose_aggressive": {
+    "bb_per_100": 26.888020833333336,
+    "blocks": 256,
+    "ci95": [
+     -6.999938486229503,
+     60.775980152896175
+    ]
+   },
+   "loose_passive": {
+    "bb_per_100": 25.1953125,
+    "blocks": 256,
+    "ci95": [
+     -3.6972300299940954,
+     54.087855029994095
+    ]
+   },
+   "minraise-cap2": {
+    "bb_per_100": 64.55078125,
+    "blocks": 256,
+    "ci95": [
+     8.033044664262484,
+     121.06851783573751
+    ]
+   },
+   "native-pressure": {
+    "bb_per_100": 123.8067626953125,
+    "blocks": 16384,
+    "ci95": [
+     117.23378923446474,
+     130.37973615616028
+    ]
+   },
+   "passive": {
+    "bb_per_100": 120.80078125,
+    "blocks": 256,
+    "ci95": [
+     81.992445817376,
+     159.609116682624
+    ]
+   },
+   "pot_pressure": {
+    "bb_per_100": 37.6953125,
+    "blocks": 256,
+    "ci95": [
+     -4.173365949301498,
+     79.5639909493015
+    ]
+   },
+   "pressure-cap2": {
+    "bb_per_100": -1.2044270833333328,
+    "blocks": 256,
+    "ci95": [
+     -44.9996936883604,
+     42.59083952169373
+    ]
+   },
+   "selective-stackoff": {
+    "bb_per_100": 36.588541666666664,
+    "blocks": 256,
+    "ci95": [
+     18.38312894225427,
+     54.793954391079055
+    ]
+   },
+   "tight_aggressive": {
+    "bb_per_100": 56.510416666666664,
+    "blocks": 256,
+    "ci95": [
+     34.221541747016175,
+     78.79929158631715
+    ]
+   },
+   "tight_passive": {
+    "bb_per_100": 53.02734375,
+    "blocks": 256,
+    "ci95": [
+     41.46381065207743,
+     64.59087684792257
+    ]
+   },
+   "train_pressure": {
+    "bb_per_100": 30.56640625,
+    "blocks": 256,
+    "ci95": [
+     -1.2898872039494549,
+     62.422699703949455
+    ]
+   },
+   "uniform": {
+    "bb_per_100": 121.71223958333333,
+    "blocks": 256,
+    "ci95": [
+     70.90742713673822,
+     172.51705202992844
+    ]
+   }
+  }
+ },
+ "audit_seconds": 144.92977850002353,
+ "contrasts_bb_per_100": {
+  "O-R": {
+   "lbr": {
+    "bb_per_100": 37.55770596590909,
+    "blocks": 5632,
+    "ci95": [
+     27.746849850974282,
+     47.3685620808439
+    ]
+   },
+   "loose_aggressive": {
+    "bb_per_100": 21.451822916666664,
+    "blocks": 256,
+    "ci95": [
+     -9.697142790165213,
+     52.600788623498545
+    ]
+   },
+   "loose_passive": {
+    "bb_per_100": -10.970052083333334,
+    "blocks": 256,
+    "ci95": [
+     -33.08682839036154,
+     11.146724223694873
+    ]
+   },
+   "minraise-cap2": {
+    "bb_per_100": 17.48046875,
+    "blocks": 256,
+    "ci95": [
+     -25.486895481651906,
+     60.447832981651906
+    ]
+   },
+   "native-pressure": {
+    "bb_per_100": 6.919352213541667,
+    "blocks": 16384,
+    "ci95": [
+     0.3867490365034678,
+     13.451955390579865
+    ]
+   },
+   "passive": {
+    "bb_per_100": -17.154947916666668,
+    "blocks": 256,
+    "ci95": [
+     -51.37468941863426,
+     17.06479358530093
+    ]
+   },
+   "pot_pressure": {
+    "bb_per_100": -5.305989583333333,
+    "blocks": 256,
+    "ci95": [
+     -28.712185478818444,
+     18.10020631215178
+    ]
+   },
+   "pressure-cap2": {
+    "bb_per_100": 32.32421875,
+    "blocks": 256,
+    "ci95": [
+     -5.2663626540234745,
+     69.91480015402348
+    ]
+   },
+   "selective-stackoff": {
+    "bb_per_100": 12.662760416666666,
+    "blocks": 256,
+    "ci95": [
+     -1.5213147891203658,
+     26.846835622453696
+    ]
+   },
+   "tight_aggressive": {
+    "bb_per_100": -2.3111979166666674,
+    "blocks": 256,
+    "ci95": [
+     -20.479904341367934,
+     15.857508508034599
+    ]
+   },
+   "tight_passive": {
+    "bb_per_100": 7.194010416666667,
+    "blocks": 256,
+    "ci95": [
+     -1.7398856583994116,
+     16.127906491732745
+    ]
+   },
+   "train_pressure": {
+    "bb_per_100": -0.8789062499999993,
+    "blocks": 256,
+    "ci95": [
+     -26.603147483354057,
+     24.845334983354057
+    ]
+   },
+   "uniform": {
+    "bb_per_100": 3.092447916666665,
+    "blocks": 256,
+    "ci95": [
+     -45.2057228672683,
+     51.39061870060163
+    ]
+   }
+  }
+ },
+ "coverage_and_lbr_by_street": [
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "lbr",
+   "streets": {
+    "flop": {
+     "decisions": 8235,
+     "lbr_decisions": 7493,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "positive_mass": 8235
+    },
+    "preflop": {
+     "decisions": 15345,
+     "lbr_decisions": 12181,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "positive_mass": 15345
+    },
+    "river": {
+     "decisions": 1393,
+     "lbr_decisions": 1553,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "positive_mass": 1393
+    },
+    "turn": {
+     "decisions": 3233,
+     "lbr_decisions": 3403,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "positive_mass": 3233
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 3358,
+    "preflop": 5255,
+    "river": 1238,
+    "turn": 1413
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "loose_aggressive",
+   "streets": {
+    "flop": {
+     "decisions": 229,
+     "positive_mass": 229
+    },
+    "preflop": {
+     "decisions": 426,
+     "positive_mass": 426
+    },
+    "river": {
+     "decisions": 105,
+     "positive_mass": 105
+    },
+    "turn": {
+     "decisions": 151,
+     "positive_mass": 151
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 73,
+    "preflop": 311,
+    "river": 85,
+    "turn": 43
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "loose_passive",
+   "streets": {
+    "flop": {
+     "decisions": 307,
+     "positive_mass": 307
+    },
+    "preflop": {
+     "decisions": 418,
+     "positive_mass": 418
+    },
+    "river": {
+     "decisions": 208,
+     "missing": 2,
+     "positive_mass": 206
+    },
+    "turn": {
+     "decisions": 230,
+     "positive_mass": 230
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 78,
+    "preflop": 206,
+    "river": 207,
+    "turn": 21
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "minraise-cap2",
+   "streets": {
+    "flop": {
+     "decisions": 537,
+     "positive_mass": 537
+    },
+    "preflop": {
+     "decisions": 728,
+     "positive_mass": 728
+    },
+    "river": {
+     "decisions": 266,
+     "positive_mass": 266
+    },
+    "turn": {
+     "decisions": 391,
+     "positive_mass": 391
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 90,
+    "preflop": 148,
+    "river": 198,
+    "turn": 76
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "native-pressure",
+   "streets": {
+    "flop": {
+     "decisions": 36036,
+     "missing": 1,
+     "positive_mass": 36033,
+     "zero_mass": 2
+    },
+    "preflop": {
+     "decisions": 54508,
+     "positive_mass": 54508
+    },
+    "river": {
+     "decisions": 11811,
+     "missing": 23,
+     "positive_mass": 11770,
+     "zero_mass": 18
+    },
+    "turn": {
+     "decisions": 21720,
+     "missing": 20,
+     "positive_mass": 21680,
+     "zero_mass": 20
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 6961,
+    "preflop": 13770,
+    "river": 7818,
+    "turn": 4219
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "passive",
+   "streets": {
+    "flop": {
+     "decisions": 472,
+     "positive_mass": 472
+    },
+    "preflop": {
+     "decisions": 512,
+     "positive_mass": 512
+    },
+    "river": {
+     "decisions": 466,
+     "positive_mass": 466
+    },
+    "turn": {
+     "decisions": 472,
+     "positive_mass": 472
+    }
+   },
+   "terminal_street_hands": {
+    "preflop": 40,
+    "river": 466,
+    "turn": 6
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "pot_pressure",
+   "streets": {
+    "flop": {
+     "decisions": 141,
+     "missing": 47,
+     "positive_mass": 94
+    },
+    "preflop": {
+     "decisions": 354,
+     "missing": 56,
+     "positive_mass": 298
+    },
+    "river": {
+     "decisions": 30,
+     "missing": 17,
+     "positive_mass": 13
+    },
+    "turn": {
+     "decisions": 59,
+     "missing": 30,
+     "positive_mass": 29
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 74,
+    "preflop": 388,
+    "river": 24,
+    "turn": 26
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "pressure-cap2",
+   "streets": {
+    "flop": {
+     "decisions": 439,
+     "positive_mass": 439
+    },
+    "preflop": {
+     "decisions": 728,
+     "positive_mass": 728
+    },
+    "river": {
+     "decisions": 173,
+     "positive_mass": 173
+    },
+    "turn": {
+     "decisions": 256,
+     "positive_mass": 256
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 111,
+    "preflop": 215,
+    "river": 132,
+    "turn": 54
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "selective-stackoff",
+   "streets": {
+    "flop": {
+     "decisions": 168,
+     "positive_mass": 168
+    },
+    "preflop": {
+     "decisions": 331,
+     "positive_mass": 331
+    },
+    "river": {
+     "decisions": 73,
+     "positive_mass": 73
+    },
+    "turn": {
+     "decisions": 107,
+     "positive_mass": 107
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 63,
+    "preflop": 350,
+    "river": 70,
+    "turn": 29
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "tight_aggressive",
+   "streets": {
+    "flop": {
+     "decisions": 108,
+     "positive_mass": 108
+    },
+    "preflop": {
+     "decisions": 289,
+     "positive_mass": 289
+    },
+    "river": {
+     "decisions": 29,
+     "positive_mass": 29
+    },
+    "turn": {
+     "decisions": 42,
+     "positive_mass": 42
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 66,
+    "preflop": 406,
+    "river": 23,
+    "turn": 17
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "tight_passive",
+   "streets": {
+    "flop": {
+     "decisions": 104,
+     "positive_mass": 104
+    },
+    "preflop": {
+     "decisions": 271,
+     "missing": 1,
+     "positive_mass": 270
+    },
+    "river": {
+     "decisions": 34,
+     "positive_mass": 34
+    },
+    "turn": {
+     "decisions": 47,
+     "positive_mass": 47
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 57,
+    "preflop": 408,
+    "river": 34,
+    "turn": 13
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "train_pressure",
+   "streets": {
+    "flop": {
+     "decisions": 196,
+     "missing": 9,
+     "positive_mass": 187
+    },
+    "preflop": {
+     "decisions": 359,
+     "missing": 8,
+     "positive_mass": 351
+    },
+    "river": {
+     "decisions": 87,
+     "missing": 8,
+     "positive_mass": 79
+    },
+    "turn": {
+     "decisions": 125,
+     "missing": 12,
+     "positive_mass": 113
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 69,
+    "preflop": 335,
+    "river": 71,
+    "turn": 37
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 1,
+   "panel": "uniform",
+   "streets": {
+    "flop": {
+     "decisions": 358,
+     "positive_mass": 358
+    },
+    "preflop": {
+     "decisions": 609,
+     "positive_mass": 609
+    },
+    "river": {
+     "decisions": 78,
+     "positive_mass": 78
+    },
+    "turn": {
+     "decisions": 182,
+     "positive_mass": 182
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 127,
+    "preflop": 256,
+    "river": 63,
+    "turn": 66
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "lbr",
+   "streets": {
+    "flop": {
+     "decisions": 8420,
+     "lbr_decisions": 7690,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "missing": 1,
+     "positive_mass": 8419
+    },
+    "preflop": {
+     "decisions": 15058,
+     "lbr_decisions": 12242,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "positive_mass": 15058
+    },
+    "river": {
+     "decisions": 1576,
+     "lbr_decisions": 1770,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "positive_mass": 1576
+    },
+    "turn": {
+     "decisions": 3248,
+     "lbr_decisions": 3506,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "positive_mass": 3247,
+     "zero_mass": 1
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 3472,
+    "preflop": 5055,
+    "river": 1378,
+    "turn": 1359
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "loose_aggressive",
+   "streets": {
+    "flop": {
+     "decisions": 236,
+     "positive_mass": 236
+    },
+    "preflop": {
+     "decisions": 427,
+     "positive_mass": 427
+    },
+    "river": {
+     "decisions": 111,
+     "positive_mass": 111
+    },
+    "turn": {
+     "decisions": 164,
+     "positive_mass": 164
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 68,
+    "preflop": 307,
+    "river": 94,
+    "turn": 43
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "loose_passive",
+   "streets": {
+    "flop": {
+     "decisions": 311,
+     "positive_mass": 311
+    },
+    "preflop": {
+     "decisions": 418,
+     "positive_mass": 418
+    },
+    "river": {
+     "decisions": 225,
+     "missing": 3,
+     "positive_mass": 222
+    },
+    "turn": {
+     "decisions": 247,
+     "missing": 1,
+     "positive_mass": 246
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 64,
+    "preflop": 202,
+    "river": 224,
+    "turn": 22
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "minraise-cap2",
+   "streets": {
+    "flop": {
+     "decisions": 539,
+     "positive_mass": 539
+    },
+    "preflop": {
+     "decisions": 735,
+     "positive_mass": 735
+    },
+    "river": {
+     "decisions": 256,
+     "positive_mass": 256
+    },
+    "turn": {
+     "decisions": 370,
+     "positive_mass": 370
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 110,
+    "preflop": 142,
+    "river": 188,
+    "turn": 72
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "native-pressure",
+   "streets": {
+    "flop": {
+     "decisions": 37111,
+     "missing": 1,
+     "positive_mass": 37110
+    },
+    "preflop": {
+     "decisions": 54566,
+     "positive_mass": 54566
+    },
+    "river": {
+     "decisions": 11842,
+     "missing": 13,
+     "positive_mass": 11823,
+     "zero_mass": 6
+    },
+    "turn": {
+     "decisions": 22122,
+     "missing": 17,
+     "positive_mass": 22097,
+     "zero_mass": 8
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 7243,
+    "preflop": 13240,
+    "river": 7864,
+    "turn": 4421
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "passive",
+   "streets": {
+    "flop": {
+     "decisions": 479,
+     "positive_mass": 479
+    },
+    "preflop": {
+     "decisions": 512,
+     "positive_mass": 512
+    },
+    "river": {
+     "decisions": 467,
+     "positive_mass": 467
+    },
+    "turn": {
+     "decisions": 479,
+     "positive_mass": 479
+    }
+   },
+   "terminal_street_hands": {
+    "preflop": 33,
+    "river": 467,
+    "turn": 12
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "pot_pressure",
+   "streets": {
+    "flop": {
+     "decisions": 149,
+     "missing": 49,
+     "positive_mass": 100
+    },
+    "preflop": {
+     "decisions": 358,
+     "missing": 60,
+     "positive_mass": 298
+    },
+    "river": {
+     "decisions": 26,
+     "missing": 14,
+     "positive_mass": 12
+    },
+    "turn": {
+     "decisions": 68,
+     "missing": 33,
+     "positive_mass": 35
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 74,
+    "preflop": 380,
+    "river": 21,
+    "turn": 37
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "pressure-cap2",
+   "streets": {
+    "flop": {
+     "decisions": 436,
+     "positive_mass": 436
+    },
+    "preflop": {
+     "decisions": 735,
+     "positive_mass": 735
+    },
+    "river": {
+     "decisions": 169,
+     "positive_mass": 169
+    },
+    "turn": {
+     "decisions": 251,
+     "positive_mass": 251
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 119,
+    "preflop": 213,
+    "river": 128,
+    "turn": 52
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "selective-stackoff",
+   "streets": {
+    "flop": {
+     "decisions": 181,
+     "positive_mass": 181
+    },
+    "preflop": {
+     "decisions": 331,
+     "positive_mass": 331
+    },
+    "river": {
+     "decisions": 83,
+     "positive_mass": 83
+    },
+    "turn": {
+     "decisions": 123,
+     "positive_mass": 123
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 59,
+    "preflop": 337,
+    "river": 78,
+    "turn": 38
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "tight_aggressive",
+   "streets": {
+    "flop": {
+     "decisions": 122,
+     "positive_mass": 122
+    },
+    "preflop": {
+     "decisions": 290,
+     "positive_mass": 290
+    },
+    "river": {
+     "decisions": 32,
+     "positive_mass": 32
+    },
+    "turn": {
+     "decisions": 52,
+     "positive_mass": 52
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 69,
+    "preflop": 393,
+    "river": 26,
+    "turn": 24
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "tight_passive",
+   "streets": {
+    "flop": {
+     "decisions": 120,
+     "positive_mass": 120
+    },
+    "preflop": {
+     "decisions": 271,
+     "missing": 1,
+     "positive_mass": 270
+    },
+    "river": {
+     "decisions": 38,
+     "positive_mass": 38
+    },
+    "turn": {
+     "decisions": 60,
+     "positive_mass": 60
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 60,
+    "preflop": 392,
+    "river": 38,
+    "turn": 22
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "train_pressure",
+   "streets": {
+    "flop": {
+     "decisions": 202,
+     "missing": 8,
+     "positive_mass": 194
+    },
+    "preflop": {
+     "decisions": 364,
+     "missing": 13,
+     "positive_mass": 351
+    },
+    "river": {
+     "decisions": 97,
+     "missing": 10,
+     "positive_mass": 87
+    },
+    "turn": {
+     "decisions": 138,
+     "missing": 11,
+     "positive_mass": 127
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 61,
+    "preflop": 331,
+    "river": 81,
+    "turn": 39
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 2,
+   "panel": "uniform",
+   "streets": {
+    "flop": {
+     "decisions": 358,
+     "positive_mass": 358
+    },
+    "preflop": {
+     "decisions": 608,
+     "positive_mass": 608
+    },
+    "river": {
+     "decisions": 78,
+     "positive_mass": 78
+    },
+    "turn": {
+     "decisions": 175,
+     "positive_mass": 175
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 135,
+    "preflop": 254,
+    "river": 61,
+    "turn": 62
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "lbr",
+   "streets": {
+    "flop": {
+     "decisions": 7954,
+     "lbr_decisions": 7333,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "positive_mass": 7954
+    },
+    "preflop": {
+     "decisions": 15322,
+     "lbr_decisions": 12238,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "positive_mass": 15322
+    },
+    "river": {
+     "decisions": 1484,
+     "lbr_decisions": 1662,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "positive_mass": 1484
+    },
+    "turn": {
+     "decisions": 3117,
+     "lbr_decisions": 3316,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "positive_mass": 3117
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 3266,
+    "preflop": 5389,
+    "river": 1289,
+    "turn": 1320
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "loose_aggressive",
+   "streets": {
+    "flop": {
+     "decisions": 237,
+     "positive_mass": 237
+    },
+    "preflop": {
+     "decisions": 429,
+     "positive_mass": 429
+    },
+    "river": {
+     "decisions": 100,
+     "positive_mass": 100
+    },
+    "turn": {
+     "decisions": 155,
+     "positive_mass": 155
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 74,
+    "preflop": 306,
+    "river": 85,
+    "turn": 47
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "loose_passive",
+   "streets": {
+    "flop": {
+     "decisions": 306,
+     "positive_mass": 306
+    },
+    "preflop": {
+     "decisions": 417,
+     "positive_mass": 417
+    },
+    "river": {
+     "decisions": 222,
+     "positive_mass": 222
+    },
+    "turn": {
+     "decisions": 244,
+     "positive_mass": 244
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 64,
+    "preflop": 206,
+    "river": 220,
+    "turn": 22
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "minraise-cap2",
+   "streets": {
+    "flop": {
+     "decisions": 524,
+     "positive_mass": 524
+    },
+    "preflop": {
+     "decisions": 733,
+     "positive_mass": 733
+    },
+    "river": {
+     "decisions": 254,
+     "positive_mass": 254
+    },
+    "turn": {
+     "decisions": 374,
+     "positive_mass": 373,
+     "zero_mass": 1
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 94,
+    "preflop": 150,
+    "river": 188,
+    "turn": 80
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "native-pressure",
+   "streets": {
+    "flop": {
+     "decisions": 35528,
+     "missing": 1,
+     "positive_mass": 35524,
+     "zero_mass": 3
+    },
+    "preflop": {
+     "decisions": 54642,
+     "positive_mass": 54642
+    },
+    "river": {
+     "decisions": 11267,
+     "missing": 17,
+     "positive_mass": 11232,
+     "zero_mass": 18
+    },
+    "turn": {
+     "decisions": 20888,
+     "missing": 9,
+     "positive_mass": 20872,
+     "zero_mass": 7
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 7246,
+    "preflop": 13893,
+    "river": 7466,
+    "turn": 4163
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "passive",
+   "streets": {
+    "flop": {
+     "decisions": 477,
+     "positive_mass": 477
+    },
+    "preflop": {
+     "decisions": 512,
+     "positive_mass": 512
+    },
+    "river": {
+     "decisions": 471,
+     "positive_mass": 471
+    },
+    "turn": {
+     "decisions": 477,
+     "positive_mass": 477
+    }
+   },
+   "terminal_street_hands": {
+    "preflop": 35,
+    "river": 471,
+    "turn": 6
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "pot_pressure",
+   "streets": {
+    "flop": {
+     "decisions": 146,
+     "missing": 52,
+     "positive_mass": 94
+    },
+    "preflop": {
+     "decisions": 360,
+     "missing": 64,
+     "positive_mass": 296
+    },
+    "river": {
+     "decisions": 26,
+     "missing": 13,
+     "positive_mass": 13
+    },
+    "turn": {
+     "decisions": 68,
+     "missing": 33,
+     "positive_mass": 35
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 72,
+    "preflop": 384,
+    "river": 19,
+    "turn": 37
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "pressure-cap2",
+   "streets": {
+    "flop": {
+     "decisions": 428,
+     "positive_mass": 428
+    },
+    "preflop": {
+     "decisions": 733,
+     "positive_mass": 733
+    },
+    "river": {
+     "decisions": 166,
+     "positive_mass": 166
+    },
+    "turn": {
+     "decisions": 250,
+     "positive_mass": 249,
+     "zero_mass": 1
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 111,
+    "preflop": 216,
+    "river": 128,
+    "turn": 57
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "selective-stackoff",
+   "streets": {
+    "flop": {
+     "decisions": 181,
+     "positive_mass": 181
+    },
+    "preflop": {
+     "decisions": 331,
+     "positive_mass": 331
+    },
+    "river": {
+     "decisions": 90,
+     "positive_mass": 90
+    },
+    "turn": {
+     "decisions": 123,
+     "positive_mass": 123
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 56,
+    "preflop": 340,
+    "river": 81,
+    "turn": 35
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "tight_aggressive",
+   "streets": {
+    "flop": {
+     "decisions": 119,
+     "positive_mass": 119
+    },
+    "preflop": {
+     "decisions": 289,
+     "positive_mass": 289
+    },
+    "river": {
+     "decisions": 34,
+     "positive_mass": 34
+    },
+    "turn": {
+     "decisions": 53,
+     "positive_mass": 53
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 66,
+    "preflop": 396,
+    "river": 27,
+    "turn": 23
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "tight_passive",
+   "streets": {
+    "flop": {
+     "decisions": 116,
+     "positive_mass": 116
+    },
+    "preflop": {
+     "decisions": 271,
+     "missing": 1,
+     "positive_mass": 270
+    },
+    "river": {
+     "decisions": 38,
+     "positive_mass": 38
+    },
+    "turn": {
+     "decisions": 56,
+     "positive_mass": 56
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 60,
+    "preflop": 396,
+    "river": 38,
+    "turn": 18
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "train_pressure",
+   "streets": {
+    "flop": {
+     "decisions": 196,
+     "missing": 8,
+     "positive_mass": 188
+    },
+    "preflop": {
+     "decisions": 361,
+     "missing": 9,
+     "positive_mass": 352
+    },
+    "river": {
+     "decisions": 96,
+     "missing": 10,
+     "positive_mass": 86
+    },
+    "turn": {
+     "decisions": 145,
+     "missing": 11,
+     "positive_mass": 134
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 61,
+    "preflop": 331,
+    "river": 76,
+    "turn": 44
+   }
+  },
+  {
+   "arm": "O",
+   "lineage": 3,
+   "panel": "uniform",
+   "streets": {
+    "flop": {
+     "decisions": 351,
+     "positive_mass": 351
+    },
+    "preflop": {
+     "decisions": 609,
+     "positive_mass": 609
+    },
+    "river": {
+     "decisions": 82,
+     "positive_mass": 82
+    },
+    "turn": {
+     "decisions": 175,
+     "positive_mass": 175
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 125,
+    "preflop": 257,
+    "river": 63,
+    "turn": 67
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "lbr",
+   "streets": {
+    "flop": {
+     "current": 7601,
+     "decisions": 7611,
+     "lbr_decisions": 7264,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "missing": 10
+    },
+    "preflop": {
+     "current": 14602,
+     "decisions": 14602,
+     "lbr_decisions": 12347,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0
+    },
+    "river": {
+     "current": 1034,
+     "decisions": 1063,
+     "lbr_decisions": 1197,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "missing": 29
+    },
+    "turn": {
+     "current": 2783,
+     "decisions": 2824,
+     "lbr_decisions": 3049,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "missing": 41
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 3617,
+    "preflop": 5296,
+    "river": 900,
+    "turn": 1451
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "loose_aggressive",
+   "streets": {
+    "flop": {
+     "current": 219,
+     "decisions": 219
+    },
+    "preflop": {
+     "current": 433,
+     "decisions": 433
+    },
+    "river": {
+     "current": 93,
+     "decisions": 93
+    },
+    "turn": {
+     "current": 140,
+     "decisions": 141,
+     "missing": 1
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 74,
+    "preflop": 319,
+    "river": 77,
+    "turn": 42
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "loose_passive",
+   "streets": {
+    "flop": {
+     "current": 295,
+     "decisions": 295
+    },
+    "preflop": {
+     "current": 418,
+     "decisions": 418
+    },
+    "river": {
+     "current": 202,
+     "decisions": 205,
+     "missing": 3
+    },
+    "turn": {
+     "current": 228,
+     "decisions": 228
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 67,
+    "preflop": 218,
+    "river": 203,
+    "turn": 24
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "minraise-cap2",
+   "streets": {
+    "flop": {
+     "current": 536,
+     "decisions": 536
+    },
+    "preflop": {
+     "current": 719,
+     "decisions": 719
+    },
+    "river": {
+     "current": 211,
+     "decisions": 217,
+     "missing": 6
+    },
+    "turn": {
+     "current": 347,
+     "decisions": 350,
+     "missing": 3
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 114,
+    "preflop": 155,
+    "river": 152,
+    "turn": 91
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "native-pressure",
+   "streets": {
+    "flop": {
+     "current": 33611,
+     "decisions": 33724,
+     "missing": 113
+    },
+    "preflop": {
+     "current": 55564,
+     "decisions": 55602,
+     "missing": 38
+    },
+    "river": {
+     "current": 7800,
+     "decisions": 7992,
+     "missing": 192
+    },
+    "turn": {
+     "current": 16778,
+     "decisions": 17091,
+     "missing": 313
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 8583,
+    "preflop": 14628,
+    "river": 4982,
+    "turn": 4575
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "passive",
+   "streets": {
+    "flop": {
+     "current": 463,
+     "decisions": 463
+    },
+    "preflop": {
+     "current": 512,
+     "decisions": 512
+    },
+    "river": {
+     "current": 447,
+     "decisions": 450,
+     "missing": 3
+    },
+    "turn": {
+     "current": 461,
+     "decisions": 463,
+     "missing": 2
+    }
+   },
+   "terminal_street_hands": {
+    "preflop": 49,
+    "river": 450,
+    "turn": 13
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "pot_pressure",
+   "streets": {
+    "flop": {
+     "current": 83,
+     "decisions": 133,
+     "missing": 50
+    },
+    "preflop": {
+     "current": 296,
+     "decisions": 354,
+     "missing": 58
+    },
+    "river": {
+     "current": 10,
+     "decisions": 22,
+     "missing": 12
+    },
+    "turn": {
+     "current": 29,
+     "decisions": 61,
+     "missing": 32
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 66,
+    "preflop": 395,
+    "river": 17,
+    "turn": 34
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "pressure-cap2",
+   "streets": {
+    "flop": {
+     "current": 409,
+     "decisions": 409
+    },
+    "preflop": {
+     "current": 719,
+     "decisions": 719
+    },
+    "river": {
+     "current": 140,
+     "decisions": 141,
+     "missing": 1
+    },
+    "turn": {
+     "current": 223,
+     "decisions": 224,
+     "missing": 1
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 119,
+    "preflop": 237,
+    "river": 99,
+    "turn": 57
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "selective-stackoff",
+   "streets": {
+    "flop": {
+     "current": 162,
+     "decisions": 162
+    },
+    "preflop": {
+     "current": 332,
+     "decisions": 332
+    },
+    "river": {
+     "current": 84,
+     "decisions": 84
+    },
+    "turn": {
+     "current": 119,
+     "decisions": 120,
+     "missing": 1
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 46,
+    "preflop": 357,
+    "river": 77,
+    "turn": 32
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "tight_aggressive",
+   "streets": {
+    "flop": {
+     "current": 106,
+     "decisions": 106
+    },
+    "preflop": {
+     "current": 289,
+     "decisions": 289
+    },
+    "river": {
+     "current": 23,
+     "decisions": 23
+    },
+    "turn": {
+     "current": 59,
+     "decisions": 59
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 48,
+    "preflop": 409,
+    "river": 20,
+    "turn": 35
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "tight_passive",
+   "streets": {
+    "flop": {
+     "current": 102,
+     "decisions": 102
+    },
+    "preflop": {
+     "current": 270,
+     "decisions": 271,
+     "missing": 1
+    },
+    "river": {
+     "current": 38,
+     "decisions": 38
+    },
+    "turn": {
+     "current": 66,
+     "decisions": 66
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 37,
+    "preflop": 410,
+    "river": 36,
+    "turn": 29
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "train_pressure",
+   "streets": {
+    "flop": {
+     "current": 170,
+     "decisions": 179,
+     "missing": 9
+    },
+    "preflop": {
+     "current": 354,
+     "decisions": 365,
+     "missing": 11
+    },
+    "river": {
+     "current": 63,
+     "decisions": 75,
+     "missing": 12
+    },
+    "turn": {
+     "current": 117,
+     "decisions": 126,
+     "missing": 9
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 63,
+    "preflop": 345,
+    "river": 60,
+    "turn": 44
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 1,
+   "panel": "uniform",
+   "streets": {
+    "flop": {
+     "current": 301,
+     "decisions": 301
+    },
+    "preflop": {
+     "current": 608,
+     "decisions": 608
+    },
+    "river": {
+     "current": 79,
+     "decisions": 80,
+     "missing": 1
+    },
+    "turn": {
+     "current": 151,
+     "decisions": 152,
+     "missing": 1
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 112,
+    "preflop": 285,
+    "river": 61,
+    "turn": 54
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "lbr",
+   "streets": {
+    "flop": {
+     "current": 7653,
+     "decisions": 7662,
+     "lbr_decisions": 7087,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "missing": 9
+    },
+    "preflop": {
+     "current": 14930,
+     "decisions": 14930,
+     "lbr_decisions": 12545,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0
+    },
+    "river": {
+     "current": 923,
+     "decisions": 946,
+     "lbr_decisions": 1077,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "missing": 23
+    },
+    "turn": {
+     "current": 2645,
+     "decisions": 2671,
+     "lbr_decisions": 2877,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "missing": 26
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 3505,
+    "preflop": 5489,
+    "river": 844,
+    "turn": 1426
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "loose_aggressive",
+   "streets": {
+    "flop": {
+     "current": 221,
+     "decisions": 222,
+     "missing": 1
+    },
+    "preflop": {
+     "current": 439,
+     "decisions": 439
+    },
+    "river": {
+     "current": 98,
+     "decisions": 98
+    },
+    "turn": {
+     "current": 158,
+     "decisions": 159,
+     "missing": 1
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 63,
+    "preflop": 318,
+    "river": 85,
+    "turn": 46
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "loose_passive",
+   "streets": {
+    "flop": {
+     "current": 303,
+     "decisions": 303
+    },
+    "preflop": {
+     "current": 415,
+     "decisions": 415
+    },
+    "river": {
+     "current": 215,
+     "decisions": 216,
+     "missing": 1
+    },
+    "turn": {
+     "current": 239,
+     "decisions": 240,
+     "missing": 1
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 65,
+    "preflop": 209,
+    "river": 215,
+    "turn": 23
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "minraise-cap2",
+   "streets": {
+    "flop": {
+     "current": 479,
+     "decisions": 479
+    },
+    "preflop": {
+     "current": 723,
+     "decisions": 723
+    },
+    "river": {
+     "current": 221,
+     "decisions": 227,
+     "missing": 6
+    },
+    "turn": {
+     "current": 351,
+     "decisions": 353,
+     "missing": 2
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 77,
+    "preflop": 184,
+    "river": 167,
+    "turn": 84
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "native-pressure",
+   "streets": {
+    "flop": {
+     "current": 29007,
+     "decisions": 29133,
+     "missing": 126
+    },
+    "preflop": {
+     "current": 55135,
+     "decisions": 55198,
+     "missing": 63
+    },
+    "river": {
+     "current": 7835,
+     "decisions": 8066,
+     "missing": 231
+    },
+    "turn": {
+     "current": 16314,
+     "decisions": 16622,
+     "missing": 308
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 6299,
+    "preflop": 16582,
+    "river": 5268,
+    "turn": 4619
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "passive",
+   "streets": {
+    "flop": {
+     "current": 467,
+     "decisions": 467
+    },
+    "preflop": {
+     "current": 512,
+     "decisions": 512
+    },
+    "river": {
+     "current": 461,
+     "decisions": 462,
+     "missing": 1
+    },
+    "turn": {
+     "current": 465,
+     "decisions": 467,
+     "missing": 2
+    }
+   },
+   "terminal_street_hands": {
+    "preflop": 45,
+    "river": 462,
+    "turn": 5
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "pot_pressure",
+   "streets": {
+    "flop": {
+     "current": 84,
+     "decisions": 135,
+     "missing": 51
+    },
+    "preflop": {
+     "current": 296,
+     "decisions": 359,
+     "missing": 63
+    },
+    "river": {
+     "current": 12,
+     "decisions": 27,
+     "missing": 15
+    },
+    "turn": {
+     "current": 39,
+     "decisions": 69,
+     "missing": 30
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 62,
+    "preflop": 392,
+    "river": 21,
+    "turn": 37
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "pressure-cap2",
+   "streets": {
+    "flop": {
+     "current": 356,
+     "decisions": 356
+    },
+    "preflop": {
+     "current": 723,
+     "decisions": 723
+    },
+    "river": {
+     "current": 160,
+     "decisions": 160
+    },
+    "turn": {
+     "current": 242,
+     "decisions": 242
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 74,
+    "preflop": 268,
+    "river": 116,
+    "turn": 54
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "selective-stackoff",
+   "streets": {
+    "flop": {
+     "current": 182,
+     "decisions": 182
+    },
+    "preflop": {
+     "current": 331,
+     "decisions": 331
+    },
+    "river": {
+     "current": 89,
+     "decisions": 89
+    },
+    "turn": {
+     "current": 122,
+     "decisions": 122
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 59,
+    "preflop": 337,
+    "river": 78,
+    "turn": 38
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "tight_aggressive",
+   "streets": {
+    "flop": {
+     "current": 112,
+     "decisions": 113,
+     "missing": 1
+    },
+    "preflop": {
+     "current": 288,
+     "decisions": 288
+    },
+    "river": {
+     "current": 33,
+     "decisions": 33
+    },
+    "turn": {
+     "current": 64,
+     "decisions": 64
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 50,
+    "preflop": 402,
+    "river": 29,
+    "turn": 31
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "tight_passive",
+   "streets": {
+    "flop": {
+     "current": 112,
+     "decisions": 112
+    },
+    "preflop": {
+     "current": 270,
+     "decisions": 271,
+     "missing": 1
+    },
+    "river": {
+     "current": 38,
+     "decisions": 38
+    },
+    "turn": {
+     "current": 62,
+     "decisions": 62
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 50,
+    "preflop": 400,
+    "river": 37,
+    "turn": 25
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "train_pressure",
+   "streets": {
+    "flop": {
+     "current": 179,
+     "decisions": 187,
+     "missing": 8
+    },
+    "preflop": {
+     "current": 355,
+     "decisions": 365,
+     "missing": 10
+    },
+    "river": {
+     "current": 76,
+     "decisions": 90,
+     "missing": 14
+    },
+    "turn": {
+     "current": 138,
+     "decisions": 152,
+     "missing": 14
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 52,
+    "preflop": 336,
+    "river": 78,
+    "turn": 46
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 2,
+   "panel": "uniform",
+   "streets": {
+    "flop": {
+     "current": 313,
+     "decisions": 314,
+     "missing": 1
+    },
+    "preflop": {
+     "current": 615,
+     "decisions": 615
+    },
+    "river": {
+     "current": 67,
+     "decisions": 67
+    },
+    "turn": {
+     "current": 161,
+     "decisions": 161
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 112,
+    "preflop": 280,
+    "river": 53,
+    "turn": 67
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "lbr",
+   "streets": {
+    "flop": {
+     "current": 7796,
+     "decisions": 7804,
+     "lbr_decisions": 7074,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "missing": 8
+    },
+    "preflop": {
+     "current": 14667,
+     "decisions": 14667,
+     "lbr_decisions": 12271,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0
+    },
+    "river": {
+     "current": 960,
+     "decisions": 983,
+     "lbr_decisions": 1076,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "missing": 23
+    },
+    "turn": {
+     "current": 2701,
+     "decisions": 2723,
+     "lbr_decisions": 2858,
+     "lbr_incomplete": 0,
+     "lbr_over_soft_budget": 0,
+     "missing": 22
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 3615,
+    "preflop": 5408,
+    "river": 856,
+    "turn": 1385
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "loose_aggressive",
+   "streets": {
+    "flop": {
+     "current": 219,
+     "decisions": 219
+    },
+    "preflop": {
+     "current": 435,
+     "decisions": 435
+    },
+    "river": {
+     "current": 84,
+     "decisions": 84
+    },
+    "turn": {
+     "current": 158,
+     "decisions": 158
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 68,
+    "preflop": 318,
+    "river": 75,
+    "turn": 51
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "loose_passive",
+   "streets": {
+    "flop": {
+     "current": 290,
+     "decisions": 290
+    },
+    "preflop": {
+     "current": 417,
+     "decisions": 417
+    },
+    "river": {
+     "current": 210,
+     "decisions": 210
+    },
+    "turn": {
+     "current": 228,
+     "decisions": 228
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 62,
+    "preflop": 222,
+    "river": 209,
+    "turn": 19
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "minraise-cap2",
+   "streets": {
+    "flop": {
+     "current": 507,
+     "decisions": 509,
+     "missing": 2
+    },
+    "preflop": {
+     "current": 719,
+     "decisions": 719
+    },
+    "river": {
+     "current": 231,
+     "decisions": 236,
+     "missing": 5
+    },
+    "turn": {
+     "current": 340,
+     "decisions": 342,
+     "missing": 2
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 98,
+    "preflop": 163,
+    "river": 174,
+    "turn": 77
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "native-pressure",
+   "streets": {
+    "flop": {
+     "current": 31830,
+     "decisions": 31924,
+     "missing": 94
+    },
+    "preflop": {
+     "current": 54765,
+     "decisions": 54783,
+     "missing": 18
+    },
+    "river": {
+     "current": 8123,
+     "decisions": 8381,
+     "missing": 258
+    },
+    "turn": {
+     "current": 16758,
+     "decisions": 17149,
+     "missing": 391
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 7197,
+    "preflop": 15523,
+    "river": 5591,
+    "turn": 4457
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "passive",
+   "streets": {
+    "flop": {
+     "current": 463,
+     "decisions": 463
+    },
+    "preflop": {
+     "current": 512,
+     "decisions": 512
+    },
+    "river": {
+     "current": 443,
+     "decisions": 445,
+     "missing": 2
+    },
+    "turn": {
+     "current": 461,
+     "decisions": 463,
+     "missing": 2
+    }
+   },
+   "terminal_street_hands": {
+    "preflop": 49,
+    "river": 445,
+    "turn": 18
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "pot_pressure",
+   "streets": {
+    "flop": {
+     "current": 81,
+     "decisions": 132,
+     "missing": 51
+    },
+    "preflop": {
+     "current": 297,
+     "decisions": 352,
+     "missing": 55
+    },
+    "river": {
+     "current": 15,
+     "decisions": 25,
+     "missing": 10
+    },
+    "turn": {
+     "current": 34,
+     "decisions": 62,
+     "missing": 28
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 63,
+    "preflop": 397,
+    "river": 19,
+    "turn": 33
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "pressure-cap2",
+   "streets": {
+    "flop": {
+     "current": 398,
+     "decisions": 399,
+     "missing": 1
+    },
+    "preflop": {
+     "current": 719,
+     "decisions": 719
+    },
+    "river": {
+     "current": 153,
+     "decisions": 156,
+     "missing": 3
+    },
+    "turn": {
+     "current": 227,
+     "decisions": 227
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 106,
+    "preflop": 236,
+    "river": 117,
+    "turn": 53
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "selective-stackoff",
+   "streets": {
+    "flop": {
+     "current": 156,
+     "decisions": 156
+    },
+    "preflop": {
+     "current": 331,
+     "decisions": 331
+    },
+    "river": {
+     "current": 82,
+     "decisions": 82
+    },
+    "turn": {
+     "current": 114,
+     "decisions": 114
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 45,
+    "preflop": 358,
+    "river": 75,
+    "turn": 34
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "tight_aggressive",
+   "streets": {
+    "flop": {
+     "current": 100,
+     "decisions": 100
+    },
+    "preflop": {
+     "current": 289,
+     "decisions": 289
+    },
+    "river": {
+     "current": 27,
+     "decisions": 27
+    },
+    "turn": {
+     "current": 53,
+     "decisions": 53
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 47,
+    "preflop": 414,
+    "river": 24,
+    "turn": 27
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "tight_passive",
+   "streets": {
+    "flop": {
+     "current": 95,
+     "decisions": 95
+    },
+    "preflop": {
+     "current": 271,
+     "decisions": 271
+    },
+    "river": {
+     "current": 30,
+     "decisions": 30
+    },
+    "turn": {
+     "current": 56,
+     "decisions": 56
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 39,
+    "preflop": 417,
+    "river": 30,
+    "turn": 26
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "train_pressure",
+   "streets": {
+    "flop": {
+     "current": 166,
+     "decisions": 172,
+     "missing": 6
+    },
+    "preflop": {
+     "current": 355,
+     "decisions": 360,
+     "missing": 5
+    },
+    "river": {
+     "current": 74,
+     "decisions": 79,
+     "missing": 5
+    },
+    "turn": {
+     "current": 121,
+     "decisions": 135,
+     "missing": 14
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 53,
+    "preflop": 348,
+    "river": 66,
+    "turn": 45
+   }
+  },
+  {
+   "arm": "R",
+   "lineage": 3,
+   "panel": "uniform",
+   "streets": {
+    "flop": {
+     "current": 324,
+     "decisions": 324
+    },
+    "preflop": {
+     "current": 609,
+     "decisions": 609
+    },
+    "river": {
+     "current": 48,
+     "decisions": 49,
+     "missing": 1
+    },
+    "turn": {
+     "current": 136,
+     "decisions": 138,
+     "missing": 2
+    }
+   },
+   "terminal_street_hands": {
+    "flop": 131,
+    "preflop": 277,
+    "river": 36,
+    "turn": 68
+   }
+  }
+ ],
+ "decisions_checked": 1738648,
+ "hands_replayed": 297984,
+ "independent_arithmetic_matches": true,
+ "lineage_position_contrasts": [
+  {
+   "bb_per_100": 3.0924479166666656,
+   "blocks": 256,
+   "ci95": [
+    -45.2057228672683,
+    51.39061870060163
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "uniform",
+   "position": null
+  },
+  {
+   "bb_per_100": -16.2109375,
+   "blocks": 256,
+   "ci95": [
+    -85.96951496787622,
+    53.54763996787622
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "uniform",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 22.395833333333336,
+   "blocks": 256,
+   "ci95": [
+    -37.994961409509216,
+    82.78662807617589
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "uniform",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -24.70703125,
+   "blocks": 256,
+   "ci95": [
+    -100.43064648538038,
+    51.01658398538038
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "uniform",
+   "position": null
+  },
+  {
+   "bb_per_100": -26.3671875,
+   "blocks": 256,
+   "ci95": [
+    -144.24052894495526,
+    91.50615394495527
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "uniform",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -23.046875,
+   "blocks": 256,
+   "ci95": [
+    -116.65452669902818,
+    70.56077669902818
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "uniform",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 18.75,
+   "blocks": 256,
+   "ci95": [
+    -51.58978163728834,
+    89.08978163728834
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "uniform",
+   "position": null
+  },
+  {
+   "bb_per_100": -14.453125,
+   "blocks": 256,
+   "ci95": [
+    -124.4158048002902,
+    95.5095548002902
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "uniform",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 51.953125,
+   "blocks": 256,
+   "ci95": [
+    -34.688635730682265,
+    138.59488573068228
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "uniform",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 15.234375,
+   "blocks": 256,
+   "ci95": [
+    -51.24553550849444,
+    81.71428550849444
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "uniform",
+   "position": null
+  },
+  {
+   "bb_per_100": -7.8125,
+   "blocks": 256,
+   "ci95": [
+    -102.3517420780484,
+    86.7267420780484
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "uniform",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 38.28125,
+   "blocks": 256,
+   "ci95": [
+    -61.629194035020845,
+    138.19169403502084
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "uniform",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -17.154947916666668,
+   "blocks": 256,
+   "ci95": [
+    -51.37468941863426,
+    17.06479358530093
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "passive",
+   "position": null
+  },
+  {
+   "bb_per_100": -19.3359375,
+   "blocks": 256,
+   "ci95": [
+    -75.42646306204827,
+    36.75458806204826
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -14.973958333333334,
+   "blocks": 256,
+   "ci95": [
+    -61.38773990214509,
+    31.43982323547842
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -25.68359375,
+   "blocks": 256,
+   "ci95": [
+    -82.88001853961688,
+    31.512831039616884
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "passive",
+   "position": null
+  },
+  {
+   "bb_per_100": -22.4609375,
+   "blocks": 256,
+   "ci95": [
+    -113.63782319527226,
+    68.71594819527226
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -28.90625,
+   "blocks": 256,
+   "ci95": [
+    -99.6769713952884,
+    41.864471395288405
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -40.234375,
+   "blocks": 256,
+   "ci95": [
+    -90.81853342942955,
+    10.349783429429543
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "passive",
+   "position": null
+  },
+  {
+   "bb_per_100": -42.578125,
+   "blocks": 256,
+   "ci95": [
+    -117.63846381802824,
+    32.48221381802824
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -37.890625,
+   "blocks": 256,
+   "ci95": [
+    -111.89344814832988,
+    36.11219814832988
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 14.453125,
+   "blocks": 256,
+   "ci95": [
+    -42.8249167087513,
+    71.7311667087513
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "passive",
+   "position": null
+  },
+  {
+   "bb_per_100": 7.03125,
+   "blocks": 256,
+   "ci95": [
+    -80.85577902109958,
+    94.91827902109958
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 21.875,
+   "blocks": 256,
+   "ci95": [
+    -54.82230740476349,
+    98.57230740476349
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 17.48046875,
+   "blocks": 256,
+   "ci95": [
+    -25.486895481651906,
+    60.447832981651906
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "minraise-cap2",
+   "position": null
+  },
+  {
+   "bb_per_100": 21.6796875,
+   "blocks": 256,
+   "ci95": [
+    -44.062952206628594,
+    87.4223272066286
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "minraise-cap2",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 13.28125,
+   "blocks": 256,
+   "ci95": [
+    -49.71327889104488,
+    76.27577889104488
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "minraise-cap2",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 37.59765625,
+   "blocks": 256,
+   "ci95": [
+    -42.60907015541122,
+    117.80438265541122
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "minraise-cap2",
+   "position": null
+  },
+  {
+   "bb_per_100": 7.2265625,
+   "blocks": 256,
+   "ci95": [
+    -101.32580254177144,
+    115.77892754177144
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "minraise-cap2",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 67.96875,
+   "blocks": 256,
+   "ci95": [
+    -39.69012004391381,
+    175.6276200439138
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "minraise-cap2",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 29.1015625,
+   "blocks": 256,
+   "ci95": [
+    -38.10165280952691,
+    96.30477780952691
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "minraise-cap2",
+   "position": null
+  },
+  {
+   "bb_per_100": 37.109375,
+   "blocks": 256,
+   "ci95": [
+    -68.797026965938,
+    143.01577696593802
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "minraise-cap2",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 21.09375,
+   "blocks": 256,
+   "ci95": [
+    -78.84679199182658,
+    121.03429199182658
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "minraise-cap2",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -14.2578125,
+   "blocks": 256,
+   "ci95": [
+    -79.4267421323525,
+    50.9111171323525
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "minraise-cap2",
+   "position": null
+  },
+  {
+   "bb_per_100": 20.703125,
+   "blocks": 256,
+   "ci95": [
+    -76.3495782975811,
+    117.7558282975811
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "minraise-cap2",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -49.21875,
+   "blocks": 256,
+   "ci95": [
+    -146.6165592542637,
+    48.179059254263706
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "minraise-cap2",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 32.32421875,
+   "blocks": 256,
+   "ci95": [
+    -5.2663626540234745,
+    69.91480015402348
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "pressure-cap2",
+   "position": null
+  },
+  {
+   "bb_per_100": 23.372395833333332,
+   "blocks": 256,
+   "ci95": [
+    -33.91645965336561,
+    80.66125132003226
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "pressure-cap2",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 41.276041666666664,
+   "blocks": 256,
+   "ci95": [
+    -14.330099007152867,
+    96.8821823404862
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "pressure-cap2",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 27.44140625,
+   "blocks": 256,
+   "ci95": [
+    -34.56374742815425,
+    89.44655992815424
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "pressure-cap2",
+   "position": null
+  },
+  {
+   "bb_per_100": 0.9765625,
+   "blocks": 256,
+   "ci95": [
+    -91.89780422591902,
+    93.85092922591902
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "pressure-cap2",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 53.90625,
+   "blocks": 256,
+   "ci95": [
+    -25.858490070059318,
+    133.6709900700593
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "pressure-cap2",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 37.890625,
+   "blocks": 256,
+   "ci95": [
+    -17.71967032756448,
+    93.50092032756447
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "pressure-cap2",
+   "position": null
+  },
+  {
+   "bb_per_100": 44.140625,
+   "blocks": 256,
+   "ci95": [
+    -37.97473222460442,
+    126.25598222460442
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "pressure-cap2",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 31.640625,
+   "blocks": 256,
+   "ci95": [
+    -62.63095954536327,
+    125.91220954536327
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "pressure-cap2",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 31.640625,
+   "blocks": 256,
+   "ci95": [
+    -28.816209026737944,
+    92.09745902673794
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "pressure-cap2",
+   "position": null
+  },
+  {
+   "bb_per_100": 25.0,
+   "blocks": 256,
+   "ci95": [
+    -60.92948976391408,
+    110.92948976391408
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "pressure-cap2",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 38.28125,
+   "blocks": 256,
+   "ci95": [
+    -47.908780247704286,
+    124.47128024770429
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "pressure-cap2",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 7.194010416666666,
+   "blocks": 256,
+   "ci95": [
+    -1.7398856583994124,
+    16.127906491732745
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "tight_passive",
+   "position": null
+  },
+  {
+   "bb_per_100": 9.700520833333332,
+   "blocks": 256,
+   "ci95": [
+    -7.527823038764403,
+    26.928864705431067
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "tight_passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 4.6875,
+   "blocks": 256,
+   "ci95": [
+    -0.02854085670823725,
+    9.403540856708236
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "tight_passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 8.69140625,
+   "blocks": 256,
+   "ci95": [
+    -6.395370386358259,
+    23.77818288635826
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "tight_passive",
+   "position": null
+  },
+  {
+   "bb_per_100": 15.0390625,
+   "blocks": 256,
+   "ci95": [
+    -14.577522241882889,
+    44.65564724188289
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "tight_passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 2.34375,
+   "blocks": 256,
+   "ci95": [
+    -3.09873892700893,
+    7.78623892700893
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "tight_passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 1.7578125,
+   "blocks": 256,
+   "ci95": [
+    -9.422876678237817,
+    12.938501678237817
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "tight_passive",
+   "position": null
+  },
+  {
+   "bb_per_100": -5.859375,
+   "blocks": 256,
+   "ci95": [
+    -25.16126531902182,
+    13.442515319021819
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "tight_passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 9.375,
+   "blocks": 256,
+   "ci95": [
+    -1.8409444203460676,
+    20.59094442034607
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "tight_passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 11.1328125,
+   "blocks": 256,
+   "ci95": [
+    -4.485047522190868,
+    26.750672522190868
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "tight_passive",
+   "position": null
+  },
+  {
+   "bb_per_100": 19.921875,
+   "blocks": 256,
+   "ci95": [
+    -10.607185833958134,
+    50.450935833958134
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "tight_passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 2.34375,
+   "blocks": 256,
+   "ci95": [
+    -4.369437374865128,
+    9.056937374865129
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "tight_passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -10.970052083333334,
+   "blocks": 256,
+   "ci95": [
+    -33.08682839036154,
+    11.146724223694873
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "loose_passive",
+   "position": null
+  },
+  {
+   "bb_per_100": -11.393229166666668,
+   "blocks": 256,
+   "ci95": [
+    -48.03456868280291,
+    25.248110349469574
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "loose_passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -10.546875,
+   "blocks": 256,
+   "ci95": [
+    -37.169560746876456,
+    16.075810746876456
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "loose_passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -14.74609375,
+   "blocks": 256,
+   "ci95": [
+    -53.92849545239773,
+    24.436307952397733
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "loose_passive",
+   "position": null
+  },
+  {
+   "bb_per_100": -37.6953125,
+   "blocks": 256,
+   "ci95": [
+    -97.84429615673629,
+    22.45367115673629
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "loose_passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 8.203125,
+   "blocks": 256,
+   "ci95": [
+    -38.21787808546217,
+    54.62412808546217
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "loose_passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -30.078125,
+   "blocks": 256,
+   "ci95": [
+    -63.00844916295584,
+    2.8521991629558414
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "loose_passive",
+   "position": null
+  },
+  {
+   "bb_per_100": -21.875,
+   "blocks": 256,
+   "ci95": [
+    -75.92645169140047,
+    32.17645169140047
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "loose_passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -38.28125,
+   "blocks": 256,
+   "ci95": [
+    -84.85051525951107,
+    8.288015259511077
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "loose_passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 11.9140625,
+   "blocks": 256,
+   "ci95": [
+    -24.821916545489344,
+    48.650041545489344
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "loose_passive",
+   "position": null
+  },
+  {
+   "bb_per_100": 25.390625,
+   "blocks": 256,
+   "ci95": [
+    -33.0735802436499,
+    83.8548302436499
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "loose_passive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -1.5625,
+   "blocks": 256,
+   "ci95": [
+    -46.47880098501968,
+    43.35380098501968
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "loose_passive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -2.3111979166666665,
+   "blocks": 256,
+   "ci95": [
+    -20.479904341367934,
+    15.8575085080346
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "tight_aggressive",
+   "position": null
+  },
+  {
+   "bb_per_100": -6.835937500000001,
+   "blocks": 256,
+   "ci95": [
+    -38.4379640688329,
+    24.766089068832894
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "tight_aggressive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 2.2135416666666674,
+   "blocks": 256,
+   "ci95": [
+    -15.712005407001943,
+    20.13908874033528
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "tight_aggressive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -3.02734375,
+   "blocks": 256,
+   "ci95": [
+    -30.428450522582985,
+    24.373763022582985
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "tight_aggressive",
+   "position": null
+  },
+  {
+   "bb_per_100": 1.3671875,
+   "blocks": 256,
+   "ci95": [
+    -42.39865272315606,
+    45.13302772315606
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "tight_aggressive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -7.421875,
+   "blocks": 256,
+   "ci95": [
+    -40.62394282627028,
+    25.78019282627028
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "tight_aggressive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -13.671875,
+   "blocks": 256,
+   "ci95": [
+    -32.770226883542996,
+    5.426476883542996
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "tight_aggressive",
+   "position": null
+  },
+  {
+   "bb_per_100": -32.421875,
+   "blocks": 256,
+   "ci95": [
+    -64.69390063782518,
+    -0.1498493621748196
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "tight_aggressive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 5.078125,
+   "blocks": 256,
+   "ci95": [
+    -15.026088699744214,
+    25.182338699744214
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "tight_aggressive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 9.765625,
+   "blocks": 256,
+   "ci95": [
+    -15.308760606750521,
+    34.840010606750525
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "tight_aggressive",
+   "position": null
+  },
+  {
+   "bb_per_100": 10.546875,
+   "blocks": 256,
+   "ci95": [
+    -37.14218314673629,
+    58.23593314673629
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "tight_aggressive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 8.984375,
+   "blocks": 256,
+   "ci95": [
+    -6.602194256285298,
+    24.570944256285298
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "tight_aggressive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 21.451822916666668,
+   "blocks": 256,
+   "ci95": [
+    -9.69714279016521,
+    52.600788623498545
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "loose_aggressive",
+   "position": null
+  },
+  {
+   "bb_per_100": 31.184895833333332,
+   "blocks": 256,
+   "ci95": [
+    -22.993681106929177,
+    85.36347277359584
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "loose_aggressive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 11.71875,
+   "blocks": 256,
+   "ci95": [
+    -18.482931682540844,
+    41.920431682540844
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "loose_aggressive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 29.00390625,
+   "blocks": 256,
+   "ci95": [
+    -20.307393411347626,
+    78.31520591134762
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "loose_aggressive",
+   "position": null
+  },
+  {
+   "bb_per_100": 45.1171875,
+   "blocks": 256,
+   "ci95": [
+    -38.97838771650274,
+    129.21276271650274
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "loose_aggressive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 12.890625,
+   "blocks": 256,
+   "ci95": [
+    -35.35941765901007,
+    61.14066765901007
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "loose_aggressive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -11.9140625,
+   "blocks": 256,
+   "ci95": [
+    -56.71566719766834,
+    32.88754219766834
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "loose_aggressive",
+   "position": null
+  },
+  {
+   "bb_per_100": -11.328125,
+   "blocks": 256,
+   "ci95": [
+    -86.0558013960806,
+    63.3995513960806
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "loose_aggressive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -12.5,
+   "blocks": 256,
+   "ci95": [
+    -57.90345232669117,
+    32.90345232669117
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "loose_aggressive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 47.265625,
+   "blocks": 256,
+   "ci95": [
+    1.3009854646329444,
+    93.23026453536706
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "loose_aggressive",
+   "position": null
+  },
+  {
+   "bb_per_100": 59.765625,
+   "blocks": 256,
+   "ci95": [
+    -15.87801594735572,
+    135.40926594735572
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "loose_aggressive",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 34.765625,
+   "blocks": 256,
+   "ci95": [
+    -18.635131367448416,
+    88.16638136744842
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "loose_aggressive",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -5.305989583333333,
+   "blocks": 256,
+   "ci95": [
+    -28.712185478818444,
+    18.10020631215178
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "pot_pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": -19.986979166666668,
+   "blocks": 256,
+   "ci95": [
+    -59.86073252657792,
+    19.88677419324458
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "pot_pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 9.375,
+   "blocks": 256,
+   "ci95": [
+    -15.708561836268174,
+    34.458561836268174
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "pot_pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 9.08203125,
+   "blocks": 256,
+   "ci95": [
+    -23.550275620780965,
+    41.714338120780965
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "pot_pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": 6.0546875,
+   "blocks": 256,
+   "ci95": [
+    -46.788311889829046,
+    58.897686889829046
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "pot_pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 12.109375,
+   "blocks": 256,
+   "ci95": [
+    -28.62665849445054,
+    52.84540849445054
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "pot_pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -11.328125,
+   "blocks": 256,
+   "ci95": [
+    -43.46987657197072,
+    20.813626571970723
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "pot_pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": -32.8125,
+   "blocks": 256,
+   "ci95": [
+    -89.14424628294975,
+    23.51924628294976
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "pot_pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 10.15625,
+   "blocks": 256,
+   "ci95": [
+    -21.20333345630803,
+    41.51583345630803
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "pot_pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -13.671875,
+   "blocks": 256,
+   "ci95": [
+    -53.336261999063765,
+    25.992511999063765
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "pot_pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": -33.203125,
+   "blocks": 256,
+   "ci95": [
+    -103.13007173011391,
+    36.72382173011391
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "pot_pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 5.859375,
+   "blocks": 256,
+   "ci95": [
+    -33.10922927924093,
+    44.82797927924093
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "pot_pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -0.8789062500000009,
+   "blocks": 256,
+   "ci95": [
+    -26.603147483354057,
+    24.845334983354057
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "train_pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": 9.830729166666666,
+   "blocks": 256,
+   "ci95": [
+    -36.448205724426664,
+    56.10966405775999
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "train_pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -11.588541666666666,
+   "blocks": 256,
+   "ci95": [
+    -38.067886215398666,
+    14.890802882065335
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "train_pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 4.00390625,
+   "blocks": 256,
+   "ci95": [
+    -38.614815386617614,
+    46.622627886617614
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "train_pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": -19.3359375,
+   "blocks": 256,
+   "ci95": [
+    -84.91780592926274,
+    46.24593092926274
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "train_pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 27.34375,
+   "blocks": 256,
+   "ci95": [
+    -25.569736651371095,
+    80.2572366513711
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "train_pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -5.078125,
+   "blocks": 256,
+   "ci95": [
+    -40.189075893624484,
+    30.032825893624484
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "train_pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": -5.078125,
+   "blocks": 256,
+   "ci95": [
+    -69.21581679708781,
+    59.05956679708781
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "train_pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -5.078125,
+   "blocks": 256,
+   "ci95": [
+    -44.24607458231525,
+    34.08982458231525
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "train_pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -1.5625,
+   "blocks": 256,
+   "ci95": [
+    -41.52511671365847,
+    38.40011671365847
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "train_pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": 53.90625,
+   "blocks": 256,
+   "ci95": [
+    -15.242536672553499,
+    123.0550366725535
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "train_pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -57.03125,
+   "blocks": 256,
+   "ci95": [
+    -97.86551997909618,
+    -16.196980020903816
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "train_pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 6.919352213541667,
+   "blocks": 16384,
+   "ci95": [
+    0.3867490365034678,
+    13.451955390579865
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "native-pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": 17.307535807291668,
+   "blocks": 16384,
+   "ci95": [
+    8.101957578631671,
+    26.513114035951666
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "native-pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -3.468831380208333,
+   "blocks": 16384,
+   "ci95": [
+    -12.762470497739123,
+    5.824807737322456
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "native-pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 14.5721435546875,
+   "blocks": 16384,
+   "ci95": [
+    3.8786237362670875,
+    25.265663373107913
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "native-pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": 28.472900390625,
+   "blocks": 16384,
+   "ci95": [
+    13.752495542207223,
+    43.19330523904278
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "native-pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 0.67138671875,
+   "blocks": 16384,
+   "ci95": [
+    -14.685567356698526,
+    16.028340794198527
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "native-pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 6.8603515625,
+   "blocks": 16384,
+   "ci95": [
+    -3.600026091880906,
+    17.320729216880906
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "native-pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": 17.236328125,
+   "blocks": 16384,
+   "ci95": [
+    2.3799082597986416,
+    32.09274799020136
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "native-pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -3.515625,
+   "blocks": 16384,
+   "ci95": [
+    -18.334463432370946,
+    11.303213432370946
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "native-pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": -0.6744384765625,
+   "blocks": 16384,
+   "ci95": [
+    -11.203128053739848,
+    9.854251100614848
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "native-pressure",
+   "position": null
+  },
+  {
+   "bb_per_100": 6.21337890625,
+   "blocks": 16384,
+   "ci95": [
+    -8.594357148770058,
+    21.021114961270058
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "native-pressure",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -7.562255859375,
+   "blocks": 16384,
+   "ci95": [
+    -22.342599258624432,
+    7.21808753987443
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "native-pressure",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 12.662760416666666,
+   "blocks": 256,
+   "ci95": [
+    -1.5213147891203658,
+    26.846835622453696
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "selective-stackoff",
+   "position": null
+  },
+  {
+   "bb_per_100": 28.580729166666668,
+   "blocks": 256,
+   "ci95": [
+    4.319467306994326,
+    52.84199102633901
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "selective-stackoff",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -3.2552083333333335,
+   "blocks": 256,
+   "ci95": [
+    -18.011083953350617,
+    11.500667286683951
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "selective-stackoff",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 10.64453125,
+   "blocks": 256,
+   "ci95": [
+    -15.206828287588571,
+    36.49589078758857
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "selective-stackoff",
+   "position": null
+  },
+  {
+   "bb_per_100": 19.3359375,
+   "blocks": 256,
+   "ci95": [
+    -28.691549845522438,
+    67.36342484552245
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "selective-stackoff",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 1.953125,
+   "blocks": 256,
+   "ci95": [
+    -16.87797896571825,
+    20.78422896571825
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "selective-stackoff",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 9.765625,
+   "blocks": 256,
+   "ci95": [
+    -12.762836105670125,
+    32.294086105670125
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "selective-stackoff",
+   "position": null
+  },
+  {
+   "bb_per_100": 22.265625,
+   "blocks": 256,
+   "ci95": [
+    -13.81515436548706,
+    58.34640436548706
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "selective-stackoff",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -2.734375,
+   "blocks": 256,
+   "ci95": [
+    -29.354464954787403,
+    23.885714954787403
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "selective-stackoff",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 17.578125,
+   "blocks": 256,
+   "ci95": [
+    -9.06740829627513,
+    44.22365829627513
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "selective-stackoff",
+   "position": null
+  },
+  {
+   "bb_per_100": 44.140625,
+   "blocks": 256,
+   "ci95": [
+    -0.1509003082050171,
+    88.43215030820502
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "selective-stackoff",
+   "position": "button"
+  },
+  {
+   "bb_per_100": -8.984375,
+   "blocks": 256,
+   "ci95": [
+    -38.60570970528182,
+    20.636959705281818
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "selective-stackoff",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 37.55770596590909,
+   "blocks": 5632,
+   "ci95": [
+    27.746849850974282,
+    47.3685620808439
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "lbr",
+   "position": null
+  },
+  {
+   "bb_per_100": 41.27308238636363,
+   "blocks": 5632,
+   "ci95": [
+    27.367667640447895,
+    55.178497132279375
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "lbr",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 33.84232954545455,
+   "blocks": 5632,
+   "ci95": [
+    20.21776595862383,
+    47.466893132285264
+   ],
+   "contrast": "O-R",
+   "lineage": null,
+   "panel": "lbr",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 40.0390625,
+   "blocks": 5632,
+   "ci95": [
+    25.12920804746093,
+    54.948916952539065
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "lbr",
+   "position": null
+  },
+  {
+   "bb_per_100": 51.40269886363637,
+   "blocks": 5632,
+   "ci95": [
+    29.566197823057482,
+    73.23919990421525
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "lbr",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 28.675426136363637,
+   "blocks": 5632,
+   "ci95": [
+    7.952109979712002,
+    49.398742293015275
+   ],
+   "contrast": "O-R",
+   "lineage": 1,
+   "panel": "lbr",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 45.37464488636363,
+   "blocks": 5632,
+   "ci95": [
+    29.772936783761395,
+    60.97635298896587
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "lbr",
+   "position": null
+  },
+  {
+   "bb_per_100": 53.03622159090909,
+   "blocks": 5632,
+   "ci95": [
+    30.581548944701165,
+    75.49089423711702
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "lbr",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 37.71306818181818,
+   "blocks": 5632,
+   "ci95": [
+    16.16456709261625,
+    59.26156927102011
+   ],
+   "contrast": "O-R",
+   "lineage": 2,
+   "panel": "lbr",
+   "position": "big_blind"
+  },
+  {
+   "bb_per_100": 27.259410511363637,
+   "blocks": 5632,
+   "ci95": [
+    12.082230911918007,
+    42.43659011080926
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "lbr",
+   "position": null
+  },
+  {
+   "bb_per_100": 19.380326704545453,
+   "blocks": 5632,
+   "ci95": [
+    -2.457806426585414,
+    41.21845983567632
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "lbr",
+   "position": "button"
+  },
+  {
+   "bb_per_100": 35.13849431818182,
+   "blocks": 5632,
+   "ci95": [
+    14.558832864583042,
+    55.7181557717806
+   ],
+   "contrast": "O-R",
+   "lineage": 3,
+   "panel": "lbr",
+   "position": "big_blind"
+  }
+ ],
+ "overall_equal_panel_common_blocks": {
+  "absolute_bb_per_100": {
+   "O": {
+    "bb_per_100": 54.00891426282051,
+    "blocks": 256,
+    "ci95": [
+     34.67378148794003,
+     73.34404703770099
+    ]
+   },
+   "R": {
+    "bb_per_100": 42.267628205128204,
+    "blocks": 256,
+    "ci95": [
+     24.830033008558413,
+     59.70522340169799
+    ]
+   }
+  },
+  "blocks": 256,
+  "contrasts_bb_per_100": {
+   "O-R": {
+    "bb_per_100": 11.741286057692307,
+    "blocks": 256,
+    "ci95": [
+     -2.2248574607858256,
+     25.70742957617044
+    ]
+   }
+  },
+  "weighting": "equal panel, common paired blocks only"
+ },
+ "plan_canonical_sha256": "191c0d800edd03187a262fc39f40a5052691dc00faf9c0e723eebbdbc3da99ef",
+ "plan_file_sha256": "d832489599e6037e4af4b1ce6b5e6905930c662237fbbd8b8f63e04caaa3ddf8",
+ "raw_files": [
+  {
+   "bytes": 339,
+   "path": "R-2026093001.result.json",
+   "sha256": "72b558e079d09dc9f1a59d961caa5a6ff329a90151b2ea377cec7b0b27de4134"
+  },
+  {
+   "bytes": 40608545,
+   "path": "R-2026093001.hands.jsonl.gz",
+   "sha256": "911e427b2034e4bf50c7dcc2170a8600324308bc515c60fa5d3431ffcf5a1a83"
+  },
+  {
+   "bytes": 337,
+   "path": "R-2026093002.result.json",
+   "sha256": "c7080b347954aa1295951c8e70e7270697b66926153be65e651b3335e3c770dd"
+  },
+  {
+   "bytes": 39186833,
+   "path": "R-2026093002.hands.jsonl.gz",
+   "sha256": "e2c5efd70fabd1f82a632504a8f3ee1b1b24769246298f38523dcf07ad8947f8"
+  },
+  {
+   "bytes": 338,
+   "path": "R-2026093003.result.json",
+   "sha256": "befb32085ee33068e26d5211467bb6f2d42084957f89d63b8c14cbc8fec47b55"
+  },
+  {
+   "bytes": 40349546,
+   "path": "R-2026093003.hands.jsonl.gz",
+   "sha256": "e246db1ca87b8c03d2540b1e5ad1c54ac84855a3f7aef8ecc357891d5f7ac354"
+  },
+  {
+   "bytes": 338,
+   "path": "O-2026100601.result.json",
+   "sha256": "8b1fb197808b1957fa23763408af2186f16d39688122e9a155c5ebb5154732d2"
+  },
+  {
+   "bytes": 50417621,
+   "path": "O-2026100601.hands.jsonl.gz",
+   "sha256": "7a7b63e4788dea4f20a157ed82993fae4c781d4baf80e7ec0434e29181ede6b7"
+  },
+  {
+   "bytes": 339,
+   "path": "O-2026100602.result.json",
+   "sha256": "7c4f7b5edf7a120dc1cbbd1223ff7972b1068230d2a59c2202f926d999e71d79"
+  },
+  {
+   "bytes": 50917760,
+   "path": "O-2026100602.hands.jsonl.gz",
+   "sha256": "2a65a8c9ce531a9e2d1190f7097cc333427e2fc45b825d92296e66e317746d66"
+  },
+  {
+   "bytes": 337,
+   "path": "O-2026100603.result.json",
+   "sha256": "d878bdbed8cb22342c870bf615a9cbcf0add2411294a1c72e2a9641e8917ea4d"
+  },
+  {
+   "bytes": 49736846,
+   "path": "O-2026100603.hands.jsonl.gz",
+   "sha256": "f2d8f39aca52dd52e1fc5e9dfb267a83f4e9799693bd710b0df5ec589aa49aae"
+  }
+ ],
+ "release_checks": {
+  "lbr_lower_above_0": true,
+  "native_pressure_lower_above_minus_10": true,
+  "no_severe_regression": true
+ },
+ "release_rule_passed": true,
+ "status": "verified",
+ "worker_results": [
+  {
+   "arm": "R",
+   "failure": null,
+   "hands": 49664,
+   "load_seconds": 4.4255191659904085,
+   "model": "R-2026093001",
+   "peak_rss_bytes": 2039119872,
+   "plan_sha256": "191c0d800edd03187a262fc39f40a5052691dc00faf9c0e723eebbdbc3da99ef",
+   "seconds": 1550.4415705410065,
+   "source": "523e4a347d012beb8cb523497d2e9a4cbb90035f",
+   "status": "complete"
+  },
+  {
+   "arm": "R",
+   "failure": null,
+   "hands": 49664,
+   "load_seconds": 4.414147125004092,
+   "model": "R-2026093002",
+   "peak_rss_bytes": 2036121600,
+   "plan_sha256": "191c0d800edd03187a262fc39f40a5052691dc00faf9c0e723eebbdbc3da99ef",
+   "seconds": 1534.960423832992,
+   "source": "523e4a347d012beb8cb523497d2e9a4cbb90035f",
+   "status": "complete"
+  },
+  {
+   "arm": "R",
+   "failure": null,
+   "hands": 49664,
+   "load_seconds": 4.438915083010215,
+   "model": "R-2026093003",
+   "peak_rss_bytes": 2042511360,
+   "plan_sha256": "191c0d800edd03187a262fc39f40a5052691dc00faf9c0e723eebbdbc3da99ef",
+   "seconds": 1572.9397232920164,
+   "source": "523e4a347d012beb8cb523497d2e9a4cbb90035f",
+   "status": "complete"
+  },
+  {
+   "arm": "O",
+   "failure": null,
+   "hands": 49664,
+   "load_seconds": 20.90228679199936,
+   "model": "O-2026100601",
+   "peak_rss_bytes": 3224829952,
+   "plan_sha256": "191c0d800edd03187a262fc39f40a5052691dc00faf9c0e723eebbdbc3da99ef",
+   "seconds": 3376.0246867499955,
+   "source": "523e4a347d012beb8cb523497d2e9a4cbb90035f",
+   "status": "complete"
+  },
+  {
+   "arm": "O",
+   "failure": null,
+   "hands": 49664,
+   "load_seconds": 20.901352957997005,
+   "model": "O-2026100602",
+   "peak_rss_bytes": 2783494144,
+   "plan_sha256": "191c0d800edd03187a262fc39f40a5052691dc00faf9c0e723eebbdbc3da99ef",
+   "seconds": 3446.7835028329864,
+   "source": "523e4a347d012beb8cb523497d2e9a4cbb90035f",
+   "status": "complete"
+  },
+  {
+   "arm": "O",
+   "failure": null,
+   "hands": 49664,
+   "load_seconds": 20.91122212499613,
+   "model": "O-2026100603",
+   "peak_rss_bytes": 2713010176,
+   "plan_sha256": "191c0d800edd03187a262fc39f40a5052691dc00faf9c0e723eebbdbc3da99ef",
+   "seconds": 3348.430826875003,
+   "source": "523e4a347d012beb8cb523497d2e9a4cbb90035f",
+   "status": "complete"
+  }
+ ]
+}
