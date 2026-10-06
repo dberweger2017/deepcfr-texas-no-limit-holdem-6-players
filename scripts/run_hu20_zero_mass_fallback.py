@@ -184,8 +184,10 @@ def freeze():
     for f in FAMILIES[2:]:counts[f]=max(counts[FAMILIES[0]],counts[FAMILIES[1]])
     for f in FAMILIES:sizing[f].update(blocks=counts[f],projected_max_half_width=float(t.ppf(.975,counts[f]-1))*max(sizing[f]['block_sd_lineages_and_aggregate'])/math.sqrt(counts[f]))
     play=sum(c['startup_seconds']+c['seconds_per_pair_block']*counts[f] for f,c in costs.items())
-    replay=sum(c['seconds_per_pair_block']*counts[f] for f,c in costs.items())*2
-    quote={'sizing':sizing,'costs':costs,'play_seconds':play,'replay_report_seconds':replay,'with_50_percent_headroom_seconds':1.5*(play+replay),'pilot_outcomes_inspected':False}
+    replay_cost=read(ROOT/'replay-cost-only.json.gz')
+    assert replay_cost['profit_series_or_statistics_produced'] is False
+    replay=replay_cost['max_seconds_per_hand']*sum(counts.values())*6/3*1.25+60
+    quote={'sizing':sizing,'costs':costs,'play_seconds':play,'replay_report_seconds':replay,'with_50_percent_headroom_seconds':1.5*(play+replay),'pilot_outcomes_inspected':False,'replay_cost_only':replay_cost,'replay_arithmetic_headroom':1.25,'replay_report_startup_allowance_seconds':60}
     write(ROOT/'quote.json.gz',quote)
     assert quote['with_50_percent_headroom_seconds']<=3600,'#175 one-hour feasibility gate'
     bundle={'root':202610063501,'started_at':time.time(),'max_seconds':7200,'families':{},'orchestration_sha256':filehash(__file__),'workers':3}
