@@ -38,3 +38,7 @@ util.py
 *.7z
 
 # Release model exceptions require an owner-approved exact path, never a wildcard.
+
+# Finder and AppleDouble metadata are local junk, including correctly cased names.
+.DS_Store
+._*

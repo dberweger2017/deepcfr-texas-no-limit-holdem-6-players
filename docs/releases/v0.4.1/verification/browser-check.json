@@ -1,0 +1,9 @@
+{
+  "final_runtime_source": "34aa980e31758fc6bb49ed17d7265fe6e0c0df53",
+  "checked_interval_start": "2026-10-06T13:37:58.516Z",
+  "browser_errors": [],
+  "captured_api_responses": 92,
+  "all_captured_api_responses_http_200": true,
+  "server_log": "Only normal launch lines; no error output",
+  "auxiliary_attempts": "Earlier pre-readiness navigation reset, corrected selectors/waits and fixture corrections are retained separately; no final action/check waived"
+}
