@@ -118,7 +118,9 @@ def report(plan, out):
         if result["status"] != "complete" or result["plan_sha256"] != digest(plan):
             raise ValueError("Incomplete or foreign model run: " + spec["name"])
         with gzip.open(out / f"{spec['name']}.hands.jsonl.gz", "rt") as stream:
-            rows.extend(json.loads(line) for line in stream)
+            # Hands retain full action traces on disk; inference only needs paired payoffs.
+            rows.extend({k: row[k] for k in ("arm", "panel", "seed", "block", "rotation", "target_chips")}
+                        for row in map(json.loads, stream))
     expected = len(plan["models"]) * 2 * sum(p["blocks"] for p in plan["panels"])
     if len(rows) != expected:
         raise ValueError(f"Frozen schedule coverage differs: {len(rows)} of {expected}")

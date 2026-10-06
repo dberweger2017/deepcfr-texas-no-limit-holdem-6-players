@@ -1,0 +1,20 @@
+{
+  "source_main_commit": "60f516da6b24563a49e609636a31fa17ae719bde",
+  "binary_sha256": "8023566876fdf29a9125ac975677c3c42ef9653179d6ca5f210a00d64ffa39de",
+  "binary": "/Users/dberweger/Local/pr171-cfr-plus-review/native/hu20-trainer/target/release/hu20-trainer",
+  "seeds": [
+    2026100601,
+    2026100602,
+    2026100603
+  ],
+  "milestones": [
+    100000000,
+    500000000,
+    1000000000
+  ],
+  "started_at": 1791268712.004745,
+  "deadline": 1791275912.0035598,
+  "regret_floor": 0,
+  "average_rule": "traverser-reach",
+  "paid_compute": false
+}

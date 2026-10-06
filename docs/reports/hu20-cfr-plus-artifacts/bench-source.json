@@ -1,0 +1,290 @@
+{
+  "source": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/169#issuecomment-6005846837",
+  "scope": "#169 turn/river bench, one B500M lineage, 40 frozen boards, fixed ranges; values rounded in published source",
+  "rows": [
+    {
+      "variant": "base",
+      "strategy": "Traverser-reach avg",
+      "iterations": 300000,
+      "E_bb": 1.481,
+      "E_ci95": [
+        1.392,
+        1.568
+      ],
+      "Q": 1.065,
+      "Q_ci95": [
+        0.958,
+        1.184
+      ]
+    },
+    {
+      "variant": "base",
+      "strategy": "Traverser-reach avg",
+      "iterations": 1000000,
+      "E_bb": 1.406,
+      "E_ci95": [
+        1.325,
+        1.484
+      ],
+      "Q": 0.967,
+      "Q_ci95": [
+        0.87,
+        1.092
+      ]
+    },
+    {
+      "variant": "base",
+      "strategy": "Traverser-reach avg",
+      "iterations": 3000000,
+      "E_bb": 1.394,
+      "E_ci95": [
+        1.319,
+        1.472
+      ],
+      "Q": 0.951,
+      "Q_ci95": [
+        0.859,
+        1.072
+      ]
+    },
+    {
+      "variant": "base",
+      "strategy": "Opponent-sampled avg",
+      "iterations": 300000,
+      "E_bb": 1.263,
+      "E_ci95": [
+        1.187,
+        1.336
+      ],
+      "Q": 0.78,
+      "Q_ci95": [
+        0.692,
+        0.881
+      ]
+    },
+    {
+      "variant": "base",
+      "strategy": "Opponent-sampled avg",
+      "iterations": 1000000,
+      "E_bb": 1.224,
+      "E_ci95": [
+        1.162,
+        1.288
+      ],
+      "Q": 0.729,
+      "Q_ci95": [
+        0.644,
+        0.837
+      ]
+    },
+    {
+      "variant": "base",
+      "strategy": "Opponent-sampled avg",
+      "iterations": 3000000,
+      "E_bb": 1.226,
+      "E_ci95": [
+        1.16,
+        1.292
+      ],
+      "Q": 0.731,
+      "Q_ci95": [
+        0.644,
+        0.84
+      ]
+    },
+    {
+      "variant": "base",
+      "strategy": "Current",
+      "iterations": 300000,
+      "E_bb": 2.78,
+      "E_ci95": [
+        2.528,
+        3.03
+      ],
+      "Q": 2.764,
+      "Q_ci95": [
+        2.481,
+        3.071
+      ]
+    },
+    {
+      "variant": "base",
+      "strategy": "Current",
+      "iterations": 1000000,
+      "E_bb": 2.964,
+      "E_ci95": [
+        2.71,
+        3.229
+      ],
+      "Q": 3.006,
+      "Q_ci95": [
+        2.611,
+        3.471
+      ]
+    },
+    {
+      "variant": "base",
+      "strategy": "Current",
+      "iterations": 3000000,
+      "E_bb": 3.066,
+      "E_ci95": [
+        2.659,
+        3.51
+      ],
+      "Q": 3.139,
+      "Q_ci95": [
+        2.576,
+        3.789
+      ]
+    },
+    {
+      "variant": "cfrplus",
+      "strategy": "Traverser-reach avg",
+      "iterations": 300000,
+      "E_bb": 1.085,
+      "E_ci95": [
+        1.018,
+        1.154
+      ],
+      "Q": 0.547,
+      "Q_ci95": [
+        0.482,
+        0.622
+      ]
+    },
+    {
+      "variant": "cfrplus",
+      "strategy": "Traverser-reach avg",
+      "iterations": 1000000,
+      "E_bb": 1.047,
+      "E_ci95": [
+        0.982,
+        1.114
+      ],
+      "Q": 0.497,
+      "Q_ci95": [
+        0.434,
+        0.572
+      ]
+    },
+    {
+      "variant": "cfrplus",
+      "strategy": "Traverser-reach avg",
+      "iterations": 3000000,
+      "E_bb": 1.054,
+      "E_ci95": [
+        0.996,
+        1.114
+      ],
+      "Q": 0.507,
+      "Q_ci95": [
+        0.446,
+        0.58
+      ]
+    },
+    {
+      "variant": "cfrplus",
+      "strategy": "Opponent-sampled avg",
+      "iterations": 300000,
+      "E_bb": 1.07,
+      "E_ci95": [
+        1.003,
+        1.139
+      ],
+      "Q": 0.527,
+      "Q_ci95": [
+        0.462,
+        0.603
+      ]
+    },
+    {
+      "variant": "cfrplus",
+      "strategy": "Opponent-sampled avg",
+      "iterations": 1000000,
+      "E_bb": 1.038,
+      "E_ci95": [
+        0.975,
+        1.104
+      ],
+      "Q": 0.485,
+      "Q_ci95": [
+        0.424,
+        0.559
+      ]
+    },
+    {
+      "variant": "cfrplus",
+      "strategy": "Opponent-sampled avg",
+      "iterations": 3000000,
+      "E_bb": 1.05,
+      "E_ci95": [
+        0.991,
+        1.11
+      ],
+      "Q": 0.501,
+      "Q_ci95": [
+        0.441,
+        0.575
+      ]
+    },
+    {
+      "variant": "cfrplus",
+      "strategy": "Current",
+      "iterations": 300000,
+      "E_bb": 1.458,
+      "E_ci95": [
+        1.366,
+        1.556
+      ],
+      "Q": 1.036,
+      "Q_ci95": [
+        0.93,
+        1.175
+      ]
+    },
+    {
+      "variant": "cfrplus",
+      "strategy": "Current",
+      "iterations": 1000000,
+      "E_bb": 1.304,
+      "E_ci95": [
+        1.223,
+        1.385
+      ],
+      "Q": 0.834,
+      "Q_ci95": [
+        0.734,
+        0.963
+      ]
+    },
+    {
+      "variant": "cfrplus",
+      "strategy": "Current",
+      "iterations": 3000000,
+      "E_bb": 1.283,
+      "E_ci95": [
+        1.196,
+        1.369
+      ],
+      "Q": 0.807,
+      "Q_ci95": [
+        0.721,
+        0.911
+      ]
+    }
+  ],
+  "B": {
+    "E_bb": 1.431,
+    "E_ci95": [
+      1.321,
+      1.536
+    ]
+  },
+  "P": {
+    "E_bb": 0.667,
+    "E_ci95": [
+      0.639,
+      0.697
+    ]
+  }
+}

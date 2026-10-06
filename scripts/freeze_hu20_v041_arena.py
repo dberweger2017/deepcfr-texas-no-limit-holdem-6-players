@@ -48,6 +48,7 @@ def main():
     p.add_argument("--blocks-pressure", type=int, required=True)
     p.add_argument("--blocks-other", type=int, required=True)
     p.add_argument("--max-seconds", type=int, required=True)
+    p.add_argument("--approval", default="https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165#issuecomment-5994292073")
     p.add_argument("--out", type=Path, required=True)
     a = p.parse_args()
     if a.out.exists():
@@ -60,7 +61,7 @@ def main():
               for seed in (REFERENCE_SEEDS if arm == "R" else NATIVE_SEEDS)]
     plan = {"stage": a.stage, "root": a.root, "panels": panels, "models": models, "max_seconds": a.max_seconds,
             "started_at": time(), "expected_hands": len(models) * 2 * sum(p["blocks"] for p in panels),
-            "approval": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165#issuecomment-5994292073"}
+            "approval": a.approval}
     a.out.write_text(json.dumps(plan, indent=1, sort_keys=True) + "\n")
     print(json.dumps({"sha256": digest(plan), "hands": plan["expected_hands"], "stage": a.stage}))
 
