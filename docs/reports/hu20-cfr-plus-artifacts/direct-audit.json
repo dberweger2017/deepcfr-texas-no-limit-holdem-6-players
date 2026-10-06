@@ -1,0 +1,77 @@
+{
+  "decisions_checked": 332508,
+  "hands_replayed": 73728,
+  "independent_arithmetic_matches": true,
+  "lineages": {
+    "1": {
+      "bb_per_100": -13.728841145833334,
+      "blocks": 12288,
+      "ci95": [
+        -20.48337305203956,
+        -6.974309239627108
+      ]
+    },
+    "2": {
+      "bb_per_100": -15.313720703125,
+      "blocks": 12288,
+      "ci95": [
+        -22.03744859044484,
+        -8.58999281580516
+      ]
+    },
+    "3": {
+      "bb_per_100": -13.515218098958334,
+      "blocks": 12288,
+      "ci95": [
+        -20.317354156152767,
+        -6.713082041763902
+      ]
+    }
+  },
+  "overall": {
+    "bb_per_100": -14.185926649305555,
+    "blocks": 12288,
+    "ci95": [
+      -18.967661559954042,
+      -9.404191738657069
+    ]
+  },
+  "plan_sha256": "5a56af93eb25a8f99c7f9976b342de72e2c4aeb20d49f69489a3cc1b1cb9b5dd",
+  "positions": {
+    "big_blind": {
+      "bb_per_100": -14.522298177083334,
+      "blocks": 12288,
+      "ci95": [
+        -26.173195795779066,
+        -2.8714005583876006
+      ]
+    },
+    "button": {
+      "bb_per_100": -13.849555121527777,
+      "blocks": 12288,
+      "ci95": [
+        -25.45415196580502,
+        -2.2449582772505323
+      ]
+    }
+  },
+  "raw_files": [
+    {
+      "bytes": 16477324,
+      "path": "direct-lineage-1.hands.jsonl.gz",
+      "sha256": "b2445dfbf0df103562e6ddc1ab030d9b8e77a8cf1d8d22f26643f42511abcc38"
+    },
+    {
+      "bytes": 16299240,
+      "path": "direct-lineage-2.hands.jsonl.gz",
+      "sha256": "fa1a8ffc501d6664affa4603feaab35848d1c3292ea50424db078a1bcd90f229"
+    },
+    {
+      "bytes": 16313065,
+      "path": "direct-lineage-3.hands.jsonl.gz",
+      "sha256": "c234be1a3df7e0c923592236366bf7b2db6f0f59ab4a8af1f24870672888e4fc"
+    }
+  ],
+  "seconds": 31.824303000001237,
+  "status": "verified"
+}

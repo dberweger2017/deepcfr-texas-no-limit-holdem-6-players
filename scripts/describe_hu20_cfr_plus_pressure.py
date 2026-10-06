@@ -75,7 +75,7 @@ def describe(root, out):
     audit = json.loads((root / 'arena/audit.json').read_text())
     assert audit['status'] == 'verified'
     n = arena['contrasts_bb_per_100']['O-R']['native-pressure']['blocks']
-    decisions = defaultdict(lambda: np.zeros((n, 8)))
+    decisions = defaultdict(lambda: np.zeros((n, 9)))
     partitions = defaultdict(lambda: np.zeros((n, 3)))
     files = []
     total = defaultdict(dict)
@@ -99,7 +99,8 @@ def describe(root, out):
                             cell = decisions[arm, *key][block]
                             cell += [1, response['response'] == 'fold', response['response'] == 'call',
                                      response['response'] == 'raise', -row['target_chips'], response['committed_chips'],
-                                     response['mass'] == 'missing', response['mass'] == 'zero_mass']
+                                     response['mass'] == 'missing', response['mass'] == 'zero_mass',
+                                     max(-row['target_chips'], 0)]
                     for dimension, group in groups.items():
                         partitions[arm, dimension, group][block] += [1, row['target_chips'], max(-row['target_chips'], 0)]
             print(json.dumps({'processed': path.name}), flush=True)
@@ -116,6 +117,7 @@ def describe(root, out):
             'observed_decisions': int(np.sum(cell[:, 0])),
             'frequency_percent': ratio_interval(cell[:, 0], base, 100),
             'mean_terminal_net_chips_lost': ratio_interval(cell[:, 4], cell[:, 0]),
+            'mean_gross_chips_lost': ratio_interval(cell[:, 8], cell[:, 0]),
             'mean_chips_committed': ratio_interval(cell[:, 5], cell[:, 0]),
             'missing_percent': ratio_interval(cell[:, 6], cell[:, 0], 100),
             'zero_mass_percent': ratio_interval(cell[:, 7], cell[:, 0], 100)})
