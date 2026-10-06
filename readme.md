@@ -22,7 +22,7 @@ python -m scripts.verify_v04_model models/B100M-HU20-current-seed-2026093001.jso
 python -m src.play_api.server --models-dir models
 ```
 
-The v0.4.1 download command works after the owner-approved release is published; the release PR uses verified staged assets until then. `mkdir models` and downloads fail rather than overwrite existing artifacts. If the directory exists, inspect it or use a fresh destination. Installation builds the pinned native `pokers` engine; follow its build error instructions if your platform needs a Rust toolchain.
+`mkdir models` and downloads fail rather than overwrite existing artifacts. If the directory exists, inspect it or use a fresh destination. Installation builds the pinned native `pokers` engine; follow its build error instructions if your platform needs a Rust toolchain.
 
 Open **http://127.0.0.1:8765/** and enter the token from `results/play-web/access.token` locally. Keep tokens out of URLs and screenshots. Choose **v0.4.1** (default) or **v0.4.0**, choose bet sizing, create a session and deal. Seats alternate each hand. Model choice is frozen for that session; refresh resumes it, including after server restart. Use a new session to change models. Both pinned files are required for model selection; a missing or corrupt default causes an error, never a silent replacement. The two loaded tabular readers need several GiB of RAM.
 
@@ -42,7 +42,7 @@ Each release uses fresh roots, predeclared paired gates, a direct incumbent matc
 | Release | Game and focus |
 | --- | --- |
 | **v0.4.0** | Heads-up 20 BB research preview and local table |
-| **v0.4.1** | Heads-up 20 BB average-policy play; prepared pending final owner publication go |
+| **v0.4.1** | Heads-up 20 BB average-policy play; [release and verified assets](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.1) |
 | **v0.4.x next** | #166 turn-search results, then trainer/storage options and finer abstraction |
 | **v0.5** | Heads-up 100 BB and a first external benchmark |
 | **v0.6 / v0.7** | Three players / four and five players |

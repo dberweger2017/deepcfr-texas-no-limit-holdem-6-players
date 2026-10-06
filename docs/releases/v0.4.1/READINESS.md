@@ -1,6 +1,6 @@
 # v0.4.1 release readiness
 
-The owner selected #176's exact first-seed O export. #176 and #179 are merged; #180's storage policy is preserved. [Release PR #181](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/181) prepares the report, proposed default, assets and verification. **The PR is not merged, and no v0.4.1 tag or release is published: the owner's separate final go in chat is still required. v0.4.0 remains the published stable release.**
+The owner selected #176's exact first-seed O export. #176 and #179 are merged; #180's storage policy is preserved. [Release PR #181](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/181) prepares the report, proposed default, assets and verification. **The owner gave the final go in chat: “yes do the tag and release”. [v0.4.1 release](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.1) assets are bound to the actual merged source and verified after download before publication. v0.4.0 remains available.**
 
 ## Review packet
 
@@ -33,7 +33,7 @@ Auxiliary attempts are retained: an early navigation before server readiness res
 
 The unpublished package contains exactly the unchanged model, model card, notes, manifest and SHA256SUMS. A clean detached checkout at `654734e6df88dd36397b5f8605cbb12d54944de2` built the package, downloaded **all five staged files over loopback HTTP**, and passed both standalone model verifiers and the whole-bundle verifier; the checkout stayed clean. [Download and member hashes](verification/clean-checkout-download.json). This verifies download bytes locally; it does not claim unpublished GitHub assets are available. Final-head CI and a final-source download receipt are posted on the PR before approval.
 
-After the final chat go, and only with green final-head checks and no unresolved findings:
+Publication procedure, authorized by the final chat go and conditional on green final-head checks with no unresolved findings:
 
 1. Merge the reviewed PR without bypassing checks. Use the actual merged commit, not a stale preparation head.
 2. Build a new publication package from the same model bytes with explicit approval, binding `approved_release_source_commit` and preparation source to that merged commit. Preserve the unpublished package and evidence.
