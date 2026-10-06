@@ -1,0 +1,12 @@
+{
+  "status": "verified",
+  "observed_at": 1791320485.441931,
+  "native_input_bytes": 4807812006,
+  "linked_immutable_bytes": 3582510566,
+  "new_restored_bytes": 1225301440,
+  "free_after_restore_bytes": 29006934016,
+  "native_prepare_copy_bytes": 4522536232,
+  "trace_archive_allowance_bytes": 3221225472,
+  "free_floor_bytes": 16106127360,
+  "remaining_policy_request_margin_bytes": 5157044952
+}
