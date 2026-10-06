@@ -1,0 +1,566 @@
+{
+  "aggregate_final_cap_seconds": 32400,
+  "arena": {
+    "plan": {
+      "expected_hands": 236544,
+      "max_seconds": 32400,
+      "models": [
+        {
+          "arm": "R",
+          "bytes": 142677367,
+          "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+          "iteration": 2126271,
+          "name": "R-2026100601",
+          "nodes": 1000000000,
+          "path": "O-2026100601-1000000000.average.jsonl.gz",
+          "seed": 2026100601,
+          "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+          "strategy": "average"
+        },
+        {
+          "arm": "O",
+          "bytes": 249237403,
+          "checkpoint_sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+          "iteration": 19538759,
+          "name": "O-2026100601",
+          "nodes": 10000000000,
+          "path": "O-2026100601-10000000000.average.jsonl.gz",
+          "seed": 2026100601,
+          "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+          "strategy": "average"
+        },
+        {
+          "arm": "R",
+          "bytes": 143137499,
+          "checkpoint_sha256": "a0ef695d6807aa4554ba01b32d27f64c39ccdc72d03be5a21c99cf67e52ad716",
+          "iteration": 2099557,
+          "name": "R-2026100602",
+          "nodes": 1000000000,
+          "path": "O-2026100602-1000000000.average.jsonl.gz",
+          "seed": 2026100602,
+          "sha256": "5a994484e4cbed5146c5f0d627ee12d0f22e8fc41ebb1f3628c80b112ba8d59b",
+          "strategy": "average"
+        },
+        {
+          "arm": "O",
+          "bytes": 251732642,
+          "checkpoint_sha256": "9c7d90b1bfeda26bb81462c742a17d04450e34077b9eb3bc35039877e4ee139f",
+          "iteration": 19544624,
+          "name": "O-2026100602",
+          "nodes": 10000000000,
+          "path": "O-2026100602-10000000000.average.jsonl.gz",
+          "seed": 2026100602,
+          "sha256": "52de62633d8a56e17019be7b8db6b5e744043a40667e2352171f67119ac6f2ce",
+          "strategy": "average"
+        },
+        {
+          "arm": "R",
+          "bytes": 142318596,
+          "checkpoint_sha256": "63bb2ddb5bb102be82b919b5caa0ef95c1bcd5d852fe35af1762291525db7ac8",
+          "iteration": 2122313,
+          "name": "R-2026100603",
+          "nodes": 1000000000,
+          "path": "O-2026100603-1000000000.average.jsonl.gz",
+          "seed": 2026100603,
+          "sha256": "52794e8b2ce1a1c660cf9cf3514baf56256368cc7b57acbe12405349fb9d42f0",
+          "strategy": "average"
+        },
+        {
+          "arm": "O",
+          "bytes": 251815844,
+          "checkpoint_sha256": "71e3683936e69a3b4a4b7c286b2a8526e1eedd02f68aba1b34ae04a45c5e1392",
+          "iteration": 19658747,
+          "name": "O-2026100603",
+          "nodes": 10000000000,
+          "path": "O-2026100603-10000000000.average.jsonl.gz",
+          "seed": 2026100603,
+          "sha256": "b0e514d0f46e52de32fa4e183bd5b88ed259cf147f4af661f4cba034775a3b4f",
+          "strategy": "average"
+        }
+      ],
+      "panels": [
+        {
+          "blocks": 256,
+          "contract": "menu",
+          "name": "uniform",
+          "rule": "uniform"
+        },
+        {
+          "blocks": 256,
+          "contract": "menu",
+          "name": "passive",
+          "rule": "passive"
+        },
+        {
+          "blocks": 256,
+          "contract": "menu",
+          "name": "minraise-cap2",
+          "rule": "minraise"
+        },
+        {
+          "blocks": 256,
+          "contract": "menu",
+          "name": "pressure-cap2",
+          "rule": "pressure"
+        },
+        {
+          "blocks": 256,
+          "contract": "style-native",
+          "name": "tight_passive",
+          "rule": "tight_passive"
+        },
+        {
+          "blocks": 256,
+          "contract": "style-native",
+          "name": "loose_passive",
+          "rule": "loose_passive"
+        },
+        {
+          "blocks": 256,
+          "contract": "style-native",
+          "name": "tight_aggressive",
+          "rule": "tight_aggressive"
+        },
+        {
+          "blocks": 256,
+          "contract": "style-native",
+          "name": "loose_aggressive",
+          "rule": "loose_aggressive"
+        },
+        {
+          "blocks": 256,
+          "contract": "style-native",
+          "name": "pot_pressure",
+          "rule": "pot_pressure"
+        },
+        {
+          "blocks": 256,
+          "contract": "style-native",
+          "name": "train_pressure",
+          "rule": "train_pressure"
+        },
+        {
+          "blocks": 12288,
+          "contract": "native",
+          "name": "native-pressure",
+          "rule": "pressure"
+        },
+        {
+          "blocks": 256,
+          "contract": "menu",
+          "name": "selective-stackoff",
+          "rule": "selective_stackoff"
+        },
+        {
+          "blocks": 4608,
+          "contract": "menu",
+          "name": "lbr",
+          "rule": "lbr"
+        }
+      ],
+      "root": 202610066801,
+      "scope": "Frozen R/O confirmation; no outcome-driven extension; unpublished release only on all gates",
+      "source_commit": "523e4a347d012beb8cb523497d2e9a4cbb90035f",
+      "stage": "frozen-final",
+      "started_at": 1791322720.5975502
+    },
+    "sha256": "74a4ed5deac713a757e47c3fe91c8827268a607bf0cb386aedb4b839d959e7a7"
+  },
+  "control_sha256": "fc63101f5553174376e96a8869297910344c0ff921779e0d3a2d5663cf9d0d0b",
+  "direct": {
+    "plan": {
+      "blocks": 65536,
+      "max_seconds": 32400,
+      "pairs": [
+        {
+          "candidate": {
+            "arm": "O",
+            "bytes": 249237403,
+            "checkpoint_sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+            "iteration": 19538759,
+            "name": "O-2026100601",
+            "nodes": 10000000000,
+            "path": "O-2026100601-10000000000.average.jsonl.gz",
+            "seed": 2026100601,
+            "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+            "strategy": "average"
+          },
+          "reference": {
+            "arm": "R",
+            "bytes": 142677367,
+            "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+            "iteration": 2126271,
+            "name": "R-2026100601",
+            "nodes": 1000000000,
+            "path": "O-2026100601-1000000000.average.jsonl.gz",
+            "seed": 2026100601,
+            "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+            "strategy": "average"
+          }
+        },
+        {
+          "candidate": {
+            "arm": "O",
+            "bytes": 251732642,
+            "checkpoint_sha256": "9c7d90b1bfeda26bb81462c742a17d04450e34077b9eb3bc35039877e4ee139f",
+            "iteration": 19544624,
+            "name": "O-2026100602",
+            "nodes": 10000000000,
+            "path": "O-2026100602-10000000000.average.jsonl.gz",
+            "seed": 2026100602,
+            "sha256": "52de62633d8a56e17019be7b8db6b5e744043a40667e2352171f67119ac6f2ce",
+            "strategy": "average"
+          },
+          "reference": {
+            "arm": "R",
+            "bytes": 143137499,
+            "checkpoint_sha256": "a0ef695d6807aa4554ba01b32d27f64c39ccdc72d03be5a21c99cf67e52ad716",
+            "iteration": 2099557,
+            "name": "R-2026100602",
+            "nodes": 1000000000,
+            "path": "O-2026100602-1000000000.average.jsonl.gz",
+            "seed": 2026100602,
+            "sha256": "5a994484e4cbed5146c5f0d627ee12d0f22e8fc41ebb1f3628c80b112ba8d59b",
+            "strategy": "average"
+          }
+        },
+        {
+          "candidate": {
+            "arm": "O",
+            "bytes": 251815844,
+            "checkpoint_sha256": "71e3683936e69a3b4a4b7c286b2a8526e1eedd02f68aba1b34ae04a45c5e1392",
+            "iteration": 19658747,
+            "name": "O-2026100603",
+            "nodes": 10000000000,
+            "path": "O-2026100603-10000000000.average.jsonl.gz",
+            "seed": 2026100603,
+            "sha256": "b0e514d0f46e52de32fa4e183bd5b88ed259cf147f4af661f4cba034775a3b4f",
+            "strategy": "average"
+          },
+          "reference": {
+            "arm": "R",
+            "bytes": 142318596,
+            "checkpoint_sha256": "63bb2ddb5bb102be82b919b5caa0ef95c1bcd5d852fe35af1762291525db7ac8",
+            "iteration": 2122313,
+            "name": "R-2026100603",
+            "nodes": 1000000000,
+            "path": "O-2026100603-1000000000.average.jsonl.gz",
+            "seed": 2026100603,
+            "sha256": "52794e8b2ce1a1c660cf9cf3514baf56256368cc7b57acbe12405349fb9d42f0",
+            "strategy": "average"
+          }
+        },
+        {
+          "candidate": {
+            "arm": "O",
+            "bytes": 249237403,
+            "checkpoint_sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+            "iteration": 19538759,
+            "name": "O-2026100601",
+            "nodes": 10000000000,
+            "path": "O-2026100601-10000000000.average.jsonl.gz",
+            "seed": 2026100601,
+            "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+            "strategy": "average"
+          },
+          "reference": {
+            "arm": "R",
+            "bytes": 40144034,
+            "iteration": 246212,
+            "name": "R-2026093001",
+            "path": "R1.current.json.gz",
+            "seed": 2026093001,
+            "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+            "strategy": "current"
+          }
+        },
+        {
+          "candidate": {
+            "arm": "O",
+            "bytes": 251732642,
+            "checkpoint_sha256": "9c7d90b1bfeda26bb81462c742a17d04450e34077b9eb3bc35039877e4ee139f",
+            "iteration": 19544624,
+            "name": "O-2026100602",
+            "nodes": 10000000000,
+            "path": "O-2026100602-10000000000.average.jsonl.gz",
+            "seed": 2026100602,
+            "sha256": "52de62633d8a56e17019be7b8db6b5e744043a40667e2352171f67119ac6f2ce",
+            "strategy": "average"
+          },
+          "reference": {
+            "arm": "R",
+            "bytes": 40144034,
+            "iteration": 246212,
+            "name": "R-2026093001",
+            "path": "R1.current.json.gz",
+            "seed": 2026093001,
+            "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+            "strategy": "current"
+          }
+        },
+        {
+          "candidate": {
+            "arm": "O",
+            "bytes": 251815844,
+            "checkpoint_sha256": "71e3683936e69a3b4a4b7c286b2a8526e1eedd02f68aba1b34ae04a45c5e1392",
+            "iteration": 19658747,
+            "name": "O-2026100603",
+            "nodes": 10000000000,
+            "path": "O-2026100603-10000000000.average.jsonl.gz",
+            "seed": 2026100603,
+            "sha256": "b0e514d0f46e52de32fa4e183bd5b88ed259cf147f4af661f4cba034775a3b4f",
+            "strategy": "average"
+          },
+          "reference": {
+            "arm": "R",
+            "bytes": 40144034,
+            "iteration": 246212,
+            "name": "R-2026093001",
+            "path": "R1.current.json.gz",
+            "seed": 2026093001,
+            "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+            "strategy": "current"
+          }
+        }
+      ],
+      "primary_pairs": [
+        1,
+        2,
+        3
+      ],
+      "progress_pairs": [
+        4,
+        5,
+        6
+      ],
+      "root": 202610067001,
+      "scope": "Frozen 10B vs matched 1B primary (pairs 1-3); vs shipped R1 progress (pairs 4-6); conditional on three retained lineages",
+      "source_commit": "523e4a347d012beb8cb523497d2e9a4cbb90035f",
+      "started_at": 1791322720.5975502
+    },
+    "sha256": "5f173a4fa216be4457fe9787b88841159ebb1f2cab86a7db47513edfc3e762ad"
+  },
+  "maximum_evaluation_workers": 1,
+  "owner_approval_sha256": "e69f0725bba8888452df24fedc99a8f710a40eff90a021155561888a9225e99a",
+  "quote": {
+    "arena_block_sds": {
+      "lbr": 303.6584172943717,
+      "loose_aggressive": 201.3177214154489,
+      "loose_passive": 185.25310840977812,
+      "minraise-cap2": 307.18978110960296,
+      "native-pressure": 366.6822777080274,
+      "passive": 267.4014348070344,
+      "pot_pressure": 112.79692102365306,
+      "pressure-cap2": 225.34450893516583,
+      "selective-stackoff": 85.02094098305274,
+      "tight_aggressive": 162.9267899668096,
+      "tight_passive": 85.24227260979461,
+      "train_pressure": 163.2174502527821,
+      "uniform": 304.0275647718369
+    },
+    "arena_blocks": {
+      "lbr": 4608,
+      "loose_aggressive": 256,
+      "loose_passive": 256,
+      "minraise-cap2": 256,
+      "native-pressure": 12288,
+      "passive": 256,
+      "pot_pressure": 256,
+      "pressure-cap2": 256,
+      "selective-stackoff": 256,
+      "tight_aggressive": 256,
+      "tight_passive": 256,
+      "train_pressure": 256,
+      "uniform": 256
+    },
+    "arena_costs": {
+      "O-2026100601": {
+        "load_seconds": 36.326547709002625,
+        "peak_rss_bytes": 5414699008,
+        "seconds": 186.05261016701115,
+        "seconds_per_block": {
+          "lbr": 0.5477466335784129,
+          "loose_aggressive": 0.004423698653226893,
+          "loose_passive": 0.0018036869410025247,
+          "minraise-cap2": 0.002762034514489642,
+          "native-pressure": 0.0028075492304395766,
+          "passive": 0.0030045696539673372,
+          "pot_pressure": 0.0010526080968702445,
+          "pressure-cap2": 0.0022219682500690396,
+          "selective-stackoff": 0.0012098788270122895,
+          "tight_aggressive": 0.000838285844110942,
+          "tight_passive": 0.0008546854837732099,
+          "train_pressure": 0.001283468689507572,
+          "uniform": 0.0018298359846085077
+        }
+      },
+      "O-2026100602": {
+        "load_seconds": 36.644268166972324,
+        "peak_rss_bytes": 5601460224,
+        "seconds": 188.63767816699692,
+        "seconds_per_block": {
+          "lbr": 0.557783058256291,
+          "loose_aggressive": 0.0012372649839562655,
+          "loose_passive": 0.0016857150162650214,
+          "minraise-cap2": 0.002775747384475835,
+          "native-pressure": 0.0028280271525318312,
+          "passive": 0.0030604635967392824,
+          "pot_pressure": 0.0009234224662577617,
+          "pressure-cap2": 0.002172861969029327,
+          "selective-stackoff": 0.0011011373703695426,
+          "tight_aggressive": 0.0007906587943580234,
+          "tight_passive": 0.0007712936085226829,
+          "train_pressure": 0.0011673483436425158,
+          "uniform": 0.0017380156564286153
+        }
+      },
+      "O-2026100603": {
+        "load_seconds": 36.738350792002166,
+        "peak_rss_bytes": 5467095040,
+        "seconds": 181.95260708298883,
+        "seconds_per_block": {
+          "lbr": 0.5309050909462485,
+          "loose_aggressive": 0.001254844266895816,
+          "loose_passive": 0.0017410729674338654,
+          "minraise-cap2": 0.0026818522783287335,
+          "native-pressure": 0.002863075271903881,
+          "passive": 0.003001978502197744,
+          "pot_pressure": 0.0009399557357028243,
+          "pressure-cap2": 0.0021438281119117164,
+          "selective-stackoff": 0.0011731094045899226,
+          "tight_aggressive": 0.0007917818734313187,
+          "tight_passive": 0.0008234863903453515,
+          "train_pressure": 0.001219313779984077,
+          "uniform": 0.0017062676060959348
+        }
+      },
+      "R-2026100601": {
+        "load_seconds": 19.7283768329944,
+        "peak_rss_bytes": 3242328064,
+        "seconds": 168.38132041599602,
+        "seconds_per_block": {
+          "lbr": 0.5484161656962669,
+          "loose_aggressive": 0.0012620515035450808,
+          "loose_passive": 0.0015592396407555498,
+          "minraise-cap2": 0.0024227786234405357,
+          "native-pressure": 0.0024908134584649133,
+          "passive": 0.0028425897335182526,
+          "pot_pressure": 0.0009566902153892443,
+          "pressure-cap2": 0.0018971132940350799,
+          "selective-stackoff": 0.001106216704556573,
+          "tight_aggressive": 0.0007938019675748365,
+          "tight_passive": 0.0007946971554702031,
+          "train_pressure": 0.0011841158298011578,
+          "uniform": 0.0016872349033292267
+        }
+      },
+      "R-2026100602": {
+        "load_seconds": 21.050308041012613,
+        "peak_rss_bytes": 3255828480,
+        "seconds": 172.17770545801613,
+        "seconds_per_block": {
+          "lbr": 0.5551560383782999,
+          "loose_aggressive": 0.0012971105802535021,
+          "loose_passive": 0.0018384101558694965,
+          "minraise-cap2": 0.004869229813266429,
+          "native-pressure": 0.002645306735956865,
+          "passive": 0.0031815209254091315,
+          "pot_pressure": 0.0010389043791292352,
+          "pressure-cap2": 0.0020969205352230347,
+          "selective-stackoff": 0.0012132167971685703,
+          "tight_aggressive": 0.0008815007026896637,
+          "tight_passive": 0.0008825619220260705,
+          "train_pressure": 0.0012736723742818867,
+          "uniform": 0.0018357669073338911
+        }
+      },
+      "R-2026100603": {
+        "load_seconds": 20.364498749986524,
+        "peak_rss_bytes": 3237085184,
+        "seconds": 167.37834020899027,
+        "seconds_per_block": {
+          "lbr": 0.5412150646160399,
+          "loose_aggressive": 0.0012888157161796698,
+          "loose_passive": 0.0017584934821570641,
+          "minraise-cap2": 0.002528311204059719,
+          "native-pressure": 0.0025370458458979783,
+          "passive": 0.0030026432655176905,
+          "pot_pressure": 0.0010090319528899272,
+          "pressure-cap2": 0.002019787900735537,
+          "selective-stackoff": 0.0011920325932806008,
+          "tight_aggressive": 0.0008513177299391828,
+          "tight_passive": 0.0008634686573714134,
+          "train_pressure": 0.0012508222525866586,
+          "uniform": 0.0017006470184242062
+        }
+      }
+    },
+    "arena_schedule": [
+      {
+        "lane": 0,
+        "model": "R-2026100601",
+        "seconds": 2583.7636570185423
+      },
+      {
+        "lane": 0,
+        "model": "O-2026100601",
+        "seconds": 2602.681930040184
+      },
+      {
+        "lane": 0,
+        "model": "R-2026100602",
+        "seconds": 2619.2232179543644
+      },
+      {
+        "lane": 0,
+        "model": "O-2026100602",
+        "seconds": 2648.41394014479
+      },
+      {
+        "lane": 0,
+        "model": "R-2026100603",
+        "seconds": 2552.079002260434
+      },
+      {
+        "lane": 0,
+        "model": "O-2026100603",
+        "seconds": 2525.125131921406
+      }
+    ],
+    "arena_seconds": 15531.286879339721,
+    "audit_report_seconds": 2467.296,
+    "direct_block_sds": [
+      326.4147800664032,
+      350.34577126363973,
+      323.22988713037813,
+      247.0791535256418
+    ],
+    "direct_blocks": 65536,
+    "direct_seconds": 1109.1119055086165,
+    "native_cost_pilot": {
+      "binary_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f",
+      "elapsed_seconds": 38.90279354099766,
+      "exit_code": 0,
+      "failure": null,
+      "job_memory_budget_bytes": 8589934592,
+      "memory_budget_bytes": 4294967296,
+      "peak_job_rss_bytes": 4926685184,
+      "peak_swap_used_bytes": 245953986,
+      "profile_sha256": null,
+      "rayon_threads": 6,
+      "request_sha256": "7d2aa70e3122a7d5aede953169119ae38c95507128195967837cfa574b3179df",
+      "response_sha256": "5b8b00d1bce6a445c22d23773d84381b0dcf4289851a29d52b736c9a06fb52c2",
+      "status": "completed",
+      "swap_baseline_bytes": 245953986
+    },
+    "nominal_seconds": 20663.806526488243,
+    "peak_pilot_rss_bytes": 7223164928,
+    "pilot_outcomes_inspected": false,
+    "turn_seconds": 1556.1117416399065,
+    "with_25_percent_headroom_seconds": 25829.758158110304
+  },
+  "resource_source_receipt_sha256": "0dee3f2bd37ed8dcefa74a5227a5c88fe8abd653afe36cf968da20793342af1b",
+  "rss_limit_bytes": 8589934592,
+  "source": "523e4a347d012beb8cb523497d2e9a4cbb90035f",
+  "turn_manifest_sha256": "a0701e2b430b4866e2cd1d410a2737bb4a44c09bfeee86ff7cc2b474c1863c46"
+}

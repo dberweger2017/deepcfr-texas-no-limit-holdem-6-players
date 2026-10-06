@@ -1,0 +1,8 @@
+{
+  "aggregate_cap_seconds": 32400,
+  "all_other_design_fields_unchanged": true,
+  "approved_quote_sha256": "0d168cfd9d78b1949c6cd2f0d9318c782778b4e304455a2137b4aab72b137c65",
+  "authority": "explicit owner chat instruction",
+  "instruction": "Owner decision: approve the final confirmation at the pilot's measured 7.17-hour projection, with the frozen design unchanged. Set the final aggregate cap to 9 hours (projection + 25% headroom); keep every other guard, count, root, rule and source exactly as predeclared. Freeze and post the counts/time/plan hash, then run. Post the owner review packet when complete; no publication without my explicit go.",
+  "publication_requires_explicit_go": true
+}
