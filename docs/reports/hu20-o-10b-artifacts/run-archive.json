@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/hu20-o-10b-8gib-run-20261006.zip",
+  "archive_bytes": 404635290,
+  "archive_sha256": "a8e74b482d72e171d5002dc6f88a0239d1ed59fd0b89f28be65c8f4a8be83363",
+  "manifest_sha256": "59f65431b81368c99389f4afd4b832a37966034d36053b4a28b6b505f0222049",
+  "members_verified": 134,
+  "originals_retained": true,
+  "upload_status": "pending native and cloud acceptance"
+}
