@@ -19,3 +19,11 @@ M4: at most three workers; unchanged 6-GiB per-worker RSS limit, extra 15-GiB fr
 Plain interpretation uses both controls: if T is at least as good as R1 and shield is worse than T, the floor recipe explains the loss; if T is also worse than R1, budget/averaging contributes. A nondetection is not proof of equivalence, and these controls do not separate budget from averaging or certify general poker strength.
 
 Archive all research files, exact inputs, source, environment, logs, partials, plans, raw traces and audits in a member-hashed ZIP under `~/Local/Research-Cloud/PR-<n>-HU20-floor-control/`. Verify every ZIP member by readback. Keep originals and never delete or evict synced files.
+
+## Frozen M4 final run
+
+[Predeclaration](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/175#issuecomment-6013362287) preceded pilot play. [Frozen counts, quote and hash](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/175#issuecomment-6013456971) preceded final play. Each of A, B and secondary O uses **49,152 duplicate deal blocks × three lineages × two seats = 294,912 hands**; total **884,736 final hands**. Pilot: 36,864 separate hands. Final root **202610061601**; pilot root **202610061501**.
+
+The maximum primary pilot block SDs are **389.615** (A) and **379.069** (B) BB/100; the frozen counts project maximum individual/aggregate half-widths **3.444** and **3.351**. Three workers on M4 measured peak RSS **2.910 GiB**. The quote includes **6.67 minutes** startup-inclusive play, **10.38 minutes** replay/report allowance, **25.58 minutes** total with 50% headroom. It is a projection, not an observed duration or width guarantee.
+
+Canonical bundled plan SHA256: `7e1cf06d29b2988faf9c262f7c81bdf7c12c4c5e2b59c4da702046e9d4779036`. Each family has a separate runner plan hash. The bundle pins all ten exact policy files, their sizes, export/checkpoint hashes, seeds and extraction provenance, as well as the unchanged runner source `8bbfc457` and the research orchestration script hash. Final results must retain all frozen coordinates and independently verify every action, settlement and interval before publication.
