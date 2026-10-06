@@ -15,6 +15,7 @@ from src.arena.catalog import Checkpoint
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA
 from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT, _checked_schema
 from src.blueprint.solver import HU20_UNCAPPED_GAME, regret_match
+from src.diagnostics.compact_policy import CompactBuilder
 from src.diagnostics.saved_hu20 import file_hash
 
 FORMAT = 'holdem-hu20-stored-cfr-average-diagnostic-v1'
@@ -151,7 +152,8 @@ class DiagnosticAverage(FrozenBlueprint):
     """Reuse observation/key/menu inference, with a separate diagnostic reader."""
     def __init__(self,path,expected_sha256, *, expected_schema=HU20_UNCAPPED_SCHEMA):
         if file_hash(path)!=expected_sha256:raise ValueError('Diagnostic average hash differs')
-        self.entries={};self.zero_mass=set();self.visits={}
+        # Compact storage: a 10B-node average needs about 50 bytes per key instead of about 800.
+        rows=CompactBuilder();count=0
         with gzip_open(path,'rt') as source:
             metadata=json.loads(source.readline());header=metadata['checkpoint_header']
             checked_header(header,{'seed':header['config']['seed'],'iteration':header['iteration']},expected_schema=expected_schema)
@@ -161,12 +163,15 @@ class DiagnosticAverage(FrozenBlueprint):
             for line in source:
                 key,names,p,total,visits=json.loads(line)
                 checked_row([key,names,[0]*len(names),[total/len(names)]*len(names),visits],header['iteration'],rule=='traverser-reach')
-                if (key in self.entries or len(names)!=len(p)
+                if (len(names)!=len(p)
                     or any(type(x) not in (int,float) or not isfinite(x) or x<0 for x in p)
                     or abs(fsum(p)-1)>1e-8 or (not total and zero_mass=='uniform' and p!=[1/len(names)]*len(names))):raise ValueError('Invalid diagnostic policy row')
-                self.entries[key]=(tuple(names),tuple(p));self.visits[key]=visits
-                if not total:self.zero_mass.add(key)
-                if len(self.entries)>header['config']['max_entries']:raise ValueError('Diagnostic export exceeds entry cap')
+                rows.add(key,names,[float(x) for x in p],visits,not total);count+=1
+                if count>header['config']['max_entries']:raise ValueError('Diagnostic export exceeds entry cap')
+        try:
+            self.entries,self.zero_mass,self.visits=rows.build()
+        except ValueError as duplicate:
+            raise ValueError('Invalid diagnostic policy row') from duplicate
         self.players=2;self.raise_cap=None;self.abstraction=expected_schema;self.game=HU20_UNCAPPED_GAME;self.identity=header['identity']
         self.description={'kind':FORMAT,'weights_sha256':expected_sha256,'num_players':2,'iteration':header['iteration'],
             'training_seed':header['config']['seed'],'strategy':extraction,'abstraction':self.abstraction,
