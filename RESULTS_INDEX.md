@@ -1,6 +1,9 @@
 # Research results index
 
-## PR185 — HU20 O at 10B, active training / evaluation stop
+## PR185 — HU20 O at 10B, active training / evaluation resumed
+
+**Owner-approved amendment:** evaluation/audit now uses **8 GiB and one worker at a time**; training retains its original guard. [Pre-pilot amendment](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/185#issuecomment-6020980784). The complete unchanged 10B export audit passes all **7,227,377 keys** at 6.216-GiB sampled peak RSS, 71.15 seconds. [Audit](docs/reports/hu20-o-10b-artifacts/export-audit-10000000000.json), [resource](docs/reports/hu20-o-10b-artifacts/audit-10b-8gib.resource.json), [one-line RSS patch and source hashes](docs/reports/hu20-o-10b-artifacts/owner-approved-8gib-source.json). Candidate average remains SHA256 `15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae`, current `af6c1755c7cb816dbdb07ccd32d2dbde82fea3c2ab0c9a8946ce8525195c9bd1`; both now verified against first-seed 10B checkpoint `54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49`. Outcome-blind pilot is active, not yet a strength result. Earlier stopped attempts and preparation archives below remain immutable historical records; their unaudited/stopped descriptions are superseded for current status only.
+
 
 [PR #185](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/185), [protocol](docs/hu20-o-10b.md), [dated preparation report](docs/reports/hu20-o-10b.md). Strength undecided: zero pilot/final poker hands. Separate unchanged 10B average/current native exports pass, but the full unchanged accumulator audit stops at 6.059 GiB; allocator-only retry also stops at 6.072 GiB. Both retain the 6-GiB guard; all failures are archived, no audit waived. 1B/2B/5B full audits pass. Conditional confirmation and v0.4.2 package are not triggered.
 

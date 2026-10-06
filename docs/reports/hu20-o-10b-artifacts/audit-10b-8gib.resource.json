@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+    "-c",
+    "from pathlib import Path;import json;from src.diagnostics.cfr_average import audit;r=Path('/Users/dberweger/Local/hu20-o-10b-20261006');s=json.loads((r/'audit-spec-10000000000.json').read_text());v=audit(r/'inputs'/'O-2026100601-10000000000.json.gz',r/'policies'/'O-10000000000.current.json.gz',r/'policies'/'O-10000000000.average.jsonl.gz',s,'15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae');(r/'export-audit-10000000000.json').write_text(json.dumps(v,indent=2))"
+  ],
+  "failure": null,
+  "peak_sampled_rss_bytes": 6673874944,
+  "returncode": 0,
+  "seconds": 71.14839816093445
+}
