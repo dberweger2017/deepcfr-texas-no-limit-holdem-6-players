@@ -1,0 +1,18 @@
+{
+  "temporary_pack_cleanup_receipt": "https://drive.google.com/file/d/11pRy40cfqt38Q781JyLO1rAsFoc_yHaa/view",
+  "removed_count": 82,
+  "removed_bytes": 33710801880,
+  "prechecks": {
+    "full_fsck_exit": 0,
+    "reachable_objects_missing": false,
+    "cutoff_age_seconds": 120,
+    "excludes_applied": true
+  },
+  "postchecks": {
+    "full_fsck_exit": 0,
+    "reachable_objects_missing": false,
+    "verified_at_utc": "2026-10-06T12:36:48.216957+00:00"
+  },
+  "model_cleanup_receipt": "https://drive.google.com/file/d/1XgRadPHdyCnp17SUg-9t7zDIZa5P-TjB/view",
+  "model_removed_bytes": 1472371059
+}
