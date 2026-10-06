@@ -7,6 +7,8 @@ An operator check-in reads each pod's status, pulls compressed evidence deltas a
 crashes for the PR. Operator connectivity loss never stops work.
 """
 import argparse
+from contextlib import contextmanager
+import fcntl
 import hashlib
 import json
 import re
@@ -199,7 +201,23 @@ def pull(pod, ledger, root, last_epoch):
     return now
 
 
+@contextmanager
+def operation_lock(root):
+    """Do not pull through a pod while closeout deletes it or changes the ledger."""
+    with (root / 'operations.lock').open('a') as handle:
+        fcntl.flock(handle, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(handle, fcntl.LOCK_UN)
+
+
 def checkin(root):
+    with operation_lock(root):
+        return _checkin(root)
+
+
+def _checkin(root):
     ledger = json.loads((root / "ledger.json").read_text())
     pods = [p for p in ledger["pods"] if not p.get("terminated_at")]
     now = time()

@@ -1,7 +1,7 @@
-"""Retrieve the completed three-pod attempt, verify all bytes, then terminate it.
+"""Retrieve and terminate each completed pod without interrupting active workers.
 
 This command never stops active poker work. Recovery reuses verified chunks and
-termination receipts; the relay stays alive until every pod has been retrieved.
+termination receipts; the relay stays alive until its dependent data is safe.
 """
 import argparse
 import importlib.util
@@ -13,7 +13,7 @@ import shutil
 import subprocess
 from time import time
 
-from scripts.hu20_autonomous_arena import read_status, pod_done, route
+from scripts.hu20_autonomous_arena import read_status, pod_done, route, operation_lock
 from scripts.hu20_search_arena_control import durable_json
 from scripts.hu20_search_evidence import file_hash, verify_archives
 from scripts.monitor_hu20_search_arena import ssh
@@ -109,15 +109,34 @@ sha256sum {REMOTE}/manifest.json
     retrieve_manifest(manifest, destination, fetch, root, ledger)
 
 
-def terminate_all(root, ledger, call):
-    pods = fleet(ledger)
-    # Reverify every archive/member before the first destructive operation.
+def verify_retrieval(root, pod):
+    folder = root / 'retrieved' / pod['id']
+    proof = json.loads((folder / 'retrieval-verified.json').read_text())
+    if not proof.get('verified') or proof['archive_manifest_sha256'] != file_hash(folder / 'manifest.json'):
+        raise ValueError('Missing/changed retrieval proof')
+    verify_archives(folder)
+
+
+def relay_needed(root, ledger):
+    for pod in fleet(ledger):
+        if route(pod, ledger)[0]['id'] != pod['id'] and not pod.get('terminated_at'):
+            proof = root / 'retrieved' / pod['id'] / 'retrieval-verified.json'
+            if not proof.exists():
+                return True
+            verify_retrieval(root, pod)
+    return False
+
+
+def terminate_verified(root, ledger, call, pods=None):
+    owned = fleet(ledger)
+    pods = owned if pods is None else pods
+    if any(p is not next((x for x in owned if x['id'] == p['id']), None) for p in pods):
+        raise ValueError('Termination selection must use the owned ledger entries')
+    # Only the selected pods can be deleted; active siblings need no retrieval.
     for pod in pods:
-        folder = root / 'retrieved' / pod['id']
-        proof = json.loads((folder / 'retrieval-verified.json').read_text())
-        if not proof.get('verified') or proof['archive_manifest_sha256'] != file_hash(folder / 'manifest.json'):
-            raise ValueError('Missing/changed retrieval proof')
-        verify_archives(folder)
+        verify_retrieval(root, pod)
+    if any(p['id'] == ledger['relay_pod_id'] for p in pods) and relay_needed(root, ledger):
+        raise RuntimeError('Relay still needed for unverified dependent evidence')
     for pod in sorted(pods, key=lambda p: p['id'] == ledger['relay_pod_id']):
         folder = root / 'retrieved' / pod['id']
         if pod.get('terminated_at'):
@@ -148,6 +167,7 @@ def terminate_all(root, ledger, call):
         pod['terminated_at'] = time()
         pod['retrieval_verified'] = True
         durable_json(root / 'ledger.json', ledger)
+    deleted = {p['id'] for p in owned if p.get('terminated_at')}
     cursor = None
     seen = set()
     pages = []
@@ -155,17 +175,50 @@ def terminate_all(root, ledger, call):
         args = {'cursor': cursor} if cursor else {}
         reply = call('tools/call', {'name': 'list-pods', 'arguments': args}, 403)
         pages.append(reply)
-        durable_json(root / 'final-list-pods.json', pages)
+        durable_json(root / 'latest-termination-list-pods.json', pages)
         value = data(reply)
-        if OWNED.intersection(p['id'] for p in value['pods']):
-            raise RuntimeError('Owned pod still listed')
+        if deleted.intersection(p['id'] for p in value['pods']):
+            raise RuntimeError('Terminated pod still listed')
         if not value['pagination']['hasNextPage']:
             break
         cursor = value['pagination']['nextCursor']
         if not cursor or cursor in seen:
             raise ValueError('Invalid list-pods pagination')
         seen.add(cursor)
-    durable_json(root / 'CLOSEOUT_COMPLETE.json', {'at': time(), 'pods': sorted(OWNED), 'verified': True})
+    for pod in pods:
+        durable_json(root / 'retrieved' / pod['id'] / 'termination-list-pods.json', pages)
+    if deleted == OWNED:
+        durable_json(root / 'final-list-pods.json', pages)
+        durable_json(root / 'CLOSEOUT_COMPLETE.json', {'at': time(), 'pods': sorted(OWNED), 'verified': True})
+
+
+def closeout_ready(root, ledger, call):
+    """Read each partition once; retrieve and delete finished hosts promptly."""
+    statuses = {}
+    ready = []
+    for pod in fleet(ledger):
+        if pod.get('terminated_at'):
+            continue
+        status = read_status(pod)
+        actual_workers = {w['worker'] for w in status['workers']} | set(status['gave_up'])
+        if actual_workers != {f'worker-{w}' for w in pod['workers']}:
+            raise ValueError('Status does not cover this exact static partition')
+        done = pod_done(status, len(pod['workers']))
+        statuses[pod['id']] = {'status': status, 'done': done}
+        if done in ('complete', 'incomplete'):
+            ready.append(pod)
+    durable_json(root / 'closeout-status.json', {'at': time(), 'pods': statuses})
+    # Proxy evidence uses the relay, so close that dependency first when ready.
+    for pod in sorted(ready, key=lambda p: (p['id'] == ledger['relay_pod_id'], bool(p.get('ssh_host')))):
+        retrieve(pod, ledger, root)
+        durable_json(root / 'retrieved' / pod['id'] / 'completion-status.json', statuses[pod['id']])
+        if pod['id'] == ledger['relay_pod_id'] and relay_needed(root, ledger):
+            continue
+        terminate_verified(root, ledger, call, [pod])
+    # Confirm earlier deletions again on recovery, including a failed list read.
+    if not ready and any(p.get('terminated_at') for p in ledger['pods']):
+        terminate_verified(root, ledger, call, [p for p in ledger['pods'] if p.get('terminated_at')])
+    return statuses
 
 
 def main():
@@ -174,22 +227,12 @@ def main():
     parser.add_argument('--mcp-helper', required=True, type=Path)
     args = parser.parse_args()
     root = args.root.resolve()
-    ledger = json.loads((root / 'ledger.json').read_text())
-    pods = fleet(ledger)
     spec = importlib.util.spec_from_file_location('closeout_mcp', args.mcp_helper)
     helper = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(helper)
-    for pod in pods:
-        if not pod.get('terminated_at') and not (root / 'retrieved' / pod['id'] / 'retrieval-verified.json').exists():
-            status = read_status(pod)
-            actual_workers = {w['worker'] for w in status['workers']} | set(status['gave_up'])
-            if actual_workers != {f'worker-{w}' for w in pod['workers']}:
-                raise ValueError('Completed status does not cover this exact static partition')
-            if pod_done(status, len(pod['workers'])) not in ('complete', 'incomplete'):
-                raise ValueError('Pod still has active work; never interrupt it for closeout')
-    for pod in sorted(pods, key=lambda p: p['id'] == ledger['relay_pod_id']):
-        retrieve(pod, ledger, root)
-    terminate_all(root, ledger, helper.call)
+    with operation_lock(root):
+        ledger = json.loads((root / 'ledger.json').read_text())
+        closeout_ready(root, ledger, helper.call)
 
 
 if __name__ == '__main__':
