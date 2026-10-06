@@ -1,0 +1,11 @@
+{
+  "status": "all members verified",
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-181-v0.4.1-release/v0.4.1-release-preparation-20261006.zip",
+  "zip_bytes": 636443857,
+  "sha256": "2ad0a8a92a9812a13067fce242547494a00246803cafc49ef2b983e7685e3a0e",
+  "manifest_sha256": "253e54cac9c8705b454d55886ab25795ab3e983e59579e700a4ac5cb8299abb7",
+  "members": 58,
+  "logical_bytes": 639695992,
+  "originals_retained": true,
+  "cloud_upload_acceptance": "pending separate native metadata check"
+}
