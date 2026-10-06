@@ -1,0 +1,87 @@
+{
+  "pilot_outcome_blind": true,
+  "pilot_blocks": 256,
+  "pilot_costs": [
+    {
+      "pair": 1,
+      "seconds": 35.0585408329498,
+      "play_seconds": 0.6918853042880073,
+      "load_and_output_seconds": 34.366655528661795,
+      "peak_rss_bytes": 1885863936,
+      "block_sd_bb_per_100": 406.53476774642803
+    },
+    {
+      "pair": 2,
+      "seconds": 35.533384416019544,
+      "play_seconds": 0.8408889269921929,
+      "load_and_output_seconds": 34.69249548902735,
+      "peak_rss_bytes": 1763901440,
+      "block_sd_bb_per_100": 400.88767494880386
+    },
+    {
+      "pair": 3,
+      "seconds": 35.626518499921076,
+      "play_seconds": 0.7793517510872334,
+      "load_and_output_seconds": 34.84716674883384,
+      "peak_rss_bytes": 1708703744,
+      "block_sd_bb_per_100": 452.1173189369332
+    },
+    {
+      "pair": 4,
+      "seconds": 33.043900415999815,
+      "play_seconds": 0.6970501656178385,
+      "load_and_output_seconds": 32.346850250381976,
+      "peak_rss_bytes": 2063286272,
+      "block_sd_bb_per_100": 409.82672044841695
+    },
+    {
+      "pair": 5,
+      "seconds": 33.00926537509076,
+      "play_seconds": 0.7491197971394286,
+      "load_and_output_seconds": 32.260145577951334,
+      "peak_rss_bytes": 2101444608,
+      "block_sd_bb_per_100": 353.47191173648037
+    },
+    {
+      "pair": 6,
+      "seconds": 33.079132250044495,
+      "play_seconds": 0.7202241221675649,
+      "load_and_output_seconds": 32.35890812787693,
+      "peak_rss_bytes": 2114879488,
+      "block_sd_bb_per_100": 420.9903010321173
+    },
+    {
+      "pair": 7,
+      "seconds": 33.342889457941055,
+      "play_seconds": 0.7213235492818058,
+      "load_and_output_seconds": 32.62156590865925,
+      "peak_rss_bytes": 2041692160,
+      "block_sd_bb_per_100": 418.83486117009477
+    },
+    {
+      "pair": 8,
+      "seconds": 32.93817833298817,
+      "play_seconds": 0.823582666926086,
+      "load_and_output_seconds": 32.11459566606209,
+      "peak_rss_bytes": 2192801792,
+      "block_sd_bb_per_100": 391.8282937266091
+    },
+    {
+      "pair": 9,
+      "seconds": 33.33220379194245,
+      "play_seconds": 0.7406405141809955,
+      "load_and_output_seconds": 32.59156327776145,
+      "peak_rss_bytes": 2008399872,
+      "block_sd_bb_per_100": 418.6301317316127
+    }
+  ],
+  "primary_aggregate_sd_bb_per_100": 379.0171936128939,
+  "maximum_sd_bb_per_100": 452.1173189369332,
+  "blocks": 49152,
+  "hands": 884736,
+  "projected_maximum_pair_half_width": 3.997047712101111,
+  "nominal_parallel_seconds": 532.3002572433325,
+  "with_50_percent_headroom_seconds": 798.4503858649987,
+  "audit_estimate_seconds": 1608.0,
+  "plan_sha256": "116b6f049d687785836a8cea4d9657c3b020c83cf15839e84c8458d867bf863f"
+}

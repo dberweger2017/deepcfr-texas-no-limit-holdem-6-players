@@ -1,0 +1,52 @@
+{
+  "friendly_name": "0.4.0-shield",
+  "short_alias": "0.4.0-s",
+  "kind": "friendly research model name; not a software release version or Git tag",
+  "policy": "CFR+ production traverser-reach average",
+  "game": "Heads-up 20 BB, v1 uncapped restricted policy menu, exact native opponent amounts",
+  "training_source": "60f516da6b24563a49e609636a31fa17ae719bde",
+  "training_nodes_per_lineage": 1000000000,
+  "training_options": "regret-floor-0",
+  "lineages": [
+    {
+      "arm": "O",
+      "bytes": 143429027,
+      "checkpoint_sha256": "1d162266e55d9098c83415f65e487a4f3eef796257b841a380c7b818deebdd55",
+      "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+      "iteration": 2940243,
+      "name": "O-2026100601",
+      "path": "O-2026100601.average.jsonl.gz",
+      "seed": 2026100601,
+      "sha256": "a5e9d0fc6f4a448640f52f508187f779e43a0a8fd41158207f03de82adc219e1",
+      "strategy": "average"
+    },
+    {
+      "arm": "O",
+      "bytes": 144338829,
+      "checkpoint_sha256": "bd6d34335076d9fa7d25ea30290516b04234e53c30939e91ce60193df5987dd9",
+      "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+      "iteration": 2932778,
+      "name": "O-2026100602",
+      "path": "O-2026100602.average.jsonl.gz",
+      "seed": 2026100602,
+      "sha256": "52836e39b832763765568c8bbd958e5f4b0531385a98cc6adce27f4168d30cbb",
+      "strategy": "average"
+    },
+    {
+      "arm": "O",
+      "bytes": 144037597,
+      "checkpoint_sha256": "c07665745629b82c6ecab5603c95b12fb42838cd76200ef4205b546cc5bc4449",
+      "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+      "iteration": 2944097,
+      "name": "O-2026100603",
+      "path": "O-2026100603.average.jsonl.gz",
+      "seed": 2026100603,
+      "sha256": "943e4f0acb2c933ae6cc6b0992b1000d2900ec78e38099ebe7ec1d0a2804670d",
+      "strategy": "average"
+    }
+  ],
+  "original_frozen_alias": "O (historical #165 O is T in this experiment)",
+  "future_checks": "Pin an individual seed and export SHA256, or explicitly specify equal-weight aggregation of these three lineages. The friendly name never changes archived policy bytes.",
+  "publication": "Owner explicitly requests friendly name only; no release/tag/pre-release. v0.4.0 remains stable.",
+  "evidence": "Lower measured weakness on bounded LBR and conditional turn/river probes; worse direct play versus shipped v0.4.0 R1. No claim of certified lower full-game exploitability."
+}

@@ -1,0 +1,5150 @@
+{
+  "attribution": "Each hand appears once per partition dimension. Response-level terminal losses overlap across decisions and are not additive or causal.",
+  "blocks": 12288,
+  "hands_per_arm": 73728,
+  "interval_method": "paired deal-block Student-t; conditional ratios use cluster delta method",
+  "partitions_reconcile_to_frozen_native_pressure": true,
+  "responses": [
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          416.52248020838783,
+          456.6618773335116
+        ],
+        "mean": 436.5921787709497
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          660.9176314257596,
+          785.5907484625085
+        ],
+        "mean": 723.254189944134
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -535.7181866437213,
+          -285.92985804901616
+        ],
+        "mean": -410.82402234636874
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.41306267494394655
+        ],
+        "mean": 0.13966480446927373
+      },
+      "observed_decisions": 1432,
+      "response": "all",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.20653133747197328
+        ],
+        "mean": 0.06983240223463687
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          89.92742828923089,
+          93.87145439233335
+        ],
+        "mean": 91.89944134078212
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          456.05077701616676,
+          494.1011986677238
+        ],
+        "mean": 475.0759878419453
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          602.409534175283,
+          734.9764840617989
+        ],
+        "mean": 668.693009118541
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -695.6664152559252,
+          -435.0326728899714
+        ],
+        "mean": -565.3495440729483
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "observed_decisions": 1316,
+      "response": "call",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          6.128545607666651,
+          10.0725717107691
+        ],
+        "mean": 8.100558659217876
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1283.8058021293139,
+          1400.676956491376
+        ],
+        "mean": 1342.2413793103449
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1283.8058021293139,
+          1400.676956491376
+        ],
+        "mean": 1342.2413793103449
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          5.044563150837488
+        ],
+        "mean": 1.7241379310344827
+      },
+      "observed_decisions": 116,
+      "response": "fold",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          2.522281575418744
+        ],
+        "mean": 0.8620689655172413
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          279.00282801103407,
+          292.3903810870931
+        ],
+        "mean": 285.6966045490636
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          497.6111892421365,
+          523.8590830478079
+        ],
+        "mean": 510.7351361449722
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -108.50082888252953,
+          -61.61266418178321
+        ],
+        "mean": -85.05674653215637
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.012247839925790642,
+          0.05313911070706163
+        ],
+        "mean": 0.032693475316426135
+      },
+      "observed_decisions": 42822,
+      "response": "all",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.023398987435805048,
+          0.07001094203969818
+        ],
+        "mean": 0.04670496473775162
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          33.816941706462714,
+          35.25503064419816
+        ],
+        "mean": 34.535986175330436
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          116.36091802625025,
+          120.5313667800247
+        ],
+        "mean": 118.44614240313747
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          544.9590160646137,
+          579.0926439529669
+        ],
+        "mean": 562.0258300087903
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -167.9417362486504,
+          -104.80151887339981
+        ],
+        "mean": -136.3716275610251
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.032268938895344365
+        ],
+        "mean": 0.01352356481168436
+      },
+      "observed_decisions": 14789,
+      "response": "call",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.0005455587136751067,
+          0.053548700533062335
+        ],
+        "mean": 0.02704712962336872
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          22.741211112408163,
+          24.159914477242015
+        ],
+        "mean": 23.45056279482509
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          325.1617442729152,
+          336.99718821065386
+        ],
+        "mean": 331.07946624178453
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          325.1617442729152,
+          336.99718821065386
+        ],
+        "mean": 331.07946624178453
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.006146253490435863,
+          0.09343550313175096
+        ],
+        "mean": 0.04979087831109341
+      },
+      "observed_decisions": 10042,
+      "response": "fold",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.07352293300606236
+        ],
+        "mean": 0.029874526986656047
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          41.16530629936704,
+          42.86159576032191
+        ],
+        "mean": 42.013451029844475
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          571.6738111335429,
+          593.6199468565632
+        ],
+        "mean": 582.646878995053
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          545.1346931381887,
+          592.5674912873575
+        ],
+        "mean": 568.8510922127731
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -317.86545801629984,
+          -232.4319128913762
+        ],
+        "mean": -275.148685453838
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.010124548224037622,
+          0.06769213789680058
+        ],
+        "mean": 0.0389083430604191
+      },
+      "observed_decisions": 17991,
+      "response": "raise",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.02742064957835212,
+          0.11709605321749024
+        ],
+        "mean": 0.07225835139792118
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          554.5590045557805,
+          574.6313674354668
+        ],
+        "mean": 564.5951859956236
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          759.1873950703188,
+          862.5193882994844
+        ],
+        "mean": 810.8533916849016
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -414.50571279769554,
+          -207.98881674278581
+        ],
+        "mean": -311.2472647702407
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.12951128085880392
+        ],
+        "mean": 0.0437636761487965
+      },
+      "observed_decisions": 2285,
+      "response": "all",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          95.17525722837131,
+          97.12233576944051
+        ],
+        "mean": 96.14879649890591
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          578.6308014740621,
+          595.7888617029976
+        ],
+        "mean": 587.2098315885298
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          734.0385626660667,
+          840.8362666466325
+        ],
+        "mean": 787.4374146563496
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -485.64423595138203,
+          -273.572878295318
+        ],
+        "mean": -379.60855712335
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.1346971440642382
+        ],
+        "mean": 0.04551661356395084
+      },
+      "observed_decisions": 2197,
+      "response": "call",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          2.8776642305594864,
+          4.824742771628698
+        ],
+        "mean": 3.8512035010940924
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1349.7243166198582,
+          1441.1847742892328
+        ],
+        "mean": 1395.4545454545455
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1349.7243166198582,
+          1441.1847742892328
+        ],
+        "mean": 1395.4545454545455
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "observed_decisions": 88,
+      "response": "fold",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          378.09973066519524,
+          390.0531204592337
+        ],
+        "mean": 384.07642556221447
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          378.34250215483877,
+          394.24398096389376
+        ],
+        "mean": 386.29324155936627
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -225.60811979803384,
+          -198.88603554522848
+        ],
+        "mean": -212.24707767163116
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.032669210205108205
+        ],
+        "mean": 0.015427520322791195
+      },
+      "observed_decisions": 84265,
+      "response": "all",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          9.60990647161878e-05,
+          0.009397759595463009
+        ],
+        "mean": 0.0047469293300895984
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          38.33929092142357,
+          39.46525426340999
+        ],
+        "mean": 38.90227259241678
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          135.6412596064722,
+          138.94462856045374
+        ],
+        "mean": 137.29294408346297
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          480.6702134168287,
+          501.49628546972144
+        ],
+        "mean": 491.08324944327507
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -84.54447483761948,
+          -48.72784754424808
+        ],
+        "mean": -66.63616119093378
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.02252049228611721
+        ],
+        "mean": 0.009151642719868215
+      },
+      "observed_decisions": 32781,
+      "response": "call",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          19.678318999970166,
+          20.6112436891653
+        ],
+        "mean": 20.144781344567733
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          162.55038545141318,
+          170.76331116125252
+        ],
+        "mean": 166.65684830633285
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          162.55038545141318,
+          170.76331116125252
+        ],
+        "mean": 166.65684830633285
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0348771423884667
+        ],
+        "mean": 0.011782032400589101
+      },
+      "observed_decisions": 16975,
+      "response": "fold",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.03767437524811896
+        ],
+        "mean": 0.017673048600883652
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          40.313436449750085,
+          41.59245567628089
+        ],
+        "mean": 40.95294606301549
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          801.2099341574171,
+          813.6499574650582
+        ],
+        "mean": 807.4299458112376
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          379.9932152544754,
+          409.5863147232116
+        ],
+        "mean": 394.7897649888435
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -562.3206350565174,
+          -511.5789273764711
+        ],
+        "mean": -536.9497812164942
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.049796971975466786
+        ],
+        "mean": 0.02318235822539048
+      },
+      "observed_decisions": 34509,
+      "response": "raise",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.008577397257866331
+        ],
+        "mean": 0.00289779477817381
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          237.4056902051833,
+          282.5943097948167
+        ],
+        "mean": 260.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          623.0266138055838,
+          825.4919047129347
+        ],
+        "mean": 724.2592592592592
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -554.3580677388235,
+          -137.86415448339872
+        ],
+        "mean": -346.1111111111111
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.11395359341175249,
+          1.737898258440099
+        ],
+        "mean": 0.9259259259259258
+      },
+      "observed_decisions": 540,
+      "response": "all",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.5482156591114797
+        ],
+        "mean": 0.1851851851851852
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          71.84547782454314,
+          81.85822587916056
+        ],
+        "mean": 76.85185185185185
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          318.3613425788186,
+          358.2651634452777
+        ],
+        "mean": 338.31325301204816
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          357.3447320751216,
+          577.5950269610229
+        ],
+        "mean": 467.4698795180723
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -1144.7723135078572,
+          -705.8300961306969
+        ],
+        "mean": -925.3012048192771
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          1.5409550966796446
+        ],
+        "mean": 0.7228915662650602
+      },
+      "observed_decisions": 415,
+      "response": "call",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          18.141774120839436,
+          28.15452217545686
+        ],
+        "mean": 23.14814814814815
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1536.7540651745878,
+          1616.845934825412
+        ],
+        "mean": 1576.8
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1536.7540651745878,
+          1616.845934825412
+        ],
+        "mean": 1576.8
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          3.819031877336063
+        ],
+        "mean": 1.6
+      },
+      "observed_decisions": 125,
+      "response": "fold",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          2.36864104454265
+        ],
+        "mean": 0.8
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          455.2596829957593,
+          491.541753365459
+        ],
+        "mean": 473.40071818060915
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          498.5972521008775,
+          550.9838092104671
+        ],
+        "mean": 524.7905306556723
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -121.87519829018609,
+          -22.66529911638392
+        ],
+        "mean": -72.270248703285
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.6401884541206678,
+          1.1685627095979116
+        ],
+        "mean": 0.9043755818592897
+      },
+      "observed_decisions": 7519,
+      "response": "all",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.563453124391346,
+          0.9793052211333247
+        ],
+        "mean": 0.7713791727623354
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          41.175062934136,
+          44.52782308794141
+        ],
+        "mean": 42.851443011038704
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100.0
+        ],
+        "mean": 100.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          343.66630031165425,
+          378.92836138915266
+        ],
+        "mean": 361.29733085040345
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          18.0855870369149,
+          86.32161345967107
+        ],
+        "mean": 52.203600248292986
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.18437445814792472,
+          0.6225777454523236
+        ],
+        "mean": 0.40347610180012417
+      },
+      "observed_decisions": 3222,
+      "response": "call",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.25323150563040225,
+          0.7399404372622109
+        ],
+        "mean": 0.4965859714463066
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          8.710277184885832,
+          10.574202134172552
+        ],
+        "mean": 9.642239659529192
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          656.1196960894613,
+          710.2251314967457
+        ],
+        "mean": 683.1724137931035
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          656.1196960894613,
+          710.2251314967457
+        ],
+        "mean": 683.1724137931035
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          2.2321561483818773,
+          5.216119713687087
+        ],
+        "mean": 3.724137931034482
+      },
+      "observed_decisions": 725,
+      "response": "fold",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.9217234432586334,
+          2.940345522258608
+        ],
+        "mean": 1.9310344827586208
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          45.79407235278018,
+          49.21856230608404
+        ],
+        "mean": 47.50631732943211
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          880.0814994845083,
+          932.5164848380001
+        ],
+        "mean": 906.2989921612542
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          590.9183829610548,
+          689.3167794129653
+        ],
+        "mean": 640.11758118701
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -431.6983050148273,
+          -244.05757404452316
+        ],
+        "mean": -337.87793952967525
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.4248721367399915,
+          1.142877023394387
+        ],
+        "mean": 0.7838745800671892
+      },
+      "observed_decisions": 3572,
+      "response": "raise",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.49864047667313605,
+          1.0691086834612424
+        ],
+        "mean": 0.7838745800671892
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          388.2276762161505,
+          428.9519945068273
+        ],
+        "mean": 408.5898353614889
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          646.1069598543876,
+          769.6410716416755
+        ],
+        "mean": 707.8740157480315
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -563.4428250153318,
+          -308.5686280984835
+        ],
+        "mean": -436.00572655690763
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.21189786934197452
+        ],
+        "mean": 0.07158196134574087
+      },
+      "observed_decisions": 1397,
+      "response": "all",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.21189786934197452
+        ],
+        "mean": 0.07158196134574087
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          84.59529902293339,
+          89.49203096990841
+        ],
+        "mean": 87.0436649964209
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          450.8108969059912,
+          488.00489256769293
+        ],
+        "mean": 469.4078947368421
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          539.4459573408564,
+          674.3698321328278
+        ],
+        "mean": 606.9078947368421
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -841.3476910272693,
+          -573.1259931832569
+        ],
+        "mean": -707.2368421052631
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "observed_decisions": 1216,
+      "response": "call",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.2434363866727513
+        ],
+        "mean": 0.08223684210526315
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          10.507969030091587,
+          15.404700977066607
+        ],
+        "mean": 12.956335003579097
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1343.8148445229494,
+          1428.5608460847852
+        ],
+        "mean": 1386.1878453038673
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1343.8148445229494,
+          1428.5608460847852
+        ],
+        "mean": 1386.1878453038673
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          1.6353742579736599
+        ],
+        "mean": 0.5524861878453038
+      },
+      "observed_decisions": 181,
+      "response": "fold",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          386.65071353407905,
+          408.8519769218824
+        ],
+        "mean": 397.7513452279807
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          549.3881095889719,
+          590.2437227531407
+        ],
+        "mean": 569.8159161710563
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -166.18859067624743,
+          -89.72758038011052
+        ],
+        "mean": -127.95808552817898
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.23223834686978906,
+          0.4701122620228759
+        ],
+        "mean": 0.3511753044463325
+      },
+      "observed_decisions": 17655,
+      "response": "all",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.25410719279632765,
+          0.45957165172363834
+        ],
+        "mean": 0.356839422259983
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          39.217351610702586,
+          41.462342526935466
+        ],
+        "mean": 40.339847068819026
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          102.5743029135637,
+          105.2886569291771
+        ],
+        "mean": 103.9314799213704
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          498.70169953487,
+          543.8425296142454
+        ],
+        "mean": 521.2721145745577
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -137.07402940874528,
+          -52.39522080186972
+        ],
+        "mean": -94.7346251053075
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.134901752812109,
+          0.3986562365167312
+        ],
+        "mean": 0.2667789946644201
+      },
+      "observed_decisions": 7122,
+      "response": "call",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.08334357142231055,
+          0.2817224212763696
+        ],
+        "mean": 0.1825329963493401
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          9.783851028833764,
+          11.139400174791271
+        ],
+        "mean": 10.461625601812518
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          535.8270635236203,
+          566.9341709105973
+        ],
+        "mean": 551.3806172171088
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          535.8270635236203,
+          566.9341709105973
+        ],
+        "mean": 551.3806172171088
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.43572310291642824,
+          1.5133835565313247
+        ],
+        "mean": 0.9745533297238765
+      },
+      "observed_decisions": 1847,
+      "response": "fold",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.3607215424473364,
+          1.1552503037898048
+        ],
+        "mean": 0.7579859231185706
+      }
+    },
+    {
+      "arm": "O",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          48.032813145350104,
+          50.3642415133868
+        ],
+        "mean": 49.19852732936845
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          706.7472836532438,
+          739.7413186953631
+        ],
+        "mean": 723.2443011743035
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          580.2939552664241,
+          646.7841013764496
+        ],
+        "mean": 613.5390283214368
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -361.7044819020464,
+          -237.60475134685984
+        ],
+        "mean": -299.6546166244531
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.14392089935401997,
+          0.43171805989074175
+        ],
+        "mean": 0.28781947962238086
+      },
+      "observed_decisions": 8686,
+      "response": "raise",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.2594296957741353,
+          0.5694904055383215
+        ],
+        "mean": 0.41446005065622843
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          386.2179033538004,
+          415.1824785685421
+        ],
+        "mean": 400.70019096117124
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          657.3898551494327,
+          750.1212842522224
+        ],
+        "mean": 703.7555697008276
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -544.4512630677362,
+          -354.84854597109256
+        ],
+        "mean": -449.6499045194144
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.2992057942186902,
+          1.2284835756094448
+        ],
+        "mean": 0.7638446849140674
+      },
+      "observed_decisions": 1571,
+      "response": "all",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          87.97614957829768,
+          91.01812158656548
+        ],
+        "mean": 89.49713558243158
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          433.25589984746375,
+          462.1921798111422
+        ],
+        "mean": 447.72403982930297
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          586.8644587108715,
+          687.6732368794555
+        ],
+        "mean": 637.2688477951635
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -751.5089403467738,
+          -551.478257377266
+        ],
+        "mean": -651.4935988620199
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.08606878176068056,
+          0.7674162822506994
+        ],
+        "mean": 0.42674253200568996
+      },
+      "observed_decisions": 1406,
+      "response": "call",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          8.98187841343453,
+          12.023850421702328
+        ],
+        "mean": 10.502864417568428
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1244.2149875778557,
+          1296.3910730282048
+        ],
+        "mean": 1270.3030303030303
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1244.2149875778557,
+          1296.3910730282048
+        ],
+        "mean": 1270.3030303030303
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.7784087108755227,
+          6.49431856185175
+        ],
+        "mean": 3.6363636363636362
+      },
+      "observed_decisions": 165,
+      "response": "fold",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          248.9027826330372,
+          257.3973412172866
+        ],
+        "mean": 253.1500619251619
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          495.075788862381,
+          514.4099277437141
+        ],
+        "mean": 504.7428583030475
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -160.6711836698711,
+          -125.96719368785327
+        ],
+        "mean": -143.3191886788622
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.37669390760666266,
+          0.520713356925447
+        ],
+        "mean": 0.4487036322660548
+      },
+      "observed_decisions": 49253,
+      "response": "all",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          43.89985570000368,
+          44.9190994905431
+        ],
+        "mean": 44.40947759527339
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          118.42733311307963,
+          121.01855908277828
+        ],
+        "mean": 119.72294609792895
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          531.1446348441905,
+          552.7396060006868
+        ],
+        "mean": 541.9421204224386
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -159.08420769499384,
+          -119.60641544769351
+        ],
+        "mean": -139.34531157134367
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.20390655095285834,
+          0.34471503730663966
+        ],
+        "mean": 0.274310794129749
+      },
+      "observed_decisions": 21873,
+      "response": "call",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          19.352948253420415,
+          20.36036870189195
+        ],
+        "mean": 19.856658477656183
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          303.58663409997513,
+          311.7303393151578
+        ],
+        "mean": 307.65848670756645
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          303.58663409997513,
+          311.7303393151578
+        ],
+        "mean": 307.65848670756645
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.47142893283064813,
+          0.7964647277010491
+        ],
+        "mean": 0.6339468302658486
+      },
+      "observed_decisions": 9780,
+      "response": "fold",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          35.14997647027826,
+          36.3177513838626
+        ],
+        "mean": 35.73386392707043
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          552.2139100742263,
+          567.0701808348647
+        ],
+        "mean": 559.6420454545455
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          549.4142096368337,
+          586.6426085449846
+        ],
+        "mean": 568.0284090909091
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -433.01514231720836,
+          -364.70076677370076
+        ],
+        "mean": -398.85795454545456
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.4283504358345804,
+          0.6966495641654196
+        ],
+        "mean": 0.5625
+      },
+      "observed_decisions": 17600,
+      "response": "raise",
+      "street": "flop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          615.5288670212612,
+          630.0206524104144
+        ],
+        "mean": 622.7747597158378
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          685.992198409233,
+          769.7537272071481
+        ],
+        "mean": 727.8729628081906
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -560.4111522876011,
+          -394.20648248047246
+        ],
+        "mean": -477.3088173840368
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.1594035814315135,
+          0.67636741731483
+        ],
+        "mean": 0.41788549937317176
+      },
+      "observed_decisions": 2393,
+      "response": "all",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          98.49846654844788,
+          99.32852885481162
+        ],
+        "mean": 98.91349770162975
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          622.7730457907819,
+          636.4580484213009
+        ],
+        "mean": 629.6155471060414
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          677.7010494750583,
+          762.0961621852713
+        ],
+        "mean": 719.8986058301648
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -582.104018969787,
+          -414.93865107668535
+        ],
+        "mean": -498.5213350232362
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.02625904842462176,
+          0.3962166592221885
+        ],
+        "mean": 0.21123785382340513
+      },
+      "observed_decisions": 2367,
+      "response": "call",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.6714711451883757,
+          1.5015334515521175
+        ],
+        "mean": 1.0865022983702466
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1339.8889597872844,
+          1567.8033479050232
+        ],
+        "mean": 1453.8461538461538
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1339.8889597872844,
+          1567.8033479050232
+        ],
+        "mean": 1453.8461538461538
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          4.079703782985733,
+          34.381834678552735
+        ],
+        "mean": 19.230769230769234
+      },
+      "observed_decisions": 26,
+      "response": "fold",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          335.07384954714723,
+          344.2090142888014
+        ],
+        "mean": 339.64143191797433
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          383.54792435852346,
+          396.73671701453566
+        ],
+        "mean": 390.14232068652956
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -243.4795256928195,
+          -221.88204419028682
+        ],
+        "mean": -232.68078494155316
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.05875336774951042,
+          0.1154688126175333
+        ],
+        "mean": 0.08711109018352187
+      },
+      "observed_decisions": 84949,
+      "response": "all",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          45.09494028751125,
+          46.02796875203012
+        ],
+        "mean": 45.561454519770685
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          135.5628682413372,
+          137.66987256064706
+        ],
+        "mean": 136.61637040099214
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          477.0092547542098,
+          492.4202615748518
+        ],
+        "mean": 484.7147581645308
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -105.16013185679574,
+          -78.6399921613936
+        ],
+        "mean": -91.90006200909467
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.021859045232756204,
+          0.06598717221246911
+        ],
+        "mean": 0.04392310872261265
+      },
+      "observed_decisions": 38704,
+      "response": "call",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          17.303539132170254,
+          18.016476406564752
+        ],
+        "mean": 17.660007769367503
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          140.9856244264978,
+          145.7228144483189
+        ],
+        "mean": 143.35421943740835
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          140.9856244264978,
+          145.7228144483189
+        ],
+        "mean": 143.35421943740835
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.061603376831625895,
+          0.17836462743447196
+        ],
+        "mean": 0.11998400213304893
+      },
+      "observed_decisions": 15002,
+      "response": "fold",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          36.23165689843525,
+          37.32541852328838
+        ],
+        "mean": 36.77853771086181
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          749.4779170638157,
+          758.9943807308904
+        ],
+        "mean": 754.236148897353
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          378.2590990532622,
+          404.7130867163501
+        ],
+        "mean": 391.48609288480617
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -609.7541519312234,
+          -565.5299116990299
+        ],
+        "mean": -587.6420318151266
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.07364007375255682,
+          0.17601584917417876
+        ],
+        "mean": 0.12482796146336779
+      },
+      "observed_decisions": 31243,
+      "response": "raise",
+      "street": "preflop",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          272.4033943060544,
+          300.99685663497445
+        ],
+        "mean": 286.7001254705144
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          590.9622256072381,
+          721.4593553212436
+        ],
+        "mean": 656.2107904642409
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -706.5542449316158,
+          -445.26507752760637
+        ],
+        "mean": -575.9096612296111
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          1.3252646256468845,
+          3.4426149226592644
+        ],
+        "mean": 2.3839397741530743
+      },
+      "observed_decisions": 797,
+      "response": "all",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          87.83922264365037,
+          92.08549504769215
+        ],
+        "mean": 89.96235884567126
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          304.87229067702197,
+          332.50567306077437
+        ],
+        "mean": 318.68898186889817
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          461.21352842327195,
+          593.1797770160586
+        ],
+        "mean": 527.1966527196653
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -973.7859386143964,
+          -711.0118298653804
+        ],
+        "mean": -842.3988842398884
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.5375474228191639,
+          2.2518528561208644
+        ],
+        "mean": 1.394700139470014
+      },
+      "observed_decisions": 717,
+      "response": "call",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          7.9145049523078495,
+          12.160777356349618
+        ],
+        "mean": 10.037641154328734
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1792.2155663594522,
+          1832.7844336405478
+        ],
+        "mean": 1812.5
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1792.2155663594522,
+          1832.7844336405478
+        ],
+        "mean": 1812.5
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          4.313968611800056,
+          18.186031388199943
+        ],
+        "mean": 11.25
+      },
+      "observed_decisions": 80,
+      "response": "fold",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          446.5007461420375,
+          468.4805570642637
+        ],
+        "mean": 457.4906516031506
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          514.0294579755375,
+          547.8529511262207
+        ],
+        "mean": 530.9412045508791
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -88.40518350249685,
+          -25.860072285553112
+        ],
+        "mean": -57.132627894024985
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          2.9765162935639813,
+          3.7861537676978534
+        ],
+        "mean": 3.3813350306309173
+      },
+      "observed_decisions": 12569,
+      "response": "all",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          41.25758117273395,
+          43.39513582941419
+        ],
+        "mean": 42.32635850107407
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100.0
+        ],
+        "mean": 100.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          336.1037510590772,
+          357.9939933018251
+        ],
+        "mean": 347.04887218045116
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          29.773570144620287,
+          71.4670313591391
+        ],
+        "mean": 50.6203007518797
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          1.6851487035486035,
+          2.450189642316058
+        ],
+        "mean": 2.0676691729323307
+      },
+      "observed_decisions": 5320,
+      "response": "call",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          9.61801524113878,
+          10.84502875599703
+        ],
+        "mean": 10.231521998567905
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          626.3182643577246,
+          661.7066190015288
+        ],
+        "mean": 644.0124416796267
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          626.3182643577246,
+          661.7066190015288
+        ],
+        "mean": 644.0124416796267
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          6.6652437561294064,
+          9.819981749313829
+        ],
+        "mean": 8.242612752721618
+      },
+      "observed_decisions": 1286,
+      "response": "fold",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          46.33062342560119,
+          48.55361557511485
+        ],
+        "mean": 47.44211950035802
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          858.9677666068073,
+          891.2250893381868
+        ],
+        "mean": 875.096427972497
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          638.6270325420323,
+          702.6105995223647
+        ],
+        "mean": 670.6188160321985
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -364.5982191496084,
+          -244.35700473098865
+        ],
+        "mean": -304.4776119402985
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          2.9125773282466048,
+          4.097317020235703
+        ],
+        "mean": 3.504947174241154
+      },
+      "observed_decisions": 5963,
+      "response": "raise",
+      "street": "river",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          457.8580649506414,
+          489.178694239156
+        ],
+        "mean": 473.5183795948987
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          641.1684670328942,
+          742.6274819543527
+        ],
+        "mean": 691.8979744936235
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -598.5903954880201,
+          -394.2078040618674
+        ],
+        "mean": -496.39909977494375
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          2.2115608110881935,
+          4.0900145827602685
+        ],
+        "mean": 3.150787696924231
+      },
+      "observed_decisions": 1333,
+      "response": "all",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          90.58332139816964,
+          93.51270260783186
+        ],
+        "mean": 92.04801200300075
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          499.43519327151176,
+          529.4156624742095
+        ],
+        "mean": 514.4254278728606
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          566.5568351678628,
+          672.236970863107
+        ],
+        "mean": 619.3969030154849
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -776.3490086534289,
+          -566.7642757801489
+        ],
+        "mean": -671.5566422167889
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0.8565513020181675,
+          2.2404332130592572
+        ],
+        "mean": 1.5484922575387123
+      },
+      "observed_decisions": 1227,
+      "response": "call",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "jam",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          6.48729739216814,
+          9.41667860183036
+        ],
+        "mean": 7.95198799699925
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1481.4056150435808,
+          1580.8585358998153
+        ],
+        "mean": 1531.132075471698
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          1481.4056150435808,
+          1580.8585358998153
+        ],
+        "mean": 1531.132075471698
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          13.829737279494662,
+          29.566489135599678
+        ],
+        "mean": 21.69811320754717
+      },
+      "observed_decisions": 106,
+      "response": "fold",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          100.0,
+          100
+        ],
+        "mean": 100.0
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          334.47550194256667,
+          346.934802967776
+        ],
+        "mean": 340.70515245517134
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          551.6550321159708,
+          578.4879655385649
+        ],
+        "mean": 565.0714988272679
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -149.49293057018096,
+          -99.64076088778984
+        ],
+        "mean": -124.5668457289854
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          2.0733455625037553,
+          2.52679062573866
+        ],
+        "mean": 2.3000680941212077
+      },
+      "observed_decisions": 26434,
+      "response": "all",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          43.86455853519145,
+          45.33874024668039
+        ],
+        "mean": 44.60164939093592
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          102.0883403916212,
+          103.42480634289957
+        ],
+        "mean": 102.75657336726039
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          496.0536428131532,
+          523.3695972207739
+        ],
+        "mean": 509.71162001696354
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -124.24407878319323,
+          -73.21139195472026
+        ],
+        "mean": -98.72773536895674
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          1.0672670480932505,
+          1.4942257424071737
+        ],
+        "mean": 1.280746395250212
+      },
+      "observed_decisions": 11790,
+      "response": "call",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          9.989643353188942,
+          10.892553817122021
+        ],
+        "mean": 10.441098585155482
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          513.0663201357369,
+          534.8322305889009
+        ],
+        "mean": 523.9492753623189
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          513.0663201357369,
+          534.8322305889009
+        ],
+        "mean": 523.9492753623189
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          4.678286159525839,
+          6.408670362213292
+        ],
+        "mean": 5.543478260869565
+      },
+      "observed_decisions": 2760,
+      "response": "fold",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    },
+    {
+      "arm": "R",
+      "facing": "raise",
+      "frequency_percent": {
+        "blocks": 12288,
+        "ci95": [
+          44.20592626916914,
+          45.70857777864806
+        ],
+        "mean": 44.9572520239086
+      },
+      "mean_chips_committed": {
+        "blocks": 12288,
+        "ci95": [
+          645.5360064195289,
+          666.2613682018108
+        ],
+        "mean": 655.8986873106699
+      },
+      "mean_gross_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          606.3658154088986,
+          652.722033800122
+        ],
+        "mean": 629.5439246045103
+      },
+      "mean_terminal_net_chips_lost": {
+        "blocks": 12288,
+        "ci95": [
+          -344.0493728629461,
+          -257.58307412460016
+        ],
+        "mean": -300.8162234937731
+      },
+      "missing_percent": {
+        "blocks": 12288,
+        "ci95": [
+          2.2176810425071602,
+          2.898441475163658
+        ],
+        "mean": 2.558061258835409
+      },
+      "observed_decisions": 11884,
+      "response": "raise",
+      "street": "turn",
+      "zero_mass_percent": {
+        "blocks": 12288,
+        "ci95": [
+          0,
+          0.0
+        ],
+        "mean": 0.0
+      }
+    }
+  ],
+  "source_files": [
+    {
+      "path": "R-2026093001.hands.jsonl.gz",
+      "sha256": "056e409702d141d09a2191a6ece043a77d88560814058a0eb0ad79fd63856872"
+    },
+    {
+      "path": "R-2026093002.hands.jsonl.gz",
+      "sha256": "955ed4230bf6542648a9252d41cf46706ea8552553c68d15370d24158809afba"
+    },
+    {
+      "path": "R-2026093003.hands.jsonl.gz",
+      "sha256": "7dd882e150432a9a98dd39843daf2c68dc68a0c1deeaf456f266f53a2648d101"
+    },
+    {
+      "path": "O-2026100601.hands.jsonl.gz",
+      "sha256": "804cfe856fedd2ce3173d20b32147374da1ad475daa2a962956fdd6dcd716ef4"
+    },
+    {
+      "path": "O-2026100602.hands.jsonl.gz",
+      "sha256": "6dce4be1b3c7348153001d2d97beef65c47504b3c9201898a9316d9c281a15af"
+    },
+    {
+      "path": "O-2026100603.hands.jsonl.gz",
+      "sha256": "9f8e31e0edf5d3f3b30cda03c38aa90ba50e3b25d2adbaa5287ebd5223973cd4"
+    }
+  ],
+  "status": "verified_descriptive_partitions",
+  "translation": "No action translation exists in the frozen harness. Off-menu compares actual rival raise_to to its recorded uncapped v1 menu.",
+  "units": "100 chips = 1 BB; mean chips/hand numerically equals BB/100",
+  "whole_hand_partitions": [
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 880000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              1.6512846167986286,
+              1.9185938554235937
+            ],
+            "mean": 1.7849392361111112
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -695.6664152559252,
+              -435.0326728899714
+            ],
+            "mean": -565.3495440729483
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              7.673744089157104,
+              12.508547577509564
+            ],
+            "mean": 10.091145833333334
+          },
+          "observed_hands": 1316
+        },
+        "R": {
+          "gross_losses_chips": 896000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              1.803519097737261,
+              2.0104999994849613
+            ],
+            "mean": 1.9070095486111112
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -751.5089403467738,
+              -551.478257377266
+            ],
+            "mean": -651.4935988620199
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              10.408354871695284,
+              14.439735406082498
+            ],
+            "mean": 12.424045138888891
+          },
+          "observed_hands": 1406
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -5.368710751435897,
+          0.7029121403247856
+        ],
+        "mean": -2.3328993055555554
+      },
+      "dimension": "last_response",
+      "group": "flop/jam/call"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 155700,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.11728547923608001,
+              0.19738465965280888
+            ],
+            "mean": 0.15733506944444445
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              1283.8058021293139,
+              1400.676956491376
+            ],
+            "mean": 1342.2413793103449
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -2.6539892135791074,
+              -1.5696435989208934
+            ],
+            "mean": -2.1118164062500004
+          },
+          "observed_hands": 116
+        },
+        "R": {
+          "gross_losses_chips": 209600,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.18945924577680193,
+              0.2581319000565314
+            ],
+            "mean": 0.22379557291666666
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              1244.2149875778557,
+              1296.3910730282048
+            ],
+            "mean": 1270.3030303030303
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -3.2829857991215787,
+              -2.4027780897673106
+            ],
+            "mean": -2.8428819444444446
+          },
+          "observed_hands": 165
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          0.04700203565081473,
+          1.4151290407380743
+        ],
+        "mean": 0.7310655381944445
+      },
+      "dimension": "last_response",
+      "group": "flop/jam/fold"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 634000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              1.2989361956650352,
+              1.5303823807238537
+            ],
+            "mean": 1.4146592881944444
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -569.459985535043,
+              -286.3405897286195
+            ],
+            "mean": -427.90028763183125
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              3.9827945374294194,
+              8.123867788959469
+            ],
+            "mean": 6.053331163194444
+          },
+          "observed_hands": 1043
+        },
+        "R": {
+          "gross_losses_chips": 778000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              1.5349741988146617,
+              1.722946808129783
+            ],
+            "mean": 1.6289605034722223
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -495.0355042271412,
+              -286.14684381615604
+            ],
+            "mean": -390.5911740216486
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              4.615104784491987,
+              8.110047125230237
+            ],
+            "mean": 6.362575954861112
+          },
+          "observed_hands": 1201
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -2.8032204017340225,
+          2.1847308184006886
+        ],
+        "mean": -0.30924479166666696
+      },
+      "dimension": "last_response",
+      "group": "flop/raise/call"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 3324700,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              13.208516908505011,
+              14.032151494272767
+            ],
+            "mean": 13.62033420138889
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              325.1617442729152,
+              336.99718821065386
+            ],
+            "mean": 331.07946624178453
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -46.62217838449548,
+              -43.56608116411565
+            ],
+            "mean": -45.094129774305564
+          },
+          "observed_hands": 10042
+        },
+        "R": {
+          "gross_losses_chips": 3008900,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              12.937051720560092,
+              13.592896196106576
+            ],
+            "mean": 13.264973958333334
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              303.58663409997513,
+              311.7303393151578
+            ],
+            "mean": 307.65848670756645
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -41.88095938976517,
+              -39.74067689495706
+            ],
+            "mean": -40.810818142361114
+          },
+          "observed_hands": 9780
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -5.781380627309037,
+          -2.785242636579851
+        ],
+        "mean": -4.283311631944444
+      },
+      "dimension": "last_response",
+      "group": "flop/raise/fold"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 2500000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              6.393639756381323,
+              6.941863715840898
+            ],
+            "mean": 6.667751736111111
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -523.3835608074141,
+              -404.3625742617478
+            ],
+            "mean": -463.87306753458097
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              26.808071161137484,
+              35.051737866640295
+            ],
+            "mean": 30.92990451388889
+          },
+          "observed_hands": 4916
+        },
+        "R": {
+          "gross_losses_chips": 2210000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              5.754814410134203,
+              6.1429720481991295
+            ],
+            "mean": 5.948893229166666
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -582.0778056395021,
+              -484.8168592031792
+            ],
+            "mean": -533.4473324213407
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              28.683225852541824,
+              34.78519862662484
+            ],
+            "mean": 31.734212239583332
+          },
+          "observed_hands": 4386
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -5.415589688409494,
+          3.8069742370206043
+        ],
+        "mean": -0.8043077256944445
+      },
+      "dimension": "last_response",
+      "group": "flop/raise/raise"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 493450,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              13.003283659435322,
+              13.768092208620235
+            ],
+            "mean": 13.385687934027779
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              50.0,
+              50.0
+            ],
+            "mean": 50.0
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -6.8840461043101175,
+              -6.501641829717661
+            ],
+            "mean": -6.692843967013889
+          },
+          "observed_hands": 9869
+        },
+        "R": {
+          "gross_losses_chips": 411450,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              10.843620792219584,
+              11.478970353613752
+            ],
+            "mean": 11.161295572916668
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              50.0,
+              50.0
+            ],
+            "mean": 50.0
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -5.739485176806875,
+              -5.421810396109791
+            ],
+            "mean": -5.580647786458333
+          },
+          "observed_hands": 8229
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -1.2376025584537178,
+          -0.9867898026573934
+        ],
+        "mean": -1.1121961805555556
+      },
+      "dimension": "last_response",
+      "group": "no-facing-response"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 1730000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              2.8167501445792618,
+              3.14299377903185
+            ],
+            "mean": 2.979871961805556
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -485.64423595138203,
+              -273.572878295318
+            ],
+            "mean": -379.60855712335
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              8.098026051830825,
+              14.525671864835843
+            ],
+            "mean": 11.311848958333334
+          },
+          "observed_hands": 2197
+        },
+        "R": {
+          "gross_losses_chips": 1704000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              3.070137886618869,
+              3.350760550881131
+            ],
+            "mean": 3.21044921875
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -582.104018969787,
+              -414.93865107668535
+            ],
+            "mean": -498.5213350232362
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              13.23372208305079,
+              18.775826528060318
+            ],
+            "mean": 16.004774305555554
+          },
+          "observed_hands": 2367
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -8.462178410770367,
+          -0.9236722836740769
+        ],
+        "mean": -4.692925347222222
+      },
+      "dimension": "last_response",
+      "group": "preflop/jam/call"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 122800,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.08865294090519171,
+              0.15006233687258608
+            ],
+            "mean": 0.1193576388888889
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              1349.7243166198582,
+              1441.1847742892328
+            ],
+            "mean": 1395.4545454545455
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -2.0968494447997945,
+              -1.2343137496446501
+            ],
+            "mean": -1.6655815972222223
+          },
+          "observed_hands": 88
+        },
+        "R": {
+          "gross_losses_chips": 37800,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.021722132903819764,
+              0.04880738098506912
+            ],
+            "mean": 0.03526475694444444
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              1339.8889597872844,
+              1567.8033479050232
+            ],
+            "mean": 1453.8461538461538
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -0.7136436127963001,
+              -0.31174701220369994
+            ],
+            "mean": -0.5126953125
+          },
+          "observed_hands": 26
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -1.6265543447042954,
+          -0.6792182247401491
+        ],
+        "mean": -1.1528862847222223
+      },
+      "dimension": "last_response",
+      "group": "preflop/jam/fold"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 926000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              2.0234136100447984,
+              2.3222895149552016
+            ],
+            "mean": 2.1728515625
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -501.36228944319737,
+              -277.1645520049924
+            ],
+            "mean": -389.2634207240949
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              5.957684466459412,
+              10.958548172429477
+            ],
+            "mean": 8.458116319444445
+          },
+          "observed_hands": 1602
+        },
+        "R": {
+          "gross_losses_chips": 582000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              1.3935682451545084,
+              1.5740966854010474
+            ],
+            "mean": 1.483832465277778
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -528.216848637152,
+              -334.3060032824093
+            ],
+            "mean": -431.26142595978064
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              4.899929711760509,
+              7.898464385461712
+            ],
+            "mean": 6.399197048611111
+          },
+          "observed_hands": 1094
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -0.49970246299778776,
+          4.617541004664455
+        ],
+        "mean": 2.0589192708333335
+      },
+      "dimension": "last_response",
+      "group": "preflop/raise/call"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 2829000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              22.541761418675957,
+              23.50587312993515
+            ],
+            "mean": 23.023817274305554
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              162.55038545141318,
+              170.76331116125252
+            ],
+            "mean": 166.65684830633285
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -39.65340485976554,
+              -37.08813159856779
+            ],
+            "mean": -38.370768229166664
+          },
+          "observed_hands": 16975
+        },
+        "R": {
+          "gross_losses_chips": 2150600,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              19.980333144367943,
+              20.71519636952095
+            ],
+            "mean": 20.347764756944446
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              140.9856244264978,
+              145.7228144483189
+            ],
+            "mean": 143.35421943740835
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -29.834272031030242,
+              -28.504486649525322
+            ],
+            "mean": -29.169379340277782
+          },
+          "observed_hands": 15002
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -10.554049963956045,
+          -7.8487278138217365
+        ],
+        "mean": -9.201388888888891
+      },
+      "dimension": "last_response",
+      "group": "preflop/raise/fold"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 3044000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              15.570988998604554,
+              16.487387737506552
+            ],
+            "mean": 16.029188368055554
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -705.8087544359793,
+              -653.3383093650024
+            ],
+            "mean": -679.5735319004908
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              104.21164710642013,
+              113.64859594913541
+            ],
+            "mean": 108.93012152777777
+          },
+          "observed_hands": 11818
+        },
+        "R": {
+          "gross_losses_chips": 2084000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              12.417603773917232,
+              13.08152817052721
+            ],
+            "mean": 12.749565972222221
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -784.5781023156968,
+              -736.6133870460054
+            ],
+            "mean": -760.5957446808511
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              93.27883424435112,
+              100.66647825564888
+            ],
+            "mean": 96.97265625
+          },
+          "observed_hands": 9400
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          7.419387849798896,
+          16.495542705756662
+        ],
+        "mean": 11.957465277777779
+      },
+      "dimension": "last_response",
+      "group": "preflop/raise/raise"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 194000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.4873516612656832,
+              0.638407887345428
+            ],
+            "mean": 0.5628797743055556
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -1144.7723135078572,
+              -705.8300961306969
+            ],
+            "mean": -925.3012048192771
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              3.8186481054380064,
+              6.59801856122866
+            ],
+            "mean": 5.208333333333333
+          },
+          "observed_hands": 415
+        },
+        "R": {
+          "gross_losses_chips": 378000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.8971443965000784,
+              1.0478425826665885
+            ],
+            "mean": 0.9724934895833334
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -973.7859386143964,
+              -711.0118298653804
+            ],
+            "mean": -842.3988842398884
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              6.768838900749082,
+              9.61570971036203
+            ],
+            "mean": 8.192274305555555
+          },
+          "observed_hands": 717
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -4.860202758441748,
+          -1.1076791860026955
+        ],
+        "mean": -2.9839409722222214
+      },
+      "dimension": "last_response",
+      "group": "river/jam/call"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 197100,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.12685887221373307,
+              0.21222532917515582
+            ],
+            "mean": 0.16954210069444445
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              1536.7540651745878,
+              1616.845934825412
+            ],
+            "mean": 1576.8
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -3.345169913265557,
+              -2.001509774234443
+            ],
+            "mean": -2.67333984375
+          },
+          "observed_hands": 125
+        },
+        "R": {
+          "gross_losses_chips": 145000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.08450759978033937,
+              0.13250628910854953
+            ],
+            "mean": 0.10850694444444445
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              1792.2155663594522,
+              1832.7844336405478
+            ],
+            "mean": 1812.5
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -2.402453549235799,
+              -1.5309231868753133
+            ],
+            "mean": -1.966688368055556
+          },
+          "observed_hands": 80
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -1.4760294434886658,
+          0.06272649209977732
+        ],
+        "mean": -0.7066514756944443
+      },
+      "dimension": "last_response",
+      "group": "river/jam/fold"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 1164100,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              4.144528521403239,
+              4.595705853596761
+            ],
+            "mean": 4.3701171875
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              18.0855870369149,
+              86.32161345967107
+            ],
+            "mean": 52.203600248292986
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -3.7763273485343087,
+              -0.7863896653545805
+            ],
+            "mean": -2.2813585069444446
+          },
+          "observed_hands": 3222
+        },
+        "R": {
+          "gross_losses_chips": 1846300,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              6.991733637892903,
+              7.439689973218208
+            ],
+            "mean": 7.215711805555555
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              29.773570144620287,
+              71.4670313591391
+            ],
+            "mean": 50.6203007518797
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -5.158497614587327,
+              -2.146732420134894
+            ],
+            "mean": -3.6526150173611107
+          },
+          "observed_hands": 5320
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -0.4056697193720764,
+          3.14818274020541
+        ],
+        "mean": 1.3712565104166667
+      },
+      "dimension": "last_response",
+      "group": "river/raise/call"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 495300,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.8824441773334158,
+              1.0842441907221398
+            ],
+            "mean": 0.9833441840277778
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              656.1196960894613,
+              710.2251314967457
+            ],
+            "mean": 683.1724137931035
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -7.3979638862259955,
+              -6.037908509607338
+            ],
+            "mean": -6.717936197916667
+          },
+          "observed_hands": 725
+        },
+        "R": {
+          "gross_losses_chips": 828200,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              1.6327272517401321,
+              1.8557710121487567
+            ],
+            "mean": 1.7442491319444444
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              626.3182643577246,
+              661.7066190015288
+            ],
+            "mean": 644.0124416796267
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -11.9806897991851,
+              -10.485673048037125
+            ],
+            "mean": -11.233181423611112
+          },
+          "observed_hands": 1286
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          3.597755509947267,
+          5.432734941441622
+        ],
+        "mean": 4.515245225694445
+      },
+      "dimension": "last_response",
+      "group": "river/raise/fold"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 1228000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              2.5708481708249633,
+              2.9006145027861483
+            ],
+            "mean": 2.735731336805556
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -573.9813138178504,
+              -366.6235448831908
+            ],
+            "mean": -470.3024293505206
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              9.931305990235327,
+              15.801115884764673
+            ],
+            "mean": 12.8662109375
+          },
+          "observed_hands": 2017
+        },
+        "R": {
+          "gross_losses_chips": 2224000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              4.551087785036314,
+              4.899867076074797
+            ],
+            "mean": 4.725477430555555
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -471.3843784817595,
+              -347.96120131158153
+            ],
+            "mean": -409.6727898966705
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              16.34186570416625,
+              22.376124747222637
+            ],
+            "mean": 19.358995225694443
+          },
+          "observed_hands": 3484
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -10.211419905712772,
+          -2.7741486706761154
+        ],
+        "mean": -6.492784288194444
+      },
+      "dimension": "last_response",
+      "group": "river/raise/raise"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 738000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              1.523592720866415,
+              1.775018390244696
+            ],
+            "mean": 1.6493055555555556
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -841.3476910272693,
+              -573.1259931832569
+            ],
+            "mean": -707.2368421052631
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              9.27520484041896,
+              14.053788215136594
+            ],
+            "mean": 11.664496527777777
+          },
+          "observed_hands": 1216
+        },
+        "R": {
+          "gross_losses_chips": 760000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              1.5673915878296807,
+              1.7610589330036528
+            ],
+            "mean": 1.6642252604166667
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -776.3490086534289,
+              -566.7642757801489
+            ],
+            "mean": -671.5566422167889
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              9.314195451564762,
+              13.038235103990791
+            ],
+            "mean": 11.176215277777777
+          },
+          "observed_hands": 1227
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -2.349468351242937,
+          3.326030851242937
+        ],
+        "mean": 0.48828125
+      },
+      "dimension": "last_response",
+      "group": "turn/jam/call"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 250900,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.1955908987546752,
+              0.2954030248564359
+            ],
+            "mean": 0.24549696180555555
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              1343.8148445229494,
+              1428.5608460847852
+            ],
+            "mean": 1386.1878453038673
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -4.081287168499223,
+              -2.7248109217785554
+            ],
+            "mean": -3.4030490451388893
+          },
+          "observed_hands": 181
+        },
+        "R": {
+          "gross_losses_chips": 162300,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.11625846655361846,
+              0.17128493622415933
+            ],
+            "mean": 0.1437717013888889
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              1481.4056150435808,
+              1580.8585358998153
+            ],
+            "mean": 1531.132075471698
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -2.629223802274067,
+              -1.773445468559266
+            ],
+            "mean": -2.2013346354166665
+          },
+          "observed_hands": 106
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -1.9931986153290588,
+          -0.41023020411538536
+        ],
+        "mean": -1.201714409722222
+      },
+      "dimension": "last_response",
+      "group": "turn/jam/fold"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 434000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              0.7519434113432736,
+              0.9244888803233932
+            ],
+            "mean": 0.8382161458333334
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -516.9007939059117,
+              -139.0862611102696
+            ],
+            "mean": -327.9935275080906
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              1.138100437074675,
+              4.3604889726475475
+            ],
+            "mean": 2.749294704861111
+          },
+          "observed_hands": 618
+        },
+        "R": {
+          "gross_losses_chips": 588000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              1.141005247063325,
+              1.308539023770008
+            ],
+            "mean": 1.2247721354166665
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -539.3715841331292,
+              -291.6361678048553
+            ],
+            "mean": -415.50387596899225
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              3.5232493119206327,
+              6.654702076968254
+            ],
+            "mean": 5.088975694444444
+          },
+          "observed_hands": 903
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -4.4591345638965105,
+          -0.22022741527015466
+        ],
+        "mean": -2.3396809895833326
+      },
+      "dimension": "last_response",
+      "group": "turn/raise/call"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 1018400,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              2.3340959654679594,
+              2.676212194254263
+            ],
+            "mean": 2.505154079861111
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              535.8270635236203,
+              566.9341709105973
+            ],
+            "mean": 551.3806172171088
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -14.77400833601202,
+              -12.851859719543537
+            ],
+            "mean": -13.812934027777779
+          },
+          "observed_hands": 1847
+        },
+        "R": {
+          "gross_losses_chips": 1446100,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              3.576557925277871,
+              3.910421241388796
+            ],
+            "mean": 3.7434895833333335
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              513.0663201357369,
+              534.8322305889009
+            ],
+            "mean": 523.9492753623189
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -20.524723755572527,
+              -18.70324933470525
+            ],
+            "mean": -19.61398654513889
+          },
+          "observed_hands": 2760
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          4.616869484078862,
+          6.985235550643361
+        ],
+        "mean": 5.801052517361112
+      },
+      "dimension": "last_response",
+      "group": "turn/raise/fold"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 1958000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              4.367144080601074,
+              4.801692724954481
+            ],
+            "mean": 4.584418402777778
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -460.3374396769217,
+              -311.9110810331375
+            ],
+            "mean": -386.1242603550296
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              14.215056972118894,
+              21.18804632649222
+            ],
+            "mean": 17.701551649305557
+          },
+          "observed_hands": 3380
+        },
+        "R": {
+          "gross_losses_chips": 2698000,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              6.2979507977677205,
+              6.69304312584339
+            ],
+            "mean": 6.495496961805555
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -507.4535195615342,
+              -410.9845677218235
+            ],
+            "mean": -459.21904364167887
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              26.571863888850686,
+              33.085254166704864
+            ],
+            "mean": 29.828559027777775
+          },
+          "observed_hands": 4789
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -16.415649801301328,
+          -7.838364955643118
+        ],
+        "mean": -12.127007378472223
+      },
+      "dimension": "last_response",
+      "group": "turn/raise/raise"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 7494400,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              23.154737367531315,
+              24.135301694968685
+            ],
+            "mean": 23.64501953125
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -22.73481481691031,
+              23.847646802225512
+            ],
+            "mean": 0.5564159926576034
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -5.638813695648969,
+              5.375684355371193
+            ],
+            "mean": -0.1315646701388887
+          },
+          "observed_hands": 17433
+        },
+        "R": {
+          "gross_losses_chips": 7102500,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              22.600836346035273,
+              23.346429278964727
+            ],
+            "mean": 22.9736328125
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -48.29692647829177,
+              -11.485810562681188
+            ],
+            "mean": -29.89136852048648
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              2.6439463188033496,
+              11.090320174252206
+            ],
+            "mean": 6.867133246527778
+          },
+          "observed_hands": 16938
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -12.927158928997114,
+          -1.0702369043362197
+        ],
+        "mean": -6.998697916666667
+      },
+      "dimension": "last_street",
+      "group": "flop"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 493450,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              13.003283659435322,
+              13.768092208620235
+            ],
+            "mean": 13.385687934027779
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              50.0,
+              50.0
+            ],
+            "mean": 50.0
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -6.8840461043101175,
+              -6.501641829717661
+            ],
+            "mean": -6.692843967013889
+          },
+          "observed_hands": 9869
+        },
+        "R": {
+          "gross_losses_chips": 411450,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              10.843620792219584,
+              11.478970353613752
+            ],
+            "mean": 11.161295572916668
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              50.0,
+              50.0
+            ],
+            "mean": 50.0
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              -5.739485176806875,
+              -5.421810396109791
+            ],
+            "mean": -5.580647786458333
+          },
+          "observed_hands": 8229
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -1.2376025584537178,
+          -0.9867898026573934
+        ],
+        "mean": -1.1121961805555556
+      },
+      "dimension": "last_street",
+      "group": "no-facing-response"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 8651800,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              43.76437993536444,
+              44.885793675746676
+            ],
+            "mean": 44.32508680555556
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -214.0594665353171,
+              -186.0017329750868
+            ],
+            "mean": -200.03059975520196
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              82.38619405347934,
+              94.941279904854
+            ],
+            "mean": 88.66373697916667
+          },
+          "observed_hands": 32680
+        },
+        "R": {
+          "gross_losses_chips": 6558400,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              37.39160804879558,
+              38.2621462914822
+            ],
+            "mean": 37.82687717013889
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -249.44083640435701,
+              -224.79631802929066
+            ],
+            "mean": -237.11857721682384
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              84.88459076341024,
+              94.50451513936756
+            ],
+            "mean": 89.6945529513889
+          },
+          "observed_hands": 27889
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -7.309328308804508,
+          5.247696364360065
+        ],
+        "mean": -1.0308159722222217
+      },
+      "dimension": "last_street",
+      "group": "preflop"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 3278500,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              8.498586225620675,
+              9.144642941045989
+            ],
+            "mean": 8.821614583333332
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -115.35065674448886,
+              -29.790794670025278
+            ],
+            "mean": -72.57072570725707
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              2.619268205475662,
+              10.184551238968783
+            ],
+            "mean": 6.401909722222222
+          },
+          "observed_hands": 6504
+        },
+        "R": {
+          "gross_losses_chips": 5421500,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              14.449799929531483,
+              15.083077674635184
+            ],
+            "mean": 14.766438802083334
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -98.29443509529254,
+              -46.61233444636265
+            ],
+            "mean": -72.4533847708276
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              6.872669762854409,
+              14.524899681590034
+            ],
+            "mean": 10.698784722222221
+          },
+          "observed_hands": 10887
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -8.767169910172946,
+          0.1734199101729459
+        ],
+        "mean": -4.296875
+      },
+      "dimension": "last_street",
+      "group": "river"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 4399300,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              9.496378772857444,
+              10.14880351880922
+            ],
+            "mean": 9.822591145833332
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -200.3269586785804,
+              -103.04227633937042
+            ],
+            "mean": -151.6846175089754
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              10.102456273792633,
+              19.696263344262924
+            ],
+            "mean": 14.899359809027779
+          },
+          "observed_hands": 7242
+        },
+        "R": {
+          "gross_losses_chips": 5654400,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              12.987840500403102,
+              13.555670784319119
+            ],
+            "mean": 13.27175564236111
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -214.72875073585377,
+              -151.13737087886264
+            ],
+            "mean": -182.9330608073582
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              20.02953968721752,
+              28.527317951671364
+            ],
+            "mean": 24.278428819444443
+          },
+          "observed_hands": 9785
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -14.914088129200202,
+          -3.8440498916331327
+        ],
+        "mean": -9.379069010416668
+      },
+      "dimension": "last_street",
+      "group": "turn"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 24317450,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              100.0,
+              100
+            ],
+            "mean": 100.0
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -112.30014709398668,
+              -93.98104865254109
+            ],
+            "mean": -103.14059787326389
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              93.9810486525411,
+              112.3001470939867
+            ],
+            "mean": 103.1405978732639
+          },
+          "observed_hands": 73728
+        },
+        "R": {
+          "gross_losses_chips": 25148250,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              100.0,
+              100
+            ],
+            "mean": 100.0
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -133.56290886003563,
+              -118.35359504621435
+            ],
+            "mean": -125.958251953125
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              118.35359504621437,
+              133.56290886003563
+            ],
+            "mean": 125.958251953125
+          },
+          "observed_hands": 73728
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -31.832094574658182,
+          -13.803213585064046
+        ],
+        "mean": -22.817654079861114
+      },
+      "dimension": "off_menu",
+      "group": "all-menu-sizes"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 10410150,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              65.74796772146456,
+              66.85836908409101
+            ],
+            "mean": 66.30316840277779
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -59.620769556177514,
+              -41.80096352622163
+            ],
+            "mean": -50.71086654119957
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              27.72638657483765,
+              39.51943590780125
+            ],
+            "mean": 33.62291124131945
+          },
+          "observed_hands": 48884
+        },
+        "R": {
+          "gross_losses_chips": 8183750,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              57.08553767100273,
+              57.99692760677504
+            ],
+            "mean": 57.541232638888886
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -59.26275491446028,
+              -44.34133710892271
+            ],
+            "mean": -51.802046011691495
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              25.514421046016338,
+              34.100650568567
+            ],
+            "mean": 29.807535807291668
+          },
+          "observed_hands": 42424
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -2.008910252692506,
+          9.63966112074806
+        ],
+        "mean": 3.8153754340277772
+      },
+      "dimension": "raise_depth",
+      "group": "at-most-two-opponent-raises"
+    },
+    {
+      "arms": {
+        "O": {
+          "gross_losses_chips": 13907300,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              33.14163091590899,
+              34.25203227853545
+            ],
+            "mean": 33.69683159722222
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -229.93426041821925,
+              -182.67240517508293
+            ],
+            "mean": -206.3033327966511
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              61.54050080556425,
+              77.49487245832464
+            ],
+            "mean": 69.51768663194444
+          },
+          "observed_hands": 24844
+        },
+        "R": {
+          "gross_losses_chips": 16964500,
+          "hand_share_percent": {
+            "blocks": 12288,
+            "ci95": [
+              42.003072393224954,
+              42.91446232899726
+            ],
+            "mean": 42.45876736111111
+          },
+          "mean_net_chips_lost_per_exposed_hand": {
+            "blocks": 12288,
+            "ci95": [
+              -242.95981142602156,
+              -209.95355427804182
+            ],
+            "mean": -226.4566828520317
+          },
+          "net_contribution_bb_per_100": {
+            "blocks": 12288,
+            "ci95": [
+              89.11448755973474,
+              103.18694473193192
+            ],
+            "mean": 96.15071614583333
+          },
+          "observed_hands": 31304
+        }
+      },
+      "candidate_minus_R_contribution": {
+        "blocks": 12288,
+        "ci95": [
+          -35.06681531721983,
+          -18.19924371055795
+        ],
+        "mean": -26.63302951388889
+      },
+      "dimension": "raise_depth",
+      "group": "more-than-two-opponent-raises"
+    }
+  ]
+}

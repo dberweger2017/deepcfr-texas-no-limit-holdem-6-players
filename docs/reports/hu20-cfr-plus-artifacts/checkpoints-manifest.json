@@ -1,0 +1,577 @@
+{
+  "checkpoints": [
+    {
+      "bytes": 76459305,
+      "entries": 1532652,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100601
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "legacy-postflop-descriptor-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 319588,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "training_options": "regret-floor-0"
+      },
+      "iteration": 319588,
+      "milestone": 100000000,
+      "minimum_regret": 0.0,
+      "path": "training/F-2026100601-100000000.json.gz",
+      "sha256": "4d350785021ccfdbb6e946b235feb998161620d071c90b131034bf7bf565cc7e",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 144904612,
+      "entries": 2725839,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100601
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "legacy-postflop-descriptor-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 1514548,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "training_options": "regret-floor-0"
+      },
+      "iteration": 1514548,
+      "milestone": 500000000,
+      "minimum_regret": 0.0,
+      "path": "training/F-2026100601-500000000.json.gz",
+      "sha256": "8a9a2c9c031e14592a61f5d48c54d5f3157777f6a34b756f26acfaa309dfa34e",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 182938076,
+      "entries": 3365709,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100601
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "legacy-postflop-descriptor-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 2940243,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "training_options": "regret-floor-0"
+      },
+      "iteration": 2940243,
+      "milestone": 1000000000,
+      "minimum_regret": 0.0,
+      "path": "training/F-2026100601-1000000000.json.gz",
+      "sha256": "1d162266e55d9098c83415f65e487a4f3eef796257b841a380c7b818deebdd55",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 76475083,
+      "entries": 1534034,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100602
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "legacy-postflop-descriptor-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 319856,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "training_options": "regret-floor-0"
+      },
+      "iteration": 319856,
+      "milestone": 100000000,
+      "minimum_regret": 0.0,
+      "path": "training/F-2026100602-100000000.json.gz",
+      "sha256": "05b46e59f8e797aabf569ced7ef83969793defe35da9ab466d8360f96a04e523",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 145960508,
+      "entries": 2746926,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100602
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "legacy-postflop-descriptor-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 1500684,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "training_options": "regret-floor-0"
+      },
+      "iteration": 1500684,
+      "milestone": 500000000,
+      "minimum_regret": 0.0,
+      "path": "training/F-2026100602-500000000.json.gz",
+      "sha256": "e56248672d9b4e6bdcc65c65d98a5ddd83fe091b7abff30c20823a9807afee8b",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 184127211,
+      "entries": 3389365,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100602
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "legacy-postflop-descriptor-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 2932778,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "training_options": "regret-floor-0"
+      },
+      "iteration": 2932778,
+      "milestone": 1000000000,
+      "minimum_regret": 0.0,
+      "path": "training/F-2026100602-1000000000.json.gz",
+      "sha256": "bd6d34335076d9fa7d25ea30290516b04234e53c30939e91ce60193df5987dd9",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 76372104,
+      "entries": 1529991,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100603
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "legacy-postflop-descriptor-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 319532,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "training_options": "regret-floor-0"
+      },
+      "iteration": 319532,
+      "milestone": 100000000,
+      "minimum_regret": 0.0,
+      "path": "training/F-2026100603-100000000.json.gz",
+      "sha256": "88bc3e6e96938df1d6258141cf0e2f9dce5b5833b597c92cccab7a5d1fb42e06",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 145355025,
+      "entries": 2732506,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100603
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "legacy-postflop-descriptor-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 1517542,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "training_options": "regret-floor-0"
+      },
+      "iteration": 1517542,
+      "milestone": 500000000,
+      "minimum_regret": 0.0,
+      "path": "training/F-2026100603-500000000.json.gz",
+      "sha256": "2337f588db153e781e7d198f4fc673ec32850f35cbb493ec99630a9d2742803d",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 183712740,
+      "entries": 3377807,
+      "header": {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "checkpoint_format": "jsonl-v2",
+        "config": {
+          "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "max_entries": 1000000000,
+          "max_nodes": 1000000000,
+          "max_seconds": 900.0,
+          "raise_cap": null,
+          "roots_per_seat": 1,
+          "seed": 2026100603
+        },
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "identity": {
+          "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+          "big_blind": 100,
+          "card_descriptor": "legacy-postflop-descriptor-v1",
+          "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+          "players": 2,
+          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "iteration": 2944097,
+        "kind": "training",
+        "table": {
+          "big_blind": 100,
+          "button": 0,
+          "chip_unit": "0.01",
+          "player_ids": [
+            "player-0",
+            "player-1"
+          ],
+          "small_blind": 50,
+          "stacks": [
+            2000,
+            2000
+          ]
+        },
+        "training_options": "regret-floor-0"
+      },
+      "iteration": 2944097,
+      "milestone": 1000000000,
+      "minimum_regret": 0.0,
+      "path": "training/F-2026100603-1000000000.json.gz",
+      "sha256": "c07665745629b82c6ecab5603c95b12fb42838cd76200ef4205b546cc5bc4449",
+      "training_options": "regret-floor-0"
+    }
+  ],
+  "exports": [
+    {
+      "bytes": 109895553,
+      "entries": 3365709,
+      "iteration": 2940243,
+      "path": "policies/C-2026100601.current.json.gz",
+      "seed": 2026100601,
+      "sha256": "65ad6c80dd4b764cd4625e9058355eedf8f8d83f7df1748f70e95074d562f25a",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 143429027,
+      "entries": 3365709,
+      "iteration": 2940243,
+      "path": "policies/O-2026100601.average.jsonl.gz",
+      "seed": 2026100601,
+      "sha256": "a5e9d0fc6f4a448640f52f508187f779e43a0a8fd41158207f03de82adc219e1",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 110644693,
+      "entries": 3389365,
+      "iteration": 2932778,
+      "path": "policies/C-2026100602.current.json.gz",
+      "seed": 2026100602,
+      "sha256": "d5ac12ef4ae2f44e35ae2c265c5d1df60756e238caeaaca3bc98495e15769638",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 144338829,
+      "entries": 3389365,
+      "iteration": 2932778,
+      "path": "policies/O-2026100602.average.jsonl.gz",
+      "seed": 2026100602,
+      "sha256": "52836e39b832763765568c8bbd958e5f4b0531385a98cc6adce27f4168d30cbb",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 110341781,
+      "entries": 3377807,
+      "iteration": 2944097,
+      "path": "policies/C-2026100603.current.json.gz",
+      "seed": 2026100603,
+      "sha256": "540c5e8482b396a3d0843e8d3027f4ccf806342bc9894c42542c7fbb46b7d809",
+      "training_options": "regret-floor-0"
+    },
+    {
+      "bytes": 144037597,
+      "entries": 3377807,
+      "iteration": 2944097,
+      "path": "policies/O-2026100603.average.jsonl.gz",
+      "seed": 2026100603,
+      "sha256": "943e4f0acb2c933ae6cc6b0992b1000d2900ec78e38099ebe7ec1d0a2804670d",
+      "training_options": "regret-floor-0"
+    }
+  ],
+  "finished_at": 1791269488.3943229,
+  "provenance": {
+    "average_rule": "traverser-reach",
+    "binary": "/Users/dberweger/Local/pr171-cfr-plus-review/native/hu20-trainer/target/release/hu20-trainer",
+    "binary_sha256": "8023566876fdf29a9125ac975677c3c42ef9653179d6ca5f210a00d64ffa39de",
+    "deadline": 1791275912.0035598,
+    "milestones": [
+      100000000,
+      500000000,
+      1000000000
+    ],
+    "paid_compute": false,
+    "regret_floor": 0,
+    "seeds": [
+      2026100601,
+      2026100602,
+      2026100603
+    ],
+    "source_main_commit": "60f516da6b24563a49e609636a31fa17ae719bde",
+    "started_at": 1791268712.004745
+  },
+  "status": "complete"
+}

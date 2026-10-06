@@ -1,0 +1,222 @@
+{
+ "approval": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/171#issuecomment-6010978342",
+ "expected_hands": 411648,
+ "max_seconds": 43200,
+ "models": [
+  {
+   "arm": "R",
+   "bytes": 40144034,
+   "iteration": 246212,
+   "name": "R-2026093001",
+   "path": "R-2026093001.current.json.gz",
+   "seed": 2026093001,
+   "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+   "strategy": "current"
+  },
+  {
+   "arm": "R",
+   "bytes": 40096108,
+   "iteration": 245406,
+   "name": "R-2026093002",
+   "path": "R-2026093002.current.json.gz",
+   "seed": 2026093002,
+   "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710",
+   "strategy": "current"
+  },
+  {
+   "arm": "R",
+   "bytes": 40229571,
+   "iteration": 248186,
+   "name": "R-2026093003",
+   "path": "R-2026093003.current.json.gz",
+   "seed": 2026093003,
+   "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e",
+   "strategy": "current"
+  },
+  {
+   "arm": "O",
+   "bytes": 143429027,
+   "checkpoint_sha256": "1d162266e55d9098c83415f65e487a4f3eef796257b841a380c7b818deebdd55",
+   "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+   "iteration": 2940243,
+   "name": "O-2026100601",
+   "path": "O-2026100601.average.jsonl.gz",
+   "seed": 2026100601,
+   "sha256": "a5e9d0fc6f4a448640f52f508187f779e43a0a8fd41158207f03de82adc219e1",
+   "strategy": "average"
+  },
+  {
+   "arm": "O",
+   "bytes": 144338829,
+   "checkpoint_sha256": "bd6d34335076d9fa7d25ea30290516b04234e53c30939e91ce60193df5987dd9",
+   "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+   "iteration": 2932778,
+   "name": "O-2026100602",
+   "path": "O-2026100602.average.jsonl.gz",
+   "seed": 2026100602,
+   "sha256": "52836e39b832763765568c8bbd958e5f4b0531385a98cc6adce27f4168d30cbb",
+   "strategy": "average"
+  },
+  {
+   "arm": "O",
+   "bytes": 144037597,
+   "checkpoint_sha256": "c07665745629b82c6ecab5603c95b12fb42838cd76200ef4205b546cc5bc4449",
+   "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+   "iteration": 2944097,
+   "name": "O-2026100603",
+   "path": "O-2026100603.average.jsonl.gz",
+   "seed": 2026100603,
+   "sha256": "943e4f0acb2c933ae6cc6b0992b1000d2900ec78e38099ebe7ec1d0a2804670d",
+   "strategy": "average"
+  },
+  {
+   "arm": "C",
+   "bytes": 109895553,
+   "iteration": 2940243,
+   "name": "C-2026100601",
+   "path": "C-2026100601.current.json.gz",
+   "seed": 2026100601,
+   "sha256": "65ad6c80dd4b764cd4625e9058355eedf8f8d83f7df1748f70e95074d562f25a",
+   "strategy": "current"
+  },
+  {
+   "arm": "C",
+   "bytes": 110644693,
+   "iteration": 2932778,
+   "name": "C-2026100602",
+   "path": "C-2026100602.current.json.gz",
+   "seed": 2026100602,
+   "sha256": "d5ac12ef4ae2f44e35ae2c265c5d1df60756e238caeaaca3bc98495e15769638",
+   "strategy": "current"
+  },
+  {
+   "arm": "C",
+   "bytes": 110341781,
+   "iteration": 2944097,
+   "name": "C-2026100603",
+   "path": "C-2026100603.current.json.gz",
+   "seed": 2026100603,
+   "sha256": "540c5e8482b396a3d0843e8d3027f4ccf806342bc9894c42542c7fbb46b7d809",
+   "strategy": "current"
+  },
+  {
+   "arm": "T",
+   "bytes": 142677367,
+   "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+   "extraction": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+   "iteration": 2126271,
+   "name": "T-2026100601",
+   "path": "T-2026100601.average.jsonl.gz",
+   "seed": 2026100601,
+   "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+   "strategy": "average"
+  },
+  {
+   "arm": "T",
+   "bytes": 143137499,
+   "checkpoint_sha256": "a0ef695d6807aa4554ba01b32d27f64c39ccdc72d03be5a21c99cf67e52ad716",
+   "extraction": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+   "iteration": 2099557,
+   "name": "T-2026100602",
+   "path": "T-2026100602.average.jsonl.gz",
+   "seed": 2026100602,
+   "sha256": "5a994484e4cbed5146c5f0d627ee12d0f22e8fc41ebb1f3628c80b112ba8d59b",
+   "strategy": "average"
+  },
+  {
+   "arm": "T",
+   "bytes": 142318596,
+   "checkpoint_sha256": "63bb2ddb5bb102be82b919b5caa0ef95c1bcd5d852fe35af1762291525db7ac8",
+   "extraction": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+   "iteration": 2122313,
+   "name": "T-2026100603",
+   "path": "T-2026100603.average.jsonl.gz",
+   "seed": 2026100603,
+   "sha256": "52794e8b2ce1a1c660cf9cf3514baf56256368cc7b57acbe12405349fb9d42f0",
+   "strategy": "average"
+  }
+ ],
+ "panels": [
+  {
+   "blocks": 256,
+   "contract": "menu",
+   "name": "uniform",
+   "rule": "uniform"
+  },
+  {
+   "blocks": 256,
+   "contract": "menu",
+   "name": "passive",
+   "rule": "passive"
+  },
+  {
+   "blocks": 256,
+   "contract": "menu",
+   "name": "minraise-cap2",
+   "rule": "minraise"
+  },
+  {
+   "blocks": 256,
+   "contract": "menu",
+   "name": "pressure-cap2",
+   "rule": "pressure"
+  },
+  {
+   "blocks": 256,
+   "contract": "style-native",
+   "name": "tight_passive",
+   "rule": "tight_passive"
+  },
+  {
+   "blocks": 256,
+   "contract": "style-native",
+   "name": "loose_passive",
+   "rule": "loose_passive"
+  },
+  {
+   "blocks": 256,
+   "contract": "style-native",
+   "name": "tight_aggressive",
+   "rule": "tight_aggressive"
+  },
+  {
+   "blocks": 256,
+   "contract": "style-native",
+   "name": "loose_aggressive",
+   "rule": "loose_aggressive"
+  },
+  {
+   "blocks": 256,
+   "contract": "style-native",
+   "name": "pot_pressure",
+   "rule": "pot_pressure"
+  },
+  {
+   "blocks": 256,
+   "contract": "style-native",
+   "name": "train_pressure",
+   "rule": "train_pressure"
+  },
+  {
+   "blocks": 12288,
+   "contract": "native",
+   "name": "native-pressure",
+   "rule": "pressure"
+  },
+  {
+   "blocks": 256,
+   "contract": "menu",
+   "name": "selective-stackoff",
+   "rule": "selective_stackoff"
+  },
+  {
+   "blocks": 2048,
+   "contract": "menu",
+   "name": "lbr",
+   "rule": "lbr"
+  }
+ ],
+ "root": 202610060801,
+ "stage": "frozen-final",
+ "started_at": 1791269874.851255
+}
