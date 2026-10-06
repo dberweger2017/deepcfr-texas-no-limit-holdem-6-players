@@ -173,6 +173,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     opponent = parser.add_mutually_exclusive_group(required=True)
     opponent.add_argument("--policy", type=Path)
+    opponent.add_argument("--shield-policy", type=Path,
+                          help="Pinned CFR+ first-lineage average; restricted benchmarks only")
     opponent.add_argument("--uniform-random", action="store_true",
                           help="Benchmark-only control over the same restricted HU20 menu; loads no model")
     parser.add_argument("--data-dir", type=Path, default=Path("results/play-web"))
@@ -186,6 +188,9 @@ def main():
     if args.uniform_random:
         from src.play_api.uniform_random import UniformRestrictedPolicy
         policy = UniformRestrictedPolicy()
+    elif args.shield_policy:
+        from src.play_api.shield import ShieldPolicy
+        policy = ShieldPolicy(args.shield_policy)
     else:
         policy = load_b100m(args.policy)
     service = PlayService(args.data_dir / "private.sqlite", policy, source_version=args.source_version)

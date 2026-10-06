@@ -56,6 +56,7 @@ def audit(records):
     configurations = []
     usages = []
     setup_failures = []
+    rendered_calls = set()
     last_rendered_ms = None
     for record in records:
         kind = record.get("type")
@@ -72,7 +73,10 @@ def audit(records):
         if kind != "response_item":
             continue
         if payload.get("type") in ("function_call", "custom_tool_call"):
-            name = f'{payload.get("namespace", "")}.{payload.get("name", "")}'
+            namespace = payload.get("namespace", "")
+            name = payload.get("name", "")
+            if namespace:
+                name = f"{namespace}.{name}"
             call = {"name": name, "callId": payload.get("call_id"),
                     "timestamp": record.get("timestamp")}
             calls.append(call)
@@ -86,6 +90,8 @@ def audit(records):
                 continue
             if FORBIDDEN_CODE.search(code):
                 violations.append({**call, "reason": "prohibited browser/code capability"})
+            if re.search(r"\.(?:getAXState|getAXStateAndScreenshot|getScreenshot|domSnapshot|screenshot|getTab)\s*\(", code):
+                rendered_calls.add(payload.get("call_id"))
             urls = re.findall(r'https?://[^\s"\'<>]+', code)
             if any(url != ORIGIN for url in urls):
                 violations.append({**call, "reason": "navigation outside table origin"})
@@ -109,7 +115,7 @@ def audit(records):
             metadata.extend(extracted)
             # The result receipt bounds when this rendered observation reached
             # the player. It is not the browser's first-ready timestamp.
-            if "Browser tab:" in rendered_output and record.get("timestamp"):
+            if ("Browser tab:" in rendered_output or payload.get("call_id") in rendered_calls) and record.get("timestamp"):
                 last_rendered_ms = int(datetime.fromisoformat(record["timestamp"].replace("Z", "+00:00")).timestamp() * 1000)
     return {"configurations": configurations, "toolCalls": calls,
             "toolCounts": dict(Counter(x["name"] for x in calls)),
