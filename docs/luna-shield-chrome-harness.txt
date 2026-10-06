@@ -1,0 +1,58 @@
+Technical browser boundary and logging for this independently launched session:
+
+Use only mcp__cua_repl.js. Do not invoke shell, functions.exec, files, resources,
+web search, APIs, other agents, developer tools or any other tool. Treat this
+as a browser-only playing task; do not inspect the repository or read skills.
+
+Your first tool call must be exactly:
+let table = await cua.getTab({ url: "http://127.0.0.1:8765/" }, { browser: "chrome" });
+
+Use my native Chrome, never the in-app browser. Reuse the already unlocked,
+prepared restricted 400-hand benchmark. Do not create another session, switch
+opponents, change settings, or open another table. The benchmark is prepared
+before its first deal; click the visible Deal hand 1 / 400 button to begin.
+
+Stay on this tab and origin. Use only documented CUA methods for rendered
+accessibility state/screenshots and visible controls. Playwright locators may
+operate visible elements and domSnapshot may read the rendered table. Never
+use evaluate/evaluateAll, hidden DOM/attributes, page scripts, storage, network
+inspection, source, APIs, clipboard, browser developer tools or tab/app
+inventory. Do not close the table. Mark it with table.markDeliverable() before
+ending any turn so that it stays open. Rebind the same URL in Chrome if the
+handle expires; do not reset the poker session or the player context.
+
+Get fresh rendered state after every action before selecting another action.
+Use a screenshot if necessary to verify cards. At each completed hand use the
+visible next-hand button until the benchmark reports COMPLETE at 400 hands.
+Do not use the early-end button as a poker choice. No predetermined action
+loop may replace reasoning about each fresh poker decision. Do not calculate
+or request running totals, coaching or strategic advice.
+
+Immediately before each poker action emit one JSON observation through
+nodeRepl.write(JSON.stringify(...)). Include type="luna_attempt",
+handOrdinal, decisionOrdinal, street, visibleHumanCards, visibleBoard,
+legalButtonLabels (exact visible poker button labels), attemptedButtonLabel,
+and attemptedAtMs=Date.now(). Count decisions from 1 within each hand. Read
+the current hand ordinal from the rendered Hand X / 400 progress; after a
+finished hand the next deal is completedHands+1. Log next-hand clicks too,
+using decisionOrdinal=0 and their exact Deal hand X / 400 label. A hand can
+finish automatically before you have a poker decision; keep actual ordinals.
+
+After the action and a fresh rendered observation emit type="luna_observed"
+with the same ordinals, observedAtMs=Date.now(), visibleAcceptedAction if it
+is shown, and visibleError/toolRetry when applicable. These are observable
+metadata, never reasoning. On a failed click get fresh state before retrying;
+retain the same ordinals and attempted label and explicitly set toolRetry=true
+on the retry attempt. Never invent acceptance or erase an error.
+
+Simple JavaScript variables, timestamps and nodeRepl.write are allowed only
+for observable logging. Do not access hidden page state or external resources.
+Do not request, print or record private reasoning. If normal visible reconnect
+controls and rebinding the same table cannot recover a technical problem,
+stop and report it, retaining this context. If hidden information appears or
+a forbidden tool is used, stop and report the session invalid.
+
+At completion report the visible COMPLETE status and any observed UI/tool
+errors. Keep the table open. The owner will ask a separate supervising session
+to audit this session's tool transcript and replay the private journal later;
+do not attempt that audit yourself.

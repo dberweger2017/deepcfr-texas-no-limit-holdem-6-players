@@ -64,6 +64,8 @@ From v0.5 on, every milestone is confirmed on fresh held-out deals with several 
 
 *October 6, 2026*
 
+- **Luna versus 0.4.0-shield prepared:** the owner requested a fresh, independently launched Luna HIGH player in native Chrome, using #171's first-lineage CFR+ traverser-reach average. The [protocol and handoff](docs/luna-shield-chrome.md) freeze 400 restricted HU20 hands, original poker prompt, observable browser logging, native replay and separate private journals. Preparation does not play the match or change the shipped model; player launch, completed audit and sanitized results remain pending.
+
 - **PR169 scoring archived and originals cleaned:** #169 is merged; its completed M4 scoring ZIP and all 676 source members freshly verify. Owner-authorized removal of 677 original paths reclaimed 4.84 GB, leaving 51.0 GB free. [Archive, cleanup receipt and restoration](docs/artifacts/pr169-original-cleanup-20261006.md). Open #166/#171, M1 originals, shared inputs and synced archives remain protected.
 
 - **M4 originals cleaned after owner authorization:** verified #149/#162/#163 archived result files and separate local archive copies removed; free space rose from 19.2 to 69.3 GB. Preparation inputs, source folders, shared Git, synced archives and open #166/#169 work remain. [Cleanup receipt and retrieval details](docs/artifacts/m4-original-cleanup-20261005.md). The owner authorizes future removal of merged research originals after verified upload and dependency review; no unattended cleanup is scheduled.

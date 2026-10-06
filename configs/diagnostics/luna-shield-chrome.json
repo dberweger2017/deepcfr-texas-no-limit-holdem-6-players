@@ -1,0 +1,61 @@
+{
+  "protocol": "luna-shield-chrome-v1",
+  "status": "prepared-not-played",
+  "player": {
+    "model": "gpt-6-luna",
+    "effort": "high",
+    "context": "fresh independent user-launched session; no inherited conversation"
+  },
+  "opponent": {
+    "name": "0.4.0-shield",
+    "alias": "0.4.0-s",
+    "seed": 2026100601,
+    "strategy": "traverser-reach average",
+    "training_nodes": 1000000000,
+    "training_options": "regret-floor-0",
+    "source_commit": "60f516da6b24563a49e609636a31fa17ae719bde",
+    "sha256": "a5e9d0fc6f4a448640f52f508187f779e43a0a8fd41158207f03de82adc219e1",
+    "bytes": 143429027,
+    "checkpoint_sha256": "1d162266e55d9098c83415f65e487a4f3eef796257b841a380c7b818deebdd55",
+    "selection": "first lineage, fixed before play; no outcome selection"
+  },
+  "game": {
+    "players": 2,
+    "stacks": [
+      2000,
+      2000
+    ],
+    "big_blind": 100,
+    "small_blind": 50,
+    "rake": 0,
+    "ante": 0,
+    "play_mode": "restricted",
+    "stack_reset": "each hand",
+    "button_schedule": "alternating-seat-0-first-v1"
+  },
+  "benchmark": {
+    "target_hands": 400,
+    "target_authorization": "owner requested 400 before first deal",
+    "visibility": "benchmark",
+    "stopping": "COMPLETE at hand 400; failures/partials retained; no result-based extension",
+    "session_count": 1,
+    "random_calibration": "not included; requires separate fresh context/protocol"
+  },
+  "browser": {
+    "type": "native Chrome",
+    "origin": "http://127.0.0.1:8765/",
+    "execution": "owner launches player separately"
+  },
+  "logging": {
+    "server": "private SQLite; native actions, RNG recovery, payoff and public digests",
+    "player": "luna_attempt and luna_observed in player tool transcript",
+    "resources": "owned service sampled every 30 seconds; host memory/swap retained separately",
+    "publication": "sanitized CSV/JSON only; no token, private journal, unrevealed cards or reasoning"
+  },
+  "comparison": "exploratory raw match result; not a paired improvement or release gate",
+  "files": {
+    "docs/luna-browser-player-prompt.txt": "30d19a7d78e4fde153fe78fb906ab34b539dd1e123ce2f469fab11591cf6d807",
+    "docs/luna-shield-chrome-harness.txt": "2e0f2f4d03ed0cb97d76acac82dd233a44b57b9ddb8fe35eeabe09b4a041a20c",
+    "docs/luna-shield-chrome-player.txt": "08b604284b7eec2bd1c5e9fed78d79ca9ee9b5c30e4cb81b4c0d049b4af86100"
+  }
+}
