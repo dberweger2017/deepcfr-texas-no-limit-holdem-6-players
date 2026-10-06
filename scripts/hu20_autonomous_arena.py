@@ -143,7 +143,11 @@ def spend_record(ledger, now):
 
 
 def run(command, **kwargs):
-    return subprocess.run(command, check=True, capture_output=True, text=True, timeout=kwargs.pop("timeout", 1800), **kwargs)
+    result = subprocess.run(command, capture_output=True, text=True, timeout=kwargs.pop("timeout", 1800), **kwargs)
+    # rsync exit 24 means source files vanished mid-transfer (live evidence files being renamed); the next pass has them.
+    if result.returncode != 0 and not (command[0] == "rsync" and result.returncode == 24):
+        raise subprocess.CalledProcessError(result.returncode, command, result.stdout, result.stderr)
+    return result
 
 
 def route(pod, ledger):
