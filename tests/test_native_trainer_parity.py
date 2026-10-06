@@ -163,3 +163,33 @@ def test_native_exports_equal_python_exports(tmp_path):
     lines = lambda name: [json.loads(line) for line in gzip.open(tmp_path / name, "rt")]
     assert load("py-current.json.gz") == load("rs-current.json.gz")
     assert lines("py-average.jsonl.gz") == lines("rs-average.jsonl.gz")
+
+
+def test_cfr_plus_checkpoints_export_and_load_like_production_ones(tmp_path):
+    """--regret-floor 0 keeps production average weights: both exporters agree and arena loaders accept it."""
+    import gzip
+    import json
+    from src.arena.catalog import Checkpoint
+    from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT, load_training
+    from src.diagnostics.cfr_average import DiagnosticAverage, extract
+    from src.diagnostics.saved_hu20 import file_hash
+    checkpoint = tmp_path / "cfr-plus.json.gz"
+    subprocess.run([str(BINARY), "train", "--nodes", "300000", "--seed", "4", "--regret-floor", "0",
+                    "--out", str(checkpoint)], check=True, capture_output=True)
+    lines = gzip.open(checkpoint, "rt").read().splitlines()
+    header = json.loads(lines[0])
+    assert header["training_options"] == "regret-floor-0" and "average_rule" not in header
+    assert all(r >= 0 for line in lines[1:] for r in json.loads(line)[2])
+    with pytest.raises(ValueError, match="native options"):
+        load_training(checkpoint)
+    current, average = tmp_path / "current.json.gz", tmp_path / "rs-average.jsonl.gz"
+    subprocess.run([str(BINARY), "export", str(checkpoint), "--current", str(current), "--average", str(average)], check=True)
+    spec = {"seed": 4, "iteration": header["iteration"], "checkpoint_sha256": file_hash(checkpoint)}
+    extract(checkpoint, spec, tmp_path / "py-average.jsonl.gz")
+    rows = lambda name: [json.loads(line) for line in gzip.open(tmp_path / name, "rt")]
+    assert rows("py-average.jsonl.gz") == rows("rs-average.jsonl.gz")
+    policy = FrozenBlueprint(Checkpoint("cfr-plus", str(current), file_hash(current), HU20_UNCAPPED_FORMAT), current)
+    assert json.loads(gzip.open(current, "rt").read())["training_options"] == "regret-floor-0"
+    assert policy.description["iteration"] == header["iteration"] and policy.entries
+    diagnostic = DiagnosticAverage(average, file_hash(average))
+    assert diagnostic.description["iteration"] == header["iteration"]

@@ -82,6 +82,10 @@ pub fn export(checkpoint: &Path, current: Option<&Path>, average: Option<&Path>)
         for field in ["format", "abstraction", "table", "config", "iteration", "identity"] {
             document.insert(field.into(), header[field].clone());
         }
+        // Keeps a non-production run's label with its policy, e.g. CFR+'s "regret-floor-0".
+        if let Some(label) = header.get("training_options") {
+            document.insert("training_options".into(), label.clone());
+        }
         document.insert("kind".into(), json!("inference"));
         document.insert("strategy".into(), json!("current"));
         document.insert("entries".into(), Value::Object(entries));
