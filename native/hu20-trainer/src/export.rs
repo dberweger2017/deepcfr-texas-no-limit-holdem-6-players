@@ -41,7 +41,33 @@ fn write_gz(path: &Path, write: impl FnOnce(&mut dyn Write) -> std::io::Result<(
     std::fs::rename(temporary, path)
 }
 
-pub fn export(checkpoint: &Path, current: Option<&Path>, average: Option<&Path>) -> std::io::Result<u64> {
+/// How a key whose stored average has no mass plays, as `cfr_average.ZERO_MASS_RULES` names it.
+/// `current` plays its regret-matched policy: traverser-reach averaging leaves many trained keys
+/// without mass (subtrees reached only through zero-probability own actions), and uniform play
+/// discards their regrets.
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub enum ZeroMass {
+    Uniform,
+    Current,
+}
+
+impl ZeroMass {
+    pub fn parse(name: &str) -> ZeroMass {
+        match name {
+            "uniform" => ZeroMass::Uniform,
+            "current" => ZeroMass::Current,
+            other => panic!("unknown zero-mass rule {other}"),
+        }
+    }
+    fn label(self) -> &'static str {
+        match self {
+            ZeroMass::Uniform => "uniform in retained menu; reported separately from missing keys",
+            ZeroMass::Current => "current regret-matched policy in retained menu; reported separately from missing keys",
+        }
+    }
+}
+
+pub fn export(checkpoint: &Path, current: Option<&Path>, average: Option<&Path>, zero_mass: ZeroMass) -> std::io::Result<u64> {
     let source = BufReader::new(GzDecoder::new(std::fs::File::open(checkpoint)?));
     let mut lines = source.lines();
     let header: Value = serde_json::from_str(&lines.next().unwrap()?).unwrap();
@@ -72,7 +98,13 @@ pub fn export(checkpoint: &Path, current: Option<&Path>, average: Option<&Path>)
             let bound = iteration * visits as f64;
             assert!(total.is_finite() && (!bounded || total <= bound + 1e-9 * bound.max(1.0)),
                     "stored average violates the iteration/reach bound");
-            let p: Vec<f64> = if total != 0.0 { accumulated.iter().map(|x| x / total).collect() } else { vec![1.0 / n as f64; n] };
+            let p: Vec<f64> = if total != 0.0 {
+                accumulated.iter().map(|x| x / total).collect()
+            } else if zero_mass == ZeroMass::Current {
+                regret_match(&regrets)[..n].to_vec()
+            } else {
+                vec![1.0 / n as f64; n]
+            };
             averages.push(json!([key, names, p, total, visits]));
         }
     }
@@ -96,7 +128,7 @@ pub fn export(checkpoint: &Path, current: Option<&Path>, average: Option<&Path>)
             "format": "holdem-hu20-stored-cfr-average-diagnostic-v1", "kind": "diagnostic-inference",
             "extraction": extraction,
             "source_checkpoint_sha256": sha256_file(checkpoint), "checkpoint_header": header,
-            "zero_mass_rule": "uniform in retained menu; reported separately from missing keys",
+            "zero_mass_rule": zero_mass.label(),
         });
         write_gz(path, |out| {
             writeln!(out, "{}", serde_json::to_string(&metadata).unwrap())?;
