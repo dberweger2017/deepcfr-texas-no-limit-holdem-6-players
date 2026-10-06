@@ -182,6 +182,9 @@ def main():
     for pod in pods:
         if not pod.get('terminated_at') and not (root / 'retrieved' / pod['id'] / 'retrieval-verified.json').exists():
             status = read_status(pod)
+            actual_workers = {w['worker'] for w in status['workers']} | set(status['gave_up'])
+            if actual_workers != {f'worker-{w}' for w in pod['workers']}:
+                raise ValueError('Completed status does not cover this exact static partition')
             if pod_done(status, len(pod['workers'])) not in ('complete', 'incomplete'):
                 raise ValueError('Pod still has active work; never interrupt it for closeout')
     for pod in sorted(pods, key=lambda p: p['id'] == ledger['relay_pod_id']):

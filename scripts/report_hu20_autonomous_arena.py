@@ -141,6 +141,9 @@ def report(root):
         raise ValueError('Verified termination must finish before reporting')
     ledger = json.loads((root / 'ledger.json').read_text())
     directories, plan, controllers, defects, resumes = materialize(root, ledger)
+    launch = json.loads((root / 'ARENA_LAUNCH.json').read_text())
+    if native.digest(plan) != launch['plan_sha256']:
+        raise ValueError('Retrieved plan differs from the frozen launch receipt')
     original_hash = native.file_hash
     try:
         native.file_hash = lambda p: p.spec['sha256'] if isinstance(p, ArchivedFile) else original_hash(p)
