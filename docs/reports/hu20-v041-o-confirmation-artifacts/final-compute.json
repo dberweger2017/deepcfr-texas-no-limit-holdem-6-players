@@ -1,0 +1,9 @@
+{
+  "final_minutes_through_all_scientific_audits": 113.3539501508077,
+  "largest_retained_command_or_native_job_rss_bytes": 5006327808,
+  "aggregate_cap_minutes": 180,
+  "worker_rss_limit_bytes": 6442450944,
+  "native_boards": 40,
+  "native_metrics": 160,
+  "all_scientific_audits_verified": true
+}

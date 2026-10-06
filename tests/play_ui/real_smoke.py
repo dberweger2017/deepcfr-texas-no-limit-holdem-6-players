@@ -14,7 +14,7 @@ from src.blueprint.abstraction import choices
 from src.play_api.service import _hand
 
 
-def run(base, token, database, mode):
+def run(base, token, database, mode, *, expected_sha256="4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"):
     def call(path, body=None, *, key=None):
         headers = {"X-Play-Token": token}
         if body is not None:
@@ -64,7 +64,7 @@ def run(base, token, database, mode):
         state = call(f"/api/sessions/{session}/actions",
                      {"handId": hand["id"], "revision": state["revision"], **action})
     assert state["phase"] == "finished", "Hand did not finish within 100 turns"
-    assert state["model"]["sha256"] == "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+    assert state["model"]["sha256"] == expected_sha256
     history = call(f"/api/sessions/{session}/history")
     assert len(history["hands"]) == 1 and history["hands"][0]["handId"] == first_hand
     public = json.dumps({"state": state, "history": history})

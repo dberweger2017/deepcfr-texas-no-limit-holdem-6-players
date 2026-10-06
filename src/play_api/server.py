@@ -173,6 +173,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     opponent = parser.add_mutually_exclusive_group(required=True)
     opponent.add_argument("--policy", type=Path)
+    opponent.add_argument("--o-candidate", type=Path,
+                          help="Opt-in pinned O1B average candidate; does not change v0.4.0")
     opponent.add_argument("--shield-policy", type=Path,
                           help="Pinned CFR+ first-lineage average; restricted benchmarks only")
     opponent.add_argument("--uniform-random", action="store_true",
@@ -188,6 +190,9 @@ def main():
     if args.uniform_random:
         from src.play_api.uniform_random import UniformRestrictedPolicy
         policy = UniformRestrictedPolicy()
+    elif args.o_candidate:
+        from src.play_api.o_candidate import load_o_candidate
+        policy = load_o_candidate(args.o_candidate)
     elif args.shield_policy:
         from src.play_api.shield import ShieldPolicy
         policy = ShieldPolicy(args.shield_policy)

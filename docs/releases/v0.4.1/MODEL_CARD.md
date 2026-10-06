@@ -1,0 +1,13 @@
+# O1B HU20 opponent-sampled average candidate
+
+Unpublished v0.4.1 candidate, fixed first seed **2026100601** before confirmation scores were inspected. Exact #165 inference export: `O1B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz`, **142,677,367 bytes**, SHA256 `571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d`. No re-extraction or checkpoint selection. Its source checkpoint SHA256 is `4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825`, iteration 2,126,271, 1B-node training budget, no CFR+ floor.
+
+The stored format remains `holdem-hu20-stored-cfr-average-diagnostic-v1`; promoting its use does not rewrite bytes or rename the file's internal format. Extraction is `normalize-lifetime-iteration-opponent-sampled-accumulator-v1`. The game is `hu20-native-reopening-20bb-52card-no-ante-rake-v1`, schema `hu20-native-reopening-ordered-history-card-v1`, two seats, 2,000-chip stacks, 50/100 blinds, reset each hand. This tabular inference export cannot resume training.
+
+Inference uses the evaluated observation-only reader and native legal menu. Retained zero-mass and missing keys use the existing uniform fallback. Restricted mode uses the trained action menu; free-sizing mode applies arbitrary legal human wagers exactly while the bot retains that menu and fallback. The model has no opponent private cards, deck, deal seed or evaluator inputs.
+
+[Confirmation #176](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/176) uses all three O lineages. Direct aggregate versus shipped R1 is **+10.50 [7.90, 13.10] BB/100**; this first seed alone is **+11.12 [7.85, 14.39]**. Bounded LBR O−R is **+37.56 [27.75, 47.37]**, native pressure **+6.92 [0.39, 13.45]**. All four predeclared statistical gates pass. These estimates are conditional on the saved lineages and fixed opponents, with nominal paired 95% intervals over deal blocks. They do not certify full-game exploitability, human strength, six-player play or later roadmap milestones. The complete report retains all panels and the separate turn/river diagnostic.
+
+The bounded attacker earns **28.17 [17.93, 38.42] BB/100** against O, versus **65.73 [56.84, 74.62]** against R. Lower is better; a bounded attacker supplies a lower bound on exploitability. Small secondary panels are imprecise despite passing the declared severe-regression threshold.
+
+Publication requires the owner's review of the completed numbers and explicit approval in chat. v0.4.0 stays stable. Repository code is MIT; the pinned `pokers` upstream license grant remains unverified as disclosed in the [v0.4.0 license audit](../v0.4.0/LICENSE_AUDIT.md). No engine binary, resumable checkpoint, private journal, token or paper belongs in the release bundle.
