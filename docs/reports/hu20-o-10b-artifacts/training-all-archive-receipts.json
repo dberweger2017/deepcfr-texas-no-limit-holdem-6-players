@@ -1,0 +1,102 @@
+{
+  "O-2026100603-5000000000-milestone-archive.json": {
+    "status": "verified",
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100603-5000000000-milestone.zip",
+    "archive_bytes": 331384377,
+    "archive_sha256": "f360a8dcd5a1d39ca22dcab07de6a3529ee6eb68d73e5a561007372653c5a443",
+    "manifest_sha256": "9f45dfaa77b6622d6e250a662ebb27eb11d60e462c849efdc7658e6f18ec3240",
+    "members_verified": 7,
+    "originals_retained": true,
+    "upload_status": "pending native and cloud acceptance"
+  },
+  "O-2026100602-10000000000-milestone-archive.json": {
+    "status": "verified",
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100602-10000000000-milestone.zip",
+    "archive_bytes": 387641010,
+    "archive_sha256": "122c4970149f1def9dc965d65ef4a8bacaba49101dfe9dddd60b663238348b06",
+    "manifest_sha256": "7c7acbbb550aaaa3687e44979cc2b54c5a3963c29083210fdc5c85f79910af9c",
+    "members_verified": 7,
+    "originals_retained": true,
+    "upload_status": "pending native and cloud acceptance"
+  },
+  "O-2026100602-5000000000-milestone-archive.json": {
+    "status": "verified",
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100602-5000000000-milestone.zip",
+    "archive_bytes": 333414365,
+    "archive_sha256": "dfe132d93873203d17f980db4fcba6d7bfbcd70cec481293677171093356689a",
+    "manifest_sha256": "1133cb9a0a06331d0fbdc1045fa8cdf12990b17eb1eec22b51d9859f8eb29d25",
+    "members_verified": 7,
+    "originals_retained": true,
+    "upload_status": "pending native and cloud acceptance"
+  },
+  "O-2026100603-10000000000-milestone-archive.json": {
+    "status": "verified",
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100603-10000000000-milestone.zip",
+    "archive_bytes": 387875447,
+    "archive_sha256": "e259d84cb5aaad7e2aec33d797fa2e5c6275c04ef7757ff21c19f5d5f34245da",
+    "manifest_sha256": "a2f8352bb8657ddaddc6434d0d41847cb32877a85ec16f3817b221c4ec56cc70",
+    "members_verified": 7,
+    "originals_retained": true,
+    "upload_status": "pending native and cloud acceptance"
+  },
+  "O-2026100602-1000000000-milestone-archive.json": {
+    "status": "verified",
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100602-1000000000-milestone.zip",
+    "archive_bytes": 215176734,
+    "archive_sha256": "7c51abc6963d5a415ffa3a8a130245ee63a81d1357db11e92e685280afb9613b",
+    "manifest_sha256": "f4048a0514380046c3189d662fec81259fad8b6b26b8819b631bf20fa648f16f",
+    "members_verified": 7,
+    "originals_retained": true,
+    "upload_status": "pending native and cloud acceptance"
+  },
+  "O-2026100603-2000000000-milestone-archive.json": {
+    "status": "verified",
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100603-2000000000-milestone.zip",
+    "archive_bytes": 259351250,
+    "archive_sha256": "f7578b2ada73167c42917493b9bb088d2b0204ee93f9dcc6a32116259abf3442",
+    "manifest_sha256": "61cc3cb7726a1d88d449225fc6e6128105316bab041cd4f527578aa995738753",
+    "members_verified": 7,
+    "originals_retained": true,
+    "upload_status": "pending native and cloud acceptance"
+  },
+  "O-2026100603-training-tail-archive.json": {
+    "status": "verified",
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100603-training-tail.zip",
+    "archive_bytes": 5538,
+    "archive_sha256": "ffb17f7ad920cc01d1333bd43d6bdcfbc75a48af534b0e8c93350b81c2915f9a",
+    "manifest_sha256": "a3bd6da76e696c36c2949038bacafa0cfbb955ee5a9b2295c4ec8c9089475594",
+    "members_verified": 10,
+    "originals_retained": true,
+    "upload_status": "pending native and cloud acceptance"
+  },
+  "O-2026100603-1000000000-milestone-archive.json": {
+    "status": "verified",
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100603-1000000000-milestone.zip",
+    "archive_bytes": 213677835,
+    "archive_sha256": "2ec299e229e4fa7bc57f98ec20c76a0d06a9efcc426a3a465cc5a18be55d74eb",
+    "manifest_sha256": "bdbe95192595cb4ac4d02aaedadad44bf49e773659c38cb3c927af32f17582b2",
+    "members_verified": 7,
+    "originals_retained": true,
+    "upload_status": "pending native and cloud acceptance"
+  },
+  "O-2026100602-training-tail-archive.json": {
+    "status": "verified",
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100602-training-tail.zip",
+    "archive_bytes": 5535,
+    "archive_sha256": "bc097c2caa39bddbc0a821ad3c13a4d9618094e6e9f31e0c83d5a827b8893d66",
+    "manifest_sha256": "c4847da0729deeae08070ea7c1c00c73e9841fb4d6e145ad1bab61f91b257b2c",
+    "members_verified": 10,
+    "originals_retained": true,
+    "upload_status": "pending native and cloud acceptance"
+  },
+  "O-2026100602-2000000000-milestone-archive.json": {
+    "status": "verified",
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100602-2000000000-milestone.zip",
+    "archive_bytes": 263093158,
+    "archive_sha256": "1be8bed66ec43f8c697eaecad0c68140a2447a41bed8285bb81864ead53ebeea",
+    "manifest_sha256": "f9ec046ae1cc8a274fdb1f69f37078378a1211d8e99920df1e5efa7888c81ebf",
+    "members_verified": 7,
+    "originals_retained": true,
+    "upload_status": "pending native and cloud acceptance"
+  }
+}

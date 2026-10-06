@@ -1,0 +1,9 @@
+{
+  "full_native_input_bytes": 4807812006,
+  "already_restored_bytes": 3582510566,
+  "remaining_restore_bytes": 1225301440,
+  "native_prepare_reference_and_compact_copy_bytes": 4522536232,
+  "minimum_free_before_resume_bytes": 25075190504,
+  "free_now_bytes": 19223031808,
+  "note": "Conservative unchanged layout: missing restores + native reference/compact copies + 3 GiB for traces/archives/headroom; native policies/requests also require space"
+}

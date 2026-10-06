@@ -1,0 +1,472 @@
+{
+  "owner_authorization": "AGENTS.md standing merged-evidence cleanup authorization; no open roots or active inputs removed",
+  "owning_pr": 182,
+  "owning_pr_state": "MERGED",
+  "dependency_review": [
+    "#185 copied and hash-verified all first-seed inputs/policies into its own protected root; uses only retained #182 plot-venv for charts",
+    "#186 documents a benchmark of the pinned v0.4.1 release and keeps #185 frozen source unchanged; no #182 original selected as an active input",
+    "No active process references selected #182 root; source/shared Git, plot-venv, metadata and #166/#185/#186 roots retained"
+  ],
+  "archive_proofs": [
+    {
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "manifest_sha256": "356afb24d65857560e88da09d9ba9b8cc08eee0fbf36c7830f5ec72ab77e2db1",
+      "all_members_verified": 172,
+      "native": {
+        "bytes": 1899498972,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+        "unresolvedConflicts": false,
+        "uploaded": true,
+        "uploading": false
+      },
+      "cloud": {
+        "id": "1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi",
+        "title": "hu20-learning-curve-complete-20261006.zip",
+        "mime_type": null,
+        "size": "1899498972",
+        "url": null,
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1wNthhMPoO0XGPeEZbMZmQVIIxF4tJra9"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-2000000000-milestone.zip",
+      "archive_sha256": "b6cae8b85747cc088edf4dee06e84fa8f859592e32ff4205047cfac3eb59ae7e",
+      "manifest_sha256": "1079a5012b2119ff600c561cfbf287105ebd3da38fd890c0e9438c421011dcbb",
+      "all_members_verified": 6,
+      "native": {
+        "bytes": 258280835,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-2000000000-milestone.zip",
+        "unresolvedConflicts": false,
+        "uploaded": true,
+        "uploading": false
+      },
+      "cloud": {
+        "id": "11l_VCpSH35bXYRCfujSlzEmt9se11_gu",
+        "title": "O-2026100601-2000000000-milestone.zip",
+        "mime_type": null,
+        "size": "258280835",
+        "url": null,
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1wNthhMPoO0XGPeEZbMZmQVIIxF4tJra9"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-5000000000-milestone.zip",
+      "archive_sha256": "d11d404eac31b3e58011e2a961e9b2c9604e415e064c682388ed759ca403c930",
+      "manifest_sha256": "a5250834508a503c8b391f8dbc77749eb52ebb18de10e59e99b45cd1c3fe557f",
+      "all_members_verified": 6,
+      "native": {
+        "bytes": 328483201,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-5000000000-milestone.zip",
+        "unresolvedConflicts": false,
+        "uploaded": true,
+        "uploading": false
+      },
+      "cloud": {
+        "id": "1kmS7yRPee2lhA67CLX2w9yrj2EO4_Y5i",
+        "title": "O-2026100601-5000000000-milestone.zip",
+        "mime_type": null,
+        "size": "328483201",
+        "url": null,
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1wNthhMPoO0XGPeEZbMZmQVIIxF4tJra9"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-10000000000-milestone.zip",
+      "archive_sha256": "a35a628159cc8d9810802a6f264e35c210c40e4f5fe6ce4a26594b94ad3f1433",
+      "manifest_sha256": "b33d49ee2c63683bacd4b23d1e76a13e33e20a4f4c219105b054d0c8f942fa46",
+      "all_members_verified": 6,
+      "native": {
+        "bytes": 383604666,
+        "path": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-10000000000-milestone.zip",
+        "unresolvedConflicts": false,
+        "uploaded": true,
+        "uploading": false
+      },
+      "cloud": {
+        "id": "1Oi26CAw3C3Y2KkBsY4GNzTgxRYL9cFkI",
+        "title": "O-2026100601-10000000000-milestone.zip",
+        "mime_type": null,
+        "size": "383604666",
+        "url": null,
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1wNthhMPoO0XGPeEZbMZmQVIIxF4tJra9"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/final/A-1B-vs-100M/run/direct-lineage-1.hands.jsonl.gz",
+      "bytes": 113354132,
+      "sha256": "867e2a9db180272f147b7bfe64d435fc4d25647ee75812d17775816109ac8b0c",
+      "fingerprint": [
+        16777233,
+        67384140,
+        1791297198293711790
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/final/A-1B-vs-100M/run/direct-lineage-1.hands.jsonl.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/final/B-1B-vs-500M/run/direct-lineage-1.hands.jsonl.gz",
+      "bytes": 98602025,
+      "sha256": "771cb3b722ba6c454f7a93076bdc2d81ec751a74748f5ec115949f1cf574c60b",
+      "fingerprint": [
+        16777233,
+        67384142,
+        1791297182451165723
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/final/B-1B-vs-500M/run/direct-lineage-1.hands.jsonl.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/final/C-100M-vs-R1/run/direct-lineage-1.hands.jsonl.gz",
+      "bytes": 110125048,
+      "sha256": "5d36f304161e91c3559b5154bf8ecd0707026ac82eaf60d848ebaf374cbdfabf",
+      "fingerprint": [
+        16777233,
+        67384115,
+        1791297173195757142
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/final/C-100M-vs-R1/run/direct-lineage-1.hands.jsonl.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/final/D-500M-vs-R1/run/direct-lineage-1.hands.jsonl.gz",
+      "bytes": 115774088,
+      "sha256": "691c1a795543f2d742302d956b02b7f010d2c5240c31e6b064e414fbf0957dd1",
+      "fingerprint": [
+        16777233,
+        67384283,
+        1791297391505702463
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/final/D-500M-vs-R1/run/direct-lineage-1.hands.jsonl.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/inputs/O-2026100601-100000000.json.gz",
+      "bytes": 98549345,
+      "sha256": "115fba4b7eb3d4a026d0283a3b1fef6c5aa9bdf7c3a704d65025d4713f89954e",
+      "fingerprint": [
+        16777233,
+        67367501,
+        1791296244200203748
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/inputs/O-2026100601-100000000.json.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/inputs/O-2026100601-1000000000.json.gz",
+      "bytes": 214220678,
+      "sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+      "fingerprint": [
+        16777233,
+        67367519,
+        1791296268168067591
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/inputs/O-2026100601-1000000000.json.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/inputs/O-2026100601-500000000.json.gz",
+      "bytes": 171794336,
+      "sha256": "a5318cd586c0b170a68334e4236111faddabaf7f686c071958757db888afab47",
+      "fingerprint": [
+        16777233,
+        67367517,
+        1791296255106566326
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/inputs/O-2026100601-500000000.json.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/pilot/A-1B-vs-100M/run/direct-lineage-1.hands.jsonl.gz",
+      "bytes": 5987358,
+      "sha256": "ff943bc889fc7349ce0389073d7c6b1a99f246cf45631cc805e7c125300b6a5c",
+      "fingerprint": [
+        16777233,
+        67384021,
+        1791296855965647284
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/pilot/A-1B-vs-100M/run/direct-lineage-1.hands.jsonl.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/pilot/B-1B-vs-500M/run/direct-lineage-1.hands.jsonl.gz",
+      "bytes": 6167780,
+      "sha256": "b452e9c2973b15523b0b3c75eef36c918ec1854b977a8abfdb35a22c582ed3ef",
+      "fingerprint": [
+        16777233,
+        67384024,
+        1791296864177935842
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/pilot/B-1B-vs-500M/run/direct-lineage-1.hands.jsonl.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/pilot/C-100M-vs-R1/run/direct-lineage-1.hands.jsonl.gz",
+      "bytes": 5721748,
+      "sha256": "149bdb00b3ce17881792075e54196bb1bbf8007099aba2447e0c13c9ba27a9ab",
+      "fingerprint": [
+        16777233,
+        67384011,
+        1791296837698193989
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/pilot/C-100M-vs-R1/run/direct-lineage-1.hands.jsonl.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/pilot/D-500M-vs-R1/run/direct-lineage-1.hands.jsonl.gz",
+      "bytes": 6054116,
+      "sha256": "a040b6b69a724ce6fda513a4e42231e9d7792adb8f4d47fc0b897f3fc08d7c1b",
+      "fingerprint": [
+        16777233,
+        67384029,
+        1791296871366064955
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/pilot/D-500M-vs-R1/run/direct-lineage-1.hands.jsonl.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/policies/O-100000000.average.jsonl.gz",
+      "bytes": 67504285,
+      "sha256": "4b2eb840f0004101f712f2aaeaa31c7bad554a3de00f0abce9b95135c0198752",
+      "fingerprint": [
+        16777233,
+        67371065,
+        1791296319384199702
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/policies/O-100000000.average.jsonl.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/policies/O-100000000.current.json.gz",
+      "bytes": 55067238,
+      "sha256": "39ecccfd36e7651ed73261f293ed9eec3d484266af45c2b37706413185f087b4",
+      "fingerprint": [
+        16777233,
+        67371064,
+        1791296315488937469
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/policies/O-100000000.current.json.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/policies/O-1000000000.average.jsonl.gz",
+      "bytes": 142677367,
+      "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+      "fingerprint": [
+        16777233,
+        67371213,
+        1791296406606734199
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/policies/O-1000000000.average.jsonl.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/policies/O-1000000000.current.json.gz",
+      "bytes": 108469702,
+      "sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740",
+      "fingerprint": [
+        16777233,
+        67371211,
+        1791296397943784251
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/policies/O-1000000000.current.json.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/policies/O-500000000.average.jsonl.gz",
+      "bytes": 115356588,
+      "sha256": "025e5c641bd9eb1962946b72cd0b4ddf985334431fcedc438050c85eb072b96f",
+      "fingerprint": [
+        16777233,
+        67371110,
+        1791296353706540684
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/policies/O-500000000.average.jsonl.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/policies/O-500000000.current.json.gz",
+      "bytes": 89425745,
+      "sha256": "e12e1dda48199de66107fbdf35a4bbaa251f66d34fb70ffcc5a50855b2d2e0a7",
+      "fingerprint": [
+        16777233,
+        67371108,
+        1791296346948565945
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/policies/O-500000000.current.json.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/policies/R1.current.json.gz",
+      "bytes": 40144034,
+      "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+      "fingerprint": [
+        16777233,
+        67371060,
+        1791203765000000000
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/policies/R1.current.json.gz",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/source-main.tar",
+      "bytes": 243476480,
+      "sha256": "5d4d56ace950e8dfbb38b773c9bdf7824c1feeeb7b1ea5661363ace2d66cc810",
+      "fingerprint": [
+        16777233,
+        67365570,
+        1791296234997305368
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/source-main.tar",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/source-match-8bbfc457.tar",
+      "bytes": 241653760,
+      "sha256": "77ceee612844c3ad615823d79eeccb8a93a765a2fef9e3a93bcc0476c791f683",
+      "fingerprint": [
+        16777233,
+        67376118,
+        1791296712760232167
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+      "archive_sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+      "member": "research/source-match-8bbfc457.tar",
+      "drive_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/scaled-training/O-2026100601-2000000000.json.gz",
+      "bytes": 258269802,
+      "sha256": "aa91646d59614c3df1544c96bf74d0483d278d3c4e5c8e844ad0f30b1d910d5b",
+      "fingerprint": [
+        16777233,
+        67392881,
+        1791298306730823134
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-2000000000-milestone.zip",
+      "archive_sha256": "b6cae8b85747cc088edf4dee06e84fa8f859592e32ff4205047cfac3eb59ae7e",
+      "member": "O-2026100601-2000000000.json.gz",
+      "drive_url": "https://drive.google.com/file/d/11l_VCpSH35bXYRCfujSlzEmt9se11_gu/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/scaled-training/O-2026100601-5000000000.json.gz",
+      "bytes": 328471948,
+      "sha256": "2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f",
+      "fingerprint": [
+        16777233,
+        67393933,
+        1791299438090700320
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-5000000000-milestone.zip",
+      "archive_sha256": "d11d404eac31b3e58011e2a961e9b2c9604e415e064c682388ed759ca403c930",
+      "member": "O-2026100601-5000000000.json.gz",
+      "drive_url": "https://drive.google.com/file/d/1kmS7yRPee2lhA67CLX2w9yrj2EO4_Y5i/view"
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-learning-curve-20261006/scaled-training/O-2026100601-10000000000.json.gz",
+      "bytes": 383593179,
+      "sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+      "fingerprint": [
+        16777233,
+        67395102,
+        1791301311564446025
+      ],
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-10000000000-milestone.zip",
+      "archive_sha256": "a35a628159cc8d9810802a6f264e35c210c40e4f5fe6ce4a26594b94ad3f1433",
+      "member": "O-2026100601-10000000000.json.gz",
+      "drive_url": "https://drive.google.com/file/d/1Oi26CAw3C3Y2KkBsY4GNzTgxRYL9cFkI/view"
+    }
+  ],
+  "created_at": 1791316912.021922,
+  "removed_at": 1791316913.337152,
+  "removed_files": 23,
+  "removed_logical_bytes": 3020460782,
+  "free_before_bytes": 16202588160,
+  "free_after_bytes": 19226492928,
+  "synced_files_untouched": true,
+  "all_open_pr_roots_retained": true
+}

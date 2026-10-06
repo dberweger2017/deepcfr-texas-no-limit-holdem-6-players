@@ -1,0 +1,5 @@
+{
+  "failure": "AssertionError('15-GiB free-disk guard')",
+  "stopped_at": 1791316020.204768,
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-pilot.py\", line 70, in <module>\n    try:main()\n        ^^^^^^\n  File \"/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-pilot.py\", line 62, in main\n    leaf=ROOT/'pilot/arena';command(['-m','scripts.evaluate_hu20_v041_arena','play','--plan',str(leaf/'plan.json'),'--policies',str(ROOT/'policies'),'--model',s['name'],'--out',str(leaf/'run'),'--rss-limit-gib','8'],leaf/(s['name']+'.launch.log'),deadline)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-pilot.py\", line 21, in command\n    assert shutil.disk_usage(ROOT).free>=15*1024**3,'15-GiB free-disk guard'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 15-GiB free-disk guard\n"
+}
