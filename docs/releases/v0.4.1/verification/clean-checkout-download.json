@@ -1,0 +1,40 @@
+{
+  "status": "verified",
+  "source": "654734e6df88dd36397b5f8605cbb12d54944de2",
+  "checkout_clean_before_and_after": true,
+  "python": "3.11.14",
+  "host": "arm64",
+  "download_scope": "Five staged assets over loopback HTTP; GitHub publication remains unperformed",
+  "files": [
+    {
+      "url": "http://127.0.0.1:8782/MODEL_CARD.md",
+      "file": "MODEL_CARD.md",
+      "bytes": 2920,
+      "sha256": "1865531441087de24e7ae94ec2d56ec33ba536932226ea7c5853c89c99994b0b"
+    },
+    {
+      "url": "http://127.0.0.1:8782/O1B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "file": "O1B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "bytes": 142677367,
+      "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d"
+    },
+    {
+      "url": "http://127.0.0.1:8782/RELEASE_NOTES.md",
+      "file": "RELEASE_NOTES.md",
+      "bytes": 2487,
+      "sha256": "dd6e7e202529e719d5034a6c9e4c91a6767c6cadbf243eb9cd8df1ac3c94a0f8"
+    },
+    {
+      "url": "http://127.0.0.1:8782/SHA256SUMS",
+      "file": "SHA256SUMS",
+      "bytes": 376,
+      "sha256": "b8d2cfd366a0d912766f436638d502008852bd3a03c2951c5cbf4b1c6b3404f6"
+    },
+    {
+      "url": "http://127.0.0.1:8782/release-manifest.json",
+      "file": "release-manifest.json",
+      "bytes": 1354,
+      "sha256": "9b16a6d922a2597b4585db5714d5f58efdcce358d05adb2ffe2025e69b8de31b"
+    }
+  ]
+}
