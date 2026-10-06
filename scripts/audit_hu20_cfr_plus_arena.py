@@ -157,13 +157,22 @@ def audit(plan_path, run, out, expected_sha256, source):
                     positions = ('button', 'big_blind') if position is None else (position,)
                     values = [math.fsum(outcomes[a, l, name, block, pos] - outcomes[b, l, name, block, pos] for l in lineages for pos in positions) / (len(lineages) * len(positions)) for block in blocks]
                     details.append({'contrast': label, 'panel': name, 'lineage': lineage, 'position': position, **stats(values)})
+    common_blocks = min(panel['blocks'] for panel in p['panels'])
+    overall_series = {arm: [math.fsum(outcomes[arm, lineage, panel['name'], block, position]
+                                      for panel in p['panels'] for lineage in (1, 2, 3)
+                                      for position in ('button', 'big_blind')) / (6 * len(p['panels']))
+                           for block in range(common_blocks)] for arm in ARMS}
+    overall = {'blocks': common_blocks, 'weighting': 'equal panel, common paired blocks only',
+               'absolute_bb_per_100': {arm: stats(values) for arm, values in overall_series.items()},
+               'contrasts_bb_per_100': {a + '-' + b: stats([x - y for x, y in zip(overall_series[a], overall_series[b], strict=True)])
+                                        for a, b in CONTRASTS}}
     primary = contrasts['O-R']
     checks = {'lbr_lower_above_0': primary['lbr']['ci95'][0] > 0,
               'native_pressure_lower_above_minus_10': primary['native-pressure']['ci95'][0] > -10,
               'no_severe_regression': all(primary[panel['name']]['ci95'][1] >= -20 for panel in p['panels'] if panel['name'] not in ('lbr', 'native-pressure'))}
     assert checks == summary['release_checks'] and all(checks.values()) == summary['release_rule_passed']
     diagnostic = [{'arm': arm, 'lineage': lineage, 'panel': panel, 'streets': {street: dict(counts[street]) for street in STREETS}, 'terminal_street_hands': dict(terminal_streets[arm, lineage, panel])} for (arm, lineage, panel), counts in sorted(cells.items())]
-    result = {'status': 'verified', 'plan_file_sha256': sha(plan_path), 'plan_canonical_sha256': digest(p), 'hands_replayed': replayed, 'decisions_checked': decisions, 'independent_arithmetic_matches': True, 'release_checks': checks, 'release_rule_passed': all(checks.values()), 'absolute_bb_per_100': absolute, 'contrasts_bb_per_100': contrasts, 'lineage_position_contrasts': details, 'coverage_and_lbr_by_street': diagnostic, 'raw_files': files, 'worker_results': resources, 'audit_seconds': time.monotonic() - started}
+    result = {'status': 'verified', 'plan_file_sha256': sha(plan_path), 'plan_canonical_sha256': digest(p), 'hands_replayed': replayed, 'decisions_checked': decisions, 'independent_arithmetic_matches': True, 'release_checks': checks, 'release_rule_passed': all(checks.values()), 'absolute_bb_per_100': absolute, 'contrasts_bb_per_100': contrasts, 'lineage_position_contrasts': details, 'coverage_and_lbr_by_street': diagnostic, 'raw_files': files, 'worker_results': resources, 'audit_seconds': time.monotonic() - started, 'overall_equal_panel_common_blocks': overall}
     out.write_text(json.dumps(result, sort_keys=True, indent=1, allow_nan=False) + '\n')
 
 if __name__ == '__main__':
