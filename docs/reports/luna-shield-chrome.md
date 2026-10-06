@@ -50,6 +50,7 @@ The exact prepared prompt/logging text was absent from the player user messages,
 - [Actual final HTTP export](luna-shield-chrome/export.json), [native hand CSV](luna-shield-chrome/native-hands.csv) and [native accepted-decision CSV](luna-shield-chrome/native-decisions.csv).
 - [Public history](luna-shield-chrome/public-history.json), [audit summary](luna-shield-chrome/audit.json), [resource summary](luna-shield-chrome/resources.json) and [evidence hashes](luna-shield-chrome/manifest.json).
 - All 400 hands replayed; export, wins/losses/ties, position splits, accepted-decision counts and public digests independently recomputed. The strict browser report's rejection is retained locally.
+- After integration with current main, the same 57 focused play/audit/average/release tests pass, and the public-record comparison reproduces exactly.
 - Preparation passed 57 focused play/audit/average/release tests, JavaScript syntax and diff checks, plus a separate two-hand real-policy smoke. The report adds no game behavior changes.
 
 The sampler retained 318 snapshots. Maximum observed service RSS was **2,208,368 KiB (2.106 GiB)** and CPU 28.2%; these are sampled maxima, not guaranteed lifetime peaks. Host swap ranged from 2,809.94 to 7,125.19 MiB and includes unrelated applications. Private journals, access credentials, raw resource samples and the player rollout stay outside Git and remain locally retained under the [artifact index](../../RESULTS_INDEX.md).

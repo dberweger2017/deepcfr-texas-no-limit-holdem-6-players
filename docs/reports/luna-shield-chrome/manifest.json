@@ -4,13 +4,13 @@
   "publicFiles": [
     {
       "path": "docs/reports/luna-shield-chrome.md",
-      "bytes": 7962,
-      "sha256": "077e19d1864ca44040cbccf934f9ca555163818f32f7b793bb07ee573aa98d56"
+      "bytes": 8113,
+      "sha256": "4c934af0ac1b468eb3dc5ca8680e3d9655e1f420a9a143d7c650badfd661db10"
     },
     {
       "path": "docs/reports/luna-shield-v040-comparison.md",
-      "bytes": 7450,
-      "sha256": "c607ba1a24eece0e586d928571edd47a05b2d90d5d562c64f00bfa107c3f9dc1"
+      "bytes": 7637,
+      "sha256": "6caed95bb1687ab1005f888cdcb3331ad1d6db3ecee5f178760717740e5d39c4"
     },
     {
       "path": "scripts/compare_luna_matches.py",

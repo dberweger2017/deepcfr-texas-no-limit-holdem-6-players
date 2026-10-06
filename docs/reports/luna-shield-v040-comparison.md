@@ -59,3 +59,5 @@ The earlier 500-hand plan was stopped at 400 for time after progress/scores were
 ## Reproduction
 
 Run `python -m scripts.compare_luna_matches` and compare its output with [comparison.json](luna-shield-chrome/comparison.json). The reconstruction checks every accepted action against both CSVs and every older amount owed against rendered call labels, then reproduces the published historical 8 BB partition and full-stack counts. All partitions conserve 400 hands and the final score; input SHA256s are included. No new play, training, private-journal extraction, confidence interval for Luna or counterfactual action-value estimate is included.
+
+After integrating current main, all **57 focused play/audit/average/release tests pass**. The comparison reproduces exactly from the retained inputs; diff and relative-link checks pass.
