@@ -1,0 +1,12 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-171-HU20-cfr-plus/hu20-cfr-plus-complete-20261006.zip",
+  "bytes": 8077888199,
+  "cloud_upload": "Not inferred from local ZIP creation; requires separate native/cloud acceptance.",
+  "logical_bytes": 14320364078,
+  "manifest_sha256": "d213bef5423b2b3a333e1f02ae51ab7fdbe0d0cb55448edc1b4b24f29cc06840",
+  "members_verified": 1065,
+  "originals_retained": true,
+  "sha256": "8ec9dbee5fd392b058d8a5c33e00a81a414f95189562d8dd0f9e9c66348b982c",
+  "status": "verified_local_ZIP_and_every_member",
+  "verified_at": 1791275715.629432
+}

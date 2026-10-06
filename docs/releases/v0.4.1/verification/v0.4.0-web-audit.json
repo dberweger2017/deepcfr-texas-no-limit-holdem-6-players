@@ -1,0 +1,15 @@
+{
+  "counts": {
+    "actions": 17,
+    "free_hands": 2,
+    "hands": 2,
+    "human_big_blind": 1,
+    "human_button": 1,
+    "trained": 8
+  },
+  "model_sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+  "positions_sha256": "6443338efc1336e65c5d463e110b92e4d0a85938bb3ce5d256fac41b064d6768",
+  "sessions": 1,
+  "status": "verified",
+  "unexpected_fallbacks": 0
+}

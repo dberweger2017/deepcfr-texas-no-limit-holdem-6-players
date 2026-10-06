@@ -1,0 +1,232 @@
+{
+  "max_seconds": 7200,
+  "root": 202610061101,
+  "blocks": 49152,
+  "started_at": 1791274023.9820101,
+  "primary_pairs": [
+    1,
+    4,
+    7
+  ],
+  "scope": "primary shipped R1 versus each CFR+ average and equal-weight aggregate; nine-pair secondary; paired duplicate deals; outside frozen arena rule",
+  "pairs": [
+    {
+      "candidate": {
+        "arm": "O",
+        "bytes": 143429027,
+        "checkpoint_sha256": "1d162266e55d9098c83415f65e487a4f3eef796257b841a380c7b818deebdd55",
+        "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+        "iteration": 2940243,
+        "name": "O-2026100601",
+        "path": "O-2026100601.average.jsonl.gz",
+        "seed": 2026100601,
+        "sha256": "a5e9d0fc6f4a448640f52f508187f779e43a0a8fd41158207f03de82adc219e1",
+        "strategy": "average"
+      },
+      "reference": {
+        "arm": "R",
+        "bytes": 40144034,
+        "iteration": 246212,
+        "name": "R-2026093001",
+        "path": "R-2026093001.current.json.gz",
+        "seed": 2026093001,
+        "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+        "strategy": "current"
+      }
+    },
+    {
+      "candidate": {
+        "arm": "O",
+        "bytes": 143429027,
+        "checkpoint_sha256": "1d162266e55d9098c83415f65e487a4f3eef796257b841a380c7b818deebdd55",
+        "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+        "iteration": 2940243,
+        "name": "O-2026100601",
+        "path": "O-2026100601.average.jsonl.gz",
+        "seed": 2026100601,
+        "sha256": "a5e9d0fc6f4a448640f52f508187f779e43a0a8fd41158207f03de82adc219e1",
+        "strategy": "average"
+      },
+      "reference": {
+        "arm": "R",
+        "bytes": 40096108,
+        "iteration": 245406,
+        "name": "R-2026093002",
+        "path": "R-2026093002.current.json.gz",
+        "seed": 2026093002,
+        "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710",
+        "strategy": "current"
+      }
+    },
+    {
+      "candidate": {
+        "arm": "O",
+        "bytes": 143429027,
+        "checkpoint_sha256": "1d162266e55d9098c83415f65e487a4f3eef796257b841a380c7b818deebdd55",
+        "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+        "iteration": 2940243,
+        "name": "O-2026100601",
+        "path": "O-2026100601.average.jsonl.gz",
+        "seed": 2026100601,
+        "sha256": "a5e9d0fc6f4a448640f52f508187f779e43a0a8fd41158207f03de82adc219e1",
+        "strategy": "average"
+      },
+      "reference": {
+        "arm": "R",
+        "bytes": 40229571,
+        "iteration": 248186,
+        "name": "R-2026093003",
+        "path": "R-2026093003.current.json.gz",
+        "seed": 2026093003,
+        "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e",
+        "strategy": "current"
+      }
+    },
+    {
+      "candidate": {
+        "arm": "O",
+        "bytes": 144338829,
+        "checkpoint_sha256": "bd6d34335076d9fa7d25ea30290516b04234e53c30939e91ce60193df5987dd9",
+        "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+        "iteration": 2932778,
+        "name": "O-2026100602",
+        "path": "O-2026100602.average.jsonl.gz",
+        "seed": 2026100602,
+        "sha256": "52836e39b832763765568c8bbd958e5f4b0531385a98cc6adce27f4168d30cbb",
+        "strategy": "average"
+      },
+      "reference": {
+        "arm": "R",
+        "bytes": 40144034,
+        "iteration": 246212,
+        "name": "R-2026093001",
+        "path": "R-2026093001.current.json.gz",
+        "seed": 2026093001,
+        "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+        "strategy": "current"
+      }
+    },
+    {
+      "candidate": {
+        "arm": "O",
+        "bytes": 144338829,
+        "checkpoint_sha256": "bd6d34335076d9fa7d25ea30290516b04234e53c30939e91ce60193df5987dd9",
+        "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+        "iteration": 2932778,
+        "name": "O-2026100602",
+        "path": "O-2026100602.average.jsonl.gz",
+        "seed": 2026100602,
+        "sha256": "52836e39b832763765568c8bbd958e5f4b0531385a98cc6adce27f4168d30cbb",
+        "strategy": "average"
+      },
+      "reference": {
+        "arm": "R",
+        "bytes": 40096108,
+        "iteration": 245406,
+        "name": "R-2026093002",
+        "path": "R-2026093002.current.json.gz",
+        "seed": 2026093002,
+        "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710",
+        "strategy": "current"
+      }
+    },
+    {
+      "candidate": {
+        "arm": "O",
+        "bytes": 144338829,
+        "checkpoint_sha256": "bd6d34335076d9fa7d25ea30290516b04234e53c30939e91ce60193df5987dd9",
+        "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+        "iteration": 2932778,
+        "name": "O-2026100602",
+        "path": "O-2026100602.average.jsonl.gz",
+        "seed": 2026100602,
+        "sha256": "52836e39b832763765568c8bbd958e5f4b0531385a98cc6adce27f4168d30cbb",
+        "strategy": "average"
+      },
+      "reference": {
+        "arm": "R",
+        "bytes": 40229571,
+        "iteration": 248186,
+        "name": "R-2026093003",
+        "path": "R-2026093003.current.json.gz",
+        "seed": 2026093003,
+        "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e",
+        "strategy": "current"
+      }
+    },
+    {
+      "candidate": {
+        "arm": "O",
+        "bytes": 144037597,
+        "checkpoint_sha256": "c07665745629b82c6ecab5603c95b12fb42838cd76200ef4205b546cc5bc4449",
+        "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+        "iteration": 2944097,
+        "name": "O-2026100603",
+        "path": "O-2026100603.average.jsonl.gz",
+        "seed": 2026100603,
+        "sha256": "943e4f0acb2c933ae6cc6b0992b1000d2900ec78e38099ebe7ec1d0a2804670d",
+        "strategy": "average"
+      },
+      "reference": {
+        "arm": "R",
+        "bytes": 40144034,
+        "iteration": 246212,
+        "name": "R-2026093001",
+        "path": "R-2026093001.current.json.gz",
+        "seed": 2026093001,
+        "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+        "strategy": "current"
+      }
+    },
+    {
+      "candidate": {
+        "arm": "O",
+        "bytes": 144037597,
+        "checkpoint_sha256": "c07665745629b82c6ecab5603c95b12fb42838cd76200ef4205b546cc5bc4449",
+        "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+        "iteration": 2944097,
+        "name": "O-2026100603",
+        "path": "O-2026100603.average.jsonl.gz",
+        "seed": 2026100603,
+        "sha256": "943e4f0acb2c933ae6cc6b0992b1000d2900ec78e38099ebe7ec1d0a2804670d",
+        "strategy": "average"
+      },
+      "reference": {
+        "arm": "R",
+        "bytes": 40096108,
+        "iteration": 245406,
+        "name": "R-2026093002",
+        "path": "R-2026093002.current.json.gz",
+        "seed": 2026093002,
+        "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710",
+        "strategy": "current"
+      }
+    },
+    {
+      "candidate": {
+        "arm": "O",
+        "bytes": 144037597,
+        "checkpoint_sha256": "c07665745629b82c6ecab5603c95b12fb42838cd76200ef4205b546cc5bc4449",
+        "extraction": "normalize-lifetime-iteration-own-reach-accumulator-v1",
+        "iteration": 2944097,
+        "name": "O-2026100603",
+        "path": "O-2026100603.average.jsonl.gz",
+        "seed": 2026100603,
+        "sha256": "943e4f0acb2c933ae6cc6b0992b1000d2900ec78e38099ebe7ec1d0a2804670d",
+        "strategy": "average"
+      },
+      "reference": {
+        "arm": "R",
+        "bytes": 40229571,
+        "iteration": 248186,
+        "name": "R-2026093003",
+        "path": "R-2026093003.current.json.gz",
+        "seed": 2026093003,
+        "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e",
+        "strategy": "current"
+      }
+    }
+  ],
+  "approval": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/171#issuecomment-6012048061",
+  "source_commit": "c471678"
+}

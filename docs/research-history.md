@@ -10,6 +10,8 @@ The current [README](../readme.md) leads with what can be played. These reports 
 | B100M scale and diagnosis | [Failed dual-Mac attempt](reports/hu20-scaling-both-macs.md), [M4 recovery](reports/hu20-scaling-m4-recovery.md), [completed diagnostics](reports/hu20-scaling-diagnostics.md), [separate decision diagnosis](reports/hu20-b100-diagnosis-m4.md) |
 | Human/agent observations and post-Luna regression | [Luna benchmark](reports/luna-browser-benchmark.md), [big-pot analysis](reports/luna-browser-big-pot-analysis.md), [frozen stackoff protocol](hu20-stackoff-protocol.md), [checkpoint regression](reports/hu20-stackoff-v1-m1.md) |
 | HU20 card representation | [Model-free bucket collisions](reports/hu20-bucket-coarseness.md), [frozen v2 100M A/B and negative results](reports/hu20-card-v2.md) |
-| Protocols and current direction | [Roadmap](../ROADMAP.md), [rules](rules.md), [observations](observations.md), [model card](hu20-native-reopening-model-card.md) |
+| HU20 O average confirmation | [Fresh release-rule confirmation](reports/hu20-v041-o-confirmation.md), [unpublished candidate readiness](releases/v0.4.1/READINESS.md), [floor control](reports/hu20-floor-control.md) |
+| HU20 trainer bench | [Frozen protocol](hu20-trainer-bench-protocol.md), [completed learning curve and classification](reports/hu20-trainer-bench.md) |
+| Protocols and current direction | [Roadmap](../ROADMAP.md), [full roadmap history](roadmap-history.md), [rules](rules.md), [observations](observations.md), [model card](hu20-native-reopening-model-card.md) |
 
 Older source releases and tags are preserved as historical artifacts unless I separately approve an exact cleanup. Their version numbers do not map onto the current [release plan](../readme.md#release-plan).

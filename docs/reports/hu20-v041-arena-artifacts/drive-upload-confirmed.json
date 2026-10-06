@@ -1,0 +1,53 @@
+{
+ "acceptance": "Native FileProvider isUploaded=1, isUploading=0, hasUnresolvedConflicts=0, exact documentSize; connector exact cloud name/size/parent readback. Source, archive members and staged SHA256s verified separately; no cloud byte re-download.",
+ "checked_utc": "2026-10-05T14:46:40Z",
+ "cloud_files": [
+  {
+   "archive_sha256": "b5b43d83cdfb9e9b25679eef94b9350c3ef4a76f8c4dad4d076090bb2c6aa898",
+   "created_time": null,
+   "current_user_can_share": null,
+   "display_url": "https://drive.google.com/file/d/1xenvcfa5QfhGutNe5xNtDhFLYRqKcyxI/view?usp=drivesdk",
+   "drive_id": null,
+   "file_or_folder": "file",
+   "has_augmented_permissions": null,
+   "id": "1xenvcfa5QfhGutNe5xNtDhFLYRqKcyxI",
+   "manifest_sha256": "094953b982c8995dd3b4e17668850725d2696f42f72c169ac70eb8e74f831f3c",
+   "mime_type": "application/x-gzip",
+   "modified_time": null,
+   "parent_ids": [
+    "1IXMpL2f18EVb1FfoFTvAaOGIzdrRpeD2"
+   ],
+   "permissions": null,
+   "shared": null,
+   "size": "3166550740",
+   "source_visibility_status": "access_not_verified",
+   "title": "hu20-native-average-complete-20261005.tar.gz",
+   "url": "https://drive.google.com/file/d/1xenvcfa5QfhGutNe5xNtDhFLYRqKcyxI/view?usp=drivesdk"
+  },
+  {
+   "archive_sha256": "dcfd4fbc1fa360dd765f6db0481353a64646d1893497d4d71b2060b4f89083c5",
+   "created_time": null,
+   "current_user_can_share": null,
+   "display_url": "https://drive.google.com/file/d/1olH4RanIwqGhmPae7Pw8GtvIwRr0e14n/view?usp=drivesdk",
+   "drive_id": null,
+   "file_or_folder": "file",
+   "has_augmented_permissions": null,
+   "id": "1olH4RanIwqGhmPae7Pw8GtvIwRr0e14n",
+   "manifest_sha256": "a7d61294d4a9f20827d9f79f811258395af51151be590d44a5b66442f2a5cdda",
+   "mime_type": "application/x-gzip",
+   "modified_time": null,
+   "parent_ids": [
+    "1IXMpL2f18EVb1FfoFTvAaOGIzdrRpeD2"
+   ],
+   "permissions": null,
+   "shared": null,
+   "size": "156392346",
+   "source_visibility_status": "access_not_verified",
+   "title": "hu20-v041-audit-closeout-20261005.tar.gz",
+   "url": "https://drive.google.com/file/d/1olH4RanIwqGhmPae7Pw8GtvIwRr0e14n/view?usp=drivesdk"
+  }
+ ],
+ "folder_id": "1IXMpL2f18EVb1FfoFTvAaOGIzdrRpeD2",
+ "originals_retained": true,
+ "status": "accepted_uploaded"
+}

@@ -1,0 +1,49 @@
+{
+ "destination": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run",
+ "files": [
+  {
+   "bytes": 11778482,
+   "path": "O-2026100601.hands.jsonl.gz",
+   "sha256": "c228c5d3626b1b4174f566883eaa7024cdd026fc28e030d5a15a8d6cb1e6164b"
+  },
+  {
+   "bytes": 337,
+   "path": "O-2026100601.result.json",
+   "sha256": "234e7acd89b94bdb2dace1fd4d3c27e499a196bdb70e1c57c2a6df4280ba1c71"
+  },
+  {
+   "bytes": 11803489,
+   "path": "O-2026100602.hands.jsonl.gz",
+   "sha256": "ad658f156b13e158a54ed379ed86669b8c2584db700f89d112fe6c9460c77d92"
+  },
+  {
+   "bytes": 338,
+   "path": "O-2026100602.result.json",
+   "sha256": "de92477e64e908a40be546445cff2e29fb5eb93ebf15053ec8d65d67144dcd2d"
+  },
+  {
+   "bytes": 11642359,
+   "path": "O-2026100603.hands.jsonl.gz",
+   "sha256": "72f16f74406c814d67cf25f9be1cdce412429230c53dcfff20c93fd50eb1c275"
+  },
+  {
+   "bytes": 339,
+   "path": "O-2026100603.result.json",
+   "sha256": "d3b0795acd37d1e3850921374c4ea87a53a3b7306c4cbacfc0fad2afe98786f8"
+  },
+  {
+   "bytes": 11783140,
+   "path": "T-2026100601.hands.jsonl.gz",
+   "sha256": "1b20898011a481357f40f82926a74db5b476b71217d2401b840d58c15f0169f9"
+  },
+  {
+   "bytes": 339,
+   "path": "T-2026100601.result.json",
+   "sha256": "aef15f1f72e02ad4fa1b835724fdc687c8663fe2571607a40e22fb585c2b74ff"
+  }
+ ],
+ "host": "M4",
+ "host_done": "HOST DONE 2026-10-05T13:45:31Z",
+ "mismatches": 0,
+ "status": "verified"
+}

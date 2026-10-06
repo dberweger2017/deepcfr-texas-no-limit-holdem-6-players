@@ -119,7 +119,10 @@ def handler_for(service, token, port):
                 self._auth()
                 if self.path != path:
                     raise PlayError("Unknown endpoint", 404)
-                if path == "/api/model":
+                if path == "/api/models":
+                    catalog = getattr(service, "model_catalog", None)
+                    self._send(200, catalog() if catalog else {"default": None, "models": []})
+                elif path == "/api/model":
                     self._send(200, service.model_info())
                 elif match := SESSION.fullmatch(path):
                     self._send(200, service.state(match[1]))
@@ -169,10 +172,30 @@ def handler_for(service, token, port):
     return Handler
 
 
+def single_table(args):
+    if args.uniform_random:
+        from src.play_api.uniform_random import UniformRestrictedPolicy
+        policy = UniformRestrictedPolicy()
+    elif args.o_candidate:
+        from src.play_api.o_candidate import load_o_candidate
+        policy = load_o_candidate(args.o_candidate)
+    elif args.shield_policy:
+        from src.play_api.shield import ShieldPolicy
+        policy = ShieldPolicy(args.shield_policy)
+    else:
+        policy = load_b100m(args.policy)
+    return PlayService(args.data_dir / "private.sqlite", policy, source_version=args.source_version)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    opponent = parser.add_mutually_exclusive_group(required=True)
+    opponent = parser.add_mutually_exclusive_group()
+    opponent.add_argument("--models-dir", type=Path, help="Both pinned models; v0.4.1 is the default")
     opponent.add_argument("--policy", type=Path)
+    opponent.add_argument("--o-candidate", type=Path,
+                          help="Opt-in pinned O1B average candidate; does not change v0.4.0")
+    opponent.add_argument("--shield-policy", type=Path,
+                          help="Pinned CFR+ first-lineage average; restricted benchmarks only")
     opponent.add_argument("--uniform-random", action="store_true",
                           help="Benchmark-only control over the same restricted HU20 menu; loads no model")
     parser.add_argument("--data-dir", type=Path, default=Path("results/play-web"))
@@ -183,12 +206,11 @@ def main():
     if not 1 <= args.port <= 65535:
         parser.error("Port must be 1–65535")
     os.umask(0o077)
-    if args.uniform_random:
-        from src.play_api.uniform_random import UniformRestrictedPolicy
-        policy = UniformRestrictedPolicy()
+    if args.models_dir or not (args.policy or args.o_candidate or args.shield_policy or args.uniform_random):
+        from src.play_api.versions import load_tables
+        service = load_tables(args.models_dir or Path("models"), args.data_dir, args.source_version)
     else:
-        policy = load_b100m(args.policy)
-    service = PlayService(args.data_dir / "private.sqlite", policy, source_version=args.source_version)
+        service = single_table(args)
     try:
         if args.verify_session:
             print(f"Verified {service.verify_replay(args.verify_session)} completed hands")

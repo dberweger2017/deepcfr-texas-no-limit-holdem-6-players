@@ -1,0 +1,6 @@
+{
+  "scripts/audit_hu20_cfr_plus_direct.py": "c82437000bcb5b40ee8dfc1257783f8eab86ea114d176375cc3fb34909cc93c9",
+  "scripts/evaluate_hu20_cfr_average.py": "4f96beb4e180f17651933839a89b184a67b762518a97db063902c9998ef8008f",
+  "scripts/evaluate_hu20_cfr_plus_direct.py": "adef72aa9ad8d34951f8260ff6bb09f6a5f44377ff878ac1f91224a8bd039219",
+  "scripts/evaluate_hu20_v041_arena.py": "e9d530aab543831be018dfa37f4394ea314e08b52db4635533d6d1f9063ab141"
+}

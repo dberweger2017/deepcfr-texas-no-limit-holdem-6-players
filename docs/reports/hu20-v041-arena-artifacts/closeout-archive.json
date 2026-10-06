@@ -1,0 +1,13 @@
+{
+ "archive": "/Users/dberweger/Local/hu20-v041-archives-20261005/hu20-v041-audit-closeout-20261005.tar.gz",
+ "bytes": 156392346,
+ "cloud_upload_status": "not_staged",
+ "manifest": "/Users/dberweger/Local/hu20-v041-archives-20261005/hu20-v041-audit-closeout-20261005.tar.gz.manifest.json",
+ "manifest_sha256": "a7d61294d4a9f20827d9f79f811258395af51151be590d44a5b66442f2a5cdda",
+ "members": 35,
+ "originals_retained": true,
+ "sha256": "dcfd4fbc1fa360dd765f6db0481353a64646d1893497d4d71b2060b4f89083c5",
+ "source_and_archive_member_mismatches": 0,
+ "source_bytes": 156681242,
+ "status": "verified"
+}

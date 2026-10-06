@@ -209,6 +209,12 @@ def load_training(path: Path) -> BlueprintTrainer:
 def _load_training_document(document: dict, rows) -> BlueprintTrainer:
     if document.get("kind") != "training":
         raise ValueError("An inference export cannot resume training")
+    if document.get("average_rule", "traverser-reach") != "traverser-reach":
+        # Continuing here would add this trainer's traverser-reach increments to it.
+        raise ValueError("Only traverser-reach average checkpoints can resume in Python")
+    if "training_options" in document:
+        # Python implements only the production update; native options (regret floor, DCFR) cannot continue here.
+        raise ValueError("Checkpoints trained with native options cannot resume in Python")
     table_data = document["table"]
     table = Table(
         tuple(table_data["player_ids"]),

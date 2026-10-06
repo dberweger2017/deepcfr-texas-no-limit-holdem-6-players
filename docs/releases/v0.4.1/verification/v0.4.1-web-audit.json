@@ -1,0 +1,17 @@
+{
+  "counts": {
+    "actions": 66,
+    "exact_201_chip_human_raises": 1,
+    "free_hands": 4,
+    "hands": 8,
+    "human_big_blind": 4,
+    "human_button": 4,
+    "restricted_hands": 4,
+    "trained": 29
+  },
+  "model_sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+  "positions_sha256": "cde5698cc1942e6c45974fa19d61d30dc9e9f9c8b2ae18056a93a26a44682336",
+  "sessions": 3,
+  "status": "verified",
+  "unexpected_fallbacks": 0
+}

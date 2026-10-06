@@ -177,7 +177,7 @@ pub fn check_run(document: &Value) -> Result<(usize, usize), String> {
     for (index, recorded) in iterations.iter().enumerate() {
         let nodes = trainer.step_with(|iteration, seat, _sample| {
             let (deck, draws) = &roots[iteration as usize - 1][seat];
-            (deck.clone(), Forced(draws.iter()))
+            (Hand::from_deck(0, deck), Forced(draws.iter()))
         });
         let expected = recorded["nodes"].as_u64().unwrap();
         if nodes != expected {

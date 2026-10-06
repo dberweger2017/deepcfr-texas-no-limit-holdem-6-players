@@ -12,5 +12,12 @@
   "source": "/Users/dberweger/Local/hu20-turn-search-arena-20261005/revision-3-run-03",
   "verified": true,
   "native_drive_upload": "pending metadata/upload confirmation; originals preserved",
-  "final_publication_seal": "attempt-2-publication-seal-M1-20261006.zip with adjacent .verified.json; preserves later CI/publication/wake-disable receipts"
+  "final_publication_seal": {
+    "filename": "attempt-2-publication-seal-M1-20261006.zip",
+    "bytes": 250264,
+    "sha256": "32fe458e412c3a1500165f0900cb40e446b0e3e07cd5e66bf7d22c291dc76c12",
+    "members": 23,
+    "verified": true,
+    "basis": "Changed/new research files overlay full ZIP; adjacent verification receipt retains proof"
+  }
 }

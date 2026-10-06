@@ -7,7 +7,7 @@
 //! same seed and roots per seat. Production HU20 runs use one root per seat; more
 //! roots per seat run in parallel.
 
-use crate::cfr::{Key, Lookup, Node, Sampler, Table, Traversal};
+use crate::cfr::{AverageRule, Discounts, Key, Lookup, Node, Options, Sampler, Table, Traversal};
 use crate::streams::{engine_deck, python_seed, Mt};
 use crate::game::Hand;
 use flate2::write::GzEncoder;
@@ -55,37 +55,49 @@ pub struct Trainer {
     pub seed: u64,
     pub roots_per_seat: usize,
     pub nodes: u64,
+    /// The production rule unless chosen otherwise; regrets and play are the same under both.
+    pub average: AverageRule,
+    /// Training changes beyond the production rule; none by default.
+    pub options: Options,
+    discounts: Discounts,
 }
 
 impl Trainer {
     pub fn new(seed: u64, roots_per_seat: usize) -> Trainer {
-        Trainer { table: Sharded::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0 }
+        Trainer { table: Sharded::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0,
+                  average: AverageRule::TraverserReach, options: Options::default(), discounts: Discounts::default() }
     }
 
     pub fn step(&mut self) -> u64 {
         let seed = self.seed;
         self.step_with(|iteration, seat, sample| {
-            (engine_deck(python_seed(seed, iteration, seat, sample, "deal")),
+            (Hand::from_deck(0, &engine_deck(python_seed(seed, iteration, seat, sample, "deal"))),
              Mt::new(python_seed(seed, iteration, seat, sample, "actions")))
         })
     }
 
-    /// One iteration whose roots take their deck and opponent sampler from `root(iteration, seat, sample)`.
+    /// One iteration whose roots take their starting hand and opponent sampler from `root(iteration, seat, sample)`.
     pub fn step_with<S, F>(&mut self, root: F) -> u64
     where
         S: Sampler,
-        F: Fn(u64, usize, usize) -> (Vec<u8>, S) + Sync,
+        F: Fn(u64, usize, usize) -> (Hand, S) + Sync,
     {
         let iteration = self.iteration + 1;
         let tasks: Vec<(usize, usize)> =
             (0..2).flat_map(|seat| (0..self.roots_per_seat).map(move |sample| (seat, sample))).collect();
         let table = &self.table;
+        let average = self.average;
+        let options = self.options;
+        let (regret_weight, average_weight) = options.weights(iteration);
         let mut scratch = std::mem::take(&mut self.scratch);
         scratch.resize_with(tasks.len(), Table::default);
         let run = |(&(seat, sample), deltas): (&(usize, usize), Table)| {
-            let (deck, sampler) = root(iteration, seat, sample);
+            let (mut hand, sampler) = root(iteration, seat, sample);
             let mut traversal = Traversal::with_deltas(table, iteration, seat, sampler, deltas);
-            traversal.run(&mut Hand::from_deck(0, &deck));
+            traversal.average = average;
+            traversal.regret_weight = regret_weight;
+            traversal.average_weight = average_weight;
+            traversal.run(&mut hand);
             (traversal.deltas, traversal.nodes)
         };
         let results: Vec<(Table, u64)> = if tasks.len() > 2 {
@@ -104,6 +116,10 @@ impl Trainer {
         };
         let grouped: Vec<Vec<Vec<(Key, Node)>>> =
             if tasks.len() > 2 { results.par_iter().map(group).collect() } else { results.iter().map(group).collect() };
+        if let Some([alpha, beta, _]) = options.dcfr {
+            self.discounts.extend([alpha, beta], iteration);
+        }
+        let discounts = &self.discounts;
         // Per shard: merge tasks in order, then apply. Each key sees Python's addition order.
         let apply = |(shard, table): (usize, &mut Table)| {
             let mut merged = Table::default();
@@ -119,12 +135,33 @@ impl Trainer {
                 }
             }
             for (key, delta) in merged {
-                let node = table.entry(key).or_insert_with(|| Node::empty(delta.code, delta.len as usize));
+                let node = table.entry(key).or_insert_with(|| Node {
+                    stamp: (iteration - 1).min(u32::MAX as u64) as u32,
+                    ..Node::empty(delta.code, delta.len as usize)
+                });
                 assert!(node.code == delta.code, "an abstract infoset changed its action labels");
+                // Only traverser visits carry regrets; an opponent-only delta adds to the average alone,
+                // so discounting and flooring happen on the same updates under either average rule.
+                let regrets = delta.visits > 0;
+                if regrets && options.dcfr.is_some() {
+                    discounts.catch_up(node, iteration - 1);
+                }
                 for i in 0..delta.len as usize {
-                    node.regrets[i] += delta.regrets[i];
+                    // An opponent-only delta's regrets are +0.0; adding them would still turn a -0.0 regret
+                    // into +0.0 in this trainer alone.
+                    if regrets {
+                        node.regrets[i] += delta.regrets[i];
+                    }
                     node.average[i] += delta.average[i];
                     assert!(node.regrets[i].is_finite() && node.average[i].is_finite(), "non-finite blueprint update");
+                }
+                if regrets && options.dcfr.is_some() {
+                    discounts.catch_up(node, iteration);
+                }
+                if let (true, Some(floor)) = (regrets, options.regret_floor) {
+                    for r in &mut node.regrets[..delta.len as usize] {
+                        *r = r.max(floor);
+                    }
                 }
                 node.visits += delta.visits;
             }
@@ -139,6 +176,16 @@ impl Trainer {
         self.iteration = iteration;
         self.nodes += nodes;
         nodes
+    }
+
+    /// `node` with its regrets brought to the current iteration's discount. Reads never write the
+    /// table, so how often a run exports or saves cannot change its training.
+    pub fn caught_up(&self, node: &Node) -> Node {
+        let mut node = *node;
+        if self.options.dcfr.is_some() {
+            self.discounts.catch_up(&mut node, self.iteration);
+        }
+        node
     }
 
     /// A `jsonl-v2` training checkpoint that `src.blueprint.artifact.load_training` accepts.
@@ -158,6 +205,14 @@ impl Trainer {
                          "card_descriptor": "legacy-postflop-descriptor-v1",
                          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds"},
         });
+        let mut header = header;
+        // Only a non-production average is named, so production checkpoints stay identical to Python's.
+        if self.average != AverageRule::TraverserReach {
+            header["average_rule"] = json!(self.average.name());
+        }
+        if let Some(label) = self.options.label() {
+            header["training_options"] = json!(label);
+        }
         let temporary = path.with_extension("tmp");
         {
             let file = std::fs::File::create(&temporary)?;
@@ -166,6 +221,7 @@ impl Trainer {
             let mut rows: Vec<(&Key, &Node)> = self.table.iter().collect();
             rows.sort_by(|a, b| a.0.cmp(b.0));
             for (key, node) in rows {
+                let node = &self.caught_up(node);
                 let hex: String = key.iter().map(|b| format!("{b:02x}")).collect();
                 let n = node.len as usize;
                 let row = json!([hex, node.names(), &node.regrets[..n], &node.average[..n], node.visits]);

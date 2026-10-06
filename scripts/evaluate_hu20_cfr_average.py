@@ -42,10 +42,10 @@ def opponent(panel,source,seed):
     return ReactiveAttack(rule,panel['contract'])
 
 
-def play(source,spec,panel,root,block,rotation,guard=lambda:None):
+def play(source,spec,panel,root,block,rotation,guard=lambda:None,*,rival=None):
     deal_seed=stream_seed(root,'test','deal',2,block)
     action_random=Random(stream_seed(root,'test','action',2,block,0))
-    rival=opponent(panel,source,stream_seed(root,'test','opponent',2,block,1))
+    if rival is None:rival=opponent(panel,source,stream_seed(root,'test','opponent',2,block,1))
     hand_id=f"cfr-average/{panel['name']}/{block}/{rotation}"
     hand=Hand.start(Table(('seat0','seat1'),(2000,2000),button=block%2),hand_id=hand_id,seed=deal_seed)
     actions=[];coverage=Counter();start=perf_counter()

@@ -1,0 +1,381 @@
+{
+  "scope": "post-hoc descriptive comparison of unpaired sessions; no strength, decision-EV or adaptation estimate",
+  "matches": {
+    "v040": {
+      "overall": {
+        "hands": 400,
+        "lunaBB": 107.0,
+        "bbPer100": 26.75,
+        "wins": 164,
+        "losses": 231,
+        "ties": 5
+      },
+      "positions": {
+        "buttonSB": {
+          "hands": 200,
+          "lunaBB": 54.5,
+          "bbPer100": 27.25,
+          "wins": 78,
+          "losses": 120,
+          "ties": 2
+        },
+        "bigBlind": {
+          "hands": 200,
+          "lunaBB": 52.5,
+          "bbPer100": 26.25,
+          "wins": 86,
+          "losses": 111,
+          "ties": 3
+        }
+      },
+      "acceptedHumanDecisions": 978,
+      "firstActionCounts": {
+        "buttonSB": {
+          "call": 53,
+          "raise": 122,
+          "fold": 25
+        },
+        "bigBlind": {
+          "fold": 30,
+          "call": 50,
+          "raise": 23,
+          "check": 48
+        }
+      },
+      "exact20BBWins": 12,
+      "exact20BBLosses": 0,
+      "largeCallThresholds": {
+        "5": {
+          "folded": {
+            "hands": 32,
+            "lunaBB": -124.0,
+            "bbPer100": -387.5,
+            "wins": 0,
+            "losses": 32,
+            "ties": 0
+          },
+          "continued": {
+            "hands": 16,
+            "lunaBB": 287.0,
+            "bbPer100": 1793.75,
+            "wins": 15,
+            "losses": 0,
+            "ties": 1
+          },
+          "other": {
+            "hands": 352,
+            "lunaBB": -56.0,
+            "bbPer100": -15.909090909090908,
+            "wins": 149,
+            "losses": 199,
+            "ties": 4
+          }
+        },
+        "8": {
+          "folded": {
+            "hands": 18,
+            "lunaBB": -82.0,
+            "bbPer100": -455.55555555555554,
+            "wins": 0,
+            "losses": 18,
+            "ties": 0
+          },
+          "continued": {
+            "hands": 15,
+            "lunaBB": 276.0,
+            "bbPer100": 1840.0,
+            "wins": 14,
+            "losses": 0,
+            "ties": 1
+          },
+          "other": {
+            "hands": 367,
+            "lunaBB": -87.0,
+            "bbPer100": -23.705722070844686,
+            "wins": 150,
+            "losses": 213,
+            "ties": 4
+          }
+        },
+        "12": {
+          "folded": {
+            "hands": 11,
+            "lunaBB": -52.0,
+            "bbPer100": -472.72727272727275,
+            "wins": 0,
+            "losses": 11,
+            "ties": 0
+          },
+          "continued": {
+            "hands": 7,
+            "lunaBB": 136.0,
+            "bbPer100": 1942.857142857143,
+            "wins": 7,
+            "losses": 0,
+            "ties": 0
+          },
+          "other": {
+            "hands": 382,
+            "lunaBB": 23.0,
+            "bbPer100": 6.020942408376963,
+            "wins": 157,
+            "losses": 220,
+            "ties": 5
+          }
+        }
+      },
+      "afterRemovingTenLargestWins": {
+        "hands": 390,
+        "lunaBB": -93.0,
+        "bbPer100": -23.846153846153847,
+        "wins": 154,
+        "losses": 231,
+        "ties": 5
+      },
+      "humanFoldedHands": {
+        "hands": 214,
+        "lunaBB": -385.5,
+        "bbPer100": -180.14018691588785,
+        "wins": 0,
+        "losses": 214,
+        "ties": 0
+      },
+      "firstResponseToButtonThreeBet": {
+        "fold": {
+          "hands": 20,
+          "lunaBB": -48.0,
+          "bbPer100": -240.0,
+          "wins": 0,
+          "losses": 20,
+          "ties": 0
+        },
+        "call": {
+          "hands": 11,
+          "lunaBB": 59.0,
+          "bbPer100": 536.3636363636364,
+          "wins": 5,
+          "losses": 6,
+          "ties": 0
+        },
+        "raise": {
+          "hands": 1,
+          "lunaBB": 19.0,
+          "bbPer100": 1900.0,
+          "wins": 1,
+          "losses": 0,
+          "ties": 0
+        }
+      },
+      "postflopFacingBet": {
+        "flop": {
+          "decisions": 105,
+          "folds": 60
+        },
+        "turn": {
+          "decisions": 77,
+          "folds": 34
+        },
+        "river": {
+          "decisions": 47,
+          "folds": 26
+        }
+      },
+      "inputHashes": {
+        "docs/reports/luna-browser/primary/public-history.json": "44980fb14b040e277fdf721f0c20d58072e069643bb71953c5766701045def7b",
+        "docs/reports/luna-browser/primary/export.json": "79bb0ac62fd6ecb514dd918d03316343601612fb6d2c6aa0eab7ad0f702e8ffb",
+        "docs/reports/luna-browser/primary/decisions.csv": "261d3bf5700f3ddc1d865a6109ef14c58c94f99c4e1c73a9a42104cbcaabc173"
+      }
+    },
+    "shield": {
+      "overall": {
+        "hands": 400,
+        "lunaBB": -82.0,
+        "bbPer100": -20.5,
+        "wins": 180,
+        "losses": 217,
+        "ties": 3
+      },
+      "positions": {
+        "buttonSB": {
+          "hands": 200,
+          "lunaBB": -120.5,
+          "bbPer100": -60.25,
+          "wins": 83,
+          "losses": 116,
+          "ties": 1
+        },
+        "bigBlind": {
+          "hands": 200,
+          "lunaBB": 38.5,
+          "bbPer100": 19.25,
+          "wins": 97,
+          "losses": 101,
+          "ties": 2
+        }
+      },
+      "acceptedHumanDecisions": 1012,
+      "firstActionCounts": {
+        "buttonSB": {
+          "raise": 163,
+          "call": 32,
+          "fold": 5
+        },
+        "bigBlind": {
+          "check": 51,
+          "raise": 25,
+          "call": 37,
+          "fold": 28
+        }
+      },
+      "exact20BBWins": 12,
+      "exact20BBLosses": 3,
+      "largeCallThresholds": {
+        "5": {
+          "folded": {
+            "hands": 47,
+            "lunaBB": -185.0,
+            "bbPer100": -393.6170212765957,
+            "wins": 0,
+            "losses": 47,
+            "ties": 0
+          },
+          "continued": {
+            "hands": 17,
+            "lunaBB": 162.0,
+            "bbPer100": 952.9411764705883,
+            "wins": 12,
+            "losses": 4,
+            "ties": 1
+          },
+          "other": {
+            "hands": 336,
+            "lunaBB": -59.0,
+            "bbPer100": -17.55952380952381,
+            "wins": 168,
+            "losses": 166,
+            "ties": 2
+          }
+        },
+        "8": {
+          "folded": {
+            "hands": 25,
+            "lunaBB": -125.0,
+            "bbPer100": -500.0,
+            "wins": 0,
+            "losses": 25,
+            "ties": 0
+          },
+          "continued": {
+            "hands": 14,
+            "lunaBB": 160.0,
+            "bbPer100": 1142.857142857143,
+            "wins": 11,
+            "losses": 2,
+            "ties": 1
+          },
+          "other": {
+            "hands": 361,
+            "lunaBB": -117.0,
+            "bbPer100": -32.40997229916898,
+            "wins": 169,
+            "losses": 190,
+            "ties": 2
+          }
+        },
+        "12": {
+          "folded": {
+            "hands": 14,
+            "lunaBB": -73.0,
+            "bbPer100": -521.4285714285714,
+            "wins": 0,
+            "losses": 14,
+            "ties": 0
+          },
+          "continued": {
+            "hands": 4,
+            "lunaBB": 20.0,
+            "bbPer100": 500.0,
+            "wins": 2,
+            "losses": 1,
+            "ties": 1
+          },
+          "other": {
+            "hands": 382,
+            "lunaBB": -29.0,
+            "bbPer100": -7.591623036649215,
+            "wins": 178,
+            "losses": 202,
+            "ties": 2
+          }
+        }
+      },
+      "afterRemovingTenLargestWins": {
+        "hands": 390,
+        "lunaBB": -282.0,
+        "bbPer100": -72.3076923076923,
+        "wins": 170,
+        "losses": 217,
+        "ties": 3
+      },
+      "humanFoldedHands": {
+        "hands": 183,
+        "lunaBB": -399.5,
+        "bbPer100": -218.30601092896174,
+        "wins": 0,
+        "losses": 183,
+        "ties": 0
+      },
+      "firstResponseToButtonThreeBet": {
+        "fold": {
+          "hands": 27,
+          "lunaBB": -55.0,
+          "bbPer100": -203.7037037037037,
+          "wins": 0,
+          "losses": 27,
+          "ties": 0
+        },
+        "call": {
+          "hands": 22,
+          "lunaBB": -51.0,
+          "bbPer100": -231.8181818181818,
+          "wins": 5,
+          "losses": 17,
+          "ties": 0
+        },
+        "raise": {
+          "hands": 3,
+          "lunaBB": 3.0,
+          "bbPer100": 100.0,
+          "wins": 2,
+          "losses": 1,
+          "ties": 0
+        }
+      },
+      "postflopFacingBet": {
+        "flop": {
+          "decisions": 126,
+          "folds": 47
+        },
+        "turn": {
+          "decisions": 81,
+          "folds": 40
+        },
+        "river": {
+          "decisions": 50,
+          "folds": 22
+        }
+      },
+      "inputHashes": {
+        "docs/reports/luna-shield-chrome/public-history.json": "65a37a88b0f42c30283b3a4a20cbd45dd61691a8207449d3d8d8b9ad3588596e",
+        "docs/reports/luna-shield-chrome/export.json": "37efeb3e93e55e8e2e6513211a2085eb6490fb7914860ef065bf3327ce872d7e",
+        "docs/reports/luna-shield-chrome/native-decisions.csv": "5a2072882cff16949ca3aa7c06b3a8d20b3b1add68d7d0b09981b4a3012b497e"
+      }
+    }
+  },
+  "lunaShieldMinusV040": {
+    "netBB": -189.0,
+    "bbPer100": -47.25,
+    "buttonSBNetBB": -175.0,
+    "bigBlindNetBB": -14.0
+  }
+}

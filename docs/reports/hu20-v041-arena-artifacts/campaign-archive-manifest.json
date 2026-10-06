@@ -1,0 +1,1734 @@
+{
+ "created_utc": "2026-10-05T14:36:46Z",
+ "members": [
+  {
+   "bytes": 1058880,
+   "member": "M1-hu20-native-average-20261005/hu20-trainer-c89f918",
+   "sha256": "aecf2e562599c45b8dde77896de91ed925438bbb5a2dfba77bdf532a32cdeb03",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/hu20-trainer-c89f918",
+   "stat": [
+    16777233,
+    77556548,
+    1058880,
+    1791201652388089931,
+    33261
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 214220678,
+   "member": "M1-hu20-native-average-20261005/training/O-2026100601-1000000000.json.gz",
+   "sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/O-2026100601-1000000000.json.gz",
+   "stat": [
+    16777233,
+    77567746,
+    214220678,
+    1791203366999776695,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 150,
+   "member": "M1-hu20-native-average-20261005/training/O-2026100601.log",
+   "sha256": "f122713f1830368d5afc4742dab9fffd8ee1253b1889a2dc4ce38620c95a738c",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/O-2026100601.log",
+   "stat": [
+    16777233,
+    77565050,
+    150,
+    1791203367005551276,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 777,
+   "member": "M1-hu20-native-average-20261005/training/O-2026100601.time",
+   "sha256": "995ceb60b9bf43383430d14124bf22dc5e1063b8d4fd9af133b78cf67a11832c",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/O-2026100601.time",
+   "stat": [
+    16777233,
+    77565051,
+    777,
+    1791203367025404920,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 215171058,
+   "member": "M1-hu20-native-average-20261005/training/O-2026100602-1000000000.json.gz",
+   "sha256": "a0ef695d6807aa4554ba01b32d27f64c39ccdc72d03be5a21c99cf67e52ad716",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/O-2026100602-1000000000.json.gz",
+   "stat": [
+    16777233,
+    77567744,
+    215171058,
+    1791203365927820695,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 150,
+   "member": "M1-hu20-native-average-20261005/training/O-2026100602.log",
+   "sha256": "1730074a230c8eb7e4f78ffb12121622a42ae778742f75927a8e1ca1fe886202",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/O-2026100602.log",
+   "stat": [
+    16777233,
+    77565052,
+    150,
+    1791203365930642716,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 777,
+   "member": "M1-hu20-native-average-20261005/training/O-2026100602.time",
+   "sha256": "2f9c199ff0c897cc208f915fdbeb2ff1ff503fdeffceb795e3d2c28165720828",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/O-2026100602.time",
+   "stat": [
+    16777233,
+    77565053,
+    777,
+    1791203365968578127,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 213672153,
+   "member": "M1-hu20-native-average-20261005/training/O-2026100603-1000000000.json.gz",
+   "sha256": "63bb2ddb5bb102be82b919b5caa0ef95c1bcd5d852fe35af1762291525db7ac8",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/O-2026100603-1000000000.json.gz",
+   "stat": [
+    16777233,
+    77567745,
+    213672153,
+    1791203366729434841,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 150,
+   "member": "M1-hu20-native-average-20261005/training/O-2026100603.log",
+   "sha256": "6b9ccc3b65745b0db138fd0ec8683e8add75948dfeb4cb3cd343a2f527504800",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/O-2026100603.log",
+   "stat": [
+    16777233,
+    77565054,
+    150,
+    1791203366731752623,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 777,
+   "member": "M1-hu20-native-average-20261005/training/O-2026100603.time",
+   "sha256": "ac5ee5351bb7911532e31cdd442ffc448de18ad4567a7d10492927c1082212b0",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/O-2026100603.time",
+   "stat": [
+    16777233,
+    77565055,
+    777,
+    1791203366753987298,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 166824730,
+   "member": "M1-hu20-native-average-20261005/training/T-2026100601-1000000000.json.gz",
+   "sha256": "ad40f5d48347982886d2f2369b698e5a0c3cf78ba17eeccf9087c8c2dad0b2e7",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/T-2026100601-1000000000.json.gz",
+   "stat": [
+    16777233,
+    77571459,
+    166824730,
+    1791203995466518853,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 150,
+   "member": "M1-hu20-native-average-20261005/training/T-2026100601.log",
+   "sha256": "aeccf5a6aaa9d31b6342fb207619b52b6029e8d29ebdff99ed82e271e0543010",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/T-2026100601.log",
+   "stat": [
+    16777233,
+    77568082,
+    150,
+    1791203995473876400,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 777,
+   "member": "M1-hu20-native-average-20261005/training/T-2026100601.time",
+   "sha256": "d6f50cb00d4ef09f01364d545c55f554f75844014f6239bbbc1e8b3661995700",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/T-2026100601.time",
+   "stat": [
+    16777233,
+    77568083,
+    777,
+    1791203995483840946,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 167802862,
+   "member": "M1-hu20-native-average-20261005/training/T-2026100602-1000000000.json.gz",
+   "sha256": "6989a08b0f6001b7d3788d3670adc2e1cc599dcc5a5d8d807c7eb8a221c14345",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/T-2026100602-1000000000.json.gz",
+   "stat": [
+    16777233,
+    77571453,
+    167802862,
+    1791203995154165219,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 150,
+   "member": "M1-hu20-native-average-20261005/training/T-2026100602.log",
+   "sha256": "b7f41975f6fcadb4df434e0ab3edfcaa721d7eb7ad3fd745fdd4f76072630326",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/T-2026100602.log",
+   "stat": [
+    16777233,
+    77568084,
+    150,
+    1791203995154760667,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 777,
+   "member": "M1-hu20-native-average-20261005/training/T-2026100602.time",
+   "sha256": "6494bbb54e99ed9143578c9f6744c839bd724ae486df345ecbc59a7d45c72b23",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/T-2026100602.time",
+   "stat": [
+    16777233,
+    77568085,
+    777,
+    1791203995168861605,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 166472458,
+   "member": "M1-hu20-native-average-20261005/training/T-2026100603-1000000000.json.gz",
+   "sha256": "67989121bf6ca7bf41613b1e040285122cbb7c2fdd4c51eef02f65feaa2d4c06",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/T-2026100603-1000000000.json.gz",
+   "stat": [
+    16777233,
+    77571452,
+    166472458,
+    1791203994082643792,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 150,
+   "member": "M1-hu20-native-average-20261005/training/T-2026100603.log",
+   "sha256": "cf8a555b8600bb24f014de0cb2d6ee38f5ad0e7f1bcb78b27d968a3173ddb3da",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/T-2026100603.log",
+   "stat": [
+    16777233,
+    77568086,
+    150,
+    1791203994090178211,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 777,
+   "member": "M1-hu20-native-average-20261005/training/T-2026100603.time",
+   "sha256": "d6f87d39f0868a4a0dd187be14553a6034e467e91c83c7ef08a6c3a7d71af033",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/T-2026100603.time",
+   "stat": [
+    16777233,
+    77568087,
+    777,
+    1791203994100850204,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 139,
+   "member": "M1-hu20-native-average-20261005/training/binary.sha256",
+   "sha256": "31c40598bef781fc9ab8f5eb71758c782edda25f0dd33f0ec7c9df5bb9bd40af",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/binary.sha256",
+   "stat": [
+    16777233,
+    77565043,
+    139,
+    1791202724768883485,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 0,
+   "member": "M1-hu20-native-average-20261005/training/run.out",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/run.out",
+   "stat": [
+    16777233,
+    77565049,
+    0,
+    1791202724792398132,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 677,
+   "member": "M1-hu20-native-average-20261005/training/run.sh",
+   "sha256": "76043f7da9599c91143d2c352ef84fa9ae8123d3cb54480941edcad671efddc5",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/run.sh",
+   "stat": [
+    16777233,
+    77565047,
+    677,
+    1791202724788124476,
+    33261
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 78,
+   "member": "M1-hu20-native-average-20261005/training/runs.txt",
+   "sha256": "ae08c960ed8be63afebae339feeaba32586aafb66f76d1ba7ce1a672b2947459",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/runs.txt",
+   "stat": [
+    16777233,
+    77565046,
+    78,
+    1791202724784895798,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 41,
+   "member": "M1-hu20-native-average-20261005/training/source-commit.txt",
+   "sha256": "ef3be40ead695f3a413a103cd25268786a9d51f8a1c61da4024168aa7d628a8a",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/source-commit.txt",
+   "stat": [
+    16777233,
+    77565045,
+    41,
+    1791202724779619123,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 129,
+   "member": "M1-hu20-native-average-20261005/training/status.txt",
+   "sha256": "91d1613763467b8394f2ba86a19a02299b8f962b434916c4808be462388aaf8a",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/training/status.txt",
+   "stat": [
+    16777233,
+    77568081,
+    129,
+    1791203995484955845,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 108469702,
+   "member": "M1-hu20-native-average-20261005/policies/C-2026100601.current.json.gz",
+   "sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/C-2026100601.current.json.gz",
+   "stat": [
+    16777233,
+    77569683,
+    108469702,
+    1791203669142681160,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 109032940,
+   "member": "M1-hu20-native-average-20261005/policies/C-2026100602.current.json.gz",
+   "sha256": "09f8943ec1910be1975673372b9532984ca60fd8a16f19fe95d6d33976ff5794",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/C-2026100602.current.json.gz",
+   "stat": [
+    16777233,
+    77569869,
+    109032940,
+    1791203708790431177,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 108169345,
+   "member": "M1-hu20-native-average-20261005/policies/C-2026100603.current.json.gz",
+   "sha256": "0a89ee9a5510449823e1a27929b6b6a8ae0d14100ecbfb140260c3d23db15077",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/C-2026100603.current.json.gz",
+   "stat": [
+    16777233,
+    77569960,
+    108169345,
+    1791203748726343002,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 142677367,
+   "member": "M1-hu20-native-average-20261005/policies/O-2026100601.average.jsonl.gz",
+   "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/O-2026100601.average.jsonl.gz",
+   "stat": [
+    16777233,
+    77569726,
+    142677367,
+    1791203685749368274,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 143137499,
+   "member": "M1-hu20-native-average-20261005/policies/O-2026100602.average.jsonl.gz",
+   "sha256": "5a994484e4cbed5146c5f0d627ee12d0f22e8fc41ebb1f3628c80b112ba8d59b",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/O-2026100602.average.jsonl.gz",
+   "stat": [
+    16777233,
+    77569883,
+    143137499,
+    1791203725042523041,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 142318596,
+   "member": "M1-hu20-native-average-20261005/policies/O-2026100603.average.jsonl.gz",
+   "sha256": "52794e8b2ce1a1c660cf9cf3514baf56256368cc7b57acbe12405349fb9d42f0",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/O-2026100603.average.jsonl.gz",
+   "stat": [
+    16777233,
+    77570011,
+    142318596,
+    1791203764603989302,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 40144034,
+   "member": "M1-hu20-native-average-20261005/policies/R-2026093001.current.json.gz",
+   "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/R-2026093001.current.json.gz",
+   "stat": [
+    16777233,
+    77570027,
+    40144034,
+    1791203765985719023,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 40096108,
+   "member": "M1-hu20-native-average-20261005/policies/R-2026093002.current.json.gz",
+   "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/R-2026093002.current.json.gz",
+   "stat": [
+    16777233,
+    77570028,
+    40096108,
+    1791203766036043248,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 40229571,
+   "member": "M1-hu20-native-average-20261005/policies/R-2026093003.current.json.gz",
+   "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/R-2026093003.current.json.gz",
+   "stat": [
+    16777233,
+    77570029,
+    40229571,
+    1791203766086893713,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 92702041,
+   "member": "M1-hu20-native-average-20261005/policies/T-2026100601.average.jsonl.gz",
+   "sha256": "ea92a80ed5921bfa64a486832fc8bad577d204839b5ebf594dad6e0413f94015",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/T-2026100601.average.jsonl.gz",
+   "stat": [
+    16777233,
+    77573764,
+    92702041,
+    1791204633744458649,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 93195570,
+   "member": "M1-hu20-native-average-20261005/policies/T-2026100602.average.jsonl.gz",
+   "sha256": "58c09a9eda07918f1674b0d3b628145868fa66b5c8de757e5e7263a2b69a48c7",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/T-2026100602.average.jsonl.gz",
+   "stat": [
+    16777233,
+    77573800,
+    93195570,
+    1791204654020702725,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 92544184,
+   "member": "M1-hu20-native-average-20261005/policies/T-2026100603.average.jsonl.gz",
+   "sha256": "08c89a788eb7f9661af5c7f0c082a0505119322a768fc671d1454294de1e6667",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/T-2026100603.average.jsonl.gz",
+   "stat": [
+    16777233,
+    77573842,
+    92544184,
+    1791204674014558763,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 98549345,
+   "member": "M1-hu20-native-average-20261005/pilot/O-2026100601-100000000.json.gz",
+   "sha256": "115fba4b7eb3d4a026d0283a3b1fef6c5aa9bdf7c3a704d65025d4713f89954e",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/pilot/O-2026100601-100000000.json.gz",
+   "stat": [
+    16777233,
+    77556646,
+    98549345,
+    1791201715351160641,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 214220678,
+   "member": "M1-hu20-native-average-20261005/pilot/O-2026100601-1000000000.json.gz",
+   "sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/pilot/O-2026100601-1000000000.json.gz",
+   "stat": [
+    16777233,
+    77561190,
+    214220678,
+    1791202255679057397,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 171794336,
+   "member": "M1-hu20-native-average-20261005/pilot/O-2026100601-500000000.json.gz",
+   "sha256": "a5318cd586c0b170a68334e4236111faddabaf7f686c071958757db888afab47",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/pilot/O-2026100601-500000000.json.gz",
+   "stat": [
+    16777233,
+    77557981,
+    171794336,
+    1791201952275447858,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 142677367,
+   "member": "M1-hu20-native-average-20261005/pilot/average-1B.jsonl.gz",
+   "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/pilot/average-1B.jsonl.gz",
+   "stat": [
+    16777233,
+    77561478,
+    142677367,
+    1791202301682860472,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 108469702,
+   "member": "M1-hu20-native-average-20261005/pilot/current-1B.json.gz",
+   "sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/pilot/current-1B.json.gz",
+   "stat": [
+    16777233,
+    77561466,
+    108469702,
+    1791202288914444237,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 777,
+   "member": "M1-hu20-native-average-20261005/pilot/export-time.log",
+   "sha256": "2e57818b866c31be44444384d6975bb97fec9c955b41c2796ff597d28aaa9050",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/pilot/export-time.log",
+   "stat": [
+    16777233,
+    77561425,
+    777,
+    1791202302883708330,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 777,
+   "member": "M1-hu20-native-average-20261005/pilot/time.log",
+   "sha256": "99064aa84eaf0104fb2b21c1d533cd15c4886bf3582da476846556d2dded5734",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/pilot/time.log",
+   "stat": [
+    16777233,
+    77556550,
+    777,
+    1791202255701744187,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 616,
+   "member": "M1-hu20-native-average-20261005/pilot/train.log",
+   "sha256": "a19ddac28f3dad07aa12b2ddbbbe2c7190531faef6424510fe6eb6b054411e22",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/pilot/train.log",
+   "stat": [
+    16777233,
+    77556549,
+    616,
+    1791202255680464408,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 31,
+   "member": "M1-hu20-native-average-20261005/arena/host-done.txt",
+   "sha256": "4ff8514cb585e5261ec10e501961bbbbb2e88010b0c00bf652bc1325362bb344",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/host-done.txt",
+   "stat": [
+    16777233,
+    77596466,
+    31,
+    1791209291254562629,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 5938,
+   "member": "M1-hu20-native-average-20261005/arena/plan.json",
+   "sha256": "3b98e9c467371b653a47d2ed4b7348525669a4ce0cc085a49d7779fe481ac053",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/plan.json",
+   "stat": [
+    16777233,
+    77578892,
+    5938,
+    1791205394568122133,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 141,
+   "member": "M1-hu20-native-average-20261005/arena/run-C-2026100601.log",
+   "sha256": "00c35a20f63b9746de798f7f1be3599c2b185201906768e23d59856e1e57a7d2",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-C-2026100601.log",
+   "stat": [
+    16777233,
+    77578904,
+    141,
+    1791206366132093297,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 141,
+   "member": "M1-hu20-native-average-20261005/arena/run-C-2026100602.log",
+   "sha256": "4bc815fbaec51a70d2c50d913dd5a9c82f482c10954e5197c6138e2c2bedf5d6",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-C-2026100602.log",
+   "stat": [
+    16777233,
+    77589035,
+    141,
+    1791208431166939551,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 141,
+   "member": "M1-hu20-native-average-20261005/arena/run-C-2026100603.log",
+   "sha256": "e8355433135e9fd76ae3efbec8924b1571e46d97ec4c68aafe7b83b14ca8f1c5",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-C-2026100603.log",
+   "stat": [
+    16777233,
+    77589034,
+    141,
+    1791208350815488625,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 141,
+   "member": "M1-hu20-native-average-20261005/arena/run-R-2026093001.log",
+   "sha256": "99c513cc5d27b55ee1f3beb9d53614d58b562ddeab5cea0d3e872a057e68c88c",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-R-2026093001.log",
+   "stat": [
+    16777233,
+    77589033,
+    141,
+    1791208335696758594,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 141,
+   "member": "M1-hu20-native-average-20261005/arena/run-R-2026093002.log",
+   "sha256": "aaa5df50b2adff4952b351bb1aee18fd7f728414827edc72835392a9de7d295c",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-R-2026093002.log",
+   "stat": [
+    16777233,
+    77592209,
+    141,
+    1791209264419126833,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 141,
+   "member": "M1-hu20-native-average-20261005/arena/run-R-2026093003.log",
+   "sha256": "87885d9194dc8bae0c167d9eaf4dcddb64961a66b59ff2e9b72bbe9f9e7d525b",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-R-2026093003.log",
+   "stat": [
+    16777233,
+    77592208,
+    141,
+    1791209290796666605,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 141,
+   "member": "M1-hu20-native-average-20261005/arena/run-T-2026100602.log",
+   "sha256": "2638b78f5318cad7a0cfb666841818d10d9e9ba4577287147420b37f2d813491",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-T-2026100602.log",
+   "stat": [
+    16777233,
+    77578902,
+    141,
+    1791207474528726896,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 142,
+   "member": "M1-hu20-native-average-20261005/arena/run-T-2026100603.log",
+   "sha256": "c04a8c7127dfefca233f7e42e0c083b13c2508f8c90f9ceab15394cf81347a02",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-T-2026100603.log",
+   "stat": [
+    16777233,
+    77578903,
+    142,
+    1791207416344329935,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 0,
+   "member": "M1-hu20-native-average-20261005/arena/run-arena.out",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-arena.out",
+   "stat": [
+    16777233,
+    77578901,
+    0,
+    1791205398010307341,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 583,
+   "member": "M1-hu20-native-average-20261005/arena/run-arena.sh",
+   "sha256": "6eb125724b4014ce7b2b9b460189083ff510807dc0b554cac2533f8d89c7f867",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-arena.sh",
+   "stat": [
+    16777233,
+    77578896,
+    583,
+    1791205395167089780,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 0,
+   "member": "M1-hu20-native-average-20261005/arena/run-timing.out",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-timing.out",
+   "stat": [
+    16777233,
+    77574150,
+    0,
+    1791204758670886750,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 1024,
+   "member": "M1-hu20-native-average-20261005/arena/run-timing.sh",
+   "sha256": "518630c8463cdf215713f6aa754e76e7185e1110c420cf77a16c70fb5093e72e",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run-timing.sh",
+   "stat": [
+    16777233,
+    77574148,
+    1024,
+    1791204758666717943,
+    33261
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 138,
+   "member": "M1-hu20-native-average-20261005/arena/timing-C-2026100601.log",
+   "sha256": "b45364ab3926ad3db1296353a57260da7f0594488350241fa09032165bbfc75f",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-C-2026100601.log",
+   "stat": [
+    16777233,
+    77576983,
+    138,
+    1791204901381353620,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 139,
+   "member": "M1-hu20-native-average-20261005/arena/timing-C-2026100602.log",
+   "sha256": "ba67829591733db72fe0d5733b710a28ae54b8f2c9b7d5d0fc5f69aba3673b3b",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-C-2026100602.log",
+   "stat": [
+    16777233,
+    77576981,
+    139,
+    1791204901208857797,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 138,
+   "member": "M1-hu20-native-average-20261005/arena/timing-C-2026100603.log",
+   "sha256": "fb249c6ba5e47fa3e3becabf79f78e93eee7984382ee5293a68b499720aa5949",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-C-2026100603.log",
+   "stat": [
+    16777233,
+    77576982,
+    138,
+    1791204900650495284,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 139,
+   "member": "M1-hu20-native-average-20261005/arena/timing-O-2026100601.log",
+   "sha256": "fb7a0f9606c98d25192e93929b742bf12302e821a31c6ab5552e56327767c8dd",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-O-2026100601.log",
+   "stat": [
+    16777233,
+    77574262,
+    139,
+    1791204845420776436,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 139,
+   "member": "M1-hu20-native-average-20261005/arena/timing-O-2026100602.log",
+   "sha256": "c6c8432fde293eaf127a7b70853017657eab721e391daa943eb1c21fe4a70666",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-O-2026100602.log",
+   "stat": [
+    16777233,
+    77574263,
+    139,
+    1791204844944355675,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 139,
+   "member": "M1-hu20-native-average-20261005/arena/timing-O-2026100603.log",
+   "sha256": "779e6d0b77c79eeb2144d301a678ff631cb77af54c3286c6e9b50ce6c9c354ad",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-O-2026100603.log",
+   "stat": [
+    16777233,
+    77574264,
+    139,
+    1791204845239259759,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 139,
+   "member": "M1-hu20-native-average-20261005/arena/timing-R-2026093001.log",
+   "sha256": "46f3c744ca4ed68e70c43be76d84fabf2d6a08a98c8cd703b26471c7e5555ce7",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-R-2026093001.log",
+   "stat": [
+    16777233,
+    77574153,
+    139,
+    1791204773125738934,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 140,
+   "member": "M1-hu20-native-average-20261005/arena/timing-R-2026093002.log",
+   "sha256": "df3399a86946b50432ce88bd35ec6668ba267c7cd74d5f62ebdc391a90dedbdb",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-R-2026093002.log",
+   "stat": [
+    16777233,
+    77574152,
+    140,
+    1791204772990133179,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 140,
+   "member": "M1-hu20-native-average-20261005/arena/timing-R-2026093003.log",
+   "sha256": "6ac87b605abd1dba24664f8e65fdf8214c9d430bea03e96b7a94132f7a646f3e",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-R-2026093003.log",
+   "stat": [
+    16777233,
+    77574151,
+    140,
+    1791204773267787877,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 139,
+   "member": "M1-hu20-native-average-20261005/arena/timing-T-2026100601.log",
+   "sha256": "683f0c2d3902cdc8c0ea260af77c3d803fd07afd909a1c9c28e813eebe6ce9d0",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-T-2026100601.log",
+   "stat": [
+    16777233,
+    77577400,
+    139,
+    1791204946205588961,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 139,
+   "member": "M1-hu20-native-average-20261005/arena/timing-T-2026100602.log",
+   "sha256": "4d1ec1c23340b6b2640b81d00b450ba7f5cc8db7c2aa83d8173eaba0c624daaa",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-T-2026100602.log",
+   "stat": [
+    16777233,
+    77577402,
+    139,
+    1791204945851578712,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 139,
+   "member": "M1-hu20-native-average-20261005/arena/timing-T-2026100603.log",
+   "sha256": "3f8d5659b8a3337d89af7c358013f4f1c6798a481b37fbdd21ad6cdfd649e685",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-T-2026100603.log",
+   "stat": [
+    16777233,
+    77577401,
+    139,
+    1791204945395857657,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 12,
+   "member": "M1-hu20-native-average-20261005/arena/timing-done.txt",
+   "sha256": "1d10cd338a8df55b78d2b3a6ceba6002f8f62581b2744395b7258f5cdef80235",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-done.txt",
+   "stat": [
+    16777233,
+    77577695,
+    12,
+    1791204947160969483,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 5902,
+   "member": "M1-hu20-native-average-20261005/arena/timing-plan.json",
+   "sha256": "42e8ed1ad728565ba8af9cdfe3d8e7315be8a84e0da1efecc45c5076be71ae9f",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-plan.json",
+   "stat": [
+    16777233,
+    77574106,
+    5902,
+    1791204752372309027,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 41,
+   "member": "M1-hu20-native-average-20261005/arena/timing-source.txt",
+   "sha256": "3659fa2657ae2e260b2f90bde13ed0f169c13ae90598445d6a8974269abff7c9",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing-source.txt",
+   "stat": [
+    16777233,
+    77574147,
+    41,
+    1791204758663165000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 179275,
+   "member": "M1-hu20-native-average-20261005/arena/timing/C-2026100601.hands.jsonl.gz",
+   "sha256": "1e5b1988747cb93d159d9f955f8448255fd2b9a7f48691534453eb8655239f7e",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/C-2026100601.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77577205,
+    179275,
+    1791204901295744261,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 888,
+   "member": "M1-hu20-native-average-20261005/arena/timing/C-2026100601.result.json",
+   "sha256": "80eb15d86786eaeebc527f0874fe0c69e21b81b8e2a30c07268528b9c0cc0ae9",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/C-2026100601.result.json",
+   "stat": [
+    16777233,
+    77577371,
+    888,
+    1791204901379946601,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 180084,
+   "member": "M1-hu20-native-average-20261005/arena/timing/C-2026100602.hands.jsonl.gz",
+   "sha256": "91ab52b11e63196b537f64278124046ba93d5d962b9e4416465d461ec6735952",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/C-2026100602.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77577207,
+    180084,
+    1791204901148984936,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 889,
+   "member": "M1-hu20-native-average-20261005/arena/timing/C-2026100602.result.json",
+   "sha256": "a807c5859be065fdc7957e21e1011296c93510f4fb6b359797afb87aab9a4fac",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/C-2026100602.result.json",
+   "stat": [
+    16777233,
+    77577367,
+    889,
+    1791204901207888563,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 172572,
+   "member": "M1-hu20-native-average-20261005/arena/timing/C-2026100603.hands.jsonl.gz",
+   "sha256": "8f2573b1308e4b7a54f7488df875623ff1f523270ba6712f889b9d3a1f69102b",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/C-2026100603.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77577206,
+    172572,
+    1791204900461012154,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 886,
+   "member": "M1-hu20-native-average-20261005/arena/timing/C-2026100603.result.json",
+   "sha256": "29e68b87ddb04a67764a23899bc70a3c7fc21b6a1d79e5163de36515a1b5435b",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/C-2026100603.result.json",
+   "stat": [
+    16777233,
+    77577360,
+    886,
+    1791204900649161222,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 216174,
+   "member": "M1-hu20-native-average-20261005/arena/timing/O-2026100601.hands.jsonl.gz",
+   "sha256": "da46088884750e9c132b73c8125ab259bda0caf45cf7abd08d7b166529499423",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/O-2026100601.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77576934,
+    216174,
+    1791204845357149136,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 884,
+   "member": "M1-hu20-native-average-20261005/arena/timing/O-2026100601.result.json",
+   "sha256": "2be436388a19e3fe097fa63490dbe9749f0d37278f3d9330e05d9260c236ba15",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/O-2026100601.result.json",
+   "stat": [
+    16777233,
+    77576975,
+    884,
+    1791204845419828868,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 204355,
+   "member": "M1-hu20-native-average-20261005/arena/timing/O-2026100602.hands.jsonl.gz",
+   "sha256": "4a302a764aca205f9ea9e85eac3c4f5cc87b405d584345333eeba638efbf3438",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/O-2026100602.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77576938,
+    204355,
+    1791204844902950389,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 891,
+   "member": "M1-hu20-native-average-20261005/arena/timing/O-2026100602.result.json",
+   "sha256": "5fba3b705b3ad2864bd4509952784ce0c571490681b2f9455f6edd550d2390f1",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/O-2026100602.result.json",
+   "stat": [
+    16777233,
+    77576973,
+    891,
+    1791204844943927265,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 197186,
+   "member": "M1-hu20-native-average-20261005/arena/timing/O-2026100603.hands.jsonl.gz",
+   "sha256": "104d1c4d14ddb6829cb8889f92147157b43962ee50321920e54f5c2c3fc7cc61",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/O-2026100603.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77576939,
+    197186,
+    1791204845194323573,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 888,
+   "member": "M1-hu20-native-average-20261005/arena/timing/O-2026100603.result.json",
+   "sha256": "60402b3d5d3e6014757b7f6510d2deb9000ee8589d50e81b2703924688393686",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/O-2026100603.result.json",
+   "stat": [
+    16777233,
+    77576974,
+    888,
+    1791204845238652102,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 168186,
+   "member": "M1-hu20-native-average-20261005/arena/timing/R-2026093001.hands.jsonl.gz",
+   "sha256": "eeefa692f6c1afea892a4ebfa4d97ce3b7c82db151f135e4b372ba54a552f299",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/R-2026093001.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77574226,
+    168186,
+    1791204773095782338,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 887,
+   "member": "M1-hu20-native-average-20261005/arena/timing/R-2026093001.result.json",
+   "sha256": "4a04f40e35094aa9cb50491c3becc10fd4b79fa55c3763a0137211ee400aeafb",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/R-2026093001.result.json",
+   "stat": [
+    16777233,
+    77574258,
+    887,
+    1791204773125000155,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 171351,
+   "member": "M1-hu20-native-average-20261005/arena/timing/R-2026093002.hands.jsonl.gz",
+   "sha256": "5010455d9c7a293fa4c47f2c6030923af4ef612c7d6aeec1603bed6ef0ef81c8",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/R-2026093002.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77574228,
+    171351,
+    1791204772959051350,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 891,
+   "member": "M1-hu20-native-average-20261005/arena/timing/R-2026093002.result.json",
+   "sha256": "82f2cf365bac361df98bea72178991f9dabff61a51731b4476ee9330733e92bd",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/R-2026093002.result.json",
+   "stat": [
+    16777233,
+    77574256,
+    891,
+    1791204772989683103,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 156999,
+   "member": "M1-hu20-native-average-20261005/arena/timing/R-2026093003.hands.jsonl.gz",
+   "sha256": "1817fc8bf48a13dbae1ae201236c2c0dee5148821ce8770053e64bab3149dcbf",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/R-2026093003.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77574227,
+    156999,
+    1791204773231082348,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 892,
+   "member": "M1-hu20-native-average-20261005/arena/timing/R-2026093003.result.json",
+   "sha256": "d7d1ff3809b5d3d7f51f20d22ac8e24b5a4ee2b907d0a0e98cd5fb9477a9a7bf",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/R-2026093003.result.json",
+   "stat": [
+    16777233,
+    77574260,
+    892,
+    1791204773267024431,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 213194,
+   "member": "M1-hu20-native-average-20261005/arena/timing/T-2026100601.hands.jsonl.gz",
+   "sha256": "a4d21d0e3aa1fa915de3c4b4891eafe732c59d17272469ae2c3f392ae4d9b05a",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/T-2026100601.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77577677,
+    213194,
+    1791204946147041620,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 888,
+   "member": "M1-hu20-native-average-20261005/arena/timing/T-2026100601.result.json",
+   "sha256": "5a0b51f9009b43259d403b8479f592144111ba3baab8e19896c970df123be5a5",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/T-2026100601.result.json",
+   "stat": [
+    16777233,
+    77577694,
+    888,
+    1791204946204271524,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 208669,
+   "member": "M1-hu20-native-average-20261005/arena/timing/T-2026100602.hands.jsonl.gz",
+   "sha256": "d8bae35bd835cdcd369ca08d081834a79e8fd1bdc711bf72b2910517df9bcbd1",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/T-2026100602.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77577680,
+    208669,
+    1791204945812911215,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 886,
+   "member": "M1-hu20-native-average-20261005/arena/timing/T-2026100602.result.json",
+   "sha256": "7cbfa254368972626d0a744c1543fa4f23539326bbadbffa06bef0df91e5dda4",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/T-2026100602.result.json",
+   "stat": [
+    16777233,
+    77577693,
+    886,
+    1791204945851015388,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 198342,
+   "member": "M1-hu20-native-average-20261005/arena/timing/T-2026100603.hands.jsonl.gz",
+   "sha256": "9c0d6a664a5c1afd43f72f8c07a8eee55dff2d21bb1a81294c41231b054fd274",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/T-2026100603.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77577678,
+    198342,
+    1791204945362249952,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 886,
+   "member": "M1-hu20-native-average-20261005/arena/timing/T-2026100603.result.json",
+   "sha256": "eb6cb9372e85b2637c1f676712f3ce7d86ce4c9669bf52e6135538c2612b06e7",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/timing/T-2026100603.result.json",
+   "stat": [
+    16777233,
+    77577692,
+    886,
+    1791204945395384123,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 10428727,
+   "member": "M1-hu20-native-average-20261005/arena/run/C-2026100601.hands.jsonl.gz",
+   "sha256": "8471b1960b795c868a20f8ca0112e8a7a39bdc8a8bfbc15599982138803c8729",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/C-2026100601.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77578961,
+    10428727,
+    1791206366094917132,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 337,
+   "member": "M1-hu20-native-average-20261005/arena/run/C-2026100601.result.json",
+   "sha256": "6aa1b48fa5b78a580ab303ac63686bb29c91998f582b2f50323e434134397122",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/C-2026100601.result.json",
+   "stat": [
+    16777233,
+    77581464,
+    337,
+    1791206366131682634,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 10510487,
+   "member": "M1-hu20-native-average-20261005/arena/run/C-2026100602.hands.jsonl.gz",
+   "sha256": "afbef47465c11e4f44991fad10f076458841f2012db77950fcfd4b2f8456f9c1",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/C-2026100602.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77589058,
+    10510487,
+    1791208431133564773,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 337,
+   "member": "M1-hu20-native-average-20261005/arena/run/C-2026100602.result.json",
+   "sha256": "420cc7e97665a1cd96464b0b9e27d50af25e1beeb2bd2ec27703953bedd185da",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/C-2026100602.result.json",
+   "stat": [
+    16777233,
+    77592205,
+    337,
+    1791208431166341088,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 10121654,
+   "member": "M1-hu20-native-average-20261005/arena/run/C-2026100603.hands.jsonl.gz",
+   "sha256": "8e79848413c4f67a862fcd2f0986103d123ee4c880a630ed16021f6e1cd40ca6",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/C-2026100603.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77589057,
+    10121654,
+    1791208350761224923,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 338,
+   "member": "M1-hu20-native-average-20261005/arena/run/C-2026100603.result.json",
+   "sha256": "a85fcb3233a69698c50d4ce49d683056bf08091fc16db4060aea841208cd2a6c",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/C-2026100603.result.json",
+   "stat": [
+    16777233,
+    77591992,
+    338,
+    1791208350814925245,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 11778482,
+   "member": "M1-hu20-native-average-20261005/arena/run/O-2026100601.hands.jsonl.gz",
+   "sha256": "c228c5d3626b1b4174f566883eaa7024cdd026fc28e030d5a15a8d6cb1e6164b",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/O-2026100601.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77614943,
+    11778482,
+    1791206650000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 337,
+   "member": "M1-hu20-native-average-20261005/arena/run/O-2026100601.result.json",
+   "sha256": "234e7acd89b94bdb2dace1fd4d3c27e499a196bdb70e1c57c2a6df4280ba1c71",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/O-2026100601.result.json",
+   "stat": [
+    16777233,
+    77614945,
+    337,
+    1791206650000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 11803489,
+   "member": "M1-hu20-native-average-20261005/arena/run/O-2026100602.hands.jsonl.gz",
+   "sha256": "ad658f156b13e158a54ed379ed86669b8c2584db700f89d112fe6c9460c77d92",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/O-2026100602.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77614946,
+    11803489,
+    1791206672000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 338,
+   "member": "M1-hu20-native-average-20261005/arena/run/O-2026100602.result.json",
+   "sha256": "de92477e64e908a40be546445cff2e29fb5eb93ebf15053ec8d65d67144dcd2d",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/O-2026100602.result.json",
+   "stat": [
+    16777233,
+    77614947,
+    338,
+    1791206672000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 11642359,
+   "member": "M1-hu20-native-average-20261005/arena/run/O-2026100603.hands.jsonl.gz",
+   "sha256": "72f16f74406c814d67cf25f9be1cdce412429230c53dcfff20c93fd50eb1c275",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/O-2026100603.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77614948,
+    11642359,
+    1791206634000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 339,
+   "member": "M1-hu20-native-average-20261005/arena/run/O-2026100603.result.json",
+   "sha256": "d3b0795acd37d1e3850921374c4ea87a53a3b7306c4cbacfc0fad2afe98786f8",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/O-2026100603.result.json",
+   "stat": [
+    16777233,
+    77614950,
+    339,
+    1791206634000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 9756956,
+   "member": "M1-hu20-native-average-20261005/arena/run/R-2026093001.hands.jsonl.gz",
+   "sha256": "e3cfd18cecddffec8d8fed08c30bbd0dfed1dfe30e943f5c0a9ce549a7edc79c",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/R-2026093001.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77589042,
+    9756956,
+    1791208335660424958,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 338,
+   "member": "M1-hu20-native-average-20261005/arena/run/R-2026093001.result.json",
+   "sha256": "b2cc950e90cbb3d4d011ba4ed6071e731f933e7ba9b1fabdaf71903a9a5fe996",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/R-2026093001.result.json",
+   "stat": [
+    16777233,
+    77591969,
+    338,
+    1791208335696264132,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 9581105,
+   "member": "M1-hu20-native-average-20261005/arena/run/R-2026093002.hands.jsonl.gz",
+   "sha256": "b5b2c45e677a4685bffafd5fbe8fa56dfd5468382f6575802a3d7d7dc55529fa",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/R-2026093002.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77592254,
+    9581105,
+    1791209264386628021,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 338,
+   "member": "M1-hu20-native-average-20261005/arena/run/R-2026093002.result.json",
+   "sha256": "febb209fcedc1eae542d6ded9a9f92a33912ed72735f6fc5ddb46b691bbd3dec",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/R-2026093002.result.json",
+   "stat": [
+    16777233,
+    77596413,
+    338,
+    1791209264418482453,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 9713016,
+   "member": "M1-hu20-native-average-20261005/arena/run/R-2026093003.hands.jsonl.gz",
+   "sha256": "4330c1e03bfcbd81a17831942cdbb3289ef5839ce5962df23d54b64b4cae502b",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/R-2026093003.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77592255,
+    9713016,
+    1791209290773988916,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 337,
+   "member": "M1-hu20-native-average-20261005/arena/run/R-2026093003.result.json",
+   "sha256": "2351330eaa6b8c421eb2687eb3a60e3e7774db5ac44fdd0026b4e04a98bb526b",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/R-2026093003.result.json",
+   "stat": [
+    16777233,
+    77596465,
+    337,
+    1791209290796248893,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 11783140,
+   "member": "M1-hu20-native-average-20261005/arena/run/T-2026100601.hands.jsonl.gz",
+   "sha256": "1b20898011a481357f40f82926a74db5b476b71217d2401b840d58c15f0169f9",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/T-2026100601.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77614951,
+    11783140,
+    1791207931000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 339,
+   "member": "M1-hu20-native-average-20261005/arena/run/T-2026100601.result.json",
+   "sha256": "aef15f1f72e02ad4fa1b835724fdc687c8663fe2571607a40e22fb585c2b74ff",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/T-2026100601.result.json",
+   "stat": [
+    16777233,
+    77614952,
+    339,
+    1791207931000000000,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 11847459,
+   "member": "M1-hu20-native-average-20261005/arena/run/T-2026100602.hands.jsonl.gz",
+   "sha256": "c83bdfd040fd15f7b9dea9207d594b98e65b715207c9ba626aef2c9e4ce10a57",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/T-2026100602.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77578966,
+    11847459,
+    1791207474495917460,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 336,
+   "member": "M1-hu20-native-average-20261005/arena/run/T-2026100602.result.json",
+   "sha256": "d3221ee0ede20b05cb5ee8ce2c672eeee509c3a893502055403c2c8de03e9257",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/T-2026100602.result.json",
+   "stat": [
+    16777233,
+    77589032,
+    336,
+    1791207474528201688,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 11607875,
+   "member": "M1-hu20-native-average-20261005/arena/run/T-2026100603.hands.jsonl.gz",
+   "sha256": "aceb1ef0cbf9a38043dbc9828e62532ac87027ba12bdf44612b17e97ab38d6bb",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/T-2026100603.hands.jsonl.gz",
+   "stat": [
+    16777233,
+    77578964,
+    11607875,
+    1791207416308015044,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 338,
+   "member": "M1-hu20-native-average-20261005/arena/run/T-2026100603.result.json",
+   "sha256": "99206d96c4ba1e7db88a85ef96b71a58bc252ae206899e9d751b3dd8d8ea2278",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/T-2026100603.result.json",
+   "stat": [
+    16777233,
+    77588905,
+    338,
+    1791207416343939019,
+    33188
+   ],
+   "type": "file"
+  },
+  {
+   "bytes": 18343,
+   "member": "M1-hu20-native-average-20261005/arena/run/summary.json",
+   "sha256": "baa1eed60be40953ff2a213a7408f2151335e6495648f8f61ab60306a147eb72",
+   "source": "/Users/dberweger/Local/hu20-native-average-20261005/arena/run/summary.json",
+   "stat": [
+    16777233,
+    77615086,
+    18343,
+    1791210740023530799,
+    33188
+   ],
+   "type": "file"
+  }
+ ],
+ "roots": [
+  {
+   "original": "/Users/dberweger/Local/hu20-native-average-20261005",
+   "prefix": "M1-hu20-native-average-20261005"
+  }
+ ],
+ "schema": "hu20-v041-lossless-archive-v1"
+}

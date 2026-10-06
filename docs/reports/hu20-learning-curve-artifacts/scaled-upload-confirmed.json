@@ -1,0 +1,86 @@
+{
+  "checked_utc": "2026-10-06T15:53:34.064959+00:00",
+  "cloud_metadata": [
+    {
+      "id": "1kmS7yRPee2lhA67CLX2w9yrj2EO4_Y5i",
+      "title": "O-2026100601-5000000000-milestone.zip",
+      "mime_type": "application/zip",
+      "size": "328483201",
+      "url": null,
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1wNthhMPoO0XGPeEZbMZmQVIIxF4tJra9"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    {
+      "id": "1Oi26CAw3C3Y2KkBsY4GNzTgxRYL9cFkI",
+      "title": "O-2026100601-10000000000-milestone.zip",
+      "mime_type": "application/zip",
+      "size": "383604666",
+      "url": null,
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1wNthhMPoO0XGPeEZbMZmQVIIxF4tJra9"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    {
+      "id": "1CMIGR7wugH6ttPiqlfNNYvWds9CF1vUd",
+      "title": "O-scaled-training-tail-20261006.zip",
+      "mime_type": "application/zip",
+      "size": "17098",
+      "url": null,
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1wNthhMPoO0XGPeEZbMZmQVIIxF4tJra9"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    }
+  ],
+  "native": [
+    {
+      "name": "O-2026100601-5000000000-milestone.zip",
+      "bytes": 328483201,
+      "uploaded": true,
+      "uploading": false,
+      "unresolvedConflicts": false
+    },
+    {
+      "name": "O-2026100601-10000000000-milestone.zip",
+      "bytes": 383604666,
+      "uploaded": true,
+      "uploading": false,
+      "unresolvedConflicts": false
+    },
+    {
+      "name": "O-scaled-training-tail-20261006.zip",
+      "bytes": 17098,
+      "uploaded": true,
+      "uploading": false,
+      "unresolvedConflicts": false
+    }
+  ],
+  "remote_byte_redownload_claimed": false
+}

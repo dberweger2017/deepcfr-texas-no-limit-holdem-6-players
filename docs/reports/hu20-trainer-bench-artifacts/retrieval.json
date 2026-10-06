@@ -1,0 +1,14 @@
+{
+  "archive": "/Users/dberweger/Local/hu20-trainer-bench-monitor-20261005/hu20-trainer-bench-m4-complete-20261005.tar.gz",
+  "bytes": 1745796815,
+  "sha256": "67d51196af43202d6e2ebff5222ccfd6a264c1d9d0eb4efdc7ccfa1fa78d3dd3",
+  "archive_sha256_matches_M4": true,
+  "manifest_sha256": "62aefd4d8b9dc3e4380612f772d513384c2049e6fc708d3bba1334230cf0a049",
+  "all_archive_members_hash_verified": true,
+  "file_members": 2809,
+  "symlink_members": 0,
+  "logical_bytes": 5663368615,
+  "independent_scientific_report_verification": "independent-summary-verification.json",
+  "created_utc": "2026-10-05T12:14:09Z",
+  "originals_retained": true
+}

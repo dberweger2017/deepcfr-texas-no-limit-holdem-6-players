@@ -1,0 +1,10 @@
+{
+  "basis": "#165 raw native-pressure O-R paired three-lineage/position block means",
+  "old_blocks": 2048,
+  "old_mean": 0.43538411458333265,
+  "per_block_variance": 190366.70906163385,
+  "per_block_sd": 436.31033572634266,
+  "minimum_blocks_for_8": 11429,
+  "chosen_blocks": 12288,
+  "predicted_half_width": 7.715174871010842
+}

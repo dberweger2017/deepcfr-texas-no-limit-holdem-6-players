@@ -1,0 +1,13 @@
+{
+ "audit_command": "PYTHONPATH=. python audit.py --plan <arena/plan.json> --run <arena/run> --out <audit.json>",
+ "audit_script_archive_member": "M1-closeout/audit.py",
+ "audit_script_sha256": "377dd157453a0f8489866fe32387f8b109211235f3792fac23cea1c3f318dc42",
+ "focused_tests": "......                                                                   [100%]\n6 passed in 1.36s",
+ "followup_arena": "none",
+ "originals_retained": true,
+ "policy_hashes_verified_per_host": 12,
+ "release_or_tag": "none",
+ "report_command": "PYTHONPATH=. python -m scripts.evaluate_hu20_v041_arena report --plan <arena/plan.json> --out <arena/run>",
+ "training_checkpoint_provenance_hashes_verified": 6,
+ "transfer_files": 8
+}

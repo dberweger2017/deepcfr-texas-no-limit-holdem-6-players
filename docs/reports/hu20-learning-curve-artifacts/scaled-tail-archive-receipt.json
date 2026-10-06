@@ -1,0 +1,45 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-scaled-training-tail-20261006.zip",
+  "bytes": 17098,
+  "sha256": "a92680a42b70816f4f95af653922994685837cd05ea0b04ba3ade30c53ceced4",
+  "manifest_sha256": "c337c6c6c4c73292ae578cb815195e4de46d24f6c1dac6135279a308a3a3b146",
+  "members_verified": 23,
+  "external_checkpoints_verified": [
+    {
+      "original_member": "O-2026100601-10000000000.json.gz",
+      "bytes": 383593179,
+      "sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+      "canonical_zip": "O-2026100601-10000000000-milestone.zip",
+      "zip_sha256": "a35a628159cc8d9810802a6f264e35c210c40e4f5fe6ce4a26594b94ad3f1433",
+      "zip_member": "O-2026100601-10000000000.json.gz"
+    },
+    {
+      "original_member": "O-2026100601-2000000000.json.gz",
+      "bytes": 258269802,
+      "sha256": "aa91646d59614c3df1544c96bf74d0483d278d3c4e5c8e844ad0f30b1d910d5b",
+      "canonical_zip": "O-2026100601-2000000000-milestone.zip",
+      "zip_sha256": "b6cae8b85747cc088edf4dee06e84fa8f859592e32ff4205047cfac3eb59ae7e",
+      "zip_member": "O-2026100601-2000000000.json.gz"
+    },
+    {
+      "original_member": "O-2026100601-5000000000.json.gz",
+      "bytes": 328471948,
+      "sha256": "2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f",
+      "canonical_zip": "O-2026100601-5000000000-milestone.zip",
+      "zip_sha256": "d11d404eac31b3e58011e2a961e9b2c9604e415e064c682388ed759ca403c930",
+      "zip_member": "O-2026100601-5000000000.json.gz"
+    }
+  ],
+  "finished": {
+    "failure": null,
+    "milestones": [
+      2000000000,
+      5000000000,
+      10000000000
+    ],
+    "peak_sampled_rss_bytes": 1569980416,
+    "returncode": 0,
+    "seconds": 3766.1565828323364,
+    "status": "complete"
+  }
+}
