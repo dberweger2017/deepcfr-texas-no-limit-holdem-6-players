@@ -263,6 +263,7 @@ function render() {
   $("model-details").textContent = `Session ${state.sessionId}${isBenchmark ? ` · Benchmark ${state.benchmark.id}` : ""} · ${state.model.game} · ${state.model.schema} · ${state.model.format} · SHA-256 ${state.model.sha256} · ${state.model.adapter}`;
   $("benchmark-end").hidden = !activeBenchmark;
   $("benchmark-end").disabled = busy || !!saved.pending;
+  $("new-session").disabled = busy || !!saved.pending || activeBenchmark || state.phase === "playing";
   renderBenchmarkResult(state.benchmarkResult || null);
   $("diagnostics").textContent = "";
   if (!state.hand) {
@@ -349,6 +350,11 @@ $("new-hand").addEventListener("click", async () => {
     await mutate(`/api/sessions/${state.sessionId}/hands`, { revision: state.revision });
     await maybeAdvanceBot();
   } catch (_) { /* Recoverable with the same key. */ }
+});
+$("new-session").addEventListener("click", async () => {
+  if (busy || saved.pending || !state || state.phase === "playing" || state.benchmark?.status === "ACTIVE") return;
+  saved.sessionId = null; state = null; persist();
+  await recover();
 });
 $("past-hands").addEventListener("click", async () => {
   if (!state) return;
