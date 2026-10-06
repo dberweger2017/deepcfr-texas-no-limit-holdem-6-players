@@ -193,3 +193,31 @@ def test_cfr_plus_checkpoints_export_and_load_like_production_ones(tmp_path):
     assert policy.description["iteration"] == header["iteration"] and policy.entries
     diagnostic = DiagnosticAverage(average, file_hash(average))
     assert diagnostic.description["iteration"] == header["iteration"]
+
+
+def test_zero_mass_current_fallback_matches_between_exporters_and_loads(tmp_path):
+    """--zero-mass current: zero-mass average keys play their regret-matched policy, labeled and audited."""
+    import gzip
+    import json
+    from src.blueprint.solver import regret_match
+    from src.diagnostics.cfr_average import DiagnosticAverage, ZERO_MASS_RULES, audit, extract
+    from src.diagnostics.saved_hu20 import file_hash
+    checkpoint = tmp_path / "T.json.gz"
+    subprocess.run([str(BINARY), "train", "--nodes", "300000", "--seed", "4", "--out", str(checkpoint)], check=True, capture_output=True)
+    current, average = tmp_path / "current.json.gz", tmp_path / "rs-average.jsonl.gz"
+    subprocess.run([str(BINARY), "export", str(checkpoint), "--current", str(current), "--average", str(average),
+                    "--zero-mass", "current"], check=True, capture_output=True)
+    header = json.loads(gzip.open(checkpoint, "rt").readline())
+    spec = {"name": "T", "seed": 4, "iteration": header["iteration"], "checkpoint_sha256": file_hash(checkpoint),
+            "sha256": file_hash(current)}
+    extract(checkpoint, spec, tmp_path / "py-average.jsonl.gz", zero_mass="current")
+    rows = lambda name: [json.loads(line) for line in gzip.open(tmp_path / name, "rt")]
+    assert rows("py-average.jsonl.gz") == rows("rs-average.jsonl.gz")
+    assert rows("rs-average.jsonl.gz")[0]["zero_mass_rule"] == ZERO_MASS_RULES["current"]
+    audit(checkpoint, current, average, spec, file_hash(average))
+    stored = {r[0]: r for r in (json.loads(line) for line in gzip.open(checkpoint, "rt").read().splitlines()[1:])}
+    fallback = [r for r in rows("rs-average.jsonl.gz")[1:] if r[3] == 0]
+    assert fallback and all(r[2] == list(regret_match(tuple(stored[r[0]][2]))) for r in fallback)
+    assert any(r[2] != [1 / len(r[1])] * len(r[1]) for r in fallback)
+    policy = DiagnosticAverage(average, file_hash(average))
+    assert policy.description["zero_mass_rule"] == "current" and len(policy.zero_mass) == len(fallback)
