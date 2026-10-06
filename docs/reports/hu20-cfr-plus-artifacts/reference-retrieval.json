@@ -1,0 +1,56 @@
+[
+  {
+    "owning_pr": 116,
+    "owning_pr_state": "MERGED",
+    "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/R-2026093001.current.json.gz",
+    "destination": "/Users/dberweger/Local/hu20-cfr-plus-pr171-20261006/policies/R-2026093001.current.json.gz",
+    "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+    "bytes": 40144034,
+    "historical_arm": "R"
+  },
+  {
+    "owning_pr": 116,
+    "owning_pr_state": "MERGED",
+    "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/R-2026093002.current.json.gz",
+    "destination": "/Users/dberweger/Local/hu20-cfr-plus-pr171-20261006/policies/R-2026093002.current.json.gz",
+    "sha256": "5a77b0bd5d635ad2b4d4731a4369e314362c28034903a7297491712aa39d6710",
+    "bytes": 40096108,
+    "historical_arm": "R"
+  },
+  {
+    "owning_pr": 116,
+    "owning_pr_state": "MERGED",
+    "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/R-2026093003.current.json.gz",
+    "destination": "/Users/dberweger/Local/hu20-cfr-plus-pr171-20261006/policies/R-2026093003.current.json.gz",
+    "sha256": "83a8226d87074078868ce49627e2fa5db9dd597e76c1098424c033cb9546bb0e",
+    "bytes": 40229571,
+    "historical_arm": "R"
+  },
+  {
+    "owning_pr": 165,
+    "owning_pr_state": "MERGED",
+    "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/O-2026100601.average.jsonl.gz",
+    "destination": "/Users/dberweger/Local/hu20-cfr-plus-pr171-20261006/policies/T-2026100601.average.jsonl.gz",
+    "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+    "bytes": 142677367,
+    "historical_arm": "O"
+  },
+  {
+    "owning_pr": 165,
+    "owning_pr_state": "MERGED",
+    "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/O-2026100602.average.jsonl.gz",
+    "destination": "/Users/dberweger/Local/hu20-cfr-plus-pr171-20261006/policies/T-2026100602.average.jsonl.gz",
+    "sha256": "5a994484e4cbed5146c5f0d627ee12d0f22e8fc41ebb1f3628c80b112ba8d59b",
+    "bytes": 143137499,
+    "historical_arm": "O"
+  },
+  {
+    "owning_pr": 165,
+    "owning_pr_state": "MERGED",
+    "source": "/Users/dberweger/Local/hu20-native-average-20261005/policies/O-2026100603.average.jsonl.gz",
+    "destination": "/Users/dberweger/Local/hu20-cfr-plus-pr171-20261006/policies/T-2026100603.average.jsonl.gz",
+    "sha256": "52794e8b2ce1a1c660cf9cf3514baf56256368cc7b57acbe12405349fb9d42f0",
+    "bytes": 142318596,
+    "historical_arm": "O"
+  }
+]
