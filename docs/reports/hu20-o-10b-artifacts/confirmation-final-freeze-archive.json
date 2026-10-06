@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/hu20-o-10b-final-9h-freeze-20261006.zip",
+  "archive_bytes": 114436,
+  "archive_sha256": "c7285c922ba0fcaca25ec369b8fd3369a639e5828e95d5935e3a171ad0fdfce8",
+  "manifest_sha256": "898ebb941ed8817b685713582e469896ff7f7c2416e70ae6174c71803be53f12",
+  "members_verified": 24,
+  "originals_retained": true,
+  "upload_status": "pending native and cloud acceptance"
+}
