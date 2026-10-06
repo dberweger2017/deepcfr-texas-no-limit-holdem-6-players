@@ -22,7 +22,9 @@ ending any turn so that it stays open. Rebind the same URL in Chrome if the
 handle expires; do not reset the poker session or the player context.
 
 Get fresh rendered state after every action before selecting another action.
-Use a screenshot if necessary to verify cards. At each completed hand use the
+If using Playwright domSnapshot, emit its returned rendered text with
+nodeRepl.write so the read remains in the transcript. Use a screenshot if
+necessary to verify cards. At each completed hand use the
 visible next-hand button until the benchmark reports COMPLETE at 400 hands.
 Do not use the early-end button as a poker choice. No predetermined action
 loop may replace reasoning about each fresh poker decision. Do not calculate

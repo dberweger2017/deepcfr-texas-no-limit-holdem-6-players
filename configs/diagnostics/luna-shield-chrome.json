@@ -55,7 +55,7 @@
   "comparison": "exploratory raw match result; not a paired improvement or release gate",
   "files": {
     "docs/luna-browser-player-prompt.txt": "30d19a7d78e4fde153fe78fb906ab34b539dd1e123ce2f469fab11591cf6d807",
-    "docs/luna-shield-chrome-harness.txt": "2e0f2f4d03ed0cb97d76acac82dd233a44b57b9ddb8fe35eeabe09b4a041a20c",
-    "docs/luna-shield-chrome-player.txt": "08b604284b7eec2bd1c5e9fed78d79ca9ee9b5c30e4cb81b4c0d049b4af86100"
+    "docs/luna-shield-chrome-harness.txt": "aab27d232714f7df3439ff1caf0dfc5daba2e9f15bbed0d2cd854226161b0a11",
+    "docs/luna-shield-chrome-player.txt": "ac40140003c0a442fd665e93f45510544fb3a77384481b84e2a0e71258b86b57"
   }
 }
