@@ -1,5 +1,13 @@
 # Research results index
 
+## PR171 CFR+ confirmation — October 6, 2026 (running)
+
+[Implementation #171](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/171) merged at `60f516da6b24563a49e609636a31fa17ae719bde`. [Confirmation #173](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/173), [frozen protocol](docs/hu20-cfr-plus-confirmation.md) and [public progress report](docs/reports/hu20-cfr-plus.md). All three 1B-node lineages, nine 100M/500M/1B checkpoints and six native current/traverser-reach-average exports pass the floor-zero labels, complete-header, nonnegative-regret and source-hash checks. [Checkpoint/export manifest](docs/reports/hu20-cfr-plus-artifacts/checkpoints-manifest.json).
+
+Owned working root on both Macs: `/Users/dberweger/Local/hu20-cfr-plus-pr171-20261006/`. Training/review source: main `60f516d`; frozen evaluation source: `6c8b49a059c80bd942150f26bc25847aa830917d`. Final panel root `202610060801`, canonical plan SHA256 `0806a98d8d6dc1cd59125ff9d4c9d23ce8c862794777d482ad5c755b6308ee1a`; 411,648 hands. Separate direct-match root `202610060901`, 73,728 hands; timing root `202610060701`, 2,496 pilot hands. All logs, partials, checkpoints, policy exports and raw hands remain in the owned root. The additional one-lineage, identical-pipeline full-export turn/river comparison waits for an idle Mac and posts its pilot quote before proceeding.
+
+The owner-requested destination is `~/Local/Research-Cloud/PR-171-HU20-cfr-plus/`. ZIP creation and verification follow completion; **no archive or cloud upload is claimed yet**. Both hosts' originals remain. Before reading/copying retained #149/#162/#165/#169 evidence, their owning PRs were checked as merged; open PR work roots and all synced files remain unchanged. No deletion or eviction is part of this task.
+
 ## Find recent M1 runs — October 5, 2026
 
 M1 uses the same `~/Local/Research-Cloud` shortcut and [project Drive folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s) as M4. Initial free space was **13.3 GB**. The primary poker checkout is about **23.2 GB**, including **19.7 GB of shared Git data**, which remains protected alongside unclassified `planning/` files. Open #146/#166 folders, worktrees and dependencies are excluded from archival.

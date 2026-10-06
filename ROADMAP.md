@@ -31,7 +31,7 @@ From v0.5 on, every milestone is confirmed on fresh held-out deals with several 
 
 1. **Trainer bench** ([#162](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/162)) — done. On fixed turn spots, CFR on the v1 abstraction stays near blueprint quality even with dense training; the standard opponent-sampled average does clearly better than the production average, but not enough. The [report](docs/reports/hu20-trainer-bench.md) classifies a poor v1 CFR fixed point at 3M under the frozen rule; this budget does not prove asymptotic convergence. Next, compare abstraction-aware training and better card abstraction under a prospectively fixed protocol.
 2. **Native trainer** ([#164](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/164)) — done. Rust, about 120× faster than Python, and reproduces Python's runs exactly.
-3. **v0.4.1: average-policy play** ([#165](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165)) — [arena completed](docs/reports/hu20-v041-arena.md); the predeclared release rule is not met. Native pressure is inconclusive, not a measured regression. No follow-up arena is proposed or run; no release or tag.
+3. **v0.4.1: average-policy play** ([#165](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165)) — [arena completed](docs/reports/hu20-v041-arena.md); its candidate did not meet the predeclared release rule. Native pressure was inconclusive, not a measured regression. No release or tag. The separately owner-requested CFR+ confirmation follows in item 5.
 4. **Turn search** ([#166](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/166)) — river validation and Linux pilot passed; the paid arena quote awaits owner approval.
 5. **Better training procedure** — full-game CFR+ support merged in [#171](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/171). The [predeclared confirmation](docs/hu20-cfr-plus-confirmation.md) trains three 1B-node lineages and reuses #165's arena with 12,288 native-pressure blocks. Results and the unchanged release decision are pending; shipping v0.4.1 requires owner confirmation.
 6. **Equity buckets** ([#163](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/163)) — tables built; validate on #149's turn spots before adding them as an alternative key to the native trainer, with v1 kept as the reference.
@@ -62,7 +62,7 @@ From v0.5 on, every milestone is confirmed on fresh held-out deals with several 
 
 ## Current position
 
-- **CFR+ full-game confirmation running:** [#171](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/171) merged after review, 27 parity tests, four Rust tests and green CI. Three native 1B-node lineages train from main with the regret floor at zero. The [frozen protocol](docs/hu20-cfr-plus-confirmation.md) keeps #165's release rule and increases native-pressure precision; [progress report](docs/reports/hu20-cfr-plus.md). Free M1/M4 compute only. No results or release decision yet.
+- **CFR+ full-game confirmation running:** [#171](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/171) merged after review, 27 parity tests, four Rust tests and green CI. Three native 1B-node lineages and six current/production-average exports are complete and hash-verified, with the regret floor at zero. The [frozen arena](docs/hu20-cfr-plus-confirmation.md) keeps #165's release rule and increases native-pressure precision; [progress report](docs/reports/hu20-cfr-plus.md). Free M1/M4 compute only. Results and release decision pending; the scoped full-export turn/river pilot waits for an idle Mac.
 
 *October 6, 2026*
 
@@ -80,7 +80,7 @@ From v0.5 on, every milestone is confirmed on fresh held-out deals with several 
 - **Native trainer merged** ([#164](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/164)): exact Python parity, including all three #116 lineages at 20M and 100M nodes.
 - **Equity buckets built** ([#163](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/163)): K=50/200 flop, turn and river tables, awaiting validation.
 
-**Release gate:** #165’s native-pressure safeguard is not established, so the frozen release rule remains not met. Shipping stays an owner decision; no release, tag or follow-up arena. The separate turn-search arena quote still awaits its owner decision.
+**Release gate:** #165's candidate did not establish the native-pressure safeguard. The owner-requested CFR+ confirmation applies the same release rule to a new candidate on fresh deals; its result is pending. Shipping stays an owner decision; no release or tag. The separate turn-search arena quote still awaits its owner decision.
 
 ## References
 
