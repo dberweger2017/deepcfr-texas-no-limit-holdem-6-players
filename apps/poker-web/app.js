@@ -74,7 +74,7 @@ async function recover() {
       availableModels = catalog.models;
       clear($("model-version"));
       for (const item of availableModels) {
-        const option = node("option", "", `${item.version} · ${item.name}`);
+        const option = node("option", "", item.name);
         option.value = item.version; $("model-version").append(option);
       }
       $("model-version").value = catalog.default || "";

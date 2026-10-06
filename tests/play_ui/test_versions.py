@@ -4,7 +4,7 @@ import pytest
 
 from src.play_api.service import PlayError, PlayService
 from src.play_api.versions import VersionedTables
-from tests.play_ui.test_service import FixturePolicy, hand_start, human_action
+from tests.play_ui.test_service import FixturePolicy, human_action
 
 
 def tables(tmp_path):
