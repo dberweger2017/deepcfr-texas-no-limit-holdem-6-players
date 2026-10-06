@@ -1,0 +1,246 @@
+{
+  "captured_at": 1791304253.471116,
+  "status": "evaluation stopped before pilot; training active",
+  "source_commit": "cdc315f00a6d077af3a4d13c438103354d1b4b5b",
+  "binary_sha256": "642a9cc96dabc6d4f74acf139338e4eb4d2ac22a1643b78db875eb230fc4bfbd",
+  "pilot_hands": 0,
+  "final_hands": 0,
+  "confirmation_triggered": false,
+  "records": {
+    "input-verification.json": [
+      {
+        "bytes": 214220678,
+        "copy": "/Users/dberweger/Local/hu20-o-10b-20261006/inputs/O-2026100601-1000000000.json.gz",
+        "original": "/Users/dberweger/Local/hu20-learning-curve-20261006/inputs/O-2026100601-1000000000.json.gz",
+        "owning_pr": 182,
+        "owning_pr_state": "MERGED",
+        "sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825"
+      },
+      {
+        "bytes": 258269802,
+        "copy": "/Users/dberweger/Local/hu20-o-10b-20261006/inputs/O-2026100601-2000000000.json.gz",
+        "original": "/Users/dberweger/Local/hu20-learning-curve-20261006/scaled-training/O-2026100601-2000000000.json.gz",
+        "owning_pr": 182,
+        "owning_pr_state": "MERGED",
+        "sha256": "aa91646d59614c3df1544c96bf74d0483d278d3c4e5c8e844ad0f30b1d910d5b"
+      },
+      {
+        "bytes": 328471948,
+        "copy": "/Users/dberweger/Local/hu20-o-10b-20261006/inputs/O-2026100601-5000000000.json.gz",
+        "original": "/Users/dberweger/Local/hu20-learning-curve-20261006/scaled-training/O-2026100601-5000000000.json.gz",
+        "owning_pr": 182,
+        "owning_pr_state": "MERGED",
+        "sha256": "2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f"
+      },
+      {
+        "bytes": 383593179,
+        "copy": "/Users/dberweger/Local/hu20-o-10b-20261006/inputs/O-2026100601-10000000000.json.gz",
+        "original": "/Users/dberweger/Local/hu20-learning-curve-20261006/scaled-training/O-2026100601-10000000000.json.gz",
+        "owning_pr": 182,
+        "owning_pr_state": "MERGED",
+        "sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49"
+      }
+    ],
+    "models.json": [
+      {
+        "bytes": 40144034,
+        "iteration": 246212,
+        "name": "R1",
+        "path": "R1.current.json.gz",
+        "seed": 2026093001,
+        "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+        "strategy": "current"
+      },
+      {
+        "bytes": 142677367,
+        "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+        "iteration": 2126271,
+        "name": "O@1000000000",
+        "nodes": 1000000000,
+        "path": "O-1000000000.average.jsonl.gz",
+        "seed": 2026100601,
+        "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+        "strategy": "average"
+      },
+      {
+        "bytes": 170733025,
+        "checkpoint_sha256": "aa91646d59614c3df1544c96bf74d0483d278d3c4e5c8e844ad0f30b1d910d5b",
+        "iteration": 4158342,
+        "name": "O@2000000000",
+        "nodes": 2000000000,
+        "path": "O-2000000000.average.jsonl.gz",
+        "seed": 2026100601,
+        "sha256": "81908b1d58a8ff19ceb7b5f81e93babf82e390f30853c214d4b7406c8704d452",
+        "strategy": "average"
+      },
+      {
+        "bytes": 214796948,
+        "checkpoint_sha256": "2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f",
+        "iteration": 9971555,
+        "name": "O@5000000000",
+        "nodes": 5000000000,
+        "path": "O-5000000000.average.jsonl.gz",
+        "seed": 2026100601,
+        "sha256": "ab8ce0087f6bfefde447ebe48ad754c094db13318803df890488eb1283453193",
+        "strategy": "average"
+      }
+    ],
+    "export-audit-1000000000.json": {
+      "status": "verified",
+      "all_nodes_verified": 4319080,
+      "counts": {
+        "entries": 4319080,
+        "positive_mass": 2929370,
+        "zero_mass": 1389710
+      },
+      "unweighted_mean_current_average_tv": 0.29844938407433524,
+      "maximum_tv": 1.0000000000000002,
+      "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+      "current_sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740",
+      "average_sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+      "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825"
+    },
+    "export-audit-2000000000.json": {
+      "status": "verified",
+      "all_nodes_verified": 5101104,
+      "counts": {
+        "entries": 5101104,
+        "positive_mass": 3428406,
+        "zero_mass": 1672698
+      },
+      "unweighted_mean_current_average_tv": 0.3075358725783644,
+      "maximum_tv": 1.0000000000000002,
+      "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+      "current_sha256": "784181beccfb0fd6cae635bf2d8aa5e4ff0d442d7f92253368386c61309ef0e7",
+      "average_sha256": "81908b1d58a8ff19ceb7b5f81e93babf82e390f30853c214d4b7406c8704d452",
+      "checkpoint_sha256": "aa91646d59614c3df1544c96bf74d0483d278d3c4e5c8e844ad0f30b1d910d5b"
+    },
+    "export-audit-5000000000.json": {
+      "status": "verified",
+      "all_nodes_verified": 6315718,
+      "counts": {
+        "entries": 6315718,
+        "positive_mass": 4183525,
+        "zero_mass": 2132193
+      },
+      "unweighted_mean_current_average_tv": 0.32047447102457416,
+      "maximum_tv": 1.0000000000000002,
+      "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+      "current_sha256": "c8022585cbf36c976fb20072906b90f29565a48d7891fee079361f635886cd73",
+      "average_sha256": "ab8ce0087f6bfefde447ebe48ad754c094db13318803df890488eb1283453193",
+      "checkpoint_sha256": "2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f"
+    },
+    "export-10000000000.resource.json": {
+      "failure": "AssertionError: Preparation RAM/disk/deadline guard",
+      "peak_sampled_rss_bytes": 6758858752,
+      "returncode": -15,
+      "seconds": 9.245577096939087
+    },
+    "export-10b-average-only.resource.json": {
+      "command": [
+        "/Users/dberweger/Local/hu20-o-10b-20261006/source/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/inputs/O-2026100601-10000000000.json.gz",
+        "--average",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/policies/O-10000000000.average.jsonl.gz"
+      ],
+      "failure": null,
+      "peak_sampled_rss_bytes": 3297443840,
+      "returncode": 0,
+      "seconds": 23.333898067474365
+    },
+    "export-10b-current-only.resource.json": {
+      "command": [
+        "/Users/dberweger/Local/hu20-o-10b-20261006/source/native/hu20-trainer/target/release/hu20-trainer",
+        "export",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/inputs/O-2026100601-10000000000.json.gz",
+        "--current",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/policies/O-10000000000.current.json.gz"
+      ],
+      "failure": null,
+      "peak_sampled_rss_bytes": 3755606016,
+      "returncode": 0,
+      "seconds": 15.468451976776123
+    },
+    "audit-10b-separate-exports.resource.json": {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-c",
+        "from pathlib import Path;import json;from src.diagnostics.cfr_average import audit;r=Path('/Users/dberweger/Local/hu20-o-10b-20261006');s=json.loads((r/'audit-spec-10000000000.json').read_text());v=audit(r/'inputs'/'O-2026100601-10000000000.json.gz',r/'policies'/'O-10000000000.current.json.gz',r/'policies'/'O-10000000000.average.jsonl.gz',s,'15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae');(r/'export-audit-10000000000.json').write_text(json.dumps(v,indent=2))"
+      ],
+      "failure": "AssertionError: 6-GiB RSS guard",
+      "peak_sampled_rss_bytes": 6505889792,
+      "returncode": -15,
+      "seconds": 10.54278016090393
+    },
+    "audit-10b-malloc.resource.json": {
+      "command": [
+        "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+        "-c",
+        "from pathlib import Path;import json;from src.diagnostics.cfr_average import audit;r=Path('/Users/dberweger/Local/hu20-o-10b-20261006');s=json.loads((r/'audit-spec-10000000000.json').read_text());v=audit(r/'inputs'/'O-2026100601-10000000000.json.gz',r/'policies'/'O-10000000000.current.json.gz',r/'policies'/'O-10000000000.average.jsonl.gz',s,'15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae');(r/'export-audit-10000000000.json').write_text(json.dumps(v,indent=2))"
+      ],
+      "failure": "AssertionError: 6-GiB RSS guard",
+      "peak_sampled_rss_bytes": 6519767040,
+      "returncode": -15,
+      "seconds": 13.750356912612915
+    },
+    "training/2026100602/milestone-1000000000.json": {
+      "bytes": 215171058,
+      "nodes_milestone": 1000000000,
+      "parity_verified": true,
+      "peak_sampled_rss_bytes": 1428193280,
+      "seconds_since_launch": 399.1787221431732,
+      "seed": 2026100602,
+      "sha256": "a0ef695d6807aa4554ba01b32d27f64c39ccdc72d03be5a21c99cf67e52ad716",
+      "source_commit": "cdc315f00a6d077af3a4d13c438103354d1b4b5b"
+    },
+    "training/2026100602/status.json": {
+      "free_disk_bytes": 31217106944,
+      "milestones": [
+        1000000000
+      ],
+      "peak_sampled_rss_bytes": 1428193280,
+      "returncode": null,
+      "seconds": 695.8877999782562,
+      "status": "running"
+    },
+    "O-2026100602-1000000000-milestone-archive.json": {
+      "status": "verified",
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100602-1000000000-milestone.zip",
+      "archive_bytes": 215176734,
+      "archive_sha256": "7c51abc6963d5a415ffa3a8a130245ee63a81d1357db11e92e685280afb9613b",
+      "manifest_sha256": "f4048a0514380046c3189d662fec81259fad8b6b26b8819b631bf20fa648f16f",
+      "members_verified": 7,
+      "originals_retained": true,
+      "upload_status": "pending native and cloud acceptance"
+    }
+  },
+  "root_searches": {
+    "m1": {
+      "roots": [
+        "202610066101",
+        "202610066201",
+        "202610066301",
+        "202610066401",
+        "202610066501",
+        "202610066601"
+      ],
+      "files_searched": 147006,
+      "matches": [],
+      "unreadable_count": 0
+    },
+    "m4": {
+      "roots": [
+        "202610066101",
+        "202610066201",
+        "202610066301",
+        "202610066401",
+        "202610066501",
+        "202610066601"
+      ],
+      "files_searched": 62313,
+      "matches": [],
+      "unreadable_count": 11145
+    }
+  }
+}

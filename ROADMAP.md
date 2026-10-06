@@ -63,6 +63,8 @@ From v0.5 on, every milestone is confirmed on fresh held-out deals with several 
 
 ## Current position
 
+- **O 10B study active ([#185](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/185)):** sequential M4 seeds 602/603 authorized; 602’s 1B checkpoint reproduces #165 exactly. Evaluation stopped before pilot because the unchanged full 10B export audit exceeds the 6-GiB guard, including an allocator-only retry. [Preparation report](docs/reports/hu20-o-10b.md); strength undecided, confirmation/package not triggered. Member-hashed preparation and checkpoint ZIPs verify; cloud upload pending. PR remains open while training continues and the memory blocker is unresolved.
+
 - **O learning curve complete ([#182](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/182)):** seed 2026100601 still improves under v1: 1B−500M **+5.31 [2.71, 7.91]**, 1B−100M **+14.19 [11.56, 16.81] BB/100**; both primary half-widths meet ≤3. All 598,016 final and 32,768 pilot hands independently replay. [Report and chart](docs/reports/hu20-learning-curve.md). The owner-requested single-lineage scaling completed **2B/5B/10B** on the free M4 in **62.75 minutes**, peak sampled RSS **1.462 GiB**; all checkpoint ZIPs and the final training tail are member-verified and uploaded. No further matches until the owner decides; v0.4.2 remains the owner’s release decision. This is one lineage only.
 
 - **Merged research copies cleaned after verified upload:** #165/#171/#175/#176/#179 local archive/result copies removed with per-file restoration receipts; measured reclamation 27.88 GB on M1 and 19.04 GB on M4. Open #166/#182 roots and dependencies remain. [Cleanup record](docs/artifacts/merged-research-original-cleanup-20261006.md).
