@@ -157,11 +157,13 @@ fn main() {
             let arg = |name: &str| args.iter().position(|a| a == name).map(|i| std::path::PathBuf::from(&args[i + 1]));
             let checkpoint = std::path::PathBuf::from(&args[2]);
             let started = std::time::Instant::now();
-            let count = hu20_trainer::export::export(&checkpoint, arg("--current").as_deref(), arg("--average").as_deref()).unwrap();
+            let zero_mass = args.iter().position(|a| a == "--zero-mass")
+                .map_or(hu20_trainer::export::ZeroMass::Uniform, |i| hu20_trainer::export::ZeroMass::parse(&args[i + 1]));
+            let count = hu20_trainer::export::export(&checkpoint, arg("--current").as_deref(), arg("--average").as_deref(), zero_mass).unwrap();
             println!("exported {count} entries in {:.2} s", started.elapsed().as_secs_f64());
         }
         _ => {
-            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] [--average-rule traverser-reach|opponent-sampled] [--regret-floor F] --out PATH | export CHECKPOINT [--current PATH] [--average PATH] | bench-train --roots ROOTS.json --seed S --iterations N [--checkpoints a,b] --lineage NAME [--variant NAME] [--regret-floor F] [--dcfr A,B,G] --out FOLDER");
+            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] [--average-rule traverser-reach|opponent-sampled] [--regret-floor F] --out PATH | export CHECKPOINT [--current PATH] [--average PATH] [--zero-mass uniform|current] | bench-train --roots ROOTS.json --seed S --iterations N [--checkpoints a,b] --lineage NAME [--variant NAME] [--regret-floor F] [--dcfr A,B,G] --out FOLDER");
             std::process::exit(2);
         }
     }

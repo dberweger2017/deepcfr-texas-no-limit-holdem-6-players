@@ -1,0 +1,78 @@
+{
+  "time_utc": "2026-10-06T12:39:53.356491+00:00",
+  "owning_pr": {
+    "number": 89,
+    "state": "MERGED",
+    "merged_at": "2026-09-20T01:10:50Z"
+  },
+  "dependency_review": {
+    "worktree_count": 46,
+    "tracked_references": [],
+    "open_handles_exit": 1,
+    "open_handles": "",
+    "untracked_references": [
+      "planning/forensics/scratch/forensics-day-c16k.json:checkpoint",
+      "planning/forensics/scratch/forensics-day-c4k.json:checkpoint"
+    ],
+    "owning_pr": 89,
+    "owning_pr_state": "MERGED",
+    "active_prs_preserved": [
+      166,
+      176,
+      179
+    ]
+  },
+  "files": [
+    {
+      "original_path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/planning/forensics/scratch/c4k.pt",
+      "first_local_creation_utc": "2026-09-20T11:44:12.988163+00:00",
+      "size": 688892004,
+      "sha256": "634af5aeb746c6d945f23a19c99af83113a0c2973a4af298abe4715c62b4cc87",
+      "identity": {
+        "device": 16777233,
+        "inode": 68890918,
+        "mtime_ns": 1789904728077445838,
+        "size": 688892004
+      },
+      "archive_path": "/Users/dberweger/Local/Research-Cloud/M4-closed-training/results--day-current-4k-2026091902-20261004.tar.gz",
+      "archive_sha256": "11b16adfd66c54efa03ba4981c46ed99f17067e11f1401dc244b55b8a0f99d7a",
+      "archive_cloud_id": "1s-D-48RWoLx1RfO6ES38QRCyfDfU2Ues",
+      "archive_url": "https://drive.google.com/file/d/1s-D-48RWoLx1RfO6ES38QRCyfDfU2Ues/view",
+      "archive_member": "results/day-current-4k-2026091902/scenario-0-seed-2026091902/pinned/1024/training-1024.pt",
+      "archive_member_manifest_verified": true,
+      "native_uploaded": true,
+      "cloud_exact_name_size_parent_verified": true,
+      "restore_command": "mkdir -p planning/forensics/scratch && tar -xOf \"$HOME/Local/Research-Cloud/M4-closed-training/results--day-current-4k-2026091902-20261004.tar.gz\" results/day-current-4k-2026091902/scenario-0-seed-2026091902/pinned/1024/training-1024.pt > planning/forensics/scratch/c4k.pt",
+      "verification_command": "printf \"%s  %s\\n\" 634af5aeb746c6d945f23a19c99af83113a0c2973a4af298abe4715c62b4cc87 planning/forensics/scratch/c4k.pt | shasum -a 256 -c -"
+    },
+    {
+      "original_path": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/planning/forensics/scratch/c16k.pt",
+      "first_local_creation_utc": "2026-09-20T11:45:28.448319+00:00",
+      "size": 783479055,
+      "sha256": "96a96cc9ab9a7769ad676616c44cf0b9fde99a493b71247a52cb2ec9d57eba1f",
+      "identity": {
+        "device": 16777233,
+        "inode": 68891415,
+        "mtime_ns": 1789904815201599180,
+        "size": 783479055
+      },
+      "archive_path": "/Users/dberweger/Local/Research-Cloud/M4-closed-training/results--day-current-16k-2026091902-20261004.tar.gz",
+      "archive_sha256": "4bdf55e7294f11295f2ed8dc99822a49fe215b55a321cefa6ff088e09450c06a",
+      "archive_cloud_id": "1d9ynZM5Ssx-hcHQM9VPRQye9GoT6V-1R",
+      "archive_url": "https://drive.google.com/file/d/1d9ynZM5Ssx-hcHQM9VPRQye9GoT6V-1R/view",
+      "archive_member": "results/day-current-16k-2026091902/scenario-0-seed-2026091902/pinned/1024/training-1024.pt",
+      "archive_member_manifest_verified": true,
+      "native_uploaded": true,
+      "cloud_exact_name_size_parent_verified": true,
+      "restore_command": "mkdir -p planning/forensics/scratch && tar -xOf \"$HOME/Local/Research-Cloud/M4-closed-training/results--day-current-16k-2026091902-20261004.tar.gz\" results/day-current-16k-2026091902/scenario-0-seed-2026091902/pinned/1024/training-1024.pt > planning/forensics/scratch/c16k.pt",
+      "verification_command": "printf \"%s  %s\\n\" 96a96cc9ab9a7769ad676616c44cf0b9fde99a493b71247a52cb2ec9d57eba1f planning/forensics/scratch/c16k.pt | shasum -a 256 -c -"
+    }
+  ],
+  "free_before_bytes": 49697181696,
+  "removed_paths": [
+    "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/planning/forensics/scratch/c4k.pt",
+    "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/planning/forensics/scratch/c16k.pt"
+  ],
+  "free_after_bytes": 51169431552,
+  "removed_bytes": 1472371059
+}
