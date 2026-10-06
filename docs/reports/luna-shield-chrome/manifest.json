@@ -1,0 +1,102 @@
+{
+  "runtimeSource": "2fa67013dd46355dfa996133dc19afef21f0d4c6",
+  "scope": "sanitized completed-match evidence; no private journal, credentials, hidden cards or raw player reasoning published",
+  "publicFiles": [
+    {
+      "path": "docs/reports/luna-shield-chrome.md",
+      "bytes": 8113,
+      "sha256": "4c934af0ac1b468eb3dc5ca8680e3d9655e1f420a9a143d7c650badfd661db10"
+    },
+    {
+      "path": "docs/reports/luna-shield-v040-comparison.md",
+      "bytes": 7637,
+      "sha256": "6caed95bb1687ab1005f888cdcb3331ad1d6db3ecee5f178760717740e5d39c4"
+    },
+    {
+      "path": "scripts/compare_luna_matches.py",
+      "bytes": 8120,
+      "sha256": "41935bbc0fd3d0c4b11fb46961b96465c6125f8f5c8b965ab361902aa6f0d936"
+    },
+    {
+      "path": "docs/reports/luna-shield-chrome/audit.json",
+      "bytes": 3882,
+      "sha256": "871b622c633ec7609cb8a16c86c8d9a58d720ae8dead6fdad1ac405992e88a0a"
+    },
+    {
+      "path": "docs/reports/luna-shield-chrome/comparison.json",
+      "bytes": 9311,
+      "sha256": "163a646273e014087159041546fadfd8514fe781f258c4b4c9d58f62170db7fb"
+    },
+    {
+      "path": "docs/reports/luna-shield-chrome/export.json",
+      "bytes": 61894,
+      "sha256": "37efeb3e93e55e8e2e6513211a2085eb6490fb7914860ef065bf3327ce872d7e"
+    },
+    {
+      "path": "docs/reports/luna-shield-chrome/luna-retrospective.md",
+      "bytes": 2715,
+      "sha256": "043cbbffee9fc21ac34738e8244db1f5ad9737b1e6585ce56ba0a59d2f105234"
+    },
+    {
+      "path": "docs/reports/luna-shield-chrome/native-decisions.csv",
+      "bytes": 383615,
+      "sha256": "5a2072882cff16949ca3aa7c06b3a8d20b3b1add68d7d0b09981b4a3012b497e"
+    },
+    {
+      "path": "docs/reports/luna-shield-chrome/native-hands.csv",
+      "bytes": 41958,
+      "sha256": "22231c5866fae3f0736b0dcd001852e3260b841f0b2263d7684e9723c449f2fc"
+    },
+    {
+      "path": "docs/reports/luna-shield-chrome/public-history.json",
+      "bytes": 648913,
+      "sha256": "65a37a88b0f42c30283b3a4a20cbd45dd61691a8207449d3d8d8b9ad3588596e"
+    },
+    {
+      "path": "docs/reports/luna-shield-chrome/qualitative-selection.json",
+      "bytes": 463,
+      "sha256": "f80b13643f76cae4ee68bedd27a4bc36248c66c61c74d0bbe6ac1a10eb251940"
+    },
+    {
+      "path": "docs/reports/luna-shield-chrome/resources.json",
+      "bytes": 781,
+      "sha256": "7a9ac8db935632acb304a4f4cff536f4daf65d4dd33d10e440f510457c59a9a7"
+    }
+  ],
+  "privateInputs": {
+    "nativeJournal": {
+      "bytes": 6701056,
+      "sha256": "aad29df4a5d508c7145f9fd49dd5aa88e1a536ad13b9ec998de6de6f370cbbe7"
+    },
+    "runReceipt": {
+      "bytes": 2409,
+      "sha256": "8a25ec3024747904c934b21e22526d0d33b7af655d8fd91d92e09a9d02efe2a4"
+    },
+    "resourceSamples": {
+      "bytes": 677904,
+      "sha256": "cf331730ebe81a5c54402cf29a9f85cc62f9d86fccd10309c896c8b0485786ad"
+    },
+    "strictReporterFailure": {
+      "bytes": 485,
+      "sha256": "e401289dca166d14c133ac32cef375ee4442229f0bda7f3dba804b8525d95280"
+    },
+    "nativeEvidenceBuilder": {
+      "bytes": 8232,
+      "sha256": "6029aaedc365b91180755fd65f186cb976e5ba1cb3d2ad09c1e8f7d44c9dde5b"
+    },
+    "sanitizedToolCodeHashLedger": {
+      "bytes": 350342,
+      "sha256": "c7060a371afbed092cd29ef28ab27e23256627237f6ee585e770ccf1e8416bf0"
+    },
+    "playerRollout": {
+      "bytes": 269936324,
+      "sha256": "16b7baba75883569bc029151412e19959314ff1f4fd5c8ee1509ad05333d18b5"
+    }
+  },
+  "replay": {
+    "sessions": 1,
+    "hands": 400,
+    "freeOffMenu": 0
+  },
+  "protocolAudit": "FAILED; no gate waived"
+}

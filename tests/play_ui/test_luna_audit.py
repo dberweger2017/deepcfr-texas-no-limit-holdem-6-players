@@ -61,3 +61,15 @@ def test_normalizes_observable_ordinal_spellings_without_copying_rendered_tree()
     assert item["visibleAcceptedAction"] == "Call 2 BB"
     assert "FULL RENDERED TREE" not in json.dumps(item)
     assert "PRIVATE" not in json.dumps(item)
+
+
+def test_native_chrome_snapshot_receipt_and_standalone_tool_name():
+    invoked = call("", "mcp__cua_repl.js", 'await table.playwright.domSnapshot();')
+    records = [invoked,
+        {"type": "response_item", "timestamp": "2026-10-06T12:00:00Z", "payload": {
+            "type": "function_call_output", "call_id": "example", "output": "- button Call 1 BB"}},
+        {"type": "response_item", "payload": {"type": "function_call_output", "call_id": "action", "output":
+            '{"type":"luna_attempt","handOrdinal":1,"decisionOrdinal":1,"attemptedButtonLabel":"Call 1 BB"}'}}]
+    result = audit(records)
+    assert not result["violations"]
+    assert result["decisionMetadata"][0]["lastRenderedAtMs"] == 1791288000000
