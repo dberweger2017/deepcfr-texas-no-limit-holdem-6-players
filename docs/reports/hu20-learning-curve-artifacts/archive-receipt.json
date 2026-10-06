@@ -1,0 +1,13 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/hu20-learning-curve-complete-20261006.zip",
+  "archive_bytes": 1899498972,
+  "cloud_upload_status": "not yet checked; no remote byte readback claimed",
+  "free_disk_bytes": 21478596608,
+  "logical_bytes": 2053533686,
+  "manifest_sha256": "356afb24d65857560e88da09d9ba9b8cc08eee0fbf36c7830f5ec72ab77e2db1",
+  "members_verified": 172,
+  "originals_retained": true,
+  "sha256": "1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f",
+  "status": "verified",
+  "verified_at": 1791297655.8273978
+}

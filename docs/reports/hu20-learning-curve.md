@@ -33,6 +33,6 @@ Free M4 only, at most three workers, 6-GiB worker RSS, ≥15-GiB free disk and a
 
 ## Research archive and scaled training
 
-Research evidence is being sealed under `~/Local/Research-Cloud/PR-182-HU20-learning-curve/`; [RESULTS_INDEX](../../RESULTS_INDEX.md) records member verification, upload acceptance and restoration separately. Originals and #166's work roots stay untouched; no synced deletion or eviction.
+The complete [research ZIP](https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view) has **172 members /1,899,498,972 ZIP bytes**, all size/SHA256 verified by readback. Native Drive upload acceptance and independent cloud name/size/parent checks pass; no remote byte re-download is claimed. [RESULTS_INDEX](../../RESULTS_INDEX.md) records hashes and restoration under `~/Local/Research-Cloud/PR-182-HU20-learning-curve/`. Originals and #166's work roots stay untouched; no synced deletion or eviction.
 
 Because B is better, the owner-requested seed-2026100601 opponent-sampled **2B/5B/10B training is running on M4** from the same main-built binary. The guard stops before 6-GiB RSS or 15-GiB free-disk breaches; elapsed time and sampled peak RSS are retained. Completed checkpoints receive member-hashed milestone ZIPs and PR notes. **No new matches until the owner decides. PR stays open while training runs; v0.4.2 remains the owner's release decision.**
