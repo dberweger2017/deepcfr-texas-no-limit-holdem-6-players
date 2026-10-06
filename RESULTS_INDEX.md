@@ -1,5 +1,11 @@
 # Research results index
 
+## M4 uploaded-original cleanup — October 6 evening
+
+Merged **#166/#181** eligible originals and nonsynced archive copies removed after current Drive upload acceptance, full archive/member SHA256 and open-PR dependency checks: **6,025 paths /13.779 GB logical**, **12.198 GB measured free-space gain**, **30.173 GB free immediately after cleanup**. Open **#185/#186** roots/dependencies, shared Git, sources, prepared inputs, credentials, synced archives and unarchived evidence remain. PR181 closeout/publication originals lacking an exact M4 transfer map remain; only mapped preparation copies were removed.
+
+[Cleanup and restoration](docs/artifacts/m4-uploaded-original-cleanup-20261006-evening.md), [compact verification](docs/artifacts/m4-uploaded-original-cleanup-20261006-evening.json), [full per-path receipt/restore helper](https://drive.google.com/file/d/1k6fw_iM91tvTfGCgocbADpt-L0Cx8dF3/view) (**2,576,866 bytes**, SHA256 `125a71d61c6f19324e1b9d1f03bf4b72e974f2f38860256f1d18662621659ed3`). Each removed path records canonical Drive ID/URL, archive hash, exact member/hash/size and restoration command. Retrieve the receipt ZIP into an ignored nonsynced directory and run its `restore.py --original ORIGINAL_ABSOLUTE_PATH --out results/retrieved/NEW_FILE`; it checks archive/member hashes. Historical retention claims are superseded only for the receipted paths. M1 originals remain. No unattended cleanup.
+
 ## PR182 — O learning curve
 
 [PR #182](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/182), [report and chart](docs/reports/hu20-learning-curve.md), [predeclared protocol](docs/hu20-learning-curve.md). One training lineage, seed 2026100601. O@1B−500M **+5.31 [2.71, 7.91]**, 1B−100M **+14.19 [11.56, 16.81] BB/100**, both better; primary half-widths 2.597/2.627 meet ≤3. O@100M−R1 **−7.41 [−10.16, −4.67]**, worse; O@500M−R1 **+7.68 [5.05, 10.31]**, better. All **598,016 final +32,768 pilot hands /3,132,269 actions** independently replay with raw-chip estimate/interval/label agreement. Free M4 only, no release or new match authorization.
