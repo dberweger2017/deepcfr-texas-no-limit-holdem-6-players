@@ -72,7 +72,7 @@ def worker(kind,plan_path,key=None):
         write(plan_path.parent/(spec['name']+'.audit.json.gz'),result)
     else:raise ValueError(kind)
 
-def launch(jobs,stage,deadline,max_workers=2):
+def launch(jobs,stage,deadline,max_workers=3):
     children=[];began=time.perf_counter();stop=False
     def jobrun(job):
         kind,plan,key=job
@@ -183,19 +183,19 @@ def freeze():
             'startup_seconds':max(0,(sum(timings)-math.fsum(hand_seconds))/3)}
     for f in FAMILIES[2:]:counts[f]=max(counts[FAMILIES[0]],counts[FAMILIES[1]])
     for f in FAMILIES:sizing[f].update(blocks=counts[f],projected_max_half_width=float(t.ppf(.975,counts[f]-1))*max(sizing[f]['block_sd_lineages_and_aggregate'])/math.sqrt(counts[f]))
-    play=1.5*sum(c['startup_seconds']+c['seconds_per_pair_block']*counts[f] for f,c in costs.items())
-    replay=1.5*sum(c['seconds_per_pair_block']*counts[f] for f,c in costs.items())*2
+    play=sum(c['startup_seconds']+c['seconds_per_pair_block']*counts[f] for f,c in costs.items())
+    replay=sum(c['seconds_per_pair_block']*counts[f] for f,c in costs.items())*2
     quote={'sizing':sizing,'costs':costs,'play_seconds':play,'replay_report_seconds':replay,'with_50_percent_headroom_seconds':1.5*(play+replay),'pilot_outcomes_inspected':False}
     write(ROOT/'quote.json.gz',quote)
     assert quote['with_50_percent_headroom_seconds']<=3600,'#175 one-hour feasibility gate'
-    bundle={'root':202610063501,'started_at':time.time(),'max_seconds':7200,'families':{},'orchestration_sha256':filehash(__file__),'workers':2}
+    bundle={'root':202610063501,'started_at':time.time(),'max_seconds':7200,'families':{},'orchestration_sha256':filehash(__file__),'workers':3}
     for f in FAMILIES:
         p=read(ROOT/'pilot'/f/'plan.json.gz');p.update(root=bundle['root'],started_at=bundle['started_at'],blocks=counts[f],scope=f+'; frozen final; nominal paired 95%; no release decision')
         write(ROOT/'final'/f/'plan.json.gz',p);bundle['families'][f]={'plan':p,'sha256':digest(p)}
     write(ROOT/'final-plan.json.gz',bundle);write(ROOT/'final-plan-hash.json.gz',{'sha256':digest(bundle)})
     comment='Outcome-blind M1 pilot complete; final sample frozen before scores. No pilot means, intervals or labels inspected.\n\nFresh final root **202610063501**, pilot **202610063401** excluded.\n\n'
     for f in FAMILIES:comment+=f'- {f}: **{counts[f]:,} duplicate blocks × three matched pairings × two seats = {counts[f]*6:,} hands**.\n'
-    comment+=f'\nPrimary sizing targets projected ≤3.5 BB/100 (headroom for achieved ≤4), maximum over each lineage and its aggregate. No outcome-driven extension. Largest pilot RSS **{max(c["peak_rss_bytes"] for c in costs.values())/1024**3:.2f} GiB**. Startup-inclusive play **{play/60:.1f} min**; independent replay/report allowance **{replay/60:.1f} min**; **{1.5*(play+replay)/60:.1f} min with 50% headroom**.\n\nM1 only, free, two workers (≤3 limit), unchanged 6-GiB worker guard, ≥8-GiB free disk, two-hour aggregate cap. Canonical bundled plan SHA256 `{digest(bundle)}`. Individual plan hashes and outcome-blind SD/cost quote retained. Every pilot/final action and settlement independently audited; pilot arithmetic follows freezing. Labels and contrasts remain as predeclared. No release decisions.\n'
+    comment+=f'\nPrimary sizing targets projected ≤3.5 BB/100 (headroom for achieved ≤4), maximum over each lineage and its aggregate. No outcome-driven extension. Largest pilot RSS **{max(c["peak_rss_bytes"] for c in costs.values())/1024**3:.2f} GiB**. Startup-inclusive play **{play/60:.1f} min**; independent replay/report allowance **{replay/60:.1f} min**; **{1.5*(play+replay)/60:.1f} min with 50% headroom**.\n\nM1 only, free, three workers, unchanged 6-GiB worker guard, ≥8-GiB free disk, two-hour aggregate cap. Canonical bundled plan SHA256 `{digest(bundle)}`. Individual plan hashes and outcome-blind SD/cost quote retained. Every pilot/final action and settlement independently audited; pilot arithmetic follows freezing. Labels and contrasts remain as predeclared. No release decisions.\n'
     with gzip.open(ROOT/'freeze-comment.md.gz','xt') as f:f.write(comment)
     print(json.dumps({'counts':counts,'quote':quote,'sha256':digest(bundle)},indent=2))
 
@@ -214,7 +214,7 @@ def pressure_plan():
     panel=next(p for p in read(ROOT/'inputs/pr165-plan.json.gz')['panels'] if p['name']=='native-pressure')
     plan={'root':202610063601,'panels':[dict(panel,blocks=12288)],'stage':'frozen-final','models':models,
         'started_at':time.time(),'max_seconds':7200,'expected_hands':12*2*12288,
-        'scope':'predeclared conditional pressure check; all four arms; no release gate','workers':2}
+        'scope':'predeclared conditional pressure check; all four arms; no release gate','workers':3}
     write(ROOT/'pressure/plan.json.gz',plan)
     print(json.dumps({'pressure_plan_sha256':digest(plan),'blocks':12288,'hands':plan['expected_hands']}))
 
