@@ -23,6 +23,11 @@ from time import sleep, time
 from scripts.hu20_search_arena_control import ArenaControl, durable_json, serve
 from scripts.hu20_search_evidence import verify_archives, file_hash
 
+# Pods pack in parallel, but chunks arrive one at a time so free disk is checked against real usage.
+DOWNLOAD_LOCK = threading.Lock()
+RETRIEVAL_RESERVE_BYTES = 5*1024**3
+DEFAULT_RETRIEVAL_LIMIT_BYTES = 4*10**9
+
 PROTECTED = {"43z4itur3hwnyv", "cl0riravggku4r", "xu414eguzakxfr", "k9rdph2fwhym87"}
 
 
@@ -146,13 +151,17 @@ def closeout(pod, root, mcp_call, ledger, lock):
     size = sum(r["bytes"] for r in manifest["archives"])
     with lock:
         ledger["retrieval_reserved_bytes"] = ledger.get("retrieval_reserved_bytes", 0)+size
-        if ledger["retrieval_reserved_bytes"] > 4*10**9 or shutil.disk_usage(root).free-size < 5*1024**3:
-            raise OSError("Predeclared retrieval size/free-space guard")
+        # The owner/ledger may raise the cap when the measured archives are larger; free space is rechecked per chunk.
+        if ledger["retrieval_reserved_bytes"] > ledger.get("retrieval_limit_bytes", DEFAULT_RETRIEVAL_LIMIT_BYTES):
+            raise OSError("Predeclared retrieval size guard")
         durable_json(root/"ledger.json", ledger)
     for row in manifest["archives"]:
         if row["bytes"] > 10**9 or Path(row["path"]).name != row["path"]:
             raise ValueError("Unexpected transfer chunk")
-        download(pod,"/workspace/archives/"+row["path"],destination/row["path"],root)
+        with DOWNLOAD_LOCK:
+            if shutil.disk_usage(root).free-row["bytes"] < RETRIEVAL_RESERVE_BYTES:
+                raise OSError("Retrieval free-space guard before chunk "+row["path"])
+            download(pod,"/workspace/archives/"+row["path"],destination/row["path"],root)
     verified = verify_archives(destination)
     durable_json(destination/"retrieval-verified.json", {**verified, "pod_id": pod["id"], "archive_manifest_sha256":file_hash(destination/"manifest.json"), "at": time()})
     readback = mcp_call("tools/call", {"name": "get-pod", "arguments": {"id": pod["id"]}}, 400)

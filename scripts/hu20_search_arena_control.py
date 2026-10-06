@@ -11,6 +11,7 @@ from pathlib import Path
 import threading
 from time import time, sleep
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+import urllib.error
 import urllib.request
 
 
@@ -167,6 +168,8 @@ class ArenaControl:
 
 
 class ControlClient:
+    attempts, timeout, pause = 8, 10, 5
+
     def __init__(self, url, pod, worker, token=None):
         self.url, self.pod, self.worker = url, pod, worker
         self.sequence = 0
@@ -177,12 +180,20 @@ class ControlClient:
         headers = {"Content-Type": "application/json", "User-Agent": "Mozilla/5.0 (compatible; HU20Arena/1.0)"}
         if self.token:
             headers["Authorization"] = "Bearer " + self.token
-        request = urllib.request.Request(self.url, json.dumps(body).encode(), headers)
-        try:
-            with urllib.request.urlopen(request, timeout=5) as response:
-                result = json.load(response)
-        except Exception as exc:
-            raise RuntimeError("Arena controller unavailable; halt owned work") from exc
+        # A tunnel or CPU stall must not look like a search defect: retry transport failures for about
+        # a minute (acquire/complete/stop are idempotent), then halt owned work. HTTP errors are final.
+        for attempt in range(self.attempts):
+            request = urllib.request.Request(self.url, json.dumps(body).encode(), headers)
+            try:
+                with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                    result = json.load(response)
+                break
+            except urllib.error.HTTPError as exc:
+                raise RuntimeError("Arena controller unavailable; halt owned work") from exc
+            except Exception as exc:
+                if attempt + 1 == self.attempts:
+                    raise RuntimeError("Arena controller unavailable; halt owned work") from exc
+                sleep(self.pause)
         if result["status"] == "stopped":
             raise RuntimeError("Arena stopped: " + str(result["reason"]))
         return result

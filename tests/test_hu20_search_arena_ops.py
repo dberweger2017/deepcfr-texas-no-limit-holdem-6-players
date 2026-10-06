@@ -193,6 +193,75 @@ def test_supervisor_only_terminates_attributed_pod_after_stream_hash_verificatio
         assert pod["retrieval_verified"] and pod["terminated_at"]
 
 
+def _retrieval_setup(tmp_path, monkeypatch, size):
+    import shutil
+    from scripts import monitor_hu20_search_arena as monitor
+    root = tmp_path / "supervisor"; root.mkdir()
+    evidence = tmp_path / "evidence"; evidence.mkdir()
+    (evidence/"hand.gz").write_bytes(b"x" * size)
+    archive = tmp_path / "remote-archive"; pack(evidence, archive)
+    pod = {"id": "owned", "creation_receipt": "created.json", "ssh_host": "host", "ssh_port": 22}
+    (root/"created.json").write_text(json.dumps({"response": {"result": {"content": [{"text": json.dumps({"id": "owned"})}]}}}))
+    monkeypatch.setattr(monitor, "ssh", lambda *args, **kwargs: "")
+    def copy(args, **kwargs):
+        source = args[-2].split("/workspace/archives/", 1)[1]
+        shutil.copy2(archive/source, Path(args[-1])/source)
+    from pathlib import Path
+    monkeypatch.setattr(monitor.subprocess, "run", copy)
+    mcp = lambda method, params, ident: {"result": {"isError": True, "content": [{"text": "404 not found"}]}} if params["name"] == "get-pod" and getattr(mcp, "deleted", False) else (setattr(mcp, "deleted", params["name"] == "delete-pod") or {"result": {"isError": False, "content": [{"text": "{}"}]}})
+    return monitor, root, pod, mcp
+
+
+def test_retrieval_limit_is_a_ledger_field_and_default_stays_four_gigabytes(tmp_path, monkeypatch):
+    import threading
+    monitor, root, pod, mcp = _retrieval_setup(tmp_path, monkeypatch, 1000)
+    ledger = {"pods": [pod], "retrieval_reserved_bytes": 4 * 10**9}
+    with pytest.raises(OSError, match="size guard"):
+        monitor.closeout(pod, root, mcp, ledger, threading.Lock())
+    assert "terminated_at" not in pod
+    (tmp_path / "again").mkdir()
+    monitor, root2, pod2, mcp2 = _retrieval_setup(tmp_path / "again", monkeypatch, 1000)
+    ledger2 = {"pods": [pod2], "retrieval_reserved_bytes": 4 * 10**9, "retrieval_limit_bytes": 30 * 10**9}
+    assert monitor.closeout(pod2, root2, mcp2, ledger2, threading.Lock()) == "owned"
+
+
+def test_each_chunk_checks_real_free_disk_before_download(tmp_path, monkeypatch):
+    import threading
+    monitor, root, pod, mcp = _retrieval_setup(tmp_path, monkeypatch, 1000)
+    monkeypatch.setattr(monitor.shutil, "disk_usage", lambda path: type("U", (), {"free": 3 * 1024**3})())
+    with pytest.raises(OSError, match="free-space guard"):
+        monitor.closeout(pod, root, mcp, {"pods": [pod]}, threading.Lock())
+    assert "terminated_at" not in pod
+
+
+def test_client_retries_transport_failures_but_not_http_errors(monkeypatch):
+    import urllib.error
+    from scripts import hu20_search_arena_control as control
+    calls = []
+    class Reply:
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+        def read(self, *a): return b'{"status": "running"}'
+    def flaky(request, timeout):
+        calls.append(timeout)
+        if len(calls) < 3: raise OSError("tunnel reset")
+        return Reply()
+    monkeypatch.setattr(control.urllib.request, "urlopen", flaky)
+    monkeypatch.setattr(control, "sleep", lambda s: None)
+    client = control.ControlClient("http://x", "pod", 0)
+    assert client.request("check")["status"] == "running" and len(calls) == 3
+    def refused(request, timeout):
+        calls.append(0); raise urllib.error.HTTPError("http://x", 500, "stopped", {}, None)
+    calls.clear(); monkeypatch.setattr(control.urllib.request, "urlopen", refused)
+    with pytest.raises(RuntimeError, match="unavailable"): client.request("check")
+    assert len(calls) == 1
+    def dead(request, timeout):
+        calls.append(0); raise OSError("down")
+    calls.clear(); monkeypatch.setattr(control.urllib.request, "urlopen", dead)
+    with pytest.raises(RuntimeError, match="unavailable"): client.request("check")
+    assert len(calls) == client.attempts
+
+
 def test_mixed_handoff_start_and_fixed_sleep_exclusion(tmp_path):
     ledger=tmp_path/'ledger.json'
     pods=[{'id':f'mixed-{i}','workers':([0,1] if i==0 else [i+1]),'created_at':100,
