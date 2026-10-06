@@ -71,7 +71,7 @@ async function recover() {
     try {
       const model = await request("/api/model");
       $("setup-model").textContent = `${model.name} · HU20 · SHA-256 ${model.sha256}`;
-      $("setup-title").textContent = model.benchmarkOnly ? "Uniform-random calibration" : "Play the B100M blueprint";
+      $("setup-title").textContent = model.benchmarkOnly ? "Uniform-random calibration" : `Play the ${model.name.split(" · ")[0]} blueprint`;
       if (model.benchmarkOnly) {
         for (const input of document.querySelectorAll('input[name="sessionType"]')) {
           input.checked = input.value === "benchmark"; input.disabled = input.value !== "benchmark";
