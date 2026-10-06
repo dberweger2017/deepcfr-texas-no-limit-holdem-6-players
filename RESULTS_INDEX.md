@@ -1,6 +1,6 @@
 # Research results index
 
-## PR171 CFR+ / v0.4.0-shield — October 6, 2026 (audited failed release candidate)
+## PR171 CFR+ / 0.4.0-shield — October 6, 2026 (audited failed release candidate)
 
 [Implementation #171](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/171) merged at `60f516da6b24563a49e609636a31fa17ae719bde`. [Research #173](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/173), [frozen protocol](docs/hu20-cfr-plus-confirmation.md), [owner review packet](docs/reports/hu20-cfr-plus.md) and [complete diagnostics](docs/reports/hu20-cfr-plus-details.md). Three 1B-node lineages, nine 100M/500M/1B checkpoints and six native current/traverser-reach-average exports pass the floor-zero labels, complete-header, nonnegative-regret and source-hash checks. [Checkpoint/export manifest](docs/reports/hu20-cfr-plus-artifacts/checkpoints-manifest.json).
 
@@ -18,7 +18,7 @@ Owned root on both Macs: `/Users/dberweger/Local/hu20-cfr-plus-pr171-20261006/`.
 
 Total arena/direct confirmation and retained exploratory evidence: **1,370,112 hands / 6,612,090 actions** independently replayed. M4 transfer: **715 files / 9,486,820,764 bytes**, every source and retrieved SHA256 matches; both hosts' originals remain. Native-pressure descriptive partitions reconcile exactly to the frozen contrast; no translator and zero off-menu native-pressure bet sizes. Labels and the final sample were declared before scores; no outcome-driven extension.
 
-The owner names the failed release candidate **v0.4.0-shield (`-s`)** for its lower measured weakness on the tested probes. This is not a claim of lower full-game exploitability; the direct confirmation remains worse.
+The owner gives the tested CFR+ production averages the **friendly model name 0.4.0-shield**, short **0.4.0-s**, for future checks. It is not a software release version or Git tag. [Model identity](docs/reports/hu20-cfr-plus-artifacts/shield-model-identity.json) pins all three seeds and export SHA256s. The name refers to lower measured weakness on the tested probes; it does not claim lower full-game exploitability. The direct confirmation remains worse.
 
 Verified destination: `~/Local/Research-Cloud/PR-171-HU20-cfr-plus/hu20-cfr-plus-complete-20261006.zip`, in the [Drive folder](https://drive.google.com/drive/folders/1QiQiGUu5EARluoId5dV4XHbpx5JDslWx). **1,065 source files / 14,320,364,078 logical bytes; ZIP 8,077,888,199 bytes**, SHA256 `8ec9dbee5fd392b058d8a5c33e00a81a414f95189562d8dd0f9e9c66348b982c`; embedded manifest SHA256 `d213bef5423b2b3a333e1f02ae51ab7fdbe0d0cb55448edc1b4b24f29cc06840`. Every source/member SHA256, size and ZIP readback passes. [Receipt](docs/reports/hu20-cfr-plus-artifacts/archive-receipt.json), [M4 transfer proof](docs/reports/hu20-cfr-plus-artifacts/m4-transfer-verified.json). The main ZIP records the research/report snapshot at `d1acba7`; later owner naming/publication decisions and final documentation/receipts are retained as closeout metadata. **Cloud upload is pending; local ZIP verification does not imply cloud acceptance.** Before reading/copying historical #149/#162/#165/#169 dependencies, owning PRs were checked as merged. Open PR work roots, all synced files and every original remain; no deletion or eviction.
 

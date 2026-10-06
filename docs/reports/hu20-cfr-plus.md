@@ -1,6 +1,6 @@
-# v0.4.0-shield: CFR+ owner review packet
+# 0.4.0-shield: CFR+ owner review packet
 
-**Owner publication decision: no release, tag or pre-release for this candidate.** After the direct confirmation showed a loss, the owner declined `v0.4.1-rc1`; v0.4.0 stays stable. The failed release candidate is named **v0.4.0-shield (`-s`)**, referring to its lower measured weakness on the tested probes; the name is not a claim of lower full-game exploitability. This packet preserves both gains and regressions and reports the frozen-rule result.
+**Owner publication decision: no release, tag or pre-release for this candidate.** After the direct confirmation showed a loss, the owner declined `v0.4.1-rc1`; v0.4.0 stays stable. **0.4.0-shield** (short **0.4.0-s**) is the friendly name of the tested CFR+ traverser-reach average models for future checks, referring to lower measured weakness on the tested probes. It is a model name, not a software release version or a claim of lower full-game exploitability. [Exact seeds and export hashes](hu20-cfr-plus-artifacts/shield-model-identity.json). This packet preserves both gains and regressions and reports the frozen-rule result.
 
 [#171](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/171) merged after review, 27 native parity tests, four Rust tests and green CI. Three 1B-node CFR+ lineages trained from merged main `60f516d` with `--regret-floor 0`, seeds 2026100601/02/03 and traverser-reach averaging. All nine milestone checkpoints and six exports have verified labels and SHA256s; every stored regret is nonnegative. [Manifest](hu20-cfr-plus-artifacts/checkpoints-manifest.json). Free local M1/M4 only.
 
