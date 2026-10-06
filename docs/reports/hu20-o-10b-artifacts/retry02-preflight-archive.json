@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/hu20-o-10b-confirmation-retry-02-preflight-20261006.zip",
+  "archive_bytes": 352785,
+  "archive_sha256": "27aaff7ce7120b859c5d10d56f096bab039f17f2e6ffe15180447a2a23679c1d",
+  "manifest_sha256": "c30a3277cc4eefffabef2f0af07ce71f711e7fefeaac57c1c6776b0531dff295",
+  "members_verified": 31,
+  "originals_retained": true,
+  "upload_status": "pending native and cloud acceptance"
+}
