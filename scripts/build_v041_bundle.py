@@ -17,8 +17,10 @@ def sha(path):
         return hashlib.file_digest(source, 'sha256').hexdigest()
 
 
-def build(source, destination, source_sha):
+def build(source, destination, source_sha, *, publication_approved=False):
     verify(source)
+    if type(publication_approved) is not bool:
+        raise ValueError('Publication approval must be explicit boolean')
     if len(source_sha) != 40 or any(c not in '0123456789abcdef' for c in source_sha):
         raise ValueError('Full lowercase preparation Git SHA required')
     if destination.exists() and any(destination.iterdir()):
@@ -30,9 +32,11 @@ def build(source, destination, source_sha):
     for name in ('MODEL_CARD.md', 'RELEASE_NOTES.md'):
         shutil.copyfile(docs / name, destination / name)
     manifest = {
-        'candidate': 'v0.4.1', 'status': 'unpublished-owner-review',
-        'preparation_source_commit': source_sha, 'approved_release_source_commit': None,
-        'owner_publication_approval': False,
+        'candidate': 'v0.4.1',
+        'status': 'owner-approved-publication' if publication_approved else 'unpublished-owner-review',
+        'preparation_source_commit': source_sha,
+        'approved_release_source_commit': source_sha if publication_approved else None,
+        'owner_publication_approval': publication_approved,
         'confirmation': 'https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/176',
         'plan_sha256': '49a1d6a05e82eaf929c5f76a275c9e3ed90a5a99b129cbb2817dd4b69c2c9a1b',
         'model': {'file': ASSET_NAME, 'bytes': MODEL_BYTES, 'sha256': MODEL_SHA256,

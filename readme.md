@@ -1,89 +1,60 @@
-# DeepCFR Poker AI
+# A local heads-up poker research bot
 
-**v0.4 — Rebuilt Poker AI Research Preview**
+v0.4.1 plays a tabular, linearly weighted opponent-sampled CFR average trained for 1B nodes. The game is two-player no-limit Hold'em at 20 BB, with no rake or ante and fresh stacks each hand. The local web table supports replayable sessions, private bot cards, a restricted research menu and experimental free human bet sizing.
 
-Play, inspect and reproduce a learning poker agent. This project began with neural Deep CFR; its featured playable policy now uses **tabular external-sampling CFR**. The local table lets a person play the fixed-first-seed B100M policy, trained to 100 million *traversal nodes*. Strong six-player poker remains the destination, not a capability of this release.
+Against shipped v0.4.0, the three retained v0.4.1 lineages win **+10.50 [7.90, 13.10] BB/100**; the selected first seed wins **+11.12 [7.85, 14.39]**. An independent earlier match measured **+11.45 [8.83, 14.07]**. A bounded LBR attacker earns **28.17 [17.93, 38.42]** against O versus **65.73 [56.84, 74.62] BB/100** against the v0.4.0 lineages, so lower is better. On fixed turn/river spots, first-seed best-response gain is **1.0665 [1.0023, 1.1315]** versus **2.7147 [2.4922, 2.9323] BB**. All intervals are 95%; scopes and the full thirteen-panel table are in the [v0.4.0 → v0.4.1 report](docs/reports/v0.4.1-release.md). These are measured improvements, not a full-game Nash certificate or a human-strength claim.
 
-![The local heads-up poker table](docs/play-web/restricted-table.png)
+## Install and play
 
-## What runs today
-
-| Path | Game and status |
-| --- | --- |
-| [Local web table](docs/play-web.md) and [terminal play](scripts/play_hu20_native.py) | **Featured:** two-player no-limit Hold'em, 20 BB (2,000 chips) per seat reset each hand, no rake or ante. The B100M inference export is a saved experimental policy. |
-| [Human benchmark sessions](docs/play-web-benchmark.md) | A planned number of HU20 hands against the same pinned policy, with restart, abort and sanitized result export. These record raw human results, not human strength. |
-| [Three-player research](docs/tp20-model-card.md) | Separate TP20 artifacts and experimental results; not supported by the web table or B100M. |
-| [Scripted multiplayer sandbox](docs/benchmarks.md) | Exercises four-to-six-player rules, sessions and evaluation. It is not a trained six-player agent. |
-| [Six-player, 100 BB research](docs/research-history.md) | Historical neural and blueprint experiments; the six-player strength target remains unmet. |
-
-The v0.4 source workflow uses Python 3.11 with a pinned Rust-backed [pokers engine](https://github.com/dberweger2017/pokers/tree/5db20e3d5d6862b32a7402035c1340b622d3b005). The web table runs **locally on loopback**, with an access token. It is not a hosted poker service. We have not validated every operating system or published a new PyPI package.
-
-## Quick start
-
-Install Python 3.11, Rust/Cargo, Git and a C/C++ build toolchain. The native engine is pinned in [requirements.txt](requirements.txt) to audited commit `5db20e3d5d6862b32a7402035c1340b622d3b005`. From a clean checkout of the **published `v0.4.0` tag**:
+Use Python 3.11, Git and the GitHub CLI. From a fresh checkout:
 
 ```sh
 git clone https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players.git
 cd deepcfr-texas-no-limit-holdem-6-players
-git checkout v0.4.0
 python3.11 -m venv .venv
-. .venv/bin/activate
-python -m pip install --upgrade pip
+source .venv/bin/activate
 python -m pip install -r requirements.txt
 mkdir models
-curl -fL --output models/B100M-HU20-current-seed-2026093001.json.gz \
-  https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/download/v0.4.0/B100M-HU20-current-seed-2026093001.json.gz
+gh release download v0.4.1 --pattern 'O1B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz' --dir models
+gh release download v0.4.0 --pattern 'B100M-HU20-current-seed-2026093001.json.gz' --dir models
+python -m scripts.verify_v041_model models/O1B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz
 python -m scripts.verify_v04_model models/B100M-HU20-current-seed-2026093001.json.gz
-python -m src.play_api.server \
-  --policy models/B100M-HU20-current-seed-2026093001.json.gz \
-  --data-dir results/play-web --source-version "$(git rev-parse HEAD)"
+python -m src.play_api.server --models-dir models
 ```
 
-The verifier checks **40,144,034 bytes** and SHA-256 `4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf` before model loading. The service independently checks the hash, HU20 game/schema, two seats, uncapped restricted menu and current-policy extraction. Do not substitute a training checkpoint or an earlier B20M export. The download becomes available when the v0.4.0 release is published; during review use the verified local artifact described in the [model card](docs/releases/v0.4.0/MODEL_CARD.md).
+The v0.4.1 download command works after the owner-approved release is published; the release PR uses verified staged assets until then. `mkdir models` and downloads fail rather than overwrite existing artifacts. If the directory exists, inspect it or use a fresh destination. Installation builds the pinned native `pokers` engine; follow its build error instructions if your platform needs a Rust toolchain.
 
-`mkdir models` intentionally fails when that directory already exists, so the example cannot silently overwrite a previously downloaded model. Choose a fresh destination or inspect existing files before rerunning it.
+Open **http://127.0.0.1:8765/** and enter the token from `results/play-web/access.token` locally. Keep tokens out of URLs and screenshots. Choose **v0.4.1** (default) or **v0.4.0**, choose bet sizing, create a session and deal. Seats alternate each hand. Model choice is frozen for that session; refresh resumes it, including after server restart. Use a new session to change models. Both pinned files are required for model selection; a missing or corrupt default causes an error, never a silent replacement. The two loaded tabular readers need several GiB of RAM.
 
-Open `http://127.0.0.1:8765/`. Read `results/play-web/access.token` locally and enter it in the table. Keep the token out of URLs, screenshots and shared logs. Choose a play mode, create a session and deal a hand. The server stays on `127.0.0.1`, including when reached through an [SSH tunnel](docs/play-web.md#model-and-launch). Refresh resumes the same session; lost responses can be retried without a second wager. [Full play and replay guide](docs/play-web.md).
+Restricted mode uses the concrete training menu. Free sizing executes any native-legal integer-chip human wager exactly; the bot keeps its trained menu and unchanged uniform fallback on missing/zero-mass keys. This does not solve off-tree strategy. [Play/replay guide](docs/play-web.md), [human benchmark guide](docs/play-web-benchmark.md).
 
-## Play modes and human sessions
-
-**Restricted research** shows the concrete actions in the model's trained menu. **Free sizing · experimental** accepts any native-legal integer-chip raise-to amount. The native engine executes that exact wager, while the bot still uses its restricted menu and existing missing-key fallback. This interface does not solve off-tree strategy. Both modes keep hidden cards and private randomness on the server.
-
-The base table journals completed hands and supports native replay. [Human benchmark sessions](docs/play-web-benchmark.md), merged from [PR #120](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/120), freeze a planned hand count and mode, support an explicit incomplete/aborted result, and export a sanitized aggregate. The benchmark withholds cumulative results until completion or abort, while retaining exact native replay. It reports raw BB and BB/100 without a confidence interval, does **not** establish human playing strength, and does not implement AIVAT.
-
-## Measured research results
-
-The featured first-seed B100M is **one saved inference export**, not the three-lineage aggregate below. In the frozen [#116 HU20 scaling study](docs/reports/hu20-scaling-m4-recovery.md), three uncapped 20 BB lineages continued from 20M to 100M traversal nodes. On paired two-position schedules, the **aggregate** 100M-minus-own-20M target profit improved **+25.94 BB/100 [two-sided 97.5% interval +7.43, +44.45]** against original-cap2 bounded local best response (2,048 paired blocks per seed/checkpoint) and **+19.39 [+2.86, +35.93]** against native-legal pressure (4,096 blocks). Absolute 100M profit against that bounded attacker remained **−73.14 BB/100**. The attacker is limited, not an exact exploitability certificate.
-
-The separate [completed #116 diagnostics](docs/reports/hu20-scaling-diagnostics.md) found improvements against minraise and passive controls relative to each B lineage's own 20M policy, but small secondary panels were mixed. Pot-pressure profit was only +3.29 BB/100 in a 256-block-per-policy panel, with frequent fallback after off-menu histories. [#117's diagnosis](docs/reports/hu20-b100-diagnosis-m4.md) used a **different** fresh 512-block schedule and must not be pooled with #116 estimates. Independent late-street trained coverage stayed thin (first-seed river 56.2% on a 4,248-observation fixture). These are research outcomes, not a claim that the released seed beats human players.
-
-## Limits
-
-B100M supports only its specified heads-up 20 BB, no-rake/no-ante game. Each hand resets stacks; this is not tournament play. Free sizing can push histories outside the bot's trained abstraction. No six-player or 100 BB strength follows from these results, and the older neural Deep CFR work is not a complete Pluribus reproduction. Historical failures and the full trail remain in the [research index](docs/research-history.md) and [roadmap](ROADMAP.md).
-
-## Release plan
-
-This is a rough blueprint that will change as evidence comes in. Patch releases improve the current heads-up 20 BB game; minor releases move to deeper stacks and more players. Each release must beat its predecessor in a paired arena comparison. Milestones from 0.5 onward add the multi-seed confirmation described in the [roadmap](ROADMAP.md#release-milestones).
-
-| Release | Game | Focus |
+| Model | Default / selection | Training and inference |
 | --- | --- | --- |
-| **0.4.0** (current) | Heads-up, 20 BB | Rebuilt preview: tabular B100M policy, local table and replay |
-| **0.4.x** | Heads-up, 20 BB | The Pluribus recipe on a small game: average-policy play with turn/river search, a native trainer, a better card abstraction or training procedure, then search from the flop |
-| **0.5** | Heads-up, 100 BB | Deep stacks and a first external benchmark against an established heads-up bot |
-| **0.6** | Three players | Multiway blueprint and search |
-| **0.7** | Four and five players | A blueprint for each table size |
-| **0.8** | Six players, 100 BB | Reliable positive profit against the scripted opponent pool across independent training seeds on fresh deals |
-| **0.9** | Four to six players | The full table: changing lineups, unequal stacks, 20–200 BB, opponent adaptation and a decision inspector |
-| **1.0** | Six players | Lower-end professional standard |
+| **v0.4.1** | Default in this checkout | #165 O, seed 2026100601, 1B nodes, opponent-sampled average; exact hash in [model card](docs/releases/v0.4.1/MODEL_CARD.md) |
+| **v0.4.0** | Still selectable and downloadable | #116 R1, seed 2026093001, 100M nodes, current regret-matched policy |
 
-The order of the 0.4.x steps follows the evidence. The [roadmap's current position](ROADMAP.md#current-position) records the work in progress.
+For a single-model legacy launch, `--policy PATH` loads v0.4.0; `--o-candidate PATH` loads the exact O policy. Use `--data-dir` to keep separate private journals. The server binds only to loopback; see the [SSH tunnel guide](docs/play-web.md#model-and-launch).
+
+## Limits and release plan
+
+Each release uses fresh roots, predeclared paired gates, a direct incumbent match and independent replay of every action/settlement. Bounded LBR gives a lower bound on exploitability; turn/river weakness is conditional on fixed trees and ranges. Small opponent panels remain imprecise. The older neural Deep CFR work is not a complete Pluribus reproduction, and no six-player or 100-BB strength follows from this preview. [Research history](docs/research-history.md), [roadmap](ROADMAP.md), [release notes](docs/releases/v0.4.1/RELEASE_NOTES.md).
+
+| Release | Game and focus |
+| --- | --- |
+| **v0.4.0** | Heads-up 20 BB research preview and local table |
+| **v0.4.1** | Heads-up 20 BB average-policy play; prepared pending final owner publication go |
+| **v0.4.x next** | #166 turn-search results, then trainer/storage options and finer abstraction |
+| **v0.5** | Heads-up 100 BB and a first external benchmark |
+| **v0.6 / v0.7** | Three players / four and five players |
+| **v0.8** | Six players, 100 BB; confirmed profit against the scripted pool |
+| **v0.9 / v1.0** | Changing lineups/stacks and full-table play / lower-end professional benchmark |
 
 ### What 1.0 means
 
-1.0 requires a credible professional reference benchmark, predeclared confirmation, multiple training seeds, legal information-safe play and complete reproducibility. v0.4 makes no strength claim.
+A credible professional reference, predeclared multi-seed confirmation, legal information-safe play and reproducible evidence. Later milestones keep their own acceptance checks.
 
 ## Developers and licenses
 
-Run the suite with `python -m pip install -r requirements-dev.txt` followed by `python -m pytest -q`. [CI](.github/workflows/tests.yml) also checks observation, sessions, arena, solver and neural baseline. Read the [rules](docs/rules.md), [observation contract](docs/observations.md), [web guide](docs/play-web.md), and [release notes](docs/releases/v0.4.0/RELEASE_NOTES.md).
+Install `requirements-dev.txt`, then run `python -m pytest -q`. [CI](.github/workflows/tests.yml) also checks observations, sessions, arenas, solvers and recovery. Read [AGENTS.md](AGENTS.md), [rules](docs/rules.md) and the [observation contract](docs/observations.md) before changing behavior.
 
-This repository's own code is [MIT](LICENSE.txt). The pinned `pokers` fork and its upstream do **not currently publish a license grant** in their repositories or package metadata. I license my changes to the pinned `pokers` fork under MIT; the original authors' terms remain unverified pending direct confirmation. The [license audit](docs/releases/v0.4.0/LICENSE_AUDIT.md) records the checks and resolution path. The v0.4 bundle contains no engine binary. Historical reports and referenced papers retain their own rights.
+Repository code is [MIT](LICENSE.txt). The pinned `pokers` upstream has no verified license grant in its repository/package metadata; the owner licenses their changes to that fork under MIT, while the original authors' terms remain unresolved. [License audit](docs/releases/v0.4.0/LICENSE_AUDIT.md). Release assets contain inference only, no engine binary or private journal; reports and referenced papers retain their own rights.
