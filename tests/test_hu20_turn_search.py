@@ -301,6 +301,64 @@ def test_process_timeout_kills_child_and_retains_receipt(tmp_path):
     assert (receipt / "manifest.json").is_file() and (receipt / "stderr.log").is_file()
 
 
+def test_profile_sample_has_fixed_hash_boundary():
+    from src.blueprint.hu20_turn_solver import sampled_profile
+    threshold=2**256//100
+    assert sampled_profile(f"{threshold-1:064x}")
+    assert not sampled_profile(f"{threshold:064x}")
+    assert not sampled_profile("f"*64)
+
+
+@pytest.mark.parametrize("selected,failed",[(False,False),(True,False),(False,True),(True,True)])
+def test_profile_retention_preserves_hash_and_live_matrices(tmp_path,monkeypatch,selected,failed):
+    import src.blueprint.hu20_turn_solver as boundary
+    executable=tmp_path/'native'
+    event={"event":"completion","status":"oversize" if failed else "play_complete",
+           "iterations":50,"solver_commit":"fixture","compressed":False}
+    executable.write_text('#!/usr/bin/env python3\nimport json,sys\n'
+        'r=json.load(open(sys.argv[1]))\n'
+        'open(r["dump_path"],"w").write("profile-body\\n")\n'
+        f'open(sys.argv[2],"w").write({json.dumps(json.dumps(event)+chr(10))})\n')
+    executable.chmod(0o755)
+    monkeypatch.setattr(boundary,"sampled_profile",lambda request_hash:selected)
+    monkeypatch.setattr(boundary,"parse_profiles",lambda request,path:{"loaded":path.read_text()})
+    solver=ExternalTurnSolver(executable,tmp_path/'evidence',profile_retention=boundary.PROFILE_RETENTION_RULE)
+    request={"spot":"fixture","threads":1,"max_iterations":50,"solver_commit":"fixture",
+             "compress":False,"memory_budget_bytes":1024}
+    if failed:
+        with pytest.raises(SolveFailure):solver.solve(request,monotonic()+5)
+    else:
+        assert solver.solve(request,monotonic()+5)=={"loaded":"profile-body\n"}
+    folder=Path(solver.records[-1]["path"])
+    receipt=json.loads((folder/'receipt.json').read_text())
+    retention=receipt['profile_retention']
+    assert retention['request_sha256']==boundary.file_hash(folder/'request.json')
+    assert retention['profile_sha256']==boundary.sha256(b'profile-body\n').hexdigest()
+    assert retention['profile_bytes']==13 and retention['body_retained']==selected
+    assert (folder/'profile.jsonl').exists()==selected
+    manifest=json.loads((folder/'manifest.json').read_text())
+    assert ('profile.jsonl' in manifest)==selected
+    for name in ('request.json','receipt.json','response.jsonl'):
+        assert manifest[name]['sha256']==boundary.file_hash(folder/name)
+
+
+def test_retention_never_deletes_before_receipt_fsync(tmp_path,monkeypatch):
+    import src.blueprint.hu20_turn_solver as boundary
+    executable=tmp_path/'native'
+    executable.write_text('#!/usr/bin/env python3\nimport json,sys\n'
+        'r=json.load(open(sys.argv[1]))\n'
+        'open(r["dump_path"],"w").write("partial-profile")\n'
+        'open(sys.argv[2],"w").write(json.dumps({"event":"completion","status":"oversize"})+"\\n")\n')
+    executable.chmod(0o755)
+    monkeypatch.setattr(boundary,"sampled_profile",lambda request_hash:False)
+    def fail_sync(fd):raise OSError("receipt not durable")
+    monkeypatch.setattr(boundary.os,"fsync",fail_sync)
+    solver=ExternalTurnSolver(executable,tmp_path/'evidence',profile_retention=boundary.PROFILE_RETENTION_RULE)
+    with pytest.raises(OSError,match="not durable"):
+        solver.solve({"spot":"fixture","threads":1},monotonic()+5)
+    assert next((tmp_path/'evidence').glob('*/profile.jsonl')).read_text()=="partial-profile"
+
+
 @pytest.mark.parametrize("kw", [{"decision_seconds":31}, {"iterations":0},
     {"opponent_likelihood_floor":.05}, {"menu":"unknown"}, {"compress":1}])
 def test_configuration_rejects_undeclared_settings(kw):
@@ -373,3 +431,74 @@ def test_opponent_only_floor_can_make_unlocked_requests_seat_dependent():
     results=[HU20TurnSearchPolicy(RareAction(),FakeSolver(),TurnSearchConfig(opponent_likelihood_floor=.01))._resolve(
         root,bot,monotonic()+30) for bot in (0,1)]
     assert not requests_shareable(results[0].request,results[1].request)
+
+
+def fixed_config():
+    return TurnSearchConfig(iterations=50,threads=6,compress=False,
+                           opponent_likelihood_floor=0,decision_seconds=None)
+
+
+@pytest.mark.parametrize("cause", ["timeout","memory_refusal","unsupported_holding","zero_support","solver_exit"])
+@pytest.mark.parametrize("query_kind", ["play","probe"])
+def test_fixed_work_search_never_substitutes_base_on_any_defect(cause, query_kind):
+    class Broken(FakeSolver):
+        def solve(self,request,deadline):
+            assert deadline is None and request["max_iterations"]==50
+            assert request["work_protocol"]=="hu20-fixed50-no-fallback-v1"
+            raise SolveFailure(cause,"fixed-work defect")
+    hand=fixture();policy=HU20TurnSearchPolicy(Uniform(),Broken(),fixed_config())
+    with pytest.raises(SolveFailure) as caught:
+        policy.distribution(hand.observe(hand.actor),query_kind=query_kind)
+    assert caught.value.cause==cause
+    assert not policy.played
+    assert not any(":fallback:" in key for key in policy.stats)
+
+
+@pytest.mark.parametrize("cause", ["timeout","memory_refusal","zero_support","solver_exit","invalid_response"])
+def test_owner_continue_mode_records_the_defect_and_plays_the_base_action(cause):
+    class Broken(FakeSolver):
+        def solve(self,request,deadline):
+            assert deadline is None
+            raise SolveFailure(cause,"recorded defect")
+    hand=fixture();policy=HU20TurnSearchPolicy(Uniform(),Broken(),fixed_config())
+    policy.continue_on_defect=True
+    menu,p,trained=policy.distribution(hand.observe(hand.actor),query_kind="play")
+    assert policy.stats["play:fallback:"+cause]==1
+    assert policy.records[-1]["status"]=="fallback" and policy.records[-1]["cause"]==cause
+    assert abs(sum(p)-1)<1e-9 and menu
+
+
+def test_fixed_work_has_no_preparation_deadline_and_requires_exact_setting(monkeypatch):
+    import src.blueprint.hu20_turn_search as search
+    config=fixed_config();hand=fixture();solver=FakeSolver()
+    # A huge clock advance may change telemetry but cannot change a distribution.
+    monkeypatch.setattr(search,"monotonic",lambda:10**20)
+    policy=HU20TurnSearchPolicy(Uniform(),solver,config)
+    result=policy.distribution(hand.observe(hand.actor),query_kind="play")
+    assert result[2] and len(solver.requests)==1
+    assert solver.requests[0]["max_iterations"]==50
+    for name,value in (("iterations",49),("threads",4),("compress",True),("opponent_likelihood_floor",.01)):
+        with pytest.raises(ValueError):replace(config,**{name:value})
+
+
+def test_fixed_native_boundary_attention_never_times_out_or_substitutes(tmp_path,monkeypatch):
+    import src.blueprint.hu20_turn_solver as boundary
+    executable=tmp_path/'native'
+    event={"event":"completion","status":"play_complete","iterations":50,
+           "solver_commit":"fixture","compressed":False,
+           "work_protocol":boundary.FIXED_WORK_PROTOCOL}
+    executable.write_text('#!/usr/bin/env python3\nimport json,sys,time\n'
+        'r=json.load(open(sys.argv[1]));assert r["seconds"] is None\n'
+        'time.sleep(.15)\nopen(r["dump_path"],"w").write("fixed-profile\\n")\n'
+        f'open(sys.argv[2],"w").write({json.dumps(json.dumps(event)+chr(10))})\n')
+    executable.chmod(0o755)
+    monkeypatch.setattr(boundary,"parse_profiles",lambda request,path:{"loaded":path.read_text()})
+    solver=ExternalTurnSolver(executable,tmp_path/'evidence',hang_attention_seconds=.001)
+    request={"spot":"fixture","threads":6,"max_iterations":50,"solver_commit":"fixture",
+             "compress":False,"memory_budget_bytes":1024,"work_protocol":boundary.FIXED_WORK_PROTOCOL}
+    assert solver.solve(request,None)=={"loaded":"fixed-profile\n"}
+    record=solver.records[-1]
+    assert record["status"]=="completed" and "hang_attention" in record
+    assert (Path(record["path"])/'hang-attention.json').is_file()
+    assert record["host_telemetry"]["threads_per_worker"]==6
+    with pytest.raises(ValueError):solver.solve(request,monotonic()+30)

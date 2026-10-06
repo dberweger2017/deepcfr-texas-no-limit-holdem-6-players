@@ -44,9 +44,9 @@ def qualifies(view):
 @dataclass(frozen=True)
 class LBRConfig:
     chance_samples: int = 2
-    max_seconds: float = 5.0
+    max_seconds: float | None = 5.0
     def __post_init__(self):
-        if not 1 <= self.chance_samples <= 128 or not 0 < self.max_seconds <= 60:
+        if not 1 <= self.chance_samples <= 128 or (self.max_seconds is not None and not 0 < self.max_seconds <= 60):
             raise ValueError("Invalid bounded LBR work")
 
 
@@ -156,7 +156,7 @@ class LocalBestResponse:
         batches = 1 if len(view.board)==5 else self.config.chance_samples
         for sample in range(batches):
             # At least one entire comparison is attempted; no action-order timeout bias.
-            if completed and perf_counter()-start >= self.config.max_seconds:
+            if self.config.max_seconds is not None and completed and perf_counter()-start >= self.config.max_seconds:
                 break
             outcomes = np.zeros(len(self.holdings))
             for j,pair in enumerate(self.holdings):
@@ -176,7 +176,7 @@ class LocalBestResponse:
         selected = int(np.argmax(values))
         elapsed = perf_counter()-start
         self.telemetry.append({"street":view.street.value,"samples":completed,"requested_samples":batches,
-            "completed":completed==batches,"over_soft_budget":elapsed>self.config.max_seconds,
+            "completed":completed==batches,"over_soft_budget":elapsed>self.config.max_seconds if self.config.max_seconds is not None else None,
             "seconds":elapsed,"preparation_seconds":preparation,"positive_range_holdings":int((self.weights>0).sum()),
             "posterior_mass":float(self.weights.sum()),"values_chips":values.tolist(),"chosen":menu[selected].name,
             "zero_likelihood_events":len(self.zero_likelihood)})

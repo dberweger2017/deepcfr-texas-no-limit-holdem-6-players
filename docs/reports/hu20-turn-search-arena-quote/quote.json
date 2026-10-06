@@ -1,0 +1,1275 @@
+{
+  "amended_calibration": {
+    "original_absolute_relaxed_gate_passed": false,
+    "original_result_sha256": "4afaef0628c8845ecb4e399b1580bdb733b30b50282b3fd6ac8a96b57adbd738",
+    "original_strict_gate_passed": false,
+    "owner_decision_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/148#issuecomment-5993910394",
+    "qualification": "owner-approved relative gate amendment",
+    "selected": {
+      "actual_cold_median_seconds": 1.5806931039551273,
+      "cold_max_seconds": 24.791940125171095,
+      "cold_median_seconds": 8.952577500022016,
+      "cold_p95_seconds": 18.02275379211642,
+      "cold_p99_seconds": 24.509461082983762,
+      "compatible_holdings_with_zero_posterior_mass_by_seat": {
+        "0": 896,
+        "1": 936
+      },
+      "complete": true,
+      "config": {
+        "cache_entries": 32,
+        "compress": false,
+        "decision_seconds": 30,
+        "iterations": 50,
+        "max_public_nodes": 300000,
+        "memory_budget_bytes": 5368709120,
+        "menu": "native",
+        "opponent_likelihood_floor": 0,
+        "threads": 6
+      },
+      "configuration_id": "3dfe89bd529b66388395f64b7b6be08a7e2571ff0977b9ac8ea40563a753677b",
+      "fallbacks": 0,
+      "latency_by_host": {
+        "dberwegerch-m4.local": {
+          "cold_max_seconds": 24.791940125171095,
+          "cold_p99_seconds": 24.509461082983762,
+          "fallback_causes": {},
+          "roots": 288,
+          "timeout_fallback_rate": 0.0
+        }
+      },
+      "mean_pct_pot": 1.3904876091923934,
+      "p95_pct_pot": 2.9292678833007812,
+      "range_coverage": {
+        "holdings_per_seat": 324864,
+        "missing": 48,
+        "off_menu_factors": 0,
+        "positive_holdings:0": 323968,
+        "positive_holdings:1": 323928,
+        "trained": 1617504,
+        "zero_average_mass": 1562,
+        "zero_likelihood:opponent": 916,
+        "zero_likelihood:own": 916
+      },
+      "reference_law_completed_only": {
+        "mean": 1.3904876091923934,
+        "p95": 2.9292678833007812
+      },
+      "relaxed": false,
+      "relaxed_root_ratio_violations": 0,
+      "research_strict": false,
+      "roots": 288,
+      "search_law_completed_only": {
+        "mean": 1.3904876091923934,
+        "p95": 2.9292678833007812
+      },
+      "search_law_measured_coordinates": 288,
+      "search_law_unmeasured_fallback_coordinates": 0,
+      "shared_receipts": 288,
+      "strict": false,
+      "turn_conditioning_gap_count": 0,
+      "turn_conditioning_gap_tolerance": 0,
+      "zero_support_fallback_count": 0
+    },
+    "status": "qualified"
+  },
+  "arena_plan": {
+    "base": "average",
+    "budget_basis": "Await separate outcome-excluded M4 timing; freeze largest primary count fitting 6h with 1.5x timing headroom, unchanged secondary counts.",
+    "calibration_sha256": "205a96dd97fe9304c45255af0394514f70bf7ad0fe79890d7845f0bf698fcf16",
+    "expected_hands": 82944,
+    "max_seconds": 21600,
+    "models": [
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "bytes": 73289592,
+        "checkpoint_bytes": 131332745,
+        "checkpoint_path": "B-2026093001-500000000.checkpoint.json.gz",
+        "checkpoint_sha256": "51876a51da9f3c2ac5b622efecb3645300a4126312525314afd299c36b9f30b1",
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1098929,
+        "milestone": 500000000,
+        "name": "B-2026093001-500000000-average",
+        "path": "B-2026093001-500000000.average.jsonl.gz",
+        "players": 2,
+        "seed": 2026093001,
+        "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa",
+        "strategy": "average"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "bytes": 72263239,
+        "checkpoint_bytes": 129627466,
+        "checkpoint_path": "B-2026093002-500000000.checkpoint.json.gz",
+        "checkpoint_sha256": "bd177287272bca4fcaa78e4aff70711927e1e95ee2b41f6963b22f6cbee5425c",
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1110069,
+        "milestone": 500000000,
+        "name": "B-2026093002-500000000-average",
+        "path": "B-2026093002-500000000.average.jsonl.gz",
+        "players": 2,
+        "seed": 2026093002,
+        "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d",
+        "strategy": "average"
+      },
+      {
+        "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+        "bytes": 71845946,
+        "checkpoint_bytes": 128901358,
+        "checkpoint_path": "B-2026093003-500000000.checkpoint.json.gz",
+        "checkpoint_sha256": "6b409964e9c62c71d83a0e3e8fe1b5c7b41e76c315234399e84ae379cbe9436b",
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "iteration": 1096178,
+        "milestone": 500000000,
+        "name": "B-2026093003-500000000-average",
+        "path": "B-2026093003-500000000.average.jsonl.gz",
+        "players": 2,
+        "seed": 2026093003,
+        "sha256": "c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285",
+        "strategy": "average"
+      }
+    ],
+    "outcome_use": "Fixed sample; no outcome-dependent extension; preserve every failure.",
+    "panels": [
+      {
+        "blocks": 256,
+        "contract": "menu",
+        "name": "uniform",
+        "rule": "uniform"
+      },
+      {
+        "blocks": 256,
+        "contract": "menu",
+        "name": "passive",
+        "rule": "passive"
+      },
+      {
+        "blocks": 256,
+        "contract": "menu",
+        "name": "minraise-cap2",
+        "rule": "minraise"
+      },
+      {
+        "blocks": 256,
+        "contract": "menu",
+        "name": "pressure-cap2",
+        "rule": "pressure"
+      },
+      {
+        "blocks": 256,
+        "contract": "style-native",
+        "name": "tight_passive",
+        "rule": "tight_passive"
+      },
+      {
+        "blocks": 256,
+        "contract": "style-native",
+        "name": "loose_passive",
+        "rule": "loose_passive"
+      },
+      {
+        "blocks": 256,
+        "contract": "style-native",
+        "name": "tight_aggressive",
+        "rule": "tight_aggressive"
+      },
+      {
+        "blocks": 256,
+        "contract": "style-native",
+        "name": "loose_aggressive",
+        "rule": "loose_aggressive"
+      },
+      {
+        "blocks": 256,
+        "contract": "style-native",
+        "name": "pot_pressure",
+        "rule": "pot_pressure"
+      },
+      {
+        "blocks": 256,
+        "contract": "style-native",
+        "name": "train_pressure",
+        "rule": "train_pressure"
+      },
+      {
+        "blocks": 2048,
+        "contract": "native",
+        "name": "native-pressure",
+        "rule": "pressure"
+      },
+      {
+        "blocks": 256,
+        "contract": "menu",
+        "name": "selective-stackoff",
+        "rule": "selective_stackoff"
+      },
+      {
+        "blocks": 2048,
+        "contract": "menu",
+        "name": "lbr",
+        "rule": "lbr"
+      }
+    ],
+    "part_a_summary_sha256": "bd87d6d65fae065b72db5a081d1d47c440c7ab06159c286c8099a6276f4f30ee",
+    "phase": "arena",
+    "power": {
+      "alpha": 0.05,
+      "effect_bb_per_100": 20,
+      "planned_primary_blocks": 2048,
+      "prior_paired_sd": 317.8,
+      "target": 0.8
+    },
+    "root": 202610020803,
+    "selected_search_config": {
+      "cache_entries": 32,
+      "compress": false,
+      "decision_seconds": 30,
+      "iterations": 50,
+      "max_public_nodes": 300000,
+      "memory_budget_bytes": 5368709120,
+      "menu": "native",
+      "opponent_likelihood_floor": 0,
+      "threads": 6
+    },
+    "selection": {
+      "default": "average",
+      "paired_ci95_upper_below": {
+        "lbr": -10,
+        "native-pressure": -20,
+        "selective-stackoff": -10
+      }
+    },
+    "stage": "frozen-final"
+  },
+  "owner_approved": false,
+  "quotes": {
+    "3090": {
+      "actual_pod_parity": "required before production; build/setup priced above",
+      "approved_ceiling_usd": 25,
+      "arena_plan_sha256": "5ae577bb06f9e06b2fe32c1e6f548ed3cd847e13a371d165fe33893e74aa10b6",
+      "calibration_sha256": "205a96dd97fe9304c45255af0394514f70bf7ad0fe79890d7845f0bf698fcf16",
+      "campaign_maximum_cost_usd": 18.25,
+      "expected_hands": 82944,
+      "headroom_multiplier": 1.5,
+      "maximum_cost_usd": 17.75,
+      "maximum_worker_hours": 22.52722222222222,
+      "no_paid_allocation_performed": true,
+      "offer": {
+        "architecture": "x86_64",
+        "availability": "LOW",
+        "catalog_id": "NVIDIA GeForce RTX 3090",
+        "catalog_read_sha256": "1c23a680d7a75c00cc053f51511f835be7a76292dae1cbf739f71e115ad3d1c8",
+        "catalog_request": {
+          "cloud": "COMMUNITY",
+          "count": 1,
+          "id": "NVIDIA GeForce RTX 3090",
+          "include": [
+            "AVAILABILITY"
+          ],
+          "product": [
+            "POD"
+          ]
+        },
+        "compute_hourly_usd": 0.22,
+        "compute_workload": "cpu",
+        "container_disk_hourly_usd": 0.027777777777777776,
+        "gpu": true,
+        "minimum_cpu_per_pod": 23.8,
+        "minimum_ram_bytes_per_pod": 60000000000,
+        "provider": "RunPod",
+        "reserved_cpu_per_pod": 4,
+        "resource_values": "Required actual-host admission minima, not promises made by the catalog.",
+        "retained_storage_reserve_usd": 1.0,
+        "retrieved_at": 1791207233.2499251,
+        "source_url": "https://mcp.getrunpod.io/",
+        "storage_gb": 200,
+        "storage_price_basis": "200 GB total pod-local disk at $0.10/GB/month, conservatively divided by 720 hours",
+        "storage_price_source": "https://www.runpod.io/pricing"
+      },
+      "owner_approved": false,
+      "panel_forecasts": [
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "uniform",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 209.81681768794078,
+            "seconds_per_joint_block_samples": [
+              0.02290955081116408,
+              0.027768408064730465,
+              0.035755781922489405,
+              27.055860584019683,
+              38.4612020959612,
+              122.22752647672314,
+              122.65295510971919,
+              209.81681768794078
+            ]
+          },
+          "worker_seconds": 53713.10532811284
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "passive",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 193.86423763306811,
+            "seconds_per_joint_block_samples": [
+              32.11650739517063,
+              46.24868163908832,
+              64.76641515502706,
+              81.12293445807882,
+              87.06884318299126,
+              98.03110521682538,
+              122.22276762186084,
+              193.86423763306811
+            ]
+          },
+          "worker_seconds": 49629.24483406544
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "minraise-cap2",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 60.51212450512685,
+            "seconds_per_joint_block_samples": [
+              0.010109475930221379,
+              0.010719646117649972,
+              14.007544752093963,
+              25.072110038716346,
+              34.21861307718791,
+              48.47456812905148,
+              53.00774666003417,
+              60.51212450512685
+            ]
+          },
+          "worker_seconds": 15491.103873312473
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "pressure-cap2",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 0.5220079108839855,
+            "seconds_per_joint_block_samples": [
+              0.010246565099805593,
+              0.010663303663022816,
+              0.02065126085653901,
+              0.020872650668025017,
+              0.22400147398002446,
+              0.22588906821329147,
+              0.37897462013643235,
+              0.5220079108839855
+            ]
+          },
+          "worker_seconds": 133.63402518630028
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "tight_passive",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 0.5742027461528778,
+            "seconds_per_joint_block_samples": [
+              0.008094617049209774,
+              0.008143336977809668,
+              0.008386706584133208,
+              0.009643886820413172,
+              0.010056178201921284,
+              0.012243136763572693,
+              0.16695776500273496,
+              0.5742027461528778
+            ]
+          },
+          "worker_seconds": 146.99590301513672
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "loose_passive",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 60.86105421197135,
+            "seconds_per_joint_block_samples": [
+              0.009442546055652201,
+              0.014598005102016032,
+              0.13194560911506414,
+              0.18157651007641107,
+              0.3190454510040581,
+              0.340898537193425,
+              0.562726158532314,
+              60.86105421197135
+            ]
+          },
+          "worker_seconds": 15580.429878264666
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "tight_aggressive",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 61.078452040208504,
+            "seconds_per_joint_block_samples": [
+              0.008132537011988461,
+              0.008185426006093621,
+              0.008219625102356076,
+              0.00973711523693055,
+              0.01051591883879155,
+              0.25448489387053996,
+              17.639569675317034,
+              61.078452040208504
+            ]
+          },
+          "worker_seconds": 15636.083722293377
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "loose_aggressive",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 31.686120921280235,
+            "seconds_per_joint_block_samples": [
+              0.008859866065904498,
+              0.009334826143458486,
+              0.010258946800604463,
+              0.022969490149989724,
+              0.11443190975114703,
+              16.679619674221613,
+              25.246440210961737,
+              31.686120921280235
+            ]
+          },
+          "worker_seconds": 8111.64695584774
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "pot_pressure",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 64.77007510326803,
+            "seconds_per_joint_block_samples": [
+              0.008092225878499448,
+              0.009933286113664508,
+              0.01016206608619541,
+              0.014489533961750567,
+              0.30494348984211683,
+              8.857140066102147,
+              41.737144286045805,
+              64.77007510326803
+            ]
+          },
+          "worker_seconds": 16581.139226436615
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "train_pressure",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 86.71172890684102,
+            "seconds_per_joint_block_samples": [
+              0.009471916942857206,
+              0.0928313221083954,
+              0.17577219288796186,
+              0.302415999234654,
+              0.3326978540280834,
+              18.105725932866335,
+              65.1130444080336,
+              86.71172890684102
+            ]
+          },
+          "worker_seconds": 22198.2026001513
+        },
+        {
+          "blocks": 2048,
+          "hands": 24576,
+          "panel": "native-pressure",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 29.172243309090845,
+            "seconds_per_joint_block_samples": [
+              0.010239704977720976,
+              0.010605346993543208,
+              0.02444342733360827,
+              0.3949407460168004,
+              2.737573934951797,
+              6.765886383829638,
+              14.882839882047847,
+              29.172243309090845
+            ]
+          },
+          "worker_seconds": 59744.75429701805
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "selective-stackoff",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 0.5891081460285932,
+            "seconds_per_joint_block_samples": [
+              0.008345923968590796,
+              0.008538775728084147,
+              0.009710004087537527,
+              0.015057541080750525,
+              0.16063079668674618,
+              0.17069372185505927,
+              0.3426016370067373,
+              0.5891081460285932
+            ]
+          },
+          "worker_seconds": 150.81168538331985
+        },
+        {
+          "blocks": 2048,
+          "hands": 24576,
+          "panel": "lbr",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 63.8387418219354,
+            "seconds_per_joint_block_samples": [
+              3.864015827071853,
+              5.210919066215865,
+              6.1096933640073985,
+              15.32903807493858,
+              49.022406113683246,
+              49.69280489825178,
+              50.13162288616877,
+              63.8387418219354
+            ]
+          },
+          "worker_seconds": 130741.7432513237
+        }
+      ],
+      "pods": 3,
+      "prior_pilot_budget_reserve_usd": 0.5,
+      "quote_timestamp_utc": "2026-10-05T13:37:34.121442+00:00",
+      "reserves_seconds_per_worker": {
+        "actual_pod_parity": 900,
+        "replay_verification": 3600,
+        "retrieval_hash_verification": 3600,
+        "setup_build": 1800,
+        "shutdown": 600
+      },
+      "rss_limit_bytes": 12884901888,
+      "status": "quote-awaiting-owner-approval",
+      "timing_sha256": "d2fede1234dd95379cb386abd96aafe7e8c69845ccff78feddff80345574e083",
+      "within_approved_ceiling": true,
+      "worker_seconds": 81098,
+      "workers": 9,
+      "workers_per_pod": 3
+    },
+    "cpu5": {
+      "actual_pod_parity": "required before production; build/setup priced above",
+      "approved_ceiling_usd": 25,
+      "arena_plan_sha256": "5ae577bb06f9e06b2fe32c1e6f548ed3cd847e13a371d165fe33893e74aa10b6",
+      "calibration_sha256": "205a96dd97fe9304c45255af0394514f70bf7ad0fe79890d7845f0bf698fcf16",
+      "campaign_maximum_cost_usd": 57.92,
+      "expected_hands": 82944,
+      "headroom_multiplier": 1.5,
+      "maximum_cost_usd": 57.42,
+      "maximum_worker_hours": 24.57611111111111,
+      "no_paid_allocation_performed": true,
+      "offer": {
+        "architecture": "x86_64",
+        "availability": "HIGH",
+        "catalog_id": "cpu5c",
+        "catalog_read_sha256": "60279b78a11699ba73e1d769510b5fcc9d77f7a7a3402d00b905cb633bdf2d32",
+        "catalog_request": {
+          "id": "cpu5c",
+          "include": [
+            "AVAILABILITY"
+          ],
+          "product": [
+            "POD"
+          ],
+          "vcpuCount": 32
+        },
+        "compute_hourly_usd": 1.12,
+        "compute_workload": "cpu",
+        "container_disk_hourly_usd": 0.027777777777777776,
+        "gpu": false,
+        "minimum_cpu_per_pod": 32,
+        "minimum_ram_bytes_per_pod": 64000000000,
+        "provider": "RunPod",
+        "reserved_cpu_per_pod": 4,
+        "resource_values": "Required actual-host admission minima, not promises made by the catalog.",
+        "retained_storage_reserve_usd": 1.0,
+        "retrieved_at": 1791207453.121442,
+        "source_url": "https://mcp.getrunpod.io/",
+        "storage_gb": 200,
+        "storage_price_basis": "200 GB total pod-local disk at $0.10/GB/month, conservatively divided by 720 hours",
+        "storage_price_source": "https://www.runpod.io/pricing"
+      },
+      "owner_approved": false,
+      "panel_forecasts": [
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "uniform",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 209.81681768794078,
+            "seconds_per_joint_block_samples": [
+              0.02290955081116408,
+              0.027768408064730465,
+              0.035755781922489405,
+              27.055860584019683,
+              38.4612020959612,
+              122.22752647672314,
+              122.65295510971919,
+              209.81681768794078
+            ]
+          },
+          "worker_seconds": 53713.10532811284
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "passive",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 193.86423763306811,
+            "seconds_per_joint_block_samples": [
+              32.11650739517063,
+              46.24868163908832,
+              64.76641515502706,
+              81.12293445807882,
+              87.06884318299126,
+              98.03110521682538,
+              122.22276762186084,
+              193.86423763306811
+            ]
+          },
+          "worker_seconds": 49629.24483406544
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "minraise-cap2",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 60.51212450512685,
+            "seconds_per_joint_block_samples": [
+              0.010109475930221379,
+              0.010719646117649972,
+              14.007544752093963,
+              25.072110038716346,
+              34.21861307718791,
+              48.47456812905148,
+              53.00774666003417,
+              60.51212450512685
+            ]
+          },
+          "worker_seconds": 15491.103873312473
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "pressure-cap2",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 0.5220079108839855,
+            "seconds_per_joint_block_samples": [
+              0.010246565099805593,
+              0.010663303663022816,
+              0.02065126085653901,
+              0.020872650668025017,
+              0.22400147398002446,
+              0.22588906821329147,
+              0.37897462013643235,
+              0.5220079108839855
+            ]
+          },
+          "worker_seconds": 133.63402518630028
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "tight_passive",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 0.5742027461528778,
+            "seconds_per_joint_block_samples": [
+              0.008094617049209774,
+              0.008143336977809668,
+              0.008386706584133208,
+              0.009643886820413172,
+              0.010056178201921284,
+              0.012243136763572693,
+              0.16695776500273496,
+              0.5742027461528778
+            ]
+          },
+          "worker_seconds": 146.99590301513672
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "loose_passive",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 60.86105421197135,
+            "seconds_per_joint_block_samples": [
+              0.009442546055652201,
+              0.014598005102016032,
+              0.13194560911506414,
+              0.18157651007641107,
+              0.3190454510040581,
+              0.340898537193425,
+              0.562726158532314,
+              60.86105421197135
+            ]
+          },
+          "worker_seconds": 15580.429878264666
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "tight_aggressive",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 61.078452040208504,
+            "seconds_per_joint_block_samples": [
+              0.008132537011988461,
+              0.008185426006093621,
+              0.008219625102356076,
+              0.00973711523693055,
+              0.01051591883879155,
+              0.25448489387053996,
+              17.639569675317034,
+              61.078452040208504
+            ]
+          },
+          "worker_seconds": 15636.083722293377
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "loose_aggressive",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 31.686120921280235,
+            "seconds_per_joint_block_samples": [
+              0.008859866065904498,
+              0.009334826143458486,
+              0.010258946800604463,
+              0.022969490149989724,
+              0.11443190975114703,
+              16.679619674221613,
+              25.246440210961737,
+              31.686120921280235
+            ]
+          },
+          "worker_seconds": 8111.64695584774
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "pot_pressure",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 64.77007510326803,
+            "seconds_per_joint_block_samples": [
+              0.008092225878499448,
+              0.009933286113664508,
+              0.01016206608619541,
+              0.014489533961750567,
+              0.30494348984211683,
+              8.857140066102147,
+              41.737144286045805,
+              64.77007510326803
+            ]
+          },
+          "worker_seconds": 16581.139226436615
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "train_pressure",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 86.71172890684102,
+            "seconds_per_joint_block_samples": [
+              0.009471916942857206,
+              0.0928313221083954,
+              0.17577219288796186,
+              0.302415999234654,
+              0.3326978540280834,
+              18.105725932866335,
+              65.1130444080336,
+              86.71172890684102
+            ]
+          },
+          "worker_seconds": 22198.2026001513
+        },
+        {
+          "blocks": 2048,
+          "hands": 24576,
+          "panel": "native-pressure",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 29.172243309090845,
+            "seconds_per_joint_block_samples": [
+              0.010239704977720976,
+              0.010605346993543208,
+              0.02444342733360827,
+              0.3949407460168004,
+              2.737573934951797,
+              6.765886383829638,
+              14.882839882047847,
+              29.172243309090845
+            ]
+          },
+          "worker_seconds": 59744.75429701805
+        },
+        {
+          "blocks": 256,
+          "hands": 3072,
+          "panel": "selective-stackoff",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 0.5891081460285932,
+            "seconds_per_joint_block_samples": [
+              0.008345923968590796,
+              0.008538775728084147,
+              0.009710004087537527,
+              0.015057541080750525,
+              0.16063079668674618,
+              0.17069372185505927,
+              0.3426016370067373,
+              0.5891081460285932
+            ]
+          },
+          "worker_seconds": 150.81168538331985
+        },
+        {
+          "blocks": 2048,
+          "hands": 24576,
+          "panel": "lbr",
+          "timing": {
+            "paired_blocks": 8,
+            "seconds_per_joint_block_p95": 63.8387418219354,
+            "seconds_per_joint_block_samples": [
+              3.864015827071853,
+              5.210919066215865,
+              6.1096933640073985,
+              15.32903807493858,
+              49.022406113683246,
+              49.69280489825178,
+              50.13162288616877,
+              63.8387418219354
+            ]
+          },
+          "worker_seconds": 130741.7432513237
+        }
+      ],
+      "pods": 2,
+      "prior_pilot_budget_reserve_usd": 0.5,
+      "quote_timestamp_utc": "2026-10-05T13:37:34.121442+00:00",
+      "reserves_seconds_per_worker": {
+        "actual_pod_parity": 900,
+        "replay_verification": 3600,
+        "retrieval_hash_verification": 3600,
+        "setup_build": 1800,
+        "shutdown": 600
+      },
+      "rss_limit_bytes": 12884901888,
+      "status": "quote-awaiting-owner-approval",
+      "timing_sha256": "d2fede1234dd95379cb386abd96aafe7e8c69845ccff78feddff80345574e083",
+      "within_approved_ceiling": false,
+      "worker_seconds": 88474,
+      "workers": 8,
+      "workers_per_pod": 4
+    }
+  },
+  "spend_stop": {
+    "additional_limit": "each pod deadline includes the full quoted worker_seconds; closeout starts before its priced reserves are consumed",
+    "campaign_ceiling_usd": 25,
+    "charge_basis": "wall-clock accrued compute plus provisioned disk at admitted rates, pilot reserve and any failure/restart costs",
+    "production_closeout_reserve_usd": 4.0,
+    "stop_dispatch_at_campaign_upper_charge_usd": 21.0
+  },
+  "status": "quote-awaiting-owner-approval",
+  "stop_rule": {
+    "action": "stop dispatch, cancel owned workers, retain partials, retrieve and verify evidence, terminate only newly owned pods; no restart or retune without owner approval",
+    "denominator": "target live turn/river search decisions, excluding preflop/flop blueprint queries and speculative LBR probes",
+    "first_checkpoint_halt_at_fallbacks": 26,
+    "first_checkpoint_search_decisions": 500,
+    "maximum_fallback_rate": 0.05,
+    "numerator": "any live search decision using base fallback, including cached/follow-on timeout fallbacks",
+    "scope": "globally and independently on each pod",
+    "subsequent_checkpoints": "every additional 100 live search decisions; cumulative and trailing 500"
+  },
+  "timing": {
+    "configuration_sha256": "3dfe89bd529b66388395f64b7b6be08a7e2571ff0977b9ac8ea40563a753677b",
+    "includes_base_and_search_arms": true,
+    "includes_lbr_speculative_solves": true,
+    "includes_parsing": true,
+    "includes_preparation": true,
+    "inputs": {
+      "worker-0/B-2026093001-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 33914,
+        "sha256": "1339642c10f9dd78559af0087e5e1517f4db10b1d8f9d072b2099dddf8abdcf3"
+      },
+      "worker-0/B-2026093001-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 37676,
+        "sha256": "300499859854aceb1faac9bcec35d5ef284e2e686d5e02e4ae9424287f147d28"
+      },
+      "worker-0/B-2026093002-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 27880,
+        "sha256": "423be9e4d6a65930283f76b90897bb69553aeefec1da8a090fe9624bdc403eb3"
+      },
+      "worker-0/B-2026093002-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 31193,
+        "sha256": "081e1e82ea5291e1633aae56abded5e4f688352107d426d64f41d1d8fc9f514c"
+      },
+      "worker-0/B-2026093003-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 32713,
+        "sha256": "5eb0ad59684766c691ff7d924fb56ebbd767244c9dda4d5f500b71ac29a6335a"
+      },
+      "worker-0/B-2026093003-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 36327,
+        "sha256": "d3eec52d5a8a3c753fa6b3307b81adfe559edffd52f83ca840026c0c21b6835b"
+      },
+      "worker-0/manifest.json": {
+        "bytes": 46389,
+        "sha256": "9e077091c9e2507dbf69379c97df742f18075bf36542946afc2821b8810bf674"
+      },
+      "worker-0/summary.json": {
+        "bytes": 10724,
+        "sha256": "7fcb5192b516b6b6e7b4297f2ef06143b3aacfaa54798ce60d7c77227514be87"
+      },
+      "worker-1/B-2026093001-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 29975,
+        "sha256": "42091e9f89a94796aa00e62829792fb9d8763008ff093466aa5e1f80123600b1"
+      },
+      "worker-1/B-2026093001-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 35324,
+        "sha256": "7a98826b45aae0e2a0afc89fa0c6880e15750435d2e5a0903bb61037d96cb8f2"
+      },
+      "worker-1/B-2026093002-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 29933,
+        "sha256": "f56d82c85f968645167872ba1980f57d97de41b4b41db2d06532b946315f3a6f"
+      },
+      "worker-1/B-2026093002-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 37751,
+        "sha256": "9eb3726cdc57dfc7f1a94ab5bd693ab0db6ede373484f6ccedcaf9a3c943dc5c"
+      },
+      "worker-1/B-2026093003-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 34106,
+        "sha256": "5e563be689f6d813c697a409c7443ad9de7be58496a12b20497594df4c66d971"
+      },
+      "worker-1/B-2026093003-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 40675,
+        "sha256": "b7743932c9be2f4a0e8d16d7e8e7eebbd70d0e5c1d1230adf0639ffc8cbf567c"
+      },
+      "worker-1/manifest.json": {
+        "bytes": 52405,
+        "sha256": "056bb1c9959455d45da5985fb18ac70ee23108e16e92924761779684b0f80515"
+      },
+      "worker-1/summary.json": {
+        "bytes": 10733,
+        "sha256": "b12be4579686e574ad761ce1ba764de43af4a8f2b51644eff644f39b5d8ad597"
+      },
+      "worker-2/B-2026093001-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 36263,
+        "sha256": "f5218ee4b6dc4e9c28c04f0ed93dc41ced22b5b2fa884fdaa1a2f488657240bb"
+      },
+      "worker-2/B-2026093001-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 39217,
+        "sha256": "e955951c12202358e2d14089ccd7ea3e01208b19c29679eb5804a257b78d1490"
+      },
+      "worker-2/B-2026093002-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 42408,
+        "sha256": "c985fdadf5b760c10a29b929cbf0876abd2d33b64175f684988b8557a4ac8f0f"
+      },
+      "worker-2/B-2026093002-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 48736,
+        "sha256": "570921f1762839079f1f9fba398a6e5685bde2484c76e8a9d831a2c10139ff6b"
+      },
+      "worker-2/B-2026093003-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 41263,
+        "sha256": "59372086d879d299c2e01a42da9071f07837f710613ffe37408ad47d97646a8d"
+      },
+      "worker-2/B-2026093003-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 47591,
+        "sha256": "65f65ba05de169c6ac21cd94f65b38dcafc9490394a7898e6c31026062f5d1ab"
+      },
+      "worker-2/manifest.json": {
+        "bytes": 58380,
+        "sha256": "87728eff480249162e1b3aa82cc77551585891d369b7df9ca91cdcd1642a9e6f"
+      },
+      "worker-2/summary.json": {
+        "bytes": 10719,
+        "sha256": "cdba254dca781edad76426b7ecdde3f391acac768893b9f25d1b6c6470159e6f"
+      },
+      "worker-3/B-2026093001-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 47844,
+        "sha256": "efb3a9b024ca19632cfa77405a8a0f7b1f60476973e1bd2072aefbcfb6c12e31"
+      },
+      "worker-3/B-2026093001-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 55466,
+        "sha256": "27a4614be79fcabb5db086915f576f475ef78b0702910b9f45279c312958de28"
+      },
+      "worker-3/B-2026093002-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 39424,
+        "sha256": "328640049d882ca6142c7b65cdda47218424239f2725f8a51b9fe1ae138e1e83"
+      },
+      "worker-3/B-2026093002-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 44856,
+        "sha256": "cb78dfbdec80d750e80f14ccf404c8c9af1a74cc1340ff81ff77c3651ac73ebb"
+      },
+      "worker-3/B-2026093003-500000000-average.base.hands.jsonl.gz": {
+        "bytes": 47162,
+        "sha256": "b892b3c768e2b6f105536a9e6dd5e3b4b33b9a787d78023db76e1ca859c9499a"
+      },
+      "worker-3/B-2026093003-500000000-average.search.hands.jsonl.gz": {
+        "bytes": 53777,
+        "sha256": "c1a3953958927a41748680c5d0d740dc083b627f01bef1dd9c2b3b7a2dcba650"
+      },
+      "worker-3/manifest.json": {
+        "bytes": 77425,
+        "sha256": "090beb616af39b6d02e5ce8badece27ea407df911c343f9891eb68f154b96201"
+      },
+      "worker-3/summary.json": {
+        "bytes": 10714,
+        "sha256": "00734d46c18d29e62fde1b136f0f3eaada99bdc5af86e8cd9f2dbb6aafe43333"
+      }
+    },
+    "panels": {
+      "lbr": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 63.8387418219354,
+        "seconds_per_joint_block_samples": [
+          3.864015827071853,
+          5.210919066215865,
+          6.1096933640073985,
+          15.32903807493858,
+          49.022406113683246,
+          49.69280489825178,
+          50.13162288616877,
+          63.8387418219354
+        ]
+      },
+      "loose_aggressive": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 31.686120921280235,
+        "seconds_per_joint_block_samples": [
+          0.008859866065904498,
+          0.009334826143458486,
+          0.010258946800604463,
+          0.022969490149989724,
+          0.11443190975114703,
+          16.679619674221613,
+          25.246440210961737,
+          31.686120921280235
+        ]
+      },
+      "loose_passive": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 60.86105421197135,
+        "seconds_per_joint_block_samples": [
+          0.009442546055652201,
+          0.014598005102016032,
+          0.13194560911506414,
+          0.18157651007641107,
+          0.3190454510040581,
+          0.340898537193425,
+          0.562726158532314,
+          60.86105421197135
+        ]
+      },
+      "minraise-cap2": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 60.51212450512685,
+        "seconds_per_joint_block_samples": [
+          0.010109475930221379,
+          0.010719646117649972,
+          14.007544752093963,
+          25.072110038716346,
+          34.21861307718791,
+          48.47456812905148,
+          53.00774666003417,
+          60.51212450512685
+        ]
+      },
+      "native-pressure": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 29.172243309090845,
+        "seconds_per_joint_block_samples": [
+          0.010239704977720976,
+          0.010605346993543208,
+          0.02444342733360827,
+          0.3949407460168004,
+          2.737573934951797,
+          6.765886383829638,
+          14.882839882047847,
+          29.172243309090845
+        ]
+      },
+      "passive": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 193.86423763306811,
+        "seconds_per_joint_block_samples": [
+          32.11650739517063,
+          46.24868163908832,
+          64.76641515502706,
+          81.12293445807882,
+          87.06884318299126,
+          98.03110521682538,
+          122.22276762186084,
+          193.86423763306811
+        ]
+      },
+      "pot_pressure": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 64.77007510326803,
+        "seconds_per_joint_block_samples": [
+          0.008092225878499448,
+          0.009933286113664508,
+          0.01016206608619541,
+          0.014489533961750567,
+          0.30494348984211683,
+          8.857140066102147,
+          41.737144286045805,
+          64.77007510326803
+        ]
+      },
+      "pressure-cap2": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 0.5220079108839855,
+        "seconds_per_joint_block_samples": [
+          0.010246565099805593,
+          0.010663303663022816,
+          0.02065126085653901,
+          0.020872650668025017,
+          0.22400147398002446,
+          0.22588906821329147,
+          0.37897462013643235,
+          0.5220079108839855
+        ]
+      },
+      "selective-stackoff": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 0.5891081460285932,
+        "seconds_per_joint_block_samples": [
+          0.008345923968590796,
+          0.008538775728084147,
+          0.009710004087537527,
+          0.015057541080750525,
+          0.16063079668674618,
+          0.17069372185505927,
+          0.3426016370067373,
+          0.5891081460285932
+        ]
+      },
+      "tight_aggressive": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 61.078452040208504,
+        "seconds_per_joint_block_samples": [
+          0.008132537011988461,
+          0.008185426006093621,
+          0.008219625102356076,
+          0.00973711523693055,
+          0.01051591883879155,
+          0.25448489387053996,
+          17.639569675317034,
+          61.078452040208504
+        ]
+      },
+      "tight_passive": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 0.5742027461528778,
+        "seconds_per_joint_block_samples": [
+          0.008094617049209774,
+          0.008143336977809668,
+          0.008386706584133208,
+          0.009643886820413172,
+          0.010056178201921284,
+          0.012243136763572693,
+          0.16695776500273496,
+          0.5742027461528778
+        ]
+      },
+      "train_pressure": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 86.71172890684102,
+        "seconds_per_joint_block_samples": [
+          0.009471916942857206,
+          0.0928313221083954,
+          0.17577219288796186,
+          0.302415999234654,
+          0.3326978540280834,
+          18.105725932866335,
+          65.1130444080336,
+          86.71172890684102
+        ]
+      },
+      "uniform": {
+        "paired_blocks": 8,
+        "seconds_per_joint_block_p95": 209.81681768794078,
+        "seconds_per_joint_block_samples": [
+          0.02290955081116408,
+          0.027768408064730465,
+          0.035755781922489405,
+          27.055860584019683,
+          38.4612020959612,
+          122.22752647672314,
+          122.65295510971919,
+          209.81681768794078
+        ]
+      }
+    },
+    "per_worker_latency_multiplier": 1.0,
+    "pilot_concurrency": {
+      "cpu_quota": 23.8,
+      "threads_per_worker": 6,
+      "workers_per_pod": 4
+    },
+    "record_statuses": {
+      "completed": 184,
+      "decision": 331,
+      "failure": 42,
+      "fallback": 86
+    },
+    "required_storage_gb_per_worker": 45,
+    "reserves_seconds_per_worker": {
+      "actual_pod_parity": 900,
+      "replay_verification": 3600,
+      "retrieval_hash_verification": 3600,
+      "setup_build": 1800,
+      "shutdown": 600
+    },
+    "rss_limit_bytes_per_worker": 12884901888,
+    "scaling_basis": "No unmeasured latency speedup; repartition all blocks over the reduced per-pod concurrency.",
+    "search_counts": {
+      "evictions": 86,
+      "live_solution_hits": 48,
+      "on_tree_queries": 223,
+      "play:fallback:timeout": 86,
+      "play:queries:flop": 392,
+      "play:queries:preflop": 657,
+      "play:queries:river": 172,
+      "play:queries:turn": 245,
+      "play:search": 331,
+      "played_matrix_hits": 16163,
+      "probe:queries:flop": 85824,
+      "probe:queries:preflop": 135975,
+      "probe:queries:river": 13683,
+      "probe:queries:turn": 53108,
+      "probe:search": 66791,
+      "public_cache_hits": 50796,
+      "solves": 184
+    },
+    "timing_retained_bytes": 2140348050
+  }
+}

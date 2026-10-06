@@ -1,0 +1,34 @@
+{
+  "posted_total_usd": 1.1707431405084208,
+  "owner_sleep_credit_usd": 0.5188888888888888,
+  "cap_counted_posted_usd": 0.6518542516195319,
+  "pods": [
+    {
+      "pod_id": "6oqjxlfdjk0bzp",
+      "posted_total_usd": 0.2509613707661629,
+      "buckets": 3
+    },
+    {
+      "pod_id": "m5pxmipuqyjtoo",
+      "posted_total_usd": 0.18338586203753948,
+      "buckets": 3
+    },
+    {
+      "pod_id": "mislfsw9a0bmva",
+      "posted_total_usd": 0.1827818676829338,
+      "buckets": 3
+    },
+    {
+      "pod_id": "vvc7cmrepn7rtt",
+      "posted_total_usd": 0.3036087191430852,
+      "buckets": 2
+    },
+    {
+      "pod_id": "xtu3jr3utxqasx",
+      "posted_total_usd": 0.2500053208786994,
+      "buckets": 3
+    }
+  ],
+  "last_posted_bucket_end": "2026-10-05T17:00:00Z",
+  "description": "Latest posted MCP billing for all five owned pods, all now terminated; provisioning upper remains separate."
+}

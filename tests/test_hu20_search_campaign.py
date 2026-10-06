@@ -23,6 +23,21 @@ def admission():
         "rss_limit_bytes":5*1024**3,"145_report_sha256":"report","ownership_evidence":"verified"}
 
 
+def test_resume_reads_every_complete_hand_of_a_truncated_stream(tmp_path):
+    path = tmp_path / "hands.jsonl.gz"
+    with gzip.open(path, "wt") as stream:
+        for block in range(40):
+            stream.write(json.dumps({"panel": "p", "block": block, "rotation": 0, "pad": "x" * 500}) + "\n")
+            stream.flush()
+    whole = path.read_bytes()
+    # A worker killed mid-write leaves an unterminated stream whose tail may be cut anywhere.
+    for cut in (len(whole) - 8, len(whole) - 300, len(whole) // 2):
+        path.write_bytes(whole[:cut])
+        rows = campaign.read_complete_rows(path)
+        assert 1 <= len(rows) <= 40 and [r["block"] for r in rows] == list(range(len(rows)))
+    assert campaign.read_complete_rows(tmp_path / "missing.gz") == []
+
+
 @pytest.mark.parametrize("change",[{"145_main_complete":False},{"145_final_report_pushed":False},
     {"145_processes_empty":False},{"followup_claim":"pending"},{"checked_at":0},
     {"reclaimable_bytes":1024**3},{"ownership_evidence":None}])
@@ -135,6 +150,36 @@ def test_quote_refuses_omitted_speculative_lbr_or_stale_offer():
     assert result["worker_seconds"]==630 and result["owner_approved"] is False
     with pytest.raises(ValueError):quote(plan,calibration,dict(timing,includes_lbr_speculative_solves=False),offer,workers=2,now=1001)
     with pytest.raises(ValueError):quote(plan,calibration,timing,offer,workers=2,now=10000)
+
+
+def test_quote_prices_shared_cpu_workers_once_per_pod_and_refuses_contention():
+    from src.arena.schedule import digest
+    from scripts.quote_hu20_search_arena import quote
+    calibration={"status":"qualified","selected":{"config":asdict(TurnSearchConfig())}}
+    plan={"stage":"frozen-final","calibration_sha256":digest(calibration),"expected_hands":120,
+          "panels":[{"name":"lbr","blocks":10}]}
+    timing={"configuration_sha256":digest(calibration["selected"]["config"]),
+        "includes_preparation":True,"includes_parsing":True,"includes_lbr_speculative_solves":True,
+        "includes_base_and_search_arms":True,"panels":{"lbr":{"paired_blocks":8,
+            "seconds_per_joint_block_p95":60,"seconds_per_joint_block_mean":30}},
+        "reserves_seconds_per_worker":{k:60 for k in ("setup_build","actual_pod_parity","replay_verification",
+            "retrieval_hash_verification","shutdown")},"required_storage_gb_per_worker":20,"rss_limit_bytes_per_worker":5*1024**3}
+    offer={"retrieved_at":1000,"source_url":"https://mcp.getrunpod.io/","architecture":"x86_64",
+        "provider":"RunPod","gpu":True,"compute_workload":"cpu","availability":"LOW",
+        "compute_hourly_usd":.22,"container_disk_hourly_usd":.01,"storage_gb":60,
+        "minimum_cpu_per_pod":23.8,"reserved_cpu_per_pod":4,"minimum_ram_bytes_per_pod":32*1024**3}
+    result=quote(plan,calibration,timing,offer,workers=6,workers_per_pod=3,now=1001)
+    assert result["worker_seconds"]==630 and result["pods"]==2
+    assert result["maximum_cost_usd"]==.09 and result["owner_approved"] is False
+    assert result["expected_cost_usd"]==.05 and result["expected_worker_hours"]==.1
+    unavailable=quote(plan,calibration,timing,dict(offer,availability="NONE"),
+        workers=6,workers_per_pod=3,price_only=True,now=1001)
+    assert unavailable["stock_available"] is False and unavailable["owner_approved"] is False
+    for changes, per_pod in (({},4),({"storage_gb":59},3),
+                             ({"minimum_ram_bytes_per_pod":14*1024**3},3),
+                             ({"availability":"NONE"},3),({"compute_workload":"gpu"},3)):
+        with pytest.raises(ValueError):
+            quote(plan,calibration,timing,dict(offer,**changes),workers=6,workers_per_pod=per_pod,now=1001)
 
 
 def test_guard_stop_retains_incomplete_native_hand(tmp_path):
@@ -400,3 +445,38 @@ def test_blocking_watchdog_keeps_paid_worker_approval_interface(tmp_path, monkey
     if expected_failure:
         assert json.loads(failures[0].read_text())["cause"] == "OSError"
     else: assert not failures
+
+
+def test_timing_pilot_runs_both_arms_and_reports_only_costs(tmp_path,monkeypatch):
+    from collections import Counter
+    class Uniform:
+        description={"fixture":"uniform"};abstraction=HU20_UNCAPPED_SCHEMA
+        def distribution(self,view):
+            menu=choices(view,raise_cap=None,free_fold=False)
+            return menu,(1/len(menu),)*len(menu),False
+    class Search(Uniform):
+        def __init__(self,source,solver,config):self.records=[];self.stats=Counter()
+        def distribution(self,view,query_kind="play"):
+            self.records.append({"status":"completed","seconds":.25})
+            return Uniform.distribution(self,view)
+    class Budget:
+        def check(self):pass
+    config=TurnSearchConfig(iterations=50,threads=6,compress=False,opponent_likelihood_floor=0)
+    models=[{"name":f"{seed}-average","seed":seed,"strategy":"average"} for seed in (1,2,3)]
+    plan={"stage":"timing-pilot","root":43,"models":models,"selected_search_config":asdict(config),
+          "panels":[{"name":"uniform","rule":"uniform","contract":"native","blocks":4}],"expected_hands":48}
+    monkeypatch.setattr(campaign,"load",lambda spec,inputs:Uniform())
+    class Solver:
+        def __init__(self,*a,**k):self.records=[]
+    monkeypatch.setattr(campaign,"ExternalTurnSolver",Solver)
+    monkeypatch.setattr(campaign,"HU20TurnSearchPolicy",Search)
+    result=campaign.run(plan,tmp_path,tmp_path/"run",Budget(),phase="timing",search_config=config,
+                        worker_index=1,worker_count=2)
+    # Worker 1 of 2 owns blocks 1 and 3: two arms, two positions, three lineages each.
+    assert result["status"]=="complete" and result["hands"]==24
+    timing=result["timing_panels"]["uniform"]
+    assert timing["paired_blocks"]==2 and timing["seconds_per_joint_block_p95"]>0
+    assert result["solves"]>0 and result["solve_seconds_mean"]==.25
+    assert "panels" not in result and "three_lineage_changes" not in result  # no payoff summary
+    with pytest.raises(ValueError,match="Timing pilot"):
+        campaign.run(dict(plan,stage="frozen-final"),tmp_path,tmp_path/"bad",Budget(),phase="timing",search_config=config)

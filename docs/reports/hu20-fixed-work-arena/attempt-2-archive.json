@@ -1,0 +1,23 @@
+{
+  "archive": "/Users/dberweger/Library/CloudStorage/GoogleDrive-dberweger2017@gmail.com/My Drive/deepcfr-research-results/PR-166-HU20-turn-search-arena/attempt-2-full-closeout-M1-20261006.zip",
+  "at": 1791307898.681804,
+  "authentication_files_excluded": [
+    "control-token",
+    "github-token",
+    "runpod-credential.json"
+  ],
+  "bytes": 5645638363,
+  "members": 1433,
+  "sha256": "cac0d2a766a8d0276820662112b68bb12ffe3688b8597faa0f63d43a829b3a0e",
+  "source": "/Users/dberweger/Local/hu20-turn-search-arena-20261005/revision-3-run-03",
+  "verified": true,
+  "native_drive_upload": "pending metadata/upload confirmation; originals preserved",
+  "final_publication_seal": {
+    "filename": "attempt-2-publication-seal-M1-20261006.zip",
+    "bytes": 250264,
+    "sha256": "32fe458e412c3a1500165f0900cb40e446b0e3e07cd5e66bf7d22c291dc76c12",
+    "members": 23,
+    "verified": true,
+    "basis": "Changed/new research files overlay full ZIP; adjacent verification receipt retains proof"
+  }
+}
