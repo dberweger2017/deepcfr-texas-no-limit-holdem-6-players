@@ -163,9 +163,13 @@ def pull(pod, ledger, root, last_epoch):
     host, remote = route(pod, ledger)
     now = int(time())
     delta = f"/workspace/deltas/{pod['id']}-{now}.tar.gz"
-    pack = ("mkdir -p /workspace/deltas && cd /workspace/evidence && find arena -path '*/solver/*' -type f "
-            f"-newermt @{max(0, last_epoch - 600)} -print0 | tar --null --no-recursion -czf {delta} -T - && gzip -t {delta} "
-            "&& sha256sum " + delta)
+    # Retention can remove an unsampled body between find and tar. Retry with
+    # a fresh list; never accept a damaged archive or suppress other read errors.
+    pack = ("mkdir -p /workspace/deltas && cd /workspace/evidence && ok=0; "
+            "for attempt in 1 2 3; do find arena -path '*/solver/*' -type f "
+            f"-newermt @{max(0, last_epoch - 600)} -print0 | tar --null --no-recursion -czf {delta} -T - "
+            "&& { ok=1; break; }; done; test $ok = 1 "
+            f"&& gzip -t {delta} && sha256sum {delta}")
     out = ssh(pod, pack, timeout=900)
     digest = re.search(r"([0-9a-f]{64})  " + re.escape(delta), out)[1]
     if host is not pod:  # proxy-only pod: push to the relay pod over the private pod-to-pod link

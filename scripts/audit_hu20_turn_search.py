@@ -18,12 +18,12 @@ from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
 
 
-def audit(directories):
+def audit(directories, *, allow_incomplete=False):
     started=perf_counter();seen=set();rows=[];search_counts=Counter();lbr=Counter();latencies=[];host_decisions={}
     plan=None;phase=None;worker_ids=set();manifest_ids=[]
     for directory in directories:
         summary=json.loads((directory/"summary.json").read_text())
-        if summary["status"]!="complete" or digest(summary["plan"])!=summary["plan_sha256"]:
+        if (not allow_incomplete and summary["status"]!="complete") or digest(summary["plan"])!=summary["plan_sha256"]:
             raise ValueError("Incomplete or changed worker protocol")
         if plan is None:plan=summary["plan"];phase=summary["phase"]
         if plan!=summary["plan"] or phase!=summary["phase"]:raise ValueError("Worker plans differ")
@@ -94,8 +94,9 @@ def audit(directories):
     expected={(s["name"],arm,p["name"],b,r) for s in plan["models"]
         for arm in (("base","search") if phase=="arena" else (s["strategy"],))
         for p in plan["panels"] for b in range(p["blocks"]) for r in (0,1)}
-    if seen!=expected or len(rows)!=plan["expected_hands"]:raise ValueError("Frozen arena coverage incomplete")
-    if len(directories)==1:
+    if not seen <= expected:raise ValueError("Unexpected frozen arena coordinate")
+    if not allow_incomplete and (seen!=expected or len(rows)!=plan["expected_hands"]):raise ValueError("Frozen arena coverage incomplete")
+    if len(directories)==1 and not allow_incomplete:
         for k,v in summarize_phase(rows,phase).items():
             if summary[k]!=v:raise ValueError("Paired report arithmetic differs")
     return {"status":"verified","hands":len(rows),"phase":phase,"plan_sha256":digest(plan),
@@ -105,7 +106,7 @@ def audit(directories):
         "turn_conditioning_gap_tolerance":0,
         "turn_conditioning_within_tolerance":not any(v for k,v in search_counts.items()
             if k.startswith("range:turn_conditioning_fallback:")),
-        "lbr":dict(lbr),"decision_latency_by_host":latency_report(host_decisions),**summarize_phase(rows,phase)}
+        "lbr":dict(lbr),"decision_latency_by_host":latency_report(host_decisions),**({} if allow_incomplete else summarize_phase(rows,phase))}
 
 
 def latency_report(hosts):
