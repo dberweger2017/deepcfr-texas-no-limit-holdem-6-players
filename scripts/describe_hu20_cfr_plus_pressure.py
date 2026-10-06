@@ -63,7 +63,10 @@ def ratio_interval(numerator, denominator, scale=1):
     influence = (numerator - ratio * denominator) / np.mean(denominator)
     result = mean_interval(influence * scale)
     margin = result['ci95'][1] - result['mean']
-    return {'mean': ratio * scale, 'ci95': [ratio * scale - margin, ratio * scale + margin],
+    bounds = [ratio * scale - margin, ratio * scale + margin]
+    if scale == 100:
+        bounds = [max(0, bounds[0]), min(100, bounds[1])]
+    return {'mean': ratio * scale, 'ci95': bounds,
             'blocks': len(denominator)}
 
 
