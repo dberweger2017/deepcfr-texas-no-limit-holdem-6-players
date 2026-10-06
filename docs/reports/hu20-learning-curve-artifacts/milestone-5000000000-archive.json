@@ -1,0 +1,57 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-182-HU20-learning-curve/O-2026100601-5000000000-milestone.zip",
+  "archive_sha256": "d11d404eac31b3e58011e2a961e9b2c9604e415e064c682388ed759ca403c930",
+  "bytes": 328471948,
+  "header": {
+    "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+    "average_rule": "opponent-sampled",
+    "checkpoint_format": "jsonl-v2",
+    "config": {
+      "abstraction": "hu20-native-reopening-ordered-history-card-v1",
+      "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+      "max_entries": 1000000000,
+      "max_nodes": 1000000000,
+      "max_seconds": 900.0,
+      "raise_cap": null,
+      "roots_per_seat": 1,
+      "seed": 2026100601
+    },
+    "format": "holdem-hu20-native-reopening-blueprint-v1",
+    "identity": {
+      "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+      "big_blind": 100,
+      "card_descriptor": "legacy-postflop-descriptor-v1",
+      "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+      "players": 2,
+      "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds",
+      "small_blind": 50,
+      "stacks": [
+        2000,
+        2000
+      ]
+    },
+    "iteration": 9971555,
+    "kind": "training",
+    "table": {
+      "big_blind": 100,
+      "button": 0,
+      "chip_unit": "0.01",
+      "player_ids": [
+        "player-0",
+        "player-1"
+      ],
+      "small_blind": 50,
+      "stacks": [
+        2000,
+        2000
+      ]
+    }
+  },
+  "manifest_sha256": "a5250834508a503c8b391f8dbc77749eb52ebb18de10e59e99b45cd1c3fe557f",
+  "members_verified": 6,
+  "nodes_milestone": 5000000000,
+  "peak_sampled_rss_bytes": 1569980416,
+  "seconds_since_launch": 1890.5782866477966,
+  "sha256": "2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f",
+  "source_commit": "3776305f9e43e584a1c221c217323a609ff5db2b"
+}
