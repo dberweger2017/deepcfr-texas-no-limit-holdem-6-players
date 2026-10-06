@@ -1,0 +1,32 @@
+{
+  "verified_at": "2026-10-06T14:43:33.607Z",
+  "native": {
+    "uploaded": true,
+    "uploading": false,
+    "unresolvedConflicts": false,
+    "bytes": 1899498972
+  },
+  "cloud_metadata": {
+    "id": "1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi",
+    "title": "hu20-learning-curve-complete-20261006.zip",
+    "mime_type": "application/zip",
+    "size": "1899498972",
+    "url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1wNthhMPoO0XGPeEZbMZmQVIIxF4tJra9"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "local_zip_member_readback_verified": true,
+  "remote_byte_redownload_claimed": false,
+  "originals_retained": true
+}

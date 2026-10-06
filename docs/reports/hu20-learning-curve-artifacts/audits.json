@@ -1,0 +1,397 @@
+{
+  "final_audits": {
+    "A-1B-vs-100M": {
+      "decisions_checked": 767435,
+      "hands_replayed": 155648,
+      "independent_arithmetic_matches": true,
+      "lineages": {
+        "1": {
+          "bb_per_100": 14.185855263157896,
+          "blocks": 77824,
+          "ci95": [
+            11.559123981775572,
+            16.81258654454022
+          ],
+          "label": "better"
+        }
+      },
+      "overall": {
+        "bb_per_100": 14.185855263157896,
+        "blocks": 77824,
+        "ci95": [
+          11.559123981775572,
+          16.81258654454022
+        ]
+      },
+      "plan_sha256": "a97232118852e17bdc3fd0eb9b56834837a2b86240afdaba8bb3598a1d4a660a",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 9.937808388157896,
+          "blocks": 77824,
+          "ci95": [
+            4.714364320755097,
+            15.161252455560694
+          ]
+        },
+        "button": {
+          "bb_per_100": 18.433902138157894,
+          "blocks": 77824,
+          "ci95": [
+            13.107236005962257,
+            23.76056827035353
+          ]
+        }
+      },
+      "primary_lineages": {
+        "1": {
+          "bb_per_100": 14.185855263157896,
+          "blocks": 77824,
+          "ci95": [
+            11.559123981775572,
+            16.81258654454022
+          ],
+          "label": "better"
+        }
+      },
+      "primary_overall": {
+        "bb_per_100": 14.185855263157896,
+        "blocks": 77824,
+        "ci95": [
+          11.559123981775572,
+          16.81258654454022
+        ],
+        "label": "better"
+      },
+      "raw_files": [
+        {
+          "bytes": 113354132,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "867e2a9db180272f147b7bfe64d435fc4d25647ee75812d17775816109ac8b0c"
+        }
+      ],
+      "seconds": 51.74036962498212,
+      "status": "verified"
+    },
+    "B-1B-vs-500M": {
+      "decisions_checked": 678534,
+      "hands_replayed": 131072,
+      "independent_arithmetic_matches": true,
+      "lineages": {
+        "1": {
+          "bb_per_100": 5.31005859375,
+          "blocks": 65536,
+          "ci95": [
+            2.713259809220231,
+            7.906857378279769
+          ],
+          "label": "better"
+        }
+      },
+      "overall": {
+        "bb_per_100": 5.31005859375,
+        "blocks": 65536,
+        "ci95": [
+          2.713259809220231,
+          7.906857378279769
+        ]
+      },
+      "plan_sha256": "edc67062ca97e16beb3a5f62812054ce56804716465e2da3253d8438cbd21b7b",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -0.72479248046875,
+          "blocks": 65536,
+          "ci95": [
+            -6.376600161078631,
+            4.927015200141131
+          ]
+        },
+        "button": {
+          "bb_per_100": 11.34490966796875,
+          "blocks": 65536,
+          "ci95": [
+            5.656247077963301,
+            17.0335722579742
+          ]
+        }
+      },
+      "primary_lineages": {
+        "1": {
+          "bb_per_100": 5.31005859375,
+          "blocks": 65536,
+          "ci95": [
+            2.713259809220231,
+            7.906857378279769
+          ],
+          "label": "better"
+        }
+      },
+      "primary_overall": {
+        "bb_per_100": 5.31005859375,
+        "blocks": 65536,
+        "ci95": [
+          2.713259809220231,
+          7.906857378279769
+        ],
+        "label": "better"
+      },
+      "raw_files": [
+        {
+          "bytes": 98602025,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "771cb3b722ba6c454f7a93076bdc2d81ec751a74748f5ec115949f1cf574c60b"
+        }
+      ],
+      "seconds": 44.44640691601671,
+      "status": "verified"
+    },
+    "C-100M-vs-R1": {
+      "decisions_checked": 742209,
+      "hands_replayed": 155648,
+      "independent_arithmetic_matches": true,
+      "lineages": {
+        "1": {
+          "bb_per_100": -7.412237870065789,
+          "blocks": 77824,
+          "ci95": [
+            -10.159142427005646,
+            -4.665333313125933
+          ],
+          "label": "worse"
+        }
+      },
+      "overall": {
+        "bb_per_100": -7.412237870065789,
+        "blocks": 77824,
+        "ci95": [
+          -10.159142427005646,
+          -4.665333313125933
+        ]
+      },
+      "plan_sha256": "d945ba45518044fd7fe4db4c530e6a1c715e1a223ba363b3fdc036e026f63e18",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -10.683079769736842,
+          "blocks": 77824,
+          "ci95": [
+            -16.12160169441153,
+            -5.244557845062155
+          ]
+        },
+        "button": {
+          "bb_per_100": -4.141395970394737,
+          "blocks": 77824,
+          "ci95": [
+            -9.554575221106294,
+            1.2717832803168205
+          ]
+        }
+      },
+      "primary_lineages": {
+        "1": {
+          "bb_per_100": -7.412237870065789,
+          "blocks": 77824,
+          "ci95": [
+            -10.159142427005646,
+            -4.665333313125933
+          ],
+          "label": "worse"
+        }
+      },
+      "primary_overall": {
+        "bb_per_100": -7.412237870065789,
+        "blocks": 77824,
+        "ci95": [
+          -10.159142427005646,
+          -4.665333313125933
+        ],
+        "label": "worse"
+      },
+      "raw_files": [
+        {
+          "bytes": 110125048,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "5d36f304161e91c3559b5154bf8ecd0707026ac82eaf60d848ebaf374cbdfabf"
+        }
+      ],
+      "seconds": 50.119819832994835,
+      "status": "verified"
+    },
+    "D-500M-vs-R1": {
+      "decisions_checked": 781899,
+      "hands_replayed": 155648,
+      "independent_arithmetic_matches": true,
+      "lineages": {
+        "1": {
+          "bb_per_100": 7.677580180921052,
+          "blocks": 77824,
+          "ci95": [
+            5.045966422356844,
+            10.309193939485262
+          ],
+          "label": "better"
+        }
+      },
+      "overall": {
+        "bb_per_100": 7.677580180921052,
+        "blocks": 77824,
+        "ci95": [
+          5.045966422356844,
+          10.309193939485262
+        ]
+      },
+      "plan_sha256": "cf7f01114397550ffd3cfec26acede5fc3c9f3a29bae1f3fefccff39226157f9",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 1.323499177631579,
+          "blocks": 77824,
+          "ci95": [
+            -3.9856505472680377,
+            6.632648902531195
+          ]
+        },
+        "button": {
+          "bb_per_100": 14.031661184210526,
+          "blocks": 77824,
+          "ci95": [
+            8.673389412723237,
+            19.389932955697816
+          ]
+        }
+      },
+      "primary_lineages": {
+        "1": {
+          "bb_per_100": 7.677580180921052,
+          "blocks": 77824,
+          "ci95": [
+            5.045966422356844,
+            10.309193939485262
+          ],
+          "label": "better"
+        }
+      },
+      "primary_overall": {
+        "bb_per_100": 7.677580180921052,
+        "blocks": 77824,
+        "ci95": [
+          5.045966422356844,
+          10.309193939485262
+        ],
+        "label": "better"
+      },
+      "raw_files": [
+        {
+          "bytes": 115774088,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "691c1a795543f2d742302d956b02b7f010d2c5240c31e6b064e414fbf0957dd1"
+        }
+      ],
+      "seconds": 50.93941462499788,
+      "status": "verified"
+    }
+  },
+  "export_audits": {
+    "100000000": {
+      "status": "verified",
+      "all_nodes_verified": 2173888,
+      "counts": {
+        "entries": 2173888,
+        "zero_mass": 659009,
+        "positive_mass": 1514879
+      },
+      "unweighted_mean_current_average_tv": 0.26510300796598174,
+      "maximum_tv": 1.0000000000000002,
+      "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+      "current_sha256": "39ecccfd36e7651ed73261f293ed9eec3d484266af45c2b37706413185f087b4",
+      "average_sha256": "4b2eb840f0004101f712f2aaeaa31c7bad554a3de00f0abce9b95135c0198752",
+      "checkpoint_sha256": "115fba4b7eb3d4a026d0283a3b1fef6c5aa9bdf7c3a704d65025d4713f89954e"
+    },
+    "500000000": {
+      "status": "verified",
+      "all_nodes_verified": 3543310,
+      "counts": {
+        "entries": 3543310,
+        "zero_mass": 1116308,
+        "positive_mass": 2427002
+      },
+      "unweighted_mean_current_average_tv": 0.2893524369883408,
+      "maximum_tv": 1.0,
+      "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+      "current_sha256": "e12e1dda48199de66107fbdf35a4bbaa251f66d34fb70ffcc5a50855b2d2e0a7",
+      "average_sha256": "025e5c641bd9eb1962946b72cd0b4ddf985334431fcedc438050c85eb072b96f",
+      "checkpoint_sha256": "a5318cd586c0b170a68334e4236111faddabaf7f686c071958757db888afab47"
+    },
+    "1000000000": {
+      "status": "verified",
+      "all_nodes_verified": 4319080,
+      "counts": {
+        "entries": 4319080,
+        "positive_mass": 2929370,
+        "zero_mass": 1389710
+      },
+      "unweighted_mean_current_average_tv": 0.29844938407433524,
+      "maximum_tv": 1.0000000000000002,
+      "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+      "current_sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740",
+      "average_sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+      "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825"
+    }
+  },
+  "pilot_completeness": {
+    "A-1B-vs-100M": {
+      "decisions_checked": 40360,
+      "hands_replayed": 8192,
+      "independent_arithmetic_matches": true,
+      "plan_sha256": "2052299b03746dba47516779a5fbf1bf6d872e5e15c79f7b6315e9af90385362",
+      "raw_files": [
+        {
+          "bytes": 5987358,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "ff943bc889fc7349ce0389073d7c6b1a99f246cf45631cc805e7c125300b6a5c"
+        }
+      ],
+      "status": "verified"
+    },
+    "B-1B-vs-500M": {
+      "decisions_checked": 42327,
+      "hands_replayed": 8192,
+      "independent_arithmetic_matches": true,
+      "plan_sha256": "c6b6dc9721ba3c53ff4b1061d32bc0c734e8d9499dfadc63563f8de526a0333a",
+      "raw_files": [
+        {
+          "bytes": 6167780,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "b452e9c2973b15523b0b3c75eef36c918ec1854b977a8abfdb35a22c582ed3ef"
+        }
+      ],
+      "status": "verified"
+    },
+    "C-100M-vs-R1": {
+      "decisions_checked": 38599,
+      "hands_replayed": 8192,
+      "independent_arithmetic_matches": true,
+      "plan_sha256": "4ad011b78bf167bc20c421414fc06ce6176dd6c83321589f67660682048860bb",
+      "raw_files": [
+        {
+          "bytes": 5721748,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "149bdb00b3ce17881792075e54196bb1bbf8007099aba2447e0c13c9ba27a9ab"
+        }
+      ],
+      "status": "verified"
+    },
+    "D-500M-vs-R1": {
+      "decisions_checked": 40906,
+      "hands_replayed": 8192,
+      "independent_arithmetic_matches": true,
+      "plan_sha256": "0298e8f3888d88adaac26e9172bcd671f9445be09ab1298da97d8248bcf9e3f7",
+      "raw_files": [
+        {
+          "bytes": 6054116,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "a040b6b69a724ce6fda513a4e42231e9d7792adb8f4d47fc0b897f3fc08d7c1b"
+        }
+      ],
+      "status": "verified"
+    }
+  }
+}
