@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "audited_source_commit": "2536f55862fc13a6a7daf3da625a7663554fe143",
+  "contrast_labels_and_counts_match_independent_audits": true,
+  "primary_interval_and_half_width_verified": true,
+  "seat_splits_from_same_audited_sample": true,
+  "pilot_outcomes_inspected": false,
+  "chart_git_blob": "3074646785f220a2ea25c5fefed4c397a3bdb1ab",
+  "comment_body_sha256": "a4ed8188b51afdce98a00ceef0f0a2780fe61e8ce179d431333c6d1cc4a50cea"
+}
