@@ -1,0 +1,9 @@
+{
+  "source": "34aa980e31758fc6bb49ed17d7265fe6e0c0df53",
+  "status": "guarded verification stopped",
+  "failure": null,
+  "elapsed_seconds": 377.6631751060486,
+  "max_rss_bytes": 4943855616,
+  "minimum_free_disk": 28135575552,
+  "exit_code": -15
+}

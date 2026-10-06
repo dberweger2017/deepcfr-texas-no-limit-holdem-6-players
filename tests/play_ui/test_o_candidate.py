@@ -95,3 +95,32 @@ def test_bundle_retains_bytes_hashes_and_publication_hold(tmp_path, monkeypatch)
         assert bundle.sha(destination / name) == expected
     with pytest.raises(ValueError, match='Preserve'):
         bundle.build(path, destination, 'a' * 40)
+
+
+def test_bundle_verifier_checks_source_all_members_and_hold(tmp_path, monkeypatch):
+    from scripts import build_v041_bundle as bundle
+    from scripts import verify_v041_bundle as verifier
+    path, _ = model(tmp_path, monkeypatch)
+    # Small valid exports exercise the same verifier on every member.
+    for name in ('MODEL_BYTES', 'MODEL_SHA256', 'CHECKPOINT_SHA256', 'SEED', 'ITERATION'):
+        monkeypatch.setattr(verifier, name, getattr(candidate, name))
+        if hasattr(bundle, name):
+            monkeypatch.setattr(bundle, name, getattr(candidate, name))
+    destination = tmp_path / 'staged'
+    bundle.build(path, destination, 'a' * 40)
+    manifest_path = destination / 'release-manifest.json'
+    manifest = json.loads(manifest_path.read_text())
+    manifest['model']['seed'] = candidate.SEED
+    manifest['model']['iteration'] = candidate.ITERATION
+    manifest_path.write_text(json.dumps(manifest))
+    names = (bundle.ASSET_NAME, 'MODEL_CARD.md', 'RELEASE_NOTES.md', 'release-manifest.json')
+    (destination / 'SHA256SUMS').write_text(''.join(f'{bundle.sha(destination / name)}  {name}\n' for name in names))
+    assert verifier.verify_bundle(destination, 'a' * 40)['status'] == 'unpublished-owner-review'
+    with pytest.raises(ValueError, match='source'):
+        verifier.verify_bundle(destination, 'b' * 40)
+    (destination / 'RELEASE_NOTES.md').write_text('changed')
+    with pytest.raises(ValueError, match='Checksum'):
+        verifier.verify_bundle(destination)
+    (destination / 'unexpected-engine.bin').write_bytes(b'not a release asset')
+    with pytest.raises(ValueError, match='members'):
+        verifier.verify_bundle(destination)

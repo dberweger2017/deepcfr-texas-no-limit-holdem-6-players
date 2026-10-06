@@ -6,7 +6,7 @@ from pathlib import Path
 
 from src.diagnostics.cfr_average import DiagnosticAverage, EXTRACTIONS, FORMAT
 
-NAME = "O1B · seed 2026100601"
+NAME = "v0.4.1 · O1B · seed 2026100601"
 ASSET_NAME = "O1B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz"
 MODEL_BYTES = 142_677_367
 MODEL_SHA256 = "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d"
