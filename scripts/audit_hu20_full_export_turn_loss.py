@@ -17,14 +17,15 @@ def average(values):
     return math.fsum(values) / len(values)
 
 
-def audit(out):
+def audit(out, candidate_sha256='a5e9d0fc6f4a448640f52f508187f779e43a0a8fd41158207f03de82adc219e1'):
     manifest = json.loads((out / 'manifest.json').read_text())
     published = json.loads((out / 'summary.json').read_text())
     assert len(manifest['jobs']) == 40
     assert manifest['binary_sha256'] == 'fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f'
     assert sha(manifest['binary']) == manifest['binary_sha256']
     assert manifest['policies'][0]['sha256'] == '4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf'
-    assert manifest['policies'][1]['sha256'] == 'a5e9d0fc6f4a448640f52f508187f779e43a0a8fd41158207f03de82adc219e1'
+    assert len(candidate_sha256) == 64 and all(c in '0123456789abcdef' for c in candidate_sha256)
+    assert manifest['policies'][1]['sha256'] == candidate_sha256
     rows, files = [], []
     for job in manifest['jobs']:
         request = json.loads(Path(job['request']).read_text())
@@ -102,8 +103,9 @@ def audit(out):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--out', type=Path, required=True)
+    p.add_argument('--candidate-sha256', default='a5e9d0fc6f4a448640f52f508187f779e43a0a8fd41158207f03de82adc219e1')
     a = p.parse_args()
-    result = audit(a.out)
+    result = audit(a.out, a.candidate_sha256)
     print(json.dumps({key: result[key] for key in ('status', 'boards', 'raw_metrics_verified', 'independent_bootstrap_matches')}))
 
 

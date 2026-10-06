@@ -48,6 +48,9 @@ def audit(plan_path, run, out, expected_sha256, source):
     started = time.monotonic()
     p = json.loads(plan_path.read_text())
     assert digest(p) == expected_sha256
+    arms = tuple(dict.fromkeys(spec['arm'] for spec in p['models']))
+    assert set(arms) in ({'R', 'O'}, set(ARMS))
+    contrasts_to_check = [(a, b) for a, b in CONTRASTS if a in arms and b in arms]
     summary = json.loads((run / 'summary.json').read_text())
     outcomes = {}
     cells = defaultdict(lambda: defaultdict(Counter))
@@ -142,11 +145,11 @@ def audit(plan_path, run, out, expected_sha256, source):
     for panel in p['panels']:
         name, blocks = panel['name'], range(panel['blocks'])
         series = {}
-        for arm in ARMS:
+        for arm in arms:
             series[arm] = [math.fsum(outcomes[arm, lineage, name, block, position] for lineage in (1, 2, 3) for position in ('button', 'big_blind')) / 6 for block in blocks]
             absolute.setdefault(arm, {})[name] = stats(series[arm])
             close(absolute[arm][name], summary['absolute_bb_per_100'][arm][name])
-        for a, b in CONTRASTS:
+        for a, b in contrasts_to_check:
             label = a + '-' + b
             result = stats([x - y for x, y in zip(series[a], series[b], strict=True)])
             contrasts.setdefault(label, {})[name] = result
@@ -161,11 +164,11 @@ def audit(plan_path, run, out, expected_sha256, source):
     overall_series = {arm: [math.fsum(outcomes[arm, lineage, panel['name'], block, position]
                                       for panel in p['panels'] for lineage in (1, 2, 3)
                                       for position in ('button', 'big_blind')) / (6 * len(p['panels']))
-                           for block in range(common_blocks)] for arm in ARMS}
+                           for block in range(common_blocks)] for arm in arms}
     overall = {'blocks': common_blocks, 'weighting': 'equal panel, common paired blocks only',
                'absolute_bb_per_100': {arm: stats(values) for arm, values in overall_series.items()},
                'contrasts_bb_per_100': {a + '-' + b: stats([x - y for x, y in zip(overall_series[a], overall_series[b], strict=True)])
-                                        for a, b in CONTRASTS}}
+                                        for a, b in contrasts_to_check}}
     primary = contrasts['O-R']
     lbr_ci = primary['lbr']['ci95']
     pressure_ci = primary['native-pressure']['ci95']

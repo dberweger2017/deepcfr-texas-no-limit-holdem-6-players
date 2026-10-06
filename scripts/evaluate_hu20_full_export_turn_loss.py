@@ -102,7 +102,7 @@ def prepare(arena_plan, policies, prepared, references, out, binary, reference_i
     return manifest
 
 
-def evaluate(out, limit=None, max_seconds=7200):
+def evaluate(out, limit=None, max_seconds=7200, job_memory_bytes=7 * 1024**3):
     deadline = time() + max_seconds
     manifest = json.loads((out / 'manifest.json').read_text())
     if file_hash(manifest['binary']) != manifest['binary_sha256']:
@@ -131,7 +131,7 @@ def evaluate(out, limit=None, max_seconds=7200):
         runtime = run_owned_tool(Path(manifest['binary']), Path(job['request']), leaf / 'solver',
                                  memory_bytes=request['memory_budget_bytes'], threads=6,
                                  seconds=min(request['seconds'] + 300, deadline - time()),
-                                 job_memory_bytes=7 * 1024**3)
+                                 job_memory_bytes=job_memory_bytes)
         if runtime['status'] != 'completed':
             raise RuntimeError(runtime['failure'])
         metrics = [row for row in map(json.loads, (leaf / 'solver/response.jsonl').read_text().splitlines())
@@ -183,15 +183,16 @@ def main():
         p.add_argument('--' + name, type=Path)
     p.add_argument('--limit', type=int)
     p.add_argument('--max-seconds', type=float, default=7200)
+    p.add_argument('--job-memory-gib', type=float, default=7)
     a = p.parse_args()
     if a.command == 'prepare':
         result = prepare(json.loads(a.arena_plan.read_text()), a.policies, a.prepared, a.references,
                          a.out, a.binary, a.reference_inventory)
         print(json.dumps({'jobs': len(result['jobs']), 'binary_sha256': result['binary_sha256']}))
     elif a.command == 'evaluate':
-        if a.max_seconds <= 0:
-            p.error('--max-seconds must be positive')
-        evaluate(a.out, a.limit, a.max_seconds)
+        if a.max_seconds <= 0 or a.job_memory_gib <= 0:
+            p.error('--max-seconds and --job-memory-gib must be positive')
+        evaluate(a.out, a.limit, a.max_seconds, int(a.job_memory_gib * 1024**3))
     else:
         result = report(a.out)
         print(json.dumps({k: result[k] for k in ('boards', 'E_bb', 'Q', 'paired_delta_E_bb')}))

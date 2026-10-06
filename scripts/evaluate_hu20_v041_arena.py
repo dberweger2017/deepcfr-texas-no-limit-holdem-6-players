@@ -112,6 +112,10 @@ def contrast(means, a, b, panel):
 
 
 def report(plan, out):
+    arms = tuple(dict.fromkeys(spec["arm"] for spec in plan["models"]))
+    if set(arms) not in ({"R", "O"}, set(ARMS)):
+        raise ValueError("Arena requires R/O or all four declared arms")
+    comparisons = tuple((a, b) for a, b in (PRIMARY, *SECONDARY) if a in arms and b in arms)
     rows = []
     for spec in plan["models"]:
         result = json.loads((out / f"{spec['name']}.result.json").read_text())
@@ -126,9 +130,9 @@ def report(plan, out):
         raise ValueError(f"Frozen schedule coverage differs: {len(rows)} of {expected}")
     means = block_means(rows)
     panels = [p["name"] for p in plan["panels"]]
-    absolute = {arm: {panel: estimate(list(means[(arm, panel)].values())) for panel in panels} for arm in ARMS}
+    absolute = {arm: {panel: estimate(list(means[(arm, panel)].values())) for panel in panels} for arm in arms}
     contrasts = {f"{a}-{b}": {panel: contrast(means, a, b, panel) for panel in panels}
-                 for a, b in (PRIMARY, *SECONDARY)}
+                 for a, b in comparisons}
     primary = contrasts["O-R"]
     lower = lambda e: e["ci95"][0] if e["ci95"] else None
     upper = lambda e: e["ci95"][1] if e["ci95"] else None
@@ -141,7 +145,8 @@ def report(plan, out):
     }
     summary = {"plan_sha256": digest(plan), "hands": len(rows), "absolute_bb_per_100": absolute,
                "contrasts_bb_per_100": contrasts, "release_checks": checks, "release_rule_passed": all(checks.values()),
-               "scope": "paired fresh blocks, three-lineage means; primary O-R gates; C-R, O-C, O-T exploratory"}
+               "scope": ("paired fresh blocks, three-lineage means; primary O-R gates; C-R, O-C, O-T exploratory"
+                         if set(arms) == set(ARMS) else "paired fresh blocks, three-lineage means; R/O-only primary O-R gates")}
     (out / "summary.json").write_text(json.dumps(summary, indent=1, sort_keys=True) + "\n")
     return summary
 

@@ -61,3 +61,14 @@ def test_missing_hands_are_refused(tmp_path):
         stream.write("")
     with pytest.raises(ValueError, match="coverage"):
         arena.report(p, tmp_path)
+
+
+def test_ro_only_reports_no_undeclared_arms(tmp_path):
+    p = plan()
+    p['models'] = [m for m in p['models'] if m['arm'] in ('R', 'O')]
+    write(tmp_path, p, lambda arm, seed, panel, block, rotation:
+          noise(arm, seed, block, rotation) + (40 if arm == 'O' else 0))
+    result = arena.report(p, tmp_path)
+    assert set(result['absolute_bb_per_100']) == {'R', 'O'}
+    assert set(result['contrasts_bb_per_100']) == {'O-R'}
+    assert result['release_rule_passed']
