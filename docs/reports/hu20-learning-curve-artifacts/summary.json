@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "bb_per_100": 14.185855263157896,
+      "blocks": 77824,
+      "ci95": [
+        11.559123981775572,
+        16.81258654454022
+      ],
+      "label": "better",
+      "name": "Primary A: O@1B vs O@100M",
+      "family": "A-1B-vs-100M",
+      "hands": 155648,
+      "decisions": 767435,
+      "half_width": 2.626731281382324
+    },
+    {
+      "bb_per_100": 5.31005859375,
+      "blocks": 65536,
+      "ci95": [
+        2.713259809220231,
+        7.906857378279769
+      ],
+      "label": "better",
+      "name": "Primary B: O@1B vs O@500M",
+      "family": "B-1B-vs-500M",
+      "hands": 131072,
+      "decisions": 678534,
+      "half_width": 2.596798784529769
+    },
+    {
+      "bb_per_100": -7.412237870065789,
+      "blocks": 77824,
+      "ci95": [
+        -10.159142427005646,
+        -4.665333313125933
+      ],
+      "label": "worse",
+      "name": "Secondary C: O@100M vs R1",
+      "family": "C-100M-vs-R1",
+      "hands": 155648,
+      "decisions": 742209,
+      "half_width": 2.7469045569398567
+    },
+    {
+      "bb_per_100": 7.677580180921052,
+      "blocks": 77824,
+      "ci95": [
+        5.045966422356844,
+        10.309193939485262
+      ],
+      "label": "better",
+      "name": "Secondary D: O@500M vs R1",
+      "family": "D-500M-vs-R1",
+      "hands": 155648,
+      "decisions": 781899,
+      "half_width": 2.631613758564209
+    }
+  ],
+  "interpretation": "O is still improving near 1B in this lineage. The direct 1B\u2013500M interval clears zero, so the predeclared next step is guarded scaling to 2B, 5B and 10B. No new matches run before the owner decides.",
+  "hands": 598016,
+  "actions": 2970077,
+  "pilot_hands": 32768,
+  "pilot_actions": 162192,
+  "all_primary_half_widths_le_3": true
+}

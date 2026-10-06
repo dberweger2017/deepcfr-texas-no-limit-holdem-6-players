@@ -1,0 +1,44 @@
+[
+  {
+    "bytes": 40144034,
+    "iteration": 246212,
+    "name": "R1",
+    "path": "R1.current.json.gz",
+    "seed": 2026093001,
+    "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+    "strategy": "current"
+  },
+  {
+    "bytes": 67504285,
+    "checkpoint_sha256": "115fba4b7eb3d4a026d0283a3b1fef6c5aa9bdf7c3a704d65025d4713f89954e",
+    "iteration": 247261,
+    "name": "O@100000000",
+    "nodes": 100000000,
+    "path": "O-100000000.average.jsonl.gz",
+    "seed": 2026100601,
+    "sha256": "4b2eb840f0004101f712f2aaeaa31c7bad554a3de00f0abce9b95135c0198752",
+    "strategy": "average"
+  },
+  {
+    "bytes": 115356588,
+    "checkpoint_sha256": "a5318cd586c0b170a68334e4236111faddabaf7f686c071958757db888afab47",
+    "iteration": 1095942,
+    "name": "O@500000000",
+    "nodes": 500000000,
+    "path": "O-500000000.average.jsonl.gz",
+    "seed": 2026100601,
+    "sha256": "025e5c641bd9eb1962946b72cd0b4ddf985334431fcedc438050c85eb072b96f",
+    "strategy": "average"
+  },
+  {
+    "bytes": 142677367,
+    "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+    "iteration": 2126271,
+    "name": "O@1000000000",
+    "nodes": 1000000000,
+    "path": "O-1000000000.average.jsonl.gz",
+    "seed": 2026100601,
+    "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+    "strategy": "average"
+  }
+]

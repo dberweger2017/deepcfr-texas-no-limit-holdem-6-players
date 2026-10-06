@@ -1,0 +1,56 @@
+{
+  "costs": {
+    "A-1B-vs-100M": {
+      "peak_rss_bytes": 3200794624,
+      "pilot_seconds": 42.88306083300267,
+      "seconds_per_block": 0.002056904826496009,
+      "startup_seconds": 34.45797866367502
+    },
+    "B-1B-vs-500M": {
+      "peak_rss_bytes": 3188621312,
+      "pilot_seconds": 51.09559649997391,
+      "seconds_per_block": 0.0022536557962951065,
+      "startup_seconds": 41.86462235834915
+    },
+    "C-100M-vs-R1": {
+      "peak_rss_bytes": 2646360064,
+      "pilot_seconds": 24.616438625002047,
+      "seconds_per_block": 0.0018848488596177049,
+      "startup_seconds": 16.896097696007928
+    },
+    "D-500M-vs-R1": {
+      "peak_rss_bytes": 3828940800,
+      "pilot_seconds": 32.15768229201785,
+      "seconds_per_block": 0.001917897876886343,
+      "startup_seconds": 24.30197258829139
+    }
+  },
+  "pilot_means_intervals_labels_inspected": false,
+  "replay_report_seconds": 1207.434219009825,
+  "requested_half_width": 3,
+  "serial_play_seconds": 721.237780811236,
+  "sizing": {
+    "A-1B-vs-100M": {
+      "block_sd": 374.8930962802378,
+      "blocks": 77824,
+      "projected_half_width": 2.633937794144451
+    },
+    "B-1B-vs-500M": {
+      "block_sd": 350.4019447818307,
+      "blocks": 65536,
+      "projected_half_width": 2.682765141225794
+    },
+    "C-100M-vs-R1": {
+      "block_sd": 392.6980095558968,
+      "blocks": 77824,
+      "projected_half_width": 2.759032212962893
+    },
+    "D-500M-vs-R1": {
+      "block_sd": 378.8327988607276,
+      "blocks": 77824,
+      "projected_half_width": 2.661617502379685
+    }
+  },
+  "target_half_width": 2.7,
+  "with_50_percent_headroom_seconds": 2893.0079997315916
+}
