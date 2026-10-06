@@ -1,0 +1,185 @@
+{
+  "families": {
+    "A-10B-vs-1B": {
+      "plan": {
+        "blocks": 61440,
+        "max_seconds": 7200,
+        "maximum_evaluation_workers": 1,
+        "pairs": [
+          {
+            "candidate": {
+              "bytes": 249237403,
+              "checkpoint_sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+              "iteration": 19538759,
+              "name": "O@10000000000",
+              "nodes": 10000000000,
+              "path": "O-10000000000.average.jsonl.gz",
+              "seed": 2026100601,
+              "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+              "strategy": "average"
+            },
+            "reference": {
+              "bytes": 142677367,
+              "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+              "iteration": 2126271,
+              "name": "O@1000000000",
+              "nodes": 1000000000,
+              "path": "O-1000000000.average.jsonl.gz",
+              "seed": 2026100601,
+              "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+              "strategy": "average"
+            }
+          }
+        ],
+        "primary_pairs": [
+          1
+        ],
+        "resource_patch_sha256": "6ec207a549e2286aa26cf8fa6250ae51367cbfa5132e7e21fa8c4ef57e5d26ae",
+        "root": 202610066201,
+        "rss_limit_bytes": 8589934592,
+        "scope": "A-10B-vs-1B; nominal paired Student-t 95%; one seed 2026100601; frozen final",
+        "source_commit": "8bbfc457 plus owner-approved RSS constant patch",
+        "started_at": 1791305394.5818691,
+        "trainer_source_commit": "cdc315f00a6d077af3a4d13c438103354d1b4b5b"
+      },
+      "sha256": "a69223df07da81507c7dac945f9acfbf9577a12a811e5423078b1b29eddead39"
+    },
+    "B-2B-vs-1B": {
+      "plan": {
+        "blocks": 61440,
+        "max_seconds": 7200,
+        "maximum_evaluation_workers": 1,
+        "pairs": [
+          {
+            "candidate": {
+              "bytes": 170733025,
+              "checkpoint_sha256": "aa91646d59614c3df1544c96bf74d0483d278d3c4e5c8e844ad0f30b1d910d5b",
+              "iteration": 4158342,
+              "name": "O@2000000000",
+              "nodes": 2000000000,
+              "path": "O-2000000000.average.jsonl.gz",
+              "seed": 2026100601,
+              "sha256": "81908b1d58a8ff19ceb7b5f81e93babf82e390f30853c214d4b7406c8704d452",
+              "strategy": "average"
+            },
+            "reference": {
+              "bytes": 142677367,
+              "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+              "iteration": 2126271,
+              "name": "O@1000000000",
+              "nodes": 1000000000,
+              "path": "O-1000000000.average.jsonl.gz",
+              "seed": 2026100601,
+              "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+              "strategy": "average"
+            }
+          }
+        ],
+        "primary_pairs": [
+          1
+        ],
+        "resource_patch_sha256": "6ec207a549e2286aa26cf8fa6250ae51367cbfa5132e7e21fa8c4ef57e5d26ae",
+        "root": 202610066201,
+        "rss_limit_bytes": 8589934592,
+        "scope": "B-2B-vs-1B; nominal paired Student-t 95%; one seed 2026100601; frozen final",
+        "source_commit": "8bbfc457 plus owner-approved RSS constant patch",
+        "started_at": 1791305394.5818691,
+        "trainer_source_commit": "cdc315f00a6d077af3a4d13c438103354d1b4b5b"
+      },
+      "sha256": "3126f7d4efe4b618ce62912a7e18625d09b46365f76133d773331d7e9f594ac3"
+    },
+    "C-5B-vs-1B": {
+      "plan": {
+        "blocks": 61440,
+        "max_seconds": 7200,
+        "maximum_evaluation_workers": 1,
+        "pairs": [
+          {
+            "candidate": {
+              "bytes": 214796948,
+              "checkpoint_sha256": "2af7f04e094cc5a8975c22c230677ee65d4effff2b7dca3cfc7387b3bae14d0f",
+              "iteration": 9971555,
+              "name": "O@5000000000",
+              "nodes": 5000000000,
+              "path": "O-5000000000.average.jsonl.gz",
+              "seed": 2026100601,
+              "sha256": "ab8ce0087f6bfefde447ebe48ad754c094db13318803df890488eb1283453193",
+              "strategy": "average"
+            },
+            "reference": {
+              "bytes": 142677367,
+              "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+              "iteration": 2126271,
+              "name": "O@1000000000",
+              "nodes": 1000000000,
+              "path": "O-1000000000.average.jsonl.gz",
+              "seed": 2026100601,
+              "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+              "strategy": "average"
+            }
+          }
+        ],
+        "primary_pairs": [
+          1
+        ],
+        "resource_patch_sha256": "6ec207a549e2286aa26cf8fa6250ae51367cbfa5132e7e21fa8c4ef57e5d26ae",
+        "root": 202610066201,
+        "rss_limit_bytes": 8589934592,
+        "scope": "C-5B-vs-1B; nominal paired Student-t 95%; one seed 2026100601; frozen final",
+        "source_commit": "8bbfc457 plus owner-approved RSS constant patch",
+        "started_at": 1791305394.5818691,
+        "trainer_source_commit": "cdc315f00a6d077af3a4d13c438103354d1b4b5b"
+      },
+      "sha256": "46945c38a2386ab9c34fda732bfbb906aa6fac8174ceba4a54e3f90978005ce3"
+    },
+    "D-10B-vs-R1": {
+      "plan": {
+        "blocks": 61440,
+        "max_seconds": 7200,
+        "maximum_evaluation_workers": 1,
+        "pairs": [
+          {
+            "candidate": {
+              "bytes": 249237403,
+              "checkpoint_sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+              "iteration": 19538759,
+              "name": "O@10000000000",
+              "nodes": 10000000000,
+              "path": "O-10000000000.average.jsonl.gz",
+              "seed": 2026100601,
+              "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+              "strategy": "average"
+            },
+            "reference": {
+              "bytes": 40144034,
+              "iteration": 246212,
+              "name": "R1",
+              "path": "R1.current.json.gz",
+              "seed": 2026093001,
+              "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+              "strategy": "current"
+            }
+          }
+        ],
+        "primary_pairs": [
+          1
+        ],
+        "resource_patch_sha256": "6ec207a549e2286aa26cf8fa6250ae51367cbfa5132e7e21fa8c4ef57e5d26ae",
+        "root": 202610066201,
+        "rss_limit_bytes": 8589934592,
+        "scope": "D-10B-vs-R1; nominal paired Student-t 95%; one seed 2026100601; frozen final",
+        "source_commit": "8bbfc457 plus owner-approved RSS constant patch",
+        "started_at": 1791305394.5818691,
+        "trainer_source_commit": "cdc315f00a6d077af3a4d13c438103354d1b4b5b"
+      },
+      "sha256": "9d962fc7e0a335122bb73b0de7fb9fbd40cc59467e72098e69c78ffc82425164"
+    }
+  },
+  "max_seconds": 7200,
+  "maximum_evaluation_workers": 1,
+  "orchestration_sha256": "34b65308e7ae2cb9c660722aaee8593b441b4dd3a9969a5dd3f05128bc11454b",
+  "resource_patch_sha256": "6ec207a549e2286aa26cf8fa6250ae51367cbfa5132e7e21fa8c4ef57e5d26ae",
+  "root": 202610066201,
+  "rss_limit_bytes": 8589934592,
+  "started_at": 1791305394.5818691
+}
