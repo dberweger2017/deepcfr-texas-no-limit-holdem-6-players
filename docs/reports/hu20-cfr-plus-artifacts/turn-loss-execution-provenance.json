@@ -1,0 +1,22 @@
+{
+  "prepare_and_pilot_source": "4e505e8",
+  "continuation_source": "9334341c366c1d51200b9b06f03445f274966840",
+  "manifest_sha256": "6969cd3044cd852b1bcf370400064b2c7ddfec8e285b653acda9a0579d700082",
+  "pilot_seconds": 39.38909949999652,
+  "nominal_remaining_seconds": 1536.1748804998642,
+  "quoted_remaining_seconds_with_headroom": 2304.2623207497963,
+  "quote_URL": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/171#issuecomment-6011704579",
+  "max_aggregate_seconds": 7200,
+  "continuation_started_at": 1791272513.816832,
+  "M4_required_arena_complete": {
+    "models": [
+      "O-2026100601",
+      "O-2026100602",
+      "O-2026100603",
+      "C-2026100601",
+      "C-2026100602",
+      "C-2026100603"
+    ],
+    "completed_at": 1791272097.366498
+  }
+}
