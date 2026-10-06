@@ -454,6 +454,20 @@ def test_fixed_work_search_never_substitutes_base_on_any_defect(cause, query_kin
     assert not any(":fallback:" in key for key in policy.stats)
 
 
+@pytest.mark.parametrize("cause", ["timeout","memory_refusal","zero_support","solver_exit","invalid_response"])
+def test_owner_continue_mode_records_the_defect_and_plays_the_base_action(cause):
+    class Broken(FakeSolver):
+        def solve(self,request,deadline):
+            assert deadline is None
+            raise SolveFailure(cause,"recorded defect")
+    hand=fixture();policy=HU20TurnSearchPolicy(Uniform(),Broken(),fixed_config())
+    policy.continue_on_defect=True
+    menu,p,trained=policy.distribution(hand.observe(hand.actor),query_kind="play")
+    assert policy.stats["play:fallback:"+cause]==1
+    assert policy.records[-1]["status"]=="fallback" and policy.records[-1]["cause"]==cause
+    assert abs(sum(p)-1)<1e-9 and menu
+
+
 def test_fixed_work_has_no_preparation_deadline_and_requires_exact_setting(monkeypatch):
     import src.blueprint.hu20_turn_search as search
     config=fixed_config();hand=fixture();solver=FakeSolver()

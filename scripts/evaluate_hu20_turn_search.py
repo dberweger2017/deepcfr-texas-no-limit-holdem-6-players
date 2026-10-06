@@ -112,6 +112,29 @@ def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, searc
     return row
 
 
+def read_complete_rows(path):
+    """Every fully written hand of a possibly truncated gzip stream (a worker killed mid-write)."""
+    rows=[]
+    try:
+        with gzip.open(path,"rt") as stream:
+            for line in stream:
+                try:rows.append(json.loads(line))
+                except ValueError:break
+    except (EOFError,OSError):pass
+    return rows
+
+
+def compact_row(row,phase):
+    compact = {k:v for k,v in row.items() if k not in
+        ("actions","search_records","search_counts","lbr_zero_likelihood")}
+    compact["actions"] = [{"target_key":a["target_key"],"street":a["street"],
+        **({"lbr":{"completed":a["lbr"]["completed"]}} if "lbr" in a else {})}
+        for a in row["actions"]]
+    if phase == "timing":
+        compact["search_records"] = row["search_records"]
+    return compact
+
+
 def summarize_phase(rows,phase):
     # The existing paired estimator uses current/average names. Keep those aliases
     # inside arithmetic only; retained hands identify their actual policy and arm.
@@ -155,7 +178,7 @@ def timing_summary(rows, loaded):
 
 
 def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config=None,
-        worker_index=0, worker_count=1):
+        worker_index=0, worker_count=1, resume=False):
     if not 0 <= worker_index < worker_count:
         raise ValueError("Invalid independent worker coordinate")
     if phase not in SEARCH_PHASES and worker_count != 1:
@@ -180,7 +203,9 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
             raise ValueError("Timing pilot must bind three lineages and the selected search configuration")
     expected = (2*len(plan["models"])*(2 if phase in SEARCH_PHASES else 1)
                 *sum(len(range(worker_index,p["blocks"],worker_count)) for p in plan["panels"]))
-    out.mkdir(parents=True,exist_ok=False)
+    # Resume (owner-approved crash recovery) restarts one worker on its own static partition: completed
+    # hands are kept, only missing coordinates are played, and the crashed stream is retained beside them.
+    out.mkdir(parents=True,exist_ok=resume)
     started = perf_counter(); rows = []; loaded = []; failure = None
     source_commit = subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
     try:
@@ -199,22 +224,30 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
             policy = HU20TurnSearchPolicy(source,solver,search_config) if solver else None
             arms = ("base","search") if phase in SEARCH_PHASES else (spec["strategy"],)
             for arm in arms:
-                with gzip.open(out / (spec["name"]+"."+arm+".hands.jsonl.gz"),"wt") as stream:
+                hands_path = out / (spec["name"]+"."+arm+".hands.jsonl.gz")
+                recovered = []
+                if resume and hands_path.exists():
+                    recovered = read_complete_rows(hands_path)
+                    keep = out / f"{hands_path.name}.crashed-{int(perf_counter()*1000)}"
+                    hands_path.rename(keep)
+                    with (out/"resume-log.jsonl").open("a") as log:
+                        log.write(json.dumps({"stream":hands_path.name,"recovered_hands":len(recovered),
+                                              "crashed_stream":keep.name})+"\n")
+                done = {(r["panel"],r["block"],r["rotation"]) for r in recovered}
+                with gzip.open(hands_path,"wt") as stream:
+                    for row in recovered:
+                        stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+"\n")
+                        rows.append(compact_row(row,phase))
+                    stream.flush()
                     for panel in plan["panels"]:
                         for block in range(worker_index,panel["blocks"],worker_count):
                             for rotation in (0,1):
+                                if (panel["name"],block,rotation) in done: continue
                                 row = play(source,spec,panel,plan["root"],block,rotation,budget.check,
                                     search=policy if arm == "search" and phase in SEARCH_PHASES else None,arm=arm,failure_dir=out/"partials",
                                     fixed_work=plan.get("work_protocol")=="hu20-fixed50-no-fallback-v1")
                                 stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+"\n");stream.flush()
-                                compact = {k:v for k,v in row.items() if k not in
-                                    ("actions","search_records","search_counts","lbr_zero_likelihood")}
-                                compact["actions"] = [{"target_key":a["target_key"],"street":a["street"],
-                                    **({"lbr":{"completed":a["lbr"]["completed"]}} if "lbr" in a else {})}
-                                    for a in row["actions"]]
-                                if phase == "timing":
-                                    compact["search_records"] = row["search_records"]
-                                rows.append(compact)
+                                rows.append(compact_row(row,phase))
                                 if policy:
                                     policy.records.clear(); solver.records.clear()
                                 if len(rows)%12 == 0:
@@ -252,6 +285,7 @@ def main():
     p.add_argument("--phase",choices=("pilot","part-a","arena","timing"),default="part-a")
     p.add_argument("--binary",type=Path); p.add_argument("--search-config",type=Path)
     p.add_argument("--paid-approval",type=Path)
+    p.add_argument("--resume",action="store_true",help="Continue this worker's own static partition after a crash")
     p.add_argument("--worker-index",type=int,default=0);p.add_argument("--worker-count",type=int,default=1)
     args=p.parse_args(); plan=json.loads(args.plan.read_text())
     if args.phase in SEARCH_PHASES:
@@ -280,7 +314,7 @@ def main():
     status="failed"; reason=None
     try:
         result=run(plan,args.inputs,args.out,budget,phase=args.phase,binary=args.binary,search_config=config,
-                   worker_index=args.worker_index,worker_count=args.worker_count)
+                   worker_index=args.worker_index,worker_count=args.worker_count,resume=args.resume)
         status=result["status"];reason=result["failure"]
         print(json.dumps({k:result[k] for k in ("status","hands","failure","base_decision")}))
     finally:

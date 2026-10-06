@@ -73,6 +73,14 @@ def observed_likelihood(menu, probabilities, action):
 class HU20TurnSearchPolicy:
     """Live play retains full matrices; hypothetical probes only populate caches."""
 
+    # Owner-selected operating rule for the autonomous arena: a defect in the fixed-work protocol is recorded
+    # as a base-policy fallback (cause, timing and hand identity retained) and play continues. The strict
+    # default still raises before any action is chosen.
+    continue_on_defect = False
+
+    def _strict(self):
+        return self.config.decision_seconds is None and not self.continue_on_defect
+
     def __init__(self, blueprint, solver, config=TurnSearchConfig()):
         self.blueprint = blueprint
         self.abstraction = getattr(blueprint, "abstraction", None)
@@ -215,7 +223,7 @@ class HU20TurnSearchPolicy:
                     try:
                         matrix = self._resolve(prior, bot_seat, deadline).matrix(prior)
                     except SolveFailure as exc:
-                        if self.config.decision_seconds is None:raise
+                        if self._strict():raise
                         counts["turn_conditioning_fallback:" + exc.cause] += 1
                         self.stats["range:turn_conditioning_fallback:"+exc.cause]+=1
             for j, pair in enumerate(pairs):
@@ -307,7 +315,7 @@ class HU20TurnSearchPolicy:
             except KeyError:
                 pass
             except SolveFailure:
-                if self.config.decision_seconds is None:raise
+                if self._strict():raise
                 # Prior failed decisions stay base-policy locks, never vanish.
                 pass
         started = monotonic()
@@ -323,7 +331,7 @@ class HU20TurnSearchPolicy:
                     try:
                         matrix = self._resolve(prior, bot_seat, deadline).matrix(prior)
                     except SolveFailure:
-                        if self.config.decision_seconds is None:raise
+                        if self._strict():raise
                         holdings = [h for h, w in ranges[bot_seat] if w > 0]
                         matrix = self._base_matrix(prior, holdings)
                 fixed[line_key(betting_line(root, prior))] = matrix
@@ -388,13 +396,13 @@ class HU20TurnSearchPolicy:
             self.stats["played_matrix_hits"]+=1
             if used[1] or tuple(sorted(view.hole_cards)) not in used[3]["supported"]:
                 cause=used[3]["cause"] if used[1] else "unsupported_holding"
-                if self.config.decision_seconds is None:raise SolveFailure(cause,"Cached search defect")
+                if self._strict():raise SolveFailure(cause,"Cached search defect")
                 self.stats[query_kind+":fallback:"+cause]+=1
                 return self.blueprint.distribution(view)
             self.stats[query_kind+":search"]+=1
             try:return used[0].menu,used[0].row(view.hole_cards),True
             except SolveFailure:
-                if self.config.decision_seconds is None:raise
+                if self._strict():raise
                 return self.blueprint.distribution(view)
         started = monotonic()
         deadline=None if self.config.decision_seconds is None else started+self.config.decision_seconds
@@ -419,7 +427,7 @@ class HU20TurnSearchPolicy:
             return matrix.menu, probabilities, True
         except (SolveFailure, ValueError, KeyError) as exc:
             cause = exc.cause if isinstance(exc, SolveFailure) else "invalid_response"
-            if self.config.decision_seconds is None:
+            if self._strict():
                 self.stats[query_kind+":defect:"+cause]+=1
                 self.records.append({"status":"defect","cause":cause,"query_kind":query_kind,
                     "street":view.street.value,"public_history":public_identity(view.history),

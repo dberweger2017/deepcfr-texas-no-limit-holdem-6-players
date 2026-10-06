@@ -23,6 +23,21 @@ def admission():
         "rss_limit_bytes":5*1024**3,"145_report_sha256":"report","ownership_evidence":"verified"}
 
 
+def test_resume_reads_every_complete_hand_of_a_truncated_stream(tmp_path):
+    path = tmp_path / "hands.jsonl.gz"
+    with gzip.open(path, "wt") as stream:
+        for block in range(40):
+            stream.write(json.dumps({"panel": "p", "block": block, "rotation": 0, "pad": "x" * 500}) + "\n")
+            stream.flush()
+    whole = path.read_bytes()
+    # A worker killed mid-write leaves an unterminated stream whose tail may be cut anywhere.
+    for cut in (len(whole) - 8, len(whole) - 300, len(whole) // 2):
+        path.write_bytes(whole[:cut])
+        rows = campaign.read_complete_rows(path)
+        assert 1 <= len(rows) <= 40 and [r["block"] for r in rows] == list(range(len(rows)))
+    assert campaign.read_complete_rows(tmp_path / "missing.gz") == []
+
+
 @pytest.mark.parametrize("change",[{"145_main_complete":False},{"145_final_report_pushed":False},
     {"145_processes_empty":False},{"followup_claim":"pending"},{"checked_at":0},
     {"reclaimable_bytes":1024**3},{"ownership_evidence":None}])

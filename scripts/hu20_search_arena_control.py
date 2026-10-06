@@ -55,10 +55,18 @@ class ArenaControl:
             "decisions": len(self.state["events"]),
             "fallbacks": sum(r["fallback"] for r in self.state["events"]),
             "event_file": str(self.event_path)})
+        if self.state["status"] == "stopped":
+            # Marker the operator's periodic check-in reads; written once, first reason survives.
+            marker = self.journal.parent / "POD_STOPPED.json"
+            if not marker.exists():
+                durable_json(marker, {"at": self.clock(), "reason": self.state["reason"],
+                                      "kind": self.state.get("stop_kind", "defect"),
+                                      "decisions": len(self.state["events"])})
 
-    def stop(self, reason):
+    def stop(self, reason, kind="defect"):
+        # kind: "defect" (search/correctness/transport) or "fleet" (the operator relayed another pod's stop).
         if self.state["status"] != "stopped":
-            self.state.update(status="stopped", reason=reason)
+            self.state.update(status="stopped", reason=reason, stop_kind=kind)
 
     def charge(self):
         ledger = json.loads(self.ledger.read_text())
@@ -69,6 +77,14 @@ class ArenaControl:
 
     def guard(self):
         ledger = json.loads(self.ledger.read_text())
+        if ledger.get("autonomous_pod"):
+            # Autonomous pod: every check is local and there is no fleet ledger or spend limit. The operator's
+            # periodic check-in drops STOP_REQUEST here to propagate another pod's defect stop.
+            request = self.journal.parent / "STOP_REQUEST"
+            if request.exists():
+                self.stop("Fleet stop requested: " + request.read_text()[:300], "fleet")
+            self.state["conservative_charge_usd"] = self.charge()
+            return
         ceiling=ledger.get("hard_ceiling_usd",25)
         dispatch=ledger.get("dispatch_stop_usd",21)
         reserve=ledger.get("closeout_reserve_usd",4)
@@ -95,7 +111,10 @@ class ArenaControl:
         return 500 if n < 500 else 500 + ((n - 500) // 100 + 1) * 100
 
     def checkpoint(self, pod=None):
-        if json.loads(self.ledger.read_text()).get("work_protocol")=="hu20-fixed50-no-fallback-v1":
+        ledger = json.loads(self.ledger.read_text())
+        if ledger.get("autonomous_pod"):
+            return  # Owner rule: fallbacks are recorded per decision and never stop the run.
+        if ledger.get("work_protocol")=="hu20-fixed50-no-fallback-v1":
             if any(row["fallback"] for row in self.rows(pod)):
                 self.stop("Search fallback is a defect under fixed-work protocol")
             return
@@ -172,6 +191,8 @@ class ControlClient:
 
     def __init__(self, url, pod, worker, token=None):
         self.url, self.pod, self.worker = url, pod, worker
+        # A restarted worker process gets its own epoch so decision keys never collide with its earlier life.
+        self.epoch = int(os.environ.get("HU20_WORKER_EPOCH", "0"))
         self.sequence = 0
         self.token = token
 
@@ -200,7 +221,7 @@ class ControlClient:
 
     def acquire(self, guard):
         self.sequence += 1
-        event = f"{self.worker}/{self.sequence}"
+        event = f"{self.worker}/{self.epoch}/{self.sequence}"
         while True:
             guard()
             result = self.request("acquire", event=event)

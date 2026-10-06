@@ -1,36 +1,45 @@
 """Add operational admission to the unchanged approved arena worker."""
 
 from collections import Counter
+import json
 import os
-from time import monotonic
+from time import monotonic, time
 
 from scripts.hu20_search_arena_control import ControlClient
 
 
-def guarded_policy(policy_class, client, guard):
+def guarded_policy(policy_class, client, guard, defect_log=None):
+    """Owner rule for the autonomous arena: record every fallback/defect per decision and keep playing.
+
+    The policy falls back to its base action with the cause and timing retained, and later queries in
+    the hand stay consistent with that fallback. A process crash is handled by the pod's worker loop.
+    """
     class GuardedPolicy(policy_class):
+        continue_on_defect = True
+
         def distribution(self, view, *, query_kind="probe"):
             if query_kind != "play" or view.street.value not in ("turn", "river"):
-                try:return super().distribution(view,query_kind=query_kind)
-                except Exception as exc:
-                    client.request("stop",reason="Search/probe defect: "+str(exc))
-                    raise
+                return super().distribution(view, query_kind=query_kind)
             event = client.acquire(guard)
             before = Counter(self.stats)
-            try:
-                result = super().distribution(view, query_kind=query_kind)
-            except Exception as exc:
-                client.request("stop",reason="Search defect: "+str(exc))
-                raise
+            records_before = len(getattr(self, "records", ()))
+            result = super().distribution(view, query_kind=query_kind)
             delta = self.stats - before
             causes = [key.split("play:fallback:", 1)[1] for key, count in delta.items()
                       if key.startswith("play:fallback:") and count]
-            gap = any(k.startswith("range:turn_conditioning_fallback:") and v for k, v in delta.items())
-            fixed_work=getattr(getattr(self,"config",None),"decision_seconds",30) is None
-            if gap or (fixed_work and causes) or any(c not in ("timeout", "memory_refusal", "unsupported_holding", "zero_support") for c in causes):
-                client.request("stop", reason="Correctness/conditioning guard: " + str(causes))
-                raise RuntimeError("Correctness/conditioning guard")
-            client.request("complete", event=event, fallback=bool(causes), cause=",".join(sorted(causes)) or None)
+            gaps = [k for k, v in delta.items() if k.startswith("range:turn_conditioning_fallback:") and v]
+            if (causes or gaps) and defect_log is not None:
+                with open(defect_log, "a") as stream:
+                    stream.write(json.dumps({
+                        "at": time(), "pod": client.pod, "worker": client.worker, "event": event,
+                        "hand_id": view.hand_id, "street": view.street.value, "causes": sorted(causes),
+                        "conditioning_gaps": sorted(gaps),
+                        "records": [{k: r.get(k) for k in ("status", "cause", "query_kind", "seconds")}
+                                    for r in getattr(self, "records", [])[records_before:]]}, sort_keys=True) + "\n")
+                    stream.flush()
+                    os.fsync(stream.fileno())
+            client.request("complete", event=event, fallback=bool(causes or gaps),
+                           cause=",".join(sorted(causes + gaps)) or None)
             return result
     return GuardedPolicy
 
@@ -68,15 +77,9 @@ def main():
 
     worker.PaidWorkerBudget = GuardedBudget
     worker.HU20TurnSearchPolicy = guarded_policy(worker.HU20TurnSearchPolicy, client,
-                                                 lambda: active[0].check())
-    try:
-        worker.main()
-    except BaseException:
-        try:
-            client.request("stop", reason=f"Worker {client.worker} exited incompletely; retain partials")
-        except Exception:
-            pass
-        raise
+                                                 lambda: active[0].check(),
+                                                 os.environ.get("HU20_DEFECT_LOG"))
+    worker.main()
 
 
 if __name__ == "__main__":

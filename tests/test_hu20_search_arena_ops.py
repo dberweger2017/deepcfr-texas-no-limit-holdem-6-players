@@ -262,6 +262,112 @@ def test_client_retries_transport_failures_but_not_http_errors(monkeypatch):
     assert len(calls) == client.attempts
 
 
+def _local_pod(root):
+    from scripts.hu20_search_arena_control import ArenaControl
+    root.mkdir()
+    evidence = root / "evidence"; evidence.mkdir()
+    ledger = root / "ledger-pod.json"
+    ledger.write_text(json.dumps({"work_protocol": "hu20-fixed50-no-fallback-v1", "autonomous_pod": True,
+        "expected_active_pods": 1, "pods": [{"id": "p", "workers": [0, 1], "created_at": 0, "hourly_usd": .1,
+                                              "parity_retention_passed": True}]}))
+    return ArenaControl(evidence / "control-pod.json", ledger, clock=lambda: 10**9), evidence
+
+
+def test_autonomous_pod_ignores_spend_and_runs_without_the_fleet_ledger(tmp_path):
+    control, evidence = _local_pod(tmp_path / "pod")
+    assert control.request({"op": "start"})["status"] == "running"
+    assert control.request({"op": "acquire", "event": "0/1", "pod": "p", "worker": 0})["status"] == "running"
+    assert control.request({"op": "complete", "event": "0/1", "pod": "p", "worker": 0, "fallback": False})["status"] == "running"
+    assert not (evidence / "POD_STOPPED.json").exists()
+
+
+def test_autonomous_pod_records_fallbacks_and_keeps_running_until_the_operator_stops_it(tmp_path):
+    pod, evidence = _local_pod(tmp_path / "pod")
+    pod.request({"op": "start"})
+    pod.request({"op": "acquire", "event": "0/0/1", "pod": "p", "worker": 0})
+    state = pod.request({"op": "complete", "event": "0/0/1", "pod": "p", "worker": 0, "fallback": True, "cause": "timeout"})
+    assert state["status"] == "running" and not (evidence / "POD_STOPPED.json").exists()
+    row = json.loads((evidence / "control-pod.events.jsonl").read_text().splitlines()[0])
+    assert row["fallback"] is True and row["cause"] == "timeout" and row["worker"] == 0
+    # A restarted worker process uses a fresh epoch, so its first decision key does not collide.
+    assert pod.request({"op": "acquire", "event": "0/1/1", "pod": "p", "worker": 0})["status"] == "running"
+    (evidence / "STOP_REQUEST").write_text("operator stop")
+    state = pod.request({"op": "check"})
+    assert state["status"] == "stopped" and "operator stop" in state["reason"]
+    assert json.loads((evidence / "POD_STOPPED.json").read_text())["kind"] == "fleet"
+
+
+def test_guarded_policy_logs_each_defect_and_never_stops_the_run(tmp_path):
+    class Policy:
+        def __init__(self):
+            self.stats = Counter()
+            self.records = []
+        def distribution(self, view, query_kind="probe"):
+            self.stats["play:fallback:invalid_response"] += 1
+            self.records.append({"status": "fallback", "cause": "invalid_response", "query_kind": "play", "seconds": 1.5})
+            return "base"
+    class Client:
+        pod, worker, calls = "pod-a", 3, []
+        def acquire(self, guard): return "3/0/1"
+        def request(self, op, **body): self.calls.append((op, body))
+    client = Client()
+    log = tmp_path / "worker-3.defects.jsonl"
+    policy = guarded_policy(Policy, client, lambda: None, str(log))()
+    view = SimpleNamespace(street=SimpleNamespace(value="river"), hand_id="turn-search/lbr/12/1")
+    assert policy.distribution(view, query_kind="play") == "base" and policy.continue_on_defect
+    assert [c[0] for c in client.calls] == ["complete"] and client.calls[0][1]["fallback"] is True
+    row = json.loads(log.read_text())
+    assert row["hand_id"] == "turn-search/lbr/12/1" and row["causes"] == ["invalid_response"]
+    assert row["records"][0]["seconds"] == 1.5 and row["pod"] == "pod-a"
+
+
+def _run_loop(tmp_path, name, command, worker):
+    import os
+    import subprocess
+    import time
+    from scripts import hu20_autonomous_arena as auto
+    arena = tmp_path / name / "evidence" / "arena"; arena.mkdir(parents=True)
+    script = auto.worker_command("pod", worker, 7, arena=str(arena), pause=0, command=command).replace("setsid ", "")
+    return arena, script, subprocess, os, time
+
+
+def _wait_for_loop(arena, worker, os, time):
+    pid = int((arena / f"worker-{worker}.pid").read_text())
+    for _ in range(300):
+        try:
+            os.kill(pid, 0)
+        except OSError:
+            return
+        time.sleep(.1)
+    raise AssertionError("worker loop did not end")
+
+
+def test_crashed_worker_loop_resumes_with_a_new_epoch_and_gives_up_after_the_limit(tmp_path):
+    from scripts import hu20_autonomous_arena as auto
+    record = tmp_path / "record.txt"
+    arena, script, subprocess, os, time = _run_loop(
+        tmp_path, "resume", f'echo "$1 $2" >> {record}; if [ "$1" -lt 2 ]; then exit 7; fi; exit 0', 4)
+    subprocess.run(["bash", "-c", script], check=True)
+    _wait_for_loop(arena, 4, os, time)
+    assert [line.split() for line in record.read_text().splitlines()] == [["0"], ["1", "--resume"], ["2", "--resume"]]
+    assert len((arena / "worker-4.crashes.log").read_text().splitlines()) == 2
+    assert not (arena / "worker-4.GAVE_UP").exists()
+    arena, script, subprocess, os, time = _run_loop(tmp_path, "never", "exit 9", 5)
+    subprocess.run(["bash", "-c", script], check=True)
+    _wait_for_loop(arena, 5, os, time)
+    assert (arena / "worker-5.GAVE_UP").exists()
+    assert len((arena / "worker-5.crashes.log").read_text().splitlines()) == auto.MAX_RESTARTS + 1
+
+
+def test_operator_stop_request_ends_the_worker_loop_instead_of_restarting(tmp_path):
+    arena, script, subprocess, os, time = _run_loop(tmp_path, "stop", "exit 9", 6)
+    (arena.parent / "STOP_REQUEST").write_text("operator")
+    subprocess.run(["bash", "-c", script], check=True)
+    _wait_for_loop(arena, 6, os, time)
+    assert len((arena / "worker-6.crashes.log").read_text().splitlines()) == 1
+    assert not (arena / "worker-6.GAVE_UP").exists()
+
+
 def test_mixed_handoff_start_and_fixed_sleep_exclusion(tmp_path):
     ledger=tmp_path/'ledger.json'
     pods=[{'id':f'mixed-{i}','workers':([0,1] if i==0 else [i+1]),'created_at':100,
