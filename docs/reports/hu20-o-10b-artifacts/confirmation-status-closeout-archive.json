@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/hu20-o-10b-confirmation-status-closeout-20261006.zip",
+  "archive_bytes": 134621,
+  "archive_sha256": "2474e1cf724d2435516e2877272db8fadb9704c9accc3c813069e78b4af06f03",
+  "manifest_sha256": "f2ffc15bf83435a4a4c2a077707b8ec161a6174b5f97bbe3af08e7392c05ee7d",
+  "members_verified": 33,
+  "originals_retained": true,
+  "upload_status": "pending native and cloud acceptance"
+}
