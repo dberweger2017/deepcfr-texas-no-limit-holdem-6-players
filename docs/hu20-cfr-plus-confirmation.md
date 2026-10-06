@@ -35,3 +35,7 @@ Use fresh outcome-blind pilot root **202610061001**, 256 blocks × nine pairs ×
 The additional native-pressure street/facing-action/off-menu analysis is descriptive. Its partitions and exploratory intervals do not change the frozen arena verdict. The arena executes exact native amounts; it has no bet-size translation. Distinguish actual off-menu opponent sizes and subsequent information-set coverage from translated actions.
 
 **Publication hold:** no stable release, tag or pre-release is authorized. Publish the owner review packet and research evidence only. `v0.4.1-rc1` may be published as a GitHub pre-release **only after the owner explicitly approves in chat**, with v0.4.0 staying stable and notes retaining both gains and regression. The review packet gives the mechanical frozen-rule result and one paragraph explaining the evidence, with no release recommendation.
+
+**Owner decision after confirmation:** the fresh primary is −8.61 [−11.69, −5.53] BB/100, labeled worse. The owner declined publishing rc1 if the candidate loses directly to v0.4.0. That condition is met: no release, tag or pre-release for this candidate; v0.4.0 stays stable. The frozen numerical verdict is unchanged.
+
+**Owner naming:** the failed release candidate is `v0.4.0-shield` (`-s`), in reference to the lower measured weakness on the tested probes. This does not change its failed frozen rule, its worse direct confirmation or the stable v0.4.0 policy. Naming alone does not authorize a tag or GitHub release.
