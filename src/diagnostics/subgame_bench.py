@@ -56,6 +56,13 @@ class FrozenRoot:
         return cls(record["spot"], record["button"], tuple(record["board"]),
                    root_actions(record), tuple(hands), tuple(cumulative))
 
+    def to_native(self):
+        """This root for `hu20-trainer bench-train --roots`, running weight sums unchanged."""
+        return {"spot": self.spot, "button": self.button, "board": list(self.board),
+                "actions": [[seat, action.kind.value, action.raise_to] for seat, action in self.actions],
+                "hands": [[list(hand) for hand in hands] for hands in self.hands],
+                "cumulative": [list(cumulative) for cumulative in self.cumulative]}
+
     def sample_holdings(self, random):
         """Joint law proportional to w0(h0) w1(h1) for card-disjoint pairs."""
         while True:

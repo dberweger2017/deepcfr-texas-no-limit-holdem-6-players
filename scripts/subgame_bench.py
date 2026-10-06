@@ -1,6 +1,7 @@
 """Train production CFR rules on #149 turn roots and score them exactly on held-out boards.
 
     train     one lineage, one held-out fold: train on the other half, export checkpoints
+              (`--native BINARY` trains with hu20-trainer instead; several `--variant`s share a fold folder)
     evaluate  one native lock-only pass per held-out root, scoring every exported policy
     report    paired comparison with #149's blueprint (B), per-root (L) and held-out (P) witnesses
 """
@@ -13,6 +14,7 @@ import pickle
 import random
 import shutil
 import signal
+import subprocess
 from statistics import mean
 from time import time
 
@@ -52,6 +54,8 @@ def train(a):
     roots = [FrozenRoot.from_request(records[j["spot"]], json.loads(Path(j["request"]).read_text())) for j in training]
     lineage = training[0]["lineage"]
     out = a.out / f"fold-{a.evaluation_fold}"
+    if a.native:
+        return train_native(a, roots, lineage, out)
     state = out / "state.pickle"
     if state.exists():
         trainer = pickle.loads(state.read_bytes())
@@ -83,6 +87,24 @@ def train(a):
             last = time()
     atomic_json(out / "status.json", {"iteration": trainer.iteration, "target": a.iterations, "keys": len(trainer.table),
                 "nodes": trainer.nodes, "timestamp": time(), "complete": True})
+
+
+def train_native(a, roots, lineage, out):
+    """Native bench-train: the same checkpoints and strategies, named `VARIANT.STRATEGY`."""
+    record = out / f"run-{a.variant}.json"
+    if record.exists():
+        raise FileExistsError("This variant already trained in this fold")
+    out.mkdir(parents=True, exist_ok=True)
+    atomic_json(out / "roots.json", [r.to_native() for r in roots])
+    atomic_json(record, {"lineage": lineage, "evaluation_fold": a.evaluation_fold, "seed": a.seed,
+                "training_spots": [r.spot for r in roots], "iterations": a.iterations, "checkpoints": a.checkpoints,
+                "variant": a.variant, "options": a.option, "binary_sha256": file_hash(a.native), "started": time()})
+    subprocess.run([str(a.native), "bench-train", "--roots", str(out / "roots.json"), "--seed", str(a.seed),
+                    "--iterations", str(a.iterations), "--checkpoints", ",".join(map(str, a.checkpoints)),
+                    "--lineage", json.dumps(lineage), "--variant", a.variant, "--out", str(out),
+                    *(word for option in a.option for word in option.split())], check=True)
+    atomic_json(record.with_name(f"status-{a.variant}.json"), {"iteration": a.iterations, "complete": True,
+                "timestamp": time()})
 
 
 def policies(folder):
@@ -192,6 +214,9 @@ def main():
     p.add_argument("--binary", type=Path)
     p.add_argument("--bootstrap-seed", type=int, default=202610050002)
     p.add_argument("--limit", type=int, help="evaluate only the first N held-out roots (smoke tests)")
+    p.add_argument("--native", type=Path, help="train with this hu20-trainer binary")
+    p.add_argument("--variant", default="base", help="native variant name, the prefix of its exported policies")
+    p.add_argument("--option", action="append", default=[], help="native training option, e.g. '--regret-floor 0'")
     a = p.parse_args()
     {"train": train, "evaluate": evaluate, "report": report}[a.command](a)
 
