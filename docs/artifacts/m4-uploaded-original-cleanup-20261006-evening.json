@@ -127,5 +127,17 @@
     "bytes": 1396,
     "sha256": "8d84a2cd15bc4c352e3a7b1db3f7d5d46ecacd46389723b3171b34d4c7cdd1d2",
     "result": "PASS"
+  },
+  "subsequent_read_only_audit": {
+    "observed_at": 1791320660.5448909,
+    "free_bytes": 28970397696,
+    "pr185_root_allocated_kib": 13879500,
+    "active_root": "/Users/dberweger/Local/hu20-o-10b-20261006/retry-02",
+    "observed_processes": [
+      "confirmation-pilot.py",
+      "scripts.evaluate_hu20_v041_arena play",
+      "finish-confirmation.py"
+    ],
+    "action": "Read-only inspection; ongoing PR185 run left untouched"
   }
 }
