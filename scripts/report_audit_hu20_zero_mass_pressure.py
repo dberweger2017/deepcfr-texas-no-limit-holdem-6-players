@@ -29,10 +29,11 @@ def stats(values):
     n=len(values);mean=math.fsum(values)/n
     var=math.fsum((v-mean)**2 for v in values)/(n-1)
     margin=float(t.ppf(.975,n-1))*math.sqrt(var/n)
-    return {'blocks':n,'bb_per_100':mean,'ci95':[mean-margin,mean+margin]}
+    return {'blocks':n,'bb_per_100':mean,'ci95':[mean-margin,mean+margin] if n>=30 and var else None}
 def compare(a,b):
     assert a['blocks']==b['blocks'] and math.isclose(a['bb_per_100'],b['bb_per_100'],abs_tol=1e-9)
-    assert all(math.isclose(x,y,abs_tol=1e-9) for x,y in zip(a['ci95'],b['ci95'],strict=True))
+    assert (a['ci95'] is None)==(b['ci95'] is None)
+    if a['ci95'] is not None:assert all(math.isclose(x,y,abs_tol=1e-9) for x,y in zip(a['ci95'],b['ci95'],strict=True))
 
 def analyze(plan,directory,replay):
     started=time.perf_counter();cells={};decisions=0;coverage=defaultdict(Counter);files=[]
