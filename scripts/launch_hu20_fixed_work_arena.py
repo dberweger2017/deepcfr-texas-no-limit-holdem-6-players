@@ -125,6 +125,8 @@ def main():
     if quote['maximum_forecast_cost_usd']>ceiling and not waived:
         control.request({'op':'stop','reason':f'Actual-host maximum exceeds ${ceiling}; no arena dispatch'})
         raise RuntimeError(f'Actual-host maximum exceeds ${ceiling}; no arena dispatch')
+    # Full replay rows are kept in <pod>-verified-gates.json; the ledger sent through ssh stays small.
+    for h in ledger['pods']:h.pop('replay',None)
     durable_json(root/'ledger.json',ledger)
     controller=next(h for h in pods if h['id']==ledger['controller_pod_id'])
     upload(controller,'/workspace/ledger.json',(root/'ledger.json').read_bytes())
