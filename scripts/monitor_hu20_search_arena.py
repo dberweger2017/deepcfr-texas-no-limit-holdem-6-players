@@ -194,6 +194,7 @@ def main():
     durable_json(root/"SUPERVISOR_READY.json", {"pid": __import__('os').getpid(), "at": time()})
     ever_started, finished = False, False
     failures = 0
+    first_failure = None
     while not finished:
         sleep(5)
         ledger = json.loads((root/"ledger.json").read_text())
@@ -213,11 +214,14 @@ def main():
                             all(w["status"]=="complete" for w in s["workers"])
                             for p,s in zip(active,statuses)))
             failures = 0
+            first_failure = None
         except Exception as exc:
             failures += 1
+            first_failure = first_failure or time()
             durable_json(root/"supervisor-poll-failure.json", {"failures": failures, "reason": str(exc), "at": time()})
-            if failures >= 3:
-                try:control.request({"op": "stop", "reason": "Three consecutive supervision failures"})
+            # Forwards and SSH reconnect on their own; only a sustained outage ends the run.
+            if failures >= 3 and time()-first_failure >= 1800:
+                try:control.request({"op": "stop", "reason": "Supervision unavailable for thirty minutes"})
                 except Exception:pass  # Cancel all owned groups during closeout even if the controller is unreachable.
                 finished = True
     # Read the persisted stop reason without restarting the scientific run.

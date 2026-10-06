@@ -70,8 +70,9 @@ class ArenaControl:
         ledger = json.loads(self.ledger.read_text())
         ceiling=ledger.get("hard_ceiling_usd",25)
         dispatch=ledger.get("dispatch_stop_usd",21)
-        if not 0<dispatch<=ceiling-4:
-            raise ValueError("Financial dispatch must preserve the four-dollar closeout reserve")
+        reserve=ledger.get("closeout_reserve_usd",4)
+        if not 0<dispatch<=ceiling-reserve:
+            raise ValueError(f"Financial dispatch must preserve the ${reserve} closeout reserve")
         if self.charge() >= dispatch:
             self.stop(f"Conservative campaign charge reached ${dispatch} dispatch stop")
         if self.state['status']=='preflight' and ledger.get('admission_allowance_usd') is not None:

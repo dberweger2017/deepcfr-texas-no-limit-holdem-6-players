@@ -81,7 +81,7 @@ def main():
     ops_ci=json.loads((root/'OPS_CI_GREEN.json').read_text())
     assert ops_ci['conclusion']=='success' and ops_ci['head_sha']==ledger['operations_source']
     ceiling=ledger['hard_ceiling_usd'];dispatch=ledger['dispatch_stop_usd']
-    assert ledger['work_protocol']==PROTOCOL and ceiling==owner['hard_ceiling_usd'] and dispatch<=ceiling-4
+    assert ledger['work_protocol']==PROTOCOL and ceiling==owner['hard_ceiling_usd'] and dispatch<=ceiling-ledger.get('closeout_reserve_usd',4)
     fleet_quote=json.loads((root/'approved-fleet-quote.json').read_text()) if owner.get('equivalent_fleet_delegation') else None
     if fleet_quote:
         assert ceiling==20 and owner['equivalent_fleet_delegation']
@@ -119,7 +119,10 @@ def main():
                        json.loads((root/'cost-only-results.json').read_text()),control.charge(),
                        hard_ceiling=ceiling,dispatch_stop=dispatch)
     durable_json(root/'actual-host-cost-gate.json',quote)
-    if quote['maximum_forecast_cost_usd']>ceiling:
+    waived=owner.get('maximum_forecast_waiver')
+    # The owner may waive the p95 x 1.5 forecast; the expected measured cost must still fit.
+    if waived:assert quote['expected_cost_usd']<=dispatch,'Expected measured cost exceeds the dispatch stop'
+    if quote['maximum_forecast_cost_usd']>ceiling and not waived:
         control.request({'op':'stop','reason':f'Actual-host maximum exceeds ${ceiling}; no arena dispatch'})
         raise RuntimeError(f'Actual-host maximum exceeds ${ceiling}; no arena dispatch')
     durable_json(root/'ledger.json',ledger)

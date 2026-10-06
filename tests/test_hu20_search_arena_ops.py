@@ -327,6 +327,18 @@ def test_fixed_controller_counts_prior_spend(tmp_path):
     assert controller.charge()==21.5
 
 
+def test_owner_can_set_dispatch_stop_to_the_ceiling_by_zeroing_the_closeout_reserve(tmp_path):
+    import json
+    from scripts.hu20_search_arena_control import ArenaControl
+    base={'work_protocol':'hu20-fixed50-no-fallback-v1','hard_ceiling_usd':20,'dispatch_stop_usd':20,'historical_cap_charge_usd':1,'pilot_reserve_usd':.5,'storage_contingency_usd':1,'pods':[]}
+    ledger=tmp_path/'ledger.json';ledger.write_text(json.dumps(base))
+    try:ArenaControl(tmp_path/'j1.json',ledger).request({'op':'check'})
+    except ValueError as exc:assert 'closeout reserve' in str(exc)
+    else:raise AssertionError('Default reserve must still apply')
+    ledger.write_text(json.dumps({**base,'closeout_reserve_usd':0}))
+    assert ArenaControl(tmp_path/'j2.json',ledger).request({'op':'check'})['status']=='preflight'
+
+
 def test_lower_owner_ceiling_lowers_financial_dispatch_stop(tmp_path):
     import json
     from scripts.hu20_search_arena_control import ArenaControl
