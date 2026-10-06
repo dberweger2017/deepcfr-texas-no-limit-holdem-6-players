@@ -33,7 +33,8 @@ def audit(plan, out, expected_sha256):
     cells = {}
     decisions = 0
     files = []
-    for lineage in (1, 2, 3):
+    pairs = range(1, len(plan['pairs']) + 1)
+    for lineage in pairs:
         path = out / f'direct-lineage-{lineage}.hands.jsonl.gz'
         with path.open('rb') as f:
             files.append({'path': path.name, 'bytes': path.stat().st_size,
@@ -65,12 +66,12 @@ def audit(plan, out, expected_sha256):
                 assert digest(public_events(hand.events)) == row['public_events_sha256']
                 cells[coordinate] = row['target_chips']
         print(json.dumps({'lineage': lineage, 'replayed': len(cells)}), flush=True)
-    assert set(cells) == {(l, b, r) for l in (1, 2, 3) for b in range(plan['blocks']) for r in (0, 1)}
+    assert set(cells) == {(l, b, r) for l in pairs for b in range(plan['blocks']) for r in (0, 1)}
     blocks = range(plan['blocks'])
-    result = {'overall': stats([math.fsum(cells[l, b, r] for l in (1, 2, 3) for r in (0, 1)) / 6 for b in blocks]),
-              'lineages': {str(l): stats([(cells[l, b, 0] + cells[l, b, 1]) / 2 for b in blocks]) for l in (1, 2, 3)},
+    result = {'overall': stats([math.fsum(cells[l, b, r] for l in pairs for r in (0, 1)) / (2 * len(pairs)) for b in blocks]),
+              'lineages': {str(l): stats([(cells[l, b, 0] + cells[l, b, 1]) / 2 for b in blocks]) for l in pairs},
               'positions': {p: stats([math.fsum(cells[l, b, b % 2 if p == 'button' else 1 - b % 2]
-                                              for l in (1, 2, 3)) / 3 for b in blocks]) for p in ('button', 'big_blind')}}
+                                              for l in pairs) / len(pairs) for b in blocks]) for p in ('button', 'big_blind')}}
     def close(left, right):
         assert left['blocks'] == right['blocks'] and math.isclose(left['bb_per_100'], right['bb_per_100'], abs_tol=1e-9)
         assert (left['ci95'] is None) == (right['ci95'] is None)
@@ -80,6 +81,16 @@ def audit(plan, out, expected_sha256):
     for dimension in ('lineages', 'positions'):
         for key, value in result[dimension].items():
             close(value, recorded[dimension][key])
+    if 'primary_pairs' in plan:
+        primary = plan['primary_pairs']
+        result['primary_overall'] = stats([math.fsum(cells[l, b, r] for l in primary for r in (0, 1)) / (2 * len(primary)) for b in blocks])
+        close(result['primary_overall'], recorded['primary_overall'])
+        result['primary_lineages'] = {str(l): result['lineages'][str(l)] for l in primary}
+        for independent, reported in [(result['primary_overall'], recorded['primary_overall']),
+                                      *[(result['lineages'][str(l)], recorded['lineages'][str(l)]) for l in pairs]]:
+            ci = independent['ci95']
+            independent['label'] = 'better' if ci and ci[0] > 0 else 'worse' if ci and ci[1] < 0 else 'no detectable difference'
+            assert independent['label'] == reported['label']
     result.update(status='verified', plan_sha256=digest(plan), hands_replayed=len(cells), decisions_checked=decisions,
                   independent_arithmetic_matches=True, raw_files=files, seconds=perf_counter() - started)
     return result

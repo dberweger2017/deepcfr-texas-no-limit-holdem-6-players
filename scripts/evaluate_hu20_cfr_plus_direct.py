@@ -63,7 +63,8 @@ def run(plan, policies, out, lineage):
 
 def report(plan, out):
     cells = defaultdict(dict)
-    for lineage in (1, 2, 3):
+    pairs = range(1, len(plan['pairs']) + 1)
+    for lineage in pairs:
         name = f'direct-lineage-{lineage}'
         result = json.loads((out / f'{name}.result.json').read_text())
         if result['status'] != 'complete' or result['plan_sha256'] != digest(plan):
@@ -77,13 +78,21 @@ def report(plan, out):
         if set(cells[lineage]) != {(b, r) for b in range(plan['blocks']) for r in (0, 1)}:
             raise ValueError('Incomplete direct-match coverage')
     blocks = range(plan['blocks'])
-    overall = estimate([sum(cells[l][b, r] for l in (1, 2, 3) for r in (0, 1)) / 6 for b in blocks])
-    lineages = {str(l): estimate([(cells[l][b, 0] + cells[l][b, 1]) / 2 for b in blocks]) for l in (1, 2, 3)}
+    overall = estimate([sum(cells[l][b, r] for l in pairs for r in (0, 1)) / (2 * len(pairs)) for b in blocks])
+    lineages = {str(l): estimate([(cells[l][b, 0] + cells[l][b, 1]) / 2 for b in blocks]) for l in pairs}
     positions = {p: estimate([sum(cells[l][b, b % 2 if p == 'button' else 1 - b % 2]
-                                   for l in (1, 2, 3)) / 3 for b in blocks]) for p in ('button', 'big_blind')}
-    summary = {'plan_sha256': digest(plan), 'hands': 6 * plan['blocks'], 'overall': overall,
+                                   for l in pairs) / len(pairs) for b in blocks]) for p in ('button', 'big_blind')}
+    summary = {'plan_sha256': digest(plan), 'hands': 2 * len(pairs) * plan['blocks'], 'overall': overall,
                'lineages': lineages, 'positions': positions,
-               'scope': 'direct CFR+ average vs matched v0.4.0 lineages; exploratory, outside release rule'}
+               'scope': plan.get('scope', 'direct CFR+ average vs matched v0.4.0 lineages; exploratory, outside release rule')}
+    if 'primary_pairs' in plan:
+        primary = plan['primary_pairs']
+        summary['primary_overall'] = estimate([sum(cells[l][b, r] for l in primary for r in (0, 1)) / (2 * len(primary)) for b in blocks])
+        summary['primary_lineages'] = {str(l): lineages[str(l)] for l in primary}
+        for result in [summary['primary_overall'], *lineages.values()]:
+            interval = result['ci95']
+            result['label'] = ('better' if interval and interval[0] > 0 else
+                               'worse' if interval and interval[1] < 0 else 'no detectable difference')
     (out / 'summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True) + '\n')
     return summary
 
@@ -94,9 +103,11 @@ def main():
     p.add_argument('--plan', type=Path, required=True)
     p.add_argument('--policies', type=Path)
     p.add_argument('--out', type=Path, required=True)
-    p.add_argument('--lineage', type=int, choices=(1, 2, 3))
+    p.add_argument('--lineage', type=int)
     a = p.parse_args()
     plan = json.loads(a.plan.read_text())
+    if a.command == 'play' and (a.lineage is None or not 1 <= a.lineage <= len(plan['pairs'])):
+        p.error('--lineage must identify a declared pair')
     result = run(plan, a.policies, a.out, a.lineage) if a.command == 'play' else report(plan, a.out)
     print(json.dumps(result), flush=True)
     return int(result.get('status') == 'incomplete')
