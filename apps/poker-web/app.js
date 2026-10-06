@@ -6,6 +6,7 @@ let saved = JSON.parse(localStorage.getItem(STORE) || "{}");
 let state = null;
 let busy = false;
 let processingBot = false;
+let availableModels = [];
 
 function persist() { localStorage.setItem(STORE, JSON.stringify(saved)); }
 function bb(chips) { return `${(chips / 100).toFixed(2).replace(/\.00$/, "")} BB`; }
@@ -69,7 +70,16 @@ async function recover() {
   if (!saved.sessionId) {
     show("setup");
     try {
-      const model = await request("/api/model");
+      const catalog = await request("/api/models");
+      availableModels = catalog.models;
+      clear($("model-version"));
+      for (const item of availableModels) {
+        const option = node("option", "", `${item.version} · ${item.name}`);
+        option.value = item.version; $("model-version").append(option);
+      }
+      $("model-version").value = catalog.default || "";
+      $("model-version").hidden = $("model-version-label").hidden = !availableModels.length;
+      const model = availableModels.find(item => item.version === catalog.default) || await request("/api/model");
       $("setup-model").textContent = `${model.name} · HU20 · SHA-256 ${model.sha256}`;
       $("setup-title").textContent = model.adapter === "uniform-restricted-v1"
         ? "Uniform-random calibration" : `Play ${model.name.split(" · ")[0]}`;
@@ -96,7 +106,7 @@ async function recover() {
     connection("Disconnected");
     notice(error.message, true);
     if (error.status === 403) { saved.token = ""; persist(); show("gate"); return; }
-    if (error.status === 404) { saved.sessionId = null; persist(); show("setup"); }
+    if (error.status === 404) { saved.sessionId = null; persist(); await recover(); }
   }
 }
 
@@ -309,8 +319,16 @@ $("create").addEventListener("click", async () => {
     } else {
       body = { sessionType, playMode, visibility: $("visibility").value };
     }
+    if (availableModels.length) body.modelVersion = $("model-version").value;
     await mutate("/api/sessions", body);
   } catch (_) { /* Recoverable with the same key. */ }
+});
+$("model-version").addEventListener("change", () => {
+  const model = availableModels.find(item => item.version === $("model-version").value);
+  if (model) {
+    $("setup-model").textContent = `${model.name} · HU20 · SHA-256 ${model.sha256}`;
+    $("setup-title").textContent = `Play ${model.version}`;
+  }
 });
 let casualVisibility = $("visibility").value;
 function updateSetup() {
