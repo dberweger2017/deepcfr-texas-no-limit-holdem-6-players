@@ -1,5 +1,11 @@
 # Research results index
 
+## PR174 Luna versus Shield — October 6, 2026
+
+PR174 remains **open/draft**. The active M1 root `/Users/dberweger/Local/luna-shield-chrome/results/luna-shield-20261006/` retains isolated preflight evidence, the primary private SQLite/access token, server/resource logs, run receipt, actual final HTTP export/history, strict-reporter rejection, raw audit and native evidence builder. The independently launched player's original rollout remains in `/Users/dberweger/.codex/sessions/2026/10/06/`, session `01a11070-fb6b-7961-a30b-e904731fd0af`; do not publish its reasoning or unfiltered contents. The [sanitized report](docs/reports/luna-shield-chrome.md) records 400 replayed hands and Luna −82 BB, with the failed browser protocol and missing planned metadata retained. The [manifest](docs/reports/luna-shield-chrome/manifest.json) identifies public evidence and hashes private inputs without publishing them.
+
+The policy hardlink at `luna-shield-chrome/models/O-2026100601.average.jsonl.gz` depends on #171's retained original `/Users/dberweger/Local/hu20-cfr-plus-pr171-20261006/policies/O-2026100601.average.jsonl.gz`. Both open PR roots and all dependencies remain protected. No archival, moving or cleanup was performed. Eventual cleanup destination: `PR-174-Luna-Shield/20261006/` under the [project research folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s), with private access controls for journals and transcripts, manifests and restoration provenance. This is a planned destination, not an upload or a deletion authorization.
+
 ## Find recent M1 runs — October 5, 2026
 
 M1 uses the same `~/Local/Research-Cloud` shortcut and [project Drive folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s) as M4. Initial free space was **13.3 GB**. The primary poker checkout is about **23.2 GB**, including **19.7 GB of shared Git data**, which remains protected alongside unclassified `planning/` files. Open #146/#166 folders, worktrees and dependencies are excluded from archival.

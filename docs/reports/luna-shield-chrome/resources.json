@@ -1,0 +1,30 @@
+{
+  "samples": 318,
+  "firstSample": "2026-10-06T08:54:09.915982+00:00",
+  "lastSample": "2026-10-06T11:37:13.112603+00:00",
+  "serviceRssKiB": {
+    "min": 4896,
+    "max": 2208368
+  },
+  "serviceTopMemValues": [
+    "2135M",
+    "2137M",
+    "2138M",
+    "2139M",
+    "2140M",
+    "2141M",
+    "2142M",
+    "2143M",
+    "2144M",
+    "2145M",
+    "2146M",
+    "65M"
+  ],
+  "serviceCpuPercentMaxObserved": 28.2,
+  "hostSwapUsedMiB": {
+    "min": 2809.94,
+    "max": 7125.19
+  },
+  "scope": "30-second samples after startup; observed maxima, not guaranteed lifetime peaks",
+  "memoryInterpretation": "ps RSS and top MEM are distinct; retain top display units. Compression and swap are host-wide, include unrelated applications, and cannot be attributed wholly to the experiment."
+}
