@@ -33,7 +33,7 @@ From v0.5 on, every milestone is confirmed on fresh held-out deals with several 
 2. **Native trainer** ([#164](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/164)) — done. Rust, about 120× faster than Python, and reproduces Python's runs exactly.
 3. **v0.4.1: average-policy play** ([#165](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165)) — [arena completed](docs/reports/hu20-v041-arena.md); the predeclared release rule is not met. Native pressure is inconclusive, not a measured regression. No follow-up arena is proposed or run; no release or tag.
 4. **Turn search** ([#166](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/166)) — river validation and Linux pilot passed; the paid arena quote awaits owner approval.
-5. **Better training procedure** — native trainer options measured on #162's bench, one at a time: discounting and regret floors, training against an unabstracted opponent (CFR-BR style), pruning.
+5. **Better training procedure** — full-game CFR+ support merged in [#171](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/171). The [predeclared confirmation](docs/hu20-cfr-plus-confirmation.md) trains three 1B-node lineages and reuses #165's arena with 12,288 native-pressure blocks. Results and the unchanged release decision are pending; shipping v0.4.1 requires owner confirmation.
 6. **Equity buckets** ([#163](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/163)) — tables built; validate on #149's turn spots before adding them as an alternative key to the native trainer, with v1 kept as the reference.
 7. **Flop search** — last, if the evidence still supports it at 20 BB.
 8. **v0.5 groundwork**, in parallel: generalize the native trainer beyond 20 BB (stacks, bet menu, key schema, rules parity against the engine), compact memory and multi-core pods, and choose the external benchmark bot (owner decision).
@@ -61,6 +61,8 @@ From v0.5 on, every milestone is confirmed on fresh held-out deals with several 
 - **This roadmap:** update the v0.4.x path and Current position when work lands, keeping each entry short and moving detail into reports. This document doesn't schedule unattended work.
 
 ## Current position
+
+- **CFR+ full-game confirmation running:** [#171](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/171) merged after review, 27 parity tests, four Rust tests and green CI. Three native 1B-node lineages train from main with the regret floor at zero. The [frozen protocol](docs/hu20-cfr-plus-confirmation.md) keeps #165's release rule and increases native-pressure precision; [progress report](docs/reports/hu20-cfr-plus.md). Free M1/M4 compute only. No results or release decision yet.
 
 *October 6, 2026*
 
