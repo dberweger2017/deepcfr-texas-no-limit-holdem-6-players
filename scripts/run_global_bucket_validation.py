@@ -151,20 +151,29 @@ def guard(root, budget, pid, *, worker=False):
     rss = rss_for_tree(pid)
     owned_family_rss=family_rss(root,pid)
     swap = swap_usage()
-    if owned_family_rss>8*GIB:raise RuntimeError("8-GiB total owned family ceiling")
-    if rss > (7 if worker else 8) * GIB:
-        raise RuntimeError("Owned RSS ceiling")
-    if swap - budget["swap_baseline_bytes"] > GIB:
-        raise RuntimeError("Swap growth ceiling")
     free = shutil.disk_usage(root).free
-    if free < 15 * GIB:
-        raise RuntimeError("15-GiB free-disk floor")
-    if time() >= budget["deadline_epoch"] - 3600:
-        raise RuntimeError("48-hour cap reached closeout reserve")
+    now = time()
     state = {"rss_bytes": rss, "family_rss_bytes":owned_family_rss, "swap_bytes": swap, "free_disk_bytes": free}
-    if time() - getattr(guard, "last_log", 0) >= 5:
-        append(root / "family-resources.jsonl", dict(state, timestamp=time(), pid=pid, worker=worker))
-        guard.last_log = time()
+    checks = (
+        (owned_family_rss > 8*GIB, "8-GiB total owned family ceiling"),
+        (rss > (7 if worker else 8)*GIB, "Owned RSS ceiling"),
+        (swap - budget["swap_baseline_bytes"] > GIB, "Swap growth ceiling"),
+        (free < 15*GIB, "15-GiB free-disk floor"),
+        (now >= budget["deadline_epoch"] - 3600, "48-hour cap reached closeout reserve"),
+    )
+    failure = next((reason for failed, reason in checks if failed), None)
+    sample = dict(state, timestamp=now, pid=pid, worker=worker)
+    if failure:
+        # Retain the triggering observation even between regular samples.
+        sample.update(guard_failure=failure, swap_baseline_bytes=budget["swap_baseline_bytes"],
+                      swap_growth_limit_bytes=GIB, deadline_epoch=budget["deadline_epoch"])
+        try:
+            append(root / "family-resources.jsonl", sample)
+        finally:
+            raise RuntimeError(failure)
+    if now - getattr(guard, "last_log", 0) >= 5:
+        append(root / "family-resources.jsonl", sample)
+        guard.last_log = now
     return state
 
 
