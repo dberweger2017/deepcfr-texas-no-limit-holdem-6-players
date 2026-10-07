@@ -13,9 +13,8 @@ from random import Random
 
 from src.arena.runner import public_events
 from src.arena.schedule import digest
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, choices
+from src.blueprint.abstraction import choices
 from src.blueprint.artifact import HU20_UNCAPPED_FORMAT
-from src.blueprint.solver import HU20_UNCAPPED_GAME
 from src.game.hand import Hand, Table
 from src.game.observation import ActionTaken, BlindPosted, BoardDealt, CardsMucked, CardsShown
 from src.game.types import Action, ActionKind

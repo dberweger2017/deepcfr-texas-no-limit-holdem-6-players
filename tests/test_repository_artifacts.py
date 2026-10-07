@@ -43,7 +43,8 @@ class StoragePolicyTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             def git(*args, input=None):
-                return subprocess.check_output(['git', '-C', str(root), *args], input=input)
+                return subprocess.check_output(['git', '-C', str(root), *args], input=input,
+                                               stderr=subprocess.PIPE)
             git('init', '-q')
             payload = root / 'trace.jsonl'
             payload.write_bytes(b'original\n')

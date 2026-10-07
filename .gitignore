@@ -46,6 +46,10 @@ util.py
 # Raw experiment traces belong in ignored working directories and Research-Cloud.
 # Existing tracked evidence stays until verified archival and dependency review.
 /docs/reports/**/*.jsonl
-/docs/reports/**/*.jsonl.*
+/docs/reports/**/*.jsonl.gz
+/docs/reports/**/*.jsonl.interrupted
+/docs/reports/**/*.jsonl.partial
+/docs/reports/**/*.jsonl.gz.interrupted
+/docs/reports/**/*.jsonl.gz.partial
 /docs/reports/**/*.csv.gz
 /docs/reports/**/*.sqlite*
