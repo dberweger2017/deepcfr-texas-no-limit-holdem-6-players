@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/185#issuecomment-6025946569",
+  "posted_before_final_play": true,
+  "body_sha256": "68bbb135584d3d90cc51e6ac896bc480ab567b4520ac616e9d8b3d10afc97490",
+  "canonical_plan_sha256": "5d41ada25f9b5cd46c9405a115c2b6d1a34bdfe53a42e5062e50ee8cbd5749a1",
+  "validation": "Posted body matches frozen comment byte content; corrected initial auxiliary API lookup after wrong comment ID returned 404."
+}

@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/O-2026100602-10000000000-milestone.zip",
+  "archive_bytes": 387641010,
+  "archive_sha256": "122c4970149f1def9dc965d65ef4a8bacaba49101dfe9dddd60b663238348b06",
+  "manifest_sha256": "7c7acbbb550aaaa3687e44979cc2b54c5a3963c29083210fdc5c85f79910af9c",
+  "members_verified": 7,
+  "originals_retained": true,
+  "upload_status": "pending native and cloud acceptance"
+}

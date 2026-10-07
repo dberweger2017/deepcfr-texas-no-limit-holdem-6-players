@@ -1,0 +1,6 @@
+{
+  "status": "stopped; preserve all failures and partials",
+  "updated_at": 1791342910.31055,
+  "failure": "AssertionError('M1 PR-post bridge deadline')",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/dberweger/Local/hu20-o-10b-20261006/final-approved-9h/finish-confirmation.py\", line 139, in <module>\n    try:main()\n        ^^^^^^\n  File \"/Users/dberweger/Local/hu20-o-10b-20261006/final-approved-9h/finish-confirmation.py\", line 135, in main\n    result=packet();status('scientific checks complete; archiving research',checks=result['checks'])\n           ^^^^^^^^\n  File \"/Users/dberweger/Local/hu20-o-10b-20261006/final-approved-9h/finish-confirmation.py\", line 79, in packet\n    post(ROOT/'owner-review-packet.md');return result\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/dberweger/Local/hu20-o-10b-20261006/final-approved-9h/finish-confirmation.py\", line 14, in post\n    assert time.time()<limit,'M1 PR-post bridge deadline';time.sleep(2)\n           ^^^^^^^^^^^^^^^^^\nAssertionError: M1 PR-post bridge deadline\n"
+}

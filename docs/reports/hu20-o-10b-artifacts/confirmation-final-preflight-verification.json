@@ -1,0 +1,12 @@
+{
+  "counts_roots_pairs_panels_and_native_identity_unchanged": true,
+  "final_plan_sha256": "5d41ada25f9b5cd46c9405a115c2b6d1a34bdfe53a42e5062e50ee8cbd5749a1",
+  "free_disk_bytes": 22341054464,
+  "measured_quote_sha256": "0d168cfd9d78b1949c6cd2f0d9318c782778b4e304455a2137b4aab72b137c65",
+  "observed_at": 1791322720.5975502,
+  "only_design_amendment": "Owner-approved final admission/cap 9 hours",
+  "pilot_outcomes_inspected": false,
+  "scientific_source_files": 592,
+  "six_models_and_audits_reverified": true,
+  "status": "verified"
+}

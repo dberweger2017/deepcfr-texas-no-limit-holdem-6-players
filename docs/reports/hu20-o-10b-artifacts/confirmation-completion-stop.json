@@ -1,0 +1,6 @@
+{
+  "status": "stopped; preserve all failures and partials",
+  "updated_at": 1791316056.900755,
+  "failure": "AssertionError('Pilot stopped; never bypass')",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/dberweger/Local/hu20-o-10b-20261006/finish-confirmation.py\", line 142, in <module>\n    try:main()\n        ^^^^^^\n  File \"/Users/dberweger/Local/hu20-o-10b-20261006/finish-confirmation.py\", line 117, in main\n    assert not (ROOT/'pilot/STOP.json').exists(),'Pilot stopped; never bypass'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Pilot stopped; never bypass\n"
+}

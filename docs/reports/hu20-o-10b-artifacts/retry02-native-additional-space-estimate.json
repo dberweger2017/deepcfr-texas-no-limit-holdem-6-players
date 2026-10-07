@@ -1,0 +1,9 @@
+{
+  "status": "verified",
+  "observed_at": 1791320568.2974238,
+  "unique_key_groups": 2636700,
+  "policy_and_request_upper_estimate_bytes": 1649933749,
+  "free_bytes": 28981813248,
+  "remaining_after_native_copies_policies_trace_archive_allowance_and_disk_floor_bytes": 3481990435,
+  "method": "32 bytes per JSON probability number; exact keys/menus/groups and original request sizes plus per-file metadata/path allowance; no model outcomes inspected"
+}

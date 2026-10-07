@@ -1,0 +1,12 @@
+{
+  "roots": [
+    "202610066701",
+    "202610066801",
+    "202610066901",
+    "202610067001"
+  ],
+  "files_searched": 59570,
+  "matches": [],
+  "unreadable": 11145,
+  "full_unreadable_path_receipt": "helpers-retry-02/root-freshness-m4.json"
+}

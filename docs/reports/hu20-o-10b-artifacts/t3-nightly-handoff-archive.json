@@ -1,0 +1,10 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/hu20-o-10b-t3-nightly-handoff-20261007.zip",
+  "archive_bytes": 9109,
+  "archive_sha256": "21f1f83b4c74c177149f30b10e018beabbc657e80fdacf182ff4839b20772f40",
+  "manifest_sha256": "78b9ea49cd6e8ed54b2fe94608bcbfb9ace2c6fa7284baf16b54c5a81bda3d49",
+  "members_verified": 5,
+  "upload_acceptance": "pending",
+  "originals_retained": true,
+  "index_reconciliation_pending": true
+}

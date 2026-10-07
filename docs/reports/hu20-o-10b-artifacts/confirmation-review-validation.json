@@ -1,0 +1,18 @@
+{
+  "status": "verified",
+  "original_packet_sha256": "56ab5846cb33897f85aa54a09d04271909907b17e24596ac8324dcff9dbe3c6b",
+  "final_commands_exit_zero": 19,
+  "final_peak_sampled_rss_gib": 7.0671844482421875,
+  "packet_matches_independent_audits": true,
+  "numeric_tolerance": 1e-09,
+  "hands_replayed": 1083648,
+  "decisions_checked": 5959763,
+  "native_metrics_verified": 160,
+  "all_release_checks_passed": false,
+  "failed_release_check": "lbr_lower_above_minus_5",
+  "scientific_completed_madrid": "2026-10-07 05:05:09",
+  "operational_stop_madrid": "2026-10-07 05:15:10",
+  "scientific_seconds_to_packet": 19589.151906251907,
+  "owner_network_context": "Owner reports Mac disconnected from still-active hotspot; pending AI checks arrived together when Wi-Fi returned and owner cancelled pending checks",
+  "initial_closeout_validation_failure": "Exact dictionary equality failed on omitted reason metadata and floating-point last bits; numeric cross-check against independent audit uses absolute tolerance 1e-9"
+}

@@ -1,0 +1,1011 @@
+[
+  {
+    "path": "resources/final/arena/O-2026100601.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "O-2026100601",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791328152.736686,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "18261": 5416976384
+      },
+      "seconds": 2699.6598019599915
+    }
+  },
+  {
+    "path": "resources/final/arena/O-2026100602.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "O-2026100602",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791333579.158669,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "35472": 5325373440
+      },
+      "seconds": 2750.4331691265106
+    }
+  },
+  {
+    "path": "resources/final/arena/O-2026100603.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "O-2026100603",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791338830.777077,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "49861": 5465686016
+      },
+      "seconds": 2651.4723908901215
+    }
+  },
+  {
+    "path": "resources/final/arena/R-2026100601.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "R-2026100601",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791325453.0761049,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "9767": 3245932544
+      },
+      "seconds": 2638.3674607276917
+    }
+  },
+  {
+    "path": "resources/final/arena/R-2026100602.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "R-2026100602",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791330828.723317,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "26903": 3258384384
+      },
+      "seconds": 2675.9835920333862
+    }
+  },
+  {
+    "path": "resources/final/arena/R-2026100603.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "R-2026100603",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791336179.303138,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "42964": 3238494208
+      },
+      "seconds": 2600.14311504364
+    }
+  },
+  {
+    "path": "resources/final/arena/audit.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.audit_hu20_cfr_plus_arena",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/plan.json",
+        "--run",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/run",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/run/audit.json",
+        "--source",
+        "523e4a347d012beb8cb523497d2e9a4cbb90035f",
+        "--plan-sha256",
+        "74a4ed5deac713a757e47c3fe91c8827268a607bf0cb386aedb4b839d959e7a7"
+      ],
+      "completed_at": 1791341848.69295,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "70745": 178356224
+      },
+      "seconds": 119.9855420589447
+    }
+  },
+  {
+    "path": "resources/final/arena/report.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "report",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/plan.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/arena/run"
+      ],
+      "completed_at": 1791341728.7052958,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "70686": 195870720
+      },
+      "seconds": 18.271554946899414
+    }
+  },
+  {
+    "path": "resources/final/direct/audit.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.audit_hu20_cfr_plus_direct",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/plan.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/run",
+        "--plan-sha256",
+        "5f173a4fa216be4457fe9787b88841159ebb1f2cab86a7db47513edfc3e762ad"
+      ],
+      "completed_at": 1791342164.6871932,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "71186": 398508032
+      },
+      "seconds": 267.9786710739136
+    }
+  },
+  {
+    "path": "resources/final/direct/pair-1.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/run",
+        "--lineage",
+        "1"
+      ],
+      "completed_at": 1791339065.822412,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "56878": 7222329344
+      },
+      "seconds": 235.04198098182678
+    }
+  },
+  {
+    "path": "resources/final/direct/pair-2.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/run",
+        "--lineage",
+        "2"
+      ],
+      "completed_at": 1791339302.664309,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "57505": 7355760640
+      },
+      "seconds": 236.83868503570557
+    }
+  },
+  {
+    "path": "resources/final/direct/pair-3.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/run",
+        "--lineage",
+        "3"
+      ],
+      "completed_at": 1791339534.8579378,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "58187": 7588331520
+      },
+      "seconds": 232.19078493118286
+    }
+  },
+  {
+    "path": "resources/final/direct/pair-4.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/run",
+        "--lineage",
+        "4"
+      ],
+      "completed_at": 1791339746.103918,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "58798": 7181467648
+      },
+      "seconds": 211.24456310272217
+    }
+  },
+  {
+    "path": "resources/final/direct/pair-5.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/run",
+        "--lineage",
+        "5"
+      ],
+      "completed_at": 1791339959.5717492,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "59349": 7264714752
+      },
+      "seconds": 213.4643909931183
+    }
+  },
+  {
+    "path": "resources/final/direct/pair-6.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/run",
+        "--lineage",
+        "6"
+      ],
+      "completed_at": 1791340171.5229561,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "59899": 6784434176
+      },
+      "seconds": 211.94817876815796
+    }
+  },
+  {
+    "path": "resources/final/direct/report.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "report",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/plan.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/final/direct/run"
+      ],
+      "completed_at": 1791341896.7064981,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "71048": 264978432
+      },
+      "seconds": 48.008785009384155
+    }
+  },
+  {
+    "path": "resources/final/turn-audit.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.audit_hu20_full_export_turn_loss",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/turn-loss",
+        "--candidate-sha256",
+        "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae"
+      ],
+      "completed_at": 1791342263.506301,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "72011": 2512650240
+      },
+      "seconds": 65.83593010902405
+    }
+  },
+  {
+    "path": "resources/final/turn-evaluate.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_full_export_turn_loss",
+        "evaluate",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/turn-loss",
+        "--job-memory-gib",
+        "8",
+        "--max-seconds",
+        "14949.071094036102"
+      ],
+      "completed_at": 1791341710.431338,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "60460": 237666304,
+        "60474": 3501883392,
+        "60728": 3492397056,
+        "60987": 3584638976,
+        "61258": 4724146176,
+        "61287": 1933312,
+        "61290": 1933312,
+        "61293": 1933312,
+        "61296": 1933312,
+        "61309": 1933312,
+        "61316": 1245184,
+        "61319": 262144,
+        "61521": 4727734272,
+        "61648": 1949696,
+        "61653": 294912,
+        "61655": 1933312,
+        "61659": 540672,
+        "61661": 1933312,
+        "61664": 1933312,
+        "61668": 245760,
+        "61677": 278528,
+        "61699": 262144,
+        "61720": 1933312,
+        "61723": 1933312,
+        "61783": 4737351680,
+        "62027": 2359296,
+        "62030": 229376,
+        "62034": 1490944,
+        "62043": 4634820608,
+        "62304": 4701110272,
+        "62570": 4763975680,
+        "62831": 4633853952,
+        "63091": 4733517824,
+        "63369": 4725522432,
+        "63628": 3460841472,
+        "63881": 1261568,
+        "63882": 3484073984,
+        "64139": 4766679040,
+        "64399": 3575496704,
+        "64660": 3572662272,
+        "64726": 1933312,
+        "64732": 1933312,
+        "64735": 1933312,
+        "64742": 229376,
+        "64770": 1933312,
+        "64775": 802816,
+        "64919": 3582853120,
+        "65042": 868352,
+        "65044": 1933312,
+        "65069": 1933312,
+        "65072": 1933312,
+        "65124": 229376,
+        "65177": 4709761024,
+        "65434": 0,
+        "65435": 1982464,
+        "65445": 4720656384,
+        "65707": 4639227904,
+        "65965": 3606970368,
+        "66220": 3573465088,
+        "66491": 4637360128,
+        "66750": 3551756288,
+        "67007": 3563241472,
+        "67264": 3583541248,
+        "67529": 4730470400,
+        "67811": 3494756352,
+        "68078": 4685004800,
+        "68335": 4721344512,
+        "68336": 2064384,
+        "68340": 1458176,
+        "68593": 3553460224,
+        "68741": 2539520,
+        "68745": 1933312,
+        "68763": 1933312,
+        "68767": 802816,
+        "68862": 3557163008,
+        "69083": 2523136,
+        "69086": 1933312,
+        "69090": 1933312,
+        "69116": 4630020096,
+        "69373": 3461545984,
+        "69639": 3528130560,
+        "69894": 3588472832,
+        "70155": 4738711552,
+        "70435": 3600924672
+      },
+      "seconds": 1538.9047620296478
+    }
+  },
+  {
+    "path": "resources/final/turn-report.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_full_export_turn_loss",
+        "report",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/turn-loss"
+      ],
+      "completed_at": 1791342197.669248,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "72007": 96616448
+      },
+      "seconds": 1.0547711849212646
+    }
+  },
+  {
+    "path": "resources/pilot/arena/O-2026100601.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "O-2026100601",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791320972.2246668,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "4207": 5414699008,
+        "4849": 671744
+      },
+      "seconds": 187.74761295318604
+    }
+  },
+  {
+    "path": "resources/pilot/arena/O-2026100602.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "O-2026100602",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791321336.211563,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "5443": 5601460224
+      },
+      "seconds": 190.32813692092896
+    }
+  },
+  {
+    "path": "resources/pilot/arena/O-2026100603.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "O-2026100603",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791321688.137254,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "6716": 5467095040
+      },
+      "seconds": 183.53367805480957
+    }
+  },
+  {
+    "path": "resources/pilot/arena/R-2026100601.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "R-2026100601",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791320784.4758122,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "3530": 3242328064
+      },
+      "seconds": 169.9886929988861
+    }
+  },
+  {
+    "path": "resources/pilot/arena/R-2026100602.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "R-2026100602",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791321145.881805,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "4853": 3255828480
+      },
+      "seconds": 173.6555449962616
+    }
+  },
+  {
+    "path": "resources/pilot/arena/R-2026100603.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--model",
+        "R-2026100603",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/run",
+        "--rss-limit-gib",
+        "8"
+      ],
+      "completed_at": 1791321504.6031208,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "6159": 3237085184
+      },
+      "seconds": 168.38985872268677
+    }
+  },
+  {
+    "path": "resources/pilot/arena/audit.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.audit_hu20_cfr_plus_arena",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/plan.json",
+        "--run",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/run",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/run/audit.json",
+        "--source",
+        "523e4a347d012beb8cb523497d2e9a4cbb90035f",
+        "--plan-sha256",
+        "ab03b744a73e2a6efae8f7719e0b833e36078c7c1b0ed63279ef3399349c686f"
+      ],
+      "completed_at": 1791342186.138421,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "71912": 114458624
+      },
+      "seconds": 17.76471209526062
+    }
+  },
+  {
+    "path": "resources/pilot/arena/report.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_v041_arena",
+        "report",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/plan.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/arena/run"
+      ],
+      "completed_at": 1791342168.371777,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "71899": 108396544
+      },
+      "seconds": 3.6809589862823486
+    }
+  },
+  {
+    "path": "resources/pilot/direct/audit.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.audit_hu20_cfr_plus_direct",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/plan.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/run",
+        "--plan-sha256",
+        "2e5a8fdfbd2b505ab6b3ccb5427bd22923c64fad1177482c279254c4353c325e"
+      ],
+      "completed_at": 1791342196.613246,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "71974": 101171200
+      },
+      "seconds": 8.358190774917603
+    }
+  },
+  {
+    "path": "resources/pilot/direct/pair-1.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/run",
+        "--lineage",
+        "1"
+      ],
+      "completed_at": 1791321753.442354,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "7307": 6602899456
+      },
+      "seconds": 65.30364084243774
+    }
+  },
+  {
+    "path": "resources/pilot/direct/pair-2.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/run",
+        "--lineage",
+        "2"
+      ],
+      "completed_at": 1791321819.2085881,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "7515": 7216250880
+      },
+      "seconds": 65.76566982269287
+    }
+  },
+  {
+    "path": "resources/pilot/direct/pair-3.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/run",
+        "--lineage",
+        "3"
+      ],
+      "completed_at": 1791321884.4769752,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "7733": 6924271616
+      },
+      "seconds": 65.26736998558044
+    }
+  },
+  {
+    "path": "resources/pilot/direct/pair-4.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/run",
+        "--lineage",
+        "4"
+      ],
+      "completed_at": 1791321931.960737,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "7950": 6376210432
+      },
+      "seconds": 47.48322606086731
+    }
+  },
+  {
+    "path": "resources/pilot/direct/pair-5.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/run",
+        "--lineage",
+        "5"
+      ],
+      "completed_at": 1791321979.9779131,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "8099": 6766641152
+      },
+      "seconds": 48.01559281349182
+    }
+  },
+  {
+    "path": "resources/pilot/direct/pair-6.launch.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "play",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/run",
+        "--lineage",
+        "6"
+      ],
+      "completed_at": 1791322027.485104,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "8255": 7038205952
+      },
+      "seconds": 47.50558829307556
+    }
+  },
+  {
+    "path": "resources/pilot/direct/report.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_cfr_plus_direct",
+        "report",
+        "--plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/plan.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/pilot/direct/run"
+      ],
+      "completed_at": 1791342188.2542331,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "71967": 98189312
+      },
+      "seconds": 2.1132619380950928
+    }
+  },
+  {
+    "path": "resources/pilot/turn-evaluate.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_full_export_turn_loss",
+        "evaluate",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/turn-loss",
+        "--job-memory-gib",
+        "8",
+        "--max-seconds",
+        "3844.3141901493073",
+        "--limit",
+        "1"
+      ],
+      "completed_at": 1791322210.362794,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "8895": 236666880,
+        "8906": 4688068608,
+        "9175": 147456,
+        "9180": 851968
+      },
+      "seconds": 40.20623302459717
+    }
+  },
+  {
+    "path": "resources/pilot/turn-prepare.resources.json",
+    "data": {
+      "command": [
+        "-m",
+        "scripts.evaluate_hu20_full_export_turn_loss",
+        "prepare",
+        "--arena-plan",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/turn-plan.json",
+        "--policies",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/policies",
+        "--prepared",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/native-inputs/prepared",
+        "--references",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/native-inputs/references",
+        "--binary",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/native-inputs/pooling-v2-mac",
+        "--reference-inventory",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/native-inputs/reference-inventory.json",
+        "--out",
+        "/Users/dberweger/Local/hu20-o-10b-20261006/confirmation-retry-02/turn-loss"
+      ],
+      "completed_at": 1791322170.154551,
+      "exit_code": 0,
+      "failure": null,
+      "peak_rss_bytes_by_pid": {
+        "8421": 6661734400
+      },
+      "seconds": 142.6688792705536
+    }
+  }
+]

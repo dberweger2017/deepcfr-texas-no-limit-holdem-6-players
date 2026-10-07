@@ -1,0 +1,11 @@
+--- 8bbfc457/scripts/evaluate_hu20_cfr_plus_direct.py
++++ owner-approved-8gib/scripts/evaluate_hu20_cfr_plus_direct.py
+@@ -35,7 +35,7 @@
+     def guard():
+         if time() > plan['started_at'] + plan['max_seconds']:
+             raise TimeoutError('Frozen direct-match deadline')
+-        if resource.getrusage(resource.RUSAGE_SELF).ru_maxrss > 6 * 1024**3:
++        if resource.getrusage(resource.RUSAGE_SELF).ru_maxrss > 8 * 1024**3:
+             raise MemoryError('Direct-match RSS guard')
+     failure = None
+     try:

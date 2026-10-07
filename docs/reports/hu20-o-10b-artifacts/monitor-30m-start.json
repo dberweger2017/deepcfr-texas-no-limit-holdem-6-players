@@ -1,0 +1,80 @@
+{
+  "setup": {
+    "created_at": 1791323506.5535738,
+    "owner_request": "check OpenAI documentation and check the ongoing run every 30 minutes",
+    "mechanism": "Finite light M1 shell/Python monitor; no scheduled AI wake-up in T3 Code",
+    "official_docs": "https://learn.chatgpt.com/docs/automations?surface=app",
+    "native_schedule_tool_available": false,
+    "interval_seconds": 1800,
+    "deadline": 1791355120.5975502,
+    "deadline_madrid": "2026-10-07 08:38:40",
+    "next_check_madrid": "2026-10-07T00:21:00.264730+02:00",
+    "monitor_pid": 73740,
+    "work_root": "/Users/dberweger/Local/hu20-o-10b-20261006/monitor-30m",
+    "comment_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/185#issuecomment-6026108250",
+    "first_verified_health": {
+      "observed_at": 1791323460.959619,
+      "status": {
+        "status": "frozen final arena play",
+        "updated_at": 1791322814.708523,
+        "deadline": 1791355120.5975502
+      },
+      "plan_sha256": "5d41ada25f9b5cd46c9405a115c2b6d1a34bdfe53a42e5062e50ee8cbd5749a1",
+      "worker_alive": true,
+      "processes": [
+        {
+          "pid": 9761,
+          "rss_bytes": 93306880,
+          "cpu_time": "0:03.08"
+        },
+        {
+          "pid": 9767,
+          "rss_bytes": 3244392448,
+          "cpu_time": "10:46.71"
+        }
+      ],
+      "free_disk_bytes": 22294585344,
+      "completed_jobs": [],
+      "output_file_count": 289,
+      "output_bytes": 5835394642,
+      "newest_output": {
+        "path": "final/arena/run/R-2026100601.hands.jsonl.gz",
+        "bytes": 33381146,
+        "mtime": 1791323460.8576138
+      },
+      "pr_bridge_alive": true,
+      "terminal": false,
+      "alerts": [],
+      "health": "healthy at snapshot"
+    },
+    "scientific_sources_counts_roots_guards_and_rules_unchanged": true,
+    "no_release_publication": true,
+    "terminal_snapshots_archive_pending": true
+  },
+  "archive": {
+    "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/hu20-o-10b-monitor-30m-setup-20261006.zip",
+    "archive_bytes": 8616,
+    "archive_sha256": "a356dda42ff5583b4da71f6f152cc8797bcc89b0ecda57fd5c28031f4aff828b",
+    "manifest_sha256": "6cfd4b1df580da69e7109049ad549f847d0c595815cb5887e4687c12279a68ff",
+    "members_verified": 9,
+    "status": "member-hash readback verified",
+    "upload_acceptance": "pending",
+    "originals_retained": true,
+    "owning_pr_before_archive": {
+      "headRefOid": "c2352587aaba6d6cc10188400e2e441848a0aa66",
+      "state": "OPEN"
+    }
+  },
+  "later_t3_ui_and_release_verification": {
+    "checked_at": 1791323627.3309472,
+    "installed_app_version": "0.0.45",
+    "settings_scheduled_entry_visible": false,
+    "settings_search": "scheduled",
+    "settings_search_result": "No settings found",
+    "first_orchestrator_v2_nightly": "0.0.46-nightly.20261003.2610",
+    "release_url": "https://github.com/pingdotgg/t3code/releases/tag/v0.0.46-nightly.20261003.2610",
+    "latest_stable": "0.0.45",
+    "latest_nightly_at_check": "0.0.46-nightly.20261006.2735",
+    "app_or_update_track_not_changed_by_agent": true
+  }
+}

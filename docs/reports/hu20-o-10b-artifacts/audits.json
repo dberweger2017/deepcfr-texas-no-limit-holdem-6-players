@@ -1,0 +1,351 @@
+{
+  "scope": "One lineage only, seed 2026100601; pilot outcomes excluded and not inspected",
+  "final": {
+    "A-10B-vs-1B": {
+      "decisions_checked": 650974,
+      "hands_replayed": 122880,
+      "independent_arithmetic_matches": true,
+      "lineages": {
+        "1": {
+          "bb_per_100": 3.9798990885416665,
+          "blocks": 61440,
+          "ci95": [
+            1.354388727480416,
+            6.6054094496029165
+          ],
+          "label": "better"
+        }
+      },
+      "overall": {
+        "bb_per_100": 3.9798990885416665,
+        "blocks": 61440,
+        "ci95": [
+          1.354388727480416,
+          6.6054094496029165
+        ]
+      },
+      "plan_sha256": "a69223df07da81507c7dac945f9acfbf9577a12a811e5423078b1b29eddead39",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -0.6974283854166666,
+          "blocks": 61440,
+          "ci95": [
+            -6.453586947329694,
+            5.05873017649636
+          ]
+        },
+        "button": {
+          "bb_per_100": 8.6572265625,
+          "blocks": 61440,
+          "ci95": [
+            2.906162340982193,
+            14.408290784017808
+          ]
+        }
+      },
+      "primary_lineages": {
+        "1": {
+          "bb_per_100": 3.9798990885416665,
+          "blocks": 61440,
+          "ci95": [
+            1.354388727480416,
+            6.6054094496029165
+          ],
+          "label": "better"
+        }
+      },
+      "primary_overall": {
+        "bb_per_100": 3.9798990885416665,
+        "blocks": 61440,
+        "ci95": [
+          1.354388727480416,
+          6.6054094496029165
+        ],
+        "label": "better"
+      },
+      "raw_files": [
+        {
+          "bytes": 95033909,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "a04ee80aa7aa3cbab9bee053b16e0152967986cc988ec4d88bfcfe633e019a2b"
+        }
+      ],
+      "seconds": 41.982310666004196,
+      "status": "verified"
+    },
+    "B-2B-vs-1B": {
+      "decisions_checked": 647464,
+      "hands_replayed": 122880,
+      "independent_arithmetic_matches": true,
+      "lineages": {
+        "1": {
+          "bb_per_100": 3.6149088541666665,
+          "blocks": 61440,
+          "ci95": [
+            1.0062661628210696,
+            6.223551545512263
+          ],
+          "label": "better"
+        }
+      },
+      "overall": {
+        "bb_per_100": 3.6149088541666665,
+        "blocks": 61440,
+        "ci95": [
+          1.0062661628210696,
+          6.223551545512263
+        ]
+      },
+      "plan_sha256": "3126f7d4efe4b618ce62912a7e18625d09b46365f76133d773331d7e9f594ac3",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -0.9708658854166666,
+          "blocks": 61440,
+          "ci95": [
+            -6.73736262793932,
+            4.795630857105986
+          ]
+        },
+        "button": {
+          "bb_per_100": 8.20068359375,
+          "blocks": 61440,
+          "ci95": [
+            2.4562032847819237,
+            13.945163902718075
+          ]
+        }
+      },
+      "primary_lineages": {
+        "1": {
+          "bb_per_100": 3.6149088541666665,
+          "blocks": 61440,
+          "ci95": [
+            1.0062661628210696,
+            6.223551545512263
+          ],
+          "label": "better"
+        }
+      },
+      "primary_overall": {
+        "bb_per_100": 3.6149088541666665,
+        "blocks": 61440,
+        "ci95": [
+          1.0062661628210696,
+          6.223551545512263
+        ],
+        "label": "better"
+      },
+      "raw_files": [
+        {
+          "bytes": 93880794,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "53fca76e3ea09358bf4ece34d3581e5c7f6d12b812147e84c35086f1be783873"
+        }
+      ],
+      "seconds": 41.24166333398898,
+      "status": "verified"
+    },
+    "C-5B-vs-1B": {
+      "decisions_checked": 648156,
+      "hands_replayed": 122880,
+      "independent_arithmetic_matches": true,
+      "lineages": {
+        "1": {
+          "bb_per_100": 4.189453125,
+          "blocks": 61440,
+          "ci95": [
+            1.5624100949667752,
+            6.816496155033224
+          ],
+          "label": "better"
+        }
+      },
+      "overall": {
+        "bb_per_100": 4.189453125,
+        "blocks": 61440,
+        "ci95": [
+          1.5624100949667752,
+          6.816496155033224
+        ]
+      },
+      "plan_sha256": "46945c38a2386ab9c34fda732bfbb906aa6fac8174ceba4a54e3f90978005ce3",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": -0.4142252604166667,
+          "blocks": 61440,
+          "ci95": [
+            -6.15885007504361,
+            5.330399554210276
+          ]
+        },
+        "button": {
+          "bb_per_100": 8.793131510416666,
+          "blocks": 61440,
+          "ci95": [
+            3.0313887927811,
+            14.554874228052231
+          ]
+        }
+      },
+      "primary_lineages": {
+        "1": {
+          "bb_per_100": 4.189453125,
+          "blocks": 61440,
+          "ci95": [
+            1.5624100949667752,
+            6.816496155033224
+          ],
+          "label": "better"
+        }
+      },
+      "primary_overall": {
+        "bb_per_100": 4.189453125,
+        "blocks": 61440,
+        "ci95": [
+          1.5624100949667752,
+          6.816496155033224
+        ],
+        "label": "better"
+      },
+      "raw_files": [
+        {
+          "bytes": 94585990,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "4a9177d6812c2fca69b619d1f251a3073e7d498b9ead37a14f3975e04c3c92a4"
+        }
+      ],
+      "seconds": 41.6916451669822,
+      "status": "verified"
+    },
+    "D-10B-vs-R1": {
+      "decisions_checked": 642342,
+      "hands_replayed": 122880,
+      "independent_arithmetic_matches": true,
+      "lineages": {
+        "1": {
+          "bb_per_100": 15.816650390625,
+          "blocks": 61440,
+          "ci95": [
+            12.887143672351028,
+            18.74615710889897
+          ],
+          "label": "better"
+        }
+      },
+      "overall": {
+        "bb_per_100": 15.816650390625,
+        "blocks": 61440,
+        "ci95": [
+          12.887143672351028,
+          18.74615710889897
+        ]
+      },
+      "plan_sha256": "9d962fc7e0a335122bb73b0de7fb9fbd40cc59467e72098e69c78ffc82425164",
+      "positions": {
+        "big_blind": {
+          "bb_per_100": 11.088053385416666,
+          "blocks": 61440,
+          "ci95": [
+            5.165952912196363,
+            17.01015385863697
+          ]
+        },
+        "button": {
+          "bb_per_100": 20.545247395833332,
+          "blocks": 61440,
+          "ci95": [
+            14.548021707742253,
+            26.542473083924413
+          ]
+        }
+      },
+      "primary_lineages": {
+        "1": {
+          "bb_per_100": 15.816650390625,
+          "blocks": 61440,
+          "ci95": [
+            12.887143672351028,
+            18.74615710889897
+          ],
+          "label": "better"
+        }
+      },
+      "primary_overall": {
+        "bb_per_100": 15.816650390625,
+        "blocks": 61440,
+        "ci95": [
+          12.887143672351028,
+          18.74615710889897
+        ],
+        "label": "better"
+      },
+      "raw_files": [
+        {
+          "bytes": 95478934,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "0f35e7f86394deb254ee4d4eca668fd0da37c6c74cebfcdb1451df9eb0efa857"
+        }
+      ],
+      "seconds": 41.583482459012885,
+      "status": "verified"
+    }
+  },
+  "pilot_completeness": {
+    "A-10B-vs-1B": {
+      "status": "verified",
+      "hands_replayed": 8192,
+      "decisions_checked": 43873,
+      "independent_arithmetic_matches": true,
+      "plan_sha256": "cc7f0386b8ceab8d410685639c7dbabc4066fe13f3804f97fd5bde5430524f0b",
+      "raw_files": [
+        {
+          "bytes": 6415470,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "a523fa9a19de977f8cc289bdf338f8b7d01eafa1b3190250f66d86a81831398d"
+        }
+      ]
+    },
+    "B-2B-vs-1B": {
+      "status": "verified",
+      "hands_replayed": 8192,
+      "decisions_checked": 43545,
+      "independent_arithmetic_matches": true,
+      "plan_sha256": "94bd48884d5484d1a11cd3dda9a0b6f2ef161e4448953f772acda714ac46f03b",
+      "raw_files": [
+        {
+          "bytes": 6309820,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "6bf437111bbff50244c393020783ee35cf2259bbe0b3d724014acb414b92eb96"
+        }
+      ]
+    },
+    "C-5B-vs-1B": {
+      "status": "verified",
+      "hands_replayed": 8192,
+      "decisions_checked": 43779,
+      "independent_arithmetic_matches": true,
+      "plan_sha256": "7c229c508fd32456e8604760cc7d0660f27fffdaed76b45cd24edc36b389d66d",
+      "raw_files": [
+        {
+          "bytes": 6390123,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "ddcb80d25805e04a040ce6a2f1e195e64b8f138bfd5494152a184307f6fce085"
+        }
+      ]
+    },
+    "D-10B-vs-R1": {
+      "status": "verified",
+      "hands_replayed": 8192,
+      "decisions_checked": 43250,
+      "independent_arithmetic_matches": true,
+      "plan_sha256": "15440278958361679dca64fb29377c57099ff81a94359b83a5253f7b8b9c04b9",
+      "raw_files": [
+        {
+          "bytes": 6437147,
+          "path": "direct-lineage-1.hands.jsonl.gz",
+          "sha256": "9a61eb3ef0763a4ff0ffa7c63c89bdd8bf145ee44e79981782b8ab002421c7f8"
+        }
+      ]
+    }
+  }
+}

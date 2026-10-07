@@ -1,0 +1,13 @@
+{
+  "status": "verified",
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/hu20-o-10b-confirmation-retry-02-final-9h-20261007.zip",
+  "archive_bytes": 1764022787,
+  "archive_sha256": "30044d57b7daf4b8eb2669b3320a54ac5e087c8161f8bebb47706e9ab795e1f6",
+  "manifest_sha256": "d1452a5b265eda1807e0dbccf0fca05421b692379c18e8704b85856ad9a09231",
+  "members_verified": 610,
+  "originals_retained": true,
+  "upload_status": "native uploaded; cloud ID/name/size/parent verified",
+  "drive_id": "1o75pBJpeTsynTzMc0ZDQEDPeVk88Yopt",
+  "drive_url": "https://drive.google.com/file/d/1o75pBJpeTsynTzMc0ZDQEDPeVk88Yopt/view?usp=drivesdk",
+  "cloud_byte_redownload": false
+}

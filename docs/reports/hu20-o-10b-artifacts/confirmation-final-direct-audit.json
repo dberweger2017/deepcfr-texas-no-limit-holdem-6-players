@@ -1,0 +1,160 @@
+{
+  "decisions_checked": 4144997,
+  "hands_replayed": 786432,
+  "independent_arithmetic_matches": true,
+  "lineages": {
+    "1": {
+      "bb_per_100": 2.622222900390625,
+      "blocks": 65536,
+      "ci95": [
+        0.07170379161896712,
+        5.172742009162283
+      ],
+      "label": "better"
+    },
+    "2": {
+      "bb_per_100": 4.3186187744140625,
+      "blocks": 65536,
+      "ci95": [
+        1.740692285589137,
+        6.896545263238988
+      ],
+      "label": "better"
+    },
+    "3": {
+      "bb_per_100": 3.5610198974609375,
+      "blocks": 65536,
+      "ci95": [
+        1.011096786542371,
+        6.110943008379504
+      ],
+      "label": "better"
+    },
+    "4": {
+      "bb_per_100": 12.793731689453125,
+      "blocks": 65536,
+      "ci95": [
+        9.946628227818682,
+        15.640835151087568
+      ],
+      "label": "better"
+    },
+    "5": {
+      "bb_per_100": 12.284088134765625,
+      "blocks": 65536,
+      "ci95": [
+        9.440896520765612,
+        15.127279748765638
+      ],
+      "label": "better"
+    },
+    "6": {
+      "bb_per_100": 14.241409301757812,
+      "blocks": 65536,
+      "ci95": [
+        11.412128447702932,
+        17.070690155812695
+      ],
+      "label": "better"
+    }
+  },
+  "overall": {
+    "bb_per_100": 8.303515116373697,
+    "blocks": 65536,
+    "ci95": [
+      6.569830831238303,
+      10.037199401509092
+    ]
+  },
+  "plan_sha256": "5f173a4fa216be4457fe9787b88841159ebb1f2cab86a7db47513edfc3e762ad",
+  "positions": {
+    "big_blind": {
+      "bb_per_100": 7.8281402587890625,
+      "blocks": 65536,
+      "ci95": [
+        2.9631769901239693,
+        12.693103527454156
+      ]
+    },
+    "button": {
+      "bb_per_100": 8.778889973958334,
+      "blocks": 65536,
+      "ci95": [
+        3.862955125731675,
+        13.694824822184993
+      ]
+    }
+  },
+  "primary_lineages": {
+    "1": {
+      "bb_per_100": 2.622222900390625,
+      "blocks": 65536,
+      "ci95": [
+        0.07170379161896712,
+        5.172742009162283
+      ],
+      "label": "better"
+    },
+    "2": {
+      "bb_per_100": 4.3186187744140625,
+      "blocks": 65536,
+      "ci95": [
+        1.740692285589137,
+        6.896545263238988
+      ],
+      "label": "better"
+    },
+    "3": {
+      "bb_per_100": 3.5610198974609375,
+      "blocks": 65536,
+      "ci95": [
+        1.011096786542371,
+        6.110943008379504
+      ],
+      "label": "better"
+    }
+  },
+  "primary_overall": {
+    "bb_per_100": 3.5006205240885415,
+    "blocks": 65536,
+    "ci95": [
+      1.6323025425640474,
+      5.368938505613036
+    ],
+    "label": "better"
+  },
+  "raw_files": [
+    {
+      "bytes": 102213908,
+      "path": "direct-lineage-1.hands.jsonl.gz",
+      "sha256": "2300b80a67ef3d65d0423d03a06e9951868e00a531ef3679a1bf43e4771bdd83"
+    },
+    {
+      "bytes": 102718117,
+      "path": "direct-lineage-2.hands.jsonl.gz",
+      "sha256": "4ce937ff7dc73ea8ca5f5ebef461082357b5c8a3508088422d79bdfa51a82cb7"
+    },
+    {
+      "bytes": 101311117,
+      "path": "direct-lineage-3.hands.jsonl.gz",
+      "sha256": "bcbaf8e6591dcb1c9333fb8baac60b94ca473d1a23d717391f9cb4a5338e3d56"
+    },
+    {
+      "bytes": 101967394,
+      "path": "direct-lineage-4.hands.jsonl.gz",
+      "sha256": "cd5f4b9961afb9d63b59df5df00dda50d64fb05efcfd976ae4417af9cd0182fe"
+    },
+    {
+      "bytes": 102005611,
+      "path": "direct-lineage-5.hands.jsonl.gz",
+      "sha256": "3720fdc1ff5fb0d1e9570998acb55d1a63f1f9cf4527dc6c7f9979f3ee94b18e"
+    },
+    {
+      "bytes": 101558859,
+      "path": "direct-lineage-6.hands.jsonl.gz",
+      "sha256": "6391626271453692d50fe7860f3d4acd3cb0dc9cddab798f181c28e2b945b08c"
+    }
+  ],
+  "seconds": 267.0366610829951,
+  "status": "verified"
+}

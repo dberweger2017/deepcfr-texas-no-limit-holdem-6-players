@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "tests": "python3 -m unittest tests.test_ci_scope -v: 12 passed",
+  "report_values_and_links": "all panel estimates, decision, audit counts, direct widths and local report/protocol links verified",
+  "diff_check": "git diff --check passed",
+  "scientific_replays": "existing independent audits accepted; no science rerun",
+  "archive_acceptance": "Both science/support archives native uploaded and cloud ID/name/size/parent checked",
+  "retained_failure": "Optional os.listxattr inspection unavailable after archive sealed; replaced by native Foundation upload read and Drive metadata; archive unaffected",
+  "archive_snapshot_correction": "Archived pre-CI validation snapshot said 10 tests; completed unittest output reports 12. This receipt records the corrected count; no test failed or was skipped."
+}

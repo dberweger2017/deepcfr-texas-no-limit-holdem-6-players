@@ -1,0 +1,15 @@
+{
+  "status": "verified",
+  "all_nodes_verified": 4343088,
+  "counts": {
+    "entries": 4343088,
+    "zero_mass": 1410789,
+    "positive_mass": 2932299
+  },
+  "unweighted_mean_current_average_tv": 0.29979079888631116,
+  "maximum_tv": 1.0,
+  "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+  "current_sha256": "09f8943ec1910be1975673372b9532984ca60fd8a16f19fe95d6d33976ff5794",
+  "average_sha256": "5a994484e4cbed5146c5f0d627ee12d0f22e8fc41ebb1f3628c80b112ba8d59b",
+  "checkpoint_sha256": "a0ef695d6807aa4554ba01b32d27f64c39ccdc72d03be5a21c99cf67e52ad716"
+}
