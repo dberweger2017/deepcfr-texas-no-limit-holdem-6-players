@@ -73,7 +73,11 @@ def guard(root, budget, pid, *, worker=False):
         raise RuntimeError("15-GiB free-disk floor")
     if time() >= budget["deadline_epoch"] - 3600:
         raise RuntimeError("48-hour cap reached closeout reserve")
-    return {"rss_bytes": rss, "swap_bytes": swap, "free_disk_bytes": free}
+    state = {"rss_bytes": rss, "swap_bytes": swap, "free_disk_bytes": free}
+    if time() - getattr(guard, "last_log", 0) >= 5:
+        append(root / "family-resources.jsonl", dict(state, timestamp=time(), pid=pid, worker=worker))
+        guard.last_log = time()
+    return state
 
 
 def native(root, request, destination):
