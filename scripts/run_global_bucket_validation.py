@@ -184,6 +184,8 @@ def native(root, request, destination):
         result = {"binary_sha256": BINARY_HASH, "elapsed_seconds": time()-started,
                   "peak_owned_rss_bytes": peak, "request_sha256": file_hash(path), "response": sealed,
                   "rows": rows}
+        if destination.is_relative_to(root/"run"):
+            result["request_archive"]=seal(path)
         atomic_json(destination / "result.json", result)
         return result
     except BaseException as error:
@@ -281,8 +283,16 @@ def worker(root, phase, job_id):
         recorded = load(root / "inputs/pr149/main-06/collect" / job_id / "result.json")
         policy = root / "run" / f'crossfit-{job["evaluation_fold"]}-{job["lineage"]}.json'
         inventory = load(root / "run/pool-inventory.json")
-        if file_hash(policy) != inventory[policy.name]:
-            raise ValueError("Frozen fitted witness hash differs")
+        policy_receipt=inventory[policy.name]
+        if isinstance(policy_receipt,dict):
+            if file_hash(policy.with_name(policy.name+".gz"))!=policy_receipt["gzip_sha256"]:
+                raise ValueError("Frozen fitted witness gzip differs")
+            if not policy.exists():
+                with gzip.open(policy.with_name(policy.name+".gz"),"rb") as source,policy.open("xb") as target:
+                    shutil.copyfileobj(source,target,8*1024**2)
+            expected_policy_hash=policy_receipt["raw_sha256"]
+        else:expected_policy_hash=policy_receipt
+        if file_hash(policy)!=expected_policy_hash:raise ValueError("Frozen fitted witness hash differs")
         request.update(pooling_phase="lock-only", max_iterations=0,
             reference_equilibrium_ev_chips=recorded["completion"]["current_ev_chips"],
             reference_response_sha256=recorded["runtime"]["response_sha256"],
@@ -310,6 +320,7 @@ def worker(root, phase, job_id):
     atomic_json(root / "run" / phase / job_id / "result.json", result)
     if job.get("compact_overlay") or active_compact.with_name(active_compact.name+".gz").exists():
         active_compact.unlink()
+    if phase=="relock" and policy.with_name(policy.name+".gz").exists():policy.unlink()
 
 
 def fit(root, lineage, fold):
@@ -330,7 +341,10 @@ def fit(root, lineage, fold):
     policy = pool_statistics(records())
     policy.update(evaluation_fold=fold, training_fold=1-fold, training_spots=sorted(j["spot"] for j in jobs),
                   global_transport_aliases={alias:f"global-k{k}" for k,alias in ALIASES.items()})
-    atomic_json(root / "run" / f"crossfit-{fold}-{lineage}.json", policy)
+    path=root/"run"/f"crossfit-{fold}-{lineage}.json"
+    atomic_json(path,policy)
+    receipt=seal(path)
+    atomic_json(path.with_name(path.name+".receipt.json"),receipt)
 
 
 def child(root, mode, *, phase=None, job=None, spot=None, lineage=None, fold=None):
@@ -430,7 +444,7 @@ def main_run(root):
                 for fold in (0,1):
                     child(root,"fit",lineage=lineage,fold=fold)
                     paths.append(root/"run"/f"crossfit-{fold}-{lineage}.json")
-            atomic_json(root/"run/pool-inventory.json",{p.name:file_hash(p) for p in paths})
+            atomic_json(root/"run/pool-inventory.json",{p.name:load(p.with_name(p.name+".receipt.json")) for p in paths})
             continue
         for i,job in enumerate(jobs):
             # The outcome-blind first collection pilot is the identical first main job.

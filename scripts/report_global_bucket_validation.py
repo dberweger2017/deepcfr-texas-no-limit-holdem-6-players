@@ -108,9 +108,11 @@ def key_counts(root):
                     available[k,job["evaluation_fold"],street].add(key)
                     labels[k,street].add(int(label))
     fitted=[]
-    for path in sorted((root/"run").glob("crossfit-*.json")):
-        policy=json.loads(path.read_text());counts=defaultdict(set);positive=defaultdict(set)
+    for path in sorted((root/"run").glob("crossfit-*.json.gz")):
+        with gzip.open(path,"rt") as source:policy=json.load(source)
+        counts=defaultdict(set);positive=defaultdict(set)
         for group in policy["groups"]:
+            if group["metric"]=="v1":continue
             street=lookup[group["metric"],group["key"]]
             counts[group["metric"],street].add(group["key"])
             if group["mass"]>0:positive[group["metric"],street].add(group["key"])
