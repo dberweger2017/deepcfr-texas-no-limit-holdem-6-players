@@ -52,6 +52,8 @@ def raw_rows(root):
             response=Path(record["response"]["zip_path"])
             if file_hash(response)!=record["response"]["zip_sha256"]:
                 raise ValueError("Raw native response hash differs")
+        if not new_lock.get("v1_witness_reproduction_gate",{}).get("passed"):
+            raise ValueError("Regenerated held-out V1 witness does not reproduce")
         if job["replay_sample"] and (len(new_lock.get("replay_gates", []))!=2 or not all(g["passed"] for g in new_lock["replay_gates"])):
             raise ValueError("Scheduled global statistics/BR replay gate absent")
         if new_lock["rows"][-1]["iterations"]!=0:

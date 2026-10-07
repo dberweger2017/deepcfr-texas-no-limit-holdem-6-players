@@ -286,15 +286,19 @@ def worker(root, phase, job_id):
         request.update(pooling_phase="lock-only", max_iterations=0,
             reference_equilibrium_ev_chips=recorded["completion"]["current_ev_chips"],
             reference_response_sha256=recorded["runtime"]["response_sha256"],
-            pooling_measurements=[{"metric":f"e_global{k}", "projection_metric":alias,
+            pooling_measurements=[{"metric":"e_recomputed_v1", "projection_metric":"v1", "policy_path":str(policy), "allow_missing":True}] + [{"metric":f"e_global{k}", "projection_metric":alias,
                                    "policy_path":str(policy), "allow_missing":True} for k,alias in ALIASES.items()])
         result = native(root, request, root / "run/relock" / job_id)
         # Original references are kept raw and hash-verified in the restored archive.
         original_rows = response(root / "inputs/pr149/main-06/collect" / job_id / "solver/reference.jsonl.gz")
         result["reference_gate"] = check_lock_only(original_rows, result["rows"], request["pot"], request["reference_response_sha256"])
         identities = [(r["metric"],r["target_solver_seat"]) for r in result["rows"] if r["event"]=="pooling_metric"]
-        if len(identities)!=4 or set(identities)!={(f"e_global{k}",s) for k in ALIASES for s in (0,1)}:
+        if len(identities)!=6 or set(identities)!={(m,s) for m in ("e_recomputed_v1","e_global50","e_global200") for s in (0,1)}:
             raise ValueError("Missing/duplicate global lock measurements")
+        original_lock=load(root/"baseline/main-06/relock"/job_id/"result.json")
+        expected=[r for r in original_lock["metrics"] if r["metric"]=="e_cross_v1"]
+        actual=[dict(r,metric="e_cross_v1") for r in result["rows"] if r.get("metric")=="e_recomputed_v1"]
+        result["v1_witness_reproduction_gate"]=check_locked_br_parity(actual,expected,request["pot"])
     if phase == "relock" and job["replay_sample"]:
         replay_request = dict(request, pooling_phase="relock", max_iterations=recorded["completion"]["iterations"], target_pct_pot=-1)
         replay = native(root, replay_request, root / "run/replay" / job_id)
@@ -322,7 +326,7 @@ def fit(root, lineage, fold):
             stats = [r["groups"] for r in rows if r["event"] == "pooling_statistics"]
             if len(stats)!=1:
                 raise ValueError("Missing/duplicate global statistics")
-            yield dict(job, groups=[r for r in stats[0] if r["metric"] in ALIASES.values()])
+            yield dict(job, groups=[r for r in stats[0] if r["metric"] in ("v1", *ALIASES.values())])
     policy = pool_statistics(records())
     policy.update(evaluation_fold=fold, training_fold=1-fold, training_spots=sorted(j["spot"] for j in jobs),
                   global_transport_aliases={alias:f"global-k{k}" for k,alias in ALIASES.items()})
