@@ -1,0 +1,832 @@
+{
+  "version": 1,
+  "legacy_source_commit": "5ba66c159ec8e7624772cedf72012dd80bb310f6",
+  "scope": "Existing tracked evidence retained pending owning-PR, archive/member and dependency verification. Git blob IDs are not Drive checksums or deletion approval. New exceptions require exact-path review and a specific reason.",
+  "retained": {
+    "configs/blueprint/local-cfr-scaling-ranges.json.gz": {
+      "git_blob": "711d348bee8788349016f58a6cca72fd6968c2b0",
+      "bytes": 276172,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-seat-preflight-m4/12m/block-progress.jsonl": {
+      "git_blob": "ebaf5f6f89d734038144276e411be309d4236d73",
+      "bytes": 5107,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-seat-preflight-m4/12m/hands.jsonl": {
+      "git_blob": "1302c9221d124a7300e2e95b702db3e2523bb5ec",
+      "bytes": 207602,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-seat-preflight-m4/5m/block-progress.jsonl": {
+      "git_blob": "f4f7799c5242cec3ed1849fd85d737661cf7ed12",
+      "bytes": 5176,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-seat-preflight-m4/5m/hands.jsonl": {
+      "git_blob": "92f46102a8128fd61469abcca4f924c7b91bc0c4",
+      "bytes": 207605,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-seat-symmetry-m4-artifacts/final-12m.tar.gz": {
+      "git_blob": "666ca3859521fe74447193f88eedab33442afd9a",
+      "bytes": 3490809,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-seat-symmetry-m4-artifacts/final-5m.tar.gz": {
+      "git_blob": "34c508fd1ce2b304d83ad8406771105608a3dc49",
+      "bytes": 3474572,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-seat-symmetry-m4-artifacts/initial-12m.tar.gz": {
+      "git_blob": "80eacfad8c1ce0440df0d9351cad20e1081f1465",
+      "bytes": 3464901,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-seat-symmetry-m4-artifacts/initial-5m.tar.gz": {
+      "git_blob": "6829c91c67d848fccb58d0340a00361f5a85cd30",
+      "bytes": 3458491,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-seat-symmetry-m4-artifacts/replay-12m.tar.gz": {
+      "git_blob": "5b7fda1b709717201074e9a6fb9d73a05311fb81",
+      "bytes": 3491268,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-seat-symmetry-m4-artifacts/replay-5m.tar.gz": {
+      "git_blob": "7eb1d28618ab8570982202b73588964489c5a0ff",
+      "bytes": 3473643,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-windowed-extraction-m4-artifacts/extraction/2026092701/captures.jsonl": {
+      "git_blob": "1c21852477e38a1a7365859b7752330e1493a336",
+      "bytes": 3168,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-windowed-extraction-m4-artifacts/extraction/2026092702/captures.jsonl": {
+      "git_blob": "9773c51f11a8343b676dce2ba6ba4e602f4fbf98",
+      "bytes": 3165,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/blueprint-windowed-extraction-m4-artifacts/extraction/2026092703/captures.jsonl": {
+      "git_blob": "7bd4c9b4261efd6f772d32152a1265dd287bbd56",
+      "bytes": 3168,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/dr2x2-history-artifacts/ac-comparison-20261002/summary.json": {
+      "git_blob": "aba4d6c41575e19318a1f4a828f9477d7ae99d43",
+      "bytes": 1732613,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/holdem-representation.json": {
+      "git_blob": "3b4bfdb39b5100fb906bbf08c38536687fff6075",
+      "bytes": 3308794,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-500m-campaign-artifacts/preliminary-20261001/summary.json": {
+      "git_blob": "f3c13b7906f3a7e46bd22fb0721ce53aea7e6597",
+      "bytes": 2576854,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-bucket-coarseness-artifacts/holdings.jsonl": {
+      "git_blob": "a9d35b4d036fc05496b624e5b40ec154b587c9ef",
+      "bytes": 1140706,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/collision-audit/descriptors.jsonl": {
+      "git_blob": "8e1bccd790e0ce8bab2b2f6fb00e66ca68f42bbc",
+      "bytes": 1109659,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/preflight-v1/iterations.jsonl.gz": {
+      "git_blob": "7f239871a5b2a85866f3c347722b4d847433427b",
+      "bytes": 979459,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/preflight-v2/iterations.jsonl.gz": {
+      "git_blob": "e46ee07ca41e35fbec9dce34b8f89a5bcf0d9c26",
+      "bytes": 880903,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/production/2026093001/evaluation/hands.jsonl.gz": {
+      "git_blob": "e18557e96f70aacd3fc3e7ae3198f6932d63d0e7",
+      "bytes": 8098227,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/production/2026093001/resources.jsonl.gz": {
+      "git_blob": "0facfbd01df0deec7ceb1e988e42a4ba1ab7d10e",
+      "bytes": 89041,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/production/2026093001/transport-results.tar.sha256": {
+      "git_blob": "e9321e93b9bb0319423d153d4b459ba8daffa1e2",
+      "bytes": 89,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/production/2026093002/evaluation/hands.jsonl.gz": {
+      "git_blob": "f4548c6946939a42f4c334d6fc9982bc4b922757",
+      "bytes": 8088622,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/production/2026093002/resources.jsonl.gz": {
+      "git_blob": "7ed572c1de76ee01fdf0318777a4c5f66330c342",
+      "bytes": 78685,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/production/2026093002/transport-results.tar.sha256": {
+      "git_blob": "39c47242c2f26d1f5bf9e2db7b971bd8dcc7f823",
+      "bytes": 89,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/production/2026093003/evaluation/hands.jsonl.gz": {
+      "git_blob": "eba61f3043daea03b7e8035bda0b4680935f88b9",
+      "bytes": 8130773,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/production/2026093003/resources.jsonl.gz": {
+      "git_blob": "3fd1bda3f428b7b66471d9d6275dae5a76e9096f",
+      "bytes": 83651,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-card-v2-artifacts/production/2026093003/transport-results.tar.sha256": {
+      "git_blob": "e619040a7a2753af326a9ad39823a2f276ecf15f",
+      "bytes": 89,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-cfr-average-artifacts/comparison/B-2026093001-500000000-average.hands.jsonl.gz": {
+      "git_blob": "6cd359438972491b729e10fed40e4a742e538470",
+      "bytes": 4376391,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-cfr-average-artifacts/comparison/B-2026093001-500000000-current.hands.jsonl.gz": {
+      "git_blob": "2078cd0c5be1bd4958f3027c595e0f142edede38",
+      "bytes": 3972720,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-cfr-average-artifacts/comparison/B-2026093002-500000000-average.hands.jsonl.gz": {
+      "git_blob": "e43bbaadf7f1b956ff4adac8fb48a20a20ba53ab",
+      "bytes": 4387508,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-cfr-average-artifacts/comparison/B-2026093002-500000000-current.hands.jsonl.gz": {
+      "git_blob": "fc3f93e95adf4060c25dacb1b336509547716d30",
+      "bytes": 3823037,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-cfr-average-artifacts/comparison/B-2026093003-500000000-average.hands.jsonl.gz": {
+      "git_blob": "6bacc77fcfdd2ae66a11a82f3f508fdae2ebb2d0",
+      "bytes": 4151172,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-cfr-average-artifacts/comparison/B-2026093003-500000000-average.hands.jsonl.gz.interrupted": {
+      "git_blob": "00af5079cb146be6bbf7817f90108d6c56f6c8ef",
+      "bytes": 4148316,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-cfr-average-artifacts/comparison/B-2026093003-500000000-current.hands.jsonl.gz": {
+      "git_blob": "d78663eadd4c61578c5983ae4da286c98a4946bd",
+      "bytes": 3878923,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-cfr-average-artifacts/timing-pilot/B-2026093001-500000000-average.hands.jsonl.gz": {
+      "git_blob": "e244cb0bda33102960c6f4e982c9bace52282552",
+      "bytes": 62081,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-cfr-average-artifacts/timing-pilot/B-2026093001-500000000-current.hands.jsonl.gz": {
+      "git_blob": "9532207150f661de7ea308cc2f5cb9e97b228f21",
+      "bytes": 53928,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-exact-turn-check-artifacts/m4-archive-manifest.json.gz": {
+      "git_blob": "d62e0694ec02946507b71216ee05cc00b1356773",
+      "bytes": 144005,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-exact-turn-check-artifacts/main-overfold-groups.jsonl.gz": {
+      "git_blob": "795827c9b350f70d6ff869b71ecfbbc1204f0323",
+      "bytes": 47,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-exact-turn-check-artifacts/main-results.jsonl.gz": {
+      "git_blob": "8f7bd5da538fc8feb2fd2175ed4f4684e98518f2",
+      "bytes": 58528,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-exact-turn-check-artifacts/main03-overfold-groups.jsonl.gz": {
+      "git_blob": "1cbf8c812830ba580e8a601413e5211c6eafe976",
+      "bytes": 13254365,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-exact-turn-check-artifacts/main03-overfold-key-totals.jsonl.gz": {
+      "git_blob": "3e808b9f5f7b66a70bc6455ab1ee0e71a52e0677",
+      "bytes": 2779991,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-exact-turn-check-artifacts/main03-results.jsonl.gz": {
+      "git_blob": "2a0990da480573f174682e466c500130dde07a8f",
+      "bytes": 14871344,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-fast-lbr-integration-artifacts/hands.jsonl": {
+      "git_blob": "2d68a6a42bcf669107823223a2de9b3f586c6c9f",
+      "bytes": 545895,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-light-made-hand-trends-artifacts/events.jsonl": {
+      "git_blob": "d1e4fa687c3d42af030341424f0fcdd7092cc495",
+      "bytes": 225543,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-m4-artifacts/human-smoke-20-hands.jsonl": {
+      "git_blob": "ec00023b0bed2ee6738b882c320cb080356abe98",
+      "bytes": 14059,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-m4-artifacts/training/2026092801/captures.jsonl": {
+      "git_blob": "5de58604ce01dab232f72560ea3a777bb5df061d",
+      "bytes": 3077,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-m4-artifacts/training/2026092801/checkpoints.jsonl": {
+      "git_blob": "38302a111c9286324c0549e068f0c5dfdf0135a6",
+      "bytes": 1163,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-m4-artifacts/training/2026092802/captures.jsonl": {
+      "git_blob": "807f8366d31855da8cbb37e6b297d67425626356",
+      "bytes": 3078,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-m4-artifacts/training/2026092802/checkpoints.jsonl": {
+      "git_blob": "c776e8c5a3a59dc0ce126af9eed7d5a7169e345b",
+      "bytes": 1163,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-m4-artifacts/training/2026092803/captures.jsonl": {
+      "git_blob": "3411c4e2838a21bc4bcb60d28d9f69e2a662ff7a",
+      "bytes": 3077,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-m4-artifacts/training/2026092803/checkpoints.jsonl": {
+      "git_blob": "368ec4a2069461b22de2bae03511fed635926872",
+      "bytes": 1163,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-native-reopening-m4-artifacts/candidate-human-smoke.jsonl": {
+      "git_blob": "af909fe1cdd32ff01b271bd85e4682d7514325a0",
+      "bytes": 16141,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-river-artifacts/comparison/B-2026093001-500000000.hands.jsonl.gz": {
+      "git_blob": "18eb576e831a0579163d85efa7c1af4a91a1c411",
+      "bytes": 250318,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-river-artifacts/comparison/B-2026093002-500000000.hands.jsonl.gz": {
+      "git_blob": "e38d45860fb446ecdd786b27662d60db08bcb92e",
+      "bytes": 242489,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-river-artifacts/comparison/B-2026093003-500000000.hands.jsonl.gz": {
+      "git_blob": "ff9829c86d58acb8b578c12834f384ecfa21bef8",
+      "bytes": 234215,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-river-artifacts/timing/curve.jsonl": {
+      "git_blob": "6e26e3c2c0d5145f734f00f2d807df9345ce8857",
+      "bytes": 11805,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093001-100000000.inspection.jsonl.gz": {
+      "git_blob": "8e4439b1be3e3ddcc023895439f142ea5f602e2e",
+      "bytes": 310522,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093001-20000000.inspection.jsonl.gz": {
+      "git_blob": "0ee5ca16ccd7cdc7aca120fe32e9784018a7063d",
+      "bytes": 323477,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093001-40000000.inspection.jsonl.gz": {
+      "git_blob": "76a6143dd306f77d2985c82fe635b0d84159f3ac",
+      "bytes": 327206,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093001-80000000.inspection.jsonl.gz": {
+      "git_blob": "08820d631d562ce33574fea8aa4aad01d608745b",
+      "bytes": 312273,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093002-100000000.inspection.jsonl.gz": {
+      "git_blob": "7b431102cb3a5f951515f5c7bf429c798050d64b",
+      "bytes": 323911,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093002-20000000.inspection.jsonl.gz": {
+      "git_blob": "4c086012b61f7052241571eff0aa7d887fdad2dc",
+      "bytes": 329726,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093002-40000000.inspection.jsonl.gz": {
+      "git_blob": "fb6b53603d83f02323811bbb4d9c2156ff447fc8",
+      "bytes": 325990,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093002-80000000.inspection.jsonl.gz": {
+      "git_blob": "f6d364c7d1e57da0bd20f4c47494229558ccfb69",
+      "bytes": 313694,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093003-100000000.inspection.jsonl.gz": {
+      "git_blob": "8c72d0f668aa29fcf37aae2ffdc04c33c32270ce",
+      "bytes": 318088,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093003-20000000.inspection.jsonl.gz": {
+      "git_blob": "c3754024820e7f613d51661b3a37a3d02cc2faab",
+      "bytes": 316937,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093003-40000000.inspection.jsonl.gz": {
+      "git_blob": "5e08c6eff3b4d643e32c7dcf177518c57fd6de86",
+      "bytes": 313887,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/B-2026093003-80000000.inspection.jsonl.gz": {
+      "git_blob": "0d0b58906b87f6d8e02164095957b7c312ea8bbe",
+      "bytes": 317607,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/decisions.csv.gz": {
+      "git_blob": "0f62b8e43dcd7fda3cd8927610a6b5519cf36575",
+      "bytes": 11445573,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/generated-hands.jsonl.gz": {
+      "git_blob": "06babc54e8d0ff8e483aa843503650e254405458",
+      "bytes": 10531128,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-stackoff-artifacts/large-raise-made-hands.rows.jsonl": {
+      "git_blob": "2c6ff0cc1b319d24bba1eae625450dcb5b82c91e",
+      "bytes": 152045,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-turn-search-artifacts/calibration-02-retained-screen.jsonl": {
+      "git_blob": "975722bfcb65c341cfd1ef69a0dc1beff13feed2",
+      "bytes": 809943,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-turn-search-artifacts/calibration-03-full-curve.jsonl": {
+      "git_blob": "9dac7a0d0c765641c4704e17fc96bf806a5bf161",
+      "bytes": 9838694,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-v041-arena-artifacts/hu20-native-average-complete-20261005.tar.gz.native-upload.txt": {
+      "git_blob": "098379910d28090ab9d70e59b47a531932d8bf3f",
+      "bytes": 6576,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-v041-arena-artifacts/hu20-v041-audit-closeout-20261005.tar.gz.native-upload.txt": {
+      "git_blob": "66f863b4c098600e8aec3524e1cf7507219a9ff7",
+      "bytes": 6567,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-v1-history-alias-artifacts/aliases.jsonl.gz": {
+      "git_blob": "e4b4e535e84e0e8e56217df1e4484395ec8a8983",
+      "bytes": 7238346,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-v1-history-alias-artifacts/selfplay-2026093001.json": {
+      "git_blob": "eb5820f59340b61536c99805318be75bdfb7e5db",
+      "bytes": 1610229,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-v1-history-alias-artifacts/selfplay-2026093002.json": {
+      "git_blob": "8e09b6ec4603c06b9e8edb234b489d49c4f45c19",
+      "bytes": 1908550,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-v1-history-alias-artifacts/selfplay-2026093003.json": {
+      "git_blob": "adc6bc2744f13671ba648f349d3f64a0fc0495d0",
+      "bytes": 1749609,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/archive-receipt.json.gz": {
+      "git_blob": "dbbb27bb26e846b5d74ce750c41d32e4909fdb72",
+      "bytes": 417,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/completion-environment.json.gz": {
+      "git_blob": "4ca07573e0864081817b603308814faec7824e76",
+      "bytes": 174,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/final-A-Tprime-vs-T-audit.json.gz": {
+      "git_blob": "414a3f40ae51871481adb645742dc667638b4eb7",
+      "bytes": 821,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/final-B-Oprime-vs-O-audit.json.gz": {
+      "git_blob": "abd3a1cc3049ed14f867ecc5a50875bd5b86a728",
+      "bytes": 821,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/final-plan-hash.json.gz": {
+      "git_blob": "a116ddcfd0838e23280fdc202454a952f532569f",
+      "bytes": 119,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/final-plan.json.gz": {
+      "git_blob": "b1b9cc96a55d64cc4e2e8585c08d800e4cbf735a",
+      "bytes": 2088,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/final-secondary-Oprime-vs-R1-audit.json.gz": {
+      "git_blob": "215d56f08d085d9716df66bf8341681cc523a263",
+      "bytes": 799,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/final-secondary-Tprime-vs-O-audit.json.gz": {
+      "git_blob": "99fe3923c95468c16229502bc8b8bd41afb645a8",
+      "bytes": 821,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/final-secondary-Tprime-vs-R1-audit.json.gz": {
+      "git_blob": "9db4e612a70e12bc12887b9948c2b7bb0098e413",
+      "bytes": 827,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/final-source-snapshot.json.gz": {
+      "git_blob": "f64d130b907e4e83358ea0bf3836158c800fed10",
+      "bytes": 339,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/input-verification.json.gz": {
+      "git_blob": "8b18c2c1d534de5a5f14b8e89c4d638f1b0bc6ca",
+      "bytes": 1362,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/models.json.gz": {
+      "git_blob": "b9671670db2c7202848848dd7a5f592ebded0d43",
+      "bytes": 1573,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/pilot-A-Tprime-vs-T-audit.json.gz": {
+      "git_blob": "db13dcfe65b303db6fcc960884dead18907e0c84",
+      "bytes": 804,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/pilot-B-Oprime-vs-O-audit.json.gz": {
+      "git_blob": "4dba16209342b820984ed0a40dfb1559f3fa9fa7",
+      "bytes": 798,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/pilot-secondary-Oprime-vs-R1-audit.json.gz": {
+      "git_blob": "a2d0e773dce0659821c4c89a477761b808dcad84",
+      "bytes": 796,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/pilot-secondary-Tprime-vs-O-audit.json.gz": {
+      "git_blob": "a136413b4a1d067de6d1f91d52c1eb9e5bed9b61",
+      "bytes": 798,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/pilot-secondary-Tprime-vs-R1-audit.json.gz": {
+      "git_blob": "d45751a31f30da7f7b99c65162a281cc7d042b7d",
+      "bytes": 795,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/pressure-not-triggered.json.gz": {
+      "git_blob": "c55714c07787f1c5dbaac02863b514b04dd7e710",
+      "bytes": 129,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/quote.json.gz": {
+      "git_blob": "a663947ab7d7aabfbd83466049e9d80c76efcb06",
+      "bytes": 1260,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/unchanged-tools.json.gz": {
+      "git_blob": "183a54ea515a946b6836c6af79e27062ad9eea27",
+      "bytes": 329,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/hu20-zero-mass-fallback-artifacts/validation.json.gz": {
+      "git_blob": "cbf74e77b0b7482110f8a96fd0ffd7cd7decd41e",
+      "bytes": 344,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/local-cfr-conditional-aborted-gc-attempts.jsonl": {
+      "git_blob": "9dcc0b27f343556ee648441215a884cfcd2cca81",
+      "bytes": 42754,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/local-cfr-conditional-m4-attempts.jsonl": {
+      "git_blob": "fee9982942b978a30b303c7b7fb57c0e4ad1bfb0",
+      "bytes": 204204,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/local-cfr-scaling-m4-attempts.jsonl": {
+      "git_blob": "7b7436647a770cc894091f9c673101b2f400c3b5",
+      "bytes": 2582511,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/local-cfr-scaling-m4-events.tfevents": {
+      "git_blob": "0cfbb908223eb25644f1c0b4fc68ac4692c8a34f",
+      "bytes": 37012,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/local-cfr-scaling-preflight-m4-attempts.jsonl": {
+      "git_blob": "483b9ab6e072789de3dabcfb3797a1bd07c925b8",
+      "bytes": 17139,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/luna-browser/primary/browser-metadata.json": {
+      "git_blob": "4244db1cb9fdb782f8d17e0b380a0de17d5d1738",
+      "bytes": 1411004,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/neural-advantage-fits.jsonl": {
+      "git_blob": "ef0abdd190ee7ea1ac503766d476bd5e2a2d6114",
+      "bytes": 39656,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/neural-convergence-advantage-fits.jsonl": {
+      "git_blob": "864ffe264b8594d8586424e7d9439b4d1073f5c9",
+      "bytes": 382141,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/neural-convergence-curves.jsonl": {
+      "git_blob": "97ba58d3ab3879d553f14de4093199170366ee9d",
+      "bytes": 38383,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/postflop-replication-m4-artifacts/training/k1-2026092701/milestones.jsonl": {
+      "git_blob": "28e7f17e640d12ffde3aa3462ca0d59c65b27244",
+      "bytes": 3493,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/postflop-replication-m4-artifacts/training/k1-2026092702/milestones.jsonl": {
+      "git_blob": "b50a2dfe79513c3909e5e1ed562bac8d9cb2c571",
+      "bytes": 3494,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/postflop-replication-m4-artifacts/training/k1-2026092703/milestones.jsonl": {
+      "git_blob": "0e3f6ff97d7231f83122a9efffbef2a2a5373fe8",
+      "bytes": 3493,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/postflop-replication-m4-artifacts/training/k4-2026092701/milestones.jsonl": {
+      "git_blob": "5a985244547e2861485718a01b29828fc9e032ee",
+      "bytes": 3628,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/postflop-replication-m4-artifacts/training/k4-2026092702/milestones.jsonl": {
+      "git_blob": "df157cb8f95905f4107d9bf89154e7cf99aee41a",
+      "bytes": 3630,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/postflop-replication-m4-artifacts/training/k4-2026092703/milestones.jsonl": {
+      "git_blob": "9184cccce20f43ef67edef0815c88056675490af",
+      "bytes": 3634,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-conditional-preflight-m4/rows.jsonl": {
+      "git_blob": "490b688ee82904cd96d0524d9e56d6a9dad30a9b",
+      "bytes": 4822,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-conditional-profile-preflight-m4/profiles/c52624e88f4c7798.npz": {
+      "git_blob": "416a4f4eb62ad425e772f2f23fdbc47b9684a151",
+      "bytes": 72018,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-conditional-profile-preflight-m4/profiles/f2eba48529e46e65.npz": {
+      "git_blob": "ddb83804b7927cce4dee1d7d3c9acae0a9f53809",
+      "bytes": 388001,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-conditional-profile-preflight-m4/rows.jsonl": {
+      "git_blob": "350af9c085905e94da642863d7815f469f61b265",
+      "bytes": 5166,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-development-m4/profiles/dev-deep-straight.npz": {
+      "git_blob": "afaff23289a289c53134484f679091ca95e8b367",
+      "bytes": 8752,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-development-m4/profiles/dev-dry-check.npz": {
+      "git_blob": "d8560e54efa796620402a2cd4e142393f6a33d3f",
+      "bytes": 425188,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-development-m4/profiles/dev-flush-turn.npz": {
+      "git_blob": "ec0522a3238ad73ed041562d149c6ba5f8eb52ae",
+      "bytes": 110473,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-development-m4/profiles/dev-lowdraw-double.npz": {
+      "git_blob": "2f339e65e838706bf74a38c31d4cfaf5878dc770",
+      "bytes": 86956,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-development-m4/profiles/dev-paired-flop.npz": {
+      "git_blob": "e9589d6d867e5f744c128b0469791f98ef6fa9f6",
+      "bytes": 87301,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-development-m4/rows.jsonl": {
+      "git_blob": "d54ffabc7a0782b5c738454921f43d091622b97f",
+      "bytes": 57403,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-quality-m4/rows.jsonl": {
+      "git_blob": "557cfe6a27566227c0bde3a8dd3448112db265f8",
+      "bytes": 47682,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-range-amendment-m4/profiles/dev-deep-mixed-high.npz": {
+      "git_blob": "dc988894f507be3b240b19ba25c428eff8809a4c",
+      "bytes": 124665,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-range-amendment-m4/profiles/dev-dry-suited.npz": {
+      "git_blob": "7ba1f4e48565f3eba71b6ef1d7e018306353ed63",
+      "bytes": 424682,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-range-amendment-m4/profiles/dev-lowdraw-pair.npz": {
+      "git_blob": "1abb490960556e3494d6d058181decdd70590fdf",
+      "bytes": 83646,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-range-amendment-m4/rows.jsonl": {
+      "git_blob": "5580836b33fd5fa639b74a793cbbe3d9111006d9",
+      "bytes": 12944,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-rollout-calibration-m4/rows.jsonl": {
+      "git_blob": "9935b9a98302947068a4189af93832248a0b547b",
+      "bytes": 4374,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/river-rollout-highworld-calibration-m4/rows.jsonl": {
+      "git_blob": "033a5c7f41962e1508988ccc9c419a12507e249e",
+      "bytes": 1759,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/robustness-m4-artifacts/resources.jsonl": {
+      "git_blob": "f8cdccab73c5fe5ec48a6534bb1dc45314f855fa",
+      "bytes": 2303,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strategy-capacity-advantage-fits.jsonl": {
+      "git_blob": "eeb965b8e610867f5d56e9117cf23f086390593a",
+      "bytes": 3649703,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strategy-fitting-checkpoints.jsonl": {
+      "git_blob": "11a7d9be7cf5330d7c0e353eeb31c1a56bc8af65",
+      "bytes": 966539,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/calibration-confirmation/hands.jsonl.gz": {
+      "git_blob": "471ccfb93e9e9a41e39c6303a508f90d183b0de9",
+      "bytes": 1284045,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/calibration-development/hands.jsonl.gz": {
+      "git_blob": "be77b09e12b7e235cb303b2a0073069ad43082d3",
+      "bytes": 310051,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/calibration-pilot/hands.jsonl.gz": {
+      "git_blob": "64c75d807098bad4f1f5e8d1264afe2c7c204bf9",
+      "bytes": 69758,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093001-100000000.hands.jsonl.gz": {
+      "git_blob": "bde077e0eff3e1b3448f6b355e9fc46f1ab681aa",
+      "bytes": 1116857,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093001-100000000.native.decisions.jsonl.gz": {
+      "git_blob": "bf1ae4bb11cfa2145d51554133a0fa03c349c8c2",
+      "bytes": 49274,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093001-100000000.restricted.decisions.jsonl.gz": {
+      "git_blob": "b811bdac40895bc1173081d05749ab1a0001e675",
+      "bytes": 45971,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093001-500000000.hands.jsonl.gz": {
+      "git_blob": "4d8d066315180b3e9b526015ea114f9c7bee23bb",
+      "bytes": 1133063,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093001-500000000.native.decisions.jsonl.gz": {
+      "git_blob": "21be562cd413a5ec7a7578b38ad3ccc1c0aa635d",
+      "bytes": 49062,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093001-500000000.restricted.decisions.jsonl.gz": {
+      "git_blob": "3f4a6ce60d0566964dbce7262c2fa082565d80cb",
+      "bytes": 46597,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093002-100000000.hands.jsonl.gz": {
+      "git_blob": "a119ed45a26ca88df4193bdb209b5675c3e64fca",
+      "bytes": 1168686,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093002-100000000.native.decisions.jsonl.gz": {
+      "git_blob": "af83db5d18c26e1ec693df9b432301cc97f2bf1e",
+      "bytes": 49293,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093002-100000000.restricted.decisions.jsonl.gz": {
+      "git_blob": "7e3eaced1124935391c2bac831ac89d86b731921",
+      "bytes": 46623,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093002-500000000.hands.jsonl.gz": {
+      "git_blob": "05e491b40ce39edd1a02e7d945ab0f2095e933a3",
+      "bytes": 1184486,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093002-500000000.native.decisions.jsonl.gz": {
+      "git_blob": "e0b175eae6443df2c04bebc27c693ff61007b116",
+      "bytes": 48747,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093002-500000000.restricted.decisions.jsonl.gz": {
+      "git_blob": "6c3fc69135efd93078c498450b6a4bef0fa0b85b",
+      "bytes": 46243,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093003-100000000.hands.jsonl.gz": {
+      "git_blob": "e00b3b85354f63ac332795a04923b55d9304cc69",
+      "bytes": 1089236,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093003-100000000.native.decisions.jsonl.gz": {
+      "git_blob": "2a924deb5ee7dfd865ec414aa3b3a32f9a4c9da9",
+      "bytes": 49237,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093003-100000000.restricted.decisions.jsonl.gz": {
+      "git_blob": "f8eaddc1d35da7f1f8350696c6c8e09cf0696853",
+      "bytes": 46543,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093003-500000000.hands.jsonl.gz": {
+      "git_blob": "ffad6f293f1e6234297fef8092ad5deccb7686b2",
+      "bytes": 1120620,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093003-500000000.native.decisions.jsonl.gz": {
+      "git_blob": "b2eaffc1f9bbb6df5996ece21b4388434a2e0e4b",
+      "bytes": 49312,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/comparison/B-2026093003-500000000.restricted.decisions.jsonl.gz": {
+      "git_blob": "d93e9c77a943bbf5ba4cdb0c6ecdfdf65a4baf35",
+      "bytes": 46481,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/model-timing-pilot-attempt2/B-2026093001-100000000.hands.jsonl.gz": {
+      "git_blob": "5e86b99878c99c9749897df92f6758ced84b298c",
+      "bytes": 10678,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/model-timing-pilot-attempt2/B-2026093001-100000000.native.decisions.jsonl.gz": {
+      "git_blob": "63b1ce4482c30cc31d83fab363f8e4474bd8ad54",
+      "bytes": 6721,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/strong-rollout-hu20-v1-artifacts/model-timing-pilot-attempt2/B-2026093001-100000000.restricted.decisions.jsonl.gz": {
+      "git_blob": "d545d9d9f7bb7dbc1bd668e38d55a5dabc960e69",
+      "bytes": 7714,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/tabular-curves.jsonl": {
+      "git_blob": "4c320f56e12a8633a3d875c95360f7b91ac21019",
+      "bytes": 66965,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/tp20-m4-results.json": {
+      "git_blob": "fd90e354938e5aa691e21fe091109d5363ff42af",
+      "bytes": 1190257,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    },
+    "docs/reports/tp20-play-smoke.jsonl": {
+      "git_blob": "028e5e01c286baedbdd7803ff0cf349d50b78ecd",
+      "bytes": 13013,
+      "reason": "Legacy research evidence; verified Drive migration not established by this inventory."
+    }
+  }
+}

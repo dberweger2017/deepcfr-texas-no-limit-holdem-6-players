@@ -55,6 +55,9 @@ A credible professional reference, predeclared multi-seed confirmation, legal in
 
 ## Developers and licenses
 
+[Repository map and commands](docs/development.md), [artifact storage](docs/artifact-storage.md),
+and [maintenance audit](docs/reports/necessary-cleaning.md).
+
 The play-only installation excludes neural research dependencies. For the full
 research and test environment, install `requirements-dev.txt`, then run `python -m pytest -q`. [CI](.github/workflows/tests.yml) also checks observations, sessions, arenas, solvers and recovery. Read [AGENTS.md](AGENTS.md), [rules](docs/rules.md) and the [observation contract](docs/observations.md) before changing behavior.
 
