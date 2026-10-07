@@ -11,10 +11,13 @@ DEFAULT_VERSION = "v0.4.1"
 
 
 class VersionedTables:
-    def __init__(self, services: dict[str, PlayService]):
+    def __init__(self, services: dict[str, PlayService], *, spectator=None, identities=None):
         if set(services) != {"v0.4.1", "v0.4.0"}:
             raise ValueError("Both pinned release models are required")
         self.services = services
+        self.spectator = spectator
+        self.identities = identities
+        self.stores = [*services.values(), *([spectator] if spectator is not None else [])]
         self.lock = threading.RLock()
 
     def model_info(self):
@@ -22,12 +25,14 @@ class VersionedTables:
 
     def model_catalog(self):
         return {"default": DEFAULT_VERSION,
-                "models": [{"version": version, **service.model_info()}
-                           for version, service in self.services.items()]}
+                "models": [self.identities[version] if self.identities else
+                           {"version": version, **service.model_info()}
+                           for version, service in self.services.items()],
+                "spectatorAvailable": self.spectator is not None}
 
     def _for_session(self, session_id):
         found = []
-        for service in self.services.values():
+        for service in self.stores:
             with service.lock:
                 if service.db.execute("SELECT 1 FROM sessions WHERE id=?", (session_id,)).fetchone():
                     found.append(service)
@@ -42,7 +47,7 @@ class VersionedTables:
         # switching models: a retry cannot create a second session or wager.
         if not isinstance(key, str):
             raise PlayError("Invalid idempotency key")
-        for service in self.services.values():
+        for service in self.stores:
             if service is selected:
                 continue
             with service.lock:
@@ -51,6 +56,12 @@ class VersionedTables:
 
     def create(self, key, body):
         body = dict(body)
+        if body.get('sessionType') == 'spectator':
+            if self.spectator is None:
+                raise PlayError('Spectator mode requires pinned release models')
+            with self.lock:
+                self._check_key(key, self.spectator)
+                return self.spectator.create(key, body)
         version = body.pop("modelVersion", DEFAULT_VERSION)
         if not isinstance(version, str) or version not in self.services:
             raise PlayError("Choose an available model version")
@@ -97,7 +108,7 @@ class VersionedTables:
         return self._write("end_benchmark", session_id, key, body)
 
     def close(self):
-        for service in self.services.values():
+        for service in self.stores:
             service.close()
 
 
@@ -115,7 +126,14 @@ def load_tables(models: Path, data: Path, source_version: str):
                 policy.name = "v0.4.0 · B100M · seed 2026093001"
             services[version] = PlayService(data / version / "private.sqlite", policy,
                                             source_version=source_version)
-        return VersionedTables(services)
+        from src.play_api.releases import release_identity
+        from src.play_api.spectator import SpectatorService
+        identities = {version: release_identity(version, service.policy)
+                      for version, service in services.items()}
+        spectator = SpectatorService(data / 'spectator' / 'private.sqlite',
+                                     {v: s.policy for v, s in services.items()}, identities,
+                                     source_version=source_version)
+        return VersionedTables(services, spectator=spectator, identities=identities)
     except Exception:
         for service in services.values():
             service.close()
