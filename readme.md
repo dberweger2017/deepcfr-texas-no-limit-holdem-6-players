@@ -4,6 +4,10 @@ v0.4.1 plays a tabular, linearly weighted opponent-sampled CFR average trained f
 
 Against shipped v0.4.0, the three retained v0.4.1 lineages win **+10.50 [7.90, 13.10] BB/100**; the selected first seed wins **+11.12 [7.85, 14.39]**. An independent earlier match measured **+11.45 [8.83, 14.07]**. A bounded LBR attacker earns **28.17 [17.93, 38.42]** against O versus **65.73 [56.84, 74.62] BB/100** against the v0.4.0 lineages, so lower is better. On fixed turn/river spots, first-seed best-response gain is **1.0665 [1.0023, 1.1315]** versus **2.7147 [2.4922, 2.9323] BB**. All intervals are 95%; scopes and the full thirteen-panel table are in the [v0.4.0 → v0.4.1 report](docs/reports/v0.4.1-release.md). These are measured improvements, not a full-game Nash certificate or a human-strength claim.
 
+## Watch two bots
+
+In the local web app, choose **Bot-vs-bot spectator**, select two pinned models, then use **Play**, **Pause** or **Step**. Each decision shows its exact policy probabilities, selected action, lookup status and acting bot's legal perspective. Sessions retain both release/model/manifest identities and replayable hand history; v0.4.0 remains selectable. See the [spectator guide and independent audit command](docs/spectator.md).
+
 ## Install and play
 
 Use Python 3.11, Git and the GitHub CLI. From a fresh checkout:

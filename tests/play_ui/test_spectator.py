@@ -16,6 +16,12 @@ from src.play_api.versions import VersionedTables
 from tests.play_ui.test_service import FixturePolicy
 
 
+@pytest.fixture(autouse=True)
+def fixed_random_streams(monkeypatch):
+    generator = Random(20261007)
+    monkeypatch.setattr('src.play_api.spectator.secrets.randbits', generator.getrandbits)
+
+
 class ObservingPolicy(FixturePolicy):
     def __init__(self, digest, strategy='call'):
         super().__init__()
@@ -34,7 +40,7 @@ class ObservingPolicy(FixturePolicy):
         self.views.append(view)
         menu = choices(view, raise_cap=None, free_fold=False)
         key = information_key(view, menu, schema=self.abstraction)
-        source = int(key[-2:], 16) % 3
+        source = 1 if self.strategy == 'always-call' else int(key[-2:], 16) % 3
         if source == 0:
             self.zero_mass.add(key)
         if source != 1:
@@ -123,7 +129,7 @@ def test_two_models_both_seats_exact_observations_and_lookup_status(tmp_path):
 
 
 def test_step_retry_conflict_restart_and_same_model(tmp_path):
-    tables = setup(tmp_path)
+    tables = setup(tmp_path, ('always-call', 'always-call'))
     state = create(tables, ['v0.4.0', 'v0.4.0'])
     state = deal(tables, state)
     before = deepcopy(state)
@@ -140,7 +146,7 @@ def test_step_retry_conflict_restart_and_same_model(tmp_path):
         tables.act(state['sessionId'], 'human-action-key-0001', {})
     assert audit(tables, [private(tables, state)])['hands'] == 0
     tables.close()
-    reopened = setup(tmp_path)
+    reopened = setup(tmp_path, ('always-call', 'always-call'))
     try:
         assert reopened.state(state['sessionId']) == state
         assert step(reopened, before, key) == state
