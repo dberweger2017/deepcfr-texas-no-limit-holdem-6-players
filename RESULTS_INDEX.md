@@ -1,5 +1,14 @@
 # Research results index
 
+## Native HU100 engineering preparation — October 7, 2026
+
+[Protocol](docs/native-hu100-preparation.md), [validation](docs/reports/native-hu100-preparation.md).
+Preparation only: no campaign checkpoint/export, resource pilot, arena/benchmark,
+large artifact download or research archive was produced. Transient deterministic
+fixtures remain outside Git. Future campaigns require an owning PR and the
+full Research-Cloud archive/member/upload/retrieval receipts below; there is no
+new restoration link or deletion authorization from this preparation.
+
 ## M1 storage vacuum and upload preference — October 7, 2026
 
 Removed **1,185 merged PR166/PR162 research copies /7.149 GB logical** and **2,230

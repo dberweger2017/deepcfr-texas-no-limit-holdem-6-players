@@ -144,5 +144,7 @@ class PolicyRegistry:
                     if file_hash(model.source_path) != model.spec.sha256:
                         raise ValueError("Average changed before snapshot")
                     copyfile(model.source_path, destination)
+                    if file_hash(destination) != model.spec.sha256:
+                        raise ValueError("Average snapshot differs from pinned bytes")
                 else:
                     destination.write_bytes(model.data)

@@ -56,6 +56,7 @@ pub struct Trainer {
     pub seed: u64,
     pub roots_per_seat: usize,
     pub nodes: u64,
+    pub coverage_start: [u64; 3], // iteration, completed nodes, traverser visits before telemetry
     pub decisions_by_street: [u64; 4],
     pub traverser_visits_by_street: [u64; 4],
     /// The production rule unless chosen otherwise; regrets and play are the same under both.
@@ -67,7 +68,7 @@ pub struct Trainer {
 
 impl Trainer {
     pub fn new(seed: u64, roots_per_seat: usize) -> Trainer {
-        Trainer { game: Game::Hu20, table: Sharded::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0, decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4],
+        Trainer { game: Game::Hu20, table: Sharded::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0, coverage_start: [0; 3], decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4],
                   average: AverageRule::TraverserReach, options: Options::default(), discounts: Discounts::default() }
     }
 
@@ -227,7 +228,7 @@ impl Trainer {
         let mut header = header;
         if recovery || self.game == Game::Hu100 {
             header["native_state"] = json!({"version": 1, "completed_nodes": self.nodes,
-                "decisions_by_street": self.decisions_by_street, "traverser_visits_by_street": self.traverser_visits_by_street});
+                "coverage_start": self.coverage_start, "decisions_by_street": self.decisions_by_street, "traverser_visits_by_street": self.traverser_visits_by_street});
         }
         // Only a non-production average is named, so production checkpoints stay identical to Python's.
         if self.average != AverageRule::TraverserReach {

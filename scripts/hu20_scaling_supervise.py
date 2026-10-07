@@ -22,12 +22,21 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
     acquire(out)
     record = {"status": "running", "started": time(), "deadline": deadline,
               "identity": identity(), "attempts": [],
-              "swap_baseline": swap_before or system(["sysctl", "vm.swapusage"])}
+              "swap_baseline": swap_before or system(["sysctl", "vm.swapusage"]),
+              "limits": {"rss_gib": rss_gib, "disk_gib": disk_gib, "swap_gib": swap_gib}}
     write_json(out / "campaign.json", record)
     for job in jobs:
         attempt = {"name": job["name"], "command": job["command"], "status": "running", "started": time()}
         record["attempts"].append(attempt); write_json(out / "campaign.json", record)
         end = min(deadline, job.get("deadline", deadline)); reason = None; peak = aggregate_peak = 0
+        # Reject admission before starting the child; a guard is not permission to consume an occupied host.
+        power = system(["pmset", "-g", "batt"])
+        admission = ("Absolute phase/deadline guard" if time() >= end else
+                     "Free disk guard" if shutil.disk_usage(out).free < disk_gib*1024**3 else
+                     "Main worker AC power guard" if require_ac and (power is None or "AC Power" not in power) else None)
+        if admission:
+            attempt.update(status="failed", exit_code=None, guard_failure=admission, finished=time())
+            break
         with (out / f'{job["name"]}.log').open("w") as log:
             child = subprocess.Popen(job["command"], stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
             attempt["pid"] = child.pid; write_json(out / "campaign.json", record)

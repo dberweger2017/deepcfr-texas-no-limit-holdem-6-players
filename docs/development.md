@@ -17,6 +17,8 @@ The [research history](research-history.md) indexes completed experiments.
   `versions.py` has the explicit release catalog. Defaults never silently fall
   back when an artifact is missing or corrupt; sessions keep their model.
 - `native/hu20-trainer/`: native training, game/key parity, exports and bench.
+  Equal-stack HU20/HU100 preparation and future operator commands are in
+  [the native HU100 protocol](native-hu100-preparation.md); it authorizes no runs.
   `native/hu20-buckets/`: bucket construction and the native card evaluator.
 - `src/arena/`: paired evaluation, scripted opponents, reports and checkpoint
   adapters. Historical network/snapshot adapters still have consumers.

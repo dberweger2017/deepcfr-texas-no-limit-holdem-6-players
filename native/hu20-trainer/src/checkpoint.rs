@@ -91,6 +91,9 @@ pub fn load(path: &Path, expected: Game, completed_nodes: Option<u64>, max_entri
     trainer.iteration = h["iteration"].as_u64().unwrap();
     trainer.nodes = nodes;
     if let Some(state) = h.get("native_state") {
+        let baseline = state["coverage_start"].as_array().ok_or("missing coverage baseline")?;
+        if baseline.len() != 3 { return Err("invalid coverage baseline".into()); }
+        for i in 0..3 { trainer.coverage_start[i] = baseline[i].as_u64().ok_or("invalid coverage baseline")?; }
         let counts = |name: &str| -> Result<[u64; 4], String> {
             let values = state[name].as_array().ok_or("missing coverage counters")?;
             if values.len() != 4 { return Err("invalid coverage counters".into()); }
@@ -110,6 +113,17 @@ pub fn load(path: &Path, expected: Game, completed_nodes: Option<u64>, max_entri
             return Err("checkpoint exceeds entry cap".into());
         }
     }
+    let total_visits = trainer.table.iter().try_fold(0u64, |sum, (_, node)| sum.checked_add(node.visits)).ok_or("visit counter overflow")?;
+    if h.get("native_state").is_none() {
+        trainer.coverage_start = [trainer.iteration, trainer.nodes, total_visits];
+    }
+    let decisions = trainer.decisions_by_street.iter().try_fold(0u64, |sum, &n| sum.checked_add(n)).ok_or("coverage overflow")?;
+    let visits = trainer.traverser_visits_by_street.iter().try_fold(0u64, |sum, &n| sum.checked_add(n)).ok_or("coverage overflow")?;
+    if trainer.coverage_start[0] > trainer.iteration || trainer.coverage_start[1] > trainer.nodes
+        || decisions > trainer.nodes - trainer.coverage_start[1]
+        || trainer.coverage_start[2].checked_add(visits) != Some(total_visits)
+        || trainer.traverser_visits_by_street.iter().zip(trainer.decisions_by_street).any(|(&v, d)| v > d)
+    { return Err("inconsistent native coverage counters".into()); }
     Ok(trainer)
 }
 
@@ -143,6 +157,19 @@ mod tests {
             assert!(load(&path, other, None, 1000).is_err());
             assert!(load(&path, game, Some(trainer.nodes + 1), 1000).is_err());
             let mut resumed = load(&path, game, None, 1000).unwrap();
+            assert_eq!(resumed.coverage_start, [0; 3]);
+            // Legacy checkpoints can recover only with independently retained completed nodes.
+            // Their subsequent telemetry starts here, rather than claiming past street coverage.
+            trainer.save(&path, 1000, 1000).unwrap();
+            if game == Game::Hu20 {
+                assert!(load(&path, game, None, 1000).is_err());
+                let mut legacy = load(&path, game, Some(trainer.nodes), 1000).unwrap();
+                assert_eq!(legacy.coverage_start[0], trainer.iteration);
+                assert_eq!(legacy.coverage_start[1], trainer.nodes);
+                step(&mut legacy);
+                legacy.save_recoverable(&path, 1000, 1000).unwrap();
+                assert!(load(&path, game, None, 1000).is_ok());
+            }
             std::fs::remove_file(path).unwrap();
             step(&mut trainer); step(&mut resumed);
             assert_eq!(trainer.nodes, resumed.nodes);
