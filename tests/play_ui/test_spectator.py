@@ -203,3 +203,50 @@ def test_invalid_models_and_extra_fields_fail_without_creating_session(tmp_path)
                               'modelVersions': ['v0.4.1', 'v0.4.0']}) == state
     finally:
         tables.close()
+
+
+@pytest.mark.parametrize('source', ['trained', 'zero-mass', 'missing'])
+def test_exact_average_reader_journal_and_independent_reload(tmp_path, source):
+    from types import SimpleNamespace
+    from src.blueprint.artifact import save_training
+    from src.diagnostics.cfr_average import DiagnosticAverage, extract
+    from tests.diagnostics.test_cfr_average import fixture
+
+    trainer, _, checkpoint, _, spec = fixture(tmp_path)
+    if source == 'zero-mass':
+        for node in trainer.nodes.values():
+            node.average = [0] * len(node.average)
+    if source == 'missing':
+        trainer.nodes.clear()
+    spec['checkpoint_sha256'] = save_training(trainer, checkpoint)
+    path = tmp_path / 'average.jsonl.gz'
+    extracted = extract(checkpoint, spec, path)
+    policy = DiagnosticAverage(path, extracted['sha256'])
+    policy.spec = SimpleNamespace(sha256=extracted['sha256'])
+    identity = {'version': 'fixture', **_model_info(policy), 'manifestSha256': 'f' * 64,
+                'manifestUrl': 'https://example.test/manifest'}
+    service = SpectatorService(tmp_path / 'reader/private.sqlite', {'fixture': policy}, {'fixture': identity})
+    try:
+        state = service.create('real-reader-create-key', {'sessionType': 'spectator',
+                               'modelVersions': ['fixture', 'fixture']})
+        state = service.new_hand(state['sessionId'], 'real-reader-hand-key', {'revision': 0})
+        # Use the independently constructed fixture's deal, without exposing it
+        # through the browser or either policy's arguments.
+        raw = service._load(state['sessionId'])
+        raw['current']['dealSeed'] = 17
+        service.db.execute('UPDATE sessions SET state=? WHERE id=?', (json.dumps(raw), state['sessionId']))
+        service.db.commit()
+        state = service.advance(state['sessionId'], 'real-reader-step-key',
+                                {'handId': state['hand']['id'], 'revision': state['revision']})
+        record = state['hand']['decisions'][0]
+        assert record['lookup'] == source
+        if source != 'trained':
+            assert [r['probability'] for r in record['menu']] == [1 / len(record['menu'])] * len(record['menu'])
+        else:
+            assert record['menu'][0]['probability'] == 0
+        fresh = DiagnosticAverage(path, extracted['sha256'])
+        fresh.spec = policy.spec
+        assert audit_states([service._load(state['sessionId'])], {'fixture': fresh},
+                            {'fixture': identity})['decisions'] == 1
+    finally:
+        service.close()
