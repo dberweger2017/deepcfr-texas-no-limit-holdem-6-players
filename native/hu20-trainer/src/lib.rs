@@ -11,3 +11,4 @@ pub mod streams;
 pub mod trainer;
 
 pub mod checkpoint;
+pub mod telemetry;

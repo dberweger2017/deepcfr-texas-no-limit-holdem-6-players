@@ -71,6 +71,12 @@ fn main() {
             let game = hu20_trainer::game::Game::from_bb(arg("--stack-bb", "20").parse().unwrap());
             let max_entries: u64 = arg("--max-entries", "1000000000").parse().unwrap();
             let max_seconds: f64 = arg("--max-seconds", "inf").parse().unwrap();
+            let stop_file = args.iter().position(|a| a == "--stop-file").map(|i| std::path::PathBuf::from(&args[i + 1]));
+            let telemetry = args.iter().position(|a| a == "--telemetry").map(|i| std::path::PathBuf::from(&args[i + 1]));
+            if let Some(path) = &stop_file { assert!(!path.exists(), "use a fresh stop-request path"); }
+            if let Some(path) = &telemetry {
+                std::fs::OpenOptions::new().write(true).create_new(true).open(path).expect("fresh telemetry path");
+            }
             assert!(nodes > 0 && roots > 0 && max_entries > 0 && max_seconds > 0.0);
             let resume = args.iter().position(|a| a == "--resume");
             let mut trainer = if let Some(i) = resume {
@@ -101,18 +107,45 @@ fn main() {
             }
             let started = std::time::Instant::now();
             let initial_nodes = trainer.nodes;
+            let (mut previous_nodes, mut previous_entries, mut previous_seconds) = (trainer.nodes, trainer.table.len(), 0.0);
             for milestone in milestones {
                 if milestone <= initial_nodes { continue; }
                 let mut stopped = false;
                 while trainer.nodes < milestone && (iterations == 0 || trainer.iteration < iterations) {
-                    if started.elapsed().as_secs_f64() >= max_seconds { stopped = true; break; }
+                    if started.elapsed().as_secs_f64() >= max_seconds
+                        || stop_file.as_ref().map_or(false, |path| path.exists()) { stopped = true; break; }
                     trainer.step();
                     if trainer.table.len() as u64 >= max_entries { stopped = true; break; }
                 }
                 let seconds = started.elapsed().as_secs_f64();
                 let path = std::path::PathBuf::from(out.replace("{nodes}", &milestone.to_string()));
+                let write_started = hu20_trainer::telemetry::unix_seconds();
+                let saving = std::time::Instant::now();
                 if recovery { trainer.save_recoverable(&path, 1_000_000_000, max_entries.max(trainer.table.len() as u64)).unwrap(); }
                 else { trainer.save(&path, 1_000_000_000, max_entries.max(trainer.table.len() as u64)).unwrap(); }
+                let write_seconds = saving.elapsed().as_secs_f64();
+                let write_finished = hu20_trainer::telemetry::unix_seconds();
+                if let Some(receipts) = &telemetry {
+                    let elapsed = started.elapsed().as_secs_f64();
+                    let record = serde_json::json!({"version": 1,
+                        "status": if trainer.nodes >= milestone { "saved" } else { "incomplete-target" },
+                        "requested_nodes": milestone, "completed_nodes": trainer.nodes,
+                        "overshoot_nodes": trainer.nodes.saturating_sub(milestone),
+                        "iteration": trainer.iteration, "path": path,
+                        "checkpoint_bytes": std::fs::metadata(&path).unwrap().len(),
+                        "checkpoint_sha256": hu20_trainer::export::sha256_file(&path),
+                        "write_started": write_started, "write_finished": write_finished, "write_seconds": write_seconds,
+                        "elapsed_seconds_including_writes": elapsed,
+                        "nodes_per_second_including_writes": (trainer.nodes - initial_nodes) as f64 / elapsed,
+                        "recent_nodes_per_second_including_writes": (trainer.nodes - previous_nodes) as f64 / (elapsed - previous_seconds),
+                        "new_entries": trainer.table.len() - previous_entries,
+                        "nodes_since_previous_save": trainer.nodes - previous_nodes,
+                        "diagnostics": hu20_trainer::telemetry::diagnostics(&trainer),
+                        "stop_requested": stop_file.as_ref().map_or(false, |path| path.exists()),
+                        "audit_status": "unaudited"});
+                    hu20_trainer::telemetry::append(receipts, &record).expect("checkpoint telemetry");
+                    previous_nodes = trainer.nodes; previous_entries = trainer.table.len(); previous_seconds = elapsed;
+                }
                 println!("milestone {} iterations {} nodes {} entries {} seconds {:.2} nodes_per_second {:.0} path {}",
                          milestone, trainer.iteration, trainer.nodes, trainer.table.len(), seconds,
                          (trainer.nodes - initial_nodes) as f64 / seconds, path.display());

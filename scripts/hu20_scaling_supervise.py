@@ -39,15 +39,27 @@ def terminate_child(child):
     child.wait(timeout=TERMINATION_GRACE_SECONDS)
 
 
-def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=False, rss_gib=10.5, disk_gib=8, swap_gib=.5):
+def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=False, rss_gib=10.5, disk_gib=8, swap_gib=.5,
+        stop_file=None, soft_rss_gib=None, save_reserve_seconds=0):
     if (not all(isfinite(n) for n in (deadline, rss_gib, disk_gib, swap_gib))
         or rss_gib <= 0 or disk_gib <= 0 or swap_gib < 0):
         raise ValueError("Finite resource limits must be positive (swap may be zero)")
+    if stop_file is not None:
+        if (stop_file.exists() or soft_rss_gib is None or not isfinite(soft_rss_gib)
+            or not 0 < soft_rss_gib < rss_gib or not isfinite(save_reserve_seconds)
+            or save_reserve_seconds <= 0 or len(jobs) != 1
+            or '--stop-file' not in jobs[0]['command']
+            or str(stop_file) != jobs[0]['command'][jobs[0]['command'].index('--stop-file')+1]):
+            raise ValueError("Controlled stop needs fresh matching trainer path, lower RSS and save reserve")
+    elif soft_rss_gib is not None or save_reserve_seconds:
+        raise ValueError("Controlled stop requires --stop-file")
     acquire(out)
     record = {"status": "running", "started": time(), "deadline": deadline,
               "identity": None, "attempts": [], "failure": None,
               "swap_baseline": None,
-              "limits": {"rss_gib": rss_gib, "disk_gib": disk_gib, "swap_gib": swap_gib}}
+              "limits": {"rss_gib": rss_gib, "disk_gib": disk_gib, "swap_gib": swap_gib,
+                         "soft_rss_gib": soft_rss_gib, "save_reserve_seconds": save_reserve_seconds},
+              "controlled_stop": None}
     received_signal = [None]
     def interrupted(signum, _frame):
         # Do not raise during Popen: ownership must be recorded before cleanup can run.
@@ -94,6 +106,15 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
                             append(out / "resources.jsonl", {"unix_seconds": time(), "phase": job["name"],
                                    "rss_bytes": max(sizes, default=0), "aggregate_job_rss_bytes": sum(sizes),
                                    "swap": swap, "swap_growth_bytes": growth, "free_disk_bytes": free,"power":power})
+                            if stop_file is not None and record['controlled_stop'] is None:
+                                soft_reason = ("Serialization headroom RSS stop" if sum(sizes) >= soft_rss_gib*1024**3 else
+                                               "Save time reserve stop" if time() >= end-save_reserve_seconds else None)
+                                if soft_reason:
+                                    request = {"reason": soft_reason, "unix_seconds": time(), "aggregate_rss_bytes": sum(sizes),
+                                               "hard_deadline": end, "save_reserve_seconds": save_reserve_seconds}
+                                    with stop_file.open('x') as target: json.dump(request, target); target.write('\n')
+                                    record['controlled_stop'] = request
+                                    write_json(out / "campaign.json", record)
                             if sum(sizes) >= rss_gib*1024**3: reason = "Aggregate job RSS guard"
                             if growth > swap_gib*1024**3: reason = "Swap growth guard"
                             if free < disk_gib*1024**3: reason = "Free disk guard"
@@ -156,8 +177,11 @@ def main():
     p.add_argument("--rss-gib", type=float, default=10.5)
     p.add_argument("--disk-gib", type=float, default=8)
     p.add_argument("--swap-gib", type=float, default=.5)
+    p.add_argument('--stop-file', type=Path); p.add_argument('--soft-rss-gib', type=float)
+    p.add_argument('--save-reserve-seconds', type=float, default=0)
     a = p.parse_args()
-    record = run(json.loads(a.jobs.read_text()), a.out, a.deadline, a.swap_baseline,a.coordinator_pid,a.require_ac,a.rss_gib,a.disk_gib,a.swap_gib)
+    record = run(json.loads(a.jobs.read_text()), a.out, a.deadline, a.swap_baseline,a.coordinator_pid,a.require_ac,a.rss_gib,a.disk_gib,a.swap_gib,
+                 a.stop_file,a.soft_rss_gib,a.save_reserve_seconds)
     print(json.dumps(record)); return record["status"] != "complete"
 
 

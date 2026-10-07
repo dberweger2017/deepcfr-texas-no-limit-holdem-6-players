@@ -11,7 +11,7 @@ from src.policies.files import file_hash
 from scripts.prepare_native_hu_campaign import REFERENCE
 
 
-def inspect(checkpoint, current, average, bb, target_nodes=None):
+def inspect(checkpoint, current, average, bb, target_nodes=None, *, hu20_reference=True):
     schema = HU100_SCHEMA if bb == 100 else HU20_UNCAPPED_SCHEMA
     with gzip_open(checkpoint, 'rt') as source:
         header = json.loads(source.readline())
@@ -27,7 +27,7 @@ def inspect(checkpoint, current, average, bb, target_nodes=None):
             'checkpoint_sha256': file_hash(checkpoint), 'sha256': file_hash(current)}
     checked_header(header, spec, expected_schema=schema)
     receipt = audit(checkpoint, current, average, spec, file_hash(average), expected_schema=schema)
-    if bb == 20 and receipt['average_sha256'] != REFERENCE:
+    if bb == 20 and hu20_reference and (receipt['average_sha256'] != REFERENCE or average.stat().st_size != 142677367):
         raise ValueError('HU20 regression differs from the pinned v0.4.1 reference')
     visits = Counter(); positive = 0; total_visits = 0; count = 0
     with gzip_open(checkpoint, 'rt') as source:
@@ -36,7 +36,8 @@ def inspect(checkpoint, current, average, bb, target_nodes=None):
             _, _, _, _, mass, n = checked_row(json.loads(line), header['iteration'], average_rule(header) == 'traverser-reach')
             count += 1; total_visits += n; positive += bool(mass)
             visits['0' if n == 0 else '1' if n == 1 else '2-9' if n < 10 else '10-99' if n < 100 else '100+'] += 1
-    return {'status': 'verified', 'audit': receipt, 'stack_bb': bb, 'iteration': header['iteration'],
+    return {'status': 'verified', 'hu20_reference_checked': bb == 20 and hu20_reference,
+            'audit': receipt, 'stack_bb': bb, 'iteration': header['iteration'],
             'native_state': header.get('native_state'), 'entries': count, 'visits_histogram': dict(visits),
             'mean_traverser_visits_per_key': total_visits/count if count else 0,
             'positive_average_mass_keys': positive, 'zero_average_mass_keys': count-positive,
