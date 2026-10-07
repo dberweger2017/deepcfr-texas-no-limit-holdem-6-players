@@ -50,6 +50,8 @@ def raw_rows(root):
             response=root/"run"/phase/job["job"]/"response.jsonl.gz"
             if file_hash(response)!=record["response"]["gzip_sha256"]:
                 raise ValueError("Raw native response hash differs")
+        if job["replay_sample"] and (len(new_lock.get("replay_gates", []))!=2 or not all(g["passed"] for g in new_lock["replay_gates"])):
+            raise ValueError("Scheduled global statistics/BR replay gate absent")
         if new_lock["rows"][-1]["iterations"]!=0:
             raise ValueError("Locked evaluation performed CFR iterations")
         metrics=old_collect["metrics"]+old_lock["metrics"]+[r for r in new_lock["rows"] if r["event"]=="pooling_metric"]

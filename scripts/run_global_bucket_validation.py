@@ -14,7 +14,7 @@ import sys
 from time import sleep, time
 
 from src.diagnostics.board_pooling import pool_statistics
-from src.diagnostics.board_pooling_results import completion, check_lock_only
+from src.diagnostics.board_pooling_results import completion, check_lock_only, check_replay, check_locked_br_parity
 from src.diagnostics.flop_check import atomic_json
 from src.diagnostics.flop_check_runtime import append, machine_snapshot, rss_for_tree, swap_usage
 from src.diagnostics.global_bucket_validation import global_labels, project_compact, load_tables, ALIASES
@@ -211,6 +211,13 @@ def worker(root, phase, job_id):
         identities = [(r["metric"],r["target_solver_seat"]) for r in result["rows"] if r["event"]=="pooling_metric"]
         if len(identities)!=4 or set(identities)!={(f"e_global{k}",s) for k in ALIASES for s in (0,1)}:
             raise ValueError("Missing/duplicate global lock measurements")
+    if phase == "relock" and job["replay_sample"]:
+        replay_request = dict(request, pooling_phase="relock", max_iterations=recorded["completion"]["iterations"], target_pct_pot=-1)
+        replay = native(root, replay_request, root / "run/replay" / job_id)
+        collected = response(root / "run/collect" / job_id / "response.jsonl.gz", include_statistics=True)
+        replayed = response(root / "run/replay" / job_id / "response.jsonl.gz", include_statistics=True)
+        result["replay_gates"] = [check_replay(collected, replayed, request["pot"]),
+                                    check_locked_br_parity(result["rows"], replay["rows"], request["pot"])]
     result["job"] = job
     atomic_json(root / "run" / phase / job_id / "result.json", result)
 
