@@ -1,0 +1,14 @@
+{
+  "status": "verified",
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/hu20-o-10b-final-report-closeout-20261007.zip",
+  "archive_bytes": 401876,
+  "archive_sha256": "8e596aff209c1284245e5ee360bf7f9367436460612bde021e25808ec95ef7c9",
+  "manifest_sha256": "f18af94579ef7d23aa4dec0e4d22ca1f131f7bb43b092b8f25d2c6c828682538",
+  "members_verified": 101,
+  "originals_retained": true,
+  "upload_status": "native uploaded; cloud ID/name/size/parent verified",
+  "drive_id": "1D8jaVpwITDOyJe0xHqp3rnO6189gUvO2",
+  "drive_url": "https://drive.google.com/file/d/1D8jaVpwITDOyJe0xHqp3rnO6189gUvO2/view?usp=drivesdk",
+  "validation_test_count_correction": "Archived validation snapshot says 10; completed unittest output has 12 passing tests, corrected in final local validation receipt",
+  "cloud_byte_redownload": false
+}

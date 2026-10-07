@@ -1,0 +1,14 @@
+{
+  "status": "verified",
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-185-HU20-O-10B/hu20-o-10b-agent-monitor-closeout-20261007.zip",
+  "archive_bytes": 182480,
+  "archive_sha256": "e04c3e21d5791c76a30dfae4d2a2274be9cda7cde361905239f75b685dd551b6",
+  "manifest_sha256": "3ed6bbec56cef597bf30af8bdbd6ed3ee089fbe1f2737033f2f7be338a1b22a6",
+  "members_verified": 126,
+  "originals_retained": true,
+  "source_host": "M1",
+  "upload_status": "native uploaded; cloud ID/name/size/parent verified",
+  "drive_id": "1IQp-ceEUpFldwnDKxuyLdeVXunltTkRq",
+  "drive_url": "https://drive.google.com/file/d/1IQp-ceEUpFldwnDKxuyLdeVXunltTkRq/view?usp=drivesdk",
+  "cloud_byte_redownload": false
+}
