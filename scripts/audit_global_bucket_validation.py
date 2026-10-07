@@ -4,6 +4,7 @@ import argparse
 from collections import Counter
 import gzip
 import json
+import zipfile
 from math import fsum
 from pathlib import Path
 import numpy as np
@@ -18,7 +19,8 @@ def audit(root,summary_path,out):
         raw=[]
         for phase in ("collect","relock"):
             raw+=json.loads((root/"baseline/main-06"/phase/job["job"]/"result.json").read_text())["metrics"]
-        with gzip.open(root/"run/relock"/job["job"]/"response.jsonl.gz","rt") as source:
+        locator=json.loads((root/"run/relock"/job["job"]/"result.json").read_text())["response"]
+        with zipfile.ZipFile(locator["zip_path"]) as archive,archive.open("response.jsonl") as source:
             native=[json.loads(line) for line in source]
         final=native[-1]
         if final["iterations"]!=0 or final["status"]!="locked-evaluated":raise ValueError("Not a zero-CFR lock")

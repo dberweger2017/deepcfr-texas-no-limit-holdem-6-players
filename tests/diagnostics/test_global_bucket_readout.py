@@ -33,3 +33,24 @@ def test_coverage_weights_mass_and_requires_all_frozen_cells():
     with pytest.raises(ValueError,match="coverage cell"):coverage(rows[:-1])
     broken=deepcopy(rows);broken[0]["coverage"]["e_global50"]["turn"][1]=101
     with pytest.raises(ValueError,match="missing decision reach"):coverage(broken)
+
+
+def test_retained_zip_response_skips_statistics_and_materializes_exact_input(tmp_path):
+    import gzip
+    import hashlib
+    import json
+    import zipfile
+    from scripts.run_global_bucket_validation import response, materialize_compact
+    path=tmp_path/'native.zip'
+    with zipfile.ZipFile(path,'w') as archive:
+        archive.writestr('response.jsonl','{"event":"pooling_statistics","groups":[]}\n{"event":"gate","gate":"V1","passed":true}\n')
+    assert response(path)==[{"event":"gate","gate":"V1","passed":True}]
+    assert len(response(path,include_statistics=True))==2
+    compact=tmp_path/'compact.json';raw=b'{"card_state":"unchanged"}\n'
+    with gzip.open(str(compact)+'.gz','wb') as output:output.write(raw)
+    request=tmp_path/'request.json';request.write_text(json.dumps({'compact_path':str(compact)}))
+    job={'request':str(request),'compact_sha256':hashlib.sha256(raw).hexdigest()}
+    _,active=materialize_compact(job)
+    assert active.read_bytes()==raw
+    active.write_bytes(b'corrupt')
+    with pytest.raises(ValueError,match='compact hash'):materialize_compact(job)

@@ -3,6 +3,7 @@
 import argparse
 from collections import defaultdict
 import json
+import gzip
 from pathlib import Path
 import numpy as np
 
@@ -47,8 +48,8 @@ def raw_rows(root):
         if any(not r["reference_gate"]["passed"] for r in (new_collect,new_lock)):
             raise ValueError("Unqualified global record")
         for phase,record in (("collect",new_collect),("relock",new_lock)):
-            response=root/"run"/phase/job["job"]/"response.jsonl.gz"
-            if file_hash(response)!=record["response"]["gzip_sha256"]:
+            response=Path(record["response"]["zip_path"])
+            if file_hash(response)!=record["response"]["zip_sha256"]:
                 raise ValueError("Raw native response hash differs")
         if job["replay_sample"] and (len(new_lock.get("replay_gates", []))!=2 or not all(g["passed"] for g in new_lock["replay_gates"])):
             raise ValueError("Scheduled global statistics/BR replay gate absent")
@@ -86,7 +87,10 @@ def key_counts(root):
         if job["spot"] in seen:continue
         seen.add(job["spot"])
         request=json.loads(Path(job["request"]).read_text())
-        compact=json.loads(Path(request["compact_path"]).read_text())
+        compact_path=Path(request["compact_path"])
+        if compact_path.exists():compact=json.loads(compact_path.read_text())
+        else:
+            with gzip.open(compact_path.with_name(compact_path.name+".gz"),"rt") as source:compact=json.load(source)
         by_table={}
         for node in request["nodes"]:
             if node["terminal"]:continue

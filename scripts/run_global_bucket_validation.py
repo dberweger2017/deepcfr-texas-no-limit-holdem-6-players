@@ -5,6 +5,8 @@ from collections import defaultdict
 import gzip
 import hashlib
 import json
+import io
+import zipfile
 import os
 from pathlib import Path
 import shutil
@@ -30,15 +32,22 @@ def load(path):
 
 def response(path, *, include_statistics=False):
     path = Path(path)
-    opener = gzip.open if path.suffix == ".gz" else open
     rows = []
-    with opener(path, "rt") as stream:
+    if path.suffix == ".zip":
+        archive = zipfile.ZipFile(path)
+        stream = io.TextIOWrapper(archive.open("response.jsonl"))
+    else:
+        archive = None
+        stream = (gzip.open if path.suffix == ".gz" else open)(path, "rt")
+    with stream:
         for line in stream:
             if not include_statistics and '"event":"pooling_statistics"' in line[:100]:
                 continue
             row = json.loads(line)
             if include_statistics or row["event"] != "pooling_statistics":
                 rows.append(row)
+    if archive is not None:
+        archive.close()
     return rows
 
 
@@ -47,7 +56,7 @@ def seal(path):
     path = Path(path)
     out = path.with_name(path.name + ".gz")
     digest = file_hash(path)
-    with path.open("rb") as source, gzip.open(out, "wb", compresslevel=1) as target:
+    with path.open("rb") as source, gzip.open(out, "wb", compresslevel=6) as target:
         shutil.copyfileobj(source, target, 8 * 1024**2)
     h = hashlib.sha256()
     with gzip.open(out, "rb") as source:
@@ -59,6 +68,49 @@ def seal(path):
                "gzip_sha256": file_hash(out), "gzip_bytes": out.stat().st_size}
     path.unlink()
     return receipt
+
+
+def retained_response(folder, *, include_statistics=False):
+    record=load(Path(folder)/"result.json")
+    if record["response"].get("zip_path"):
+        path=Path(record["response"]["zip_path"])
+        if file_hash(path)!=record["response"]["zip_sha256"]:raise ValueError("Retained native ZIP differs")
+    else:
+        path=Path(folder)/"response.jsonl.gz"
+        if file_hash(path)!=record["response"]["gzip_sha256"]:raise ValueError("Retained response gzip differs")
+    return response(path,include_statistics=include_statistics)
+
+
+def archive_native(root, path, destination):
+    """The first persistent native payload is an immutable member-hashed ZIP."""
+    archive_dir=Path.home()/"Local/Research-Cloud/PR-190-HU20-bucket-validation"
+    archive_dir.mkdir(parents=True,exist_ok=True)
+    parts=destination.relative_to(root/"run").parts
+    archive_path=archive_dir/("native-"+"-".join(parts)+".zip")
+    digest=file_hash(path);size=path.stat().st_size
+    manifest={"members":[{"path":"response.jsonl","bytes":size,"sha256":digest}],
+              "source":str(destination),"binary_sha256":BINARY_HASH}
+    with zipfile.ZipFile(archive_path,"x",compression=zipfile.ZIP_DEFLATED,compresslevel=6,allowZip64=True) as z:
+        z.write(path,"response.jsonl")
+        z.writestr("ARCHIVE-MANIFEST.json",json.dumps(manifest,sort_keys=True)+"\n")
+    h=hashlib.sha256()
+    with zipfile.ZipFile(archive_path) as z,z.open("response.jsonl") as source:
+        for block in iter(lambda:source.read(8*1024**2),b""):h.update(block)
+    if h.hexdigest()!=digest:raise ValueError("Native ZIP member readback differs")
+    receipt={"raw_sha256":digest,"raw_bytes":size,"zip_path":str(archive_path),
+             "zip_sha256":file_hash(archive_path),"zip_bytes":archive_path.stat().st_size,
+             "member":"response.jsonl","member_readback_verified":True}
+    path.unlink()
+    return receipt
+
+
+def materialize_compact(job):
+    request=load(job["request"]);path=Path(request["compact_path"])
+    if not path.exists():
+        with gzip.open(path.with_name(path.name+".gz"),"rb") as source,path.open("xb") as target:
+            shutil.copyfileobj(source,target,8*1024**2)
+    if file_hash(path)!=job["compact_sha256"]:raise ValueError("Materialized global compact hash differs")
+    return request,path
 
 
 def guard(root, budget, pid, *, worker=False):
@@ -111,7 +163,7 @@ def native(root, request, destination):
         rows = response(output)
         if any(r.get("event") == "gate" and not r["passed"] for r in rows):
             raise ValueError("Native scientific gate failed")
-        sealed = seal(output)
+        sealed = archive_native(root, output, destination) if destination.is_relative_to(root/"run") else seal(output)
         result = {"binary_sha256": BINARY_HASH, "elapsed_seconds": time()-started,
                   "peak_owned_rss_bytes": peak, "request_sha256": file_hash(path), "response": sealed,
                   "rows": rows}
@@ -177,17 +229,18 @@ def prepare_board(root, spot):
         projected = project_compact(request, original, labels)
         leaf = folder / "jobs" / job["job"]; leaf.mkdir(parents=True, exist_ok=False)
         atomic_json(leaf / "compact.json", projected)
+        compact_receipt=seal(leaf / "compact.json")
         request["compact_path"] = str(leaf / "compact.json")
         atomic_json(leaf / "request.json", request)
         output.append(dict(job, request=str(leaf/"request.json"), request_sha256=file_hash(leaf/"request.json"),
-                           compact_sha256=file_hash(leaf/"compact.json")))
+                           compact_sha256=compact_receipt["raw_sha256"], compact_gzip_sha256=compact_receipt["gzip_sha256"]))
     atomic_json(folder / f"jobs-{spot}.json", output)
 
 
 def worker(root, phase, job_id):
     manifest = load(root / "prepared/manifest.json")
     job = next(j for j in manifest["jobs"] if j["job"] == job_id)
-    request = load(job["request"])
+    request, active_compact = materialize_compact(job)
     if file_hash(job["request"]) != job["request_sha256"] or file_hash(request["compact_path"]) != job["compact_sha256"]:
         raise ValueError("Global prepared inputs differ")
     if phase == "collect":
@@ -206,7 +259,7 @@ def worker(root, phase, job_id):
                                    "policy_path":str(policy), "allow_missing":True} for k,alias in ALIASES.items()])
         result = native(root, request, root / "run/relock" / job_id)
         # Original references are kept raw and hash-verified in the restored archive.
-        original_rows = response(root / "inputs/pr149/main-06/collect" / job_id / "solver/response.jsonl.gz")
+        original_rows = response(root / "inputs/pr149/main-06/collect" / job_id / "solver/reference.jsonl.gz")
         result["reference_gate"] = check_lock_only(original_rows, result["rows"], request["pot"], request["reference_response_sha256"])
         identities = [(r["metric"],r["target_solver_seat"]) for r in result["rows"] if r["event"]=="pooling_metric"]
         if len(identities)!=4 or set(identities)!={(f"e_global{k}",s) for k in ALIASES for s in (0,1)}:
@@ -214,12 +267,14 @@ def worker(root, phase, job_id):
     if phase == "relock" and job["replay_sample"]:
         replay_request = dict(request, pooling_phase="relock", max_iterations=recorded["completion"]["iterations"], target_pct_pot=-1)
         replay = native(root, replay_request, root / "run/replay" / job_id)
-        collected = response(root / "run/collect" / job_id / "response.jsonl.gz", include_statistics=True)
-        replayed = response(root / "run/replay" / job_id / "response.jsonl.gz", include_statistics=True)
+        collected = retained_response(root / "run/collect" / job_id, include_statistics=True)
+        replayed = retained_response(root / "run/replay" / job_id, include_statistics=True)
         result["replay_gates"] = [check_replay(collected, replayed, request["pot"]),
                                     check_locked_br_parity(result["rows"], replay["rows"], request["pot"])]
     result["job"] = job
     atomic_json(root / "run" / phase / job_id / "result.json", result)
+    if active_compact.with_name(active_compact.name+".gz").exists():
+        active_compact.unlink()
 
 
 def fit(root, lineage, fold):
@@ -230,9 +285,9 @@ def fit(root, lineage, fold):
         for job in jobs:
             path = root / "run/collect" / job["job"]
             receipt = load(path / "result.json")
-            if not receipt["reference_gate"]["passed"] or file_hash(path / "response.jsonl.gz") != receipt["response"]["gzip_sha256"]:
+            if not receipt["reference_gate"]["passed"]:
                 raise ValueError("Collection is not reference-qualified")
-            rows = response(path / "response.jsonl.gz", include_statistics=True)
+            rows = retained_response(path, include_statistics=True)
             stats = [r["groups"] for r in rows if r["event"] == "pooling_statistics"]
             if len(stats)!=1:
                 raise ValueError("Missing/duplicate global statistics")
@@ -291,12 +346,37 @@ def pilot(root):
     request["pooling_measurements"]=[{"metric":"e_cross_v1","projection_metric":"v1","policy_path":str(policy),"allow_missing":True},
         {"metric":"e_cross_eq50","projection_metric":"eq50-fit1","policy_path":str(policy),"allow_missing":True}]
     second=native(root,request,root/"pilot/legacy-lock")
-    previous=response(root/"inputs/pr149/main-06/relock"/job["job"]/"solver/response.jsonl.gz")
+    previous=response(root/"inputs/pr149/main-06/relock"/job["job"]/"solver/reference.jsonl.gz")
     clean=lambda row:{k:v for k,v in row.items() if k!="solver_peak_rss_bytes"}
     expected=[clean(r) for r in previous if r["event"]=="pooling_metric" and r["metric"] in ("e_cross_v1","e_cross_eq50")]
     actual=[clean(r) for r in second["rows"] if r["event"]=="pooling_metric"]
     if actual!=expected:raise ValueError("Legacy v1/fitted-equity50 metrics do not reproduce exactly")
     atomic_json(root/"pilot/legacy-parity.json",{"collect":gate,"locked_metrics_exact":True,"metrics":actual,"binary_unchanged":True})
+
+
+def singleton_pilot(root):
+    job=load(root/"prepared/manifest.json")["jobs"][0]
+    collect=root/"run/collect"/job["job"]
+    record=load(collect/"result.json")
+    if not record["reference_gate"]["passed"]:raise ValueError("Global collection pilot unqualified")
+    rows=retained_response(collect,include_statistics=True)
+    statistics=[r["groups"] for r in rows if r["event"]=="pooling_statistics"]
+    if len(statistics)!=1:raise ValueError("Global collection statistics absent")
+    policy=pool_statistics([dict(job,groups=[r for r in statistics[0] if r["metric"] in ALIASES.values()])])
+    policy_path=root/"pilot/singleton-global-policy.json";atomic_json(policy_path,policy)
+    del rows,statistics,policy
+    original=load(root/"baseline/main-06/collect"/job["job"]/"result.json")
+    request,active_compact=materialize_compact(job)
+    request.update(pooling_phase="lock-only",max_iterations=0,
+        reference_equilibrium_ev_chips=original["completion"]["current_ev_chips"],
+        reference_response_sha256=original["runtime"]["response_sha256"],
+        pooling_measurements=[{"metric":f"e_singleton_global{k}","projection_metric":alias,
+                              "policy_path":str(policy_path),"allow_missing":False} for k,alias in ALIASES.items()])
+    result=native(root,request,root/"pilot/global-singleton-lock")
+    result["reference_gate"]=check_lock_only(response(root/"inputs/pr149/main-06/collect"/job["job"]/"solver/reference.jsonl.gz"),
+        result["rows"],request["pot"],request["reference_response_sha256"])
+    atomic_json(root/"pilot/global-singleton-lock/result.json",result)
+    if active_compact.with_name(active_compact.name+".gz").exists():active_compact.unlink()
 
 
 def main_run(root):
@@ -332,7 +412,7 @@ def main():
     signal.signal(signal.SIGTERM, lambda *_: (_ for _ in ()).throw(SystemExit("Owned runner terminated")))
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--root",type=Path,required=True)
-    p.add_argument("--mode",choices=["legacy-collect","pilot","prepare","prepare-board","worker","fit","run"],required=True)
+    p.add_argument("--mode",choices=["singleton","legacy-collect","pilot","prepare","prepare-board","worker","fit","run"],required=True)
     for name in ("phase","job","spot"):p.add_argument("--"+name)
     for name in ("lineage","fold"):p.add_argument("--"+name,type=int)
     a=p.parse_args();root=a.root.resolve()
@@ -343,6 +423,7 @@ def main():
     elif a.mode=="prepare-board":prepare_board(root,a.spot)
     elif a.mode=="worker":worker(root,a.phase,a.job)
     elif a.mode=="fit":fit(root,a.lineage,a.fold)
+    elif a.mode=="singleton":singleton_pilot(root)
     elif a.mode=="pilot":pilot(root)
     elif a.mode=="prepare":prepare(root)
     else:main_run(root)
