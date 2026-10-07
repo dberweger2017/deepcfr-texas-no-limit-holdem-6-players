@@ -1,6 +1,6 @@
 # Validate global equity buckets on the frozen turn roots
 
-**October 7 status:** the admitted main completed 19/120 reference-qualified collections, then stopped on the predeclared system-wide swap-growth ceiling. No global held-out result is available. [Stop evidence and prospective continuation plan](reports/hu20-global-bucket-validation.md) preserve the failure, original cap and scientific protocol. The owner will signal when the M1 is free; no continuation has been admitted or launched.
+**October 7 status:** the admitted main completed 19/120 reference-qualified collections, then stopped on the predeclared system-wide swap-growth ceiling. No global held-out result is available. [Stop evidence and prospective continuation plan](reports/hu20-global-bucket-validation.md) preserve the failure, original cap and scientific protocol. The owner subsequently reported the M1 free and directed continuation. Measured admission passes with the original baseline and deadline unchanged; the tested one-shot dispatcher retains the 19 verified jobs and preserves the interrupted attempt.
 
 This is step 1 of [the abstraction lessons](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/189). It asks whether #163’s independently built full-deck tables preserve #149’s held-out witness advantage. No trainer, production key schema, action menu or betting-history change is included.
 

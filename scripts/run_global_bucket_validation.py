@@ -375,13 +375,15 @@ def fit(root, lineage, fold):
     atomic_json(path.with_name(path.name+".receipt.json"),receipt)
 
 
-def child(root, mode, *, phase=None, job=None, spot=None, lineage=None, fold=None):
+def child(root, mode, *, phase=None, job=None, spot=None, lineage=None, fold=None, log_tag=None):
     command = [sys.executable, "-m", "scripts.run_global_bucket_validation", "--root", str(root), "--mode", mode]
     for name,value in (("phase",phase),("job",job),("spot",spot),("lineage",lineage),("fold",fold)):
         if value is not None:command += ["--"+name,str(value)]
     budget = load(root / "budget.json")
     logs = root / "logs"; logs.mkdir(exist_ok=True)
     label = "-".join(str(x) for x in (mode,phase,job,spot,lineage,fold) if x is not None)
+    if log_tag is not None:
+        label += "-" + log_tag
     with (logs / (label+".log")).open("x") as log:
         process = subprocess.Popen(command, stdout=log, stderr=log, start_new_session=True)
         try:
