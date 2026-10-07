@@ -1,5 +1,26 @@
 # Research results index
 
+## Native recovery / HU100 growth — scheduled preparation, October 7, 2026
+
+[Protocol](docs/native-recovery-hu100.md), [status and ETA](docs/reports/native-recovery-hu100.md).
+Isolated branch `feature/native-recovery-hu100` at
+`~/Local/native-recovery-hu100-20261008`; ignored durable coordinator state at
+`results/native-recovery-hu100/campaign-state.json`. Thread-bound first wake
+October 8 **04:00 Madrid**; hard finish **10:00 Madrid**. Owner requires #188
+MERGED plus genuine M4 availability including worker-side closeout before
+implementation/setup/tests/training. No campaign checkpoint, export or worker
+launch exists yet; preparation/scheduling only. M1 work stays lightweight.
+
+Planned research destination: dedicated `PR-<owning-number>-native-recovery-HU100/`
+under [Research-Cloud](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s).
+This is not an archive/upload claim. Retained historical HU20 500M input is
+retrievable from #182's indexed ZIP, member
+`research/inputs/O-2026100601-500000000.json.gz`, SHA256
+`a5318cd586c0b170a68334e4236111faddabaf7f686c071958757db888afab47`.
+#182 originals were cleaned; verify archive/member size/hash in a fresh ignored
+M4 retrieval root after admission. Preserve other PR roots/dependencies and all
+research failures/partials; no model binaries in Git and no cleanup in this task.
+
 ## PR196 — native HU100 engineering preparation, October 7, 2026
 
 [PR196](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/196),
