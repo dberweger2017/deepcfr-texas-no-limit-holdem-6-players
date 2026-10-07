@@ -62,6 +62,7 @@ async function mutate(path, body) {
 }
 
 async function recover() {
+  spectatorPlayback.pause();
   if (!saved.token) { show("gate"); connection("Access token needed"); return; }
   if (saved.pending) {
     const pending = saved.pending;
@@ -72,6 +73,7 @@ async function recover() {
     try {
       const catalog = await request("/api/models");
       availableModels = catalog.models;
+      setupSpectator(catalog);
       clear($("model-version"));
       for (const item of availableModels) {
         const option = node("option", "", item.name);
@@ -83,6 +85,7 @@ async function recover() {
       $("setup-model").textContent = `${model.name} · HU20 · SHA-256 ${model.sha256}`;
       $("setup-title").textContent = model.adapter === "uniform-restricted-v1"
         ? "Uniform-random calibration" : `Play ${model.name.split(" · ")[0]}`;
+      updateSetup();
       if (model.benchmarkOnly) {
         for (const input of document.querySelectorAll('input[name="sessionType"]')) {
           input.checked = input.value === "benchmark"; input.disabled = input.value !== "benchmark";
@@ -250,6 +253,8 @@ function render() {
   if (!saved.token) { show("gate"); return; }
   if (!state) { show("setup"); return; }
   show("game");
+  if (state.sessionType === "spectator") { renderSpectator(); return; }
+  $("spectator-controls").hidden = $("spectator-inspector").hidden = true;
   const isBenchmark = state.sessionType === "benchmark";
   const activeBenchmark = isBenchmark && state.benchmark.status === "ACTIVE";
   $("mode").textContent = `${isBenchmark ? "HUMAN BENCHMARK / " : ""}${state.playMode === "free" ? "FREE SIZING · EXPERIMENTAL" : "RESTRICTED RESEARCH"} / ${state.visibility === "benchmark" ? "BENCHMARK-SAFE" : "DEVELOPER"}`;
@@ -292,7 +297,7 @@ function render() {
   if (state.phase === "finished" && !isBenchmark) loadDiagnostics();
 }
 async function maybeAdvanceBot() {
-  if (processingBot || busy || !state?.hand || ["finished", "complete", "aborted"].includes(state.phase) || state.hand.actor !== 1) return;
+  if (state?.sessionType === "spectator" || processingBot || busy || !state?.hand || ["finished", "complete", "aborted"].includes(state.phase) || state.hand.actor !== 1) return;
   processingBot = true;
   try {
     await mutate(`/api/sessions/${state.sessionId}/advance`, { handId: state.hand.id, revision: state.revision });
@@ -308,7 +313,9 @@ $("create").addEventListener("click", async () => {
     const playMode = document.querySelector('input[name="playMode"]:checked').value;
     const sessionType = document.querySelector('input[name="sessionType"]:checked').value;
     let body;
-    if (sessionType === "benchmark") {
+    if (sessionType === "spectator") {
+      body = { sessionType, modelVersions: [$("bot-a-model").value, $("bot-b-model").value] };
+    } else if (sessionType === "benchmark") {
       const selected = $("target-hands").value;
       const raw = selected === "custom" ? $("custom-hands").value.trim() : selected;
       const targetHands = /^\d+$/.test(raw) ? Number(raw) : NaN;
@@ -320,7 +327,8 @@ $("create").addEventListener("click", async () => {
     } else {
       body = { sessionType, playMode, visibility: $("visibility").value };
     }
-    if (availableModels.length) body.modelVersion = $("model-version").value;
+    if (availableModels.length && sessionType !== "spectator") body.modelVersion = $("model-version").value;
+    spectatorPlayback.pause();
     await mutate("/api/sessions", body);
   } catch (_) { /* Recoverable with the same key. */ }
 });
@@ -333,6 +341,13 @@ $("model-version").addEventListener("change", () => {
 });
 let casualVisibility = $("visibility").value;
 function updateSetup() {
+  const spectator = document.querySelector('input[name="sessionType"]:checked').value === "spectator";
+  $("spectator-options").hidden = !spectator;
+  $("human-options").hidden = spectator;
+  $("setup-model").hidden = spectator;
+  $("model-version").hidden = $("model-version-label").hidden = spectator || !availableModels.length;
+  if (spectator) $("setup-title").textContent = "Watch two bots play";
+  else if (availableModels.length) $("setup-title").textContent = `Play ${$("model-version").value}`;
   const benchmark = document.querySelector('input[name="sessionType"]:checked').value === "benchmark";
   $("benchmark-options").hidden = !benchmark;
   $("visibility").value = benchmark ? "benchmark" : casualVisibility;
@@ -352,23 +367,31 @@ $("new-hand").addEventListener("click", async () => {
   } catch (_) { /* Recoverable with the same key. */ }
 });
 $("new-session").addEventListener("click", async () => {
-  if (busy || saved.pending || !state || state.phase === "playing" || state.benchmark?.status === "ACTIVE") return;
+  if (busy || saved.pending || spectatorPlayback.busy || !state || (state.phase === "playing" && state.sessionType !== "spectator") || state.benchmark?.status === "ACTIVE") return;
+  spectatorPlayback.pause();
   saved.sessionId = null; state = null; persist();
   await recover();
 });
 $("past-hands").addEventListener("click", async () => {
   if (!state) return;
+  if (state.sessionType === "spectator") spectatorPlayback.pause();
   try {
     const history = await request(`/api/sessions/${state.sessionId}/history`);
     const events = $("events"); clear(events);
     if (!history.hands.length) events.append(node("div", "event", "No completed hands yet"));
     for (const hand of [...history.hands].reverse()) {
+      if (state.sessionType === "spectator") {
+        const details = node("details", "past-hand");
+        details.append(node("summary", "", `Hand ${hand.number + 1} · A ${signed(hand.netChips[0])} · B ${signed(hand.netChips[1])} · ${hand.decisions.length} decisions`));
+        details.append(identityDetails(hand.models)); decisionHistory(hand.decisions, details);
+        events.append(details); continue;
+      }
       const details = node("details", "past-hand");
       details.append(node("summary", "", `${hand.handId.slice(0, 8)}… · ${hand.humanChips === undefined ? "Result hidden during benchmark" : signed(hand.humanChips)} · ${hand.button === 0 ? "Button" : "Big blind"}`));
       for (const event of hand.events) details.append(node("div", "event", eventText(event)));
       events.append(details);
     }
-    notice(`${history.hands.length} completed hands${state.sessionChips === undefined ? "" : ` · ${signed(state.sessionChips)} total`}`);
+    notice(`${history.hands.length} completed hands${state.sessionType === "spectator" || state.sessionChips === undefined ? "" : ` · ${signed(state.sessionChips)} total`}`);
   } catch (error) { notice(error.message, true); }
 });
 $("benchmark-end").addEventListener("click", async () => {
@@ -391,6 +414,10 @@ $("export-benchmark").addEventListener("click", async () => {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   } catch (error) { notice(error.message, true); }
 });
+$("spectator-play").addEventListener("click", () => spectatorPlayback.play());
+$("spectator-pause").addEventListener("click", () => spectatorPlayback.pause());
+$("spectator-step").addEventListener("click", () => spectatorPlayback.step());
+window.addEventListener("pagehide", () => spectatorPlayback.pause());
 window.addEventListener("online", recover);
 $("retry").addEventListener("click", recover);
 recover();
