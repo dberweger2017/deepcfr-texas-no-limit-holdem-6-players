@@ -77,9 +77,14 @@ PR's **current** status. Protect every open PR root and its dependencies unless
 the owner authorizes that specific action. Historical “merged” notes do not
 replace the live check. Never delete inside synced folders or force offloading.
 
-For merged evidence, removal needs current upload acceptance, archive and every
-relevant member hash verification, plus a dependency review of active runs,
-source references, tests and other worktrees. Write a receipt naming each removed
+For merged evidence, removal needs current Google Drive upload acceptance plus a
+dependency review of active runs, source references, tests and other worktrees.
+The owner clarified on October 7 that confirmed Drive uploads are trusted for
+cleanup: use existing manifests and provenance without downloading archives or
+repeating archive/member hash audits. Check selected originals against recorded
+paths, sizes and modification history; retain changed or uncertain files. This
+cleanup preference does not change new-archive creation receipts or SHA256 checks
+when retrieving models for research use. Write a receipt naming each removed
 path, exact restoration archive/member/hash, and update RESULTS_INDEX. Owner
 standing authorization applies only after these checks. Unknown provenance means
 retain and record the gap, not delete.
