@@ -104,11 +104,28 @@ def archive_native(root, path, destination):
     return receipt
 
 
+def prepared_compact(job):
+    path=Path(load(job["request"])["compact_path"])
+    if job.get("compact_overlay"):
+        if file_hash(job["base_compact_path"])!=job["base_compact_sha256"]:
+            raise ValueError("Frozen overlay base compact differs")
+        overlay=Path(job["compact_overlay"])
+        if file_hash(overlay)!=job["overlay_sha256"]:raise ValueError("Global card overlay differs")
+        data=load(job["base_compact_path"])
+        with gzip.open(overlay,"rt") as source:patch=json.load(source)
+        data.update(crossfit_labels=patch["crossfit_labels"],global_bucket_transport=patch["global_bucket_transport"])
+        data["pool_keys"]={"v1":data["pool_keys"]["v1"],**patch["pool_keys"]}
+        return data
+    with gzip.open(path.with_name(path.name+".gz"),"rt") as source:return json.load(source)
+
+
 def materialize_compact(job):
     request=load(job["request"]);path=Path(request["compact_path"])
     if not path.exists():
-        with gzip.open(path.with_name(path.name+".gz"),"rb") as source,path.open("xb") as target:
-            shutil.copyfileobj(source,target,8*1024**2)
+        if job.get("compact_overlay"):atomic_json(path,prepared_compact(job))
+        else:
+            with gzip.open(path.with_name(path.name+".gz"),"rb") as source,path.open("xb") as target:
+                shutil.copyfileobj(source,target,8*1024**2)
     if file_hash(path)!=job["compact_sha256"]:raise ValueError("Materialized global compact hash differs")
     return request,path
 
@@ -220,7 +237,7 @@ def prepare_board(root, spot):
     labels, counts = global_labels(data, load_tables(root / "inputs/tables"))
     folder = root / "prepared"; folder.mkdir(exist_ok=True)
     atomic_json(folder / f"labels-{spot}.json", {"labels": labels, "counts": counts})
-    output = []
+    output = []; patch=None; overlay=folder/f"overlay-{spot}.json.gz"
     for job in jobs:
         request = original_job(root, job)
         original = load(root / "inputs/pr149/prepared-03/jobs" / job["job"] / "compact.json")
@@ -229,11 +246,25 @@ def prepare_board(root, spot):
         projected = project_compact(request, original, labels)
         leaf = folder / "jobs" / job["job"]; leaf.mkdir(parents=True, exist_ok=False)
         atomic_json(leaf / "compact.json", projected)
-        compact_receipt=seal(leaf / "compact.json")
+        digest=file_hash(leaf/"compact.json")
+        candidate={field:projected[field] for field in ("crossfit_labels","global_bucket_transport")}
+        candidate["pool_keys"]={alias:projected["pool_keys"][alias] for alias in ALIASES.values()}
+        if patch is None:
+            patch=candidate
+            with gzip.open(overlay,"wt",compresslevel=6) as target:
+                json.dump(patch,target,sort_keys=True,allow_nan=False)
+        elif patch!=candidate:raise ValueError("Global card overlay differs across lineages")
+        base=root/"inputs/pr149/prepared-03/jobs"/job["job"]/"compact.json"
+        # Verify lossless recomposition before releasing the transient full compact.
+        composed=dict(original,crossfit_labels=patch["crossfit_labels"],global_bucket_transport=patch["global_bucket_transport"],
+                      pool_keys={"v1":original["pool_keys"]["v1"],**patch["pool_keys"]})
+        if composed!=projected:raise ValueError("Global overlay changes non-card information")
+        (leaf/"compact.json").unlink()
         request["compact_path"] = str(leaf / "compact.json")
         atomic_json(leaf / "request.json", request)
         output.append(dict(job, request=str(leaf/"request.json"), request_sha256=file_hash(leaf/"request.json"),
-                           compact_sha256=compact_receipt["raw_sha256"], compact_gzip_sha256=compact_receipt["gzip_sha256"]))
+                           compact_sha256=digest, compact_overlay=str(overlay), overlay_sha256=file_hash(overlay),
+                           base_compact_path=str(base), base_compact_sha256=job["compact_sha256"]))
     atomic_json(folder / f"jobs-{spot}.json", output)
 
 
@@ -273,7 +304,7 @@ def worker(root, phase, job_id):
                                     check_locked_br_parity(result["rows"], replay["rows"], request["pot"])]
     result["job"] = job
     atomic_json(root / "run" / phase / job_id / "result.json", result)
-    if active_compact.with_name(active_compact.name+".gz").exists():
+    if job.get("compact_overlay") or active_compact.with_name(active_compact.name+".gz").exists():
         active_compact.unlink()
 
 
@@ -376,7 +407,7 @@ def singleton_pilot(root):
     result["reference_gate"]=check_lock_only(response(root/"inputs/pr149/main-06/collect"/job["job"]/"solver/reference.jsonl.gz"),
         result["rows"],request["pot"],request["reference_response_sha256"])
     atomic_json(root/"pilot/global-singleton-lock/result.json",result)
-    if active_compact.with_name(active_compact.name+".gz").exists():active_compact.unlink()
+    if job.get("compact_overlay") or active_compact.with_name(active_compact.name+".gz").exists():active_compact.unlink()
 
 
 def main_run(root):

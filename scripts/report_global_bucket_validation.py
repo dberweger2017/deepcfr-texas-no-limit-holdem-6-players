@@ -9,6 +9,7 @@ import numpy as np
 
 from src.diagnostics.flop_check import atomic_json, line_key
 from src.diagnostics.saved_hu20 import file_hash
+from scripts.run_global_bucket_validation import prepared_compact
 
 METRICS = ("e_cross_v1", "e_cross_eq50", "e_global50", "e_global200", "e_root_v1", "e_bp")
 LABELS = ("v1 witness", "Fitted equity-50 witness", "Global K=50 witness", "Global K=200 witness", "Per-root v1", "Blueprint")
@@ -87,10 +88,7 @@ def key_counts(root):
         if job["spot"] in seen:continue
         seen.add(job["spot"])
         request=json.loads(Path(job["request"]).read_text())
-        compact_path=Path(request["compact_path"])
-        if compact_path.exists():compact=json.loads(compact_path.read_text())
-        else:
-            with gzip.open(compact_path.with_name(compact_path.name+".gz"),"rt") as source:compact=json.load(source)
+        compact=prepared_compact(job)
         by_table={}
         for node in request["nodes"]:
             if node["terminal"]:continue
