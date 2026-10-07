@@ -70,6 +70,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 7, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
+- **M1 storage cleanup:** merged PR166 evidence/PR162 duplicate archive and inactive download caches removed; **7.573 GB reclaimed /31.022 GB free** at cleanup. Open #188/#190 dependencies remain protected. Confirmed Drive uploads are trusted for future cleanup without repeated downloads/hash audits. [Receipt and restoration](docs/artifacts/m1-vacuum-20261007.md).
+
 - **M4 storage cleanup:** verified merged PR162 duplicate inputs and inactive caches removed under the owner's standing authorization; **6.951 GB reclaimed /71.419 GB free** at cleanup. Open #188/#190 roots/dependencies remain protected. [Receipt and restoration](docs/artifacts/m4-vacuum-20261007.md).
 
 - **Local spectator ([#193](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/193)):** two pinned releases, paused playback and one-decision stepping, exact action probabilities and bot perspectives, retained replayable history. All 25 spectator hands /141 decisions audit; 102 focused tests and independent review pass. [Guide and verification](docs/spectator.md).
