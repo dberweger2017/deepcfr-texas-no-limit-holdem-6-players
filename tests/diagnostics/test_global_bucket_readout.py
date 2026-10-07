@@ -54,3 +54,15 @@ def test_retained_zip_response_skips_statistics_and_materializes_exact_input(tmp
     assert active.read_bytes()==raw
     active.write_bytes(b'corrupt')
     with pytest.raises(ValueError,match='compact hash'):materialize_compact(job)
+
+
+def test_family_guard_counts_registered_trees_once_and_rejects_reused_pids(tmp_path, monkeypatch):
+    import json
+    from scripts.run_global_bucket_validation import family_rss
+    (tmp_path/'background-roots.json').write_text(json.dumps({'roots':[
+        {'pid':10,'command_fragment':'validation-run'}, {'pid':20,'command_fragment':'validation-run'},
+        {'pid':99,'command_fragment':'validation-run'}]}))
+    snapshot='PID PPID RSS COMMAND\n10 1 100 validation-run\n11 10 200 validation-child\n20 1 300 validation-run\n21 20 400 native\n99 1 999 unrelated-job\n'
+    monkeypatch.setattr('scripts.run_global_bucket_validation.subprocess.check_output',lambda *a,**kw:snapshot)
+    assert family_rss(tmp_path,10)==1000*1024
+    assert family_rss(tmp_path,11)==1000*1024

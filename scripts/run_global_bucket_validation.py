@@ -130,9 +130,28 @@ def materialize_compact(job):
     return request,path
 
 
+def family_rss(root,pid):
+    registry=root/"background-roots.json"
+    roots={pid}
+    rows=subprocess.check_output(["ps","-axo","pid,ppid,rss,command"],text=True).splitlines()[1:]
+    parsed=[line.split(maxsplit=3) for line in rows]
+    by_pid={int(p):(int(parent),int(rss),command) for p,parent,rss,command in parsed}
+    if registry.exists():
+        for item in load(registry)["roots"]:
+            record=by_pid.get(item["pid"])
+            if record and item["command_fragment"] in record[2]:roots.add(item["pid"])
+    while True:
+        more={p for p,(parent,_,_) in by_pid.items() if parent in roots}
+        if more<=roots:break
+        roots|=more
+    return sum(by_pid[p][1]*1024 for p in roots if p in by_pid)
+
+
 def guard(root, budget, pid, *, worker=False):
     rss = rss_for_tree(pid)
+    owned_family_rss=family_rss(root,pid)
     swap = swap_usage()
+    if owned_family_rss>8*GIB:raise RuntimeError("8-GiB total owned family ceiling")
     if rss > (7 if worker else 8) * GIB:
         raise RuntimeError("Owned RSS ceiling")
     if swap - budget["swap_baseline_bytes"] > GIB:
@@ -142,7 +161,7 @@ def guard(root, budget, pid, *, worker=False):
         raise RuntimeError("15-GiB free-disk floor")
     if time() >= budget["deadline_epoch"] - 3600:
         raise RuntimeError("48-hour cap reached closeout reserve")
-    state = {"rss_bytes": rss, "swap_bytes": swap, "free_disk_bytes": free}
+    state = {"rss_bytes": rss, "family_rss_bytes":owned_family_rss, "swap_bytes": swap, "free_disk_bytes": free}
     if time() - getattr(guard, "last_log", 0) >= 5:
         append(root / "family-resources.jsonl", dict(state, timestamp=time(), pid=pid, worker=worker))
         guard.last_log = time()
