@@ -7,7 +7,7 @@
 //! the Python trainer does. Sums use Python's correctly rounded `math.fsum`,
 //! so a traversal reproduces Python's deltas bit for bit.
 
-use crate::game::{Hand, BIG_BLIND, STACK};
+use crate::game::{Hand, BIG_BLIND};
 use crate::key::{key_bytes, menu, names_of};
 use std::collections::HashMap;
 use std::hash::{BuildHasherDefault, Hasher};
@@ -293,6 +293,8 @@ pub struct Traversal<'a, S: Sampler, L: Lookup = Table> {
     pub deltas: Table,
     pub nodes: u64,
     pub terminals: u64,
+    pub decisions_by_street: [u64; 4],
+    pub traverser_visits_by_street: [u64; 4],
 }
 
 impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
@@ -305,7 +307,7 @@ impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
         deltas.clear();
         let t = iteration as f64;
         Traversal { table, iteration, traverser, sampler, average: AverageRule::TraverserReach, regret_weight: t,
-                    average_weight: t, deltas, nodes: 0, terminals: 0 }
+                    average_weight: t, deltas, nodes: 0, terminals: 0, decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4] }
     }
 
     pub fn run(&mut self, hand: &mut Hand) -> f64 {
@@ -317,8 +319,9 @@ impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
         if hand.finished() {
             self.terminals += 1;
             let stack = hand.final_stacks()[self.traverser];
-            return (stack as f64 - STACK as f64) / BIG_BLIND as f64;
+            return (stack as f64 - hand.game.stack() as f64) / BIG_BLIND as f64;
         }
+        self.decisions_by_street[hand.street as usize] += 1;
         let options = menu(hand);
         let choices = options.as_slice();
         let n = choices.len();
@@ -346,6 +349,7 @@ impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
             hand.restore(saved);
             return value;
         }
+        self.traverser_visits_by_street[hand.street as usize] += 1;
         let mut values = [0f64; MAX_ACTIONS];
         for index in 0..n {
             let saved = hand.save();

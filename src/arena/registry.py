@@ -3,6 +3,7 @@
 from contextlib import nullcontext
 from hashlib import sha256
 from pathlib import Path
+from shutil import copyfile
 
 from src.arena.heuristics import STYLES
 from src.arena.policies import POLICIES, make_policy
@@ -11,9 +12,24 @@ from src.arena.schedule import Plan
 ROOT = Path(__file__).resolve().parents[2]
 
 
+AVERAGE_FORMATS = {"holdem-hu20-stored-cfr-average-diagnostic-v1", "holdem-hu100-stored-cfr-average-research-v1"}
+
+
+def artifact_suffix(format):
+    return ".json.gz" if "blueprint" in format or format in AVERAGE_FORMATS else ".pt"
+
+
 def load_frozen(spec, path):
+    if spec.format in AVERAGE_FORMATS:
+        from src.blueprint.average import AveragePolicy
+        from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA
+        model = AveragePolicy(path, spec.sha256, expected_schema=HU100_SCHEMA if "hu100" in spec.format else HU20_UNCAPPED_SCHEMA)
+        model.spec = spec
+        model.source_path = path
+        return model
     if spec.format in {"holdem-blueprint-v1", "holdem-hu20-blueprint-v2",
-                        "holdem-hu20-native-reopening-blueprint-v1", "holdem-tp20-blueprint-v1"}:
+                        "holdem-hu20-native-reopening-blueprint-v1", "holdem-tp20-blueprint-v1",
+                        "holdem-hu100-native-reopening-blueprint-v1"}:
         from src.blueprint.artifact import FrozenBlueprint
 
         return FrozenBlueprint(spec, path)
@@ -37,7 +53,7 @@ class PolicyRegistry:
                 raise ValueError(
                     "Checkpoint names must be used and cannot shadow built-in policies"
                 )
-            suffix = ".json.gz" if "blueprint" in spec.format else ".pt"
+            suffix = artifact_suffix(spec.format)
             path = (
                 artifact_dir / f"{spec.sha256}{suffix}"
                 if artifact_dir
@@ -49,6 +65,12 @@ class PolicyRegistry:
                     raise ValueError(
                         f"{spec.name} requires fixed {model.players}-player hands"
                     )
+                identity = getattr(model, "identity", {})
+                if identity and (list(scenario.stacks) != identity["stacks"]
+                                 or scenario.small_blind != identity["small_blind"]
+                                 or scenario.big_blind != identity["big_blind"]
+                                 or scenario.chip_unit != "0.01"):
+                    raise ValueError(f"{spec.name} game differs from the evaluation scenario")
             self.models[spec.name] = model
         if used - builtins - self.models.keys():
             raise ValueError(
@@ -115,7 +137,12 @@ class PolicyRegistry:
             target = output / "models"
             target.mkdir()
             for model in self.models.values():
-                suffix = (
-                    ".json.gz" if "blueprint" in model.spec.format else ".pt"
-                )
-                (target / f"{model.spec.sha256}{suffix}").write_bytes(model.data)
+                suffix = artifact_suffix(model.spec.format)
+                destination = target / f"{model.spec.sha256}{suffix}"
+                if model.spec.format in AVERAGE_FORMATS:
+                    from src.policies.files import file_hash
+                    if file_hash(model.source_path) != model.spec.sha256:
+                        raise ValueError("Average changed before snapshot")
+                    copyfile(model.source_path, destination)
+                else:
+                    destination.write_bytes(model.data)

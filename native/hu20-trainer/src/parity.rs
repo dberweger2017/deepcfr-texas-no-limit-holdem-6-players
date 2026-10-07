@@ -1,7 +1,7 @@
 //! Replay Python-engine fixtures (`scripts/native_parity_fixtures.py`) and
 //! compare every decision and the settlement field by field.
 
-use crate::game::{Action, Hand, Kind};
+use crate::game::{Action, Game, Hand, Kind};
 use crate::key::{key_hex, menu};
 use hu20_buckets::parse_card;
 use serde_json::Value;
@@ -19,7 +19,7 @@ fn kind(name: &str) -> Kind {
 /// Returns a description of the first mismatch in one recorded hand, if any.
 pub fn check_hand(record: &Value) -> Option<String> {
     let deck: Vec<u8> = record["deck"].as_array().unwrap().iter().map(|c| parse_card(c.as_str().unwrap())).collect();
-    let mut hand = Hand::from_deck(record["button"].as_u64().unwrap() as u8, &deck);
+    let mut hand = Hand::from_deck_for(Game::from_bb(record["stack_bb"].as_u64().unwrap_or(20) as u32), record["button"].as_u64().unwrap() as u8, &deck);
     let decisions = record["decisions"].as_array().unwrap();
     let actions = record["actions"].as_array().unwrap();
     for (index, (decision, action)) in decisions.iter().zip(actions).enumerate() {
