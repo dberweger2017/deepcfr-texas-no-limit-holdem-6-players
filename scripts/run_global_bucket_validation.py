@@ -422,6 +422,19 @@ def pilot(root):
     atomic_json(root/"pilot/legacy-parity.json",{"collect":gate,"locked_metrics_exact":True,"metrics":actual,"binary_unchanged":True})
 
 
+def first_global_pilot(root):
+    if not load(root/"pilot/legacy-parity.json")["locked_metrics_exact"]:raise ValueError("Legacy parity prerequisite")
+    original=load(root/"inputs/pr149/prepared-03/manifest.json")["jobs"][0]
+    job=next(j for j in load(root/"prepared"/f"jobs-{original['spot']}.json") if j["job"]==original["job"])
+    request,active=materialize_compact(job)
+    if file_hash(job["request"])!=job["request_sha256"]:raise ValueError("Pilot request differs")
+    result=native(root,request,root/"run/collect"/job["job"])
+    result["reference_gate"]=compare_collection(root,job,result["rows"])
+    result["job"]=job
+    atomic_json(root/"run/collect"/job["job"]/"result.json",result)
+    if job.get("compact_overlay") or active.with_name(active.name+".gz").exists():active.unlink()
+
+
 def singleton_pilot(root):
     job=load(root/"prepared/manifest.json")["jobs"][0]
     collect=root/"run/collect"/job["job"]
@@ -480,7 +493,7 @@ def main():
     signal.signal(signal.SIGTERM, lambda *_: (_ for _ in ()).throw(SystemExit("Owned runner terminated")))
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--root",type=Path,required=True)
-    p.add_argument("--mode",choices=["singleton","legacy-collect","pilot","prepare","prepare-board","worker","fit","run"],required=True)
+    p.add_argument("--mode",choices=["first-global-pilot","singleton","legacy-collect","pilot","prepare","prepare-board","worker","fit","run"],required=True)
     for name in ("phase","job","spot"):p.add_argument("--"+name)
     for name in ("lineage","fold"):p.add_argument("--"+name,type=int)
     a=p.parse_args();root=a.root.resolve()
@@ -491,6 +504,7 @@ def main():
     elif a.mode=="prepare-board":prepare_board(root,a.spot)
     elif a.mode=="worker":worker(root,a.phase,a.job)
     elif a.mode=="fit":fit(root,a.lineage,a.fold)
+    elif a.mode=="first-global-pilot":first_global_pilot(root)
     elif a.mode=="singleton":singleton_pilot(root)
     elif a.mode=="pilot":pilot(root)
     elif a.mode=="prepare":prepare(root)
