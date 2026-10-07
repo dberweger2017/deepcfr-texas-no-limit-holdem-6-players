@@ -44,8 +44,11 @@ environment or run any fixture. Final checks:
 - Python compilation and staged repository-artifact/diff checks pass.
 
 Normal PR CI builds the release native binary and runs the previously optional
-native parity/export regressions with the existing full test suite. This local
-report does not claim those heavier checks passed before CI returns. The pinned
+native parity/export regressions with the existing full test suite. The first
+full run passed one shard; the other had 780 passes, one skip and two failures
+from changed HU20/TP20 rejection-message wording. The legacy wording is restored
+and covered by tiny constructor-rejection fixtures; the updated full CI run
+remains pending at this follow-up. The pinned
 1B HU20 reference regeneration is deferred to Stage 1; tiny fixtures cannot
 establish full campaign hash equality.
 
@@ -63,6 +66,18 @@ admitted for extension. Both were fixed with fail-fast shell commands,
 target-bound audits and explicit 10M/nonzero-street/full-baseline parent checks.
 Success and rejection fixtures pass. The reviewer independently repeated
 **6 Rust /12 new Python fixtures**, with no remaining blocking findings.
+
+The lead-engineer review of `d550f76` found a P1 in the reused supervisor:
+interrupts or monitoring exceptions could leave a child running without guards.
+SIGINT/SIGTERM now retain ownership through process creation, and all exit paths
+attempt bounded TERM/KILL cleanup of the owned group, stop subsequent jobs and
+publish terminal receipts. Independent follow-up caught a cleanup-timeout
+receipt gap; it is fixed with explicit cleanup failure/PID evidence. The reviewer
+then repeated **9 synthetic supervisor tests** with no remaining blocker.
+No research process was used. The combined updated focused suite passes
+**25 tests, with 2 retained-policy skips**, including cancellation, monitoring
+exceptions, escalation, admission refusal, cleanup failure and the process
+creation signal boundary. An unrelated synthetic sleeper survives cancellation.
 
 ## Deferred work and decisions
 

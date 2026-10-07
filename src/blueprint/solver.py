@@ -462,7 +462,8 @@ class BlueprintTrainer:
             or table.small_blind != 50 or table.big_blind != 100
             or table.chip_unit != "0.01"
         ):
-            raise ValueError("Fixed-stack training requires its versioned table")
+            raise ValueError("Fixed-stack training requires the versioned 100BB table" if config.abstraction == HU100_SCHEMA
+                             else "Short-stack training requires the versioned 20BB table")
         self.table = table
         self.config = config
         self.iteration = 0

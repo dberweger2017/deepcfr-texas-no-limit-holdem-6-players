@@ -245,6 +245,15 @@ process-family RSS, disk, swap and the absolute deadline, including serializatio
 and sends TERM then KILL to its own child group only. It does not modify workers
 outside that group. Never interpret a resource stop as a successful target.
 
+SIGINT/SIGTERM and monitoring errors stop subsequent jobs and trigger owned
+process-group cleanup: TERM, up to five seconds for the direct child, then KILL
+and a bounded reap. The supervisor writes an interrupted/incomplete terminal
+receipt and inventory, retaining the owned PID and any cleanup failure. Inspect
+that receipt before recovery; a cleanup failure requires checking the recorded
+owned group before another attempt. These handlers cannot recover from SIGKILL
+of the supervisor or host failure; preserve the last receipt and atomic saves
+for operator diagnosis in those cases.
+
 ## Evidence, decisions and later science
 
 Keep source/binary/environment receipts, all plans/commands, resource samples,

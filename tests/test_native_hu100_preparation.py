@@ -142,3 +142,13 @@ def test_mislabeled_hu100_artifacts_reject_before_rows(tmp_path):
                          ('abstraction', HU20_UNCAPPED_SCHEMA),
                          ('identity', {**header['identity'], 'action_menu': 'unknown'})]:
         with pytest.raises(ValueError): checked_header({**header, field: value}, {'seed':123,'iteration':2}, expected_schema=HU100_SCHEMA)
+
+
+@pytest.mark.parametrize("schema,game", [
+    (HU20_UNCAPPED_SCHEMA, HU20_UNCAPPED_GAME),
+    ("tp20-ordered-history-card-baseline-v1", "tp20-20bb-52card-no-ante-rake-v1"),
+])
+def test_legacy_table_rejection_keeps_20bb_diagnostic(schema,game):
+    config=PilotConfig(abstraction=schema,game=game,raise_cap=None if schema==HU20_UNCAPPED_SCHEMA else 2)
+    with pytest.raises(ValueError,match="20BB table"):
+        BlueprintTrainer(Table(("a","b"),(10000,10000)),config)
