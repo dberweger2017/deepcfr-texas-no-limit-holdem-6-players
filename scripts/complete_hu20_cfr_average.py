@@ -18,7 +18,7 @@ from scripts.evaluate_hu20_cfr_average import play,summarize
 from src.arena.catalog import Checkpoint
 from src.arena.schedule import digest
 from src.blueprint.artifact import FrozenBlueprint,HU20_UNCAPPED_FORMAT
-from src.diagnostics.cfr_average import DiagnosticAverage
+from src.blueprint.average import AveragePolicy
 from src.diagnostics.saved_hu20 import file_hash
 
 
@@ -35,7 +35,9 @@ def surviving_rows(path):
 
 
 def complete(plan,original,inputs,averages,out,original_source):
-    for name in ('scripts/evaluate_hu20_cfr_average.py','src/diagnostics/cfr_average.py','src/blueprint/artifact.py','src/diagnostics/exact_ranker.py'):
+    for name in ('scripts/evaluate_hu20_cfr_average.py','src/diagnostics/cfr_average.py',
+                 'src/blueprint/average.py','src/blueprint/compact_policy.py','src/policies/files.py',
+                 'src/blueprint/artifact.py','src/diagnostics/exact_ranker.py'):
         if Path(name).read_bytes()!=subprocess.check_output(['git','show',original_source+':'+name]):raise ValueError('Frozen gameplay source changed')
     anchor=int(subprocess.check_output(['git','show','-s','--format=%ct',original_source],text=True));deadline=anchor+plan['max_seconds']
     out.mkdir(parents=True,exist_ok=False);start=perf_counter();rows=[];receipts=[];loaded=[];new_hands=0;failure=None
@@ -58,7 +60,7 @@ def complete(plan,original,inputs,averages,out,original_source):
             model_path=(inputs if spec['strategy']=='current' else averages)/spec['path']
             if model_path.stat().st_size!=spec['bytes'] or file_hash(model_path)!=spec['sha256']:raise ValueError('Recovery input bytes differ')
             began=perf_counter();source=(FrozenBlueprint(Checkpoint(spec['name'],str(model_path),spec['sha256'],HU20_UNCAPPED_FORMAT),model_path)
-                    if spec['strategy']=='current' else DiagnosticAverage(model_path,spec['sha256']))
+                    if spec['strategy']=='current' else AveragePolicy(model_path,spec['sha256']))
             if source.description['training_seed']!=spec['seed'] or source.description['iteration']!=spec['iteration']:raise ValueError('Recovery lineage differs')
             loaded.append({'model':spec,'description':source.description,'load_seconds':perf_counter()-began})
             with gzip.open(destination,'wt') as f:

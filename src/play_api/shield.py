@@ -5,7 +5,7 @@ from gzip import open as gzip_open
 import json
 from pathlib import Path
 
-from src.diagnostics.cfr_average import DiagnosticAverage, EXTRACTION, FORMAT
+from src.blueprint.average import AveragePolicy, EXTRACTION, FORMAT
 
 MODEL_SHA256 = "a5e9d0fc6f4a448640f52f508187f779e43a0a8fd41158207f03de82adc219e1"
 MODEL_BYTES = 143429027
@@ -19,7 +19,7 @@ class _Identity:
     sha256: str
 
 
-class ShieldPolicy(DiagnosticAverage):
+class ShieldPolicy(AveragePolicy):
     name = "0.4.0-shield · seed 2026100601"
     adapter_id = "shield-traverser-average-v1"
     format_id = FORMAT

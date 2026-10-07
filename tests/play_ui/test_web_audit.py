@@ -5,17 +5,17 @@ from copy import deepcopy
 import pytest
 
 from scripts.audit_v041_web import audit_states, read_states
-from src.diagnostics.cfr_average import DiagnosticAverage
-from src.play_api import o_candidate as candidate
+from src.blueprint.average import AveragePolicy
+from src.policies import v041 as candidate
 from src.play_api.service import PlayService
-from tests.play_ui.test_o_candidate import model
+from tests.play_ui.test_v041 import model
 from tests.play_ui.test_service import create, human_action, bot_action
 
 
 def test_recorded_both_seats_distributions_and_settlements(tmp_path, monkeypatch):
     path, _ = model(tmp_path, monkeypatch)
-    web = candidate.load_o_candidate(path)
-    arena = DiagnosticAverage(path, candidate.MODEL_SHA256)
+    web = candidate.load_policy(path)
+    arena = AveragePolicy(path, candidate.MODEL_SHA256)
     database = tmp_path / 'play.sqlite'
     service = PlayService(database, web, source_version='recorded-fixture')
     try:

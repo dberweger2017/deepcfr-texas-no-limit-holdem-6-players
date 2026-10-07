@@ -20,7 +20,7 @@ from src.blueprint.abstraction import choices, information_key, HU20_UNCAPPED_SC
 from src.blueprint.artifact import FrozenBlueprint
 from src.blueprint.hu20_turn_search import HU20TurnSearchPolicy, TurnSearchConfig
 from src.blueprint.hu20_turn_solver import ExternalTurnSolver, file_hash
-from src.diagnostics.cfr_average import DiagnosticAverage
+from src.blueprint.average import AveragePolicy
 from src.diagnostics.hu20_search_protocol import select_base
 from src.diagnostics.stackoff_tails import snapshot, hand_tails
 from src.game.hand import Hand, Table
@@ -31,7 +31,7 @@ def load(spec, inputs):
     path = inputs / spec["path"]
     if path.stat().st_size != spec["bytes"] or file_hash(path) != spec["sha256"]:
         raise ValueError("Frozen policy length/hash differs")
-    source = (DiagnosticAverage(path, spec["sha256"]) if spec["strategy"] == "average"
+    source = (AveragePolicy(path, spec["sha256"]) if spec["strategy"] == "average"
               else FrozenBlueprint(Checkpoint(spec["name"],str(path),spec["sha256"],spec["format"]),path))
     if (source.description["training_seed"] != spec["seed"]
             or source.description["iteration"] != spec["iteration"]
@@ -65,7 +65,7 @@ def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, searc
                 base_menu, base_p, base_trained = source.distribution(view)
                 key = information_key(view,base_menu,schema=source.abstraction)
                 mass_status = ("missing" if not base_trained else "zero_mass" if key in getattr(source,"zero_mass",())
-                               else "positive_mass" if isinstance(source,DiagnosticAverage) else "current")
+                               else "positive_mass" if isinstance(source,AveragePolicy) else "current")
                 menu,p,trained = search.distribution(view,query_kind="play") if search else (base_menu,base_p,base_trained)
                 action = random.choices(menu,weights=p,k=1)[0].action
                 coverage[mass_status] += 1; coverage[view.street.value+":"+mass_status] += 1

@@ -10,7 +10,7 @@ import sqlite3
 from src.blueprint.artifact import FrozenBlueprint
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
 from src.blueprint.solver import HU20_UNCAPPED_GAME
-from src.diagnostics.cfr_average import FORMAT, EXTRACTION, checked_header
+from src.blueprint.average import FORMAT, EXTRACTION, checked_header
 from src.diagnostics.saved_hu20 import file_hash
 
 

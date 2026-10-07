@@ -17,7 +17,7 @@ from scripts.hu20_platform_pilot import peak_rss, write
 from src.arena.schedule import digest
 from src.blueprint.river_cfr import profile_quality
 from src.blueprint.river_game import river_root_history
-from src.diagnostics.cfr_average import DiagnosticAverage
+from src.blueprint.average import AveragePolicy
 from src.diagnostics.history_river import CommonRiverGame, common_ranges, policy_profile, LAW, PROJECTION
 from src.diagnostics.saved_hu20 import load_saved, file_hash
 
@@ -44,7 +44,7 @@ def science_fields(value):
 def open_average(spec, guard):
     guard()
     path=Path(spec['average_path'])
-    source=DiagnosticAverage(path,spec['average_sha256'],expected_schema=spec['abstraction'])
+    source=AveragePolicy(path,spec['average_sha256'],expected_schema=spec['abstraction'])
     if (source.description['source_checkpoint_sha256']!=spec['checkpoint_sha256']
             or source.description['training_seed']!=spec['seed']
             or source.description['iteration']!=spec['iteration']):

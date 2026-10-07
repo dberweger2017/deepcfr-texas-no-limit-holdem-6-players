@@ -8,7 +8,7 @@ from pathlib import Path
 from src.arena.catalog import Checkpoint
 from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT
 from src.blueprint.hu20_river import public_ranges
-from src.diagnostics.cfr_average import DiagnosticAverage
+from src.blueprint.average import AveragePolicy
 from src.diagnostics.flop_check import (atomic_json, compile_tree, fixture_root,
                                         gate_k, VERSION)
 from src.diagnostics.saved_hu20 import file_hash
@@ -23,7 +23,7 @@ def load_policy(spec, inputs):
         policy = FrozenBlueprint(Checkpoint(spec["name"], str(path), spec["sha256"],
                                            HU20_UNCAPPED_FORMAT), path)
     elif spec["strategy"] == "stored-average":
-        policy = DiagnosticAverage(path, spec["sha256"])
+        policy = AveragePolicy(path, spec["sha256"])
     else:
         raise ValueError("Unknown frozen extraction")
     if policy.description["training_seed"] != spec["seed"]:

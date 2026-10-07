@@ -5,8 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from src.play_api.o_candidate import (ASSET_NAME, CHECKPOINT_SHA256, ITERATION,
-                                        MODEL_BYTES, MODEL_SHA256, SEED, verify)
+from src.policies.v041 import ASSET_NAME, CHECKPOINT_SHA256, ITERATION, MODEL_BYTES, MODEL_SHA256, SEED, verify
 
 ASSETS = {ASSET_NAME, "MODEL_CARD.md", "RELEASE_NOTES.md", "release-manifest.json"}
 

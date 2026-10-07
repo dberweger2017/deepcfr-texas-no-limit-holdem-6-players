@@ -7,7 +7,7 @@ import subprocess
 
 import pytest
 
-from src.diagnostics.compact_policy import CompactBuilder
+from src.blueprint.compact_policy import CompactBuilder
 
 BINARY = Path("native/hu20-trainer/target/release/hu20-trainer")
 
@@ -42,7 +42,7 @@ def test_builder_rejects_duplicate_keys():
 @pytest.mark.skipif(not BINARY.exists(), reason="build native/hu20-trainer first")
 @pytest.mark.parametrize("flags", [[], ["--average-rule", "opponent-sampled"]])
 def test_diagnostic_average_matches_a_reference_parse(tmp_path, flags):
-    from src.diagnostics.cfr_average import DiagnosticAverage
+    from src.blueprint.average import AveragePolicy
     from src.diagnostics.saved_hu20 import file_hash
     checkpoint, average = tmp_path / "c.json.gz", tmp_path / "a.jsonl.gz"
     subprocess.run([str(BINARY), "train", "--nodes", "300000", "--seed", "8", *flags, "--out", str(checkpoint)],
@@ -56,7 +56,7 @@ def test_diagnostic_average_matches_a_reference_parse(tmp_path, flags):
             reference[key], visits[key] = (tuple(names), tuple(p)), count
             if not total:
                 zero.add(key)
-    policy = DiagnosticAverage(average, file_hash(average))
+    policy = AveragePolicy(average, file_hash(average))
     assert len(policy.entries) == len(reference) and set(policy.entries) == set(reference)
     assert all(policy.entries.get(k) == v for k, v in reference.items())
     assert set(policy.zero_mass) == zero and dict(policy.visits) == visits

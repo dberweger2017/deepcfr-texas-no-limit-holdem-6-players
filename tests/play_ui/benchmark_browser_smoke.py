@@ -9,7 +9,7 @@ import time
 from pathlib import Path
 from urllib.request import urlopen
 
-from src.play_api.service import MODEL_SHA256
+from src.policies.v040 import EXPECTED_SHA256 as MODEL_SHA256
 from tests.play_ui.browser_smoke import BASE, CHROME, PORT, CDP
 
 

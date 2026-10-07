@@ -1,5 +1,9 @@
 # Research results index
 
+New entries follow the [shared storage and archive-receipt contract](docs/artifact-storage.md).
+The [tracked-payload audit](docs/reports/necessary-cleaning.md) identifies retained Git evidence;
+its retention list is not cloud verification or deletion approval.
+
 ## PR185 — HU20 O at 10B, audited direct gain; LBR safeguard inconclusive
 
 **Final status (October 7):** matched-seed three-lineage 10B−1B **+3.50 [1.63, 5.37] BB/100**, better for every seed. LBR **+2.79 [−6.25, 11.83]** fails to establish lower >−5; no package, model promotion or release. All 1,022,976 final +60,672 excluded pilot hands /5,959,763 actions and 160 native metrics independently verify. [Report](docs/reports/hu20-o-10b.md), [owner packet](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/185#issuecomment-6031857945), [audit/review proof](docs/reports/hu20-o-10b-artifacts/confirmation-review-validation.json). Science finished at 05:05 Madrid inside the nine-hour cap; posting timeout at 05:15 after owner-reported hotspot disconnection is preserved. Native recurring checks disabled, shell monitor terminal. No scientific restart or further samples.
