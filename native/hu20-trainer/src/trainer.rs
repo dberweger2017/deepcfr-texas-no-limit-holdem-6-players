@@ -9,7 +9,7 @@
 
 use crate::cfr::{AverageRule, Discounts, Key, Lookup, Node, Options, Sampler, Table, Traversal};
 use crate::streams::{engine_deck, python_seed, Mt};
-use crate::game::Hand;
+use crate::game::{Game, Hand};
 use flate2::write::GzEncoder;
 use flate2::Compression;
 use rayon::prelude::*;
@@ -48,6 +48,7 @@ impl Lookup for Sharded {
 }
 
 pub struct Trainer {
+    pub game: Game,
     pub table: Sharded,
     /// Per-task delta maps, emptied and reused every iteration.
     scratch: Vec<Table>,
@@ -55,6 +56,9 @@ pub struct Trainer {
     pub seed: u64,
     pub roots_per_seat: usize,
     pub nodes: u64,
+    pub coverage_start: [u64; 3], // iteration, completed nodes, traverser visits before telemetry
+    pub decisions_by_street: [u64; 4],
+    pub traverser_visits_by_street: [u64; 4],
     /// The production rule unless chosen otherwise; regrets and play are the same under both.
     pub average: AverageRule,
     /// Training changes beyond the production rule; none by default.
@@ -64,14 +68,15 @@ pub struct Trainer {
 
 impl Trainer {
     pub fn new(seed: u64, roots_per_seat: usize) -> Trainer {
-        Trainer { table: Sharded::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0,
+        Trainer { game: Game::Hu20, table: Sharded::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0, coverage_start: [0; 3], decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4],
                   average: AverageRule::TraverserReach, options: Options::default(), discounts: Discounts::default() }
     }
 
     pub fn step(&mut self) -> u64 {
         let seed = self.seed;
+        let game = self.game;
         self.step_with(|iteration, seat, sample| {
-            (Hand::from_deck(0, &engine_deck(python_seed(seed, iteration, seat, sample, "deal"))),
+            (Hand::from_deck_for(game, 0, &engine_deck(python_seed(seed, iteration, seat, sample, "deal"))),
              Mt::new(python_seed(seed, iteration, seat, sample, "actions")))
         })
     }
@@ -93,21 +98,28 @@ impl Trainer {
         scratch.resize_with(tasks.len(), Table::default);
         let run = |(&(seat, sample), deltas): (&(usize, usize), Table)| {
             let (mut hand, sampler) = root(iteration, seat, sample);
+            assert_eq!(hand.game, self.game, "root belongs to another game");
             let mut traversal = Traversal::with_deltas(table, iteration, seat, sampler, deltas);
             traversal.average = average;
             traversal.regret_weight = regret_weight;
             traversal.average_weight = average_weight;
             traversal.run(&mut hand);
-            (traversal.deltas, traversal.nodes)
+            (traversal.deltas, traversal.nodes, traversal.decisions_by_street, traversal.traverser_visits_by_street)
         };
-        let results: Vec<(Table, u64)> = if tasks.len() > 2 {
+        let results: Vec<(Table, u64, [u64; 4], [u64; 4])> = if tasks.len() > 2 {
             tasks.par_iter().zip(scratch.into_par_iter()).map(run).collect()
         } else {
             tasks.iter().zip(scratch).map(run).collect()
         };
         let nodes: u64 = results.iter().map(|r| r.1).sum();
+        for (_, _, decisions, visits) in &results {
+            for i in 0..4 {
+                self.decisions_by_street[i] += decisions[i];
+                self.traverser_visits_by_street[i] += visits[i];
+            }
+        }
         // Group each task's deltas by shard, keeping task order inside every shard.
-        let group = |(deltas, _): &(Table, u64)| {
+        let group = |(deltas, _, _, _): &(Table, u64, [u64; 4], [u64; 4])| {
                 let mut by_shard: Vec<Vec<(Key, Node)>> = vec![Vec::new(); SHARDS];
                 for (key, delta) in deltas {
                     by_shard[Sharded::shard(key)].push((*key, *delta));
@@ -172,7 +184,7 @@ impl Trainer {
         } else {
             self.table.0.iter_mut().enumerate().for_each(apply);
         }
-        self.scratch = results.into_iter().map(|(deltas, _)| deltas).collect();
+        self.scratch = results.into_iter().map(|(deltas, _, _, _)| deltas).collect();
         self.iteration = iteration;
         self.nodes += nodes;
         nodes
@@ -190,22 +202,34 @@ impl Trainer {
 
     /// A `jsonl-v2` training checkpoint that `src.blueprint.artifact.load_training` accepts.
     pub fn save(&self, path: &Path, max_nodes: u64, max_entries: u64) -> std::io::Result<()> {
+        self.save_impl(path, max_nodes, max_entries, false)
+    }
+
+    pub fn save_recoverable(&self, path: &Path, max_nodes: u64, max_entries: u64) -> std::io::Result<()> {
+        self.save_impl(path, max_nodes, max_entries, true)
+    }
+
+    fn save_impl(&self, path: &Path, max_nodes: u64, max_entries: u64, recovery: bool) -> std::io::Result<()> {
         let config = json!({
             "seed": self.seed, "raise_cap": null, "roots_per_seat": self.roots_per_seat,
             "max_nodes": max_nodes, "max_entries": max_entries, "max_seconds": 900.0,
-            "abstraction": crate::key::SCHEMA, "game": GAME,
+            "abstraction": self.game.schema(), "game": self.game.id(),
         });
         let header = json!({
-            "format": FORMAT, "abstraction": crate::key::SCHEMA, "kind": "training",
+            "format": self.game.format(), "abstraction": self.game.schema(), "kind": "training",
             "checkpoint_format": "jsonl-v2", "iteration": self.iteration, "config": config,
-            "table": {"player_ids": ["player-0", "player-1"], "stacks": [2000, 2000], "button": 0,
+            "table": {"player_ids": ["player-0", "player-1"], "stacks": [self.game.stack(), self.game.stack()], "button": 0,
                       "small_blind": 50, "big_blind": 100, "chip_unit": "0.01"},
-            "identity": {"game": GAME, "players": 2, "stacks": [2000, 2000], "small_blind": 50, "big_blind": 100,
-                         "action_menu": "hu20-min-pot-conditional-jam-native-reopening-v1",
+            "identity": {"game": self.game.id(), "players": 2, "stacks": [self.game.stack(), self.game.stack()], "small_blind": 50, "big_blind": 100,
+                         "action_menu": self.game.menu(),
                          "card_descriptor": "legacy-postflop-descriptor-v1",
                          "raise_cap_semantics": "none; native minimum-raise/reopening/stack bounds"},
         });
         let mut header = header;
+        if recovery || self.game == Game::Hu100 {
+            header["native_state"] = json!({"version": 1, "completed_nodes": self.nodes,
+                "coverage_start": self.coverage_start, "decisions_by_street": self.decisions_by_street, "traverser_visits_by_street": self.traverser_visits_by_street});
+        }
         // Only a non-production average is named, so production checkpoints stay identical to Python's.
         if self.average != AverageRule::TraverserReach {
             header["average_rule"] = json!(self.average.name());

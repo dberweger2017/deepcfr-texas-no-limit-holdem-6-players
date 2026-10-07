@@ -79,7 +79,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 - **v0.4.2 candidate (O at 10B nodes):** [#185](docs/reports/hu20-o-10b.md) passed the direct match and the other safeguards; its bounded-LBR safeguard was inconclusive. [#188](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188) is resolving that uncertainty with a fresh, larger LBR sample. Publication requires the owner's explicit go.
 - **Abstraction:** [#190](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/190) is validating #163's equity-bucket tables. Native bucket keys, bench training and full-game runs depend on its result.
 - **Turn search:** the arena is complete; adoption is unresolved. The selective-stackoff regression needs diagnosis, and no direct search-versus-no-search comparison exists yet.
-- **v0.5 groundwork:** planned parallel work. The external benchmark opponent and its acceptance criteria are owner decisions not yet made.
+- **v0.5 groundwork:** [#196](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/196) prepares [native HU100 support](docs/native-hu100-preparation.md) with versioned 20/100-BB training, recovery and research loaders, with a staged future resource protocol. Preparation only; no campaign or worker use. The external benchmark opponent and its acceptance criteria are owner decisions not yet made.
 
 **Release rule:** v0.4.1 stays the incumbent. v0.4.2 depends on #188's predeclared result ([protocol](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188)) and on verifying its release package. Passing research checks does not authorize publication; only the owner's explicit go does.
 

@@ -8,13 +8,14 @@ from gzip import open as gzip_open
 import json
 from math import fsum, isfinite
 
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA
 from src.blueprint.artifact import FrozenBlueprint, _checked_schema
 from src.blueprint.compact_policy import CompactBuilder
-from src.blueprint.solver import HU20_UNCAPPED_GAME
+from src.blueprint.solver import HU20_UNCAPPED_GAME, HU100_GAME
 from src.policies.files import file_hash
 
 FORMAT = 'holdem-hu20-stored-cfr-average-diagnostic-v1'
+HU100_FORMAT = 'holdem-hu100-stored-cfr-average-research-v1'
 EXTRACTION = 'normalize-lifetime-iteration-own-reach-accumulator-v1'
 # Native checkpoints may name a non-production average in their header. Its accumulator
 # sums t * policy over sampled opponent visits, so the traverser-visit bound doesn't apply.
@@ -44,18 +45,20 @@ def average_rule(header):
 
 
 def checked_header(header, spec, *, expected_schema=HU20_UNCAPPED_SCHEMA):
-    if expected_schema not in (HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA):
+    if expected_schema not in (HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA):
         raise ValueError('Unknown A/C diagnostic schema')
+    game = HU100_GAME if expected_schema == HU100_SCHEMA else HU20_UNCAPPED_GAME
+    stack = 10000 if expected_schema == HU100_SCHEMA else 2000
     if (_checked_schema(header)!=expected_schema or header.get('kind')!='training'
         or type(header.get('iteration')) is not int or header['iteration']<1
         or header.get('checkpoint_format')!='jsonl-v2'
-        or header['config']['game']!=HU20_UNCAPPED_GAME or header['config']['raise_cap'] is not None
+        or header['config']['game']!=game or header['config']['raise_cap'] is not None
         or header['config']['seed']!=spec['seed'] or header['iteration']!=spec['iteration']
-        or header['table']['stacks']!=[2000,2000] or header['table']['small_blind']!=50
+        or header['table']['stacks']!=[stack,stack] or header['table']['small_blind']!=50
         or header['table']['big_blind']!=100 or header['table']['chip_unit']!='0.01'
         or len(header['table']['player_ids'])!=2 or len(set(header['table']['player_ids']))!=2
         or type(header['table']['button']) is not int or header['table']['button'] not in (0,1)):
-        raise ValueError('Retained HU20 checkpoint identity differs')
+        raise ValueError('Retained heads-up checkpoint identity differs')
 
 
 def normalized(average, visits, iteration, bounded=True):
@@ -90,7 +93,7 @@ class AveragePolicy(FrozenBlueprint):
             metadata=json.loads(source.readline());header=metadata['checkpoint_header']
             checked_header(header,{'seed':header['config']['seed'],'iteration':header['iteration']},expected_schema=expected_schema)
             rule=average_rule(header);extraction=EXTRACTIONS[rule];zero_mass=zero_mass_rule(metadata)
-            if (metadata.get('format')!=FORMAT or metadata.get('kind')!='diagnostic-inference'
+            if (metadata.get('format')!=(HU100_FORMAT if expected_schema == HU100_SCHEMA else FORMAT) or metadata.get('kind')!='diagnostic-inference'
                 or metadata.get('extraction')!=extraction):raise ValueError('Unknown diagnostic extraction')
             for line in source:
                 key,names,p,total,visits=json.loads(line)
@@ -104,8 +107,8 @@ class AveragePolicy(FrozenBlueprint):
             self.entries,self.zero_mass,self.visits=rows.build()
         except ValueError as duplicate:
             raise ValueError('Invalid diagnostic policy row') from duplicate
-        self.players=2;self.raise_cap=None;self.abstraction=expected_schema;self.game=HU20_UNCAPPED_GAME;self.identity=header['identity']
-        self.description={'kind':FORMAT,'weights_sha256':expected_sha256,'num_players':2,'iteration':header['iteration'],
+        self.players=2;self.raise_cap=None;self.abstraction=expected_schema;self.game=header['config']['game'];self.identity=header['identity']
+        self.description={'kind':metadata['format'],'weights_sha256':expected_sha256,'num_players':2,'iteration':header['iteration'],
             'training_seed':header['config']['seed'],'strategy':extraction,'abstraction':self.abstraction,
             'entries':len(self.entries),'zero_mass_entries':len(self.zero_mass),
             'source_checkpoint_sha256':metadata['source_checkpoint_sha256']}

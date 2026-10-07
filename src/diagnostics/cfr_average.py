@@ -9,10 +9,10 @@ from math import fsum
 from os import fsync, replace
 
 from src.arena.catalog import Checkpoint
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
-from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA
+from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT, HU100_FORMAT as HU100_CURRENT_FORMAT
 from src.blueprint.average import (
-    FORMAT, EXTRACTIONS, ZERO_MASS_RULES, average_rule, checked_header,
+    FORMAT, HU100_FORMAT, EXTRACTIONS, ZERO_MASS_RULES, average_rule, checked_header,
     checked_row, zero_mass_rule,
 )
 from src.blueprint.solver import regret_match
@@ -33,7 +33,8 @@ def extract(checkpoint, spec, output, *, expected_schema=HU20_UNCAPPED_SCHEMA, z
         with gzip_open(checkpoint,'rt') as source, temporary.open('xb') as raw:
             header=json.loads(source.readline());checked_header(header,spec,expected_schema=expected_schema)
             rule=average_rule(header)
-            metadata={'format':FORMAT,'kind':'diagnostic-inference','extraction':EXTRACTIONS[rule],
+            export_format = HU100_FORMAT if expected_schema == HU100_SCHEMA else FORMAT
+            metadata={'format':export_format,'kind':'diagnostic-inference','extraction':EXTRACTIONS[rule],
                 'source_checkpoint_sha256':spec['checkpoint_sha256'],'checkpoint_header':header,
                 'zero_mass_rule':ZERO_MASS_RULES[zero_mass]}
             with GzipFile(fileobj=raw,mode='wb',filename='',mtime=0) as zipped, TextIOWrapper(zipped,encoding='utf-8') as target:
@@ -50,7 +51,7 @@ def extract(checkpoint, spec, output, *, expected_schema=HU20_UNCAPPED_SCHEMA, z
         replace(temporary,output)
     except Exception:
         temporary.unlink(missing_ok=True);raise
-    return {'format':FORMAT,'sha256':file_hash(output),'bytes':output.stat().st_size,
+    return {'format':export_format,'sha256':file_hash(output),'bytes':output.stat().st_size,
             'counts':dict(counts),'sum_accumulator_mass':mass,'source_checkpoint_sha256':spec['checkpoint_sha256']}
 
 
@@ -58,12 +59,12 @@ def audit(checkpoint, current_path, average_path, spec, average_sha, *, expected
     """Verify every output against accumulators and the paired current export."""
     if (file_hash(checkpoint)!=spec['checkpoint_sha256'] or file_hash(current_path)!=spec['sha256']
         or file_hash(average_path)!=average_sha):raise ValueError('Extraction audit input hash differs')
-    current=FrozenBlueprint(Checkpoint(spec['name'],str(current_path),spec['sha256'],HU20_UNCAPPED_FORMAT),current_path)
+    current=FrozenBlueprint(Checkpoint(spec['name'],str(current_path),spec['sha256'],HU100_CURRENT_FORMAT if expected_schema == HU100_SCHEMA else HU20_UNCAPPED_FORMAT),current_path)
     counts=Counter();seen=set();tv=0.0;max_tv=0.0
     with gzip_open(checkpoint,'rt') as raw,gzip_open(average_path,'rt') as exported:
         header=json.loads(raw.readline());checked_header(header,spec,expected_schema=expected_schema)
         metadata=json.loads(exported.readline());rule=average_rule(header);zero_mass=zero_mass_rule(metadata)
-        if (metadata.get('format')!=FORMAT or metadata.get('kind')!='diagnostic-inference'
+        if (metadata.get('format')!=(HU100_FORMAT if expected_schema == HU100_SCHEMA else FORMAT) or metadata.get('kind')!='diagnostic-inference'
             or metadata.get('extraction')!=EXTRACTIONS[rule] or metadata.get('checkpoint_header')!=header
             or metadata.get('source_checkpoint_sha256')!=spec['checkpoint_sha256']
             or current.abstraction!=expected_schema or current.description['strategy']!='current' or current.description['iteration']!=header['iteration']

@@ -18,7 +18,9 @@ from src.blueprint.abstraction import (
     HU20_COMPRESSED_SCHEMA,
     HU20_CARD_V2_SCHEMA,
     HU20_COMPRESSED_CARD_V2_SCHEMA,
-    HU20_NATIVE_SCHEMAS,
+    NATIVE_SCHEMAS,
+    HU100_SCHEMA,
+    STACK_BY_SCHEMA,
     TP20_SCHEMA,
     SHORTSTACK_SEATS,
     SUPPORTED_SCHEMAS,
@@ -33,8 +35,10 @@ from src.game.types import Street
 FORMAT = "holdem-blueprint-v1"
 HU20_GAME = "hu20-20bb-52card-no-ante-rake-v2"
 HU20_UNCAPPED_GAME = "hu20-native-reopening-20bb-52card-no-ante-rake-v1"
+HU100_GAME = "hu100-native-reopening-100bb-52card-no-ante-rake-v1"
 TP20_GAME = "tp20-20bb-52card-no-ante-rake-v1"
 SHORTSTACK_GAMES = {HU20_SCHEMA: HU20_GAME, HU20_UNCAPPED_SCHEMA: HU20_UNCAPPED_GAME, HU20_COMPRESSED_SCHEMA: HU20_UNCAPPED_GAME, HU20_CARD_V2_SCHEMA: HU20_UNCAPPED_GAME, HU20_COMPRESSED_CARD_V2_SCHEMA: HU20_UNCAPPED_GAME, TP20_SCHEMA: TP20_GAME}
+SHORTSTACK_GAMES[HU100_SCHEMA] = HU100_GAME
 LEGACY_GAME = "legacy-blueprint-game-v1"
 
 
@@ -80,8 +84,8 @@ class PilotConfig:
                 for value in (self.seed,)
             )
             or (self.raise_cap is not None and (type(self.raise_cap) is not int or self.raise_cap < 0))
-            or (self.abstraction in HU20_NATIVE_SCHEMAS and self.raise_cap is not None)
-            or (self.abstraction not in HU20_NATIVE_SCHEMAS and self.raise_cap is None)
+            or (self.abstraction in NATIVE_SCHEMAS and self.raise_cap is not None)
+            or (self.abstraction not in NATIVE_SCHEMAS and self.raise_cap is None)
             or any(
                 type(value) is not int or value < 1
                 for value in (self.roots_per_seat, self.max_nodes, self.max_entries)
@@ -454,11 +458,12 @@ class BlueprintTrainer:
             raise ValueError("The blueprint pilot supports two to six players")
         if config.abstraction in SHORTSTACK_SEATS and (
             table.capacity != SHORTSTACK_SEATS[config.abstraction]
-            or table.stacks != (2000,) * SHORTSTACK_SEATS[config.abstraction]
+            or table.stacks != (STACK_BY_SCHEMA[config.abstraction],) * SHORTSTACK_SEATS[config.abstraction]
             or table.small_blind != 50 or table.big_blind != 100
             or table.chip_unit != "0.01"
         ):
-            raise ValueError("Short-stack training requires the versioned 20BB table")
+            raise ValueError("Fixed-stack training requires the versioned 100BB table" if config.abstraction == HU100_SCHEMA
+                             else "Short-stack training requires the versioned 20BB table")
         self.table = table
         self.config = config
         self.iteration = 0

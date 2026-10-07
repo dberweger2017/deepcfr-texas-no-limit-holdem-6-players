@@ -18,7 +18,10 @@ from src.blueprint.abstraction import (
     HU20_COMPRESSED_SCHEMA,
     HU20_COMPRESSED_SCHEMAS,
     HU20_CARD_V2_SCHEMAS,
-    HU20_NATIVE_SCHEMAS,
+    NATIVE_SCHEMAS,
+    HU100_SCHEMA,
+    HU100_MENU_VERSION,
+    STACK_BY_SCHEMA,
     HU20_HISTORY_VERSION,
     HU20_UNCAPPED_MENU_VERSION,
     TP20_SCHEMA,
@@ -34,6 +37,7 @@ from src.blueprint.solver import (
     FORMAT,
     HU20_GAME,
     HU20_UNCAPPED_GAME,
+    HU100_GAME,
     TP20_GAME,
     SHORTSTACK_GAMES,
     LEGACY_GAME,
@@ -48,8 +52,11 @@ HU20_FORMAT = "holdem-hu20-blueprint-v2"
 HU20_UNCAPPED_FORMAT = "holdem-hu20-native-reopening-blueprint-v1"
 
 
+HU100_FORMAT = "holdem-hu100-native-reopening-blueprint-v1"
 TP20_FORMAT = "holdem-tp20-blueprint-v1"
 SHORTSTACK_FORMATS = {HU20_GAME: HU20_FORMAT, HU20_UNCAPPED_GAME: HU20_UNCAPPED_FORMAT, TP20_GAME: TP20_FORMAT}
+
+SHORTSTACK_FORMATS[HU100_GAME] = HU100_FORMAT
 
 
 def _format(config: PilotConfig) -> str:
@@ -58,15 +65,16 @@ def _format(config: PilotConfig) -> str:
 
 def _identity(config: PilotConfig) -> dict:
     seats = SHORTSTACK_SEATS.get(config.abstraction)
-    identity = ({"game": config.game, "players": seats, "stacks": [2000] * seats,
+    identity = ({"game": config.game, "players": seats, "stacks": [STACK_BY_SCHEMA[config.abstraction]] * seats,
              "small_blind": 50, "big_blind": 100,
-             "action_menu": (HU20_UNCAPPED_MENU_VERSION if config.abstraction in HU20_NATIVE_SCHEMAS else
+             "action_menu": (HU100_MENU_VERSION if config.abstraction == HU100_SCHEMA else
+                             HU20_UNCAPPED_MENU_VERSION if config.abstraction in NATIVE_SCHEMAS else
                              HU20_MENU_VERSION if seats == 2 else TP20_MENU_VERSION),
              "card_descriptor": HU20_CARD_VERSION} if seats else {})
     if config.abstraction in HU20_CARD_V2_SCHEMAS:
         from src.blueprint.cards_v2 import VERSION
         identity["card_descriptor"] = VERSION
-    if config.abstraction in HU20_NATIVE_SCHEMAS:
+    if config.abstraction in NATIVE_SCHEMAS:
         identity["raise_cap_semantics"] = "none; native minimum-raise/reopening/stack bounds"
     if config.abstraction in HU20_COMPRESSED_SCHEMAS:
         identity["history_descriptor"] = HU20_HISTORY_VERSION
