@@ -1,0 +1,56 @@
+{
+  "actual_host_gates": "not started; admission controller only",
+  "all_new_owned_pods_terminated": true,
+  "archives": [
+    {
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-166-HU20-turn-search-arena/fixed-work-equivalent-closeout-M1-20261005.zip",
+      "bytes": 217363,
+      "sha256": "5257f0e723cbda3013a898f551ee7ae32ccd0db18c7dcb9e08f510bd6bd2f625",
+      "verified": true,
+      "verified_members": 114
+    },
+    {
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-166-HU20-turn-search-arena/fixed-work-equivalent-closeout-M4-20261005.zip",
+      "bytes": 1699648752,
+      "sha256": "e1243c2cb6a98f6ebf32a79122cc22aa15665ad1b34c85c908d0ba78add51517",
+      "verified": true,
+      "verified_members": 1653
+    }
+  ],
+  "conservative_guard_charge_including_reserves_usd": 2.1709422949590715,
+  "cumulative_charge_upper_excluding_unspent_reserves_usd": 0.6709422949590713,
+  "final_focused_tests": 77,
+  "handoff_url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/166#issuecomment-6001549575",
+  "hard_ceiling_usd": 20,
+  "latest_operations_ci": "cancelled on owner closeout; rerun before future dispatch",
+  "new_hands": 0,
+  "new_posted_billing": "no record yet; use provisioning upper estimate",
+  "new_rental_charge_upper_usd": 0.004278043339539458,
+  "new_search_decisions": 0,
+  "no_automatic_restart": true,
+  "old_protected_pods_untouched": true,
+  "operational_source": "0541bc864f4ee38f57e58486283aedd95249e7c9",
+  "owner_stop": true,
+  "pods": [
+    {
+      "compute_hourly_usd": 0.13,
+      "created_at": 1791228315.439,
+      "creation_receipt": "attempt-1791228313-0-creation.json",
+      "disk_hourly_usd": 0.008333333333333333,
+      "gpu_count": 1,
+      "gpu_id": "NVIDIA GeForce RTX 3070",
+      "hourly_usd": 0.13833333333333334,
+      "id": "hewb8i6o4eji98",
+      "parity_retention_passed": false,
+      "retrieval_verified": true,
+      "rss_limit_bytes": 9663676416,
+      "terminated_at": 1791228426.771212,
+      "workers": [
+        0,
+        1
+      ]
+    }
+  ],
+  "prior_cap_charge_usd": 0.6666642516195319,
+  "scientific_source": "249a79b892313f90d5e280b0ea079ed4c38941e2"
+}

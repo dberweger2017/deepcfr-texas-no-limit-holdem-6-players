@@ -1,0 +1,9 @@
+{
+  "retained_raw_bytes": 367345577,
+  "gzip_tar_bytes": 12964232,
+  "files": 1333,
+  "seconds": 2.729682458913885,
+  "compression_level": 6,
+  "selection": "int(request SHA256,16) < 2**256 // 100",
+  "pilot_members_not_deleted": true
+}

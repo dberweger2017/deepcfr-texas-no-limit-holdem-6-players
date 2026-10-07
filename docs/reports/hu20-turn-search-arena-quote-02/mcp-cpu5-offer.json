@@ -1,0 +1,28 @@
+{
+  "retrieved_at": 1791208397.8920221,
+  "method": "tools/call",
+  "name": "get-cpu-type",
+  "arguments": {
+    "id": "cpu5c",
+    "include": [
+      "AVAILABILITY"
+    ],
+    "product": [
+      "POD"
+    ],
+    "vcpuCount": 32
+  },
+  "response": {
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"availability\": \"HIGH\",\n  \"group\": \"CPU5\",\n  \"id\": \"cpu5c\",\n  \"name\": \"Compute-Optimized\",\n  \"price\": {\n    \"securePerVcpu\": 0.035,\n    \"serverlessPerVcpu\": 0.042\n  },\n  \"ramGbPerVcpu\": 2,\n  \"vcpu\": {\n    \"max\": 32,\n    \"min\": 2\n  }\n}"
+        }
+      ],
+      "isError": false
+    },
+    "jsonrpc": "2.0",
+    "id": 11
+  }
+}

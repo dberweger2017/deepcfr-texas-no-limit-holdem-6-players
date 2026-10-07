@@ -24,6 +24,9 @@ from src.game.observation import ActionTaken, replay
 from src.game.types import Street
 
 
+QUALITY_SECONDS = 300
+
+
 def slots(items):
     """Four slots per stratum; both seats, all lineages, no payoff reads."""
     strata=sorted({(i["root"]["kind"],i["root"]["button"]) for i in items})
@@ -128,7 +131,8 @@ def run(references,config,inputs,binary,out,budget):
                 if node["terminal"]:continue
                 # Request's native actions were validated by the exact native compiler.
                 if node["street"]!="river":raise ValueError("River validation crossed rounds")
-            profiles=solver.solve(solution.request,monotonic()+policy.config.decision_seconds0,mode="quality")
+            # Same 300-second quality allowance as calibration; quality time never counts as play latency.
+            profiles=solver.solve(solution.request,monotonic()+QUALITY_SECONDS,mode="quality")
             difference=max(float(np.max(np.abs(m.probabilities-profiles[k].probabilities)))
                            for k,m in solution.profiles.items())
             if difference>1e-5:raise ValueError("River played/quality profile differs")
@@ -155,8 +159,10 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     for n in ("references","config","inputs","binary","out","admission","budget"):
         p.add_argument("--"+n,type=Path,required=True)
+    # The approved plan holds river validation to #148's frozen three-hour river reserve.
+    p.add_argument("--max-seconds",type=float,default=10800)
     a=p.parse_args();a.out.parent.mkdir(parents=True,exist_ok=True)
-    budget=RunBudget(a.budget,a.out.parent,"river-validation",86400,json.loads(a.admission.read_text()))
+    budget=RunBudget(a.budget,a.out.parent,"river-validation",a.max_seconds,json.loads(a.admission.read_text()))
     watchdog=start_resource_watchdog(budget)
     status="failed"
     reason=None

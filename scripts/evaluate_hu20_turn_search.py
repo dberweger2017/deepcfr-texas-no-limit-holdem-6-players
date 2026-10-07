@@ -42,10 +42,13 @@ def load(spec, inputs):
     return source
 
 
-def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, search=None, arm=None, failure_dir=None):
+def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, search=None, arm=None, failure_dir=None, fixed_work=False):
     deal = stream_seed(root,"test","deal",2,block)
     random = Random(stream_seed(root,"test","action",2,block,0))
     rival = opponent(panel, search or source, stream_seed(root,"test","opponent",2,block,1))
+    if fixed_work and panel["rule"]=="lbr":
+        from dataclasses import replace
+        rival.config=replace(rival.config,max_seconds=None)
     hand_id = f"turn-search/{panel['name']}/{block}/{rotation}"
     hand = Hand.start(Table(("seat0","seat1"),(2000,2000),button=block%2),hand_id=hand_id,seed=deal)
     records_begin = len(search.records) if search else 0
@@ -109,6 +112,29 @@ def play(source, spec, panel, root, block, rotation, guard=lambda:None, *, searc
     return row
 
 
+def read_complete_rows(path):
+    """Every fully written hand of a possibly truncated gzip stream (a worker killed mid-write)."""
+    rows=[]
+    try:
+        with gzip.open(path,"rt") as stream:
+            for line in stream:
+                try:rows.append(json.loads(line))
+                except ValueError:break
+    except (EOFError,OSError):pass
+    return rows
+
+
+def compact_row(row,phase):
+    compact = {k:v for k,v in row.items() if k not in
+        ("actions","search_records","search_counts","lbr_zero_likelihood")}
+    compact["actions"] = [{"target_key":a["target_key"],"street":a["street"],
+        **({"lbr":{"completed":a["lbr"]["completed"]}} if "lbr" in a else {})}
+        for a in row["actions"]]
+    if phase == "timing":
+        compact["search_records"] = row["search_records"]
+    return compact
+
+
 def summarize_phase(rows,phase):
     # The existing paired estimator uses current/average names. Keep those aliases
     # inside arithmetic only; retained hands identify their actual policy and arm.
@@ -125,12 +151,41 @@ def summarize_phase(rows,phase):
     return result
 
 
+SEARCH_PHASES = ("arena", "timing")
+
+
+def timing_summary(rows, loaded):
+    """Outcome-blind cost of each joint block (both arms, positions and lineages); no payoffs read."""
+    blocks = {}
+    for row in rows:
+        blocks.setdefault((row["panel"], row["block"]), []).append(row["seconds"])
+    panels = {}
+    for (panel, _), seconds in blocks.items():
+        panels.setdefault(panel, []).append(sum(seconds))
+    def quantile(values, q):
+        ordered = sorted(values)
+        return ordered[min(len(ordered)-1, int(q*len(ordered)))]
+    solves = [r for row in rows for r in row.get("search_records", []) if r["status"] in ("completed", "failure")]
+    latencies = [r["seconds"] for r in solves if r["status"] == "completed"]
+    return {"timing_panels": {name: {"paired_blocks": len(v), "seconds_per_joint_block_mean": sum(v)/len(v),
+                "seconds_per_joint_block_p50": quantile(v, .5), "seconds_per_joint_block_p95": quantile(v, .95),
+                "seconds_per_joint_block_max": max(v)} for name, v in sorted(panels.items())},
+            "load_seconds": sum(item["seconds"] for item in loaded),
+            "solves": len(solves), "solve_failures": sum(r["status"] == "failure" for r in solves),
+            "solve_seconds_mean": sum(latencies)/len(latencies) if latencies else None,
+            "solve_seconds_p95": quantile(latencies, .95) if latencies else None,
+            "solve_seconds_max": max(latencies) if latencies else None}
+
+
 def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config=None,
-        worker_index=0, worker_count=1):
+        worker_index=0, worker_count=1, resume=False):
     if not 0 <= worker_index < worker_count:
         raise ValueError("Invalid independent worker coordinate")
-    if phase != "arena" and worker_count != 1:
+    if phase not in SEARCH_PHASES and worker_count != 1:
         raise ValueError("M4 phases use one guarded worker")
+    if phase=="arena" and search_config.decision_seconds is None:
+        if plan.get("work_protocol")!="hu20-fixed50-no-fallback-v1":
+            raise ValueError("Fixed-work arena requires its prospectively amended plan")
     if phase=="arena":
         from dataclasses import asdict
         if (plan.get("stage")!="frozen-final" or len(plan["models"])!=3
@@ -140,9 +195,17 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
             raise ValueError("Arena must bind all three selected-base lineages and published science")
         if any(p["blocks"]!=(2048 if p["name"] in ("lbr","native-pressure") else 256) for p in plan["panels"]):
             raise ValueError("Do not shrink the scientific arena to fit M4")
-    expected = (2*len(plan["models"])*(2 if phase == "arena" else 1)
+    if phase == "timing":
+        from dataclasses import asdict
+        # A separate outcome-blind timing schedule: its own deal root, small balanced block counts.
+        if (plan.get("stage") != "timing-pilot" or len({s["seed"] for s in plan["models"]}) != 3
+                or plan.get("selected_search_config") != asdict(search_config)):
+            raise ValueError("Timing pilot must bind three lineages and the selected search configuration")
+    expected = (2*len(plan["models"])*(2 if phase in SEARCH_PHASES else 1)
                 *sum(len(range(worker_index,p["blocks"],worker_count)) for p in plan["panels"]))
-    out.mkdir(parents=True,exist_ok=False)
+    # Resume (owner-approved crash recovery) restarts one worker on its own static partition: completed
+    # hands are kept, only missing coordinates are played, and the crashed stream is retained beside them.
+    out.mkdir(parents=True,exist_ok=resume)
     started = perf_counter(); rows = []; loaded = []; failure = None
     source_commit = subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
     try:
@@ -153,23 +216,38 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
             loaded.append({"model":spec,"seconds":perf_counter()-begun,"description":source.description})
             solver = ExternalTurnSolver(binary,out / "solver" / spec["name"],
                 resource_check=budget.check,
-                allocation_budget=getattr(budget,"native_allocation_budget",None)) if phase == "arena" else None
+                allocation_budget=getattr(budget,"native_allocation_budget",None),
+                profile_retention=plan.get("evidence_retention",{}).get("profile_rule")
+                    if phase=="arena" else None,
+                hang_attention_seconds=(100*budget.approval["host_replay_p99_seconds"]
+                    if plan.get("work_protocol")=="hu20-fixed50-no-fallback-v1" else None)) if phase in SEARCH_PHASES else None
             policy = HU20TurnSearchPolicy(source,solver,search_config) if solver else None
-            arms = ("base","search") if phase == "arena" else (spec["strategy"],)
+            arms = ("base","search") if phase in SEARCH_PHASES else (spec["strategy"],)
             for arm in arms:
-                with gzip.open(out / (spec["name"]+"."+arm+".hands.jsonl.gz"),"wt") as stream:
+                hands_path = out / (spec["name"]+"."+arm+".hands.jsonl.gz")
+                recovered = []
+                if resume and hands_path.exists():
+                    recovered = read_complete_rows(hands_path)
+                    keep = out / f"{hands_path.name}.crashed-{int(perf_counter()*1000)}"
+                    hands_path.rename(keep)
+                    with (out/"resume-log.jsonl").open("a") as log:
+                        log.write(json.dumps({"stream":hands_path.name,"recovered_hands":len(recovered),
+                                              "crashed_stream":keep.name})+"\n")
+                done = {(r["panel"],r["block"],r["rotation"]) for r in recovered}
+                with gzip.open(hands_path,"wt") as stream:
+                    for row in recovered:
+                        stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+"\n")
+                        rows.append(compact_row(row,phase))
+                    stream.flush()
                     for panel in plan["panels"]:
                         for block in range(worker_index,panel["blocks"],worker_count):
                             for rotation in (0,1):
+                                if (panel["name"],block,rotation) in done: continue
                                 row = play(source,spec,panel,plan["root"],block,rotation,budget.check,
-                                    search=policy if arm == "search" and phase == "arena" else None,arm=arm,failure_dir=out/"partials")
+                                    search=policy if arm == "search" and phase in SEARCH_PHASES else None,arm=arm,failure_dir=out/"partials",
+                                    fixed_work=plan.get("work_protocol")=="hu20-fixed50-no-fallback-v1")
                                 stream.write(json.dumps(row,sort_keys=True,allow_nan=False)+"\n");stream.flush()
-                                compact = {k:v for k,v in row.items() if k not in
-                                    ("actions","search_records","search_counts","lbr_zero_likelihood")}
-                                compact["actions"] = [{"target_key":a["target_key"],"street":a["street"],
-                                    **({"lbr":{"completed":a["lbr"]["completed"]}} if "lbr" in a else {})}
-                                    for a in row["actions"]]
-                                rows.append(compact)
+                                rows.append(compact_row(row,phase))
                                 if policy:
                                     policy.records.clear(); solver.records.clear()
                                 if len(rows)%12 == 0:
@@ -179,7 +257,7 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
                                     (out/"status.md").write_text(f"Phase: {phase}\n\nHands: {len(rows)}/{plan['expected_hands']}\n\nElapsed: {perf_counter()-started:.1f}s\n")
             del policy,solver,source; gc.collect()
         if len(rows) != expected: raise ValueError("Frozen schedule coverage differs")
-        aggregate = summarize_phase(rows,phase)
+        aggregate = timing_summary(rows,loaded) if phase == "timing" else summarize_phase(rows,phase)
         decision = select_base(aggregate) if phase == "part-a" else None
     except Exception as exc:
         failure = f"{type(exc).__name__}: {exc}"; aggregate = {}; decision = None
@@ -187,7 +265,7 @@ def run(plan, inputs, out, budget, *, phase="part-a", binary=None, search_config
         "source":source_commit,"plan_sha256":digest(plan),"plan":plan,"hands":len(rows),"loaded":loaded,
         "worker_index":worker_index,"worker_count":worker_count,"expected_worker_hands":expected,
         "seconds":perf_counter()-started,"base_decision":decision,
-        "arm_labels":{"base":"base-only","search":"base-plus-search"} if phase=="arena" else None,
+        "arm_labels":{"base":"base-only","search":"base-plus-search"} if phase in SEARCH_PHASES else None,
         **aggregate}
     atomic_json(out/"summary.json",result)
     atomic_json(out/"status.json",{k:result[k] for k in ("status","phase","hands","seconds","failure")})
@@ -204,22 +282,28 @@ def main():
     for name in ("plan","inputs","out"):
         p.add_argument("--"+name,type=Path,required=True)
     p.add_argument("--admission",type=Path); p.add_argument("--budget",type=Path)
-    p.add_argument("--phase",choices=("pilot","part-a","arena"),default="part-a")
+    p.add_argument("--phase",choices=("pilot","part-a","arena","timing"),default="part-a")
     p.add_argument("--binary",type=Path); p.add_argument("--search-config",type=Path)
     p.add_argument("--paid-approval",type=Path)
+    p.add_argument("--resume",action="store_true",help="Continue this worker's own static partition after a crash")
     p.add_argument("--worker-index",type=int,default=0);p.add_argument("--worker-count",type=int,default=1)
     args=p.parse_args(); plan=json.loads(args.plan.read_text())
-    if args.phase == "arena":
+    if args.phase in SEARCH_PHASES:
+        # The arena needs its approved quote; the timing pilot needs the owner-approved pilot document.
         if not args.paid_approval or not args.binary or not args.search_config:
-            p.error("Arena needs approved quote, binary and selected configuration")
+            p.error("Search phases need an owner approval document, binary and selected configuration")
         approval=json.loads(args.paid_approval.read_text())
         if (approval.get("owner_approved") is not True or approval.get("arena_plan_sha256") != digest(plan)
                 or approval.get("selected_settings_parity") != "passed"):
-            raise ValueError("Approved quote and selected-settings Linux/M4 parity required")
+            raise ValueError("Owner approval and selected-settings Linux/M4 parity required")
     args.out.parent.mkdir(parents=True,exist_ok=True)
     config=TurnSearchConfig(**json.loads(args.search_config.read_text())) if args.search_config else None
+    if config and config.decision_seconds is None:
+        if (plan.get("work_protocol")!="hu20-fixed50-no-fallback-v1"
+                or approval.get("work_protocol")!=plan["work_protocol"]):
+            raise ValueError("Approval must explicitly bind the no-timer protocol")
     limit=21600 if args.phase=="part-a" else 300 if args.phase=="pilot" else plan["max_seconds"]
-    if args.phase == "arena":
+    if args.phase in SEARCH_PHASES:
         from dataclasses import asdict
         budget=PaidWorkerBudget(args.out.parent,approval,digest(plan),digest(asdict(config)))
     else:
@@ -230,7 +314,7 @@ def main():
     status="failed"; reason=None
     try:
         result=run(plan,args.inputs,args.out,budget,phase=args.phase,binary=args.binary,search_config=config,
-                   worker_index=args.worker_index,worker_count=args.worker_count)
+                   worker_index=args.worker_index,worker_count=args.worker_count,resume=args.resume)
         status=result["status"];reason=result["failure"]
         print(json.dumps({k:result[k] for k in ("status","hands","failure","base_decision")}))
     finally:

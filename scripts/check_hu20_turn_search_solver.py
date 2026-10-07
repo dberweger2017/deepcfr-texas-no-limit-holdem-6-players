@@ -45,13 +45,15 @@ def check(binary, out, reference=None, config=None, compare_threads=False):
             ranges=[[{"hand": list(h), "weight": w} for h, w in ranges[s]] for s in request["seat_map"]], locks=[])
         if config:
             request.update(threads=config.threads,compress=config.compress,max_iterations=config.iterations)
+        fixed_work=config is not None and config.decision_seconds is None
+        if fixed_work:request["work_protocol"]="hu20-fixed50-no-fallback-v1"
         started = monotonic()
-        first = solver.solve(request, started+30)
+        first = solver.solve(request,None if fixed_work else started+30)
         cold = monotonic()-started
         # Asymmetric reference weights exercise both-factor reweighting.
         evaluation_ranges=[[dict(row,weight=weight) for row,weight in zip(rows,weights,strict=True)]
                            for rows,weights in zip(request["ranges"],((.1,.2,.3,.4),(.4,.3,.2,.1)),strict=True)]
-        repeated = solver.solve(dict(request,evaluation_ranges=evaluation_ranges), monotonic()+30, mode="quality")
+        repeated = solver.solve(dict(request,evaluation_ranges=evaluation_ranges), None if fixed_work else monotonic()+30, mode="quality")
         differences = [float(np.max(np.abs(first[k].probabilities-repeated[k].probabilities))) for k in first]
         if max(differences) > TOLERANCES["strategy_absolute"]:
             raise ValueError("Repeat request strategy exceeds frozen tolerance")
@@ -100,7 +102,8 @@ def check(binary, out, reference=None, config=None, compare_threads=False):
             inserted["locks"]=[{"line":[],"board":request["board"],"player":0,
                 "actions":request["nodes"][0]["actions"],"holdings":matrix.holdings,
                 "strategy":matrix.probabilities.T.ravel().tolist()}]
-            locked=solver.solve(inserted,monotonic()+30)
+            if fixed_work:inserted["work_protocol"]="hu20-fixed50-no-fallback-v1"
+            locked=solver.solve(inserted,None if fixed_work else monotonic()+30)
             error=float(np.max(np.abs(locked[()].probabilities-matrix.probabilities)))
             if error>1e-5:raise ValueError("Frozen hero matrix changed after exact wager insertion")
             if not any(a.get("amount")==333 for n in inserted["nodes"] if not n["terminal"] for a in n["actions"]):

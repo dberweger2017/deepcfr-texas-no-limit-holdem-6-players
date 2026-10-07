@@ -207,3 +207,21 @@ def test_production_report_retains_partial_native_rows(tmp_path,monkeypatch):
     report=json.load(open(tmp_path/'report/results.json'))
     assert report['status']=='incomplete' and report['native_replayed_hands']==6
     assert report['results'][0]['target']['blocks']==3
+
+
+def test_fixed_lbr_finishes_every_batch_despite_clock_advances(monkeypatch):
+    import src.diagnostics.robustness as diagnostic
+    from dataclasses import replace
+    hand=Hand.start(Table(("h","t"),(2000,2000)),hand_id="fixed-batches",seed=42)
+    while hand.observe(hand.actor).street!=Street.TURN:
+        view=hand.observe(hand.actor)
+        hand=hand.apply(Action(ActionKind.CHECK if ActionKind.CHECK in view.legal_actions.kinds else ActionKind.CALL))
+    view=hand.observe(hand.actor)
+    pair=tuple(c for c in DECK if c not in view.hole_cards+view.board)[:2]
+    lbr=finite_lbr(view,(pair,),(1.0,))
+    lbr.config=LBRConfig(4,None)
+    ticks=iter((0,1000,2000,3000,4000,5000,6000))
+    monkeypatch.setattr(diagnostic,"perf_counter",lambda:next(ticks))
+    lbr.choose_action(view)
+    assert lbr.telemetry[-1]["samples"]==4
+    assert lbr.telemetry[-1]["completed"] and lbr.telemetry[-1]["over_soft_budget"] is None

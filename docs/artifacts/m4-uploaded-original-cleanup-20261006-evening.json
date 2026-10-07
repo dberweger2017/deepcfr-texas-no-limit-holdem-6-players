@@ -1,0 +1,143 @@
+{
+  "started_at": 1791320274.675423,
+  "finished_at": 1791320283.738847,
+  "host": "dberwegerch-m4.local",
+  "free_before_bytes": 17975132160,
+  "free_after_bytes": 30172942336,
+  "net_free_increase_bytes": 12197810176,
+  "removed_count": 6025,
+  "removed_logical_bytes": 13779045820,
+  "removed_allocated_bytes_sum": 13792550912,
+  "protected_open_prs": [
+    185,
+    186
+  ],
+  "archive_byte_verification": "Native upload acceptance/current cloud metadata plus full SHA256 and every member readback from matching staged copies or native cached canonical bytes; no independent cloud byte download claimed",
+  "receipt_bundle": {
+    "path": "/Users/dberweger/Local/storage-cleanup-receipts/m4-uploaded-copies-20261006-evening-receipts.zip",
+    "bytes": 2576866,
+    "sha256": "125a71d61c6f19324e1b9d1f03bf4b72e974f2f38860256f1d18662621659ed3",
+    "file_id": "1k6fw_iM91tvTfGCgocbADpt-L0Cx8dF3",
+    "url": "https://drive.google.com/file/d/1k6fw_iM91tvTfGCgocbADpt-L0Cx8dF3/view"
+  },
+  "archives": [
+    {
+      "pr": 166,
+      "source_root": "/Users/dberweger/Local/hu20-turn-search-arena-20261005/stage-4-mixed",
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-166-HU20-turn-search-arena/stage-4-closed-M4-20261005.zip",
+      "file_id": "16sVfuvK3iglvsbQ_diZYuvlJFm2-a68o",
+      "parent_id": "1iVCttvjpYo8X4jD9C3tcflLyT_Y9QBqO",
+      "sha256": "d4ff034cd19d6e6fd8db39313ceba16ff76031d86bc5bc8b74dfea87a87defc6",
+      "bytes": 541375924,
+      "manifest_sha256": "7fe0a03ba58087297bc5ac3904326b41307afdc7b579d25ce827b6e443f9cf9d",
+      "verified_at": 1791320074.4533162,
+      "duplicate_archive": "/Users/dberweger/Local/hu20-turn-search-arena-20261005/stage-4-closed-M4-20261005.zip"
+    },
+    {
+      "pr": 166,
+      "source_root": "/Users/dberweger/Local/hu20-turn-search-arena-20261005/hardware-independent-proposal",
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-166-HU20-turn-search-arena/fixed-work-proposal-M4-20261005.zip",
+      "file_id": "1EjIofd_xGULxEIYJKHfsUm1PtI9ruA_O",
+      "parent_id": "1iVCttvjpYo8X4jD9C3tcflLyT_Y9QBqO",
+      "sha256": "e4987d936053eb8276120eff235e21c42356cee33ab181590408e7ef2031fc0b",
+      "bytes": 353579275,
+      "manifest_sha256": "61c509ac96925828c65c8fc199a9d65160151dd691eef01c6bad5180b71da1a4",
+      "verified_at": 1791320076.26634,
+      "duplicate_archive": "/Users/dberweger/Local/hu20-turn-search-arena-20261005/fixed-work-proposal-M4-20261005.zip"
+    },
+    {
+      "pr": 166,
+      "source_root": "/Users/dberweger/Local/hu20-turn-search-arena-20261005/revision-3-run-01",
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-166-HU20-turn-search-arena/fixed-work-approved-stock-attempt-M4-20261005.zip",
+      "file_id": "1rcFlqfsIRmY5yHzH6wl0uPobD9xv0lAW",
+      "parent_id": "1iVCttvjpYo8X4jD9C3tcflLyT_Y9QBqO",
+      "sha256": "af02f9c59ac85b9741cf1fbc69ff98c98c883757e675c0cc36a48082a49f7f32",
+      "bytes": 1479190279,
+      "manifest_sha256": "35a6781eff264ea5ed99e205a30d0528c71ee5a8d904e5c2e431e05c860e953c",
+      "verified_at": 1791320079.8782709,
+      "duplicate_archive": null
+    },
+    {
+      "pr": 166,
+      "source_root": "/Users/dberweger/Local/hu20-turn-search-arena-20261005/revision-3-run-02",
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-166-HU20-turn-search-arena/fixed-work-equivalent-closeout-M4-20261005.zip",
+      "file_id": "16OeY_hNxd9SOMOp627D9jGQC-VYw-R_e",
+      "parent_id": "1iVCttvjpYo8X4jD9C3tcflLyT_Y9QBqO",
+      "sha256": "e1243c2cb6a98f6ebf32a79122cc22aa15665ad1b34c85c908d0ba78add51517",
+      "bytes": 1699648752,
+      "manifest_sha256": "e35d407a3140292b8667f225ccd7a77a905fd09d571700cd8be2b86cf41472f8",
+      "verified_at": 1791320082.55152,
+      "duplicate_archive": null
+    },
+    {
+      "pr": 166,
+      "source_root": "/Users/dberweger/Local/hu20-turn-search-river-20261005",
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-166-HU20-turn-search-arena/M4-river-validation-20261005/hu20-turn-search-river-m4-snapshot-20261005.tar.gz",
+      "file_id": "1AcdU_6DI-F4SABL1ell4GP82oa_Lskh6",
+      "parent_id": "1KPsr-sitP-pn-xNdUt-i0WJV0S2-49_e",
+      "sha256": "bb21fa48867ab622e35486ec732ada86a0e1726dcb3dccfd348c5b5392d3821c",
+      "bytes": 1517967697,
+      "manifest_sha256": "bb1b24dc26be869bc424029304fac0529bc1d5a4cb51329b222f161abfdfb6b8",
+      "verified_at": 1791320087.4537091,
+      "duplicate_archive": "/Users/dberweger/Local/m4-drive-organization-20261005/hu20-turn-search-river-m4-snapshot-20261005.tar.gz"
+    },
+    {
+      "pr": 181,
+      "source_root": "/Users/dberweger/Local/v041-release-pr181-20261006",
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-181-v0.4.1-release/v0.4.1-release-preparation-20261006.zip",
+      "file_id": "1YPdy5Fro9B2BAXlyHOCcpavv1u77gsXE",
+      "parent_id": "10Q_S2YVfx3NkxKRK8IU9iDoY9vEX7P1T",
+      "sha256": "2ad0a8a92a9812a13067fce242547494a00246803cafc49ef2b983e7685e3a0e",
+      "bytes": 636443857,
+      "manifest_sha256": "253e54cac9c8705b454d55886ab25795ab3e983e59579e700a4ac5cb8299abb7",
+      "verified_at": 1791320138.939008,
+      "verified_member_count": 58,
+      "duplicate_archive": null
+    },
+    {
+      "pr": 181,
+      "source_root": "/Users/dberweger/Local/v041-release-pr181-20261006",
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-181-v0.4.1-release/v0.4.1-release-closeout-20261006.zip",
+      "file_id": "1PonQG3Cc-lcFogpc8warbiroHSHO2KKd",
+      "parent_id": "10Q_S2YVfx3NkxKRK8IU9iDoY9vEX7P1T",
+      "sha256": "d4b5d5ded66bdec1ab4c198af6258eda19ecc5f57258532cc211a4282942c23d",
+      "bytes": 905299900,
+      "manifest_sha256": "82b3a315d4fd2dad73731174e16713be6602cf4f6b0f0cd7df91d7735d50bb04",
+      "verified_at": 1791320140.108591,
+      "verified_member_count": 54,
+      "duplicate_archive": null
+    },
+    {
+      "pr": 181,
+      "source_root": "/Users/dberweger/Local/v041-release-pr181-20261006",
+      "archive": "/Users/dberweger/Local/Research-Cloud/PR-181-v0.4.1-release/v0.4.1-release-publication-20261006.zip",
+      "file_id": "1yM_-tdx2kuk8MD4eNgwZFK0cankWNmHR",
+      "parent_id": "10Q_S2YVfx3NkxKRK8IU9iDoY9vEX7P1T",
+      "sha256": "b7cdb80379227357743ebefdaed76595b98736baaa237e7798e93a180f073689",
+      "bytes": 595383952,
+      "manifest_sha256": "1051dfaeb12ec483ea124d96876dfd148fc2b7b643f753a645636e49a82478c0",
+      "verified_at": 1791320140.908502,
+      "verified_member_count": 53,
+      "duplicate_archive": null
+    }
+  ],
+  "restoration_smoke_check": {
+    "original": "/Users/dberweger/Local/v041-release-pr181-20261006/clean-checkout-download.json",
+    "member": "m4-evidence/clean-checkout-download.json",
+    "bytes": 1396,
+    "sha256": "8d84a2cd15bc4c352e3a7b1db3f7d5d46ecacd46389723b3171b34d4c7cdd1d2",
+    "result": "PASS"
+  },
+  "subsequent_read_only_audit": {
+    "observed_at": 1791320660.5448909,
+    "free_bytes": 28970397696,
+    "pr185_root_allocated_kib": 13879500,
+    "active_root": "/Users/dberweger/Local/hu20-o-10b-20261006/retry-02",
+    "observed_processes": [
+      "confirmation-pilot.py",
+      "scripts.evaluate_hu20_v041_arena play",
+      "finish-confirmation.py"
+    ],
+    "action": "Read-only inspection; ongoing PR185 run left untouched"
+  }
+}
