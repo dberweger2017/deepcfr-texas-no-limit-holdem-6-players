@@ -1,8 +1,9 @@
 # Research results index
 
-## Native HU100 engineering preparation — October 7, 2026
+## PR196 — native HU100 engineering preparation, October 7, 2026
 
-[Protocol](docs/native-hu100-preparation.md), [validation](docs/reports/native-hu100-preparation.md).
+[PR196](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/196),
+[protocol](docs/native-hu100-preparation.md), [validation](docs/reports/native-hu100-preparation.md).
 Preparation only: no campaign checkpoint/export, resource pilot, arena/benchmark,
 large artifact download or research archive was produced. Transient deterministic
 fixtures remain outside Git. Future campaigns require an owning PR and the

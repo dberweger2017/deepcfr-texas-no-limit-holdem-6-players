@@ -181,6 +181,11 @@ mod tests {
                 assert_eq!(node.average.map(f64::to_bits), other.average.map(f64::to_bits));
                 assert_eq!(node.visits, other.visits);
             }
+            let path = std::env::temp_dir().join(format!("hu-bad-coverage-{}-{}.gz", std::process::id(), game.stack()));
+            trainer.traverser_visits_by_street[0] = trainer.nodes + 1;
+            trainer.save_recoverable(&path, 1000, 1000).unwrap();
+            assert!(load(&path, game, None, 1000).is_err());
+            std::fs::remove_file(path).unwrap();
         }
     }
 

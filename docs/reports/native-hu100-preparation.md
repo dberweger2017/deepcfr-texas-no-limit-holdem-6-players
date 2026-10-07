@@ -32,7 +32,7 @@ environment or run any fixture. Final checks:
 - `cargo build --locked --manifest-path native/hu20-trainer/Cargo.toml`:
   debug library/binary compile successfully.
 - Python preparation/serialization/rules fixtures plus compact-policy checks:
-  **12 passed, 2 skipped**. Skips require external retained large policies;
+  **14 passed, 2 skipped**. Skips require external retained large policies;
   no policy was downloaded. The new preparation and HU20/HU100 fixtures all pass.
 - Native/Python parity includes 24 deterministic generated correctness hands,
   plus six explicit refund, short-all-in and split-board hands. It checks legal
@@ -57,8 +57,12 @@ exports and research evaluation loading. It found no blocking correctness issue
 and independently repeated **6 Rust /8 Python fixture tests** without research
 runs. Its hardening recommendation was implemented: coverage counters are
 validated against completed nodes and stored visits, and a baseline identifies
-coverage collected after legacy recovery. Final recovery/protocol review is
-recorded in the PR handoff after those changes.
+coverage collected after legacy recovery. Final recovery/protocol review found two campaign gate issues: the generated
+shell could continue after a failed phase, and an incomplete pilot could be
+admitted for extension. Both were fixed with fail-fast shell commands,
+target-bound audits and explicit 10M/nonzero-street/full-baseline parent checks.
+Success and rejection fixtures pass. The reviewer independently repeated
+**6 Rust /12 new Python fixtures**, with no remaining blocking findings.
 
 ## Deferred work and decisions
 

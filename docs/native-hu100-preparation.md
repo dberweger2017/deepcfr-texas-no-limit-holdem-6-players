@@ -96,8 +96,9 @@ its pinned SHA256.
 cat results/native-hu/hu20-regression-01/commands.txt
 ```
 
-After separate stage authorization and preflight admission, execute the two
-printed foreground commands in order. Each has its own startup-inclusive
+After separate stage authorization and preflight admission, execute the
+generated fail-fast script with `bash results/native-hu/hu20-regression-01/commands.txt`.
+A failed phase prevents export/audit from starting. Each phase has its own startup-inclusive
 900-second absolute phase deadline: train, then export/full audit. They use one
 Rayon thread, aggregate owned-process RSS <5.5 GiB, swap growth ≤0.5 GiB, free
 disk ≥15.5 GiB and AC power. Deadline/RSS/disk/power failures, nonfinite updates,
@@ -124,6 +125,7 @@ Only after Stage 1 passes and the owner resumes this stage on an idle worker:
 cat results/native-hu/hu100-pilot-01/commands.txt
 ```
 
+After authorized admission run `bash results/native-hu/hu100-pilot-01/commands.txt`.
 Printed commands target **10M total nodes**, with 100k/1M/5M milestones, seed
 2026100601, one root per seat, 2M soft entries and 900 seconds of training.
 The separate export/audit phase has 900 seconds. Same family RSS/disk/swap/AC
@@ -134,7 +136,9 @@ budget, stop and keep that evidence; do not increase RAM or nodes automatically.
 
 Audit the final current/average set before interpreting the pilot. For earlier
 milestones, repeat export and audit under the same supervisor with separate
-fresh job/guard/audit paths and the same aggregate phase cap. No arena, LBR,
+fresh job/guard/audit paths and the same aggregate phase cap. Set
+`--target-nodes` in each audit job to that milestone’s requested node count,
+not the final 10M target. No arena, LBR,
 benchmark or poker-strength comparison is part of this resource pilot.
 At every milestone record elapsed time, sampled peak family/process RSS, swap,
 free disk, checkpoint/export bytes, entries, traverser visits per key histogram,
@@ -192,10 +196,12 @@ cat results/native-hu/hu100-extension-01/commands.txt
 ```
 
 The tool verifies the bound quote/approval and parent hash/production HU100
-identity; it still does not run commands. Printed foreground commands resume
+identity, at least 10M completed nodes, full-pilot coverage baseline and nonzero
+traverser visits on every street; it still does not run commands. Printed foreground commands resume
 the pilot to the **total** budget, not another 1B, with complete-iteration saves
 at 50M/100M/250M/500M/1B. Training has a 6300-second cap and export/audit 900;
-the generated commands also share a 7200-second absolute session deadline. Resource forecasts, not positive
+the generated commands also share a 7200-second absolute session deadline.
+After authorized admission run `bash results/native-hu/hu100-extension-01/commands.txt`. Resource forecasts, not positive
 poker outcomes, govern admission. After reaching the fixed budget, stop, archive
 and hand off; no automatic extension when results are weak or incomplete.
 

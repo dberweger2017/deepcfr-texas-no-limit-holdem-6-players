@@ -11,10 +11,18 @@ from src.policies.files import file_hash
 from scripts.prepare_native_hu_campaign import REFERENCE
 
 
-def inspect(checkpoint, current, average, bb):
+def inspect(checkpoint, current, average, bb, target_nodes=None):
     schema = HU100_SCHEMA if bb == 100 else HU20_UNCAPPED_SCHEMA
     with gzip_open(checkpoint, 'rt') as source:
         header = json.loads(source.readline())
+    if bb == 100 and target_nodes is not None:
+        state = header.get('native_state', {})
+        if (state.get('completed_nodes', 0) < target_nodes
+            or header.get('average_rule') != 'opponent-sampled' or 'training_options' in header
+            or state.get('coverage_start') != [0,0,0]
+            or len(state.get('traverser_visits_by_street', [])) != 4
+            or any(type(v) is not int or v <= 0 for v in state['traverser_visits_by_street'])):
+            raise ValueError('Incomplete production HU100 target/coverage; no extension admission')
     spec = {'name': 'native-hu', 'seed': header['config']['seed'], 'iteration': header['iteration'],
             'checkpoint_sha256': file_hash(checkpoint), 'sha256': file_hash(current)}
     checked_header(header, spec, expected_schema=schema)
@@ -39,8 +47,9 @@ def inspect(checkpoint, current, average, bb):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     for flag in ('checkpoint', 'current', 'average', 'out'): p.add_argument('--'+flag, type=Path, required=True)
-    p.add_argument('--stack-bb', type=int, choices=(20,100), required=True); a = p.parse_args()
-    result = inspect(a.checkpoint, a.current, a.average, a.stack_bb)
+    p.add_argument('--stack-bb', type=int, choices=(20,100), required=True)
+    p.add_argument('--target-nodes', type=int, required=True); a = p.parse_args()
+    result = inspect(a.checkpoint, a.current, a.average, a.stack_bb, a.target_nodes)
     with a.out.open('x') as target: target.write(json.dumps(result, indent=2, sort_keys=True)+'\n')
 
 

@@ -81,7 +81,10 @@ def prepare(stage, out, binary, *, quote=None, approval=None):
             h = json.loads(checkpoint.readline())
         checked_header(h, {'seed': SEED, 'iteration': h['iteration']}, expected_schema=HU100_SCHEMA)
         if (h.get('average_rule') != 'opponent-sampled' or 'training_options' in h
-            or not 0 < h.get('native_state', {}).get('completed_nodes', 0) < nodes):
+            or not 10000000 <= h.get('native_state', {}).get('completed_nodes', 0) < nodes
+            or h['native_state'].get('coverage_start') != [0,0,0]
+            or len(h['native_state'].get('traverser_visits_by_street', [])) != 4
+            or any(type(v) is not int or v <= 0 for v in h['native_state']['traverser_visits_by_street'])):
             raise ValueError('Extension parent is not a recoverable production HU100 pilot')
         limits['max_entries'] = q['max_entries']
         plan.update(quote=q, quote_sha256=file_hash(quote), owner_approval=a)
@@ -99,7 +102,7 @@ def prepare(stage, out, binary, *, quote=None, approval=None):
     current, average = out/'current.json.gz', out/'average.jsonl.gz'
     jobs = [{'name': 'train', 'command': command}]
     exports = [{'name': 'export', 'command': [str(binary), 'export', str(checkpoint), '--current', str(current), '--average', str(average), '--zero-mass', 'uniform']},
-               {'name': 'audit', 'command': [sys.executable, '-m', 'scripts.audit_native_hu_checkpoint', '--checkpoint', str(checkpoint), '--current', str(current), '--average', str(average), '--stack-bb', str(bb), '--out', str(out/'audit.json')]}]
+               {'name': 'audit', 'command': [sys.executable, '-m', 'scripts.audit_native_hu_checkpoint', '--checkpoint', str(checkpoint), '--current', str(current), '--average', str(average), '--stack-bb', str(bb), '--target-nodes', str(nodes), '--out', str(out/'audit.json')]}]
     plan.update(command=command, export_audit_jobs=exports, prepared_at=datetime.now(timezone.utc).isoformat())
     plan['plan_sha256'] = digest(plan)
     out.mkdir(parents=True); (out/'training').mkdir()
@@ -107,7 +110,7 @@ def prepare(stage, out, binary, *, quote=None, approval=None):
         (out/name).write_text(json.dumps(value, indent=2, sort_keys=True, allow_nan=False)+'\n')
     # Absolute deadlines are chosen by the operator at launch, not by this preparation call.
     deadline_command = shlex.join([sys.executable, '-c', f'import time; print(time.time()+{limits["total_seconds"]})'])
-    lines = ['# Prepared commands only; obtain stage authorization and idle-worker admission first.',
+    lines = ['set -eu', '# Prepared commands only; obtain stage authorization and idle-worker admission first.',
              'export RAYON_NUM_THREADS=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1',
              f'CAMPAIGN_DEADLINE=$({deadline_command})']
     for name, seconds in [('training', limits['training_seconds']), ('export-audit', limits['audit_seconds'])]:
