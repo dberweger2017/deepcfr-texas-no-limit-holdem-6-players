@@ -32,3 +32,9 @@ assert policy.distribution(view)[1][0] == 0
 assert versions.DEFAULT_VERSION == 'v0.4.1'
 '''
     subprocess.run([sys.executable, '-c', code, str(exported), receipt['sha256']], check=True)
+
+
+def test_download_verifiers_work_before_engine_installation():
+    for module in ('scripts.verify_v04_model', 'scripts.verify_v041_model'):
+        subprocess.run([sys.executable, '-S', '-m', module, '--help'],
+                       check=True, capture_output=True)

@@ -101,7 +101,6 @@ def run(plan: dict, cases_path: Path, checkpoint: Path, out: Path) -> dict:
         "checkpoint_sha256": plan["checkpoint_sha256"],
         "native_engine_binary_sha256": _hash(binary),
         "requirements_sha256": _hash(Path("requirements.txt")),
-        "play_requirements_sha256": _hash(Path("requirements-play.txt")),
         "revision": git("rev-parse", "HEAD"),
         "dirty": bool(git("status", "--porcelain")),
         "environment": environment(),

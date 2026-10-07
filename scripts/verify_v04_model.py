@@ -5,6 +5,7 @@ from pathlib import Path
 
 from src.policies.v040 import verify
 
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("model", type=Path)

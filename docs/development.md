@@ -35,7 +35,10 @@ This environment needs NumPy and the pinned engine, not PyTorch or SciPy.
 name does not authorize a new candidate or change the default.
 
 For research and tests, install `requirements-dev.txt` (full requirements plus
-pytest and monitoring). From the repository root:
+pytest and monitoring). The full `requirements.txt` remains unchanged because
+historical opponent freezes pin its bytes; keep the common engine/NumPy pins in
+`requirements-play.txt` synchronized when intentionally updating dependencies.
+From the repository root:
 
 ```sh
 python -m pytest -q

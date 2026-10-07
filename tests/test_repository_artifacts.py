@@ -13,7 +13,8 @@ from scripts import check_repository_artifacts as storage
 class StoragePolicyTests(unittest.TestCase):
     def test_readable_reports_source_and_small_fixtures_are_allowed(self):
         for path in ('docs/reports/summary.json', 'tests/fixtures/decision.json',
-                     'docs/reports/chart.svg', 'native/hu20-trainer/src/game.rs'):
+                     'docs/reports/chart.svg', 'native/hu20-trainer/src/game.rs',
+                     'docs/archive.zip.sha256', 'docs/trace.jsonl.manifest.json'):
             self.assertEqual(storage.reasons(storage.Entry(path, 'a' * 40, 100)), [])
 
     def test_payloads_are_detected_even_when_small_or_interrupted(self):

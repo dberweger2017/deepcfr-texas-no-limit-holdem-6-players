@@ -4,8 +4,6 @@ import hashlib
 from dataclasses import dataclass
 from pathlib import Path
 
-from src.blueprint.average import AveragePolicy, EXTRACTIONS, FORMAT
-
 NAME = "v0.4.1 · O1B · seed 2026100601"
 ASSET_NAME = "O1B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz"
 MODEL_BYTES = 142_677_367
@@ -33,6 +31,8 @@ def verify(path: Path) -> str:
 
 
 def load_policy(path: Path):
+    from src.blueprint.average import AveragePolicy, EXTRACTIONS, FORMAT
+
     verify(path)
     # Reuse the exact arena reader and observation/menu inference, including
     # uniform zero-mass and missing-key behavior; never re-extract the export.

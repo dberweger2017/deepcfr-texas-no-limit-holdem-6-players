@@ -3,11 +3,6 @@
 import hashlib
 from pathlib import Path
 
-from src.arena.catalog import Checkpoint
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
-from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT
-from src.blueprint.solver import HU20_UNCAPPED_GAME
-
 EXPECTED_NAME = "B100M-HU20-current-seed-2026093001.json.gz"
 EXPECTED_BYTES = 40_144_034
 EXPECTED_SHA256 = "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
@@ -29,6 +24,11 @@ def verify(path: Path) -> str:
 
 
 def load_policy(path: Path):
+    from src.arena.catalog import Checkpoint
+    from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
+    from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT
+    from src.blueprint.solver import HU20_UNCAPPED_GAME
+
     spec = Checkpoint("B100M", str(path), EXPECTED_SHA256, HU20_UNCAPPED_FORMAT)
     source = FrozenBlueprint(spec, path)
     if (source.game != HU20_UNCAPPED_GAME or source.abstraction != HU20_UNCAPPED_SCHEMA

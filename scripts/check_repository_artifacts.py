@@ -4,7 +4,7 @@ import argparse
 from collections import Counter
 from dataclasses import dataclass
 import json
-from pathlib import Path, PurePosixPath
+from pathlib import PurePosixPath
 import subprocess
 
 MAX_BYTES = 1024 * 1024
@@ -68,7 +68,10 @@ def reasons(entry):
     found = []
     if path.parts[0] in LOCAL_ROOTS:
         found.append('local research directory')
-    if {suffix.lower() for suffix in path.suffixes} & PAYLOAD_SUFFIXES or 'tfevents' in path.name.lower():
+    suffixes = [suffix.lower() for suffix in path.suffixes]
+    while suffixes and suffixes[-1] in {'.interrupted', '.partial', '.tmp', '.part'}:
+        suffixes.pop()
+    if (suffixes and suffixes[-1] in PAYLOAD_SUFFIXES) or 'tfevents' in path.name.lower():
         found.append('model, raw trace, database or archive')
     if entry.size > MAX_BYTES:
         found.append('larger than 1 MiB')
