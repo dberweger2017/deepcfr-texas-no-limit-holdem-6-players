@@ -1,5 +1,13 @@
 # Research results index
 
+## PR188 — fresh v0.4.2 LBR confirmation in progress
+
+[Predeclaration](docs/hu20-v042-lbr-confirmation.md), [PR188](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188). M4 work root `~/Local/hu20-o-10b-lbr-20261007/`; light M1 checkout `/Users/dberweger/Local/v042-lbr-confirmation/`. All six #185 exports match their original manifest hashes; **34,826,546 keys** pass current-main `entries`/`visits`/`zero_mass` direct-JSON exactness, zero mismatches. [Per-model receipts and scientific-source hashes](docs/reports/hu20-v042-lbr-artifacts/). Only #186 compact storage differs from the unchanged #176/#185 scientific pipeline; all play/reporter/auditor files are pinned.
+
+Pilot root **202610077101**, reserved final **202610077201**; no #185 hands will be pooled. Roots have no prior readable retained-plan or tracked config/report matches on either Mac; unreadable/oversized receipts are retained in the research root. Pilot outcomes remain uninspected; the detached M4 controller inspects SD/cost/coverage only for final sizing. At most three workers, <3-GiB per-worker RSS and ≥15-GiB disk floor. No publication, release, tag or default change.
+
+Archive destination: [PR-188-HU20-O-10B-LBR](https://drive.google.com/drive/folders/1mv9v1VV2-Szfn8jNAjvpU4oWvRdqIkY2), synced native `~/Local/Research-Cloud/PR-188-HU20-O-10B-LBR/` on both Macs. Archive/member hashes and retrieval commands will be recorded when sealed; no upload or final completion is claimed yet. All originals and other open PR dependencies remain retained. No deletion or eviction.
+
 ## PR185 — HU20 O at 10B, audited direct gain; LBR safeguard inconclusive
 
 **Final status (October 7):** matched-seed three-lineage 10B−1B **+3.50 [1.63, 5.37] BB/100**, better for every seed. LBR **+2.79 [−6.25, 11.83]** fails to establish lower >−5; no package, model promotion or release. All 1,022,976 final +60,672 excluded pilot hands /5,959,763 actions and 160 native metrics independently verify. [Report](docs/reports/hu20-o-10b.md), [owner packet](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/185#issuecomment-6031857945), [audit/review proof](docs/reports/hu20-o-10b-artifacts/confirmation-review-validation.json). Science finished at 05:05 Madrid inside the nine-hour cap; posting timeout at 05:15 after owner-reported hotspot disconnection is preserved. Native recurring checks disabled, shell monitor terminal. No scientific restart or further samples.
