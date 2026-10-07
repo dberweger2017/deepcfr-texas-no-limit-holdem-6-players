@@ -20,9 +20,13 @@ The owner initially requested light preparation, then reported the M1 free and e
 2. Verify the 19 completed jobs against frozen job/request/compact identities, binary hash, archive/member hashes and reference gates. Reuse only fully qualified jobs. Complete the remaining 101 collections, six opposite-half fits, 120 locks and eighteen replays; require every scientific gate and the independent audit on the complete corpus.
 3. Re-measure conservative resource admission before dispatching one serial worker. The outcome-blind timing model quotes **15.00 hours expected /21.50 hours conservative remaining**, including two hours for fitting, audit and closeout. The launch ETA is 15–22 hours, conditioned on the original deadline and one-hour closeout reserve; conditional failure diagnosis and archival acceptance remain required.
 4. Keep the original swap baseline by default. If the idle host retains too much swap, stop at admission. Any proposed new idle baseline requires the owner's explicit approval and a separate immutable continuation record referencing the original failed budget. RSS/disk/scientific limits and the original deadline stay fixed. Nothing in this report resets a guard or extends the cap.
-5. Post the calibrated ETA to chat and PR190 before heavy work. Enable only PR190's lightweight 30-minute monitor after admission and launch; never auto-retry another scientific or resource failure.
+5. Post the calibrated ETA to chat and PR190 before heavy work. Enable only PR190's lightweight 30-minute monitor after admission and launch. The owner subsequently authorized monitored runtime/resource crash recovery after fresh unchanged admission and integrity checks; failed scientific or hash gates remain terminal.
 
 No global held-out results have been inspected. This resource-only continuation retains all 120 jobs and the frozen inference procedure without selecting roots or settings on scientific outcomes. The 19 completed roots cannot replace the predeclared complete study.
+
+## Owner-authorized crash recovery
+
+After continuation launch, the owner authorized resuming crashes, especially memory-related stops, at the next 30-minute check. Each recovery must classify the cause, preserve the failed/partial attempt, verify fully completed work and measure fresh admission under the original RAM/swap/disk guards and fixed deadline. Resume only the remaining frozen work with one native worker. Existing one-shot locks and synced archives must not be removed or overwritten; any recovery requires a new attempt record and tested dispatcher. If resources are temporarily insufficient, wait for the next scheduled check without launching. Scientific/integrity gate failures and exhausted fixed time remain terminal. The live worker has not been restarted by this policy update.
 
 ## Stop archive
 
