@@ -436,7 +436,8 @@ def first_global_pilot(root):
 
 
 def singleton_pilot(root):
-    job=load(root/"prepared/manifest.json")["jobs"][0]
+    original=load(root/"inputs/pr149/prepared-03/manifest.json")["jobs"][0]
+    job=next(j for j in load(root/"prepared"/f"jobs-{original['spot']}.json") if j["job"]==original["job"])
     collect=root/"run/collect"/job["job"]
     record=load(collect/"result.json")
     if not record["reference_gate"]["passed"]:raise ValueError("Global collection pilot unqualified")
