@@ -13,7 +13,8 @@ import pytest
 from src.blueprint.abstraction import choices
 from src.game.hand import Hand, Table
 from src.play_api.server import handler_for
-from src.play_api.service import MODEL_SHA256, PlayError, PlayService
+from src.policies.v040 import EXPECTED_SHA256 as MODEL_SHA256
+from src.play_api.service import PlayError, PlayService
 from src.play_api.uniform_random import DEFINITION_SHA256, UniformRestrictedPolicy
 from tests.play_ui.test_service import benchmark_create, bot_action, hand_start, http, human_action
 from tests.test_blueprint_hu20 import coupled

@@ -1,5 +1,9 @@
 # Research results index
 
+New entries follow the [shared storage and archive-receipt contract](docs/artifact-storage.md).
+The [tracked-payload audit](docs/reports/necessary-cleaning.md) identifies retained Git evidence;
+its retention list is not cloud verification or deletion approval.
+
 ## PR193 — local bot-vs-bot spectator validation
 
 [Guide](docs/spectator.md), [compact verification](docs/reports/web-spectator-verification.json). All 19 retained spectator hands /111 decisions and eight human hands independently replay through the pinned loaders; 99 focused tests pass. Reversed and same-model pairings, pause, step, reload and historical observations are checked. These are interface checks, not a strength comparison.

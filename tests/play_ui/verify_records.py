@@ -8,7 +8,8 @@ from pathlib import Path
 from src.arena.runner import public_events
 from src.arena.schedule import digest
 from src.blueprint.abstraction import choices
-from src.play_api.service import MODEL_SHA256, _hand
+from src.policies.v040 import EXPECTED_SHA256 as MODEL_SHA256
+from src.play_api.service import _hand
 
 
 def verify(database, expected_hash=MODEL_SHA256):

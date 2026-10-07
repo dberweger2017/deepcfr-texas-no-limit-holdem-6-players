@@ -209,7 +209,8 @@ def test_invalid_models_and_extra_fields_fail_without_creating_session(tmp_path)
 def test_exact_average_reader_journal_and_independent_reload(tmp_path, source):
     from types import SimpleNamespace
     from src.blueprint.artifact import save_training
-    from src.diagnostics.cfr_average import DiagnosticAverage, extract
+    from src.blueprint.average import AveragePolicy
+    from src.diagnostics.cfr_average import extract
     from tests.diagnostics.test_cfr_average import fixture
 
     trainer, _, checkpoint, _, spec = fixture(tmp_path)
@@ -221,7 +222,7 @@ def test_exact_average_reader_journal_and_independent_reload(tmp_path, source):
     spec['checkpoint_sha256'] = save_training(trainer, checkpoint)
     path = tmp_path / 'average.jsonl.gz'
     extracted = extract(checkpoint, spec, path)
-    policy = DiagnosticAverage(path, extracted['sha256'])
+    policy = AveragePolicy(path, extracted['sha256'])
     policy.spec = SimpleNamespace(sha256=extracted['sha256'])
     identity = {'version': 'fixture', **_model_info(policy), 'manifestSha256': 'f' * 64,
                 'manifestUrl': 'https://example.test/manifest'}
@@ -244,7 +245,7 @@ def test_exact_average_reader_journal_and_independent_reload(tmp_path, source):
             assert [r['probability'] for r in record['menu']] == [1 / len(record['menu'])] * len(record['menu'])
         else:
             assert record['menu'][0]['probability'] == 0
-        fresh = DiagnosticAverage(path, extracted['sha256'])
+        fresh = AveragePolicy(path, extracted['sha256'])
         fresh.spec = policy.spec
         assert audit_states([service._load(state['sessionId'])], {'fixture': fresh},
                             {'fixture': identity})['decisions'] == 1

@@ -56,3 +56,18 @@ def test_failed_default_never_silently_loads_incumbent(tmp_path):
     with pytest.raises(ValueError, match="regular file"):
         load_tables(tmp_path, tmp_path / "data", "test")
     assert not (tmp_path / "data").exists()
+
+
+def test_catalog_can_add_a_release_without_changing_session_routing(tmp_path):
+    services = {version: PlayService(tmp_path / version / 'private.sqlite', FixturePolicy())
+                for version in ('v0.4.0', 'v0.4.1', 'fixture-next')}
+    try:
+        tables = VersionedTables(services, default_version='fixture-next')
+        assert tables.model_catalog()['default'] == 'fixture-next'
+        state = tables.create('next-release-key-00001', {'playMode': 'restricted', 'visibility': 'developer'})
+        assert tables._for_session(state['sessionId']) is services['fixture-next']
+        with pytest.raises(ValueError, match='default release'):
+            VersionedTables(services, default_version='absent')
+    finally:
+        for service in services.values():
+            service.close()

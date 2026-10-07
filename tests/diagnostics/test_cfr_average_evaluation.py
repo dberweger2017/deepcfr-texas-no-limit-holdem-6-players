@@ -5,7 +5,8 @@ from pathlib import Path
 import pytest
 
 from scripts.evaluate_hu20_cfr_average import run, play, summarize
-from src.diagnostics.cfr_average import DiagnosticAverage, extract
+from src.blueprint.average import AveragePolicy
+from src.diagnostics.cfr_average import extract
 from tests.diagnostics.test_cfr_average import fixture
 
 
@@ -30,7 +31,7 @@ def test_real_runner_uses_both_extractions_and_exact_pairs(tmp_path):
 
 def test_changes_are_paired_and_positions_not_pooled(tmp_path):
     _,_,checkpoint,_,spec=fixture(tmp_path);avg=tmp_path/'avg.gz';data=extract(checkpoint,spec,avg)
-    source=DiagnosticAverage(avg,data['sha256']);panel={'name':'passive','rule':'passive','contract':'menu'}
+    source=AveragePolicy(avg,data['sha256']);panel={'name':'passive','rule':'passive','contract':'menu'}
     base=[play(source,{**spec,'strategy':'current'},panel,196,b,r) for b in range(2) for r in (0,1)]
     rows=[]
     for seed in (1,2,3):

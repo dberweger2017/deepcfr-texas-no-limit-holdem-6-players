@@ -7,7 +7,8 @@ import numpy as np
 from src.blueprint.abstraction import HU20_COMPRESSED_SCHEMA, HU20_UNCAPPED_SCHEMA, choices, information_key
 from src.blueprint.artifact import save_training, export_policy
 from src.blueprint.solver import BlueprintTrainer, PilotConfig, Node, HU20_UNCAPPED_GAME
-from src.diagnostics.cfr_average import extract, audit, DiagnosticAverage
+from src.diagnostics.cfr_average import extract, audit
+from src.blueprint.average import AveragePolicy
 from src.diagnostics.history_river import CommonRiverGame, common_ranges, restricted_distribution, policy_profile, LAW
 from src.blueprint.river_cfr import profile_quality
 from src.blueprint.river_game import river_root_history
@@ -33,15 +34,15 @@ def test_compressed_average_requires_explicit_schema_and_preserves_math(tmp_path
     result = extract(cp,spec,avg,expected_schema=cfg.abstraction)
     assert audit(cp,current,avg,spec,result['sha256'],expected_schema=cfg.abstraction)['all_nodes_verified']==2
     with pytest.raises(ValueError, match='identity'):
-        DiagnosticAverage(avg,result['sha256'])
-    source = DiagnosticAverage(avg,result['sha256'],expected_schema=cfg.abstraction)
+        AveragePolicy(avg,result['sha256'])
+    source = AveragePolicy(avg,result['sha256'],expected_schema=cfg.abstraction)
     actual_menu,p,hit = source.distribution(view)
     assert hit and p[0]==0 and sum(p)==pytest.approx(1)
     assert source.visits[key]==3 and 'f'*32 in source.zero_mass
     assert source.distribution(replace(view,hand_id='same-public-history'))==(actual_menu,p,hit)
     assert cp.read_bytes()==before
     with pytest.raises(ValueError, match='Unknown'):
-        DiagnosticAverage(avg,result['sha256'],expected_schema='unregistered')
+        AveragePolicy(avg,result['sha256'],expected_schema='unregistered')
 
 
 class Uniform:

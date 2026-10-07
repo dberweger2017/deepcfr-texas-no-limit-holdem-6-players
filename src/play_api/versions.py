@@ -1,30 +1,71 @@
 """Version selection between pinned policies; a session never changes its model."""
 
+import hashlib
+import json
 import threading
+from collections.abc import Callable
+from dataclasses import dataclass
 from pathlib import Path
 
-from scripts.verify_v04_model import EXPECTED_NAME, verify as verify_v040
-from src.play_api.o_candidate import ASSET_NAME, load_o_candidate, verify as verify_v041
-from src.play_api.service import PlayError, PlayService, load_b100m
+from src.policies import v040, v041
+from src.play_api.service import PlayError, PlayService, _model_info
 
 DEFAULT_VERSION = "v0.4.1"
 
 
+@dataclass(frozen=True)
+class Release:
+    version: str
+    asset_name: str
+    verify: Callable[[Path], str]
+    load: Callable[[Path], object]
+    manifest_sha256: str
+
+    def identity(self, policy) -> dict:
+        path = Path(__file__).resolve().parents[2] / 'configs/play/release-manifests' / f'{self.version}.json'
+        data = path.read_bytes()
+        if hashlib.sha256(data).hexdigest() != self.manifest_sha256:
+            raise ValueError('Pinned release manifest hash differs')
+        manifest = json.loads(data)
+        model = manifest['model']
+        info = _model_info(policy)
+        if (manifest.get('release', manifest.get('candidate')) != self.version
+                or any(model[key] != info[key] for key in ('sha256', 'game', 'schema', 'format'))
+                or model['file'] != self.asset_name or model['players'] != 2 or model['raise_cap'] is not None):
+            raise ValueError('Release manifest differs from loaded model')
+        if not info['name'].startswith(self.version + ' · '):
+            info['name'] = f"{self.version} · {info['name']}"
+        base = 'https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/download'
+        return {'version': self.version, **info, 'manifestSha256': self.manifest_sha256,
+                'manifestUrl': f'{base}/{self.version}/release-manifest.json'}
+
+
+# Only reviewed release pins belong here; research candidates use explicit CLI paths.
+RELEASES = (
+    Release("v0.4.1", v041.ASSET_NAME, v041.verify, v041.load_policy,
+            "8d1a85bea7fd2bad3d4a8526ad95e858239fa162d14e19369a47c739097659f5"),
+    Release("v0.4.0", v040.EXPECTED_NAME, v040.verify, v040.load_policy,
+            "1383de5fe5f60ef829ad0410e75bd871a936e5297c8030f534f69eb69c2362af"),
+)
+
+
 class VersionedTables:
-    def __init__(self, services: dict[str, PlayService], *, spectator=None, identities=None):
-        if set(services) != {"v0.4.1", "v0.4.0"}:
-            raise ValueError("Both pinned release models are required")
+    def __init__(self, services: dict[str, PlayService], *, default_version=DEFAULT_VERSION,
+                 spectator=None, identities=None):
+        if default_version not in services or any(not isinstance(v, str) or not v for v in services):
+            raise ValueError("The default release model and valid version names are required")
         self.services = services
+        self.default_version = default_version
         self.spectator = spectator
         self.identities = identities
         self.stores = [*services.values(), *([spectator] if spectator is not None else [])]
         self.lock = threading.RLock()
 
     def model_info(self):
-        return self.services[DEFAULT_VERSION].model_info()
+        return self.services[self.default_version].model_info()
 
     def model_catalog(self):
-        return {"default": DEFAULT_VERSION,
+        return {"default": self.default_version,
                 "models": [self.identities[version] if self.identities else
                            {"version": version, **service.model_info()}
                            for version, service in self.services.items()],
@@ -62,7 +103,7 @@ class VersionedTables:
             with self.lock:
                 self._check_key(key, self.spectator)
                 return self.spectator.create(key, body)
-        version = body.pop("modelVersion", DEFAULT_VERSION)
+        version = body.pop("modelVersion", self.default_version)
         if not isinstance(version, str) or version not in self.services:
             raise PlayError("Choose an available model version")
         with self.lock:
@@ -113,23 +154,22 @@ class VersionedTables:
 
 
 def load_tables(models: Path, data: Path, source_version: str):
-    # Validate both artifacts before allocating either reader. Never silently
+    # Validate all artifacts before allocating any reader. Never silently
     # fall back to an older model if the intended default is absent or corrupt.
-    verify_v041(models / ASSET_NAME)
-    verify_v040(models / EXPECTED_NAME)
+    for release in RELEASES:
+        release.verify(models / release.asset_name)
     services = {}
     try:
-        for version, loader, name in (("v0.4.1", load_o_candidate, ASSET_NAME),
-                                      ("v0.4.0", load_b100m, EXPECTED_NAME)):
-            policy = loader(models / name)
+        for release in RELEASES:
+            version = release.version
+            policy = release.load(models / release.asset_name)
             if version == "v0.4.0":
                 policy.name = "v0.4.0 · B100M · seed 2026093001"
             services[version] = PlayService(data / version / "private.sqlite", policy,
                                             source_version=source_version)
-        from src.play_api.releases import release_identity
         from src.play_api.spectator import SpectatorService
-        identities = {version: release_identity(version, service.policy)
-                      for version, service in services.items()}
+        identities = {release.version: release.identity(services[release.version].policy)
+                      for release in RELEASES}
         spectator = SpectatorService(data / 'spectator' / 'private.sqlite',
                                      {v: s.policy for v, s in services.items()}, identities,
                                      source_version=source_version)

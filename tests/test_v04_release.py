@@ -4,7 +4,7 @@ import hashlib
 
 import pytest
 
-from scripts import verify_v04_model
+from src.policies import v040 as verify_v04_model
 
 
 def test_verify_requires_exact_bytes_and_hash(tmp_path, monkeypatch):

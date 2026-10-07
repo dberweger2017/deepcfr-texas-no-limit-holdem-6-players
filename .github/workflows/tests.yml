@@ -28,6 +28,10 @@ jobs:
           python-version: '3.11'
       - name: Check CI routing regressions
         run: python -m unittest tests.test_ci_scope -v
+      - name: Check repository storage policy
+        run: |
+          python -m unittest tests.test_repository_artifacts -v
+          python -m scripts.check_repository_artifacts --revision HEAD
       - name: Select validation scope
         id: scope
         run: python -m scripts.ci_scope

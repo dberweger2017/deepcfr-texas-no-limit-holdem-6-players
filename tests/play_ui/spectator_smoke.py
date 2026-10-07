@@ -70,10 +70,14 @@ def main():
             (out / f'{versions[0]}-vs-{versions[1]}.png').write_bytes(base64.b64decode(screenshot['data']))
             # Recovery loads the same complete session and always resumes paused.
             session_id = result['sessionId']
+            previous_document = cdp.js('performance.timeOrigin')
             cdp.call('Page.navigate', {'url': base})
-            cdp.wait("typeof state !== 'undefined' && state?.sessionType==='spectator' && !busy")
+            cdp.wait(f"performance.timeOrigin !== {json.dumps(previous_document)} && document.readyState === 'complete' && typeof state !== 'undefined' && state?.sessionId === {json.dumps(session_id)} && !busy")
             assert cdp.js("({id:state.sessionId,hands:state.handsPlayed,paused:!spectatorPlayback.running})") == {
                 'id': session_id, 'hands': 2, 'paused': True}
+            result['reload'] = {'previousDocument': previous_document,
+                                'recoveredDocument': cdp.js('performance.timeOrigin'),
+                                'sessionId': session_id, 'paused': True}
             cdp.js("document.querySelector('#new-session').click()")
             cdp.wait("typeof state !== 'undefined' && !document.querySelector('#setup').hidden && state===null")
         for version in ('v0.4.1', 'v0.4.0'):
