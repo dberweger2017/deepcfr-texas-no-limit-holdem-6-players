@@ -70,6 +70,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 7, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
+- **Local spectator ([#193](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/193)):** two pinned releases, paused playback and one-decision stepping, exact action probabilities and bot perspectives, retained replayable history. All 19 spectator hands /111 decisions audit; 99 focused tests and independent review pass. [Guide and verification](docs/spectator.md).
 - **Shipped:** [v0.4.1](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.1) is the current release; v0.4.0 remains available.
 - **v0.4.2 candidate (O at 10B nodes):** [#185](docs/reports/hu20-o-10b.md) passed the direct match and the other safeguards; its bounded-LBR safeguard was inconclusive. [#188](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188) is resolving that uncertainty with a fresh, larger LBR sample. Publication requires the owner's explicit go.
 - **Abstraction:** [#190](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/190) is validating #163's equity-bucket tables. Native bucket keys, bench training and full-game runs depend on its result.

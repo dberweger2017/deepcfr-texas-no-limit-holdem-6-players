@@ -25,3 +25,7 @@ python -m scripts.audit_spectator \
 ```
 
 This read-only audit reconstructs every decision and settlement directly through the game engine, without using the service's replay or presentation helpers. It compares recorded observations and exact distributions with freshly loaded pinned policies, verifies lookup status, legal selected actions, sampling continuity, seat rotation, public-event hashes and totals. It also audits the retained prefix of an unfinished hand. These counts are interface correctness evidence, not a poker-strength test.
+
+## Validation
+
+[Verification receipt](reports/web-spectator-verification.json): 99 focused web/observation tests passed, including all three statuses through the actual average reader and journal-tampering checks. All 19 retained spectator hands /111 decisions independently replay with exact loader distributions and conserved settlements. Browser checks cover reversed models, both same-model pairings, one-decision stepping, pause across a hand boundary, reload, past-decision inspection and a 390-pixel layout without horizontal overflow. Existing human play was exercised with both releases and both sizing modes, including exact 201-chip raises; all eight retained human hands independently audit. A separate reviewer found no correctness issues in the implemented source. Raw journals, screenshots and interrupted browser checks are retained locally and indexed; no cleanup or strength claim follows.

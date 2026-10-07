@@ -1,0 +1,127 @@
+{
+  "browser_pairings": [
+    {
+      "displayed_distributions": 15,
+      "hands": 2,
+      "reload_paused": true,
+      "versions": [
+        "v0.4.0",
+        "v0.4.1"
+      ]
+    },
+    {
+      "displayed_distributions": 15,
+      "hands": 2,
+      "reload_paused": true,
+      "versions": [
+        "v0.4.1",
+        "v0.4.1"
+      ]
+    },
+    {
+      "displayed_distributions": 2,
+      "hands": 2,
+      "reload_paused": true,
+      "versions": [
+        "v0.4.0",
+        "v0.4.0"
+      ]
+    }
+  ],
+  "collaborative_browser": {
+    "history_preserves_preflop_observation": true,
+    "initial_hands": 10,
+    "mobile_horizontal_overflow": false,
+    "mobile_width": 390,
+    "pause_across_next_hand": true,
+    "reload_hands": 11,
+    "reload_paused": true
+  },
+  "date": "2026-10-07",
+  "evidence_manifest_sha256": "b35628d3e307c57194580dd3c4f0f54545e096a53b8f0ac054ef9bc82427b206",
+  "evidence_root": "/Users/dberweger/Local/deepcfr-web-spectator/results/spectator-browser",
+  "failures_retained": [
+    "Initial collaborative preview opened before server readiness; retried after readiness.",
+    "One collaborative evaluate response timed out; its bounded ten-hand task completed.",
+    "Collaborative browser subsequently disconnected; remaining pairings exercised with isolated headless Chrome.",
+    "First headless smoke finished two audited hands, then failed on a navigation-time state variable; corrected wait and retained report."
+  ],
+  "human_audits": {
+    "v0.4.0": {
+      "counts": {
+        "actions": 19,
+        "exact_201_chip_human_raises": 1,
+        "free_hands": 2,
+        "hands": 4,
+        "human_button": 4,
+        "restricted_hands": 2,
+        "trained": 8
+      },
+      "model_sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+      "positions_sha256": "597ca0074ebd5db8dff246d00914d8d4c33df21f1626160eaeec32f37e7fc186",
+      "sessions": 4,
+      "status": "verified",
+      "unexpected_fallbacks": 0
+    },
+    "v0.4.1": {
+      "counts": {
+        "actions": 18,
+        "exact_201_chip_human_raises": 1,
+        "free_hands": 2,
+        "hands": 4,
+        "human_button": 4,
+        "restricted_hands": 2,
+        "trained": 8
+      },
+      "model_sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+      "positions_sha256": "118cd8d603cf9b18a314e2147a745a90714717de328524b261f883d57d6076d5",
+      "sessions": 4,
+      "status": "verified",
+      "unexpected_fallbacks": 0
+    }
+  },
+  "human_browser": {
+    "exact_free_raise_chips": 201,
+    "full_hands": 4,
+    "modes": [
+      "restricted",
+      "free"
+    ],
+    "versions": [
+      "v0.4.0",
+      "v0.4.1"
+    ]
+  },
+  "independent_review": {
+    "findings": [],
+    "limits": "Read-only reviewer; real model and browser checks performed separately.",
+    "observation_tests_passed": 26,
+    "source_revision": "33d31f6",
+    "web_tests_passed": 70
+  },
+  "local_tests": {
+    "command": "python -m pytest tests/play_ui tests/test_observations.py tests/test_hand_observations.py tests/test_observation_reuse.py -q",
+    "passed": 99
+  },
+  "owned_service_stopped": true,
+  "paid_compute": 0,
+  "pr": 193,
+  "source_revision": "2c6dceb0463c4a9f1b100df37c0712c09b295c68",
+  "spectator_audit": {
+    "counts": {
+      "bot_0_decisions": 56,
+      "bot_1_decisions": 55,
+      "button_0_hands": 10,
+      "button_1_hands": 9,
+      "decisions": 111,
+      "hands": 19,
+      "trained": 111
+    },
+    "decisions": 111,
+    "hands": 19,
+    "sessions": 5,
+    "status": "verified"
+  },
+  "status": "verified",
+  "strength_claim": false
+}
