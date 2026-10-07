@@ -80,7 +80,11 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
             if not isfinite(end): raise ValueError("Phase deadline must be finite")
             # Refuse admission before starting a child on a host without adequate resources.
             power = system(["pmset", "-g", "batt"])
+            swap = system(["sysctl", "vm.swapusage"])
+            swap_growth = swap_bytes(swap)-swap_bytes(record["swap_baseline"])
             reason = ("Absolute phase/deadline guard" if time() >= end else
+                      "Insufficient save time reserve" if stop_file is not None and time() >= end-save_reserve_seconds else
+                      "Swap growth guard" if swap_growth > swap_gib*1024**3 else
                       "Free disk guard" if shutil.disk_usage(out).free < disk_gib*1024**3 else
                       "Main worker AC power guard" if require_ac and (power is None or "AC Power" not in power) else None)
             if reason or received_signal[0]: break
@@ -105,7 +109,23 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
                             power=system(["pmset","-g","batt"])
                             append(out / "resources.jsonl", {"unix_seconds": time(), "phase": job["name"],
                                    "rss_bytes": max(sizes, default=0), "aggregate_job_rss_bytes": sum(sizes),
+                                   "sampled_peak_process_rss_bytes": peak, "sampled_peak_aggregate_job_rss_bytes": aggregate_peak,
                                    "swap": swap, "swap_growth_bytes": growth, "free_disk_bytes": free,"power":power})
+                            latest = {'status':'running', 'unix_seconds':time(), 'phase':job['name'],
+                                      'owned_pid':child.pid, 'deadline':end,
+                                      'aggregate_rss_bytes':sum(sizes), 'peak_aggregate_rss_bytes':aggregate_peak,
+                                      'swap_growth_bytes':growth, 'free_disk_bytes':free, 'power':power,
+                                      'controlled_stop':record['controlled_stop']}
+                            # This bounded telemetry file has one line per save. Agent wakes
+                            # read this compact status, not training logs or full audits.
+                            if '--telemetry' in job['command']:
+                                telemetry = Path(job['command'][job['command'].index('--telemetry')+1])
+                                if telemetry.exists():
+                                    lines = telemetry.read_text().splitlines()
+                                    if lines:
+                                        try: latest['last_checkpoint'] = json.loads(lines[-1])
+                                        except json.JSONDecodeError: latest['telemetry_append_in_progress'] = True
+                            write_json(out/'status.tmp',latest); os.replace(out/'status.tmp',out/'status.json')
                             if stop_file is not None and record['controlled_stop'] is None:
                                 soft_reason = ("Serialization headroom RSS stop" if sum(sizes) >= soft_rss_gib*1024**3 else
                                                "Save time reserve stop" if time() >= end-save_reserve_seconds else None)
@@ -163,6 +183,10 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
                           "complete" if not record["failure"] and len(record["attempts"]) == len(jobs)
                           and all(a["status"] == "complete" for a in record["attempts"]) else "incomplete", finished=time())
             write_json(out / "campaign.json", record)
+            write_json(out/'status.tmp',{'status':record['status'],'finished':record['finished'],
+                'failure':record['failure'],'controlled_stop':record['controlled_stop'],
+                'attempts':record['attempts']})
+            os.replace(out/'status.tmp',out/'status.json')
             write_json(out.with_name(out.name+"-inventory.json"), inventory(out))
         finally:
             for signum, handler in previous.items(): signal.signal(signum, handler)

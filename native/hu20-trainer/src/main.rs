@@ -77,6 +77,8 @@ fn main() {
             if let Some(path) = &telemetry {
                 std::fs::OpenOptions::new().write(true).create_new(true).open(path).expect("fresh telemetry path");
             }
+            let binary_sha256 = telemetry.as_ref().map(|_| hu20_trainer::export::sha256_file(
+                &std::env::current_exe().expect("trainer executable")));
             assert!(nodes > 0 && roots > 0 && max_entries > 0 && max_seconds > 0.0);
             let resume = args.iter().position(|a| a == "--resume");
             let mut trainer = if let Some(i) = resume {
@@ -128,6 +130,7 @@ fn main() {
                 if let Some(receipts) = &telemetry {
                     let elapsed = started.elapsed().as_secs_f64();
                     let record = serde_json::json!({"version": 1,
+                        "binary_sha256": binary_sha256,
                         "status": if trainer.nodes >= milestone { "saved" } else { "incomplete-target" },
                         "requested_nodes": milestone, "completed_nodes": trainer.nodes,
                         "overshoot_nodes": trainer.nodes.saturating_sub(milestone),
@@ -135,10 +138,12 @@ fn main() {
                         "checkpoint_bytes": std::fs::metadata(&path).unwrap().len(),
                         "checkpoint_sha256": hu20_trainer::export::sha256_file(&path),
                         "write_started": write_started, "write_finished": write_finished, "write_seconds": write_seconds,
+                        "process_rss_bytes_after_save": hu20_trainer::telemetry::process_rss_bytes().expect("checkpoint RSS sample"),
                         "elapsed_seconds_including_writes": elapsed,
                         "nodes_per_second_including_writes": (trainer.nodes - initial_nodes) as f64 / elapsed,
                         "recent_nodes_per_second_including_writes": (trainer.nodes - previous_nodes) as f64 / (elapsed - previous_seconds),
                         "new_entries": trainer.table.len() - previous_entries,
+                        "entries_per_completed_node": trainer.table.len() as f64 / trainer.nodes.max(1) as f64,
                         "nodes_since_previous_save": trainer.nodes - previous_nodes,
                         "diagnostics": hu20_trainer::telemetry::diagnostics(&trainer),
                         "stop_requested": stop_file.as_ref().map_or(false, |path| path.exists()),
@@ -149,6 +154,10 @@ fn main() {
                 println!("milestone {} iterations {} nodes {} entries {} seconds {:.2} nodes_per_second {:.0} path {}",
                          milestone, trainer.iteration, trainer.nodes, trainer.table.len(), seconds,
                          (trainer.nodes - initial_nodes) as f64 / seconds, path.display());
+                // A request can arrive during serialization, hashing or diagnostics.
+                // The accepted save already contains this state; do not save it again
+                // under the next requested milestone just to acknowledge the stop.
+                stopped |= stop_file.as_ref().map_or(false, |path| path.exists());
                 if stopped { eprintln!("resource limit reached at a complete iteration; inspect recovery checkpoint"); std::process::exit(3); }
                 if iterations != 0 && trainer.iteration >= iterations { break; }
             }

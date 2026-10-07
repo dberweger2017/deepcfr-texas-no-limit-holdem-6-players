@@ -5,8 +5,10 @@ uses merged [#196](https://github.com/dberweger2017/deepcfr-texas-no-limit-holde
 and its [preparation protocol](native-hu100-preparation.md). The owner has
 authorized the HU20 recovery check and up to **10B total HU100 traversal nodes**
 on the free M4, within the fixed limits below. The later instruction requires
-**#188 to be merged before implementation, environment setup, builds, tests or
-training start**. This preparation PR and lightweight scheduling/status work
+**#188 to be merged before training starts**, with M4 reserved to #188 until
+its worker-side closeout finishes. The latest owner instruction permits
+**lightweight local coding now**; no campaign/tool/test execution or M4 setup/use
+occurs during that preparation. This preparation PR and scheduling/status work
 are separately requested now. Nothing has been trained for this campaign.
 
 The question is whether native HU20 recovery preserves the complete training
@@ -40,7 +42,7 @@ result. Neither completion nor growth establishes convergence or poker strength.
 
 The earliest intended start is **04:00 Madrid**, conditional on merge, closeout
 and resources. There is **no measured HU100 completion ETA yet**. The work window
-is at most six hours and includes implementation, isolated setup, qualification,
+is at most six hours and includes any remaining implementation, isolated setup, qualification,
 independent review, HU20 reference/recovery, HU100 training, saves, exports and
 audits. #196's reference train and export/full-audit phases each have a
 900-second cap; the complete reference session has an 1800-second cap. Recovery
@@ -175,6 +177,85 @@ that prevents final serialization. The last accepted checkpoint remains evidence
 of attained work, not a claim that interrupted work completed.
 
 ## Evidence, review and handoff
+
+### Prepared tools and future execution
+
+The coding preparation adds optional native checkpoint receipts without changing
+historical checkpoint/export bytes. They bind the executed binary and record
+actual nodes/iterations, write time/size/hash, process RSS after save and complete
+stored-key visitation/mass diagnostics. The external supervisor retains raw
+five-second family/swap/disk/power samples and publishes compact `status.json`
+for agent checks. It can request a complete-iteration save at **4.0 GiB** or the
+measured save-time reserve, while keeping the **5.5-GiB hard guard** active during
+serialization. A stop during a save exits after that accepted save, without
+serializing the same state again under another milestone name.
+
+After #188 merges and M4 finishes closeout, qualify a clean frozen M4 source
+with a fresh locked native build, Rust library tests, existing HU20/HU100
+parity/serialization fixtures and the new recovery/guard/admission fixtures.
+Local execution of these tests is deferred during preparation. Record a
+qualification JSON with `status: verified`, exact `source`, `binary_sha256`,
+resolved `independent_review` evidence and named `checks` each `status: passed`.
+Keep full environment/build/test outputs in the research root. Do not write a
+successful qualification receipt before those checks actually pass.
+
+The campaign-specific entry point is **`scripts.prepare_native_hu_execution`**,
+stages `reference`, `recovery`, `pilot` and `growth`. It prepares commands only.
+Use it for this campaign; the original #196 pilot/extension commands do not
+represent this campaign's stronger recovery/10B authorization gates. Every
+stage takes `--out`, `--binary`, `--qualification`, `--swap-baseline` and
+`--deadline`. Capture the swap baseline once before reference training and pass
+its exact string through every later phase. Recovery additionally takes
+`--reference-root` and the retrieved `--parent`; pilot takes `--equivalence`;
+growth takes `--equivalence`, `--pilot-root` and `--capacity-plan`.
+
+Pilot preparation requires complete source/binary-bound HU20 equivalence and
+generates export/full-audit jobs for **all four early saves**. Growth requires
+both pilot guards complete, continuous resource telemetry, all four bound
+checkpoint/audit sets, unchanged files, full street coverage and the same
+campaign swap baseline. The complete recovery comparison validates legacy
+coverage counters against reference-minus-parent deltas, including signed-zero
+IEEE-754 equality in every training row and average-policy row. Both current
+policies must be byte-identical and independently recomputed from regrets.
+
+A growth capacity JSON binds pilot telemetry/audit and measured files and
+declares `forecast_entry_ceiling`, `save_reserve_seconds`,
+`export_audit_reserve_seconds`, `archive_reserve_seconds`,
+`serialization_rss_bytes`, `disk_reserve_bytes` and
+`retained_non_growth_bytes`. Retain its raw calculations. Its entry ceiling is
+a controlled capacity bound derived from storage/save headroom; it must exceed
+the pilot table and is never a reason to retry a stopped campaign. Admission
+requires at least twice the slowest measured save time scaled to that ceiling,
+space for ten retained growth saves, atomic temporary save, archive duplication
+and exports, plus existing artifacts' archive duplicate and the disk floor.
+Serialization reserves include **32 bytes per key plus 64 MiB** for the sorted
+reference vector/sort scratch and overhead, below the reserved 1.5 GiB. The
+training deadline must exclude the measured export/audit and conservative
+archive allowance. These forecasts remain uncertain; continuous hard guards
+and the fixed deadline govern actual execution. If no forecast fits, record a
+capacity/time admission stop instead of raising a limit or requesting approval
+again merely because growth is large.
+
+Before launching each prepared script, write a fresh `admission.json` beside
+the plan with `status: admitted`, `m4_idle: true`, `pr188_state: MERGED`,
+`worker_closeout: complete`, `observed_at` (Unix seconds),
+`campaign_state_path`, and `closeout_evidence` mapping actual #188 terminal
+receipts to their `bytes`/`sha256`. Inspect the whole M4 workload; do not infer
+availability from a stale receipt. `verify_native_hu_launch` rechecks current
+merge state, M4 hardware, closeout evidence, source/binary, plans/jobs, parents
+and prerequisite file hashes before claiming an exclusive durable launch.
+It refuses before 04:00 Madrid, after the deadline, or while #188 processes
+remain alive. A lost acknowledgement leaves the claim/lock intact for inspection.
+
+After a terminal guarded attempt, `scripts.finish_native_hu_attempt
+--campaign-state PATH` records its closeout and clears only its own bookkeeping
+lock after checking terminal receipts and recorded worker PIDs. It does not
+stop a process or remove research files. Inspect incomplete/failure receipts;
+never treat releasing a lock as permission for a capacity retry. At final
+closeout, run `scripts.summarize_native_hu_growth` under the same hard guard to
+join checkpoint receipts with nearby resource samples and explicit audit
+status. Missing/changed evidence fails closed. Preserve interrupted-save files
+and separately inventory them even if they have no accepted checkpoint receipt.
 
 Update the [campaign report](reports/native-recovery-hu100.md) and evidence PR
 as each subtask finishes; commit/push completed subtasks. Obtain independent

@@ -1,9 +1,10 @@
 # Native recovery and HU100 table growth — preparation status
 
-**Prepared, not run.** The owner requires #188 to be merged before implementation
-or worker setup/training. [Frozen campaign protocol](../native-recovery-hu100.md).
-The preparation PR will receive implementation, tests, independent review and
-measured evidence after that gate and genuine M4 availability.
+**Tools coded; campaign not run.** Latest owner instruction permits lightweight
+local coding now. M4 remains reserved to #188; setup, tests and training wait
+for its merge and worker-side closeout. [Frozen campaign protocol](../native-recovery-hu100.md).
+[Evidence PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197)
+will receive qualification and measured evidence after admission.
 
 At **October 7, 22:55 Madrid**, #188 was OPEN and M4 was actively executing its
 guarded final evaluation: supervisor PID 15411, controller PID 15412 and three
@@ -18,7 +19,7 @@ disable its own timer first and check the merge/idle gates. While waiting, one
 
 **ETA:** earliest conditional start 04:00 Madrid; hard finish/report target
 **10:00 Madrid on October 8**. No measured HU100 finish estimate exists yet.
-Implementation/setup, review, HU20 reference/recovery and measured pilot costs
+Remaining qualification, HU20 reference/recovery and measured pilot costs
 consume the same six-hour maximum window. A late #188 merge/closeout shortens
 the available budget. HU100 ends at 10B total nodes, capacity or time; reaching
 10B is not promised. Upload acceptance may remain pending at the deadline and
@@ -27,7 +28,9 @@ will be labeled as such.
 | Work | Status |
 | --- | --- |
 | Isolated branch and scheduled wake | Prepared; no duplicate launch |
-| Tooling extensions, qualification and independent correctness review | Pending #188 merge and M4 admission |
+| Tooling extensions | Coded locally; execution deferred |
+| Independent correctness review | First source review received; fixes and follow-up review in progress |
+| Build/test qualification | Not run locally; pending #188 merge and M4 admission |
 | HU20 pinned 1B reference current/average audit | Not run |
 | Retained 500M →1B complete-state/probability equivalence | Not run |
 | HU100 100k/1M/5M/10M pilot and audit | Not run; blocked on HU20 correctness |
@@ -37,3 +40,12 @@ will be labeled as such.
 All future work retains 5.5-GiB aggregate RSS, ≤0.5-GiB campaign swap growth,
 ≥15.5-GiB free disk, AC power, serialization headroom and an external hard guard.
 No merge, release, publication, arenas, paid compute or increased limits.
+
+The first independent source review of `55958f9` found six blockers: an extra
+save after a stop during serialization, a missing pilot recovery gate, incomplete
+early-audit admission, baseline continuity, executed source/binary binding and
+unvalidated reserves. The revised code addresses those findings and adds
+deterministic fixtures for all-row/signed-zero mismatches, controlled versus hard
+stops, admission/reserve failures, duplicate launches and stop-during-save.
+Follow-up independent review and actual runtime qualification remain required;
+source review is not a passed test or scientific result.

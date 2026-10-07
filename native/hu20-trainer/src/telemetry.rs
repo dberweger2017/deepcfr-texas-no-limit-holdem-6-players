@@ -9,6 +9,19 @@ pub fn unix_seconds() -> f64 {
     SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs_f64()
 }
 
+/// A checkpoint-time process sample complements the external family's five-second
+/// history. `ps` reports KiB on the supported macOS worker (and Linux CI).
+pub fn process_rss_bytes() -> std::io::Result<u64> {
+    let result = std::process::Command::new("ps").args([
+        "-o", "rss=", "-p", &std::process::id().to_string()]).output()?;
+    if !result.status.success() {
+        return Err(std::io::Error::new(std::io::ErrorKind::Other, "checkpoint RSS sample failed"));
+    }
+    let kib: u64 = String::from_utf8_lossy(&result.stdout).trim().parse()
+        .map_err(|_| std::io::Error::new(std::io::ErrorKind::InvalidData, "invalid checkpoint RSS sample"))?;
+    kib.checked_mul(1024).ok_or_else(|| std::io::Error::new(std::io::ErrorKind::InvalidData, "checkpoint RSS overflow"))
+}
+
 /// Visit diagnostics describe stored keys, never the set of possible information sets.
 pub fn diagnostics(trainer: &Trainer) -> Value {
     let mut histogram = [0u64; 5];

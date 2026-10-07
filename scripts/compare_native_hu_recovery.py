@@ -9,6 +9,7 @@ from itertools import zip_longest
 import json
 from pathlib import Path
 import struct
+import subprocess
 
 from scripts.audit_native_hu_checkpoint import inspect
 from scripts.prepare_native_hu_campaign import REFERENCE, SEED, file_hash
@@ -56,6 +57,11 @@ def receipt(path, checkpoint):
 
 def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
             reference_current, reference_average, resumed_current, resumed_average):
+    reference_plan_path, resumed_plan_path = reference_telemetry.parent/'plan.json', resumed_telemetry.parent/'plan.json'
+    plans = [json.loads(p.read_text()) for p in (reference_plan_path,resumed_plan_path)]
+    baseline = plans[0].get('campaign_swap_baseline')
+    if not baseline or plans[1].get('campaign_swap_baseline') != baseline:
+        raise ValueError('Reference/recovery must share one campaign swap baseline')
     parent_hash = file_hash(parent)
     if parent_hash != PARENT_SHA:
         raise ValueError('Retained historical 500M parent differs')
@@ -69,6 +75,12 @@ def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
     if parent_receipt['requested_nodes'] != 500000000 or parent_receipt['iteration'] != 1095942:
         raise ValueError('Wrong retained parent endpoint')
     r, s = receipt(reference_telemetry, reference), receipt(resumed_telemetry, resumed)
+    if (not r.get('binary_sha256') or r['binary_sha256'] != s.get('binary_sha256')
+        or r['binary_sha256'] != parent_receipt.get('binary_sha256')):
+        raise ValueError('Reference/resume executed binary differs')
+    source = subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+    if any(p.get('source') != source or p.get('binary_sha256') != r['binary_sha256'] for p in plans):
+        raise ValueError('Executed source/binary differs from reference/recovery plans')
     if (r['requested_nodes'] != 1000000000 or s['requested_nodes'] != 1000000000
         or r['completed_nodes'] != s['completed_nodes'] or r['iteration'] != s['iteration']):
         raise ValueError('Recovery final actual nodes/iterations differ')
@@ -130,6 +142,8 @@ def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
     if average_rows != entries:
         raise ValueError('Average export does not cover the complete training table')
     return {'status': 'verified', 'scope': 'full HU20 legacy recovery state and current/average policy equivalence',
+        'source': source, 'campaign_swap_baseline': baseline,
+        'binary_sha256': r['binary_sha256'],
         'seed': SEED, 'completed_nodes': r['completed_nodes'], 'iteration': h['iteration'],
         'entries': entries, 'training_float_equality': 'IEEE-754 bits, including signed zero',
         'current_equality': 'identical file bytes by SHA256; both independently audited',
@@ -141,7 +155,8 @@ def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
         'reference_audit': original_audit, 'resumed_audit': recovered_audit,
         'files': {str(p.resolve()): {'bytes': p.stat().st_size, 'sha256': file_hash(p)} for p in
             (reference, resumed, parent, reference_telemetry, resumed_telemetry,
-             reference_current, reference_average, resumed_current, resumed_average)}}
+             reference_current, reference_average, resumed_current, resumed_average,
+             reference_plan_path,resumed_plan_path)}}
 
 
 def main():
