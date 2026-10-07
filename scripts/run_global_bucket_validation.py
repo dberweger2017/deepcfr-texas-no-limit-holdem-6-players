@@ -141,7 +141,7 @@ def original_job(root, job):
 
 
 def compare_collection(root, job, rows, *, exact=False):
-    recorded = load(root / "inputs/pr149/main-06/collect" / job["job"] / "result.json")
+    recorded = load(root / "baseline/main-06/collect" / job["job"] / "result.json")
     current = completion(rows)
     previous = recorded["completion"]
     if current["iterations"] != previous["iterations"]:
@@ -272,9 +272,11 @@ def pilot(root):
     original = load(root / "inputs/pr149/prepared-03/manifest.json")
     job = original["jobs"][0]
     request = original_job(root,job)
-    first = native(root,request,root/"pilot/legacy-collect")
+    first = load(root/"pilot/legacy-collect/result.json") if (root/"pilot/legacy-collect/result.json").exists() else native(root,request,root/"pilot/legacy-collect")
+    if first["binary_sha256"] != BINARY_HASH or first["request_sha256"] != file_hash(root/"pilot/legacy-collect/request.json"):
+        raise ValueError("Legacy pilot identity differs")
     gate = compare_collection(root,job,first["rows"],exact=True)
-    old = load(root / "inputs/pr149/main-06/collect" / job["job"] / "result.json")
+    old = load(root / "baseline/main-06/collect" / job["job"] / "result.json")
     request.update(pooling_phase="lock-only",max_iterations=0,
                    reference_equilibrium_ev_chips=old["completion"]["current_ev_chips"],
                    reference_response_sha256=old["runtime"]["response_sha256"])
@@ -323,11 +325,15 @@ def main():
     signal.signal(signal.SIGTERM, lambda *_: (_ for _ in ()).throw(SystemExit("Owned runner terminated")))
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--root",type=Path,required=True)
-    p.add_argument("--mode",choices=["pilot","prepare","prepare-board","worker","fit","run"],required=True)
+    p.add_argument("--mode",choices=["legacy-collect","pilot","prepare","prepare-board","worker","fit","run"],required=True)
     for name in ("phase","job","spot"):p.add_argument("--"+name)
     for name in ("lineage","fold"):p.add_argument("--"+name,type=int)
     a=p.parse_args();root=a.root.resolve()
-    if a.mode=="prepare-board":prepare_board(root,a.spot)
+    if a.mode=="legacy-collect":
+        job=load(root/"inputs/pr149/prepared-03/manifest.json")["jobs"][0]
+        result=native(root,original_job(root,job),root/"pilot/legacy-collect")
+        atomic_json(root/"pilot/legacy-collect-parity.json",compare_collection(root,job,result["rows"],exact=True))
+    elif a.mode=="prepare-board":prepare_board(root,a.spot)
     elif a.mode=="worker":worker(root,a.phase,a.job)
     elif a.mode=="fit":fit(root,a.lineage,a.fold)
     elif a.mode=="pilot":pilot(root)
