@@ -29,7 +29,7 @@ will be labeled as such.
 | --- | --- |
 | Isolated branch and scheduled wake | Prepared; no duplicate launch |
 | Tooling extensions | Coded locally; execution deferred |
-| Independent correctness review | First source review received; fixes and follow-up review in progress |
+| Independent correctness review | Two source reviews received; additional gate/memory fixes prepared for round 3 |
 | Build/test qualification | Not run locally; pending #188 merge and M4 admission |
 | HU20 pinned 1B reference current/average audit | Not run |
 | Retained 500M →1B complete-state/probability equivalence | Not run |
@@ -49,3 +49,14 @@ deterministic fixtures for all-row/signed-zero mismatches, controlled versus har
 stops, admission/reserve failures, duplicate launches and stop-during-save.
 Follow-up independent review and actual runtime qualification remain required;
 source review is not a passed test or scientific result.
+
+The second source review of `6cdb680` confirmed closure of the stop-during-save,
+recovery-gated pilot, four early audits/both guards and baseline objections. It
+found two remaining blockers: growth launch could miss changed pilot inputs,
+and export/audit memory was absent from capacity forecasting. The latest source
+binds/rechecks the complete pilot prerequisite manifest before a launch claim,
+requires all eight measured pilot export/audit RSS peaks, and reserves twice
+their forecast at the proposed table ceiling below 5.5 GiB. New fixtures cover
+missing/changed prerequisites before claim and incomplete/underreserved memory
+measurements. Round 3 independent review and M4 runtime qualification are still
+required; none of these fixtures have been executed locally.

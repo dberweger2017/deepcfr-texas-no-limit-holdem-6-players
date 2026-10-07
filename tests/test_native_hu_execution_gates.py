@@ -49,14 +49,28 @@ def test_growth_refuses_incomplete_pilot_guard(monkeypatch,tmp_path,phase):
 
 def capacity_fixture(tmp_path,monkeypatch):
     pilot=tmp_path/'pilot'; pilot.mkdir()
-    (pilot/'checkpoints.jsonl').write_text(json.dumps({'diagnostics':{'entries':1000},'write_seconds':1.0,'checkpoint_bytes':100000})+'\n')
-    put(pilot/'audit-10000000.json',{'status':'verified'})
-    put(pilot/'export-audit-guard/campaign.json',{'attempts':[{'started':0,'finished':2}]})
+    rows=[]
+    for nodes in execution.PILOT_NODES:
+        rows.append({'requested_nodes':nodes,'diagnostics':{'entries':1000},'write_seconds':1.0,'checkpoint_bytes':100000})
+        put(pilot/f'audit-{nodes}.json',{'status':'verified','files':{}})
+        for name in (f'training/HU100-{execution.SEED}-{nodes}.json.gz',
+                     f'current-{nodes}.json.gz',f'average-{nodes}.jsonl.gz'):
+            path=pilot/name; path.parent.mkdir(exist_ok=True); path.write_bytes(b'fixture')
+    (pilot/'checkpoints.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in rows))
+    for name in ('plan.json','training-jobs.json','export-audit-jobs.json'): put(pilot/name,{})
+    for phase in ('training','export-audit'):
+        put(pilot/f'{phase}-guard/campaign.json',{'attempts':[
+            {'name':f'{kind}-{nodes}','status':'complete','started':0,'finished':.25,
+             'peak_aggregate_job_rss_bytes':100000000}
+            for kind in ('export','audit') for nodes in execution.PILOT_NODES]})
+        (pilot/f'{phase}-guard/resources.jsonl').write_text('{}\n')
     monkeypatch.setattr('shutil.disk_usage',lambda *_a:SimpleNamespace(free=100*1024**3))
     return pilot,{'pilot_telemetry_sha256':file_hash(pilot/'checkpoints.jsonl'),
-        'pilot_audit_sha256':file_hash(pilot/'audit-10000000.json'),'measurement_files':{},
+        'pilot_audit_sha256':file_hash(pilot/'audit-10000000.json'),
+        'measurement_files':execution.pilot_prerequisites(pilot),
         'forecast_entry_ceiling':2000,'save_reserve_seconds':4,'export_audit_reserve_seconds':8,
         'archive_reserve_seconds':44,'serialization_rss_bytes':32*2000+64*1024**2,
+        'export_audit_rss_bytes':400000000,
         'disk_reserve_bytes':400000*23+1000000,'retained_non_growth_bytes':1000000}
 
 
@@ -66,7 +80,8 @@ def test_capacity_arithmetic_admits_reserved_window(monkeypatch,tmp_path):
 
 @pytest.mark.parametrize('field,value',[
     ('save_reserve_seconds',3.9),('export_audit_reserve_seconds',7.9),('archive_reserve_seconds',43.9),
-    ('serialization_rss_bytes',1),('disk_reserve_bytes',1),('forecast_entry_ceiling',1000)])
+    ('serialization_rss_bytes',1),('disk_reserve_bytes',1),('forecast_entry_ceiling',1000),
+    ('export_audit_rss_bytes',399999999),('export_audit_rss_bytes',5.5*1024**3)])
 def test_capacity_rejects_underreserved_costs(monkeypatch,tmp_path,field,value):
     pilot,c=capacity_fixture(tmp_path,monkeypatch); c[field]=value
     with pytest.raises(ValueError): execution.validate_capacity(c,pilot,execution.DEADLINE-52)
@@ -75,3 +90,23 @@ def test_capacity_rejects_underreserved_costs(monkeypatch,tmp_path,field,value):
 def test_capacity_rejects_consuming_closeout_deadline(monkeypatch,tmp_path):
     pilot,c=capacity_fixture(tmp_path,monkeypatch)
     with pytest.raises(ValueError): execution.validate_capacity(c,pilot,execution.DEADLINE-51)
+
+
+@pytest.mark.parametrize('name',['current-100000.json.gz','training-guard/resources.jsonl',
+                               'export-audit-guard/campaign.json','plan.json'])
+def test_prerequisite_changes_and_omissions_fail_closed(monkeypatch,tmp_path,name):
+    pilot,c=capacity_fixture(tmp_path,monkeypatch)
+    original=c['measurement_files'].copy()
+    c['measurement_files'].pop(str(pilot/name))
+    with pytest.raises(ValueError,match='prerequisite'): execution.validate_capacity(c,pilot,execution.DEADLINE-52)
+    c['measurement_files']=original
+    with (pilot/name).open('ab') as f: f.write(b' ')
+    with pytest.raises(ValueError,match='prerequisite'): execution.validate_capacity(c,pilot,execution.DEADLINE-52)
+
+
+def test_capacity_requires_every_measured_export_audit_peak(monkeypatch,tmp_path):
+    pilot,c=capacity_fixture(tmp_path,monkeypatch)
+    path=pilot/'export-audit-guard/campaign.json'; g=json.loads(path.read_text())
+    g['attempts'][0]['peak_aggregate_job_rss_bytes']=0; put(path,g)
+    c['measurement_files']=execution.pilot_prerequisites(pilot)
+    with pytest.raises(ValueError,match='Measured RSS'): execution.validate_capacity(c,pilot,execution.DEADLINE-52)

@@ -213,7 +213,14 @@ Pilot preparation requires complete source/binary-bound HU20 equivalence and
 generates export/full-audit jobs for **all four early saves**. Growth requires
 both pilot guards complete, continuous resource telemetry, all four bound
 checkpoint/audit sets, unchanged files, full street coverage and the same
-campaign swap baseline. The complete recovery comparison validates legacy
+campaign swap baseline. The growth plan binds a complete `pilot_prerequisites`
+manifest: pilot plan/jobs, both terminal guard receipts and continuous sample
+files, telemetry, and every early checkpoint/current/average/audit set, including
+all audit-declared inputs. Capacity `measurement_files` must contain this same
+complete set. Prelaunch independently reconstructs the required membership and
+rehashes every member before creating the durable claim; an empty or partial
+manifest, or a changed early export/resource receipt, blocks launch.
+The complete recovery comparison validates legacy
 coverage counters against reference-minus-parent deltas, including signed-zero
 IEEE-754 equality in every training row and average-policy row. Both current
 policies must be byte-identical and independently recomputed from regrets.
@@ -221,15 +228,23 @@ policies must be byte-identical and independently recomputed from regrets.
 A growth capacity JSON binds pilot telemetry/audit and measured files and
 declares `forecast_entry_ceiling`, `save_reserve_seconds`,
 `export_audit_reserve_seconds`, `archive_reserve_seconds`,
-`serialization_rss_bytes`, `disk_reserve_bytes` and
+`serialization_rss_bytes`, `export_audit_rss_bytes`, `disk_reserve_bytes` and
 `retained_non_growth_bytes`. Retain its raw calculations. Its entry ceiling is
-a controlled capacity bound derived from storage/save headroom; it must exceed
-the pilot table and is never a reason to retry a stopped campaign. Admission
+a controlled capacity bound derived from storage/save/export/audit headroom;
+it must exceed the pilot table and is never a reason to retry a stopped campaign. Admission
 requires at least twice the slowest measured save time scaled to that ceiling,
 space for ten retained growth saves, atomic temporary save, archive duplication
 and exports, plus existing artifacts' archive duplicate and the disk floor.
 Serialization reserves include **32 bytes per key plus 64 MiB** for the sorted
 reference vector/sort scratch and overhead, below the reserved 1.5 GiB. The
+export/audit reserve must cover **twice** the larger of every measured pilot
+aggregate RSS peak and the largest-table pilot export/audit peak scaled by
+forecast entries / actual largest-table entries. Require positive measured
+aggregate RSS for all eight completed early export/audit commands. This
+projection includes process overhead and leaves 2x forecast headroom; small
+pilot startup costs are not extrapolated as per-key allocations. Admit only if
+`export_audit_rss_bytes` covers that projection and remains below 5.5 GiB.
+Keep the continuous external guard during the eventual exports/audits too. The
 training deadline must exclude the measured export/audit and conservative
 archive allowance. These forecasts remain uncertain; continuous hard guards
 and the fixed deadline govern actual execution. If no forecast fits, record a

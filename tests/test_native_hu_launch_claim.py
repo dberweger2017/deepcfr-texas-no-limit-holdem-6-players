@@ -56,3 +56,20 @@ def test_binary_substitution_prevents_launch(monkeypatch,tmp_path):
     plan,state,binary=fixture(tmp_path,monkeypatch); binary.write_bytes(b'substituted')
     with pytest.raises(ValueError,match='source/binary'):launch.verify(plan)
     assert json.loads(state.read_text())['active_attempt'] is None
+
+
+@pytest.mark.parametrize('name',['current-100000.json.gz','training-guard/resources.jsonl'])
+def test_changed_pilot_evidence_prevents_growth_launch_claim(monkeypatch,tmp_path,name):
+    from tests.test_native_hu_execution_gates import capacity_fixture
+    from scripts.prepare_native_hu_execution import pilot_prerequisites
+    plan,state,_=fixture(tmp_path,monkeypatch)
+    pilot,c=capacity_fixture(tmp_path,monkeypatch)
+    capacity=tmp_path/'capacity.json'; put(capacity,c)
+    p=json.loads(plan.read_text()); p.pop('plan_sha256')
+    p.update(stage='growth',pilot_root=str(pilot),pilot_prerequisites=pilot_prerequisites(pilot),
+        capacity_path=str(capacity),capacity_sha256=file_hash(capacity),capacity_plan=c)
+    p['plan_sha256']=digest(p); put(plan,p)
+    with (pilot/name).open('ab') as f: f.write(b' ')
+    with pytest.raises(ValueError,match='prerequisite'): launch.verify(plan)
+    assert json.loads(state.read_text())['active_attempt'] is None
+    assert not state.with_name(state.name+'.launch-lock').exists()

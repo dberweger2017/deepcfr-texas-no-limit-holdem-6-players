@@ -21,6 +21,27 @@ from src.blueprint.abstraction import HU100_SCHEMA
 
 DEADLINE = datetime(2026, 10, 8, 8, tzinfo=timezone.utc).timestamp()
 THREAD_URI = 't3://thread/495ca3f8-32db-4e73-98ad-29d01fb9e282'
+PILOT_NODES = (100000,1000000,5000000,10000000)
+
+
+def pilot_prerequisites(root):
+    """Enumerate the complete admission evidence; callers cannot omit a member."""
+    root=root.resolve()
+    paths={root/'plan.json',root/'checkpoints.jsonl',root/'training-jobs.json',root/'export-audit-jobs.json'}
+    for phase in ('training','export-audit'):
+        paths.update((root/f'{phase}-guard/campaign.json',root/f'{phase}-guard/resources.jsonl'))
+    for nodes in PILOT_NODES:
+        audit_path=root/f'audit-{nodes}.json'
+        paths.update((audit_path,root/'training'/f'HU100-{SEED}-{nodes}.json.gz',
+                      root/f'current-{nodes}.json.gz',root/f'average-{nodes}.jsonl.gz'))
+        # Include any additional input declared by the independent audit too.
+        paths.update(Path(name).resolve() for name in json.loads(audit_path.read_text())['files'])
+    return {str(p):{'bytes':p.stat().st_size,'sha256':file_hash(p)} for p in sorted(paths)}
+
+
+def verify_pilot_prerequisites(root, manifest):
+    if not manifest or pilot_prerequisites(root) != manifest:
+        raise ValueError('Complete pilot prerequisite manifest changed or has missing members')
 
 
 def qualification(path, binary):
@@ -143,7 +164,7 @@ def prepare_pilot(out,binary,qualification_path,equivalence_path,swap_baseline,d
     # Audit every early save. A failed or incomplete training phase still blocks
     # all these jobs through the foreground script's fail-fast shell gate.
     jobs = []
-    for nodes in (100000,1000000,5000000,10000000):
+    for nodes in PILOT_NODES:
         checkpoint = out/'training'/f'HU100-{SEED}-{nodes}.json.gz'
         current,average = out/f'current-{nodes}.json.gz',out/f'average-{nodes}.jsonl.gz'
         jobs += [{'name':f'export-{nodes}','command':[str(binary),'export',str(checkpoint),
@@ -187,7 +208,7 @@ def prepare_growth(out, binary, qualification_path, equivalence_path, pilot_root
             or any(s['aggregate_job_rss_bytes'] >= 5.5*1024**3 or s['swap_growth_bytes'] > .5*1024**3
                    or s['free_disk_bytes'] < 15.5*1024**3 or 'AC Power' not in (s.get('power') or '') for s in samples)):
             raise ValueError('Pilot resource telemetry/baseline is incomplete or breaches limits')
-    for nodes in (100000,1000000,5000000,10000000):
+    for nodes in PILOT_NODES:
         cp=pilot_root/'training'/f'HU100-{SEED}-{nodes}.json.gz'
         rr=receipt(pilot_root/'checkpoints.jsonl',cp)
         aa=json.loads((pilot_root/f'audit-{nodes}.json').read_text())
@@ -225,7 +246,8 @@ def prepare_growth(out, binary, qualification_path, equivalence_path, pilot_root
         'binary':str(binary),'qualification_path':str(qualification_path.resolve()),'qualification_sha256':file_hash(qualification_path),
         'qualification':q,'seed':SEED,'target_total_nodes':10000000000,
         'equivalence_path':str(equivalence_path.resolve()),'equivalence_sha256':file_hash(equivalence_path),
-        'pilot_root':str(pilot_root),'pilot_audit_sha256':file_hash(pilot_root/'audit-10000000.json'),'parent_path':str(parent),
+        'pilot_root':str(pilot_root),'pilot_prerequisites':pilot_prerequisites(pilot_root),
+        'pilot_audit_sha256':file_hash(pilot_root/'audit-10000000.json'),'parent_path':str(parent),
         'parent_sha256':file_hash(parent),'command':command,
         'serialization_headroom_gib':1.5,'capacity_plan':capacity,'capacity_path':str(capacity_path.resolve()),
         'capacity_sha256':file_hash(capacity_path)},
@@ -238,10 +260,7 @@ def validate_capacity(c,pilot_root,training_deadline):
     if (c.get('pilot_telemetry_sha256') != file_hash(pilot_root/'checkpoints.jsonl')
         or c.get('pilot_audit_sha256') != file_hash(pilot_root/'audit-10000000.json')):
         raise ValueError('Capacity plan must bind pilot measurements')
-    for name,spec in c['measurement_files'].items():
-        p=Path(name)
-        if p.stat().st_size != spec['bytes'] or file_hash(p) != spec['sha256']:
-            raise ValueError('Capacity measurement changed')
+    verify_pilot_prerequisites(pilot_root,c['measurement_files'])
     # Forecasts are uncertain; the raw arithmetic is retained and hard guards
     # remain authoritative. Positive values alone cannot satisfy reserve admission.
     n=c['forecast_entry_ceiling']; growth=max(1,n/max(r['diagnostics']['entries'] for r in rows))
@@ -251,7 +270,8 @@ def validate_capacity(c,pilot_root,training_deadline):
     minimum_disk=max_cp*(10+1+10+2)  # ten retained growth saves, atomic temp, archive duplicate, export pair
     if (type(n) is not int or n <= max(r['diagnostics']['entries'] for r in rows)
         or any(not isfinite(c[k]) or c[k] <= 0 for k in
-        ('save_reserve_seconds','export_audit_reserve_seconds','archive_reserve_seconds','serialization_rss_bytes','disk_reserve_bytes'))
+        ('save_reserve_seconds','export_audit_reserve_seconds','archive_reserve_seconds',
+         'serialization_rss_bytes','export_audit_rss_bytes','disk_reserve_bytes'))
         or c['save_reserve_seconds'] < minimum_write
         or c['serialization_rss_bytes'] < 32*n+64*1024**2
         or c['serialization_rss_bytes'] >= 1.5*1024**3
@@ -264,6 +284,24 @@ def validate_capacity(c,pilot_root,training_deadline):
     attempts=json.loads((pilot_root/'export-audit-guard/campaign.json').read_text())['attempts']
     if c['export_audit_reserve_seconds'] < sum(a['finished']-a['started'] for a in attempts)*growth*2:
         raise ValueError('Measured export/audit reserve is too short')
+    # Both tools retain table-sized data. Forecast their measured aggregate RSS
+    # at the largest pilot table independently, including process overhead,
+    # with 2x headroom. Also cover every earlier measured peak; small-table
+    # process startup costs are not extrapolated as a per-key allocation.
+    # The continuous external guard remains authoritative if the forecast errs.
+    entries={r['requested_nodes']:r['diagnostics']['entries'] for r in rows}
+    required={f'{phase}-{nodes}' for phase in ('export','audit') for nodes in PILOT_NODES}
+    if (len(attempts)!=len(required) or {a['name'] for a in attempts}!=required
+        or any(a.get('status')!='complete' or not isfinite(a.get('peak_aggregate_job_rss_bytes',0))
+               or a.get('peak_aggregate_job_rss_bytes',0)<=0 for a in attempts)
+        or any(entries.get(nodes,0)<=0 for nodes in PILOT_NODES)):
+        raise ValueError('Measured RSS for every pilot export and audit required')
+    largest=max(entries,key=entries.get)
+    forecast=max(max(a['peak_aggregate_job_rss_bytes'] for a in attempts),
+                 max(a['peak_aggregate_job_rss_bytes'] for a in attempts
+                     if a['name'].endswith(f'-{largest}'))*n/entries[largest])*2
+    if c['export_audit_rss_bytes'] < forecast or c['export_audit_rss_bytes'] >= 5.5*1024**3:
+        raise ValueError('Measured export/audit memory forecast exceeds admitted capacity')
 
 
 def main():

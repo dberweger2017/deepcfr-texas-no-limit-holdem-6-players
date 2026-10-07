@@ -13,7 +13,8 @@ import subprocess
 from time import time
 
 from scripts.prepare_native_hu_campaign import digest, file_hash
-from scripts.prepare_native_hu_execution import DEADLINE, qualification, checked_equivalence, validate_capacity
+from scripts.prepare_native_hu_execution import (DEADLINE, qualification, checked_equivalence,
+                                               validate_capacity, verify_pilot_prerequisites)
 
 NOT_BEFORE=DEADLINE-6*3600  # October 8 04:00 Madrid /02:00 UTC
 
@@ -48,6 +49,7 @@ def verify(plan_path):
     if 'parent_path' in p and file_hash(Path(p['parent_path'])) != p['parent_sha256']:
         raise ValueError('Resume parent changed before execution')
     if p['stage']=='growth':
+        verify_pilot_prerequisites(Path(p['pilot_root']),p['pilot_prerequisites'])
         validate_capacity(p['capacity_plan'],Path(p['pilot_root']),p['hard_deadline'])
     admission=json.loads((root/'admission.json').read_text())
     if (admission.get('status')!='admitted' or admission.get('m4_idle') is not True
