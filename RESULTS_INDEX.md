@@ -1,5 +1,24 @@
 # Research results index
 
+## M4 storage vacuum — October 7, 2026
+
+Owner-authorized removal of **279 merged PR162 duplicate inputs /4.807 GB logical**
+and **4,244 inactive Chrome/Homebrew/Java cache files /2.157 GB allocated** reclaimed
+**6.951 GB measured**; free space rose from **64.467 to 71.419 GB**. Open #188/#190
+roots/dependencies, all PR185 files, primary board-pooling inputs, shared Git/source,
+Codex runtime cache, personal files and synced archives remain protected.
+
+[Verification and restoration](docs/artifacts/m4-vacuum-20261007.md),
+[full per-path receipt and restore helper](https://drive.google.com/file/d/1YXuVlKUvNrTqWBtWIEPd_QEVWCDbBTzG/view)
+(495,976 bytes; SHA256 `556b679e391026da60c82f5669f44fb1c84e89a66f5b62983d95c1a3c7cc3b79`).
+The [PR162 canonical archive](https://drive.google.com/file/d/1_6dRapLReZ9-sAMPaePNX-nehXowGwki/view)
+and all 2,809 members freshly verify; current native/cloud upload acceptance agrees.
+Each removed research path records its exact archive member/size/SHA256 in the receipt;
+run its `restore.py --original ORIGINAL_ABSOLUTE_PATH --out results/retrieved/NEW_FILE`.
+Sample restoration passed. No remote-byte download, synced deletion, eviction or
+unattended cleanup. Earlier retained-original statements are superseded only for
+these exact receipted paths.
+
 New entries follow the [shared storage and archive-receipt contract](docs/artifact-storage.md).
 The [tracked-payload audit](docs/reports/necessary-cleaning.md) identifies retained Git evidence;
 its retention list is not cloud verification or deletion approval.
