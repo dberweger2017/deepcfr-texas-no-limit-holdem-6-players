@@ -1,3 +1,9 @@
+## PR190 validation: M1 disk admission and merged #149 copy cleanup (October 7)
+
+Preparation and pilot evidence remain in progress under `~/Local/Research-Cloud/PR-190-HU20-bucket-validation/`; no held-out global result is claimed yet. The first storage admission failed and is retained. After fresh #149 merged status, native uploaded/not-uploading/no-conflict acceptance, Drive name/size/parent readback, exact archive-member/source SHA256 checks and open #188/#190 dependency review, **83 inactive retrieval02 SQLite/compact copies /3,229,764,359 logical bytes** were removed under the existing owner authorization. Measured reclamation: **3.021 GiB**; final free space at removal: **24.067 GiB**. [Every removed path, hash, archive member and dependency record](docs/artifacts/pr190-merged-pr149-cleanup.json). Durable receipt also resides at `~/Local/storage-cleanup-receipts/PR190-merged-PR149-20261007/`. Other roots, all active inputs, shared Git/source, metadata and synced files remain intact.
+
+Restore exact removed members from [#149's canonical archive](https://drive.google.com/file/d/1NNSkCO811USN6U9L2p6lBbti1-6Q9r2X/view), SHA256 `20ad0f67df71464e7c06bdb1cf63451c243944c14e732b83650861f8f9bbcaed`, native path `~/Local/Research-Cloud/M1-board-pooling/M4-main-06-20261005/hu20-board-pooling-m4-complete-20261005.tar.gz`. The receipt gives each `campaign/...` member and expected SHA256. Extract into a fresh ignored nonsynced directory using Python `tarfile.open(archive, "r:gz").extractfile(member)` (resolves tar hard links), then verify the member's recorded SHA256 before use. The archive and exact selected member hashes verified; no remote byte re-download is claimed. Cleanup verification, native/cloud acceptance and failed/new admission receipts will be included in PR190's final member-hashed research ZIPs.
+
 # Research results index
 
 ## PR185 — HU20 O at 10B, audited direct gain; LBR safeguard inconclusive
