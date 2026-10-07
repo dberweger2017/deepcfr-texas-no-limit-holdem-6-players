@@ -15,11 +15,11 @@ from src.arena.catalog import Checkpoint
 from src.arena.runner import public_events
 from src.blueprint.abstraction import information_key
 from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT
-from src.diagnostics.cfr_average import DiagnosticAverage
+from src.blueprint.average import AveragePolicy
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
-from src.play_api.o_candidate import MODEL_SHA256, load_o_candidate
-from src.play_api.service import load_b100m, MODEL_SHA256 as R_SHA256
+from src.policies.v041 import MODEL_SHA256, load_policy
+from src.policies.v040 import load_policy as load_b100m, EXPECTED_SHA256 as R_SHA256
 
 
 def digest(value):
@@ -104,8 +104,8 @@ def main():
     parser.add_argument('--out', required=True, type=Path)
     args = parser.parse_args()
     if args.version == 'v0.4.1':
-        web = load_o_candidate(args.model)
-        arena = DiagnosticAverage(args.model, MODEL_SHA256)
+        web = load_policy(args.model)
+        arena = AveragePolicy(args.model, MODEL_SHA256)
         sha = MODEL_SHA256
     else:
         web = load_b100m(args.model)

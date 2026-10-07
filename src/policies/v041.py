@@ -1,10 +1,10 @@
-"""Pinned, opt-in O inference candidate; publication is a separate owner gate."""
+"""Pinned v0.4.1 opponent-sampled average; verification never publishes."""
 
 import hashlib
 from dataclasses import dataclass
 from pathlib import Path
 
-from src.diagnostics.cfr_average import DiagnosticAverage, EXTRACTIONS, FORMAT
+from src.blueprint.average import AveragePolicy, EXTRACTIONS, FORMAT
 
 NAME = "v0.4.1 · O1B · seed 2026100601"
 ASSET_NAME = "O1B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz"
@@ -32,11 +32,11 @@ def verify(path: Path) -> str:
     return value
 
 
-def load_o_candidate(path: Path):
+def load_policy(path: Path):
     verify(path)
     # Reuse the exact arena reader and observation/menu inference, including
     # uniform zero-mass and missing-key behavior; never re-extract the export.
-    policy = DiagnosticAverage(path, MODEL_SHA256)
+    policy = AveragePolicy(path, MODEL_SHA256)
     description = policy.description
     if (description["training_seed"] != SEED
             or description["iteration"] != ITERATION

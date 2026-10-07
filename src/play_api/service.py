@@ -11,17 +11,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from random import Random
 
-from src.arena.catalog import Checkpoint
 from src.arena.runner import public_events
 from src.arena.schedule import digest
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, choices
-from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT
+from src.blueprint.artifact import HU20_UNCAPPED_FORMAT
 from src.blueprint.solver import HU20_UNCAPPED_GAME
 from src.game.hand import Hand, Table
 from src.game.observation import ActionTaken, BlindPosted, BoardDealt, CardsMucked, CardsShown
 from src.game.types import Action, ActionKind
 
-MODEL_SHA256 = "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
 MODEL_NAME = "B100M · seed 2026093001"
 API_VERSION = "hu20-play-api-v1"
 ADAPTER_ID = "direct-v1"
@@ -97,17 +95,6 @@ def _model_info(policy):
             "format": getattr(policy, "format_id", HU20_UNCAPPED_FORMAT), "strategy": policy.description["strategy"],
             "adapter": getattr(policy, "adapter_id", ADAPTER_ID),
             "benchmarkOnly": getattr(policy, "benchmark_only", False)}
-
-
-def load_b100m(path: Path):
-    spec = Checkpoint("B100M", str(path), MODEL_SHA256, HU20_UNCAPPED_FORMAT)
-    source = FrozenBlueprint(spec, path)
-    if (source.game != HU20_UNCAPPED_GAME or source.abstraction != HU20_UNCAPPED_SCHEMA
-            or source.players != 2 or source.raise_cap is not None
-            or source.description["strategy"] != "current"
-            or source.description["iteration"] < 1):
-        raise ValueError("Artifact is not the pinned current native-reopening HU20 policy")
-    return source
 
 
 class PlayService:

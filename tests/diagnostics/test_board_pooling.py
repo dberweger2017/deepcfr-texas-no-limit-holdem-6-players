@@ -52,7 +52,8 @@ def test_signed_readout_does_not_clip_or_claim_lower_bound():
 
 def test_disk_average_preserves_actual_policy_inference_and_source_hash(tmp_path):
     from tests.diagnostics.test_cfr_average import fixture
-    from src.diagnostics.cfr_average import DiagnosticAverage, extract
+    from src.blueprint.average import AveragePolicy
+    from src.diagnostics.cfr_average import extract
     from src.diagnostics.board_pooling_policy import build_index, DiskAverage
     _, view, checkpoint, _, spec = fixture(tmp_path)
     output = tmp_path / "average.gz"
@@ -61,7 +62,7 @@ def test_disk_average_preserves_actual_policy_inference_and_source_hash(tmp_path
     db = tmp_path / "average.sqlite"
     inventory = build_index(indexed, tmp_path, db)
     assert inventory["rows"] == 2
-    assert DiskAverage(db, indexed).distribution(view) == DiagnosticAverage(output, receipt["sha256"]).distribution(view)
+    assert DiskAverage(db, indexed).distribution(view) == AveragePolicy(output, receipt["sha256"]).distribution(view)
     with pytest.raises(ValueError, match="hash"):
         build_index(dict(indexed, sha256="0" * 64), tmp_path, tmp_path / "wrong.sqlite")
 

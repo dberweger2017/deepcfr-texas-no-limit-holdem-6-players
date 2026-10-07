@@ -6,8 +6,8 @@ import json
 import shutil
 from pathlib import Path
 
-from src.play_api.o_candidate import ASSET_NAME, CHECKPOINT_SHA256, MODEL_BYTES, MODEL_SHA256, verify
-from src.diagnostics.cfr_average import EXTRACTIONS, FORMAT
+from src.policies.v041 import ASSET_NAME, CHECKPOINT_SHA256, MODEL_BYTES, MODEL_SHA256, verify
+from src.blueprint.average import EXTRACTIONS, FORMAT
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
 from src.blueprint.solver import HU20_UNCAPPED_GAME
 

@@ -10,7 +10,7 @@ import json
 import shutil
 from pathlib import Path
 
-from scripts.verify_v04_model import EXPECTED_BYTES, EXPECTED_NAME, EXPECTED_SHA256, verify
+from src.policies.v040 import EXPECTED_BYTES, EXPECTED_NAME, EXPECTED_SHA256, verify
 
 ENGINE_REVISION = "5db20e3d5d6862b32a7402035c1340b622d3b005"
 GAME = "hu20-native-reopening-20bb-52card-no-ante-rake-v1"
