@@ -10,7 +10,7 @@ from pathlib import Path
 from time import monotonic
 
 from src.blueprint.solver import regret_match
-from src.diagnostics.cfr_average import checked_header, checked_row
+from src.blueprint.average import checked_header, checked_row
 from src.diagnostics.flop_check import atomic_json
 from src.diagnostics.saved_hu20 import file_hash
 

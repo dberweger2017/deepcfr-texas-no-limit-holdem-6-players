@@ -1,5 +1,9 @@
 # Research results index
 
+New entries follow the [shared storage and archive-receipt contract](docs/artifact-storage.md).
+The [tracked-payload audit](docs/reports/necessary-cleaning.md) identifies retained Git evidence;
+its retention list is not cloud verification or deletion approval.
+
 ## PR188 — fresh v0.4.2 LBR confirmation, final running
 
 [Predeclaration](docs/hu20-v042-lbr-confirmation.md), [PR188](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188). M4 work root `~/Local/hu20-o-10b-lbr-20261007/`; light M1 checkout `/Users/dberweger/Local/v042-lbr-confirmation/`. All six #185 exports match their original manifest hashes; **34,826,546 keys** pass current-main `entries`/`visits`/`zero_mass` direct-JSON exactness, zero mismatches. [Per-model receipts and scientific-source hashes](docs/reports/hu20-v042-lbr-artifacts/). Only #186 compact storage differs from the unchanged #176/#185 scientific pipeline; all play/reporter/auditor files are pinned.

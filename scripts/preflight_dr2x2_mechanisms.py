@@ -15,7 +15,8 @@ from scripts.hu20_platform_pilot import peak_rss, write
 from src.arena.schedule import digest
 from src.blueprint.river_cfr import profile_quality
 from src.blueprint.river_game import river_root_history
-from src.diagnostics.cfr_average import extract, audit, DiagnosticAverage
+from src.diagnostics.cfr_average import extract, audit
+from src.blueprint.average import AveragePolicy
 from src.diagnostics.history_river import CommonRiverGame, common_ranges, policy_profile, LAW, PROJECTION
 from src.diagnostics.saved_hu20 import load_saved, file_hash
 
@@ -90,7 +91,7 @@ def run(plan, out):
                 if readout=='current':
                     source,visits=load_saved(spec,Path('/'),guard,expected_schema=spec['abstraction'])
                 else:
-                    source=DiagnosticAverage(average_path,exported['sha256'],expected_schema=spec['abstraction'])
+                    source=AveragePolicy(average_path,exported['sha256'],expected_schema=spec['abstraction'])
                     visits=source.visits
                 loaded=perf_counter()-began
                 began=perf_counter()

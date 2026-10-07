@@ -1,27 +1,44 @@
 """Version selection between pinned policies; a session never changes its model."""
 
 import threading
+from collections.abc import Callable
+from dataclasses import dataclass
 from pathlib import Path
 
-from scripts.verify_v04_model import EXPECTED_NAME, verify as verify_v040
-from src.play_api.o_candidate import ASSET_NAME, load_o_candidate, verify as verify_v041
-from src.play_api.service import PlayError, PlayService, load_b100m
+from src.policies import v040, v041
+from src.play_api.service import PlayError, PlayService
 
 DEFAULT_VERSION = "v0.4.1"
 
 
+@dataclass(frozen=True)
+class Release:
+    version: str
+    asset_name: str
+    verify: Callable[[Path], str]
+    load: Callable[[Path], object]
+
+
+# Only reviewed release pins belong here; research candidates use explicit CLI paths.
+RELEASES = (
+    Release("v0.4.1", v041.ASSET_NAME, v041.verify, v041.load_policy),
+    Release("v0.4.0", v040.EXPECTED_NAME, v040.verify, v040.load_policy),
+)
+
+
 class VersionedTables:
-    def __init__(self, services: dict[str, PlayService]):
-        if set(services) != {"v0.4.1", "v0.4.0"}:
-            raise ValueError("Both pinned release models are required")
+    def __init__(self, services: dict[str, PlayService], *, default_version=DEFAULT_VERSION):
+        if default_version not in services or any(not isinstance(v, str) or not v for v in services):
+            raise ValueError("The default release model and valid version names are required")
         self.services = services
+        self.default_version = default_version
         self.lock = threading.RLock()
 
     def model_info(self):
-        return self.services[DEFAULT_VERSION].model_info()
+        return self.services[self.default_version].model_info()
 
     def model_catalog(self):
-        return {"default": DEFAULT_VERSION,
+        return {"default": self.default_version,
                 "models": [{"version": version, **service.model_info()}
                            for version, service in self.services.items()]}
 
@@ -51,7 +68,7 @@ class VersionedTables:
 
     def create(self, key, body):
         body = dict(body)
-        version = body.pop("modelVersion", DEFAULT_VERSION)
+        version = body.pop("modelVersion", self.default_version)
         if not isinstance(version, str) or version not in self.services:
             raise PlayError("Choose an available model version")
         with self.lock:
@@ -102,15 +119,15 @@ class VersionedTables:
 
 
 def load_tables(models: Path, data: Path, source_version: str):
-    # Validate both artifacts before allocating either reader. Never silently
+    # Validate all artifacts before allocating any reader. Never silently
     # fall back to an older model if the intended default is absent or corrupt.
-    verify_v041(models / ASSET_NAME)
-    verify_v040(models / EXPECTED_NAME)
+    for release in RELEASES:
+        release.verify(models / release.asset_name)
     services = {}
     try:
-        for version, loader, name in (("v0.4.1", load_o_candidate, ASSET_NAME),
-                                      ("v0.4.0", load_b100m, EXPECTED_NAME)):
-            policy = loader(models / name)
+        for release in RELEASES:
+            version = release.version
+            policy = release.load(models / release.asset_name)
             if version == "v0.4.0":
                 policy.name = "v0.4.0 · B100M · seed 2026093001"
             services[version] = PlayService(data / version / "private.sqlite", policy,

@@ -25,7 +25,7 @@ from src.arena.report import estimate
 from src.arena.schedule import digest
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA
 from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT
-from src.diagnostics.cfr_average import DiagnosticAverage
+from src.blueprint.average import AveragePolicy
 from src.diagnostics.saved_hu20 import file_hash
 
 ARMS = ("R", "O", "C", "T")
@@ -42,7 +42,7 @@ def load(spec, root):
     if path.stat().st_size != spec["bytes"] or file_hash(path) != spec["sha256"]:
         raise ValueError("Policy bytes differ before loading: " + spec["name"])
     source = (FrozenBlueprint(Checkpoint(spec["name"], str(path), spec["sha256"], HU20_UNCAPPED_FORMAT), path)
-              if spec["strategy"] == "current" else DiagnosticAverage(path, spec["sha256"]))
+              if spec["strategy"] == "current" else AveragePolicy(path, spec["sha256"]))
     if (source.description["training_seed"] != spec["seed"] or source.description["iteration"] != spec["iteration"]
             or source.abstraction != HU20_UNCAPPED_SCHEMA or source.raise_cap is not None):
         raise ValueError("Policy identity differs: " + spec["name"])

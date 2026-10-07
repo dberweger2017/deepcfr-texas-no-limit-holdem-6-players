@@ -8,9 +8,9 @@ from scripts.evaluate_hu20_cfr_average import play
 from scripts.report_audit_hu20_zero_mass_pressure import analyze, ARMS
 from src.arena.schedule import digest
 from src.blueprint.abstraction import choices, information_key, HU20_UNCAPPED_SCHEMA
-from src.diagnostics.cfr_average import DiagnosticAverage
+from src.blueprint.average import AveragePolicy
 
-class FixtureAverage(DiagnosticAverage):
+class FixtureAverage(AveragePolicy):
     def __init__(self,arm):
         self.arm=arm;self.zero_mass=set();self.abstraction=HU20_UNCAPPED_SCHEMA;self.raise_cap=None
     def distribution(self,view):

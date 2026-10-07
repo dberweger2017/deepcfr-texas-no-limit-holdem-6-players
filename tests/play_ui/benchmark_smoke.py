@@ -9,7 +9,8 @@ from urllib.request import Request, urlopen
 from uuid import uuid4
 
 from src.blueprint.abstraction import choices
-from src.play_api.service import MODEL_SHA256, _hand
+from src.policies.v040 import EXPECTED_SHA256 as MODEL_SHA256
+from src.play_api.service import _hand
 
 
 def run(base, token, database, mode, target):
