@@ -29,7 +29,7 @@ will be labeled as such.
 | --- | --- |
 | Isolated branch and scheduled wake | Prepared; no duplicate launch |
 | Tooling extensions | Coded locally; execution deferred |
-| Independent correctness review | Two source reviews received; additional gate/memory fixes prepared for round 3 |
+| Independent correctness review | Round 3: no blocking source findings at `63b7d3e`; runtime qualification pending |
 | Build/test qualification | Not run locally; pending #188 merge and M4 admission |
 | HU20 pinned 1B reference current/average audit | Not run |
 | Retained 500M →1B complete-state/probability equivalence | Not run |
@@ -47,8 +47,8 @@ early-audit admission, baseline continuity, executed source/binary binding and
 unvalidated reserves. The revised code addresses those findings and adds
 deterministic fixtures for all-row/signed-zero mismatches, controlled versus hard
 stops, admission/reserve failures, duplicate launches and stop-during-save.
-Follow-up independent review and actual runtime qualification remain required;
-source review is not a passed test or scientific result.
+The following rounds reviewed those responses; source review is not a passed
+test or scientific result.
 
 The second source review of `6cdb680` confirmed closure of the stop-during-save,
 recovery-gated pilot, four early audits/both guards and baseline objections. It
@@ -58,5 +58,18 @@ binds/rechecks the complete pilot prerequisite manifest before a launch claim,
 requires all eight measured pilot export/audit RSS peaks, and reserves twice
 their forecast at the proposed table ceiling below 5.5 GiB. New fixtures cover
 missing/changed prerequisites before claim and incomplete/underreserved memory
-measurements. Round 3 independent review and M4 runtime qualification are still
-required; none of these fixtures have been executed locally.
+measurements. None of these fixtures have been executed locally.
+
+The third independent review inspected `63b7d3e` against merged #196
+(`97d0cb9deb25e7937cf232f458dcea6fc71ff800`) and found **no blocking source
+findings**. It confirmed complete prerequisite membership/rehashing before the
+durable claim, all eight measured export/audit RSS requirements, the 2× memory
+forecast below 5.5 GiB, and the earlier comparator/stop/claim fixes. All prior
+source objections are closed. Review task:
+`node:delegated-task:command%3Amcp%3Acb89182f-41c8-40cb-998f-3f002cda0873%3Adelegate-task%3Apr197-tooling-review-round3`.
+
+This is **source closure only**. The reviewer ran no tests/builds, changed no
+files, used no M4 access and posted nothing to GitHub. Runtime qualification,
+the repository-artifact check and scientific equivalence remain pending until
+#188 is merged and worker-side closeout completes. The follow-up commit records
+this review in documentation only; it changes no reviewed tooling behavior.
