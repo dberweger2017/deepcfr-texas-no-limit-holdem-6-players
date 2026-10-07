@@ -99,6 +99,7 @@ def _model_info(policy):
 class PlayService:
     def __init__(self, db_path: Path, policy, *, source_version: str = "unknown"):
         self.policy = policy
+        self.db_path = db_path
         self.source_version = source_version
         self.lock = threading.RLock()
         db_path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -123,6 +124,9 @@ class PlayService:
             raise PlayError("Session model differs from the loaded policy", 409)
         return state
 
+    def _ack_matches(self, response):
+        return response["model"]["sha256"] == self.policy.spec.sha256
+
     def _mutate(self, key, fingerprint, session_id, operation):
         if not isinstance(key, str) or not 16 <= len(key) <= 128 or not key.isascii():
             raise PlayError("Invalid idempotency key")
@@ -133,7 +137,7 @@ class PlayService:
                 if prior is not None:
                     if prior[0] != fingerprint:
                         raise PlayError("Idempotency key conflicts with an earlier request", 409)
-                    if json.loads(prior[1])["model"]["sha256"] != self.policy.spec.sha256:
+                    if not self._ack_matches(json.loads(prior[1])):
                         raise PlayError("Acknowledgment belongs to another model", 409)
                     self.db.commit()
                     return json.loads(prior[1])

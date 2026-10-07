@@ -15,6 +15,8 @@ from src.policies.v040 import load_policy as load_b100m
 
 ASSETS = Path(__file__).resolve().parents[2] / "apps" / "poker-web"
 ASSET_TYPES = {"/": ("index.html", "text/html; charset=utf-8"),
+               "/playback.js": ("playback.js", "text/javascript; charset=utf-8"),
+               "/spectator.js": ("spectator.js", "text/javascript; charset=utf-8"),
                "/app.js": ("app.js", "text/javascript; charset=utf-8"),
                "/style.css": ("style.css", "text/css; charset=utf-8")}
 SESSION = re.compile(r"^/api/sessions/([A-Za-z0-9_-]{24})$")

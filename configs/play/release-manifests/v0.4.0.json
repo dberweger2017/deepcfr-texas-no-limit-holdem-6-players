@@ -1,0 +1,24 @@
+{
+  "artifact_kind": "inference-export-not-resumable-training-checkpoint",
+  "dependency": {
+    "pokers_git_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+    "python": "3.11"
+  },
+  "model": {
+    "bytes": 40144034,
+    "extraction": "current",
+    "file": "B100M-HU20-current-seed-2026093001.json.gz",
+    "format": "holdem-hu20-native-reopening-blueprint-v1",
+    "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+    "players": 2,
+    "raise_cap": null,
+    "schema": "hu20-native-reopening-ordered-history-card-v1",
+    "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
+  },
+  "release": "v0.4.0",
+  "source_commit": "a2053bbeea8a5e5170a1d83bf5d440684f82283d",
+  "source_record": "training/B-2026093001/current-100000000.json.gz",
+  "training_artifacts": "Full checkpoints and raw reports are separately retained on M4; see docs/reports/hu20-scaling-m4-recovery.md and its sealed manifest.",
+  "training_lineage": "fixed-first-seed-2026093001; 100000029 completed traversal nodes",
+  "validation_scope": "Hash and metadata pin; see release-readiness PR for candidate tests and real-model smoke. No strength qualification."
+}
