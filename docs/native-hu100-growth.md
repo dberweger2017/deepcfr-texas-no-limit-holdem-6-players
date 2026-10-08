@@ -23,3 +23,18 @@ Whole owned family **10 GiB**, original #197 **448.81-MiB swap baseline /+0.5 Gi
 Immutable source/binary/protocol hashes, permanent per-stage and per-operation intent claims, plus an exclusive phase lock prevent duplicate runs. Admission snapshots include refused state before child creation. One explicit continuation per stage may fill **only never-started operations** after admission refusal, retaining every failure and the same original clock/source/input/freeze hashes; no partial/passed operation may repeat. A hard guard, correctness failure or failed child is terminal. Never-started Stage 2 gets its own authorized clock only after Stage 1 integrity passes. Source and execution changes must pass independent review before scientific launch.
 
 Within each stage clock, seal raw evidence, inputs, source/environment/binary, failures and partials into member-hashed Research-Cloud ZIPs; read back every local member and archive hash. Preserve originals. Later cloud acceptance/report/review metadata may finish asynchronously without additional science or clock reset. Update RESULTS_INDEX with actual Drive IDs, hashes, manifests and restoration provenance; update roadmap as proposed work pending PR review, leaving PR unmerged.
+
+## Never-started Stage 2 setup correction
+
+Stage 1 completed at source `f5791b5`. The first Stage 2 setup stopped with
+`KeyError('entries')` while constructing model specs: native average headers do
+not contain a row count. No operation intent, pilot/config/freeze or hand was
+created. The independent-reviewed correction uses #197's indexed parent count
+and the terminal full-audit count, each bound to the already verified bytes.
+A narrowly admitted one-use continuation preserves the original failed state,
+log, start and deadline. It requires this exact error/source, empty operation
+history, no pilot/final/settings/frozen output, unchanged binary and an exclusive
+phase lock; it records the new reviewed source separately. No attempted child,
+scientific result, count or guard is retried or changed. This operational amendment
+exercises the owner's authorization to continue never-started stages within their
+original deadline; it adds no training or evaluation time.

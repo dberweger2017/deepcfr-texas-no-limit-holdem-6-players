@@ -86,3 +86,30 @@ def test_archive_excludes_live_supervisor_files(tmp_path, monkeypatch):
         assert not any('archive-guard' in p or p == 'research/state.json' for p in z.namelist())
         frozen = json.loads(z.read('research/science-closeout.json'))
         assert 'archive' not in frozen['operations']
+
+
+def test_model_specs_use_verified_counts_without_header_entries(tmp_path, monkeypatch):
+    import gzip
+    from src.policies.files import file_hash
+    monkeypatch.setattr(g, 'ROOT', tmp_path)
+    stage = tmp_path / 'results/stage1'; folder = stage / 'terminal'; folder.mkdir(parents=True)
+    (stage / 'state.json').write_text(json.dumps({'status': 'complete'}))
+    (stage / 'result.json').write_text(json.dumps({'terminal_folder': str(folder)}))
+    hashes = {}
+    for name, nodes in [('parent-average.gz', g.PARENT_NODES), ('terminal/average.gz', g.PARENT_NODES + 1)]:
+        p = stage / name
+        with gzip.open(p, 'wt') as f:
+            json.dump({'format': 'research', 'checkpoint_header': {'iteration': 8,
+                'native_state': {'completed_nodes': nodes}}, 'source_checkpoint_sha256': 'checkpoint'}, f)
+            f.write('\n')
+        hashes[str(p)] = {'bytes': p.stat().st_size, 'sha256': file_hash(p)}
+    average = folder / 'average.gz'
+    (folder / 'audit.json').write_text(json.dumps({'status': 'verified', 'entries': 7,
+        'files': {str(average): hashes[str(average)]}}))
+    parent = stage / 'parent-average.gz'
+    (stage / 'retrieval.json').write_text(json.dumps({'members': [{'local_path': str(parent), **hashes[str(parent)]}]}))
+    index = tmp_path / 'docs/reports/native-recovery-hu100-artifacts/followup-model-index.json'
+    index.parent.mkdir(parents=True); index.write_text(json.dumps({'models': [{'entries': 5}]}))
+    monkeypatch.setattr(g, 'telemetry', lambda _: {'completed_nodes': g.PARENT_NODES + 1, 'checkpoint_sha256': 'checkpoint'})
+    specs = g.models()
+    assert [s['entries'] for s in specs] == [5, 7]

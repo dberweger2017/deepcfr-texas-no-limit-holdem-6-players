@@ -92,13 +92,20 @@ class Campaign:
         self.state_path = self.out / 'state.json'
         if self.state_path.exists():
             self.state = read(self.state_path)
-            if not continuation or self.state['status'] != 'admission-refused' or self.state['pins'] != self.pins:
+            setup_only = (stage == 'stage2' and self.state['status'] == 'failed'
+                and self.state.get('error') == "KeyError('entries')" and not self.state['operations']
+                and self.state['pins']['source'] == 'f5791b56f445a6f6081884a4b1074fd626568133'
+                and self.state['pins']['binary_sha256'] == self.pins['binary_sha256']
+                and not any(p.name.startswith(('pilot', 'final', 'settings', 'frozen')) for p in self.out.iterdir()))
+            if not continuation or not (setup_only or self.state['status'] == 'admission-refused' and self.state['pins'] == self.pins):
                 raise ValueError('No retry or changed-source continuation')
             if time() >= self.state['deadline']:
                 raise ValueError('Original deadline expired')
             claim(self.out / 'continuation-claim.json', {'at': time(), 'pins': self.pins,
                    'original_state_sha256': file_hash(self.state_path), 'deadline': self.state['deadline']})
             claim(self.out / 'original-refusal-state.json', self.state)
+            if setup_only:
+                self.state.update(pins=self.pins, setup_only_amendment=True)
         else:
             if continuation:
                 raise ValueError('Continuation requires an existing refused stage')
@@ -316,12 +323,13 @@ def models():
             raise ValueError('Stage1 restored parent changed')
     paths = [s1 / 'parent-average.gz', folder / 'average.gz']
     specs = []
-    for path in paths:
+    entries = [read(ROOT / 'docs/reports/native-recovery-hu100-artifacts/followup-model-index.json')['models'][-1]['entries'], a['entries']]
+    for path, count in zip(paths, entries, strict=True):
         with gzip.open(path, 'rt') as f:
             h = json.loads(next(f))
         specs.append({'name': 'HU100-average-' + str(h['checkpoint_header']['native_state']['completed_nodes']),
             'path': str(path), 'bytes': path.stat().st_size, 'sha256': file_hash(path), 'format': h['format'],
-            'actual_nodes': h['checkpoint_header']['native_state']['completed_nodes'], 'entries': h['entries'],
+            'actual_nodes': h['checkpoint_header']['native_state']['completed_nodes'], 'entries': count,
             'iteration': h['checkpoint_header']['iteration'], 'source_checkpoint_sha256': h['source_checkpoint_sha256']})
     if specs[-1]['source_checkpoint_sha256'] != terminal['checkpoint_sha256']:
         raise ValueError('Average lineage differs')
