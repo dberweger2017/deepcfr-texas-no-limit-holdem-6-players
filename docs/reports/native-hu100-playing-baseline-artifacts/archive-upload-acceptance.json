@@ -1,0 +1,27 @@
+{
+  "status": "accepted",
+  "cloud_metadata": {
+    "id": "1QEHJJ_yPJbfHYkX1Taa3wM4RnblVPdK1",
+    "title": "native-hu100-playing-baseline-20261008.zip",
+    "mime_type": null,
+    "size": "574958858",
+    "url": "https://drive.google.com/file/d/1QEHJJ_yPJbfHYkX1Taa3wM4RnblVPdK1/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1QEHJJ_yPJbfHYkX1Taa3wM4RnblVPdK1/view?usp=drivesdk",
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "native_upload_receipt": "archive-native-upload.json",
+  "local_byte_and_member_receipt": "archive-local-receipt.json",
+  "remote_bytes_downloaded": false,
+  "recorded_at": "2026-10-08 09:30:03 UTC"
+}

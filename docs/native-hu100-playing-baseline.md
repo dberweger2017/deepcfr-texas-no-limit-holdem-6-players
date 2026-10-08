@@ -96,3 +96,13 @@ decision trace, including lookup classifications and probabilities; only measure
 latency is excluded from equality. Raw inputs, traces, failures, resource samples,
 manifests and restoration provenance go to the existing PR197 Research-Cloud folder.
 Obtain independent review and green final-head CI, then hand back **without merge**.
+
+## Completed bounded baseline
+
+The cost-only pilot quote retained the proposed 2,048 blocks/opponent; all 40,960
+final hands passed independent replay and full deterministic reproduction at
+source `009b5d92529792b0db32798407cf56c25416beb5`. No extra training or merge.
+[Results, diagnostics, resources and limits](reports/native-hu100-playing-baseline.md)
+and [restoration index](../RESULTS_INDEX.md) preserve the frozen inputs/counts and
+accepted archive. Poker losses or inconclusive comparisons do not change the
+engineering acceptance rule above.

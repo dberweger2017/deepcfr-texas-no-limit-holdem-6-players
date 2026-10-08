@@ -1,5 +1,75 @@
 # Research results index
 
+## PR197 separately authorized HU100 playing baseline — complete, October 8, 2026
+
+[PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),
+[protocol](docs/native-hu100-playing-baseline.md), [report](docs/reports/native-hu100-playing-baseline.md),
+[compact scientific receipts/diagnostics](docs/reports/native-hu100-playing-baseline-artifacts/scientific-summary.json).
+New evaluation source `009b5d92529792b0db32798407cf56c25416beb5`; free isolated M4
+root `~/Local/native-recovery-hu100-20261008/results/native-hu100-playing-baseline/`.
+**40,960 final hands /160,425 actions**, 2,048 duplicate blocks/opponent, paired
+seat rotations, average versus the same native-menu uniform reference. All final
+actions/settlements independently replayed; all hands/decisions fully reproduced.
+Pilot320 hands/root2026100819711 excluded from final inference; finalroot2026100819712.
+Cost-only frozen counts preceded outcomes; 142.59s science plus archive within the
+fresh 30-minute cap. Whole-family10GiB/pressure/originalswapbaseline+.5GiB/disk15.5/AC
+guards complete; no correctness/resource failure or retry. All four old timers
+disabled. No new training, checkpoint selection, cleanup, release or merge.
+Per-opponent BB/100 and block95% intervals, paired differences, street/opponent
+known-positive/zero/missing rates, actions and latency are in the report/CSV.
+Results are a development baseline only; no general-strength or release claim.
+Existing training/recovery/capacity evidence and archives below remain unchanged.
+
+[Existing Research-Cloud folder](https://drive.google.com/drive/folders/1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI),
+[baseline ZIP](https://drive.google.com/file/d/1QEHJJ_yPJbfHYkX1Taa3wM4RnblVPdK1/view)
+`native-hu100-playing-baseline-20261008.zip`: **574,958,858 bytes /227 members**,
+SHA256 `a2c6f3106bdff486ece8ed1cec53521c235fe3eaf0c9debbae8b901e5ea5421d`.
+Embedded `ARCHIVE-MANIFEST.json.gz`: decompressed JSON SHA256
+`3ae2ec4cd2d8b5b41fc3e1f81c5bc1df9d75840a916a243d06f2259e895aee61`,
+compressed member SHA256 `82d3870d094cbdec5341250d8c3ede6cefdb5115e20ef17a5868164dcc1f63ff`.
+All sizes/hashes read back locally; native uploaded1/uploading0/conflicts0 plus
+independent cloud ID/name/size/parent accepted. No remote-byte download.
+[Local receipt](docs/reports/native-hu100-playing-baseline-artifacts/archive-local-receipt.json),
+[native receipt](docs/reports/native-hu100-playing-baseline-artifacts/archive-native-upload.json),
+[cloud acceptance](docs/reports/native-hu100-playing-baseline-artifacts/archive-upload-acceptance.json).
+
+The exact audited average snapshot is
+`research/run-01/final/models/ffd53decdd4af5bffc0ae34e98144d43e27eef92a49033a7d4008615576a93be.json.gz`,
+**79,195,090 bytes**, SHA256
+`ffd53decdd4af5bffc0ae34e98144d43e27eef92a49033a7d4008615576a93be`.
+It is byte-identical to the original final average member indexed below; native
+`.json.gz` snapshot suffix does not change its streaming JSONL format. Training
+checkpoint/source/audit identity remains the [15-asset model index](docs/reports/native-recovery-hu100-artifacts/followup-model-index.json).
+Selected evaluation source tar: `research/exact-source/source-009b5d9.tar`,
+**5,242,880 bytes**, SHA256 `06590f243cb1df7726fabf3035fb1383b2615f46c963b2fb28538dd2e8bbd9ef`.
+Full source restores through Git commit `009b5d92529792b0db32798407cf56c25416beb5`;
+requirements and installed engine/environment fingerprints are pinned in each manifest.
+Per-opponent members: `research/run-01/final/{opponent}/` contains manifest,
+schedule, explicit private-action seeds, hands, decisions, timing and report;
+`research/run-01/final-audit.json` and `final-reproduction/` contain full independent
+replay and deterministic reproduction. Pilot/reproduction, qualified/reviewed
+source receipts, findings, claims, raw resource samples and source are retained.
+
+Download the indexed ZIP into a **fresh ignored directory**. Run
+`shasum -a 256 LOCAL_DOWNLOADED_HU100_BASELINE_ZIP` and require the whole hash above;
+extract with `python3 -m zipfile -e LOCAL_DOWNLOADED_HU100_BASELINE_ZIP
+results/retrieved/pr197/NEW_HU100_BASELINE_ROOT`. Run `shasum -a 256
+results/retrieved/pr197/NEW_HU100_BASELINE_ROOT/research/run-01/final/models/ffd53decdd4af5bffc0ae34e98144d43e27eef92a49033a7d4008615576a93be.json.gz`
+and require the model hash above. Check required member sizes/hashes against the
+embedded manifest before use. Configuration still names the original retained
+input path; any later explicitly authorized reproduction must place verified
+bytes in that path within a fresh ignored checkout, preserving active originals.
+These restoration commands do not authorize another execution or consume a retry.
+
+Prior post-integration closeout JSON also accepted after its original copy's
+premature missing-item-ID failure (no copy retry):
+[native-recovery-hu100-final-integration-20261008.json](https://drive.google.com/file/d/1Em7UXm-Y5ONd2561_sR6txeYCt8Cmdbw/view),
+**13,870 bytes**, SHA256 `e4a260ea3ab2205ad600314c8d170ef49bece1ceea1c79bd370bf05055c39974`,
+same cloud folder; native uploaded/no pending/no conflicts and independent cloud
+ID/size/parent accepted. It preserves original review11/green0efeaef CI/timers;
+[acceptance and retained failure](docs/reports/native-hu100-playing-baseline-artifacts/prior-integration-upload-acceptance.json).
+No prior archive was changed; all open PR roots and dependencies remain retained.
+
 ## PR197 follow-up — recovery verified / HU100 measured capacity stop, October 8, 2026
 
 [PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),

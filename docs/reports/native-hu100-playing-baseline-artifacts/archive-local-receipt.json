@@ -1,0 +1,19 @@
+{
+  "status": "local-verified",
+  "source": "009b5d92529792b0db32798407cf56c25416beb5",
+  "archive_name": "native-hu100-playing-baseline-20261008.zip",
+  "bytes": 574958858,
+  "sha256": "a2c6f3106bdff486ece8ed1cec53521c235fe3eaf0c9debbae8b901e5ea5421d",
+  "members_verified": 227,
+  "manifest_member": "ARCHIVE-MANIFEST.json.gz",
+  "manifest_sha256": "3ae2ec4cd2d8b5b41fc3e1f81c5bc1df9d75840a916a243d06f2259e895aee61",
+  "manifest_member_sha256": "82d3870d094cbdec5341250d8c3ede6cefdb5115e20ef17a5868164dcc1f63ff",
+  "folder_id": "1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI",
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "deadline": 1791453210.542615,
+  "at": 1791451653.919848,
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-hu100-playing-baseline-20261008.zip",
+  "native_copied_atomically": true,
+  "copied_at": 1791451654.468218
+}

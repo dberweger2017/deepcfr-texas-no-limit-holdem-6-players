@@ -11,6 +11,8 @@ no poker-strength, exploitability or convergence claim.
 · [scientific receipts and checkpoint/resource diagnostics](native-recovery-hu100-artifacts/followup-scientific-closeout.json)
 · [all 15 model/export member paths, sizes and hashes](native-recovery-hu100-artifacts/followup-model-index.json).
 
+The owner subsequently authorized a separate, bounded [HU100 playing baseline](native-hu100-playing-baseline.md) using the final audited average. That evaluation preserves the training/capacity results reported here and authorizes no additional training or merge.
+
 ## Separately authorized follow-up
 
 The [owner's October 8 comment](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197#issuecomment-6054725121)
