@@ -1,0 +1,77 @@
+{
+  "catalog": {
+    "default": "v0.4.2",
+    "models": [
+      {
+        "adapter": "direct-v1",
+        "benchmarkOnly": false,
+        "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+        "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+        "manifestSha256": "b53205ed70fdbf3172f7331c4a64f3122bf0f7e812b58ecc2722a2c82c97cc5c",
+        "manifestUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/download/v0.4.2/catalog-manifest.json",
+        "name": "v0.4.2 \u00b7 O10B \u00b7 seed 2026100601",
+        "schema": "hu20-native-reopening-ordered-history-card-v1",
+        "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+        "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "version": "v0.4.2"
+      },
+      {
+        "adapter": "direct-v1",
+        "benchmarkOnly": false,
+        "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+        "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+        "manifestSha256": "8d1a85bea7fd2bad3d4a8526ad95e858239fa162d14e19369a47c739097659f5",
+        "manifestUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/download/v0.4.1/release-manifest.json",
+        "name": "v0.4.1 \u00b7 O1B \u00b7 seed 2026100601",
+        "schema": "hu20-native-reopening-ordered-history-card-v1",
+        "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+        "strategy": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+        "version": "v0.4.1"
+      },
+      {
+        "adapter": "direct-v1",
+        "benchmarkOnly": false,
+        "format": "holdem-hu20-native-reopening-blueprint-v1",
+        "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+        "manifestSha256": "1383de5fe5f60ef829ad0410e75bd871a936e5297c8030f534f69eb69c2362af",
+        "manifestUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/download/v0.4.0/release-manifest.json",
+        "name": "v0.4.0 \u00b7 B100M \u00b7 seed 2026093001",
+        "schema": "hu20-native-reopening-ordered-history-card-v1",
+        "sha256": "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf",
+        "strategy": "current",
+        "version": "v0.4.0"
+      }
+    ],
+    "spectatorAvailable": true
+  },
+  "default_model_sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+  "human_counts": {
+    "actions": 37,
+    "exact_201_chip_human_raises": 1,
+    "free_hands": 2,
+    "hands": 4,
+    "human_big_blind": 2,
+    "human_button": 2,
+    "restricted_hands": 2,
+    "trained": 16
+  },
+  "human_positions_sha256": "80937db72a81db17ff1163621458a49e62bd6c2b4f24627b2f4bcaa439d95403",
+  "scope": "deterministic runtime smoke, no strength estimate",
+  "source": "snapshot:5d11bfe201a428056f8baf3c7f3a9742f8c9adcf3e8b8c51864e19570dd7f80f",
+  "spectator": {
+    "counts": {
+      "bot_0_decisions": 8,
+      "bot_1_decisions": 7,
+      "button_0_hands": 2,
+      "button_1_hands": 2,
+      "decisions": 15,
+      "hands": 4,
+      "trained": 15
+    },
+    "decisions": 15,
+    "hands": 4,
+    "sessions": 2,
+    "status": "verified"
+  },
+  "status": "verified"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "reviewed_release_head": "917ca7b5b647b9c5cd29c111d79ba70bd57c260d",
+  "runtime_files": 153,
+  "runtime_files_sha256": "478f5d52bdc2b33775f6e9a4b8ff964e54a0676564c682f6390fcfd2d0fb5019",
+  "source_snapshot_sha256": "5d11bfe201a428056f8baf3c7f3a9742f8c9adcf3e8b8c51864e19570dd7f80f",
+  "all_runtime_audit_and_identity_bytes_match_reviewed_head": true,
+  "retained_source_inventory": "M4 ~/Local/v042-release-20261008/source-files.json",
+  "scope": "Runtime modules, smoke and independent human auditor, all three pinned catalog manifests; later documentation changes do not alter tested runtime"
+}

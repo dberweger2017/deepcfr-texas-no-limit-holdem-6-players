@@ -1,0 +1,25 @@
+{
+  "status": "verified",
+  "exit_code": 0,
+  "failure": null,
+  "elapsed_seconds": 80.45129609107971,
+  "peak_rss_bytes": 2959736832,
+  "minimum_free_disk_bytes": 100125777920,
+  "rss_guard_bytes": 3221225472,
+  "disk_floor_bytes": 16106127360,
+  "time_cap_seconds": 600,
+  "source_snapshot_sha256": "5d11bfe201a428056f8baf3c7f3a9742f8c9adcf3e8b8c51864e19570dd7f80f",
+  "command": [
+    "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+    "-m",
+    "scripts.smoke_v042_release",
+    "--models-dir",
+    "/Users/dberweger/Local/v042-release-20261008/source/models",
+    "--out",
+    "/Users/dberweger/Local/v042-release-20261008/source/results/v042-release/smoke-01",
+    "--source-version",
+    "snapshot:5d11bfe201a428056f8baf3c7f3a9742f8c9adcf3e8b8c51864e19570dd7f80f"
+  ],
+  "machine": "M4",
+  "independent_of_M1_connection": true
+}

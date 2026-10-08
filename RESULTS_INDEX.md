@@ -1,5 +1,16 @@
 # Research results index
 
+## v0.4.2 owner-authorized release — October 8, 2026
+
+[Release PR #198](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/198), branch `feature/v042-release`; [readiness and publication sequence](docs/releases/v0.4.2/READINESS.md). The owner authorized the release PR, reviewed green-check merge, exact-source tag and stable Latest. No new research, retraining, extraction or selection. The historical #188 unpublished package below remains unchanged.
+
+Input retrieval on M4 uses the already-synced [canonical #188 ZIP](https://drive.google.com/file/d/1ismlfD-LKQfFqAAR3O5LN_6UVmebHChH/view), `~/Local/Research-Cloud/PR-188-HU20-O-10B-LBR/hu20-v042-lbr-complete-20261008.zip`. Whole SHA256 `7a36e20f5e4560ec98d14ecaa4a6bb1fe77a7ecf1a5aa710cd1e03e586b45a80`, embedded `ARCHIVE-MANIFEST.json` SHA256 `f5354027221c0750b086c3ff2553f6acdaded38b218a37963922f5e42544b702`. After confirming #188 merged, only the six `research/package/` members were copied into ignored nonsynced `~/Local/v042-release-20261008/source/results/v042-release/preparation/`, validating member sizes/SHA256 and the original standalone verifier against source `1d80bd02c2e8acf2dc99b75f6e0349bb55a941d8`. [Retrieval receipt](docs/releases/v0.4.2/verification/retrieval-receipt.json). Remote archive bytes were not downloaded; this is fresh local archive/member verification of the accepted canonical input.
+
+To reproduce retrieval on M4, verify the indexed ZIP and embedded manifest hashes, then run `unzip -n "$ARCHIVE" 'research/package/*' 'ARCHIVE-MANIFEST.json' -d results/retrieved/v042-release` in a fresh ignored directory and verify every selected member against that manifest. Run the extracted `verify_v042_bundle.py` with `--expect-source 1d80bd02c2e8acf2dc99b75f6e0349bb55a941d8`. Never use `research/package-attempt-01/`. Model member `research/package/O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz`, **249,237,403 bytes**, SHA256 `15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae`.
+
+The [M4 deterministic smoke](docs/releases/v0.4.2/verification/smoke-summary.json) and [resource/source receipts](docs/releases/v0.4.2/READINESS.md#verified-integration) pass. Release working files and runtime journals remain in the fresh M4 root above and ignored M1 `planning/v042-release/` / `results/v042-release/`. The final seven release assets are published at [v0.4.2](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.2) only after the documented gates; the publication manifest and terminal PR receipt record the actual tagged commit and verified download hashes. Existing v0.4.0/v0.4.1 release assets remain pinned and available. No evidence deletion, archive eviction, other PR root changes or post-publication cleanup is part of this task.
+
+
 ## PR196 — native HU100 engineering preparation, October 7, 2026
 
 [PR196](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/196),

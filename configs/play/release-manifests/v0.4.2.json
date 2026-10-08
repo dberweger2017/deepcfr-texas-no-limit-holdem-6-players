@@ -1,0 +1,24 @@
+{
+  "confirmation": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188",
+  "kind": "holdem-hu20-release-catalog-v1",
+  "model": {
+    "bytes": 249237403,
+    "checkpoint_sha256": "54553c008231126c94ec455e89dcbcdb162aa46736c1a40161cf0d63d666ab49",
+    "extraction": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "file": "O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+    "format": "holdem-hu20-stored-cfr-average-diagnostic-v1",
+    "game": "hu20-native-reopening-20bb-52card-no-ante-rake-v1",
+    "iteration": 19538759,
+    "players": 2,
+    "raise_cap": null,
+    "resumable": false,
+    "schema": "hu20-native-reopening-ordered-history-card-v1",
+    "seed": 2026100601,
+    "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+    "training_budget_nodes": 10000000000
+  },
+  "preparation_manifest_sha256": "e92a0c859b0f4db2a8306c58da354d4bf79e1ad95db567db7489b0277d6e33e8",
+  "preparation_source_commit": "1d80bd02c2e8acf2dc99b75f6e0349bb55a941d8",
+  "publication_manifest_file": "release-manifest.json",
+  "release": "v0.4.2"
+}

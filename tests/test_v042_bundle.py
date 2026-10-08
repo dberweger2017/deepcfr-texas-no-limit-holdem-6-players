@@ -1,4 +1,4 @@
-"""The prepared bundle rejects corruption, foreign identity and publication grants."""
+"""Publication preserves original provenance and rejects inconsistent approval bindings."""
 
 import gzip
 import json
@@ -58,7 +58,7 @@ def test_rehashed_manifest_cannot_change_identity_or_grant_publication(prepared,
     manifest[field] = value
     path.write_text(json.dumps(manifest))
     rehash(directory)
-    with pytest.raises(ValueError, match="Manifest|publication hold"):
+    with pytest.raises(ValueError, match="Manifest|publication hold|Publication source"):
         verifier.verify_bundle(directory)
 
 
@@ -92,3 +92,47 @@ def test_checksum_coverage_and_regular_members(prepared):
     notes.symlink_to(directory / "MODEL_CARD.md")
     with pytest.raises(ValueError, match="regular"):
         verifier.verify_bundle(directory)
+
+
+def test_publication_requires_explicit_approval_and_tagged_source(prepared, tmp_path):
+    source, preparation = prepared
+    with pytest.raises(ValueError, match="approval is required"):
+        verifier.verify_bundle(preparation, "a" * 40, require_publication=True)
+    with pytest.raises(ValueError, match="explicit boolean"):
+        builder.build(source, tmp_path / "invalid", "b" * 40, publication_approved=1)
+    publication = tmp_path / "publication"
+    builder.build(source, publication, "b" * 40, publication_approved=True)
+    result = verifier.verify_bundle(publication, "b" * 40, require_publication=True)
+    assert result["status"] == "owner-approved-publication"
+    manifest = json.loads((publication / "release-manifest.json").read_text())
+    assert manifest["preparation_source_commit"] == verifier.PREPARATION_SOURCE
+    assert manifest["preparation_provenance"] == verifier.PREPARATION_PROVENANCE
+    assert manifest["approved_release_source_commit"] == manifest["package_source_commit"] == "b" * 40
+    with pytest.raises(ValueError, match="Expected tagged source"):
+        verifier.verify_bundle(publication, require_publication=True)
+    with pytest.raises(ValueError, match="source commit differs"):
+        verifier.verify_bundle(publication, "c" * 40, require_publication=True)
+    for field, wrong in (("approved_release_source_commit", "c" * 40),
+                         ("release_tag", "v0.4.1"), ("owner_publication_approval", 1),
+                         ("preparation_source_commit", "d" * 40)):
+        path = publication / "release-manifest.json"
+        changed = dict(manifest, **{field: wrong})
+        path.write_text(json.dumps(changed))
+        rehash(publication)
+        with pytest.raises(ValueError):
+            verifier.verify_bundle(publication, "b" * 40, require_publication=True)
+
+
+def test_catalog_bytes_are_fixed_and_must_match_runtime_pin():
+    from src.play_api.versions import RELEASES
+    from src.policies import v042
+    from pathlib import Path
+    import hashlib
+
+    data = Path("configs/play/release-manifests/v0.4.2.json").read_bytes()
+    release = next(r for r in RELEASES if r.version == "v0.4.2")
+    assert data == verifier.catalog_bytes()
+    assert hashlib.sha256(data).hexdigest() == release.manifest_sha256
+    assert verifier.MODEL["sha256"] == v042.MODEL_SHA256
+    assert verifier.MODEL["bytes"] == v042.MODEL_BYTES
+    assert release.manifest_asset_name == "catalog-manifest.json"

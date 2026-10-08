@@ -11,7 +11,7 @@ The [research history](research-history.md) indexes completed experiments.
 - `src/blueprint/`: information keys, Python reference trainer, current/average
   policy readers, compact storage and turn/river search. `average.py` owns the
   stored-average reader and its validation; `compact_policy.py` owns storage.
-- `src/policies/`: released v0.4.0/v0.4.1 artifact pins, verification and loading.
+- `src/policies/`: released v0.4.0/v0.4.1/v0.4.2 artifact pins, verification and loading.
   Adding a model here or to the web catalog still requires release authorization.
 - `src/play_api/` and `apps/poker-web/`: durable local sessions, HTTP and the table.
   `versions.py` has the explicit release catalog. Defaults never silently fall

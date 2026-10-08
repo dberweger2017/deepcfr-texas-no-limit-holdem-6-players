@@ -193,7 +193,7 @@ def single_table(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     opponent = parser.add_mutually_exclusive_group()
-    opponent.add_argument("--models-dir", type=Path, help="Pinned release models; v0.4.1 is the default")
+    opponent.add_argument("--models-dir", type=Path, help="Pinned release models; v0.4.2 is the default")
     opponent.add_argument("--policy", type=Path)
     opponent.add_argument("--o-candidate", type=Path,
                           help="Single-model v0.4.1 O1B average (legacy option name)")
