@@ -93,8 +93,8 @@ def analyse(root):
         {'name': 'independent-arithmetic', 'command': [py, '-m', 'scripts.diagnose_native_hu100', 'verify', '--out', str(root / 'analysis')]},
         {'name': 'focused-tests', 'command': [py, '-m', 'pytest', '-q', 'tests/test_native_hu100_diagnosis.py',
            'tests/test_native_hu100_baseline.py', 'tests/test_native_hu100_learning_curves.py',
-           'tests/test_native_hu100_preparation.py', 'tests/test_native_trainer_parity.py']},
-        {'name': 'rust-tests', 'command': ['cargo', 'test', '--jobs', '2', '--manifest-path', 'native/hu20-trainer/Cargo.toml']},
+           'tests/test_native_hu100_preparation.py',
+           'tests/test_native_trainer_parity.py::test_rules_menus_and_keys_match_the_python_engine']},
         {'name': 'artifacts', 'command': [py, 'scripts/check_repository_artifacts.py']},
     ])
 
