@@ -1,8 +1,10 @@
 # Native recovery and HU100 table growth — preparation status
 
-**Tools coded; campaign not run.** Latest owner instruction permits lightweight
-local coding now. M4 remains reserved to #188; setup, tests and training wait
-for its merge and worker-side closeout. [Frozen campaign protocol](../native-recovery-hu100.md).
+**M4 released; qualification passed; science pending.** On October 8 the owner
+explicitly authorized M4 use before #188 merge, then extended the hard deadline
+to **12:00 Madrid /10:00 UTC**. Actual inspection found no competing heavy
+research worker, AC power and about 100 GiB free disk. Isolated M4 checkout and
+environment preserve other agents' source/dependencies. [Frozen campaign protocol](../native-recovery-hu100.md).
 [Evidence PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197)
 will receive qualification and measured evidence after admission.
 
@@ -28,9 +30,9 @@ will be labeled as such.
 | Work | Status |
 | --- | --- |
 | Isolated branch and scheduled wake | Prepared; no duplicate launch |
-| Tooling extensions | Coded locally; execution deferred |
+| Tooling extensions | Qualified on M4; owner-release/deadline amendment independently reviewed |
 | Independent correctness review | Round 3: no blocking source findings at `63b7d3e`; runtime qualification pending |
-| Build/test qualification | Not run locally; pending #188 merge and M4 admission |
+| Build/test qualification | M4 release build, 7 Rust tests, 81 Python fixtures and artifact check passed at `6431839` |
 | HU20 pinned 1B reference current/average audit | Not run |
 | Retained 500M →1B complete-state/probability equivalence | Not run |
 | HU100 100k/1M/5M/10M pilot and audit | Not run; blocked on HU20 correctness |
@@ -73,3 +75,16 @@ files, used no M4 access and posted nothing to GitHub. Runtime qualification,
 the repository-artifact check and scientific equivalence remain pending until
 #188 is merged and worker-side closeout completes. The follow-up commit records
 this review in documentation only; it changes no reviewed tooling behavior.
+
+The fourth independent source review found no blocking issues in `6431839`
+against `e10001d`, confirming the exact owner-release receipt and noon deadline
+while retaining idle/resource/identity/claim guards. M4 qualification finished
+with 81 Python fixtures and 7 Rust library tests passed, release build and
+repository-artifact check passed. Sampled aggregate peak **356,220,928 bytes**,
+zero swap growth; all guarded attempts complete. Binary SHA256
+`d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29`.
+The M1 system-Python artifact-check attempt failed because Python 3.9 lacks
+`zip(strict=True)`; the supported environment passed. No check was waived.
+Historical parent retrieval is running under the same hard limits; science
+awaits its verified whole-archive/member hashes. Admission timer disabled,
+30-minute compact execution timer active, deadline timer now 12:00 Madrid.

@@ -6,12 +6,13 @@
 Isolated branch `feature/native-recovery-hu100` at
 `~/Local/native-recovery-hu100-20261008`; ignored durable coordinator state at
 `results/native-recovery-hu100/campaign-state.json`. Thread-bound first wake
-October 8 **04:00 Madrid**; hard finish **10:00 Madrid**. Owner requires #188
-MERGED plus genuine M4 availability including worker-side closeout before
-setup/tests/training; latest owner steering permits lightweight local coding
-now. [PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197)
-contains prepared tooling and pending qualification/review. No campaign
-checkpoint, export or worker launch exists yet. M1 work stays lightweight.
+October 8 **04:00 Madrid**; amended hard finish **12:00 Madrid**. The owner
+explicitly released M4 before #188 merge on October 8; actual idle/resource
+checks remain required. Isolated M4 setup and externally guarded qualification
+are complete (81 Python fixtures, 7 Rust tests, release build, artifact check). [PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197)
+contains independently reviewed tooling and measured qualification. Historical
+parent retrieval is guarded on M4; no scientific checkpoint/export yet. M1 work
+stays lightweight. Source/binary/run details are in the report.
 
 Planned research destination: dedicated `PR-197-native-recovery-HU100/`
 under [Research-Cloud](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s).
