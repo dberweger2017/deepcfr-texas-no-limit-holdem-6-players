@@ -192,7 +192,7 @@ pub fn check_run(document: &Value) -> Result<(usize, usize), String> {
     let same = |a: &[f64], b: &[f64]| a.iter().zip(b).all(|(x, y)| x.to_bits() == y.to_bits());
     let mut differing = 0;
     for (key, theirs) in &expected {
-        match crate::cfr::Lookup::lookup(&trainer.table, key) {
+        match trainer.table.get(key) {
             None => return Err("a python key is missing natively".into()),
             Some(mine) => {
                 if mine.code != theirs.code || mine.visits != theirs.visits
