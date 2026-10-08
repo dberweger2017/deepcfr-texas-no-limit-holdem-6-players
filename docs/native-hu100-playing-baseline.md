@@ -49,6 +49,13 @@ Before final play, freeze a hashed quote/count receipt from measured model loads
 play, independent replay and full deterministic reproduction. Use a 2× measured
 cost allowance plus fixed closeout reserve; reduce counts if necessary before
 seeing final outcomes. No outcome-driven extension, retry or checkpoint selection.
+The quote reserves 180 seconds for closeout, doubles fixed model-loading/snapshot
+cost and measured play/replay/reproduction cost, and freezes a common count in
+multiples of 32 (at most 2,048). If fewer than 32 blocks/opponent fit, retain the
+pilot and report no final baseline. The source-qualified launcher uses one fresh
+exclusive root and the existing `hu20_scaling_supervise` guard; an uncertain or
+failed root cannot be relaunched. All heavy stages execute sequentially in the
+guard's owned session, with fresh headroom/swap/disk/AC/deadline admission.
 
 Free isolated M4 only, one evaluation worker at a time. A **fresh 1,800-second
 execution cap** starts before pilot model loading and includes pilot, final model

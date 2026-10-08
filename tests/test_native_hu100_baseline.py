@@ -22,6 +22,22 @@ from src.game.types import ActionKind
 from src.policies.files import file_hash
 
 
+def test_quote_is_outcome_blind_reduces_counts_and_reserves_full_reproduction():
+    from scripts.run_native_hu100_baseline import quote
+    pilot = {'panel_costs': [{'seconds': 10}] * 5, 'wall_seconds': 60,
+             'blocks_per_opponent': 16, 'bb_per_100': -99999}
+    reproduction = {'panel_costs': [{'seconds': 10}] * 5, 'wall_seconds': 60}
+    replay = {'seconds': 20, 'panels': {'payoff': -99999}}
+    count = quote(pilot, replay, reproduction, 1800)
+    assert count['blocks_per_opponent'] == 96
+    assert count['final_hands'] == 1920
+    assert count['predicted_seconds'] + count['closeout_reserve_seconds'] <= 1800
+    pilot['bb_per_100'] = 99999; replay['panels']['payoff'] = 99999
+    assert quote(pilot, replay, reproduction, 1800) == count
+    assert quote(pilot, replay, reproduction, 100)['blocks_per_opponent'] == 0
+    with pytest.raises(ValueError): quote(pilot, replay, reproduction, float('nan'))
+
+
 def model_fixture(tmp_path):
     table = Table(('player-0', 'player-1'), (10000, 10000))
     hand = Hand.start(table, hand_id='fixture', seed=3); view = hand.observe(hand.actor)
