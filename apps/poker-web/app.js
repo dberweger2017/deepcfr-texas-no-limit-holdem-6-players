@@ -411,7 +411,8 @@ $("export-benchmark").addEventListener("click", async () => {
     const report = await request(`/api/sessions/${state.sessionId}/benchmark/export`);
     const blob = new Blob([JSON.stringify(report, null, 2) + "\n"], { type: "application/json" });
     const url = URL.createObjectURL(blob);
-    const link = node("a"); link.href = url; link.download = `hu20-benchmark-${report.benchmarkId}.json`;
+    const stackBB = (report.table?.stack ?? 2000) / (report.table?.big_blind ?? 100);
+    const link = node("a"); link.href = url; link.download = `hu${stackBB}-benchmark-${report.benchmarkId}.json`;
     document.body.append(link); link.click(); link.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   } catch (error) { notice(error.message, true); }
