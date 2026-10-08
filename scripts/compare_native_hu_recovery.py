@@ -11,6 +11,11 @@ from pathlib import Path
 import struct
 import subprocess
 import sys
+import shutil
+from time import time
+from scripts.native_hu_followup_limits import envelope, memory_snapshot, unsafe_memory
+from scripts.train_hu20 import system
+from scripts.run_tp20_campaign import swap_bytes
 
 from scripts.audit_native_hu_checkpoint import inspect
 from scripts.prepare_native_hu_campaign import REFERENCE, SEED, file_hash
@@ -58,12 +63,14 @@ def receipt(path, checkpoint):
 
 def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
             reference_current, reference_average, resumed_current, resumed_average,
-            training_qualification=None, isolated_audits=False):
+            training_qualification=None, isolated_audits=False, audit_guard=None):
     reference_plan_path, resumed_plan_path = reference_telemetry.parent/'plan.json', resumed_telemetry.parent/'plan.json'
     plans = [json.loads(p.read_text()) for p in (reference_plan_path,resumed_plan_path)]
     baseline = plans[0].get('campaign_swap_baseline')
     if not baseline or plans[1].get('campaign_swap_baseline') != baseline:
         raise ValueError('Reference/recovery must share one campaign swap baseline')
+    if audit_guard is not None and audit_guard['swap_baseline']!=baseline:
+        raise ValueError('Audit guard must preserve retained campaign swap baseline')
     parent_hash = file_hash(parent)
     if parent_hash != PARENT_SHA:
         raise ValueError('Retained historical 500M parent differs')
@@ -138,8 +145,9 @@ def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
     # A fresh process releases each full audit's table/allocator before the next
     # audit. The parent retains only its compact receipt; checks are unchanged.
     auditor = isolated_inspect if isolated_audits else inspect
-    original_audit = auditor(reference, reference_current, reference_average, 20)
-    recovered_audit = auditor(resumed, resumed_current, resumed_average, 20, hu20_reference=False)
+    extra={'audit_guard':audit_guard} if isolated_audits else {}
+    original_audit = auditor(reference, reference_current, reference_average, 20, **extra)
+    recovered_audit = auditor(resumed, resumed_current, resumed_average, 20, hu20_reference=False, **extra)
     average_rows = 0
     with gzip_open(reference_average, 'rt') as left, gzip_open(resumed_average, 'rt') as right:
         lm, rm = json.loads(next(left)), json.loads(next(right))
@@ -177,13 +185,31 @@ def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
              *((training_qualification,) if training_qualification is not None else ()))}}
 
 
-def isolated_inspect(checkpoint, current, average, bb, *, hu20_reference=True):
+def admit_audit(guard, checkpoint):
+    if guard is None: raise ValueError('Isolated follow-up audit requires fresh guarded admission')
+    limits=envelope(guard['approval'])
+    if limits['rss_gib']!=10: raise ValueError('Owner follow-up audit approval required')
+    memory=memory_snapshot()
+    power=system(['pmset','-g','batt'])
+    swap=system(['sysctl','vm.swapusage'])
+    free=shutil.disk_usage(checkpoint.parent).free
+    if (time()>=guard['deadline'] or unsafe_memory(memory,admission=True,rss_gib=10)
+        or power is None or 'AC Power' not in power or swap is None
+        or swap_bytes(swap)-swap_bytes(guard['swap_baseline'])>.5*1024**3 or free<15.5*1024**3):
+        raise ValueError('Fresh isolated audit resource/headroom admission refused')
+    return {'at':time(),'system_memory':memory,'power':power,'swap':swap,'free_disk_bytes':free}
+
+
+def isolated_inspect(checkpoint, current, average, bb, *, hu20_reference=True, audit_guard=None):
     code = ('import json,sys; from pathlib import Path; '
             'from scripts.audit_native_hu_checkpoint import inspect; '
             'print(json.dumps(inspect(*(Path(p) for p in sys.argv[1:4]), '
             'int(sys.argv[4]), hu20_reference=sys.argv[5]=="true")))')
-    return json.loads(subprocess.check_output([sys.executable, '-c', code,
+    admission=admit_audit(audit_guard,checkpoint)
+    result=json.loads(subprocess.check_output([sys.executable, '-c', code,
         str(checkpoint),str(current),str(average),str(bb),str(hu20_reference).lower()],text=True))
+    result['fresh_admission']=admission
+    return result
 
 
 def main():
@@ -195,11 +221,18 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--training-qualification',type=Path)
     parser.add_argument('--isolated-audits',action='store_true')
+    parser.add_argument('--audit-approval',type=Path)
+    parser.add_argument('--audit-swap-baseline')
+    parser.add_argument('--audit-deadline',type=float)
     args = parser.parse_args()
     if args.out.exists():
         raise FileExistsError('Preserve prior audit evidence')
+    guard=None
+    if args.isolated_audits:
+        if not all((args.audit_approval,args.audit_swap_baseline,args.audit_deadline)): parser.error('Isolated audits require approval, baseline and deadline')
+        guard={'approval':args.audit_approval,'swap_baseline':args.audit_swap_baseline,'deadline':args.audit_deadline}
     result = compare(**{k: getattr(args, k) for k in fields},
-                     training_qualification=args.training_qualification,isolated_audits=args.isolated_audits)
+                     training_qualification=args.training_qualification,isolated_audits=args.isolated_audits,audit_guard=guard)
     with args.out.open('x') as target:
         json.dump(result, target, sort_keys=True, indent=2, allow_nan=False); target.write('\n')
 

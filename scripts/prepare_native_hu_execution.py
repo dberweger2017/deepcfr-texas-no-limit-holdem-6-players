@@ -166,10 +166,20 @@ def prepare_reference(out,binary,qualification_path,swap_baseline,deadline):
 def prepare_pilot(out,binary,qualification_path,equivalence_path,swap_baseline,deadline,approval=None):
     out,binary = out.resolve(),binary.resolve()
     source,q = qualification(qualification_path,binary)
-    checked_equivalence(equivalence_path,source,binary,swap_baseline)
+    equivalence=checked_equivalence(equivalence_path,source,binary,swap_baseline)
+    reserve=None
+    if approval is not None:
+        from scripts.prepare_native_hu_followup import pilot_save_reserve
+        reserve=pilot_save_reserve(equivalence)
     plan = prepare('pilot',out,binary,swap_baseline=swap_baseline,deadline=deadline)
     limits=bind_followup(plan,approval)
-    if approval is not None: plan['limits']['rss_gib']=limits['rss_gib']
+    if approval is not None:
+        plan['limits'].update(rss_gib=limits['rss_gib'],max_entries=reserve['max_entries'])
+        command=plan['command'];command[command.index('--max-entries')+1]=str(reserve['max_entries'])
+        command[command.index('--max-seconds')+1]=str(900-reserve['save_reserve_seconds'])
+        command+=['--stop-file',str(out/'controlled-stop.json')]
+        (out/'training-jobs.json').write_text(json.dumps([{'name':'train','command':command}],indent=2)+'\n')
+        plan.update(pilot_serialization_reserve=reserve,retained_inputs=reserve['files'])
     plan.update(qualification=q,qualification_path=str(qualification_path.resolve()),
         qualification_sha256=file_hash(qualification_path),equivalence_path=str(equivalence_path.resolve()),
         equivalence_sha256=file_hash(equivalence_path),hard_deadline=deadline)
@@ -188,12 +198,19 @@ def prepare_pilot(out,binary,qualification_path,equivalence_path,swap_baseline,d
     training_jobs=json.loads((out/'training-jobs.json').read_text())
     plan['phase_jobs']={'training':{'sha256':digest(training_jobs),'seconds':900,'extra_guard_arguments':[]},
                         'export-audit':{'sha256':digest(jobs),'seconds':900,'extra_guard_arguments':[]}}
+    if reserve is not None:
+        extra=['--stop-file',str(out/'controlled-stop.json'),'--soft-rss-gib',
+               str(10-reserve['serialization_rss_bytes']/1024**3-.5),
+               '--save-reserve-seconds',str(reserve['save_reserve_seconds'])]
+        plan['phase_jobs']['training']['extra_guard_arguments']=extra
     plan.pop('plan_sha256'); plan['plan_sha256']=digest(plan)
     (out/'plan.json').write_text(json.dumps(plan,sort_keys=True,indent=2)+'\n')
     (out/'export-audit-jobs.json').write_text(json.dumps(jobs,indent=2)+'\n')
     commands=(out/'commands.txt').read_text()
     if approval is not None:
         commands=commands.replace('--rss-gib 5.5','--rss-gib 10').replace('--require-ac','--require-ac --system-memory-guard')
+        commands=commands.replace('--out '+str(out/'training-guard'),
+                                  '--out '+str(out/'training-guard')+' '+shlex.join(extra))
     commands=commands.replace('set -eu\n','set -eu\n'+shlex.join([sys.executable,'-m','scripts.verify_native_hu_launch','--plan',str(out/'plan.json')])+'\n',1)
     (out/'commands.txt').write_text(commands)
     return plan
@@ -294,6 +311,12 @@ def validate_capacity(c,pilot_root,training_deadline):
     # remain authoritative. Positive values alone cannot satisfy reserve admission.
     n=c['forecast_entry_ceiling']; growth=max(1,n/max(r['diagnostics']['entries'] for r in rows))
     minimum_write=max(r['write_seconds'] for r in rows)*growth*2
+    minimum_serialization=32*n+64*1024**2
+    if limits['system_memory_guard']:
+        native_samples=[json.loads(x) for x in (pilot_root/'training-guard/resources.jsonl').read_text().splitlines()]
+        largest_row=max(rows,key=lambda r:r['diagnostics']['entries'])
+        measured_extra=max(0,max(s['aggregate_job_rss_bytes'] for s in native_samples)-largest_row['process_rss_bytes_after_save'])
+        minimum_serialization=max(minimum_serialization,measured_extra*growth*2)
     maximum_bytes_per_key=max(r['checkpoint_bytes']/max(1,r['diagnostics']['entries']) for r in rows)
     max_cp=maximum_bytes_per_key*n*2
     minimum_disk=max_cp*(10+1+10+2)  # ten retained growth saves, atomic temp, archive duplicate, export pair
@@ -302,7 +325,7 @@ def validate_capacity(c,pilot_root,training_deadline):
         ('save_reserve_seconds','export_audit_reserve_seconds','archive_reserve_seconds',
          'serialization_rss_bytes','export_audit_rss_bytes','disk_reserve_bytes'))
         or c['save_reserve_seconds'] < minimum_write
-        or c['serialization_rss_bytes'] < 32*n+64*1024**2
+        or c['serialization_rss_bytes'] < minimum_serialization
         or c['serialization_rss_bytes'] >= limits['serialization_gib']*1024**3
         or c['disk_reserve_bytes'] < minimum_disk+c['retained_non_growth_bytes']
         or c['archive_reserve_seconds'] < minimum_write*11

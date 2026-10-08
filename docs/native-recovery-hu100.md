@@ -16,6 +16,14 @@ During training request a controlled save when system free percentage reaches 25
 Growth RSS soft stop is `10 GiB - measured serialization forecast - 0.5 GiB`;
 measured pilot write/export/audit/disk/time forecasts and 2× export/audit RSS remain
 required. All pilot audits gate growth, using the new pressure/resource envelope.
+The one-verification flag is checked again under the durable launch lock; both
+retained training plans and durable follow-up state bind the unchanged swap
+baseline. Each isolated audit performs fresh fail-closed pressure/headroom, AC,
+swap, disk and deadline admission immediately before spawning. The fresh pilot
+uses a 10-million-entry capacity ceiling with a measured serialization/save-time
+reserve extrapolated from the retained HU20 native saves, then growth replaces
+that forecast with its own complete pilot measurements.
+
 Use a separate `followup-state.json`, permanent one-verification claim, fresh
 attempt directories and unchanged retained-file hashes/provenance. At most one
 30-minute execution timer and one hard-deadline wake; both disabled on terminal

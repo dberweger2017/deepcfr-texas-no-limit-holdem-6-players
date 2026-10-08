@@ -73,6 +73,9 @@ def verify(plan_path):
         path=Path(name)
         if path.stat().st_size!=spec['bytes'] or file_hash(path)!=spec['sha256']:
             raise ValueError('Retained verification input changed')
+    if p['stage']=='verification':
+        from scripts.prepare_native_hu_followup import original_baseline
+        original_baseline([Path(n) for n in p['retained_inputs'] if n.endswith('/plan.json')],p['campaign_swap_baseline'])
     if 'equivalence_path' in p:
         checked_equivalence(Path(p['equivalence_path']),source,binary,p['campaign_swap_baseline'])
     if 'parent_path' in p and file_hash(Path(p['parent_path'])) != p['parent_sha256']:
@@ -102,6 +105,8 @@ def verify(plan_path):
     # claim to reconcile, never a reason to launch again into a different root.
     state_path=Path(admission['campaign_state_path'])
     state=json.loads(state_path.read_text())
+    if p.get('followup_approval_path') and state.get('swap_baseline') != p['campaign_swap_baseline']:
+        raise ValueError('Follow-up must preserve durable original campaign swap baseline')
     if p['stage']=='verification' and (not p.get('followup_approval_path') or state.get('verification_attempt_claimed')):
         raise ValueError('One approved retained verification attempt only; no second retry')
     if state.get('active_attempt') is not None:
@@ -112,6 +117,10 @@ def verify(plan_path):
     with lock.open('x') as f: json.dump(claim,f); f.write('\n'); f.flush(); os.fsync(f.fileno())
     # Re-read after lock acquisition to close two concurrent preparers' race.
     state=json.loads(state_path.read_text())
+    if p.get('followup_approval_path') and state.get('swap_baseline') != p['campaign_swap_baseline']:
+        raise ValueError('Campaign baseline changed before claim; retain lock evidence')
+    if p['stage']=='verification' and state.get('verification_attempt_claimed'):
+        raise ValueError('One approved verification already claimed; retain lock evidence')
     if state.get('active_attempt') is not None:
         raise ValueError('Campaign became active before claim; retain lock evidence')
     with (root/'LAUNCH.json').open('x') as f: json.dump(claim,f); f.write('\n'); f.flush(); os.fsync(f.fileno())
