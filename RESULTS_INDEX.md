@@ -1,35 +1,50 @@
 # Research results index
 
-## PR197 — native recovery / HU100 growth preparation, October 7, 2026
+## PR197 — native recovery / HU100 resource stop, October 8, 2026
 
-[Protocol](docs/native-recovery-hu100.md), [status and ETA](docs/reports/native-recovery-hu100.md).
-Isolated branch `feature/native-recovery-hu100` at
-`~/Local/native-recovery-hu100-20261008`; ignored durable coordinator state at
-`results/native-recovery-hu100/campaign-state.json`. Thread-bound first wake
-October 8 **04:00 Madrid**; amended hard finish **12:00 Madrid**. The owner
-explicitly released M4 before #188 merge on October 8; actual idle/resource
-checks remain required. Isolated M4 setup and externally guarded qualification
-are complete (81 Python fixtures, 7 Rust tests, release build, artifact check). [PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197)
-contains independently reviewed tooling and measured qualification. Historical
-parent retrieval is verified on M4; HU20 reference training started at 07:57:12 Madrid. Scientific audits are pending. M1 work
-stays lightweight. Source/binary/run details are in the report.
+[PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),
+[protocol](docs/native-recovery-hu100.md), [result](docs/reports/native-recovery-hu100.md).
+Scientific source `64318398fea423a9c43c0db8635a3724e05bd55f`; isolated M4 checkout
+`~/Local/native-recovery-hu100-20261008`, ignored campaign root
+`results/native-recovery-hu100/`. Qualified build/7 Rust tests/81 Python fixtures/
+artifact guard. **Reference 1B current/average fully verified and pinned; recovery
+saved/exported to same endpoint, equivalence interrupted by RSS guard; HU100 NOT RUN.**
+Comparator detected 5.555-GiB aggregate RSS; no retry/raised limit. All failures and
+completed but unaudited files retained. No equivalence or HU100 growth claim.
 
-Planned research destination: dedicated `PR-197-native-recovery-HU100/`
-under [Research-Cloud](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s).
-This is not an archive/upload claim. Retained historical HU20 500M input is
-retrievable from #182's indexed ZIP, member
-`research/inputs/O-2026100601-500000000.json.gz`, SHA256
-`a5318cd586c0b170a68334e4236111faddabaf7f686c071958757db888afab47`.
-#182 owning PR checked MERGED before retrieval. Verified input now resides on M4
-at `results/native-recovery-hu100/inputs/historical-500M.json.gz` (171,794,336 bytes).
-Drive archive ID `1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi`, ZIP SHA256
-`1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f`, manifest
-SHA256 `356afb24d65857560e88da09d9ba9b8cc08eee0fbf36c7830f5ec72ab77e2db1`.
-Retrieval command in the isolated M4 checkout:
-`.venv/bin/python results/native-recovery-hu100/retrieve-parent.py`; receipt
-`results/native-recovery-hu100/inputs/retrieval.json`. Whole ZIP and member hashes
-verified before accepting this fresh input. Preserve other PR roots/dependencies and all
-research failures/partials; no model binaries in Git and no cleanup in this task.
+[PR197 Research-Cloud folder](https://drive.google.com/drive/folders/1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI),
+[science ZIP](https://drive.google.com/file/d/1hNbCAU71BcYFxVBx2OSmqYtp0sXfhmcS/view)
+`native-recovery-hu100-resource-stop-20261008.zip`: **1,380,462,715 bytes /108 members**,
+SHA256 `4b4cc0e890756ee076a31737a3f5abc8af63d0f2a9065f28c3dc83baad38f88f`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`b5e506be66fb68700be6332155bc726835e2dc42e19fa4b746165477327aa3d5`.
+Every member size/hash verified locally. Native uploaded=1/uploading=0/no conflicts;
+independent cloud ID/name/size/parent confirms acceptance. No remote-byte download.
+[Receipt](docs/reports/native-recovery-hu100-artifacts/archive-receipt.json).
+Exact source tar `research/worker-source.tar`, binary `worker/hu20-trainer`;
+all plans/qualifications/logs/resources/failures/retrieval input retained.
+
+Restore into a fresh ignored directory after downloading the indexed ZIP and
+verifying its whole hash: `python3 -m zipfile -e LOCAL_DOWNLOADED_ZIP
+results/retrieved/pr197/NEW_ROOT`; check every embedded member size/SHA256 before
+use. Required models are `research/reference-02/training/HU20-2026100601-{nodes}.json.gz`
+(nodes 100000000, 500000000, 1000000000) and
+`research/recovery-02/training/HU20-2026100601-1000000000.json.gz`;
+exact sizes/hashes/status in [milestone summary](docs/reports/native-recovery-hu100-artifacts/milestone-summary.json).
+Exports: `research/{reference-02,recovery-02}/{current.json.gz,average.jsonl.gz}`;
+all byte/hash pairs in the embedded manifest. Only reference 1B has full export audit.
+
+Historical input `research/inputs/historical-500M.json.gz`: **171,794,336 bytes**,
+SHA256 `a5318cd586c0b170a68334e4236111faddabaf7f686c071958757db888afab47`.
+Original retrieval checked #182 MERGED, verified Drive archive ID
+`1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi` whole SHA256
+`1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f`,
+manifest `356afb24d65857560e88da09d9ba9b8cc08eee0fbf36c7830f5ec72ab77e2db1`,
+member `research/inputs/O-2026100601-500000000.json.gz`.
+Command: `.venv/bin/python results/native-recovery-hu100/retrieve-parent.py` on M4;
+receipt now archived at `research/inputs/retrieval.json`. No cleaned #182 original
+or active other-agent dependency was changed. Closeout supplement/final review
+pending; all open PR197 originals retained, no cleanup authorization applied.
 
 ## PR196 — native HU100 engineering preparation, October 7, 2026
 

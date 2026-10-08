@@ -1,0 +1,435 @@
+{
+  "campaign": "native-recovery-hu100-20261008",
+  "source": "64318398fea423a9c43c0db8635a3724e05bd55f",
+  "status": "terminal-resource-ceiling",
+  "observed_at": 1791440734.260886,
+  "stop_reason": "Recovery comparator terminated by aggregate RSS guard; no retry",
+  "hu20_reference_audit": {
+    "audit": {
+      "all_nodes_verified": 4319080,
+      "average_sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+      "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+      "counts": {
+        "entries": 4319080,
+        "positive_mass": 2929370,
+        "zero_mass": 1389710
+      },
+      "current_sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740",
+      "maximum_tv": 1.0000000000000002,
+      "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+      "status": "verified",
+      "unweighted_mean_current_average_tv": 0.29844938407433524
+    },
+    "entries": 4319080,
+    "files": {
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/reference-02/average.jsonl.gz": {
+        "bytes": 142677367,
+        "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/reference-02/current.json.gz": {
+        "bytes": 108469702,
+        "sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/reference-02/training/HU20-2026100601-1000000000.json.gz": {
+        "bytes": 214220678,
+        "sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825"
+      }
+    },
+    "hu20_reference_checked": true,
+    "iteration": 2126271,
+    "mean_traverser_visits_per_key": 45.235452688998585,
+    "native_state": null,
+    "positive_average_mass_keys": 2929370,
+    "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+    "stack_bb": 20,
+    "status": "verified",
+    "visits_histogram": {
+      "0": 968142,
+      "1": 946004,
+      "10-99": 878136,
+      "100+": 272049,
+      "2-9": 1254749
+    },
+    "zero_average_mass_keys": 1389710
+  },
+  "recovery_equivalence": "UNVERIFIED: comparator terminated before receipt",
+  "hu100": "NOT RUN: prerequisite blocked",
+  "phases": [
+    {
+      "root": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/qualification/guard",
+      "status": "complete",
+      "failure": null,
+      "attempts": [
+        {
+          "name": "release-build",
+          "status": "complete",
+          "started": 1791436970.182034,
+          "finished": 1791436988.4567099,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 356220928
+        },
+        {
+          "name": "rust-library",
+          "status": "complete",
+          "started": 1791436988.457047,
+          "finished": 1791436998.6012428,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 281313280
+        },
+        {
+          "name": "python-fixtures",
+          "status": "complete",
+          "started": 1791436998.601574,
+          "finished": 1791437016.8775501,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 167641088
+        },
+        {
+          "name": "repository-artifacts",
+          "status": "complete",
+          "started": 1791437016.8791099,
+          "finished": 1791437017.9597561,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 39567360
+        }
+      ]
+    },
+    {
+      "root": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/retrieval-guard",
+      "status": "complete",
+      "failure": null,
+      "attempts": [
+        {
+          "name": "retrieve-historical-parent",
+          "status": "complete",
+          "started": 1791437124.0479941,
+          "finished": 1791437551.892355,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 51593216
+        }
+      ]
+    },
+    {
+      "root": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/reference-02/training-guard",
+      "status": "complete",
+      "failure": null,
+      "attempts": [
+        {
+          "name": "train",
+          "status": "complete",
+          "started": 1791439032.416817,
+          "finished": 1791439424.968426,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 1674231808
+        }
+      ]
+    },
+    {
+      "root": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/reference-02/export-audit-guard",
+      "status": "complete",
+      "failure": null,
+      "attempts": [
+        {
+          "name": "export",
+          "status": "complete",
+          "started": 1791439425.2343721,
+          "finished": 1791439445.523315,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 4768251904
+        },
+        {
+          "name": "audit",
+          "status": "complete",
+          "started": 1791439445.5250502,
+          "finished": 1791439501.381581,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 5499338752
+        }
+      ]
+    },
+    {
+      "root": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/recovery-02/training-guard",
+      "status": "complete",
+      "failure": null,
+      "attempts": [
+        {
+          "name": "train",
+          "status": "complete",
+          "started": 1791439502.797834,
+          "finished": 1791439705.6646662,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 1606189056
+        }
+      ]
+    },
+    {
+      "root": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/recovery-02/export-audit-guard",
+      "status": "incomplete",
+      "failure": null,
+      "attempts": [
+        {
+          "name": "export",
+          "status": "complete",
+          "started": 1791439705.900234,
+          "finished": 1791439726.1952121,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 4856594432
+        },
+        {
+          "name": "compare",
+          "status": "failed",
+          "started": 1791439726.196623,
+          "finished": 1791439802.382831,
+          "exit_code": -15,
+          "guard_failure": "Aggregate job RSS guard",
+          "peak_aggregate_job_rss_bytes": 5964972032
+        }
+      ]
+    }
+  ],
+  "checkpoints": {
+    "reference-02": [
+      {
+        "audit_status": "unaudited",
+        "binary_sha256": "d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29",
+        "checkpoint_bytes": 98549345,
+        "checkpoint_sha256": "115fba4b7eb3d4a026d0283a3b1fef6c5aa9bdf7c3a704d65025d4713f89954e",
+        "completed_nodes": 100000464,
+        "diagnostics": {
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            3499008,
+            8492567,
+            17126954,
+            28150104
+          ],
+          "entries": 2173888,
+          "positive_average_mass_keys": 1514879,
+          "traverser_visits": 20152776,
+          "traverser_visits_by_street": [
+            1181214,
+            2831278,
+            5988168,
+            10152116
+          ],
+          "visits_histogram": {
+            "0": 682068,
+            "1": 584416,
+            "10-99": 272790,
+            "100+": 32375,
+            "2-9": 602239
+          },
+          "zero_average_mass_keys": 659009
+        },
+        "elapsed_seconds_including_writes": 40.397974,
+        "entries_per_completed_node": 0.021738779132064828,
+        "iteration": 247261,
+        "new_entries": 2173888,
+        "nodes_per_second_including_writes": 2475383.1466894853,
+        "nodes_since_previous_save": 100000464,
+        "overshoot_nodes": 464,
+        "path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/reference-02/training/HU20-2026100601-100000000.json.gz",
+        "process_rss_bytes_after_save": 904380416,
+        "recent_nodes_per_second_including_writes": 2475383.1466894853,
+        "requested_nodes": 100000000,
+        "status": "saved",
+        "stop_requested": false,
+        "version": 1,
+        "write_finished": 1791439072.827937,
+        "write_seconds": 6.800604625,
+        "write_started": 1791439066.027365
+      },
+      {
+        "audit_status": "unaudited",
+        "binary_sha256": "d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29",
+        "checkpoint_bytes": 171794336,
+        "checkpoint_sha256": "a5318cd586c0b170a68334e4236111faddabaf7f686c071958757db888afab47",
+        "completed_nodes": 500000417,
+        "diagnostics": {
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            14473514,
+            38558001,
+            85943486,
+            149740130
+          ],
+          "entries": 3543310,
+          "positive_average_mass_keys": 2427002,
+          "traverser_visits": 98373121,
+          "traverser_visits_by_street": [
+            4727966,
+            12297338,
+            28706831,
+            52640986
+          ],
+          "visits_histogram": {
+            "0": 871576,
+            "1": 827818,
+            "10-99": 650366,
+            "100+": 159249,
+            "2-9": 1034301
+          },
+          "zero_average_mass_keys": 1116308
+        },
+        "elapsed_seconds_including_writes": 193.954822209,
+        "entries_per_completed_node": 0.007086614089763849,
+        "iteration": 1095942,
+        "new_entries": 1369422,
+        "nodes_per_second_including_writes": 2577922.0712605654,
+        "nodes_since_previous_save": 399999953,
+        "overshoot_nodes": 417,
+        "path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/reference-02/training/HU20-2026100601-500000000.json.gz",
+        "process_rss_bytes_after_save": 902643712,
+        "recent_nodes_per_second_including_writes": 2604898.1707124924,
+        "requested_nodes": 500000000,
+        "status": "saved",
+        "stop_requested": false,
+        "version": 1,
+        "write_finished": 1791439226.384058,
+        "write_seconds": 11.827102125,
+        "write_started": 1791439214.557012
+      },
+      {
+        "audit_status": "unaudited",
+        "binary_sha256": "d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29",
+        "checkpoint_bytes": 214220678,
+        "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+        "completed_nodes": 1000000110,
+        "diagnostics": {
+          "coverage_start": [
+            0,
+            0,
+            0
+          ],
+          "decisions_by_street": [
+            27597027,
+            75136576,
+            172201569,
+            304352955
+          ],
+          "entries": 4319080,
+          "positive_average_mass_keys": 2929370,
+          "traverser_visits": 195375539,
+          "traverser_visits_by_street": [
+            8930105,
+            23656523,
+            56538594,
+            106250317
+          ],
+          "visits_histogram": {
+            "0": 968142,
+            "1": 946004,
+            "10-99": 878136,
+            "100+": 272049,
+            "2-9": 1254749
+          },
+          "zero_average_mass_keys": 1389710
+        },
+        "elapsed_seconds_including_writes": 391.561663417,
+        "entries_per_completed_node": 0.004319079524901253,
+        "iteration": 2126271,
+        "new_entries": 775770,
+        "nodes_per_second_including_writes": 2553876.447641488,
+        "nodes_since_previous_save": 499999693,
+        "overshoot_nodes": 110,
+        "path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/reference-02/training/HU20-2026100601-1000000000.json.gz",
+        "process_rss_bytes_after_save": 1280933888,
+        "recent_nodes_per_second_including_writes": 2530275.216907611,
+        "requested_nodes": 1000000000,
+        "status": "saved",
+        "stop_requested": false,
+        "version": 1,
+        "write_finished": 1791439423.989964,
+        "write_seconds": 14.645419,
+        "write_started": 1791439409.344614
+      }
+    ],
+    "recovery-02": [
+      {
+        "audit_status": "unaudited",
+        "binary_sha256": "d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29",
+        "checkpoint_bytes": 214221240,
+        "checkpoint_sha256": "3f0a9ea3d34a04e3a12f74b0ec6c9a8b01d39a38ffd75387e7670a93520cc90a",
+        "completed_nodes": 1000000110,
+        "diagnostics": {
+          "coverage_start": [
+            1095942,
+            500000417,
+            98373121
+          ],
+          "decisions_by_street": [
+            13123513,
+            36578575,
+            86258083,
+            154612825
+          ],
+          "entries": 4319080,
+          "positive_average_mass_keys": 2929370,
+          "traverser_visits": 195375539,
+          "traverser_visits_by_street": [
+            4202139,
+            11359185,
+            27831763,
+            53609331
+          ],
+          "visits_histogram": {
+            "0": 968142,
+            "1": 946004,
+            "10-99": 878136,
+            "100+": 272049,
+            "2-9": 1254749
+          },
+          "zero_average_mass_keys": 1389710
+        },
+        "elapsed_seconds_including_writes": 198.423313084,
+        "entries_per_completed_node": 0.004319079524901253,
+        "iteration": 2126271,
+        "new_entries": 775770,
+        "nodes_per_second_including_writes": 2519863.6451974344,
+        "nodes_since_previous_save": 499999693,
+        "overshoot_nodes": 110,
+        "path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/recovery-02/training/HU20-2026100601-1000000000.json.gz",
+        "process_rss_bytes_after_save": 1218953216,
+        "recent_nodes_per_second_including_writes": 2519863.6451974344,
+        "requested_nodes": 1000000000,
+        "status": "saved",
+        "stop_requested": false,
+        "version": 1,
+        "write_finished": 1791439704.788826,
+        "write_seconds": 14.78921825,
+        "write_started": 1791439689.999678
+      }
+    ]
+  },
+  "resources": {
+    "samples": 248,
+    "peak_aggregate_rss_bytes": 5964972032,
+    "max_swap_growth_bytes": 0.0,
+    "min_free_disk_bytes": 103642181632,
+    "all_samples_ac": true,
+    "rss_limit_bytes": 5905580032.0,
+    "rss_overshoot_detected": true,
+    "sampling_interval_seconds": 5
+  },
+  "partials": [],
+  "no_equivalence_receipt": true,
+  "no_pilot_root": true
+}
