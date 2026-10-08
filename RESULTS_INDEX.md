@@ -11,7 +11,7 @@ explicitly released M4 before #188 merge on October 8; actual idle/resource
 checks remain required. Isolated M4 setup and externally guarded qualification
 are complete (81 Python fixtures, 7 Rust tests, release build, artifact check). [PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197)
 contains independently reviewed tooling and measured qualification. Historical
-parent retrieval is guarded on M4; no scientific checkpoint/export yet. M1 work
+parent retrieval is verified on M4; HU20 reference training started at 07:57:12 Madrid. Scientific audits are pending. M1 work
 stays lightweight. Source/binary/run details are in the report.
 
 Planned research destination: dedicated `PR-197-native-recovery-HU100/`
@@ -20,8 +20,15 @@ This is not an archive/upload claim. Retained historical HU20 500M input is
 retrievable from #182's indexed ZIP, member
 `research/inputs/O-2026100601-500000000.json.gz`, SHA256
 `a5318cd586c0b170a68334e4236111faddabaf7f686c071958757db888afab47`.
-#182 originals were cleaned; verify archive/member size/hash in a fresh ignored
-M4 retrieval root after admission. Preserve other PR roots/dependencies and all
+#182 owning PR checked MERGED before retrieval. Verified input now resides on M4
+at `results/native-recovery-hu100/inputs/historical-500M.json.gz` (171,794,336 bytes).
+Drive archive ID `1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi`, ZIP SHA256
+`1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f`, manifest
+SHA256 `356afb24d65857560e88da09d9ba9b8cc08eee0fbf36c7830f5ec72ab77e2db1`.
+Retrieval command in the isolated M4 checkout:
+`.venv/bin/python results/native-recovery-hu100/retrieve-parent.py`; receipt
+`results/native-recovery-hu100/inputs/retrieval.json`. Whole ZIP and member hashes
+verified before accepting this fresh input. Preserve other PR roots/dependencies and all
 research failures/partials; no model binaries in Git and no cleanup in this task.
 
 ## PR196 — native HU100 engineering preparation, October 7, 2026
