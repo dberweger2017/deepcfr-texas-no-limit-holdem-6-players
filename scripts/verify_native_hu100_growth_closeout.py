@@ -43,6 +43,10 @@ def validate(run):
         or q['deadline'] != s['deadline'] or time() >= s['deadline']
         or s['operations'].get('report', {}).get('status') != 'failed'):
         raise ValueError('Only the exact frozen summary refusal is admitted')
+    if file_hash(run / 'settings.json') != q['settings_sha256']:
+        raise ValueError('Fixed model settings changed')
+    if q['blocks_per_opponent'] != 2048 or q['final_root'] != 2026100820412:
+        raise ValueError('Recorded final sample differs')
     g = read(run / 'report-guard/campaign.json')
     if (g['failure'] is not None or g['attempts'][0]['guard_failure'] is not None
         or g['attempts'][0]['exit_code'] != 1

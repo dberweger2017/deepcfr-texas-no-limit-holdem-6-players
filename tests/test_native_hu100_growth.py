@@ -122,3 +122,15 @@ def test_frozen_source_digest_matches_manifest_on_committed_source():
     source = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
     # This fixture runs after the source commit, as the evaluator also requires.
     assert git_source_fingerprint(source) == source_fingerprint()
+
+
+def test_postprocessing_rejects_changed_model_order_before_reporting(tmp_path):
+    from scripts.verify_native_hu100_growth_closeout import validate, FROZEN_SOURCE
+    deadline = g.time() + 120
+    (tmp_path / 'state.json').write_text(json.dumps({'status': 'failed',
+        'error': "ValueError('Terminal child/guard failure: report')", 'pins': {'source': FROZEN_SOURCE},
+        'deadline': deadline, 'operations': {'report': {'status': 'failed'}}}))
+    (tmp_path / 'frozen-final.json').write_text(json.dumps({'source': FROZEN_SOURCE,
+        'deadline': deadline, 'settings_sha256': 'the-original-fixed-order-hash'}))
+    (tmp_path / 'settings.json').write_text('{"models": ["terminal", "parent"]}')
+    with pytest.raises(ValueError, match='Fixed model settings changed'): validate(tmp_path)
