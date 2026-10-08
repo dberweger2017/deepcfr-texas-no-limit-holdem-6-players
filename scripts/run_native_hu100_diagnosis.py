@@ -38,6 +38,7 @@ def initialize(root):
     if 'AC Power' not in value['power']:
         raise RuntimeError('M1 AC admission refused')
     write(root / 'budget.json', value)
+    subprocess.run(['git', 'archive', '--format=tar', '--output=' + str(root / 'source.tar'), value['source']], check=True)
 
 
 def guard(root, phase, jobs):
@@ -104,7 +105,8 @@ def archive(root, output):
     output.parent.mkdir(parents=True, exist_ok=True)
     with ZipFile(output, 'x', ZIP_DEFLATED, compresslevel=1) as z:
         for p in sorted(root.rglob('*')):
-            if p.is_file():
+            # The seal's supervisor is still writing; retain its closed receipts separately.
+            if p.is_file() and not str(p.relative_to(root)).startswith('guard-archive/'):
                 name = str(p.relative_to(root))
                 spec = {'path': name, 'bytes': p.stat().st_size, 'sha256': file_hash(p)}
                 z.write(p, name); members.append(spec)

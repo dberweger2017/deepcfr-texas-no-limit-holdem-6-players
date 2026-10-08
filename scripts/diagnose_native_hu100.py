@@ -5,6 +5,7 @@ from collections import Counter, defaultdict
 from dataclasses import asdict
 import gzip
 from hashlib import sha256
+from itertools import zip_longest
 import json
 from math import isclose
 from pathlib import Path
@@ -165,7 +166,7 @@ def joined(d, table):
 class Cell:
     def __init__(self):
         self.n = self.net = self.wins = self.losses = 0
-        self.sums = Counter(); self.hands = set()
+        self.sums = Counter(); self.valid = Counter(); self.hands = set()
 
     def add(self, row):
         self.n += 1; self.net += row['net_bb']
@@ -173,13 +174,15 @@ class Cell:
         self.hands.add((row['block'], row['rotation']))
         for name in ('fold_probability', 'passive_probability', 'raise_probability', 'mass', 'visits'):
             if row[name] is not None:
-                self.sums[name] += row[name]
+                self.sums[name] += row[name]; self.valid[name] += 1
 
     def result(self):
         return {'decisions': self.n, 'distinct_hands': len(self.hands), 'wins': self.wins,
                 'losses': self.losses, 'ties': self.n - self.wins - self.losses,
                 'mean_final_net_bb_per_decision': self.net / self.n,
-                **{'mean_' + k: v / self.n for k, v in self.sums.items()}}
+                'covered_decisions': self.valid['mass'],
+                **{'mean_' + k: self.sums[k] / self.valid[k] if self.valid[k] else None
+                   for k in ('fold_probability', 'passive_probability', 'raise_probability', 'mass', 'visits')}}
 
 
 def replay(inputs, out, stage, *, search_seconds=120):
@@ -188,7 +191,7 @@ def replay(inputs, out, stage, *, search_seconds=120):
     cache = {}; search_used = 0.; total_hands = total_actions = total_target = 0
     results = []; representatives = {}; all_cells = []
     index = json.loads(INDEX.read_text())
-    with (out / 'native-fixtures.jsonl').open('x') as fixtures, gzip.open(out / 'features.jsonl.gz', 'wt') as features:
+    with (out / 'native-fixtures.jsonl').open('x') as fixtures, gzip.open(out / 'features.jsonl.gz', 'wt') as features, (out / 'hands.jsonl').open('x') as hand_rows:
         for m in index['models']:
             nodes = m['actual_completed_nodes']
             for op in OPPONENTS:
@@ -291,7 +294,9 @@ def replay(inputs, out, stage, *, search_seconds=120):
                                'actions': fixture_a, 'decisions': fixture_d, 'final_stacks': list(hand.events[-1].stacks)}
                     fixtures.write(json.dumps(fixture, separators=(',', ':')) + '\n')
                     exposure = ('no-target-decision' if not own_rows else 'ever-missing' if any(x['lookup'] == 'missing-key' for x in own_rows)
-                                else 'zero-only' if any(x['lookup'] == 'zero-mass' for x in own_rows) else 'all-positive')
+                                else 'any-zero-no-missing' if any(x['lookup'] == 'zero-mass' for x in own_rows) else 'all-positive')
+                    hand_rows.write(json.dumps({'nodes': nodes, 'opponent': op, 'block': coord[0],
+                        'rotation': rotation, 'net_bb': net_bb, 'exposure': exposure}) + '\n')
                     exposures[exposure][0] += 1; exposures[exposure][1] += net_bb
                     raw_net += net_bb; total_hands += 1
                 if next(decisions, None) is not None or seen != {(b, r) for b in blocks for r in (0, 1)}:
@@ -325,14 +330,49 @@ def replay(inputs, out, stage, *, search_seconds=120):
 def verify(root):
     """Independent streaming denominator, group, probability and payoff accounting."""
     summary = json.loads((root / 'summary.json').read_text())
-    tally = defaultdict(Counter); seen = defaultdict(set); n = 0
+    tally = defaultdict(Counter); by_hand = defaultdict(set); hand_nets = {}; n = 0
+    dimensions = (('street', 'position', 'pot_band', 'lookup'), ('street', 'visit_band'),
+                  ('street', 'mass_band'), ('lookup',), ('street',))
+    recount = {}
     for r in rows(root / 'features.jsonl.gz'):
         n += 1; key = r['nodes'], r['opponent']; g = tally[key]
-        g['decisions'] += 1; g[r['lookup']] += 1; seen[key].add((r['block'], r['rotation']))
+        g['decisions'] += 1; g[r['lookup']] += 1
+        hand_key = (*key, r['block'], r['rotation']); by_hand[hand_key].add(r['lookup'])
+        if hand_key in hand_nets and hand_nets[hand_key] != r['net_bb']:
+            raise ValueError('Features disagree on hand payoff')
+        hand_nets[hand_key] = r['net_bb']
+        if r['lookup'] == 'missing-key':
+            g['support:' + r['support']] += 1
+        for dims in dimensions:
+            k = (*key, dims, tuple(r[x] for x in dims))
+            a = recount.setdefault(k, {'n': 0, 'wins': 0, 'losses': 0, 'net': 0.,
+                                      'hands': set(), 'sums': Counter(), 'valid': Counter()})
+            a['n'] += 1; a['wins'] += r['net_bb'] > 0; a['losses'] += r['net_bb'] < 0
+            a['net'] += r['net_bb']; a['hands'].add((r['block'], r['rotation']))
+            for name in ('fold_probability', 'passive_probability', 'raise_probability', 'mass', 'visits'):
+                if r[name] is not None:
+                    a['sums'][name] += r[name]; a['valid'][name] += 1
         if not isclose(sum(r[x] for x in ('fold_probability', 'passive_probability', 'raise_probability')), 1, abs_tol=1e-10):
             raise ValueError('Action-kind probabilities do not sum to one')
     if n != summary['target_decisions']:
         raise ValueError('Feature denominator differs')
+    exposures = defaultdict(lambda: defaultdict(lambda: [0, 0.])); hands = 0; unique = set()
+    for h, fixture in zip_longest(rows(root / 'hands.jsonl'), rows(root / 'native-fixtures.jsonl')):
+        if h is None or fixture is None:
+            raise ValueError('Hand/native fixture cardinality differs')
+        hk = (h['nodes'], h['opponent'], h['block'], h['rotation'])
+        if hk in unique: raise ValueError('Duplicate hand accounting row')
+        unique.add(hk); lookups = by_hand.get(hk, set())
+        expected = ('no-target-decision' if not lookups else 'ever-missing' if 'missing-key' in lookups
+                    else 'any-zero-no-missing' if 'zero-mass' in lookups else 'all-positive')
+        payoff = (fixture['final_stacks'][h['rotation']] - 10000) / 100
+        if (expected != h['exposure'] or payoff != h['net_bb']
+                or hk in hand_nets and hand_nets[hk] != payoff):
+            raise ValueError('Independent hand exposure/payoff differs')
+        a = exposures[h['nodes'], h['opponent']][expected]; a[0] += 1; a[1] += payoff
+        hands += 1
+    if hands != summary['hands'] or set(by_hand) - unique:
+        raise ValueError('Incomplete hand/feature accounting')
     for p in summary['panels']:
         if tally[p['nodes'], p['opponent']]['decisions'] != p['target_decisions']:
             raise ValueError('Panel target denominator differs')
@@ -342,7 +382,31 @@ def verify(root):
             raise ValueError('Hand contributions do not add up')
         if sum(p['missing_support'].values()) != tally[p['nodes'], p['opponent']]['missing-key']:
             raise ValueError('Missing classifications are incomplete')
+        for k, count in p['missing_support'].items():
+            if tally[p['nodes'], p['opponent']]['support:' + k] != count:
+                raise ValueError('Missing support cell differs')
+        for k, values in exposures[p['nodes'], p['opponent']].items():
+            recorded = p['hand_exposures'][k]
+            if (values[0] != recorded['hands'] or not isclose(values[1], recorded['net_bb'], abs_tol=1e-9)
+                    or not isclose(values[1] / values[0], recorded['mean_net_bb'], abs_tol=1e-10)):
+                raise ValueError('Exposure cell accounting differs')
     cells = json.loads((root / 'cells.json').read_text())
+    cell_keys = set()
+    for c in cells:
+        dims = tuple(c['dimensions']); key = (c['nodes'], c['opponent'], dims, tuple(c[x] for x in dims))
+        if key in cell_keys or key not in recount: raise ValueError('Duplicate or unexpected stratum')
+        cell_keys.add(key); a = recount[key]
+        for name, value in {'decisions': a['n'], 'distinct_hands': len(a['hands']), 'wins': a['wins'],
+                            'losses': a['losses'], 'ties': a['n'] - a['wins'] - a['losses'],
+                            'covered_decisions': a['valid']['mass']}.items():
+            if c[name] != value: raise ValueError('Stratum count differs: ' + name)
+        expected_means = {'mean_final_net_bb_per_decision': a['net'] / a['n'],
+                          **{'mean_' + k: a['sums'][k] / a['valid'][k] if a['valid'][k] else None
+                             for k in ('fold_probability', 'passive_probability', 'raise_probability', 'mass', 'visits')}}
+        for name, value in expected_means.items():
+            if (value is None) != (c[name] is None) or value is not None and not isclose(value, c[name], rel_tol=1e-12, abs_tol=1e-10):
+                raise ValueError('Stratum mean differs: ' + name)
+    if cell_keys != set(recount): raise ValueError('Missing stratum')
     for p in summary['panels']:
         for dims in {tuple(c['dimensions']) for c in cells}:
             selected = [c for c in cells if c['nodes'] == p['nodes'] and c['opponent'] == p['opponent'] and tuple(c['dimensions']) == dims]
