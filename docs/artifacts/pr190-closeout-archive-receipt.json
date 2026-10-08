@@ -1,0 +1,34 @@
+{
+  "bytes": 608353,
+  "checked_epoch": 1791452124.237356,
+  "cloud_metadata_verified": true,
+  "cloud_upload_confirmed": true,
+  "drive_id": "1VIcz4Bk60-QaZPrKGZDyS0S5FvaTQvG7",
+  "drive_parent_id": "1C0z2LwrqiUZgVwU_flkBwvxM0MV5LeDh",
+  "drive_url": "https://drive.google.com/file/d/1VIcz4Bk60-QaZPrKGZDyS0S5FvaTQvG7/view?usp=drivesdk",
+  "failed_setup": {
+    "cause": "system Python lacked pokers; failed before start lock or ZIP creation",
+    "corrected_source": "archive_closeout_20261008_v2.py",
+    "log": "closeout-archive-20261008.log",
+    "qualified_environment": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/.venv/bin/python",
+    "scientific_work_affected": false,
+    "source": "archive_closeout_20261008.py"
+  },
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "d3477d75369d07a27449dca8d3f2a7de5dc2a935db1b186859e14d3fade9a997",
+  "member_readback_verified": true,
+  "members": 39,
+  "native_acceptance": {
+    "hasUnresolvedConflicts": 0,
+    "isUploaded": 1,
+    "isUploading": 0
+  },
+  "originals_retained": true,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-190-HU20-bucket-validation/closeout-evidence-20261008.zip",
+  "qualified_ci_checks": 5,
+  "remote_bytes_redownloaded": false,
+  "sha256": "b0f38cb292eb7bd7d9529d783ae41a63e5d37651cb3d3d5ca39b5c4369cef2e2",
+  "source_commit": "7f79f793040a24a13786b7645ec39edf40469651",
+  "terminal_receipt_location": "Git; own archive acceptance cannot be inside its immutable archive",
+  "unresolved_review_threads": 0
+}
