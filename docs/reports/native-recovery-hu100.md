@@ -121,7 +121,12 @@ recovery-gated pilot, all four early audits/both guards, baseline continuity,
 source/binary identity, measured reserves, complete pilot prerequisite manifests
 and all-eight-export/audit memory forecasting. Round 4 found no blocking source
 findings at `6431839`. Runtime capacity failure is preserved despite those reviews.
-Independent final evidence review is pending.
+Independent final evidence review round 5 found **no blocking findings** at
+`05a4994`. It confirmed the verified/unaudited distinction, terminal RSS stop,
+absent active workers/pilot and archive provenance.
+[Review receipt](native-recovery-hu100-artifacts/independent-review-round5.json).
+All four campaign timers are now disabled; no scientific work remains active.
+[Timer receipt](native-recovery-hu100-artifacts/timers-disabled.json).
 
 The [science archive](https://drive.google.com/file/d/1hNbCAU71BcYFxVBx2OSmqYtp0sXfhmcS/view)
 in [PR197 Research-Cloud](https://drive.google.com/drive/folders/1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI)
@@ -135,5 +140,20 @@ All member sizes/SHA256 were read back locally before the final archive was
 accepted. Native upload is complete (uploaded=1, uploading=0, no conflicts), and
 independent Drive ID/name/size/parent matches. Remote archive bytes were **not**
 downloaded or rehashed. [Archive receipt](native-recovery-hu100-artifacts/archive-receipt.json).
-Final derived diagnostics/review/archival guard receipts will be sealed in a small
-closeout supplement. Originals remain; no cleanup, merging or publication.
+The [closeout supplement](https://drive.google.com/file/d/14MOuquGcYRPyeI5PUDW2Tdbmg8bPPxR9/view)
+is **99,275 bytes /24 verified members**, SHA256
+`41534b63cb6f1aecaab0e1c9d0082f5b3c5e353c9465c49e99bd33714138b7f6`;
+embedded manifest SHA256
+`d6c5f21ba8d1854962e6c4dbad44d76f825bd3aa8d3f520c5109e99f6522f156`.
+It seals derived diagnostics, independent review, timer disablement, science
+archive member index/upload receipts, report/index snapshots and archival guard
+records. All member sizes/hashes passed local readback; native upload complete
+and independent cloud ID/name/size/parent accepted. No remote-byte download.
+[Supplement receipt](native-recovery-hu100-artifacts/closeout-archive-receipt.json).
+
+Closeout completed **08:35:20 Madrid**, before the owner deadline. Both archival
+guards finished successfully, each below 35 MiB sampled aggregate RSS, zero swap
+growth and AC power; the lowest archival free-disk sample was 93.926 GiB.
+[Terminal receipt](native-recovery-hu100-artifacts/terminal-closeout.json).
+All owned scientific/archive processes exited and all campaign timers are disabled.
+Originals remain; no cleanup, merging or publication.

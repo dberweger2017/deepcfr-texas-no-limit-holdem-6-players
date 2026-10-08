@@ -43,8 +43,21 @@ manifest `356afb24d65857560e88da09d9ba9b8cc08eee0fbf36c7830f5ec72ab77e2db1`,
 member `research/inputs/O-2026100601-500000000.json.gz`.
 Command: `.venv/bin/python results/native-recovery-hu100/retrieve-parent.py` on M4;
 receipt now archived at `research/inputs/retrieval.json`. No cleaned #182 original
-or active other-agent dependency was changed. Closeout supplement/final review
-pending; all open PR197 originals retained, no cleanup authorization applied.
+or active other-agent dependency was changed. Independent final review round 5 found no blocking evidence findings.
+[Closeout supplement](https://drive.google.com/file/d/14MOuquGcYRPyeI5PUDW2Tdbmg8bPPxR9/view),
+`native-recovery-hu100-closeout-20261008.zip`: **99,275 bytes /24 verified members**,
+SHA256 `41534b63cb6f1aecaab0e1c9d0082f5b3c5e353c9465c49e99bd33714138b7f6`,
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`d6c5f21ba8d1854962e6c4dbad44d76f825bd3aa8d3f520c5109e99f6522f156`.
+It contains derived summaries, review/timer receipts, main archive member index,
+upload evidence, archival guard records and report/index snapshots. All local
+member size/hash checks passed; native upload complete/no conflicts and independent
+cloud ID/name/size/parent acceptance match. No remote-byte readback.
+Restore with `python3 -m zipfile -e LOCAL_DOWNLOADED_CLOSEOUT_ZIP
+results/retrieved/pr197/NEW_CLOSEOUT_ROOT`, after whole hash verification; verify
+embedded members. [Supplement receipt](docs/reports/native-recovery-hu100-artifacts/closeout-archive-receipt.json).
+Closeout completed at 08:35 Madrid; all owned processes exited and all four
+campaign timers disabled. All open PR197 originals retained; no cleanup applied.
 
 ## PR196 — native HU100 engineering preparation, October 7, 2026
 
