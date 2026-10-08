@@ -50,6 +50,12 @@ def verify(plan_path):
         if unsafe_memory(memory_snapshot(),admission=True,rss_gib=limits['rss_gib']):
             raise ValueError('System memory headroom/pressure is unsafe')
         if p['limits']['rss_gib']!=10: raise ValueError('Follow-up aggregate ceiling must be exactly 10 GiB')
+    if p.get('followup_approval_path'):
+        if p['stage'] in ('verification','pilot') and p['hard_deadline']-time()<p['stage_fit_seconds']:
+            raise ValueError('Complete stage and downstream time reserves no longer fit')
+        coordinator=p.get('coordinator_pid')
+        if type(coordinator) is not int or coordinator<=1: raise ValueError('Live owned coordinator PID required')
+        os.kill(coordinator,0)
     if not NOT_BEFORE <= time() < p['hard_deadline'] <= DEADLINE:
         raise ValueError('Campaign deadline has passed or exceeds owner ceiling')
     if platform.system() != 'Darwin': raise ValueError('PR197 uses the free M4 macOS worker only')
@@ -97,6 +103,12 @@ def verify(plan_path):
         'dberweger2017/deepcfr-texas-no-limit-holdem-6-players','--json','state'],text=True,timeout=20))
     if not released and live['state']!='MERGED': raise ValueError('PR188 still owns M4 until merged and finished')
     listing=subprocess.check_output(['ps','-axo','pid=,ppid=,command='],text=True,timeout=10)
+    if p.get('followup_approval_path'):
+        parents={int(x[0]):int(x[1]) for line in listing.splitlines() if len(x:=line.split(None,2))==3}
+        ancestor=os.getppid();seen=set()
+        while ancestor!=coordinator and ancestor not in seen and ancestor>1:
+            seen.add(ancestor);ancestor=parents.get(ancestor,0)
+        if ancestor!=coordinator: raise ValueError('Prepared coordinator must own the entire launch family')
     for line in listing.splitlines():
         fields=line.split(None,2)
         if len(fields)==3 and 'hu20-o-10b-lbr-20261007' in fields[2]:
@@ -105,6 +117,8 @@ def verify(plan_path):
     # claim to reconcile, never a reason to launch again into a different root.
     state_path=Path(admission['campaign_state_path'])
     state=json.loads(state_path.read_text())
+    if p.get('followup_approval_path') and state.get('terminal_followup'):
+        raise ValueError('Follow-up terminal stop prohibits all subsequent claims')
     if p.get('followup_approval_path') and state.get('swap_baseline') != p['campaign_swap_baseline']:
         raise ValueError('Follow-up must preserve durable original campaign swap baseline')
     if p['stage']=='verification' and (not p.get('followup_approval_path') or state.get('verification_attempt_claimed')):
@@ -117,6 +131,8 @@ def verify(plan_path):
     with lock.open('x') as f: json.dump(claim,f); f.write('\n'); f.flush(); os.fsync(f.fileno())
     # Re-read after lock acquisition to close two concurrent preparers' race.
     state=json.loads(state_path.read_text())
+    if p.get('followup_approval_path') and state.get('terminal_followup'):
+        raise ValueError('Follow-up terminal stop prohibits all subsequent claims')
     if p.get('followup_approval_path') and state.get('swap_baseline') != p['campaign_swap_baseline']:
         raise ValueError('Campaign baseline changed before claim; retain lock evidence')
     if p['stage']=='verification' and state.get('verification_attempt_claimed'):

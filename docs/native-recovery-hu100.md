@@ -24,6 +24,17 @@ uses a 10-million-entry capacity ceiling with a measured serialization/save-time
 reserve extrapolated from the retained HU20 native saves, then growth replaces
 that forecast with its own complete pilot measurements.
 
+Failed guarded closeout permanently marks the follow-up terminal; all later
+claims recheck that flag under the lock. HU100 also requires the successful
+verification guard/CLOSEOUT receipt, even if an equivalence file exists. Pilot
+launch admission reserves 900 seconds for training and 900 seconds for all
+eight export/audit jobs, with archive time outside its deadline; training ends
+at least 900 seconds before the stage deadline. Verification admission rechecks
+its full 900-second budget with 300 seconds left for closeout. Prepared follow-up
+commands bind the live preparing coordinator PID, verify its launch ancestry and
+include its entire descendant family in every guard. Prepare inside that live
+owned coordinator, never reuse commands after it exits.
+
 Use a separate `followup-state.json`, permanent one-verification claim, fresh
 attempt directories and unchanged retained-file hashes/provenance. At most one
 30-minute execution timer and one hard-deadline wake; both disabled on terminal

@@ -74,7 +74,7 @@ def verification_fixture(tmp_path,monkeypatch):
         inputs[str(original)]={'bytes':original.stat().st_size,'sha256':launch.file_hash(original)}
     put(state,{'active_attempt':None,'swap_baseline':'used = 0M'})
     p=json.loads(plan.read_text());p.pop('plan_sha256');p.update(stage='verification',limits={'rss_gib':10},
-        retained_inputs=inputs,followup_approval_path=str(a),followup_approval_sha256=launch.file_hash(a))
+        retained_inputs=inputs,coordinator_pid=launch.os.getppid(),stage_fit_seconds=900,followup_approval_path=str(a),followup_approval_sha256=launch.file_hash(a))
     p['plan_sha256']=launch.digest(p);put(plan,p)
     return plan,state
 
@@ -165,3 +165,67 @@ def test_first_isolated_audit_never_spawns_without_headroom(monkeypatch,tmp_path
     monkeypatch.setattr(recovery.subprocess,'check_output',lambda *_a,**_kw:pytest.fail('unsafe audit child launched'))
     with pytest.raises(ValueError,match='admission refused'):
         recovery.isolated_inspect(tmp_path/'cp',tmp_path/'cur',tmp_path/'avg',20,audit_guard=guard)
+
+
+@pytest.mark.parametrize('race',[False,True])
+def test_terminal_followup_refuses_every_later_claim(monkeypatch,tmp_path,race):
+    from tests.test_native_hu_launch_claim import put
+    from scripts import verify_native_hu_launch as launch
+    plan,state=verification_fixture(tmp_path,monkeypatch)
+    def terminal():put(state,{'active_attempt':None,'swap_baseline':'used = 0M','terminal_followup':True})
+    if race:
+        old=Path.open
+        def raced(path,*a,**kw):
+            if path.name==state.name+'.launch-lock':terminal()
+            return old(path,*a,**kw)
+        monkeypatch.setattr(Path,'open',raced)
+    else:terminal()
+    with pytest.raises(ValueError,match='terminal stop'):launch.verify(plan)
+    assert not (tmp_path/'LAUNCH.json').exists()
+
+
+def test_delayed_verification_must_still_fit_at_launch(monkeypatch,tmp_path):
+    from tests.test_native_hu_launch_claim import put
+    from scripts import verify_native_hu_launch as launch
+    plan,state=verification_fixture(tmp_path,monkeypatch)
+    p=json.loads(plan.read_text());p.pop('plan_sha256');p['stage_fit_seconds']=1200;p['plan_sha256']=launch.digest(p);put(plan,p)
+    with pytest.raises(ValueError,match='time reserves'):launch.verify(plan)
+    assert not (tmp_path/'LAUNCH.json').exists()
+
+
+def test_coordinator_must_be_actual_launch_ancestor(monkeypatch,tmp_path):
+    from tests.test_native_hu_launch_claim import put
+    from scripts import verify_native_hu_launch as launch
+    plan,state=verification_fixture(tmp_path,monkeypatch)
+    p=json.loads(plan.read_text());p.pop('plan_sha256');p['coordinator_pid']=launch.os.getpid();p['plan_sha256']=launch.digest(p);put(plan,p)
+    with pytest.raises(ValueError,match='entire launch family'):launch.verify(plan)
+    assert not (tmp_path/'LAUNCH.json').exists()
+
+
+def test_failed_verification_guard_blocks_equivalence_dependency(tmp_path):
+    from tests.test_native_hu_launch_claim import put
+    from scripts import prepare_native_hu_execution as prep
+    put(tmp_path/'plan.json',{'stage':'verification','source':'s','binary_sha256':'b','followup_approval_path':'approval','plan_sha256':'p'})
+    put(tmp_path/'CLOSEOUT.json',{'status':'incomplete','launch':{'plan_sha256':'p'},'guards':[]})
+    put(tmp_path/'verification-guard/campaign.json',{'status':'incomplete'})
+    with pytest.raises(ValueError,match='Successful guarded'):prep.verified_followup_closeout(tmp_path,'s','b')
+
+
+def test_pilot_reserves_all_eight_jobs_and_binds_coordinator(monkeypatch,tmp_path):
+    from tests.test_native_hu_launch_claim import put
+    from scripts import prepare_native_hu_execution as prep
+    from scripts import prepare_native_hu_followup as followup
+    b=tmp_path/'binary';b.write_bytes(b'fixture');q=tmp_path/'q';eq=tmp_path/'eq';put(q,{});put(eq,{})
+    monkeypatch.setattr(prep,'qualification',lambda *_:('source',{}))
+    monkeypatch.setattr(prep,'checked_equivalence',lambda *_:{})
+    monkeypatch.setattr(followup,'pilot_save_reserve',lambda _:{'max_entries':10000000,'serialization_rss_bytes':1024**3,'save_reserve_seconds':30,'files':{}})
+    out=tmp_path/'pilot'
+    plan=prep.prepare_pilot(out,b,q,eq,'used = 0M',min(prep.DEADLINE-300,time()+3000),approval(tmp_path))
+    script=(out/'commands.txt').read_text()
+    assert 'float(sys.argv[1])-900' in script and '--coordinator-pid '+str(prep.os.getpid()) in script
+    assert '--soft-rss-gib 8.5' in script and '--save-reserve-seconds 30' in script
+    assert plan['stage_fit_seconds']==1800 and len(plan['export_audit_jobs'])==8
+    assert plan['command'][plan['command'].index('--max-seconds')+1]=='870'
+    with pytest.raises(ValueError,match='Complete pilot stage'):
+        prep.prepare_pilot(tmp_path/'late',b,q,eq,'used = 0M',time()+1000,approval(tmp_path))
+    assert not (tmp_path/'late').exists()

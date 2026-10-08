@@ -8,6 +8,7 @@ import argparse
 from datetime import datetime, timezone
 from gzip import open as gzip_open
 import json
+import os
 from math import isfinite
 from pathlib import Path
 import shlex
@@ -69,6 +70,7 @@ def write_plan(out, plan, phases, swap_baseline, deadline):
     if not isfinite(deadline) or not datetime.now(timezone.utc).timestamp() < deadline <= DEADLINE:
         raise ValueError('Deadline must fit the owner October 8 12:00 Madrid ceiling')
     if out.exists(): raise FileExistsError('Use a fresh attempt root; never duplicate a launch')
+    if plan.get('followup_approval_path'): plan['coordinator_pid']=os.getpid()
     out.mkdir(parents=True); (out/'training').mkdir()
     plan.update(status='prepared-only', prepared_at=datetime.now(timezone.utc).isoformat(),
                 owner_instruction=THREAD_URI, campaign_swap_baseline=swap_baseline,
@@ -85,7 +87,7 @@ def write_plan(out, plan, phases, swap_baseline, deadline):
         guard = [sys.executable, '-m', 'scripts.hu20_scaling_supervise', '--jobs', str(jobs_path),
                  '--out', str(out/f'{name}-guard'), '--rss-gib',str(limits['rss_gib']), '--disk-gib','15.5',
                  '--swap-gib','.5', '--require-ac', '--swap-baseline', swap_baseline] + extra
-        if limits['system_memory_guard']: guard += ['--system-memory-guard']
+        if limits['system_memory_guard']: guard += ['--system-memory-guard','--coordinator-pid',str(plan['coordinator_pid'])]
         phase_deadline = shlex.join([sys.executable, '-c', f'import time; print(min({deadline!r},time.time()+{seconds!r}))'])
         lines += [shlex.join(guard)+f' --deadline "$({phase_deadline})"']
     (out/'commands.txt').write_text('\n'.join(lines)+'\n')
@@ -140,11 +142,26 @@ def checked_equivalence(path, source, binary, swap_baseline):
     if (e.get('status') != 'verified' or e.get('seed') != SEED or e.get('source') != source
         or e.get('binary_sha256') != file_hash(binary) or e.get('campaign_swap_baseline') != swap_baseline):
         raise ValueError('Full source-bound HU20 equivalence with campaign baseline required')
+    if e.get('isolated_audits'):
+        verified_followup_closeout(path.parent,source,file_hash(binary))
     for name, spec in e['files'].items():
         p=Path(name)
         if p.stat().st_size != spec['bytes'] or file_hash(p) != spec['sha256']:
             raise ValueError('Equivalence input changed')
     return e
+
+
+def verified_followup_closeout(root, source, binary_sha):
+    plan=json.loads((root/'plan.json').read_text())
+    closed=json.loads((root/'CLOSEOUT.json').read_text())
+    guard_path=root/'verification-guard/campaign.json'
+    guard=json.loads(guard_path.read_text())
+    if (plan.get('stage')!='verification' or plan.get('source')!=source
+        or plan.get('binary_sha256')!=binary_sha or not plan.get('followup_approval_path')
+        or closed.get('status')!='complete' or guard.get('status')!='complete'
+        or closed['launch']['plan_sha256']!=plan['plan_sha256']
+        or not any(Path(r['path'])==guard_path and r['status']=='complete' and r['sha256']==file_hash(guard_path) for r in closed['guards'])):
+        raise ValueError('Successful guarded follow-up verification closeout required')
 
 
 def prepare_reference(out,binary,qualification_path,swap_baseline,deadline):
@@ -169,6 +186,9 @@ def prepare_pilot(out,binary,qualification_path,equivalence_path,swap_baseline,d
     equivalence=checked_equivalence(equivalence_path,source,binary,swap_baseline)
     reserve=None
     if approval is not None:
+        deadline=min(deadline,DEADLINE-300)
+        if deadline-datetime.now(timezone.utc).timestamp()<1800:
+            raise ValueError('Complete pilot stage and closeout reserves cannot fit')
         from scripts.prepare_native_hu_followup import pilot_save_reserve
         reserve=pilot_save_reserve(equivalence)
     plan = prepare('pilot',out,binary,swap_baseline=swap_baseline,deadline=deadline)
@@ -179,7 +199,8 @@ def prepare_pilot(out,binary,qualification_path,equivalence_path,swap_baseline,d
         command[command.index('--max-seconds')+1]=str(900-reserve['save_reserve_seconds'])
         command+=['--stop-file',str(out/'controlled-stop.json')]
         (out/'training-jobs.json').write_text(json.dumps([{'name':'train','command':command}],indent=2)+'\n')
-        plan.update(pilot_serialization_reserve=reserve,retained_inputs=reserve['files'])
+        plan.update(pilot_serialization_reserve=reserve,retained_inputs=reserve['files'],
+                    coordinator_pid=os.getpid(),stage_fit_seconds=1800,downstream_reserve_seconds=900)
     plan.update(qualification=q,qualification_path=str(qualification_path.resolve()),
         qualification_sha256=file_hash(qualification_path),equivalence_path=str(equivalence_path.resolve()),
         equivalence_sha256=file_hash(equivalence_path),hard_deadline=deadline)
@@ -209,8 +230,15 @@ def prepare_pilot(out,binary,qualification_path,equivalence_path,swap_baseline,d
     commands=(out/'commands.txt').read_text()
     if approval is not None:
         commands=commands.replace('--rss-gib 5.5','--rss-gib 10').replace('--require-ac','--require-ac --system-memory-guard')
+        commands=commands.replace('--system-memory-guard','--system-memory-guard --coordinator-pid '+str(plan['coordinator_pid']))
         commands=commands.replace('--out '+str(out/'training-guard'),
                                   '--out '+str(out/'training-guard')+' '+shlex.join(extra))
+    if approval is not None:
+        lines=commands.splitlines()
+        for i,line in enumerate(lines):
+            if '--out '+str(out/'training-guard') in line:
+                lines[i]=line.replace('float(sys.argv[1])','float(sys.argv[1])-900')
+        commands='\n'.join(lines)+'\n'
     commands=commands.replace('set -eu\n','set -eu\n'+shlex.join([sys.executable,'-m','scripts.verify_native_hu_launch','--plan',str(out/'plan.json')])+'\n',1)
     (out/'commands.txt').write_text(commands)
     return plan

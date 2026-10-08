@@ -72,7 +72,7 @@ def prepare_verification(out,binary,qualification_path,original_root,approval,sw
           'resumed-average':retained('recovery-02/average.jsonl.gz')}
     plans=[retained(n) for n in ('reference-02/plan.json','recovery-02/plan.json')]
     original_baseline(plans,swap_baseline)
-    phase_deadline=min(DEADLINE-300,time()+900)
+    phase_deadline=DEADLINE-300
     command=[sys.executable,'-m','scripts.compare_native_hu_recovery']
     for k,v in args.items(): command+=['--'+k,str(v)]
     command+=['--training-qualification',str(tq),'--isolated-audits','--audit-approval',str(approval.resolve()),
@@ -80,7 +80,7 @@ def prepare_verification(out,binary,qualification_path,original_root,approval,sw
     plan={'stage':'verification','source':source,'executed_training_source':TRAINING_SOURCE,
           'binary':str(binary),'binary_sha256':file_hash(binary),'qualification_path':str(qualification_path.resolve()),
           'qualification_sha256':file_hash(qualification_path),'qualification':q,'retained_inputs':inputs,
-          'original_manifest_sha256':MANIFEST_SHA,'command':command,'verification_attempt_limit':1}
+          'stage_fit_seconds':900,'original_manifest_sha256':MANIFEST_SHA,'command':command,'verification_attempt_limit':1}
     bind_followup(plan,approval)
     return write_plan(out,plan,[('verification',[{'name':'compare','command':command}],900,[])],
                       swap_baseline,phase_deadline)

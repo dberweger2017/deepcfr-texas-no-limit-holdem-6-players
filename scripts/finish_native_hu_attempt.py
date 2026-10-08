@@ -41,6 +41,9 @@ def finish(state_path):
               'launch_lock_sha256':file_hash(lock)}
     with (root/'CLOSEOUT.json').open('x') as f:
         json.dump(closeout,f,sort_keys=True,indent=2); f.write('\n'); f.flush(); os.fsync(f.fileno())
+    if plan.get('followup_approval_path') and failed:
+        state['terminal_followup']=True
+        state['terminal_reason']='Owned guarded stage failed; no further follow-up attempts'
     state['active_attempt']=None; state.setdefault('closed_attempts',[]).append(closeout)
     tmp=state_path.with_name(state_path.name+'.tmp')
     tmp.write_text(json.dumps(state,sort_keys=True,indent=2)+'\n'); os.replace(tmp,state_path)
