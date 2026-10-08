@@ -213,22 +213,33 @@ def test_failed_verification_guard_blocks_equivalence_dependency(tmp_path):
 
 
 def test_pilot_reserves_all_eight_jobs_and_binds_coordinator(monkeypatch,tmp_path):
+    from datetime import datetime
     from tests.test_native_hu_launch_claim import put
+    from scripts import prepare_native_hu_campaign as campaign
     from scripts import prepare_native_hu_execution as prep
     from scripts import prepare_native_hu_followup as followup
+    # Exercise both sides of admission without depending on the historical
+    # campaign's remaining wall time (which expires during later CI runs).
+    fixed_now = prep.DEADLINE - 3600
+    class FixedDatetime(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return datetime.fromtimestamp(fixed_now, tz)
+    monkeypatch.setattr(prep, 'datetime', FixedDatetime)
+    monkeypatch.setattr(campaign, 'datetime', FixedDatetime)
     b=tmp_path/'binary';b.write_bytes(b'fixture');q=tmp_path/'q';eq=tmp_path/'eq';put(q,{});put(eq,{})
     monkeypatch.setattr(prep,'qualification',lambda *_:('source',{}))
     monkeypatch.setattr(prep,'checked_equivalence',lambda *_:{})
     monkeypatch.setattr(followup,'pilot_save_reserve',lambda _:{'max_entries':10000000,'serialization_rss_bytes':1024**3,'save_reserve_seconds':30,'files':{}})
     out=tmp_path/'pilot'
-    plan=prep.prepare_pilot(out,b,q,eq,'used = 0M',min(prep.DEADLINE-300,time()+3000),approval(tmp_path))
+    plan=prep.prepare_pilot(out,b,q,eq,'used = 0M',prep.DEADLINE-300,approval(tmp_path))
     script=(out/'commands.txt').read_text()
     assert '--deadline '+str(plan['hard_deadline']-900) in script and '--coordinator-pid '+str(prep.os.getpid()) in script
     assert '--soft-rss-gib 8.5' in script and '--save-reserve-seconds 30' in script
     assert plan['stage_fit_seconds']==1800 and len(plan['export_audit_jobs'])==8
     assert plan['command'][plan['command'].index('--max-seconds')+1]=='870'
     with pytest.raises(ValueError,match='Complete pilot stage'):
-        prep.prepare_pilot(tmp_path/'late',b,q,eq,'used = 0M',time()+1000,approval(tmp_path))
+        prep.prepare_pilot(tmp_path/'late',b,q,eq,'used = 0M',fixed_now+1000,approval(tmp_path))
     assert not (tmp_path/'late').exists()
 
 
