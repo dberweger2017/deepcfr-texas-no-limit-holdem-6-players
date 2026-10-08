@@ -1,0 +1,787 @@
+{
+  "boards": 40,
+  "seat_lineage_rows": 240,
+  "seed": 202610030304,
+  "draws": 2000,
+  "pass": true,
+  "criteria": {
+    "coverage": true,
+    "upper_below_v1_lower": true,
+    "within_0_10_bb": true
+  },
+  "interval_scope": "conditional on fixed opposite-half fitted witnesses; no refitting uncertainty",
+  "groups": {
+    "2026093001": {
+      "e_bp": {
+        "ci95": [
+          1.322013713645935,
+          1.5472072676658626
+        ],
+        "mean": 1.431318175315857
+      },
+      "e_cross_eq50": {
+        "ci95": [
+          0.3563212645232678,
+          0.4187734546184539
+        ],
+        "mean": 0.38633167243003846
+      },
+      "e_cross_v1": {
+        "ci95": [
+          0.6374735907912252,
+          0.6972198816418645
+        ],
+        "mean": 0.6670253324508666
+      },
+      "e_global200": {
+        "ci95": [
+          0.3778329445302486,
+          0.4685609282016754
+        ],
+        "mean": 0.41949689245224
+      },
+      "e_global50": {
+        "ci95": [
+          0.3633082767605783,
+          0.4267946325719356
+        ],
+        "mean": 0.3939383289813996
+      },
+      "e_root_v1": {
+        "ci95": [
+          0.43604350929260266,
+          0.51201633964777
+        ],
+        "mean": 0.4732969443798065
+      },
+      "global200_minus_global50": {
+        "ci95": [
+          0.00023382125496848038,
+          0.060500999939441635
+        ],
+        "mean": 0.0255585634708404
+      },
+      "global50_minus_fitted50": {
+        "ci95": [
+          0.0004323241770269229,
+          0.015937029027938993
+        ],
+        "mean": 0.007606656551361113
+      }
+    },
+    "2026093002": {
+      "e_bp": {
+        "ci95": [
+          1.243615147590637,
+          1.4148064030647278
+        ],
+        "mean": 1.3248165378570556
+      },
+      "e_cross_eq50": {
+        "ci95": [
+          0.3633486157417298,
+          0.43399328435659407
+        ],
+        "mean": 0.396747188091278
+      },
+      "e_cross_v1": {
+        "ci95": [
+          0.6168585533976554,
+          0.6833404024124143
+        ],
+        "mean": 0.6496493225097656
+      },
+      "e_global200": {
+        "ci95": [
+          0.3901353949666024,
+          0.5030180955231189
+        ],
+        "mean": 0.4403532788753509
+      },
+      "e_global50": {
+        "ci95": [
+          0.3690002257049083,
+          0.44210172566175454
+        ],
+        "mean": 0.40418053078651417
+      },
+      "e_root_v1": {
+        "ci95": [
+          0.42980946182608604,
+          0.5029855492174625
+        ],
+        "mean": 0.466687992811203
+      },
+      "global200_minus_global50": {
+        "ci95": [
+          0.009468762868642957,
+          0.07268558407425892
+        ],
+        "mean": 0.03617274808883675
+      },
+      "global50_minus_fitted50": {
+        "ci95": [
+          0.0003417204678058547,
+          0.015011576116084972
+        ],
+        "mean": 0.007433342695236156
+      }
+    },
+    "2026093003": {
+      "e_bp": {
+        "ci95": [
+          1.4060949427843095,
+          1.609836017394066
+        ],
+        "mean": 1.5019481754302981
+      },
+      "e_cross_eq50": {
+        "ci95": [
+          0.34743159598112117,
+          0.4151483950674533
+        ],
+        "mean": 0.37924497199058527
+      },
+      "e_cross_v1": {
+        "ci95": [
+          0.6179060289025308,
+          0.6898296086430546
+        ],
+        "mean": 0.653326090812683
+      },
+      "e_global200": {
+        "ci95": [
+          0.36704707673788095,
+          0.4576049974441529
+        ],
+        "mean": 0.410012670993805
+      },
+      "e_global50": {
+        "ci95": [
+          0.3443714650273323,
+          0.41316462360620493
+        ],
+        "mean": 0.37702624893188474
+      },
+      "e_root_v1": {
+        "ci95": [
+          0.44107084246277806,
+          0.5168495991945266
+        ],
+        "mean": 0.4783280067443846
+      },
+      "global200_minus_global50": {
+        "ci95": [
+          0.004915432476997546,
+          0.07183187138438225
+        ],
+        "mean": 0.03298642206192026
+      },
+      "global50_minus_fitted50": {
+        "ci95": [
+          -0.009207535076141282,
+          0.004934080493450024
+        ],
+        "mean": -0.0022187230587005224
+      }
+    },
+    "pooled": {
+      "e_bp": {
+        "ci95": [
+          1.3310303414742157,
+          1.5161153727690375
+        ],
+        "mean": 1.4193609628677364
+      },
+      "e_cross_eq50": {
+        "ci95": [
+          0.35816843387683245,
+          0.41902044861316684
+        ],
+        "mean": 0.3874412775039672
+      },
+      "e_cross_v1": {
+        "ci95": [
+          0.6272687274098397,
+          0.6868331056118011
+        ],
+        "mean": 0.6566669152577718
+      },
+      "e_global200": {
+        "ci95": [
+          0.37945746644139294,
+          0.4740183751642702
+        ],
+        "mean": 0.42328761410713206
+      },
+      "e_global50": {
+        "ci95": [
+          0.3614284727315108,
+          0.4233619332154591
+        ],
+        "mean": 0.39171503623326626
+      },
+      "e_root_v1": {
+        "ci95": [
+          0.4364573336601258,
+          0.509987155997753
+        ],
+        "mean": 0.4727709813117982
+      },
+      "global200_minus_global50": {
+        "ci95": [
+          0.00544234027862536,
+          0.06828993843396483
+        ],
+        "mean": 0.031572577873865804
+      },
+      "global50_minus_fitted50": {
+        "ci95": [
+          -0.0016784916857875893,
+          0.010376602099339062
+        ],
+        "mean": 0.004273758729299082
+      }
+    },
+    "seat-0": {
+      "e_bp": {
+        "ci95": [
+          1.133459262355168,
+          1.332622947390874
+        ],
+        "mean": 1.2307306645711258
+      },
+      "e_cross_eq50": {
+        "ci95": [
+          0.30081177937984466,
+          0.35808044803142536
+        ],
+        "mean": 0.32866399542490643
+      },
+      "e_cross_v1": {
+        "ci95": [
+          0.5789254351536433,
+          0.6492084576924642
+        ],
+        "mean": 0.6133302507400512
+      },
+      "e_global200": {
+        "ci95": [
+          0.3285703501621883,
+          0.4395990892529486
+        ],
+        "mean": 0.3779917292594908
+      },
+      "e_global50": {
+        "ci95": [
+          0.30238846890131627,
+          0.3592186688462893
+        ],
+        "mean": 0.33056463750203446
+      },
+      "e_root_v1": {
+        "ci95": [
+          0.4161989078680673,
+          0.4999256325006485
+        ],
+        "mean": 0.45839398813247667
+      },
+      "global200_minus_global50": {
+        "ci95": [
+          0.012226629503568153,
+          0.09658651915788656
+        ],
+        "mean": 0.04742709175745635
+      },
+      "global50_minus_fitted50": {
+        "ci95": [
+          -0.0064980857928593734,
+          0.009927451614538842
+        ],
+        "mean": 0.0019006420771280341
+      }
+    },
+    "seat-1": {
+      "e_bp": {
+        "ci95": [
+          1.486158286269506,
+          1.7490632607618972
+        ],
+        "mean": 1.6079912611643474
+      },
+      "e_cross_eq50": {
+        "ci95": [
+          0.39145785617431,
+          0.5056099904219311
+        ],
+        "mean": 0.4462185595830281
+      },
+      "e_cross_v1": {
+        "ci95": [
+          0.645127236509323,
+          0.7587629754940668
+        ],
+        "mean": 0.7000035797754923
+      },
+      "e_global200": {
+        "ci95": [
+          0.41305974059899647,
+          0.5277129732251166
+        ],
+        "mean": 0.46858349895477297
+      },
+      "e_global50": {
+        "ci95": [
+          0.39787898116509113,
+          0.5095809164762494
+        ],
+        "mean": 0.4528654349644976
+      },
+      "e_root_v1": {
+        "ci95": [
+          0.45534662527640657,
+          0.5202351975242296
+        ],
+        "mean": 0.4871479744911193
+      },
+      "global200_minus_global50": {
+        "ci95": [
+          -0.008117639255523522,
+          0.04458703132867828
+        ],
+        "mean": 0.015718063990275366
+      },
+      "global50_minus_fitted50": {
+        "ci95": [
+          -0.0004767255345980367,
+          0.014085292728741722
+        ],
+        "mean": 0.006646875381469519
+      }
+    }
+  },
+  "coverage": [
+    {
+      "fold": 0,
+      "fraction": 4.257723765392105e-08,
+      "lineage": 2026093001,
+      "metric": "e_global200",
+      "missing_reach": 0.0027142273431503424,
+      "street": "river",
+      "total_reach": 63748.319353460494
+    },
+    {
+      "fold": 0,
+      "fraction": 0.0022640922011532747,
+      "lineage": 2026093001,
+      "metric": "e_global200",
+      "missing_reach": 1.2623791714301427,
+      "street": "turn",
+      "total_reach": 557.5652664618149
+    },
+    {
+      "fold": 0,
+      "fraction": 1.404854160634848e-06,
+      "lineage": 2026093002,
+      "metric": "e_global200",
+      "missing_reach": 0.09060890305562457,
+      "street": "river",
+      "total_reach": 64497.01726667397
+    },
+    {
+      "fold": 0,
+      "fraction": 0.0019392889207617769,
+      "lineage": 2026093002,
+      "metric": "e_global200",
+      "missing_reach": 1.110031881914138,
+      "street": "turn",
+      "total_reach": 572.3911842275176
+    },
+    {
+      "fold": 0,
+      "fraction": 8.243382879695793e-08,
+      "lineage": 2026093003,
+      "metric": "e_global200",
+      "missing_reach": 0.005131670791754976,
+      "street": "river",
+      "total_reach": 62252.00098851106
+    },
+    {
+      "fold": 0,
+      "fraction": 0.002283167009334604,
+      "lineage": 2026093003,
+      "metric": "e_global200",
+      "missing_reach": 1.2526892355554113,
+      "street": "turn",
+      "total_reach": 548.6629889245332
+    },
+    {
+      "fold": 1,
+      "fraction": 2.2465524674306425e-05,
+      "lineage": 2026093001,
+      "metric": "e_global200",
+      "missing_reach": 1.4394650077329814,
+      "street": "river",
+      "total_reach": 64074.39971251959
+    },
+    {
+      "fold": 1,
+      "fraction": 0.03867790940876553,
+      "lineage": 2026093001,
+      "metric": "e_global200",
+      "missing_reach": 22.151292483004354,
+      "street": "turn",
+      "total_reach": 572.7117318803232
+    },
+    {
+      "fold": 1,
+      "fraction": 2.3346003619763235e-05,
+      "lineage": 2026093002,
+      "metric": "e_global200",
+      "missing_reach": 1.4907962437992432,
+      "street": "river",
+      "total_reach": 63856.59267769625
+    },
+    {
+      "fold": 1,
+      "fraction": 0.03708778631497588,
+      "lineage": 2026093002,
+      "metric": "e_global200",
+      "missing_reach": 21.31289053153871,
+      "street": "turn",
+      "total_reach": 574.660626831013
+    },
+    {
+      "fold": 1,
+      "fraction": 9.019729388796461e-06,
+      "lineage": 2026093003,
+      "metric": "e_global200",
+      "missing_reach": 0.5717414343468062,
+      "street": "river",
+      "total_reach": 63387.87004596554
+    },
+    {
+      "fold": 1,
+      "fraction": 0.04019390777871319,
+      "lineage": 2026093003,
+      "metric": "e_global200",
+      "missing_reach": 22.804825439411726,
+      "street": "turn",
+      "total_reach": 567.370198612269
+    },
+    {
+      "fold": 0,
+      "fraction": 0.0,
+      "lineage": 2026093001,
+      "metric": "e_global50",
+      "missing_reach": 0.0,
+      "street": "river",
+      "total_reach": 63558.236214086304
+    },
+    {
+      "fold": 0,
+      "fraction": 7.985194264318137e-08,
+      "lineage": 2026093001,
+      "metric": "e_global50",
+      "missing_reach": 4.4786497310733394e-05,
+      "street": "turn",
+      "total_reach": 560.8692265742611
+    },
+    {
+      "fold": 0,
+      "fraction": 0.0,
+      "lineage": 2026093002,
+      "metric": "e_global50",
+      "missing_reach": 0.0,
+      "street": "river",
+      "total_reach": 64042.80580756548
+    },
+    {
+      "fold": 0,
+      "fraction": 1.188475009366908e-06,
+      "lineage": 2026093002,
+      "metric": "e_global50",
+      "missing_reach": 0.0006766627818581699,
+      "street": "turn",
+      "total_reach": 569.3538160458445
+    },
+    {
+      "fold": 0,
+      "fraction": 0.0,
+      "lineage": 2026093003,
+      "metric": "e_global50",
+      "missing_reach": 0.0,
+      "street": "river",
+      "total_reach": 61457.5472876909
+    },
+    {
+      "fold": 0,
+      "fraction": 3.275627448691751e-08,
+      "lineage": 2026093003,
+      "metric": "e_global50",
+      "missing_reach": 1.8021439966640945e-05,
+      "street": "turn",
+      "total_reach": 550.1675709134292
+    },
+    {
+      "fold": 1,
+      "fraction": 1.8084468532011756e-10,
+      "lineage": 2026093001,
+      "metric": "e_global50",
+      "missing_reach": 1.140457741722801e-05,
+      "street": "river",
+      "total_reach": 63062.82873085538
+    },
+    {
+      "fold": 1,
+      "fraction": 1.6880905680298825e-05,
+      "lineage": 2026093001,
+      "metric": "e_global50",
+      "missing_reach": 0.009410451036541038,
+      "street": "turn",
+      "total_reach": 557.4612650980972
+    },
+    {
+      "fold": 1,
+      "fraction": 8.270190243173704e-11,
+      "lineage": 2026093002,
+      "metric": "e_global50",
+      "missing_reach": 5.215068081771281e-06,
+      "street": "river",
+      "total_reach": 63058.622938884015
+    },
+    {
+      "fold": 1,
+      "fraction": 6.907213589381911e-06,
+      "lineage": 2026093002,
+      "metric": "e_global50",
+      "missing_reach": 0.003877085836258748,
+      "street": "turn",
+      "total_reach": 561.3096780760891
+    },
+    {
+      "fold": 1,
+      "fraction": 6.76767513311993e-14,
+      "lineage": 2026093003,
+      "metric": "e_global50",
+      "missing_reach": 4.254415299198697e-09,
+      "street": "river",
+      "total_reach": 62863.763633958486
+    },
+    {
+      "fold": 1,
+      "fraction": 2.99167660554302e-05,
+      "lineage": 2026093003,
+      "metric": "e_global50",
+      "missing_reach": 0.01665346983202152,
+      "street": "turn",
+      "total_reach": 556.6600949168684
+    }
+  ],
+  "key_counts": {
+    "available_keys_by_evaluation_half": {
+      "K200/half0/river": 534000,
+      "K200/half0/turn": 26850,
+      "K200/half1/river": 534000,
+      "K200/half1/turn": 27900,
+      "K50/half0/river": 133500,
+      "K50/half0/turn": 7350,
+      "K50/half1/river": 133500,
+      "K50/half1/turn": 7350
+    },
+    "fitted_policy_keys": [
+      {
+        "alias": "eq50-fit0",
+        "keys": 133500,
+        "policy": "crossfit-0-2026093001.json.gz",
+        "positive_training_mass_keys": 133500,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit0",
+        "keys": 7350,
+        "policy": "crossfit-0-2026093001.json.gz",
+        "positive_training_mass_keys": 7226,
+        "street": "turn"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 534000,
+        "policy": "crossfit-0-2026093001.json.gz",
+        "positive_training_mass_keys": 533975,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 27900,
+        "policy": "crossfit-0-2026093001.json.gz",
+        "positive_training_mass_keys": 23222,
+        "street": "turn"
+      },
+      {
+        "alias": "eq50-fit0",
+        "keys": 133500,
+        "policy": "crossfit-0-2026093002.json.gz",
+        "positive_training_mass_keys": 133500,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit0",
+        "keys": 7350,
+        "policy": "crossfit-0-2026093002.json.gz",
+        "positive_training_mass_keys": 7023,
+        "street": "turn"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 534000,
+        "policy": "crossfit-0-2026093002.json.gz",
+        "positive_training_mass_keys": 533913,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 27900,
+        "policy": "crossfit-0-2026093002.json.gz",
+        "positive_training_mass_keys": 22358,
+        "street": "turn"
+      },
+      {
+        "alias": "eq50-fit0",
+        "keys": 133500,
+        "policy": "crossfit-0-2026093003.json.gz",
+        "positive_training_mass_keys": 133500,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit0",
+        "keys": 7350,
+        "policy": "crossfit-0-2026093003.json.gz",
+        "positive_training_mass_keys": 7140,
+        "street": "turn"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 534000,
+        "policy": "crossfit-0-2026093003.json.gz",
+        "positive_training_mass_keys": 533938,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 27900,
+        "policy": "crossfit-0-2026093003.json.gz",
+        "positive_training_mass_keys": 22514,
+        "street": "turn"
+      },
+      {
+        "alias": "eq50-fit0",
+        "keys": 133500,
+        "policy": "crossfit-1-2026093001.json.gz",
+        "positive_training_mass_keys": 133480,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit0",
+        "keys": 7350,
+        "policy": "crossfit-1-2026093001.json.gz",
+        "positive_training_mass_keys": 6953,
+        "street": "turn"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 534000,
+        "policy": "crossfit-1-2026093001.json.gz",
+        "positive_training_mass_keys": 533007,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 26850,
+        "policy": "crossfit-1-2026093001.json.gz",
+        "positive_training_mass_keys": 20821,
+        "street": "turn"
+      },
+      {
+        "alias": "eq50-fit0",
+        "keys": 133500,
+        "policy": "crossfit-1-2026093002.json.gz",
+        "positive_training_mass_keys": 133485,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit0",
+        "keys": 7350,
+        "policy": "crossfit-1-2026093002.json.gz",
+        "positive_training_mass_keys": 6937,
+        "street": "turn"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 534000,
+        "policy": "crossfit-1-2026093002.json.gz",
+        "positive_training_mass_keys": 533372,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 26850,
+        "policy": "crossfit-1-2026093002.json.gz",
+        "positive_training_mass_keys": 20921,
+        "street": "turn"
+      },
+      {
+        "alias": "eq50-fit0",
+        "keys": 133500,
+        "policy": "crossfit-1-2026093003.json.gz",
+        "positive_training_mass_keys": 133497,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit0",
+        "keys": 7350,
+        "policy": "crossfit-1-2026093003.json.gz",
+        "positive_training_mass_keys": 6983,
+        "street": "turn"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 534000,
+        "policy": "crossfit-1-2026093003.json.gz",
+        "positive_training_mass_keys": 533347,
+        "street": "river"
+      },
+      {
+        "alias": "eq50-fit1",
+        "keys": 26850,
+        "policy": "crossfit-1-2026093003.json.gz",
+        "positive_training_mass_keys": 20616,
+        "street": "turn"
+      }
+    ],
+    "occupied_labels": {
+      "K200/river": 200,
+      "K200/turn": 188,
+      "K50/river": 50,
+      "K50/turn": 49
+    }
+  },
+  "independent_audit": {
+    "passed": true,
+    "native_seat_metrics_checked": 1440,
+    "boards": 40,
+    "draws": 2000,
+    "seed": 202610030304,
+    "maximum_absolute_summary_difference": 4.440892098500626e-16,
+    "method": "native f32 chip subtraction; independent fsum scalar weighting with bootstrap multiplicities"
+  },
+  "full_summary_sha256": "3ec840ba6b8c4809b77b0b9a9b9cc636dc4ce5850be8613ee841be75ae490ed3",
+  "independent_audit_sha256": "65d379e8faabe938162a2728ed6d1d931d8051a0ad0504386fdc083f8f7e8240",
+  "qualification": {
+    "collections": 120,
+    "held_out_locks": 120,
+    "replays": 18,
+    "legacy_metrics_exact": true,
+    "unchanged_native_sha256": "fb32974d9d211fa66001d1efb330ec4af2d825005d24b287dc6cf3c37fa8812f"
+  }
+}
