@@ -1,0 +1,440 @@
+{
+  "all_actions": 1456557,
+  "all_hands": 310272,
+  "completion": {
+    "all_pilot_final_actions_settlements_audited": true,
+    "completed_at": 1791417445.09695,
+    "status": "verified",
+    "total_seconds": 28192.324481010437
+  },
+  "excluded_pilot_actions": 52008,
+  "excluded_pilot_hands": 10752,
+  "final_actions": 1404549,
+  "final_hands": 299520,
+  "half_width": 3.8737104961981186,
+  "lbr": {
+    "bb_per_100": -1.0915120442708333,
+    "blocks": 24576,
+    "ci95": [
+      -4.965222540468952,
+      2.782198451927285
+    ]
+  },
+  "lbr_coverage": [
+    {
+      "arm": "O",
+      "lineage": 1,
+      "panel": "lbr",
+      "streets": {
+        "flop": {
+          "decisions": 34142,
+          "lbr_decisions": 30234,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 34142
+        },
+        "preflop": {
+          "decisions": 68586,
+          "lbr_decisions": 53420,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 68586
+        },
+        "river": {
+          "decisions": 6878,
+          "lbr_decisions": 7540,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 6878
+        },
+        "turn": {
+          "decisions": 14854,
+          "lbr_decisions": 15276,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 14854
+        }
+      },
+      "terminal_street_hands": {
+        "flop": 12819,
+        "preflop": 24273,
+        "river": 5977,
+        "turn": 6083
+      }
+    },
+    {
+      "arm": "O",
+      "lineage": 2,
+      "panel": "lbr",
+      "streets": {
+        "flop": {
+          "decisions": 34512,
+          "lbr_decisions": 30592,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 34512
+        },
+        "preflop": {
+          "decisions": 68616,
+          "lbr_decisions": 53676,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 68616
+        },
+        "river": {
+          "decisions": 6369,
+          "lbr_decisions": 6976,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 6369
+        },
+        "turn": {
+          "decisions": 13641,
+          "lbr_decisions": 14160,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 13641
+        }
+      },
+      "terminal_street_hands": {
+        "flop": 13872,
+        "preflop": 24096,
+        "river": 5564,
+        "turn": 5620
+      }
+    },
+    {
+      "arm": "O",
+      "lineage": 3,
+      "panel": "lbr",
+      "streets": {
+        "flop": {
+          "decisions": 34951,
+          "lbr_decisions": 31229,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 34951
+        },
+        "preflop": {
+          "decisions": 67335,
+          "lbr_decisions": 53112,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 67335
+        },
+        "river": {
+          "decisions": 6703,
+          "lbr_decisions": 7395,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 6703
+        },
+        "turn": {
+          "decisions": 13957,
+          "lbr_decisions": 14595,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 13957
+        }
+      },
+      "terminal_street_hands": {
+        "flop": 13754,
+        "preflop": 23888,
+        "river": 5834,
+        "turn": 5676
+      }
+    },
+    {
+      "arm": "R",
+      "lineage": 1,
+      "panel": "lbr",
+      "streets": {
+        "flop": {
+          "decisions": 35903,
+          "lbr_decisions": 32818,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 35903
+        },
+        "preflop": {
+          "decisions": 66821,
+          "lbr_decisions": 53258,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 66821
+        },
+        "river": {
+          "decisions": 6558,
+          "lbr_decisions": 7291,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 6556,
+          "zero_mass": 2
+        },
+        "turn": {
+          "decisions": 14353,
+          "lbr_decisions": 15129,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 14351,
+          "zero_mass": 2
+        }
+      },
+      "terminal_street_hands": {
+        "flop": 14433,
+        "preflop": 22816,
+        "river": 5731,
+        "turn": 6172
+      }
+    },
+    {
+      "arm": "R",
+      "lineage": 2,
+      "panel": "lbr",
+      "streets": {
+        "flop": {
+          "decisions": 36740,
+          "lbr_decisions": 33533,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 36740
+        },
+        "preflop": {
+          "decisions": 65573,
+          "lbr_decisions": 53349,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 65573
+        },
+        "river": {
+          "decisions": 6939,
+          "lbr_decisions": 7827,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "missing": 2,
+          "positive_mass": 6937
+        },
+        "turn": {
+          "decisions": 14439,
+          "lbr_decisions": 15417,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 14438,
+          "zero_mass": 1
+        }
+      },
+      "terminal_street_hands": {
+        "flop": 15096,
+        "preflop": 21944,
+        "river": 6092,
+        "turn": 6020
+      }
+    },
+    {
+      "arm": "R",
+      "lineage": 3,
+      "panel": "lbr",
+      "streets": {
+        "flop": {
+          "decisions": 34595,
+          "lbr_decisions": 31908,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 34595
+        },
+        "preflop": {
+          "decisions": 66748,
+          "lbr_decisions": 53479,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "positive_mass": 66748
+        },
+        "river": {
+          "decisions": 6775,
+          "lbr_decisions": 7455,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "missing": 2,
+          "positive_mass": 6773
+        },
+        "turn": {
+          "decisions": 14157,
+          "lbr_decisions": 15179,
+          "lbr_incomplete": 0,
+          "lbr_over_soft_budget": 0,
+          "missing": 1,
+          "positive_mass": 14155,
+          "zero_mass": 1
+        }
+      },
+      "terminal_street_hands": {
+        "flop": 13934,
+        "preflop": 23314,
+        "river": 5854,
+        "turn": 6050
+      }
+    }
+  ],
+  "lbr_hands": 294912,
+  "lbr_strata": [
+    {
+      "bb_per_100": -1.0915120442708333,
+      "blocks": 24576,
+      "ci95": [
+        -4.965222540468952,
+        2.782198451927285
+      ],
+      "contrast": "O-R",
+      "lineage": null,
+      "panel": "lbr",
+      "position": null
+    },
+    {
+      "bb_per_100": 2.397325303819444,
+      "blocks": 24576,
+      "ci95": [
+        -3.270175939406823,
+        8.064826547045712
+      ],
+      "contrast": "O-R",
+      "lineage": null,
+      "panel": "lbr",
+      "position": "button"
+    },
+    {
+      "bb_per_100": -4.580349392361112,
+      "blocks": 24576,
+      "ci95": [
+        -9.922873568043673,
+        0.7621747833214512
+      ],
+      "contrast": "O-R",
+      "lineage": null,
+      "panel": "lbr",
+      "position": "big_blind"
+    },
+    {
+      "bb_per_100": -3.4393310546875,
+      "blocks": 24576,
+      "ci95": [
+        -9.403488438169596,
+        2.524826328794597
+      ],
+      "contrast": "O-R",
+      "lineage": 1,
+      "panel": "lbr",
+      "position": null
+    },
+    {
+      "bb_per_100": -5.841064453125,
+      "blocks": 24576,
+      "ci95": [
+        -14.448063686397694,
+        2.7659347801476937
+      ],
+      "contrast": "O-R",
+      "lineage": 1,
+      "panel": "lbr",
+      "position": "button"
+    },
+    {
+      "bb_per_100": -1.03759765625,
+      "blocks": 24576,
+      "ci95": [
+        -9.410805577162611,
+        7.335610264662611
+      ],
+      "contrast": "O-R",
+      "lineage": 1,
+      "panel": "lbr",
+      "position": "big_blind"
+    },
+    {
+      "bb_per_100": 4.900105794270833,
+      "blocks": 24576,
+      "ci95": [
+        -1.069029339806221,
+        10.869240928347887
+      ],
+      "contrast": "O-R",
+      "lineage": 2,
+      "panel": "lbr",
+      "position": null
+    },
+    {
+      "bb_per_100": 12.412516276041666,
+      "blocks": 24576,
+      "ci95": [
+        3.6673885577274117,
+        21.157643994355922
+      ],
+      "contrast": "O-R",
+      "lineage": 2,
+      "panel": "lbr",
+      "position": "button"
+    },
+    {
+      "bb_per_100": -2.6123046875,
+      "blocks": 24576,
+      "ci95": [
+        -10.774127590193146,
+        5.549518215193146
+      ],
+      "contrast": "O-R",
+      "lineage": 2,
+      "panel": "lbr",
+      "position": "big_blind"
+    },
+    {
+      "bb_per_100": -4.735310872395833,
+      "blocks": 24576,
+      "ci95": [
+        -10.786141518047687,
+        1.315519773256021
+      ],
+      "contrast": "O-R",
+      "lineage": 3,
+      "panel": "lbr",
+      "position": null
+    },
+    {
+      "bb_per_100": 0.6205240885416666,
+      "blocks": 24576,
+      "ci95": [
+        -8.198596158872164,
+        9.439644335955496
+      ],
+      "contrast": "O-R",
+      "lineage": 3,
+      "panel": "lbr",
+      "position": "button"
+    },
+    {
+      "bb_per_100": -10.091145833333334,
+      "blocks": 24576,
+      "ci95": [
+        -18.367937310194208,
+        -1.814354356472462
+      ],
+      "contrast": "O-R",
+      "lineage": 3,
+      "panel": "lbr",
+      "position": "big_blind"
+    }
+  ],
+  "legacy_checks_context": "Unchanged original >0 LBR rule and 32-block pressure compatibility cells; candidate rule lower >-5 and #185 pressure evidence are predeclared separately",
+  "legacy_reporter_checks": {
+    "lbr_lower_above_0": false,
+    "native_pressure_lower_above_minus_10": false,
+    "no_severe_regression": true
+  },
+  "legacy_reporter_release_rule_passed": false,
+  "lower_margin": -5,
+  "margin_clearance": 0.03477745953104794,
+  "plan_bundle_sha256": "8d9fd3ff6f17e602f495fdebaccf8eb156a6a02300312e0a102720c56c611d99",
+  "precision_passed": true,
+  "safeguard_passed": true,
+  "scientific_source": "0621302417589fc3823765e939e8ad05ff6d8391",
+  "scope": "fresh final only; pilot and historical hands excluded",
+  "status": "verified"
+}
