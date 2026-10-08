@@ -11,17 +11,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 from random import Random
 
-from src.arena.catalog import Checkpoint
 from src.arena.runner import public_events
 from src.arena.schedule import digest
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, choices
-from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT
-from src.blueprint.solver import HU20_UNCAPPED_GAME
+from src.blueprint.abstraction import choices
+from src.blueprint.artifact import HU20_UNCAPPED_FORMAT
 from src.game.hand import Hand, Table
 from src.game.observation import ActionTaken, BlindPosted, BoardDealt, CardsMucked, CardsShown
 from src.game.types import Action, ActionKind
 
-MODEL_SHA256 = "4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf"
 MODEL_NAME = "B100M · seed 2026093001"
 API_VERSION = "hu20-play-api-v1"
 ADAPTER_ID = "direct-v1"
@@ -99,20 +96,10 @@ def _model_info(policy):
             "benchmarkOnly": getattr(policy, "benchmark_only", False)}
 
 
-def load_b100m(path: Path):
-    spec = Checkpoint("B100M", str(path), MODEL_SHA256, HU20_UNCAPPED_FORMAT)
-    source = FrozenBlueprint(spec, path)
-    if (source.game != HU20_UNCAPPED_GAME or source.abstraction != HU20_UNCAPPED_SCHEMA
-            or source.players != 2 or source.raise_cap is not None
-            or source.description["strategy"] != "current"
-            or source.description["iteration"] < 1):
-        raise ValueError("Artifact is not the pinned current native-reopening HU20 policy")
-    return source
-
-
 class PlayService:
     def __init__(self, db_path: Path, policy, *, source_version: str = "unknown"):
         self.policy = policy
+        self.db_path = db_path
         self.source_version = source_version
         self.lock = threading.RLock()
         db_path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -137,6 +124,9 @@ class PlayService:
             raise PlayError("Session model differs from the loaded policy", 409)
         return state
 
+    def _ack_matches(self, response):
+        return response["model"]["sha256"] == self.policy.spec.sha256
+
     def _mutate(self, key, fingerprint, session_id, operation):
         if not isinstance(key, str) or not 16 <= len(key) <= 128 or not key.isascii():
             raise PlayError("Invalid idempotency key")
@@ -147,7 +137,7 @@ class PlayService:
                 if prior is not None:
                     if prior[0] != fingerprint:
                         raise PlayError("Idempotency key conflicts with an earlier request", 409)
-                    if json.loads(prior[1])["model"]["sha256"] != self.policy.spec.sha256:
+                    if not self._ack_matches(json.loads(prior[1])):
                         raise PlayError("Acknowledgment belongs to another model", 409)
                     self.db.commit()
                     return json.loads(prior[1])

@@ -1,4 +1,4 @@
-"""Model choice, persistence and retries across the two table versions."""
+"""Model choice, persistence and retries across all retained table versions."""
 
 import pytest
 
@@ -9,7 +9,7 @@ from tests.play_ui.test_service import FixturePolicy, human_action
 
 def tables(tmp_path):
     services = {}
-    for version, digest in (("v0.4.1", "a"), ("v0.4.0", "b")):
+    for version, digest in (("v0.4.2", "a"), ("v0.4.1", "c"), ("v0.4.0", "b")):
         policy = FixturePolicy()
         policy.spec = type("Identity", (), {"sha256": digest * 64})()
         services[version] = PlayService(tmp_path / version / "private.sqlite", policy)
@@ -20,18 +20,20 @@ def test_default_selection_restart_and_cross_model_retry(tmp_path):
     service = tables(tmp_path)
     body = {"playMode": "restricted", "visibility": "developer"}
     try:
-        assert service.model_catalog()["default"] == "v0.4.1"
+        assert service.model_catalog()["default"] == "v0.4.2"
         first = service.create("create-default-key-0001", body)
         old = service.create("create-v040-key-000001", {**body, "modelVersion": "v0.4.0"})
+        incumbent = service.create("create-v041-key-000001", {**body, "modelVersion": "v0.4.1"})
         assert first["model"]["sha256"] == "a" * 64
         assert old["model"]["sha256"] == "b" * 64
+        assert incumbent["model"]["sha256"] == "c" * 64
         assert service.create("create-default-key-0001", body) == first
         with pytest.raises(PlayError, match="another model"):
             service.create("create-default-key-0001", {**body, "modelVersion": "v0.4.0"})
         for version in ("bad", [], None):
             with pytest.raises(PlayError, match="available model"):
                 service.create("invalid-version-key-001", {**body, "modelVersion": version})
-        for state in (first, old):
+        for state in (first, old, incumbent):
             state = service.new_hand(state["sessionId"], f"new-hand-{state['sessionId']}", {"revision": 0})
             state = human_action(service, state, "fold", key=f"fold-{state['sessionId']}")
             assert service.verify_replay(state["sessionId"]) == 1
@@ -44,6 +46,7 @@ def test_default_selection_restart_and_cross_model_retry(tmp_path):
     try:
         assert reopened.state(first["sessionId"])["model"]["sha256"] == "a" * 64
         assert reopened.state(old["sessionId"])["model"]["sha256"] == "b" * 64
+        assert reopened.state(incumbent["sessionId"])["model"]["sha256"] == "c" * 64
         assert reopened.verify_replay(first["sessionId"]) == 1
         assert reopened.verify_replay(old["sessionId"]) == 1
         assert len(reopened.history(old["sessionId"])["hands"]) == 1
@@ -56,3 +59,18 @@ def test_failed_default_never_silently_loads_incumbent(tmp_path):
     with pytest.raises(ValueError, match="regular file"):
         load_tables(tmp_path, tmp_path / "data", "test")
     assert not (tmp_path / "data").exists()
+
+
+def test_catalog_can_add_a_release_without_changing_session_routing(tmp_path):
+    services = {version: PlayService(tmp_path / version / 'private.sqlite', FixturePolicy())
+                for version in ('v0.4.0', 'v0.4.1', 'fixture-next')}
+    try:
+        tables = VersionedTables(services, default_version='fixture-next')
+        assert tables.model_catalog()['default'] == 'fixture-next'
+        state = tables.create('next-release-key-00001', {'playMode': 'restricted', 'visibility': 'developer'})
+        assert tables._for_session(state['sessionId']) is services['fixture-next']
+        with pytest.raises(ValueError, match='default release'):
+            VersionedTables(services, default_version='absent')
+    finally:
+        for service in services.values():
+            service.close()

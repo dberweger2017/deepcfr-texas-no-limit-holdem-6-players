@@ -25,6 +25,113 @@ Restore exact removed members from [#149's canonical archive](https://drive.goog
 
 # Research results index
 
+## v0.4.2 published stable Latest — October 8, 2026
+
+[Release PR #198](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/198), branch `feature/v042-release`; [readiness and publication sequence](docs/releases/v0.4.2/READINESS.md). The owner authorized the release PR, reviewed green-check merge, exact-source tag and stable Latest. No new research, retraining, extraction or selection. The historical #188 unpublished package below remains unchanged.
+
+Input retrieval on M4 uses the already-synced [canonical #188 ZIP](https://drive.google.com/file/d/1ismlfD-LKQfFqAAR3O5LN_6UVmebHChH/view), `~/Local/Research-Cloud/PR-188-HU20-O-10B-LBR/hu20-v042-lbr-complete-20261008.zip`. Whole SHA256 `7a36e20f5e4560ec98d14ecaa4a6bb1fe77a7ecf1a5aa710cd1e03e586b45a80`, embedded `ARCHIVE-MANIFEST.json` SHA256 `f5354027221c0750b086c3ff2553f6acdaded38b218a37963922f5e42544b702`. After confirming #188 merged, only the six `research/package/` members were copied into ignored nonsynced `~/Local/v042-release-20261008/source/results/v042-release/preparation/`, validating member sizes/SHA256 and the original standalone verifier against source `1d80bd02c2e8acf2dc99b75f6e0349bb55a941d8`. [Retrieval receipt](docs/releases/v0.4.2/verification/retrieval-receipt.json). Remote archive bytes were not downloaded; this is fresh local archive/member verification of the accepted canonical input.
+
+To reproduce retrieval on M4, verify the indexed ZIP and embedded manifest hashes, then run `unzip -n "$ARCHIVE" 'research/package/*' 'ARCHIVE-MANIFEST.json' -d results/retrieved/v042-release` in a fresh ignored directory and verify every selected member against that manifest. Run the extracted `verify_v042_bundle.py` with `--expect-source 1d80bd02c2e8acf2dc99b75f6e0349bb55a941d8`. Never use `research/package-attempt-01/`. Model member `research/package/O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz`, **249,237,403 bytes**, SHA256 `15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae`.
+
+The [M4 deterministic smoke](docs/releases/v0.4.2/verification/smoke-summary.json) and [resource/source receipts](docs/releases/v0.4.2/READINESS.md#verified-integration) pass. Release working files and runtime journals remain in the fresh M4 root above and ignored M1 `planning/v042-release/` / `results/v042-release/`. The final seven assets are published as stable Latest at [v0.4.2](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.2), release ID 406532927, tagged source `a53f167fa736a481339034d1a7235202d599418c`. [Publication record, exact asset hashes and retrieval verification](docs/releases/v0.4.2/PUBLICATION.md). Publication manifest SHA256 `0257d1c3d724a0b3a81747a4868c1f236858b4fcc2c4d234797988daa618d82c` binds that exact source and preserves #188 preparation provenance. Fresh authenticated draft and unauthenticated public seven-file downloads independently verify on M4; the supported runtime loads the freshly published default and independently audits every smoke action/settlement. Latest and all older public asset URLs verify. Retrieve all seven files with `gh release download v0.4.2 --dir results/retrieved/v042-publication`, then on M4 run the downloaded `verify_v042_bundle.py` with `--expect-source a53f167fa736a481339034d1a7235202d599418c --require-publication`. Use a fresh ignored nonsynced directory. Raw receipts/journals remain in the indexed own release roots, including `merged-source/results/v042-release/public-download-01/` and `public-runtime-smoke-01/`; no heavy M4 release job remains. Existing v0.4.0/v0.4.1 release assets remain pinned and available. No evidence deletion, archive eviction, other PR root changes or post-publication cleanup is part of this task.
+
+
+## PR196 — native HU100 engineering preparation, October 7, 2026
+
+[PR196](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/196),
+[protocol](docs/native-hu100-preparation.md), [validation](docs/reports/native-hu100-preparation.md).
+Preparation only: no campaign checkpoint/export, resource pilot, arena/benchmark,
+large artifact download or research archive was produced. Transient deterministic
+fixtures remain outside Git. Future campaigns require an owning PR and the
+full Research-Cloud archive/member/upload/retrieval receipts below; there is no
+new restoration link or deletion authorization from this preparation.
+
+## M1 storage vacuum and upload preference — October 7, 2026
+
+Removed **1,185 merged PR166/PR162 research copies /7.149 GB logical** and **2,230
+inactive download-cache files /0.439 GB allocated**: **7.573 GB measured reclaimed**,
+**31.022 GB free** at cleanup while PR190 continues writing. Open #188/#190 roots
+and dependencies, all PR185 roots, primary board-pooling inputs, shared Git, active
+source/helpers/caches, credentials, personal files and synced archives remain.
+
+[Selection and restoration](docs/artifacts/m1-vacuum-20261007.md),
+[full per-path receipt/restore helper](https://drive.google.com/file/d/1rl31gm8Zem_dHI_gJL-ek9pQyFp9YqdO/view)
+(467,969 bytes; SHA256 `55fd3febc6eacb0373a26acd1e708c41ed055c735681473d51dd3d437f30697c`).
+The owner accepts confirmed Drive uploads for cleanup without downloading archives
+or repeating hash audits. Existing manifests and original path/size/modification
+history were used; changed/uncertain files remain. Exact canonical Drive IDs,
+members and existing hashes are in the receipt. Run its
+`restore.py --original ORIGINAL_ABSOLUTE_PATH --out results/retrieved/NEW_FILE`.
+No payload download/repeated hash audit, synced deletion/eviction or unattended work.
+Earlier retention claims are superseded only for the exact receipted paths.
+
+## M4 storage vacuum — October 7, 2026
+
+Owner-authorized removal of **279 merged PR162 duplicate inputs /4.807 GB logical**
+and **4,244 inactive Chrome/Homebrew/Java cache files /2.157 GB allocated** reclaimed
+**6.951 GB measured**; free space rose from **64.467 to 71.419 GB**. Open #188/#190
+roots/dependencies, all PR185 files, primary board-pooling inputs, shared Git/source,
+Codex runtime cache, personal files and synced archives remain protected.
+
+[Verification and restoration](docs/artifacts/m4-vacuum-20261007.md),
+[full per-path receipt and restore helper](https://drive.google.com/file/d/1YXuVlKUvNrTqWBtWIEPd_QEVWCDbBTzG/view)
+(495,976 bytes; SHA256 `556b679e391026da60c82f5669f44fb1c84e89a66f5b62983d95c1a3c7cc3b79`).
+The [PR162 canonical archive](https://drive.google.com/file/d/1_6dRapLReZ9-sAMPaePNX-nehXowGwki/view)
+and all 2,809 members freshly verify; current native/cloud upload acceptance agrees.
+Each removed research path records its exact archive member/size/SHA256 in the receipt;
+run its `restore.py --original ORIGINAL_ABSOLUTE_PATH --out results/retrieved/NEW_FILE`.
+Sample restoration passed. No remote-byte download, synced deletion, eviction or
+unattended cleanup. Earlier retained-original statements are superseded only for
+these exact receipted paths.
+
+New entries follow the [shared storage and archive-receipt contract](docs/artifact-storage.md).
+The [tracked-payload audit](docs/reports/necessary-cleaning.md) identifies retained Git evidence;
+its retention list is not cloud verification or deletion approval.
+
+## PR188 — fresh v0.4.2 LBR confirmation passes narrowly
+
+[Predeclaration](docs/hu20-v042-lbr-confirmation.md), [PR188](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188). M4 work root `~/Local/hu20-o-10b-lbr-20261007/`; light M1 checkout `/Users/dberweger/Local/v042-lbr-confirmation/`. All six #185 exports match their original manifest hashes; **34,826,546 keys** pass current-main `entries`/`visits`/`zero_mass` direct-JSON exactness, zero mismatches. [Per-model receipts and scientific-source hashes](docs/reports/hu20-v042-lbr-artifacts/). Only #186 compact storage differs from the unchanged #176/#185 scientific pipeline; all play/reporter/auditor files are pinned.
+
+Excluded pilot root **202610077101**, final **202610077201**; no #185 or pilot hands pooled. Fresh **24,576 LBR blocks/model /294,912 LBR hands** give **−1.091512 [−4.965223, +2.782198] BB/100**, lower >−5 passes by 0.034777; half-width 3.873710 meets ≤5. All four v0.4.2 candidate checks pass when combined with #185. Final 299,520 plus excluded pilot 10,752 hands /**1,456,557 actions and settlements** independently replay. Zero incomplete LBR decisions. [Report](docs/reports/hu20-v042-lbr-confirmation.md), [independent audit](docs/reports/hu20-v042-lbr-artifacts/final-audit.json), [summary](docs/reports/hu20-v042-lbr-artifacts/final-summary.json).
+
+Final completed **October 8 01:57:25 Madrid**, in 7h49m52s within the owner-approved 12-hour cap; original eight-hour admission stop and before-hands cache failure retained. At most three M4 workers, peak 1.024323 GiB, 3-GiB guard and ≥15-GiB disk floor passed. Scientific snapshot `0621302417589fc3823765e939e8ad05ff6d8391`; final bundle hash `8d9fd3ff6f17e602f495fdebaccf8eb156a6a02300312e0a102720c56c611d99`. Frozen science excludes all later main changes.
+
+**Complete science/package archive:** [hu20-v042-lbr-complete-20261008.zip](https://drive.google.com/file/d/1ismlfD-LKQfFqAAR3O5LN_6UVmebHChH/view?usp=drivesdk) in [PR-188-HU20-O-10B-LBR](https://drive.google.com/drive/folders/1mv9v1VV2-Szfn8jNAjvpU4oWvRdqIkY2), synced native `~/Local/Research-Cloud/PR-188-HU20-O-10B-LBR/` on both Macs. **1,982,165,922 ZIP bytes /1,996 source members plus embedded manifest, all 1,997 readbacks verified**. Whole SHA256 `7a36e20f5e4560ec98d14ecaa4a6bb1fe77a7ecf1a5aa710cd1e03e586b45a80`; embedded `ARCHIVE-MANIFEST.json` SHA256 `f5354027221c0750b086c3ff2553f6acdaded38b218a37963922f5e42544b702`. [Archive receipt](docs/reports/hu20-v042-lbr-artifacts/archive-receipt.json), [current native upload acceptance](docs/reports/hu20-v042-lbr-artifacts/archive-native-upload.json), [independent cloud ID/name/size/parent](docs/reports/hu20-v042-lbr-artifacts/archive-cloud.json). Native uploaded=true, uploading=false, conflicts=false, exact bytes. Cloud metadata independently agrees. **Remote archive bytes were not downloaded**; full local archive/member readback and upload acceptance are distinct evidence.
+
+Contains `research/pilot/` and `research/final/` raw play, plans, reports, independent audits, resource/launch logs; all frozen/current source and environment snapshots; freshness searches, control scripts, original eight-hour admission stop and before-hands cache failure; M1 coordination receipts; six exact model inputs. All input/checkpoint origin manifests and restoration dependencies remain pinned in [preflight](docs/reports/hu20-v042-lbr-artifacts/preflight.json) and #185's indexed archives. Later main changes never enter the frozen scientific source. All originals retained; no deletion, eviction or other PR root changes.
+
+**Unpublished package:** canonical members `research/package/`, fixed first seed **2026100601** exact 10B export named `O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz`, **249,237,403 bytes**, SHA256 `15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae`. Five checksummed assets plus SHA256SUMS verify against preparation commit `1d80bd02c2e8acf2dc99b75f6e0349bb55a941d8`; [receipt](docs/reports/hu20-v042-lbr-artifacts/package-verification.json), [readiness](docs/releases/v0.4.2/READINESS.md), [card](docs/releases/v0.4.2/MODEL_CARD.md), [notes](docs/releases/v0.4.2/RELEASE_NOTES.md). Publication approval false, approved release source null; no release/tag/default change. `research/package-attempt-01/` is retained incorrect-source-binding evidence, never the package to use. System-Python rehash failure is retained under `research/coordination/closeout-failures.json`; corrected pinned-Python closeout rechecks all 403 scientific files.
+
+Retrieve the linked ZIP into a fresh ignored nonsynced directory on M4. Do not overwrite an active input. Verify its whole hash before extraction, then every extracted member's bytes/SHA256 against the embedded manifest:
+
+```sh
+mkdir -p results/retrieved/pr188
+# Download the indexed ZIP into this directory, or use the already-synced ZIP.
+shasum -a 256 results/retrieved/pr188/hu20-v042-lbr-complete-20261008.zip
+unzip -n results/retrieved/pr188/hu20-v042-lbr-complete-20261008.zip 'inputs/policies/*' 'research/package/*' 'ARCHIVE-MANIFEST.json' -d results/retrieved/pr188/extracted
+python3.11 results/retrieved/pr188/extracted/research/package/verify_v042_bundle.py results/retrieved/pr188/extracted/research/package --expect-source 1d80bd02c2e8acf2dc99b75f6e0349bb55a941d8
+```
+
+[All six model members, exact sizes/hashes and per-member retrieval commands](docs/reports/hu20-v042-lbr-artifacts/archive-models.json). Members under `inputs/policies/`:
+
+| Seed | 1B member (bytes, SHA256) | 10B member (bytes, SHA256) |
+| --- | --- | --- |
+| 2026100601 | `O-2026100601-1000000000.average.jsonl.gz` (142,677,367, `571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d`) | `O-2026100601-10000000000.average.jsonl.gz` (249,237,403, `15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae`) |
+| 2026100602 | `O-2026100602-1000000000.average.jsonl.gz` (143,137,499, `5a994484e4cbed5146c5f0d627ee12d0f22e8fc41ebb1f3628c80b112ba8d59b`) | `O-2026100602-10000000000.average.jsonl.gz` (251,732,642, `52de62633d8a56e17019be7b8db6b5e744043a40667e2352171f67119ac6f2ce`) |
+| 2026100603 | `O-2026100603-1000000000.average.jsonl.gz` (142,318,596, `52794e8b2ce1a1c660cf9cf3514baf56256368cc7b57acbe12405349fb9d42f0`) | `O-2026100603-10000000000.average.jsonl.gz` (251,815,844, `b0e514d0f46e52de32fa4e183bd5b88ed259cf147f4af661f4cba034775a3b4f`) |
+
+**Report/receipt supplement:** [hu20-v042-lbr-report-closeout-20261008.zip](https://drive.google.com/file/d/1UKhQLDGeKK_LykrioiNNLIG-VFfRAyWs/view?usp=drivesdk), **157,065 bytes /49 source members plus manifest, all 50 readbacks verify**, SHA256 `1580762a3f42bce05ee3bea0f086dfe9ca0b7d7b7754a52c400276de2de102f5`; embedded `ARCHIVE-MANIFEST.json` SHA256 `87ae60f877a0e390198315c1f20a39d4d21a3cfdb2d72a4e952bb865ce2a4fa0`. Same PR188 folder. Contains the updated report/index snapshot, protocol, package source/tests/card/notes/readiness/manifest/checksums, scientific summaries, first archive acceptance and coordination receipts. All 49 source hashes also match the completed M1→M4 transfer. [Receipt](docs/reports/hu20-v042-lbr-artifacts/report-closeout-archive.json), [native](docs/reports/hu20-v042-lbr-artifacts/report-closeout-native-upload.json), [cloud](docs/reports/hu20-v042-lbr-artifacts/report-closeout-cloud.json) accept exact ID/name/size/parent, uploaded/no pending/no conflicts. Remote bytes not downloaded. Extract `closeout/` into a fresh ignored path and verify embedded-manifest member hashes; models come from the complete science/package ZIP above.
+
+[Terminal CI/review/merge receipts](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188#issuecomment-6052959257) are appended after green-check merge and sealed separately in the same folder. This dated science/package record does not claim a merge before it occurs.
+
+## PR193 — local bot-vs-bot spectator validation
+
+[Guide](docs/spectator.md), [compact verification](docs/reports/web-spectator-verification.json). All 25 retained spectator hands /141 decisions and 12 human hands independently replay through the pinned loaders; 102 focused tests pass. Reversed and same-model pairings, pause, step, reload and historical observations are checked. These are interface checks, not a strength comparison.
+
+Retain the active worktree `/Users/dberweger/Local/deepcfr-web-spectator/` and its ignored `results/spectator-browser/` journals, screenshots, browser reports (including the interrupted first attempt), independent audits and the original `evidence-manifest.json` plus `integration-evidence-manifest.json`. The manifest records member sizes/SHA256, excluding the local access token and browser profiles. The owned server and isolated smoke browsers are stopped. No archival, upload acceptance or original removal is claimed; at requested cleanup, check the PR status and use `~/Local/Research-Cloud/PR-193-web-spectator/` within the [designated project folder](https://drive.google.com/drive/folders/188bEt6i0RHqegCCdvpf3wPzUiRw78N2s).
+
+Models in ignored `models/` are the existing release downloads: v0.4.0 `B100M-HU20-current-seed-2026093001.json.gz`, SHA256 `4534e7db2f69bedd54098b7eaa3c9bd82450838405ae162270a3b7684db9bedf`; v0.4.1 `O1B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz`, SHA256 `571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d`. Retrieve with the exact `gh release download` commands in the [readme](readme.md#install-and-play), then run the two model verifiers; the checked-in pinned manifests record their published release URLs and manifest hashes. No model binaries enter Git.
+
 ## PR185 — HU20 O at 10B, audited direct gain; LBR safeguard inconclusive
 
 **Final status (October 7):** matched-seed three-lineage 10B−1B **+3.50 [1.63, 5.37] BB/100**, better for every seed. LBR **+2.79 [−6.25, 11.83]** fails to establish lower >−5; no package, model promotion or release. All 1,022,976 final +60,672 excluded pilot hands /5,959,763 actions and 160 native metrics independently verify. [Report](docs/reports/hu20-o-10b.md), [owner packet](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/185#issuecomment-6031857945), [audit/review proof](docs/reports/hu20-o-10b-artifacts/confirmation-review-validation.json). Science finished at 05:05 Madrid inside the nine-hour cap; posting timeout at 05:15 after owner-reported hotspot disconnection is preserved. Native recurring checks disabled, shell monitor terminal. No scientific restart or further samples.

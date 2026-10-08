@@ -12,7 +12,8 @@ from src.arena.catalog import Checkpoint
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, choices, information_key
 from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT, export_policy, save_training
 from src.blueprint.solver import BlueprintTrainer, Node, PilotConfig, HU20_UNCAPPED_GAME, _collect_root
-from src.diagnostics.cfr_average import FORMAT, DiagnosticAverage, extract, audit, normalized
+from src.blueprint.average import FORMAT, AveragePolicy, normalized
+from src.diagnostics.cfr_average import extract, audit
 from src.game.hand import Hand, Table
 from src.game.types import Street
 
@@ -37,7 +38,7 @@ def test_extraction_verifies_all_accumulators_and_guard_stays(tmp_path):
     assert result['counts']=={'entries':2,'positive_mass':1,'visits':3,'zero_mass':1}
     checked=audit(checkpoint,current,output,spec,result['sha256'])
     assert checked['all_nodes_verified']==2 and checked['maximum_tv']==1
-    average=DiagnosticAverage(output,result['sha256'])
+    average=AveragePolicy(output,result['sha256'])
     menu,p,trained=average.distribution(view)
     assert trained and p[0]==0 and sum(p)==pytest.approx(1)
     assert checkpoint.read_bytes()==before
@@ -67,7 +68,7 @@ def test_observation_only_inference_and_zero_mass_is_distinct(tmp_path):
     key=information_key(view,choices(view,raise_cap=None,free_fold=False),schema=trainer.config.abstraction)
     trainer.nodes[key].average=[0]*len(trainer.nodes[key].names)
     spec['checkpoint_sha256']=save_training(trainer,checkpoint);output=tmp_path/'average.gz';result=extract(checkpoint,spec,output)
-    source=DiagnosticAverage(output,result['sha256'])
+    source=AveragePolicy(output,result['sha256'])
     menu,p,trained=source.distribution(view);assert trained and key in source.zero_mass
     assert p==(1/len(menu),)*len(menu)
     other=replace(view,hole_cards=('Ac','Ad'))
@@ -80,7 +81,7 @@ def test_observation_only_inference_and_zero_mass_is_distinct(tmp_path):
 def test_unrevealed_holding_and_future_deck_cannot_change_average_query(tmp_path):
     from src.blueprint.search import DECK
     _,_,checkpoint,_,spec=fixture(tmp_path);output=tmp_path/'average.gz';result=extract(checkpoint,spec,output)
-    source=DiagnosticAverage(output,result['sha256']);deck=list(DECK);other=list(deck)
+    source=AveragePolicy(output,result['sha256']);deck=list(DECK);other=list(deck)
     other[0],other[4]=other[4],other[0];other[2],other[5]=other[5],other[2];other[6:]=reversed(other[6:])
     views=[Hand.from_deck(Table(('a','b'),(2000,2000)),hand_id='same-visible',deck=d).observe(0) for d in (deck,other)]
     assert views[0]==views[1]

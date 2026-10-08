@@ -1,9 +1,9 @@
-"""Verify unchanged, prospectively fixed O candidate bytes without publishing."""
+"""Verify the released v0.4.1 average bytes without publishing."""
 
 import argparse
 from pathlib import Path
 
-from src.play_api.o_candidate import verify
+from src.policies.v041 import verify
 
 
 def main():

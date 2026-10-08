@@ -10,10 +10,13 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from src.play_api.service import PlayError, PlayService, load_b100m
+from src.play_api.service import PlayError, PlayService
+from src.policies.v040 import load_policy as load_b100m
 
 ASSETS = Path(__file__).resolve().parents[2] / "apps" / "poker-web"
 ASSET_TYPES = {"/": ("index.html", "text/html; charset=utf-8"),
+               "/playback.js": ("playback.js", "text/javascript; charset=utf-8"),
+               "/spectator.js": ("spectator.js", "text/javascript; charset=utf-8"),
                "/app.js": ("app.js", "text/javascript; charset=utf-8"),
                "/style.css": ("style.css", "text/css; charset=utf-8")}
 SESSION = re.compile(r"^/api/sessions/([A-Za-z0-9_-]{24})$")
@@ -177,8 +180,8 @@ def single_table(args):
         from src.play_api.uniform_random import UniformRestrictedPolicy
         policy = UniformRestrictedPolicy()
     elif args.o_candidate:
-        from src.play_api.o_candidate import load_o_candidate
-        policy = load_o_candidate(args.o_candidate)
+        from src.policies.v041 import load_policy
+        policy = load_policy(args.o_candidate)
     elif args.shield_policy:
         from src.play_api.shield import ShieldPolicy
         policy = ShieldPolicy(args.shield_policy)
@@ -190,10 +193,10 @@ def single_table(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     opponent = parser.add_mutually_exclusive_group()
-    opponent.add_argument("--models-dir", type=Path, help="Both pinned models; v0.4.1 is the default")
+    opponent.add_argument("--models-dir", type=Path, help="Pinned release models; v0.4.2 is the default")
     opponent.add_argument("--policy", type=Path)
     opponent.add_argument("--o-candidate", type=Path,
-                          help="Opt-in pinned O1B average candidate; does not change v0.4.0")
+                          help="Single-model v0.4.1 O1B average (legacy option name)")
     opponent.add_argument("--shield-policy", type=Path,
                           help="Pinned CFR+ first-lineage average; restricted benchmarks only")
     opponent.add_argument("--uniform-random", action="store_true",

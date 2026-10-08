@@ -5,7 +5,8 @@ import json
 
 import pytest
 
-from src.diagnostics.cfr_average import DiagnosticAverage, extract
+from src.blueprint.average import AveragePolicy
+from src.diagnostics.cfr_average import extract
 from src.diagnostics.saved_hu20 import file_hash
 from src.play_api import shield
 from src.play_api.service import PlayError, PlayService
@@ -33,7 +34,7 @@ def shield_fixture(tmp_path, monkeypatch):
 def test_shield_keeps_exact_arena_distribution_and_model_identity(tmp_path, monkeypatch):
     path, view = shield_fixture(tmp_path, monkeypatch)
     policy = shield.ShieldPolicy(path)
-    arena = DiagnosticAverage(path, file_hash(path))
+    arena = AveragePolicy(path, file_hash(path))
     assert policy.distribution(view) == arena.distribution(view)
     assert policy.description == arena.description
     assert policy.spec.sha256 == file_hash(path)

@@ -1,0 +1,22 @@
+{
+  "status": "verified",
+  "model": {
+    "arm": "O",
+    "bytes": 251732642,
+    "checkpoint_sha256": "9c7d90b1bfeda26bb81462c742a17d04450e34077b9eb3bc35039877e4ee139f",
+    "iteration": 19544624,
+    "name": "O-2026100602",
+    "nodes": 10000000000,
+    "path": "O-2026100602-10000000000.average.jsonl.gz",
+    "seed": 2026100602,
+    "sha256": "52de62633d8a56e17019be7b8db6b5e744043a40667e2352171f67119ac6f2ce",
+    "strategy": "average"
+  },
+  "all_keys_verified": 7315320,
+  "zero_mass_keys": 2519103,
+  "load_seconds": 31.26777899998706,
+  "verify_seconds": 35.79537329199957,
+  "peak_rss_bytes": 1054031872,
+  "comparison": "Every entries tuple, visits integer and zero_mass membership equals direct JSON parse",
+  "source": "e74316fb8f919c77e52e82a5c6b0b4d0833a838c"
+}

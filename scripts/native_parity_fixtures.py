@@ -11,19 +11,21 @@ import json
 from pathlib import Path
 from random import Random
 
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, choices, information_key
+from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA, choices, information_key
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
 
 DECK = tuple(rank + suit for rank in "23456789TJQKA" for suit in "cdhs")
 
 
-def record(seed, off_menu, passive):
+def record(seed, off_menu, passive, stack_bb=20):
+    if stack_bb not in (20, 100):
+        raise ValueError("stack must be 20 or 100 BB")
     rng = Random(seed)
     deck = list(DECK)
     rng.shuffle(deck)
     button = rng.randrange(2)
-    hand = Hand.from_deck(Table(("a", "b"), (2000, 2000), button=button), hand_id="parity", deck=tuple(deck))
+    hand = Hand.from_deck(Table(("a", "b"), (stack_bb * 100,) * 2, button=button), hand_id="parity", deck=tuple(deck))
     decisions, actions = [], []
     while not hand.finished:
         view = hand.observe(hand.actor)
@@ -34,7 +36,7 @@ def record(seed, off_menu, passive):
             "kinds": [k.value for k in legal.kinds], "call": legal.call_amount,
             "min_raise_to": legal.min_raise_to, "max_raise_to": legal.max_raise_to,
             "menu": [[c.name, c.action.raise_to] for c in menu],
-            "key": information_key(view, menu, schema=HU20_UNCAPPED_SCHEMA),
+            "key": information_key(view, menu, schema=HU100_SCHEMA if stack_bb == 100 else HU20_UNCAPPED_SCHEMA),
         })
         quiet = [c for c in menu if c.name in ("check", "call")]
         action = (rng.choice(quiet) if quiet and rng.random() < passive else rng.choice(menu)).action
@@ -44,12 +46,13 @@ def record(seed, off_menu, passive):
         actions.append([action.kind.value, action.raise_to])
         hand = hand.apply(action)
     final = hand.events[-1].stacks
-    return {"seed": seed, "button": button, "deck": deck, "actions": actions,
+    return {"stack_bb": stack_bb, "seed": seed, "button": button, "deck": deck, "actions": actions,
             "decisions": decisions, "final_stacks": list(final)}
 
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--stack-bb", type=int, choices=(20, 100), default=20)
     p.add_argument("--hands", type=int, default=20000)
     p.add_argument("--seed", type=int, default=202610050100)
     p.add_argument("--off-menu", type=float, default=0.15)
@@ -58,7 +61,7 @@ def main():
     a = p.parse_args()
     with a.out.open("w") as stream:
         for index in range(a.hands):
-            stream.write(json.dumps(record(a.seed + index, a.off_menu, a.passive), separators=(",", ":")) + "\n")
+            stream.write(json.dumps(record(a.seed + index, a.off_menu, a.passive, a.stack_bb), separators=(",", ":")) + "\n")
 
 
 if __name__ == "__main__":

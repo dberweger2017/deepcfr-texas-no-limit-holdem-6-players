@@ -17,7 +17,7 @@ from src.arena.schedule import digest, stream_seed
 from src.blueprint.abstraction import choices, information_key, HU20_UNCAPPED_SCHEMA
 from src.blueprint.artifact import FrozenBlueprint, HU20_UNCAPPED_FORMAT
 from src.diagnostics.cached_lbr import SharedProbabilityCache
-from src.diagnostics.cfr_average import DiagnosticAverage
+from src.blueprint.average import AveragePolicy
 from src.diagnostics.exact_ranker import RankedCachedLocalBestResponse
 from src.diagnostics.robustness import LBRConfig, ReactiveAttack
 from src.diagnostics.saved_hu20 import file_hash
@@ -55,7 +55,7 @@ def play(source,spec,panel,root,block,rotation,guard=lambda:None,*,rival=None):
         view=hand.observe(hand.actor);logical=int(hand.actor!=rotation);key=None;mass_status=None
         if not logical:
             menu,p,trained=source.distribution(view);key=information_key(view,menu,schema=HU20_UNCAPPED_SCHEMA)
-            mass_status='missing' if not trained else 'zero_mass' if key in getattr(source,'zero_mass',()) else 'positive_mass' if isinstance(source,DiagnosticAverage) else 'current'
+            mass_status='missing' if not trained else 'zero_mass' if key in getattr(source,'zero_mass',()) else 'positive_mass' if isinstance(source,AveragePolicy) else 'current'
             coverage[mass_status]+=1;coverage[view.street.value+':'+mass_status]+=1
             action=action_random.choices(menu,weights=p,k=1)[0].action
         else:
@@ -133,7 +133,7 @@ def run(plan,inputs,averages,out):
             guard();path=(inputs if spec['strategy']=='current' else averages)/spec['path'];begun=perf_counter()
             if path.stat().st_size!=spec['bytes'] or file_hash(path)!=spec['sha256']:raise ValueError('Policy bytes differ before loading')
             source=(FrozenBlueprint(Checkpoint(spec['name'],str(path),spec['sha256'],HU20_UNCAPPED_FORMAT),path)
-                    if spec['strategy']=='current' else DiagnosticAverage(path,spec['sha256']))
+                    if spec['strategy']=='current' else AveragePolicy(path,spec['sha256']))
             if (source.description['training_seed']!=spec['seed'] or source.description['iteration']!=spec['iteration']
                 or source.abstraction!=HU20_UNCAPPED_SCHEMA or source.raise_cap is not None):raise ValueError('Policy identity differs')
             if spec['strategy']=='average' and source.description['source_checkpoint_sha256']!=spec['checkpoint_sha256']:

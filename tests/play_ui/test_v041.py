@@ -6,8 +6,9 @@ import json
 
 import pytest
 
-from src.diagnostics.cfr_average import DiagnosticAverage, extract
-from src.play_api import o_candidate as candidate
+from src.blueprint.average import AveragePolicy
+from src.diagnostics.cfr_average import extract
+from src.policies import v041 as candidate
 from src.play_api.service import PlayService
 from tests.diagnostics.test_cfr_average import fixture
 from tests.play_ui.test_service import create, hand_start, human_action, bot_action
@@ -32,8 +33,8 @@ def model(tmp_path, monkeypatch):
 
 def test_pinned_reader_preserves_average_probabilities_and_replays(tmp_path, monkeypatch):
     path, view = model(tmp_path, monkeypatch)
-    loaded = candidate.load_o_candidate(path)
-    original = DiagnosticAverage(path, candidate.MODEL_SHA256)
+    loaded = candidate.load_policy(path)
+    original = AveragePolicy(path, candidate.MODEL_SHA256)
     assert loaded.distribution(view) == original.distribution(view)
     assert loaded.distribution(view)[1][0] == 0
     service = PlayService(tmp_path / 'play.sqlite', loaded)
@@ -54,7 +55,7 @@ def test_pinned_reader_preserves_average_probabilities_and_replays(tmp_path, mon
         assert service._load(state['sessionId'])['history'][0]['actions'][0]['raiseTo'] == 201
     finally:
         service.close()
-    restarted = PlayService(tmp_path / 'play.sqlite', candidate.load_o_candidate(path))
+    restarted = PlayService(tmp_path / 'play.sqlite', candidate.load_policy(path))
     try:
         assert restarted.state(state['sessionId'])['model']['sha256'] == candidate.MODEL_SHA256
         assert restarted.verify_replay(state['sessionId']) == 1
@@ -66,7 +67,7 @@ def test_wrong_lineage_and_changed_bytes_are_rejected(tmp_path, monkeypatch):
     path, _ = model(tmp_path, monkeypatch)
     monkeypatch.setattr(candidate, 'SEED', 999)
     with pytest.raises(ValueError, match='lineage'):
-        candidate.load_o_candidate(path)
+        candidate.load_policy(path)
     data = path.read_bytes()
     path.write_bytes(data[:-1])
     with pytest.raises(ValueError, match='byte count'):

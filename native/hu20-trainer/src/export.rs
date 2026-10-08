@@ -16,7 +16,7 @@ fn floats(value: &Value) -> Vec<f64> {
     value.as_array().unwrap().iter().map(|x| x.as_f64().unwrap()).collect()
 }
 
-fn sha256_file(path: &Path) -> String {
+pub fn sha256_file(path: &Path) -> String {
     let mut file = std::fs::File::open(path).unwrap();
     let mut hasher = Sha256::new();
     let mut buffer = vec![0u8; 1 << 20];
@@ -73,6 +73,7 @@ pub fn export(checkpoint: &Path, current: Option<&Path>, average: Option<&Path>,
     let header: Value = serde_json::from_str(&lines.next().unwrap()?).unwrap();
     assert_eq!(header["kind"], "training");
     assert_eq!(header["checkpoint_format"], "jsonl-v2");
+    let game = crate::checkpoint::header_game(&header).expect("checkpoint identity");
     let iteration = header["iteration"].as_u64().unwrap() as f64;
     // The traverser-visit bound holds only for the production average; see `cfr::AverageRule`.
     let rule = header.get("average_rule").and_then(Value::as_str).unwrap_or("traverser-reach");
@@ -83,9 +84,13 @@ pub fn export(checkpoint: &Path, current: Option<&Path>, average: Option<&Path>,
     };
     let mut entries = Map::new();
     let mut averages: Vec<Value> = Vec::new();
+    let mut seen = std::collections::HashSet::new();
     for line in lines {
         let row: Value = serde_json::from_str(&line?).unwrap();
+        crate::checkpoint::row_node(&row).expect("invalid checkpoint node");
         let key = row[0].as_str().unwrap().to_string();
+        assert!(seen.insert(key.clone()), "duplicate checkpoint key");
+        assert!(seen.len() as u64 <= header["config"]["max_entries"].as_u64().unwrap(), "entry cap");
         let names = row[1].clone();
         let (regrets, accumulated, visits) = (floats(&row[2]), floats(&row[3]), row[4].as_u64().unwrap());
         let n = regrets.len();
@@ -125,7 +130,7 @@ pub fn export(checkpoint: &Path, current: Option<&Path>, average: Option<&Path>,
     }
     if let Some(path) = average {
         let metadata = json!({
-            "format": "holdem-hu20-stored-cfr-average-diagnostic-v1", "kind": "diagnostic-inference",
+            "format": game.average_format(), "kind": "diagnostic-inference",
             "extraction": extraction,
             "source_checkpoint_sha256": sha256_file(checkpoint), "checkpoint_header": header,
             "zero_mass_rule": zero_mass.label(),

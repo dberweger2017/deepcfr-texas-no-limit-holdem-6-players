@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HU20 · Local Poker Table</title>
   <link rel="stylesheet" href="/style.css">
+  <script src="/playback.js" defer></script>
+  <script src="/spectator.js" defer></script>
   <script src="/app.js" defer></script>
 </head>
 <body>
@@ -27,7 +29,7 @@
 
     <section id="setup" class="setup panel" hidden>
       <div class="eyebrow">NEW SESSION</div>
-      <h1 id="setup-title">Play v0.4.1</h1>
+      <h1 id="setup-title">Play v0.4.2</h1>
       <p>Heads-up, 20 BB stacks, 0.5 / 1 BB blinds. Stacks reset after every hand.</p>
       <label id="model-version-label" for="model-version" hidden>Opponent model</label>
       <select id="model-version" hidden></select>
@@ -35,7 +37,15 @@
       <div class="choice-grid session-choice">
         <label class="choice"><input type="radio" name="sessionType" value="casual" checked><span><strong>Casual play</strong><small>Play without a planned hand count.</small></span></label>
         <label class="choice"><input type="radio" name="sessionType" value="benchmark"><span><strong>Human benchmark</strong><small>Freeze a target and record every completed hand.</small></span></label>
+        <label id="spectator-choice" class="choice" hidden><input type="radio" name="sessionType" value="spectator"><span><strong>Bot-vs-bot spectator</strong><small>Watch two pinned models and inspect each decision.</small></span></label>
       </div>
+      <div id="spectator-options" hidden>
+        <label for="bot-a-model">Bot A model</label><select id="bot-a-model"></select>
+        <label for="bot-b-model">Bot B model</label><select id="bot-b-model"></select>
+        <div id="spectator-identities" class="setup-model"></div>
+        <p class="hint">20 BB stacks reset each hand. The button alternates. Sessions start paused; both bots use only their own legal observations.</p>
+      </div>
+      <div id="human-options">
       <div class="field-label">Bet sizing</div>
       <div class="choice-grid">
         <label class="choice"><input type="radio" name="playMode" value="restricted" checked><span><strong>Restricted research</strong><small>Choose from the policy’s concrete training menu.</small></span></label>
@@ -50,6 +60,7 @@
         <label for="custom-hands" id="custom-hands-label" hidden>Custom target (1–5000 hands)</label>
         <input id="custom-hands" type="number" min="1" max="5000" step="1" inputmode="numeric" hidden>
         <p class="hint">Benchmark visibility is fixed. Cumulative profit is shown only after completion or early end. No hand count guarantees a reliable strength conclusion.</p>
+      </div>
       </div>
       <button id="create" class="primary">Create session</button>
     </section>
@@ -74,12 +85,22 @@
           <div id="turn" class="turn"></div>
           <div id="result" class="result"></div>
           <div id="controls"></div>
+          <div id="spectator-controls" hidden>
+            <div class="button-grid"><button id="spectator-play" class="primary">Play</button><button id="spectator-pause" class="action-button">Pause</button><button id="spectator-step" class="action-button">Step</button></div>
+            <label for="spectator-speed">Time between decisions</label>
+            <select id="spectator-speed"><option value="1000">1 second</option><option value="1500" selected>1.5 seconds</option><option value="3000">3 seconds</option></select>
+          </div>
           <button id="new-hand" class="primary" hidden>Deal next hand</button>
           <button id="new-session" class="text-button" title="Choose a model for a new session">New session</button>
           <button id="benchmark-end" class="text-button benchmark-end" hidden>End benchmark early</button>
         </section>
         <aside class="panel history-panel"><div class="panel-heading"><h2>Hand history</h2><button id="past-hands" class="text-button">Past hands</button></div><div id="events" class="events"></div><div id="diagnostics" class="diagnostics"></div></aside>
       </div>
+      <section id="spectator-inspector" class="panel spectator-inspector" hidden>
+        <div class="panel-heading"><h2>Decision inspector</h2></div>
+        <p class="hint">The snapshot below is the acting bot’s perspective before its action. The table above shows the current hand.</p>
+        <div id="decision-inspector"></div>
+      </section>
       <section id="benchmark-results" class="panel benchmark-results" hidden>
         <div class="panel-heading"><h2>Human benchmark result</h2><span id="benchmark-status" class="badge"></span></div>
         <div id="benchmark-summary"></div>

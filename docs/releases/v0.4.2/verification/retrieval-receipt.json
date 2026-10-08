@@ -1,0 +1,54 @@
+{
+  "status": "verified",
+  "archive_id": "1ismlfD-LKQfFqAAR3O5LN_6UVmebHChH",
+  "archive_sha256": "7a36e20f5e4560ec98d14ecaa4a6bb1fe77a7ecf1a5aa710cd1e03e586b45a80",
+  "archive_bytes": 1982165922,
+  "manifest_sha256": "f5354027221c0750b086c3ff2553f6acdaded38b218a37963922f5e42544b702",
+  "members": [
+    {
+      "bytes": 3478,
+      "member": "research/package/MODEL_CARD.md",
+      "original": "/Users/dberweger/Local/hu20-o-10b-lbr-20261007/package/MODEL_CARD.md",
+      "sha256": "b55795c283377e883d86c70b888a60539539734243f3a4f246c64b3a848ab353"
+    },
+    {
+      "bytes": 249237403,
+      "member": "research/package/O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "original": "/Users/dberweger/Local/hu20-o-10b-lbr-20261007/package/O10B-HU20-opponent-sampled-average-seed-2026100601.jsonl.gz",
+      "sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae"
+    },
+    {
+      "bytes": 2094,
+      "member": "research/package/RELEASE_NOTES.md",
+      "original": "/Users/dberweger/Local/hu20-o-10b-lbr-20261007/package/RELEASE_NOTES.md",
+      "sha256": "3267aee81c5be26d536469733d2f61d3bb52f8af6c6080fce6a374c5d8cd1b1a"
+    },
+    {
+      "bytes": 465,
+      "member": "research/package/SHA256SUMS",
+      "original": "/Users/dberweger/Local/hu20-o-10b-lbr-20261007/package/SHA256SUMS",
+      "sha256": "6eac47ade4b75848c05090ee8c0e09223a550e9283fbb7b9a5a85362eb908ca5"
+    },
+    {
+      "bytes": 1360,
+      "member": "research/package/release-manifest.json",
+      "original": "/Users/dberweger/Local/hu20-o-10b-lbr-20261007/package/release-manifest.json",
+      "sha256": "e92a0c859b0f4db2a8306c58da354d4bf79e1ad95db567db7489b0277d6e33e8"
+    },
+    {
+      "bytes": 5102,
+      "member": "research/package/verify_v042_bundle.py",
+      "original": "/Users/dberweger/Local/hu20-o-10b-lbr-20261007/package/verify_v042_bundle.py",
+      "sha256": "976de98574e452bace5eebafffc94388269b417a8b92662c4b99b21a190ed9bf"
+    }
+  ],
+  "standalone_verifier": {
+    "assets_verified": 5,
+    "model_sha256": "15736cc61a72baa1e6722b1566897917ffb6fdf8bea8874a82b5485fe95d4bae",
+    "source_commit": "1d80bd02c2e8acf2dc99b75f6e0349bb55a941d8",
+    "status": "unpublished-owner-review"
+  },
+  "destination": "/Users/dberweger/Local/v042-release-20261008/source/results/v042-release/preparation",
+  "failed_package_excluded": true,
+  "at": 1791441998.240597
+}
