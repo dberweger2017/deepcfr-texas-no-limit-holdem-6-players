@@ -207,6 +207,7 @@ def test_failed_verification_guard_blocks_equivalence_dependency(tmp_path):
     from scripts import prepare_native_hu_execution as prep
     put(tmp_path/'plan.json',{'stage':'verification','source':'s','binary_sha256':'b','followup_approval_path':'approval','plan_sha256':'p'})
     put(tmp_path/'CLOSEOUT.json',{'status':'incomplete','launch':{'plan_sha256':'p'},'guards':[]})
+    (tmp_path/'verification-guard').mkdir()
     put(tmp_path/'verification-guard/campaign.json',{'status':'incomplete'})
     with pytest.raises(ValueError,match='Successful guarded'):prep.verified_followup_closeout(tmp_path,'s','b')
 
