@@ -1,3 +1,9 @@
+**October 8 final science:** full retained HU20 recovery equivalence passed. HU100
+all four pilot sets and the atomic capacity stop passed full current/average audits;
+11,042,440 actual nodes /3,255,387 entries, with no 1B milestone reached. Training
+is terminal, all campaign timers disabled, original evidence preserved.
+[Report and exact restoration](reports/native-recovery-hu100.md).
+
 **October 8 follow-up authorization:** [owner comment](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197#issuecomment-6054725121)
 authorizes one separately recorded verification attempt using retained HU20 files,
 then fresh HU100 only after full equivalence. The original 5.5-GiB stop remains a

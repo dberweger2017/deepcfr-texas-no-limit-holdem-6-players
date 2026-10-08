@@ -1,6 +1,58 @@
 # Research results index
 
-## PR197 — native recovery / HU100 resource stop, October 8, 2026
+## PR197 follow-up — recovery verified / HU100 measured capacity stop, October 8, 2026
+
+[PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),
+[owner authorization](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197#issuecomment-6054725121),
+[report](docs/reports/native-recovery-hu100.md),
+[scientific receipts](docs/reports/native-recovery-hu100-artifacts/followup-scientific-closeout.json).
+Final scientific source `c4058b7f14a6df85e01f8354de676091572ab1bc`; retained
+HU20 training source `64318398fea423a9c43c0db8635a3724e05bd55f`, same binary.
+One full comparison verified every IEEE state/current/average probability and
+bounded recovery metadata. **HU100 all four pilot sets and atomic capacity stop
+fully audited: 11,042,440 nodes /3,255,387 entries. No 1B milestone reached.**
+Native entry ceiling followed measured 2× export/audit headroom; no hard resource
+guard fired, no retry. Original failed campaign below remains unchanged.
+M4 ignored root `results/native-recovery-hu100/followup-01`, separate terminal
+`followup-state.json`. Qualification110 Python/7Rust/build/artifact, independent
+source review9 and full CI passed; final evidence review pending.
+
+[Existing Research-Cloud folder](https://drive.google.com/drive/folders/1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI),
+[follow-up ZIP](https://drive.google.com/file/d/1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2/view)
+`native-recovery-hu100-followup-20261008.zip`: **722,130,867 bytes /164 members**,
+SHA256 `cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4`. All member sizes/hashes read back
+locally; native uploaded1/uploading0/conflicts0 and independent cloud ID/name/
+size/parent accepted. Remote bytes not downloaded.
+[Receipt](docs/reports/native-recovery-hu100-artifacts/followup-archive-receipt.json).
+
+All **15 checkpoint/current/average member paths, sizes/SHA256 and audit status**
+are in [model index](docs/reports/native-recovery-hu100-artifacts/followup-model-index.json).
+Pilot checkpoints: `research/followup-01/pilot-01/training/HU100-2026100601-{nodes}.json.gz`
+(nodes100000/1000000/5000000/10000000). Capacity checkpoint:
+`research/followup-01/growth-01/training/HU100-2026100601-1000000000.json.gz`,
+**114,633,184 bytes**, SHA256
+`234628a0390502f6b17f4bad3486c47c2a5aa7a297fc611e00287533ea1f4567`;
+filename/requested1B is incomplete, **actual11,042,440 nodes** verified.
+Final exports/audit: `research/followup-01/final-capacity-audit/`.
+Exact source tar `research/followup-01/worker-source.tar`, binary `worker/hu20-trainer`;
+all logs, continuous samples, setup/operator failures, reviews, qualifications,
+claims/CLOSEOUT and measured capacity receipts retained.
+HU20 input/model dependencies restore from the original accepted PR197 ZIP below;
+exact member hashes also appear in `research/followup-01/retrieval-and-archive-provenance.json`.
+Two archival metadata fields are superseded by the
+[provenance correction receipt](docs/reports/native-recovery-hu100-artifacts/followup-provenance-corrections.json).
+
+Download into a **fresh ignored directory**; run `shasum -a 256 LOCAL_DOWNLOADED_FOLLOWUP_ZIP`
+and require the whole hash above. Extract with `python3 -m zipfile -e
+LOCAL_DOWNLOADED_FOLLOWUP_ZIP results/retrieved/pr197/NEW_FOLLOWUP_ROOT`; verify
+required member size/SHA256 against the embedded manifest/model index before use.
+Original HU20/historical #182 restoration below remains unchanged. No model enters
+Git. All science exited; timers disabled; no cleanup/merge/release/arena/paid
+compute. Closeout supplement pending.
+
+## PR197 original campaign — native recovery / HU100 resource stop, October 8, 2026
 
 [PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),
 [protocol](docs/native-recovery-hu100.md), [result](docs/reports/native-recovery-hu100.md).

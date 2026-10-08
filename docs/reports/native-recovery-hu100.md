@@ -1,10 +1,144 @@
-# Native recovery and HU100 table growth — resource stop
+# Native recovery verified; HU100 stopped at measured capacity
 
-**Original campaign: HU20 reference verified; recovery equivalence unverified;
-HU100 not run.** A separately authorized follow-up is now preparing the one
-retained-file verification attempt under the owner-comment-bound 10-GiB/system-
-pressure envelope. The deadline is still October 8 12:00 Madrid. No original
-training or evidence is overwritten; follow-up outcome is pending.
+**Final follow-up result: HU20 recovery is equivalent; HU100 reached 11,042,440
+actual nodes and 3,255,387 entries, then stopped at the measured capacity ceiling.**
+All four early pilot sets and the final atomic capacity-stop set passed complete
+current/average export audits. **No 1B milestone or 10B endpoint was reached.**
+This measures recovery correctness, table growth and resource capacity; it makes
+no poker-strength, exploitability or convergence claim.
+
+[Protocol](../native-recovery-hu100.md) · [PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197)
+· [scientific receipts and checkpoint/resource diagnostics](native-recovery-hu100-artifacts/followup-scientific-closeout.json)
+· [all 15 model/export member paths, sizes and hashes](native-recovery-hu100-artifacts/followup-model-index.json).
+
+## Separately authorized follow-up
+
+The [owner's October 8 comment](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197#issuecomment-6054725121)
+authorized **one retained-file verification attempt**, without repeating reference
+or recovery training, under **10 GiB aggregate RSS for the entire owned family**
+and continuous system-pressure guards on free 16-GiB M4. The original **448.81-MiB
+swap baseline**, ≤0.5-GiB growth, ≥15.5-GiB disk, AC and **12:00 Madrid /10:00 UTC
+deadline** remained unchanged. Original 5.5-GiB failure/state/archives were preserved.
+All heavy work used the isolated M4 checkout/environment; M1 handled light metadata.
+
+Verifier/HU100 scientific source: `c4058b7f14a6df85e01f8354de676091572ab1bc`.
+Retained HU20 training source: `64318398fea423a9c43c0db8635a3724e05bd55f`.
+The native binary remained exactly
+`d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29`.
+Exact-source qualification passed **110 Python tests, 7 Rust tests, release build
+and artifact check**. Independent source rounds 6–9 resolved permanent-claim,
+original-baseline, fresh per-audit admission, terminal-stop, successful-closeout,
+whole-family coordinator and fresh stage/phase time-budget findings. Round 9
+found no blocking P1/P2 source issues. [Receipt](native-recovery-hu100-artifacts/followup-source-review.json).
+[Full CI](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37746167499)
+passed at the executed source. Final independent evidence review is pending.
+
+## HU20 equivalence verified
+
+The single guarded comparison completed in **167.66 s**. At **1,000,000,110 actual
+nodes**, iteration **2,126,271**, every one of **4,319,080 training rows** matched
+by IEEE-754 bits, including signed zero: keys, menus, regrets, average accumulators,
+mass and visits. Both complete current/average exports were independently audited
+in sequential fresh processes. Current file bytes matched; every average
+probability/mass/visit row matched exactly. The original average stayed pinned to
+**142,677,367 bytes**, SHA256
+`571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d`.
+
+Only declared recovery metadata differed: checkpoint `native_state`, average
+`source_checkpoint_sha256` and `checkpoint_header.native_state`. Recovery coverage
+started at `[1095942, 500000417, 98373121]`; all final counters/street deltas were
+validated against the reference and retained parent. The changed verifier source
+is separate from the executed original training source/binary. A successful
+verification guard and durable CLOSEOUT gated HU100, not the existence of a
+partial equivalence file. The original interrupted comparison remains a failure.
+
+## HU100 growth and capacity stop
+
+Seed **2026100601**, linear CFR, opponent-sampled averaging, existing v1 abstraction
+and action menu, and uniform zero-mass fallback were unchanged. Fresh HU100 pilot
+saved all four early endpoints and audited **all eight export/audit jobs** before
+continuation. Growth resumed that fresh campaign's audited 10M parent, with
+coverage still starting at `[0,0,0]`, aiming at each 1B through 10B total nodes.
+
+| Requested save | Actual nodes | Iteration | Entries | New entries | Checkpoint bytes | Write seconds | Full current/average audit |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| 100000 | 100,691 | 64 | 53,743 | 53,743 | 1,640,195 | 0.141 | Verified |
+| 1000000 | 1,001,382 | 690 | 460,885 | 407,142 | 15,096,813 | 1.334 | Verified |
+| 5000000 | 5,001,210 | 3,406 | 1,777,063 | 1,316,178 | 60,894,602 | 5.159 | Verified |
+| 10000000 | 10,001,922 | 6,983 | 3,023,624 | 1,246,561 | 106,120,927 | 8.966 | Verified |
+| Capacity stop (1B requested) | 11,042,440 | 7,722 | 3,255,387 | 231,763 | 114,633,184 | 9.774 | Verified |
+
+The measured capacity forecast limited entries to **3,255,354**, reserving a
+**9.800-GiB export/audit RSS forecast** with the required 2× allowance plus 10%
+additional headroom. All eight pilot timings/peaks and the complete prerequisite
+manifest were bound and rehashed before the growth claim. Save reserve was
+**21.237 s**, serialization reserve **188,408,211 bytes**, export/audit reserve
+**247.669 s**, archive/closeout reserve **293.607 s**, and disk reserve
+**6,799,495,975 bytes**. The training RSS soft stop was **9.325 GiB**, with the
+continuous external 10-GiB/pressure/swap/disk/AC guard retained.
+
+The native trainer reached the entry ceiling at a complete iteration and saved
+atomically: **3,255,387 entries**, a **33-entry iteration overshoot**, at
+**11,042,440 nodes**. It exited with the intentional resource-limit code **3**;
+the supervisor therefore recorded an incomplete target and operator failure,
+with **no external guard failure**. Those receipts/logs remain preserved. This is
+an admission-capacity result, driven by reserved export/audit memory; native
+training did not exhaust RAM. No limit was increased and no training was retried.
+
+Its filename requests the next 1B save, but telemetry is **`incomplete-target`**.
+The final export/audit used **11,042,440 actual nodes** and verified the atomic
+checkpoint and both full policies once. It is a verified capacity-stop checkpoint,
+**not a verified 1B checkpoint**. There were no interrupted saves. The table already
+held 3,023,624 entries at 10,001,922 nodes; continuation added 231,763 entries over
+1,040,518 further nodes. No 1B–10B growth curve is inferred from this early stop.
+
+The last checkpoint has **2,158,927 positive-average-mass keys**, **1,096,460 zero-
+mass keys**, and traverser visits by preflop/flop/turn/river of
+`[75437, 247030, 587061, 1281740]`. Per-save street decisions, visitation, visit
+histograms, average mass, actual nodes/iterations, new entries, throughput,
+current native RAM, nearest resource sample/offset, sampled peak through save,
+swap/disk, checkpoint size and write time are in the linked scientific receipt.
+Samples are labeled sampled; exact intersample peaks are not claimed.
+
+## Resource evidence, storage and closeout
+
+Across follow-up qualification/verification/pilot/growth/final audit, **102
+continuous five-second samples** recorded a maximum aggregate RSS of
+**5,999,837,184 bytes /5.588 GiB**,
+maximum campaign swap growth **zero**, minimum free disk
+**98,008,903,680 bytes /91.278 GiB**, all AC,
+normal pressure level **1**, and minimum system-free percentage **79%**.
+No follow-up hard resource guard fired. All scientific workers exited; the
+terminal latch prevents further training, and **all four campaign timers are disabled**.
+Original evidence/inputs and open PR roots remain retained; nothing was cleaned.
+
+A wrapper import-path failure occurred before any preparation/claim/science and
+was preserved separately. Its environment was corrected before the one actual
+verification claim. Qualification attempts, independent-review findings, native
+capacity exit, operator traceback, partial requested target and all outputs are
+retained. The archive's two provenance metadata fields have an explicit
+[correction receipt](native-recovery-hu100-artifacts/followup-provenance-corrections.json):
+the original historical retrieval receipt is `research/inputs/retrieval.json`,
+and its handwritten PR-check time is not treated as an exact observed timestamp.
+
+[Follow-up science ZIP](https://drive.google.com/file/d/1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2/view):
+**722,130,867 bytes /164 members**, SHA256
+`cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f`; embedded `ARCHIVE-MANIFEST.json` SHA256
+`84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4`. Every member's size/hash was read back locally.
+Native upload is complete/no pending/no conflicts; independent cloud ID/name/
+size/parent confirms acceptance. Remote archive bytes were **not** downloaded.
+[Archive receipt](native-recovery-hu100-artifacts/followup-archive-receipt.json).
+Retained HU20 inputs refer to the already accepted original archive and exact
+member hashes; no original training was repeated. [Restoration index](../../RESULTS_INDEX.md).
+
+Post-archive guard/upload/review/report receipts will be sealed in a closeout
+supplement. No merge, publication/release, arenas, paid compute, further limit
+increase, deadline extension or cleanup is authorized by this result.
+
+---
+
+## Original campaign record (before the separately approved follow-up)
+
 The recovery comparator was terminated by the external aggregate-RSS guard at
 **08:10:02 Madrid /06:10:02 UTC on October 8, 2026**. This resource-ceiling result
 is terminal for this campaign: no retry, raised limit, or dependent HU100 launch.
