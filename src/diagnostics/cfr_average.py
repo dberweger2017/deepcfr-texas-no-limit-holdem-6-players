@@ -7,8 +7,8 @@ from itertools import zip_longest
 import json
 from math import fsum
 from os import fsync, replace
+from struct import pack
 
-from src.arena.catalog import Checkpoint
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU100_SCHEMA
 from src.blueprint.artifact import _checked_schema, _checked_policy_node
 from src.blueprint.streaming import current_rows, disk_index, insert_unique
@@ -20,6 +20,17 @@ from src.blueprint.average import (
 )
 from src.blueprint.solver import regret_match
 from src.policies.files import file_hash
+
+def exact_numbers(actual, expected):
+    """Keep ordinary JSON equality and additionally distinguish IEEE signed zero."""
+    if actual != expected:
+        return False
+    if isinstance(expected, float):
+        return pack('!d', float(actual)) == pack('!d', expected)
+    if isinstance(expected, list):
+        return all(exact_numbers(a, b) for a, b in zip(actual, expected))
+    return True
+
 
 def zero_mass_policy(p, total, regrets, zero_mass):
     return tuple(regret_match(tuple(regrets))) if not total and zero_mass == 'current' else p
@@ -72,7 +83,7 @@ def audit(checkpoint, current_path, average_path, spec, average_sha, *, expected
             if original is None or emitted is None:raise ValueError('Extraction node count differs')
             key,names,regrets,p,total,visits=checked_row(json.loads(original),header['iteration'],rule=='traverser-reach')
             row=json.loads(emitted);p=zero_mass_policy(p,total,regrets,zero_mass)
-            if row!=[key,list(names),list(p),total,visits]:raise ValueError('Normalized accumulator differs')
+            if not exact_numbers(row,[key,list(names),list(p),total,visits]):raise ValueError('Normalized accumulator differs')
             current_p=regret_match(regrets)
             insert_unique(expected,key,json.dumps([names,current_p],separators=(',',':')))
             counts['entries']+=1;counts['positive_mass' if total else 'zero_mass']+=1
@@ -86,7 +97,7 @@ def audit(checkpoint, current_path, average_path, spec, average_sha, *, expected
                 _checked_policy_node(key,names,probabilities)
                 retained=expected.execute('SELECT row FROM entries WHERE key=?',(key,)).fetchone()
                 if retained is None:raise ValueError('Current/average checkpoint coverage differs or duplicate current key')
-                if row!=json.loads(retained[0]):raise ValueError('Current export differs from checkpoint regrets')
+                if not exact_numbers(row,json.loads(retained[0])):raise ValueError('Current export differs from checkpoint regrets')
                 expected.execute('DELETE FROM entries WHERE key=?',(key,))
         if expected.execute('SELECT 1 FROM entries LIMIT 1').fetchone():raise ValueError('Current/average checkpoint coverage differs')
         if (_checked_schema(current_metadata)!=expected_schema or current_metadata.get('kind')!='inference'

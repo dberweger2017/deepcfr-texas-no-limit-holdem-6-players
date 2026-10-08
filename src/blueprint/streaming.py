@@ -49,20 +49,38 @@ class JsonStream:
             return self.incremental_value()
 
     def scalar(self):
+        if self.buffer[:1] in ('t', 'f', 'n'):
+            literal = {'t': 'true', 'f': 'false', 'n': 'null'}[self.buffer[0]]
+            for character in literal:
+                self.token(character)
+            return self.decoder.decode(literal)
+        # Validate numeric prefixes as they arrive; invalid bytes must not make
+        # a corrupt scalar retain the entire remainder of an export.
         pieces = []
+        state = 'start'
+        for_digit = {'start': 'integer', 'minus': 'integer', 'integer': 'integer',
+                     'dot': 'fraction', 'fraction': 'fraction', 'exponent': 'exponent_digits',
+                     'exponent_sign': 'exponent_digits', 'exponent_digits': 'exponent_digits'}
         while True:
-            end = 0
-            while end < len(self.buffer) and self.buffer[end] not in ' \t\r\n,]}':
-                end += 1
-            pieces.append(self.buffer[:end])
-            self.buffer = self.buffer[end:]
-            if self.buffer or self.eof:
-                break
+            for i, character in enumerate(self.buffer):
+                if character in ' \t\r\n,]}':
+                    pieces.append(self.buffer[:i]); self.buffer = self.buffer[i:]
+                    if state not in ('zero', 'integer', 'fraction', 'exponent_digits'):
+                        raise ValueError('Malformed inference JSON number')
+                    return self.decoder.decode(''.join(pieces))
+                if character in '0123456789' and state in for_digit:
+                    state = 'zero' if character == '0' and state in ('start', 'minus') else for_digit[state]
+                elif character == '-' and state == 'start': state = 'minus'
+                elif character == '.' and state in ('zero', 'integer'): state = 'dot'
+                elif character in 'eE' and state in ('zero', 'integer', 'fraction'): state = 'exponent'
+                elif character in '+-' and state == 'exponent': state = 'exponent_sign'
+                else: raise ValueError('Malformed inference JSON number')
+            pieces.append(self.buffer); self.buffer = ''
+            if self.eof:
+                if state not in ('zero', 'integer', 'fraction', 'exponent_digits'):
+                    raise ValueError('Truncated inference JSON number')
+                return self.decoder.decode(''.join(pieces))
             self.fill()
-        try:
-            return self.decoder.decode(''.join(pieces))
-        except json.JSONDecodeError as error:
-            raise ValueError('Malformed inference JSON scalar') from error
 
     def incremental_value(self):
         self.whitespace()
@@ -81,7 +99,7 @@ class JsonStream:
                 values[key] = self.value()
             return values
         if self.buffer.startswith('"'):
-            pieces = ['"']; self.token('"'); escaped = False
+            pieces = ['"']; self.token('"'); escaped = False; unicode_digits = 0
             while True:
                 for i, character in enumerate(self.buffer):
                     if character == '"' and not escaped:
@@ -90,7 +108,18 @@ class JsonStream:
                             return self.decoder.decode(''.join(pieces))
                         except json.JSONDecodeError as error:
                             raise ValueError('Malformed inference JSON string') from error
-                    escaped = character == '\\' and not escaped
+                    if unicode_digits:
+                        if character not in '0123456789abcdefABCDEF':
+                            raise ValueError('Malformed inference JSON unicode escape')
+                        unicode_digits -= 1
+                    elif escaped:
+                        if character == 'u': unicode_digits = 4
+                        elif character not in '"\\/bfnrt':
+                            raise ValueError('Malformed inference JSON escape')
+                        escaped = False
+                    elif character == '\\': escaped = True
+                    elif ord(character) < 32:
+                        raise ValueError('Malformed inference JSON control character')
                 pieces.append(self.buffer); self.buffer = ''
                 if self.eof:
                     raise ValueError('Truncated inference JSON string')

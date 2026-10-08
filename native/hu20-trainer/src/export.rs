@@ -185,11 +185,11 @@ const FAN_IN: usize = 32;
 struct Rows<'a> {
     root: &'a Path,
     buffer: Vec<String>,
-    runs: Vec<PathBuf>,
+    levels: Vec<Vec<PathBuf>>,
     serial: usize,
 }
 impl<'a> Rows<'a> {
-    fn new(root: &'a Path) -> Self { Self { root, buffer: Vec::new(), runs: Vec::new(), serial: 0 } }
+    fn new(root: &'a Path) -> Self { Self { root, buffer: Vec::new(), levels: vec![Vec::new(); 64], serial: 0 } }
     fn path(&mut self) -> PathBuf {
         let path = self.root.join(format!("run-{}", self.serial));
         self.serial += 1;
@@ -207,22 +207,40 @@ impl<'a> Rows<'a> {
         let mut out = std::io::BufWriter::new(std::fs::File::create(&path)?);
         for row in self.buffer.drain(..) { writeln!(out, "{row}")?; }
         out.flush()?;
-        self.runs.push(path);
-        // Compact as we go: the run list and merge heap have a fixed upper bound.
-        if self.runs.len() == FAN_IN {
+        self.retain_run(path)
+    }
+    fn retain_run(&mut self, mut path: PathBuf) -> std::io::Result<()> {
+        // Merge only equal-sized runs. A growing accumulated run would make
+        // total scratch I/O quadratic; this gives logarithmic merge depth.
+        // 64 levels exceed the depth possible with a u64 entry count.
+        for level in 0..self.levels.len() {
+            self.levels[level].push(path);
+            if self.levels[level].len() < FAN_IN { return Ok(()); }
             let merged = self.path();
-            merge(&self.runs, &merged)?;
-            for path in self.runs.drain(..) { std::fs::remove_file(path)?; }
-            self.runs.push(merged);
+            merge(&self.levels[level], &merged)?;
+            for old in self.levels[level].drain(..) { std::fs::remove_file(old)?; }
+            path = merged;
         }
-        Ok(())
+        unreachable!("u64 entry count cannot exhaust merge levels")
     }
     fn finish(mut self) -> std::io::Result<PathBuf> {
         self.flush()?;
+        let mut paths: Vec<_> = self.levels.iter_mut().flat_map(|runs| runs.drain(..)).collect();
+        while paths.len() > FAN_IN {
+            let mut next = Vec::new();
+            for group in paths.chunks(FAN_IN) {
+                let path = self.path();
+                merge(group, &path)?;
+                for old in group { std::fs::remove_file(old)?; }
+                next.push(path);
+            }
+            paths = next;
+        }
         let result = self.path();
-        merge(&self.runs, &result)?;
+        merge(&paths, &result)?;
         Ok(result)
     }
+
 }
 fn merge(paths: &[PathBuf], output: &Path) -> std::io::Result<()> {
     let mut readers: Vec<_> = paths.iter().map(|p| std::fs::File::open(p).map(BufReader::new)).collect::<Result<_, _>>()?;
@@ -242,4 +260,34 @@ fn merge(paths: &[PathBuf], output: &Path) -> std::io::Result<()> {
         if readers[i].read_line(&mut next)? != 0 { heap.push(Reverse((next, i))); }
     }
     out.flush()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn disk_runs_merge_across_compaction_with_bounded_fan_in() {
+        let scratch = Scratch::new(&std::env::temp_dir().join("hu-export-merge-test")).unwrap();
+        let mut rows = Rows::new(&scratch.0);
+        for key in (0..FAN_IN * 2 + 3).rev() {
+            rows.add(format!("{key:032x}\t[[],[]]")).unwrap();
+            rows.flush().unwrap();
+            assert!(rows.levels.iter().all(|runs| runs.len() < FAN_IN));
+        }
+        let path = rows.finish().unwrap();
+        let lines: Vec<_> = BufReader::new(std::fs::File::open(path).unwrap()).lines().map(Result::unwrap).collect();
+        assert_eq!(lines.len(), FAN_IN * 2 + 3);
+        assert!(lines.windows(2).all(|pair| pair[0] < pair[1]));
+    }
+
+    #[test]
+    fn duplicates_in_separate_disk_runs_are_rejected() {
+        let scratch = Scratch::new(&std::env::temp_dir().join("hu-export-duplicate-test")).unwrap();
+        let mut rows = Rows::new(&scratch.0);
+        rows.add(format!("{}\t[]", "f".repeat(32))).unwrap();
+        rows.flush().unwrap();
+        rows.add(format!("{}\t[1]", "f".repeat(32))).unwrap();
+        assert!(std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| rows.finish())).is_err());
+    }
 }

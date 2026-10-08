@@ -168,3 +168,21 @@ def test_malformed_early_row_does_not_read_rest_of_export():
     with pytest.raises(ValueError):
         list(current_rows(source, {}))
     assert len(source.text) > 900000
+
+
+@pytest.mark.parametrize('prefix', ['[1x', '[truX', '["\\q', '["\\u0X', '["\n'])
+def test_invalid_token_prefix_rejects_without_reading_entire_tail(prefix):
+    source = Chunked('{"entries":{"' + 'a' * 32 + '":' + prefix + 'x' * 1000000, 64)
+    with pytest.raises(ValueError):
+        list(current_rows(source, {}))
+    assert len(source.text) > 900000
+
+
+def test_signed_zero_probability_mismatch_is_rejected(tmp_path):
+    checkpoint, current, average, spec = inputs(tmp_path)
+    lines = gzip.decompress(average.read_bytes()).decode().splitlines()
+    row = json.loads(lines[1]); assert row[2][0] == 0.0
+    row[2][0] = -0.0; lines[1] = json.dumps(row)
+    write(average, '\n'.join(lines) + '\n')
+    with pytest.raises(ValueError, match='Normalized'):
+        verify(checkpoint, current, average, spec)
