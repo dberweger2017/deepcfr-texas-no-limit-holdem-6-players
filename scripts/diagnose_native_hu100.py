@@ -388,7 +388,8 @@ def verify(root):
         for k, values in exposures[p['nodes'], p['opponent']].items():
             recorded = p['hand_exposures'][k]
             if (values[0] != recorded['hands'] or not isclose(values[1], recorded['net_bb'], abs_tol=1e-9)
-                    or not isclose(values[1] / values[0], recorded['mean_net_bb'], abs_tol=1e-10)):
+                    or not isclose(values[1] / values[0], recorded['mean_net_bb'], abs_tol=1e-10)
+                    or not isclose(100 * values[1] / p['hands'], recorded['contribution_bb_per_100'], abs_tol=1e-10)):
                 raise ValueError('Exposure cell accounting differs')
     cells = json.loads((root / 'cells.json').read_text())
     cell_keys = set()

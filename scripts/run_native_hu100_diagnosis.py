@@ -1,6 +1,7 @@
 """One-use M1 admission, timing-only pilot and bounded diagnostic stages."""
 
 import argparse
+import fcntl
 import json
 from pathlib import Path
 import platform
@@ -42,12 +43,24 @@ def initialize(root):
 
 
 def guard(root, phase, jobs):
+    with (root / 'phase.lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        return guarded_phase(root, phase, jobs)
+
+
+def guarded_phase(root, phase, jobs):
     budget = json.loads((root / 'budget.json').read_text())
     if subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip() != budget['source']:
         raise ValueError('Source differs from original budget')
     if subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=no'], text=True).strip():
         raise ValueError('Commit source before compute')
-    result = run(jobs, root / ('guard-' + phase), budget['deadline'],
+    if phase == 'archive':
+        prior = root / 'guard-analysis/campaign.json'
+        if not prior.exists(): prior = root / 'guard-pilot/campaign.json'
+        if not prior.exists() or json.loads(prior.read_text())['status'] == 'running':
+            raise RuntimeError('Archive requires a terminal scientific phase')
+    end = budget['deadline'] if phase == 'archive' else budget['deadline'] - 240
+    result = run(jobs, root / ('guard-' + phase), end,
                  swap_before=budget['swap_baseline'], require_ac=True,
                  system_memory_guard=True, **budget['limits'])
     if result['status'] != 'complete':
@@ -65,12 +78,16 @@ def pilot(root):
     ])
     s = json.loads((root / 'pilot/summary.json').read_text())
     # Freeze reads timing/completeness fields only; pilot outcomes never drive admission.
-    quote = 2 * s['model_scan_seconds'] + 2 * (s['seconds'] - s['model_scan_seconds']) * 128 + 240
+    phases = json.loads((root / 'guard-pilot/campaign.json').read_text())['attempts']
+    verify_cost = sum(a['finished'] - a['started'] for a in phases
+                      if a['name'] in ('pilot-native', 'pilot-verify'))
+    quote = 2 * s['model_scan_seconds'] + 2 * (s['seconds'] - s['model_scan_seconds'] + verify_cost) * 128 + 240
     budget = json.loads((root / 'budget.json').read_text())
     value = {'status': 'admitted' if quote < budget['deadline'] - time() else 'no-final-budget',
              'pilot_hands': s['hands'], 'pilot_actions': s['actions'],
              'pilot_model_scan_seconds': s['model_scan_seconds'],
              'pilot_other_seconds': s['seconds'] - s['model_scan_seconds'],
+             'pilot_native_arithmetic_seconds': verify_cost,
              'conservative_final_quote_seconds': quote,
              'frozen_candidate_hands': 102400, 'blocks_per_opponent_checkpoint': 2048,
              'search_states_per_signature': 5000, 'search_seconds_total': 120,

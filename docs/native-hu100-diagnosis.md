@@ -44,7 +44,7 @@ visits (0, 1, 2–9, 10–99, ≥100), average-mass bands (0, (0,100), [100,10k)
 wins, ties and losses and attach final hand payoff; repeated decisions weight
 that payoff repeatedly, so these associations are not additive or causal.
 Also partition **all hands**, including opponent folds before any target action,
-into ever-missing, zero-only, all-positive, and no-target-decision exposure. These
+into ever-missing, any-zero-no-missing, all-positive, and no-target-decision exposure. These
 disjoint hand contributions sum to each panel's total BB/100. No post hoc
 significance testing or causal/strength claim. Average mass is iteration-weighted
 opponent-sampled accumulation, not independent visits; traverser visits can be
@@ -64,8 +64,9 @@ fresh stage admission reserves the whole RSS ceiling plus 2 GiB. One sequential
 worker, one-use budget/phase claims, two build jobs, no other jobs stopped.
 Existing supervisor samples the complete owned family every five seconds.
 
-Pilot quote doubles model-scan and scaled replay costs and reserves 240 seconds
-for verification/archive; no count extension or retry. Partial outputs, stopped
+Pilot quote doubles model-scan and scaled replay/native/arithmetic costs and reserves 240 seconds
+for verification/archive; science stops 240 seconds before the absolute deadline.
+A root phase lock prevents analysis/archive overlap. No count extension or retry. Partial outputs, stopped
 panels, failures and resources remain available and are archived. Independently
 review methodology, code and final report; add focused regressions for demonstrated
 correctness issues. Keep compact report/receipts/CSV in Git and large evidence
