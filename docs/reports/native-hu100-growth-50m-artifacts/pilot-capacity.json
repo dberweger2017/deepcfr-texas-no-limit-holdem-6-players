@@ -1,0 +1,18 @@
+{
+  "combined_asset_bytes_per_entry": 85.23987320841165,
+  "disk_asset_equivalents": 12,
+  "disk_entry_stop": 37496583,
+  "disk_floor_gib": 15.5,
+  "entry_stop": 7642767,
+  "extrapolation_entry_stop": 9875734,
+  "fixed_evidence_reserve_gib": 4,
+  "free_disk_bytes": 59292413952,
+  "hard_rss_gib": 10,
+  "memory_allowance": 2.2,
+  "memory_entry_stop": 7642767,
+  "outcomes_inspected": false,
+  "parent_entries": 4937867,
+  "rss_bytes_per_entry": 359.529846107632,
+  "scope": "conservative admission estimate; no demonstrated RAM exhaustion or 50M fit",
+  "soft_rss_gib": 5.63
+}

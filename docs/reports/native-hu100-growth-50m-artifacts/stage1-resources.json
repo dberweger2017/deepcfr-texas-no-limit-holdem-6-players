@@ -1,0 +1,160 @@
+{
+  "admission_refusals": 0,
+  "all_ac": true,
+  "all_pressure_normal": true,
+  "deadline": 1791474318.12178,
+  "elapsed_seconds": 475.71171712875366,
+  "family_measurements_200ms": {
+    "pilot": {
+      "command": [
+        "/Users/dberweger/Local/hu100-growth-50m-20261008/results/runtime/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "100",
+        "--resume",
+        "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/parent-checkpoint.gz",
+        "--resume-sha256",
+        "71289306fc79592847d472ef3493141e195341aa243c742cb965ab3dd86e4b0e",
+        "--nodes",
+        "20101470",
+        "--seed",
+        "2026100601",
+        "--roots-per-seat",
+        "1",
+        "--average-rule",
+        "opponent-sampled",
+        "--max-entries",
+        "7933918",
+        "--max-seconds",
+        "120",
+        "--stop-file",
+        "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/pilot/stop.json",
+        "--telemetry",
+        "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/pilot/telemetry.jsonl",
+        "--out",
+        "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/pilot/checkpoint.gz"
+      ],
+      "cwd": "/Users/dberweger/Local/hu100-growth-50m-20261008",
+      "kernel_command_peak_rss_bytes": 1687142400,
+      "name": "training",
+      "returncode": 0,
+      "sampled_peak_family_rss_bytes": 1780940800,
+      "samples": 86,
+      "sampling_target_seconds": 0.2,
+      "seconds": 19.011122941970825
+    },
+    "terminal": {
+      "command": [
+        "/Users/dberweger/Local/hu100-growth-50m-20261008/results/runtime/hu20-trainer",
+        "train",
+        "--stack-bb",
+        "100",
+        "--resume",
+        "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/pilot/checkpoint.gz",
+        "--resume-sha256",
+        "0d61085b47faa3fb72c8ee9d6236dafed09fa49a26289d7a58441a745d065375",
+        "--nodes",
+        "50000000",
+        "--seed",
+        "2026100601",
+        "--roots-per-seat",
+        "1",
+        "--average-rule",
+        "opponent-sampled",
+        "--max-entries",
+        "7642767",
+        "--max-seconds",
+        "32.19446417042499",
+        "--stop-file",
+        "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/terminal/stop.json",
+        "--telemetry",
+        "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/terminal/telemetry.jsonl",
+        "--out",
+        "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/terminal/checkpoint.gz"
+      ],
+      "cwd": "/Users/dberweger/Local/hu100-growth-50m-20261008",
+      "kernel_command_peak_rss_bytes": 3154296832,
+      "name": "training",
+      "returncode": 3,
+      "sampled_peak_family_rss_bytes": 3248914432,
+      "samples": 169,
+      "sampling_target_seconds": 0.2,
+      "seconds": 37.49876308441162
+    }
+  },
+  "finished": 1791472993.833497,
+  "guard_failures": {},
+  "max_sampled_family_rss_bytes_200ms": 3248914432,
+  "max_sampled_family_rss_bytes_5s": 3234463744,
+  "max_swap_growth_bytes_from_original_baseline": 120324095.99999994,
+  "min_free_disk_bytes": 55206223872,
+  "min_system_free_percent": 82,
+  "operations": {
+    "archive": {
+      "exit_code": 0,
+      "guard_sha256": "bee53a4cab65d7993bac61b3cfc834f8bbc255b83630f90c8f012eb4a561c821",
+      "sampled_peak_family_rss_bytes": 128532480,
+      "seconds": 7.2705278396606445,
+      "status": "complete"
+    },
+    "pilot-audit": {
+      "exit_code": 0,
+      "guard_sha256": "f59c1e712ef4b44e405a7da2f75d56cdfe204b87d5787183c47e417004638652",
+      "sampled_peak_family_rss_bytes": 103448576,
+      "seconds": 109.79501223564148,
+      "status": "complete"
+    },
+    "pilot-export": {
+      "exit_code": 0,
+      "guard_sha256": "cab651ac8503171a4aa3aa0db262fb5e7dd149deb8b52835cb869295c55d5409",
+      "sampled_peak_family_rss_bytes": 62472192,
+      "seconds": 47.85667705535889,
+      "status": "complete"
+    },
+    "pilot-train": {
+      "exit_code": 0,
+      "guard_sha256": "c5bb17a15dbbd4483e62918d1090b2e5d5720b6edda19f570f25d006a514946f",
+      "sampled_peak_family_rss_bytes": 1774010368,
+      "seconds": 19.40839195251465,
+      "status": "complete"
+    },
+    "retrieve": {
+      "exit_code": 0,
+      "guard_sha256": "40044630185576ce8038b9e06ab5d819b0f7ebc265aecb1361eb04c730bcdece",
+      "sampled_peak_family_rss_bytes": 52166656,
+      "seconds": 2.21148681640625,
+      "status": "complete"
+    },
+    "terminal-audit": {
+      "exit_code": 0,
+      "guard_sha256": "222c9c0cc7ca52854ed2205984ac36dd29f932676e8209d8675a9f78cd3a4d78",
+      "sampled_peak_family_rss_bytes": 103071744,
+      "seconds": 170.7193260192871,
+      "status": "complete"
+    },
+    "terminal-export": {
+      "exit_code": 0,
+      "guard_sha256": "4c2c72159e8f6e29d1c717f641381d07737f43eb032ad07287a79caa4e076526",
+      "sampled_peak_family_rss_bytes": 62586880,
+      "seconds": 77.34028887748718,
+      "status": "complete"
+    },
+    "terminal-train": {
+      "exit_code": 3,
+      "guard_sha256": "453b6368b8dee522683874b42101ef000c028dd176e227287909e142b03d265d",
+      "sampled_peak_family_rss_bytes": 3234463744,
+      "seconds": 38.737468004226685,
+      "status": "complete"
+    }
+  },
+  "original_stage_error": null,
+  "pins": {
+    "binary_sha256": "b547173b838d896888973f4cf283ba66a60b61781a29a7ed719ebcbadb448f2c",
+    "protocol_sha256": "8aabe90aa07e894c2277220b5d8e76416d3e308cf4e900675fcfbc3cf351371f",
+    "source": "d3033822d865e077093809e82633a1ad7fad19ba"
+  },
+  "samples_5s": 97,
+  "source": "d3033822d865e077093809e82633a1ad7fad19ba",
+  "started": 1791472518.12178,
+  "status": "complete"
+}

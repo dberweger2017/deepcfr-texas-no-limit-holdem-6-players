@@ -1,0 +1,12 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-204-HU100-growth-50m-playing-gains/hu100-growth-50m-stage2-M4-20261008.zip",
+  "bytes": 2032348910,
+  "cloud_acceptance": "pending",
+  "finished": 1791473510.3582232,
+  "manifest_sha256": "2f96b81cf76b86a428d677c23cc9dc1ec0193a85099c7b678f6f6b07a169e4fd",
+  "members_verified": 447,
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "sha256": "f6f4bec282c59af1a1ba25a6be1be1a9b89daecbc5fd94ecd9ff37f0e1467d22",
+  "status": "verified"
+}
