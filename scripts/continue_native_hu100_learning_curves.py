@@ -12,6 +12,11 @@ import subprocess
 import sys
 from time import time
 
+# The reviewed controller is copied into ignored storage while the original
+# checkout stays at its executed revision; direct child paths need that package root.
+if __package__ in (None, ''):
+    sys.path.insert(0, '/Users/dberweger/Local/hu100-learning-curves-20261008')
+
 from scripts.hu20_scaling_supervise import run as supervise
 from scripts.run_native_hu100_learning_curves import (
     AUTHORIZED_ROOT, BASELINE, CONFIG, admission, durable_claim, write,
