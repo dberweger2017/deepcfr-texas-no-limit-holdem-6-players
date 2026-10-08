@@ -1,0 +1,19 @@
+{
+  "scope": "Only archival provenance metadata; scientific member hashes and outcomes unchanged",
+  "member": "research/followup-01/retrieval-and-archive-provenance.json",
+  "superseded_fields": {
+    "owning_pr_checked_at": "Handwritten time marker, not a separately measured timestamp; use accompanying current GH observation receipt",
+    "historical_parent_retrieval_receipt": "research/inputs/retrieval.json in original accepted science archive"
+  },
+  "owning_pr_observation": {
+    "observed_at": "2026-10-08T08:15:03.795387+00:00",
+    "command": "gh pr view 197 --json state,headRefOid,url",
+    "result": {
+      "headRefOid": "c4058b7f14a6df85e01f8354de676091572ab1bc",
+      "state": "OPEN",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197"
+    }
+  },
+  "original_archive_id": "1hNbCAU71BcYFxVBx2OSmqYtp0sXfhmcS",
+  "no_models_rewritten_or_reaudited": true
+}

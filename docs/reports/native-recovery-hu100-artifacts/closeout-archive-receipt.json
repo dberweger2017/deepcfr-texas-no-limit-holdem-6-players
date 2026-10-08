@@ -1,0 +1,17 @@
+{
+  "status": "local-archive-verified",
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-closeout-20261008.zip",
+  "archive_bytes": 99275,
+  "archive_sha256": "41534b63cb6f1aecaab0e1c9d0082f5b3c5e353c9465c49e99bd33714138b7f6",
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "d6c5f21ba8d1854962e6c4dbad44d76f825bd3aa8d3f520c5109e99f6522f156",
+  "members_verified": 24,
+  "member_readback": "all size/SHA256 verified locally",
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "upload_status": "accepted: native uploaded=1 uploading=0 no conflicts; independent cloud ID/name/size/parent match",
+  "at": 1791441260.048766,
+  "archive_id": "14MOuquGcYRPyeI5PUDW2Tdbmg8bPPxR9",
+  "archive_url": "https://drive.google.com/file/d/14MOuquGcYRPyeI5PUDW2Tdbmg8bPPxR9/view",
+  "folder_id": "1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI"
+}

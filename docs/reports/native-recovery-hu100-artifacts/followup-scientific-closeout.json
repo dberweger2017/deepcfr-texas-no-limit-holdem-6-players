@@ -1,0 +1,1056 @@
+{
+  "actual_hu100_entries": 3255387,
+  "actual_hu100_nodes": 11042440,
+  "all_campaign_timers_disabled": true,
+  "all_five_HU100_sets_full_audited": true,
+  "binary_sha256": "d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29",
+  "campaign_swap_baseline": "vm.swapusage: total = 1024.00M  used = 448.81M  free = 575.19M  (encrypted)",
+  "capacity": {
+    "archive_measurement": {
+      "bytes": 1380462715,
+      "guard_path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/archive-guard/campaign.json",
+      "guard_sha256": "6b891492a972dc826c0b16da296641cc5429faa05b309db4a704a92588b48838",
+      "seconds": 4.236225128173828
+    },
+    "archive_reserve_seconds": 293.60740529132477,
+    "disk_reserve_bytes": 6799495975,
+    "export_audit_reserve_seconds": 247.66903216588116,
+    "export_audit_rss_bytes": 10522668060.112566,
+    "followup_approval_path": "/Users/dberweger/Local/native-recovery-hu100-20261008/configs/native-hu100-followup-20261008.json",
+    "followup_approval_sha256": "940543498178cedaf6b7f1bf737dd3063f33448776801306dd510f9663fc29f5",
+    "forecast_entry_ceiling": 3255354,
+    "measurement_files": {
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/audit-100000.json": {
+        "bytes": 2170,
+        "sha256": "88f2d44bda88c6f1078e6620486160cd637e880e758c74b4f6c5161739d9cde8"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/audit-1000000.json": {
+        "bytes": 2200,
+        "sha256": "74cc00fa70c12496d40189f914612a46c66e7d650f7ad9f086fabbe249c88c8d"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/audit-10000000.json": {
+        "bytes": 2242,
+        "sha256": "f89f0a0e62fe9ca980bfa85f38b93aaa7026721f3eb58b62750efb1fec11f383"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/audit-5000000.json": {
+        "bytes": 2244,
+        "sha256": "3fd43ba7ef0cd4bda86e454569dd2dda0688e9b70d575cf73628c78140f83fb8"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/average-100000.jsonl.gz": {
+        "bytes": 1226918,
+        "sha256": "95053dbf9d070ca414214c8514fcbeedd0ca6fafdeccea9c958357aafcf5a293"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/average-1000000.jsonl.gz": {
+        "bytes": 10772687,
+        "sha256": "0efa0feb35fbe104260a9b1c213b8eca909c7eadf8f4dd59e0a47dad41a452a4"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/average-10000000.jsonl.gz": {
+        "bytes": 73371085,
+        "sha256": "3aeb688f342bc164c5851d0d10d4686ddc4ec64e1c1a26330f47c84fd993346c"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/average-5000000.jsonl.gz": {
+        "bytes": 42473712,
+        "sha256": "05bb9527dc95bf59543ce37a254a897b67949241df2065bb515e88931f50cf80"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/checkpoints.jsonl": {
+        "bytes": 5076,
+        "sha256": "5975844bd1fe78e02462eb1212e3ac8d3425d11f9b6d12fbe1dc68258f531dd2"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/current-100000.json.gz": {
+        "bytes": 1326512,
+        "sha256": "939ab29090a67f79ca8e9afa2c47a86919ea25ff7f45547128695e063876a767"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/current-1000000.json.gz": {
+        "bytes": 11231111,
+        "sha256": "365a6075958e81e7220559530465eeae2f3911babaee8a0bbfa71c756640aec8"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/current-10000000.json.gz": {
+        "bytes": 73720030,
+        "sha256": "f545ab9c8d86767d53cab5ef6153131b364479d44679f69f441184bd906c30c1"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/current-5000000.json.gz": {
+        "bytes": 43193831,
+        "sha256": "6fa4ae8104055f3dc31ae35a3f3074555037e35d88236c4da50711034ee82703"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/export-audit-guard/campaign.json": {
+        "bytes": 11151,
+        "sha256": "a68f01a2bc5b0a9f4d9ba369bc2c43a244699b5d02748fa4fe79ad1761fd07df"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/export-audit-guard/resources.jsonl": {
+        "bytes": 26369,
+        "sha256": "37118129d7ae149620cc309493b789084ffb033f6090aa21ac89f7c5a2c14ddb"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/export-audit-jobs.json": {
+        "bytes": 6435,
+        "sha256": "c4c87749241859f88e5cc6d209e7749b5626efe913c348fe0d180c0f1799ea06"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/plan.json": {
+        "bytes": 14356,
+        "sha256": "44b3701676f59cc45247460491a742e4a9eac239e9e7e549ed1ab5327b8dbe28"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/training-guard/campaign.json": {
+        "bytes": 3695,
+        "sha256": "1899aee50ad583c9e3ae6e64c4d6af89071ea687522264f8b66b8671f4153f54"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/training-guard/resources.jsonl": {
+        "bytes": 4545,
+        "sha256": "65219c994db8d9a606be2e4d6f5687d6946a2db36555885ed96177e160c6836e"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/training-jobs.json": {
+        "bytes": 1017,
+        "sha256": "b3924c6c804ed958caffef2a513fd7f25f832e6dd5c3e167c18f4b8aecbd8fcc"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/training/HU100-2026100601-100000.json.gz": {
+        "bytes": 1640195,
+        "sha256": "e226eb907f645f2ef9fe3b6600e75904dfd65e8520e52fbd0b97f1e379005bbb"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/training/HU100-2026100601-1000000.json.gz": {
+        "bytes": 15096813,
+        "sha256": "a15733d380b3a281071f3c2c6497862d654b09d380a9dbde531a699eed255c52"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/training/HU100-2026100601-10000000.json.gz": {
+        "bytes": 106120927,
+        "sha256": "62217d2888b57948434c2ec88d78bdeba95a1882beb7b3615c028e034166963f"
+      },
+      "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/training/HU100-2026100601-5000000.json.gz": {
+        "bytes": 60894602,
+        "sha256": "f71188890d3a23d7c3fd76d097bd20293bdcf24ea1d92450fea381fae9030752"
+      }
+    },
+    "pilot_audit_sha256": "f89f0a0e62fe9ca980bfa85f38b93aaa7026721f3eb58b62750efb1fec11f383",
+    "pilot_telemetry_sha256": "5975844bd1fe78e02462eb1212e3ac8d3425d11f9b6d12fbe1dc68258f531dd2",
+    "rationale": "Largest measured-fit ceiling with 2x required memory/time headroom plus ten percent and measured archive throughput; hard guards authoritative",
+    "retained_non_growth_bytes": 1543811249,
+    "save_reserve_seconds": 21.23703684466589,
+    "serialization_rss_bytes": 188408211.20000002
+  },
+  "capacity_stop": {
+    "actual_nodes": 11042440,
+    "all_campaign_timers_disabled": true,
+    "classification": "controlled-capacity-stop",
+    "entries": 3255387,
+    "entry_overshoot_complete_iteration": 33,
+    "exit_code": 3,
+    "external_guard_failure": null,
+    "forecast_entry_ceiling": 3255354,
+    "no_retry": true,
+    "requested_nodes": 1000000000
+  },
+  "ci": {
+    "run_id": 37746167499,
+    "source": "c4058b7f14a6df85e01f8354de676091572ab1bc",
+    "status": "success"
+  },
+  "created_at": 1791446999.9827561,
+  "hu100_checkpoints": [
+    {
+      "audit_receipt_path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/audit-100000.json",
+      "audit_receipt_sha256": "88f2d44bda88c6f1078e6620486160cd637e880e758c74b4f6c5161739d9cde8",
+      "audit_status": "verified-current-and-average",
+      "binary_sha256": "d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29",
+      "checkpoint_bytes": 1640195,
+      "checkpoint_sha256": "e226eb907f645f2ef9fe3b6600e75904dfd65e8520e52fbd0b97f1e379005bbb",
+      "completed_nodes": 100691,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          1591,
+          5700,
+          15152,
+          33955
+        ],
+        "entries": 53743,
+        "positive_average_mass_keys": 35392,
+        "traverser_visits": 19473,
+        "traverser_visits_by_street": [
+          535,
+          1942,
+          5213,
+          11783
+        ],
+        "visits_histogram": {
+          "0": 34800,
+          "1": 18522,
+          "10-99": 0,
+          "100+": 0,
+          "2-9": 421
+        },
+        "zero_average_mass_keys": 18351
+      },
+      "elapsed_seconds_including_writes": 0.173154417,
+      "entries_per_completed_node": 0.5337418438589348,
+      "iteration": 64,
+      "nearest_resource_offset_seconds": -0.15115094184875488,
+      "nearest_resource_sample": {
+        "aggregate_job_rss_bytes": 68583424,
+        "free_disk_bytes": 98768609280,
+        "phase": "train",
+        "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true",
+        "rss_bytes": 31752192,
+        "sampled_peak_aggregate_job_rss_bytes": 68583424,
+        "sampled_peak_process_rss_bytes": 31752192,
+        "swap": "vm.swapusage: total = 1024.00M  used = 440.81M  free = 583.19M  (encrypted)",
+        "swap_growth_bytes": -8388608.0,
+        "unix_seconds": 1791446385.455133
+      },
+      "new_entries": 53743,
+      "nodes_per_second_including_writes": 581509.8554488505,
+      "nodes_since_previous_save": 100691,
+      "overshoot_nodes": 691,
+      "path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/training/HU100-2026100601-100000.json.gz",
+      "process_rss_bytes_after_save": 19415040,
+      "recent_nodes_per_second_including_writes": 581509.8554488505,
+      "requested_nodes": 100000,
+      "sampled_peak_aggregate_until_save_bytes": 68583424,
+      "stage": "pilot-01",
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791446385.606284,
+      "write_seconds": 0.140581958,
+      "write_started": 1791446385.465703
+    },
+    {
+      "audit_receipt_path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/audit-1000000.json",
+      "audit_receipt_sha256": "74cc00fa70c12496d40189f914612a46c66e7d650f7ad9f086fabbe249c88c8d",
+      "audit_status": "verified-current-and-average",
+      "binary_sha256": "d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29",
+      "checkpoint_bytes": 15096813,
+      "checkpoint_sha256": "a15733d380b3a281071f3c2c6497862d654b09d380a9dbde531a699eed255c52",
+      "completed_nodes": 1001382,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          18697,
+          62905,
+          151927,
+          327338
+        ],
+        "entries": 460885,
+        "positive_average_mass_keys": 305008,
+        "traverser_visits": 195260,
+        "traverser_visits_by_street": [
+          6352,
+          22230,
+          52741,
+          113937
+        ],
+        "visits_histogram": {
+          "0": 287592,
+          "1": 160371,
+          "10-99": 171,
+          "100+": 0,
+          "2-9": 12751
+        },
+        "zero_average_mass_keys": 155877
+      },
+      "elapsed_seconds_including_writes": 1.8187608750000002,
+      "entries_per_completed_node": 0.46024893597048877,
+      "iteration": 690,
+      "nearest_resource_offset_seconds": -1.7967400550842285,
+      "nearest_resource_sample": {
+        "aggregate_job_rss_bytes": 68583424,
+        "free_disk_bytes": 98768609280,
+        "phase": "train",
+        "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true",
+        "rss_bytes": 31752192,
+        "sampled_peak_aggregate_job_rss_bytes": 68583424,
+        "sampled_peak_process_rss_bytes": 31752192,
+        "swap": "vm.swapusage: total = 1024.00M  used = 440.81M  free = 583.19M  (encrypted)",
+        "swap_growth_bytes": -8388608.0,
+        "unix_seconds": 1791446385.455133
+      },
+      "new_entries": 407142,
+      "nodes_per_second_including_writes": 550584.7490808817,
+      "nodes_since_previous_save": 900691,
+      "overshoot_nodes": 1382,
+      "path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/training/HU100-2026100601-1000000.json.gz",
+      "process_rss_bytes_after_save": 143245312,
+      "recent_nodes_per_second_including_writes": 547330.7397533318,
+      "requested_nodes": 1000000,
+      "sampled_peak_aggregate_until_save_bytes": 68583424,
+      "stage": "pilot-01",
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791446387.251873,
+      "write_seconds": 1.334452958,
+      "write_started": 1791446385.917434
+    },
+    {
+      "audit_receipt_path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/audit-5000000.json",
+      "audit_receipt_sha256": "3fd43ba7ef0cd4bda86e454569dd2dda0688e9b70d575cf73628c78140f83fb8",
+      "audit_status": "verified-current-and-average",
+      "binary_sha256": "d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29",
+      "checkpoint_bytes": 60894602,
+      "checkpoint_sha256": "f71188890d3a23d7c3fd76d097bd20293bdcf24ea1d92450fea381fae9030752",
+      "completed_nodes": 5001210,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          96844,
+          316471,
+          753871,
+          1628979
+        ],
+        "entries": 1777063,
+        "positive_average_mass_keys": 1175749,
+        "traverser_visits": 986303,
+        "traverser_visits_by_street": [
+          33889,
+          114632,
+          265886,
+          571896
+        ],
+        "visits_histogram": {
+          "0": 1049102,
+          "1": 614529,
+          "10-99": 3625,
+          "100+": 24,
+          "2-9": 109783
+        },
+        "zero_average_mass_keys": 601314
+      },
+      "elapsed_seconds_including_writes": 8.407645292,
+      "entries_per_completed_node": 0.35532661096014767,
+      "iteration": 3406,
+      "nearest_resource_offset_seconds": 1.767652988433838,
+      "nearest_resource_sample": {
+        "aggregate_job_rss_bytes": 933625856,
+        "free_disk_bytes": 98690322432,
+        "phase": "train",
+        "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true",
+        "rss_bytes": 867500032,
+        "sampled_peak_aggregate_job_rss_bytes": 933625856,
+        "sampled_peak_process_rss_bytes": 867500032,
+        "swap": "vm.swapusage: total = 1024.00M  used = 440.81M  free = 583.19M  (encrypted)",
+        "swap_growth_bytes": -8388608.0,
+        "unix_seconds": 1791446395.608344
+      },
+      "new_entries": 1316178,
+      "nodes_per_second_including_writes": 594840.7462858508,
+      "nodes_since_previous_save": 3999828,
+      "overshoot_nodes": 1210,
+      "path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/training/HU100-2026100601-5000000.json.gz",
+      "process_rss_bytes_after_save": 434700288,
+      "recent_nodes_per_second_including_writes": 607056.9381487452,
+      "requested_nodes": 5000000,
+      "sampled_peak_aggregate_until_save_bytes": 500662272,
+      "stage": "pilot-01",
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791446393.840691,
+      "write_seconds": 5.159362958,
+      "write_started": 1791446388.68138
+    },
+    {
+      "audit_receipt_path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/audit-10000000.json",
+      "audit_receipt_sha256": "f89f0a0e62fe9ca980bfa85f38b93aaa7026721f3eb58b62750efb1fec11f383",
+      "audit_status": "verified-current-and-average",
+      "binary_sha256": "d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29",
+      "checkpoint_bytes": 106120927,
+      "checkpoint_sha256": "62217d2888b57948434c2ec88d78bdeba95a1882beb7b3615c028e034166963f",
+      "completed_nodes": 10001922,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          194135,
+          618593,
+          1494880,
+          3275809
+        ],
+        "entries": 3023624,
+        "positive_average_mass_keys": 2004146,
+        "traverser_visits": 1983073,
+        "traverser_visits_by_street": [
+          68375,
+          224605,
+          531863,
+          1158230
+        ],
+        "visits_histogram": {
+          "0": 1723671,
+          "1": 1039939,
+          "10-99": 11294,
+          "100+": 108,
+          "2-9": 248612
+        },
+        "zero_average_mass_keys": 1019478
+      },
+      "elapsed_seconds_including_writes": 19.304406292,
+      "entries_per_completed_node": 0.3023042971140947,
+      "iteration": 6983,
+      "nearest_resource_offset_seconds": -4.053250074386597,
+      "nearest_resource_sample": {
+        "aggregate_job_rss_bytes": 999636992,
+        "free_disk_bytes": 98634235904,
+        "phase": "train",
+        "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true",
+        "rss_bytes": 933462016,
+        "sampled_peak_aggregate_job_rss_bytes": 999636992,
+        "sampled_peak_process_rss_bytes": 933462016,
+        "swap": "vm.swapusage: total = 1024.00M  used = 440.81M  free = 583.19M  (encrypted)",
+        "swap_growth_bytes": -8388608.0,
+        "unix_seconds": 1791446400.6840909
+      },
+      "new_entries": 1246561,
+      "nodes_per_second_including_writes": 518116.0118943895,
+      "nodes_since_previous_save": 5000712,
+      "overshoot_nodes": 1922,
+      "path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/pilot-01/training/HU100-2026100601-10000000.json.gz",
+      "process_rss_bytes_after_save": 929742848,
+      "recent_nodes_per_second_including_writes": 458917.28743981814,
+      "requested_nodes": 10000000,
+      "sampled_peak_aggregate_until_save_bytes": 999636992,
+      "stage": "pilot-01",
+      "status": "saved",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791446404.737341,
+      "write_seconds": 8.966042667,
+      "write_started": 1791446395.771389
+    },
+    {
+      "audit_receipt_path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/final-capacity-audit/audit.json",
+      "audit_receipt_sha256": "2c2bb7009b40cc097ac37d5017f03aecf1ed5c234a63720bc4066ea9f37567d2",
+      "audit_status": "verified-current-and-average",
+      "binary_sha256": "d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29",
+      "checkpoint_bytes": 114633184,
+      "checkpoint_sha256": "234628a0390502f6b17f4bad3486c47c2a5aa7a297fc611e00287533ea1f4567",
+      "completed_nodes": 11042440,
+      "diagnostics": {
+        "coverage_start": [
+          0,
+          0,
+          0
+        ],
+        "decisions_by_street": [
+          213814,
+          680337,
+          1648281,
+          3620622
+        ],
+        "entries": 3255387,
+        "positive_average_mass_keys": 2158927,
+        "traverser_visits": 2191268,
+        "traverser_visits_by_street": [
+          75437,
+          247030,
+          587061,
+          1281740
+        ],
+        "visits_histogram": {
+          "0": 1846950,
+          "1": 1117187,
+          "10-99": 13220,
+          "100+": 137,
+          "2-9": 277893
+        },
+        "zero_average_mass_keys": 1096460
+      },
+      "elapsed_seconds_including_writes": 10.131003792,
+      "entries_per_completed_node": 0.29480685428220577,
+      "iteration": 7722,
+      "nearest_resource_offset_seconds": -2.5131008625030518,
+      "nearest_resource_sample": {
+        "aggregate_job_rss_bytes": 1008320512,
+        "free_disk_bytes": 98216968192,
+        "phase": "train",
+        "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true",
+        "rss_bytes": 928595968,
+        "sampled_peak_aggregate_job_rss_bytes": 1008320512,
+        "sampled_peak_process_rss_bytes": 928595968,
+        "swap": "vm.swapusage: total = 1024.00M  used = 440.81M  free = 583.19M  (encrypted)",
+        "swap_growth_bytes": -8388608.0,
+        "unix_seconds": 1791446678.5283132
+      },
+      "new_entries": 231763,
+      "nodes_per_second_including_writes": 102706.30841355034,
+      "nodes_since_previous_save": 1040518,
+      "overshoot_nodes": 0,
+      "path": "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/followup-01/growth-01/training/HU100-2026100601-1000000000.json.gz",
+      "process_rss_bytes_after_save": 924909568,
+      "recent_nodes_per_second_including_writes": 102706.30841355034,
+      "requested_nodes": 1000000000,
+      "sampled_peak_aggregate_until_save_bytes": 1008320512,
+      "stage": "growth-01",
+      "status": "incomplete-target",
+      "stop_requested": false,
+      "version": 1,
+      "write_finished": 1791446681.041414,
+      "write_seconds": 9.774039584,
+      "write_started": 1791446671.267473
+    }
+  ],
+  "hu20": {
+    "average_equality": "all probabilities/mass/visits exact; validated metadata differences only",
+    "binary_sha256": "d6ecd69ce54b1afaf50e6df64edf104f1d14a77681de4d2c227b759015b2cf29",
+    "campaign_swap_baseline": "vm.swapusage: total = 1024.00M  used = 448.81M  free = 575.19M  (encrypted)",
+    "completed_nodes": 1000000110,
+    "current_equality": "identical file bytes by SHA256; both independently audited",
+    "entries": 4319080,
+    "executed_training_source": "64318398fea423a9c43c0db8635a3724e05bd55f",
+    "isolated_audits": true,
+    "iteration": 2126271,
+    "metadata_differences": {
+      "average": [
+        "source_checkpoint_sha256",
+        "checkpoint_header.native_state"
+      ],
+      "checkpoint": [
+        "native_state"
+      ],
+      "validated_recovery_state": {
+        "completed_nodes": 1000000110,
+        "coverage_start": [
+          1095942,
+          500000417,
+          98373121
+        ],
+        "decisions_by_street": [
+          13123513,
+          36578575,
+          86258083,
+          154612825
+        ],
+        "traverser_visits_by_street": [
+          4202139,
+          11359185,
+          27831763,
+          53609331
+        ],
+        "version": 1
+      }
+    },
+    "reference_audit": {
+      "audit": {
+        "all_nodes_verified": 4319080,
+        "average_sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+        "checkpoint_sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825",
+        "counts": {
+          "entries": 4319080,
+          "positive_mass": 2929370,
+          "zero_mass": 1389710
+        },
+        "current_sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.29844938407433524
+      },
+      "entries": 4319080,
+      "files": {
+        "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/reference-02/average.jsonl.gz": {
+          "bytes": 142677367,
+          "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d"
+        },
+        "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/reference-02/current.json.gz": {
+          "bytes": 108469702,
+          "sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740"
+        },
+        "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/reference-02/training/HU20-2026100601-1000000000.json.gz": {
+          "bytes": 214220678,
+          "sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825"
+        }
+      },
+      "fresh_admission": {
+        "at": 1791446255.360178,
+        "free_disk_bytes": 98775490560,
+        "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true",
+        "swap": "vm.swapusage: total = 1024.00M  used = 448.81M  free = 575.19M  (encrypted)",
+        "system_memory": {
+          "free_percent": 81,
+          "physical_bytes": 17179869184,
+          "pressure_level": 1,
+          "raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\n\nStats: \nPages free: 8123 \nPages purgeable: 10170 \nPages purged: 6452503 \n\nSwap I/O:\nSwapins: 4115 \nSwapouts: 32824 \n\nPage Q counts:\nPages active: 395917 \nPages inactive: 404552 \nPages speculative: 15036 \nPages throttled: 0 \nPages wired down: 114089 \n\nCompressor Stats:\nPages used by compressor: 69492 \nPages decompressed: 47529391 \nPages compressed: 54141130 \n\nFile I/O:\nPageins: 124915274 \nPageouts: 1029730 \n\nSystem-wide memory free percentage: 81%\n"
+        }
+      },
+      "hu20_reference_checked": true,
+      "iteration": 2126271,
+      "mean_traverser_visits_per_key": 45.235452688998585,
+      "native_state": null,
+      "positive_average_mass_keys": 2929370,
+      "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+      "stack_bb": 20,
+      "status": "verified",
+      "visits_histogram": {
+        "0": 968142,
+        "1": 946004,
+        "10-99": 878136,
+        "100+": 272049,
+        "2-9": 1254749
+      },
+      "zero_average_mass_keys": 1389710
+    },
+    "reference_average_bytes": 142677367,
+    "reference_average_sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d",
+    "resumed_audit": {
+      "audit": {
+        "all_nodes_verified": 4319080,
+        "average_sha256": "b314bd3256c06e307494c0c56e5ea03cca9844b92fd15909e05b880f0c4d72b8",
+        "checkpoint_sha256": "3f0a9ea3d34a04e3a12f74b0ec6c9a8b01d39a38ffd75387e7670a93520cc90a",
+        "counts": {
+          "entries": 4319080,
+          "positive_mass": 2929370,
+          "zero_mass": 1389710
+        },
+        "current_sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740",
+        "maximum_tv": 1.0000000000000002,
+        "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+        "status": "verified",
+        "unweighted_mean_current_average_tv": 0.29844938407433524
+      },
+      "entries": 4319080,
+      "files": {
+        "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/recovery-02/average.jsonl.gz": {
+          "bytes": 142677262,
+          "sha256": "b314bd3256c06e307494c0c56e5ea03cca9844b92fd15909e05b880f0c4d72b8"
+        },
+        "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/recovery-02/current.json.gz": {
+          "bytes": 108469702,
+          "sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740"
+        },
+        "/Users/dberweger/Local/native-recovery-hu100-20261008/results/native-recovery-hu100/recovery-02/training/HU20-2026100601-1000000000.json.gz": {
+          "bytes": 214221240,
+          "sha256": "3f0a9ea3d34a04e3a12f74b0ec6c9a8b01d39a38ffd75387e7670a93520cc90a"
+        }
+      },
+      "fresh_admission": {
+        "at": 1791446310.095849,
+        "free_disk_bytes": 98774392832,
+        "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true",
+        "swap": "vm.swapusage: total = 1024.00M  used = 448.81M  free = 575.19M  (encrypted)",
+        "system_memory": {
+          "free_percent": 81,
+          "physical_bytes": 17179869184,
+          "pressure_level": 1,
+          "raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\n\nStats: \nPages free: 353609 \nPages purgeable: 683 \nPages purged: 6461391 \n\nSwap I/O:\nSwapins: 4115 \nSwapouts: 32824 \n\nPage Q counts:\nPages active: 210576 \nPages inactive: 252481 \nPages speculative: 2871 \nPages throttled: 0 \nPages wired down: 114361 \n\nCompressor Stats:\nPages used by compressor: 73143 \nPages decompressed: 47536573 \nPages compressed: 54179648 \n\nFile I/O:\nPageins: 124920794 \nPageouts: 1029825 \n\nSystem-wide memory free percentage: 81%\n"
+        }
+      },
+      "hu20_reference_checked": false,
+      "iteration": 2126271,
+      "mean_traverser_visits_per_key": 45.235452688998585,
+      "native_state": {
+        "completed_nodes": 1000000110,
+        "coverage_start": [
+          1095942,
+          500000417,
+          98373121
+        ],
+        "decisions_by_street": [
+          13123513,
+          36578575,
+          86258083,
+          154612825
+        ],
+        "traverser_visits_by_street": [
+          4202139,
+          11359185,
+          27831763,
+          53609331
+        ],
+        "version": 1
+      },
+      "positive_average_mass_keys": 2929370,
+      "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+      "stack_bb": 20,
+      "status": "verified",
+      "visits_histogram": {
+        "0": 968142,
+        "1": 946004,
+        "10-99": 878136,
+        "100+": 272049,
+        "2-9": 1254749
+      },
+      "zero_average_mass_keys": 1389710
+    },
+    "scope": "full HU20 legacy recovery state and current/average policy equivalence",
+    "seed": 2026100601,
+    "source": "c4058b7f14a6df85e01f8354de676091572ab1bc",
+    "status": "verified",
+    "training_float_equality": "IEEE-754 bits, including signed zero",
+    "verifier_source": "c4058b7f14a6df85e01f8354de676091572ab1bc"
+  },
+  "interrupted_saves": 0,
+  "no_training_retry": true,
+  "one_B_milestones_reached": 0,
+  "original_evidence_preserved": true,
+  "original_training_source": "64318398fea423a9c43c0db8635a3724e05bd55f",
+  "phases": {
+    "followup-01/final-capacity-audit/guard/campaign.json": {
+      "attempts": [
+        {
+          "exit_code": 0,
+          "finished": 1791446813.302551,
+          "guard_failure": null,
+          "name": "export-capacity",
+          "peak_aggregate_job_rss_bytes": 3702865920,
+          "started": 1791446800.084737,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791446852.948857,
+          "guard_failure": null,
+          "name": "audit-capacity",
+          "peak_aggregate_job_rss_bytes": 4807294976,
+          "started": 1791446813.304157,
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 52.98226499557495,
+      "peak_sampled_aggregate_rss_bytes": 4807294976,
+      "samples": 11,
+      "sha256": "40057da5c70bc3a71d89a029abcc4cb5413eddec27f8cb8b0f86c7cf307a29f6",
+      "status": "complete"
+    },
+    "followup-01/growth-01/training-guard/campaign.json": {
+      "attempts": [
+        {
+          "exit_code": 3,
+          "finished": 1791446681.559343,
+          "guard_failure": null,
+          "name": "train",
+          "peak_aggregate_job_rss_bytes": 1008320512,
+          "started": 1791446668.341294,
+          "status": "failed"
+        }
+      ],
+      "elapsed_seconds": 13.338584899902344,
+      "peak_sampled_aggregate_rss_bytes": 1008320512,
+      "samples": 3,
+      "sha256": "26716a1d0d798df81e211c11ffe24ae6c1753de098be97c2b2aa7578650fb624",
+      "status": "incomplete"
+    },
+    "followup-01/pilot-01/export-audit-guard/campaign.json": {
+      "attempts": [
+        {
+          "exit_code": 0,
+          "finished": 1791446407.005738,
+          "guard_failure": null,
+          "name": "export-100000",
+          "peak_aggregate_job_rss_bytes": 68976640,
+          "started": 1791446405.955673,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791446408.09785,
+          "guard_failure": null,
+          "name": "audit-100000",
+          "peak_aggregate_job_rss_bytes": 70762496,
+          "started": 1791446407.007149,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791446410.200392,
+          "guard_failure": null,
+          "name": "export-1000000",
+          "peak_aggregate_job_rss_bytes": 69861376,
+          "started": 1791446408.099833,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791446416.367955,
+          "guard_failure": null,
+          "name": "audit-1000000",
+          "peak_aggregate_job_rss_bytes": 301187072,
+          "started": 1791446410.2025201,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791446424.556491,
+          "guard_failure": null,
+          "name": "export-5000000",
+          "peak_aggregate_job_rss_bytes": 1848360960,
+          "started": 1791446416.369717,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791446446.9627361,
+          "guard_failure": null,
+          "name": "audit-5000000",
+          "peak_aggregate_job_rss_bytes": 2685452288,
+          "started": 1791446424.558499,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791446460.229136,
+          "guard_failure": null,
+          "name": "export-10000000",
+          "peak_aggregate_job_rss_bytes": 3491840000,
+          "started": 1791446446.964467,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791446497.866168,
+          "guard_failure": null,
+          "name": "audit-10000000",
+          "peak_aggregate_job_rss_bytes": 4442554368,
+          "started": 1791446460.231144,
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 92.03441572189331,
+      "peak_sampled_aggregate_rss_bytes": 4442554368,
+      "samples": 23,
+      "sha256": "a68f01a2bc5b0a9f4d9ba369bc2c43a244699b5d02748fa4fe79ad1761fd07df",
+      "status": "complete"
+    },
+    "followup-01/pilot-01/training-guard/campaign.json": {
+      "attempts": [
+        {
+          "exit_code": 0,
+          "finished": 1791446405.735171,
+          "guard_failure": null,
+          "name": "train",
+          "peak_aggregate_job_rss_bytes": 999636992,
+          "started": 1791446385.4151008,
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 20.489228010177612,
+      "peak_sampled_aggregate_rss_bytes": 999636992,
+      "samples": 4,
+      "sha256": "1899aee50ad583c9e3ae6e64c4d6af89071ea687522264f8b66b8671f4153f54",
+      "status": "complete"
+    },
+    "followup-01/qualification-02-guard/campaign.json": {
+      "attempts": [
+        {
+          "exit_code": 0,
+          "finished": 1791445158.868413,
+          "guard_failure": null,
+          "name": "release-build",
+          "peak_aggregate_job_rss_bytes": 36814848,
+          "started": 1791445157.8189912,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791445160.969971,
+          "guard_failure": null,
+          "name": "rust-library",
+          "peak_aggregate_job_rss_bytes": 37126144,
+          "started": 1791445158.8698602,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791445178.28819,
+          "guard_failure": null,
+          "name": "python-fixtures",
+          "peak_aggregate_job_rss_bytes": 188432384,
+          "started": 1791445160.971519,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791445179.383987,
+          "guard_failure": null,
+          "name": "repository-artifacts",
+          "peak_aggregate_job_rss_bytes": 36945920,
+          "started": 1791445178.290018,
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 21.682237148284912,
+      "peak_sampled_aggregate_rss_bytes": 188432384,
+      "samples": 7,
+      "sha256": "4ced2bc1e55a0865d3ac3d6b721872cabf80424f2f85b15331cbffb4c867a0ed",
+      "status": "complete"
+    },
+    "followup-01/qualification-03-guard/campaign.json": {
+      "attempts": [
+        {
+          "exit_code": 0,
+          "finished": 1791445596.6035972,
+          "guard_failure": null,
+          "name": "release-build",
+          "peak_aggregate_job_rss_bytes": 36732928,
+          "started": 1791445595.555147,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791445598.708786,
+          "guard_failure": null,
+          "name": "rust-library",
+          "peak_aggregate_job_rss_bytes": 37109760,
+          "started": 1791445596.605105,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791445616.02939,
+          "guard_failure": null,
+          "name": "python-fixtures",
+          "peak_aggregate_job_rss_bytes": 175505408,
+          "started": 1791445598.710403,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791445617.104796,
+          "guard_failure": null,
+          "name": "repository-artifacts",
+          "peak_aggregate_job_rss_bytes": 36749312,
+          "started": 1791445616.030463,
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 21.6706280708313,
+      "peak_sampled_aggregate_rss_bytes": 175505408,
+      "samples": 7,
+      "sha256": "23b75b6ec8f6b9b25b0ac2353e9e6657162b13ad274b6c52cacddad2d231872d",
+      "status": "complete"
+    },
+    "followup-01/qualification-04-guard/campaign.json": {
+      "attempts": [
+        {
+          "exit_code": 0,
+          "finished": 1791445910.340257,
+          "guard_failure": null,
+          "name": "release-build",
+          "peak_aggregate_job_rss_bytes": 37847040,
+          "started": 1791445909.291199,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791445912.445683,
+          "guard_failure": null,
+          "name": "rust-library",
+          "peak_aggregate_job_rss_bytes": 38092800,
+          "started": 1791445910.341708,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791445929.765928,
+          "guard_failure": null,
+          "name": "python-fixtures",
+          "peak_aggregate_job_rss_bytes": 189530112,
+          "started": 1791445912.4472141,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791445930.831881,
+          "guard_failure": null,
+          "name": "repository-artifacts",
+          "peak_aggregate_job_rss_bytes": 37781504,
+          "started": 1791445929.766591,
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 21.660454034805298,
+      "peak_sampled_aggregate_rss_bytes": 189530112,
+      "samples": 7,
+      "sha256": "c3e62f8590249e5a429d415a48a8eeb9a840f8574f9c252f177ab7c4348e1ae3",
+      "status": "complete"
+    },
+    "followup-01/qualification-guard/campaign.json": {
+      "attempts": [
+        {
+          "exit_code": 0,
+          "finished": 1791444518.37804,
+          "guard_failure": null,
+          "name": "release-build",
+          "peak_aggregate_job_rss_bytes": 33521664,
+          "started": 1791444517.324099,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791444520.483768,
+          "guard_failure": null,
+          "name": "rust-library",
+          "peak_aggregate_job_rss_bytes": 38338560,
+          "started": 1791444518.379413,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791444537.807856,
+          "guard_failure": null,
+          "name": "python-fixtures",
+          "peak_aggregate_job_rss_bytes": 189186048,
+          "started": 1791444520.485237,
+          "status": "complete"
+        },
+        {
+          "exit_code": 0,
+          "finished": 1791444538.87247,
+          "guard_failure": null,
+          "name": "repository-artifacts",
+          "peak_aggregate_job_rss_bytes": 37978112,
+          "started": 1791444537.808501,
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 21.716132164001465,
+      "peak_sampled_aggregate_rss_bytes": 189186048,
+      "samples": 7,
+      "sha256": "1bb736de7ca89a889baedd3c970619db0446b95577642fc86d1b14ac995df327",
+      "status": "complete"
+    },
+    "followup-01/verification-01/verification-guard/campaign.json": {
+      "attempts": [
+        {
+          "exit_code": 0,
+          "finished": 1791446383.5822551,
+          "guard_failure": null,
+          "name": "compare",
+          "peak_aggregate_job_rss_bytes": 5999837184,
+          "started": 1791446216.0363462,
+          "status": "complete"
+        }
+      ],
+      "elapsed_seconds": 167.6647651195526,
+      "peak_sampled_aggregate_rss_bytes": 5999837184,
+      "samples": 33,
+      "sha256": "08008557d3f7289d93dfbc5b6b1752cf8cca91b5e70d0d82b26e55297daaf6b5",
+      "status": "complete"
+    }
+  },
+  "resources": {
+    "all_ac": true,
+    "max_swap_growth_bytes": 0.0,
+    "min_free_disk_bytes": 98008903680,
+    "min_system_memory_free_percent": 79,
+    "peak_sampled_aggregate_rss_bytes": 5999837184,
+    "pressure_levels": [
+      1
+    ],
+    "sample_interval_seconds": 5,
+    "samples": 102
+  },
+  "scope": "Correctness, recovery, resource capacity and table growth only; no poker-strength or convergence claim",
+  "seed": 2026100601,
+  "source": "c4058b7f14a6df85e01f8354de676091572ab1bc",
+  "status": "verified-recovery-controlled-HU100-capacity-stop"
+}

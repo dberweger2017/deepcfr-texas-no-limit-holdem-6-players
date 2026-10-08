@@ -29,7 +29,7 @@ def file_hash(path):
     return hasher.hexdigest()
 
 
-def prepare(stage, out, binary, *, quote=None, approval=None):
+def prepare(stage, out, binary, *, quote=None, approval=None, swap_baseline=None, deadline=None):
     binary = binary.resolve()
     source = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
     if subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=no'], text=True).strip():
@@ -52,6 +52,11 @@ def prepare(stage, out, binary, *, quote=None, approval=None):
                        'zero_mass': 'uniform', 'card_descriptor': 'legacy-postflop-descriptor-v1',
                        'menu': 'min-pot-conditional-jam; native reopening; no free fold'},
             'hu20_reference_sha256': REFERENCE, 'strength_claim': False}
+    if deadline is not None:
+        from math import isfinite
+        if not isfinite(deadline) or deadline <= datetime.now(timezone.utc).timestamp():
+            raise ValueError('Future finite campaign deadline required')
+    plan.update(campaign_swap_baseline=swap_baseline, campaign_deadline=deadline)
     parent = None
     if stage == 'extension':
         if quote is None or approval is None: raise ValueError('Extension requires measured quote and owner authorization receipts')
@@ -96,6 +101,7 @@ def prepare(stage, out, binary, *, quote=None, approval=None):
     command = [str(binary), 'train', '--stack-bb', str(bb), '--seed', str(SEED), '--roots-per-seat', '1',
                '--average-rule', 'opponent-sampled', '--nodes', str(nodes), '--milestones', milestones,
                '--max-seconds', str(limits['training_seconds']), '--max-entries', str(limits['max_entries']), '--out', str(pattern)]
+    command += ['--telemetry', str(out/'checkpoints.jsonl')]
     if stage == 'pilot': command += ['--recovery']
     if parent: command += ['--resume', str(parent), '--resume-sha256', q['parent_sha256']]
     checkpoint = Path(str(pattern).replace('{nodes}', str(nodes)))
@@ -110,6 +116,8 @@ def prepare(stage, out, binary, *, quote=None, approval=None):
         (out/name).write_text(json.dumps(value, indent=2, sort_keys=True, allow_nan=False)+'\n')
     # Absolute deadlines are chosen by the operator at launch, not by this preparation call.
     deadline_command = shlex.join([sys.executable, '-c', f'import time; print(time.time()+{limits["total_seconds"]})'])
+    if deadline is not None:
+        deadline_command = shlex.join([sys.executable, '-c', f'import time; print(min({deadline!r},time.time()+{limits["total_seconds"]}))'])
     lines = ['set -eu', '# Prepared commands only; obtain stage authorization and idle-worker admission first.',
              'export RAYON_NUM_THREADS=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1',
              f'CAMPAIGN_DEADLINE=$({deadline_command})']
@@ -117,6 +125,7 @@ def prepare(stage, out, binary, *, quote=None, approval=None):
         guard = [sys.executable, '-m', 'scripts.hu20_scaling_supervise', '--jobs', str(out/f'{name}-jobs.json'),
                  '--out', str(out/f'{name}-guard'), '--rss-gib', str(limits['rss_gib']), '--disk-gib', str(limits['disk_gib']),
                  '--swap-gib', str(limits['swap_gib']), '--require-ac']
+        if swap_baseline is not None: guard += ['--swap-baseline', swap_baseline]
         deadline_code = f'import sys,time; print(min(float(sys.argv[1]),time.time()+{seconds}))'
         phase_command = shlex.join([sys.executable, '-c', deadline_code])
         lines += [f'# {name}: total phase cap {seconds}s; includes startup and checkpoint/export writes.',
@@ -131,8 +140,10 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--binary', type=Path, default=Path('native/hu20-trainer/target/release/hu20-trainer'))
     parser.add_argument('--quote', type=Path); parser.add_argument('--approval', type=Path)
+    parser.add_argument('--swap-baseline'); parser.add_argument('--deadline', type=float)
     args = parser.parse_args()
-    plan = prepare(args.stage, args.out, args.binary, quote=args.quote, approval=args.approval)
+    plan = prepare(args.stage, args.out, args.binary, quote=args.quote, approval=args.approval,
+                   swap_baseline=args.swap_baseline, deadline=args.deadline)
     print(json.dumps({'status': plan['status'], 'plan_sha256': plan['plan_sha256']}))
 
 

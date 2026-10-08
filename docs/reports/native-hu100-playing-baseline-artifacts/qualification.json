@@ -1,0 +1,20 @@
+{
+  "status": "verified",
+  "source": "009b5d92529792b0db32798407cf56c25416beb5",
+  "python_tests": 52,
+  "test_seconds": 4.62,
+  "artifact_checker": "passed",
+  "guard_status": "complete",
+  "peak_sampled_owned_family_rss_bytes": 36470784,
+  "sample_interval_seconds": 5,
+  "receipts": {
+    "launch.json": "43649723a56d09dd66984d1e0c91f486734ac77aa333b96c59831177ad69208c",
+    "jobs.json": "ec7c52d98375764a921ad7534138eaeab6773ab61bf32f5ba3300b13f484c154",
+    "guard/campaign.json": "887d9c47d4996c81aab19d94cb31ffcf898d699e012088305264aafeed5dc345",
+    "guard/tests.log": "e8240a37d3066e6967ef27ee8f521794299ed906c272a903b02997e9ed9078f1",
+    "guard/artifact-check.log": "a77302e0ca9f89e7aae6fdf4888e8c4b6fff45be6a5f8c248786c81ca7390c75"
+  },
+  "at": 1791451147.8524292,
+  "execution_cap_started": false,
+  "science_play_run": false
+}

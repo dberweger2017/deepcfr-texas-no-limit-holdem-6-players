@@ -1,0 +1,53 @@
+{
+  "status": "terminal-resource-ceiling-closeout-complete",
+  "at": 1791441320.933245,
+  "scientific_source": "64318398fea423a9c43c0db8635a3724e05bd55f",
+  "active_attempt": null,
+  "owned_science_and_archive_processes_exited": true,
+  "hu20_reference": "verified full row audit and pinned export",
+  "hu20_recovery_equivalence": "unverified RSS guard stop",
+  "hu100": "not run",
+  "all_campaign_timers_disabled": true,
+  "archive_guards": [
+    {
+      "stage": "archive-guard",
+      "status": "complete",
+      "attempts": [
+        {
+          "name": "archive",
+          "status": "complete",
+          "started": 1791440785.8687942,
+          "finished": 1791440789.932102,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 36143104
+        }
+      ],
+      "sample_count": 1,
+      "max_swap_growth_bytes": 0.0,
+      "min_free_disk_bytes": 103608537088,
+      "all_ac": true
+    },
+    {
+      "stage": "closeout-archive-guard",
+      "status": "complete",
+      "attempts": [
+        {
+          "name": "closeout-archive",
+          "status": "complete",
+          "started": 1791441260.0129101,
+          "finished": 1791441261.04334,
+          "exit_code": 0,
+          "guard_failure": null,
+          "peak_aggregate_job_rss_bytes": 36012032
+        }
+      ],
+      "sample_count": 1,
+      "max_swap_growth_bytes": 0.0,
+      "min_free_disk_bytes": 100851912704,
+      "all_ac": true
+    }
+  ],
+  "review": "round5 no blocking final-evidence findings",
+  "originals_retained": true
+}

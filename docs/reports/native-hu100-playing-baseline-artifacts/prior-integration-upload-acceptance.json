@@ -1,0 +1,24 @@
+{
+  "status": "accepted",
+  "observed_at": 1791450921.06781,
+  "archive_name": "native-recovery-hu100-final-integration-20261008.json",
+  "archive_id": "1Em7UXm-Y5ONd2561_sR6txeYCt8Cmdbw",
+  "bytes": 13870,
+  "sha256": "e4a260ea3ab2205ad600314c8d170ef49bece1ceea1c79bd370bf05055c39974",
+  "folder_id": "1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI",
+  "local_matching_bytes_verified": true,
+  "native_uploaded": true,
+  "native_uploading": false,
+  "native_conflicts": false,
+  "independent_cloud_metadata": {
+    "id": "1Em7UXm-Y5ONd2561_sR6txeYCt8Cmdbw",
+    "title": "native-recovery-hu100-final-integration-20261008.json",
+    "size": "13870",
+    "parent_ids": [
+      "1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI"
+    ],
+    "observed_by": "Drive connector files.get in parent thread"
+  },
+  "remote_bytes_downloaded": false,
+  "prior_artifact_attempt": "final-integration-01 saved atomically; failed only premature absent cloud item-ID. Copy never retried; later native/cloud acceptance read completed."
+}

@@ -1,0 +1,30 @@
+{
+  "observed_at": "2026-10-08T06:33:00Z",
+  "campaign": "native-recovery-hu100-20261008",
+  "timers": [
+    {
+      "scheduledTaskId": "scheduled-task:command:mcp:cb89182f-41c8-40cb-998f-3f002cda0873:schedule-task:native-recovery-hu100-20261008-deadline",
+      "enabled": false,
+      "nextRunAt": null,
+      "boundThreadId": "495ca3f8-32db-4e73-98ad-29d01fb9e282"
+    },
+    {
+      "scheduledTaskId": "scheduled-task:command:mcp:cb89182f-41c8-40cb-998f-3f002cda0873:schedule-task:native-recovery-hu100-20261008-execution",
+      "enabled": false,
+      "nextRunAt": null,
+      "boundThreadId": "495ca3f8-32db-4e73-98ad-29d01fb9e282"
+    },
+    {
+      "scheduledTaskId": "scheduled-task:command:mcp:cb89182f-41c8-40cb-998f-3f002cda0873:schedule-task:native-recovery-hu100-20261008-admission",
+      "enabled": false,
+      "nextRunAt": null,
+      "boundThreadId": "495ca3f8-32db-4e73-98ad-29d01fb9e282"
+    },
+    {
+      "scheduledTaskId": "scheduled-task:command:mcp:cb89182f-41c8-40cb-998f-3f002cda0873:schedule-task:native-recovery-hu100-20261008-initial",
+      "enabled": false,
+      "nextRunAt": null,
+      "boundThreadId": "495ca3f8-32db-4e73-98ad-29d01fb9e282"
+    }
+  ]
+}

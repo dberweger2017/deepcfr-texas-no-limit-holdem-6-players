@@ -42,6 +42,247 @@ Restore exact removed members from [#149's canonical archive](https://drive.goog
 
 # Research results index
 
+## PR197 separately authorized HU100 playing baseline — complete, October 8, 2026
+
+[PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),
+[protocol](docs/native-hu100-playing-baseline.md), [report](docs/reports/native-hu100-playing-baseline.md),
+[compact scientific receipts/diagnostics](docs/reports/native-hu100-playing-baseline-artifacts/scientific-summary.json).
+New evaluation source `009b5d92529792b0db32798407cf56c25416beb5`; free isolated M4
+root `~/Local/native-recovery-hu100-20261008/results/native-hu100-playing-baseline/`.
+**40,960 final hands /160,425 actions**, 2,048 duplicate blocks/opponent, paired
+seat rotations, average versus the same native-menu uniform reference. All final
+actions/settlements independently replayed; all hands/decisions fully reproduced.
+Pilot320 hands/root2026100819711 excluded from final inference; finalroot2026100819712.
+Cost-only frozen counts preceded outcomes; 142.59s science plus archive within the
+fresh 30-minute cap. Whole-family10GiB/pressure/originalswapbaseline+.5GiB/disk15.5/AC
+guards complete; no correctness/resource failure or retry. All four old timers
+disabled. No new training, checkpoint selection, cleanup, release or merge.
+Per-opponent BB/100 and block95% intervals, paired differences, street/opponent
+known-positive/zero/missing rates, actions and latency are in the report/CSV.
+Results are a development baseline only; no general-strength or release claim.
+Existing training/recovery/capacity evidence and archives below remain unchanged.
+
+[Existing Research-Cloud folder](https://drive.google.com/drive/folders/1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI),
+[baseline ZIP](https://drive.google.com/file/d/1QEHJJ_yPJbfHYkX1Taa3wM4RnblVPdK1/view)
+`native-hu100-playing-baseline-20261008.zip`: **574,958,858 bytes /227 members**,
+SHA256 `a2c6f3106bdff486ece8ed1cec53521c235fe3eaf0c9debbae8b901e5ea5421d`.
+Embedded `ARCHIVE-MANIFEST.json.gz`: decompressed JSON SHA256
+`3ae2ec4cd2d8b5b41fc3e1f81c5bc1df9d75840a916a243d06f2259e895aee61`,
+compressed member SHA256 `82d3870d094cbdec5341250d8c3ede6cefdb5115e20ef17a5868164dcc1f63ff`.
+All sizes/hashes read back locally; native uploaded1/uploading0/conflicts0 plus
+independent cloud ID/name/size/parent accepted. No remote-byte download.
+[Local receipt](docs/reports/native-hu100-playing-baseline-artifacts/archive-local-receipt.json),
+[native receipt](docs/reports/native-hu100-playing-baseline-artifacts/archive-native-upload.json),
+[cloud acceptance](docs/reports/native-hu100-playing-baseline-artifacts/archive-upload-acceptance.json).
+
+The exact audited average snapshot is
+`research/run-01/final/models/ffd53decdd4af5bffc0ae34e98144d43e27eef92a49033a7d4008615576a93be.json.gz`,
+**79,195,090 bytes**, SHA256
+`ffd53decdd4af5bffc0ae34e98144d43e27eef92a49033a7d4008615576a93be`.
+It is byte-identical to the original final average member indexed below; native
+`.json.gz` snapshot suffix does not change its streaming JSONL format. Training
+checkpoint/source/audit identity remains the [15-asset model index](docs/reports/native-recovery-hu100-artifacts/followup-model-index.json).
+Selected evaluation source tar: `research/exact-source/source-009b5d9.tar`,
+**5,242,880 bytes**, SHA256 `06590f243cb1df7726fabf3035fb1383b2615f46c963b2fb28538dd2e8bbd9ef`.
+Full source restores through Git commit `009b5d92529792b0db32798407cf56c25416beb5`;
+requirements and installed engine/environment fingerprints are pinned in each manifest.
+Per-opponent members: `research/run-01/final/{opponent}/` contains manifest,
+schedule, explicit private-action seeds, hands, decisions, timing and report;
+`research/run-01/final-audit.json` and `final-reproduction/` contain full independent
+replay and deterministic reproduction. Pilot/reproduction, qualified/reviewed
+source receipts, findings, claims, raw resource samples and source are retained.
+
+Download the indexed ZIP into a **fresh ignored directory**. Run
+`shasum -a 256 LOCAL_DOWNLOADED_HU100_BASELINE_ZIP` and require the whole hash above;
+extract with `python3 -m zipfile -e LOCAL_DOWNLOADED_HU100_BASELINE_ZIP
+results/retrieved/pr197/NEW_HU100_BASELINE_ROOT`. Run `shasum -a 256
+results/retrieved/pr197/NEW_HU100_BASELINE_ROOT/research/run-01/final/models/ffd53decdd4af5bffc0ae34e98144d43e27eef92a49033a7d4008615576a93be.json.gz`
+and require the model hash above. Check required member sizes/hashes against the
+embedded manifest before use. Configuration still names the original retained
+input path; any later explicitly authorized reproduction must place verified
+bytes in that path within a fresh ignored checkout, preserving active originals.
+These restoration commands do not authorize another execution or consume a retry.
+
+Prior post-integration closeout JSON also accepted after its original copy's
+premature missing-item-ID failure (no copy retry):
+[native-recovery-hu100-final-integration-20261008.json](https://drive.google.com/file/d/1Em7UXm-Y5ONd2561_sR6txeYCt8Cmdbw/view),
+**13,870 bytes**, SHA256 `e4a260ea3ab2205ad600314c8d170ef49bece1ceea1c79bd370bf05055c39974`,
+same cloud folder; native uploaded/no pending/no conflicts and independent cloud
+ID/size/parent accepted. It preserves original review11/green0efeaef CI/timers;
+[acceptance and retained failure](docs/reports/native-hu100-playing-baseline-artifacts/prior-integration-upload-acceptance.json).
+No prior archive was changed; all open PR roots and dependencies remain retained.
+
+[Post-seal closeout supplement](https://drive.google.com/file/d/1pTsqGGQm-rGfDPglRW1o4c2GFDLOqmI5/view)
+`native-hu100-playing-baseline-closeout-20261008.json`: **50,023 bytes /18 embedded
+UTF-8 members**, SHA256 `2444c12171b99af52964c7e1aaf2535b092fceb3e043daa7fb398929cd58e503`.
+Embedded `member_manifest_and_content` canonical JSON (sorted keys, separators
+`,`/`:`) SHA256 `8955a409d9ecd2436fbd5488ee39c67507f6c52d99f1e7ee21c682bb8d48e413`;
+every member's UTF-8 byte count/SHA256 read back locally. It retains the post-seal
+archive guard/resources/logs, native/cloud acceptance, exact-source green CI,
+review15, disabled timers and report/PR status snapshots. Own upload acceptance
+and later documentation-head CI necessarily postdate its snapshots; final Git
+receipts/index and current PR checks are authoritative. Native uploaded1/
+uploading0/conflicts0 plus independent cloud ID/name/size/parent accepted; no
+remote-byte download. [Local receipt](docs/reports/native-hu100-playing-baseline-artifacts/closeout-local-receipt.json),
+[upload acceptance](docs/reports/native-hu100-playing-baseline-artifacts/closeout-upload-acceptance.json).
+Download to a fresh ignored directory; `shasum -a 256 LOCAL_DOWNLOADED_HU100_BASELINE_CLOSEOUT_JSON`
+must match the whole hash above. Read `member_manifest_and_content`: each `utf8`
+string restores the named member only after its encoded UTF-8 length/SHA256 match
+`bytes`/`sha256`, into a fresh destination preserving active originals.
+Independent evidence review15 found no actionable P1/P2 at `b22de859a4787c91bd5c84e400da96466dd191fa`;
+[review and scope limits](docs/reports/native-hu100-playing-baseline-artifacts/evidence-review.json).
+[Full CI passed on executed009b5d9](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37755600562).
+Required CI on the later final documentation head must pass before handback;
+[current PR checks](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197/checks)
+record that subsequent status. No merge.
+
+[CI clock correction supplement](https://drive.google.com/file/d/1JgPvyX4DBy3QuebjA6Ekw2NACXUNEbYf/view)
+`native-hu100-playing-baseline-ci-clock-20261008.json`: **39,804 bytes /13 embedded
+UTF-8 members**, SHA256 `d58561fe00cebcbf99af7947f970e64f4aaf419bad1513958a085077005c8e3f`;
+canonical `member_manifest_and_content` SHA256
+`c06058675b6b1b0f1ef0a6db20d28be59d3ec605e8e5a68810d802754e35edd3`.
+Every member locally read back; native uploaded1/uploading0/conflicts0 and
+independent cloud ID/name/size/parent accepted, no remote-byte download. Raw
+failed CI log/patch, guarded 48-test M4 qualification and independent review16
+are retained. Test-only source `fa84b84c6a32caaf557cd3823b885f015bb7d524` freezes
+one historical fixture's clocks; production code/guards/deadlines/data remain
+unchanged from executed009b5d9. [Correction and archive acceptance](docs/reports/native-hu100-playing-baseline-artifacts/ci-clock-correction.json).
+Restore like the closeout JSON above: download to a fresh ignored directory,
+`shasum -a 256 LOCAL_DOWNLOADED_CI_CLOCK_JSON` must match the whole hash, then
+verify each UTF-8 member's bytes/SHA256 before reconstructing it. Existing primary
+and closeout archives are untouched. Snapshot CI status predates later final-head
+checks; current GitHub checks are authoritative. No new science or merge.
+
+## PR197 follow-up — recovery verified / HU100 measured capacity stop, October 8, 2026
+
+[PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),
+[owner authorization](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197#issuecomment-6054725121),
+[report](docs/reports/native-recovery-hu100.md),
+[scientific receipts](docs/reports/native-recovery-hu100-artifacts/followup-scientific-closeout.json).
+Final scientific source `c4058b7f14a6df85e01f8354de676091572ab1bc`; retained
+HU20 training source `64318398fea423a9c43c0db8635a3724e05bd55f`, same binary.
+One full comparison verified every IEEE state/current/average probability and
+bounded recovery metadata. **HU100 all four pilot sets and atomic capacity stop
+fully audited: 11,042,440 nodes /3,255,387 entries. No 1B milestone reached.**
+Native entry ceiling followed measured 2× export/audit headroom; no hard resource
+guard fired, no retry. Original failed campaign below remains unchanged.
+M4 ignored root `results/native-recovery-hu100/followup-01`, separate terminal
+`followup-state.json`. Qualification110 Python/7Rust/build/artifact, independent
+source review9 and full CI passed; evidence review10 found no blocking P1/P2
+findings at documentation source `288b3f104dd61d030dfd75b65f632fdf3a1f610a`.
+[Review](docs/reports/native-recovery-hu100-artifacts/followup-evidence-review.json).
+
+[Existing Research-Cloud folder](https://drive.google.com/drive/folders/1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI),
+[follow-up ZIP](https://drive.google.com/file/d/1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2/view)
+`native-recovery-hu100-followup-20261008.zip`: **722,130,867 bytes /164 members**,
+SHA256 `cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4`. All member sizes/hashes read back
+locally; native uploaded1/uploading0/conflicts0 and independent cloud ID/name/
+size/parent accepted. Remote bytes not downloaded.
+[Receipt](docs/reports/native-recovery-hu100-artifacts/followup-archive-receipt.json).
+
+All **15 checkpoint/current/average member paths, sizes/SHA256 and audit status**
+are in [model index](docs/reports/native-recovery-hu100-artifacts/followup-model-index.json).
+Pilot checkpoints: `research/followup-01/pilot-01/training/HU100-2026100601-{nodes}.json.gz`
+(nodes100000/1000000/5000000/10000000). Capacity checkpoint:
+`research/followup-01/growth-01/training/HU100-2026100601-1000000000.json.gz`,
+**114,633,184 bytes**, SHA256
+`234628a0390502f6b17f4bad3486c47c2a5aa7a297fc611e00287533ea1f4567`;
+filename/requested1B is incomplete, **actual11,042,440 nodes** verified.
+Final exports/audit: `research/followup-01/final-capacity-audit/`.
+Exact source tar `research/followup-01/worker-source.tar`, binary `worker/hu20-trainer`;
+all logs, continuous samples, setup/operator failures, reviews, qualifications,
+claims/CLOSEOUT and measured capacity receipts retained.
+HU20 input/model dependencies restore from the original accepted PR197 ZIP below;
+exact member hashes also appear in `research/followup-01/retrieval-and-archive-provenance.json`.
+Two archival metadata fields are superseded by the
+[provenance correction receipt](docs/reports/native-recovery-hu100-artifacts/followup-provenance-corrections.json).
+
+Download into a **fresh ignored directory**; run `shasum -a 256 LOCAL_DOWNLOADED_FOLLOWUP_ZIP`
+and require the whole hash above. Extract with `python3 -m zipfile -e
+LOCAL_DOWNLOADED_FOLLOWUP_ZIP results/retrieved/pr197/NEW_FOLLOWUP_ROOT`; verify
+required member size/SHA256 against the embedded manifest/model index before use.
+Original HU20/historical #182 restoration below remains unchanged. No model enters
+Git. All science exited; timers disabled; no cleanup/merge/release/arena/paid
+compute.
+
+[Follow-up closeout ZIP](https://drive.google.com/file/d/16Cye_hUW6UyEbDpk112C0NC1O20mm_GC/view)
+`native-recovery-hu100-followup-closeout-20261008.zip`: **330,439 bytes /31 members**,
+SHA256 `2921af44703c8c1fe8ea03278b7011f73ded1c99305c221f6753a626c7673ccc`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`be42cb352154a81c2bde068118d591fa0de84550a696f5bd68c2c8f8aa3c7f6b`.
+Every member read back locally; native uploaded1/uploading0/conflicts0 plus
+independent cloud ID/name/size/parent accepted; no remote-byte download.
+[Receipt](docs/reports/native-recovery-hu100-artifacts/followup-closeout-archive-receipt.json).
+Members include `closeout/followup-evidence-review-round10.json`,
+`closeout/followup-timers-final.json`, `closeout/worker-closeout.json`,
+`primary-archive/followup-provenance-corrections.json` and primary archive
+guard/upload metadata. Report/index/PR snapshots predate this ZIP own acceptance;
+final Git receipt/index supersede them. Retrieve to a fresh ignored directory:
+`shasum -a 256 LOCAL_DOWNLOADED_FOLLOWUP_CLOSEOUT_ZIP`, require the whole hash above,
+then `python3 -m zipfile -e LOCAL_DOWNLOADED_FOLLOWUP_CLOSEOUT_ZIP
+results/retrieved/pr197/NEW_FOLLOWUP_CLOSEOUT_ROOT`; verify needed member
+size/SHA256 against the embedded manifest. No original archive was replaced.
+
+## PR197 original campaign — native recovery / HU100 resource stop, October 8, 2026
+
+[PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),
+[protocol](docs/native-recovery-hu100.md), [result](docs/reports/native-recovery-hu100.md).
+Scientific source `64318398fea423a9c43c0db8635a3724e05bd55f`; isolated M4 checkout
+`~/Local/native-recovery-hu100-20261008`, ignored campaign root
+`results/native-recovery-hu100/`. Qualified build/7 Rust tests/81 Python fixtures/
+artifact guard. **Reference 1B current/average fully verified and pinned; recovery
+saved/exported to same endpoint, equivalence interrupted by RSS guard; HU100 NOT RUN.**
+Comparator detected 5.555-GiB aggregate RSS; no retry/raised limit. All failures and
+completed but unaudited files retained. No equivalence or HU100 growth claim.
+
+[PR197 Research-Cloud folder](https://drive.google.com/drive/folders/1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI),
+[science ZIP](https://drive.google.com/file/d/1hNbCAU71BcYFxVBx2OSmqYtp0sXfhmcS/view)
+`native-recovery-hu100-resource-stop-20261008.zip`: **1,380,462,715 bytes /108 members**,
+SHA256 `4b4cc0e890756ee076a31737a3f5abc8af63d0f2a9065f28c3dc83baad38f88f`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`b5e506be66fb68700be6332155bc726835e2dc42e19fa4b746165477327aa3d5`.
+Every member size/hash verified locally. Native uploaded=1/uploading=0/no conflicts;
+independent cloud ID/name/size/parent confirms acceptance. No remote-byte download.
+[Receipt](docs/reports/native-recovery-hu100-artifacts/archive-receipt.json).
+Exact source tar `research/worker-source.tar`, binary `worker/hu20-trainer`;
+all plans/qualifications/logs/resources/failures/retrieval input retained.
+
+Restore into a fresh ignored directory after downloading the indexed ZIP and
+verifying its whole hash: `python3 -m zipfile -e LOCAL_DOWNLOADED_ZIP
+results/retrieved/pr197/NEW_ROOT`; check every embedded member size/SHA256 before
+use. Required models are `research/reference-02/training/HU20-2026100601-{nodes}.json.gz`
+(nodes 100000000, 500000000, 1000000000) and
+`research/recovery-02/training/HU20-2026100601-1000000000.json.gz`;
+exact sizes/hashes/status in [milestone summary](docs/reports/native-recovery-hu100-artifacts/milestone-summary.json).
+Exports: `research/{reference-02,recovery-02}/{current.json.gz,average.jsonl.gz}`;
+all byte/hash pairs in the embedded manifest. Only reference 1B has full export audit.
+
+Historical input `research/inputs/historical-500M.json.gz`: **171,794,336 bytes**,
+SHA256 `a5318cd586c0b170a68334e4236111faddabaf7f686c071958757db888afab47`.
+Original retrieval checked #182 MERGED, verified Drive archive ID
+`1V2bbJ9kf0_MTdqwfcoo__XnCMWjAEkbi` whole SHA256
+`1c71bdc9373993be071c2c231e2e2cfa24be4d506a864ffc3e86eed3bb15e16f`,
+manifest `356afb24d65857560e88da09d9ba9b8cc08eee0fbf36c7830f5ec72ab77e2db1`,
+member `research/inputs/O-2026100601-500000000.json.gz`.
+Command: `.venv/bin/python results/native-recovery-hu100/retrieve-parent.py` on M4;
+receipt now archived at `research/inputs/retrieval.json`. No cleaned #182 original
+or active other-agent dependency was changed. Independent final review round 5 found no blocking evidence findings.
+[Closeout supplement](https://drive.google.com/file/d/14MOuquGcYRPyeI5PUDW2Tdbmg8bPPxR9/view),
+`native-recovery-hu100-closeout-20261008.zip`: **99,275 bytes /24 verified members**,
+SHA256 `41534b63cb6f1aecaab0e1c9d0082f5b3c5e353c9465c49e99bd33714138b7f6`,
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`d6c5f21ba8d1854962e6c4dbad44d76f825bd3aa8d3f520c5109e99f6522f156`.
+It contains derived summaries, review/timer receipts, main archive member index,
+upload evidence, archival guard records and report/index snapshots. All local
+member size/hash checks passed; native upload complete/no conflicts and independent
+cloud ID/name/size/parent acceptance match. No remote-byte readback.
+Restore with `python3 -m zipfile -e LOCAL_DOWNLOADED_CLOSEOUT_ZIP
+results/retrieved/pr197/NEW_CLOSEOUT_ROOT`, after whole hash verification; verify
+embedded members. [Supplement receipt](docs/reports/native-recovery-hu100-artifacts/closeout-archive-receipt.json).
+Closeout completed at 08:35 Madrid; all owned processes exited and all four
+campaign timers disabled. All open PR197 originals retained; no cleanup applied.
 ## v0.4.2 published stable Latest — October 8, 2026
 
 [Release PR #198](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/198), branch `feature/v042-release`; [readiness and publication sequence](docs/releases/v0.4.2/READINESS.md). The owner authorized the release PR, reviewed green-check merge, exact-source tag and stable Latest. No new research, retraining, extraction or selection. The historical #188 unpublished package below remains unchanged.

@@ -1,0 +1,28 @@
+{
+  "status": "accepted",
+  "recorded_at": "2026-10-08 09:43:01 UTC",
+  "cloud_metadata": {
+    "id": "1pTsqGGQm-rGfDPglRW1o4c2GFDLOqmI5",
+    "title": "native-hu100-playing-baseline-closeout-20261008.json",
+    "mime_type": null,
+    "size": "50023",
+    "url": "https://drive.google.com/file/d/1pTsqGGQm-rGfDPglRW1o4c2GFDLOqmI5/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1pTsqGGQm-rGfDPglRW1o4c2GFDLOqmI5/view?usp=drivesdk",
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "native_upload_receipt": "closeout-native-upload.json",
+  "local_byte_and_member_receipt": "closeout-local-receipt.json",
+  "remote_bytes_downloaded": false,
+  "earlier_snapshots_superseded_by": "Final Git index and current PR checks for later documentation-head status"
+}

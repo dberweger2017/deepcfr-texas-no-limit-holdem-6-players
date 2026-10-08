@@ -1,0 +1,138 @@
+{
+  "archive_bytes": 722130867,
+  "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+  "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+  "models": [
+    {
+      "actual_nodes": 100691,
+      "assets": {
+        "average": {
+          "bytes": 1226918,
+          "path": "research/followup-01/pilot-01/average-100000.jsonl.gz",
+          "sha256": "95053dbf9d070ca414214c8514fcbeedd0ca6fafdeccea9c958357aafcf5a293"
+        },
+        "checkpoint": {
+          "bytes": 1640195,
+          "path": "research/followup-01/pilot-01/training/HU100-2026100601-100000.json.gz",
+          "sha256": "e226eb907f645f2ef9fe3b6600e75904dfd65e8520e52fbd0b97f1e379005bbb"
+        },
+        "current": {
+          "bytes": 1326512,
+          "path": "research/followup-01/pilot-01/current-100000.json.gz",
+          "sha256": "939ab29090a67f79ca8e9afa2c47a86919ea25ff7f45547128695e063876a767"
+        }
+      },
+      "audit_status": "full-current-and-average-verified",
+      "entries": 53743,
+      "iteration": 64,
+      "requested_nodes": 100000,
+      "save_status": "saved"
+    },
+    {
+      "actual_nodes": 1001382,
+      "assets": {
+        "average": {
+          "bytes": 10772687,
+          "path": "research/followup-01/pilot-01/average-1000000.jsonl.gz",
+          "sha256": "0efa0feb35fbe104260a9b1c213b8eca909c7eadf8f4dd59e0a47dad41a452a4"
+        },
+        "checkpoint": {
+          "bytes": 15096813,
+          "path": "research/followup-01/pilot-01/training/HU100-2026100601-1000000.json.gz",
+          "sha256": "a15733d380b3a281071f3c2c6497862d654b09d380a9dbde531a699eed255c52"
+        },
+        "current": {
+          "bytes": 11231111,
+          "path": "research/followup-01/pilot-01/current-1000000.json.gz",
+          "sha256": "365a6075958e81e7220559530465eeae2f3911babaee8a0bbfa71c756640aec8"
+        }
+      },
+      "audit_status": "full-current-and-average-verified",
+      "entries": 460885,
+      "iteration": 690,
+      "requested_nodes": 1000000,
+      "save_status": "saved"
+    },
+    {
+      "actual_nodes": 5001210,
+      "assets": {
+        "average": {
+          "bytes": 42473712,
+          "path": "research/followup-01/pilot-01/average-5000000.jsonl.gz",
+          "sha256": "05bb9527dc95bf59543ce37a254a897b67949241df2065bb515e88931f50cf80"
+        },
+        "checkpoint": {
+          "bytes": 60894602,
+          "path": "research/followup-01/pilot-01/training/HU100-2026100601-5000000.json.gz",
+          "sha256": "f71188890d3a23d7c3fd76d097bd20293bdcf24ea1d92450fea381fae9030752"
+        },
+        "current": {
+          "bytes": 43193831,
+          "path": "research/followup-01/pilot-01/current-5000000.json.gz",
+          "sha256": "6fa4ae8104055f3dc31ae35a3f3074555037e35d88236c4da50711034ee82703"
+        }
+      },
+      "audit_status": "full-current-and-average-verified",
+      "entries": 1777063,
+      "iteration": 3406,
+      "requested_nodes": 5000000,
+      "save_status": "saved"
+    },
+    {
+      "actual_nodes": 10001922,
+      "assets": {
+        "average": {
+          "bytes": 73371085,
+          "path": "research/followup-01/pilot-01/average-10000000.jsonl.gz",
+          "sha256": "3aeb688f342bc164c5851d0d10d4686ddc4ec64e1c1a26330f47c84fd993346c"
+        },
+        "checkpoint": {
+          "bytes": 106120927,
+          "path": "research/followup-01/pilot-01/training/HU100-2026100601-10000000.json.gz",
+          "sha256": "62217d2888b57948434c2ec88d78bdeba95a1882beb7b3615c028e034166963f"
+        },
+        "current": {
+          "bytes": 73720030,
+          "path": "research/followup-01/pilot-01/current-10000000.json.gz",
+          "sha256": "f545ab9c8d86767d53cab5ef6153131b364479d44679f69f441184bd906c30c1"
+        }
+      },
+      "audit_status": "full-current-and-average-verified",
+      "entries": 3023624,
+      "iteration": 6983,
+      "requested_nodes": 10000000,
+      "save_status": "saved"
+    },
+    {
+      "actual_nodes": 11042440,
+      "assets": {
+        "average": {
+          "bytes": 79195090,
+          "path": "research/followup-01/final-capacity-audit/average-11042440.jsonl.gz",
+          "sha256": "ffd53decdd4af5bffc0ae34e98144d43e27eef92a49033a7d4008615576a93be"
+        },
+        "checkpoint": {
+          "bytes": 114633184,
+          "path": "research/followup-01/growth-01/training/HU100-2026100601-1000000000.json.gz",
+          "sha256": "234628a0390502f6b17f4bad3486c47c2a5aa7a297fc611e00287533ea1f4567"
+        },
+        "current": {
+          "bytes": 79389761,
+          "path": "research/followup-01/final-capacity-audit/current-11042440.json.gz",
+          "sha256": "3a6c1e65603ed7343ca813c0f845414848ae2156ad54b028edb0e40501a6a565"
+        }
+      },
+      "audit_status": "full-current-and-average-verified",
+      "entries": 3255387,
+      "iteration": 7722,
+      "requested_nodes": 1000000000,
+      "save_status": "incomplete-target"
+    }
+  ],
+  "original_HU20_inputs": "Original accepted PR197 archive record in RESULTS_INDEX; retained original member hashes in equivalence receipt",
+  "remote_bytes_downloaded": false,
+  "seed": 2026100601,
+  "stack_bb": 100
+}
