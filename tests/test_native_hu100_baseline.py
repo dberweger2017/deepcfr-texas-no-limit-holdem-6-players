@@ -38,6 +38,31 @@ def test_quote_is_outcome_blind_reduces_counts_and_reserves_full_reproduction():
     with pytest.raises(ValueError): quote(pilot, replay, reproduction, float('nan'))
 
 
+def test_admission_binds_committed_config_and_m4(monkeypatch, tmp_path):
+    import scripts.run_native_hu100_baseline as operator
+    config = operator.ROOT / operator.CONFIG
+    assert operator.authorized_config(config) == file_hash(config)
+    substituted = tmp_path / 'config.json'; substituted.write_bytes(config.read_bytes())
+    with pytest.raises(ValueError): operator.authorized_config(substituted)
+    monkeypatch.setattr(operator.subprocess, 'check_output', lambda *a, **k: b'changed committed config')
+    with pytest.raises(ValueError): operator.authorized_config(config)
+    monkeypatch.setattr(operator.platform, 'system', lambda: 'Darwin')
+    monkeypatch.setattr(operator, 'ROOT', operator.AUTHORIZED_ROOT)
+    monkeypatch.setattr(operator.subprocess, 'check_output', lambda *a, **k: 'Apple M1')
+    with pytest.raises(ValueError): operator.worker_identity()
+    monkeypatch.setattr(operator.subprocess, 'check_output', lambda *a, **k: 'Apple M4')
+    assert operator.worker_identity() == 'Apple M4'
+
+
+def test_irreversible_claim_prohibits_other_roots_and_terminal_retries(tmp_path):
+    from scripts.run_native_hu100_baseline import durable_claim
+    claim = tmp_path / 'execution-claim.json'
+    first = {'out': 'run-01', 'phase': 'failed'}
+    durable_claim(first, claim)
+    with pytest.raises(FileExistsError): durable_claim({'out': 'run-02'}, claim)
+    assert json.loads(claim.read_text()) == first
+
+
 def model_fixture(tmp_path):
     table = Table(('player-0', 'player-1'), (10000, 10000))
     hand = Hand.start(table, hand_id='fixture', seed=3); view = hand.observe(hand.actor)

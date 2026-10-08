@@ -5,6 +5,7 @@ import json
 from math import floor, isfinite
 import os
 from pathlib import Path
+import platform
 import shutil
 import subprocess
 import sys
@@ -17,6 +18,11 @@ from src.arena.schedule import digest
 from src.policies.files import file_hash
 
 BASELINE = 'vm.swapusage: total = 1024.00M  used = 448.81M  free = 575.19M  (encrypted)'
+ROOT = Path(__file__).absolute().parents[1]
+AUTHORIZED_ROOT = Path('/Users/dberweger/Local/native-recovery-hu100-20261008')
+CONFIG = 'configs/arena/hu100-playing-baseline-v1.json'
+# One irreversible claim for this authorization, regardless of output directory.
+CLAIM = AUTHORIZED_ROOT / 'results/native-hu100-playing-baseline/execution-claim.json'
 
 
 def read(path):
@@ -27,6 +33,31 @@ def write(path, value):
     temp = path.with_suffix('.update-tmp')
     temp.write_text(json.dumps(value, indent=2, sort_keys=True) + '\n')
     temp.replace(path)
+
+
+def authorized_config(config):
+    if config.absolute() != ROOT / CONFIG:
+        raise ValueError('Only the committed authorized configuration is admitted')
+    committed = subprocess.check_output(['git', 'show', 'HEAD:' + CONFIG])
+    if config.read_bytes() != committed:
+        raise ValueError('Authorized configuration differs from committed bytes')
+    return file_hash(config)
+
+
+def worker_identity():
+    if platform.system() != 'Darwin' or ROOT != AUTHORIZED_ROOT:
+        raise ValueError('Only the isolated authorized M4 checkout is admitted')
+    chip = subprocess.check_output(['sysctl', '-n', 'machdep.cpu.brand_string'], text=True, timeout=10).strip()
+    if 'Apple M4' not in chip:
+        raise ValueError('Refuse execution on M1 or another worker')
+    return chip
+
+
+def durable_claim(value, path=CLAIM):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('x') as f:
+        f.write(json.dumps(value, indent=2, sort_keys=True) + '\n')
+        f.flush(); os.fsync(f.fileno())
 
 
 def quote(pilot, replay, reproduction, remaining, proposed=2048):
@@ -58,6 +89,14 @@ def admission(out, deadline):
 
 
 def worker(config, out, source):
+    worker_identity()
+    claim = read(CLAIM)
+    if (claim['source'] != source or claim['out'] != str(out)
+            or claim['config_sha256'] != authorized_config(config)
+            or claim['launcher_pid'] != os.getppid()):
+        raise ValueError('Worker must belong to the one claimed launch')
+    durable_claim({'pid': os.getpid(), 'parent': os.getppid(), 'out': str(out), 'source': source},
+                  CLAIM.with_name('worker-claim.json'))
     state = read(out / 'state.json')
     if state['phase'] != 'claimed' or state['source'] != source or state['config_sha256'] != file_hash(config):
         raise ValueError('Already claimed/changed worker inputs; never retry')
@@ -66,6 +105,8 @@ def worker(config, out, source):
     deadline = state['deadline']; py = str(Path(sys.executable).absolute())
 
     def command(label, arguments):
+        if authorized_config(config) != state['config_sha256']:
+            raise ValueError('Configuration changed before stage')
         admission(out, deadline)
         state['phase'] = label; write(out / 'state.json', state)
         with (out / (label + '.log')).open('xb') as log:
@@ -110,6 +151,8 @@ def worker(config, out, source):
 
 
 def launch(config, out, qualification, review):
+    chip = worker_identity()
+    config_hash = authorized_config(config)
     source = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
     if (read(qualification).get('status') != 'verified' or read(qualification).get('source') != source
             or read(review).get('status') != 'passed' or read(review).get('reviewed_source') != source):
@@ -119,12 +162,16 @@ def launch(config, out, qualification, review):
     processes = subprocess.check_output(['ps', '-axo', 'pid=,ppid=,%cpu=,rss=,comm='], text=True)
     for line in processes.splitlines():
         p = line.split(None, 4)
-        if (len(p) == 5 and int(p[0]) != os.getpid() and int(p[3]) > 512 * 1024
+        if (len(p) == 5 and int(p[0]) != os.getpid() and (int(p[3]) > 512 * 1024 or float(p[2]) > 50)
                 and any(k in p[4].lower() for k in ('python', 'hu20-trainer', 'cargo', 'rustc', 'node', 'java'))):
             raise ValueError('Competing heavy worker; never stop another job: ' + line)
-    out.mkdir(parents=True, exist_ok=False)
     started = time(); deadline = started + 1800
-    state = {'phase': 'claimed', 'source': source, 'config_sha256': file_hash(config),
+    admission(ROOT, deadline)
+    durable_claim({'source': source, 'config_sha256': config_hash, 'out': str(out),
+                   'launcher_pid': os.getpid(), 'worker_chip': chip, 'started_at': started,
+                   'deadline': deadline, 'retry_authorized': False})
+    out.mkdir(parents=True, exist_ok=False)
+    state = {'phase': 'claimed', 'source': source, 'config_sha256': config_hash,
              'started_at': started, 'deadline': deadline, 'terminal': False,
              'qualification_sha256': file_hash(qualification), 'review_sha256': file_hash(review),
              'swap_baseline': BASELINE, 'original_campaign_unchanged': True}

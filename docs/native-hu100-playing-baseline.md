@@ -56,6 +56,12 @@ pilot and report no final baseline. The source-qualified launcher uses one fresh
 exclusive root and the existing `hu20_scaling_supervise` guard; an uncertain or
 failed root cannot be relaunched. All heavy stages execute sequentially in the
 guard's owned session, with fresh headroom/swap/disk/AC/deadline admission.
+Admission accepts only the exact committed configuration in the authorized M4
+checkout and checks the Apple M4 chip. One atomic, fsynced campaign-wide intent
+claim survives every output root and terminal failure; a separate irreversible
+worker claim binds the child to the live launcher parent. Claims are retained
+after uncertain acknowledgements and never grant a retry. Configuration bytes
+are rechecked against the committed configuration before every heavy stage.
 
 Free isolated M4 only, one evaluation worker at a time. A **fresh 1,800-second
 execution cap** starts before pilot model loading and includes pilot, final model
