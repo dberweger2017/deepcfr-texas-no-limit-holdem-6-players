@@ -80,6 +80,9 @@ def test_checksum_coverage_and_regular_members(prepared):
     checksums.write_text(original + original.splitlines()[0] + "\n")
     with pytest.raises(ValueError, match="duplicate"):
         verifier.verify_bundle(directory)
+    checksums.write_text("\n".join(original.splitlines()[:-1]) + "\n")
+    with pytest.raises(ValueError, match="Missing release checksum"):
+        verifier.verify_bundle(directory)
     checksums.write_text(original)
     notes = directory / "RELEASE_NOTES.md"
     notes.write_text("corrupted")
