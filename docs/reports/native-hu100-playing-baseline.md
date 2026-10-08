@@ -158,7 +158,13 @@ checks. Independent source review 14 closed review 13’s configuration-substitu
 alternate-root duplicate/retry and M4-identity findings; no P1/P2 source blockers.
 [Source review](native-hu100-playing-baseline-artifacts/source-review.json) is
 static only; runtime and byte proofs come from separate retained receipts.
-Final evidence review and final-head CI are pending; no merge is authorized.
+Independent evidence review 15 found no actionable P1/P2 blockers at
+`b22de859a4787c91bd5c84e400da96466dd191fa`; report/protocol/CSV/compact receipts
+agree, and original science remains preserved. [Evidence review](native-hu100-playing-baseline-artifacts/evidence-review.json)
+was read-only: no SSH, model/ZIP loading, science rerun or independent remote-byte
+verification. [Full CI passed on the exact executed source](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37755600562).
+The final documentation head must also pass required CI before handback; current
+[PR checks](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197/checks) are authoritative for that later status. No merge is authorized.
 
 [Accepted Research-Cloud archive](https://drive.google.com/file/d/1QEHJJ_yPJbfHYkX1Taa3wM4RnblVPdK1/view)
 `native-hu100-playing-baseline-20261008.zip`: **574,958,858 bytes /227 locally
@@ -177,3 +183,13 @@ and selected evaluation source. Original research archives/files are retained.
 [Archive receipts](native-hu100-playing-baseline-artifacts/archive-upload-acceptance.json)
 and [restoration instructions](../../RESULTS_INDEX.md) name exact members/commands.
 No paid compute, cleanup, release, publication or merge.
+
+The [post-seal closeout supplement](https://drive.google.com/file/d/1pTsqGGQm-rGfDPglRW1o4c2GFDLOqmI5/view)
+adds archive guard/upload metadata, source CI, evidence review15 and disabled
+timers without changing the primary archive. It contains 18 embedded verified
+UTF-8 members, **50,023 bytes**, SHA256
+`2444c12171b99af52964c7e1aaf2535b092fceb3e043daa7fb398929cd58e503`.
+Native upload and independent cloud ID/name/size/parent acceptance are complete;
+no remote-byte download. Its snapshot precedes its own acceptance and later
+final-head CI; the final index and current PR checks supersede those dated fields.
+[Closeout acceptance](native-hu100-playing-baseline-artifacts/closeout-upload-acceptance.json).

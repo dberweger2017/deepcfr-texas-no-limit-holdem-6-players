@@ -1,0 +1,13 @@
+{
+  "observed_at": 1791452570.888993,
+  "file_id": "1pTsqGGQm-rGfDPglRW1o4c2GFDLOqmI5",
+  "provider": "native Google Drive fileprovider evaluate",
+  "fields": {
+    "documentSize": 50023,
+    "isUploaded": 1,
+    "isUploading": 0,
+    "hasUnresolvedConflicts": 0
+  },
+  "raw_evidence_sha256": "9ccbe2628b66a07af35946e760ad7acd8f9ddbacbd7dea86fba7c329615e8833",
+  "remote_bytes_downloaded": false
+}

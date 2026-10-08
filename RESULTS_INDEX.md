@@ -70,6 +70,30 @@ ID/size/parent accepted. It preserves original review11/green0efeaef CI/timers;
 [acceptance and retained failure](docs/reports/native-hu100-playing-baseline-artifacts/prior-integration-upload-acceptance.json).
 No prior archive was changed; all open PR roots and dependencies remain retained.
 
+[Post-seal closeout supplement](https://drive.google.com/file/d/1pTsqGGQm-rGfDPglRW1o4c2GFDLOqmI5/view)
+`native-hu100-playing-baseline-closeout-20261008.json`: **50,023 bytes /18 embedded
+UTF-8 members**, SHA256 `2444c12171b99af52964c7e1aaf2535b092fceb3e043daa7fb398929cd58e503`.
+Embedded `member_manifest_and_content` canonical JSON (sorted keys, separators
+`,`/`:`) SHA256 `8955a409d9ecd2436fbd5488ee39c67507f6c52d99f1e7ee21c682bb8d48e413`;
+every member's UTF-8 byte count/SHA256 read back locally. It retains the post-seal
+archive guard/resources/logs, native/cloud acceptance, exact-source green CI,
+review15, disabled timers and report/PR status snapshots. Own upload acceptance
+and later documentation-head CI necessarily postdate its snapshots; final Git
+receipts/index and current PR checks are authoritative. Native uploaded1/
+uploading0/conflicts0 plus independent cloud ID/name/size/parent accepted; no
+remote-byte download. [Local receipt](docs/reports/native-hu100-playing-baseline-artifacts/closeout-local-receipt.json),
+[upload acceptance](docs/reports/native-hu100-playing-baseline-artifacts/closeout-upload-acceptance.json).
+Download to a fresh ignored directory; `shasum -a 256 LOCAL_DOWNLOADED_HU100_BASELINE_CLOSEOUT_JSON`
+must match the whole hash above. Read `member_manifest_and_content`: each `utf8`
+string restores the named member only after its encoded UTF-8 length/SHA256 match
+`bytes`/`sha256`, into a fresh destination preserving active originals.
+Independent evidence review15 found no actionable P1/P2 at `b22de859a4787c91bd5c84e400da96466dd191fa`;
+[review and scope limits](docs/reports/native-hu100-playing-baseline-artifacts/evidence-review.json).
+[Full CI passed on executed009b5d9](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37755600562).
+Required CI on the later final documentation head must pass before handback;
+[current PR checks](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197/checks)
+record that subsequent status. No merge.
+
 ## PR197 follow-up — recovery verified / HU100 measured capacity stop, October 8, 2026
 
 [PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),
