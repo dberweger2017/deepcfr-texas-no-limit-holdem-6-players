@@ -1,0 +1,5 @@
+{
+  "field": "retrieval.json.remote_bytes_downloaded",
+  "clarification": "No separate connector raw-byte download was used. The native accepted archive was dataless before retrieval; native Drive materialized/downloaded it on read. The original false field must not be read as claiming no cloud download occurred. Whole hydrated archive and selected members are verified by SHA256.",
+  "original_archive_writes": false
+}

@@ -1,0 +1,22 @@
+{
+  "deadline": 1791461840.893814,
+  "hardware": "hw.model: MacBookPro17,1\n",
+  "host": "dberweger-m1",
+  "initial_free_disk_bytes": 32522657792,
+  "limits": {
+    "disk_gib": 24.289085388183594,
+    "rss_gib": 4,
+    "swap_gib": 0.25
+  },
+  "memory": {
+    "free_percent": 76,
+    "physical_bytes": 17179869184,
+    "pressure_level": 1,
+    "raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\n\nStats: \nPages free: 77755 \nPages purgeable: 5603 \nPages purged: 66724751 \n\nSwap I/O:\nSwapins: 6332885 \nSwapouts: 9562944 \n\nPage Q counts:\nPages active: 347705 \nPages inactive: 345570 \nPages speculative: 1402 \nPages throttled: 0 \nPages wired down: 137660 \n\nCompressor Stats:\nPages used by compressor: 102813 \nPages decompressed: 956316475 \nPages compressed: 1072143745 \n\nFile I/O:\nPageins: 437963696 \nPageouts: 1106702 \n\nSystem-wide memory free percentage: 76%\n"
+  },
+  "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=37093475)\t100%; charged; 0:00 remaining present: true\n",
+  "protocol_sha256": "ca485ad8b3eadfd90e194264edf9017b50ceba57bbfa197c3ff3c5c95246e63c",
+  "source": "16ad96c34a449cb021e004b9231e38573837421c",
+  "started": 1791460040.893814,
+  "swap_baseline": "vm.swapusage: total = 3072.00M  used = 1610.50M  free = 1461.50M  (encrypted)\n"
+}

@@ -1,0 +1,18 @@
+{
+  "at": 1791460320.2117279,
+  "blocks_per_opponent_checkpoint": 2048,
+  "conservative_final_quote_seconds": 976.2720651356503,
+  "deadline": 1791461840.893814,
+  "final_sample": "all candidate arms at all five checkpoints and opponents; no losing-hand filter",
+  "frozen_candidate_hands": 102400,
+  "pilot_actions": 3321,
+  "pilot_hands": 800,
+  "pilot_model_scan_seconds": 12.15446533402428,
+  "pilot_native_arithmetic_seconds": 2.178002119064331,
+  "pilot_other_seconds": 0.6031038749497384,
+  "protocol_sha256": "ca485ad8b3eadfd90e194264edf9017b50ceba57bbfa197c3ff3c5c95246e63c",
+  "search_seconds_total": 120,
+  "search_states_per_signature": 5000,
+  "source": "16ad96c34a449cb021e004b9231e38573837421c",
+  "status": "admitted"
+}

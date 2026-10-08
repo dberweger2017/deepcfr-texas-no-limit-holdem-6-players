@@ -1,0 +1,8 @@
+{
+  "status": "staged-and-hash-verified",
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-201-HU100-coverage-loss-diagnosis/hu100-diagnosis-20261008.zip",
+  "bytes": 477682546,
+  "sha256": "0142436e009aea5d5866ea62836ffb8055c812329b7aaad2fb8de6656cb4b6d4",
+  "connector_upload_failure": "HTTP413 before action: 477682546 bytes exceeds104857600-byte limit",
+  "originals_retained": true
+}

@@ -1,0 +1,27 @@
+{
+  "status": "accepted",
+  "archive_id": "1FBfquL5UGU3E2MGAl7WUD27e75ENfRlr",
+  "archive_url": "https://drive.google.com/file/d/1FBfquL5UGU3E2MGAl7WUD27e75ENfRlr/view?usp=drivesdk",
+  "folder_id": "1EhGCzqqJf_pmzv5comk2jMmDpHks0QFI",
+  "name": "hu100-diagnosis-20261008.zip",
+  "bytes": 477682546,
+  "sha256": "0142436e009aea5d5866ea62836ffb8055c812329b7aaad2fb8de6656cb4b6d4",
+  "native_fields": {
+    "documentSize": 477682546,
+    "isUploaded": 1,
+    "isUploading": 0,
+    "hasUnresolvedConflicts": 0
+  },
+  "native_raw_evidence_sha256": "287fc7bd736f4f50e3e14683cd831ae95d8d4b93a1cfe784ffdde2c997b782d5",
+  "cloud_metadata": {
+    "id": "1FBfquL5UGU3E2MGAl7WUD27e75ENfRlr",
+    "title": "hu100-diagnosis-20261008.zip",
+    "size": "477682546",
+    "parent_ids": [
+      "1EhGCzqqJf_pmzv5comk2jMmDpHks0QFI"
+    ]
+  },
+  "proofs": "whole archive and all334members locally readback; native staged SHA256 matches; native upload accepted; independent connector ID/name/size/parent matches",
+  "separate_remote_byte_redownload": false,
+  "originals_retained": true
+}

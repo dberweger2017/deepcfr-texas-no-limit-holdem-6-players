@@ -1,0 +1,1140 @@
+{
+  "actions": 396161,
+  "hands": 102400,
+  "model_scan_seconds": 12.283989500021562,
+  "panels": [
+    {
+      "bb_per_100": 64.24560546875,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 11.5966796875,
+          "hands": 678,
+          "mean_net_bb": 0.700589970501475,
+          "net_bb": 475.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": 5.72509765625,
+          "hands": 386,
+          "mean_net_bb": 0.6075129533678757,
+          "net_bb": 234.5
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": 38.37890625,
+          "hands": 2332,
+          "mean_net_bb": 0.6740994854202401,
+          "net_bb": 1572.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 8.544921875,
+          "hands": 700,
+          "mean_net_bb": 0.5,
+          "net_bb": 350.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 476,
+        "preflop": 2450,
+        "river": 123,
+        "turn": 293
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 2260,
+        "unsupported-abstract-history-or-menu": 1082
+      },
+      "nodes": 100691,
+      "off_menu_actions": {
+        "opponent": 1604,
+        "target": 0
+      },
+      "opponent": "random",
+      "target_decisions": 6012
+    },
+    {
+      "bb_per_100": 11.87744140625,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -20.34912109375,
+          "hands": 409,
+          "mean_net_bb": -2.0378973105134475,
+          "net_bb": -833.5
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -10.94970703125,
+          "hands": 295,
+          "mean_net_bb": -1.5203389830508474,
+          "net_bb": -448.5
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": 43.17626953125,
+          "hands": 3392,
+          "mean_net_bb": 0.5213738207547169,
+          "net_bb": 1768.5
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 684,
+        "preflop": 1901,
+        "river": 2509,
+        "turn": 1780
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 6874
+      },
+      "nodes": 100691,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "check_call",
+      "target_decisions": 14797
+    },
+    {
+      "bb_per_100": -52.55126953125,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 5.96923828125,
+          "hands": 678,
+          "mean_net_bb": 0.3606194690265487,
+          "net_bb": 244.5
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": 2.83203125,
+          "hands": 466,
+          "mean_net_bb": 0.24892703862660945,
+          "net_bb": 116.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -83.9599609375,
+          "hands": 1100,
+          "mean_net_bb": -3.1263636363636365,
+          "net_bb": -3439.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 22.607421875,
+          "hands": 1852,
+          "mean_net_bb": 0.5,
+          "net_bb": 926.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 159,
+        "preflop": 1083,
+        "river": 99,
+        "turn": 151
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 1492
+      },
+      "nodes": 100691,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "tight_aggressive",
+      "target_decisions": 3488
+    },
+    {
+      "bb_per_100": -438.427734375,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -29.87060546875,
+          "hands": 723,
+          "mean_net_bb": -1.6922544951590595,
+          "net_bb": -1223.5
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -7.51953125,
+          "hands": 421,
+          "mean_net_bb": -0.7315914489311164,
+          "net_bb": -308.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -414.63623046875,
+          "hands": 1838,
+          "mean_net_bb": -9.240206746463548,
+          "net_bb": -16983.5
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 13.5986328125,
+          "hands": 1114,
+          "mean_net_bb": 0.5,
+          "net_bb": 557.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 450,
+        "preflop": 1841,
+        "river": 540,
+        "turn": 644
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 3475
+      },
+      "nodes": 100691,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "loose_aggressive",
+      "target_decisions": 6916
+    },
+    {
+      "bb_per_100": -101.79443359375,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 9.47265625,
+          "hands": 659,
+          "mean_net_bb": 0.5887708649468892,
+          "net_bb": 388.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": 5.60302734375,
+          "hands": 378,
+          "mean_net_bb": 0.6071428571428571,
+          "net_bb": 229.5
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -136.92626953125,
+          "hands": 1416,
+          "mean_net_bb": -3.9608050847457625,
+          "net_bb": -5608.5
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 20.05615234375,
+          "hands": 1643,
+          "mean_net_bb": 0.5,
+          "net_bb": 821.5
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 423,
+        "preflop": 1526,
+        "river": 93,
+        "turn": 245
+      },
+      "missing_support": {
+        "supported": 3,
+        "supported-observed-menu-path": 1095,
+        "supported-other-checkpoint": 286,
+        "unsupported-abstract-history-or-menu": 903
+      },
+      "nodes": 100691,
+      "off_menu_actions": {
+        "opponent": 994,
+        "target": 0
+      },
+      "opponent": "pot_pressure",
+      "target_decisions": 4238
+    },
+    {
+      "bb_per_100": 61.5234375,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 51.904296875,
+          "hands": 2139,
+          "mean_net_bb": 0.9939223936418887,
+          "net_bb": 2126.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": 0.87890625,
+          "hands": 79,
+          "mean_net_bb": 0.45569620253164556,
+          "net_bb": 36.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": 0.1953125,
+          "hands": 1178,
+          "mean_net_bb": 0.006791171477079796,
+          "net_bb": 8.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 8.544921875,
+          "hands": 700,
+          "mean_net_bb": 0.5,
+          "net_bb": 350.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 266,
+        "preflop": 817,
+        "river": 62,
+        "turn": 132
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 229,
+        "unsupported-abstract-history-or-menu": 1048
+      },
+      "nodes": 1001382,
+      "off_menu_actions": {
+        "opponent": 1576,
+        "target": 0
+      },
+      "opponent": "random",
+      "target_decisions": 5895
+    },
+    {
+      "bb_per_100": 31.15234375,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -61.34033203125,
+          "hands": 3102,
+          "mean_net_bb": -0.8099613152804642,
+          "net_bb": -2512.5
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -3.06396484375,
+          "hands": 152,
+          "mean_net_bb": -0.8256578947368421,
+          "net_bb": -125.5
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": 95.556640625,
+          "hands": 842,
+          "mean_net_bb": 4.648456057007126,
+          "net_bb": 3914.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 73,
+        "preflop": 35,
+        "river": 584,
+        "turn": 437
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 1129
+      },
+      "nodes": 1001382,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "check_call",
+      "target_decisions": 14578
+    },
+    {
+      "bb_per_100": -80.078125,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -37.6953125,
+          "hands": 2061,
+          "mean_net_bb": -0.7491508976225133,
+          "net_bb": -1544.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -9.02099609375,
+          "hands": 66,
+          "mean_net_bb": -5.598484848484849,
+          "net_bb": -369.5
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -55.96923828125,
+          "hands": 117,
+          "mean_net_bb": -19.594017094017094,
+          "net_bb": -2292.5
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 22.607421875,
+          "hands": 1852,
+          "mean_net_bb": 0.5,
+          "net_bb": 926.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 48,
+        "preflop": 30,
+        "river": 39,
+        "turn": 46
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 163
+      },
+      "nodes": 1001382,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "tight_aggressive",
+      "target_decisions": 3493
+    },
+    {
+      "bb_per_100": -485.7666015625,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -240.673828125,
+          "hands": 2430,
+          "mean_net_bb": -4.05679012345679,
+          "net_bb": -9858.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -32.50732421875,
+          "hands": 124,
+          "mean_net_bb": -10.737903225806452,
+          "net_bb": -1331.5
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -226.18408203125,
+          "hands": 428,
+          "mean_net_bb": -21.64602803738318,
+          "net_bb": -9264.5
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 13.5986328125,
+          "hands": 1114,
+          "mean_net_bb": 0.5,
+          "net_bb": 557.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 94,
+        "preflop": 126,
+        "river": 242,
+        "turn": 220
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 682
+      },
+      "nodes": 1001382,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "loose_aggressive",
+      "target_decisions": 6975
+    },
+    {
+      "bb_per_100": -143.78662109375,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 17.24853515625,
+          "hands": 1823,
+          "mean_net_bb": 0.3875479978058146,
+          "net_bb": 706.5
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": 0.86669921875,
+          "hands": 47,
+          "mean_net_bb": 0.7553191489361702,
+          "net_bb": 35.5
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -181.9580078125,
+          "hands": 583,
+          "mean_net_bb": -12.783876500857632,
+          "net_bb": -7453.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 20.05615234375,
+          "hands": 1643,
+          "mean_net_bb": 0.5,
+          "net_bb": 821.5
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 306,
+        "preflop": 378,
+        "river": 103,
+        "turn": 193
+      },
+      "missing_support": {
+        "supported": 5,
+        "supported-observed-menu-path": 38,
+        "supported-other-checkpoint": 35,
+        "unsupported-abstract-history-or-menu": 902
+      },
+      "nodes": 1001382,
+      "off_menu_actions": {
+        "opponent": 1014,
+        "target": 0
+      },
+      "opponent": "pot_pressure",
+      "target_decisions": 4304
+    },
+    {
+      "bb_per_100": 82.21435546875,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 84.28955078125,
+          "hands": 2271,
+          "mean_net_bb": 1.5202553940995156,
+          "net_bb": 3452.5
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": 1.26953125,
+          "hands": 16,
+          "mean_net_bb": 3.25,
+          "net_bb": 52.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -11.8896484375,
+          "hands": 1109,
+          "mean_net_bb": -0.43913435527502254,
+          "net_bb": -487.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 8.544921875,
+          "hands": 700,
+          "mean_net_bb": 0.5,
+          "net_bb": 350.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 238,
+        "preflop": 757,
+        "river": 42,
+        "turn": 84
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 47,
+        "unsupported-abstract-history-or-menu": 1074
+      },
+      "nodes": 5001210,
+      "off_menu_actions": {
+        "opponent": 1620,
+        "target": 0
+      },
+      "opponent": "random",
+      "target_decisions": 5967
+    },
+    {
+      "bb_per_100": 97.900390625,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 64.74609375,
+          "hands": 3870,
+          "mean_net_bb": 0.6852713178294574,
+          "net_bb": 2652.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": 3.564453125,
+          "hands": 42,
+          "mean_net_bb": 3.4761904761904763,
+          "net_bb": 146.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": 29.58984375,
+          "hands": 184,
+          "mean_net_bb": 6.586956521739131,
+          "net_bb": 1212.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 12,
+        "river": 130,
+        "turn": 79
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 221
+      },
+      "nodes": 5001210,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "check_call",
+      "target_decisions": 14680
+    },
+    {
+      "bb_per_100": -80.82275390625,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -52.30712890625,
+          "hands": 2185,
+          "mean_net_bb": -0.9805491990846682,
+          "net_bb": -2142.5
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -12.9150390625,
+          "hands": 15,
+          "mean_net_bb": -35.266666666666666,
+          "net_bb": -529.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -38.2080078125,
+          "hands": 44,
+          "mean_net_bb": -35.56818181818182,
+          "net_bb": -1565.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 22.607421875,
+          "hands": 1852,
+          "mean_net_bb": 0.5,
+          "net_bb": 926.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 11,
+        "preflop": 4,
+        "river": 19,
+        "turn": 23
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 57
+      },
+      "nodes": 5001210,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "tight_aggressive",
+      "target_decisions": 3655
+    },
+    {
+      "bb_per_100": -396.484375,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -337.7197265625,
+          "hands": 2809,
+          "mean_net_bb": -4.9245283018867925,
+          "net_bb": -13833.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -18.1884765625,
+          "hands": 35,
+          "mean_net_bb": -21.285714285714285,
+          "net_bb": -745.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -54.1748046875,
+          "hands": 138,
+          "mean_net_bb": -16.079710144927535,
+          "net_bb": -2219.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 13.5986328125,
+          "hands": 1114,
+          "mean_net_bb": 0.5,
+          "net_bb": 557.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 21,
+        "preflop": 24,
+        "river": 67,
+        "turn": 86
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 198
+      },
+      "nodes": 5001210,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "loose_aggressive",
+      "target_decisions": 7008
+    },
+    {
+      "bb_per_100": -141.85791015625,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 0.1220703125,
+          "hands": 1860,
+          "mean_net_bb": 0.002688172043010753,
+          "net_bb": 5.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -0.830078125,
+          "hands": 3,
+          "mean_net_bb": -11.333333333333334,
+          "net_bb": -34.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -161.2060546875,
+          "hands": 590,
+          "mean_net_bb": -11.191525423728814,
+          "net_bb": -6603.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 20.05615234375,
+          "hands": 1643,
+          "mean_net_bb": 0.5,
+          "net_bb": 821.5
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 312,
+        "preflop": 352,
+        "river": 110,
+        "turn": 196
+      },
+      "missing_support": {
+        "supported": 3,
+        "supported-observed-menu-path": 3,
+        "supported-other-checkpoint": 2,
+        "unsupported-abstract-history-or-menu": 962
+      },
+      "nodes": 5001210,
+      "off_menu_actions": {
+        "opponent": 1051,
+        "target": 0
+      },
+      "opponent": "pot_pressure",
+      "target_decisions": 4342
+    },
+    {
+      "bb_per_100": 97.9736328125,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 66.455078125,
+          "hands": 2317,
+          "mean_net_bb": 1.1747949935261113,
+          "net_bb": 2722.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -2.0751953125,
+          "hands": 12,
+          "mean_net_bb": -7.083333333333333,
+          "net_bb": -85.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": 25.048828125,
+          "hands": 1067,
+          "mean_net_bb": 0.9615745079662605,
+          "net_bb": 1026.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 8.544921875,
+          "hands": 700,
+          "mean_net_bb": 0.5,
+          "net_bb": 350.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 231,
+        "preflop": 737,
+        "river": 25,
+        "turn": 76
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 17,
+        "unsupported-abstract-history-or-menu": 1052
+      },
+      "nodes": 10001922,
+      "off_menu_actions": {
+        "opponent": 1596,
+        "target": 0
+      },
+      "opponent": "random",
+      "target_decisions": 5900
+    },
+    {
+      "bb_per_100": 88.3544921875,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 70.1171875,
+          "hands": 4010,
+          "mean_net_bb": 0.7162094763092269,
+          "net_bb": 2872.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": 2.490234375,
+          "hands": 14,
+          "mean_net_bb": 7.285714285714286,
+          "net_bb": 102.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": 15.7470703125,
+          "hands": 72,
+          "mean_net_bb": 8.958333333333334,
+          "net_bb": 645.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 4,
+        "river": 48,
+        "turn": 32
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 84
+      },
+      "nodes": 10001922,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "check_call",
+      "target_decisions": 14572
+    },
+    {
+      "bb_per_100": -72.39990234375,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -73.20556640625,
+          "hands": 2206,
+          "mean_net_bb": -1.3592475067996375,
+          "net_bb": -2998.5
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -8.6181640625,
+          "hands": 9,
+          "mean_net_bb": -39.22222222222222,
+          "net_bb": -353.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -13.18359375,
+          "hands": 29,
+          "mean_net_bb": -18.620689655172413,
+          "net_bb": -540.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 22.607421875,
+          "hands": 1852,
+          "mean_net_bb": 0.5,
+          "net_bb": 926.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 4,
+        "river": 12,
+        "turn": 24
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 40
+      },
+      "nodes": 10001922,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "tight_aggressive",
+      "target_decisions": 3665
+    },
+    {
+      "bb_per_100": -346.044921875,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -344.3115234375,
+          "hands": 2876,
+          "mean_net_bb": -4.903685674547983,
+          "net_bb": -14103.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -6.34765625,
+          "hands": 34,
+          "mean_net_bb": -7.647058823529412,
+          "net_bb": -260.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -8.984375,
+          "hands": 72,
+          "mean_net_bb": -5.111111111111111,
+          "net_bb": -368.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 13.5986328125,
+          "hands": 1114,
+          "mean_net_bb": 0.5,
+          "net_bb": 557.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 12,
+        "preflop": 7,
+        "river": 46,
+        "turn": 35
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 100
+      },
+      "nodes": 10001922,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "loose_aggressive",
+      "target_decisions": 6956
+    },
+    {
+      "bb_per_100": -107.9833984375,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 10.14404296875,
+          "hands": 1903,
+          "mean_net_bb": 0.2183394640042039,
+          "net_bb": 415.5
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -138.18359375,
+          "hands": 550,
+          "mean_net_bb": -10.290909090909091,
+          "net_bb": -5660.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 20.05615234375,
+          "hands": 1643,
+          "mean_net_bb": 0.5,
+          "net_bb": 821.5
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 290,
+        "preflop": 360,
+        "river": 89,
+        "turn": 170
+      },
+      "missing_support": {
+        "supported": 6,
+        "supported-observed-menu-path": 2,
+        "unsupported-abstract-history-or-menu": 901
+      },
+      "nodes": 10001922,
+      "off_menu_actions": {
+        "opponent": 987,
+        "target": 0
+      },
+      "opponent": "pot_pressure",
+      "target_decisions": 4312
+    },
+    {
+      "bb_per_100": 88.28125,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 70.5078125,
+          "hands": 2336,
+          "mean_net_bb": 1.2363013698630136,
+          "net_bb": 2888.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -0.48828125,
+          "hands": 6,
+          "mean_net_bb": -3.3333333333333335,
+          "net_bb": -20.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": 9.716796875,
+          "hands": 1054,
+          "mean_net_bb": 0.3776091081593928,
+          "net_bb": 398.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 8.544921875,
+          "hands": 700,
+          "mean_net_bb": 0.5,
+          "net_bb": 350.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 225,
+        "preflop": 730,
+        "river": 27,
+        "turn": 74
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 15,
+        "unsupported-abstract-history-or-menu": 1041
+      },
+      "nodes": 11042440,
+      "off_menu_actions": {
+        "opponent": 1581,
+        "target": 0
+      },
+      "opponent": "random",
+      "target_decisions": 5925
+    },
+    {
+      "bb_per_100": 87.78076171875,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 74.84130859375,
+          "hands": 4021,
+          "mean_net_bb": 0.762372544143248,
+          "net_bb": 3065.5
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": 2.3681640625,
+          "hands": 14,
+          "mean_net_bb": 6.928571428571429,
+          "net_bb": 97.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": 10.5712890625,
+          "hands": 61,
+          "mean_net_bb": 7.098360655737705,
+          "net_bb": 433.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 3,
+        "river": 36,
+        "turn": 32
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 71
+      },
+      "nodes": 11042440,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "check_call",
+      "target_decisions": 14551
+    },
+    {
+      "bb_per_100": -65.46630859375,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -71.42333984375,
+          "hands": 2213,
+          "mean_net_bb": -1.3219611387257117,
+          "net_bb": -2925.5
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -9.9365234375,
+          "hands": 10,
+          "mean_net_bb": -40.7,
+          "net_bb": -407.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -6.7138671875,
+          "hands": 21,
+          "mean_net_bb": -13.095238095238095,
+          "net_bb": -275.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 22.607421875,
+          "hands": 1852,
+          "mean_net_bb": 0.5,
+          "net_bb": 926.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 2,
+        "river": 9,
+        "turn": 18
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 29
+      },
+      "nodes": 11042440,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "tight_aggressive",
+      "target_decisions": 3661
+    },
+    {
+      "bb_per_100": -349.12109375,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": -351.0009765625,
+          "hands": 2897,
+          "mean_net_bb": -4.962720055229548,
+          "net_bb": -14377.0
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": 3.0029296875,
+          "hands": 24,
+          "mean_net_bb": 5.125,
+          "net_bb": 123.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -14.7216796875,
+          "hands": 61,
+          "mean_net_bb": -9.885245901639344,
+          "net_bb": -603.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 13.5986328125,
+          "hands": 1114,
+          "mean_net_bb": 0.5,
+          "net_bb": 557.0
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 10,
+        "preflop": 5,
+        "river": 42,
+        "turn": 35
+      },
+      "missing_support": {
+        "supported-observed-menu-path": 92
+      },
+      "nodes": 11042440,
+      "off_menu_actions": {
+        "opponent": 0,
+        "target": 0
+      },
+      "opponent": "loose_aggressive",
+      "target_decisions": 6913
+    },
+    {
+      "bb_per_100": -122.6806640625,
+      "hand_exposures": {
+        "all-positive": {
+          "contribution_bb_per_100": 9.19189453125,
+          "hands": 1894,
+          "mean_net_bb": 0.1987856388595565,
+          "net_bb": 376.5
+        },
+        "any-zero-no-missing": {
+          "contribution_bb_per_100": -2.392578125,
+          "hands": 1,
+          "mean_net_bb": -98.0,
+          "net_bb": -98.0
+        },
+        "ever-missing": {
+          "contribution_bb_per_100": -149.5361328125,
+          "hands": 558,
+          "mean_net_bb": -10.976702508960573,
+          "net_bb": -6125.0
+        },
+        "no-target-decision": {
+          "contribution_bb_per_100": 20.05615234375,
+          "hands": 1643,
+          "mean_net_bb": 0.5,
+          "net_bb": 821.5
+        }
+      },
+      "hands": 4096,
+      "missing_by_street": {
+        "flop": 292,
+        "preflop": 354,
+        "river": 94,
+        "turn": 178
+      },
+      "missing_support": {
+        "supported": 6,
+        "supported-observed-menu-path": 2,
+        "unsupported-abstract-history-or-menu": 910
+      },
+      "nodes": 11042440,
+      "off_menu_actions": {
+        "opponent": 1004,
+        "target": 0
+      },
+      "opponent": "pot_pressure",
+      "target_decisions": 4368
+    }
+  ],
+  "search_seconds": 0.5596823685336858,
+  "search_signatures": 605,
+  "seconds": 84.53368933300953,
+  "stage": "final",
+  "status": "complete",
+  "target_decisions": 177171
+}

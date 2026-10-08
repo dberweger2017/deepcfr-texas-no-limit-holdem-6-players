@@ -1,0 +1,11 @@
+{
+  "status": "locally-verified",
+  "path": "results/hu100-diagnosis/hu100-diagnosis-closeout-20261008.zip",
+  "bytes": 246238,
+  "sha256": "7b8f589c87db6945445cb8e8229c1807f115de8ca46a763f3455ba1be149626e",
+  "manifest_sha256": "5456e210e9a1bde4b6f8cbfdf4864a2b3e8cb08e7123e088c16cbefae4191616",
+  "members": 45,
+  "finished": 1791461544.939667,
+  "original_deadline": 1791461840.893814,
+  "finished_before_original_deadline": true
+}

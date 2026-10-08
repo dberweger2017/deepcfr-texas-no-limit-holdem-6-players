@@ -84,6 +84,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 **Release rule:** v0.4.2's [predeclared confirmation](docs/reports/hu20-v042-lbr-confirmation.md) passes and its owner-authorized publication is complete. Independent review, green final-head checks, exact merged-source tag and draft/public asset verification all passed. Older releases remain available; no further research or cleanup follows this release task.
 
+- **HU100 diagnosis ([#201](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/201)):** the [full-sample report](docs/reports/native-hu100-diagnosis.md) separates unsupported pot-pressure histories from covered tight/loose-aggressive losses. All 102,400 candidate hands replay with zero native key/menu/settlement mismatches. Priorities are action/history support, then a bounded training test after memory engineering; averaging/abstraction remain unresolved hypotheses. No new training or policy change, strength claim, scheduled follow-on or merge.
+
 ## References
 
 - Rules: [PokerStars Hold'em rules](https://www.pokerstars.com/poker/games/texas-holdem/); [Poker TDA](https://www.pokertda.com/poker-tda-rules/) is tournament-only and never defines cash procedures; [PokerKit](https://pokerkit.readthedocs.io/en/stable/) is a comparison tool, not an authority.
