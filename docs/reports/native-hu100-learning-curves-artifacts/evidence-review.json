@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "reviewer": "independent Codex evidence_review agent",
+  "reviewed_head": "a7c59a63a08c53e00b9af8d29318775833cc6915",
+  "base": "7dca996",
+  "unresolved_findings": [],
+  "checks": [
+    "All five average/checkpoint pins against PR197 index and freeze/config/summary hashes",
+    "All 25 curves, exact reused uniform identity, 20 paired comparisons and formal labels",
+    "Student-t adjustment ratios, CSV/Markdown agreement and all 100 coverage count/rate denominators",
+    "Original 1800-second deadline, timestamp identities and archive/index receipt consistency",
+    "All three PNG plots visually readable with every checkpoint and loss retained",
+    "Executed science sources/config unchanged from 51597e8"
+  ],
+  "tests": {"passed": 6, "seconds": 2.55},
+  "artifact_check": {"status": "passed", "files": 2761},
+  "limits": [
+    "Reviewed source and committed receipts; did not access M4, download raw archives, load research models or repeat scientific replay",
+    "The unsaved instantaneous admission snapshot remains unverifiable and is explicitly disclosed",
+    "Final-head CI and later closeout receipts are outside this reviewed commit"
+  ]
+}

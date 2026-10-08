@@ -1,0 +1,19 @@
+{
+  "status": "local-verified",
+  "source": "51597e88706465c33dc51577890989aa303fefca",
+  "archive_name": "hu100-learning-curves-20261008.zip",
+  "bytes": 1224575891,
+  "sha256": "ac79cc76209e95c4dc1c4a6d6903b645fdae4aeec4fd0d7b7f2cf5603ced1139",
+  "members_verified": 910,
+  "manifest_member": "ARCHIVE-MANIFEST.json.gz",
+  "manifest_sha256": "177c4eb37a5cfe10f9d940d4a81599e6ec3e6ca560e0cae7755c42adb83cfdd9",
+  "manifest_member_sha256": "83a3b9672b02b4bd250d5e73f5d0b37f818e1bc16e06b408f5d1524abd79d0f3",
+  "folder_id": "12azuxRTXRyEnpO-7tSb6TTOA4teHccMf",
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "deadline": 1791457646.4834518,
+  "at": 1791456889.817129,
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-200-HU100-learning-curves/hu100-learning-curves-20261008.zip",
+  "native_copied_atomically": true,
+  "copied_at": 1791456890.9050019
+}
