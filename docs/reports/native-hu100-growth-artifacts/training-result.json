@@ -1,0 +1,62 @@
+{
+  "additional_nodes": 8959030,
+  "audit_status": "verified",
+  "entry_overshoot": 0,
+  "parent_nodes": 11042440,
+  "status": "target-complete",
+  "terminal": {
+    "audit_status": "unaudited",
+    "binary_sha256": "b547173b838d896888973f4cf283ba66a60b61781a29a7ed719ebcbadb448f2c",
+    "checkpoint_bytes": 177935258,
+    "checkpoint_sha256": "71289306fc79592847d472ef3493141e195341aa243c742cb965ab3dd86e4b0e",
+    "completed_nodes": 20001470,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        386457,
+        1205403,
+        2964887,
+        6593827
+      ],
+      "entries": 4937867,
+      "positive_average_mass_keys": 3286182,
+      "traverser_visits": 3987494,
+      "traverser_visits_by_street": [
+        136934,
+        436852,
+        1063527,
+        2350181
+      ],
+      "visits_histogram": {
+        "0": 2706536,
+        "1": 1674031,
+        "10-99": 33474,
+        "100+": 485,
+        "2-9": 523341
+      },
+      "zero_average_mass_keys": 1651685
+    },
+    "elapsed_seconds_including_writes": 18.138846792,
+    "entries_per_completed_node": 0.24687520467245658,
+    "iteration": 14561,
+    "new_entries": 1660800,
+    "nodes_per_second_including_writes": 488345.2681185202,
+    "nodes_since_previous_save": 8858020,
+    "overshoot_nodes": 1470,
+    "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage1/terminal/checkpoint.gz",
+    "process_rss_bytes_after_save": 1666842624,
+    "recent_nodes_per_second_including_writes": 488345.2681185202,
+    "requested_nodes": 20000000,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1791468759.664092,
+    "write_seconds": 14.814006125,
+    "write_started": 1791468744.850234
+  },
+  "terminal_folder": "/Users/dberweger/Local/hu100-growth-20261008/results/stage1/terminal"
+}

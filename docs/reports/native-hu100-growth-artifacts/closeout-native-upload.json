@@ -1,0 +1,13 @@
+{
+  "checked_at": 1791470457.0131562,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-203-HU100-growth-playing-gains/hu100-growth-closeout-20261008.zip",
+  "native": {
+    "isUploaded": 1,
+    "isUploading": 0,
+    "documentSize": 174960,
+    "itemIdentifier": 81502,
+    "hasUnresolvedConflicts": 0
+  },
+  "method": "fileproviderctl evaluate exact archive; conflict field absent/default false",
+  "accepted": true
+}

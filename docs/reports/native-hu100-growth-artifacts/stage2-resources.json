@@ -1,0 +1,118 @@
+{
+  "admission_refusals": 0,
+  "all_ac": true,
+  "all_evaluation_guards_complete": true,
+  "all_pressure_normal": true,
+  "deadline": 1791470764.9082031,
+  "elapsed_seconds": 914.2508502006531,
+  "evaluation_launcher_status": "failed",
+  "finished": 1791469879.1590521,
+  "hard_guard_failures": {},
+  "max_sampled_family_rss_bytes": 1186447360,
+  "max_swap_growth_bytes_from_original_baseline": 120324095.99999994,
+  "min_free_disk_bytes": 61450600448,
+  "min_system_free_percent": 80,
+  "no_hands_repeated": true,
+  "operations": {
+    "final-11042440-audit": {
+      "exit_code": 0,
+      "guard_sha256": "73801da29f5c35b1411ae985a94103f323b897186582f4442a25a002a716159f",
+      "sampled_peak_family_rss_bytes": 461324288,
+      "seconds": 18.452841997146606,
+      "status": "complete"
+    },
+    "final-11042440-play": {
+      "exit_code": 0,
+      "guard_sha256": "868a78b41e30d724d762daea470ee557815a0e96c4f1c32370233df8584aeeee",
+      "sampled_peak_family_rss_bytes": 999784448,
+      "seconds": 48.90945076942444,
+      "status": "complete"
+    },
+    "final-11042440-reproduce": {
+      "exit_code": 0,
+      "guard_sha256": "d8b1dea6359b26bfdacfca01f4ddef2468fd07cedbc2f064ea733c6a178c75d7",
+      "sampled_peak_family_rss_bytes": 998277120,
+      "seconds": 48.89259696006775,
+      "status": "complete"
+    },
+    "final-20001470-audit": {
+      "exit_code": 0,
+      "guard_sha256": "bb7decb21eb9caca67b1219c977e01a01adf825809bb7d153d3adff267bf08d2",
+      "sampled_peak_family_rss_bytes": 483622912,
+      "seconds": 22.528573036193848,
+      "status": "complete"
+    },
+    "final-20001470-play": {
+      "exit_code": 0,
+      "guard_sha256": "55a852353fde8deb3a98c0c360611bb1adbe8d032c4ef08a2282fd5b6f6bae76",
+      "sampled_peak_family_rss_bytes": 1183334400,
+      "seconds": 43.82599115371704,
+      "status": "complete"
+    },
+    "final-20001470-reproduce": {
+      "exit_code": 0,
+      "guard_sha256": "ddce65d5bd08d02172afc5f9339783d2a1b3ef1871b93febbf8620223e231d9c",
+      "sampled_peak_family_rss_bytes": 1186447360,
+      "seconds": 43.81633114814758,
+      "status": "complete"
+    },
+    "pilot-11042440-audit": {
+      "exit_code": 0,
+      "guard_sha256": "851bfcb3e390e84777bc5ced973ccaa3ffe1331ab400202318e1cd128ab80dd1",
+      "sampled_peak_family_rss_bytes": 109461504,
+      "seconds": 1.1848020553588867,
+      "status": "complete"
+    },
+    "pilot-11042440-play": {
+      "exit_code": 0,
+      "guard_sha256": "44d7eb10906850f0bd6e8931a328b5607296e7f3d94a87abe36c6eb9ba5d1a31",
+      "sampled_peak_family_rss_bytes": 284344320,
+      "seconds": 15.397783994674683,
+      "status": "complete"
+    },
+    "pilot-11042440-reproduce": {
+      "exit_code": 0,
+      "guard_sha256": "b2d793dab26f936b4097df080df28b7af732aee6879beb26b2cb1f65adb7c263",
+      "sampled_peak_family_rss_bytes": 286326784,
+      "seconds": 15.370317935943604,
+      "status": "complete"
+    },
+    "pilot-20001470-audit": {
+      "exit_code": 0,
+      "guard_sha256": "38de8f887fcec10da776d14abd9e5931d9d538eb21855c01f4def860ac76858c",
+      "sampled_peak_family_rss_bytes": 110133248,
+      "seconds": 1.190199851989746,
+      "status": "complete"
+    },
+    "pilot-20001470-play": {
+      "exit_code": 0,
+      "guard_sha256": "485a3e54a7388801bea727ee51f78fd7bace749091ad0dbbe04a457d59ed224c",
+      "sampled_peak_family_rss_bytes": 394723328,
+      "seconds": 22.50049376487732,
+      "status": "complete"
+    },
+    "pilot-20001470-reproduce": {
+      "exit_code": 0,
+      "guard_sha256": "acedcb6d5e67ea390abcd99e7ac628aedfbb77c9d64ca898d8eb9951ddb42714",
+      "sampled_peak_family_rss_bytes": 394297344,
+      "seconds": 22.50903010368347,
+      "status": "complete"
+    },
+    "report": {
+      "exit_code": 1,
+      "guard_sha256": "7f9aaf6c226671ea53de5cff8dd2d473c37469744a5fab0d6c27673179dc5151",
+      "sampled_peak_family_rss_bytes": 147488768,
+      "seconds": 1.2066469192504883,
+      "status": "failed"
+    }
+  },
+  "original_stage_error": "ValueError('Terminal child/guard failure: report')",
+  "postprocessing_guard_status": "complete",
+  "postprocessing_seconds": 26.579230070114136,
+  "postprocessing_source": "ae8d9b83638cdfe96df0849f5ed6bfe6874d53eb",
+  "sample_period_seconds": 5,
+  "samples": 72,
+  "source": "ed9be57b0201b2967186fc9a1077545cbb294286",
+  "started": 1791468964.908202,
+  "status": "verified-with-preserved-setup-and-summary-failures"
+}

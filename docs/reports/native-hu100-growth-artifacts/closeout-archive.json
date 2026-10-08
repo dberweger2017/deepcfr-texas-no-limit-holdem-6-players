@@ -1,0 +1,14 @@
+{
+  "status": "verified",
+  "archive": "/Users/dberweger/Local/deepcfr-texas-no-limit-holdem-6-players/results/hu100-growth-coordinator/hu100-growth-closeout-20261008.zip",
+  "bytes": 174960,
+  "sha256": "23cf1912849d9862ce0d91c098fee7955927f7fc1d5a48da8bd8b38f160da489",
+  "manifest_sha256": "92e7ee1897393b3f5c7eb52601d3a2736fabadbf7cde0f9c7057d511034c1210",
+  "members_verified": 32,
+  "nested_m4_members_verified": 43,
+  "nested_m4_sha256": "bf64adb2776e8a6131d8751adb4e0f4e27f6bbdadbd87af3b7d0358ddb02b816",
+  "source": "9222dfdf427306c0b5500d4f7cc3db9d1f1b8a07",
+  "remote_bytes_downloaded": false,
+  "originals_retained": true,
+  "scope": "metadata-only later seal; no science restarted; dated pre-final CI and pre-self-index snapshots"
+}

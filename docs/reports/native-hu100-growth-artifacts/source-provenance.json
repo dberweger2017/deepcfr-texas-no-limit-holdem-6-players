@@ -1,0 +1,210 @@
+{
+  "binary_sha256": "b547173b838d896888973f4cf283ba66a60b61781a29a7ed719ebcbadb448f2c",
+  "exception": "untracked bin/hu20-trainer with pinned binary hash; no source file change",
+  "git_source_fingerprint": "a8915e6a867eab543f0482d509acbe55225f35938d1034c2d12d76eca85ffec9",
+  "original_failed_stage_preserved": true,
+  "recorded_manifests": [
+    {
+      "dirty": true,
+      "manifest_sha256": "3a5c272229dbf183ffad661fd84ebc5bf865a0dc3300e3e2fe1769936dd0ac76",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot-reproduction/11042440/pot_pressure/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "708defd618d14151e1554802e22ac8a76b928dcbe259ff58673a2149565ba8ba",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot-reproduction/11042440/loose_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "6ca73b08acb7897b1e9e6af46b2d9b871c2b17356cbd3f08c71f50212c9e9c86",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot-reproduction/11042440/random/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "b593e927988cd8faa8574247786b365c25fb36260c8e03b37b3dded5de1f64a0",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot-reproduction/11042440/tight_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "2d09490c711a331b5c3a263cad7e1cf0a37a58f17983ff83436713440c658ca0",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot-reproduction/11042440/check_call/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "67d1e5902a492001e37638a0f5ccccbec37c3a25ebe1d0ebec0a1155be6e1013",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot-reproduction/20001470/pot_pressure/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "d6adcbb784c186742aa8de9ec0431951eac66d6c15c4f99adc67ba65524525d3",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot-reproduction/20001470/loose_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "da1e1304475538c25955f2414d42b259e4b5d59cf641f8c85e17fb007dbb39f0",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot-reproduction/20001470/random/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "9280d4e1e8c14e090bdec6521c152e53b0f98a354af2f6e0c70b71436fcb3521",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot-reproduction/20001470/tight_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "847ed62d430b44a151184598b4753bd42d322fe74fa29b0a29475e42233ffeeb",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot-reproduction/20001470/check_call/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "3a5c272229dbf183ffad661fd84ebc5bf865a0dc3300e3e2fe1769936dd0ac76",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot/11042440/pot_pressure/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "708defd618d14151e1554802e22ac8a76b928dcbe259ff58673a2149565ba8ba",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot/11042440/loose_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "6ca73b08acb7897b1e9e6af46b2d9b871c2b17356cbd3f08c71f50212c9e9c86",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot/11042440/random/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "b593e927988cd8faa8574247786b365c25fb36260c8e03b37b3dded5de1f64a0",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot/11042440/tight_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "2d09490c711a331b5c3a263cad7e1cf0a37a58f17983ff83436713440c658ca0",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot/11042440/check_call/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "67d1e5902a492001e37638a0f5ccccbec37c3a25ebe1d0ebec0a1155be6e1013",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot/20001470/pot_pressure/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "d6adcbb784c186742aa8de9ec0431951eac66d6c15c4f99adc67ba65524525d3",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot/20001470/loose_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "da1e1304475538c25955f2414d42b259e4b5d59cf641f8c85e17fb007dbb39f0",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot/20001470/random/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "9280d4e1e8c14e090bdec6521c152e53b0f98a354af2f6e0c70b71436fcb3521",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot/20001470/tight_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "847ed62d430b44a151184598b4753bd42d322fe74fa29b0a29475e42233ffeeb",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/pilot/20001470/check_call/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "a8e997e922fdf132619de2719f969215c2555de08d873379a6a95c85f8b0bc84",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final/11042440/pot_pressure/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "7360f416a1e9d5887ee90aa7c07d8f9d79060b6aca5b4e5ed870bde517a0df8d",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final/11042440/loose_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "690b6e185bec72ca75d6178122b3bae7c55dfbcc31cb427f42d68802841989bc",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final/11042440/random/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "90faed21c1c5c98daf998c17afa082469c17e71d0813d2637cea243bc73528f9",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final/11042440/tight_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "5ea8416a0f3d705c3c5a32a25f61054fc8461af807a32f00dca656195660678b",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final/11042440/check_call/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "2e0d28b3dd49f77257171e637ca5fd49c09d43689745d32bf23dc5ed5b066aeb",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final/20001470/pot_pressure/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "bfb8aabc1642945f635ba1b963dd32cf9d3ac5cac2daf02d4d1b2529b67bbe9d",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final/20001470/loose_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "527b0a61d4410671179d034f4b8b5c677811c75a38b531431eedbb1387d2f670",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final/20001470/random/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "645959f8aab425939579bd881c115e331f69f9e30fc7cfe17cbba2b55332563b",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final/20001470/tight_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "cb74d108346add0e4b733414ef130b6c41164f45460966a72f216451fd3f8881",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final/20001470/check_call/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "a8e997e922fdf132619de2719f969215c2555de08d873379a6a95c85f8b0bc84",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final-reproduction/11042440/pot_pressure/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "7360f416a1e9d5887ee90aa7c07d8f9d79060b6aca5b4e5ed870bde517a0df8d",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final-reproduction/11042440/loose_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "690b6e185bec72ca75d6178122b3bae7c55dfbcc31cb427f42d68802841989bc",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final-reproduction/11042440/random/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "90faed21c1c5c98daf998c17afa082469c17e71d0813d2637cea243bc73528f9",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final-reproduction/11042440/tight_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "5ea8416a0f3d705c3c5a32a25f61054fc8461af807a32f00dca656195660678b",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final-reproduction/11042440/check_call/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "2e0d28b3dd49f77257171e637ca5fd49c09d43689745d32bf23dc5ed5b066aeb",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final-reproduction/20001470/pot_pressure/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "bfb8aabc1642945f635ba1b963dd32cf9d3ac5cac2daf02d4d1b2529b67bbe9d",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final-reproduction/20001470/loose_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "527b0a61d4410671179d034f4b8b5c677811c75a38b531431eedbb1387d2f670",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final-reproduction/20001470/random/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "645959f8aab425939579bd881c115e331f69f9e30fc7cfe17cbba2b55332563b",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final-reproduction/20001470/tight_aggressive/manifest.json"
+    },
+    {
+      "dirty": true,
+      "manifest_sha256": "cb74d108346add0e4b733414ef130b6c41164f45460966a72f216451fd3f8881",
+      "path": "/Users/dberweger/Local/hu100-growth-20261008/results/stage2/final-reproduction/20001470/check_call/manifest.json"
+    }
+  ],
+  "source": "ed9be57b0201b2967186fc9a1077545cbb294286",
+  "status": "verified"
+}
