@@ -1,0 +1,44 @@
+{
+  "all_members_readback_verified": true,
+  "archive_name": "hu100-action-translation-M4-20261008.zip",
+  "archive_path": "/Users/dberweger/Local/hu100-action-translation-20261008/archives/hu100-action-translation-M4-20261008.zip",
+  "bytes": 2913785691,
+  "checked_at": 1791485097.436078,
+  "cloud": {
+    "created_time": null,
+    "current_user_can_share": null,
+    "drive_id": null,
+    "file_or_folder": "file",
+    "has_augmented_permissions": null,
+    "id": "1Lkme7gGFIsiCBkquKwt0gRgUIFFbCy7G",
+    "mime_type": "application/zip",
+    "modified_time": null,
+    "parent_ids": [
+      "1JjVFABkkmEE1o6AOs8RohZsH9RuS6baR"
+    ],
+    "permissions": null,
+    "shared": null,
+    "size": "2913785691",
+    "source_visibility_status": "access_not_verified",
+    "title": "hu100-action-translation-M4-20261008.zip",
+    "url": null
+  },
+  "folder_id": "1JjVFABkkmEE1o6AOs8RohZsH9RuS6baR",
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "4fde48650738581171866091fe3c1df823e11d669999f85ce47e96e1902810c8",
+  "members": 600,
+  "method": "full local ZIP/member/copy verification; native uploaded/not-uploading/no-conflicts; independent connector ID/name/size/parent",
+  "native": {
+    "documentSize": 2913785691,
+    "hasUnresolvedConflicts": 0,
+    "isUploaded": 1,
+    "isUploading": 0
+  },
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-205-hu100-action-translation/hu100-action-translation-M4-20261008.zip",
+  "native_upload_confirmed": true,
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "sha256": "ec64da6df8249794d79efdc81667d6cafd47dbaad47519979e2140eec467e46d",
+  "source": "809cf2d7d854037d2e7e4e21f037ec2b242024e9",
+  "status": "cloud-accepted"
+}

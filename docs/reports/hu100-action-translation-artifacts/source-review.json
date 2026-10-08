@@ -1,0 +1,52 @@
+{
+  "checkout": "/Users/dberweger/Local/hu100-action-translation-20261008/repo",
+  "execution_host": "M4 via ssh m4",
+  "limits": [
+    "Source review and small deterministic fixtures only; no terminal-model or final campaign evidence review, poker-strength claim, or release acceptance.",
+    "Pilot outcome files were not inspected. No training, final play, installation, native trainer edit, cleanup or other root modification performed.",
+    "Resource guards were reviewed and mock-tested; this receipt does not attest actual campaign peak resources or a hard real-time 200 ms guarantee.",
+    "Broader test_holdem_average.py collection at the prior source was unavailable because torch is absent in the M4 venv; no installation attempted.",
+    "Actual final resource logs, source/model provenance, all final hands and telemetry, archives/cloud acceptance and arithmetic remain for the independent closeout evidence review."
+  ],
+  "open_findings": [],
+  "prior_finding": {
+    "file": "scripts/run_hu100_action_translation.py",
+    "finding": "Host swap/power/disk/system-memory guards refreshed every five seconds contrary to the declared 200 ms cadence.",
+    "lines": "109-114 at prior source",
+    "response": "Every host guard now refreshes on each polling iteration; monotonic schedules the 200 ms target cadence; receipt records 0.2 seconds. A mocked transient AC breach stops the second polling iteration and preserves a failed receipt.",
+    "source": "2cc06e81a7efed5bdd5f2a6fd91337072dde1c3a",
+    "status": "resolved"
+  },
+  "review_kind": "Single independent source review, including verification of its finding fix",
+  "reviewed_at_utc": "2026-10-08T18:30:27.676410+00:00",
+  "reviewer": "Codex independent source reviewer /root/source_review",
+  "scope": [
+    "main..2cc06e81a7efed5bdd5f2a6fd91337072dde1c3a source diff and 2cc06e81a7efed5bdd5f2a6fd91337072dde1c3a..809cf2d7d854037d2e7e4e21f037ec2b242024e9 correction diff",
+    "Public observation boundary and pure heads-up Betting reducer",
+    "Bounded best-first witness search, exact rational distance and deterministic tie ordering",
+    "Raise all-in suffix preference, final actor/player flags, real current menu and positive stored mass",
+    "On-menu missing-key controls, unchanged exact/zero-mass behavior, single unchanged policy RNG draw",
+    "Decision telemetry and full hand/decision replay and deterministic reproduction paths",
+    "Timing-only freeze, fixed final sample, prior schedule freshness and resource guards",
+    "Default-disabled reader/sampler delegation to FrozenBlueprint"
+  ],
+  "source": "809cf2d7d854037d2e7e4e21f037ec2b242024e9",
+  "status": "passed",
+  "tests": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_hu100_action_translation.py tests/test_hu100_translation_campaign.py tests/test_native_hu100_baseline.py tests/test_native_hu100_learning_curves.py tests/test_blueprint_native_reopening.py tests/test_blueprint_lookup.py tests/test_local_cfr_diagnostic.py",
+      "result": "42 passed in 4.16s",
+      "source": "809cf2d7d854037d2e7e4e21f037ec2b242024e9"
+    },
+    {
+      "command": "In-memory assertions via .venv/bin/python stdin: disabled distribution equals FrozenBlueprint.distribution, default policy type is _Player, explicit telemetry selects research player",
+      "result": "passed",
+      "source": "809cf2d7d854037d2e7e4e21f037ec2b242024e9"
+    },
+    {
+      "command": "freshness(settings()) with assertions for corrected pilot 2026100820521, unchanged final 2026100820512, inclusion of first pilot 2026100820511 and all_pairwise_disjoint",
+      "result": "passed",
+      "source": "809cf2d7d854037d2e7e4e21f037ec2b242024e9"
+    }
+  ]
+}
