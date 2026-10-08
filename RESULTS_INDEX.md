@@ -1,5 +1,6 @@
 ## HU100 independent-seed qualification preparation — October 9, 2026
 
+[PR211](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/211),
 `feature/hu100-seed-qualification`, [prospective protocol](docs/hu100-seed-qualification.md),
 [blocked preflight report](docs/reports/hu100-seed-qualification.md) and
 [compact live status receipt](docs/reports/hu100-seed-qualification-artifacts/preflight.json).

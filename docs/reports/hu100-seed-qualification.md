@@ -1,5 +1,7 @@
 # HU100 qualification preparation: launch blocked by #207 closeout
 
+[PR211](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/211) · draft, unmerged.
+
 The requested three-lineage qualification has **not started**. Live GitHub
 checks at October 8 22:01 UTC (October 9 locally) find #204–#206 merged,
 but #207 open/draft with its archive guard failure unresolved. Its scientific
@@ -45,6 +47,18 @@ originals/snapshots/reproduction/archive copies, and a recovery/closeout reserve
 must pass before launch. The blocked preparation produced only compact Git
 documents/status receipts; there are no new research payloads or accepted new
 Research-Cloud archive to index.
+
+Independent [preparation review](hu100-seed-qualification-artifacts/preparation-review.json)
+found no blocker for documentation-only preparation and confirmed #207 remains
+unresolved. Its qualification-safeguard clarification was applied: acceptance
+also needs all three fixed endpoints, integrity/replay/reproduction/storage/
+evidence gates, matching on-menu controls and no random severe-regression flag.
+This review certifies neither a future runner nor #207's raw science/archive.
+Staged artifact and whitespace checks pass on Python 3.11. An initial macOS
+Python 3.9 artifact invocation failed on unsupported `zip(strict=True)`;
+the supported interpreter passed. A local CI prose-only invocation lacked PR
+event context and refused; this data-receipt diff correctly uses full host CI.
+Final-head CI status and the amendment review remain on PR211.
 
 Recommendation now: **retain the prospective v0.5 recipe as unqualified**.
 #207's single-seed loose-aggressive and pot-translation gains remain promising;

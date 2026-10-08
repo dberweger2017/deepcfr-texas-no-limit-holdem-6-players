@@ -1,5 +1,7 @@
 # HU100 independent-seed qualification: prospective protocol
 
+[PR211](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/211) · draft, unmerged.
+
 Prepared October 9, 2026 (Europe/Madrid), on
 `feature/hu100-seed-qualification`. The owner authorizes free M4 campaign
 computation for at most six hours and requires the new PR to remain unmerged.
@@ -104,7 +106,11 @@ the adjusted lower bound >**10 BB/100**, fixed here before outcomes. Report
 each opponent's growth and the translation effect as repeating only if its
 contrast improves in all three completed seeds; say separately whether all
 three clear the practical threshold. Overall recipe qualification requires
-all six growth and all three translation contrasts improve. Inconclusive
+all six growth and all three translation contrasts improve, all three fixed
+1B endpoints complete, all integrity/replay/reproduction/storage/evidence gates
+pass, exact on-menu controls match and no random severe-regression flag occurs.
+The random flag is a conservative operational safeguard, not an extra formal
+statistical claim or proof of noninferiority when absent. Inconclusive
 tight growth cannot be silently replaced by loose-only success.
 
 Keep check_call/tight_aggressive/loose_aggressive as exact on-menu translation
