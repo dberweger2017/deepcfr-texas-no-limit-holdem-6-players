@@ -1,5 +1,7 @@
 # v0.4.2 release readiness
 
+**Published and verified as stable Latest on October 8, 2026.** [Release](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.2), [final publication/download/runtime record](PUBLICATION.md). Exact tagged source `a53f167fa736a481339034d1a7235202d599418c`; v0.4.0/v0.4.1 remain available.
+
 The owner explicitly authorized the release PR, merge after independent review and green checks, tag and stable Latest publication in chat. This release uses only #188's canonical `research/package/` fixed-first-seed 2026100601 model. The original unpublished preparation and its publication hold remain preserved as provenance; that dated hold has been superseded by the owner's authorization.
 
 The [updated decision table](../../reports/hu20-v042-lbr-confirmation.md) combines #185's direct **+3.50 [+1.63, +5.37] BB/100**, pressure and panel passes with #188's fresh LBR **−1.092 [−4.965, +2.782] BB/100**. All four declared gates pass. The LBR lower bound clears −5 by only 0.034777, with half-width 3.873710. This is not evidence of LBR improvement or each seed's non-regression. The released model supports heads-up 20 BB only, with no professional-strength claim.
@@ -28,7 +30,7 @@ python3.11 verify_v042_bundle.py . --expect-source TAGGED_COMMIT --require-publi
 
 The deterministic M4 smoke completed in **80.45 seconds**, with **four human hands /37 actions /16 bot positions** and **four spectator hands /15 decisions**, all independently replayed and settled. Human play covers both seats, restricted/free sizing and one exact 201-chip raise; spectator covers v0.4.2 against each older release. All recorded bot positions were trained entries in this small sample; this does not establish coverage over all play. Catalog/default/model hashes and all three available versions match. [Summary](verification/smoke-summary.json), [source binding](verification/smoke-source-binding.json), [resource receipt](verification/smoke-resource-receipt.json). Peak RSS **2,959,736,832 bytes /2.76 GiB**, below the 3-GiB guard; minimum free disk **100,125,777,920 bytes**, above 15 GiB. No arena or strength estimate was run. Complete private journals/source inventories remain in the own ignored M4 release root.
 
-[Release PR #198](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/198) records final-head review, CI, merge and subsequent publication/download receipts. Stable Latest publication remains conditional on the sequence below.
+[Release PR #198](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/198) records final-head review, CI, merge and subsequent publication/download receipts. The sequence below completed; final download/source/runtime and older-release checks pass as recorded above.
 
 ## Review and publication sequence
 
