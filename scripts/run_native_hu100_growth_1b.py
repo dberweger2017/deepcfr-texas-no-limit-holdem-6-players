@@ -57,6 +57,8 @@ def identity():
         raise ValueError("Only the free M4 is authorized")
     if int(subprocess.check_output(["sysctl","-n","hw.memsize"],text=True)) != 16*GIB:
         raise ValueError("Expected 16 GiB M4")
+    if int(subprocess.check_output(["sysctl","-n","hw.ncpu"],text=True)) != 10:
+        raise ValueError("Expected 10-core M4")
     return subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
 
 def limits(sample, swap0, rss):
@@ -81,6 +83,8 @@ def operation(name, command, *, stop_file=None, accepted=(0,), deadline=None):
     OUT.mkdir(parents=True, exist_ok=True)
     guard = OUT / "operations" / name
     guard.mkdir(parents=True)
+    if (OUT/"campaign-failure.json").exists():
+        raise ValueError("Campaign is stopped after a failure; inspect retained evidence")
     admission = host()
     baseline = OUT / "baseline.json"
     if not baseline.exists():
@@ -133,6 +137,8 @@ def operation(name, command, *, stop_file=None, accepted=(0,), deadline=None):
                 raise RuntimeError(f"Worker {name} exited {child.returncode}")
     except BaseException as exc:
         failure=repr(exc)
+        if not (OUT/"campaign-failure.json").exists():
+            write(OUT/"campaign-failure.json",{"operation":name,"at":time(),"failure":failure})
         raise
     finally:
         if child is not None and child.poll() is None:
@@ -215,7 +221,7 @@ def freshness():
             if seeds & previous:
                 raise ValueError(f"Physical deal collision {earlier}/{root}")
         seen[root]=seeds
-    return {"status":"verified","roots":[{"root":r,"blocks":b} for _,r,b in roots],
+    return {"status":"verified","roots":[{"root":r,"blocks":next(b for _,root,b in roots if root==r)} for r in seen],
             "all_pairwise_disjoint":True}
 
 def panel(prefix, label, spec, blocks, root, revision, *, translated=False,
@@ -263,16 +269,20 @@ def prepare():
     models_bytes=math.ceil((40+sum(v["bytes"] for p,v in assets.items()
                                   if Path(p).name!="checkpoint.gz")/entries)*sum(forecast_entries)*1.10)
     raw_bytes=sum(p.stat().st_size for root in ("pilot","pilot-reproduction")
-                  for p in (OUT/root).rglob("*") if p.is_file())
+                  for p in (OUT/root).rglob("*") if p.is_file() and "models" not in p.relative_to(OUT/root).parts)
     raw_forecast=math.ceil(raw_bytes*BLOCKS/16*3)
     disk=host()["disk_free_bytes"]
     # Account for already retained gate bytes once: archive requires their
     # second copy; subsequent model sets require both originals and ZIP bytes.
     gate_bytes=sum(v["bytes"] for v in assets.values())
-    required_disk=2*models_bytes-gate_bytes+2*raw_forecast+512*1024**2
+    average_bpe=next(v["bytes"] for p,v in assets.items() if Path(p).name=="average.gz")/entries
+    snapshot_bytes=math.ceil(2*average_bpe*(sum(forecast_entries)+forecast_entries[-1])*1.10)
+    retained_now=sum(p.stat().st_size for p in OUT.rglob("*") if p.is_file())
+    future_model_bytes=models_bytes-math.ceil(models_bytes*entries/sum(forecast_entries))
+    required_disk=2*(future_model_bytes+snapshot_bytes+raw_forecast)+retained_now+512*1024**2
     op=lambda name:read(OUT/"operations"/name/"receipt.json")
     training_seconds=max(.001,telemetry["elapsed_seconds_including_writes"]-telemetry["write_seconds"])
-    train_quote=3*(1_000_000_000/telemetry["completed_nodes"])*training_seconds
+    train_quote=6*(1_000_000_000/telemetry["completed_nodes"])*training_seconds
     save_quote=2*telemetry["write_seconds"]*sum(forecast_entries[1:])/entries
     tool_quote=2*(op("gate-export")["seconds"]+op("gate-audit")["seconds"])*sum(forecast_entries[1:])/entries
     loads=0;scalable=0
@@ -293,27 +303,208 @@ def prepare():
              "memory_entry_ceiling":memory_capacity(),"memory_formula":"110 B/entry + 100 MB",
              "family_soft_bytes":FAMILY_SOFT,"family_hard_bytes":FAMILY_HARD,
              "forecast_entries_parent_100m_250m_500m_1b":forecast_entries,
-             "gate_combined_asset_bytes_per_entry":combined_bpe,"retained_models_forecast_bytes":models_bytes,
+             "gate_combined_asset_bytes_per_entry":combined_bpe,"retained_models_forecast_bytes":models_bytes,"final_model_snapshot_forecast_bytes":snapshot_bytes,
              "pilot_raw_bytes":raw_bytes,"retained_final_raw_forecast_bytes":raw_forecast,
              "additional_disk_required_bytes":required_disk,"disk_free_bytes":disk,
              "disk_floor_bytes":DISK_FLOOR,"disk_shortfall_bytes":max(0,required_disk+DISK_FLOOR-disk),
              "cost_seconds":{"training":train_quote,"saves":save_quote,"exports_and_audits":tool_quote,
                              "play_replay_reproduction":play_quote,"report_archive_reserve":600,"total":total},
              "measured_pilot_loads_seconds":loads,"measured_pilot_scalable_seconds":scalable,
-             "budget_formula":"3x slower-node training; 2x save/tool entry scaling; 3x measured play/load scaling; 600s closeout",
+             "budget_formula":"6x gate nonsave node cost for later cache slowdown; 2x save/tool entry scaling; 3x measured play/load scaling; 600s closeout",
              "limits":"Entry and storage projections are extrapolations; measured guards remain authoritative."}
-    write(OUT/"preflight.json",receipt)
+    write(OUT/"preflight-corrected.json",receipt)
     print(json.dumps(receipt,indent=2))
 
 def read_telemetry(path):
     return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
 
+
+def clean_source():
+    revision=identity()
+    if subprocess.check_output(["git","status","--porcelain","--untracked-files=all"],text=True).strip():
+        raise ValueError("Committed clean source required")
+    if file_hash(BINARY) != "7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262":
+        raise ValueError("STOP: gated native binary changed")
+    return revision
+
+def train():
+    revision=clean_source()
+    preflight=read(OUT/"preflight-live.json")
+    readiness=read(OUT/"training-ready.json")
+    if readiness["source"]!=revision or not readiness["owner_confirmed_ready"]:
+        raise ValueError("Owner readiness confirmation required immediately before training")
+    if readiness["preflight_sha256"]!=file_hash(OUT/"preflight-live.json"):
+        raise ValueError("Training readiness quote changed")
+    if preflight["status"]!="admitted":
+        raise ValueError("Storage not admitted")
+    if host()["disk_free_bytes"]-preflight["additional_disk_required_bytes"] < DISK_FLOOR:
+        raise ValueError("Fresh disk admission refused")
+    if (read(OUT/"gate/gate.json")["status"]!="passed"
+        or file_hash(OUT/"gate/checkpoint.gz")!=CHECKPOINT_SHA
+        or file_hash(OUT/"gate/average.gz")!=AVERAGE_SHA):
+        raise ValueError("Exactness gates required and bytes must remain unchanged")
+    folder=OUT/"training"
+    folder.mkdir()
+    targets=(100000000,250000000,500000000,1000000000)
+    for n in targets:
+        (folder/str(n)).mkdir()
+    stop=folder/"stop.json"
+    cap=memory_capacity()
+    write(folder/"intent.json",{"source":revision,"seed":2026100601,"target_nodes":1000000000,
+          "milestones":list(targets[:-1]),"entry_ceiling":cap,"fresh_from_seed":True,
+          "preflight_sha256":file_hash(OUT/"preflight-live.json"),"started":time()})
+    operation("main-train",[BINARY,"train","--stack-bb","100","--seed","2026100601",
+              "--roots-per-seat","1","--average-rule","opponent-sampled","--nodes","1000000000",
+              "--max-entries",cap,"--milestones","100000000,250000000,500000000",
+              "--telemetry",folder/"telemetry.jsonl","--stop-file",stop,
+              "--out",folder/"{nodes}/checkpoint.gz"],stop_file=stop,accepted=(0,3))
+    records=read_telemetry(folder/"telemetry.jsonl")
+    if not records:
+        raise ValueError("No training checkpoint saved")
+    receipt=read(OUT/"operations/main-train/receipt.json")
+    terminal=records[-1]
+    if receipt["returncode"]==3 and not (stop.exists() or terminal["diagnostics"]["entries"]>=cap):
+        raise ValueError("STOP: native capacity exit has no resource cause")
+    samples=read_telemetry(OUT/"operations/main-train/resources.jsonl")
+    previous_end=receipt["started"]
+    previous_elapsed=0
+    annotated=[]
+    for record in records:
+        checkpoint=Path(record["path"])
+        if file_hash(checkpoint)!=record["checkpoint_sha256"]:
+            raise ValueError("STOP: saved checkpoint exactness mismatch")
+        export_audit(checkpoint.parent,"save-"+str(record["requested_nodes"]),record["completed_nodes"])
+        audit=read(checkpoint.parent/"audit.json")
+        if audit["entries"]!=record["diagnostics"]["entries"]:
+            raise ValueError("STOP: audited entry count differs")
+        segment_peak=max((r["family_rss_bytes"] for r in samples
+                         if previous_end<=r["at"]<=record["write_finished"]),default=0)
+        elapsed=record["elapsed_seconds_including_writes"]-previous_elapsed
+        nonsave=max(.001,elapsed-record["write_seconds"])
+        annotated.append({**record,"sampled_family_peak_since_previous_save_bytes":segment_peak,
+                          "forecast_family_bytes":110*audit["entries"]+100000000,
+                          "recent_nodes_per_second_excluding_save":record["nodes_since_previous_save"]/nonsave,
+                          "audit_status":"verified"})
+        previous_end=record["write_finished"]
+        previous_elapsed=record["elapsed_seconds_including_writes"]
+    from scripts.native_hu100_model_metadata import audited_average_spec
+    models=[gate_spec()]
+    for record in records:
+        directory=Path(record["path"]).parent
+        models.append(audited_average_spec(directory/"average.gz",read(directory/"audit.json"),
+                      checkpoint_sha256=record["checkpoint_sha256"],actual_nodes=record["completed_nodes"]))
+    settings=config(models[0])
+    settings.pop("model")
+    settings["models"]=models
+    write(OUT/"evaluation/settings.json",settings)
+    write(folder/"result.json",{"status":"target-complete" if terminal["completed_nodes"]>=1000000000 else "capacity-stop",
+          "source":revision,"entry_ceiling":cap,"saves":annotated,"terminal_nodes":terminal["completed_nodes"],
+          "terminal_entries":terminal["diagnostics"]["entries"],"main_operation":receipt,
+          "fresh_from_seed":True,"all_saves_exported_and_audited":True,"finished":time()})
+
+def freeze_final():
+    revision=clean_source()
+    settings=read(OUT/"evaluation/settings.json")
+    preflight=read(OUT/"preflight-live.json")
+    review=read(OUT/"source-review.json")
+    if review["status"]!="passed" or review["source"]!=revision:
+        raise ValueError("One independent source review of exact execution source required")
+    from scripts.report_native_hu100_learning_curves import frozen_schedule
+    schedule=frozen_schedule(settings,BLOCKS,FINAL_ROOT)
+    write(OUT/"evaluation/frozen-schedule.json",schedule)
+    write(OUT/"evaluation/frozen-final.json",{"source":revision,"blocks_per_opponent":BLOCKS,
+          "final_root":FINAL_ROOT,"pilot_root":PILOT_ROOT,"pilot_outcomes_inspected":False,
+          "settings_sha256":file_hash(OUT/"evaluation/settings.json"),
+          "schedule_sha256":file_hash(OUT/"evaluation/frozen-schedule.json"),
+          "execution_budget_seconds":math.ceil(preflight["cost_seconds"]["play_replay_reproduction"]+600),
+          "parent_actual_nodes":39438279,"primary_family_size":2,"secondary_family":"terminal translation pot_pressure only"})
+
+def final():
+    revision=clean_source()
+    folder=OUT/"evaluation"
+    freeze=read(folder/"frozen-final.json")
+    settings=read(folder/"settings.json")
+    posted=read(OUT/"final-budget-posted.json")
+    if posted["source"]!=revision or posted["freeze_sha256"]!=file_hash(folder/"frozen-final.json"):
+        raise ValueError("Measured frozen final budget must be posted on PR before final play")
+    if freeze["source"]!=revision or freeze["settings_sha256"]!=file_hash(folder/"settings.json"):
+        raise ValueError("Final source/settings differ")
+    if file_hash(folder/"frozen-schedule.json")!=freeze["schedule_sha256"]:
+        raise ValueError("Frozen schedule changed")
+    started=time()
+    deadline=started+freeze["execution_budget_seconds"]
+    write(folder/"final-intent.json",{"source":revision,"started":started,"deadline":deadline,
+          "freeze_sha256":file_hash(folder/"frozen-final.json")})
+    models=settings["models"]
+    first=str(models[0]["actual_nodes"])
+    # panel uses the same five-opponent arena and private streams for every model.
+    # Evaluate in the reporter's established directory layout.
+    for i,spec in enumerate(models):
+        label=str(spec["actual_nodes"])
+        panel("evaluation/final",label,spec,BLOCKS,FINAL_ROOT,revision,
+              reference=folder/"final"/first if i else None,
+              repeat_reference=OUT/"evaluation/final-reproduction"/first if i else None,deadline=deadline)
+        # Strict reporter expects the audit beside the frozen settings.
+        shutil.copyfile(folder/"final"/(label+"-audit.json"),folder/("final-"+label+"-audit.json"))
+    terminal=models[-1]
+    label="translated-"+str(terminal["actual_nodes"])
+    panel("evaluation/final",label,terminal,BLOCKS,FINAL_ROOT,revision,translated=True,
+          reference=folder/"final"/first,repeat_reference=OUT/"evaluation/final-reproduction"/first,deadline=deadline)
+    operation("strict-report",[sys.executable,"-m","scripts.run_native_hu100_growth_1b","report"],deadline=deadline)
+    write(folder/"complete.json",{"status":"verified","source":revision,"started":started,"finished":time(),
+          "deadline":deadline,"all_final_hands_replayed_and_reproduced":True})
+
+def report():
+    from scripts.report_native_hu100_growth_1b import report as growth_report
+    from scripts.report_native_hu100_learning_curves import interval
+    from src.arena.artifacts import write_json
+    folder=OUT/"evaluation"
+    result=growth_report(folder)
+    models=read(folder/"settings.json")["models"]
+    terminal=models[-1]
+    n=str(terminal["actual_nodes"])
+    from scripts.report_native_hu100_learning_curves import summarize
+    secondary=OUT/"secondary-strict"
+    secondary.mkdir()
+    (secondary/"final").mkdir()
+    (secondary/"final-reproduction").mkdir()
+    (secondary/"final"/n).symlink_to(folder/"final"/("translated-"+n),target_is_directory=True)
+    (secondary/"final-reproduction"/n).symlink_to(OUT/"evaluation/final-reproduction"/("translated-"+n),target_is_directory=True)
+    for name in ("frozen-final.json","frozen-schedule.json"):
+        shutil.copyfile(folder/name,secondary/name)
+    shutil.copyfile(folder/"final"/("translated-"+n+"-audit.json"),secondary/("final-"+n+"-audit.json"))
+    summarize(secondary,{**read(folder/"settings.json"),"models":[terminal]},
+              secondary/"paired-summary.json",formal_opponents=())
+    values={}
+    for label in (n,"translated-"+n):
+        coords={}
+        for line in (folder/"final"/label/"pot_pressure/hands.jsonl").read_text().splitlines():
+            row=json.loads(line)
+            if row["arm"]=="candidate":
+                coord=(row["block"],row["rotation"])
+                if coord in coords or row["status"]!="completed":
+                    raise ValueError("Duplicate or failed secondary hand")
+                coords[coord]=row["candidate_chips"]
+        if set(coords)!={(b,r) for b in range(BLOCKS) for r in (0,1)}:
+            raise ValueError("Incomplete secondary paired blocks")
+        values[label]=[(coords[b,0]+coords[b,1])/2 for b in range(BLOCKS)]
+    contrast=interval([a-b for a,b in zip(values["translated-"+n],values[n],strict=True)])
+    audit=read(folder/"final"/("translated-"+n+"-audit.json"))
+    repeat=read(OUT/"evaluation/final-reproduction"/("translated-"+n)/"complete.json")
+    if audit["status"]!="verified" or not repeat["reproduced_all_hands_and_decisions"]:
+        raise ValueError("Secondary final replay/reproduction required")
+    result["secondary"]={"opponent":"pot_pressure","terminal_nodes":terminal["actual_nodes"],
+          "translated_minus_off":contrast,"improvement":contrast["interval"][0]>0,
+          "family":"separately predeclared ordinary paired 95%"}
+    result["unique_final_hands_including_translated_arm"]=BLOCKS*(10+10*(len(models)+1))
+    write_json(folder/"campaign-result.json",result)
+
 def main():
     p=argparse.ArgumentParser()
-    p.add_argument("stage",choices=("gate","pilot"))
+    p.add_argument("stage",choices=("gate","pilot","train","freeze-final","final","report"))
     a=p.parse_args()
     identity()
-    (gate if a.stage=="gate" else pilot)()
+    {"gate":gate,"pilot":pilot,"train":train,"freeze-final":freeze_final,"final":final,"report":report}[a.stage]()
 
 if __name__=="__main__":
     main()

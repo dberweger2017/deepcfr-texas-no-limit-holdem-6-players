@@ -72,7 +72,8 @@ a demonstrated trainer defect stops and is reported.
 Measured gate training/save/export/audit and timing-only play/replay/reproduction
 costs determine the quote. Extrapolate costs by nodes/entries with explicit
 headroom, including larger-model loads and slow late training. Post the quote
-in the PR body before final play. No inherited 30-minute cap or arbitrary
+in the PR body before final play. Main training additionally requires the
+owner's requested readiness confirmation immediately before launch. No inherited 30-minute cap or arbitrary
 time cutoff. Final execution uses the pre-play measured frozen budget.
 Admission forecasts both retained originals and ZIP archives, with measured
 pilot raw-hand storage and a fixed disk floor. A storage shortfall refuses
@@ -95,3 +96,28 @@ No extra metadata seals; compact later acceptance/review receipts remain in Git.
 PR/report explain problem, design, evidence and limits in plain language.
 Update Current position with one short entry when the work lands.
 
+
+## Measured preparation, before training
+
+Both exact gates and full audit passed. The 16-block/opponent pilot at
+26a8ed429ea186d45d4ad70d25c0ac381b643d49 fully replayed/reproduced; no
+winnings inspected. Freeze 2,048 blocks/opponent/policy. Measurements:
+train/save 40.01s (native nonsave 16.76s, save 22.35s); streaming export
+75.80s; full audit 171.41s; four policy loads 128.59s and scalable
+play/replay/reproduction 3.437s. Main projected upper budget: training
+42.50min (6x early gate node cost for later cache slowdown), saves 10.86min
+(2x entry scaling), exports/audits 120.08min (2x), play/replay/reproduction
+135.05min (3x loads/blocks scaling), closeout reserve 10min: **318.49min**.
+This is an upper admission quote with headroom, not a 30-minute cap.
+Nominal save/tool/play projections total about 2h20 plus training and closeout.
+
+Memory entry ceiling **57,658,644**, leaving 2 GiB below the hard family guard.
+The 1B entry extrapolation is 45,156,725, about 4.73 GiB forecast family RSS.
+Storage requires **45.65 GB additional**, including retained original model
+sets, arena model snapshots, final raw/reproduction, a complete ZIP copy and
+512 MiB fixed reserve. Require **62.30 GB /58.02 GiB free** immediately before
+training to preserve the 15.5 GiB floor. At the corrected preparation snapshot
+50.09 GiB was free, 8.52 GB short; the owner is making space. The original
+incorrect raw forecast scaled fixed model snapshots by blocks and is preserved
+alongside the corrected receipt; it admitted no training. A duplicate prior-root
+setup refusal also preceded every pilot hand.
