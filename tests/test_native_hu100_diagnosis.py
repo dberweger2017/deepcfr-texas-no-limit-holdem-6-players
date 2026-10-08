@@ -1,6 +1,8 @@
 """Diagnostic correctness: off-menu sizes, abstract support and stored joins."""
 
 from dataclasses import asdict
+import fcntl
+import json
 
 import pytest
 
@@ -78,3 +80,34 @@ def test_missing_rows_do_not_dilute_covered_mass_or_visit_means():
     assert result['mean_visits'] == 2
     assert result['covered_decisions'] == 1
     assert result['decisions'] == 2
+
+
+def test_analysis_reserves_closeout_and_archive_requires_terminal_work(tmp_path, monkeypatch):
+    from scripts import run_native_hu100_diagnosis as launcher
+    budget = {'source': 'revision', 'deadline': 1800, 'swap_baseline': 'baseline',
+              'limits': {'rss_gib': 4, 'disk_gib': 20, 'swap_gib': .25}}
+    (tmp_path / 'budget.json').write_text(json.dumps(budget))
+    monkeypatch.setattr(launcher.subprocess, 'check_output', lambda command, **kw:
+                        'revision\n' if command[1] == 'rev-parse' else '')
+    captured = []
+    monkeypatch.setattr(launcher, 'run', lambda jobs, out, deadline, **kw:
+                        captured.append(deadline) or {'status': 'complete'})
+    launcher.guard(tmp_path, 'analysis', [])
+    assert captured == [1560]
+    with pytest.raises(RuntimeError, match='terminal'):
+        launcher.guard(tmp_path, 'archive', [])
+    prior = tmp_path / 'guard-analysis'; prior.mkdir()
+    (prior / 'campaign.json').write_text(json.dumps({'status': 'running'}))
+    with pytest.raises(RuntimeError, match='terminal'):
+        launcher.guard(tmp_path, 'archive', [])
+    (prior / 'campaign.json').write_text(json.dumps({'status': 'incomplete'}))
+    launcher.guard(tmp_path, 'archive', [])
+    assert captured == [1560, 1800]
+
+
+def test_root_lock_prevents_overlapping_science_and_archive(tmp_path):
+    from scripts.run_native_hu100_diagnosis import guard
+    with (tmp_path / 'phase.lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        with pytest.raises(BlockingIOError):
+            guard(tmp_path, 'archive', [])
