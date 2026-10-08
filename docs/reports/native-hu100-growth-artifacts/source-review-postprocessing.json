@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "source": "ae8d9b83638cdfe96df0849f5ed6bfe6874d53eb",
+  "reviewer": "independent Codex execution_review subagent",
+  "blocking_findings": [],
+  "tests": "22 passed; independently reconstructed frozen ed9 source fingerprint",
+  "frozen_evaluation_source": "ed9be57b0201b2967186fc9a1077545cbb294286",
+  "git_source_fingerprint": "a8915e6a867eab543f0482d509acbe55225f35938d1034c2d12d76eca85ffec9",
+  "scope": "All forty manifest source hashes; fixed model order/sample; retained output/guard hashes; exact untracked binary refusal; no hand rerun path; one-use original-deadline guarded reporting/archive; original failed state retained",
+  "limits": "No M4 access or scientific execution"
+}
