@@ -105,3 +105,19 @@ counts, traces, resource samples, audits, reproduction and failures in the new P
 Research-Cloud archive with member manifests and retrieval provenance. Git holds
 the report, compact receipts/CSV summaries and exportable plots. One training seed
 and one evaluation root make this a limited descriptive study of scripted play.
+
+## Recorded between-stage admission refusal
+
+The initial worker refused fresh system-headroom admission after all four earlier
+checkpoints had completed play, replay and reproduction. The fifth final panel
+had never started; the original refusal, terminal state and guard remain immutable.
+Before inspecting poker outcomes, an operational continuation was prepared to
+fill only that missing panel under the **same original absolute deadline**. It
+does not restart the campaign, repeat passed or partial play, change counts/seeds,
+reset the clock or relax any guard. A source-reviewed, tested single-use controller
+requires recovered full admission headroom, four complete earlier stages, no
+fifth output/log/audit, no prior live job and unchanged source/config/freeze hashes.
+Any second refusal or partial fifth stage stays terminal; no retry is admitted.
+The separate controller hash and guard receipts must accompany the original
+scientific-source provenance. This operational amendment changes no comparison,
+statistical family, model, opponent or outcome-dependent rule.
