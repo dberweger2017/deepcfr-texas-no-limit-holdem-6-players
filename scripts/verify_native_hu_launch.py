@@ -16,6 +16,7 @@ from time import time
 from scripts.prepare_native_hu_campaign import digest, file_hash
 from scripts.prepare_native_hu_execution import (DEADLINE, qualification, checked_equivalence,
                                                validate_capacity, verify_pilot_prerequisites)
+from scripts.native_hu_followup_limits import envelope, memory_snapshot, unsafe_memory
 
 NOT_BEFORE=datetime(2026,10,8,2,tzinfo=timezone.utc).timestamp()
 OWNER_RELEASE = 'You can train on the m4 now, the pr is closing soon, no heavy more work on the m4, you can use it now'
@@ -42,6 +43,13 @@ def verify(plan_path):
     content={k:v for k,v in p.items() if k != 'plan_sha256'}
     if digest(content) != p['plan_sha256']:
         raise ValueError('Prepared plan changed')
+    limits=envelope(p.get('followup_approval_path'))
+    if p.get('followup_approval_path'):
+        if file_hash(Path(p['followup_approval_path']))!=p.get('followup_approval_sha256'):
+            raise ValueError('Owner follow-up approval changed')
+        if unsafe_memory(memory_snapshot(),admission=True,rss_gib=limits['rss_gib']):
+            raise ValueError('System memory headroom/pressure is unsafe')
+        if p['limits']['rss_gib']!=10: raise ValueError('Follow-up aggregate ceiling must be exactly 10 GiB')
     if not NOT_BEFORE <= time() < p['hard_deadline'] <= DEADLINE:
         raise ValueError('Campaign deadline has passed or exceeds owner ceiling')
     if platform.system() != 'Darwin': raise ValueError('PR197 uses the free M4 macOS worker only')
@@ -61,6 +69,10 @@ def verify(plan_path):
     for field in ('equivalence','capacity'):
         if field+'_path' in p and file_hash(Path(p[field+'_path'])) != p[field+'_sha256']:
             raise ValueError(f'{field} receipt changed')
+    for name,spec in p.get('retained_inputs',{}).items():
+        path=Path(name)
+        if path.stat().st_size!=spec['bytes'] or file_hash(path)!=spec['sha256']:
+            raise ValueError('Retained verification input changed')
     if 'equivalence_path' in p:
         checked_equivalence(Path(p['equivalence_path']),source,binary,p['campaign_swap_baseline'])
     if 'parent_path' in p and file_hash(Path(p['parent_path'])) != p['parent_sha256']:
@@ -90,6 +102,8 @@ def verify(plan_path):
     # claim to reconcile, never a reason to launch again into a different root.
     state_path=Path(admission['campaign_state_path'])
     state=json.loads(state_path.read_text())
+    if p['stage']=='verification' and (not p.get('followup_approval_path') or state.get('verification_attempt_claimed')):
+        raise ValueError('One approved retained verification attempt only; no second retry')
     if state.get('active_attempt') is not None:
         raise ValueError('Another campaign attempt is active or uncertain; reconcile it first')
     claim={'status':'launch-intent','pid':os.getpid(),'source':source,'plan_sha256':p['plan_sha256'],
@@ -102,6 +116,7 @@ def verify(plan_path):
         raise ValueError('Campaign became active before claim; retain lock evidence')
     with (root/'LAUNCH.json').open('x') as f: json.dump(claim,f); f.write('\n'); f.flush(); os.fsync(f.fileno())
     state['active_attempt']=claim; state.setdefault('launch_attempts',[]).append(claim)
+    if p['stage']=='verification': state['verification_attempt_claimed']=True
     temporary=state_path.with_name(state_path.name+'.tmp')
     temporary.write_text(json.dumps(state,sort_keys=True,indent=2)+'\n'); os.replace(temporary,state_path)
     return claim

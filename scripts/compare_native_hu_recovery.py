@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 import struct
 import subprocess
+import sys
 
 from scripts.audit_native_hu_checkpoint import inspect
 from scripts.prepare_native_hu_campaign import REFERENCE, SEED, file_hash
@@ -56,7 +57,8 @@ def receipt(path, checkpoint):
 
 
 def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
-            reference_current, reference_average, resumed_current, resumed_average):
+            reference_current, reference_average, resumed_current, resumed_average,
+            training_qualification=None, isolated_audits=False):
     reference_plan_path, resumed_plan_path = reference_telemetry.parent/'plan.json', resumed_telemetry.parent/'plan.json'
     plans = [json.loads(p.read_text()) for p in (reference_plan_path,resumed_plan_path)]
     baseline = plans[0].get('campaign_swap_baseline')
@@ -79,7 +81,17 @@ def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
         or r['binary_sha256'] != parent_receipt.get('binary_sha256')):
         raise ValueError('Reference/resume executed binary differs')
     source = subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
-    if any(p.get('source') != source or p.get('binary_sha256') != r['binary_sha256'] for p in plans):
+    training_source = source
+    if training_qualification is not None:
+        q = json.loads(training_qualification.read_text())
+        if (q.get('status') != 'verified' or not q.get('independent_review')
+            or not q.get('checks') or any(c.get('status') != 'passed' for c in q['checks'])
+            or q.get('binary_sha256') != r['binary_sha256'] or not q.get('source')):
+            raise ValueError('Retained training qualification differs')
+        training_source = q['source']
+        if any(p.get('qualification_sha256') != file_hash(training_qualification) for p in plans):
+            raise ValueError('Original plans do not bind retained training qualification')
+    if any(p.get('source') != training_source or p.get('binary_sha256') != r['binary_sha256'] for p in plans):
         raise ValueError('Executed source/binary differs from reference/recovery plans')
     if (r['requested_nodes'] != 1000000000 or s['requested_nodes'] != 1000000000
         or r['completed_nodes'] != s['completed_nodes'] or r['iteration'] != s['iteration']):
@@ -123,8 +135,11 @@ def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
     if file_hash(reference_current) != file_hash(resumed_current):
         raise ValueError('Current inference bytes differ')
     # These audits independently recompute every output row from training state.
-    original_audit = inspect(reference, reference_current, reference_average, 20)
-    recovered_audit = inspect(resumed, resumed_current, resumed_average, 20, hu20_reference=False)
+    # A fresh process releases each full audit's table/allocator before the next
+    # audit. The parent retains only its compact receipt; checks are unchanged.
+    auditor = isolated_inspect if isolated_audits else inspect
+    original_audit = auditor(reference, reference_current, reference_average, 20)
+    recovered_audit = auditor(resumed, resumed_current, resumed_average, 20, hu20_reference=False)
     average_rows = 0
     with gzip_open(reference_average, 'rt') as left, gzip_open(resumed_average, 'rt') as right:
         lm, rm = json.loads(next(left)), json.loads(next(right))
@@ -143,6 +158,8 @@ def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
         raise ValueError('Average export does not cover the complete training table')
     return {'status': 'verified', 'scope': 'full HU20 legacy recovery state and current/average policy equivalence',
         'source': source, 'campaign_swap_baseline': baseline,
+        'executed_training_source': training_source, 'verifier_source': source,
+        'isolated_audits': isolated_audits,
         'binary_sha256': r['binary_sha256'],
         'seed': SEED, 'completed_nodes': r['completed_nodes'], 'iteration': h['iteration'],
         'entries': entries, 'training_float_equality': 'IEEE-754 bits, including signed zero',
@@ -156,7 +173,17 @@ def compare(reference, resumed, parent, reference_telemetry, resumed_telemetry,
         'files': {str(p.resolve()): {'bytes': p.stat().st_size, 'sha256': file_hash(p)} for p in
             (reference, resumed, parent, reference_telemetry, resumed_telemetry,
              reference_current, reference_average, resumed_current, resumed_average,
-             reference_plan_path,resumed_plan_path)}}
+             reference_plan_path,resumed_plan_path,
+             *((training_qualification,) if training_qualification is not None else ()))}}
+
+
+def isolated_inspect(checkpoint, current, average, bb, *, hu20_reference=True):
+    code = ('import json,sys; from pathlib import Path; '
+            'from scripts.audit_native_hu_checkpoint import inspect; '
+            'print(json.dumps(inspect(*(Path(p) for p in sys.argv[1:4]), '
+            'int(sys.argv[4]), hu20_reference=sys.argv[5]=="true")))')
+    return json.loads(subprocess.check_output([sys.executable, '-c', code,
+        str(checkpoint),str(current),str(average),str(bb),str(hu20_reference).lower()],text=True))
 
 
 def main():
@@ -166,10 +193,13 @@ def main():
     for field in fields:
         parser.add_argument('--'+field.replace('_','-'), type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--training-qualification',type=Path)
+    parser.add_argument('--isolated-audits',action='store_true')
     args = parser.parse_args()
     if args.out.exists():
         raise FileExistsError('Preserve prior audit evidence')
-    result = compare(**{k: getattr(args, k) for k in fields})
+    result = compare(**{k: getattr(args, k) for k in fields},
+                     training_qualification=args.training_qualification,isolated_audits=args.isolated_audits)
     with args.out.open('x') as target:
         json.dump(result, target, sort_keys=True, indent=2, allow_nan=False); target.write('\n')
 

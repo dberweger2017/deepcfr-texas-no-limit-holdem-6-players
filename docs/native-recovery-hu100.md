@@ -1,3 +1,29 @@
+**October 8 follow-up authorization:** [owner comment](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197#issuecomment-6054725121)
+authorizes one separately recorded verification attempt using retained HU20 files,
+then fresh HU100 only after full equivalence. The original 5.5-GiB stop remains a
+terminal historical result. The follow-up envelope is **10 GiB aggregate owned
+family RSS**, unchanged **0.5-GiB campaign swap growth**, **15.5-GiB disk floor**,
+AC and the unchanged **October 8 12:00 Madrid deadline**. A second resource stop
+or correctness mismatch is terminal; no automatic further retry. Heavy audits
+run sequentially in fresh processes; original training source/binary and new
+verifier source are recorded separately. No retained training is repeated.
+
+System guard: only the 16-GiB M4, normal pressure level, at least the full family
+ceiling plus 2 GiB system headroom before each heavy child. Record memory-pressure
+level/raw counters/free percentage continuously alongside family RSS. Stop on
+warning/critical/unknown pressure or free percentage below 15, even below RSS cap.
+During training request a controlled save when system free percentage reaches 25.
+Growth RSS soft stop is `10 GiB - measured serialization forecast - 0.5 GiB`;
+measured pilot write/export/audit/disk/time forecasts and 2× export/audit RSS remain
+required. All pilot audits gate growth, using the new pressure/resource envelope.
+Use a separate `followup-state.json`, permanent one-verification claim, fresh
+attempt directories and unchanged retained-file hashes/provenance. At most one
+30-minute execution timer and one hard-deadline wake; both disabled on terminal
+completion. Archives/independent review/green CI required; no merge, arena,
+publication, cleanup, paid compute or extension. [Pinned approval](../configs/native-hu100-followup-20261008.json).
+
+The protocol below records the original campaign envelope and owner amendments.
+
 # Verify native recovery and measure HU100 table growth
 
 **October 8 owner amendment:** M4 is released for this campaign immediately,

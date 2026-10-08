@@ -1,6 +1,10 @@
 # Native recovery and HU100 table growth — resource stop
 
-**HU20 reference verified; recovery equivalence unverified; HU100 not run.**
+**Original campaign: HU20 reference verified; recovery equivalence unverified;
+HU100 not run.** A separately authorized follow-up is now preparing the one
+retained-file verification attempt under the owner-comment-bound 10-GiB/system-
+pressure envelope. The deadline is still October 8 12:00 Madrid. No original
+training or evidence is overwritten; follow-up outcome is pending.
 The recovery comparator was terminated by the external aggregate-RSS guard at
 **08:10:02 Madrid /06:10:02 UTC on October 8, 2026**. This resource-ceiling result
 is terminal for this campaign: no retry, raised limit, or dependent HU100 launch.

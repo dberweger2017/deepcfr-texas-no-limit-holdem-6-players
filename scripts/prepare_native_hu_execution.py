@@ -18,10 +18,18 @@ from scripts.compare_native_hu_recovery import PARENT_SHA, receipt
 from scripts.prepare_native_hu_campaign import SEED, digest, file_hash, prepare
 from src.blueprint.average import checked_header
 from src.blueprint.abstraction import HU100_SCHEMA
+from scripts.native_hu_followup_limits import envelope
 
 DEADLINE = datetime(2026, 10, 8, 10, tzinfo=timezone.utc).timestamp()
 THREAD_URI = 't3://thread/495ca3f8-32db-4e73-98ad-29d01fb9e282'
 PILOT_NODES = (100000,1000000,5000000,10000000)
+
+
+def bind_followup(plan, approval):
+    if approval is not None:
+        envelope(approval)
+        plan.update(followup_approval_path=str(approval.resolve()),followup_approval_sha256=file_hash(approval))
+    return envelope(approval)
 
 
 def pilot_prerequisites(root):
@@ -57,13 +65,14 @@ def qualification(path, binary):
 
 
 def write_plan(out, plan, phases, swap_baseline, deadline):
+    limits=envelope(plan.get('followup_approval_path'))
     if not isfinite(deadline) or not datetime.now(timezone.utc).timestamp() < deadline <= DEADLINE:
         raise ValueError('Deadline must fit the owner October 8 12:00 Madrid ceiling')
     if out.exists(): raise FileExistsError('Use a fresh attempt root; never duplicate a launch')
     out.mkdir(parents=True); (out/'training').mkdir()
     plan.update(status='prepared-only', prepared_at=datetime.now(timezone.utc).isoformat(),
                 owner_instruction=THREAD_URI, campaign_swap_baseline=swap_baseline,
-                hard_deadline=deadline, limits={'rss_gib':5.5, 'swap_gib':.5, 'disk_gib':15.5, 'require_ac':True})
+                hard_deadline=deadline, limits={'rss_gib':limits['rss_gib'], 'swap_gib':.5, 'disk_gib':15.5, 'require_ac':True})
     plan['phase_jobs'] = {name: {'sha256':digest(jobs),'seconds':seconds,'extra_guard_arguments':extra} for name,jobs,seconds,extra in phases}
     plan['plan_sha256'] = digest(plan)
     (out/'plan.json').write_text(json.dumps(plan, sort_keys=True, indent=2)+'\n')
@@ -74,8 +83,9 @@ def write_plan(out, plan, phases, swap_baseline, deadline):
         jobs_path = out/f'{name}-jobs.json'
         jobs_path.write_text(json.dumps(jobs, indent=2)+'\n')
         guard = [sys.executable, '-m', 'scripts.hu20_scaling_supervise', '--jobs', str(jobs_path),
-                 '--out', str(out/f'{name}-guard'), '--rss-gib','5.5', '--disk-gib','15.5',
+                 '--out', str(out/f'{name}-guard'), '--rss-gib',str(limits['rss_gib']), '--disk-gib','15.5',
                  '--swap-gib','.5', '--require-ac', '--swap-baseline', swap_baseline] + extra
+        if limits['system_memory_guard']: guard += ['--system-memory-guard']
         phase_deadline = shlex.join([sys.executable, '-c', f'import time; print(min({deadline!r},time.time()+{seconds!r}))'])
         lines += [shlex.join(guard)+f' --deadline "$({phase_deadline})"']
     (out/'commands.txt').write_text('\n'.join(lines)+'\n')
@@ -153,11 +163,13 @@ def prepare_reference(out,binary,qualification_path,swap_baseline,deadline):
     return plan
 
 
-def prepare_pilot(out,binary,qualification_path,equivalence_path,swap_baseline,deadline):
+def prepare_pilot(out,binary,qualification_path,equivalence_path,swap_baseline,deadline,approval=None):
     out,binary = out.resolve(),binary.resolve()
     source,q = qualification(qualification_path,binary)
     checked_equivalence(equivalence_path,source,binary,swap_baseline)
     plan = prepare('pilot',out,binary,swap_baseline=swap_baseline,deadline=deadline)
+    limits=bind_followup(plan,approval)
+    if approval is not None: plan['limits']['rss_gib']=limits['rss_gib']
     plan.update(qualification=q,qualification_path=str(qualification_path.resolve()),
         qualification_sha256=file_hash(qualification_path),equivalence_path=str(equivalence_path.resolve()),
         equivalence_sha256=file_hash(equivalence_path),hard_deadline=deadline)
@@ -180,16 +192,21 @@ def prepare_pilot(out,binary,qualification_path,equivalence_path,swap_baseline,d
     (out/'plan.json').write_text(json.dumps(plan,sort_keys=True,indent=2)+'\n')
     (out/'export-audit-jobs.json').write_text(json.dumps(jobs,indent=2)+'\n')
     commands=(out/'commands.txt').read_text()
+    if approval is not None:
+        commands=commands.replace('--rss-gib 5.5','--rss-gib 10').replace('--require-ac','--require-ac --system-memory-guard')
     commands=commands.replace('set -eu\n','set -eu\n'+shlex.join([sys.executable,'-m','scripts.verify_native_hu_launch','--plan',str(out/'plan.json')])+'\n',1)
     (out/'commands.txt').write_text(commands)
     return plan
 
 
-def prepare_growth(out, binary, qualification_path, equivalence_path, pilot_root, swap_baseline, deadline, capacity_path):
+def prepare_growth(out, binary, qualification_path, equivalence_path, pilot_root, swap_baseline, deadline, capacity_path,approval=None):
     out, binary, pilot_root = (p.resolve() for p in (out,binary,pilot_root))
     source, q = qualification(qualification_path, binary)
     equivalence=checked_equivalence(equivalence_path,source,binary,swap_baseline)
     pp = json.loads((pilot_root/'plan.json').read_text())
+    limits=envelope(approval)
+    if approval is not None and pp.get('followup_approval_sha256')!=file_hash(approval):
+        raise ValueError('Pilot must bind the same owner follow-up envelope')
     a = json.loads((pilot_root/'audit-10000000.json').read_text())
     if (pp['source'] != source or pp['binary_sha256'] != file_hash(binary) or pp['stage'] != 'pilot'
         or pp.get('campaign_swap_baseline') != swap_baseline or pp.get('equivalence_sha256') != file_hash(equivalence_path)
@@ -204,8 +221,12 @@ def prepare_growth(out, binary, qualification_path, equivalence_path, pilot_root
     for phase in ('training','export-audit'):
         g=json.loads((pilot_root/f'{phase}-guard/campaign.json').read_text())
         samples=[json.loads(line) for line in (pilot_root/f'{phase}-guard/resources.jsonl').read_text().splitlines()]
+        if approval is not None and (g['limits'].get('rss_gib')!=10 or not g['limits'].get('system_memory_guard')
+            or any(not s.get('system_memory') or s['system_memory']['pressure_level']!=1
+                   or s['system_memory']['free_percent']<15 for s in samples)):
+            raise ValueError('Follow-up pilot needs continuous system-pressure evidence')
         if (g.get('swap_baseline') != swap_baseline or not samples
-            or any(s['aggregate_job_rss_bytes'] >= 5.5*1024**3 or s['swap_growth_bytes'] > .5*1024**3
+            or any(s['aggregate_job_rss_bytes'] >= limits['rss_gib']*1024**3 or s['swap_growth_bytes'] > .5*1024**3
                    or s['free_disk_bytes'] < 15.5*1024**3 or 'AC Power' not in (s.get('power') or '') for s in samples)):
             raise ValueError('Pilot resource telemetry/baseline is incomplete or breaches limits')
     for nodes in PILOT_NODES:
@@ -226,6 +247,8 @@ def prepare_growth(out, binary, qualification_path, equivalence_path, pilot_root
         raise ValueError('Pilot recipe/state differs')
     remaining = deadline-datetime.now(timezone.utc).timestamp()
     capacity=json.loads(capacity_path.read_text())
+    if approval is not None and capacity.get('followup_approval_sha256')!=file_hash(approval):
+        raise ValueError('Capacity must bind owner follow-up envelope')
     minimum_existing=sum(spec['bytes'] for spec in equivalence['files'].values())+sum(
         p.stat().st_size for p in pilot_root.rglob('*') if p.is_file())
     if capacity.get('retained_non_growth_bytes',0) < minimum_existing:
@@ -240,22 +263,28 @@ def prepare_growth(out, binary, qualification_path, equivalence_path, pilot_root
         '--max-entries',str(capacity['forecast_entry_ceiling']),'--max-seconds',str(remaining-save_reserve),
         '--out',str(out/'training/HU100-2026100601-{nodes}.json.gz'),
         '--stop-file',str(out/'controlled-stop.json'),'--telemetry',str(out/'checkpoints.jsonl')]
-    extra = ['--stop-file',str(out/'controlled-stop.json'),'--soft-rss-gib','4.0',
+    soft_rss=4.0 if approval is None else limits['rss_gib']-capacity['serialization_rss_bytes']/1024**3-.5
+    extra = ['--stop-file',str(out/'controlled-stop.json'),'--soft-rss-gib',str(soft_rss),
              '--save-reserve-seconds',str(save_reserve)]
-    return write_plan(out, {'stage':'growth','source':source,'binary_sha256':file_hash(binary),
+    plan={'stage':'growth','source':source,'binary_sha256':file_hash(binary),
         'binary':str(binary),'qualification_path':str(qualification_path.resolve()),'qualification_sha256':file_hash(qualification_path),
         'qualification':q,'seed':SEED,'target_total_nodes':10000000000,
         'equivalence_path':str(equivalence_path.resolve()),'equivalence_sha256':file_hash(equivalence_path),
         'pilot_root':str(pilot_root),'pilot_prerequisites':pilot_prerequisites(pilot_root),
         'pilot_audit_sha256':file_hash(pilot_root/'audit-10000000.json'),'parent_path':str(parent),
         'parent_sha256':file_hash(parent),'command':command,
-        'serialization_headroom_gib':1.5,'capacity_plan':capacity,'capacity_path':str(capacity_path.resolve()),
-        'capacity_sha256':file_hash(capacity_path)},
+        'serialization_headroom_gib':limits['rss_gib']-soft_rss,'capacity_plan':capacity,'capacity_path':str(capacity_path.resolve()),
+        'capacity_sha256':file_hash(capacity_path)}
+    bind_followup(plan,approval)
+    return write_plan(out,plan,
         [('training',[{'name':'train','command':command}],remaining,extra)],swap_baseline,deadline)
 
 
 def validate_capacity(c,pilot_root,training_deadline):
     import shutil
+    limits=envelope(c.get('followup_approval_path'))
+    if c.get('followup_approval_path') and file_hash(Path(c['followup_approval_path']))!=c.get('followup_approval_sha256'):
+        raise ValueError('Capacity owner approval changed')
     rows=[json.loads(line) for line in (pilot_root/'checkpoints.jsonl').read_text().splitlines()]
     if (c.get('pilot_telemetry_sha256') != file_hash(pilot_root/'checkpoints.jsonl')
         or c.get('pilot_audit_sha256') != file_hash(pilot_root/'audit-10000000.json')):
@@ -274,7 +303,7 @@ def validate_capacity(c,pilot_root,training_deadline):
          'serialization_rss_bytes','export_audit_rss_bytes','disk_reserve_bytes'))
         or c['save_reserve_seconds'] < minimum_write
         or c['serialization_rss_bytes'] < 32*n+64*1024**2
-        or c['serialization_rss_bytes'] >= 1.5*1024**3
+        or c['serialization_rss_bytes'] >= limits['serialization_gib']*1024**3
         or c['disk_reserve_bytes'] < minimum_disk+c['retained_non_growth_bytes']
         or c['archive_reserve_seconds'] < minimum_write*11
         or shutil.disk_usage(pilot_root).free-c['disk_reserve_bytes'] < 15.5*1024**3
@@ -300,7 +329,7 @@ def validate_capacity(c,pilot_root,training_deadline):
     forecast=max(max(a['peak_aggregate_job_rss_bytes'] for a in attempts),
                  max(a['peak_aggregate_job_rss_bytes'] for a in attempts
                      if a['name'].endswith(f'-{largest}'))*n/entries[largest])*2
-    if c['export_audit_rss_bytes'] < forecast or c['export_audit_rss_bytes'] >= 5.5*1024**3:
+    if c['export_audit_rss_bytes'] < forecast or c['export_audit_rss_bytes'] >= limits['rss_gib']*1024**3:
         raise ValueError('Measured export/audit memory forecast exceeds admitted capacity')
 
 

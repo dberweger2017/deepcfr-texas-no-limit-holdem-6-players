@@ -15,6 +15,7 @@ from scripts.hu20_scaling_common import acquire, identity, inventory
 from scripts.run_tp20_campaign import swap_bytes
 from scripts.tp20_common import append
 from scripts.train_hu20 import system, write_json
+from scripts.native_hu_followup_limits import memory_snapshot, unsafe_memory, family_rss
 
 
 TERMINATION_GRACE_SECONDS = 5
@@ -40,7 +41,7 @@ def terminate_child(child):
 
 
 def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=False, rss_gib=10.5, disk_gib=8, swap_gib=.5,
-        stop_file=None, soft_rss_gib=None, save_reserve_seconds=0):
+        stop_file=None, soft_rss_gib=None, save_reserve_seconds=0, system_memory_guard=False):
     if (not all(isfinite(n) for n in (deadline, rss_gib, disk_gib, swap_gib))
         or rss_gib <= 0 or disk_gib <= 0 or swap_gib < 0):
         raise ValueError("Finite resource limits must be positive (swap may be zero)")
@@ -58,7 +59,8 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
               "identity": None, "attempts": [], "failure": None,
               "swap_baseline": None,
               "limits": {"rss_gib": rss_gib, "disk_gib": disk_gib, "swap_gib": swap_gib,
-                         "soft_rss_gib": soft_rss_gib, "save_reserve_seconds": save_reserve_seconds},
+                         "soft_rss_gib": soft_rss_gib, "save_reserve_seconds": save_reserve_seconds,
+                         "system_memory_guard":system_memory_guard},
               "controlled_stop": None}
     received_signal = [None]
     def interrupted(signum, _frame):
@@ -82,11 +84,15 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
             power = system(["pmset", "-g", "batt"])
             swap = system(["sysctl", "vm.swapusage"])
             swap_growth = swap_bytes(swap)-swap_bytes(record["swap_baseline"])
+            memory=memory_snapshot() if system_memory_guard else None
             reason = ("Absolute phase/deadline guard" if time() >= end else
                       "Insufficient save time reserve" if stop_file is not None and time() >= end-save_reserve_seconds else
                       "Swap growth guard" if swap_growth > swap_gib*1024**3 else
                       "Free disk guard" if shutil.disk_usage(out).free < disk_gib*1024**3 else
                       "Main worker AC power guard" if require_ac and (power is None or "AC Power" not in power) else None)
+            if memory is not None:
+                record['admission_system_memory']=memory
+                if unsafe_memory(memory,admission=True,rss_gib=rss_gib): reason='System memory headroom admission guard'
             if reason or received_signal[0]: break
             with (out / f'{job["name"]}.log').open("w") as log:
                 try:
@@ -100,22 +106,23 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
                             processes = [tuple(map(int, line.split())) for line in listing.splitlines() if line.strip()]
                             owned = {os.getpid(), child.pid}
                             if coordinator_pid: owned.add(coordinator_pid)
-                            for _ in range(4): owned.update(pid for pid, parent, _ in processes if parent in owned)
-                            sizes = [size*1024 for pid, _, size in processes if pid in owned]
+                            sizes = family_rss(processes,owned)
                             peak = max(peak, max(sizes, default=0)); aggregate_peak = max(aggregate_peak, sum(sizes))
                             swap = system(["sysctl", "vm.swapusage"])
                             growth = swap_bytes(swap)-swap_bytes(record["swap_baseline"])
                             free = shutil.disk_usage(out).free
                             power=system(["pmset","-g","batt"])
+                            memory=memory_snapshot() if system_memory_guard else None
                             append(out / "resources.jsonl", {"unix_seconds": time(), "phase": job["name"],
                                    "rss_bytes": max(sizes, default=0), "aggregate_job_rss_bytes": sum(sizes),
                                    "sampled_peak_process_rss_bytes": peak, "sampled_peak_aggregate_job_rss_bytes": aggregate_peak,
-                                   "swap": swap, "swap_growth_bytes": growth, "free_disk_bytes": free,"power":power})
+                                   "swap": swap, "swap_growth_bytes": growth, "free_disk_bytes": free,"power":power,
+                                   "system_memory":memory})
                             latest = {'status':'running', 'unix_seconds':time(), 'phase':job['name'],
                                       'owned_pid':child.pid, 'deadline':end,
                                       'aggregate_rss_bytes':sum(sizes), 'peak_aggregate_rss_bytes':aggregate_peak,
                                       'swap_growth_bytes':growth, 'free_disk_bytes':free, 'power':power,
-                                      'controlled_stop':record['controlled_stop']}
+                                      'controlled_stop':record['controlled_stop'],'system_memory':memory}
                             # This bounded telemetry file has one line per save. Agent wakes
                             # read this compact status, not training logs or full audits.
                             if '--telemetry' in job['command']:
@@ -128,6 +135,7 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
                             write_json(out/'status.tmp',latest); os.replace(out/'status.tmp',out/'status.json')
                             if stop_file is not None and record['controlled_stop'] is None:
                                 soft_reason = ("Serialization headroom RSS stop" if sum(sizes) >= soft_rss_gib*1024**3 else
+                                               "System memory serialization reserve stop" if memory is not None and memory['free_percent']<=25 else
                                                "Save time reserve stop" if time() >= end-save_reserve_seconds else None)
                                 if soft_reason:
                                     request = {"reason": soft_reason, "unix_seconds": time(), "aggregate_rss_bytes": sum(sizes),
@@ -139,6 +147,7 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
                             if growth > swap_gib*1024**3: reason = "Swap growth guard"
                             if free < disk_gib*1024**3: reason = "Free disk guard"
                             if require_ac and (power is None or "AC Power" not in power): reason="Main worker AC power guard"
+                            if memory is not None and unsafe_memory(memory): reason='Unsafe system memory pressure guard'
                             next_sample = time()+5
                         if time() >= end: reason = "Absolute phase/deadline guard"
                         if reason or received_signal[0]: break
@@ -203,9 +212,10 @@ def main():
     p.add_argument("--swap-gib", type=float, default=.5)
     p.add_argument('--stop-file', type=Path); p.add_argument('--soft-rss-gib', type=float)
     p.add_argument('--save-reserve-seconds', type=float, default=0)
+    p.add_argument('--system-memory-guard',action='store_true')
     a = p.parse_args()
     record = run(json.loads(a.jobs.read_text()), a.out, a.deadline, a.swap_baseline,a.coordinator_pid,a.require_ac,a.rss_gib,a.disk_gib,a.swap_gib,
-                 a.stop_file,a.soft_rss_gib,a.save_reserve_seconds)
+                 a.stop_file,a.soft_rss_gib,a.save_reserve_seconds,a.system_memory_guard)
     print(json.dumps(record)); return record["status"] != "complete"
 
 
