@@ -18,6 +18,7 @@ from src.arena.report import performance, summarize
 from src.arena.runner import run_schedule
 from src.arena.schedule import Plan, Scenario, build_schedule, canonical, schedule_document, stream_seed
 from src.blueprint.abstraction import HU100_SCHEMA, information_key
+from src.blueprint.action_translation import TranslationOptions
 from src.policies.files import file_hash
 
 OPPONENTS = ('random', 'check_call', 'tight_aggressive', 'loose_aggressive', 'pot_pressure')
@@ -49,7 +50,11 @@ class Probe:
         row = {**self.context, 'hand_id': view.hand_id, 'seat': view.seat,
                'street': view.street.value, 'action': asdict(action), 'seconds': elapsed}
         if self.context['logical_player'] == 0:
-            menu, probabilities, known = self.model.distribution(view)
+            if getattr(self.model, 'record_translation', False) and hasattr(self.player, 'last_decision'):
+                menu, probabilities, known, translation = self.player.last_decision
+                row['translation'] = json.loads(canonical(translation))
+            else:
+                menu, probabilities, known = self.model.distribution(view)
             key = information_key(view, menu, schema=HU100_SCHEMA)
             row.update(key=key, lookup='missing-key' if not known else
                        'zero-mass' if key in self.model.zero_mass else 'positive-mass-known-key',
@@ -118,6 +123,13 @@ def execute(config, out, blocks, root, source, *, reproduce=None, reference_run=
             or model.description['iteration'] != settings['model']['iteration']
             or model.description['source_checkpoint_sha256'] != settings['model']['source_checkpoint_sha256']):
         raise ValueError('Pinned model training identity differs')
+    if 'action_translation' in settings:
+        option = settings['action_translation']
+        if option is not None and not isinstance(option, dict):
+            raise ValueError('Invalid action translation config')
+        model.configure_translation(TranslationOptions(**option) if option is not None else None)
+        model.record_translation = True
+        model.description['action_translation'] = option
     load_seconds = perf_counter() - load_started
     registry.snapshot(out)
     write_json(out / 'inputs.json', {'config': settings, 'config_sha256': file_hash(config),
@@ -204,9 +216,13 @@ def execute(config, out, blocks, root, source, *, reproduce=None, reference_run=
             with gzip.open(original / 'decisions.jsonl.gz', 'rt') as old:
                 for actual, line in zip(decisions, old, strict=True):
                     expected = json.loads(line)
-                    if {k: v for k, v in actual.items() if k != 'seconds'} != {
-                            k: v for k, v in expected.items() if k != 'seconds'}:
+                    if {k: v for k, v in actual.items() if k not in ('seconds', 'translation')} != {
+                            k: v for k, v in expected.items() if k not in ('seconds', 'translation')}:
                         raise ValueError('Deterministic policy/telemetry reproduction differs')
+                    if 'translation' in actual:
+                        strip = lambda d: {k: v for k, v in d.items() if k != 'lookup_seconds'}
+                        if strip(actual['translation']) != strip(expected['translation']):
+                            raise ValueError('Deterministic translation reproduction differs')
         totals['hands'] += len(rows); totals['decisions'] += len(decisions)
         costs.append({'opponent': opponent, 'seconds': perf_counter() - wall,
                       'hands': len(rows), 'decisions': len(decisions)})
