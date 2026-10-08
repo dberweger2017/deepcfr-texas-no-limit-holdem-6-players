@@ -1,0 +1,150 @@
+{
+  "evidence": {
+    "bytes": 881002949,
+    "cloud_upload_confirmed": true,
+    "manifest_member": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "3cbf9807f5253f2ef081124c2dbc911f837f1161c2b1db754f357351ce39c1cd",
+    "member_readback_verified": true,
+    "members": 1551,
+    "originals_retained": true,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-190-HU20-bucket-validation/research-evidence-20261008.zip",
+    "referenced_previous_members": 1377,
+    "sha256": "637533571613aaad53e67b846ba4d256fcf3a52be3ee9483213b164554217707",
+    "cloud_metadata_verified": true,
+    "drive_id": "1_y9XnksKlahYcsuBqhmPht4M8l5HJszu",
+    "drive_url": "https://drive.google.com/file/d/1_y9XnksKlahYcsuBqhmPht4M8l5HJszu/view?usp=drivesdk",
+    "drive_parent_id": "1C0z2LwrqiUZgVwU_flkBwvxM0MV5LeDh",
+    "native_acceptance": {
+      "isUploaded": 1,
+      "isUploading": 0,
+      "hasUnresolvedConflicts": 0
+    },
+    "remote_bytes_redownloaded": false
+  },
+  "previous_archives": [
+    {
+      "bytes": 4347132014,
+      "cloud_folder_listing_verified": true,
+      "id": "1LM6DGFHa56yNQHVyW2_xJVKlnWdqXNx6",
+      "manifest_sha256": "9ae89bc9f5fa9bd6391a8528b00f19a2ccd25a13ebc2856c0b7b16b2fa42e242",
+      "member_manifest": "ARCHIVE-MANIFEST.json",
+      "member_readback_verified": true,
+      "members": 1140,
+      "name": "verified-inputs-prepared-pilots.zip",
+      "native_acceptance": {
+        "hasUnresolvedConflicts": 0,
+        "isUploaded": 1,
+        "isUploading": 0
+      },
+      "parent_id": "1C0z2LwrqiUZgVwU_flkBwvxM0MV5LeDh",
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-190-HU20-bucket-validation/verified-inputs-prepared-pilots.zip",
+      "raw_bytes": 8886290380,
+      "remote_bytes_redownloaded": false,
+      "sha256": "56db3a114aaa1e5273c4445c178a6e516bdcf7eacf0e9e4477dbc5786e360e49",
+      "url": "https://drive.google.com/file/d/1LM6DGFHa56yNQHVyW2_xJVKlnWdqXNx6/view?usp=drivesdk"
+    },
+    {
+      "bytes": 2000949644,
+      "cloud_folder_listing_verified": true,
+      "id": "15qli8PyGl2HDK_G9sD0dS64tCQGDi4X3",
+      "manifest_sha256": "eb904a5a193fdca7057b2d502751d4a29e07517a5bac54b03f4d695cbd536183",
+      "member_readback_verified": true,
+      "members": [
+        {
+          "bytes": 109460520,
+          "path": "inputs/tables/turn-k50.bin.gz",
+          "raw_archive_member": "inputs/tables/turn-k50.bin",
+          "raw_archive_path": "/Users/dberweger/Local/Research-Cloud/PR-190-HU20-bucket-validation/verified-inputs-prepared-pilots.zip",
+          "raw_sha256": "c0bc6a8aa0535553118109d18a32d3b4dc6880e937c263cdc87472b1ae9f168f",
+          "sha256": "fc63dc30b4ab3013a6fda198d3a2b67f131e34e7fac5141a142ee38d1ab065e7"
+        },
+        {
+          "bytes": 113543973,
+          "path": "inputs/tables/turn-k200.bin.gz",
+          "raw_archive_member": "inputs/tables/turn-k200.bin",
+          "raw_archive_path": "/Users/dberweger/Local/Research-Cloud/PR-190-HU20-bucket-validation/verified-inputs-prepared-pilots.zip",
+          "raw_sha256": "ccec40009426fd64cac53816e6a286adec159eb2a22c479bb273029faa1b7f6c",
+          "sha256": "ab5e01c799225276ca6a8a0e0916f7682a1f10e61b6922beab5a44a7b28af605"
+        },
+        {
+          "bytes": 852707181,
+          "path": "inputs/tables/river-k50.bin.gz",
+          "raw_archive_member": "inputs/tables/river-k50.bin",
+          "raw_archive_path": "/Users/dberweger/Local/Research-Cloud/PR-190-HU20-bucket-validation/verified-inputs-prepared-pilots.zip",
+          "raw_sha256": "70c1cb5ecf4cd292e4c89dc2200f7c8381100be3b0288ceeb0a12a3e83977629",
+          "sha256": "4d7b9777659d070d3acc45e56ab6c306a5bb71eb75f5b5fc6bd7d0ce73a13df4"
+        },
+        {
+          "bytes": 890108029,
+          "path": "inputs/tables/river-k200.bin.gz",
+          "raw_archive_member": "inputs/tables/river-k200.bin",
+          "raw_archive_path": "/Users/dberweger/Local/Research-Cloud/PR-190-HU20-bucket-validation/verified-inputs-prepared-pilots.zip",
+          "raw_sha256": "b0591710df149248b2feb89f0a9c808f9745be1f7e5c4eb63aa8a2d93b78864e",
+          "sha256": "78a8e5c6798211db7f6ad71a2f378782bd0d4e3ec2d5d4b2a2feabaab9470ec7"
+        },
+        {
+          "bytes": 35126941,
+          "path": "pilot/singleton-global-policy.json.gz",
+          "raw_archive_member": "pilot/singleton-global-policy.json",
+          "raw_archive_path": "/Users/dberweger/Local/Research-Cloud/PR-190-HU20-bucket-validation/verified-inputs-prepared-pilots.zip",
+          "raw_sha256": "cb89aedc0e48acfdb8e6701cbf1fdc811375918bc9d46c384da081ffa87cc5bc",
+          "sha256": "6d72f1918057f2a95a747aac412aee7a92681aaa2a1c07ab57eaf172844a7cd5"
+        }
+      ],
+      "name": "completed-derived-input-buffers.zip",
+      "native_acceptance": {
+        "hasUnresolvedConflicts": 0,
+        "isUploaded": 1,
+        "isUploading": 0
+      },
+      "parent_id": "1C0z2LwrqiUZgVwU_flkBwvxM0MV5LeDh",
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-190-HU20-bucket-validation/completed-derived-input-buffers.zip",
+      "remote_bytes_redownloaded": false,
+      "sha256": "505ada0bdeb81dcc52089294bca9d7f080ecd109edb560d0324809e3b9e7f89f",
+      "url": "https://drive.google.com/file/d/15qli8PyGl2HDK_G9sD0dS64tCQGDi4X3/view?usp=drivesdk"
+    },
+    {
+      "bytes": 36028458,
+      "cloud_folder_listing_verified": true,
+      "cloud_metadata_verified": true,
+      "cloud_upload_confirmed": true,
+      "drive_id": "1ST9kX2SkhD_7KXVdFv0UTV_O2wokZSmA",
+      "drive_parent_id": "1C0z2LwrqiUZgVwU_flkBwvxM0MV5LeDh",
+      "drive_url": "https://drive.google.com/file/d/1ST9kX2SkhD_7KXVdFv0UTV_O2wokZSmA/view?usp=drivesdk",
+      "id": "1ST9kX2SkhD_7KXVdFv0UTV_O2wokZSmA",
+      "manifest_member": "ARCHIVE-MANIFEST.json",
+      "manifest_sha256": "f81a1c894a33af9ec004248a111fcc6ae2b6c6f3f8bc6b9cf1b5e7511ea01319",
+      "member_readback_verified": true,
+      "members": 252,
+      "name": "resource-stop-20261007.zip",
+      "native_acceptance": {
+        "hasUnresolvedConflicts": 0,
+        "isUploaded": 1,
+        "isUploading": 0
+      },
+      "originals_retained": true,
+      "parent_id": "1C0z2LwrqiUZgVwU_flkBwvxM0MV5LeDh",
+      "path": "/Users/dberweger/Local/Research-Cloud/PR-190-HU20-bucket-validation/resource-stop-20261007.zip",
+      "remote_bytes_redownloaded": false,
+      "sha256": "77ebc688432145e4e7cff06b69be715385ebabaa01e6e06afc76cf4d8373336e",
+      "url": "https://drive.google.com/file/d/1ST9kX2SkhD_7KXVdFv0UTV_O2wokZSmA/view?usp=drivesdk"
+    }
+  ],
+  "native_archives": {
+    "count": 258,
+    "collect": 120,
+    "relock": 120,
+    "replay": 18,
+    "zip_bytes": 5181180575,
+    "inventory_member": "native-archive-inventory-20261008.json",
+    "inventory_sha256": "ab3d92b856eb03376b08aea0df2f159aa1d83d3f34a3e1249b80ea52462b6cc4",
+    "all_archive_member_hashes_and_native_cloud_acceptance_verified": true
+  },
+  "full_readout": {
+    "summary_member": "readout-20261008/summary.json",
+    "summary_sha256": "3ec840ba6b8c4809b77b0b9a9b9cc636dc4ce5850be8613ee841be75ae490ed3",
+    "audit_member": "readout-20261008/independent-audit.json",
+    "audit_sha256": "65d379e8faabe938162a2728ed6d1d931d8051a0ad0504386fdc083f8f7e8240"
+  },
+  "originals_retained": true
+}
