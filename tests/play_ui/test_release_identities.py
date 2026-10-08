@@ -6,6 +6,7 @@ import pytest
 
 from src.play_api.versions import RELEASES
 from src.policies.v041 import MODEL_SHA256
+from src.policies.v042 import MODEL_SHA256 as O10B_SHA256
 from src.policies.v040 import EXPECTED_SHA256 as R_SHA256
 from tests.play_ui.test_service import FixturePolicy
 
@@ -13,6 +14,7 @@ from tests.play_ui.test_service import FixturePolicy
 @pytest.mark.parametrize('version,sha,format_id', [
     ('v0.4.0', R_SHA256, 'holdem-hu20-native-reopening-blueprint-v1'),
     ('v0.4.1', MODEL_SHA256, 'holdem-hu20-stored-cfr-average-diagnostic-v1'),
+    ('v0.4.2', O10B_SHA256, 'holdem-hu20-stored-cfr-average-diagnostic-v1'),
 ])
 def test_manifest_pin_binding_and_corruption(version, sha, format_id):
     policy = FixturePolicy()

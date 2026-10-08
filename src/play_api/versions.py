@@ -7,10 +7,10 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 
-from src.policies import v040, v041
+from src.policies import v040, v041, v042
 from src.play_api.service import PlayError, PlayService, _model_info
 
-DEFAULT_VERSION = "v0.4.1"
+DEFAULT_VERSION = "v0.4.2"
 
 
 @dataclass(frozen=True)
@@ -20,6 +20,7 @@ class Release:
     verify: Callable[[Path], str]
     load: Callable[[Path], object]
     manifest_sha256: str
+    manifest_asset_name: str = "release-manifest.json"
 
     def identity(self, policy) -> dict:
         path = Path(__file__).resolve().parents[2] / 'configs/play/release-manifests' / f'{self.version}.json'
@@ -37,11 +38,13 @@ class Release:
             info['name'] = f"{self.version} · {info['name']}"
         base = 'https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/download'
         return {'version': self.version, **info, 'manifestSha256': self.manifest_sha256,
-                'manifestUrl': f'{base}/{self.version}/release-manifest.json'}
+                'manifestUrl': f'{base}/{self.version}/{self.manifest_asset_name}'}
 
 
 # Only reviewed release pins belong here; research candidates use explicit CLI paths.
 RELEASES = (
+    Release("v0.4.2", v042.ASSET_NAME, v042.verify, v042.load_policy,
+            "b53205ed70fdbf3172f7331c4a64f3122bf0f7e812b58ecc2722a2c82c97cc5c", "catalog-manifest.json"),
     Release("v0.4.1", v041.ASSET_NAME, v041.verify, v041.load_policy,
             "8d1a85bea7fd2bad3d4a8526ad95e858239fa162d14e19369a47c739097659f5"),
     Release("v0.4.0", v040.EXPECTED_NAME, v040.verify, v040.load_policy,

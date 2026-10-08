@@ -4,7 +4,7 @@ Issue [#183](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-pl
 
 ## Scope and checks
 
-Heads-up, 20 BB, no rake/ante, the existing native rules and policy menus. Reset stacks each hand and alternate the button, starting with Bot A. Choose any two compatible pinned releases, including the same release twice. Preserve human play and v0.4.0 selection. No training, search, paid compute or strength qualification.
+Heads-up, 20 BB, no rake/ante, the existing native rules and policy menus. Reset stacks each hand and alternate the button, starting with Bot A. Choose any two compatible pinned releases, including the same release twice. Human play and v0.4.0/v0.4.1 selection remain available; v0.4.2 is the default. No training, search, paid compute or strength qualification.
 
 Implementation order: pin both identities and manifests; add durable one-decision sessions; record exact inference and observations; add paused playback/step/history; audit distributions, legal actions and settlements and check the real browser. One feature PR; independently review the information boundary and run required CI before merging.
 
@@ -14,7 +14,7 @@ Start the existing local server with both pinned models as described in the [rea
 
 The spectator table shows both bots’ private cards by design, in two explicitly labeled perspectives. Human sessions retain their existing card visibility. The decision inspector shows the acting bot's immutable observation at that decision: its cards, board, public events, stacks and legal bounds. Its probability table, selected action and lookup status come from the inference call that played that action, without re-extraction or rounded values in the journal. Opponent private cards, deck, seed, future board and evaluator data never reach either policy. The observation JSON is available for exact inspection. Hidden deck and independent per-bot sampling state live only in the private SQLite journal.
 
-Release versions, model hashes, manifest hashes and manifest download links are frozen in session and hand history. The checked-in small manifests are byte-pinned copies of the published release assets; the existing loaders verify model bytes before startup. Both seats may share a read-only model reader, but have separate observations and sampling streams.
+Release versions, model hashes, manifest hashes and manifest download links are frozen in session and hand history. The checked-in small manifests are byte-pinned copies of the published identity assets. For v0.4.2 this is `catalog-manifest.json`; its separate publication manifest binds the actual tagged commit and records the catalog hash. v0.4.0/v0.4.1 keep their original publication-manifest pins; the existing loaders verify model bytes before startup. Both seats may share a read-only model reader, but have separate observations and sampling streams.
 
 ## Audit retained sessions
 

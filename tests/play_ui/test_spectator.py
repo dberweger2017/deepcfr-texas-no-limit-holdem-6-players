@@ -63,7 +63,7 @@ def setup(tmp_path, strategies=('call', 'allin')):
     spectator = SpectatorService(tmp_path / 'spectator/private.sqlite', policies, identities,
                                   source_version='test')
     services = {v: PlayService(tmp_path / v / 'private.sqlite', p) for v, p in policies.items()}
-    return VersionedTables(services, spectator=spectator, identities=identities)
+    return VersionedTables(services, default_version="v0.4.1", spectator=spectator, identities=identities)
 
 
 def create(tables, versions=None, key='spectator-create-key-001'):
