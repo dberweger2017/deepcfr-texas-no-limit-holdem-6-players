@@ -1,3 +1,25 @@
+## HU100 independent-seed qualification preparation — October 9, 2026
+
+`feature/hu100-seed-qualification`, [prospective protocol](docs/hu100-seed-qualification.md),
+[blocked preflight report](docs/reports/hu100-seed-qualification.md) and
+[compact live status receipt](docs/reports/hu100-seed-qualification-artifacts/preflight.json).
+No campaign computation started: live #207 is open/draft with unresolved archive
+swap stop and no accepted archive/final evidence closeout. Its fixed science
+remains in its [PR/report](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207).
+The incomplete M4 synced ZIP remains 3,354,661,317 bytes/mtime 1791496020;
+all originals and the failure latch are preserved. No copying/retry/cleanup or
+new swap baseline. Brief idle-host snapshots are not stable campaign admission.
+
+Preparation fixes fresh seeds 2026100901/2026100902 alongside #207 seed
+2026100601, with prospective early/1B comparisons and one six-hour budget.
+The owner's subsequent swap-growth guard is 3 GB (3,000,000,000 bytes) above
+this new campaign's fixed admission baseline; #207's historical stop persists.
+No new models/raw research payloads/archives were created; archive IDs, accepted
+member paths/hashes, upload evidence and retrieval commands for this campaign
+are **not yet available**. Do not use #207's partial ZIP as a restoration source.
+Measured quote and execution remain gated on its separate closeout; the new PR
+stays unmerged, without an automatic launch or release recommendation.
+
 ## PR208 HU20 turn-search stackoff diagnosis — October 8, 2026
 
 [PR208](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/208) · [report](docs/reports/hu20-search-stackoff-diagnosis.md). Final recorded-hand diagnosis on M1; scientific implementation/review `84b1048de1c68678451235859e4027877b771d55`, fresh main base `9da625f`, later #209 metadata integrated. All 3,072 selective hands /9,552 decisions replay exactly; nine original-request-matched offline solves reproduce recorded probabilities with error 0.0. Joint −10.35 BB/100, 13-panel adjusted interval [−22.99,+2.29]: plausible regression, not established. No large opposing late bets occur. Re-solves expose mis-modeled value callers and future folds, alongside heterogeneous missed-value/runout contributions. No new arena/sweep/training/default/native-trainer change or M4 use. One independent review clears all scientific calculations; ten focused tests pass. Fresh unchanged-search 1,024-block confirmation is [quoted on PR](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/208#issuecomment-6068694013) at 8–12 M1 hours, hard 12-hour cap, awaiting owner chat go; not run or scheduled.

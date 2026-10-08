@@ -69,6 +69,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **HU100 independent-seed qualification, preparation only (October 9 locally):** [prospective protocol](docs/hu100-seed-qualification.md) fixes #207's endpoint plus seeds 2026100901/2026100902, sequential early/1B saves, separate growth/translation families and a six-hour M4 cap. [Live preflight](docs/reports/hu100-seed-qualification.md) finds #207's archive swap failure/evidence closeout unresolved; no campaign launched or measured quote admitted. Preserve its originals/partial ZIP and finish its separately reviewed closeout before fresh stable-host admission. Repetition and the v0.5 recipe remain unqualified; new PR stays unmerged, with no automatic launch, recipe change or release.
+
 - **October 8 storage cleanup:** owner-requested merged evidence cleanup reclaimed **23.884 GB on M4 /1.059 GB on M1** during removal batches; canonical Drive archives and active HU100/turn-search/bucket inputs remain. [Receipt and restoration](docs/artifacts/storage-vacuum-20261008.md). No unattended cleanup.
 
 *Updated October 8, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).

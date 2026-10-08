@@ -1,0 +1,329 @@
+{
+  "status": "blocked-before-campaign-admission",
+  "captured_at_utc": "2026-10-08T22:01:41.224885+00:00",
+  "branch": "feature/hu100-seed-qualification",
+  "base_revision": "5b105325dd5899bace345f8d4a874d6d52865af1",
+  "prior_prs": [
+    {
+      "comments": [],
+      "headRefOid": "7e51349ecb886a69b2c4efafdafad0998884a6d1",
+      "isDraft": false,
+      "mergedAt": "2026-10-08T16:01:23Z",
+      "number": 204,
+      "reviews": [],
+      "state": "MERGED",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T15:49:28Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37803748349/job/113402899439",
+          "name": "scope",
+          "startedAt": "2026-10-08T15:49:16Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T15:58:20Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37803748349/job/113403007495",
+          "name": "full (0)",
+          "startedAt": "2026-10-08T15:49:30Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T15:58:48Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37803748349/job/113403007499",
+          "name": "full (1)",
+          "startedAt": "2026-10-08T15:49:30Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T15:58:56Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37803748349/job/113407355698",
+          "name": "test",
+          "startedAt": "2026-10-08T15:58:52Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T15:48:18Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://dashboard.gitguardian.com",
+          "name": "GitGuardian Security Checks",
+          "startedAt": "2026-10-08T15:48:17Z",
+          "status": "COMPLETED",
+          "workflowName": ""
+        }
+      ],
+      "title": "Grow HU100 toward 50M and measure playing gains",
+      "updatedAt": "2026-10-08T16:01:23Z",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/204"
+    },
+    {
+      "comments": [
+        {
+          "id": "IC_kwDOOABkQc8AAAABaZZQ5Q",
+          "author": {
+            "login": "dberweger2017"
+          },
+          "authorAssociation": "OWNER",
+          "body": "Source review found that host guard values (swap, AC, disk and system memory) refresh every five seconds while the declared protocol specifies 200 ms. No guard breach or invalid play has been observed; final play has not started.\n\nSOMA: sample every guard at the declared cadence, add a deterministic guard regression, and retime the corrected source on a fresh pilot root while retaining the first pilot.",
+          "createdAt": "2026-10-08T18:27:43Z",
+          "includesCreatedEdit": false,
+          "isMinimized": false,
+          "minimizedReason": "",
+          "reactionGroups": [],
+          "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/205#issuecomment-6066426085",
+          "viewerDidAuthor": true
+        },
+        {
+          "id": "IC_kwDOOABkQc8AAAABaZgD-Q",
+          "author": {
+            "login": "dberweger2017"
+          },
+          "authorAssociation": "OWNER",
+          "body": "CI cannot collect the campaign tests because `psutil` is installed in the M4 research environment but absent from the declared development dependencies. This is a dependency declaration failure; no final-hand or guard failure has occurred. Final science remains pinned to the reviewed clean source.\n\nSOMA: declare the exact monitoring dependency in requirements-monitoring.txt in a separate M4 integration checkout, then require fresh green CI before merging.",
+          "createdAt": "2026-10-08T18:34:18Z",
+          "includesCreatedEdit": false,
+          "isMinimized": false,
+          "minimizedReason": "",
+          "reactionGroups": [],
+          "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/205#issuecomment-6066537465",
+          "viewerDidAuthor": true
+        }
+      ],
+      "headRefOid": "ed9d63443e3eb927191a410f321c346334ef6922",
+      "isDraft": false,
+      "mergedAt": "2026-10-08T19:09:32Z",
+      "number": 205,
+      "reviews": [],
+      "state": "MERGED",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T18:57:39Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37828265427/job/113486635549",
+          "name": "scope",
+          "startedAt": "2026-10-08T18:57:25Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T19:05:19Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37828265427/job/113486757713",
+          "name": "full (0)",
+          "startedAt": "2026-10-08T18:57:41Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T19:07:07Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37828265427/job/113486757592",
+          "name": "full (1)",
+          "startedAt": "2026-10-08T18:57:41Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T19:07:13Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37828265427/job/113490928764",
+          "name": "test",
+          "startedAt": "2026-10-08T19:07:09Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T18:58:20Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://dashboard.gitguardian.com",
+          "name": "GitGuardian Security Checks",
+          "startedAt": "2026-10-08T18:57:32Z",
+          "status": "COMPLETED",
+          "workflowName": ""
+        }
+      ],
+      "title": "Translate HU100 off-menu histories at inference and measure paired gains",
+      "updatedAt": "2026-10-08T19:09:33Z",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/205"
+    },
+    {
+      "comments": [],
+      "headRefOid": "b5f356ca62c29381e213e6731607c8ecfbf181aa",
+      "isDraft": false,
+      "mergedAt": "2026-10-08T19:30:18Z",
+      "number": 206,
+      "reviews": [],
+      "state": "MERGED",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T19:12:25Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37830167062/job/113493146619",
+          "name": "scope",
+          "startedAt": "2026-10-08T19:12:15Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T19:19:45Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37830167062/job/113493230987",
+          "name": "full (0)",
+          "startedAt": "2026-10-08T19:12:27Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T19:22:03Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37830167062/job/113493231001",
+          "name": "full (1)",
+          "startedAt": "2026-10-08T19:12:27Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T19:22:09Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37830167062/job/113497382888",
+          "name": "test",
+          "startedAt": "2026-10-08T19:22:06Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T19:12:50Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://dashboard.gitguardian.com",
+          "name": "GitGuardian Security Checks",
+          "startedAt": "2026-10-08T19:12:13Z",
+          "status": "COMPLETED",
+          "workflowName": ""
+        }
+      ],
+      "title": "Store the native training table compactly",
+      "updatedAt": "2026-10-08T19:30:18Z",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/206"
+    },
+    {
+      "comments": [
+        {
+          "id": "IC_kwDOOABkQc8AAAABacgzpA",
+          "author": {
+            "login": "dberweger2017"
+          },
+          "authorAssociation": "OWNER",
+          "body": "Archive guard breach; campaign stopped at closeout. All fresh 1B training, save exports/full audits and declared final play/replay/reproduction/strict reporting completed successfully before this breach. At **21:47:00 UTC**, the archive guard recorded **869,667,962.88 bytes /829.38 MiB** swap growth from the original 563.56 MiB baseline, over the fixed **512 MiB** limit. Pressure was normal, AC connected, and 45.42 GiB free; these do not waive the swap guard. `campaign-failure.json` latched the failure and the packer stopped. Its later SIGKILL cleanup raised `PermissionError`, so the normal archive operation receipt was not finalized; the exception, admission and raw samples remain. Readback finds no active campaign/packer process. The partial synced ZIP and every research original remain untouched. No accepted archive, end evidence review or merge is claimed.\n\nVerified scientific results remain: loose terminal\u2212parent +214.39 [122.28, 306.51] BB/100 improves; tight +37.05 [-15.00, 89.10] inconclusive (97.5% primaries); separate pot-pressure translation +62.45 [17.15, 107.76] (95%). 143,360 distinct final hands fully replayed/reproduced. Scientific-phase guards passed; this is a later archive-only guard breach, with cause not assigned.\n\n**SOMA:** prepare a separately reviewed archive-only readmission from the retained failure evidence, preserving the original guard/baseline, stopped partial ZIP and unchanged scientific outputs; do not retry this failed admission or merge.",
+          "createdAt": "2026-10-08T21:48:31Z",
+          "includesCreatedEdit": true,
+          "isMinimized": false,
+          "minimizedReason": "",
+          "reactionGroups": [],
+          "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207#issuecomment-6069695396",
+          "viewerDidAuthor": true
+        }
+      ],
+      "headRefOid": "f0ff3c1ffc4f0002a0c7ab22751d212aa76cdda3",
+      "isDraft": true,
+      "mergedAt": null,
+      "number": 207,
+      "reviews": [],
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T21:53:54Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37849900148/job/113559948191",
+          "name": "scope",
+          "startedAt": "2026-10-08T21:53:41Z",
+          "status": "COMPLETED",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37849900148/job/113560041109",
+          "name": "full (0)",
+          "startedAt": "2026-10-08T21:54:32Z",
+          "status": "IN_PROGRESS",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37849900148/job/113560041120",
+          "name": "full (1)",
+          "startedAt": "2026-10-08T21:53:56Z",
+          "status": "IN_PROGRESS",
+          "workflowName": "Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-08T21:53:44Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://dashboard.gitguardian.com",
+          "name": "GitGuardian Security Checks",
+          "startedAt": "2026-10-08T21:53:36Z",
+          "status": "COMPLETED",
+          "workflowName": ""
+        }
+      ],
+      "title": "HU100: fresh 1B growth and fixed paired playing-gain campaign",
+      "updatedAt": "2026-10-08T21:54:17Z",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207"
+    }
+  ],
+  "read_only_host_command": "date -u; hostname; uptime; sysctl hw.memsize hw.physicalcpu kern.memorystatus_vm_pressure_level vm.swapusage; vm_stat; df -k /Users/dberweger/Local; pmset -g batt; ps -axo pid,ppid,%cpu,rss,etime,command | egrep \"[p]ython|[h]u20-trainer|[h]u100|[c]argo|[a]rena|[a]rchive|[p]acker|[r]esearch\"; stat -f \"%N %z bytes mtime=%m\" /Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/campaign-failure.json",
+  "samples": [
+    {
+      "at_utc": "2026-10-08T22:01:29.605343+00:00",
+      "returncode": 0,
+      "stdout": "Thu Oct  8 22:01:29 UTC 2026\ndberwegerch-m4.local\n 0:01  up 4 days, 14:12, 1 user, load averages: 1.34 1.38 1.58\nhw.memsize: 17179869184\nhw.physicalcpu: 10\nkern.memorystatus_vm_pressure_level: 1\nvm.swapusage: total = 2048.00M  used = 1344.94M  free = 703.06M  (encrypted)\nMach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    27376.\nPages active:                                 425197.\nPages inactive:                               343399.\nPages speculative:                             83176.\nPages throttled:                                   0.\nPages wired down:                             114189.\nPages purgeable:                               10641.\n\"Translation faults\":                     2906903879.\nPages copy-on-write:                       244174122.\nPages zero filled:                        1368739342.\nPages reactivated:                          66154570.\nPages purged:                                7087790.\nFile-backed pages:                            604919.\nAnonymous pages:                              246853.\nPages stored in compressor:                   307197.\nPages occupied by compressor:                  13938.\nDecompressions:                             48116478.\nCompressions:                               54704628.\nPageins:                                   136984386.\nPageouts:                                    1350789.\nSwapins:                                        7275.\nSwapouts:                                      93760.\nFilesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on\n/dev/disk3s5   482797652 388701900  47576368    90% 2987973 475763680    1%   /System/Volumes/Data\nNow drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true\n29600 29599   0.0   2464       00:00 zsh -c date -u; hostname; uptime; sysctl hw.memsize hw.physicalcpu kern.memorystatus_vm_pressure_level vm.swapusage; vm_stat; df -k /Users/dberweger/Local; pmset -g batt; ps -axo pid,ppid,%cpu,rss,etime,command | egrep \"[p]ython|[h]u20-trainer|[h]u100|[c]argo|[a]rena|[a]rchive|[p]acker|[r]esearch\"; stat -f \"%N %z bytes mtime=%m\" /Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/campaign-failure.json\n/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip 3354661317 bytes mtime=1791496020\n/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/campaign-failure.json 115 bytes mtime=1791496020\n",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-10-08T22:01:35.451262+00:00",
+      "returncode": 0,
+      "stdout": "Thu Oct  8 22:01:35 UTC 2026\ndberwegerch-m4.local\n 0:01  up 4 days, 14:12, 1 user, load averages: 1.39 1.39 1.58\nhw.memsize: 17179869184\nhw.physicalcpu: 10\nkern.memorystatus_vm_pressure_level: 1\nvm.swapusage: total = 2048.00M  used = 1344.94M  free = 703.06M  (encrypted)\nMach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    28321.\nPages active:                                 424559.\nPages inactive:                               343404.\nPages speculative:                             83197.\nPages throttled:                                   0.\nPages wired down:                             114178.\nPages purgeable:                               10641.\n\"Translation faults\":                     2906930182.\nPages copy-on-write:                       244177981.\nPages zero filled:                        1368746223.\nPages reactivated:                          66154570.\nPages purged:                                7087792.\nFile-backed pages:                            604957.\nAnonymous pages:                              246203.\nPages stored in compressor:                   307197.\nPages occupied by compressor:                  13938.\nDecompressions:                             48116478.\nCompressions:                               54704628.\nPageins:                                   136984427.\nPageouts:                                    1350789.\nSwapins:                                        7275.\nSwapouts:                                      93760.\nFilesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on\n/dev/disk3s5   482797652 388702948  47575320    90% 2987973 475753200    1%   /System/Volumes/Data\nNow drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true\n29625 29624   2.4   2464       00:00 zsh -c date -u; hostname; uptime; sysctl hw.memsize hw.physicalcpu kern.memorystatus_vm_pressure_level vm.swapusage; vm_stat; df -k /Users/dberweger/Local; pmset -g batt; ps -axo pid,ppid,%cpu,rss,etime,command | egrep \"[p]ython|[h]u20-trainer|[h]u100|[c]argo|[a]rena|[a]rchive|[p]acker|[r]esearch\"; stat -f \"%N %z bytes mtime=%m\" /Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/campaign-failure.json\n/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip 3354661317 bytes mtime=1791496020\n/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/campaign-failure.json 115 bytes mtime=1791496020\n",
+      "stderr": ""
+    },
+    {
+      "at_utc": "2026-10-08T22:01:41.224833+00:00",
+      "returncode": 0,
+      "stdout": "Thu Oct  8 22:01:41 UTC 2026\ndberwegerch-m4.local\n 0:01  up 4 days, 14:12, 1 user, load averages: 1.36 1.38 1.57\nhw.memsize: 17179869184\nhw.physicalcpu: 10\nkern.memorystatus_vm_pressure_level: 1\nvm.swapusage: total = 2048.00M  used = 1344.94M  free = 703.06M  (encrypted)\nMach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    26454.\nPages active:                                 425733.\nPages inactive:                               343404.\nPages speculative:                             83202.\nPages throttled:                                   0.\nPages wired down:                             114237.\nPages purgeable:                               10641.\n\"Translation faults\":                     2906947440.\nPages copy-on-write:                       244180554.\nPages zero filled:                        1368750530.\nPages reactivated:                          66154570.\nPages purged:                                7087792.\nFile-backed pages:                            604968.\nAnonymous pages:                              247371.\nPages stored in compressor:                   307197.\nPages occupied by compressor:                  13938.\nDecompressions:                             48116478.\nCompressions:                               54704628.\nPageins:                                   136984457.\nPageouts:                                    1350789.\nSwapins:                                        7275.\nSwapouts:                                      93760.\nFilesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on\n/dev/disk3s5   482797652 388702952  47575316    90% 2987974 475753160    1%   /System/Volumes/Data\nNow drawing from 'AC Power'\n -InternalBattery-0 (id=23658595)\t80%; AC attached; not charging present: true\n29643 29640   0.0   2480       00:00 zsh -c date -u; hostname; uptime; sysctl hw.memsize hw.physicalcpu kern.memorystatus_vm_pressure_level vm.swapusage; vm_stat; df -k /Users/dberweger/Local; pmset -g batt; ps -axo pid,ppid,%cpu,rss,etime,command | egrep \"[p]ython|[h]u20-trainer|[h]u100|[c]argo|[a]rena|[a]rchive|[p]acker|[r]esearch\"; stat -f \"%N %z bytes mtime=%m\" /Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/campaign-failure.json\n/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip 3354661317 bytes mtime=1791496020\n/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/campaign-failure.json 115 bytes mtime=1791496020\n",
+      "stderr": ""
+    }
+  ],
+  "campaign_computation_started": false,
+  "source_review_of_207_science": "prior receipt only; end evidence review missing",
+  "archive_207_accepted": false,
+  "new_swap_baseline_established": false,
+  "exclusive_lock_acquired": false,
+  "actions_on_prior_evidence": "read-only status and stat; no copy, hash scan, move, archive, deletion or retry",
+  "quote_status": "not admitted; new timing pilot prohibited until prerequisite closeout resolves"
+}
