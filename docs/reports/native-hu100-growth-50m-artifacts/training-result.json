@@ -1,0 +1,67 @@
+{
+  "additional_nodes": 19436809,
+  "audit_status": "verified",
+  "capacity_sha256": "9d16753b481cf2d0a97bc94c935f1876b5d8b2e56974a95031b946da2775a071",
+  "entry_overshoot": 494,
+  "entry_stop": 7642767,
+  "initial_capacity_sha256": "91c69be2b377f28002f3470ef36136994ff226cb5df48920d805af753d2f3685",
+  "parent_nodes": 20001470,
+  "postpilot_entry_ceiling": 7642767,
+  "status": "controlled-stop",
+  "target_overshoot": 0,
+  "terminal": {
+    "audit_status": "unaudited",
+    "binary_sha256": "b547173b838d896888973f4cf283ba66a60b61781a29a7ed719ebcbadb448f2c",
+    "checkpoint_bytes": 283895910,
+    "checkpoint_sha256": "792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416",
+    "completed_nodes": 39438279,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        760545,
+        2331123,
+        5799889,
+        13073449
+      ],
+      "entries": 7643261,
+      "positive_average_mass_keys": 5105598,
+      "traverser_visits": 7908886,
+      "traverser_visits_by_street": [
+        271144,
+        839984,
+        2094094,
+        4703664
+      ],
+      "visits_histogram": {
+        "0": 3991528,
+        "1": 2549515,
+        "10-99": 91516,
+        "100+": 1694,
+        "2-9": 1009008
+      },
+      "zero_average_mass_keys": 2537663
+    },
+    "elapsed_seconds_including_writes": 32.256980625,
+    "entries_per_completed_node": 0.1938031068749222,
+    "iteration": 30080,
+    "new_entries": 2689734,
+    "nodes_per_second_including_writes": 599435.304400875,
+    "nodes_since_previous_save": 19335973,
+    "overshoot_nodes": 0,
+    "path": "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/terminal/checkpoint.gz",
+    "process_rss_bytes_after_save": 3125035008,
+    "recent_nodes_per_second_including_writes": 599435.304400875,
+    "requested_nodes": 50000000,
+    "status": "incomplete-target",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1791472735.409558,
+    "write_seconds": 24.684782458,
+    "write_started": 1791472710.724899
+  },
+  "terminal_folder": "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/terminal"
+}

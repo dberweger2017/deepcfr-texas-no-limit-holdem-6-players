@@ -1,0 +1,25 @@
+{
+  "status": "accepted",
+  "method": "independent connector files.get ID/name/size/parent agrees with native upload receipt",
+  "remote_bytes_downloaded": false,
+  "metadata": {
+    "id": "12LEcZWKJCwtTCCYcMxW578Gm3rDy9emK",
+    "title": "hu100-growth-50m-stage1-M4-20261008.zip",
+    "mime_type": null,
+    "size": "1641001686",
+    "url": "https://drive.google.com/file/d/12LEcZWKJCwtTCCYcMxW578Gm3rDy9emK/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/12LEcZWKJCwtTCCYcMxW578Gm3rDy9emK/view?usp=drivesdk",
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "10Dn15X5l9nK3h9TWYGEPZR9hKI7shfLc"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  }
+}

@@ -29,7 +29,7 @@ def operation(mode, checkpoint, current, average, out, bb):
     print(json.dumps(result, sort_keys=True))
 
 
-def measure(command, cwd, directory, name, family_root, deadline):
+def measure(command, cwd, directory, name, family_root, deadline, *, accepted_returncodes=(0,)):
     """200-ms whole-family RSS plus kernel per-command high water; retain raw logs."""
     if deadline - time() < 5:
         raise ValueError('Benchmark deadline exhausted')
@@ -51,7 +51,7 @@ def measure(command, cwd, directory, name, family_root, deadline):
                 raw.write(json.dumps({'unix_seconds': time(), 'family_rss_bytes': rss}) + '\n')
                 raw.flush()
                 sleep(.2)
-            if child.returncode:
+            if child.returncode not in accepted_returncodes:
                 raise subprocess.CalledProcessError(child.returncode, command)
         finally:
             # The external supervisor owns the session and handles any descendants.
@@ -62,6 +62,7 @@ def measure(command, cwd, directory, name, family_root, deadline):
     if highwater is None:
         raise ValueError('Missing macOS per-process kernel peak')
     return {'name': name, 'command': command, 'cwd': str(cwd), 'seconds': time() - started,
+            'returncode': child.returncode,
             'sampled_peak_family_rss_bytes': peak, 'kernel_command_peak_rss_bytes': int(highwater[1]),
             'samples': samples, 'sampling_target_seconds': .2}
 

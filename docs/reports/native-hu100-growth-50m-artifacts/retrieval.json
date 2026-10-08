@@ -1,0 +1,35 @@
+{
+  "archive_id": "1hC98K7KSU-pFEdPD7lfFMT17EcxpW_Re",
+  "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-203-HU100-growth-playing-gains/hu100-growth-stage1-M4-20261008.zip",
+  "archive_sha256": "bb42f78802d552e4d790e491ca23bbf3a6970f1a233230bbcf409fd116b2a896",
+  "manifest_sha256": "4424b8066fbf7638db09ddc8936fceae94676080e628124c05ec20da117d9a9b",
+  "members": [
+    {
+      "archive_member": "research/terminal/checkpoint.gz",
+      "bytes": 177935258,
+      "kind": "checkpoint",
+      "local_path": "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/parent-checkpoint.gz",
+      "path": "terminal/checkpoint.gz",
+      "sha256": "71289306fc79592847d472ef3493141e195341aa243c742cb965ab3dd86e4b0e"
+    },
+    {
+      "archive_member": "research/terminal/average.gz",
+      "bytes": 122119793,
+      "kind": "average",
+      "local_path": "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/parent-average.gz",
+      "path": "terminal/average.gz",
+      "sha256": "e61e0cd0784e86e90cc7e5cf60db2fb1e4022bd7ffc124089cc98ab242a2a9f4"
+    },
+    {
+      "archive_member": "research/terminal/audit.json",
+      "bytes": 2081,
+      "kind": "audit",
+      "local_path": "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/parent-audit.json",
+      "path": "terminal/audit.json",
+      "sha256": "e89ce3663dfc03780717aec2a662d6fa6469c2b5b75bebfb9f71f9850412d7d6"
+    }
+  ],
+  "remote_bytes_downloaded": false,
+  "status": "verified",
+  "transport": "native synced archive read; hydration possible, no connector byte download"
+}

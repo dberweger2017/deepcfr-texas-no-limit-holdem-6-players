@@ -1,0 +1,16 @@
+{
+  "allowance": 2,
+  "blocks_per_opponent": 2048,
+  "closeout_reserve_seconds": 240,
+  "deadline": 1791474899.246036,
+  "final_hands": 61440,
+  "final_root": 2026100850412,
+  "measured_fixed_seconds": 107.2329000007594,
+  "measured_play_replay_reproduction_seconds_per_block": 0.07521383326456998,
+  "outcomes_inspected": false,
+  "predicted_seconds": 522.5416610531975,
+  "remaining_seconds_at_quote": 1683.261992931366,
+  "schedule_sha256": "94d8e95fa3f668c6cee00ffc13bf5ecbb4ec2a0b234cacc873dbabfc64a4ead3",
+  "settings_sha256": "91afed31612e3f83de56677c70155c1988212817891f5cea4ec8aacbd34294bb",
+  "source": "d3033822d865e077093809e82633a1ad7fad19ba"
+}

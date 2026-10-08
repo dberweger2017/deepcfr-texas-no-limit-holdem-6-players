@@ -1,0 +1,68 @@
+{
+  "audit": {
+    "all_nodes_verified": 7643261,
+    "average_sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+    "checkpoint_sha256": "792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416",
+    "counts": {
+      "entries": 7643261,
+      "positive_mass": 5105598,
+      "zero_mass": 2537663
+    },
+    "current_sha256": "606e8c2caa7ebffe4b7fe7d2e11410300e8b53eb61c58fab3d89f546ab42262f",
+    "maximum_tv": 1.0,
+    "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+    "status": "verified",
+    "unweighted_mean_current_average_tv": 0.2173814733887449
+  },
+  "entries": 7643261,
+  "files": {
+    "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/terminal/average.gz": {
+      "bytes": 193277097,
+      "sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4"
+    },
+    "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/terminal/checkpoint.gz": {
+      "bytes": 283895910,
+      "sha256": "792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416"
+    },
+    "/Users/dberweger/Local/hu100-growth-50m-20261008/results/stage1/terminal/current.gz": {
+      "bytes": 188020407,
+      "sha256": "606e8c2caa7ebffe4b7fe7d2e11410300e8b53eb61c58fab3d89f546ab42262f"
+    }
+  },
+  "hu20_reference_checked": false,
+  "iteration": 30080,
+  "mean_traverser_visits_per_key": 1.0347528365183394,
+  "native_state": {
+    "completed_nodes": 39438279,
+    "coverage_start": [
+      0,
+      0,
+      0
+    ],
+    "decisions_by_street": [
+      760545,
+      2331123,
+      5799889,
+      13073449
+    ],
+    "traverser_visits_by_street": [
+      271144,
+      839984,
+      2094094,
+      4703664
+    ],
+    "version": 1
+  },
+  "positive_average_mass_keys": 5105598,
+  "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+  "stack_bb": 100,
+  "status": "verified",
+  "visits_histogram": {
+    "0": 3991528,
+    "1": 2549515,
+    "10-99": 91516,
+    "100+": 1694,
+    "2-9": 1009008
+  },
+  "zero_average_mass_keys": 2537663
+}

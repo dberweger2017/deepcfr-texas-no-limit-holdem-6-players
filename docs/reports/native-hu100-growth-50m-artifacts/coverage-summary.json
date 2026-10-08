@@ -1,0 +1,235 @@
+{
+  "scope": "descriptive policy-dependent reached decisions; known includes zero average mass; no causal branch assignment",
+  "opponents": [
+    {
+      "nodes": 20001470,
+      "opponent": "random",
+      "decisions": 5998,
+      "positive_mass": 4982,
+      "zero_mass": 7,
+      "missing": 1009,
+      "positive_percent": 83.06102034011337,
+      "missing_percent": 16.822274091363788
+    },
+    {
+      "nodes": 20001470,
+      "opponent": "check_call",
+      "decisions": 14491,
+      "positive_mass": 14443,
+      "zero_mass": 8,
+      "missing": 40,
+      "positive_percent": 99.66875991995032,
+      "missing_percent": 0.27603340004140503
+    },
+    {
+      "nodes": 20001470,
+      "opponent": "tight_aggressive",
+      "decisions": 3640,
+      "positive_mass": 3622,
+      "zero_mass": 8,
+      "missing": 10,
+      "positive_percent": 99.50549450549451,
+      "missing_percent": 0.27472527472527475
+    },
+    {
+      "nodes": 20001470,
+      "opponent": "loose_aggressive",
+      "decisions": 7074,
+      "positive_mass": 6997,
+      "zero_mass": 20,
+      "missing": 57,
+      "positive_percent": 98.91150692677411,
+      "missing_percent": 0.8057675996607294
+    },
+    {
+      "nodes": 20001470,
+      "opponent": "pot_pressure",
+      "decisions": 4184,
+      "positive_mass": 3363,
+      "zero_mass": 1,
+      "missing": 820,
+      "positive_percent": 80.37762906309752,
+      "missing_percent": 19.59847036328872
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "random",
+      "decisions": 6030,
+      "positive_mass": 5032,
+      "zero_mass": 5,
+      "missing": 993,
+      "positive_percent": 83.44941956882255,
+      "missing_percent": 16.46766169154229
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "check_call",
+      "decisions": 14446,
+      "positive_mass": 14421,
+      "zero_mass": 7,
+      "missing": 18,
+      "positive_percent": 99.82694171396926,
+      "missing_percent": 0.12460196594212931
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "tight_aggressive",
+      "decisions": 3553,
+      "positive_mass": 3549,
+      "zero_mass": 3,
+      "missing": 1,
+      "positive_percent": 99.88741908246553,
+      "missing_percent": 0.028145229383619477
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "loose_aggressive",
+      "decisions": 7056,
+      "positive_mass": 7020,
+      "zero_mass": 9,
+      "missing": 27,
+      "positive_percent": 99.48979591836735,
+      "missing_percent": 0.3826530612244898
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "pot_pressure",
+      "decisions": 4149,
+      "positive_mass": 3325,
+      "zero_mass": 0,
+      "missing": 824,
+      "positive_percent": 80.13979272113762,
+      "missing_percent": 19.860207278862376
+    }
+  ],
+  "primary_visits": [
+    {
+      "nodes": 20001470,
+      "opponent": "tight_aggressive",
+      "street": "preflop",
+      "known_decisions": 2417,
+      "known_under_10": 78,
+      "known_under_10_percent": 3.2271410839884154
+    },
+    {
+      "nodes": 20001470,
+      "opponent": "tight_aggressive",
+      "street": "flop",
+      "known_decisions": 744,
+      "known_under_10": 68,
+      "known_under_10_percent": 9.13978494623656
+    },
+    {
+      "nodes": 20001470,
+      "opponent": "tight_aggressive",
+      "street": "turn",
+      "known_decisions": 327,
+      "known_under_10": 87,
+      "known_under_10_percent": 26.605504587155963
+    },
+    {
+      "nodes": 20001470,
+      "opponent": "tight_aggressive",
+      "street": "river",
+      "known_decisions": 142,
+      "known_under_10": 56,
+      "known_under_10_percent": 39.436619718309856
+    },
+    {
+      "nodes": 20001470,
+      "opponent": "loose_aggressive",
+      "street": "preflop",
+      "known_decisions": 3609,
+      "known_under_10": 318,
+      "known_under_10_percent": 8.811305070656692
+    },
+    {
+      "nodes": 20001470,
+      "opponent": "loose_aggressive",
+      "street": "flop",
+      "known_decisions": 1662,
+      "known_under_10": 174,
+      "known_under_10_percent": 10.469314079422382
+    },
+    {
+      "nodes": 20001470,
+      "opponent": "loose_aggressive",
+      "street": "turn",
+      "known_decisions": 1019,
+      "known_under_10": 377,
+      "known_under_10_percent": 36.99705593719332
+    },
+    {
+      "nodes": 20001470,
+      "opponent": "loose_aggressive",
+      "street": "river",
+      "known_decisions": 727,
+      "known_under_10": 375,
+      "known_under_10_percent": 51.5818431911967
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "tight_aggressive",
+      "street": "preflop",
+      "known_decisions": 2409,
+      "known_under_10": 28,
+      "known_under_10_percent": 1.1623080116230802
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "tight_aggressive",
+      "street": "flop",
+      "known_decisions": 713,
+      "known_under_10": 34,
+      "known_under_10_percent": 4.768583450210379
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "tight_aggressive",
+      "street": "turn",
+      "known_decisions": 284,
+      "known_under_10": 36,
+      "known_under_10_percent": 12.67605633802817
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "tight_aggressive",
+      "street": "river",
+      "known_decisions": 146,
+      "known_under_10": 42,
+      "known_under_10_percent": 28.767123287671232
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "loose_aggressive",
+      "street": "preflop",
+      "known_decisions": 3583,
+      "known_under_10": 139,
+      "known_under_10_percent": 3.8794306447111357
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "loose_aggressive",
+      "street": "flop",
+      "known_decisions": 1634,
+      "known_under_10": 93,
+      "known_under_10_percent": 5.691554467564259
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "loose_aggressive",
+      "street": "turn",
+      "known_decisions": 1038,
+      "known_under_10": 266,
+      "known_under_10_percent": 25.626204238921
+    },
+    {
+      "nodes": 39438279,
+      "opponent": "loose_aggressive",
+      "street": "river",
+      "known_decisions": 774,
+      "known_under_10": 300,
+      "known_under_10_percent": 38.75968992248062
+    }
+  ]
+}

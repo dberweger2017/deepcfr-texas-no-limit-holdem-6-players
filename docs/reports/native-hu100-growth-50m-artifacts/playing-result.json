@@ -1,0 +1,2643 @@
+{
+  "association_scope": "policy-dependent descriptive exposure; no causal branch gain",
+  "blocks_per_opponent": 2048,
+  "coverage": [
+    {
+      "action_rates": {
+        "call": 0.15572519083969466,
+        "check": 0.2366412213740458,
+        "fold": 0.14732824427480917,
+        "raise": 0.46030534351145036
+      },
+      "actions": {
+        "call": 204,
+        "check": 310,
+        "fold": 193,
+        "raise": 603
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 1310,
+      "inference_latency_ms": {
+        "max": 0.17804198432713747,
+        "mean": 0.031640141569646715,
+        "p50": 0.03154197474941611,
+        "p95": 0.03598107141442597
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 216,
+        "positive-mass-known-key": 1092,
+        "zero-mass": 2
+      },
+      "lookup_rates": {
+        "missing-key": 0.1648854961832061,
+        "positive-mass-known-key": 0.833587786259542,
+        "zero-mass": 0.0015267175572519084
+      },
+      "opponent": "random",
+      "street": "flop"
+    },
+    {
+      "action_rates": {
+        "call": 0.24311143623506462,
+        "check": 0.07778590587661546,
+        "fold": 0.27481102170202387,
+        "raise": 0.40429163618629604
+      },
+      "actions": {
+        "call": 997,
+        "check": 319,
+        "fold": 1127,
+        "raise": 1658
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 4101,
+      "inference_latency_ms": {
+        "max": 0.13037497410550714,
+        "mean": 0.01984361433227617,
+        "p50": 0.01958297798410058,
+        "p95": 0.02237502485513687
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 681,
+        "positive-mass-known-key": 3420
+      },
+      "lookup_rates": {
+        "missing-key": 0.16605705925384054,
+        "positive-mass-known-key": 0.8339429407461595,
+        "zero-mass": 0.0
+      },
+      "opponent": "random",
+      "street": "preflop"
+    },
+    {
+      "action_rates": {
+        "call": 0.11724137931034483,
+        "check": 0.2206896551724138,
+        "fold": 0.11724137931034483,
+        "raise": 0.5448275862068965
+      },
+      "actions": {
+        "call": 17,
+        "check": 32,
+        "fold": 17,
+        "raise": 79
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 145,
+      "inference_latency_ms": {
+        "max": 0.08808303391560912,
+        "mean": 0.06469877372527945,
+        "p50": 0.0802499707788229,
+        "p95": 0.08526640012860297
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 25,
+        "positive-mass-known-key": 119,
+        "zero-mass": 1
+      },
+      "lookup_rates": {
+        "missing-key": 0.1724137931034483,
+        "positive-mass-known-key": 0.8206896551724138,
+        "zero-mass": 0.006896551724137931
+      },
+      "opponent": "random",
+      "street": "river"
+    },
+    {
+      "action_rates": {
+        "call": 0.1515837104072398,
+        "check": 0.24434389140271492,
+        "fold": 0.1334841628959276,
+        "raise": 0.47058823529411764
+      },
+      "actions": {
+        "call": 67,
+        "check": 108,
+        "fold": 59,
+        "raise": 208
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 442,
+      "inference_latency_ms": {
+        "max": 0.06583298090845346,
+        "mean": 0.04394394840741724,
+        "p50": 0.046666013076901436,
+        "p95": 0.050916982581838965
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 87,
+        "positive-mass-known-key": 351,
+        "zero-mass": 4
+      },
+      "lookup_rates": {
+        "missing-key": 0.19683257918552036,
+        "positive-mass-known-key": 0.7941176470588235,
+        "zero-mass": 0.00904977375565611
+      },
+      "opponent": "random",
+      "street": "turn"
+    },
+    {
+      "action_rates": {
+        "check": 0.402020202020202,
+        "raise": 0.597979797979798
+      },
+      "actions": {
+        "check": 1393,
+        "raise": 2072
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 3465,
+      "inference_latency_ms": {
+        "max": 0.047042034566402435,
+        "mean": 0.03207626769018143,
+        "p50": 0.03200001083314419,
+        "p95": 0.034374999813735485
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 4,
+        "positive-mass-known-key": 3459,
+        "zero-mass": 2
+      },
+      "lookup_rates": {
+        "missing-key": 0.0011544011544011544,
+        "positive-mass-known-key": 0.9982683982683983,
+        "zero-mass": 0.0005772005772005772
+      },
+      "opponent": "check_call",
+      "street": "flop"
+    },
+    {
+      "action_rates": {
+        "call": 0.13037109375,
+        "check": 0.223388671875,
+        "fold": 0.154052734375,
+        "raise": 0.4921875
+      },
+      "actions": {
+        "call": 534,
+        "check": 915,
+        "fold": 631,
+        "raise": 2016
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 4096,
+      "inference_latency_ms": {
+        "max": 0.07641600677743554,
+        "mean": 0.019918929950790698,
+        "p50": 0.019875005818903446,
+        "p95": 0.02099998528137803
+      },
+      "logical_player": 0,
+      "lookup": {
+        "positive-mass-known-key": 4096
+      },
+      "lookup_rates": {
+        "missing-key": 0.0,
+        "positive-mass-known-key": 1.0,
+        "zero-mass": 0.0
+      },
+      "opponent": "check_call",
+      "street": "preflop"
+    },
+    {
+      "action_rates": {
+        "check": 0.39855699855699855,
+        "raise": 0.6014430014430014
+      },
+      "actions": {
+        "check": 1381,
+        "raise": 2084
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 3465,
+      "inference_latency_ms": {
+        "max": 0.10312499944120646,
+        "mean": 0.05695218486445291,
+        "p50": 0.07770798401907086,
+        "p95": 0.08379202336072922
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 20,
+        "positive-mass-known-key": 3444,
+        "zero-mass": 1
+      },
+      "lookup_rates": {
+        "missing-key": 0.005772005772005772,
+        "positive-mass-known-key": 0.9939393939393939,
+        "zero-mass": 0.0002886002886002886
+      },
+      "opponent": "check_call",
+      "street": "river"
+    },
+    {
+      "action_rates": {
+        "check": 0.41414141414141414,
+        "raise": 0.5858585858585859
+      },
+      "actions": {
+        "check": 1435,
+        "raise": 2030
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 3465,
+      "inference_latency_ms": {
+        "max": 0.07499998901039362,
+        "mean": 0.04672956262200447,
+        "p50": 0.04658300895243883,
+        "p95": 0.049749971367418766
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 16,
+        "positive-mass-known-key": 3444,
+        "zero-mass": 5
+      },
+      "lookup_rates": {
+        "missing-key": 0.004617604617604618,
+        "positive-mass-known-key": 0.9939393939393939,
+        "zero-mass": 0.001443001443001443
+      },
+      "opponent": "check_call",
+      "street": "turn"
+    },
+    {
+      "action_rates": {
+        "call": 0.0456989247311828,
+        "check": 0.3629032258064516,
+        "fold": 0.043010752688172046,
+        "raise": 0.5483870967741935
+      },
+      "actions": {
+        "call": 34,
+        "check": 270,
+        "fold": 32,
+        "raise": 408
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 744,
+      "inference_latency_ms": {
+        "max": 0.06387499161064625,
+        "mean": 0.03212326868457259,
+        "p50": 0.032125040888786316,
+        "p95": 0.03574998117983341
+      },
+      "logical_player": 0,
+      "lookup": {
+        "positive-mass-known-key": 740,
+        "zero-mass": 4
+      },
+      "lookup_rates": {
+        "missing-key": 0.0,
+        "positive-mass-known-key": 0.9946236559139785,
+        "zero-mass": 0.005376344086021506
+      },
+      "opponent": "tight_aggressive",
+      "street": "flop"
+    },
+    {
+      "action_rates": {
+        "call": 0.24276261373035565,
+        "check": 0.021505376344086023,
+        "fold": 0.2597187758478081,
+        "raise": 0.4760132340777502
+      },
+      "actions": {
+        "call": 587,
+        "check": 52,
+        "fold": 628,
+        "raise": 1151
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 2418,
+      "inference_latency_ms": {
+        "max": 0.0766250304877758,
+        "mean": 0.020255276491723775,
+        "p50": 0.01966601121239364,
+        "p95": 0.02300000051036477
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 1,
+        "positive-mass-known-key": 2416,
+        "zero-mass": 1
+      },
+      "lookup_rates": {
+        "missing-key": 0.00041356492969396195,
+        "positive-mass-known-key": 0.9991728701406121,
+        "zero-mass": 0.00041356492969396195
+      },
+      "opponent": "tight_aggressive",
+      "street": "preflop"
+    },
+    {
+      "action_rates": {
+        "call": 0.10884353741496598,
+        "check": 0.3129251700680272,
+        "fold": 0.12244897959183673,
+        "raise": 0.4557823129251701
+      },
+      "actions": {
+        "call": 16,
+        "check": 46,
+        "fold": 18,
+        "raise": 67
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 147,
+      "inference_latency_ms": {
+        "max": 0.08712499402463436,
+        "mean": 0.070977300329476,
+        "p50": 0.08041696855798364,
+        "p95": 0.08474193164147437
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 5,
+        "positive-mass-known-key": 140,
+        "zero-mass": 2
+      },
+      "lookup_rates": {
+        "missing-key": 0.034013605442176874,
+        "positive-mass-known-key": 0.9523809523809523,
+        "zero-mass": 0.013605442176870748
+      },
+      "opponent": "tight_aggressive",
+      "street": "river"
+    },
+    {
+      "action_rates": {
+        "call": 0.06042296072507553,
+        "check": 0.3021148036253776,
+        "fold": 0.06948640483383686,
+        "raise": 0.56797583081571
+      },
+      "actions": {
+        "call": 20,
+        "check": 100,
+        "fold": 23,
+        "raise": 188
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 331,
+      "inference_latency_ms": {
+        "max": 0.05141698056831956,
+        "mean": 0.04436802878705756,
+        "p50": 0.045791035518050194,
+        "p95": 0.04964548861607909
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 4,
+        "positive-mass-known-key": 326,
+        "zero-mass": 1
+      },
+      "lookup_rates": {
+        "missing-key": 0.012084592145015106,
+        "positive-mass-known-key": 0.9848942598187311,
+        "zero-mass": 0.0030211480362537764
+      },
+      "opponent": "tight_aggressive",
+      "street": "turn"
+    },
+    {
+      "action_rates": {
+        "call": 0.06366366366366366,
+        "check": 0.3027027027027027,
+        "fold": 0.08768768768768768,
+        "raise": 0.5459459459459459
+      },
+      "actions": {
+        "call": 106,
+        "check": 504,
+        "fold": 146,
+        "raise": 909
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 1665,
+      "inference_latency_ms": {
+        "max": 0.05883403355255723,
+        "mean": 0.03156973511909132,
+        "p50": 0.03179203486070037,
+        "p95": 0.036375015042722225
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 3,
+        "positive-mass-known-key": 1661,
+        "zero-mass": 1
+      },
+      "lookup_rates": {
+        "missing-key": 0.0018018018018018018,
+        "positive-mass-known-key": 0.9975975975975976,
+        "zero-mass": 0.0006006006006006006
+      },
+      "opponent": "loose_aggressive",
+      "street": "flop"
+    },
+    {
+      "action_rates": {
+        "call": 0.2110803324099723,
+        "check": 0.07922437673130193,
+        "fold": 0.22797783933518007,
+        "raise": 0.4817174515235457
+      },
+      "actions": {
+        "call": 762,
+        "check": 286,
+        "fold": 823,
+        "raise": 1739
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 3610,
+      "inference_latency_ms": {
+        "max": 0.18470798386260867,
+        "mean": 0.020576489639760012,
+        "p50": 0.020124949514865875,
+        "p95": 0.023022538516670455
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 1,
+        "positive-mass-known-key": 3607,
+        "zero-mass": 2
+      },
+      "lookup_rates": {
+        "missing-key": 0.0002770083102493075,
+        "positive-mass-known-key": 0.9991689750692521,
+        "zero-mass": 0.000554016620498615
+      },
+      "opponent": "loose_aggressive",
+      "street": "preflop"
+    },
+    {
+      "action_rates": {
+        "call": 0.08244680851063829,
+        "check": 0.21675531914893617,
+        "fold": 0.15159574468085107,
+        "raise": 0.5492021276595744
+      },
+      "actions": {
+        "call": 62,
+        "check": 163,
+        "fold": 114,
+        "raise": 413
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 752,
+      "inference_latency_ms": {
+        "max": 0.08929200703278184,
+        "mean": 0.06391722684171289,
+        "p50": 0.07999999797903001,
+        "p95": 0.0853062461828813
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 25,
+        "positive-mass-known-key": 721,
+        "zero-mass": 6
+      },
+      "lookup_rates": {
+        "missing-key": 0.03324468085106383,
+        "positive-mass-known-key": 0.9587765957446809,
+        "zero-mass": 0.007978723404255319
+      },
+      "opponent": "loose_aggressive",
+      "street": "river"
+    },
+    {
+      "action_rates": {
+        "call": 0.08118433619866285,
+        "check": 0.28462273161413565,
+        "fold": 0.11270296084049666,
+        "raise": 0.5214899713467048
+      },
+      "actions": {
+        "call": 85,
+        "check": 298,
+        "fold": 118,
+        "raise": 546
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 1047,
+      "inference_latency_ms": {
+        "max": 0.06391701754182577,
+        "mean": 0.042112725417715886,
+        "p50": 0.04595902282744646,
+        "p95": 0.05040368996560573
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 28,
+        "positive-mass-known-key": 1008,
+        "zero-mass": 11
+      },
+      "lookup_rates": {
+        "missing-key": 0.026743075453677174,
+        "positive-mass-known-key": 0.9627507163323782,
+        "zero-mass": 0.010506208213944603
+      },
+      "opponent": "loose_aggressive",
+      "street": "turn"
+    },
+    {
+      "action_rates": {
+        "call": 0.07015457788347206,
+        "check": 0.29369797859690844,
+        "fold": 0.07491082045184304,
+        "raise": 0.5612366230677764
+      },
+      "actions": {
+        "call": 59,
+        "check": 247,
+        "fold": 63,
+        "raise": 472
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 841,
+      "inference_latency_ms": {
+        "max": 0.050708011258393526,
+        "mean": 0.031707452000511914,
+        "p50": 0.03208295674994588,
+        "p95": 0.03474997356534004
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 259,
+        "positive-mass-known-key": 582
+      },
+      "lookup_rates": {
+        "missing-key": 0.3079667063020214,
+        "positive-mass-known-key": 0.6920332936979786,
+        "zero-mass": 0.0
+      },
+      "opponent": "pot_pressure",
+      "street": "flop"
+    },
+    {
+      "action_rates": {
+        "call": 0.23826458036984352,
+        "check": 0.032716927453769556,
+        "fold": 0.2852062588904694,
+        "raise": 0.4438122332859175
+      },
+      "actions": {
+        "call": 670,
+        "check": 92,
+        "fold": 802,
+        "raise": 1248
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 2812,
+      "inference_latency_ms": {
+        "max": 0.17745798686519265,
+        "mean": 0.020396884611594474,
+        "p50": 0.01983396941795945,
+        "p95": 0.0219999928958714
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 292,
+        "positive-mass-known-key": 2520
+      },
+      "lookup_rates": {
+        "missing-key": 0.10384068278805121,
+        "positive-mass-known-key": 0.8961593172119487,
+        "zero-mass": 0.0
+      },
+      "opponent": "pot_pressure",
+      "street": "preflop"
+    },
+    {
+      "action_rates": {
+        "call": 0.11464968152866242,
+        "check": 0.2484076433121019,
+        "fold": 0.15286624203821655,
+        "raise": 0.4840764331210191
+      },
+      "actions": {
+        "call": 18,
+        "check": 39,
+        "fold": 24,
+        "raise": 76
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 157,
+      "inference_latency_ms": {
+        "max": 0.09566597873345017,
+        "mean": 0.07138423440728787,
+        "p50": 0.07999996887519956,
+        "p95": 0.08340822532773018
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 85,
+        "positive-mass-known-key": 72
+      },
+      "lookup_rates": {
+        "missing-key": 0.5414012738853503,
+        "positive-mass-known-key": 0.4585987261146497,
+        "zero-mass": 0.0
+      },
+      "opponent": "pot_pressure",
+      "street": "river"
+    },
+    {
+      "action_rates": {
+        "call": 0.09893048128342247,
+        "check": 0.27807486631016043,
+        "fold": 0.13101604278074866,
+        "raise": 0.4919786096256685
+      },
+      "actions": {
+        "call": 37,
+        "check": 104,
+        "fold": 49,
+        "raise": 184
+      },
+      "actual_nodes": 20001470,
+      "arm": "candidate",
+      "decisions": 374,
+      "inference_latency_ms": {
+        "max": 0.05233404226601124,
+        "mean": 0.04309634609586176,
+        "p50": 0.045770517317578197,
+        "p95": 0.049055690760724247
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 184,
+        "positive-mass-known-key": 189,
+        "zero-mass": 1
+      },
+      "lookup_rates": {
+        "missing-key": 0.4919786096256685,
+        "positive-mass-known-key": 0.5053475935828877,
+        "zero-mass": 0.00267379679144385
+      },
+      "opponent": "pot_pressure",
+      "street": "turn"
+    },
+    {
+      "action_rates": {
+        "call": 0.15315315315315314,
+        "check": 0.246996996996997,
+        "fold": 0.1448948948948949,
+        "raise": 0.45495495495495497
+      },
+      "actions": {
+        "call": 204,
+        "check": 329,
+        "fold": 193,
+        "raise": 606
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 1332,
+      "inference_latency_ms": {
+        "max": 0.07374997949227691,
+        "mean": 0.032343981008313864,
+        "p50": 0.03195804310962558,
+        "p95": 0.038870327989570796
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 222,
+        "positive-mass-known-key": 1109,
+        "zero-mass": 1
+      },
+      "lookup_rates": {
+        "missing-key": 0.16666666666666666,
+        "positive-mass-known-key": 0.8325825825825826,
+        "zero-mass": 0.0007507507507507507
+      },
+      "opponent": "random",
+      "street": "flop"
+    },
+    {
+      "action_rates": {
+        "call": 0.24132841328413285,
+        "check": 0.08487084870848709,
+        "fold": 0.2769987699876999,
+        "raise": 0.3968019680196802
+      },
+      "actions": {
+        "call": 981,
+        "check": 345,
+        "fold": 1126,
+        "raise": 1613
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 4065,
+      "inference_latency_ms": {
+        "max": 0.18625002121552825,
+        "mean": 0.020490064263357557,
+        "p50": 0.01950003206729889,
+        "p95": 0.0260000117123127
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 668,
+        "positive-mass-known-key": 3397
+      },
+      "lookup_rates": {
+        "missing-key": 0.16432964329643296,
+        "positive-mass-known-key": 0.835670356703567,
+        "zero-mass": 0.0
+      },
+      "opponent": "random",
+      "street": "preflop"
+    },
+    {
+      "action_rates": {
+        "call": 0.1464968152866242,
+        "check": 0.1910828025477707,
+        "fold": 0.08280254777070063,
+        "raise": 0.5796178343949044
+      },
+      "actions": {
+        "call": 23,
+        "check": 30,
+        "fold": 13,
+        "raise": 91
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 157,
+      "inference_latency_ms": {
+        "max": 0.09237503400072455,
+        "mean": 0.07015600567683578,
+        "p50": 0.0827079638838768,
+        "p95": 0.08750800043344498
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 22,
+        "positive-mass-known-key": 133,
+        "zero-mass": 2
+      },
+      "lookup_rates": {
+        "missing-key": 0.14012738853503184,
+        "positive-mass-known-key": 0.8471337579617835,
+        "zero-mass": 0.012738853503184714
+      },
+      "opponent": "random",
+      "street": "river"
+    },
+    {
+      "action_rates": {
+        "call": 0.15756302521008403,
+        "check": 0.2668067226890756,
+        "fold": 0.12605042016806722,
+        "raise": 0.4495798319327731
+      },
+      "actions": {
+        "call": 75,
+        "check": 127,
+        "fold": 60,
+        "raise": 214
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 476,
+      "inference_latency_ms": {
+        "max": 0.057792000006884336,
+        "mean": 0.045393260749557816,
+        "p50": 0.04775001434609294,
+        "p95": 0.0537287414772436
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 81,
+        "positive-mass-known-key": 393,
+        "zero-mass": 2
+      },
+      "lookup_rates": {
+        "missing-key": 0.17016806722689076,
+        "positive-mass-known-key": 0.8256302521008403,
+        "zero-mass": 0.004201680672268907
+      },
+      "opponent": "random",
+      "street": "turn"
+    },
+    {
+      "action_rates": {
+        "check": 0.39043478260869563,
+        "raise": 0.6095652173913043
+      },
+      "actions": {
+        "check": 1347,
+        "raise": 2103
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 3450,
+      "inference_latency_ms": {
+        "max": 0.05208398215472698,
+        "mean": 0.03172924014928656,
+        "p50": 0.03162503708153963,
+        "p95": 0.03429155040066689
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 2,
+        "positive-mass-known-key": 3446,
+        "zero-mass": 2
+      },
+      "lookup_rates": {
+        "missing-key": 0.0005797101449275362,
+        "positive-mass-known-key": 0.998840579710145,
+        "zero-mass": 0.0005797101449275362
+      },
+      "opponent": "check_call",
+      "street": "flop"
+    },
+    {
+      "action_rates": {
+        "call": 0.119873046875,
+        "check": 0.254638671875,
+        "fold": 0.15771484375,
+        "raise": 0.4677734375
+      },
+      "actions": {
+        "call": 491,
+        "check": 1043,
+        "fold": 646,
+        "raise": 1916
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 4096,
+      "inference_latency_ms": {
+        "max": 0.07558299694210291,
+        "mean": 0.019767628742783927,
+        "p50": 0.019708008039742708,
+        "p95": 0.020958963432349265
+      },
+      "logical_player": 0,
+      "lookup": {
+        "positive-mass-known-key": 4096
+      },
+      "lookup_rates": {
+        "missing-key": 0.0,
+        "positive-mass-known-key": 1.0,
+        "zero-mass": 0.0
+      },
+      "opponent": "check_call",
+      "street": "preflop"
+    },
+    {
+      "action_rates": {
+        "check": 0.4211594202898551,
+        "raise": 0.5788405797101449
+      },
+      "actions": {
+        "check": 1453,
+        "raise": 1997
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 3450,
+      "inference_latency_ms": {
+        "max": 0.11316704330965877,
+        "mean": 0.06056500222547439,
+        "p50": 0.07841602200642228,
+        "p95": 0.08412502938881516
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 8,
+        "positive-mass-known-key": 3441,
+        "zero-mass": 1
+      },
+      "lookup_rates": {
+        "missing-key": 0.002318840579710145,
+        "positive-mass-known-key": 0.9973913043478261,
+        "zero-mass": 0.0002898550724637681
+      },
+      "opponent": "check_call",
+      "street": "river"
+    },
+    {
+      "action_rates": {
+        "check": 0.45855072463768115,
+        "raise": 0.5414492753623188
+      },
+      "actions": {
+        "check": 1582,
+        "raise": 1868
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 3450,
+      "inference_latency_ms": {
+        "max": 0.07712497608736157,
+        "mean": 0.046602923986569476,
+        "p50": 0.04641700070351362,
+        "p95": 0.05004199920222163
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 8,
+        "positive-mass-known-key": 3438,
+        "zero-mass": 4
+      },
+      "lookup_rates": {
+        "missing-key": 0.002318840579710145,
+        "positive-mass-known-key": 0.9965217391304347,
+        "zero-mass": 0.0011594202898550724
+      },
+      "opponent": "check_call",
+      "street": "turn"
+    },
+    {
+      "action_rates": {
+        "call": 0.0364656381486676,
+        "check": 0.3380084151472651,
+        "fold": 0.05329593267882188,
+        "raise": 0.5722300140252454
+      },
+      "actions": {
+        "call": 26,
+        "check": 241,
+        "fold": 38,
+        "raise": 408
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 713,
+      "inference_latency_ms": {
+        "max": 0.04749995423480868,
+        "mean": 0.03238876722818358,
+        "p50": 0.032208976335823536,
+        "p95": 0.03639180213212967
+      },
+      "logical_player": 0,
+      "lookup": {
+        "positive-mass-known-key": 713
+      },
+      "lookup_rates": {
+        "missing-key": 0.0,
+        "positive-mass-known-key": 1.0,
+        "zero-mass": 0.0
+      },
+      "opponent": "tight_aggressive",
+      "street": "flop"
+    },
+    {
+      "action_rates": {
+        "call": 0.22706517227065173,
+        "check": 0.023246160232461604,
+        "fold": 0.2760481527604815,
+        "raise": 0.47364051473640517
+      },
+      "actions": {
+        "call": 547,
+        "check": 56,
+        "fold": 665,
+        "raise": 1141
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 2409,
+      "inference_latency_ms": {
+        "max": 0.16712502110749483,
+        "mean": 0.020029806543950375,
+        "p50": 0.0191659783013165,
+        "p95": 0.023941590916365378
+      },
+      "logical_player": 0,
+      "lookup": {
+        "positive-mass-known-key": 2409
+      },
+      "lookup_rates": {
+        "missing-key": 0.0,
+        "positive-mass-known-key": 1.0,
+        "zero-mass": 0.0
+      },
+      "opponent": "tight_aggressive",
+      "street": "preflop"
+    },
+    {
+      "action_rates": {
+        "call": 0.09523809523809523,
+        "check": 0.25170068027210885,
+        "fold": 0.1292517006802721,
+        "raise": 0.5238095238095238
+      },
+      "actions": {
+        "call": 14,
+        "check": 37,
+        "fold": 19,
+        "raise": 77
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 147,
+      "inference_latency_ms": {
+        "max": 0.08766702376306057,
+        "mean": 0.07085882675308151,
+        "p50": 0.08008396252989769,
+        "p95": 0.08504551951773465
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 1,
+        "positive-mass-known-key": 143,
+        "zero-mass": 3
+      },
+      "lookup_rates": {
+        "missing-key": 0.006802721088435374,
+        "positive-mass-known-key": 0.9727891156462585,
+        "zero-mass": 0.02040816326530612
+      },
+      "opponent": "tight_aggressive",
+      "street": "river"
+    },
+    {
+      "action_rates": {
+        "call": 0.07394366197183098,
+        "check": 0.3204225352112676,
+        "fold": 0.08450704225352113,
+        "raise": 0.5211267605633803
+      },
+      "actions": {
+        "call": 21,
+        "check": 91,
+        "fold": 24,
+        "raise": 148
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 284,
+      "inference_latency_ms": {
+        "max": 0.05324999801814556,
+        "mean": 0.04522194208669096,
+        "p50": 0.04591597826220095,
+        "p95": 0.05002939142286777
+      },
+      "logical_player": 0,
+      "lookup": {
+        "positive-mass-known-key": 284
+      },
+      "lookup_rates": {
+        "missing-key": 0.0,
+        "positive-mass-known-key": 1.0,
+        "zero-mass": 0.0
+      },
+      "opponent": "tight_aggressive",
+      "street": "turn"
+    },
+    {
+      "action_rates": {
+        "call": 0.06532356532356533,
+        "check": 0.29914529914529914,
+        "fold": 0.0989010989010989,
+        "raise": 0.5366300366300366
+      },
+      "actions": {
+        "call": 107,
+        "check": 490,
+        "fold": 162,
+        "raise": 879
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 1638,
+      "inference_latency_ms": {
+        "max": 0.06312504410743713,
+        "mean": 0.03144914927262408,
+        "p50": 0.03170798299834132,
+        "p95": 0.03579111653380096
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 4,
+        "positive-mass-known-key": 1633,
+        "zero-mass": 1
+      },
+      "lookup_rates": {
+        "missing-key": 0.002442002442002442,
+        "positive-mass-known-key": 0.996947496947497,
+        "zero-mass": 0.0006105006105006105
+      },
+      "opponent": "loose_aggressive",
+      "street": "flop"
+    },
+    {
+      "action_rates": {
+        "call": 0.20625174434831148,
+        "check": 0.09126430365615407,
+        "fold": 0.23360312587217416,
+        "raise": 0.4688808261233603
+      },
+      "actions": {
+        "call": 739,
+        "check": 327,
+        "fold": 837,
+        "raise": 1680
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 3583,
+      "inference_latency_ms": {
+        "max": 0.07329200161620975,
+        "mean": 0.020384020847872733,
+        "p50": 0.019834027625620365,
+        "p95": 0.02379098441451788
+      },
+      "logical_player": 0,
+      "lookup": {
+        "positive-mass-known-key": 3583
+      },
+      "lookup_rates": {
+        "missing-key": 0.0,
+        "positive-mass-known-key": 1.0,
+        "zero-mass": 0.0
+      },
+      "opponent": "loose_aggressive",
+      "street": "preflop"
+    },
+    {
+      "action_rates": {
+        "call": 0.0842911877394636,
+        "check": 0.24265644955300128,
+        "fold": 0.1583652618135377,
+        "raise": 0.5146871008939975
+      },
+      "actions": {
+        "call": 66,
+        "check": 190,
+        "fold": 124,
+        "raise": 403
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 783,
+      "inference_latency_ms": {
+        "max": 0.10083301458507776,
+        "mean": 0.06482018797752348,
+        "p50": 0.07970898877829313,
+        "p95": 0.08545892778784037
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 9,
+        "positive-mass-known-key": 770,
+        "zero-mass": 4
+      },
+      "lookup_rates": {
+        "missing-key": 0.011494252873563218,
+        "positive-mass-known-key": 0.9833971902937421,
+        "zero-mass": 0.005108556832694764
+      },
+      "opponent": "loose_aggressive",
+      "street": "river"
+    },
+    {
+      "action_rates": {
+        "call": 0.08935361216730038,
+        "check": 0.2994296577946768,
+        "fold": 0.10361216730038023,
+        "raise": 0.5076045627376425
+      },
+      "actions": {
+        "call": 94,
+        "check": 315,
+        "fold": 109,
+        "raise": 534
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 1052,
+      "inference_latency_ms": {
+        "max": 0.06816699169576168,
+        "mean": 0.04295717629147233,
+        "p50": 0.045625027269124985,
+        "p95": 0.05101889255456626
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 14,
+        "positive-mass-known-key": 1034,
+        "zero-mass": 4
+      },
+      "lookup_rates": {
+        "missing-key": 0.013307984790874524,
+        "positive-mass-known-key": 0.9828897338403042,
+        "zero-mass": 0.0038022813688212928
+      },
+      "opponent": "loose_aggressive",
+      "street": "turn"
+    },
+    {
+      "action_rates": {
+        "call": 0.07995226730310262,
+        "check": 0.2553699284009546,
+        "fold": 0.08472553699284009,
+        "raise": 0.5799522673031027
+      },
+      "actions": {
+        "call": 67,
+        "check": 214,
+        "fold": 71,
+        "raise": 486
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 838,
+      "inference_latency_ms": {
+        "max": 0.13870798284187913,
+        "mean": 0.03208252255413637,
+        "p50": 0.03208301495760679,
+        "p95": 0.035428584669716656
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 260,
+        "positive-mass-known-key": 578
+      },
+      "lookup_rates": {
+        "missing-key": 0.31026252983293556,
+        "positive-mass-known-key": 0.6897374701670644,
+        "zero-mass": 0.0
+      },
+      "opponent": "pot_pressure",
+      "street": "flop"
+    },
+    {
+      "action_rates": {
+        "call": 0.2320540156361052,
+        "check": 0.033404406538734895,
+        "fold": 0.30206112295664533,
+        "raise": 0.43248045486851455
+      },
+      "actions": {
+        "call": 653,
+        "check": 94,
+        "fold": 850,
+        "raise": 1217
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 2814,
+      "inference_latency_ms": {
+        "max": 0.18112501129508018,
+        "mean": 0.020110422690573077,
+        "p50": 0.01950003206729889,
+        "p95": 0.02218133304268121
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 296,
+        "positive-mass-known-key": 2518
+      },
+      "lookup_rates": {
+        "missing-key": 0.10518834399431415,
+        "positive-mass-known-key": 0.8948116560056859,
+        "zero-mass": 0.0
+      },
+      "opponent": "pot_pressure",
+      "street": "preflop"
+    },
+    {
+      "action_rates": {
+        "call": 0.16279069767441862,
+        "check": 0.28488372093023256,
+        "fold": 0.13953488372093023,
+        "raise": 0.4127906976744186
+      },
+      "actions": {
+        "call": 28,
+        "check": 49,
+        "fold": 24,
+        "raise": 71
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 172,
+      "inference_latency_ms": {
+        "max": 0.08670904207974672,
+        "mean": 0.06843700180599076,
+        "p50": 0.079624995123595,
+        "p95": 0.0844229682115838
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 104,
+        "positive-mass-known-key": 68
+      },
+      "lookup_rates": {
+        "missing-key": 0.6046511627906976,
+        "positive-mass-known-key": 0.3953488372093023,
+        "zero-mass": 0.0
+      },
+      "opponent": "pot_pressure",
+      "street": "river"
+    },
+    {
+      "action_rates": {
+        "call": 0.1076923076923077,
+        "check": 0.27384615384615385,
+        "fold": 0.13230769230769232,
+        "raise": 0.48615384615384616
+      },
+      "actions": {
+        "call": 35,
+        "check": 89,
+        "fold": 43,
+        "raise": 158
+      },
+      "actual_nodes": 39438279,
+      "arm": "candidate",
+      "decisions": 325,
+      "inference_latency_ms": {
+        "max": 0.052957970183342695,
+        "mean": 0.04367443106065576,
+        "p50": 0.04579202504828572,
+        "p95": 0.04922501975670457
+      },
+      "logical_player": 0,
+      "lookup": {
+        "missing-key": 164,
+        "positive-mass-known-key": 161
+      },
+      "lookup_rates": {
+        "missing-key": 0.5046153846153846,
+        "positive-mass-known-key": 0.49538461538461537,
+        "zero-mass": 0.0
+      },
+      "opponent": "pot_pressure",
+      "street": "turn"
+    }
+  ],
+  "curves": [
+    {
+      "actual_nodes": 20001470,
+      "baseline_rows_sha256": "961d201e289f89e282763fe3d0b6a010199407cffed24cfa4127a7fb37d36d74",
+      "opponent": "random",
+      "policy": {
+        "alpha": 0.05,
+        "bb_per_100": 123.15673828125,
+        "blocks": 2048,
+        "interval": [
+          21.825223056793575,
+          224.48825350570644
+        ]
+      },
+      "policy_minus_uniform": {
+        "alpha": 0.05,
+        "bb_per_100": 138.76953125,
+        "blocks": 2048,
+        "interval": [
+          -4.817195517665368,
+          282.35625801766537
+        ]
+      },
+      "sha256": "e61e0cd0784e86e90cc7e5cf60db2fb1e4022bd7ffc124089cc98ab242a2a9f4",
+      "uniform": {
+        "alpha": 0.05,
+        "bb_per_100": -15.61279296875,
+        "blocks": 2048,
+        "interval": [
+          -117.64601735629496,
+          86.42043141879496
+        ]
+      }
+    },
+    {
+      "actual_nodes": 20001470,
+      "baseline_rows_sha256": "07c1a0b2c88ad8b0dce18c604b9fa6c6d7dffad32c3d4a9a3086fea6eb55f34e",
+      "opponent": "check_call",
+      "policy": {
+        "alpha": 0.05,
+        "bb_per_100": 89.70947265625,
+        "blocks": 2048,
+        "interval": [
+          57.57810516811667,
+          121.84084014438332
+        ]
+      },
+      "policy_minus_uniform": {
+        "alpha": 0.05,
+        "bb_per_100": 114.7216796875,
+        "blocks": 2048,
+        "interval": [
+          61.61033694989747,
+          167.8330224251025
+        ]
+      },
+      "sha256": "e61e0cd0784e86e90cc7e5cf60db2fb1e4022bd7ffc124089cc98ab242a2a9f4",
+      "uniform": {
+        "alpha": 0.05,
+        "bb_per_100": -25.01220703125,
+        "blocks": 2048,
+        "interval": [
+          -68.2101572323325,
+          18.185743169832506
+        ]
+      }
+    },
+    {
+      "actual_nodes": 20001470,
+      "baseline_rows_sha256": "61f4ddd1abaa7261d2e497e9445084a916645e121c4184977d68597eebb587fe",
+      "opponent": "tight_aggressive",
+      "policy": {
+        "alpha": 0.05,
+        "bb_per_100": -42.333984375,
+        "blocks": 2048,
+        "interval": [
+          -85.75385449778673,
+          1.0858857477867332
+        ]
+      },
+      "policy_minus_uniform": {
+        "alpha": 0.05,
+        "bb_per_100": 2.13623046875,
+        "blocks": 2048,
+        "interval": [
+          -52.34566179805346,
+          56.61812273555346
+        ]
+      },
+      "sha256": "e61e0cd0784e86e90cc7e5cf60db2fb1e4022bd7ffc124089cc98ab242a2a9f4",
+      "uniform": {
+        "alpha": 0.05,
+        "bb_per_100": -44.47021484375,
+        "blocks": 2048,
+        "interval": [
+          -85.78131630986299,
+          -3.159113377637013
+        ]
+      }
+    },
+    {
+      "actual_nodes": 20001470,
+      "baseline_rows_sha256": "f0b5180312dbeeab48ceffce752d8a54dae1720d70f7bde7df0715eee834abf2",
+      "opponent": "loose_aggressive",
+      "policy": {
+        "alpha": 0.05,
+        "bb_per_100": -276.55029296875,
+        "blocks": 2048,
+        "interval": [
+          -354.80724734830073,
+          -198.29333858919927
+        ]
+      },
+      "policy_minus_uniform": {
+        "alpha": 0.05,
+        "bb_per_100": 211.48681640625,
+        "blocks": 2048,
+        "interval": [
+          105.33202223185333,
+          317.64161058064667
+        ]
+      },
+      "sha256": "e61e0cd0784e86e90cc7e5cf60db2fb1e4022bd7ffc124089cc98ab242a2a9f4",
+      "uniform": {
+        "alpha": 0.05,
+        "bb_per_100": -488.037109375,
+        "blocks": 2048,
+        "interval": [
+          -571.3638182185441,
+          -404.7104005314559
+        ]
+      }
+    },
+    {
+      "actual_nodes": 20001470,
+      "baseline_rows_sha256": "c3a735322bb95ec78c69259a93807c373a74a0c15b5746e49a0cab05caa289c3",
+      "opponent": "pot_pressure",
+      "policy": {
+        "alpha": 0.05,
+        "bb_per_100": -109.3505859375,
+        "blocks": 2048,
+        "interval": [
+          -165.36579966786073,
+          -53.33537220713927
+        ]
+      },
+      "policy_minus_uniform": {
+        "alpha": 0.05,
+        "bb_per_100": 50.54931640625,
+        "blocks": 2048,
+        "interval": [
+          -20.807790677413266,
+          121.90642348991327
+        ]
+      },
+      "sha256": "e61e0cd0784e86e90cc7e5cf60db2fb1e4022bd7ffc124089cc98ab242a2a9f4",
+      "uniform": {
+        "alpha": 0.05,
+        "bb_per_100": -159.89990234375,
+        "blocks": 2048,
+        "interval": [
+          -217.90377784501004,
+          -101.89602684248995
+        ]
+      }
+    },
+    {
+      "actual_nodes": 39438279,
+      "baseline_rows_sha256": "961d201e289f89e282763fe3d0b6a010199407cffed24cfa4127a7fb37d36d74",
+      "opponent": "random",
+      "policy": {
+        "alpha": 0.05,
+        "bb_per_100": 117.2119140625,
+        "blocks": 2048,
+        "interval": [
+          16.290318790152625,
+          218.13350933484736
+        ]
+      },
+      "policy_minus_uniform": {
+        "alpha": 0.05,
+        "bb_per_100": 132.82470703125,
+        "blocks": 2048,
+        "interval": [
+          -10.112695971985374,
+          275.7621100344854
+        ]
+      },
+      "sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "uniform": {
+        "alpha": 0.05,
+        "bb_per_100": -15.61279296875,
+        "blocks": 2048,
+        "interval": [
+          -117.64601735629496,
+          86.42043141879496
+        ]
+      }
+    },
+    {
+      "actual_nodes": 39438279,
+      "baseline_rows_sha256": "07c1a0b2c88ad8b0dce18c604b9fa6c6d7dffad32c3d4a9a3086fea6eb55f34e",
+      "opponent": "check_call",
+      "policy": {
+        "alpha": 0.05,
+        "bb_per_100": 93.994140625,
+        "blocks": 2048,
+        "interval": [
+          68.04759811318723,
+          119.94068313681277
+        ]
+      },
+      "policy_minus_uniform": {
+        "alpha": 0.05,
+        "bb_per_100": 119.00634765625,
+        "blocks": 2048,
+        "interval": [
+          69.36577806282769,
+          168.6469172496723
+        ]
+      },
+      "sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "uniform": {
+        "alpha": 0.05,
+        "bb_per_100": -25.01220703125,
+        "blocks": 2048,
+        "interval": [
+          -68.2101572323325,
+          18.185743169832506
+        ]
+      }
+    },
+    {
+      "actual_nodes": 39438279,
+      "baseline_rows_sha256": "61f4ddd1abaa7261d2e497e9445084a916645e121c4184977d68597eebb587fe",
+      "opponent": "tight_aggressive",
+      "policy": {
+        "alpha": 0.05,
+        "bb_per_100": -19.43359375,
+        "blocks": 2048,
+        "interval": [
+          -56.517722055004825,
+          17.650534555004825
+        ]
+      },
+      "policy_minus_uniform": {
+        "alpha": 0.05,
+        "bb_per_100": 25.03662109375,
+        "blocks": 2048,
+        "interval": [
+          -26.48794352267901,
+          76.56118571017902
+        ]
+      },
+      "sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "uniform": {
+        "alpha": 0.05,
+        "bb_per_100": -44.47021484375,
+        "blocks": 2048,
+        "interval": [
+          -85.78131630986299,
+          -3.159113377637013
+        ]
+      }
+    },
+    {
+      "actual_nodes": 39438279,
+      "baseline_rows_sha256": "f0b5180312dbeeab48ceffce752d8a54dae1720d70f7bde7df0715eee834abf2",
+      "opponent": "loose_aggressive",
+      "policy": {
+        "alpha": 0.05,
+        "bb_per_100": -170.8740234375,
+        "blocks": 2048,
+        "interval": [
+          -246.75577072450517,
+          -94.99227615049482
+        ]
+      },
+      "policy_minus_uniform": {
+        "alpha": 0.05,
+        "bb_per_100": 317.1630859375,
+        "blocks": 2048,
+        "interval": [
+          212.79274032093858,
+          421.5334315540614
+        ]
+      },
+      "sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "uniform": {
+        "alpha": 0.05,
+        "bb_per_100": -488.037109375,
+        "blocks": 2048,
+        "interval": [
+          -571.3638182185441,
+          -404.7104005314559
+        ]
+      }
+    },
+    {
+      "actual_nodes": 39438279,
+      "baseline_rows_sha256": "c3a735322bb95ec78c69259a93807c373a74a0c15b5746e49a0cab05caa289c3",
+      "opponent": "pot_pressure",
+      "policy": {
+        "alpha": 0.05,
+        "bb_per_100": -101.416015625,
+        "blocks": 2048,
+        "interval": [
+          -156.66857317404362,
+          -46.16345807595637
+        ]
+      },
+      "policy_minus_uniform": {
+        "alpha": 0.05,
+        "bb_per_100": 58.48388671875,
+        "blocks": 2048,
+        "interval": [
+          -14.115437138421044,
+          131.08321057592104
+        ]
+      },
+      "sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4",
+      "uniform": {
+        "alpha": 0.05,
+        "bb_per_100": -159.89990234375,
+        "blocks": 2048,
+        "interval": [
+          -217.90377784501004,
+          -101.89602684248995
+        ]
+      }
+    }
+  ],
+  "final_minus_earlier": [
+    {
+      "descriptive_95": {
+        "alpha": 0.05,
+        "bb_per_100": -5.94482421875,
+        "blocks": 2048,
+        "interval": [
+          -54.86273553370187,
+          42.97308709620187
+        ]
+      },
+      "descriptive_interval": {
+        "alpha": 0.05,
+        "bb_per_100": -5.94482421875,
+        "blocks": 2048,
+        "interval": [
+          -54.86273553370187,
+          42.97308709620187
+        ]
+      },
+      "earlier_nodes": 20001470,
+      "final_nodes": 39438279,
+      "formal_label": "descriptive",
+      "opponent": "random"
+    },
+    {
+      "descriptive_95": {
+        "alpha": 0.05,
+        "bb_per_100": 4.28466796875,
+        "blocks": 2048,
+        "interval": [
+          -21.65098917850603,
+          30.22032511600603
+        ]
+      },
+      "descriptive_interval": {
+        "alpha": 0.05,
+        "bb_per_100": 4.28466796875,
+        "blocks": 2048,
+        "interval": [
+          -21.65098917850603,
+          30.22032511600603
+        ]
+      },
+      "earlier_nodes": 20001470,
+      "final_nodes": 39438279,
+      "formal_label": "descriptive",
+      "opponent": "check_call"
+    },
+    {
+      "descriptive_95": {
+        "alpha": 0.05,
+        "bb_per_100": 22.900390625,
+        "blocks": 2048,
+        "interval": [
+          -15.528651943660734,
+          61.32943319366073
+        ]
+      },
+      "earlier_nodes": 20001470,
+      "final_nodes": 39438279,
+      "formal_label": "inconclusive",
+      "opponent": "tight_aggressive",
+      "primary_adjusted": {
+        "alpha": 0.025,
+        "bb_per_100": 22.900390625,
+        "blocks": 2048,
+        "interval": [
+          -21.05317595346127,
+          66.85395720346128
+        ]
+      }
+    },
+    {
+      "descriptive_95": {
+        "alpha": 0.05,
+        "bb_per_100": 105.67626953125,
+        "blocks": 2048,
+        "interval": [
+          32.1868544867764,
+          179.16568457572362
+        ]
+      },
+      "earlier_nodes": 20001470,
+      "final_nodes": 39438279,
+      "formal_label": "improvement",
+      "opponent": "loose_aggressive",
+      "primary_adjusted": {
+        "alpha": 0.025,
+        "bb_per_100": 105.67626953125,
+        "blocks": 2048,
+        "interval": [
+          21.622083398503605,
+          189.7304556639964
+        ]
+      }
+    },
+    {
+      "descriptive_95": {
+        "alpha": 0.05,
+        "bb_per_100": 7.9345703125,
+        "blocks": 2048,
+        "interval": [
+          -29.9054042543735,
+          45.7745448793735
+        ]
+      },
+      "descriptive_interval": {
+        "alpha": 0.05,
+        "bb_per_100": 7.9345703125,
+        "blocks": 2048,
+        "interval": [
+          -29.9054042543735,
+          45.7745448793735
+        ]
+      },
+      "earlier_nodes": 20001470,
+      "final_nodes": 39438279,
+      "formal_label": "descriptive",
+      "opponent": "pot_pressure"
+    }
+  ],
+  "formal_family_size": 2,
+  "frozen_final_sha256": "b7b68f8d8c58823ef9341a2faa58a58f85c2715e801bd212707d76aa2288caed",
+  "hand_exposures": [
+    {
+      "categories": {
+        "all-positive": {
+          "bb_per_100_contribution": 44.05517578125,
+          "hands": 2374
+        },
+        "any-zero-no-missing": {
+          "bb_per_100_contribution": 0.09765625,
+          "hands": 5
+        },
+        "ever-missing": {
+          "bb_per_100_contribution": 70.2880859375,
+          "hands": 1003
+        },
+        "no-target-decision": {
+          "bb_per_100_contribution": 8.7158203125,
+          "hands": 714
+        }
+      },
+      "hands": 4096,
+      "nodes": 20001470,
+      "opponent": "random"
+    },
+    {
+      "categories": {
+        "all-positive": {
+          "bb_per_100_contribution": 82.99560546875,
+          "hands": 4060
+        },
+        "any-zero-no-missing": {
+          "bb_per_100_contribution": 1.6845703125,
+          "hands": 5
+        },
+        "ever-missing": {
+          "bb_per_100_contribution": 5.029296875,
+          "hands": 31
+        },
+        "no-target-decision": {
+          "bb_per_100_contribution": 0.0,
+          "hands": 0
+        }
+      },
+      "hands": 4096,
+      "nodes": 20001470,
+      "opponent": "check_call"
+    },
+    {
+      "categories": {
+        "all-positive": {
+          "bb_per_100_contribution": -58.70361328125,
+          "hands": 2241
+        },
+        "any-zero-no-missing": {
+          "bb_per_100_contribution": -2.7099609375,
+          "hands": 6
+        },
+        "ever-missing": {
+          "bb_per_100_contribution": -3.3935546875,
+          "hands": 8
+        },
+        "no-target-decision": {
+          "bb_per_100_contribution": 22.47314453125,
+          "hands": 1841
+        }
+      },
+      "hands": 4096,
+      "nodes": 20001470,
+      "opponent": "tight_aggressive"
+    },
+    {
+      "categories": {
+        "all-positive": {
+          "bb_per_100_contribution": -277.0751953125,
+          "hands": 2950
+        },
+        "any-zero-no-missing": {
+          "bb_per_100_contribution": -8.4228515625,
+          "hands": 15
+        },
+        "ever-missing": {
+          "bb_per_100_contribution": -4.4189453125,
+          "hands": 36
+        },
+        "no-target-decision": {
+          "bb_per_100_contribution": 13.36669921875,
+          "hands": 1095
+        }
+      },
+      "hands": 4096,
+      "nodes": 20001470,
+      "opponent": "loose_aggressive"
+    },
+    {
+      "categories": {
+        "all-positive": {
+          "bb_per_100_contribution": 2.6611328125,
+          "hands": 1913
+        },
+        "any-zero-no-missing": {
+          "bb_per_100_contribution": 0.0,
+          "hands": 0
+        },
+        "ever-missing": {
+          "bb_per_100_contribution": -132.421875,
+          "hands": 511
+        },
+        "no-target-decision": {
+          "bb_per_100_contribution": 20.41015625,
+          "hands": 1672
+        }
+      },
+      "hands": 4096,
+      "nodes": 20001470,
+      "opponent": "pot_pressure"
+    },
+    {
+      "categories": {
+        "all-positive": {
+          "bb_per_100_contribution": 55.3955078125,
+          "hands": 2388
+        },
+        "any-zero-no-missing": {
+          "bb_per_100_contribution": 2.5634765625,
+          "hands": 4
+        },
+        "ever-missing": {
+          "bb_per_100_contribution": 50.537109375,
+          "hands": 990
+        },
+        "no-target-decision": {
+          "bb_per_100_contribution": 8.7158203125,
+          "hands": 714
+        }
+      },
+      "hands": 4096,
+      "nodes": 39438279,
+      "opponent": "random"
+    },
+    {
+      "categories": {
+        "all-positive": {
+          "bb_per_100_contribution": 89.013671875,
+          "hands": 4074
+        },
+        "any-zero-no-missing": {
+          "bb_per_100_contribution": -0.1708984375,
+          "hands": 6
+        },
+        "ever-missing": {
+          "bb_per_100_contribution": 5.1513671875,
+          "hands": 16
+        },
+        "no-target-decision": {
+          "bb_per_100_contribution": 0.0,
+          "hands": 0
+        }
+      },
+      "hands": 4096,
+      "nodes": 39438279,
+      "opponent": "check_call"
+    },
+    {
+      "categories": {
+        "all-positive": {
+          "bb_per_100_contribution": -37.48779296875,
+          "hands": 2252
+        },
+        "any-zero-no-missing": {
+          "bb_per_100_contribution": -1.9775390625,
+          "hands": 2
+        },
+        "ever-missing": {
+          "bb_per_100_contribution": -2.44140625,
+          "hands": 1
+        },
+        "no-target-decision": {
+          "bb_per_100_contribution": 22.47314453125,
+          "hands": 1841
+        }
+      },
+      "hands": 4096,
+      "nodes": 39438279,
+      "opponent": "tight_aggressive"
+    },
+    {
+      "categories": {
+        "all-positive": {
+          "bb_per_100_contribution": -177.79541015625,
+          "hands": 2973
+        },
+        "any-zero-no-missing": {
+          "bb_per_100_contribution": -0.8056640625,
+          "hands": 8
+        },
+        "ever-missing": {
+          "bb_per_100_contribution": -5.6396484375,
+          "hands": 20
+        },
+        "no-target-decision": {
+          "bb_per_100_contribution": 13.36669921875,
+          "hands": 1095
+        }
+      },
+      "hands": 4096,
+      "nodes": 39438279,
+      "opponent": "loose_aggressive"
+    },
+    {
+      "categories": {
+        "all-positive": {
+          "bb_per_100_contribution": 6.640625,
+          "hands": 1933
+        },
+        "any-zero-no-missing": {
+          "bb_per_100_contribution": 0.0,
+          "hands": 0
+        },
+        "ever-missing": {
+          "bb_per_100_contribution": -128.466796875,
+          "hands": 491
+        },
+        "no-target-decision": {
+          "bb_per_100_contribution": 20.41015625,
+          "hands": 1672
+        }
+      },
+      "hands": 4096,
+      "nodes": 39438279,
+      "opponent": "pot_pressure"
+    }
+  ],
+  "primary_opponents": [
+    "tight_aggressive",
+    "loose_aggressive"
+  ],
+  "replayed_actions_including_reference_copies": 317417,
+  "replayed_rows_including_reference_copies": 81920,
+  "schedule_sha256": "94d8e95fa3f668c6cee00ffc13bf5ecbb4ec2a0b234cacc873dbabfc64a4ead3",
+  "source": "d3033822d865e077093809e82633a1ad7fad19ba",
+  "status": "verified",
+  "uniform_evaluations_per_opponent": 1,
+  "unique_final_hands": 61440,
+  "visits": [
+    {
+      "decisions": 4101,
+      "nodes": 20001470,
+      "opponent": "random",
+      "street": "preflop",
+      "visit_bands": {
+        "0": 7,
+        "1": 7,
+        "10-99": 1741,
+        "100+": 1477,
+        "2-9": 188,
+        "missing": 681
+      }
+    },
+    {
+      "decisions": 1310,
+      "nodes": 20001470,
+      "opponent": "random",
+      "street": "flop",
+      "visit_bands": {
+        "0": 6,
+        "1": 12,
+        "10-99": 312,
+        "100+": 709,
+        "2-9": 55,
+        "missing": 216
+      }
+    },
+    {
+      "decisions": 442,
+      "nodes": 20001470,
+      "opponent": "random",
+      "street": "turn",
+      "visit_bands": {
+        "0": 15,
+        "1": 17,
+        "10-99": 172,
+        "100+": 63,
+        "2-9": 88,
+        "missing": 87
+      }
+    },
+    {
+      "decisions": 145,
+      "nodes": 20001470,
+      "opponent": "random",
+      "street": "river",
+      "visit_bands": {
+        "0": 13,
+        "1": 9,
+        "10-99": 60,
+        "100+": 8,
+        "2-9": 30,
+        "missing": 25
+      }
+    },
+    {
+      "decisions": 4096,
+      "nodes": 20001470,
+      "opponent": "check_call",
+      "street": "preflop",
+      "visit_bands": {
+        "10-99": 2485,
+        "100+": 1422,
+        "2-9": 189
+      }
+    },
+    {
+      "decisions": 3465,
+      "nodes": 20001470,
+      "opponent": "check_call",
+      "street": "flop",
+      "visit_bands": {
+        "0": 9,
+        "1": 11,
+        "10-99": 865,
+        "100+": 2385,
+        "2-9": 191,
+        "missing": 4
+      }
+    },
+    {
+      "decisions": 3465,
+      "nodes": 20001470,
+      "opponent": "check_call",
+      "street": "turn",
+      "visit_bands": {
+        "0": 132,
+        "1": 114,
+        "10-99": 1713,
+        "100+": 725,
+        "2-9": 765,
+        "missing": 16
+      }
+    },
+    {
+      "decisions": 3465,
+      "nodes": 20001470,
+      "opponent": "check_call",
+      "street": "river",
+      "visit_bands": {
+        "0": 473,
+        "1": 212,
+        "10-99": 1753,
+        "100+": 210,
+        "2-9": 797,
+        "missing": 20
+      }
+    },
+    {
+      "decisions": 2418,
+      "nodes": 20001470,
+      "opponent": "tight_aggressive",
+      "street": "preflop",
+      "visit_bands": {
+        "0": 4,
+        "1": 8,
+        "10-99": 871,
+        "100+": 1468,
+        "2-9": 66,
+        "missing": 1
+      }
+    },
+    {
+      "decisions": 744,
+      "nodes": 20001470,
+      "opponent": "tight_aggressive",
+      "street": "flop",
+      "visit_bands": {
+        "0": 9,
+        "1": 5,
+        "10-99": 175,
+        "100+": 501,
+        "2-9": 54
+      }
+    },
+    {
+      "decisions": 331,
+      "nodes": 20001470,
+      "opponent": "tight_aggressive",
+      "street": "turn",
+      "visit_bands": {
+        "0": 7,
+        "1": 16,
+        "10-99": 171,
+        "100+": 69,
+        "2-9": 64,
+        "missing": 4
+      }
+    },
+    {
+      "decisions": 147,
+      "nodes": 20001470,
+      "opponent": "tight_aggressive",
+      "street": "river",
+      "visit_bands": {
+        "0": 11,
+        "1": 8,
+        "10-99": 83,
+        "100+": 3,
+        "2-9": 37,
+        "missing": 5
+      }
+    },
+    {
+      "decisions": 3610,
+      "nodes": 20001470,
+      "opponent": "loose_aggressive",
+      "street": "preflop",
+      "visit_bands": {
+        "0": 26,
+        "1": 24,
+        "10-99": 1876,
+        "100+": 1415,
+        "2-9": 268,
+        "missing": 1
+      }
+    },
+    {
+      "decisions": 1665,
+      "nodes": 20001470,
+      "opponent": "loose_aggressive",
+      "street": "flop",
+      "visit_bands": {
+        "0": 14,
+        "1": 19,
+        "10-99": 469,
+        "100+": 1019,
+        "2-9": 141,
+        "missing": 3
+      }
+    },
+    {
+      "decisions": 1047,
+      "nodes": 20001470,
+      "opponent": "loose_aggressive",
+      "street": "turn",
+      "visit_bands": {
+        "0": 64,
+        "1": 63,
+        "10-99": 479,
+        "100+": 163,
+        "2-9": 250,
+        "missing": 28
+      }
+    },
+    {
+      "decisions": 752,
+      "nodes": 20001470,
+      "opponent": "loose_aggressive",
+      "street": "river",
+      "visit_bands": {
+        "0": 94,
+        "1": 63,
+        "10-99": 326,
+        "100+": 26,
+        "2-9": 218,
+        "missing": 25
+      }
+    },
+    {
+      "decisions": 2812,
+      "nodes": 20001470,
+      "opponent": "pot_pressure",
+      "street": "preflop",
+      "visit_bands": {
+        "10-99": 1046,
+        "100+": 1423,
+        "2-9": 51,
+        "missing": 292
+      }
+    },
+    {
+      "decisions": 841,
+      "nodes": 20001470,
+      "opponent": "pot_pressure",
+      "street": "flop",
+      "visit_bands": {
+        "0": 3,
+        "1": 2,
+        "10-99": 136,
+        "100+": 418,
+        "2-9": 23,
+        "missing": 259
+      }
+    },
+    {
+      "decisions": 374,
+      "nodes": 20001470,
+      "opponent": "pot_pressure",
+      "street": "turn",
+      "visit_bands": {
+        "0": 1,
+        "1": 8,
+        "10-99": 101,
+        "100+": 56,
+        "2-9": 24,
+        "missing": 184
+      }
+    },
+    {
+      "decisions": 157,
+      "nodes": 20001470,
+      "opponent": "pot_pressure",
+      "street": "river",
+      "visit_bands": {
+        "0": 1,
+        "1": 2,
+        "10-99": 55,
+        "100+": 3,
+        "2-9": 11,
+        "missing": 85
+      }
+    },
+    {
+      "decisions": 4065,
+      "nodes": 39438279,
+      "opponent": "random",
+      "street": "preflop",
+      "visit_bands": {
+        "1": 3,
+        "10-99": 1662,
+        "100+": 1698,
+        "2-9": 34,
+        "missing": 668
+      }
+    },
+    {
+      "decisions": 1332,
+      "nodes": 39438279,
+      "opponent": "random",
+      "street": "flop",
+      "visit_bands": {
+        "0": 3,
+        "1": 3,
+        "10-99": 169,
+        "100+": 903,
+        "2-9": 32,
+        "missing": 222
+      }
+    },
+    {
+      "decisions": 476,
+      "nodes": 39438279,
+      "opponent": "random",
+      "street": "turn",
+      "visit_bands": {
+        "0": 14,
+        "1": 7,
+        "10-99": 166,
+        "100+": 151,
+        "2-9": 57,
+        "missing": 81
+      }
+    },
+    {
+      "decisions": 157,
+      "nodes": 39438279,
+      "opponent": "random",
+      "street": "river",
+      "visit_bands": {
+        "0": 13,
+        "1": 4,
+        "10-99": 59,
+        "100+": 35,
+        "2-9": 24,
+        "missing": 22
+      }
+    },
+    {
+      "decisions": 4096,
+      "nodes": 39438279,
+      "opponent": "check_call",
+      "street": "preflop",
+      "visit_bands": {
+        "10-99": 2509,
+        "100+": 1587
+      }
+    },
+    {
+      "decisions": 3450,
+      "nodes": 39438279,
+      "opponent": "check_call",
+      "street": "flop",
+      "visit_bands": {
+        "0": 2,
+        "1": 6,
+        "10-99": 501,
+        "100+": 2862,
+        "2-9": 77,
+        "missing": 2
+      }
+    },
+    {
+      "decisions": 3450,
+      "nodes": 39438279,
+      "opponent": "check_call",
+      "street": "turn",
+      "visit_bands": {
+        "0": 47,
+        "1": 52,
+        "10-99": 1582,
+        "100+": 1414,
+        "2-9": 347,
+        "missing": 8
+      }
+    },
+    {
+      "decisions": 3450,
+      "nodes": 39438279,
+      "opponent": "check_call",
+      "street": "river",
+      "visit_bands": {
+        "0": 240,
+        "1": 131,
+        "10-99": 1625,
+        "100+": 848,
+        "2-9": 598,
+        "missing": 8
+      }
+    },
+    {
+      "decisions": 2409,
+      "nodes": 39438279,
+      "opponent": "tight_aggressive",
+      "street": "preflop",
+      "visit_bands": {
+        "0": 1,
+        "1": 4,
+        "10-99": 740,
+        "100+": 1641,
+        "2-9": 23
+      }
+    },
+    {
+      "decisions": 713,
+      "nodes": 39438279,
+      "opponent": "tight_aggressive",
+      "street": "flop",
+      "visit_bands": {
+        "0": 5,
+        "1": 8,
+        "10-99": 102,
+        "100+": 577,
+        "2-9": 21
+      }
+    },
+    {
+      "decisions": 284,
+      "nodes": 39438279,
+      "opponent": "tight_aggressive",
+      "street": "turn",
+      "visit_bands": {
+        "0": 6,
+        "1": 4,
+        "10-99": 134,
+        "100+": 114,
+        "2-9": 26
+      }
+    },
+    {
+      "decisions": 147,
+      "nodes": 39438279,
+      "opponent": "tight_aggressive",
+      "street": "river",
+      "visit_bands": {
+        "0": 11,
+        "1": 5,
+        "10-99": 70,
+        "100+": 34,
+        "2-9": 26,
+        "missing": 1
+      }
+    },
+    {
+      "decisions": 3583,
+      "nodes": 39438279,
+      "opponent": "loose_aggressive",
+      "street": "preflop",
+      "visit_bands": {
+        "0": 7,
+        "1": 8,
+        "10-99": 1766,
+        "100+": 1678,
+        "2-9": 124
+      }
+    },
+    {
+      "decisions": 1638,
+      "nodes": 39438279,
+      "opponent": "loose_aggressive",
+      "street": "flop",
+      "visit_bands": {
+        "0": 11,
+        "1": 11,
+        "10-99": 333,
+        "100+": 1208,
+        "2-9": 71,
+        "missing": 4
+      }
+    },
+    {
+      "decisions": 1052,
+      "nodes": 39438279,
+      "opponent": "loose_aggressive",
+      "street": "turn",
+      "visit_bands": {
+        "0": 38,
+        "1": 37,
+        "10-99": 481,
+        "100+": 291,
+        "2-9": 191,
+        "missing": 14
+      }
+    },
+    {
+      "decisions": 783,
+      "nodes": 39438279,
+      "opponent": "loose_aggressive",
+      "street": "river",
+      "visit_bands": {
+        "0": 72,
+        "1": 38,
+        "10-99": 352,
+        "100+": 122,
+        "2-9": 190,
+        "missing": 9
+      }
+    },
+    {
+      "decisions": 2814,
+      "nodes": 39438279,
+      "opponent": "pot_pressure",
+      "street": "preflop",
+      "visit_bands": {
+        "10-99": 931,
+        "100+": 1576,
+        "2-9": 11,
+        "missing": 296
+      }
+    },
+    {
+      "decisions": 838,
+      "nodes": 39438279,
+      "opponent": "pot_pressure",
+      "street": "flop",
+      "visit_bands": {
+        "0": 1,
+        "1": 2,
+        "10-99": 87,
+        "100+": 470,
+        "2-9": 18,
+        "missing": 260
+      }
+    },
+    {
+      "decisions": 325,
+      "nodes": 39438279,
+      "opponent": "pot_pressure",
+      "street": "turn",
+      "visit_bands": {
+        "1": 3,
+        "10-99": 70,
+        "100+": 78,
+        "2-9": 10,
+        "missing": 164
+      }
+    },
+    {
+      "decisions": 172,
+      "nodes": 39438279,
+      "opponent": "pot_pressure",
+      "street": "river",
+      "visit_bands": {
+        "0": 2,
+        "1": 1,
+        "10-99": 35,
+        "100+": 24,
+        "2-9": 6,
+        "missing": 104
+      }
+    }
+  ]
+}
