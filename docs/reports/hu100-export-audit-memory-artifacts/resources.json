@@ -1,0 +1,140 @@
+{
+  "actual_interval_max_seconds": 0.2827882766723633,
+  "actual_interval_median_seconds": 0.22106075286865234,
+  "all_sampled_power_ac": true,
+  "all_sampled_pressure_normal": true,
+  "budget_seconds": 1800,
+  "deadline": 1791461710.376726,
+  "deadline_utc": "2026-10-08T12:15:10.376726+00:00",
+  "elapsed_seconds": 1550.882031917572,
+  "final_source": "506743412fdbf7ec2cb3f4a1069b68d0effcb538",
+  "finished": 1791461461.2587578,
+  "guards": {
+    "guard": {
+      "attempts": [],
+      "failure": "CalledProcessError: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.",
+      "finished": 1791459910.404614,
+      "limits": {
+        "disk_gib": 15.5,
+        "rss_gib": 10,
+        "save_reserve_seconds": 0,
+        "soft_rss_gib": null,
+        "swap_gib": 0.5,
+        "system_memory_guard": true
+      },
+      "started": 1791459910.3772428,
+      "status": "incomplete"
+    },
+    "guard-02": {
+      "attempts": [
+        {
+          "command": [
+            "/Users/dberweger/Local/native-recovery-hu100-20261008/.venv/bin/python",
+            "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/campaign-corrected.py",
+            "worker"
+          ],
+          "exit_code": 0,
+          "finished": 1791460704.5027058,
+          "guard_failure": null,
+          "name": "immutable-benchmarks",
+          "peak_aggregate_job_rss_bytes": 6019416064,
+          "peak_process_rss_bytes": 5949194240,
+          "pid": 35129,
+          "started": 1791459971.530603,
+          "status": "complete"
+        }
+      ],
+      "failure": null,
+      "finished": 1791460704.5043771,
+      "limits": {
+        "disk_gib": 15.5,
+        "rss_gib": 10,
+        "save_reserve_seconds": 0,
+        "soft_rss_gib": null,
+        "swap_gib": 0.5,
+        "system_memory_guard": true
+      },
+      "started": 1791459971.3695402,
+      "status": "complete"
+    },
+    "guard-03": {
+      "attempts": [
+        {
+          "command": [
+            "/Users/dberweger/Local/native-recovery-hu100-20261008/.venv/bin/python",
+            "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/final-validation-2.py",
+            "worker"
+          ],
+          "exit_code": 1,
+          "finished": 1791460847.082796,
+          "guard_failure": null,
+          "name": "final-source-verification",
+          "peak_aggregate_job_rss_bytes": 148996096,
+          "peak_process_rss_bytes": 53166080,
+          "pid": 40456,
+          "started": 1791460750.638377,
+          "status": "failed"
+        }
+      ],
+      "failure": null,
+      "finished": 1791460847.0843341,
+      "limits": {
+        "disk_gib": 15.5,
+        "rss_gib": 10,
+        "save_reserve_seconds": 0,
+        "soft_rss_gib": null,
+        "swap_gib": 0.5,
+        "system_memory_guard": true
+      },
+      "started": 1791460750.455644,
+      "status": "incomplete"
+    },
+    "guard-04": {
+      "attempts": [
+        {
+          "command": [
+            "/Users/dberweger/Local/native-recovery-hu100-20261008/.venv/bin/python",
+            "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/final-continuation.py",
+            "worker"
+          ],
+          "exit_code": 0,
+          "finished": 1791461462.0717728,
+          "guard_failure": null,
+          "name": "final-unstarted-checks",
+          "peak_aggregate_job_rss_bytes": 147963904,
+          "peak_process_rss_bytes": 53100544,
+          "pid": 41363,
+          "started": 1791461069.14171,
+          "status": "complete"
+        }
+      ],
+      "failure": null,
+      "finished": 1791461462.073406,
+      "limits": {
+        "disk_gib": 15.5,
+        "rss_gib": 10,
+        "save_reserve_seconds": 0,
+        "soft_rss_gib": null,
+        "swap_gib": 0.5,
+        "system_memory_guard": true
+      },
+      "started": 1791461069.0217018,
+      "status": "complete"
+    }
+  },
+  "initial_failures_preserved": true,
+  "limitations": "RSS can double count shared pages and miss brief peaks/children; kernel peaks are per command. Refused instantaneous headroom snapshot absent; later 82% is distinct. One run/case, warm caches, fixed order and measurement overhead.",
+  "maximum_swap_growth_bytes": 0.0,
+  "measurement_samples": 5487,
+  "minimum_free_disk_bytes": 81886011392,
+  "minimum_system_free_percent": 72,
+  "missing_refused_instantaneous_snapshot": true,
+  "no_training": true,
+  "resource_samples": 242,
+  "sampled_peak_family_rss_bytes": 6023528448,
+  "sampled_peak_guard_family_rss_bytes": 6019416064,
+  "sampling_target_seconds": 0.2,
+  "started": 1791459910.376726,
+  "started_utc": "2026-10-08T11:45:10.376726+00:00",
+  "status": "science-verified"
+}

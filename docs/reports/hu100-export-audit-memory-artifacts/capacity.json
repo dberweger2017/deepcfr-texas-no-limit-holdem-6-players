@@ -1,0 +1,15 @@
+{
+  "advisory_only": true,
+  "checkpoint_save_reserve_seconds": 39.096158336,
+  "entry_ceiling": 6510774,
+  "export_audit_extract_reserve_bytes": 663945216.0,
+  "extrapolation_factor": 2.0,
+  "fits_rss_estimate": true,
+  "largest_measured_hu100_entries": 3255387,
+  "limitations": "RSS sampling misses transients and counts shared pages repeatedly; historical training RSS is after save, not a family peak. Training hash-map reallocations, table growth, scratch I/O, filesystem cache and future node-to-entry ratios remain uncertain. Fresh guarded timing/save pilot and source-bound admission required; no 1B/10B forecast.",
+  "memory_allowance": 2.2,
+  "one_set_disk_reserve_bytes": 10335294464.0,
+  "one_set_export_audit_extract_reserve_seconds": 670.4973814839741,
+  "rss_ceiling_bytes": 10737418240,
+  "training_save_reserve_bytes": 6048972694.490208
+}

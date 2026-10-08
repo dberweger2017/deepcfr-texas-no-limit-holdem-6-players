@@ -293,6 +293,19 @@ def export_policy(
     )
 
 
+def _checked_policy_node(key, names, probabilities):
+    if (
+        not isinstance(key, str)
+        or len(key) != 32
+        or len(names) != len(probabilities)
+        or len(names) == 0
+        or len(set(names)) != len(names)
+        or not all(isfinite(p) and p >= 0 for p in probabilities)
+        or abs(sum(probabilities) - 1) > 1e-8
+    ):
+        raise ValueError("Invalid blueprint policy node")
+
+
 class FrozenBlueprint:
     def __init__(self, spec, path: Path):
         self.spec = spec
@@ -318,16 +331,7 @@ class FrozenBlueprint:
         self.entries = {}
         for key, row in document["entries"].items():
             names, probabilities = row
-            if (
-                not isinstance(key, str)
-                or len(key) != 32
-                or len(names) != len(probabilities)
-                or len(names) == 0
-                or len(set(names)) != len(names)
-                or not all(isfinite(p) and p >= 0 for p in probabilities)
-                or abs(sum(probabilities) - 1) > 1e-8
-            ):
-                raise ValueError("Invalid blueprint policy node")
+            _checked_policy_node(key, names, probabilities)
             self.entries[key] = (tuple(names), tuple(probabilities))
         self.description = {
             "kind": document["format"],

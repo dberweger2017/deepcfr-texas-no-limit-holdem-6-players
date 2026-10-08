@@ -1,0 +1,10 @@
+{
+  "bytes": 140594,
+  "sha256": "b36699a8803a5d3a13a7307723a1b194f05d2c815e2b2de9630c773c7c4cb30d",
+  "members_verified": 31,
+  "manifest_sha256": "0e40f810fbf2dcd28659043ab82ffc6bfca19b34d49533618b278bb9ac621866",
+  "source_head": "6933530a6cd87f136ad9fa8f22992ca9929518a2",
+  "purpose": "Later metadata seal after scientific compute closed; no new benchmark/verification/training on M4",
+  "originals_retained": true,
+  "remote_bytes_downloaded": false
+}

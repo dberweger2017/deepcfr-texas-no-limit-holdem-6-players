@@ -1,0 +1,76 @@
+{
+  "after_binary": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/bin/after",
+  "after_source": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/after",
+  "after_source_commit": "a5e63fb",
+  "before_binary": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/bin/before",
+  "before_source": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/before",
+  "before_source_commit": "7dca996876bf793e499424eed584ae6c0ccf7312",
+  "binaries": {
+    "after": "8007d2ac2db19966ba3fbea8d2e971277f175d5728bfd3b5bed97f88e72a0544",
+    "before": "279d9088e8dbcc6153af8ac00200704a17baef02b4b3330712d3844893a54c44"
+  },
+  "deadline": 1791461710.376726,
+  "environment": {
+    "python": "/Users/dberweger/Local/native-recovery-hu100-20261008/.venv/bin/python",
+    "version": "Python 3.11.14"
+  },
+  "models": [
+    {
+      "actual_nodes": 100691,
+      "average": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-100691-average.gz",
+      "bb": 100,
+      "checkpoint": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-100691-checkpoint.gz",
+      "current": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-100691-current.gz",
+      "entries": 53743,
+      "name": "hu100-100691"
+    },
+    {
+      "actual_nodes": 1001382,
+      "average": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-1001382-average.gz",
+      "bb": 100,
+      "checkpoint": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-1001382-checkpoint.gz",
+      "current": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-1001382-current.gz",
+      "entries": 460885,
+      "name": "hu100-1001382"
+    },
+    {
+      "actual_nodes": 5001210,
+      "average": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-5001210-average.gz",
+      "bb": 100,
+      "checkpoint": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-5001210-checkpoint.gz",
+      "current": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-5001210-current.gz",
+      "entries": 1777063,
+      "name": "hu100-5001210"
+    },
+    {
+      "actual_nodes": 10001922,
+      "average": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-10001922-average.gz",
+      "bb": 100,
+      "checkpoint": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-10001922-checkpoint.gz",
+      "current": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-10001922-current.gz",
+      "entries": 3023624,
+      "name": "hu100-10001922"
+    },
+    {
+      "actual_nodes": 11042440,
+      "average": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-11042440-average.gz",
+      "bb": 100,
+      "checkpoint": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-11042440-checkpoint.gz",
+      "current": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-11042440-current.gz",
+      "entries": 3255387,
+      "name": "hu100-11042440"
+    },
+    {
+      "average": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu20-reference-1b-average.gz",
+      "bb": 20,
+      "checkpoint": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu20-reference-1b-checkpoint.gz",
+      "current": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu20-reference-1b-current.gz",
+      "entries": 4319080,
+      "name": "hu20-reference-1b"
+    }
+  ],
+  "sources": {
+    "after": "9cb103f351e09b5aef940a582b1c69c3526beebfe20f6aef06ea59cc2c64e8e7",
+    "before": "c3269aa60ecc528116234817260b2a1f60a418dbdeb52c42fb1005d3421c352d"
+  }
+}

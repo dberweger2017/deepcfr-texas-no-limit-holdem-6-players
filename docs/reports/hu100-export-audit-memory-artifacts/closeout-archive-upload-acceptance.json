@@ -1,0 +1,26 @@
+{
+  "status": "accepted",
+  "checked_at": "2026-10-08T12:25:10.035Z",
+  "cloud": {
+    "id": "1OizXJXcge0u2LtmpjsOvyIsXizPTEzDo",
+    "title": "hu100-export-audit-memory-closeout-20261008.zip",
+    "mime_type": null,
+    "size": "140594",
+    "url": "https://drive.google.com/file/d/1OizXJXcge0u2LtmpjsOvyIsXizPTEzDo/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1OizXJXcge0u2LtmpjsOvyIsXizPTEzDo/view?usp=drivesdk",
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "10d6DPp8i6uQrW5QaEaJEW364Dd7Vt7nv"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "verification": "Connector upload success followed by separate ID/name/size/parent readback. Local ZIP and every member verified against manifest; no remote-byte download.",
+  "sha256": "b36699a8803a5d3a13a7307723a1b194f05d2c815e2b2de9630c773c7c4cb30d"
+}
