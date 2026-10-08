@@ -14,7 +14,8 @@ import json
 from math import fsum, isfinite
 from random import Random
 
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, choices, information_key
+from src.blueprint import equity_buckets
+from src.blueprint.abstraction import HU20_EQUITY_SCHEMA, HU20_UNCAPPED_SCHEMA, choices, information_key
 from src.blueprint.solver import regret_match
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
@@ -113,11 +114,12 @@ class SubgameTrainer:
     sampled opponent node adds t * its current policy.
     """
 
-    def __init__(self, roots, *, seed):
+    def __init__(self, roots, *, seed, schema=HU20_UNCAPPED_SCHEMA):
         if not roots:
             raise ValueError("An empty root set cannot be trained")
         self.roots = tuple(roots)
         self.seed = seed
+        self.schema = schema
         self.iteration = 0
         self.table = {}
         self.nodes = 0
@@ -163,7 +165,7 @@ class SubgameTrainer:
         view = hand.observe(hand.actor)
         menu = choices(view, raise_cap=None, free_fold=False)
         names = tuple(item.name for item in menu)
-        key = information_key(view, menu, schema=HU20_UNCAPPED_SCHEMA)
+        key = information_key(view, menu, schema=self.schema)
         policy = self.policy(key, names)
         if hand.actor != traverser:
             delta = self._delta(deltas, key, names)
@@ -201,8 +203,12 @@ class SubgameTrainer:
                 raise ValueError("Unknown exported strategy")
             if not all(isfinite(v) for v in p) or abs(fsum(p) - 1) > 2e-5:
                 raise ValueError("Non-finite or unnormalized exported policy")
-            groups.append({"lineage": lineage, "metric": "v1", "key": key, "names": list(entry.names),
+            groups.append({"lineage": lineage, "metric": "equity-k50" if self.schema == HU20_EQUITY_SCHEMA else "v1", "key": key, "names": list(entry.names),
                            "probabilities": p, "mass": mass, "roots": entry.visits})
-        return {"format": "hu20-board-pooling-policy-v1", "groups": groups, "lineage": lineage,
-                "strategy": strategy, "iteration": self.iteration,
-                "zero_mass_rule": "uniform within the actual menu"}
+        document = {"format": "hu20-board-pooling-policy-v1", "groups": groups, "lineage": lineage,
+                    "strategy": strategy, "iteration": self.iteration,
+                    "zero_mass_rule": "uniform within the actual menu"}
+        if self.schema == HU20_EQUITY_SCHEMA:
+            document["abstraction"] = self.schema
+            document["card_tables"] = dict(equity_buckets.registered().sha256)
+        return document

@@ -38,7 +38,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 3. **Training procedure — CFR+ rejected; 10B scaling checks pass.** The tested CFR+ floor ("0.4.0-shield") lowered weakness probes but lost directly to v0.4.0 ([report](docs/reports/hu20-cfr-plus.md), [floor control](docs/reports/hu20-floor-control.md)). Training the v0.4.1 recipe to 10B nodes beats v0.4.1 directly ([#185](docs/reports/hu20-o-10b.md)); the fresh [#188 LBR confirmation](docs/reports/hu20-v042-lbr-confirmation.md) narrowly passes the unchanged safeguard. The owner-authorized [v0.4.2 publication](docs/releases/v0.4.2/PUBLICATION.md) is complete: reviewed green-check merge, exact-source tag and verified downloads/runtime.
 4. **Card abstraction — in progress.** Follow the [abstraction lessons](docs/reports/hu20-abstraction-lessons.md). Each step depends on the one before:
    1. **validation complete:** [#190](docs/reports/hu20-global-bucket-validation.md) passes at K50 E 0.3917 [0.3614, 0.4234] BB, reproducing fitted50's advantage over v1. K200 is descriptively worse at 0.4233; all coverage/replay and independent audit checks pass.
-   2. versioned bucket keys in the native trainer, card part only, with exact key parity;
+   2. **bucket keys done:** [`…-equity-k50-v1`](docs/reports/native-equity-bucket-keys.md) keys postflop cards by #163's pinned K50 tables in the native trainer, bench and Python key function, with exact Rust/Python parity. It has about 1.4× v1's keys;
    3. a trained bench comparison against v1 at matched visits per key, or each at its plateau;
    4. full-game confirmation: learning curves, then a direct match against the current release and the arena rule.
 5. **Turn search — arena complete, adoption unresolved.** The [fixed-work arena](docs/reports/hu20-fixed-work-arena/attempt-2-closeout.md) ([#166](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/166)) shows large gains against bounded LBR and native pressure, and a regression against selective stackoff that needs diagnosis before any search-based candidate. No direct search-versus-no-search match yet.
@@ -69,9 +69,9 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
-- **October 8 storage cleanup:** owner-requested merged evidence cleanup reclaimed **23.884 GB on M4 /1.059 GB on M1** during removal batches; canonical Drive archives and active HU100/turn-search/bucket inputs remain. [Receipt and restoration](docs/artifacts/storage-vacuum-20261008.md). No unattended cleanup.
-
 *Updated October 8, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
+
+- **Equity-bucket keys:** the native trainer, bench and Python key function can key postflop cards by #163's pinned K50 tables (`hu20-`/`hu100-native-reopening-ordered-history-equity-k50-v1`); history, menus and preflop stay v1's. Rust/Python keys agree on 3,000 real-table hands with 0 mismatches; the native bench equals `SubgameTrainer` exactly; v1 checkpoints are unchanged. Keys grow about 1.4× (3.04M against 2.17M at 100M HU20 nodes). Next: the trained bench at matched visits per key (abstraction step 3). Python checkpoint/average loaders, the web runtime, turn search and LBR don't take the schema yet. [Report](docs/reports/native-equity-bucket-keys.md).
 
 - **Compact native training table:** peak memory at #204's 39.4M-node endpoint falls from 3.17 to 0.71 GB; bytes per entry stay 87–93 from 1.8M to 19.2M entries, so forecasts no longer need a doubling allowance. Checkpoints are byte-identical: a fresh run and a 20M-node resume both reproduce #204's archived checkpoint, and the HU20 1B recipe reproduces the pinned v0.4.1 average. Entries reach 19.2M at 200M nodes; about 45M are projected at 1B, roughly 5 GB. [Report](docs/reports/native-compact-table.md). No training campaign follows automatically.
 

@@ -47,6 +47,43 @@ def test_native_bench_equals_subgame_trainer(tmp_path, count, checkpoints):
             assert native == trainer.export("L", strategy), (checkpoint, strategy)
 
 
+def test_native_equity_bench_equals_subgame_trainer(tmp_path):
+    """Bucket keys on the bench: same trajectory, keys, exports and table identity in both trainers."""
+    from src.blueprint import equity_buckets
+    from src.blueprint.abstraction import HU20_EQUITY_SCHEMA
+    from tests.native_equity_tables import write_tables
+    frozen = roots(2, 11)
+    situations = []
+    for record in json.loads(CORPUS.read_text())["roots"][:2]:
+        board = tuple(record["board"])
+        live = [c for c in DECK if c not in board]
+        for i, a in enumerate(live):
+            for b in live[i + 1:]:
+                situations.append(((a, b), board))
+                situations.extend(((a, b), board + (r,)) for r in live if r not in (a, b))
+    tables = write_tables(tmp_path, situations)
+    (tmp_path / "roots.json").write_text(json.dumps([r.to_native() for r in frozen]))
+    out = subprocess.run([str(BINARY), "bench-train", "--roots", str(tmp_path / "roots.json"), "--seed", "202610090001",
+                          "--iterations", "200", "--lineage", "L", "--card-buckets", str(tables), "--card-tables-unpinned",
+                          "--out", str(tmp_path / "native")], capture_output=True, text=True)
+    assert out.returncode == 0, out.stderr
+    equity_buckets.register(equity_buckets.EquityCards(tables, pinned=False))
+    try:
+        trainer = SubgameTrainer(frozen, seed=202610090001, schema=HU20_EQUITY_SCHEMA)
+        while trainer.iteration < 200:
+            trainer.step()
+        v1 = SubgameTrainer(frozen, seed=202610090001)
+        v1.step()
+        assert int(out.stdout.split()[3]) == trainer.nodes
+        for strategy in ("current", "average-traverser-reach", "average-opponent-sampled"):
+            native = json.loads((tmp_path / "native/iteration-200" / f"base.{strategy}.json").read_text())
+            assert native == trainer.export("L", strategy), strategy
+            assert native["abstraction"] == HU20_EQUITY_SCHEMA and {g["metric"] for g in native["groups"]} == {"equity-k50"}
+        assert not set(trainer.table) & set(v1.table)
+    finally:
+        equity_buckets.register(None)
+
+
 @pytest.mark.parametrize("flags,label", [(["--regret-floor", "0"], "regret-floor-0"), (["--dcfr", "1.5,0,2"], "dcfr-1.5-0-2")])
 def test_options_are_labeled_and_keep_both_averages_on_one_trajectory(tmp_path, flags, label):
     """bench-train refuses to export unless both averaging trainers kept bit-identical regrets."""

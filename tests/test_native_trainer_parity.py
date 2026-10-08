@@ -22,6 +22,34 @@ def test_rules_menus_and_keys_match_the_python_engine(tmp_path):
     assert "mismatched_hands 0" in out.stdout
 
 
+@pytest.mark.parametrize("stack_bb", [20, 100])
+def test_equity_bucket_keys_match_the_python_engine(tmp_path, stack_bb):
+    """The equity schema changes only the postflop card part, identically in both engines."""
+    from tests.native_equity_tables import fixture_situations, write_tables
+    seed, hands = 202610090100, 300
+    tables = write_tables(tmp_path, fixture_situations(range(seed, seed + hands)))
+    fixtures = tmp_path / "hands.jsonl"
+    common = ["--hands", str(hands), "--seed", str(seed), "--passive", "0.6", "--stack-bb", str(stack_bb)]
+    run("-m", "scripts.native_parity_fixtures", *common, "--card-buckets", str(tables), "--card-tables-unpinned",
+        "--out", str(fixtures))
+    out = subprocess.run([str(BINARY), "parity", str(fixtures), "--card-buckets", str(tables), "--card-tables-unpinned"],
+                         capture_output=True, text=True)
+    assert out.returncode == 0, out.stderr
+    assert f"hands {hands} " in out.stdout and "mismatched_hands 0" in out.stdout
+    # Postflop keys differ from v1's; preflop keys are v1's apart from the schema name.
+    v1 = tmp_path / "v1.jsonl"
+    run("-m", "scripts.native_parity_fixtures", *common, "--out", str(v1))
+    import json
+    pairs = [(a, b) for x, y in zip(fixtures.read_text().splitlines(), v1.read_text().splitlines())
+             for a, b in zip(json.loads(x)["decisions"], json.loads(y)["decisions"])]
+    assert sum(a["street"] != "preflop" for a, _ in pairs) > 500
+    assert all(a["key"] != b["key"] for a, b in pairs)
+    assert all(a["menu"] == b["menu"] for a, b in pairs)
+    # Production loads refuse tables other than #163's.
+    refused = subprocess.run([str(BINARY), "parity", str(fixtures), "--card-buckets", str(tables)], capture_output=True, text=True)
+    assert refused.returncode != 0 and "#163" in refused.stderr
+
+
 def test_traversals_reproduce_python_deltas_bit_for_bit(tmp_path):
     fixture = tmp_path / "traversal.json"
     run("-m", "scripts.native_traversal_fixtures", "--train-iterations", "100", "--cases", "40", "--out", str(fixture))
