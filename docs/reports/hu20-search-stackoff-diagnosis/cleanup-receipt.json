@@ -1,0 +1,2445 @@
+{
+  "at": 1791492820.0988429,
+  "authorization": "Owner task explicitly authorizes removing this PR own extracted results copies after archival; current PR208 is open and this specific cleanup is authorized",
+  "current_pr208_state": "OPEN",
+  "original_pr166_state": "MERGED",
+  "scope": [
+    "inputs",
+    "offline"
+  ],
+  "dependency_review": "Fresh isolated root; scientific review complete with no dependency or active processes; all guarded phases complete; no other PR roots/inputs touched",
+  "accepted_archives": [
+    "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+    "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ"
+  ],
+  "synced_deletions": false,
+  "forced_evictions": false,
+  "repeated_hash_audit": false,
+  "removed_files": [
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/plan.json",
+      "relative": "inputs/plan.json",
+      "bytes": 6603,
+      "mtime_ns": 1791489677574274204,
+      "inode": 79362285,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "inputs/plan.json",
+        "bytes": 6603,
+        "sha256": "2915906603bd1784297369e6699031dc78e69f03addbef0d93d6592277ae05a2"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/restoration.json",
+      "relative": "inputs/restoration.json",
+      "bytes": 9889,
+      "mtime_ns": 1791489677574877901,
+      "inode": 79362287,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "inputs/restoration.json",
+        "bytes": 9889,
+        "sha256": "9ce7bad061a4afcde44de8e4545f42241f3e77ed8f9afdf2aaf7ab464288f97d"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/RESEARCH_MEMBER_HASHES.json",
+      "relative": "inputs/RESEARCH_MEMBER_HASHES.json",
+      "bytes": 266981,
+      "mtime_ns": 1791489677574408868,
+      "inode": 79362286,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "inputs/RESEARCH_MEMBER_HASHES.json",
+        "bytes": 266981,
+        "sha256": "83830d63ea88f56272da4b8fe402dd9e9f56a3bb245e120eca212b3a50365dcc"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "bytes": 2026444,
+      "mtime_ns": 1791489677469304120,
+      "inode": 79362266,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093001-500000000-average.search.hands.jsonl.gz",
+        "bytes": 2026444,
+        "sha256": "54ae1cf24f9422729aa06cf1be11172fe8f25c40c45fc7178af23388bbcef98a"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "bytes": 2010383,
+      "mtime_ns": 1791489677483991221,
+      "inode": 79362268,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093002-500000000-average.search.hands.jsonl.gz",
+        "bytes": 2010383,
+        "sha256": "8ae6302d4e9ec8d947ab2d0d6adae7514ad86ce78419cfc5acf0ef0a936b3d5b"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1975114,
+      "mtime_ns": 1791489677498292579,
+      "inode": 79362270,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093003-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1975114,
+        "sha256": "03982b99d6576fbab6a0d3a9737f6f75d443f16039d22b5b445dab8e86ea56d7"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1696712,
+      "mtime_ns": 1791489677491365042,
+      "inode": 79362269,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093003-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1696712,
+        "sha256": "e597b580b5e029ab9092f68b4e68a28a6bc2b3bb1516f7f35812da563f0a5c11"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1710368,
+      "mtime_ns": 1791489677475347799,
+      "inode": 79362267,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093002-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1710368,
+        "sha256": "775258ff45d6a7e267514af19acc8228ae25cebed2f9bbcd7694e7bcfa88ee31"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1737680,
+      "mtime_ns": 1791489677462662994,
+      "inode": 79362265,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-4/B-2026093001-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1737680,
+        "sha256": "7b5209c8e0814f049c899cff4c00a9e1b5722525d76ad09bb5256f8dc3a4b9aa"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1958624,
+      "mtime_ns": 1791489677510464936,
+      "inode": 79362273,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093001-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1958624,
+        "sha256": "9403e781268e5495cceb4d9fbf849b6a7a153e53319c0c3b618dbdd680747f07"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1985935,
+      "mtime_ns": 1791489677523391278,
+      "inode": 79362275,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093002-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1985935,
+        "sha256": "fd941cbce28822e0c49c8f21f5035992e47e37f0343b761316a0d5812d5723d6"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1910116,
+      "mtime_ns": 1791489677535946710,
+      "inode": 79362277,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093003-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1910116,
+        "sha256": "5831f453b6d16a4f696f48d4256f0559ba1539a18e76c17ef41955d3062c1196"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1656145,
+      "mtime_ns": 1791489677529289335,
+      "inode": 79362276,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093003-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1656145,
+        "sha256": "78ac9051afe558897ab7c431b5d2137604c2d5ca924f319f7de9ffc1379ac74d"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1690398,
+      "mtime_ns": 1791489677516774110,
+      "inode": 79362274,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093002-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1690398,
+        "sha256": "9f3f586863d32b0deee6b6241ecda3b6f43be5f28f6cd012f7d1c8818aa15f6b"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1680351,
+      "mtime_ns": 1791489677503586730,
+      "inode": 79362272,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-5/B-2026093001-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1680351,
+        "sha256": "239d1df278d8b13f6f04b84d8d631dcc5b3df844ef9c929c3cff2c39afa0edae"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1970251,
+      "mtime_ns": 1791489677550113071,
+      "inode": 79362280,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093001-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1970251,
+        "sha256": "c7b99d8fb727c67aa0be126a4fb073177ad04f0ba5d9f56adc5856ab5626472a"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1994350,
+      "mtime_ns": 1791489677562294927,
+      "inode": 79362282,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093002-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1994350,
+        "sha256": "5cab4cda7c9d5d18ee8759b22f05167c77ec9d7a1068e41792da3dacf5b68a09"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1949177,
+      "mtime_ns": 1791489677573573508,
+      "inode": 79362284,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093003-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1949177,
+        "sha256": "3dcc3a1bde1d7806916ac43096fb1bb63811215dce32c4e8d0d499d7a3cd1dee"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1669197,
+      "mtime_ns": 1791489677567703868,
+      "inode": 79362283,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093003-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1669197,
+        "sha256": "a5d0273f52f7256275020e542fbd60a170c7aa0817fe76a956b6c4dbca2e8f77"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1711740,
+      "mtime_ns": 1791489677555821631,
+      "inode": 79362281,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093002-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1711740,
+        "sha256": "e483dadf26bfc89a37f2cf2b9795906e5ebe3c2b854774033ac1cd79e05b8b76"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1686216,
+      "mtime_ns": 1791489677542606919,
+      "inode": 79362279,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/yig5a8bfutpxjg/arena/worker-6/B-2026093001-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1686216,
+        "sha256": "50a936510fe2b5ab4f47206aea94f35e2d3209f19b31c6b029615854d7625f11"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1853842,
+      "mtime_ns": 1791489677435099299,
+      "inode": 79362257,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093001-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1853842,
+        "sha256": "af1292f162d583b15aa447981115c25397a0a0beb07e65d2ccf070decceed51a"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1893654,
+      "mtime_ns": 1791489677445436898,
+      "inode": 79362259,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093002-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1893654,
+        "sha256": "158a88db9e07cd6319f1c5660bde9197005b1803aab516666825505a4a7b2b0d"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1894225,
+      "mtime_ns": 1791489677456334112,
+      "inode": 79362261,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093003-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1894225,
+        "sha256": "279cd0488052018dbcf13b62772de002bdd6f8a751c8749cb6dd9dfa1516afaf"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1653871,
+      "mtime_ns": 1791489677450778091,
+      "inode": 79362260,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093003-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1653871,
+        "sha256": "d7e5b7a9cf7dd48969b3b1712d684c94998ff10c69034bbe2ec4971089805650"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1548332,
+      "mtime_ns": 1791489677439098642,
+      "inode": 79362258,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093002-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1548332,
+        "sha256": "f046971eaa14c1eb876af540db5c6be5cf6c900e2b74a30c758e6f5d6c539ab1"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1589325,
+      "mtime_ns": 1791489677430689674,
+      "inode": 79362256,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-3/B-2026093001-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1589325,
+        "sha256": "3c30064165f953e531ed7078a4731fd082957600b7944d0effdb48ad62184eba"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1926994,
+      "mtime_ns": 1791489677400485154,
+      "inode": 79362250,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093001-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1926994,
+        "sha256": "0d78bf9c7f680deb66829419bf2787d9f393ff29d8766c4d8fbd059374fc7da5"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1920687,
+      "mtime_ns": 1791489677414635556,
+      "inode": 79362252,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093002-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1920687,
+        "sha256": "96ea404b337722f15f863862da7f59f52a5524d2f448cc91fe91dd999ef96935"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1987546,
+      "mtime_ns": 1791489677426491835,
+      "inode": 79362254,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093003-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1987546,
+        "sha256": "672b9cf640ec08448eb7750b1f83e524d944dc933bff480769756a7054857e5b"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1704291,
+      "mtime_ns": 1791489677420144120,
+      "inode": 79362253,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093003-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1704291,
+        "sha256": "58cc0addc159e843145b485f803fa70683b04da2560e25010a426d45045a6948"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1634343,
+      "mtime_ns": 1791489677406539374,
+      "inode": 79362251,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093002-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1634343,
+        "sha256": "d529daffda9c06cda329c7b184a926d0949288c5c4dfd3a37c34ae40da85e127"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1648430,
+      "mtime_ns": 1791489677394185938,
+      "inode": 79362249,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/ne7ui0na5wd27u/arena/worker-2/B-2026093001-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1648430,
+        "sha256": "9c7ec206b702a522a5477385bf331632aed239225e0eca1ec2a43b217fef5f00"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1851140,
+      "mtime_ns": 1791489677333730440,
+      "inode": 79362234,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093001-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1851140,
+        "sha256": "278fd731ddc9b3ea6dbba05c5ceacfddcfb6da4066d50458f439656e24a25cba"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1814286,
+      "mtime_ns": 1791489677342716689,
+      "inode": 79362236,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093002-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1814286,
+        "sha256": "4053027792e76843da5c227c703dcbc1b2cb71760d2f39969395a2d0353e982d"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1934567,
+      "mtime_ns": 1791489677352394426,
+      "inode": 79362238,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093003-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1934567,
+        "sha256": "78ec44419cb3b00ecd8e1fa30c1c83affa1890535d0a9e7b8247bab03511948d"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1581706,
+      "mtime_ns": 1791489677346473578,
+      "inode": 79362237,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093003-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1581706,
+        "sha256": "f51591b405052c7785a3a66ea3b6954683056014d5bbfbe9f6df27c3b3e52d5c"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1550865,
+      "mtime_ns": 1791489677337468954,
+      "inode": 79362235,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093002-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1550865,
+        "sha256": "b73d2850feb734928a40a88ad2a7890dd4738001c839012e030077368d5c8a46"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1555767,
+      "mtime_ns": 1791489677328470330,
+      "inode": 79362233,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-0/B-2026093001-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1555767,
+        "sha256": "4d554d77754c5fe50d86dda0c7939cfdbd97c351c35a282bfb529d992cac8247"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093001-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1845589,
+      "mtime_ns": 1791489677363640174,
+      "inode": 79362241,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093001-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1845589,
+        "sha256": "d8c7967c51328e3aa21bde628f38a036d79ffecef8e613ce3e061ed3b5f771ba"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093002-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1819082,
+      "mtime_ns": 1791489677376814178,
+      "inode": 79362243,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093002-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1819082,
+        "sha256": "eab13b995031593c7c1cea1b7239b06d6da3a1baae6992e62bb3e3894df940bb"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093003-500000000-average.search.hands.jsonl.gz",
+      "bytes": 1909576,
+      "mtime_ns": 1791489677388110176,
+      "inode": 79362245,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093003-500000000-average.search.hands.jsonl.gz",
+        "bytes": 1909576,
+        "sha256": "6bc3b3049ec70e213d42cd043f5de627f5a70354f2a3765a77c3eaf3f4b3f257"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093003-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1646222,
+      "mtime_ns": 1791489677382319492,
+      "inode": 79362244,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093003-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1646222,
+        "sha256": "fb24affbf6af06adbf217e7d176ba07cac60a78025bf9ca44df04dcb5b83c07b"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093002-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1588560,
+      "mtime_ns": 1791489677370358757,
+      "inode": 79362242,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093002-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1588560,
+        "sha256": "5061843e66a551791bbf81c110441109291346ddce8244c6f3dfdcd1206810af"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "relative": "inputs/audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093001-500000000-average.base.hands.jsonl.gz",
+      "bytes": 1607370,
+      "mtime_ns": 1791489677357753909,
+      "inode": 79362240,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "audit-attempt-2/gdyfqg9817qme0/arena/worker-1/B-2026093001-500000000-average.base.hands.jsonl.gz",
+        "bytes": 1607370,
+        "sha256": "bc9d31e841e4e4a75997ebc0f958bdf2ec31b81c1cbe27b9e753ceae42a11160"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/hands.json",
+      "relative": "offline/hands.json",
+      "bytes": 256890,
+      "mtime_ns": 1791489689653159110,
+      "inode": 79362387,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/hands.json",
+        "bytes": 256890,
+        "sha256": "a62e556129ae0afebfd519e2f41019243d8971b3f684710dae3ae89eb0e0809c"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/resolution-summary.json",
+      "relative": "offline/resolution-summary.json",
+      "bytes": 130960,
+      "mtime_ns": 1791491099019520425,
+      "inode": 79365237,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/resolution-summary.json",
+        "bytes": 130960,
+        "sha256": "3e71f7d75192188b224d31f3f8f41da828dd3baf4ca5e26098d1f6c941528684"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/examples.json",
+      "relative": "offline/examples.json",
+      "bytes": 25130,
+      "mtime_ns": 1791489689645862496,
+      "inode": 79362386,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/examples.json",
+        "bytes": 25130,
+        "sha256": "8006e2bcf7600f1afa6d7692f1957d271673850bd8afe97173f70137081c4aaa"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/request-provenance.json",
+      "relative": "offline/request-provenance.json",
+      "bytes": 3320,
+      "mtime_ns": 1791489744928974585,
+      "inode": 79362768,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/request-provenance.json",
+        "bytes": 3320,
+        "sha256": "392559fc7651e402492046f920f7459a918855f520d28d47497d75460d9834c0"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-14-0-9-floor_001_at_round_root_fixed_turn.json",
+      "relative": "offline/range-rows/2026093003-14-0-9-floor_001_at_round_root_fixed_turn.json",
+      "bytes": 138102,
+      "mtime_ns": 1791491093251481286,
+      "inode": 79367564,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-14-0-9-floor_001_at_round_root_fixed_turn.json",
+        "bytes": 138102,
+        "sha256": "908caf36cf92fb8bd631ba13ede00c81235ca9d2212245726e96f7bedb02d260"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-127-1-6-search.json",
+      "relative": "offline/range-rows/2026093003-127-1-6-search.json",
+      "bytes": 133599,
+      "mtime_ns": 1791491094526745355,
+      "inode": 79365839,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-127-1-6-search.json",
+        "bytes": 133599,
+        "sha256": "3f6fd0dcd0503df415bd308568ecd176941e95f89444cc0a79c034e3c08e73ad"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-14-0-6-frozen_rules.json",
+      "relative": "offline/range-rows/2026093003-14-0-6-frozen_rules.json",
+      "bytes": 53803,
+      "mtime_ns": 1791491092175944961,
+      "inode": 79365817,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-14-0-6-frozen_rules.json",
+        "bytes": 53803,
+        "sha256": "a119cc57101ab4cdc5c45a39528dbb7160cef7fa68ee4bcedc50f327d2db8ff7"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-14-0-6-floor_001_at_round_root_fixed_turn.json",
+      "relative": "offline/range-rows/2026093003-14-0-6-floor_001_at_round_root_fixed_turn.json",
+      "bytes": 143976,
+      "mtime_ns": 1791491092215783844,
+      "inode": 79367552,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-14-0-6-floor_001_at_round_root_fixed_turn.json",
+        "bytes": 143976,
+        "sha256": "1787f89e3789c2c9961a483d9a9eda1f69e53dca4bb59d5b3e5ba9747cb0ff85"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093002-176-0-6-frozen_rules.json",
+      "relative": "offline/range-rows/2026093002-176-0-6-frozen_rules.json",
+      "bytes": 29609,
+      "mtime_ns": 1791491073881646852,
+      "inode": 79365546,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093002-176-0-6-frozen_rules.json",
+        "bytes": 29609,
+        "sha256": "a23d09b78c2ac19488e811d1303bffdb84746833ae00167e18576c3f69b420ea"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-127-1-8-search_at_round_root.json",
+      "relative": "offline/range-rows/2026093003-127-1-8-search_at_round_root.json",
+      "bytes": 129081,
+      "mtime_ns": 1791491095738284392,
+      "inode": 79367582,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-127-1-8-search_at_round_root.json",
+        "bytes": 129081,
+        "sha256": "0af3f7aefe311279399bb8032748f188c18aeb44cd230b07ae4cbb4ec17683fe"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-127-1-6-floor_001_fixed_turn.json",
+      "relative": "offline/range-rows/2026093003-127-1-6-floor_001_fixed_turn.json",
+      "bytes": 133596,
+      "mtime_ns": 1791490489356568157,
+      "inode": 79365841,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-127-1-6-floor_001_fixed_turn.json",
+        "bytes": 133596,
+        "sha256": "f47d01979570109a3871a7e1b55463181d3831d911e6b81fbe5b25961b9f9499"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-14-0-9-search_at_round_root.json",
+      "relative": "offline/range-rows/2026093003-14-0-9-search_at_round_root.json",
+      "bytes": 100275,
+      "mtime_ns": 1791491093229706812,
+      "inode": 79367563,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-14-0-9-search_at_round_root.json",
+        "bytes": 100275,
+        "sha256": "be78745905580d02b945566ee437080c7d927fce53e2a4e867774f5f69fb9373"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-127-1-6-frozen_rules.json",
+      "relative": "offline/range-rows/2026093003-127-1-6-frozen_rules.json",
+      "bytes": 19489,
+      "mtime_ns": 1791491094529810179,
+      "inode": 79365840,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-127-1-6-frozen_rules.json",
+        "bytes": 19489,
+        "sha256": "b77a39d19787a61a2da0f73b8281c4aceeffb843cacfee6c80cecaf914cde4ae"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093002-208-0-8-floor_001_fixed_turn.json",
+      "relative": "offline/range-rows/2026093002-208-0-8-floor_001_fixed_turn.json",
+      "bytes": 139542,
+      "mtime_ns": 1791490434768610275,
+      "inode": 79365701,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093002-208-0-8-floor_001_fixed_turn.json",
+        "bytes": 139542,
+        "sha256": "486ec8759ca654688e5f57ca217142473825e309eb71c95f2a78160a2f93a561"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-14-0-9-search.json",
+      "relative": "offline/range-rows/2026093003-14-0-9-search.json",
+      "bytes": 90415,
+      "mtime_ns": 1791491093211757233,
+      "inode": 79367561,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-14-0-9-search.json",
+        "bytes": 90415,
+        "sha256": "9bec9fce068064531514686b9d9353a13cb92c3a899040099204d1a661d9d401"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-14-0-6-search_at_round_root.json",
+      "relative": "offline/range-rows/2026093003-14-0-6-search_at_round_root.json",
+      "bytes": 144062,
+      "mtime_ns": 1791491092196055587,
+      "inode": 79367551,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-14-0-6-search_at_round_root.json",
+        "bytes": 144062,
+        "sha256": "719a6a272daa27d3eaa34b8747a28a8e5b7836e5b3a6d38f94c3333fe71a0442"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093001-14-0-6-floor_001_fixed_turn.json",
+      "relative": "offline/range-rows/2026093001-14-0-6-floor_001_fixed_turn.json",
+      "bytes": 140920,
+      "mtime_ns": 1791490709948439797,
+      "inode": 79365236,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093001-14-0-6-floor_001_fixed_turn.json",
+        "bytes": 140920,
+        "sha256": "e79b82af86b63d522fcdbe35a615d87ca397a0e829c04a895088ee3b5a79bc99"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093002-176-0-6-search_at_round_root.json",
+      "relative": "offline/range-rows/2026093002-176-0-6-search_at_round_root.json",
+      "bytes": 144047,
+      "mtime_ns": 1791491073901894684,
+      "inode": 79367528,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093002-176-0-6-search_at_round_root.json",
+        "bytes": 144047,
+        "sha256": "fd57d79ac03cc06e6c5e8abc042bd7932f5443cbda34d5a6caea4c897f828942"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093001-14-0-9-frozen_rules.json",
+      "relative": "offline/range-rows/2026093001-14-0-9-frozen_rules.json",
+      "bytes": 7563,
+      "mtime_ns": 1791491052265047180,
+      "inode": 79367381,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093001-14-0-9-frozen_rules.json",
+        "bytes": 7563,
+        "sha256": "6aff655e65612c3ed1ac9d2f3b4de223187f658f877a5ae98aec0addc2107644"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093001-14-0-9-floor_001_at_round_root_fixed_turn.json",
+      "relative": "offline/range-rows/2026093001-14-0-9-floor_001_at_round_root_fixed_turn.json",
+      "bytes": 138107,
+      "mtime_ns": 1791491052309913022,
+      "inode": 79367383,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093001-14-0-9-floor_001_at_round_root_fixed_turn.json",
+        "bytes": 138107,
+        "sha256": "f15616556abb454f9cab57c8e69119b74abf7d87f3539ede4fd0f26e86f52aa7"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093002-176-0-6-floor_001_at_round_root_fixed_turn.json",
+      "relative": "offline/range-rows/2026093002-176-0-6-floor_001_at_round_root_fixed_turn.json",
+      "bytes": 144072,
+      "mtime_ns": 1791491073921545318,
+      "inode": 79367529,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093002-176-0-6-floor_001_at_round_root_fixed_turn.json",
+        "bytes": 144072,
+        "sha256": "c8072eeaf733e6c4d09f6b2565fd0b54c141b9391b58c46827a39a49133dc172"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093001-14-0-6-floor_001_at_round_root_fixed_turn.json",
+      "relative": "offline/range-rows/2026093001-14-0-6-floor_001_at_round_root_fixed_turn.json",
+      "bytes": 143965,
+      "mtime_ns": 1791491050587081926,
+      "inode": 79367365,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093001-14-0-6-floor_001_at_round_root_fixed_turn.json",
+        "bytes": 143965,
+        "sha256": "7ee967637188f2e6d9adf04188ef6c3e10557ecc5725df1a3540dd003f293286"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-14-0-6-search.json",
+      "relative": "offline/range-rows/2026093003-14-0-6-search.json",
+      "bytes": 142270,
+      "mtime_ns": 1791491092167527808,
+      "inode": 79365816,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-14-0-6-search.json",
+        "bytes": 142270,
+        "sha256": "c03390cd81c04970c2c2390a43dfd2f4fdabd72a01908dd59e9f07e33705247b"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-127-1-8-frozen_rules.json",
+      "relative": "offline/range-rows/2026093003-127-1-8-frozen_rules.json",
+      "bytes": 18257,
+      "mtime_ns": 1791491095718891546,
+      "inode": 79367581,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-127-1-8-frozen_rules.json",
+        "bytes": 18257,
+        "sha256": "7e804fefc406491bbae4056df2d7a1a73f6bb53978cecff78ea8a5070b979ee1"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093002-176-0-6-floor_001_fixed_turn.json",
+      "relative": "offline/range-rows/2026093002-176-0-6-floor_001_fixed_turn.json",
+      "bytes": 144055,
+      "mtime_ns": 1791490408938888302,
+      "inode": 79365547,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093002-176-0-6-floor_001_fixed_turn.json",
+        "bytes": 144055,
+        "sha256": "b4070865be8168444a9412ee3b80645b2be72dc5d1a2a849e48795b98dde8f17"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-14-0-9-frozen_rules.json",
+      "relative": "offline/range-rows/2026093003-14-0-9-frozen_rules.json",
+      "bytes": 7563,
+      "mtime_ns": 1791491093213378082,
+      "inode": 79367562,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-14-0-9-frozen_rules.json",
+        "bytes": 7563,
+        "sha256": "6aff655e65612c3ed1ac9d2f3b4de223187f658f877a5ae98aec0addc2107644"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093001-14-0-6-search.json",
+      "relative": "offline/range-rows/2026093001-14-0-6-search.json",
+      "bytes": 140963,
+      "mtime_ns": 1791491050504519623,
+      "inode": 79365234,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093001-14-0-6-search.json",
+        "bytes": 140963,
+        "sha256": "6689e0535ac72d4050a04c386556a2e3a4c0ce3bdad60de0262d1874ebff0156"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093002-208-0-8-frozen_rules.json",
+      "relative": "offline/range-rows/2026093002-208-0-8-frozen_rules.json",
+      "bytes": 10920,
+      "mtime_ns": 1791491075725767611,
+      "inode": 79365700,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093002-208-0-8-frozen_rules.json",
+        "bytes": 10920,
+        "sha256": "4ee48d8f744841f5f950493cc3b00010df1d7f503c45e907fded3f0644f2c101"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093001-14-0-6-frozen_rules.json",
+      "relative": "offline/range-rows/2026093001-14-0-6-frozen_rules.json",
+      "bytes": 53803,
+      "mtime_ns": 1791491050512664988,
+      "inode": 79365235,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093001-14-0-6-frozen_rules.json",
+        "bytes": 53803,
+        "sha256": "a119cc57101ab4cdc5c45a39528dbb7160cef7fa68ee4bcedc50f327d2db8ff7"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093001-14-0-9-search_at_round_root.json",
+      "relative": "offline/range-rows/2026093001-14-0-9-search_at_round_root.json",
+      "bytes": 99161,
+      "mtime_ns": 1791491052281484242,
+      "inode": 79367382,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093001-14-0-9-search_at_round_root.json",
+        "bytes": 99161,
+        "sha256": "992a8422b86a388db32a0615df1dcc3a859c05eee7e689f243969f564d144d50"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-127-1-6-floor_001_at_round_root_fixed_turn.json",
+      "relative": "offline/range-rows/2026093003-127-1-6-floor_001_at_round_root_fixed_turn.json",
+      "bytes": 143588,
+      "mtime_ns": 1791491094571061290,
+      "inode": 79367570,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-127-1-6-floor_001_at_round_root_fixed_turn.json",
+        "bytes": 143588,
+        "sha256": "f1ab9eca6eed3be7680e0c6cd3e031f93f6f268efc86dcba4fc484f583d69bba"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-127-1-8-floor_001_at_round_root_fixed_turn.json",
+      "relative": "offline/range-rows/2026093003-127-1-8-floor_001_at_round_root_fixed_turn.json",
+      "bytes": 139093,
+      "mtime_ns": 1791491095763621933,
+      "inode": 79367583,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-127-1-8-floor_001_at_round_root_fixed_turn.json",
+        "bytes": 139093,
+        "sha256": "446dca97bcc8eca1083d87405329fa85f3fc22a079d9ff4e7c34acaab2ae8681"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093002-208-0-8-floor_001_at_round_root_fixed_turn.json",
+      "relative": "offline/range-rows/2026093002-208-0-8-floor_001_at_round_root_fixed_turn.json",
+      "bytes": 139457,
+      "mtime_ns": 1791491075768076621,
+      "inode": 79367532,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093002-208-0-8-floor_001_at_round_root_fixed_turn.json",
+        "bytes": 139457,
+        "sha256": "5d1c1aa138477546186de5377a2386299c9184f01528bd15d4319f9d6e6c44af"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-127-1-6-search_at_round_root.json",
+      "relative": "offline/range-rows/2026093003-127-1-6-search_at_round_root.json",
+      "bytes": 143526,
+      "mtime_ns": 1791491094551061661,
+      "inode": 79367569,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-127-1-6-search_at_round_root.json",
+        "bytes": 143526,
+        "sha256": "352ed94dafdf1de6740aeee7352c6c1514e68554f0b7de931c6513ec0f7af78a"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-14-0-6-floor_001_fixed_turn.json",
+      "relative": "offline/range-rows/2026093003-14-0-6-floor_001_fixed_turn.json",
+      "bytes": 142291,
+      "mtime_ns": 1791490476174259232,
+      "inode": 79365818,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-14-0-6-floor_001_fixed_turn.json",
+        "bytes": 142291,
+        "sha256": "c1200e3bbb0f7f038f49c0990784a04eb9e06bc9e9224bd2c7b1bc58c2a42575"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093002-208-0-8-search_at_round_root.json",
+      "relative": "offline/range-rows/2026093002-208-0-8-search_at_round_root.json",
+      "bytes": 139395,
+      "mtime_ns": 1791491075746902970,
+      "inode": 79367531,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093002-208-0-8-search_at_round_root.json",
+        "bytes": 139395,
+        "sha256": "f4c9d8c8d2f2ca29837f3adda8acd183d9e232817932285656693a0f6afde2f1"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093002-208-0-8-search.json",
+      "relative": "offline/range-rows/2026093002-208-0-8-search.json",
+      "bytes": 139495,
+      "mtime_ns": 1791491075723767519,
+      "inode": 79365699,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093002-208-0-8-search.json",
+        "bytes": 139495,
+        "sha256": "ba26a92dc9ffb1e455fc52e2dfac435792dc0f82330286ffe046ecf289cb1922"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093003-127-1-8-search.json",
+      "relative": "offline/range-rows/2026093003-127-1-8-search.json",
+      "bytes": 129148,
+      "mtime_ns": 1791491095715838680,
+      "inode": 79367580,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093003-127-1-8-search.json",
+        "bytes": 129148,
+        "sha256": "74d73a08e331112dbc9c6fd0d6c31bc2d0e1dc6e7b84f4b9635181a237b6a5f1"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093001-14-0-9-search.json",
+      "relative": "offline/range-rows/2026093001-14-0-9-search.json",
+      "bytes": 85325,
+      "mtime_ns": 1791491052263461456,
+      "inode": 79367380,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093001-14-0-9-search.json",
+        "bytes": 85325,
+        "sha256": "e4e3ab989a8bfc76b74a3581493c1de0e0facafc38d7f9c680e2f75e33ab95e2"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093002-176-0-6-search.json",
+      "relative": "offline/range-rows/2026093002-176-0-6-search.json",
+      "bytes": 144069,
+      "mtime_ns": 1791491073876991720,
+      "inode": 79365545,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093002-176-0-6-search.json",
+        "bytes": 144069,
+        "sha256": "ca4012a363580e4e9b08881af57f96a35144eae6281f021282d65518b2ce233c"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/range-rows/2026093001-14-0-6-search_at_round_root.json",
+      "relative": "offline/range-rows/2026093001-14-0-6-search_at_round_root.json",
+      "bytes": 144110,
+      "mtime_ns": 1791491050546049270,
+      "inode": 79367364,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/range-rows/2026093001-14-0-6-search_at_round_root.json",
+        "bytes": 144110,
+        "sha256": "962fc0c9a69a90977c84336fb99a72692f09c9fe40e64224685b19becb234124"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/ed819910efba447f950f49418ed1c595/request.json",
+      "relative": "offline/solves/ed819910efba447f950f49418ed1c595/request.json",
+      "bytes": 186474,
+      "mtime_ns": 1791490710250615891,
+      "inode": 79366235,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/ed819910efba447f950f49418ed1c595/request.json",
+        "bytes": 186474,
+        "sha256": "778f8a480b2382892522f83b4fe62e8886cf56d7cd2c36d01f797426938d748a"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/ed819910efba447f950f49418ed1c595/stderr.log",
+      "relative": "offline/solves/ed819910efba447f950f49418ed1c595/stderr.log",
+      "bytes": 0,
+      "mtime_ns": 1791490710261219341,
+      "inode": 79366237,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/ed819910efba447f950f49418ed1c595/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/ed819910efba447f950f49418ed1c595/profile.jsonl",
+      "relative": "offline/solves/ed819910efba447f950f49418ed1c595/profile.jsonl",
+      "bytes": 4047749,
+      "mtime_ns": 1791490710338323859,
+      "inode": 79366239,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/ed819910efba447f950f49418ed1c595/profile.jsonl",
+        "bytes": 4047749,
+        "sha256": "0d58a78f758ca31f0f0a9ead44a08bed639f3bc466bca5e3873c1dc8d26ebf6c"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/ed819910efba447f950f49418ed1c595/stdout.log",
+      "relative": "offline/solves/ed819910efba447f950f49418ed1c595/stdout.log",
+      "bytes": 0,
+      "mtime_ns": 1791490710261131259,
+      "inode": 79366236,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/ed819910efba447f950f49418ed1c595/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/ed819910efba447f950f49418ed1c595/response.jsonl",
+      "relative": "offline/solves/ed819910efba447f950f49418ed1c595/response.jsonl",
+      "bytes": 838,
+      "mtime_ns": 1791490710339808751,
+      "inode": 79366238,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/ed819910efba447f950f49418ed1c595/response.jsonl",
+        "bytes": 838,
+        "sha256": "bbbfeb2bf403941819fd6a39139be239e1fbd7f39ba106108eac2951beb8d6e1"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/ed819910efba447f950f49418ed1c595/manifest.json",
+      "relative": "offline/solves/ed819910efba447f950f49418ed1c595/manifest.json",
+      "bytes": 663,
+      "mtime_ns": 1791490710470660841,
+      "inode": 79366241,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/ed819910efba447f950f49418ed1c595/manifest.json",
+        "bytes": 663,
+        "sha256": "8e21a55cc189f2dda90dd400c0df43411a1d1ef6a63798bf799ccde9d3f78693"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/ed819910efba447f950f49418ed1c595/receipt.json",
+      "relative": "offline/solves/ed819910efba447f950f49418ed1c595/receipt.json",
+      "bytes": 919,
+      "mtime_ns": 1791490710470108016,
+      "inode": 79366240,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/ed819910efba447f950f49418ed1c595/receipt.json",
+        "bytes": 919,
+        "sha256": "9d80b759b15a531ca02ee3d65e9f0a8784ddca3a5ba224b514bd9fef5989c38e"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/765b8eade92246f48794a9c219807c90/request.json",
+      "relative": "offline/solves/765b8eade92246f48794a9c219807c90/request.json",
+      "bytes": 227407,
+      "mtime_ns": 1791491094877509022,
+      "inode": 79367573,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/765b8eade92246f48794a9c219807c90/request.json",
+        "bytes": 227407,
+        "sha256": "c9ad0e5f583b6ebd377fc21da0004e017134396f4610eb2311015d22f1dfa412"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/765b8eade92246f48794a9c219807c90/stderr.log",
+      "relative": "offline/solves/765b8eade92246f48794a9c219807c90/stderr.log",
+      "bytes": 0,
+      "mtime_ns": 1791491094884386075,
+      "inode": 79367575,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/765b8eade92246f48794a9c219807c90/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/765b8eade92246f48794a9c219807c90/profile.jsonl",
+      "relative": "offline/solves/765b8eade92246f48794a9c219807c90/profile.jsonl",
+      "bytes": 9494296,
+      "mtime_ns": 1791491095028914189,
+      "inode": 79367577,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/765b8eade92246f48794a9c219807c90/profile.jsonl",
+        "bytes": 9494296,
+        "sha256": "b5b8be58e8510c10d8fb2a974285a1d7baa0e68ce40ac900e8491728f221d504"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/765b8eade92246f48794a9c219807c90/stdout.log",
+      "relative": "offline/solves/765b8eade92246f48794a9c219807c90/stdout.log",
+      "bytes": 0,
+      "mtime_ns": 1791491094884293993,
+      "inode": 79367574,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/765b8eade92246f48794a9c219807c90/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/765b8eade92246f48794a9c219807c90/response.jsonl",
+      "relative": "offline/solves/765b8eade92246f48794a9c219807c90/response.jsonl",
+      "bytes": 841,
+      "mtime_ns": 1791491095029362223,
+      "inode": 79367576,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/765b8eade92246f48794a9c219807c90/response.jsonl",
+        "bytes": 841,
+        "sha256": "53e3032559a362b41b0f0d312b972f0fcfb707dad7f3bd45ba39e664635137ee"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/765b8eade92246f48794a9c219807c90/manifest.json",
+      "relative": "offline/solves/765b8eade92246f48794a9c219807c90/manifest.json",
+      "bytes": 663,
+      "mtime_ns": 1791491095286319230,
+      "inode": 79367579,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/765b8eade92246f48794a9c219807c90/manifest.json",
+        "bytes": 663,
+        "sha256": "845825d39876f5ab6e2cea3ff267db62a70f4fd139d3517a5ca3cc00ed65ce89"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/765b8eade92246f48794a9c219807c90/receipt.json",
+      "relative": "offline/solves/765b8eade92246f48794a9c219807c90/receipt.json",
+      "bytes": 919,
+      "mtime_ns": 1791491095285874862,
+      "inode": 79367578,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/765b8eade92246f48794a9c219807c90/receipt.json",
+        "bytes": 919,
+        "sha256": "473df9c74fb70709a94168eb88a55495acedd3ed3f84378f2e175a24d50d2958"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b9042a710bc942618c807b3de4ed2d67/request.json",
+      "relative": "offline/solves/b9042a710bc942618c807b3de4ed2d67/request.json",
+      "bytes": 214584,
+      "mtime_ns": 1791490433326842706,
+      "inode": 79365683,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b9042a710bc942618c807b3de4ed2d67/request.json",
+        "bytes": 214584,
+        "sha256": "d76f0a2a1f98c1bcd273e14bb55f8b69fd652c719fb5254de48d95454a7b2e63"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b9042a710bc942618c807b3de4ed2d67/stderr.log",
+      "relative": "offline/solves/b9042a710bc942618c807b3de4ed2d67/stderr.log",
+      "bytes": 0,
+      "mtime_ns": 1791490433335387690,
+      "inode": 79365685,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b9042a710bc942618c807b3de4ed2d67/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b9042a710bc942618c807b3de4ed2d67/profile.jsonl",
+      "relative": "offline/solves/b9042a710bc942618c807b3de4ed2d67/profile.jsonl",
+      "bytes": 7875877,
+      "mtime_ns": 1791490433530297263,
+      "inode": 79365688,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b9042a710bc942618c807b3de4ed2d67/profile.jsonl",
+        "bytes": 7875877,
+        "sha256": "2821bfe9eee89b72cc4a458eba2bf202bc7335b5b5afec1726a8c7632138071d"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b9042a710bc942618c807b3de4ed2d67/stdout.log",
+      "relative": "offline/solves/b9042a710bc942618c807b3de4ed2d67/stdout.log",
+      "bytes": 0,
+      "mtime_ns": 1791490433335296150,
+      "inode": 79365684,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b9042a710bc942618c807b3de4ed2d67/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b9042a710bc942618c807b3de4ed2d67/response.jsonl",
+      "relative": "offline/solves/b9042a710bc942618c807b3de4ed2d67/response.jsonl",
+      "bytes": 838,
+      "mtime_ns": 1791490433536180874,
+      "inode": 79365686,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b9042a710bc942618c807b3de4ed2d67/response.jsonl",
+        "bytes": 838,
+        "sha256": "06af7d0ce5772a92506c2f1e4edc4447dc553e6a49884877c3e3ecdc0643ea02"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b9042a710bc942618c807b3de4ed2d67/manifest.json",
+      "relative": "offline/solves/b9042a710bc942618c807b3de4ed2d67/manifest.json",
+      "bytes": 663,
+      "mtime_ns": 1791490433822750143,
+      "inode": 79365693,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b9042a710bc942618c807b3de4ed2d67/manifest.json",
+        "bytes": 663,
+        "sha256": "d0b4e855933c6d9973ff069abeb1260e3e6ebbb7e189a16ea5ed67eb0900c37e"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b9042a710bc942618c807b3de4ed2d67/receipt.json",
+      "relative": "offline/solves/b9042a710bc942618c807b3de4ed2d67/receipt.json",
+      "bytes": 917,
+      "mtime_ns": 1791490433822220568,
+      "inode": 79365692,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b9042a710bc942618c807b3de4ed2d67/receipt.json",
+        "bytes": 917,
+        "sha256": "222beb0b2ed157173e5bf5dd99cb383723f87aa315d2e734c258a784c14fd4ba"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0337292ba68c494fb8dc67d78a9d5295/request.json",
+      "relative": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/request.json",
+      "bytes": 2476694,
+      "mtime_ns": 1791490383637276318,
+      "inode": 79365406,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/request.json",
+        "bytes": 2476694,
+        "sha256": "b94666ad0c8aee7ceb70867175a8912f86afdce4636f9b13210b2ca35601dd8c"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0337292ba68c494fb8dc67d78a9d5295/stderr.log",
+      "relative": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/stderr.log",
+      "bytes": 0,
+      "mtime_ns": 1791490383653650548,
+      "inode": 79365409,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0337292ba68c494fb8dc67d78a9d5295/profile.jsonl",
+      "relative": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/profile.jsonl",
+      "bytes": 11190683,
+      "mtime_ns": 1791490407455006177,
+      "inode": 79365536,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/profile.jsonl",
+        "bytes": 11190683,
+        "sha256": "ecd14e9e2c22df5c972bc2528763d87f1281f80038fcf665802af80c52ac07cb"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0337292ba68c494fb8dc67d78a9d5295/stdout.log",
+      "relative": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/stdout.log",
+      "bytes": 0,
+      "mtime_ns": 1791490383653445842,
+      "inode": 79365408,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0337292ba68c494fb8dc67d78a9d5295/response.jsonl",
+      "relative": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/response.jsonl",
+      "bytes": 861,
+      "mtime_ns": 1791490407456860896,
+      "inode": 79365411,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/response.jsonl",
+        "bytes": 861,
+        "sha256": "4b104d43f7207d7562e92e7b24093e429eb213a2f2b682eeebddd901a39eba6a"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0337292ba68c494fb8dc67d78a9d5295/manifest.json",
+      "relative": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/manifest.json",
+      "bytes": 665,
+      "mtime_ns": 1791490407925549700,
+      "inode": 79365540,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/manifest.json",
+        "bytes": 665,
+        "sha256": "a982a6d33ed215c7ff5afc6e029e8b6bbdd8a97e88a58441354937dc167845ad"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0337292ba68c494fb8dc67d78a9d5295/receipt.json",
+      "relative": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/receipt.json",
+      "bytes": 922,
+      "mtime_ns": 1791490407925357203,
+      "inode": 79365539,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0337292ba68c494fb8dc67d78a9d5295/receipt.json",
+        "bytes": 922,
+        "sha256": "690fc7e3b511e4c7b076f3e6ff292159c6ac3453f65ade0a3e2a7d92097ab351"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0a92e51cc68a447f804495cc9686d8c7/request.json",
+      "relative": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/request.json",
+      "bytes": 2476488,
+      "mtime_ns": 1791490476855767772,
+      "inode": 79365820,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/request.json",
+        "bytes": 2476488,
+        "sha256": "23321a7ed26e2bdba19a5a7c6c77dd2ff5f4866f8e8bcd7e5ef0e4a7fa3453be"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0a92e51cc68a447f804495cc9686d8c7/stderr.log",
+      "relative": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/stderr.log",
+      "bytes": 0,
+      "mtime_ns": 1791490476862711490,
+      "inode": 79365822,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0a92e51cc68a447f804495cc9686d8c7/profile.jsonl",
+      "relative": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/profile.jsonl",
+      "bytes": 10596030,
+      "mtime_ns": 1791490488603788378,
+      "inode": 79365836,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/profile.jsonl",
+        "bytes": 10596030,
+        "sha256": "f1cab5b4cd63603f1594dff39f4ad3da5028a243abb0f9cc0a0107942a272628"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0a92e51cc68a447f804495cc9686d8c7/stdout.log",
+      "relative": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/stdout.log",
+      "bytes": 0,
+      "mtime_ns": 1791490476862623159,
+      "inode": 79365821,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0a92e51cc68a447f804495cc9686d8c7/response.jsonl",
+      "relative": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/response.jsonl",
+      "bytes": 854,
+      "mtime_ns": 1791490488604873818,
+      "inode": 79365823,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/response.jsonl",
+        "bytes": 854,
+        "sha256": "55d9325a7f4cb2627cd81c2e726cd66334da9d5cb0b9dbfb0650c33b06499238"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0a92e51cc68a447f804495cc9686d8c7/manifest.json",
+      "relative": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/manifest.json",
+      "bytes": 665,
+      "mtime_ns": 1791490488860284310,
+      "inode": 79365838,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/manifest.json",
+        "bytes": 665,
+        "sha256": "7a902a380f4765f39678b1009827ed389be00d113bc0870649221db6d28fe518"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/0a92e51cc68a447f804495cc9686d8c7/receipt.json",
+      "relative": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/receipt.json",
+      "bytes": 922,
+      "mtime_ns": 1791490488859764652,
+      "inode": 79365837,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/0a92e51cc68a447f804495cc9686d8c7/receipt.json",
+        "bytes": 922,
+        "sha256": "bc515d4830f94c13d731cea508ce29c54732b79669bf601bd20f23eca515db92"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/fc7d77009b36478c926f188d4d6cc2e4/request.json",
+      "relative": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/request.json",
+      "bytes": 3241138,
+      "mtime_ns": 1791490341960892456,
+      "inode": 79365210,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/request.json",
+        "bytes": 3241138,
+        "sha256": "31427969ac83dc90a8df587375e5b660ac0e54b9dcb631aa761e90c9e8afccd2"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/fc7d77009b36478c926f188d4d6cc2e4/stderr.log",
+      "relative": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/stderr.log",
+      "bytes": 0,
+      "mtime_ns": 1791490341970847124,
+      "inode": 79365212,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/fc7d77009b36478c926f188d4d6cc2e4/profile.jsonl",
+      "relative": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/profile.jsonl",
+      "bytes": 13065356,
+      "mtime_ns": 1791490360259916851,
+      "inode": 79365230,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/profile.jsonl",
+        "bytes": 13065356,
+        "sha256": "5dec417283434384da11cc6c6ac9183ac29be8fcb98e1040a7f0db660870722e"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/fc7d77009b36478c926f188d4d6cc2e4/stdout.log",
+      "relative": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/stdout.log",
+      "bytes": 0,
+      "mtime_ns": 1791490341970767043,
+      "inode": 79365211,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/fc7d77009b36478c926f188d4d6cc2e4/response.jsonl",
+      "relative": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/response.jsonl",
+      "bytes": 864,
+      "mtime_ns": 1791490360262270021,
+      "inode": 79365213,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/response.jsonl",
+        "bytes": 864,
+        "sha256": "3741188167bb4f1ee40eab7dd24d519edb21649dce6e6f3c748b1426f5655473"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/fc7d77009b36478c926f188d4d6cc2e4/manifest.json",
+      "relative": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/manifest.json",
+      "bytes": 665,
+      "mtime_ns": 1791490360650475903,
+      "inode": 79365232,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/manifest.json",
+        "bytes": 665,
+        "sha256": "0be1fd6fa812add5c95b69c3868a2766b40826e74e5318eb6d702a35fd2851f4"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/fc7d77009b36478c926f188d4d6cc2e4/receipt.json",
+      "relative": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/receipt.json",
+      "bytes": 922,
+      "mtime_ns": 1791490360650298822,
+      "inode": 79365231,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/fc7d77009b36478c926f188d4d6cc2e4/receipt.json",
+        "bytes": 922,
+        "sha256": "a2becee5f2cbad8791d1b03a0fb301b6a640e24cd1acf8afa2c0f27b0c775506"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/request.json",
+      "relative": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/request.json",
+      "bytes": 186911,
+      "mtime_ns": 1791491092506883871,
+      "inode": 79367554,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/request.json",
+        "bytes": 186911,
+        "sha256": "7bbc988f97b3c1bb01fdf151cbf570eb5470251f250d83e3d367681c73d4ada4"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/stderr.log",
+      "relative": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/stderr.log",
+      "bytes": 0,
+      "mtime_ns": 1791491092521590378,
+      "inode": 79367556,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/profile.jsonl",
+      "relative": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/profile.jsonl",
+      "bytes": 4776213,
+      "mtime_ns": 1791491092611088359,
+      "inode": 79367558,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/profile.jsonl",
+        "bytes": 4776213,
+        "sha256": "b64abe8ea2c70eeb2be2c92acc3dcd2c68485cc8f02373ab3373ef763a75bbb1"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/stdout.log",
+      "relative": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/stdout.log",
+      "bytes": 0,
+      "mtime_ns": 1791491092521499671,
+      "inode": 79367555,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/response.jsonl",
+      "relative": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/response.jsonl",
+      "bytes": 838,
+      "mtime_ns": 1791491092612799456,
+      "inode": 79367557,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/response.jsonl",
+        "bytes": 838,
+        "sha256": "bea073c94980a5aa19da4eea2353d1316a7085a2d902af37ad212ebbebefaaa6"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/manifest.json",
+      "relative": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/manifest.json",
+      "bytes": 663,
+      "mtime_ns": 1791491092773378055,
+      "inode": 79367560,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/manifest.json",
+        "bytes": 663,
+        "sha256": "23a3b20e9bb184bbf36d2edd8355e3630684f01a815e1ba3ae58723c20e7ddc6"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/receipt.json",
+      "relative": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/receipt.json",
+      "bytes": 920,
+      "mtime_ns": 1791491092772825189,
+      "inode": 79367559,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/442610bce4cb4fdc9eb39198d9c62dd3/receipt.json",
+        "bytes": 920,
+        "sha256": "3ec6484459a73f14523ab743bc87eed4d5a1ac01af49940d7cbc550a265fe2b2"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/af54d4a63085410495e7da913375c925/request.json",
+      "relative": "offline/solves/af54d4a63085410495e7da913375c925/request.json",
+      "bytes": 3241116,
+      "mtime_ns": 1791490453134537235,
+      "inode": 79365788,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/af54d4a63085410495e7da913375c925/request.json",
+        "bytes": 3241116,
+        "sha256": "d0838707afeea44c2bb951e949ef2ab864259ddd80359d93d13ab4371e104958"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/af54d4a63085410495e7da913375c925/stderr.log",
+      "relative": "offline/solves/af54d4a63085410495e7da913375c925/stderr.log",
+      "bytes": 0,
+      "mtime_ns": 1791490453143130510,
+      "inode": 79365790,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/af54d4a63085410495e7da913375c925/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/af54d4a63085410495e7da913375c925/profile.jsonl",
+      "relative": "offline/solves/af54d4a63085410495e7da913375c925/profile.jsonl",
+      "bytes": 13405907,
+      "mtime_ns": 1791490475180027857,
+      "inode": 79365812,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/af54d4a63085410495e7da913375c925/profile.jsonl",
+        "bytes": 13405907,
+        "sha256": "c940d307f1fda91d7c4cc0807a007b636bc1c848e53f516f10bf8a8147539468"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/af54d4a63085410495e7da913375c925/stdout.log",
+      "relative": "offline/solves/af54d4a63085410495e7da913375c925/stdout.log",
+      "bytes": 0,
+      "mtime_ns": 1791490453143032428,
+      "inode": 79365789,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/af54d4a63085410495e7da913375c925/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/af54d4a63085410495e7da913375c925/response.jsonl",
+      "relative": "offline/solves/af54d4a63085410495e7da913375c925/response.jsonl",
+      "bytes": 863,
+      "mtime_ns": 1791490475184096332,
+      "inode": 79365791,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/af54d4a63085410495e7da913375c925/response.jsonl",
+        "bytes": 863,
+        "sha256": "3d0ed82831b41b238cb4779ae1d036d356553a42c1167b76e6bceddf0fcaa6cc"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/af54d4a63085410495e7da913375c925/manifest.json",
+      "relative": "offline/solves/af54d4a63085410495e7da913375c925/manifest.json",
+      "bytes": 665,
+      "mtime_ns": 1791490475601260944,
+      "inode": 79365814,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/af54d4a63085410495e7da913375c925/manifest.json",
+        "bytes": 665,
+        "sha256": "79d19439731c89e3a5e7d9592bc146c7036cd1d50f90663363b70667608206d9"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/af54d4a63085410495e7da913375c925/receipt.json",
+      "relative": "offline/solves/af54d4a63085410495e7da913375c925/receipt.json",
+      "bytes": 922,
+      "mtime_ns": 1791490475601016656,
+      "inode": 79365813,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/af54d4a63085410495e7da913375c925/receipt.json",
+        "bytes": 922,
+        "sha256": "93d3185cb5d7bebf97e88960d0cfb2e700dd1a7dc8ab3d928093bc6d5bb550c3"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b56fbd597f534d9a86a27eed997b74b2/request.json",
+      "relative": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/request.json",
+      "bytes": 2476690,
+      "mtime_ns": 1791490409842405258,
+      "inode": 79365565,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/request.json",
+        "bytes": 2476690,
+        "sha256": "e46348ed2d1358ab74616c74b7ef510e42f8a3d5bf7ee3477d47875172d13c40"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b56fbd597f534d9a86a27eed997b74b2/stderr.log",
+      "relative": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/stderr.log",
+      "bytes": 0,
+      "mtime_ns": 1791490409853020666,
+      "inode": 79365568,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b56fbd597f534d9a86a27eed997b74b2/profile.jsonl",
+      "relative": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/profile.jsonl",
+      "bytes": 11002339,
+      "mtime_ns": 1791490432179106615,
+      "inode": 79365668,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/profile.jsonl",
+        "bytes": 11002339,
+        "sha256": "ad96e71ce848c8924be3b4902235eee159520aa9f09b11e1f08621336d5818c8"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b56fbd597f534d9a86a27eed997b74b2/stdout.log",
+      "relative": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/stdout.log",
+      "bytes": 0,
+      "mtime_ns": 1791490409852921085,
+      "inode": 79365567,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b56fbd597f534d9a86a27eed997b74b2/response.jsonl",
+      "relative": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/response.jsonl",
+      "bytes": 861,
+      "mtime_ns": 1791490432180507967,
+      "inode": 79365569,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/response.jsonl",
+        "bytes": 861,
+        "sha256": "ed5a97e6dfdd4879f4f19137eb86c709ceb9826f9db5f4f5f0811c8c29b069cf"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b56fbd597f534d9a86a27eed997b74b2/manifest.json",
+      "relative": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/manifest.json",
+      "bytes": 665,
+      "mtime_ns": 1791490432763623089,
+      "inode": 79365676,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/manifest.json",
+        "bytes": 665,
+        "sha256": "07e011a5295eb6f245f112e499b13f302637d4657941231b625858e8e977aa97"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/solves/b56fbd597f534d9a86a27eed997b74b2/receipt.json",
+      "relative": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/receipt.json",
+      "bytes": 922,
+      "mtime_ns": 1791490432763386759,
+      "inode": 79365675,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/solves/b56fbd597f534d9a86a27eed997b74b2/receipt.json",
+        "bytes": 922,
+        "sha256": "80f82e96bed102f5ac30b07e0b6d7d06697997fa1e29e44ec849d7595d08c0b4"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/models/B-2026093003-500000000.average.jsonl.gz",
+      "relative": "offline/models/B-2026093003-500000000.average.jsonl.gz",
+      "bytes": 71845946,
+      "mtime_ns": 1791489855333998070,
+      "inode": 79363108,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "fixed-work-bundle.tar.gz",
+        "nested_member": "inputs/B-2026093003-500000000.average.jsonl.gz",
+        "bytes": 71845946,
+        "sha256": "c5fa910a1211c75996773cbf280650c94f47a13f83c0fd36d64be6647d100285"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/models/B-2026093002-500000000.average.jsonl.gz",
+      "relative": "offline/models/B-2026093002-500000000.average.jsonl.gz",
+      "bytes": 72263239,
+      "mtime_ns": 1791489855225857674,
+      "inode": 79363107,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "fixed-work-bundle.tar.gz",
+        "nested_member": "inputs/B-2026093002-500000000.average.jsonl.gz",
+        "bytes": 72263239,
+        "sha256": "8829d26430e6dc0c47d5e550ae1f8fcf6e99a28619c53b54097f51a9478f445d"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/models/B-2026093001-500000000.average.jsonl.gz",
+      "relative": "offline/models/B-2026093001-500000000.average.jsonl.gz",
+      "bytes": 73289592,
+      "mtime_ns": 1791489855123953884,
+      "inode": 79363106,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "fixed-work-bundle.tar.gz",
+        "nested_member": "inputs/B-2026093001-500000000.average.jsonl.gz",
+        "bytes": 73289592,
+        "sha256": "f83d250e27d45d5e12434b90fb270c0217a329bb76e19e7d73bfcefd701c0aaa"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/b8a29129d6b9be2f8f5fa460259ea8c2e80fe5be3fe64cee459209f2e8f0d935/request.json",
+      "relative": "offline/requests/b8a29129d6b9be2f8f5fa460259ea8c2e80fe5be3fe64cee459209f2e8f0d935/request.json",
+      "bytes": 2476671,
+      "mtime_ns": 1791489699125260390,
+      "inode": 79362419,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/b8a29129d6b9be2f8f5fa460259ea8c2e80fe5be3fe64cee459209f2e8f0d935/request.json",
+        "bytes": 2476671,
+        "sha256": "b96d7037934e93fa5cff16c69e16087737b89052ef9a984d06af70cdd433880e"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/b8a29129d6b9be2f8f5fa460259ea8c2e80fe5be3fe64cee459209f2e8f0d935/original-response.jsonl",
+      "relative": "offline/requests/b8a29129d6b9be2f8f5fa460259ea8c2e80fe5be3fe64cee459209f2e8f0d935/original-response.jsonl",
+      "bytes": 866,
+      "mtime_ns": 1791489699129409729,
+      "inode": 79362421,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/b8a29129d6b9be2f8f5fa460259ea8c2e80fe5be3fe64cee459209f2e8f0d935/original-response.jsonl",
+        "bytes": 866,
+        "sha256": "64db44bb4cf8b8d730f41bf55cdadfd87ebd77436422cb4a0f4a14e8a8461ca6"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/b8a29129d6b9be2f8f5fa460259ea8c2e80fe5be3fe64cee459209f2e8f0d935/original-receipt.json",
+      "relative": "offline/requests/b8a29129d6b9be2f8f5fa460259ea8c2e80fe5be3fe64cee459209f2e8f0d935/original-receipt.json",
+      "bytes": 1350,
+      "mtime_ns": 1791489699127723344,
+      "inode": 79362420,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/b8a29129d6b9be2f8f5fa460259ea8c2e80fe5be3fe64cee459209f2e8f0d935/original-receipt.json",
+        "bytes": 1350,
+        "sha256": "69dc7195989d80783cf0fcf406e9bfc1e4423d4332a4888d8455c508a847e23a"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/5e7bdeef652ffe55d21e5f8e82d5cc650700579f63394e62ea8f02c7aa3a083c/request.json",
+      "relative": "offline/requests/5e7bdeef652ffe55d21e5f8e82d5cc650700579f63394e62ea8f02c7aa3a083c/request.json",
+      "bytes": 2476667,
+      "mtime_ns": 1791489729729307602,
+      "inode": 79362618,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/5e7bdeef652ffe55d21e5f8e82d5cc650700579f63394e62ea8f02c7aa3a083c/request.json",
+        "bytes": 2476667,
+        "sha256": "0d98074cbd2124bbaf3d6a878bcebf1f10defff04633b381aba2d138ca5e16c2"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/5e7bdeef652ffe55d21e5f8e82d5cc650700579f63394e62ea8f02c7aa3a083c/original-response.jsonl",
+      "relative": "offline/requests/5e7bdeef652ffe55d21e5f8e82d5cc650700579f63394e62ea8f02c7aa3a083c/original-response.jsonl",
+      "bytes": 867,
+      "mtime_ns": 1791489729731222040,
+      "inode": 79362620,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/5e7bdeef652ffe55d21e5f8e82d5cc650700579f63394e62ea8f02c7aa3a083c/original-response.jsonl",
+        "bytes": 867,
+        "sha256": "7d8363128c3d39f22b14c65e2fa99439c256839d648fb397356fe38e835d5938"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/5e7bdeef652ffe55d21e5f8e82d5cc650700579f63394e62ea8f02c7aa3a083c/original-receipt.json",
+      "relative": "offline/requests/5e7bdeef652ffe55d21e5f8e82d5cc650700579f63394e62ea8f02c7aa3a083c/original-receipt.json",
+      "bytes": 1366,
+      "mtime_ns": 1791489729729732574,
+      "inode": 79362619,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/5e7bdeef652ffe55d21e5f8e82d5cc650700579f63394e62ea8f02c7aa3a083c/original-receipt.json",
+        "bytes": 1366,
+        "sha256": "c66d18ed49d9061553e51cc3958af802d072f4fcdf70d4e9759a7f68f5b9ff9c"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/ec7c6125bbcacec1b8f04bd9e31128b4141bba848d8c64a9e53e3cdd8ed36908/request.json",
+      "relative": "offline/requests/ec7c6125bbcacec1b8f04bd9e31128b4141bba848d8c64a9e53e3cdd8ed36908/request.json",
+      "bytes": 186451,
+      "mtime_ns": 1791489691533568744,
+      "inode": 79362401,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/ec7c6125bbcacec1b8f04bd9e31128b4141bba848d8c64a9e53e3cdd8ed36908/request.json",
+        "bytes": 186451,
+        "sha256": "6294d11c3c4f53eb76dabfe60dec1e88b29f1cfcfe7a01ed3d79c333f20643b2"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/ec7c6125bbcacec1b8f04bd9e31128b4141bba848d8c64a9e53e3cdd8ed36908/original-response.jsonl",
+      "relative": "offline/requests/ec7c6125bbcacec1b8f04bd9e31128b4141bba848d8c64a9e53e3cdd8ed36908/original-response.jsonl",
+      "bytes": 848,
+      "mtime_ns": 1791489691534002569,
+      "inode": 79362403,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/ec7c6125bbcacec1b8f04bd9e31128b4141bba848d8c64a9e53e3cdd8ed36908/original-response.jsonl",
+        "bytes": 848,
+        "sha256": "d04ee344e323461363cc53c39ccf56fff2cc77fe0f72ff005e2cd6bb4370470b"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/ec7c6125bbcacec1b8f04bd9e31128b4141bba848d8c64a9e53e3cdd8ed36908/original-receipt.json",
+      "relative": "offline/requests/ec7c6125bbcacec1b8f04bd9e31128b4141bba848d8c64a9e53e3cdd8ed36908/original-receipt.json",
+      "bytes": 1349,
+      "mtime_ns": 1791489691533727991,
+      "inode": 79362402,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/ec7c6125bbcacec1b8f04bd9e31128b4141bba848d8c64a9e53e3cdd8ed36908/original-receipt.json",
+        "bytes": 1349,
+        "sha256": "284156a28b88b4605cae44e550260b6d56e449d3cfbe10c56a5b9c8e7a3e34f3"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/5f54b4dcc436785000444c24db42309fc6d1fb13b2ac98c0854f28b04b319c44/request.json",
+      "relative": "offline/requests/5f54b4dcc436785000444c24db42309fc6d1fb13b2ac98c0854f28b04b319c44/request.json",
+      "bytes": 227384,
+      "mtime_ns": 1791489700573661207,
+      "inode": 79362425,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/5f54b4dcc436785000444c24db42309fc6d1fb13b2ac98c0854f28b04b319c44/request.json",
+        "bytes": 227384,
+        "sha256": "74bfdcae63881a9134238352a123d4e80dc93aec6da81600ed35d74afcd745c0"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/5f54b4dcc436785000444c24db42309fc6d1fb13b2ac98c0854f28b04b319c44/original-response.jsonl",
+      "relative": "offline/requests/5f54b4dcc436785000444c24db42309fc6d1fb13b2ac98c0854f28b04b319c44/original-response.jsonl",
+      "bytes": 851,
+      "mtime_ns": 1791489700574134990,
+      "inode": 79362427,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/5f54b4dcc436785000444c24db42309fc6d1fb13b2ac98c0854f28b04b319c44/original-response.jsonl",
+        "bytes": 851,
+        "sha256": "753ce51ace5bd6b81b71293f7d033f2df2f4afaf755d25950d630e65d1cb7ab2"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/5f54b4dcc436785000444c24db42309fc6d1fb13b2ac98c0854f28b04b319c44/original-receipt.json",
+      "relative": "offline/requests/5f54b4dcc436785000444c24db42309fc6d1fb13b2ac98c0854f28b04b319c44/original-receipt.json",
+      "bytes": 1349,
+      "mtime_ns": 1791489700573850578,
+      "inode": 79362426,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/5f54b4dcc436785000444c24db42309fc6d1fb13b2ac98c0854f28b04b319c44/original-receipt.json",
+        "bytes": 1349,
+        "sha256": "c9409cd2bfe90ac901d51815ca1b7797ea6c070037fa8d2af5a52d636558c8fc"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/c7000682652d1875ecbd217eae314a6e1f9b53da7a2cda786835d430d4343cb6/request.json",
+      "relative": "offline/requests/c7000682652d1875ecbd217eae314a6e1f9b53da7a2cda786835d430d4343cb6/request.json",
+      "bytes": 214561,
+      "mtime_ns": 1791489731195034678,
+      "inode": 79362643,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/c7000682652d1875ecbd217eae314a6e1f9b53da7a2cda786835d430d4343cb6/request.json",
+        "bytes": 214561,
+        "sha256": "860360e07365f396832a8141e9bd2d1552094c6481acb2c662041228206ae532"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/c7000682652d1875ecbd217eae314a6e1f9b53da7a2cda786835d430d4343cb6/original-response.jsonl",
+      "relative": "offline/requests/c7000682652d1875ecbd217eae314a6e1f9b53da7a2cda786835d430d4343cb6/original-response.jsonl",
+      "bytes": 850,
+      "mtime_ns": 1791489731195584563,
+      "inode": 79362645,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/c7000682652d1875ecbd217eae314a6e1f9b53da7a2cda786835d430d4343cb6/original-response.jsonl",
+        "bytes": 850,
+        "sha256": "eeb48b95c1f465434913f7705533ae776e42f4f05ff7626db9c17526c1064db2"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/c7000682652d1875ecbd217eae314a6e1f9b53da7a2cda786835d430d4343cb6/original-receipt.json",
+      "relative": "offline/requests/c7000682652d1875ecbd217eae314a6e1f9b53da7a2cda786835d430d4343cb6/original-receipt.json",
+      "bytes": 1364,
+      "mtime_ns": 1791489731195226379,
+      "inode": 79362644,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/c7000682652d1875ecbd217eae314a6e1f9b53da7a2cda786835d430d4343cb6/original-receipt.json",
+        "bytes": 1364,
+        "sha256": "cb9e0de8bb79920b416379eaca48b9caafe63d05eb3d05368ff08722054682f4"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/1f2fc12808349bb030b9847337418077794638cf5af9537408af81657c78854e/request.json",
+      "relative": "offline/requests/1f2fc12808349bb030b9847337418077794638cf5af9537408af81657c78854e/request.json",
+      "bytes": 186888,
+      "mtime_ns": 1791489695215153157,
+      "inode": 79362414,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/1f2fc12808349bb030b9847337418077794638cf5af9537408af81657c78854e/request.json",
+        "bytes": 186888,
+        "sha256": "e84dcdabc6efa03b58dc14f6b13f82de5e34e092b06b08a6899b211b316af4c1"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/1f2fc12808349bb030b9847337418077794638cf5af9537408af81657c78854e/original-response.jsonl",
+      "relative": "offline/requests/1f2fc12808349bb030b9847337418077794638cf5af9537408af81657c78854e/original-response.jsonl",
+      "bytes": 849,
+      "mtime_ns": 1791489695215607398,
+      "inode": 79362416,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/1f2fc12808349bb030b9847337418077794638cf5af9537408af81657c78854e/original-response.jsonl",
+        "bytes": 849,
+        "sha256": "73b6d26a16826f6036ca8200cd82b172c93d28bb76f957c54af65d2505648c83"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/1f2fc12808349bb030b9847337418077794638cf5af9537408af81657c78854e/original-receipt.json",
+      "relative": "offline/requests/1f2fc12808349bb030b9847337418077794638cf5af9537408af81657c78854e/original-receipt.json",
+      "bytes": 1350,
+      "mtime_ns": 1791489695215326445,
+      "inode": 79362415,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/1f2fc12808349bb030b9847337418077794638cf5af9537408af81657c78854e/original-receipt.json",
+        "bytes": 1350,
+        "sha256": "3691b22cbb2bb0c12a1829f36f8fb33638a0f5dd2274f3b0b64896e33bc12506"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/1fe818a32015c0df7e7124a58b6430dd5993dedc498e92ba12a87fcf1a18bc75/request.json",
+      "relative": "offline/requests/1fe818a32015c0df7e7124a58b6430dd5993dedc498e92ba12a87fcf1a18bc75/request.json",
+      "bytes": 3241115,
+      "mtime_ns": 1791489691388926275,
+      "inode": 79362396,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/1fe818a32015c0df7e7124a58b6430dd5993dedc498e92ba12a87fcf1a18bc75/request.json",
+        "bytes": 3241115,
+        "sha256": "e00d21c4818af1db9098f18cbfd7f244feb1a6980d66654ca5ab056bf3b645b3"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/1fe818a32015c0df7e7124a58b6430dd5993dedc498e92ba12a87fcf1a18bc75/original-response.jsonl",
+      "relative": "offline/requests/1fe818a32015c0df7e7124a58b6430dd5993dedc498e92ba12a87fcf1a18bc75/original-response.jsonl",
+      "bytes": 869,
+      "mtime_ns": 1791489691391579517,
+      "inode": 79362398,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/1fe818a32015c0df7e7124a58b6430dd5993dedc498e92ba12a87fcf1a18bc75/original-response.jsonl",
+        "bytes": 869,
+        "sha256": "8009158cd264f76bfb38d2a811556336eb1c1b530e4027e0c8ae0db622599afe"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/1fe818a32015c0df7e7124a58b6430dd5993dedc498e92ba12a87fcf1a18bc75/original-receipt.json",
+      "relative": "offline/requests/1fe818a32015c0df7e7124a58b6430dd5993dedc498e92ba12a87fcf1a18bc75/original-receipt.json",
+      "bytes": 1352,
+      "mtime_ns": 1791489691389998505,
+      "inode": 79362397,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/1fe818a32015c0df7e7124a58b6430dd5993dedc498e92ba12a87fcf1a18bc75/original-receipt.json",
+        "bytes": 1352,
+        "sha256": "2cf7f1bfd1abcbcb56b72b8bd639e40b978bb9ff649b2446e2304a9541fa35f9"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/e93cbd8fae6f330ebfb5d66513975890ebb10641c60053fe50262a030d4b8dbc/request.json",
+      "relative": "offline/requests/e93cbd8fae6f330ebfb5d66513975890ebb10641c60053fe50262a030d4b8dbc/request.json",
+      "bytes": 2476465,
+      "mtime_ns": 1791489701062352883,
+      "inode": 79362430,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/e93cbd8fae6f330ebfb5d66513975890ebb10641c60053fe50262a030d4b8dbc/request.json",
+        "bytes": 2476465,
+        "sha256": "543a9ee13ea2c57f00be82d1c829c799008fbba95eec9f27de4f792b73165491"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/e93cbd8fae6f330ebfb5d66513975890ebb10641c60053fe50262a030d4b8dbc/original-response.jsonl",
+      "relative": "offline/requests/e93cbd8fae6f330ebfb5d66513975890ebb10641c60053fe50262a030d4b8dbc/original-response.jsonl",
+      "bytes": 861,
+      "mtime_ns": 1791489701065016000,
+      "inode": 79362432,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/e93cbd8fae6f330ebfb5d66513975890ebb10641c60053fe50262a030d4b8dbc/original-response.jsonl",
+        "bytes": 861,
+        "sha256": "ef4db6a254e3987e536e674f47e442cb447c75d066b40228de1b07eed48fca1b"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/e93cbd8fae6f330ebfb5d66513975890ebb10641c60053fe50262a030d4b8dbc/original-receipt.json",
+      "relative": "offline/requests/e93cbd8fae6f330ebfb5d66513975890ebb10641c60053fe50262a030d4b8dbc/original-receipt.json",
+      "bytes": 1351,
+      "mtime_ns": 1791489701063198617,
+      "inode": 79362431,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/e93cbd8fae6f330ebfb5d66513975890ebb10641c60053fe50262a030d4b8dbc/original-receipt.json",
+        "bytes": 1351,
+        "sha256": "e70175a876e3a19ab37686f96678fd6320a4b0ea9b787ea87fbae32cc3797066"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/650e66e33260f814a000d623034d858e0b60e76809541fa1c925a2b1e230f5ba/request.json",
+      "relative": "offline/requests/650e66e33260f814a000d623034d858e0b60e76809541fa1c925a2b1e230f5ba/request.json",
+      "bytes": 3241093,
+      "mtime_ns": 1791489695071443254,
+      "inode": 79362409,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/650e66e33260f814a000d623034d858e0b60e76809541fa1c925a2b1e230f5ba/request.json",
+        "bytes": 3241093,
+        "sha256": "f7e91a0af486a9a7be2f0acbafd156697ede95a91175fa22fff61e0549220d26"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/650e66e33260f814a000d623034d858e0b60e76809541fa1c925a2b1e230f5ba/original-response.jsonl",
+      "relative": "offline/requests/650e66e33260f814a000d623034d858e0b60e76809541fa1c925a2b1e230f5ba/original-response.jsonl",
+      "bytes": 866,
+      "mtime_ns": 1791489695074164578,
+      "inode": 79362411,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/650e66e33260f814a000d623034d858e0b60e76809541fa1c925a2b1e230f5ba/original-response.jsonl",
+        "bytes": 866,
+        "sha256": "41a3d17b83426c9f818377e3e63571d5d54f08e4b79bb2dbdc16c2b9e9fc6a76"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/requests/650e66e33260f814a000d623034d858e0b60e76809541fa1c925a2b1e230f5ba/original-receipt.json",
+      "relative": "offline/requests/650e66e33260f814a000d623034d858e0b60e76809541fa1c925a2b1e230f5ba/original-receipt.json",
+      "bytes": 1351,
+      "mtime_ns": 1791489695072549858,
+      "inode": 79362410,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/requests/650e66e33260f814a000d623034d858e0b60e76809541fa1c925a2b1e230f5ba/original-receipt.json",
+        "bytes": 1351,
+        "sha256": "4d958d17ef81add6b9eeff7dc88cdfb682096dba53932b6e00f652a1e06c8160"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/assets/fixed-work-bundle.tar.gz",
+      "relative": "offline/assets/fixed-work-bundle.tar.gz",
+      "bytes": 563547890,
+      "mtime_ns": 1791489744927165020,
+      "inode": 79362760,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "fixed-work-bundle.tar.gz",
+        "bytes": 563547890,
+        "sha256": "ef03a73ae1ae7d6632821e2a06436962127bb77a1a883df877d98611f929a02b"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/assets/retrieved/yig5a8bfutpxjg/evidence-000.tar.gz",
+      "relative": "offline/assets/retrieved/yig5a8bfutpxjg/evidence-000.tar.gz",
+      "bytes": 671929447,
+      "mtime_ns": 1791489717374096003,
+      "inode": 79362467,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "retrieved/yig5a8bfutpxjg/evidence-000.tar.gz",
+        "bytes": 671929447,
+        "sha256": "2edf4ca7e352a88958667ae51fdde495b6965526f89e99721ded1f77baa919bd"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/assets/retrieved/yig5a8bfutpxjg/manifest.json",
+      "relative": "offline/assets/retrieved/yig5a8bfutpxjg/manifest.json",
+      "bytes": 16202677,
+      "mtime_ns": 1791489714994962004,
+      "inode": 79362466,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/assets/retrieved/yig5a8bfutpxjg/manifest.json",
+        "bytes": 16202677,
+        "sha256": "9b43416a6a324544b21aed9c0a2459ab7dcfcf2b0b31df3f5dca234b626f94e0"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/assets/retrieved/ne7ui0na5wd27u/evidence-000.tar.gz",
+      "relative": "offline/assets/retrieved/ne7ui0na5wd27u/evidence-000.tar.gz",
+      "bytes": 482468512,
+      "mtime_ns": 1791489703988852046,
+      "inode": 79362439,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "retrieved/ne7ui0na5wd27u/evidence-000.tar.gz",
+        "bytes": 482468512,
+        "sha256": "98d1e727df4a25bea57211224a804eaed7597717bd0d68bf0cd00efa7a4c253e"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/assets/retrieved/ne7ui0na5wd27u/manifest.json",
+      "relative": "offline/assets/retrieved/ne7ui0na5wd27u/manifest.json",
+      "bytes": 10610673,
+      "mtime_ns": 1791489702825329457,
+      "inode": 79362438,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/assets/retrieved/ne7ui0na5wd27u/manifest.json",
+        "bytes": 10610673,
+        "sha256": "2bb3f12119761cfaf5533de0fff0876c15ab57701840375d7939bd81d9f776d8"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/assets/retrieved/gdyfqg9817qme0/evidence-000.tar.gz",
+      "relative": "offline/assets/retrieved/gdyfqg9817qme0/evidence-000.tar.gz",
+      "bytes": 507141290,
+      "mtime_ns": 1791489690875497435,
+      "inode": 79362392,
+      "restoration": {
+        "archive_id": "1yfRZuDep2yOnAhZGylYSB4jXshTNzXmQ",
+        "member": "retrieved/gdyfqg9817qme0/evidence-000.tar.gz",
+        "bytes": 507141290,
+        "sha256": "1668e8c9b99787a5dd7abbc1083c6e94120d85795a648e2be5fc8c9ccf1b888a"
+      }
+    },
+    {
+      "path": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/offline/assets/retrieved/gdyfqg9817qme0/manifest.json",
+      "relative": "offline/assets/retrieved/gdyfqg9817qme0/manifest.json",
+      "bytes": 10283561,
+      "mtime_ns": 1791489689674033137,
+      "inode": 79362391,
+      "restoration": {
+        "archive_id": "1-6l6MbF3pkPSWZe_9V6kJHAYp2H7lHJg",
+        "member": "offline/assets/retrieved/gdyfqg9817qme0/manifest.json",
+        "bytes": 10283561,
+        "sha256": "fa0ed6701fddf2774632bc08ac702b09a618c049cb1cc20583a2b428bf221ae3"
+      }
+    }
+  ],
+  "logical_bytes_removed": 2674293859,
+  "free_before": 34066780160,
+  "free_after": 36785741824,
+  "retained": "Original synced PR166 ZIP, all other PR files, Git worktree, local derived analysis/staging/guards/archives; derived copies are small and indexed"
+}

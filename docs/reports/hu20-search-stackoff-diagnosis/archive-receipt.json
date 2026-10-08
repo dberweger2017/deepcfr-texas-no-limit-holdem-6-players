@@ -1,0 +1,19 @@
+{
+  "archive": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/archives/hu20-search-stackoff-diagnosis-M1-20261008.zip",
+  "at": 1791492485.6695192,
+  "authentication_files_excluded": [
+    "control-token",
+    "github-token",
+    "runpod-credential.json"
+  ],
+  "bytes": 38472050,
+  "members": 224,
+  "sha256": "1e98fd14cf6d5a62b05292f820b9ef2bc4b82d74b345f8da535d0cacf3c6aa71",
+  "source": "/Users/dberweger/Local/hu20-search-stackoff-diagnosis/results/stackoff-diagnosis/closeout-bundle",
+  "verified": true,
+  "manifest_member": "RESEARCH_MEMBER_HASHES.json",
+  "manifest_sha256": "4f66b64cc0670e4cb86c17bbbc446976239eafee1671dd5275b1751defc6ea16",
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-208-hu20-search-stackoff/hu20-search-stackoff-diagnosis-M1-20261008.zip",
+  "native_copy_verified": true,
+  "operational_note": "An initial metadata-only manifest lookup used an incorrect .verified.zip suffix and failed before any mutation; corrected to the receipt archive path."
+}
