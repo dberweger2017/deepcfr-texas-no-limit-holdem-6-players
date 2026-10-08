@@ -19,7 +19,7 @@ from scripts.prepare_native_hu_campaign import SEED, digest, file_hash, prepare
 from src.blueprint.average import checked_header
 from src.blueprint.abstraction import HU100_SCHEMA
 
-DEADLINE = datetime(2026, 10, 8, 8, tzinfo=timezone.utc).timestamp()
+DEADLINE = datetime(2026, 10, 8, 10, tzinfo=timezone.utc).timestamp()
 THREAD_URI = 't3://thread/495ca3f8-32db-4e73-98ad-29d01fb9e282'
 PILOT_NODES = (100000,1000000,5000000,10000000)
 
@@ -58,7 +58,7 @@ def qualification(path, binary):
 
 def write_plan(out, plan, phases, swap_baseline, deadline):
     if not isfinite(deadline) or not datetime.now(timezone.utc).timestamp() < deadline <= DEADLINE:
-        raise ValueError('Deadline must fit the owner October 8 10:00 Madrid ceiling')
+        raise ValueError('Deadline must fit the owner October 8 12:00 Madrid ceiling')
     if out.exists(): raise FileExistsError('Use a fresh attempt root; never duplicate a launch')
     out.mkdir(parents=True); (out/'training').mkdir()
     plan.update(status='prepared-only', prepared_at=datetime.now(timezone.utc).isoformat(),
@@ -314,7 +314,7 @@ def main():
     p.add_argument('--equivalence',type=Path); p.add_argument('--pilot-root',type=Path)
     p.add_argument('--capacity-plan',type=Path); a = p.parse_args()
     if not isfinite(a.deadline) or not datetime.now(timezone.utc).timestamp() < a.deadline <= DEADLINE:
-        raise ValueError('Deadline must fit the owner October 8 10:00 Madrid ceiling')
+        raise ValueError('Deadline must fit the owner October 8 12:00 Madrid ceiling')
     if a.stage == 'reference':
         plan=prepare_reference(a.out,a.binary,a.qualification,a.swap_baseline,a.deadline)
     elif a.stage == 'recovery':

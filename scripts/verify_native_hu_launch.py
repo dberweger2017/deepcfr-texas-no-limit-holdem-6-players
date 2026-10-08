@@ -5,6 +5,7 @@ each prepared script. The operator writes a current admission.json beside its
 plan after inspecting #188's worker-side closeout and the whole M4 workload.
 """
 import argparse
+from datetime import datetime, timezone
 import json
 import os
 from pathlib import Path
@@ -16,7 +17,23 @@ from scripts.prepare_native_hu_campaign import digest, file_hash
 from scripts.prepare_native_hu_execution import (DEADLINE, qualification, checked_equivalence,
                                                validate_capacity, verify_pilot_prerequisites)
 
-NOT_BEFORE=DEADLINE-6*3600  # October 8 04:00 Madrid /02:00 UTC
+NOT_BEFORE=datetime(2026,10,8,2,tzinfo=timezone.utc).timestamp()
+OWNER_RELEASE = 'You can train on the m4 now, the pr is closing soon, no heavy more work on the m4, you can use it now'
+
+
+def owner_release(admission):
+    """Honor the later owner instruction without weakening identity/idle guards."""
+    name=admission.get('owner_m4_release_path')
+    if name is None: return False
+    path=Path(name)
+    if file_hash(path)!=admission.get('owner_m4_release_sha256'):
+        raise ValueError('Owner M4 release receipt changed')
+    r=json.loads(path.read_text())
+    if (r.get('owner_message')!=OWNER_RELEASE
+        or r.get('thread_uri')!='t3://thread/495ca3f8-32db-4e73-98ad-29d01fb9e282'
+        or r.get('campaign')!='native-recovery-hu100-20261008'):
+        raise ValueError('Explicit campaign/thread-bound owner M4 release required')
+    return True
 
 
 def verify(plan_path):
@@ -52,8 +69,9 @@ def verify(plan_path):
         verify_pilot_prerequisites(Path(p['pilot_root']),p['pilot_prerequisites'])
         validate_capacity(p['capacity_plan'],Path(p['pilot_root']),p['hard_deadline'])
     admission=json.loads((root/'admission.json').read_text())
+    released=owner_release(admission)
     if (admission.get('status')!='admitted' or admission.get('m4_idle') is not True
-        or admission.get('pr188_state')!='MERGED' or admission.get('worker_closeout')!='complete'
+        or (not released and (admission.get('pr188_state')!='MERGED' or admission.get('worker_closeout')!='complete'))
         or not admission.get('closeout_evidence') or not 0 <= time()-admission['observed_at'] <= 120):
         raise ValueError('Fresh M4 idle and PR188 worker-side closeout evidence required')
     for name,spec in admission['closeout_evidence'].items():
@@ -62,7 +80,7 @@ def verify(plan_path):
             raise ValueError('PR188 closeout evidence changed')
     live=json.loads(subprocess.check_output(['gh','pr','view','188','--repo',
         'dberweger2017/deepcfr-texas-no-limit-holdem-6-players','--json','state'],text=True,timeout=20))
-    if live['state']!='MERGED': raise ValueError('PR188 still owns M4 until merged and finished')
+    if not released and live['state']!='MERGED': raise ValueError('PR188 still owns M4 until merged and finished')
     listing=subprocess.check_output(['ps','-axo','pid=,ppid=,command='],text=True,timeout=10)
     for line in listing.splitlines():
         fields=line.split(None,2)

@@ -18,9 +18,9 @@ disable its own timer first and check the merge/idle gates. While waiting, one
 30-minute status timer replaces it. Every timer ends at completion/deadline.
 
 **ETA:** earliest conditional start 04:00 Madrid; hard finish/report target
-**10:00 Madrid on October 8**. No measured HU100 finish estimate exists yet.
+**12:00 Madrid on October 8**. No measured HU100 finish estimate exists yet.
 Remaining qualification, HU20 reference/recovery and measured pilot costs
-consume the same six-hour maximum window. A late #188 merge/closeout shortens
+consume the same eight-hour maximum window. A late #188 merge/closeout shortens
 the available budget. HU100 ends at 10B total nodes, capacity or time; reaching
 10B is not promised. Upload acceptance may remain pending at the deadline and
 will be labeled as such.

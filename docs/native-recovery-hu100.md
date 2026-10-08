@@ -1,5 +1,12 @@
 # Verify native recovery and measure HU100 table growth
 
+**October 8 owner amendment:** M4 is released for this campaign immediately,
+even while #188 closes; verify no competing heavy worker without disturbing
+lightweight closeout. The owner moved the deadline to **12:00 Madrid /10:00 UTC**.
+This supersedes the historical merge/closeout admission rule below. Pin the exact
+owner message and thread in an `owner_m4_release_path` receipt and its SHA256 in
+each fresh admission. All resource, correctness and duplicate-launch guards remain.
+
 Owner-authorized capacity experiment, predeclared October 7, 2026. This campaign
 uses merged [#196](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/196)
 and its [preparation protocol](native-hu100-preparation.md). The owner has
@@ -36,20 +43,20 @@ result. Neither completion nor growth establishes convergence or poker strength.
   **30-minute execution timer**. These turns inspect compact status and anomalies;
   they do not repeatedly scan full logs or rerun expensive audits. Worker guards
   operate continuously and complete independently of M1, posting or agent wakes.
-- **Hard finish: October 8 at 10:00 Madrid /08:00 UTC.** Disable every campaign
+- **Hard finish: October 8 at 12:00 Madrid /10:00 UTC.** Disable every campaign
   timer at completion or deadline, including if #188 never becomes admissible.
   A late admission shortens the experiment; it never moves the deadline.
 
 The earliest intended start is **04:00 Madrid**, conditional on merge, closeout
 and resources. There is **no measured HU100 completion ETA yet**. The work window
-is at most six hours and includes any remaining implementation, isolated setup, qualification,
+is at most eight hours and includes any remaining implementation, isolated setup, qualification,
 independent review, HU20 reference/recovery, HU100 training, saves, exports and
 audits. #196's reference train and export/full-audit phases each have a
 900-second cap; the complete reference session has an 1800-second cap. Recovery
 also needs separately bounded training, export and comparison time. Historical
 HU20 timings are context, not a HU100 forecast. Publish an updated finish
 estimate after qualification and measured pilot/save/export/audit timings.
-The reporting target is **by 10:00 Madrid**, with any remaining archive upload
+The reporting target is **by 12:00 Madrid**, with any remaining archive upload
 acceptance explicitly marked pending rather than represented as complete.
 
 Local coordinator checkout: `~/Local/native-recovery-hu100-20261008`, branch

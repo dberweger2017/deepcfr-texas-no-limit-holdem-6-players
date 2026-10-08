@@ -58,6 +58,29 @@ def test_binary_substitution_prevents_launch(monkeypatch,tmp_path):
     assert json.loads(state.read_text())['active_attempt'] is None
 
 
+def test_exact_owner_release_supersedes_merge_gate(monkeypatch,tmp_path):
+    plan,state,_=fixture(tmp_path,monkeypatch,pr_state='OPEN')
+    release=tmp_path/'owner-release.json'
+    put(release,{'owner_message':launch.OWNER_RELEASE,'campaign':'native-recovery-hu100-20261008',
+                 'thread_uri':'t3://thread/495ca3f8-32db-4e73-98ad-29d01fb9e282'})
+    a=json.loads((tmp_path/'admission.json').read_text())
+    a.update(pr188_state='OPEN',worker_closeout='owner-released',
+             owner_m4_release_path=str(release),owner_m4_release_sha256=file_hash(release))
+    put(tmp_path/'admission.json',a)
+    assert launch.verify(plan)['status']=='launch-intent'
+    assert json.loads(state.read_text())['active_attempt'] is not None
+
+
+def test_changed_owner_release_cannot_override_merge_gate(monkeypatch,tmp_path):
+    plan,state,_=fixture(tmp_path,monkeypatch,pr_state='OPEN')
+    release=tmp_path/'owner-release.json'; put(release,{'owner_message':'different instruction'})
+    a=json.loads((tmp_path/'admission.json').read_text())
+    a.update(owner_m4_release_path=str(release),owner_m4_release_sha256=file_hash(release))
+    put(tmp_path/'admission.json',a)
+    with pytest.raises(ValueError,match='owner M4 release'): launch.verify(plan)
+    assert json.loads(state.read_text())['active_attempt'] is None
+
+
 @pytest.mark.parametrize('name',['current-100000.json.gz','training-guard/resources.jsonl'])
 def test_changed_pilot_evidence_prevents_growth_launch_claim(monkeypatch,tmp_path,name):
     from tests.test_native_hu_execution_gates import capacity_fixture
