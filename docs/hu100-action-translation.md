@@ -87,3 +87,18 @@ partials, reviews and resources in a member-hashed ZIP under
 separately confirm native upload plus cloud ID/name/size/parent. Index restore
 commands/hashes. Merge only after green checks and no open findings, then add one
 short ROADMAP Current position entry. No deletion or eviction of any synced file.
+
+## Source review correction before final play
+
+The first complete timing-only pilot at source `2cc06e8`, root
+`2026100820511`, is retained as `results/action-translation/original-pilot`.
+The reviewer found host guards refreshed at five seconds despite the declared
+200 ms cadence. No breach or invalid play was observed, and no pilot outcomes
+were read. Corrected source refreshes all guards each polling iteration, with
+200 ms target cadence and actual timestamps retained; a mocked transient AC
+breach verifies the stop. The corrected timing-only pilot uses fresh root
+`2026100820521`; final root remains `2026100820512`. Both are checked against all
+#197/#200/#203/#204 roots and the first pilot before final admission. The first
+quote is superseded; the corrected pilot alone determines the sample and budget.
+Default disabled inference keeps the existing reader/sampler path; telemetry
+is explicitly enabled only by this research evaluator.

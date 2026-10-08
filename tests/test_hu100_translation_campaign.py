@@ -40,3 +40,28 @@ def test_small_translation_campaign_replays_and_reproduces(tmp_path):
     assert checked['all_settlements_replayed']
     repeated=execute(config,tmp_path/'second',2,129802051,revision,reproduce=tmp_path/'first')
     assert repeated['reproduced_all_hands_and_decisions']
+
+
+def test_guard_reads_ac_on_each_iteration_and_stops_transient_breach(monkeypatch,tmp_path):
+    import scripts.run_hu100_action_translation as campaign
+    from types import SimpleNamespace
+    import pytest
+    monkeypatch.setattr(campaign,'OUT',tmp_path)
+    power=iter(['AC Power','AC Power','Battery Power'])
+    def output(command,**kwargs):
+        return next(power) if command[0]=='pmset' else 'used = 0.00M'
+    monkeypatch.setattr(campaign.subprocess,'check_output',output)
+    monkeypatch.setattr(campaign,'memory_snapshot',lambda:{'pressure_level':1,'free_percent':90})
+    monkeypatch.setattr(campaign.psutil,'virtual_memory',lambda:SimpleNamespace(used=1024))
+    monkeypatch.setattr(campaign.shutil,'disk_usage',lambda path:SimpleNamespace(free=30*1024**3))
+    fake=SimpleNamespace(children=lambda recursive:[],memory_info=lambda:SimpleNamespace(rss=1024))
+    monkeypatch.setattr(campaign.psutil,'Process',lambda pid:fake)
+    child=SimpleNamespace(poll=lambda:None,returncode=0)
+    monkeypatch.setattr(campaign.subprocess,'Popen',lambda *args,**kwargs:child)
+    stopped=[];monkeypatch.setattr(campaign,'terminate_child',lambda process:stopped.append(process))
+    monkeypatch.setattr(campaign,'sleep',lambda seconds:None)
+    with pytest.raises(RuntimeError,match='AC power guard'):
+        campaign.operation('fixture','unused',[],tmp_path)
+    receipt=json.loads((tmp_path/'fixture-guard/receipt.json').read_text())
+    assert receipt['samples']==2 and receipt['host_sample_seconds']==.2
+    assert receipt['status']=='failed' and stopped==[child]

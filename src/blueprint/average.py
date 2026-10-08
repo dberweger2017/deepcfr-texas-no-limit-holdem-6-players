@@ -158,9 +158,13 @@ class AveragePolicy(FrozenBlueprint):
         return menu, probabilities, known, info
 
     def policy(self, seed: int):
+        if self.translation is None and not getattr(self, "record_translation", False):
+            return super().policy(seed)
         return _AveragePlayer(self, seed)
 
     def distribution(self, view):
+        if self.translation is None and not getattr(self, "record_translation", False):
+            return super().distribution(view)
         menu, probabilities, known, _ = self.distribution_with_telemetry(view)
         return menu, probabilities, known
 

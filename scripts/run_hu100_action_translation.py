@@ -26,12 +26,12 @@ from src.policies.files import file_hash
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results/action-translation"
-PILOT_ROOT = 2026100820511
+PILOT_ROOT = 2026100820521
 FINAL_ROOT = 2026100820512
 PRIOR_ROOTS = [(2026100819711,16),(2026100819712,2048),
                (2026100820311,16),(2026100820312,2048),
                (2026100820411,16),(2026100820412,2048),
-               (2026100850411,16),(2026100850412,2048)]
+               (2026100850411,16),(2026100850412,2048),(2026100820511,16)]
 
 
 def read(path):
@@ -97,7 +97,7 @@ def operation(name, module, args, directory, deadline=None):
     try:
         with (guard/"worker.log").open("x") as log,(guard/"resources.jsonl").open("x") as stream:
             child=subprocess.Popen(command,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
-            parent=psutil.Process(os.getpid());next_host=0;host={}
+            parent=psutil.Process(os.getpid());next_tick=monotonic();host={}
             while child.poll() is None:
                 now=time()
                 family=[parent,*parent.children(recursive=True)]
@@ -106,12 +106,10 @@ def operation(name, module, args, directory, deadline=None):
                     try:rss+=process.memory_info().rss
                     except psutil.NoSuchProcess:pass
                 peak=max(peak,rss)
-                if now>=next_host:
-                    host={"swap_growth":swap_bytes(subprocess.check_output(["sysctl","vm.swapusage"],text=True))-swap_bytes(swap0),
-                          "power":subprocess.check_output(["pmset","-g","batt"],text=True),
-                          "free_disk":shutil.disk_usage(OUT).free,
-                          "memory":memory_snapshot(),"used_memory":psutil.virtual_memory().used}
-                    next_host=now+5
+                host={"swap_growth":swap_bytes(subprocess.check_output(["sysctl","vm.swapusage"],text=True))-swap_bytes(swap0),
+                      "power":subprocess.check_output(["pmset","-g","batt"],text=True),
+                      "free_disk":shutil.disk_usage(OUT).free,
+                      "memory":memory_snapshot(),"used_memory":psutil.virtual_memory().used}
                 stream.write(json.dumps({"at":now,"family_rss":rss,**host})+"\n");stream.flush();count+=1
                 if rss>=3*1024**3:raise MemoryError("Whole-family RSS ceiling")
                 if host["swap_growth"]>256*1024**2:raise MemoryError("Swap growth ceiling")
@@ -120,7 +118,8 @@ def operation(name, module, args, directory, deadline=None):
                 if host["memory"]["pressure_level"]!=1 or host["used_memory"]>=10*1024**3:
                     raise MemoryError("System memory guard")
                 if deadline is not None and now>=deadline:raise TimeoutError("Frozen time budget")
-                sleep(.2)
+                next_tick += .2
+                sleep(max(0,next_tick-monotonic()))
             if child.returncode:raise RuntimeError(f"Worker failed: {name} exit {child.returncode}")
     except BaseException as exc:
         failure=f"{type(exc).__name__}: {exc}"
@@ -131,7 +130,7 @@ def operation(name, module, args, directory, deadline=None):
         write(guard/"receipt.json",{"command":command,"started":started,"finished":time(),
             "seconds":time()-started,"peak_family_rss":peak,"samples":count,
             "status":"failed" if failure else "complete","failure":failure,
-            "deadline":deadline,"host_sample_seconds":5,"rss_sample_seconds":.2})
+            "deadline":deadline,"host_sample_seconds":.2,"rss_sample_seconds":.2})
     return read(guard/"receipt.json")
 
 
