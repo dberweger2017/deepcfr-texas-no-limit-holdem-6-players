@@ -235,7 +235,18 @@ def main():
                          accepted_returncodes=(0, 3))
         g.claim(a.measurement, result); sys.exit(result['returncode'])
     if a.retrieve: retrieve(a.retrieve); return
-    if a.seal: g.seal(a.seal, a.destination, source_root=ROOT, binary_relative=BINARY); return
+    if a.seal:
+        import urllib.request
+        url = 'https://api.github.com/repos/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pulls/204'
+        with urllib.request.urlopen(url, timeout=20) as response:
+            current = json.load(response)
+        status_path = a.seal / 'owning-pr-status-before-seal.json'
+        g.claim(status_path, {'url': url, 'at': time(), 'state': current['state'], 'merged': current['merged']})
+        if current['state'] != 'open' or current['merged']:
+            raise ValueError('This owner-authorized open PR204 archive only')
+        logs = {'qualification-logs/' + p.name: p for p in (ROOT / 'results').glob('qualification*.log')}
+        g.seal(a.seal, a.destination, source_root=ROOT, binary_relative=BINARY, extra_paths=logs)
+        return
     if not a.stage or not a.destination: p.error('--stage and --destination required')
     ROOT.joinpath('results').mkdir(exist_ok=True)
     with g.lock(ROOT / 'results/phase.lock'):
