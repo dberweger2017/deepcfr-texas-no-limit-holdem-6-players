@@ -116,3 +116,12 @@ def test_measure_preserves_controlled_native_capacity_exit(tmp_path, monkeypatch
     r=b.measure(['fixture'],tmp_path,tmp_path,'accepted',1,time()+30,accepted_returncodes=(0,3))
     assert r['returncode']==3 and r['kernel_command_peak_rss_bytes']==1234
     with pytest.raises(subprocess.CalledProcessError):b.measure(['fixture'],tmp_path,tmp_path,'strict',1,time()+30)
+
+
+def test_capacity_pin_rejects_changed_admission_receipt(tmp_path):
+    from types import SimpleNamespace
+    receipt=tmp_path/'capacity.json';receipt.write_text('{"entry_stop":7000000}')
+    c=SimpleNamespace(state={},state_path=tmp_path/'state.json')
+    growth.bind_receipt(c,'capacity_sha256',receipt)
+    receipt.write_text('{"entry_stop":9000000}')
+    with pytest.raises(ValueError,match='Frozen capacity'):growth.bind_receipt(c,'capacity_sha256',receipt)

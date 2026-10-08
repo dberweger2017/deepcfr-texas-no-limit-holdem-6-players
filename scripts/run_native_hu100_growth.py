@@ -170,6 +170,7 @@ class Campaign:
                     paths.extend([p] if p.is_file() else [f for f in p.rglob('*') if f.is_file()])
             if '--retrieve' in command:
                 paths.extend(self.out / n for n in ('parent-checkpoint.gz', 'parent-average.gz', 'retrieval.json', 'parent-pr-status.json'))
+                if (self.out / 'parent-audit.json').exists(): paths.append(self.out / 'parent-audit.json')
             if '--seal' in command:
                 paths.extend([self.out / 'archive-receipt.json', Path(command[command.index('--destination') + 1])])
             intent['outputs'] = {str(p): file_hash(p) for p in paths}

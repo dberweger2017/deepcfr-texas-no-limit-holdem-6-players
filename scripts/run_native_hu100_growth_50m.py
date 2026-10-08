@@ -135,11 +135,19 @@ def quote(pilot, measurements, operations, entry_stop, remaining):
         'closeout_seconds': 180, 'forecast_family_rss_bytes': rss, 'outcomes_inspected': False}
 
 
+def bind_receipt(c, key, path):
+    digest = file_hash(path)
+    if c.state.get(key, digest) != digest:
+        raise ValueError('Frozen capacity receipt changed')
+    c.state[key] = digest; g.write(c.state_path, c.state)
+
+
 def stage1(c, dest):
     initial_path = c.out / 'initial-capacity.json'
     if not initial_path.exists():
         g.claim(initial_path, capacity(indexed_parent(),
             g.read(ROOT / 'docs/reports/native-hu100-growth-artifacts/stage1-resources.json'), shutil.disk_usage(c.out).free))
+    bind_receipt(c, 'initial_capacity_sha256', initial_path)
     initial = g.read(initial_path)
     if initial['entry_stop'] <= initial['parent_entries']:
         raise ValueError('No growth capacity admitted; never-started science')
@@ -156,6 +164,7 @@ def stage1(c, dest):
             pilot_entries=pilot['diagnostics']['entries'])
         revised['entry_stop'] = min(initial['entry_stop'], revised['entry_stop'])
         g.claim(cap_path, revised)
+    bind_receipt(c, 'capacity_sha256', cap_path)
     cap = g.read(cap_path); entry_stop = cap['entry_stop']
     terminal, folder = pilot, pilot_dir
     if (pilot['completed_nodes'] >= PARENT_NODES+100000 and not pilot['stop_requested']
@@ -174,10 +183,12 @@ def stage1(c, dest):
                 TARGET, q['training_seconds'], end, entry_stop=entry_stop, measure_module=MODULE)
             g.export_audit(c, 'terminal', folder, PARENT_NODES+1)
     audit = g.read(folder / 'audit.json')
+    applied_entry_stop = initial['entry_stop'] if folder == pilot_dir else entry_stop
     g.write(c.out / 'result.json', {'status': 'target-complete' if terminal['completed_nodes'] >= TARGET else 'controlled-stop',
         'terminal': terminal, 'terminal_folder': str(folder), 'audit_status': audit['status'],
         'parent_nodes': PARENT_NODES, 'additional_nodes': terminal['completed_nodes']-PARENT_NODES,
-        'entry_stop': entry_stop, 'entry_overshoot': max(0, terminal['diagnostics']['entries']-entry_stop),
+        'entry_stop': applied_entry_stop, 'postpilot_entry_ceiling': entry_stop,
+        'entry_overshoot': max(0, terminal['diagnostics']['entries']-applied_entry_stop),
         'target_overshoot': max(0, terminal['completed_nodes']-TARGET),
         'capacity_sha256': file_hash(cap_path), 'initial_capacity_sha256': file_hash(initial_path)})
     c.seal(dest)
