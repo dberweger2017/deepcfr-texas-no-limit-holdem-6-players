@@ -41,7 +41,7 @@ def terminate_child(child):
 
 
 def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=False, rss_gib=10.5, disk_gib=8, swap_gib=.5,
-        stop_file=None, soft_rss_gib=None, save_reserve_seconds=0, system_memory_guard=False):
+        stop_file=None, soft_rss_gib=None, save_reserve_seconds=0, system_memory_guard=False, phase_seconds=None, required_start_seconds=0):
     if (not all(isfinite(n) for n in (deadline, rss_gib, disk_gib, swap_gib))
         or rss_gib <= 0 or disk_gib <= 0 or swap_gib < 0):
         raise ValueError("Finite resource limits must be positive (swap may be zero)")
@@ -54,6 +54,9 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
             raise ValueError("Controlled stop needs fresh matching trainer path, lower RSS and save reserve")
     elif soft_rss_gib is not None or save_reserve_seconds:
         raise ValueError("Controlled stop requires --stop-file")
+    if (not isfinite(required_start_seconds) or required_start_seconds<0
+        or (phase_seconds is not None and (not isfinite(phase_seconds) or phase_seconds<=0 or required_start_seconds>phase_seconds))):
+        raise ValueError('Finite positive phase budget and start reserve required')
     acquire(out)
     record = {"status": "running", "started": time(), "deadline": deadline,
               "identity": None, "attempts": [], "failure": None,
@@ -68,6 +71,7 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
         received_signal[0] = signal.Signals(signum).name
     previous = {s: signal.getsignal(s) for s in (signal.SIGINT, signal.SIGTERM)}
     for signum in previous: signal.signal(signum, interrupted)
+    phase_end=None
     child = None; cleaned_child = False; attempt = None; reason = None; peak = aggregate_peak = 0
     try:
         write_json(out / "campaign.json", record)
@@ -78,7 +82,7 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
             child = None; cleaned_child = False; reason = None; peak = aggregate_peak = 0
             attempt = {"name": job["name"], "command": job["command"], "status": "running", "started": time()}
             record["attempts"].append(attempt); write_json(out / "campaign.json", record)
-            end = min(deadline, job.get("deadline", deadline))
+            end = min(deadline, phase_end or deadline, job.get("deadline", deadline))
             if not isfinite(end): raise ValueError("Phase deadline must be finite")
             # Refuse admission before starting a child on a host without adequate resources.
             power = system(["pmset", "-g", "batt"])
@@ -96,6 +100,15 @@ def run(jobs, out, deadline, swap_before=None, coordinator_pid=None, require_ac=
             if reason or received_signal[0]: break
             with (out / f'{job["name"]}.log').open("w") as log:
                 try:
+                    # Admission reads may take time. Recheck after those reads and
+                    # immediately before spawning; phase runtime starts here.
+                    if phase_end is None:
+                        if end-time()<required_start_seconds:
+                            reason='Required phase time budget admission guard'
+                            break
+                        if phase_seconds is not None:
+                            phase_end=min(end,time()+phase_seconds)
+                            end=phase_end; record['phase_deadline']=end
                     child = subprocess.Popen(job["command"], stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
                     attempt["pid"] = child.pid; write_json(out / "campaign.json", record)
                     next_sample = 0
@@ -213,9 +226,11 @@ def main():
     p.add_argument('--stop-file', type=Path); p.add_argument('--soft-rss-gib', type=float)
     p.add_argument('--save-reserve-seconds', type=float, default=0)
     p.add_argument('--system-memory-guard',action='store_true')
+    p.add_argument('--phase-seconds',type=float)
+    p.add_argument('--required-start-seconds',type=float,default=0)
     a = p.parse_args()
     record = run(json.loads(a.jobs.read_text()), a.out, a.deadline, a.swap_baseline,a.coordinator_pid,a.require_ac,a.rss_gib,a.disk_gib,a.swap_gib,
-                 a.stop_file,a.soft_rss_gib,a.save_reserve_seconds,a.system_memory_guard)
+                 a.stop_file,a.soft_rss_gib,a.save_reserve_seconds,a.system_memory_guard,a.phase_seconds,a.required_start_seconds)
     print(json.dumps(record)); return record["status"] != "complete"
 
 

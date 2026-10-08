@@ -223,10 +223,39 @@ def test_pilot_reserves_all_eight_jobs_and_binds_coordinator(monkeypatch,tmp_pat
     out=tmp_path/'pilot'
     plan=prep.prepare_pilot(out,b,q,eq,'used = 0M',min(prep.DEADLINE-300,time()+3000),approval(tmp_path))
     script=(out/'commands.txt').read_text()
-    assert 'float(sys.argv[1])-900' in script and '--coordinator-pid '+str(prep.os.getpid()) in script
+    assert '--deadline '+str(plan['hard_deadline']-900) in script and '--coordinator-pid '+str(prep.os.getpid()) in script
     assert '--soft-rss-gib 8.5' in script and '--save-reserve-seconds 30' in script
     assert plan['stage_fit_seconds']==1800 and len(plan['export_audit_jobs'])==8
     assert plan['command'][plan['command'].index('--max-seconds')+1]=='870'
     with pytest.raises(ValueError,match='Complete pilot stage'):
         prep.prepare_pilot(tmp_path/'late',b,q,eq,'used = 0M',time()+1000,approval(tmp_path))
     assert not (tmp_path/'late').exists()
+
+
+def test_validation_time_expiry_refuses_durable_claim(monkeypatch,tmp_path):
+    from scripts import verify_native_hu_launch as launch
+    plan,state=verification_fixture(tmp_path,monkeypatch)
+    reads=[launch.DEADLINE-1000]
+    original=launch.file_hash
+    def slower(p):
+        result=original(p)
+        if str(p).endswith('recovery-02/plan.json'):reads[0]=launch.DEADLINE-850
+        return result
+    monkeypatch.setattr(launch,'time',lambda:reads[0])
+    monkeypatch.setattr(launch,'file_hash',slower)
+    # Admission remains fresh so the final phase-fit recheck is the rejecting gate.
+    admission=tmp_path/'admission.json';a=json.loads(admission.read_text());a['observed_at']=launch.DEADLINE-850;admission.write_text(json.dumps(a))
+    with pytest.raises(ValueError,match='expired before claim'):launch.verify(plan)
+    assert not (tmp_path/'LAUNCH.json').exists()
+
+
+def test_supervisor_rechecks_budget_after_admission_reads(monkeypatch,tmp_path):
+    from tests.test_native_hu_supervisor import environment
+    environment(monkeypatch);now=[1000.0]
+    monkeypatch.setattr(supervisor,'time',lambda:now[0])
+    def expensive(_):now[0]+=20;return 'AC Power'
+    monkeypatch.setattr(supervisor,'system',expensive)
+    monkeypatch.setattr(supervisor.subprocess,'Popen',lambda *_a,**_kw:pytest.fail('insufficient phase budget child launched'))
+    result=supervisor.run([{'name':'never','command':['unused']}],tmp_path/'guard',deadline=1920,
+                          disk_gib=.001,phase_seconds=900,required_start_seconds=900)
+    assert result['status']=='incomplete' and 'phase time budget' in result['attempts'][0]['guard_failure']

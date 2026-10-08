@@ -139,6 +139,8 @@ def verify(plan_path):
         raise ValueError('One approved verification already claimed; retain lock evidence')
     if state.get('active_attempt') is not None:
         raise ValueError('Campaign became active before claim; retain lock evidence')
+    if p.get('followup_approval_path') and p['stage'] in ('verification','pilot') and p['hard_deadline']-time()<p['stage_fit_seconds']:
+        raise ValueError('Complete stage time reserves expired before claim; retain lock evidence')
     with (root/'LAUNCH.json').open('x') as f: json.dump(claim,f); f.write('\n'); f.flush(); os.fsync(f.fileno())
     state['active_attempt']=claim; state.setdefault('launch_attempts',[]).append(claim)
     if p['stage']=='verification': state['verification_attempt_claimed']=True

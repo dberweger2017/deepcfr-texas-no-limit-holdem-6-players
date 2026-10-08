@@ -32,7 +32,11 @@ eight export/audit jobs, with archive time outside its deadline; training ends
 at least 900 seconds before the stage deadline. Verification admission rechecks
 its full 900-second budget with 300 seconds left for closeout. Prepared follow-up
 commands bind the live preparing coordinator PID, verify its launch ancestry and
-include its entire descendant family in every guard. Prepare inside that live
+include its entire descendant family in every guard. Recheck stage fit after
+all prerequisite reads under the lock immediately before the claim, and recheck
+the complete phase budget after worker admission immediately before spawning.
+The 900-second phase runtime clock starts at that spawn, with its absolute
+downstream/archive deadline unchanged. Prepare inside that live
 owned coordinator, never reuse commands after it exits.
 
 Use a separate `followup-state.json`, permanent one-verification claim, fresh

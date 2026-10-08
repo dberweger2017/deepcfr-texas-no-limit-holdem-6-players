@@ -90,8 +90,25 @@ def write_plan(out, plan, phases, swap_baseline, deadline):
         if limits['system_memory_guard']: guard += ['--system-memory-guard','--coordinator-pid',str(plan['coordinator_pid'])]
         phase_deadline = shlex.join([sys.executable, '-c', f'import time; print(min({deadline!r},time.time()+{seconds!r}))'])
         lines += [shlex.join(guard)+f' --deadline "$({phase_deadline})"']
-    (out/'commands.txt').write_text('\n'.join(lines)+'\n')
+    if plan.get('followup_approval_path') and plan['stage']=='verification':
+        (out/'commands.txt').write_text(followup_commands(out,plan))
+    else: (out/'commands.txt').write_text('\n'.join(lines)+'\n')
     return plan
+
+
+def followup_commands(out,plan):
+    """Start each phase clock after admission and preserve its downstream budget."""
+    lines=['set -eu',shlex.join([sys.executable,'-m','scripts.verify_native_hu_launch','--plan',str(out/'plan.json')]),
+           'export RAYON_NUM_THREADS=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1']
+    for phase,spec in plan['phase_jobs'].items():
+        deadline=plan['hard_deadline']-(plan.get('downstream_reserve_seconds',0) if phase=='training' else 0)
+        args=[sys.executable,'-m','scripts.hu20_scaling_supervise','--jobs',str(out/f'{phase}-jobs.json'),
+              '--out',str(out/f'{phase}-guard'),'--rss-gib','10','--disk-gib','15.5','--swap-gib','.5',
+              '--require-ac','--system-memory-guard','--coordinator-pid',str(plan['coordinator_pid']),
+              '--swap-baseline',plan['campaign_swap_baseline'],'--deadline',str(deadline),
+              '--phase-seconds',str(spec['seconds']),'--required-start-seconds',str(spec['seconds'])]+spec['extra_guard_arguments']
+        lines.append(shlex.join(args))
+    return '\n'.join(lines)+'\n'
 
 
 def prepare_recovery(out, binary, qualification_path, reference_root, parent, swap_baseline, deadline):
@@ -240,7 +257,7 @@ def prepare_pilot(out,binary,qualification_path,equivalence_path,swap_baseline,d
                 lines[i]=line.replace('float(sys.argv[1])','float(sys.argv[1])-900')
         commands='\n'.join(lines)+'\n'
     commands=commands.replace('set -eu\n','set -eu\n'+shlex.join([sys.executable,'-m','scripts.verify_native_hu_launch','--plan',str(out/'plan.json')])+'\n',1)
-    (out/'commands.txt').write_text(commands)
+    (out/'commands.txt').write_text(followup_commands(out,plan) if approval is not None else commands)
     return plan
 
 
