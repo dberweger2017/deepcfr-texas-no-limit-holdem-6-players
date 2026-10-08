@@ -70,3 +70,73 @@ def test_disjoint_hand_accounting_and_common_spot_denominators():
         assert sum(r['contribution_bb_per_100'] for r in table)==pytest.approx(-300/1536)
     denominators=[r['value'] for r in summary['common_prefix_actual'] if r['key'][-1]=='opportunities']
     assert denominators==[1536,1536]
+
+
+def test_hydration_timeout_restarts_exact_unhashed_offset(monkeypatch):
+    import hashlib
+    import io
+    from pathlib import Path
+    from scripts import diagnose_hu20_search_stackoff as module
+    data=b'first'+b'x'*1024**2+b'last'
+    class HydratingFile(io.BytesIO):
+        calls=0
+        def read(self,n):
+            self.calls+=1
+            if self.calls==2:
+                super().read(17)
+                raise TimeoutError('hydrating')
+            return super().read(n)
+    monkeypatch.setattr(Path,'open',lambda *args,**kwargs:HydratingFile(data))
+    monkeypatch.setattr(module,'sleep',lambda _:None)
+    assert module.file_hash(Path('unused'))==hashlib.sha256(data).hexdigest()
+
+
+def test_scientific_request_preserves_science_and_removes_host_admission():
+    from scripts.resolve_hu20_search_stackoff import scientific_request
+    r={'ranges':[[1],[2]],'threads':6,'max_iterations':50,'memory_budget_bytes':123,
+       'requested_memory_budget_bytes':456,'mode':'play','seconds':None,'dump_path':'host/path'}
+    assert scientific_request(r)=={'ranges':[[1],[2]],'threads':6,'max_iterations':50,'memory_budget_bytes':456}
+
+
+def test_exact_frozen_rule_likelihood_integrates_trapping_and_overfolds():
+    from dataclasses import replace
+    from src.game.hand import Hand, Table
+    from src.blueprint.abstraction import choices
+    from scripts.resolve_hu20_search_stackoff import frozen_likelihood
+    view=Hand.start(Table(('a','b'),(2000,2000)),seed=123,hand_id='fixture').observe(0)
+    strong=replace(view,hole_cards=('Ac','Ad'))
+    menu={c.name:c.action for c in choices(strong,raise_cap=None,free_fold=False)}
+    assert frozen_likelihood(strong,menu['min'])==.35
+    assert frozen_likelihood(strong,menu['call'])==.65
+    assert frozen_likelihood(strong,menu['fold'])==0
+    weak=replace(view,hole_cards=('4c','2d'))
+    assert frozen_likelihood(weak,menu['fold'])==1
+    medium=replace(view,hole_cards=('Ac','2d'))
+    assert frozen_likelihood(medium,menu['call'])==1
+
+
+def test_frozen_rule_large_call_is_a_price_threshold_not_a_bet_size():
+    from dataclasses import replace
+    from src.game.hand import Hand, Table
+    from src.game.types import Action, ActionKind, Street
+    from scripts.resolve_hu20_search_stackoff import frozen_likelihood
+    view=Hand.start(Table(('a','b'),(2000,2000)),seed=123,hand_id='fixture').observe(0)
+    # Isolate the price branch with concrete cards, without recorded inputs.
+    view=replace(view,street=Street.RIVER,board=('Js','2h','6d','5d','9h'),
+                 hole_cards=('5c','5s'),
+                 legal_actions=replace(view.legal_actions,call_amount=800))
+    assert frozen_likelihood(view,Action(ActionKind.CALL))==1
+    assert frozen_likelihood(view,Action(ActionKind.FOLD))==0
+    medium=replace(view,hole_cards=('Jc','Tc'))
+    assert frozen_likelihood(medium,Action(ActionKind.FOLD))==1
+    assert frozen_likelihood(medium,Action(ActionKind.CALL))==0
+
+
+def test_guarded_stages_are_sequential_and_only_replay_or_resolve_recorded_inputs(tmp_path):
+    from scripts.run_hu20_search_stackoff_diagnosis import jobs
+    for stage in ('restore','analyze','retrieve','resolve','tests'):
+        work=jobs(stage,tmp_path,tmp_path/'original.zip',tmp_path/'frozen-tool')
+        assert work
+        assert all('arena' not in ' '.join(j['command']) for j in work)
+    assert [j['name'] for j in jobs('resolve',tmp_path,tmp_path/'original.zip',tmp_path/'tool')]==['resolve','responses']
+    with pytest.raises(ValueError,match='Unknown'): jobs('play',tmp_path,tmp_path/'zip',tmp_path/'tool')
