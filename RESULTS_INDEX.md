@@ -1455,3 +1455,62 @@ Both canonical archives and the selected members were freshly rehashed, their em
 Removed 82 additional Git-reported garbage packs (33,710,801,880 bytes), each older than two minutes, unchanged and without open handles. Full Git integrity and reachable-object checks passed before and after cleanup. No valid packs, refs, primary index, active PR roots or synced payloads were deleted. Temporary pack count is zero; M1 measured about 51 GB free after both cleanups. Matching local model exclusions protect existing project checkouts on both Macs while the repository rules land; other repositories retain their prior settings.
 
 [Model cleanup receipt and original-path restoration commands](https://drive.google.com/file/d/1XgRadPHdyCnp17SUg-9t7zDIZa5P-TjB/view), [temporary-pack cleanup receipt](https://drive.google.com/file/d/11pRy40cfqt38Q781JyLO1rAsFoc_yHaa/view). [Retrieval commands and archive hashes](docs/artifacts/research-model-storage-20261006.md) show how to fetch the models into ignored `results/retrieved/pr89/` and verify them. The shared index retains the same Drive ID. This does not schedule cleanup or offload synced files.
+
+## PR207 HU100 1B: verified science, archive blocked — October 8
+
+**Partial closeout; PR207 remains open/draft, with no accepted archive or merge.** Frozen science bd0e7a417064f736091dc2b667954b50becb4b69, fresh seed 2026100601, isolated M4 root ~/Local/hu100-1b-growth-20261008. [PR207](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207), [report](docs/reports/native-hu100-growth-1b.md), [audited model index](docs/reports/native-hu100-growth-1b-artifacts/model-index.json), [stop receipt](docs/reports/native-hu100-growth-1b-artifacts/archive-stop-readback.json).
+
+Training reached 1,000,002,065 nodes /41,010,014 entries; all five checkpoint/current/average sets audit. Fixed 143,360 distinct final hands fully replay/reproduce. Loose gain +214.39 [122.28,306.51] improves; tight +37.05 [−15.00,89.10] inconclusive, 97.5% each. Separate pot translation gain +62.45 [17.15,107.76], 95%. No model default/release change.
+
+Archive creation breached original +512 MiB swap guard at 21:47:00 UTC (+829.38 MiB); cleanup then raised PermissionError before the normal archive receipt finalized. No campaign/packer process remains. Retain all original models, failure/admission/raw guards, source/runtime/pilot/final/reproduction evidence and **the untouched 3,354,661,317-byte incomplete synced ZIP** at ~/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-20261008.zip. [Folder](https://drive.google.com/drive/folders/1qhlOHmphBGSFfiM82S7T4B_KhdabyRUS), parent 188bEt6i0RHqegCCdvpf3wPzUiRw78N2s. **No final archive SHA256/member manifest/readback/cloud ID/upload acceptance is claimed. Do not restore from the partial ZIP.** Planned archive members in the model index are not accepted restoration pointers.
+
+Earlier duplicate-root setup refusal, excessive fixed-snapshot storage estimate and locked-keychain/SSH push provenance remain in results/qualification and results/hu100-1b. No failed final science was rerun. End evidence review is pending. [SOMA](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207#issuecomment-6069695396): prepare separately reviewed archive-only readmission while preserving the baseline/guard, partial ZIP and unchanged outputs. No automatic retry, cleanup, eviction, metadata seal or merge.
+
+Exact original model paths, audited sizes/SHA256:
+
+| Actual nodes | Kind | Original M4 path | Bytes | SHA256 |
+| --- | --- | --- | --- | --- |
+| 39438279 | checkpoint | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/gate/checkpoint.gz | 283895910 | 792a675ce6d45d4de8d1b7f3fc6d976548610810f11da8f336c3926f37f8d416 |
+| 39438279 | current | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/gate/current.gz | 188020407 | 606e8c2caa7ebffe4b7fe7d2e11410300e8b53eb61c58fab3d89f546ab42262f |
+| 39438279 | average | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/gate/average.gz | 193277097 | ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4 |
+| 100001959 | checkpoint | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/100000000/checkpoint.gz | 516364002 | 2b3a09871183247523dd5413c8b39253e9742ac001d39476cd67916e48162bae |
+| 100001959 | current | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/100000000/current.gz | 329495095 | ec6d6af81b802f6a6eb9ca6d9baa00655e9f19ade0d9589cecd9481cf5589cd7 |
+| 100001959 | average | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/100000000/average.gz | 347314759 | 9a0ea8aaa71d3af9d7f1a63f806bbe1ca4e1b36efdbca9f28e8b79677a488303 |
+| 250000540 | checkpoint | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/250000000/checkpoint.gz | 877459108 | be9f13a29d6a89445e48661ae0f30ab875f46e63c035578eb22b1cb92ac28595 |
+| 250000540 | current | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/250000000/current.gz | 538130483 | 229c71dcf05d0eeb23da8daad0358b16996e08392a2a4c3ffbc32b58e13a1507 |
+| 250000540 | average | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/250000000/average.gz | 584032704 | 77d9fb66513a83f427ab9b2d1c60fc20d22e533f394aa76f4118f534a801420a |
+| 500000323 | checkpoint | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/500000000/checkpoint.gz | 1266489098 | 35f4b46e6c490573b2cf3ebe4953c269a7793845f425dd53e296fc64be439788 |
+| 500000323 | current | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/500000000/current.gz | 753589994 | 24ce60451708a7b0ace7bfad7873f2f17b0b5a27af8bade73d0f175163441edb |
+| 500000323 | average | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/500000000/average.gz | 836277172 | f2accc2af458850d394cc3c3e18cbcb42d8959a7fb050cadc94297a1159af3ca |
+| 1000002065 | checkpoint | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/checkpoint.gz | 1789504352 | cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec |
+| 1000002065 | current | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/current.gz | 1033507823 | 979c18a46d7cfcbfbdaa316e9804ba0547cffe53b3fda11012312d5529699c21 |
+| 1000002065 | average | /Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/average.gz | 1173264021 | 47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9 |
+
+Until archive acceptance, copy only this owner-authorized campaign's inputs directly from M4 to a fresh ignored path, checking all recorded bytes. Do not move/overwrite active inputs.
+
+~~~sh
+pr207_restore="results/restored-pr207-$(date +%Y%m%d-%H%M%S)"
+mkdir "$pr207_restore"
+PR207_RESTORE="$pr207_restore" .venv/bin/python - <<'PY'
+import hashlib, json, os, subprocess
+from pathlib import Path
+root = Path(os.environ["PR207_RESTORE"])
+index = json.loads(Path("docs/reports/native-hu100-growth-1b-artifacts/model-index.json").read_text())
+for model in index["models"]:
+    source_dir = Path(model["spec"]["path"]).parent
+    for kind in ("checkpoint", "current", "average"):
+        source = source_dir / (kind + ".gz")
+        expected = model["audit"]["files"][str(source)]
+        target = root / str(model["spec"]["actual_nodes"]) / (kind + ".gz")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        assert not target.exists()
+        subprocess.run(["scp", "-p", "m4:" + str(source), str(target)], check=True)
+        digest = hashlib.sha256()
+        with target.open("rb") as stream:
+            while chunk := stream.read(8 * 1024**2):
+                digest.update(chunk)
+        assert target.stat().st_size == expected["bytes"]
+        assert digest.hexdigest() == expected["sha256"]
+print("Verified all model originals")
+PY
+~~~

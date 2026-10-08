@@ -1,0 +1,58 @@
+{
+  "headRefOid": "bd0e7a417064f736091dc2b667954b50becb4b69",
+  "isDraft": true,
+  "state": "OPEN",
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-08T19:55:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37835438975/job/113511424534",
+      "name": "scope",
+      "startedAt": "2026-10-08T19:55:04Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-08T20:01:23Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37835438975/job/113511551228",
+      "name": "full (0)",
+      "startedAt": "2026-10-08T19:55:22Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-08T20:04:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37835438975/job/113511551271",
+      "name": "full (1)",
+      "startedAt": "2026-10-08T19:55:22Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-08T20:04:26Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37835438975/job/113515400811",
+      "name": "test",
+      "startedAt": "2026-10-08T20:04:23Z",
+      "status": "COMPLETED",
+      "workflowName": "Tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-08T19:54:22Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://dashboard.gitguardian.com",
+      "name": "GitGuardian Security Checks",
+      "startedAt": "2026-10-08T19:54:21Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    }
+  ],
+  "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/207"
+}
