@@ -52,7 +52,7 @@ def vars_block(block):
     return asdict(block)
 
 
-def summarize(run, settings, output):
+def summarize(run, settings, output, *, formal_opponents=None):
     frozen = json.loads((run / 'frozen-final.json').read_text())
     blocks, root = frozen['blocks_per_opponent'], frozen['final_root']
     schedule_path = run / 'frozen-schedule.json'
@@ -129,16 +129,19 @@ def summarize(run, settings, output):
         earlier = spec['actual_nodes']
         for opponent in OPPONENTS:
             difference = [a - b for a, b in zip(results[final, opponent], results[earlier, opponent], strict=True)]
-            adjusted = interval(difference, .05 / 20)
+            formal = formal_opponents is None or opponent in formal_opponents
+            family_size = 20 if formal_opponents is None else len(formal_opponents)
+            adjusted = interval(difference, .05 / family_size if formal else .05)
             low, high = adjusted['interval']
             contrasts.append({'final_nodes': final, 'earlier_nodes': earlier, 'opponent': opponent,
-                              'descriptive_95': interval(difference), 'bonferroni_20': adjusted,
-                              'formal_label': 'improvement' if low > 0 else 'decline' if high < 0 else 'inconclusive'})
+                              'descriptive_95': interval(difference),
+                              ('bonferroni_20' if formal_opponents is None else 'primary_adjusted' if formal else 'descriptive_interval'): adjusted,
+                              'formal_label': ('improvement' if low > 0 else 'decline' if high < 0 else 'inconclusive') if formal else 'descriptive'})
     result = {'status': 'verified', 'source': source, 'frozen_final_sha256': file_hash(run / 'frozen-final.json'),
               'schedule_sha256': frozen['schedule_sha256'], 'blocks_per_opponent': blocks,
-              'unique_final_hands': blocks * 60, 'replayed_rows_including_reference_copies': hands_replayed,
+              'unique_final_hands': blocks * (10 + 10 * len(settings['models'])), 'replayed_rows_including_reference_copies': hands_replayed,
               'replayed_actions_including_reference_copies': actions_replayed,
-              'uniform_evaluations_per_opponent': 1, 'formal_family_size': 20,
+              'uniform_evaluations_per_opponent': 1, 'formal_family_size': 20 if formal_opponents is None else len(formal_opponents),
               'curves': curves, 'final_minus_earlier': contrasts, 'coverage': coverage}
     write_json(output, result)
     return result
