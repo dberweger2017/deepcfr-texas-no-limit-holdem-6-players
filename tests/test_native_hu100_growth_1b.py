@@ -147,4 +147,3 @@ def test_three_checkpoint_curve_has_only_two_formal_parent_contrasts_and_seconda
     assert all(c["formal_label"]=="descriptive" and c["descriptive_interval"]["alpha"]==.05 for c in descriptive)
     assert result["secondary"]["translated_minus_off"]["alpha"]==.05
     assert result["unique_final_hands_including_translated_arm"]==100
-
