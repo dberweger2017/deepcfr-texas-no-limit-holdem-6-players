@@ -15,13 +15,15 @@ from src.arena.runner import public_events
 from src.arena.schedule import digest
 from src.blueprint.abstraction import choices
 from src.blueprint.artifact import HU20_UNCAPPED_FORMAT
-from src.game.hand import Hand, Table
+from src.game.hand import Hand
 from src.game.observation import ActionTaken, BlindPosted, BoardDealt, CardsMucked, CardsShown
 from src.game.types import Action, ActionKind
 from src.play_api.configuration import PlayTable, policy_table, recorded_table, inference_record, distribution
 
 MODEL_NAME = "B100M · seed 2026093001"
 API_VERSION = "hu20-play-api-v1"
+HU100_API_VERSION = "hu100-research-play-api-v1"
+HU100_BENCHMARK_PROTOCOL = "hu100-human-research-benchmark-v1"
 ADAPTER_ID = "direct-v1"
 BENCHMARK_PROTOCOL = "hu20-human-benchmark-v1"
 BUTTON_SCHEDULE = "alternating-seat-0-first-v1"
@@ -51,10 +53,6 @@ def _rng(state):
     generator = Random()
     generator.setstate(_tuple(state))
     return generator
-
-
-def _table(button):
-    return PlayTable().table(("human", "trained"), button)
 
 
 def _action(row):
@@ -105,6 +103,8 @@ class PlayService:
         self.table = table or policy_table(policy)
         self.table.validate_policy(policy)
         self.model = _model_info(policy)
+        self.api_version = HU100_API_VERSION if self.table.stack == 10000 else API_VERSION
+        self.benchmark_protocol = HU100_BENCHMARK_PROTOCOL if self.table.stack == 10000 else BENCHMARK_PROTOCOL
         self.db_path = db_path
         self.source_version = source_version
         self.lock = threading.RLock()
@@ -201,14 +201,14 @@ class PlayService:
                      "table": self.table.record(), "modelIdentity": self.model}
             if session_type == "benchmark":
                 state["benchmark"] = {
-                    "id": secrets.token_urlsafe(18), "protocolVersion": BENCHMARK_PROTOCOL,
+                    "id": secrets.token_urlsafe(18), "protocolVersion": self.benchmark_protocol,
                     "targetHands": body["targetHands"], "status": "ACTIVE",
                     "buttonSchedule": BUTTON_SCHEDULE, "startedAt": _utc_now(),
                     "endedAt": None, "abortedHandId": None,
                     "modelName": _model_info(self.policy)["name"], "modelSha256": self.policy.spec.sha256,
                     "game": self.policy.game, "schema": self.policy.abstraction,
                     "playMode": body["playMode"], "adapter": _model_info(self.policy)["adapter"],
-                    "sourceVersion": self.source_version, "interfaceVersion": API_VERSION,
+                    "sourceVersion": self.source_version, "interfaceVersion": self.api_version,
                     "visibility": "benchmark", "table": self.table.record(),
                     "inference": inference_record(self.policy)}
             return state, self._view(state)
@@ -374,7 +374,7 @@ class PlayService:
         row["game"] = self.policy.game
         row["schema"] = self.policy.abstraction
         row["adapter"] = _model_info(self.policy)["adapter"]
-        row["apiVersion"] = API_VERSION
+        row["apiVersion"] = self.api_version
         row["sourceVersion"] = state["sourceVersion"]
         row["playMode"] = state["playMode"]
         row["visibility"] = state["visibility"]
@@ -536,6 +536,10 @@ class PlayService:
                 "fallbackPercent": 100 * fallback / (trained + fallback) if trained + fallback else None,
                 "handsWithFallback": fallback_hands,
                 "handsWithFallbackFraction": fallback_hands / len(rows) if rows else None}
+        if self.table.stack == 10000:
+            modes = [item['telemetry']['mode'] for row in rows for item in row['lookup']
+                     if item.get('telemetry') is not None]
+            report['inferenceSummary'] = {mode: modes.count(mode) for mode in ('exact', 'translated', 'uniform')}
         return report
 
     def benchmark_result(self, session_id):

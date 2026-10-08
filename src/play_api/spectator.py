@@ -4,16 +4,14 @@ from __future__ import annotations
 
 from dataclasses import asdict
 import json
-from math import fsum, isfinite
 from pathlib import Path
 from random import Random
 import secrets
 
 from src.arena.runner import public_events
 from src.arena.schedule import digest
-from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, information_key
-from src.blueprint.solver import HU20_UNCAPPED_GAME
-from src.game.hand import Hand, Table
+from src.blueprint.abstraction import information_key
+from src.game.hand import Hand
 from src.game.observation import Observation
 from src.play_api.configuration import policy_table, recorded_table, distribution, spectator_identity_matches
 from src.play_api.service import PlayError, PlayService, _events, _json, _rng
@@ -128,12 +126,6 @@ class SpectatorService(PlayService):
             model = state['models'][seat]
             policy = self.policies[model['version']]
             menu, probabilities, trained, telemetry = distribution(policy, view)
-            if (not menu or len(menu) != len(probabilities)
-                    or any(not isfinite(p) or p < 0 for p in probabilities)
-                    or abs(fsum(probabilities) - 1) > 1e-8):
-                raise ValueError('Invalid spectator action distribution')
-            for item in menu:
-                view.legal_actions.validate(item.action)
             info_key = information_key(view, menu, schema=policy.abstraction)
             status = ('missing' if not trained else
                       'zero-mass' if info_key in getattr(policy, 'zero_mass', ()) else 'trained')

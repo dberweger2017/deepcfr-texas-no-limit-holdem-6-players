@@ -221,3 +221,72 @@ def test_legacy_hu20_in_progress_and_spectator_identity(tmp_path):
         tables.spectator.db.execute('UPDATE sessions SET state=? WHERE id=?', (json.dumps(raw), state['sessionId'])); tables.spectator.db.commit()
         assert tables.spectator.verify_replay(state['sessionId']) == 1
     finally: tables.close()
+
+
+def test_exact_100bb_all_in_showdown_and_restricted_rejection(tmp_path):
+    from tests.play_ui.test_service import FixturePolicy
+    from src.blueprint.abstraction import HU100_SCHEMA, choices
+    class CallingPolicy(FixturePolicy):
+        def __init__(self):
+            super().__init__(); self.game = HU100_GAME; self.abstraction = HU100_SCHEMA
+        def distribution(self, view):
+            menu = choices(view, raise_cap=None, free_fold=False)
+            selected = next(i for i,c in enumerate(menu) if c.action.kind in (ActionKind.CALL, ActionKind.CHECK))
+            return menu, tuple(float(i == selected) for i in range(len(menu))), True
+    policy = CallingPolicy(); service = PlayService(tmp_path / 'allin.sqlite', policy)
+    try:
+        state = service.create('allin-create-key001', {'playMode': 'free', 'visibility': 'developer'})
+        state = service.new_hand(state['sessionId'], 'allin-hand-key0001', {'revision': 0})
+        assert state['hand']['legal']['maxRaiseTo'] == 10000
+        state = service.act(state['sessionId'], 'allin-raise-key001', {**request(state), 'kind': 'raise', 'raiseTo': 10000})
+        state = service.advance(state['sessionId'], 'allin-call-key0001', request(state))
+        assert state['phase'] == 'finished' and len(state['hand']['board']) == 5
+        assert abs(state['hand']['result']['humanChips']) in (0,10000)
+        assert sum(p['stack'] for p in state['hand']['players']) == 20000
+        assert service.verify_replay(state['sessionId']) == 1
+        restricted = service.create('restricted100-key01', {'playMode': 'restricted', 'visibility': 'developer'})
+        restricted = service.new_hand(restricted['sessionId'], 'restricted100-hand01', {'revision': 0})
+        with pytest.raises(PlayError, match='restricted menu'):
+            service.act(restricted['sessionId'], 'restricted100-raise1', {**request(restricted), 'kind': 'raise', 'raiseTo': 550})
+        assert service.state(restricted['sessionId']) == restricted
+    finally: service.close()
+
+
+def test_research_loader_matches_arena_reader_with_explicit_options(tmp_path, monkeypatch):
+    import gzip
+    from src.blueprint.average import AveragePolicy, EXTRACTIONS
+    from src.blueprint.abstraction import HU100_SCHEMA
+    from src.policies.files import file_hash
+    from src.policies import hu100_research as pin
+    _, _, path = model_fixture(tmp_path)
+    with gzip.open(path, 'rt') as source:
+        rows = [json.loads(line) for line in source]
+    rows[0]['checkpoint_header']['average_rule'] = 'opponent-sampled'
+    rows[0]['extraction'] = EXTRACTIONS['opponent-sampled']
+    updated = tmp_path / 'opponent-average.gz'
+    with gzip.open(updated, 'wt') as output:
+        for row in rows: output.write(json.dumps(row)+'\n')
+    arena = AveragePolicy(updated, file_hash(updated), expected_schema=HU100_SCHEMA)
+    for name, value in {'MODEL_BYTES': updated.stat().st_size, 'MODEL_SHA256': file_hash(updated),
+        'CHECKPOINT_SHA256': arena.description['source_checkpoint_sha256'],
+        'SEED': arena.description['training_seed'], 'ITERATION': arena.description['iteration'],
+        'ENTRIES': arena.description['entries']}.items(): monkeypatch.setattr(pin, name, value)
+    web = pin.load_policy(updated)
+    assert web.translation is None and web.spec.sha256 == arena.description['weights_sha256']
+    from src.game.hand import Hand, Table
+    view = Hand.start(Table(('a','b'), (10000,10000)), hand_id='fixture', seed=17).observe(0)
+    assert web.distribution(view) == arena.distribution(view)
+    translated = pin.load_policy(updated, translation=True)
+    assert translated.description['action_translation']['version'] == VERSION
+    with pytest.raises(ValueError): pin.load_policy(updated, translation='yes')
+
+
+@pytest.mark.parametrize('arguments', [
+    ['--translate-off-menu'], ['--stack-bb', '100'],
+    ['--hu100-research', 'absent.gz', '--stack-bb', '20'],
+])
+def test_cli_rejects_incompatible_assertions_before_loading(monkeypatch, arguments):
+    from src.play_api.server import main
+    monkeypatch.setattr('sys.argv', ['play-api', *arguments])
+    with pytest.raises(SystemExit) as stopped: main()
+    assert stopped.value.code == 2

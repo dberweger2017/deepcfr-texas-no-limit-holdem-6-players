@@ -1,3 +1,26 @@
+## PR212 HU100 local-runtime fixture verification — October 9, 2026
+
+[PR212](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/212)
+is open; retain its isolated worktree and dependencies. Source branch
+`feature/hu100-local-runtime`, implementation base `a2ee720a81070f2b6b7b7c711bb5732e84aad8cf`
+plus the reviewed final protocol/validation changes. The completed local browser
+fixture at `/Users/dberweger/Local/hu100-local-runtime/results/hu100-runtime-smoke/`
+retains generated miniature averages, its server helper and human/spectator SQLite
+journals. [Compact receipt](docs/reports/hu100-runtime-fixture-verification.json)
+records every file's bytes/SHA256 and independent replay of two complete 100BB
+hands. It includes the initial Host rejection and corrected loopback navigation;
+no hand failed. The fixture server is stopped.
+
+This is test-fixture evidence, not retained #207 model qualification, training or
+a benchmark campaign. No research binary/database is committed. Archive closeout
+and an actual Research-Cloud folder/archive ID are pending while this PR remains
+open; no upload, retrieval or deletion is claimed. Preserve the local root until
+its owning PR permits closeout under `docs/artifact-storage.md`. The owner-approved
+swap cap is 3 GB. #207 remains draft/open at `f0ff3c1ffc4f0002a0c7ab22751d212aa76cdda3`;
+its unaccepted partial archive is not a retrieval source and M4 remains untouched.
+The exact required policy pin and gated follow-up are in
+[the local-play guide](docs/hu100-local-play.md).
+
 ## PR208 HU20 turn-search stackoff diagnosis — October 8, 2026
 
 [PR208](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/208) · [report](docs/reports/hu20-search-stackoff-diagnosis.md). Final recorded-hand diagnosis on M1; scientific implementation/review `84b1048de1c68678451235859e4027877b771d55`, fresh main base `9da625f`, later #209 metadata integrated. All 3,072 selective hands /9,552 decisions replay exactly; nine original-request-matched offline solves reproduce recorded probabilities with error 0.0. Joint −10.35 BB/100, 13-panel adjusted interval [−22.99,+2.29]: plausible regression, not established. No large opposing late bets occur. Re-solves expose mis-modeled value callers and future folds, alongside heterogeneous missed-value/runout contributions. No new arena/sweep/training/default/native-trainer change or M4 use. One independent review clears all scientific calculations; ten focused tests pass. Fresh unchanged-search 1,024-block confirmation is [quoted on PR](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/208#issuecomment-6068694013) at 8–12 M1 hours, hard 12-hour cap, awaiting owner chat go; not run or scheduled.

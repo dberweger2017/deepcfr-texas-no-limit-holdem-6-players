@@ -65,6 +65,14 @@ process restart and spectator decision reproduction. Tamper checks cover policy
 settings, tables, observations, probabilities and sampling. Existing released
 model pins/defaults and HU20 regression suites are checked as well.
 
+Independent review cleared the legacy resume/identity and browser label findings;
+the final fixture suite passes 92 play tests and three JavaScript playback tests.
+A local browser fixture completed one human fold hand and one spectator hand;
+both retained SQLite journals independently replay and settle at 100BB. The
+[verification receipt](reports/hu100-runtime-fixture-verification.json) records
+file hashes, the rejected initial localhost navigation and the corrected loopback
+URL. These are generated test fixtures, not #207 policy evidence.
+
 Follow-up real-model smoke after retrieval: run 20 human-driven complete hands
 (including exact off-menu raises and all-in calls) plus 20 spectator hands in each
 translation setting, restart at an in-progress decision, and run both independent

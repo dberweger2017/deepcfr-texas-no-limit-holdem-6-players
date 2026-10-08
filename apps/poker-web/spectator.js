@@ -65,6 +65,7 @@ function decisionPanel(record) {
   const panel = node("div", "decision-panel");
   panel.append(node("h3", "", `Decision ${record.number + 1} · Bot ${record.seat ? "B" : "A"} · ${record.model.version} · ${view.street}`));
   panel.append(node("div", "lookup", `Lookup: ${record.lookup}`));
+  if (record.telemetry) panel.append(node("p", "", `Inference: ${record.telemetry.mode} · ${record.telemetry.reason}${record.telemetry.mode === "translated" ? ` · witness ${record.telemetry.selected_key} · distance ${record.telemetry.distance}` : ""}`));
   const ownCards = node("div", "cards seat-cards"); cards(ownCards, view.hole_cards); panel.append(ownCards);
   panel.append(node("p", "", `${view.player_id} perspective · Board: ${view.board.join(" ") || "none"} · Pot ${bb(view.pots.reduce((sum, pot) => sum + pot.amount, 0))}`));
   for (const player of view.players) panel.append(node("div", "", `Bot ${player.seat ? "B" : "A"}: stack ${bb(player.stack)} · street bet ${bb(player.street_bet)} · contributed ${bb(player.contributed)}${player.shown_cards.length ? ` · shown ${player.shown_cards.join(" ")}` : ""}`));
