@@ -1,0 +1,61 @@
+{
+  "status": "verified",
+  "source": "51597e88706465c33dc51577890989aa303fefca",
+  "tests": "60 passed in35.52s",
+  "test_log_sha256": "5e9532be7daa31422326b6832eea5e952d844e8bc110dd61c64975982629c8fa",
+  "artifact_check_sha256": "35ce1a1fae46800c8410fdbc07e8823c5a5fad16ee7978172cc4c72044bd46ec",
+  "setup_failure": "tests.log preserves nonexistent test filename; no tests/science ran then",
+  "memory": {
+    "pressure_level": 1,
+    "free_percent": 82,
+    "physical_bytes": 17179869184,
+    "raw": "The system has 17179869184 (1048576 pages with a page size of 16384).\n\nStats: \nPages free: 16634 \nPages purgeable: 9483 \nPages purged: 6578220 \n\nSwap I/O:\nSwapins: 4166 \nSwapouts: 32824 \n\nPage Q counts:\nPages active: 406174 \nPages inactive: 387327 \nPages speculative: 18101 \nPages throttled: 0 \nPages wired down: 113042 \n\nCompressor Stats:\nPages used by compressor: 65993 \nPages decompressed: 47618876 \nPages compressed: 54244280 \n\nFile I/O:\nPageins: 125336878 \nPageouts: 1033329 \n\nSystem-wide memory free percentage: 82%\n"
+  },
+  "environment": {
+    "engine": {
+      "commit": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+      "binaries": {
+        "pokers/pokers.cpython-311-darwin.so": "0700ac54783869030559782e58064ff1e229e8b0b950297845beaa143f7d95bd"
+      }
+    },
+    "python": "3.11.14 (main, Oct  9 2025, 16:16:55) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "implementation": "CPython",
+    "platform": "macOS-26.6-arm64-arm-64bit",
+    "machine": "arm64",
+    "packages": {
+      "setuptools": "80.10.2",
+      "pip": "26.0",
+      "tensorboard": "2.21.0",
+      "packaging": "26.3",
+      "protobuf": "7.36.2",
+      "iniconfig": "2.3.0",
+      "Pygments": "2.21.0",
+      "networkx": "3.6.1",
+      "torch": "2.14.0",
+      "numpy": "1.26.4",
+      "sympy": "1.14.0",
+      "grpcio": "1.84.0",
+      "absl-py": "2.5.0",
+      "mpmath": "1.3.0",
+      "fsspec": "2026.9.0",
+      "filelock": "4.0.3",
+      "scipy": "1.17.1",
+      "Jinja2": "3.1.6",
+      "Markdown": "3.10.3",
+      "pytest": "9.0.3",
+      "MarkupSafe": "3.0.3",
+      "Werkzeug": "3.1.8",
+      "pluggy": "1.6.0",
+      "typing_extensions": "4.16.0",
+      "tensorboard-data-server": "0.7.2",
+      "pillow": "12.3.0",
+      "pokers": "0.2.0"
+    }
+  },
+  "time": 1791455845.9970372,
+  "owning_input_pr": {
+    "number": 197,
+    "state": "MERGED",
+    "merge_commit": "7dca996876bf793e499424eed584ae6c0ccf7312"
+  }
+}

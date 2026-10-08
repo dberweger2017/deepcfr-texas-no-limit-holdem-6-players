@@ -1,0 +1,22 @@
+{
+  "allowance": 2,
+  "blocks_per_opponent": 2048,
+  "closeout_reserve_seconds": 240,
+  "config_sha256": "0bf1c2c8ebbedfb5c79a518315fbdadf4555e6377a2118e3f1977354a1991b30",
+  "deadline": 1791457646.4834518,
+  "final_hands": 122880,
+  "final_root": 2026100820312,
+  "frozen_at": 1791455932.758097,
+  "measured_fixed_seconds": 75.3132546240231,
+  "measured_play_replay_reproduction_seconds_per_block": 0.15783752606148482,
+  "outcomes_inspected": false,
+  "pilot_receipts": {
+    "pilot-cost-audit.json": "7a52329d326cf9819ea29bae79b89c337803caff1ef45ebcff29c0e124e74c28",
+    "pilot-cost-play.json": "798057cb04f27d4af07b5f0a01a3f9fde69ad650838908566c75d9b722049765",
+    "pilot-cost-reproduction.json": "6eafe85e1c057fc2c761f4a6196fd4547e7f338126c037aa59317424e32f92ab"
+  },
+  "predicted_seconds": 797.129015995888,
+  "remaining_seconds_at_quote": 1713.7254557609558,
+  "schedule_sha256": "2193f7b425f1f995bfa4d9ed88528b154b57654ea4244513684fae7022cc2a1c",
+  "source": "51597e88706465c33dc51577890989aa303fefca"
+}

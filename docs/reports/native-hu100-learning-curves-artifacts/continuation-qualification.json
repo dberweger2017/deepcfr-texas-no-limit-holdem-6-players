@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "import_without_PYTHONPATH": "direct --help passed",
+  "validate_passed": true,
+  "original_source": "51597e88706465c33dc51577890989aa303fefca",
+  "script_sha256": "d7ab9e6cba5743356d54ef86ac069f1c9892368be64be1b6fb39ae7f6ae09641",
+  "remaining_original_cap_seconds": 973.9078049659729,
+  "frozen_final_sha256": "c95cfdb870dd3bfdbb7ba2bd9ddf31dd7e2e8e075925dd6e60af728dd25fec11",
+  "poker_outcomes_inspected": false
+}
