@@ -1,0 +1,13 @@
+{
+  "deadline": 1791470764.9082031,
+  "error": "KeyError('entries')",
+  "operations": {},
+  "pins": {
+    "binary_sha256": "b547173b838d896888973f4cf283ba66a60b61781a29a7ed719ebcbadb448f2c",
+    "protocol_sha256": "a9865fb430f7fbb7fd81a2354ffdaca2b5e10dc702cd89672ef97e065e1274c9",
+    "source": "f5791b56f445a6f6081884a4b1074fd626568133"
+  },
+  "started": 1791468964.908202,
+  "status": "failed",
+  "stopped": 1791468965.770327
+}

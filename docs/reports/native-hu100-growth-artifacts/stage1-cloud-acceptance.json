@@ -1,0 +1,25 @@
+{
+  "status": "accepted",
+  "cloud": {
+    "id": "1hC98K7KSU-pFEdPD7lfFMT17EcxpW_Re",
+    "title": "hu100-growth-stage1-M4-20261008.zip",
+    "mime_type": "application/zip",
+    "size": "1143009755",
+    "url": "https://drive.google.com/file/d/1hC98K7KSU-pFEdPD7lfFMT17EcxpW_Re/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1hC98K7KSU-pFEdPD7lfFMT17EcxpW_Re/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1Mxo-Csujq3m-Kgkvq9qkcNvaKsz1ieWw"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "native_check": "stage1-native-upload.json",
+  "remote_bytes_redownloaded": false
+}

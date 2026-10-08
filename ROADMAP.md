@@ -71,6 +71,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 8, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
+- **HU100 growth ([#203](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/203)), pending review:** unchanged-recipe recovery reached **20,001,470 actual nodes /4,937,867 entries**; full exports/audits and accepted Stage 1 archive completed inside 30 minutes. Fresh paired playing comparison is running at its fixed cost-only sample; initial never-started setup correction retains the original Stage 2 deadline. [Report](docs/reports/native-hu100-growth.md). No further training, release, merge or cleanup.
+
 - **M1 storage cleanup:** merged PR166 evidence/PR162 duplicate archive and inactive download caches removed; **7.573 GB reclaimed /31.022 GB free** at cleanup. Open #188/#190 dependencies remain protected. Confirmed Drive uploads are trusted for future cleanup without repeated downloads/hash audits. [Receipt and restoration](docs/artifacts/m1-vacuum-20261007.md).
 
 - **M4 storage cleanup:** verified merged PR162 duplicate inputs and inactive caches removed under the owner's standing authorization; **6.951 GB reclaimed /71.419 GB free** at cleanup. Open #188/#190 roots/dependencies remain protected. [Receipt and restoration](docs/artifacts/m4-vacuum-20261007.md).

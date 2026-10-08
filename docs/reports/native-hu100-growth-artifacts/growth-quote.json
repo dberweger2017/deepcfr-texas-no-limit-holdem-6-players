@@ -1,0 +1,12 @@
+{
+  "closeout_seconds": 180,
+  "entry_stop": 6510774,
+  "forecast_family_rss_bytes": 4234314475.6610794,
+  "outcomes_inspected": false,
+  "remaining_seconds": 1682.1607179641724,
+  "required_seconds": 901.9814100714052,
+  "save_seconds": 39.1,
+  "status": "admitted",
+  "tool_seconds": 670.5,
+  "training_seconds": 12.381410071405183
+}
