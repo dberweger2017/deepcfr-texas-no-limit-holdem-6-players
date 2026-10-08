@@ -123,6 +123,7 @@ def run_schedule(
     emit: Callable[[dict, dict], None],
     *,
     factory=make_policy,
+    seed_factory=None,
 ) -> bool:
     """Emit completed or failed attempts; stop on the first failure. No fallback actions."""
     scenarios = {scenario.name: scenario for scenario in plan.scenarios}
@@ -166,7 +167,11 @@ def run_schedule(
                         if policies is None:
                             names = (policy_name, *block.opponents)
                             policies = {
-                                f"player-{i}": factory(name, block.action_seeds[i])
+                                f"player-{i}": factory(
+                                    name,
+                                    block.action_seeds[i] if seed_factory is None
+                                    else seed_factory(block, rotation, arm, i),
+                                )
                                 for i, name in enumerate(names)
                             }
                             if len({id(policy) for policy in policies.values()}) != n:

@@ -1,0 +1,32 @@
+{
+  "version": "pr197-hu100-playing-baseline-v1",
+  "model": {
+    "name": "HU100-average-11042440",
+    "path": "results/native-recovery-hu100/followup-01/final-capacity-audit/average-11042440.jsonl.gz",
+    "sha256": "ffd53decdd4af5bffc0ae34e98144d43e27eef92a49033a7d4008615576a93be",
+    "bytes": 79195090,
+    "format": "holdem-hu100-stored-cfr-average-research-v1",
+    "actual_nodes": 11042440,
+    "entries": 3255387,
+    "iteration": 7722,
+    "source_checkpoint_sha256": "234628a0390502f6b17f4bad3486c47c2a5aa7a297fc611e00287533ea1f4567",
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_member": "research/followup-01/final-capacity-audit/average-11042440.jsonl.gz"
+  },
+  "opponents": ["random", "check_call", "tight_aggressive", "loose_aggressive", "pot_pressure"],
+  "reference": "native_hu100_uniform",
+  "pilot_root": 2026100819711,
+  "final_root": 2026100819712,
+  "pilot_blocks_per_opponent": 16,
+  "proposed_final_blocks_per_opponent": 2048,
+  "execution_cap_seconds": 1800,
+  "stacks": [10000, 10000],
+  "small_blind": 50,
+  "big_blind": 100,
+  "rake": 0,
+  "max_decisions": 1000,
+  "confidence": "unadjusted block-based Student-t 95% intervals",
+  "private_action_streams": "distinct root/scenario/block/rotation/arm/logical-player seeds; never passed to observations",
+  "sampling": "unchanged Random.choices weighted sampler; telemetry observes after selection and consumes no RNG",
+  "decision": "development baseline only; losing/inconclusive results do not block correct engineering PR; no extension or checkpoint selection"
+}
