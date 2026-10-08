@@ -207,6 +207,8 @@ def freshness():
                                        (PILOT_ROOT,16),(FINAL_ROOT,BLOCKS)]]
     seen={}
     for cfg,root,blocks in roots:
+        if root in seen:
+            continue
         doc=frozen_schedule(cfg,blocks,root)
         seeds={b["deal_seeds"][0] for p in doc["panels"].values() for b in p["blocks"]}
         for earlier,previous in seen.items():
