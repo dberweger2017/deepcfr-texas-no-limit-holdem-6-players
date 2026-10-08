@@ -34,7 +34,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 1. **Native trainer and trainer bench — done.** The Rust trainer ([#164](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/164)) reproduces Python exactly and runs about 60–120× faster; the [turn/river bench](docs/reports/hu20-trainer-bench.md) ([#162](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/162), native in [#169](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/169)) measures training rules on fixed spots.
 2. **Average-policy play — done, adopted.** The opponent-sampled average shipped as [v0.4.1](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.1) ([#165](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/165), [#176](docs/reports/hu20-v041-o-confirmation.md)). The optional zero-mass fallback had no detectable effect ([#179](docs/reports/hu20-zero-mass-fallback.md)).
-3. **Training procedure — CFR+ rejected; budget scaling under confirmation.** The tested CFR+ floor ("0.4.0-shield") lowered weakness probes but lost directly to v0.4.0 ([report](docs/reports/hu20-cfr-plus.md), [floor control](docs/reports/hu20-floor-control.md)). Training the v0.4.1 recipe to 10B nodes beats v0.4.1 directly ([#185](docs/reports/hu20-o-10b.md)); it is the v0.4.2 candidate, pending [#188](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188).
+3. **Training procedure — CFR+ rejected; 10B scaling checks pass.** The tested CFR+ floor ("0.4.0-shield") lowered weakness probes but lost directly to v0.4.0 ([report](docs/reports/hu20-cfr-plus.md), [floor control](docs/reports/hu20-floor-control.md)). Training the v0.4.1 recipe to 10B nodes beats v0.4.1 directly ([#185](docs/reports/hu20-o-10b.md)); the fresh [#188 LBR confirmation](docs/reports/hu20-v042-lbr-confirmation.md) narrowly passes the unchanged safeguard. The v0.4.2 package awaits owner publication approval.
 4. **Card abstraction — in progress.** Follow the [abstraction lessons](docs/reports/hu20-abstraction-lessons.md). Each step depends on the one before:
    1. validate [#163](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/163)'s equity-bucket tables on #149's turn roots ([#190](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/190), running);
    2. versioned bucket keys in the native trainer, card part only, with exact key parity;
@@ -68,7 +68,7 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
-*Updated October 7, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
+*Updated October 8, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
 - **M1 storage cleanup:** merged PR166 evidence/PR162 duplicate archive and inactive download caches removed; **7.573 GB reclaimed /31.022 GB free** at cleanup. Open #188/#190 dependencies remain protected. Confirmed Drive uploads are trusted for future cleanup without repeated downloads/hash audits. [Receipt and restoration](docs/artifacts/m1-vacuum-20261007.md).
 
@@ -76,12 +76,12 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 - **Local spectator ([#193](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/193)):** two pinned releases, paused playback and one-decision stepping, exact action probabilities and bot perspectives, retained replayable history. All 25 spectator hands /141 decisions audit; 102 focused tests and independent review pass. [Guide and verification](docs/spectator.md).
 - **Shipped:** [v0.4.1](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.1) is the current release; v0.4.0 remains available.
-- **v0.4.2 candidate (O at 10B nodes):** [#185](docs/reports/hu20-o-10b.md) passed the direct match and the other safeguards; its bounded-LBR safeguard was inconclusive. [#188](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188) is resolving that uncertainty with a fresh, larger LBR sample. Publication requires the owner's explicit go.
+- **v0.4.2 candidate (O at 10B nodes):** [#185](docs/reports/hu20-o-10b.md) passed the direct match and the other safeguards; its bounded-LBR safeguard was inconclusive. [Fresh #188 LBR](docs/reports/hu20-v042-lbr-confirmation.md) is −1.092 [−4.965, +2.782] BB/100, narrowly passing lower >−5 with half-width 3.874. All four candidate checks pass; the verified first-seed package is unpublished. Publication requires the owner's explicit go.
 - **Abstraction:** [#190](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/190) is validating #163's equity-bucket tables. Native bucket keys, bench training and full-game runs depend on its result.
 - **Turn search:** the arena is complete; adoption is unresolved. The selective-stackoff regression needs diagnosis, and no direct search-versus-no-search comparison exists yet.
 - **v0.5 groundwork:** [#196](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/196) prepares [native HU100 support](docs/native-hu100-preparation.md) with versioned 20/100-BB training, recovery and research loaders, with a staged future resource protocol. Preparation only; no campaign or worker use. The external benchmark opponent and its acceptance criteria are owner decisions not yet made.
 
-**Release rule:** v0.4.1 stays the incumbent. v0.4.2 depends on #188's predeclared result ([protocol](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188)) and on verifying its release package. Passing research checks does not authorize publication; only the owner's explicit go does.
+**Release rule:** v0.4.1 stays the incumbent. v0.4.2's [predeclared confirmation](docs/reports/hu20-v042-lbr-confirmation.md) passes; its inference package is prepared for owner review. Passing research checks does not authorize publication; only the owner's explicit go does.
 
 ## References
 
