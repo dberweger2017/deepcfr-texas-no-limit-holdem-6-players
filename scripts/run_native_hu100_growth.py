@@ -47,8 +47,9 @@ def lock(path):
         fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
         yield
 
-def identity():
-    if platform.system() != 'Darwin' or Path.cwd() != ROOT:
+def identity(root=None):
+    root = root or ROOT
+    if platform.system() != 'Darwin' or Path.cwd() != root:
         raise ValueError('Only the isolated M4 root is authorized')
     chip = subprocess.check_output(['sysctl', '-n', 'machdep.cpu.brand_string'], text=True).strip()
     if chip != 'Apple M4':
@@ -78,15 +79,17 @@ def snapshot(directory, deadline):
     return s
 
 class Campaign:
-    def __init__(self, stage, continuation=False):
-        self.out = ROOT / 'results' / stage
+    def __init__(self, stage, continuation=False, *, root=None,
+                 protocol='docs/native-hu100-growth.md', binary_relative='bin/hu20-trainer'):
+        self.root = root or ROOT
+        self.out = self.root / 'results' / stage
         self.out.mkdir(parents=True, exist_ok=True)
-        self.source = identity()
-        self.binary = ROOT / 'bin/hu20-trainer'
+        self.source = identity(self.root)
+        self.binary = self.root / binary_relative
         self.pins = {'source': self.source, 'binary_sha256': file_hash(self.binary),
-                     'protocol_sha256': file_hash(ROOT / 'docs/native-hu100-growth.md')}
+                     'protocol_sha256': file_hash(self.root / protocol)}
         for name in ('qualification', 'source-review'):
-            r = read(ROOT / 'results' / (name + '.json'))
+            r = read(self.root / 'results' / (name + '.json'))
             if r['status'] != 'passed' or r['source'] != self.source:
                 raise ValueError('Exact-source qualification and independent review required')
         self.state_path = self.out / 'state.json'
@@ -161,7 +164,7 @@ class Campaign:
                       exit_code=a.get('exit_code'), sampled_peak_family_rss_bytes=a.get('peak_aggregate_job_rss_bytes'))
         if accepted:
             paths = []
-            for flag in ('--out', '--current', '--average', '--telemetry'):
+            for flag in ('--out', '--current', '--average', '--telemetry', '--measurement'):
                 if flag in command:
                     p = Path(command[command.index(flag) + 1])
                     paths.extend([p] if p.is_file() else [f for f in p.rglob('*') if f.is_file()])
@@ -232,14 +235,17 @@ def telemetry(path):
         raise ValueError('Atomic checkpoint receipt differs')
     return r
 
-def train(c, label, parent, parent_sha, nodes, max_seconds, end):
+def train(c, label, parent, parent_sha, nodes, max_seconds, end, *, entry_stop=None, measure_module=None):
     folder = c.out / label
     folder.mkdir(exist_ok=True)
     checkpoint = folder / 'checkpoint.gz'
     command = [str(c.binary), 'train', '--stack-bb', '100', '--resume', str(parent), '--resume-sha256', parent_sha,
         '--nodes', str(nodes), '--seed', '2026100601', '--roots-per-seat', '1', '--average-rule', 'opponent-sampled',
-        '--max-entries', str(ENTRY_STOP), '--max-seconds', str(max_seconds), '--stop-file', str(folder / 'stop.json'),
+        '--max-entries', str(entry_stop or ENTRY_STOP), '--max-seconds', str(max_seconds), '--stop-file', str(folder / 'stop.json'),
         '--telemetry', str(folder / 'telemetry.jsonl'), '--out', str(checkpoint)]
+    if measure_module:
+        command = [sys.executable, '-m', measure_module, '--measure-training',
+                   '--deadline', str(end), '--measurement', str(folder / 'family-measurement.json'), '--', *command]
     old = c.state['operations'].get(label + '-train')
     if old:
         command = old['command']
@@ -335,12 +341,13 @@ def models():
         raise ValueError('Average lineage differs')
     return specs
 
-def stage2(c, dest):
+def stage2(c, dest, *, settings=None, prior_roots=()):
     from scripts.report_native_hu100_learning_curves import frozen_schedule
     settings_path = c.out / 'settings.json'
-    settings = {**read(ROOT / 'configs/arena/hu100-playing-baseline-v1.json'), 'models': models(),
-        'pilot_root': 2026100820411, 'final_root': 2026100820412}
-    settings.pop('model')
+    if settings is None:
+        settings = {**read(ROOT / 'configs/arena/hu100-playing-baseline-v1.json'), 'models': models(),
+            'pilot_root': 2026100820411, 'final_root': 2026100820412}
+        settings.pop('model')
     if settings_path.exists():
         if read(settings_path) != settings:
             raise ValueError('Frozen models/config changed')
@@ -382,7 +389,7 @@ def stage2(c, dest):
         schedule = c.out / 'frozen-schedule.json'
         if q['blocks_per_opponent']:
             document = frozen_schedule(settings, q['blocks_per_opponent'], settings['final_root'])
-            freshness(settings, document)
+            freshness(settings, document, source_root=getattr(c, 'root', ROOT), prior_roots=prior_roots)
             claim(schedule, document); q['schedule_sha256'] = file_hash(schedule)
         claim(freeze, q)
     q = read(freeze)
@@ -403,22 +410,24 @@ def stage2(c, dest):
         write(c.out / 'result.json', {'status': 'no-final-budget', 'freeze': q})
     c.seal(dest)
 
-def freshness(settings, document):
+def freshness(settings, document, *, source_root=None, prior_roots=()):
+    source_root = source_root or ROOT
     from scripts.report_native_hu100_learning_curves import frozen_schedule
-    old = read(ROOT / 'configs/arena/hu100-learning-curves-v1.json')
+    old = read(source_root / 'configs/arena/hu100-learning-curves-v1.json')
     roots = [(old, old['pilot_root'], 16), (old, old['final_root'], 2048)]
-    baseline = read(ROOT / 'configs/arena/hu100-playing-baseline-v1.json')
+    baseline = read(source_root / 'configs/arena/hu100-playing-baseline-v1.json')
     roots.extend([(dict(baseline, models=[baseline['model']]), baseline['pilot_root'], 16),
                   (dict(baseline, models=[baseline['model']]), baseline['final_root'], 2048),
                   (settings, settings['pilot_root'], 16)])
     seeds = {b['deal_seeds'][0] for p in document['panels'].values() for b in p['blocks']}
-    for config, root, blocks in roots:
+    for config, root, blocks in [*roots, *prior_roots]:
         other = frozen_schedule(config, blocks, root)
         prior = {b['deal_seeds'][0] for p in other['panels'].values() for b in p['blocks']}
         if seeds & prior:
             raise ValueError('Fresh physical-deal collision')
 
-def seal(root, destination, *, extra_paths=None):
+def seal(root, destination, *, extra_paths=None, source_root=None, binary_relative='bin/hu20-trainer'):
+    source_root = source_root or ROOT
     paths = {str(p.relative_to(root)): p for p in root.rglob('*') if p.is_file()
              and p.name not in ('phase.lock', 'state.json')
              and not any(part.startswith('archive') for part in p.relative_to(root).parts)}
@@ -431,9 +440,9 @@ def seal(root, destination, *, extra_paths=None):
     write(root / 'science-closeout.json', state)
     paths['science-closeout.json'] = root / 'science-closeout.json'
     paths.update(extra_paths or {})
-    paths['source.tar'] = ROOT / 'source.tar'; paths['bin/hu20-trainer'] = ROOT / 'bin/hu20-trainer'
+    paths['source.tar'] = source_root / 'source.tar'; paths['bin/hu20-trainer'] = source_root / binary_relative
     for name in ('qualification', 'source-review', 'environment'):
-        paths[name + '.json'] = ROOT / 'results' / (name + '.json')
+        paths[name + '.json'] = source_root / 'results' / (name + '.json')
     # Stage2 model snapshots retain exact bytes; Stage1 is independently restorable.
     members = [{'path': name, 'bytes': p.stat().st_size, 'sha256': file_hash(p)} for name, p in sorted(paths.items())]
     encoded = json.dumps({'source_root': str(root), 'members': members, 'originals_retained': True}, sort_keys=True).encode()
