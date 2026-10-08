@@ -1,0 +1,51 @@
+{
+  "status": "accepted",
+  "drive": {
+    "accepted_input": "file_uri",
+    "success": true,
+    "id": "17aJ_7HLb83WwXGHI_jEI8rVHuSvdX0js",
+    "title": "hu100-diagnosis-closeout-20261008.zip",
+    "file_name": "hu100-diagnosis-closeout-20261008.zip",
+    "mime_type": "application/zip",
+    "url": "https://drive.google.com/file/d/17aJ_7HLb83WwXGHI_jEI8rVHuSvdX0js/view?usp=drivesdk",
+    "parent_id": "1EhGCzqqJf_pmzv5comk2jMmDpHks0QFI",
+    "structuredContent": {
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "17aJ_7HLb83WwXGHI_jEI8rVHuSvdX0js",
+      "title": "hu100-diagnosis-closeout-20261008.zip",
+      "file_name": "hu100-diagnosis-closeout-20261008.zip",
+      "mime_type": "application/zip",
+      "url": "https://drive.google.com/file/d/17aJ_7HLb83WwXGHI_jEI8rVHuSvdX0js/view?usp=drivesdk",
+      "parent_id": "1EhGCzqqJf_pmzv5comk2jMmDpHks0QFI"
+    }
+  },
+  "metadata": {
+    "id": "17aJ_7HLb83WwXGHI_jEI8rVHuSvdX0js",
+    "title": "hu100-diagnosis-closeout-20261008.zip",
+    "mime_type": "application/zip",
+    "size": "246238",
+    "url": "https://drive.google.com/file/d/17aJ_7HLb83WwXGHI_jEI8rVHuSvdX0js/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/17aJ_7HLb83WwXGHI_jEI8rVHuSvdX0js/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1EhGCzqqJf_pmzv5comk2jMmDpHks0QFI"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "acceptance": {
+    "connector_upload_success": true,
+    "id_name_size_parent_match": true,
+    "local_whole_and_all_manifest_members_verified": true,
+    "separate_remote_byte_redownload": false
+  },
+  "scope": "The immutable companion contains final compact evidence through adb8ff9; later review/upload/index/CI receipts remain in Git.",
+  "original_deadline": 1791461840.893814
+}

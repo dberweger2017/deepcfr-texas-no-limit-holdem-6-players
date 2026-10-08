@@ -1,0 +1,19 @@
+{
+  "status": "no-open-scientific-or-source-findings",
+  "reviewer": "independent diagnosis_source_review subagent",
+  "basis": "16ad96c primary source plus report/export/example untracked source and compact evidence",
+  "prior_source_rounds": 3,
+  "evidence_round": 1,
+  "findings_resolved": [
+    "disk lower bound distinguished and updated to final85-sample science/examples/seal scope",
+    "unsupported category explicitly decision counts rather than unique histories/keys",
+    "all-positive-mass hand counts labeled precisely"
+  ],
+  "conclusions": [
+    "full-sample counts and probabilities agree",
+    "hand contributions and covered medians agree",
+    "example cards/paths agree",
+    "descriptive noncausal language and ranked scope sound"
+  ],
+  "limits": "read-only static/compact review; no models, ZIP byte readback, science rerun or training; archive/index acceptance completed later and needs final metadata review"
+}

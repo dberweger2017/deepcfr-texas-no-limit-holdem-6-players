@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "original_budget_seconds": 1800,
+  "archive_closeout_elapsed_seconds": 838.167083978653,
+  "archive_finish_before_deadline": true,
+  "samples": 86,
+  "sampled_peak_family_rss_bytes": 322961408,
+  "minimum_free_disk_bytes": 29098180608,
+  "minimum_system_free_percent": 75,
+  "maximum_swap_growth_bytes": 0.0,
+  "all_normal_pressure": true,
+  "all_ac": true,
+  "phase_status": {
+    "guard-native-staging": "complete",
+    "guard-analysis": "complete",
+    "guard-archive": "complete",
+    "guard-pilot": "complete",
+    "guard-examples": "complete"
+  },
+  "scope": "sampled measurements through native staging; original source and every original deadline retained"
+}

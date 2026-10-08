@@ -12,6 +12,88 @@ Restore into a new ignored nonsynced directory: download the primary ZIP by its 
 
 [Capacity estimate](docs/reports/hu100-export-audit-memory-artifacts/capacity.json) recommends a separately approved 30-minute free-M4 growth experiment toward 20M total nodes, at most 6,510,774 entries, one terminal checkpoint/audit set and unchanged guards. Training/save reserve 5.63 GiB, tools 0.62 GiB, additional disk 9.63 GiB plus retained inputs/15.5-GiB floor; fresh pilot admission required. This is advisory, limited to 2× measured HU100 entries, and gives no 1B/10B promise. Native table/save growth is the next memory bottleneck; average inference remains compact. M4 own root `~/Local/hu100-export-audit-memory-20261008` and M1 feature/baseline isolated checkouts remain intact. No cleanup, model Git addition, training or unattended work.
 
+## PR201 HU100 coverage and aggressive-loss diagnosis — October 8
+
+[PR201](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/201),
+[concise report](docs/reports/native-hu100-diagnosis.md), [protocol](docs/native-hu100-diagnosis.md),
+[compact evidence/CSV](docs/reports/native-hu100-diagnosis-artifacts/scientific-summary.json).
+All five #200 average checkpoints and all **102,400 candidate hands /396,161
+actions /177,171 target decisions** diagnose coverage without new arena/training
+or policy changes. All actions/settlements replay; native parity has zero
+mismatched hands. All cells and disjoint hand-payoff partitions independently
+recount. Thirty-six focused tests, artifact checks and independent source/evidence
+review pass. Five illustrative/native-witness fixtures add 33 passing decisions.
+Source `16ad96c34a449cb021e004b9231e38573837421c`; exact supplemental report/example
+sources and their hashes are preserved separately in the evidence archive.
+
+Final pot_pressure has 918 missing decisions: 910 exhaustively unsupported
+history/menu cases and eight supported but absent. Off-menu actions alone were
+never proof; 23 alternate-menu witnesses occur across checkpoints. Tight/loose
+aggressive losses concentrate in all-positive-mass hands. Full-sample associations
+are descriptive, not causal benefits from adding support or more training.
+Rank: action/history support, bounded training after memory work, further
+averaging/abstraction investigation, encoding fixes only upon a demonstrated issue.
+No unresolved cases, training, policy/rules changes, cleanup, scheduling or merge.
+
+The fresh M1 1,800-second absolute cap includes retrieval, timing-only pilot,
+fixed full-sample diagnosis, native build/parity, tests, independent verification
+and complete archive readback. Scientific/archive guard closeout finished in
+**838.17 seconds**, with no budget reset or resource failure. Measured M1 limits
+are 4-GiB family RSS, 24.29-GiB disk floor, original swap baseline/+0.25 GiB,
+normal system pressure and AC. [Final resources](docs/reports/native-hu100-diagnosis-artifacts/final-resources.json).
+
+Accepted [Research-Cloud folder](https://drive.google.com/drive/folders/1EhGCzqqJf_pmzv5comk2jMmDpHks0QFI),
+[primary ZIP](https://drive.google.com/file/d/1FBfquL5UGU3E2MGAl7WUD27e75ENfRlr/view):
+`hu100-diagnosis-20261008.zip`, **477,682,546 bytes /334 verified members**, SHA256
+`0142436e009aea5d5866ea62836ffb8055c812329b7aaad2fb8de6656cb4b6d4`.
+`ARCHIVE-MANIFEST.json` SHA256
+`e293279e9543b0d04a3b6232f754915a90f7dfec127b3057c81c2944751e935f`.
+Whole ZIP/all members read back locally; native staged hash and uploaded1/
+uploading0/conflicts0 plus independent connector ID/name/size/parent accepted.
+[Acceptance](docs/reports/native-hu100-diagnosis-artifacts/archive-upload-acceptance.json).
+Connector upload refused its100-MiB transport limit before invocation; verified
+native Drive staging succeeded. This failure and subsequent receipts are retained.
+
+Inputs were restored read-only from #200's accepted archive after live MERGED
+checks for #197/#200; its whole ZIP, both manifest hashes and **205 selected
+members**, including every indexed average header/checkpoint hash, verify.
+The previously dataless native file hydrated on read; no independent connector
+raw-byte download was performed. [Transport clarification](docs/reports/native-hu100-diagnosis-artifacts/retrieval-transport-correction.json)
+corrects the original receipt's ambiguous remote-download field. Prior evidence
+and open roots remain unchanged; all local originals remain retained.
+
+Restore this new ZIP into a fresh ignored `results/retrieved/pr201/NEW_ROOT`.
+Require its whole SHA256 above, read/verify `ARCHIVE-MANIFEST.json`, then stream
+selected members with `zipfile.ZipFile(archive).open(member)` and require each
+manifest size/SHA256. Five model members are
+`inputs/research/inputs/average-{100000,1000000,5000000,10000000,11042440}.jsonl.gz`;
+their exact model hashes, original Drive ID/member and restoration commands
+are in `inputs/retrieval.json` → `index.models` and #200's existing model index.
+Raw panels are `inputs/research/hu100-learning-curves/run-01/{pilot,final}/{actual_nodes}/{opponent}/`.
+Full derived features/hand accounting/native fixtures/cells/search proofs live
+under `analysis/`; `failure-examples.json` and `example-native-fixtures.jsonl`
+preserve representative paths/witnesses. `source.tar`, `native-parity-binary`,
+`native-binary.json`, `supplemental-source.json` and the two adjacent Python
+sources pin execution; `budget.json`, `frozen-analysis.json`, `guard-*`, pilot
+and original transport correction preserve timing/admission/verification.
+Use the report's analysis/parity/verify commands under a separately authorized
+budget; restoration does not automatically restart the one-use campaign.
+
+Primary archive is immutable. Accepted [closeout ZIP](https://drive.google.com/file/d/17aJ_7HLb83WwXGHI_jEI8rVHuSvdX0js/view),
+`hu100-diagnosis-closeout-20261008.zip`, retains **246,238 bytes /45 verified members**
+of corrected report/source/index snapshots, closed seal/staging guards, resource
+receipts, acceptance and ten-test verification through `adb8ff9`. SHA256
+`7b8f589c87db6945445cb8e8229c1807f115de8ca46a763f3455ba1be149626e`;
+`ARCHIVE-MANIFEST.json` SHA256
+`5456e210e9a1bde4b6f8cbfdf4864a2b3e8cb08e7123e088c16cbefae4191616`.
+Whole/member readback, connector upload and independent ID/name/size/parent
+acceptance pass before the original deadline. Restore with the same fresh-root
+manifest-driven procedure above. [Local receipt](docs/reports/native-hu100-diagnosis-artifacts/closeout-archive-receipt.json)
+and [upload acceptance](docs/reports/native-hu100-diagnosis-artifacts/closeout-upload-acceptance.json).
+Final metadata review cleared exact `adb8ff9`; subsequent receipt/index/CI records
+remain in Git. No archive was rewritten. Local working root:
+`~/Local/hu100-coverage-loss-diagnosis-20261008/results/hu100-diagnosis/run-01`.
+
 ## PR190 global equity-bucket validation (October 8)
 
 **Validation complete:** global K50 passes at **0.3917 BB [0.3614, 0.4234]**, versus fitted50 0.3874 and v1 0.6567. Global K200 is descriptively worse at 0.4233 [0.3795, 0.4740]. All 120 collections/120 held-out locks/18 replays qualify; every coverage cell passes and the independent raw/bootstrap audit agrees within 4.44e-16. [Report](docs/reports/hu20-global-bucket-validation.md), [compact evidence](docs/artifacts/pr190-validation-readout.json). The original swap stop, failed storage admission and interrupted output remain preserved. Owner-authorized continuation retained the original baseline/deadline and completed on October 8 at 10:39 CEST. No training or production key change.

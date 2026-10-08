@@ -1,0 +1,6 @@
+{
+  "sha256": "450172fbb88dbd80e6cfa3fe58a108f45c85f5dadf37ce0e64262d948c0cf74c",
+  "bytes": 1288928,
+  "source": "16ad96c34a449cb021e004b9231e38573837421c",
+  "build_command": "cargo build --release --jobs 2 --manifest-path native/hu20-trainer/Cargo.toml"
+}

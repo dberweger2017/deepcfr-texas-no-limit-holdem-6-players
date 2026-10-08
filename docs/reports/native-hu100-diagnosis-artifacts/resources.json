@@ -1,0 +1,10 @@
+{
+  "all_ac": true,
+  "all_normal_pressure": true,
+  "maximum_swap_growth_bytes": 0.0,
+  "minimum_free_disk_bytes": 29611315200,
+  "minimum_system_free_percent": 75,
+  "sampled_peak_family_rss_bytes": 322961408,
+  "samples": 82,
+  "scope": "sampled five-second family/system measurements, not transient peak proof"
+}

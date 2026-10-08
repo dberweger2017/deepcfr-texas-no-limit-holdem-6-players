@@ -1,0 +1,479 @@
+[
+  {
+    "events_replayed": true,
+    "feature": {
+      "block": 2,
+      "decision": 3,
+      "fold_probability": 0.00015530284053905116,
+      "key": "885dfc71c3baa8df8ea646566b850e05",
+      "lookup": "positive-mass-known-key",
+      "mass": 79844.0,
+      "mass_band": "10k+",
+      "net_bb": -100.0,
+      "nodes": 11042440,
+      "opponent": "tight_aggressive",
+      "passive_probability": 0.018192097362751788,
+      "position": "BB",
+      "pot_band": "16-64",
+      "pot_bb": 36.0,
+      "prior_off_menu": false,
+      "prior_opponent_off_menu": false,
+      "raise_probability": 0.9816525997967094,
+      "rotation": 1,
+      "street": "preflop",
+      "support": "stored-training-witness",
+      "visit_band": "2-9",
+      "visits": 7
+    },
+    "label": "tight_aggressive",
+    "path": [
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 300
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 0,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 900
+        },
+        "lookup": "positive-mass-known-key",
+        "probabilities": [
+          0.22772892185602886,
+          0.13367908653214744,
+          0.32246068278078277,
+          0.316131308831041
+        ],
+        "seat": 1,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 2700
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 0,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 8100
+        },
+        "lookup": "positive-mass-known-key",
+        "probabilities": [
+          0.00015530284053905116,
+          0.018192097362751788,
+          0.00015530284053905116,
+          0.589463204934146,
+          0.39203409202202427
+        ],
+        "seat": 1,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 10000
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 0,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        },
+        "lookup": "positive-mass-known-key",
+        "probabilities": [
+          0.06815451359919907,
+          0.9318454864008009
+        ],
+        "seat": 1,
+        "street": "preflop"
+      }
+    ],
+    "target_hole_cards": [
+      "4s",
+      "8h"
+    ]
+  },
+  {
+    "events_replayed": true,
+    "feature": {
+      "block": 3,
+      "decision": 3,
+      "fold_probability": 0.0,
+      "key": "8a557d73e5e4ba8d2f7e64fabbaa3204",
+      "lookup": "positive-mass-known-key",
+      "mass": 54883.0,
+      "mass_band": "10k+",
+      "net_bb": -100.0,
+      "nodes": 11042440,
+      "opponent": "loose_aggressive",
+      "passive_probability": 0.438129196422708,
+      "position": "BB",
+      "pot_band": "16-64",
+      "pot_bb": 36.0,
+      "prior_off_menu": false,
+      "prior_opponent_off_menu": false,
+      "raise_probability": 0.561870803577292,
+      "rotation": 0,
+      "street": "preflop",
+      "support": "stored-training-witness",
+      "visit_band": "1",
+      "visits": 1
+    },
+    "label": "loose_aggressive",
+    "path": [
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 300
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 1,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 900
+        },
+        "lookup": "positive-mass-known-key",
+        "probabilities": [
+          0.004134163763245255,
+          0.07655174610219603,
+          0.3318643796158732,
+          0.5874497105186856
+        ],
+        "seat": 0,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 2700
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 1,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 10000
+        },
+        "lookup": "positive-mass-known-key",
+        "probabilities": [
+          0.0,
+          0.438129196422708,
+          0.0,
+          0.0,
+          0.561870803577292
+        ],
+        "seat": 0,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 1,
+        "street": "preflop"
+      }
+    ],
+    "target_hole_cards": [
+      "Td",
+      "Qd"
+    ]
+  },
+  {
+    "events_replayed": true,
+    "feature": {
+      "block": 1,
+      "decision": 5,
+      "fold_probability": 0.25,
+      "key": "55f4a21ee2a4b9f7193d73a36e4cd06d",
+      "lookup": "missing-key",
+      "mass": null,
+      "mass_band": "missing",
+      "net_bb": -3.0,
+      "nodes": 11042440,
+      "opponent": "pot_pressure",
+      "passive_probability": 0.25,
+      "position": "BTN/SB",
+      "pot_band": "4-16",
+      "pot_bb": 15.0,
+      "prior_off_menu": true,
+      "prior_opponent_off_menu": true,
+      "raise_probability": 0.5,
+      "rotation": 1,
+      "street": "flop",
+      "support": "unsupported-abstract-history-or-menu",
+      "visit_band": "missing",
+      "visits": null
+    },
+    "label": "pot-pressure-missing",
+    "path": [
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 200
+        },
+        "lookup": "positive-mass-known-key",
+        "probabilities": [
+          0.3094794595681763,
+          0.0335038790945283,
+          0.639305604507605,
+          0.017711056829690448
+        ],
+        "seat": 1,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 0,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "check",
+          "raise_to": null
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 0,
+        "street": "flop"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 100
+        },
+        "lookup": "positive-mass-known-key",
+        "probabilities": [
+          0.1932314509244718,
+          0.7989484827105592,
+          0.00782006636496894
+        ],
+        "seat": 1,
+        "street": "flop"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 1000
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 0,
+        "street": "flop"
+      },
+      {
+        "action": {
+          "kind": "fold",
+          "raise_to": null
+        },
+        "lookup": "missing-key",
+        "probabilities": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "seat": 1,
+        "street": "flop"
+      }
+    ],
+    "target_hole_cards": [
+      "6d",
+      "9h"
+    ]
+  },
+  {
+    "events_replayed": true,
+    "feature": {
+      "block": 728,
+      "decision": 7,
+      "fold_probability": 0.5,
+      "key": "e007cacc5c1ac12ee298721e58b18151",
+      "lookup": "missing-key",
+      "mass": null,
+      "mass_band": "missing",
+      "net_bb": -100.0,
+      "nodes": 11042440,
+      "opponent": "pot_pressure",
+      "passive_probability": 0.5,
+      "position": "BB",
+      "pot_band": "64+",
+      "pot_bb": 148.0,
+      "prior_off_menu": true,
+      "prior_opponent_off_menu": true,
+      "raise_probability": 0,
+      "rotation": 1,
+      "street": "turn",
+      "support": "supported",
+      "visit_band": "missing",
+      "visits": null
+    },
+    "label": "off-menu-supported",
+    "path": [
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 400
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 0,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        },
+        "lookup": "positive-mass-known-key",
+        "probabilities": [
+          0.2531878819821997,
+          0.6175440941373871,
+          0.11525217615635998,
+          0.014015847724053183
+        ],
+        "seat": 1,
+        "street": "preflop"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 800
+        },
+        "lookup": "positive-mass-known-key",
+        "probabilities": [
+          0.5316631761278836,
+          0.032315803384178644,
+          0.4360210204879377
+        ],
+        "seat": 1,
+        "street": "flop"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 4400
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 0,
+        "street": "flop"
+      },
+      {
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        },
+        "lookup": "missing-key",
+        "probabilities": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "seat": 1,
+        "street": "flop"
+      },
+      {
+        "action": {
+          "kind": "check",
+          "raise_to": null
+        },
+        "lookup": "missing-key",
+        "probabilities": [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "seat": 1,
+        "street": "turn"
+      },
+      {
+        "action": {
+          "kind": "raise",
+          "raise_to": 5200
+        },
+        "lookup": null,
+        "probabilities": null,
+        "seat": 0,
+        "street": "turn"
+      },
+      {
+        "action": {
+          "kind": "call",
+          "raise_to": null
+        },
+        "lookup": "missing-key",
+        "probabilities": [
+          0.5,
+          0.5
+        ],
+        "seat": 1,
+        "street": "turn"
+      }
+    ],
+    "target_hole_cards": [
+      "2d",
+      "9c"
+    ],
+    "witness_actions": [
+      {
+        "kind": "raise",
+        "raise_to": 300
+      },
+      {
+        "kind": "call",
+        "raise_to": null
+      },
+      {
+        "kind": "raise",
+        "raise_to": 600
+      },
+      {
+        "kind": "raise",
+        "raise_to": 2400
+      },
+      {
+        "kind": "call",
+        "raise_to": null
+      },
+      {
+        "kind": "check",
+        "raise_to": null
+      },
+      {
+        "kind": "raise",
+        "raise_to": 7300
+      }
+    ],
+    "witness_target_pot_bb": 127.0
+  }
+]
