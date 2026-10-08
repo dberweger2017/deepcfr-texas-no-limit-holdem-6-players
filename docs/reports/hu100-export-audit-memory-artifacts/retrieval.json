@@ -1,0 +1,182 @@
+[
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 1226918,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-100691-average.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/average-100000.jsonl.gz",
+    "sha256": "95053dbf9d070ca414214c8514fcbeedd0ca6fafdeccea9c958357aafcf5a293"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 1640195,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-100691-checkpoint.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/training/HU100-2026100601-100000.json.gz",
+    "sha256": "e226eb907f645f2ef9fe3b6600e75904dfd65e8520e52fbd0b97f1e379005bbb"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 1326512,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-100691-current.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/current-100000.json.gz",
+    "sha256": "939ab29090a67f79ca8e9afa2c47a86919ea25ff7f45547128695e063876a767"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 10772687,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-1001382-average.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/average-1000000.jsonl.gz",
+    "sha256": "0efa0feb35fbe104260a9b1c213b8eca909c7eadf8f4dd59e0a47dad41a452a4"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 15096813,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-1001382-checkpoint.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/training/HU100-2026100601-1000000.json.gz",
+    "sha256": "a15733d380b3a281071f3c2c6497862d654b09d380a9dbde531a699eed255c52"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 11231111,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-1001382-current.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/current-1000000.json.gz",
+    "sha256": "365a6075958e81e7220559530465eeae2f3911babaee8a0bbfa71c756640aec8"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 42473712,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-5001210-average.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/average-5000000.jsonl.gz",
+    "sha256": "05bb9527dc95bf59543ce37a254a897b67949241df2065bb515e88931f50cf80"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 60894602,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-5001210-checkpoint.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/training/HU100-2026100601-5000000.json.gz",
+    "sha256": "f71188890d3a23d7c3fd76d097bd20293bdcf24ea1d92450fea381fae9030752"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 43193831,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-5001210-current.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/current-5000000.json.gz",
+    "sha256": "6fa4ae8104055f3dc31ae35a3f3074555037e35d88236c4da50711034ee82703"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 73371085,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-10001922-average.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/average-10000000.jsonl.gz",
+    "sha256": "3aeb688f342bc164c5851d0d10d4686ddc4ec64e1c1a26330f47c84fd993346c"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 106120927,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-10001922-checkpoint.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/training/HU100-2026100601-10000000.json.gz",
+    "sha256": "62217d2888b57948434c2ec88d78bdeba95a1882beb7b3615c028e034166963f"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 73720030,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-10001922-current.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/pilot-01/current-10000000.json.gz",
+    "sha256": "f545ab9c8d86767d53cab5ef6153131b364479d44679f69f441184bd906c30c1"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 79195090,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-11042440-average.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/final-capacity-audit/average-11042440.jsonl.gz",
+    "sha256": "ffd53decdd4af5bffc0ae34e98144d43e27eef92a49033a7d4008615576a93be"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 114633184,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-11042440-checkpoint.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/growth-01/training/HU100-2026100601-1000000000.json.gz",
+    "sha256": "234628a0390502f6b17f4bad3486c47c2a5aa7a297fc611e00287533ea1f4567"
+  },
+  {
+    "archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-followup-20261008.zip",
+    "archive_sha256": "cd2e3c197ec2adbf8e161b1aaca39eccff017fc9aaf4ff0cfe667122e186b16f",
+    "bytes": 79389761,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu100-11042440-current.gz",
+    "manifest_sha256": "84fadd58a44f8dcdbfcf157beb262797ead77767c544324d14589f151c4abfe4",
+    "member": "research/followup-01/final-capacity-audit/current-11042440.json.gz",
+    "sha256": "3a6c1e65603ed7343ca813c0f845414848ae2156ad54b028edb0e40501a6a565"
+  },
+  {
+    "archive_id": "1hNbCAU71BcYFxVBx2OSmqYtp0sXfhmcS",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-resource-stop-20261008.zip",
+    "archive_sha256": "4b4cc0e890756ee076a31737a3f5abc8af63d0f2a9065f28c3dc83baad38f88f",
+    "bytes": 214220678,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu20-reference-1b-checkpoint.gz",
+    "manifest_sha256": "b5e506be66fb68700be6332155bc726835e2dc42e19fa4b746165477327aa3d5",
+    "member": "research/reference-02/training/HU20-2026100601-1000000000.json.gz",
+    "sha256": "4ee91d3977d98c0b6b462ed310396c6a7cbba48ef51716bb0fdbf6609dfbc825"
+  },
+  {
+    "archive_id": "1hNbCAU71BcYFxVBx2OSmqYtp0sXfhmcS",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-resource-stop-20261008.zip",
+    "archive_sha256": "4b4cc0e890756ee076a31737a3f5abc8af63d0f2a9065f28c3dc83baad38f88f",
+    "bytes": 108469702,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu20-reference-1b-current.gz",
+    "manifest_sha256": "b5e506be66fb68700be6332155bc726835e2dc42e19fa4b746165477327aa3d5",
+    "member": "research/reference-02/current.json.gz",
+    "sha256": "3b75a6f7ffb49631d89fae9c17e6863be1e2016f1f327c5ee8159a5153c36740"
+  },
+  {
+    "archive_id": "1hNbCAU71BcYFxVBx2OSmqYtp0sXfhmcS",
+    "archive_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-recovery-hu100-resource-stop-20261008.zip",
+    "archive_sha256": "4b4cc0e890756ee076a31737a3f5abc8af63d0f2a9065f28c3dc83baad38f88f",
+    "bytes": 142677367,
+    "local_path": "/Users/dberweger/Local/hu100-export-audit-memory-20261008/results/inputs/hu20-reference-1b-average.gz",
+    "manifest_sha256": "b5e506be66fb68700be6332155bc726835e2dc42e19fa4b746165477327aa3d5",
+    "member": "research/reference-02/average.jsonl.gz",
+    "sha256": "571e198266eabc6d8bb9de2d1aa76d9a68be0b2512222ea96874168989c6b74d"
+  }
+]

@@ -34,9 +34,9 @@ def measure(command, cwd, directory, name, family_root, deadline):
     if deadline - time() < 5:
         raise ValueError('Benchmark deadline exhausted')
     snapshot = memory_snapshot()
+    (directory / (name + '.admission.json')).write_text(json.dumps(snapshot, indent=2) + '\n')
     if unsafe_memory(snapshot, admission=True, rss_gib=10):
         raise ValueError('Fresh system-headroom admission refusal')
-    (directory / (name + '.admission.json')).write_text(json.dumps(snapshot, indent=2) + '\n')
     started = time(); peak = 0; samples = 0
     with (directory / (name + '.log')).open('xb') as log, (directory / (name + '.rss.jsonl')).open('x') as raw:
         child = subprocess.Popen(['/usr/bin/time', '-l', *command], cwd=cwd, stdout=log, stderr=subprocess.STDOUT)

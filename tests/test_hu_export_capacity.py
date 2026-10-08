@@ -32,3 +32,15 @@ def test_incomplete_or_invalid_measurements_cannot_quote():
         estimate(measured, training, 3255387)
     with pytest.raises(ValueError):
         estimate([], training, 3255387)
+
+
+def test_refused_admission_preserves_instantaneous_snapshot_without_spawning(tmp_path, monkeypatch):
+    import json
+    import scripts.benchmark_hu_export_audit as bench
+    snapshot = {'pressure_level':1, 'free_percent':74, 'physical_bytes':16*1024**3, 'raw':'retained snapshot'}
+    monkeypatch.setattr(bench, 'memory_snapshot', lambda: snapshot)
+    monkeypatch.setattr(bench, 'time', lambda:100)
+    monkeypatch.setattr(bench.subprocess, 'Popen', lambda *args, **kwargs: pytest.fail('refused child spawned'))
+    with pytest.raises(ValueError, match='headroom'):
+        bench.measure(['unused'], tmp_path, tmp_path, 'refused', 1234, 1000)
+    assert json.loads((tmp_path/'refused.admission.json').read_text()) == snapshot
