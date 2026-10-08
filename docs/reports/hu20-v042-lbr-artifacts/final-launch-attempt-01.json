@@ -1,0 +1,15 @@
+{
+  "status": "stopped-before-any-final-hand",
+  "failure": "Strict clean-source assertion reported generated pilot __pycache__ directories",
+  "source_status": [
+    "?? scripts/__pycache__/",
+    "?? src/__pycache__/",
+    "?? src/arena/__pycache__/",
+    "?? src/blueprint/__pycache__/",
+    "?? src/diagnostics/__pycache__/",
+    "?? src/game/__pycache__/"
+  ],
+  "correction": "Only generated __pycache__/ is locally ignored in .git/info/exclude; tracked source and pinned scientific hashes unchanged",
+  "scientific_check_waived": false,
+  "at": 1791389251.633853
+}

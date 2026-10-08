@@ -1,7 +1,8 @@
 # Local HU20 web table
 
-This is an experimental human-play interface for the fixed-first-seed B100M
-native-reopening **heads-up 20BB** policy. It does not support six players,
+The versioned launch in the [quick start](../readme.md#quick-start) defaults to
+v0.4.2 O10B and keeps v0.4.1 O1B and v0.4.0 B100M selectable.
+This is an experimental human-play interface for native-reopening **heads-up 20BB** policies. It does not support six players,
 100BB, tournaments, or a formal strength qualification. It uses the existing
 native rules engine for every action and settlement. Stacks reset to 20BB each
 hand; the button alternates; session BB is the sum of completed hand payoffs.
@@ -10,6 +11,10 @@ For a planned, restartable human measurement with a frozen hand target, use
 the [HU20 human benchmark session guide](play-web-benchmark.md).
 
 ## Model and launch
+
+For the current three-model runtime, download and verify all three pinned releases
+and launch with `--models-dir models` as described in the quick start. The
+single-model command below preserves the original v0.4.0 workflow.
 
 The public `v0.4.0` release provides the unchanged fixed-first-seed inference
 export as `B100M-HU20-current-seed-2026093001.json.gz`. Its sealed source is

@@ -29,12 +29,12 @@ view = Hand.start(Table(('a', 'b'), (2000, 2000)), hand_id='runtime', seed=17).o
 action = policy.policy(13).choose_action(view)
 view.legal_actions.validate(action)
 assert policy.distribution(view)[1][0] == 0
-assert versions.DEFAULT_VERSION == 'v0.4.1'
+assert versions.DEFAULT_VERSION == 'v0.4.2'
 '''
     subprocess.run([sys.executable, '-c', code, str(exported), receipt['sha256']], check=True)
 
 
 def test_download_verifiers_work_before_engine_installation():
-    for module in ('scripts.verify_v04_model', 'scripts.verify_v041_model'):
+    for module in ('scripts.verify_v04_model', 'scripts.verify_v041_model', 'scripts.verify_v042_model'):
         subprocess.run([sys.executable, '-S', '-m', module, '--help'],
                        check=True, capture_output=True)

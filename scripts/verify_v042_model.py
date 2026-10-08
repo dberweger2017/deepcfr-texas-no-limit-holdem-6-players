@@ -1,0 +1,22 @@
+"""Verify the released v0.4.2 average bytes without publishing."""
+
+import argparse
+from pathlib import Path
+
+from src.policies.v042 import verify
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("model", type=Path)
+    args = parser.parse_args()
+    try:
+        value = verify(args.model)
+    except ValueError as error:
+        parser.error(str(error))
+    print(f"Verified O10B HU20 opponent-sampled average: {value}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

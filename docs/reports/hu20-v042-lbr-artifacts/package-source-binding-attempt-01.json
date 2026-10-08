@@ -1,0 +1,9 @@
+{
+  "status": "rejected-source-binding",
+  "expected_source": "1d80bd02c2e8acf2dc99b75f6e0349bb55a941d8",
+  "incorrect_manifest_source": "1d80bd0b33fd8ffcb9f9484df0e0b7864870682a",
+  "returncode": 2,
+  "stderr": "usage: verify_v042_bundle.py [-h] [--expect-source EXPECT_SOURCE] directory\nverify_v042_bundle.py: error: Bundle source commit differs\n",
+  "at": 1791436614.576766,
+  "no_publication": true
+}

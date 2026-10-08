@@ -1,0 +1,16 @@
+{
+  "status": "verified",
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-188-HU20-O-10B-LBR/hu20-v042-lbr-report-closeout-20261008.zip",
+  "bytes": 157065,
+  "sha256": "1580762a3f42bce05ee3bea0f086dfe9ca0b7d7b7754a52c400276de2de102f5",
+  "manifest_sha256": "87ae60f877a0e390198315c1f20a39d4d21a3cfdb2d72a4e952bb865ce2a4fa0",
+  "source_members": 49,
+  "member_readbacks": 50,
+  "originals_retained": true,
+  "remote_archive_bytes_downloaded": false,
+  "upload_acceptance": "native uploaded=true, uploading=false, no conflicts; independent cloud metadata accepted",
+  "drive_file_id": "1UKhQLDGeKK_LykrioiNNLIG-VFfRAyWs",
+  "drive_url": "https://drive.google.com/file/d/1UKhQLDGeKK_LykrioiNNLIG-VFfRAyWs/view?usp=drivesdk",
+  "drive_folder_id": "1mv9v1VV2-Szfn8jNAjvpU4oWvRdqIkY2",
+  "embedded_manifest": "ARCHIVE-MANIFEST.json"
+}
