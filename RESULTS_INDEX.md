@@ -1,5 +1,53 @@
 # Research results index
 
+## PR196 — native HU100 engineering preparation, October 7, 2026
+
+[PR196](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/196),
+[protocol](docs/native-hu100-preparation.md), [validation](docs/reports/native-hu100-preparation.md).
+Preparation only: no campaign checkpoint/export, resource pilot, arena/benchmark,
+large artifact download or research archive was produced. Transient deterministic
+fixtures remain outside Git. Future campaigns require an owning PR and the
+full Research-Cloud archive/member/upload/retrieval receipts below; there is no
+new restoration link or deletion authorization from this preparation.
+
+## M1 storage vacuum and upload preference — October 7, 2026
+
+Removed **1,185 merged PR166/PR162 research copies /7.149 GB logical** and **2,230
+inactive download-cache files /0.439 GB allocated**: **7.573 GB measured reclaimed**,
+**31.022 GB free** at cleanup while PR190 continues writing. Open #188/#190 roots
+and dependencies, all PR185 roots, primary board-pooling inputs, shared Git, active
+source/helpers/caches, credentials, personal files and synced archives remain.
+
+[Selection and restoration](docs/artifacts/m1-vacuum-20261007.md),
+[full per-path receipt/restore helper](https://drive.google.com/file/d/1rl31gm8Zem_dHI_gJL-ek9pQyFp9YqdO/view)
+(467,969 bytes; SHA256 `55fd3febc6eacb0373a26acd1e708c41ed055c735681473d51dd3d437f30697c`).
+The owner accepts confirmed Drive uploads for cleanup without downloading archives
+or repeating hash audits. Existing manifests and original path/size/modification
+history were used; changed/uncertain files remain. Exact canonical Drive IDs,
+members and existing hashes are in the receipt. Run its
+`restore.py --original ORIGINAL_ABSOLUTE_PATH --out results/retrieved/NEW_FILE`.
+No payload download/repeated hash audit, synced deletion/eviction or unattended work.
+Earlier retention claims are superseded only for the exact receipted paths.
+
+## M4 storage vacuum — October 7, 2026
+
+Owner-authorized removal of **279 merged PR162 duplicate inputs /4.807 GB logical**
+and **4,244 inactive Chrome/Homebrew/Java cache files /2.157 GB allocated** reclaimed
+**6.951 GB measured**; free space rose from **64.467 to 71.419 GB**. Open #188/#190
+roots/dependencies, all PR185 files, primary board-pooling inputs, shared Git/source,
+Codex runtime cache, personal files and synced archives remain protected.
+
+[Verification and restoration](docs/artifacts/m4-vacuum-20261007.md),
+[full per-path receipt and restore helper](https://drive.google.com/file/d/1YXuVlKUvNrTqWBtWIEPd_QEVWCDbBTzG/view)
+(495,976 bytes; SHA256 `556b679e391026da60c82f5669f44fb1c84e89a66f5b62983d95c1a3c7cc3b79`).
+The [PR162 canonical archive](https://drive.google.com/file/d/1_6dRapLReZ9-sAMPaePNX-nehXowGwki/view)
+and all 2,809 members freshly verify; current native/cloud upload acceptance agrees.
+Each removed research path records its exact archive member/size/SHA256 in the receipt;
+run its `restore.py --original ORIGINAL_ABSOLUTE_PATH --out results/retrieved/NEW_FILE`.
+Sample restoration passed. No remote-byte download, synced deletion, eviction or
+unattended cleanup. Earlier retained-original statements are superseded only for
+these exact receipted paths.
+
 New entries follow the [shared storage and archive-receipt contract](docs/artifact-storage.md).
 The [tracked-payload audit](docs/reports/necessary-cleaning.md) identifies retained Git evidence;
 its retention list is not cloud verification or deletion approval.

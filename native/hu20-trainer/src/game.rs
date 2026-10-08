@@ -1,6 +1,6 @@
-//! Heads-up 20 BB no-limit hold'em with the pinned engine's betting rules.
+//! Equal-stack heads-up 20/100 BB no-limit hold'em with the pinned engine's betting rules.
 //!
-//! Both seats start with 2,000 chips; blinds are 50/100. The button posts the
+//! Both seats start with 2,000 or 10,000 chips; blinds are 50/100. The button posts the
 //! small blind and acts first preflop; the big blind acts first afterwards.
 //! A full raise increases the wager by at least the last full increment; a
 //! smaller increase is legal only as an exact all-in. Raising is unavailable
@@ -14,6 +14,37 @@
 use hu20_buckets::evaluate;
 
 pub const STACK: u32 = 2000;
+
+/// Only the two explicitly supported cash games; arbitrary/unequal stacks are separate scope.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Game { Hu20, Hu100 }
+
+impl Game {
+    pub fn from_bb(bb: u32) -> Self {
+        match bb { 20 => Self::Hu20, 100 => Self::Hu100, _ => panic!("stack must be 20 or 100 BB") }
+    }
+    pub fn stack(self) -> u32 { match self { Self::Hu20 => STACK, Self::Hu100 => 10000 } }
+    pub fn schema(self) -> &'static str { match self {
+        Self::Hu20 => crate::key::SCHEMA,
+        Self::Hu100 => "hu100-native-reopening-ordered-history-card-v1",
+    } }
+    pub fn id(self) -> &'static str { match self {
+        Self::Hu20 => crate::trainer::GAME,
+        Self::Hu100 => "hu100-native-reopening-100bb-52card-no-ante-rake-v1",
+    } }
+    pub fn format(self) -> &'static str { match self {
+        Self::Hu20 => crate::trainer::FORMAT,
+        Self::Hu100 => "holdem-hu100-native-reopening-blueprint-v1",
+    } }
+    pub fn menu(self) -> &'static str { match self {
+        Self::Hu20 => "hu20-min-pot-conditional-jam-native-reopening-v1",
+        Self::Hu100 => "hu100-min-pot-conditional-jam-native-reopening-v1",
+    } }
+    pub fn average_format(self) -> &'static str { match self {
+        Self::Hu20 => "holdem-hu20-stored-cfr-average-diagnostic-v1",
+        Self::Hu100 => "holdem-hu100-stored-cfr-average-research-v1",
+    } }
+}
 pub const SMALL_BLIND: u32 = 50;
 pub const BIG_BLIND: u32 = 100;
 
@@ -91,6 +122,7 @@ pub struct Legal {
 /// Every scalar of a hand; copying it is a complete snapshot apart from the history bytes.
 #[derive(Clone, Copy, Debug)]
 pub struct Core {
+    pub game: Game,
     pub button: u8,
     pub holes: [[u8; 2]; 2],
     pub board: [u8; 5],
@@ -134,24 +166,34 @@ fn push_token(history: &mut Vec<u8>, parts: &[&[u8]]) {
 impl Hand {
     /// Deal as the engine does: two rounds starting left of the button, then the board.
     pub fn from_deck(button: u8, deck: &[u8]) -> Hand {
+        Self::from_deck_for(Game::Hu20, button, deck)
+    }
+
+    pub fn from_deck_for(game: Game, button: u8, deck: &[u8]) -> Hand {
         let bb = 1 - button;
         let mut holes = [[0u8; 2]; 2];
         holes[bb as usize] = [deck[0], deck[2]];
         holes[button as usize] = [deck[1], deck[3]];
         let mut board = [0u8; 5];
         board.copy_from_slice(&deck[4..9]);
-        Hand::new(button, holes, board)
+        Hand::new_for(game, button, holes, board)
     }
 
     pub fn new(button: u8, holes: [[u8; 2]; 2], board: [u8; 5]) -> Hand {
+        Self::new_for(Game::Hu20, button, holes, board)
+    }
+
+    pub fn new_for(game: Game, button: u8, holes: [[u8; 2]; 2], board: [u8; 5]) -> Hand {
+        assert!(button < 2);
         let (sb, bb) = (button as usize, 1 - button as usize);
         let mut core = Core {
+            game,
             button,
             holes,
             board,
             street: Street::Preflop,
             dealt: 0,
-            stack: [STACK; 2],
+            stack: [game.stack(); 2],
             street_bet: [0; 2],
             contributed: [0; 2],
             folded: [false; 2],

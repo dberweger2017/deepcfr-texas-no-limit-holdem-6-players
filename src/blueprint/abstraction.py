@@ -21,6 +21,8 @@ HU20_SCHEMA = "hu20-ordered-history-card-baseline-v2"
 HU20_MENU_VERSION = "hu20-min-pot-conditional-jam-no-free-fold-v2"
 HU20_UNCAPPED_SCHEMA = "hu20-native-reopening-ordered-history-card-v1"
 HU20_UNCAPPED_MENU_VERSION = "hu20-min-pot-conditional-jam-native-reopening-v1"
+HU100_SCHEMA = "hu100-native-reopening-ordered-history-card-v1"
+HU100_MENU_VERSION = "hu100-min-pot-conditional-jam-native-reopening-v1"
 HU20_COMPRESSED_SCHEMA = "hu20-native-reopening-compressed-history-card-v1"
 HU20_CARD_V2_SCHEMA = "hu20-native-reopening-ordered-history-card-v2"
 HU20_COMPRESSED_CARD_V2_SCHEMA = "hu20-native-reopening-compressed-history-card-v2"
@@ -32,6 +34,9 @@ HU20_CARD_VERSION = "legacy-postflop-descriptor-v1"
 TP20_SCHEMA = "tp20-ordered-history-card-baseline-v1"
 TP20_MENU_VERSION = "tp20-min-pot-conditional-jam-no-free-fold-v1"
 SHORTSTACK_SEATS = {HU20_SCHEMA: 2, HU20_UNCAPPED_SCHEMA: 2, HU20_COMPRESSED_SCHEMA: 2, HU20_CARD_V2_SCHEMA: 2, HU20_COMPRESSED_CARD_V2_SCHEMA: 2, TP20_SCHEMA: 3}
+SHORTSTACK_SEATS[HU100_SCHEMA] = 2
+STACK_BY_SCHEMA = {schema: 10000 if schema == HU100_SCHEMA else 2000 for schema in SHORTSTACK_SEATS}
+NATIVE_SCHEMAS = (*HU20_NATIVE_SCHEMAS, HU100_SCHEMA)
 SUPPORTED_SCHEMAS = (SCHEMA, SUMMARY_SCHEMA, *SHORTSTACK_SEATS)
 LEGACY_LOOKUP = "legacy-v1"
 BUTTON_ZERO_COMPAT_LOOKUP = "button-zero-compatible-v1"
@@ -256,8 +261,9 @@ def information_key(
         raise ValueError("Unknown blueprint lookup mode")
     if schema in SHORTSTACK_SEATS and (view.capacity != SHORTSTACK_SEATS[schema] or view.small_blind != 50
                                   or view.big_blind != 100
-                                  or tuple(view.history[0].stacks) != (2000,) * SHORTSTACK_SEATS[schema]):
-        raise ValueError("Short-stack key requires its versioned 20BB game")
+                                  or view.chip_unit != "0.01"
+                                  or tuple(view.history[0].stacks) != (STACK_BY_SCHEMA[schema],) * SHORTSTACK_SEATS[schema]):
+        raise ValueError("Fixed-stack key requires its versioned table")
     # Each cell keeps its frozen descriptor; compression only changes history.
     cards = (
         _preflop(view.hole_cards)

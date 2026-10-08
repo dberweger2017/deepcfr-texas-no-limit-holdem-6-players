@@ -68,8 +68,31 @@ fn main() {
             milestones.push(nodes);
             milestones.sort_unstable();
             milestones.dedup();
-            let mut trainer = hu20_trainer::trainer::Trainer::new(seed, roots);
-            trainer.average = hu20_trainer::cfr::AverageRule::parse(&arg("--average-rule", "traverser-reach"));
+            let game = hu20_trainer::game::Game::from_bb(arg("--stack-bb", "20").parse().unwrap());
+            let max_entries: u64 = arg("--max-entries", "1000000000").parse().unwrap();
+            let max_seconds: f64 = arg("--max-seconds", "inf").parse().unwrap();
+            assert!(nodes > 0 && roots > 0 && max_entries > 0 && max_seconds > 0.0);
+            let resume = args.iter().position(|a| a == "--resume");
+            let mut trainer = if let Some(i) = resume {
+                let path = std::path::Path::new(&args[i + 1]);
+                let expected = arg("--resume-sha256", "");
+                assert_eq!(expected.len(), 64, "resume requires --resume-sha256");
+                assert_eq!(hu20_trainer::export::sha256_file(path), expected, "resume hash differs");
+                let completed = args.iter().position(|a| a == "--completed-nodes").map(|i| args[i + 1].parse().unwrap());
+                let loaded = hu20_trainer::checkpoint::load(path, game, completed, max_entries).expect("resume checkpoint");
+                for (flag, value) in [("--seed", loaded.seed.to_string()), ("--roots-per-seat", loaded.roots_per_seat.to_string()),
+                                      ("--average-rule", loaded.average.name().to_string())] {
+                    if args.iter().any(|a| a == flag) { assert_eq!(arg(flag, ""), value, "resume config differs: {flag}"); }
+                }
+                assert!(!args.iter().any(|a| a == "--regret-floor"), "resume requires linear CFR");
+                loaded
+            } else {
+                let mut fresh = hu20_trainer::trainer::Trainer::new(seed, roots);
+                fresh.game = game;
+                fresh.average = hu20_trainer::cfr::AverageRule::parse(&arg("--average-rule", "traverser-reach"));
+                fresh
+            };
+            let recovery = args.iter().any(|a| a == "--recovery") || resume.is_some() || game == hu20_trainer::game::Game::Hu100;
             // CFR+'s floor keeps the production average weights, so exports and their bounds are unchanged.
             // DCFR reweights the average and stays bench-only.
             trainer.options.regret_floor = args.iter().position(|a| a == "--regret-floor").map(|i| args[i + 1].parse().unwrap());
@@ -77,16 +100,24 @@ fn main() {
                 panic!("{problem}");
             }
             let started = std::time::Instant::now();
+            let initial_nodes = trainer.nodes;
             for milestone in milestones {
+                if milestone <= initial_nodes { continue; }
+                let mut stopped = false;
                 while trainer.nodes < milestone && (iterations == 0 || trainer.iteration < iterations) {
+                    if started.elapsed().as_secs_f64() >= max_seconds { stopped = true; break; }
                     trainer.step();
+                    if trainer.table.len() as u64 >= max_entries { stopped = true; break; }
                 }
                 let seconds = started.elapsed().as_secs_f64();
                 let path = std::path::PathBuf::from(out.replace("{nodes}", &milestone.to_string()));
-                trainer.save(&path, 1_000_000_000, 1_000_000_000).unwrap();
+                if recovery { trainer.save_recoverable(&path, 1_000_000_000, max_entries.max(trainer.table.len() as u64)).unwrap(); }
+                else { trainer.save(&path, 1_000_000_000, max_entries.max(trainer.table.len() as u64)).unwrap(); }
                 println!("milestone {} iterations {} nodes {} entries {} seconds {:.2} nodes_per_second {:.0} path {}",
                          milestone, trainer.iteration, trainer.nodes, trainer.table.len(), seconds,
-                         trainer.nodes as f64 / seconds, path.display());
+                         (trainer.nodes - initial_nodes) as f64 / seconds, path.display());
+                if stopped { eprintln!("resource limit reached at a complete iteration; inspect recovery checkpoint"); std::process::exit(3); }
+                if iterations != 0 && trainer.iteration >= iterations { break; }
             }
         }
         Some("bench-train") => {
@@ -163,7 +194,7 @@ fn main() {
             println!("exported {count} entries in {:.2} s", started.elapsed().as_secs_f64());
         }
         _ => {
-            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] [--average-rule traverser-reach|opponent-sampled] [--regret-floor F] --out PATH | export CHECKPOINT [--current PATH] [--average PATH] [--zero-mass uniform|current] | bench-train --roots ROOTS.json --seed S --iterations N [--checkpoints a,b] --lineage NAME [--variant NAME] [--regret-floor F] [--dcfr A,B,G] --out FOLDER");
+            eprintln!("usage: hu20-trainer parity FIXTURES.jsonl | traversal-parity FIXTURE.json | run-parity FIXTURE.json | train --nodes N [--stack-bb 20|100] [--resume PATH --resume-sha256 HASH [--completed-nodes N]] [--recovery] [--max-entries N] [--max-seconds S] [--iterations I] [--milestones N1,N2] --seed S [--roots-per-seat R] [--average-rule traverser-reach|opponent-sampled] [--regret-floor F] --out PATH | export CHECKPOINT [--current PATH] [--average PATH] [--zero-mass uniform|current] | bench-train --roots ROOTS.json --seed S --iterations N [--checkpoints a,b] --lineage NAME [--variant NAME] [--regret-floor F] [--dcfr A,B,G] --out FOLDER");
             std::process::exit(2);
         }
     }

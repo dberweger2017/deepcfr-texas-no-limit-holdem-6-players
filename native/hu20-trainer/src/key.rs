@@ -148,7 +148,7 @@ pub fn write_payload(out: &mut Vec<u8>, hand: &Hand, menu: &[Choice]) {
     let a = hand.actor.expect("a key needs a live decision") as usize;
     out.clear();
     out.extend_from_slice(b"[\"");
-    out.extend_from_slice(SCHEMA.as_bytes());
+    out.extend_from_slice(hand.game.schema().as_bytes());
     out.extend_from_slice(b"\",2,");
     out.push(if (a as u8 + 2 - hand.button) % 2 == 0 { b'0' } else { b'1' });
     out.extend_from_slice(b",\"");

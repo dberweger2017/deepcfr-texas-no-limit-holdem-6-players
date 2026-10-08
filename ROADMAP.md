@@ -70,12 +70,16 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 *Updated October 7, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
+- **M1 storage cleanup:** merged PR166 evidence/PR162 duplicate archive and inactive download caches removed; **7.573 GB reclaimed /31.022 GB free** at cleanup. Open #188/#190 dependencies remain protected. Confirmed Drive uploads are trusted for future cleanup without repeated downloads/hash audits. [Receipt and restoration](docs/artifacts/m1-vacuum-20261007.md).
+
+- **M4 storage cleanup:** verified merged PR162 duplicate inputs and inactive caches removed under the owner's standing authorization; **6.951 GB reclaimed /71.419 GB free** at cleanup. Open #188/#190 roots/dependencies remain protected. [Receipt and restoration](docs/artifacts/m4-vacuum-20261007.md).
+
 - **Local spectator ([#193](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/193)):** two pinned releases, paused playback and one-decision stepping, exact action probabilities and bot perspectives, retained replayable history. All 25 spectator hands /141 decisions audit; 102 focused tests and independent review pass. [Guide and verification](docs/spectator.md).
 - **Shipped:** [v0.4.1](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/releases/tag/v0.4.1) is the current release; v0.4.0 remains available.
 - **v0.4.2 candidate (O at 10B nodes):** [#185](docs/reports/hu20-o-10b.md) passed the direct match and the other safeguards; its bounded-LBR safeguard was inconclusive. [#188](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188) is resolving that uncertainty with a fresh, larger LBR sample. Publication requires the owner's explicit go.
 - **Abstraction:** [#190](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/190) is validating #163's equity-bucket tables. Native bucket keys, bench training and full-game runs depend on its result.
 - **Turn search:** the arena is complete; adoption is unresolved. The selective-stackoff regression needs diagnosis, and no direct search-versus-no-search comparison exists yet.
-- **v0.5 groundwork:** planned parallel work. The external benchmark opponent and its acceptance criteria are owner decisions not yet made.
+- **v0.5 groundwork:** [#196](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/196) prepares [native HU100 support](docs/native-hu100-preparation.md) with versioned 20/100-BB training, recovery and research loaders, with a staged future resource protocol. Preparation only; no campaign or worker use. The external benchmark opponent and its acceptance criteria are owner decisions not yet made.
 
 **Release rule:** v0.4.1 stays the incumbent. v0.4.2 depends on #188's predeclared result ([protocol](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/188)) and on verifying its release package. Passing research checks does not authorize publication; only the owner's explicit go does.
 

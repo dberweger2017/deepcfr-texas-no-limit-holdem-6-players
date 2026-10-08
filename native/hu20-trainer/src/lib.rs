@@ -9,3 +9,5 @@ pub mod key;
 pub mod parity;
 pub mod streams;
 pub mod trainer;
+
+pub mod checkpoint;
