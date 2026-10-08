@@ -1,0 +1,20 @@
+{
+  "training_receipt_field": "hu100_checkpoints",
+  "entries": 6510774,
+  "inputs": [
+    {
+      "path": "docs/reports/hu100-export-audit-memory-artifacts/final-measurements.json",
+      "sha256": "f55db52787a7e58334e597c6f59db83e0cf3f0da58beb77c152594d3fe1e3831"
+    },
+    {
+      "path": "docs/reports/native-recovery-hu100-artifacts/followup-scientific-closeout.json",
+      "sha256": "891101e6af200709fb483c63b2e8bc25c50b99205d6fabd393e61aa12cc77b29"
+    },
+    {
+      "path": "scripts/estimate_hu_export_capacity.py",
+      "sha256": "c59734abe75e920c88a7a52ec84642ceb514f75955615ac0b042b6cfceedec54"
+    }
+  ],
+  "command": "python -m scripts.estimate_hu_export_capacity --measurements docs/reports/hu100-export-audit-memory-artifacts/final-measurements.json --training-closeout docs/reports/native-recovery-hu100-artifacts/followup-scientific-closeout.json --entries 6510774 --out results/retrieved/pr202/NEW_CAPACITY.json",
+  "note": "Create output parent first; command refuses existing output. Historical after-save process RSS is not a training family peak; this is a metadata recomputation, not training admission."
+}
