@@ -1,0 +1,54 @@
+{
+  "blocking_findings": [],
+  "checks": [
+    "Reconciled reported actual nodes, entries, iterations, positive mass, visits, checkpoint bytes, overshoot and costs against terminal audit/training/resource receipts.",
+    "Independently recomputed all five paired gains from compact checkpoint means; checked two-primary alpha 0.025, positive lower limits and adjusted/ordinary Student-t width ratios at 2047 degrees of freedom.",
+    "Independently summed all ten disjoint hand-exposure counts and payoff contributions back to candidate means; distinguished policy-dependent covered-hand association from a causal branch effect.",
+    "Independently summed opponent/street coverage and visit bands; checked lookup/action/decision totals, missing-key consistency, percentages and reported sparse late-street fractions.",
+    "Checked fixed 2048 blocks, 61440 distinct hands, 81920 replayed rows, shared uniform fingerprints, current result/freeze/archive receipt hashes and preserved operational failure disclosures.",
+    "Reconciled both original 1800-second clocks, 305.18/914.25-second closeouts, sampled RSS/disk/swap limits, normal pressure/AC and absence of hard guard failures.",
+    "Reconciled primary archive hash/member/size receipts with native uploaded/not-uploading/no-conflicts and connector ID/name/size/parent acceptance receipts and RESULTS_INDEX restoration references.",
+    "Reconciled forty-manifest source-provenance receipt with the prior independently reconstructed frozen Git fingerprint; verified the original failed launcher remains disclosed separately from successful postprocessing."
+  ],
+  "document_snapshots_sha256": {
+    "RESULTS_INDEX.md": "baef7168c336819ea3fefa0ebbba514edadd8d109426ae55a2d3673c554db68c",
+    "ROADMAP.md": "d6434654ee90628cc1d6fb55c4fff98d51a8e3c8b1d9c4996fe0f979040c96e0",
+    "docs/reports/native-hu100-growth.md": "6266b3ba0b29cf4ff628f95cb92d1b06f3e14f23f5702e311f2763d69306a691"
+  },
+  "execution_sources": {
+    "evaluation": "ed9be57b0201b2967186fc9a1077545cbb294286",
+    "postprocessing": "ae8d9b83638cdfe96df0849f5ed6bfe6874d53eb",
+    "training": "f5791b56f445a6f6081884a4b1074fd626568133"
+  },
+  "primary_result": {
+    "loose_aggressive": {
+      "alpha": 0.025,
+      "bb_per_100": 162.73193359375,
+      "blocks": 2048,
+      "interval": [
+        80.92655430663774,
+        244.53731288086226
+      ]
+    },
+    "tight_aggressive": {
+      "alpha": 0.025,
+      "bb_per_100": 65.3076171875,
+      "blocks": 2048,
+      "interval": [
+        23.037110044237224,
+        107.57812433076278
+      ]
+    }
+  },
+  "release_or_merge_authorized": false,
+  "reviewed_at_utc": "2026-10-08T14:38:52.557248+00:00",
+  "reviewed_head": "9222dfdf427306c0b5500d4f7cc3db9d1f1b8a07",
+  "reviewer": "independent Codex execution_review subagent",
+  "scope_limits": [
+    "Review used local source, report/index/roadmap and compact retained JSON receipts. It did not rerun training, evaluation, replay or reproduction.",
+    "Did not independently inspect full model rows, raw hand/action streams, resource streams or ZIP members; relied on recorded full-audit/replay/reproduction/member-hash receipts for those claims.",
+    "Did not download remote archive bytes or independently query live Google Drive/M4 upload state; cloud acceptance was cross-checked through retained native and connector receipts.",
+    "Later metadata seal, final PR-head CI and any subsequent edits were not reviewed in this receipt."
+  ],
+  "status": "passed"
+}

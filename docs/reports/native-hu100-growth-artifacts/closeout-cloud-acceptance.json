@@ -1,0 +1,25 @@
+{
+  "status": "accepted",
+  "method": "independent connector files.get ID/name/size/parent matches native upload receipt",
+  "remote_bytes_downloaded": false,
+  "metadata": {
+    "id": "1MdEz4HOKG1sVJZDEpOv2DdFA6Bbv46RH",
+    "title": "hu100-growth-closeout-20261008.zip",
+    "mime_type": null,
+    "size": "174960",
+    "url": "https://drive.google.com/file/d/1MdEz4HOKG1sVJZDEpOv2DdFA6Bbv46RH/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1MdEz4HOKG1sVJZDEpOv2DdFA6Bbv46RH/view?usp=drivesdk",
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1Mxo-Csujq3m-Kgkvq9qkcNvaKsz1ieWw"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  }
+}
