@@ -1,0 +1,41 @@
+{
+  "checks": [
+    {
+      "completed_at": "2026-10-08T18:42:33Z",
+      "conclusion": "success",
+      "name": "test",
+      "status": "completed",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37825335766/job/113480119825"
+    },
+    {
+      "completed_at": "2026-10-08T18:40:29Z",
+      "conclusion": "success",
+      "name": "full (1)",
+      "status": "completed",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37825335766/job/113476716208"
+    },
+    {
+      "completed_at": "2026-10-08T18:42:28Z",
+      "conclusion": "success",
+      "name": "full (0)",
+      "status": "completed",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37825335766/job/113476716113"
+    },
+    {
+      "completed_at": "2026-10-08T18:34:42Z",
+      "conclusion": "success",
+      "name": "scope",
+      "status": "completed",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37825335766/job/113476615275"
+    },
+    {
+      "completed_at": "2026-10-08T18:35:01Z",
+      "conclusion": "success",
+      "name": "GitGuardian Security Checks",
+      "status": "completed",
+      "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/runs/113476597894"
+    }
+  ],
+  "scope": "Integration commit before final report/metadata; final-head checks remain mandatory",
+  "sha": "f227283b3fb4ac3d7fcade21ad70f134c42630b4"
+}

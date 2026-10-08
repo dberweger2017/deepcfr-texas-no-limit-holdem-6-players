@@ -1,0 +1,18 @@
+{
+  "all_members_readback_verified": true,
+  "archive_name": "hu100-action-translation-closeout-20261008.zip",
+  "archive_path": "/Users/dberweger/Local/hu100-action-translation-20261008/archives/hu100-action-translation-closeout-20261008.zip",
+  "bytes": 180430,
+  "integration": "f227283b3fb4ac3d7fcade21ad70f134c42630b4",
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "39e178ab26cb321099df0157cb8912ac5469f005729f62bb9a20109b62ca3bc8",
+  "members": 43,
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-205-hu100-action-translation/hu100-action-translation-closeout-20261008.zip",
+  "native_upload_confirmed": false,
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "scope": "Later metadata only; excludes own active guards/acceptance/self-indexing entry/final-head checks",
+  "sha256": "665372a68685a533cc10b9b6502e4600bbb7ba7b6114aea0fd76d753a41f41f6",
+  "source": "809cf2d7d854037d2e7e4e21f037ec2b242024e9",
+  "status": "locally-verified"
+}

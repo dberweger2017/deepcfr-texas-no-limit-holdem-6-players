@@ -1,0 +1,42 @@
+{
+  "execution_host": "M4 via ssh m4",
+  "full_closeout_status": "Primary science and main metadata accepted; late receipt appendix acceptance and exact final-head CI pending",
+  "initial_review": "results/action-translation/evidence-review.json",
+  "initial_review_sha256": "89249cfbd4759db63891ace5ddfc739fa9df6896701e593c15b96a83796b8799",
+  "integration": "f227283b3fb4ac3d7fcade21ad70f134c42630b4",
+  "late_metadata_note": "Original setup notes are preserved in primary research/setup-notes.txt; metadata selector typo used setup-notes.md. Updated notes and late receipt appendix will be retained by parent; no scientific bytes or clocks changed.",
+  "limits": [
+    "No new poker hands/replay/training/install/deletion/other root work during this addendum",
+    "Original sealed primary-scope receipt preserves its historic pending-metadata field; this later receipt resolves main metadata acceptance",
+    "Remote bytes not separately downloaded; native and independent cloud acceptance from execution receipts",
+    "Metadata snapshots precede own late acceptance/review/self-indexing/final-head checks",
+    "Scripted-opponent one-lineage evidence/inconclusive primary/off-by-default policy; no strength/default/release claim"
+  ],
+  "metadata_archive": {
+    "bytes": 180430,
+    "folder_id": "1JjVFABkkmEE1o6AOs8RohZsH9RuS6baR",
+    "id": "10HVBiSE7GjxwjryoIPeCFiTKcGccOYpV",
+    "manifest_sha256": "39e178ab26cb321099df0157cb8912ac5469f005729f62bb9a20109b62ca3bc8",
+    "members": 43,
+    "name": "hu100-action-translation-closeout-20261008.zip",
+    "sha256": "665372a68685a533cc10b9b6502e4600bbb7ba7b6114aea0fd76d753a41f41f6"
+  },
+  "open_findings": [],
+  "pending_items": [
+    "Parent will archive late guards/acceptance/current setup-notes.txt and this addendum in a tiny appendix; acceptance to be checked in this same review",
+    "Exact final-head required CI and standard merge workflow"
+  ],
+  "review_kind": "Main metadata acceptance addendum within the single independent evidence review",
+  "reviewed_at_utc": "2026-10-08T18:54:25.735907+00:00",
+  "reviewer": "Codex independent evidence reviewer /root/evidence_review",
+  "source": "809cf2d7d854037d2e7e4e21f037ec2b242024e9",
+  "status": "passed",
+  "verified": [
+    "Independent small local metadata whole ZIP/manifest/all 43 member hash readback matches accepted receipts",
+    "All five reviewer files match sealed bytes and reviewed portable helper source matches tools member",
+    "Native uploaded1/uploading0/conflicts0 and independent cloud ID/name/size/parent acceptance receipts match compact data",
+    "Metadata closed guard complete/no failure; its retained sample meets original guards",
+    "Current report/index contain actual metadata IDs/hashes/restoration scope",
+    "171 current original/reproduction raw final/guard/freeze/source-review/admission/result files match accepted primary manifest"
+  ]
+}

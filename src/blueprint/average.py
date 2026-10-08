@@ -7,9 +7,14 @@ Extraction and accumulator audits live in src.diagnostics.cfr_average.
 from gzip import open as gzip_open
 import json
 from math import fsum, isfinite
+from dataclasses import asdict
+from time import perf_counter
+
+from src.blueprint.action_translation import TranslationOptions, VERSION, translate
+from src.blueprint.abstraction import choices, information_key
 
 from src.blueprint.abstraction import HU20_UNCAPPED_SCHEMA, HU20_COMPRESSED_SCHEMA, HU100_SCHEMA
-from src.blueprint.artifact import FrozenBlueprint, _checked_schema
+from src.blueprint.artifact import FrozenBlueprint, _checked_schema, _Player
 from src.blueprint.compact_policy import CompactBuilder
 from src.blueprint.solver import HU20_UNCAPPED_GAME, HU100_GAME
 from src.policies.files import file_hash
@@ -85,7 +90,7 @@ def checked_row(row, iteration, bounded=True):
 
 class AveragePolicy(FrozenBlueprint):
     """Read stored averages with the same observation/key/menu inference as current policies."""
-    def __init__(self,path,expected_sha256, *, expected_schema=HU20_UNCAPPED_SCHEMA):
+    def __init__(self,path,expected_sha256, *, expected_schema=HU20_UNCAPPED_SCHEMA, translation: TranslationOptions | None = None):
         if file_hash(path)!=expected_sha256:raise ValueError('Diagnostic average hash differs')
         # Compact storage: a 10B-node average needs about 50 bytes per key instead of about 800.
         rows=CompactBuilder();count=0
@@ -113,3 +118,59 @@ class AveragePolicy(FrozenBlueprint):
             'entries':len(self.entries),'zero_mass_entries':len(self.zero_mass),
             'source_checkpoint_sha256':metadata['source_checkpoint_sha256']}
         if zero_mass!='uniform':self.description['zero_mass_rule']=zero_mass
+        self.configure_translation(translation)
+
+
+    def configure_translation(self, options: TranslationOptions | None):
+        """Explicit research option; model bytes and release defaults stay unchanged."""
+        if options is not None and (not isinstance(options, TranslationOptions)
+                                    or self.abstraction != HU100_SCHEMA):
+            raise ValueError("Action translation requires HU100 and validated options")
+        self.translation = options
+        if options is not None:
+            self.description['action_translation'] = {'version': VERSION, **asdict(options)}
+        else:
+            self.description.pop('action_translation', None)
+
+    def distribution_with_telemetry(self, view):
+        started = perf_counter()
+        if view.capacity != self.players:
+            raise ValueError("Blueprint table size differs from the evaluation table")
+        menu = choices(view, raise_cap=self.raise_cap, free_fold=False)
+        key = information_key(view, menu, schema=self.abstraction)
+        saved = self.entries.get(key)
+        known = saved is not None
+        mode = 'exact' if known and key not in self.zero_mass else 'uniform'
+        reason = 'positive-mass' if mode == 'exact' else 'zero-mass' if known else 'missing-key'
+        info = {'mode': mode, 'reason': reason, 'exact_key': key, 'selected_key': key if known else None,
+                'distance': 0., 'all_in_changes': 0, 'states': 0, 'bound_reached': False,
+                'overrides': (), 'witness_raise_to': ()}
+        if not known and self.translation is not None:
+            result = translate(view, menu, self.entries, self.zero_mass, self.translation)
+            info.update(asdict(result)); info.pop('key')
+            if result.key is not None:
+                saved = self.entries[result.key]
+                info.update(mode='translated', reason='positive-mass-witness', selected_key=result.key)
+        probabilities = (1 / len(menu),) * len(menu) if saved is None else saved[1]
+        if saved is not None and saved[0] != tuple(c.name for c in menu):
+            raise ValueError("Blueprint action labels differ from the observation")
+        info['lookup_seconds'] = perf_counter() - started
+        return menu, probabilities, known, info
+
+    def policy(self, seed: int):
+        if self.translation is None and not getattr(self, "record_translation", False):
+            return super().policy(seed)
+        return _AveragePlayer(self, seed)
+
+    def distribution(self, view):
+        if self.translation is None and not getattr(self, "record_translation", False):
+            return super().distribution(view)
+        menu, probabilities, known, _ = self.distribution_with_telemetry(view)
+        return menu, probabilities, known
+
+
+class _AveragePlayer(_Player):
+    def choose_action(self, view):
+        self.last_decision = self.blueprint.distribution_with_telemetry(view)
+        menu, probabilities, _, _ = self.last_decision
+        return self.random.choices(menu, weights=probabilities, k=1)[0].action

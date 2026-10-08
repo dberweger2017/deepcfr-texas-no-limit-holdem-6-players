@@ -108,7 +108,15 @@ def audit(root, output):
                                 or not isclose(sum(d['probabilities']), 1, abs_tol=1e-8)
                                 or not any(c.action == action and p > 0 for c, p in zip(menu, d['probabilities']))):
                             raise ValueError('Native menu/key/policy trace differs')
-                        if row['arm'] == 'baseline' or d['lookup'] != 'positive-mass-known-key':
+                        translation = d.get('translation', {})
+                        if translation.get('mode') == 'translated':
+                            if (row['arm'] != 'candidate' or d['lookup'] != 'missing-key'
+                                    or not 0 < translation['states'] <= 4096
+                                    or translation['selected_key'] != information_key(view, menu, schema=HU100_SCHEMA,
+                                        history_label_overrides={int(i): label for i, label in translation['overrides']})):
+                                raise ValueError('Translated key trace differs')
+                        if row['arm'] == 'baseline' or (d['lookup'] != 'positive-mass-known-key'
+                                and translation.get('mode') != 'translated'):
                             if d['probabilities'] != [1 / len(menu)] * len(menu):
                                 raise ValueError('Uniform reference/fallback changed')
                     elif opponent == 'random' and action.kind == ActionKind.RAISE:

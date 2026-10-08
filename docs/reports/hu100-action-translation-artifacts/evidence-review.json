@@ -1,0 +1,156 @@
+{
+  "checkout": "/Users/dberweger/Local/hu100-action-translation-20261008/repo",
+  "evidence_files": [
+    "evidence-review-checks.py",
+    "evidence-review-checks.json",
+    "evidence-review-witnesses.json",
+    "evidence-review-provenance.json",
+    "source-review.json",
+    "primary-acceptance.json"
+  ],
+  "execution_host": "M4 via ssh m4; all filesystem commands, Python and fixtures run on M4",
+  "full_closeout_status": "pending final metadata archive acceptance addendum",
+  "integration": "f227283b3fb4ac3d7fcade21ad70f134c42630b4",
+  "integration_diff": "Only adds psutil==7.2.2 to requirements-monitoring.txt; scientific source unchanged",
+  "limits": [
+    "Primary-scope pass does not yet accept the pending later metadata ZIP. Final metadata acceptance addendum within this same review is required before merge.",
+    "Final-head CI must be green on the exact final metadata commit; reported integration CI does not substitute for that check.",
+    "Original engine replay execution and full primary ZIP/member/native-copy audits are accepted from pinned execution receipts; this review independently reads raw data and repeated outputs but does not rerun final play or full archive audits.",
+    "Native upload and independent connector acceptance are verified through execution readback receipts. Remote archive bytes were not separately downloaded.",
+    "No pilot outcomes inspected, training, native trainer edit, final rerun, outcome pooling, sample extension, installation, deletion, cleanup or other root modification.",
+    "Representative selected-key-only witness search proves recorded witness validity, not a second exhaustive independent full-table nearest-key proof; bounded search source received its separate independent review.",
+    "Open jams cannot be witnessed with real all-in flags by the conditional-jam menu; random remains unchanged. Inconclusive primary supports no default adoption, general strength or release claim.",
+    "M4 has no gh executable; exact-head CI confirmation remains with parent and final required checks."
+  ],
+  "open_findings": [],
+  "requires_metadata_addendum_before_merge": true,
+  "resolved_findings": [
+    {
+      "finding": "Report opening described pot_pressure as inconclusive or declines",
+      "resolution": "Corrected to inconclusive; paired result is +27.587890625 [-6.491120436554091,61.66690168655409] BB/100 and primary_passed false"
+    }
+  ],
+  "review_kind": "Single independent evidence review; primary scientific evidence and current local metadata scope",
+  "reviewed_at_utc": "2026-10-08T18:49:10.849923+00:00",
+  "reviewer": "Codex independent evidence reviewer /root/evidence_review",
+  "source": "809cf2d7d854037d2e7e4e21f037ec2b242024e9",
+  "status": "passed",
+  "tests": [
+    {
+      "command": "PYTHONPATH=. .venv/bin/python results/action-translation/evidence-review-checks.py",
+      "result": "passed read-only final/raw/model/telemetry/arithmetic/resource checks"
+    },
+    {
+      "command": "Public-prefix representative witness assertions via .venv/bin/python stdin",
+      "result": "passed preflop/flop/turn/river; no simulator or seeds supplied"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_hu100_translation_campaign.py tests/test_hu100_action_translation.py",
+      "result": "11 passed; campaign fixture refused committed-clean-source gate while parent metadata edits were in progress, before any fixture hands played; no retry"
+    },
+    {
+      "command": "Scientific source snapshot/primary acceptance/compact equality/primary archive guard assertions via .venv/bin/python stdin",
+      "result": "passed"
+    }
+  ],
+  "verified": {
+    "controls": "Random plus check_call/tight_aggressive/loose_aggressive candidate hand/action/settlement records identical; uniform reference rows identical across both options",
+    "decisions": {
+      "all_selected_keys_positive_stored_mass_matching_menu_exact_probabilities": true,
+      "bound_reached": 0,
+      "every_recorded_reproduction_row_equal_excluding_elapsed_times": true,
+      "independent_street_rates_distance_histogram_latency_match": true,
+      "maximum_states": 46,
+      "model_rows_streamed": 7643261,
+      "raw_rows": 313565,
+      "successful_translations": 618,
+      "successful_witness_all_in_changes": 0,
+      "unique_translated_keys": 400
+    },
+    "freshness": "All earlier HU100 roots in configs/source/reports and both pilot roots independently recomputed pairwise disjoint",
+    "hands": {
+      "all_coordinates_accounting_digests_complete": true,
+      "distinct_evaluations": 61440,
+      "every_recorded_reproduction_hand_equal": true,
+      "existing_engine_replay_receipts_accepted": true,
+      "raw_rows": 81920,
+      "shared_uniform_reference_hands": 20480,
+      "target_hands": 40960
+    },
+    "metadata": "Current report/index/roadmap/compact-to-raw summary equality and portable reproduction helper source read; report accurately discloses inconclusive primary, immutable defaults, random open-jam limits and evidence lineage",
+    "paired_estimates": {
+      "check_call": {
+        "identical_candidate_hands": true,
+        "paired_delta": {
+          "bb_per_100": 0.0,
+          "blocks": 2048,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "loose_aggressive": {
+        "identical_candidate_hands": true,
+        "paired_delta": {
+          "bb_per_100": 0.0,
+          "blocks": 2048,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pot_pressure": {
+        "identical_candidate_hands": false,
+        "paired_delta": {
+          "bb_per_100": 27.587890625,
+          "blocks": 2048,
+          "interval": [
+            -6.491120436554091,
+            61.66690168655409
+          ]
+        }
+      },
+      "random": {
+        "identical_candidate_hands": true,
+        "paired_delta": {
+          "bb_per_100": 0.0,
+          "blocks": 2048,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "tight_aggressive": {
+        "identical_candidate_hands": true,
+        "paired_delta": {
+          "bb_per_100": 0.0,
+          "blocks": 2048,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "primary_archive": "Accepted native uploaded1/uploading0/conflicts0 and independent cloud ID/name/size/parent receipts; manifest/model/source links checked, no duplicate full-archive audit",
+    "primary_archive_guard": "All 90 retained samples meet original guards; receipt complete/no failure",
+    "primary_archive_id": "1Lkme7gGFIsiCBkquKwt0gRgUIFFbCy7G",
+    "primary_archive_manifest_sha256": "4fde48650738581171866091fe3c1df823e11d669999f85ce47e96e1902810c8",
+    "primary_archive_sha256": "ec64da6df8249794d79efdc81667d6cafd47dbaad47519979e2140eec467e46d",
+    "protocol_admission": "Protocol/source review receipt and archived pre-final PR admission reviewed; source/root/2048-block/sample/budget hashes and original deadline match",
+    "public_witnesses": "One representative recorded acting observation per street validates witness actor/menu/flags/on-menu labels/exact rational distance/suffix and deterministic work, using only public prefixes and target-owned cards",
+    "resources": {
+      "max_sample_gap_seconds": 0.2100379467010498,
+      "max_swap_growth": 0,
+      "max_used_memory": 8735408128,
+      "min_free_disk": 44943728640,
+      "peak_family_rss": 1649983488,
+      "samples": 1421
+    },
+    "source_model_provenance": "Source snapshot key scientific files match frozen commit; original #204 archive/manifest/member restoration pins checked against receipts and primary manifest; current model size/SHA256 independently verified",
+    "timing": "Only corrected pilot cost/completeness read; loads/scalable cost/570.4661 projected seconds/1832-second quote recomputed; final completes in 287.3177978992462 seconds"
+  }
+}

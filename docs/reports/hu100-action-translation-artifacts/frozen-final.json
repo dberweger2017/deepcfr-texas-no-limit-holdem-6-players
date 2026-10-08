@@ -1,0 +1,16 @@
+{
+  "blocks_per_opponent": 2048,
+  "distinct_final_hands": 61440,
+  "execution_budget_seconds": 1832,
+  "final_root": 2026100820512,
+  "formula": "3*(measured loads + per-block play/replay/reproduction projected to 2048)+120",
+  "loads_seconds": 128.0734744570218,
+  "pilot_blocks": 16,
+  "pilot_outcomes_read": false,
+  "pilot_root": 2026100820521,
+  "pilot_scalable_seconds": 3.4561927509494126,
+  "projected_seconds": 570.4661465785466,
+  "source": "809cf2d7d854037d2e7e4e21f037ec2b242024e9",
+  "target_hands": 40960,
+  "uniform_reference_hands": 20480
+}

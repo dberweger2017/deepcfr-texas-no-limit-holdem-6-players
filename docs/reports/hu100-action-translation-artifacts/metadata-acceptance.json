@@ -1,0 +1,62 @@
+{
+  "all_members_readback_verified": true,
+  "archive_name": "hu100-action-translation-closeout-20261008.zip",
+  "archive_path": "/Users/dberweger/Local/hu100-action-translation-20261008/archives/hu100-action-translation-closeout-20261008.zip",
+  "bytes": 180430,
+  "checked_at": 1791485564.6257548,
+  "cloud": {
+    "created_time": null,
+    "current_user_can_share": null,
+    "drive_id": null,
+    "file_or_folder": "file",
+    "has_augmented_permissions": null,
+    "id": "10HVBiSE7GjxwjryoIPeCFiTKcGccOYpV",
+    "mime_type": "application/zip",
+    "modified_time": "2026-10-08T18:51:06.209Z",
+    "parent_ids": [
+      "1JjVFABkkmEE1o6AOs8RohZsH9RuS6baR"
+    ],
+    "permissions": null,
+    "shared": null,
+    "size": "180430",
+    "source_visibility_status": "access_not_verified",
+    "title": "hu100-action-translation-closeout-20261008.zip",
+    "url": null
+  },
+  "guard": {
+    "command": [
+      "/Users/dberweger/Local/hu100-action-translation-20261008/repo/.venv/bin/python",
+      "-m",
+      "planning.translation_metadata"
+    ],
+    "deadline": null,
+    "failure": null,
+    "finished": 1791485466.388087,
+    "host_sample_seconds": 0.2,
+    "peak_family_rss": 106070016,
+    "rss_sample_seconds": 0.2,
+    "samples": 1,
+    "seconds": 0.21193313598632812,
+    "started": 1791485466.1761549,
+    "status": "complete"
+  },
+  "integration": "f227283b3fb4ac3d7fcade21ad70f134c42630b4",
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "39e178ab26cb321099df0157cb8912ac5469f005729f62bb9a20109b62ca3bc8",
+  "members": 43,
+  "method": "full local ZIP/member/copy verification; native uploaded/not-uploading/no-conflicts; independent connector ID/name/size/parent",
+  "native": {
+    "documentSize": 180430,
+    "hasUnresolvedConflicts": 0,
+    "isUploaded": 1,
+    "isUploading": 0
+  },
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-205-hu100-action-translation/hu100-action-translation-closeout-20261008.zip",
+  "native_upload_confirmed": true,
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "scope": "Later metadata only; excludes own active guards/acceptance/self-indexing entry/final-head checks",
+  "sha256": "665372a68685a533cc10b9b6502e4600bbb7ba7b6114aea0fd76d753a41f41f6",
+  "source": "809cf2d7d854037d2e7e4e21f037ec2b242024e9",
+  "status": "cloud-accepted"
+}

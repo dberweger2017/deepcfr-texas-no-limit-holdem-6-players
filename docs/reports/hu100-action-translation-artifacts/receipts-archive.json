@@ -1,0 +1,15 @@
+{
+  "all_members_readback_verified": true,
+  "archive_name": "hu100-action-translation-receipts-20261008.zip",
+  "archive_path": "/Users/dberweger/Local/hu100-action-translation-20261008/archives/hu100-action-translation-receipts-20261008.zip",
+  "bytes": 10420,
+  "manifest_member": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "946197e694d98d45b17b977094f293924052a2c3572880ebb288d1533faa2741",
+  "members": 10,
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-205-hu100-action-translation/hu100-action-translation-receipts-20261008.zip",
+  "native_upload_confirmed": false,
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "sha256": "66b12a742f3602b6423291466826b7f928371ca8e691b60cb2537355abab5b1f",
+  "status": "locally-verified"
+}
