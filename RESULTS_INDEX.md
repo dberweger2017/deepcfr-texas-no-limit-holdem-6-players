@@ -111,6 +111,21 @@ stats and all source/qualification failures are retained. Originals remain and
 no cleanup or synced-file eviction occurred. Later report/plots and independent
 review/CI closeout are separate metadata; the primary science ZIP stays immutable.
 
+Accepted [later metadata closeout ZIP](https://drive.google.com/file/d/1ZiaxnPine9S53FI9tOpipmxYP8sL6GIq/view),
+`hu100-learning-curves-closeout-20261008.zip`: **587,007 bytes /31 verified members**,
+SHA256 `ec5304e8e6d75318f673bb4717efac56b4331233eaec3e495642d9a02776a23f`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`feb80cc8acc725231a6e3602165f4004c2c2c0413242b418dac49f50cbc73133`.
+[Local/native receipt](docs/reports/native-hu100-learning-curves-artifacts/closeout-archive-local-receipt.json)
+· [connector/native acceptance](docs/reports/native-hu100-learning-curves-artifacts/closeout-archive-upload-acceptance.json)
+· [independent evidence review](docs/reports/native-hu100-learning-curves-artifacts/evidence-review.json).
+Report, plots/CSVs, review receipts, primary-upload acceptance, restoration index
+and dated pre-final CI snapshot are included. This metadata-only seal/copy happened
+after completed science, with AC/disk/pressure admission, and restarted no science.
+The final PR head's live GitHub checks are authoritative. Restore this ZIP separately
+to a fresh ignored directory; verify its whole SHA256 and embedded manifest/member
+sizes/hashes as above. Neither archive nor any local original was removed.
+
 ## PR197 separately authorized HU100 playing baseline — complete, October 8, 2026
 
 [PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),

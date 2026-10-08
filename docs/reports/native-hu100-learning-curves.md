@@ -247,6 +247,13 @@ No science remains active; permanent claims remain and no scheduler was created.
 
 ## Storage and limits
 
+Independent [evidence review](native-hu100-learning-curves-artifacts/evidence-review.json)
+passed at `a7c59a63a08c53e00b9af8d29318775833cc6915` with no actionable findings.
+It checked all pins, curves, paired comparisons, coverage, plots, cap identities
+and committed archive receipts; six regressions and repository artifact checks
+passed. It did not download the raw archive or repeat M4 scientific replay.
+Final-head CI is recorded by the PR's live checks, separately from this review.
+
 The [accepted primary archive](https://drive.google.com/file/d/1aZ5HtPGEY0-qCtQkoJbbY122S6xxFISg/view)
 in [PR200 Research-Cloud](https://drive.google.com/drive/folders/12azuxRTXRyEnpO-7tSb6TTOA4teHccMf)
 is **1,224,575,891 bytes /910 locally verified members**, SHA256
@@ -267,6 +274,19 @@ reproduction, all audits, original refusal and continuation controller/claims/gu
 The later report/plots, archive acceptance and review/CI closeout are separate
 metadata; the primary scientific ZIP stays immutable. Original PR197 archives and
 all local originals are retained. No model or raw trace enters Git.
+
+The accepted [metadata closeout ZIP](https://drive.google.com/file/d/1ZiaxnPine9S53FI9tOpipmxYP8sL6GIq/view)
+contains the report, exportable plots/CSVs, compact scientific receipts, reviews,
+retrieval index, upload acceptance and a dated pre-final CI snapshot: **587,007
+bytes /31 verified members**, SHA256
+`ec5304e8e6d75318f673bb4717efac56b4331233eaec3e495642d9a02776a23f`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`feb80cc8acc725231a6e3602165f4004c2c2c0413242b418dac49f50cbc73133`.
+All members and the atomic native copy verified; native upload and independent
+connector metadata agree. This small metadata operation happened after the
+completed scientific cap and restarted no scientific work. Final-head CI remains
+the PR's live checks, not the earlier snapshot. [Receipt](native-hu100-learning-curves-artifacts/closeout-archive-local-receipt.json)
+· [acceptance](native-hu100-learning-curves-artifacts/closeout-archive-upload-acceptance.json).
 
 One training seed, one evaluation root, scripted opponents, wide intervals and
 policy-dependent coverage constrain interpretation. There is no external benchmark,
