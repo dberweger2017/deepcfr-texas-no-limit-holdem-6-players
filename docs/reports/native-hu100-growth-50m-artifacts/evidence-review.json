@@ -1,0 +1,57 @@
+{
+  "blocking_findings": [],
+  "checks": [
+    "Reconciled terminal 39438279 actual nodes, 7643261 entries, 494-entry complete-iteration overshoot, iteration/visits/mass histograms, exact parent/pilot recovery lineage and clean native capacity exit against retained compact receipts. Confirmed 50M was not reached.",
+    "Independently recomputed all five terminal-minus-parent gains from compact checkpoint means, paired Student-t adjusted/ordinary width ratios at 2047 degrees of freedom, and primary labels: tight inconclusive, loose improvement.",
+    "Independently summed all ten hand-exposure counts and payoff contributions to candidate means; summed opponent/street lookup/action/visit totals and reproduced all reported coverage and known-under-ten visit percentages.",
+    "Independently regenerated exact final schedule SHA256 94d8e95fa3f668c6cee00ffc13bf5ecbb4ec2a0b234cacc873dbabfc64a4ead3 and checked physical-deal disjointness against #197/#200/#203 and the current pilot without running any poker hand.",
+    "Independently recalculated initial/pilot memory and disk ceilings, minimum caps, capacity receipt hashes, cost-only quote totals/admission, and observed terminal 425.069 bytes per entry /18.229% increase /2.2-times-peak 6.6567 GiB /fresh same-envelope ceiling 6464366 entries.",
+    "Reconciled both original 1800-second clocks, 475.7117/412.2279-second closeouts, successful operation statuses, zero admission/hard-guard failures, sampled family RSS, pressure/AC/disk/historical-baseline swap guards and save/export/audit/archive costs.",
+    "Independently reconstructed frozen Git Python/requirements fingerprint 13b32ef184e0f68879f87d142add085712233653feaca22eaeb209a897e38ba2 and reconciled the compact forty-manifest proof rows (clean, same revision/fingerprint) with strict normal reporter success.",
+    "Reconciled both primary archive size/hash/member-count/native-copy receipts with native uploaded/not-uploading/no-conflict and connector ID/name/size/designated-parent acceptance receipts, report/index links, selected model bytes/hashes and restoration provenance.",
+    "Reviewed final report/index/roadmap claims and limitations: fresh paired fixed sample, two primary comparisons, remaining absolute losses and sparse/support limits, one lineage, policy-dependent descriptive covered-hand associations, no automatic continuation/release/cleanup or merge."
+  ],
+  "document_snapshots_sha256": {
+    "RESULTS_INDEX.md": "03bb04d4ec0b43d8d0c2903c2a5b0ea64234e0fdf42abe01a2683c3b55d5970b",
+    "ROADMAP.md": "63ce201d9ee2fa08b882e45693c94c9681bd51c30522d9c461012394376d53db",
+    "docs/reports/native-hu100-growth-50m.md": "037c6824a3787fb89633e8a7a1997870d6588303e325b049316c1f463fde94f0"
+  },
+  "execution_source": "d3033822d865e077093809e82633a1ad7fad19ba",
+  "primary_result": {
+    "loose_aggressive": {
+      "alpha": 0.025,
+      "bb_per_100": 105.67626953125,
+      "blocks": 2048,
+      "interval": [
+        21.622083398503605,
+        189.7304556639964
+      ],
+      "label": "improvement"
+    },
+    "tight_aggressive": {
+      "alpha": 0.025,
+      "bb_per_100": 22.900390625,
+      "blocks": 2048,
+      "interval": [
+        -21.05317595346127,
+        66.85395720346128
+      ],
+      "label": "inconclusive"
+    }
+  },
+  "release_or_merge_authorized": false,
+  "resolved_report_findings": [
+    "Normal metadata description now distinguishes entries returned by audited_average_spec from positive/zero counts retained in the full audit.",
+    "Report explicitly discloses the 18.23% RSS-per-entry forecast miss and distinguishes frozen admission capacity from physical memory exhaustion."
+  ],
+  "reviewed_at_utc": "2026-10-08T15:44:20.534779+00:00",
+  "reviewed_head": "12f19a3578ab8d2fc912d29fd87485d18baf5895",
+  "reviewer": "independent Codex execution_review subagent",
+  "scope_limits": [
+    "Review used local source/protocol, report/index/roadmap and compact retained JSON receipts. It did not repeat training, play, replay, reproduction, model selection or outcome-driven evaluation.",
+    "Full model rows, raw hand/action/resource streams and primary ZIP members were not independently inspected; their full-audit/replay/reproduction/local-member-hash receipts were reviewed and reconciled.",
+    "No remote archive bytes were downloaded and no live M4/Drive upload state was independently queried during this evidence review; acceptance is cross-checked through retained native and connector receipts.",
+    "Later metadata seal and final PR-head checks or subsequent edits are outside this receipt and require their own final review."
+  ],
+  "status": "passed"
+}
