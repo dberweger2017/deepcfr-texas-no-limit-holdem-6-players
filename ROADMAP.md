@@ -69,6 +69,8 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
+- **October 8 storage cleanup:** owner-requested merged evidence cleanup reclaimed **23.884 GB on M4 /1.059 GB on M1** during removal batches; canonical Drive archives and active HU100/turn-search/bucket inputs remain. [Receipt and restoration](docs/artifacts/storage-vacuum-20261008.md). No unattended cleanup.
+
 *Updated October 8, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
 - **Compact native training table:** peak memory at #204's 39.4M-node endpoint falls from 3.17 to 0.71 GB; bytes per entry stay 87–93 from 1.8M to 19.2M entries, so forecasts no longer need a doubling allowance. Checkpoints are byte-identical: a fresh run and a 20M-node resume both reproduce #204's archived checkpoint, and the HU20 1B recipe reproduces the pinned v0.4.1 average. Entries reach 19.2M at 200M nodes; about 45M are projected at 1B, roughly 5 GB. [Report](docs/reports/native-compact-table.md). No training campaign follows automatically.
