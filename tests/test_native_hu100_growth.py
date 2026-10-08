@@ -52,3 +52,37 @@ def test_primary_interval_widens_for_two_comparisons():
     assert primary['alpha'] == .025
     assert primary['interval'][0] < ordinary['interval'][0]
     assert primary['interval'][1] > ordinary['interval'][1]
+
+
+def test_stage2_rejects_average_changed_after_full_audit(tmp_path, monkeypatch):
+    monkeypatch.setattr(g, 'ROOT', tmp_path)
+    stage = tmp_path / 'results/stage1'; folder = stage / 'terminal'
+    folder.mkdir(parents=True)
+    (stage / 'state.json').write_text(json.dumps({'status': 'complete'}))
+    (stage / 'result.json').write_text(json.dumps({'terminal_folder': str(folder)}))
+    model = folder / 'average.gz'; model.write_bytes(b'changed')
+    (folder / 'audit.json').write_text(json.dumps({'status': 'verified', 'files': {
+        str(model): {'bytes': 7, 'sha256': 'original-audited-hash'}}}))
+    monkeypatch.setattr(g, 'telemetry', lambda _: {'completed_nodes': g.PARENT_NODES + 1})
+    with pytest.raises(ValueError, match='audited member changed'): g.models()
+
+
+def test_archive_excludes_live_supervisor_files(tmp_path, monkeypatch):
+    monkeypatch.setattr(g, 'ROOT', tmp_path)
+    root = tmp_path / 'results/stage1'; root.mkdir(parents=True)
+    (root / 'state.json').write_text(json.dumps({'status': 'running', 'operations': {'archive': {'status': 'attempted'}}}))
+    (root / 'evidence.txt').write_text('immutable')
+    (root / 'archive-guard').mkdir(); (root / 'archive-guard/resources.jsonl').write_text('mutable')
+    (tmp_path / 'source.tar').write_bytes(b'source')
+    (tmp_path / 'bin').mkdir(); (tmp_path / 'bin/hu20-trainer').write_bytes(b'binary')
+    for name in ('qualification', 'source-review', 'environment'):
+        (tmp_path / 'results' / (name + '.json')).write_text('{}')
+    destination = tmp_path / 'cloud/archive.zip'
+    g.seal(root, destination)
+    from zipfile import ZipFile
+    with ZipFile(destination) as z:
+        assert 'research/evidence.txt' in z.namelist()
+        assert 'research/science-closeout.json' in z.namelist()
+        assert not any('archive-guard' in p or p == 'research/state.json' for p in z.namelist())
+        frozen = json.loads(z.read('research/science-closeout.json'))
+        assert 'archive' not in frozen['operations']

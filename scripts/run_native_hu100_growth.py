@@ -384,6 +384,8 @@ def stage2(c, dest):
     if q['settings_sha256'] != file_hash(settings_path) or q['deadline'] != c.deadline or q['source'] != c.source:
         raise ValueError('Freeze/source/deadline differs')
     if q['blocks_per_opponent'] >= 32:
+        if file_hash(c.out / 'frozen-schedule.json') != q['schedule_sha256']:
+            raise ValueError('Frozen physical schedule changed before play')
         # On continuation only remaining never-started operations run, under the original clock.
         if not any(k.startswith('final-') for k in c.state['operations']) and c.deadline - time() < q['predicted_seconds'] + 240:
             raise ValueError('Fresh final time-fit failure')
