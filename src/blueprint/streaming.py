@@ -52,7 +52,11 @@ class JsonStream:
         if self.buffer[:1] in ('t', 'f', 'n'):
             literal = {'t': 'true', 'f': 'false', 'n': 'null'}[self.buffer[0]]
             for character in literal:
-                self.token(character)
+                if not self.buffer and not self.eof:
+                    self.fill()
+                if not self.buffer.startswith(character):
+                    raise ValueError('Malformed inference JSON literal')
+                self.buffer = self.buffer[1:]
             return self.decoder.decode(literal)
         # Validate numeric prefixes as they arrive; invalid bytes must not make
         # a corrupt scalar retain the entire remainder of an export.

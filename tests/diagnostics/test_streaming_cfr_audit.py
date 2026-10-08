@@ -186,3 +186,10 @@ def test_signed_zero_probability_mismatch_is_rejected(tmp_path):
     write(average, '\n'.join(lines) + '\n')
     with pytest.raises(ValueError, match='Normalized'):
         verify(checkpoint, current, average, spec)
+
+
+@pytest.mark.parametrize('literal', ['t r u e', 'f\na\tl\rs e', 'n u l l'])
+@pytest.mark.parametrize('size', [1, 2, 65536])
+def test_whitespace_inside_literal_rejected(literal, size):
+    with pytest.raises(ValueError):
+        list(current_rows(Chunked('{"entries":{},"extra":' + literal + '}', size), {}))
