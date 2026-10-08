@@ -4,7 +4,7 @@ from dataclasses import asdict
 
 import pytest
 
-from scripts.diagnose_native_hu100 import joined, signature, support_witness
+from scripts.diagnose_native_hu100 import Cell, joined, signature, support_witness
 from src.blueprint.abstraction import HU100_SCHEMA, choices, information_key
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
@@ -64,3 +64,17 @@ def test_probability_and_menu_discrepancies_fail_closed():
         joined(d, {'a': [['call'], [.9], 1., 1]})
     with pytest.raises(ValueError, match='menu'):
         joined(d, {'a': [['fold'], [1.], 1., 1]})
+
+
+def test_missing_rows_do_not_dilute_covered_mass_or_visit_means():
+    cell = Cell()
+    base = {'block': 0, 'rotation': 0, 'net_bb': 1, 'fold_probability': .5,
+            'passive_probability': .5, 'raise_probability': 0}
+    cell.add({**base, 'mass': None, 'visits': None})
+    assert cell.result()['mean_mass'] is None
+    cell.add({**base, 'mass': 100, 'visits': 2})
+    result = cell.result()
+    assert result['mean_mass'] == 100
+    assert result['mean_visits'] == 2
+    assert result['covered_decisions'] == 1
+    assert result['decisions'] == 2
