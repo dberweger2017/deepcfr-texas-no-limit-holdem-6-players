@@ -193,3 +193,18 @@ Native upload and independent cloud ID/name/size/parent acceptance are complete;
 no remote-byte download. Its snapshot precedes its own acceptance and later
 final-head CI; the final index and current PR checks supersede those dated fields.
 [Closeout acceptance](native-hu100-playing-baseline-artifacts/closeout-upload-acceptance.json).
+
+A later full CI run on `b22de85` exposed a historical clock-dependent preparation
+fixture: its real remaining time fell below the original campaign's 1,800-second
+pilot reserve. Only that fixture changed at `fa84b84`: both preparation clocks
+are fixed, with a feasible 3,300-second case and a rejected 1,000-second case.
+**Production code, guards, deadlines, configuration and scientific results did
+not change.** The two related test files passed **48 M4 tests in 0.22 seconds**
+and artifact checking; independent review16 found no P1/P2 blockers in the
+one-test diff. [Correction, failure, qualification and review](native-hu100-playing-baseline-artifacts/ci-clock-correction.json).
+The raw failure log, patch and guarded qualification are preserved in the
+[accepted CI supplement](https://drive.google.com/file/d/1JgPvyX4DBy3QuebjA6Ekw2NACXUNEbYf/view),
+**39,804 bytes /13 locally verified embedded members**, SHA256
+`d58561fe00cebcbf99af7947f970e64f4aaf419bad1513958a085077005c8e3f`.
+Native/cloud metadata acceptance is complete; no remote-byte download or science
+rerun. Later final-head CI remains the required handback check.

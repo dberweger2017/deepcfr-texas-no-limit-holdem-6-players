@@ -1,0 +1,94 @@
+{
+  "status": "qualified-and-reviewed",
+  "test_source": "fa84b84c6a32caaf557cd3823b885f015bb7d524",
+  "science_source": "009b5d92529792b0db32798407cf56c25416beb5",
+  "failure": {
+    "head": "b22de859a4787c91bd5c84e400da96466dd191fa",
+    "run": 37757522044,
+    "job": 113246276022,
+    "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37757522044/job/113246276022",
+    "cause": "Historical pilot-admission fixture used the real wall clock; remaining time fell below its 1800-second reserve.",
+    "counts": {
+      "failed": 1,
+      "passed": 850,
+      "skipped": 1
+    }
+  },
+  "correction": "Freeze both preparation datetime clocks in one fixture; explicitly retain feasible 3300s and rejected 1000s cases. Production code/guards/deadlines/configuration/scientific results unchanged.",
+  "qualification": {
+    "worker": "M4",
+    "tests": 48,
+    "seconds": 0.22,
+    "artifact_check": "passed",
+    "guard_status": "complete",
+    "scientific_execution_repeated": false
+  },
+  "independent_review": {
+    "taskId": "node:delegated-task:command%3Amcp%3Acb89182f-41c8-40cb-998f-3f002cda0873%3Adelegate-task%3Apr197-hu100-baseline-ci-clock-review-round16",
+    "childThreadId": "thread:delegated-task:command%3Amcp%3Acb89182f-41c8-40cb-998f-3f002cda0873%3Adelegate-task%3Apr197-hu100-baseline-ci-clock-review-round16",
+    "childRunId": "run:thread:thread%3Adelegated-task%3Acommand%253Amcp%253Acb89182f-41c8-40cb-998f-3f002cda0873%253Adelegate-task%253Apr197-hu100-baseline-ci-clock-review-round16:ordinal:1",
+    "childNodeId": "node:delegated-task:command%3Amcp%3Acb89182f-41c8-40cb-998f-3f002cda0873%3Adelegate-task%3Apr197-hu100-baseline-ci-clock-review-round16",
+    "status": "completed",
+    "workState": "result_available",
+    "hasPendingChildRuns": false,
+    "latestTerminalRunId": "run:thread:thread%3Adelegated-task%3Acommand%253Amcp%253Acb89182f-41c8-40cb-998f-3f002cda0873%253Adelegate-task%253Apr197-hu100-baseline-ci-clock-review-round16:ordinal:1",
+    "latestTerminalStatus": "completed",
+    "latestTerminalSummary": "No actionable P1/P2 blockers in **fa84b84c6a32caaf557cd3823b885f015bb7d524**, reviewing only the change from 07961948.\n\nThe fixture freezes both preparation clocks. The feasible case retains 3,300 seconds; the infeasible case retains 1,000 seconds and must still raise the 1,800-second reserve error before creating its output root. Pytest restores both patches afterward. Production guards, deadlines, configuration and evidence remain unchanged.\n\nRead AGENTS.md and ROADMAP.md. No edits, tests, builds, SSH, artifact loads or science execution performed.\n\nFinal-head handoff remains pending: [CI run 37759106032](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37759106032) has both full jobs running; scope and security checks passed. M4 targeted qualification remains pending per the brief. No merge.",
+    "latestTerminalResultContextTransferId": "context-transfer:type:subagent_result:source-thread:thread%3Adelegated-task%3Acommand%253Amcp%253Acb89182f-41c8-40cb-998f-3f002cda0873%253Adelegate-task%253Apr197-hu100-baseline-ci-clock-review-round16:target-thread:495ca3f8-32db-4e73-98ad-29d01fb9e282:7a2c5228-c184-4a29-ac1b-b53c61e01d05",
+    "providerInstanceId": "codex",
+    "model": "gpt-6.1-sol",
+    "summary": "No actionable P1/P2 blockers in **fa84b84c6a32caaf557cd3823b885f015bb7d524**, reviewing only the change from 07961948.\n\nThe fixture freezes both preparation clocks. The feasible case retains 3,300 seconds; the infeasible case retains 1,000 seconds and must still raise the 1,800-second reserve error before creating its output root. Pytest restores both patches afterward. Production guards, deadlines, configuration and evidence remain unchanged.\n\nRead AGENTS.md and ROADMAP.md. No edits, tests, builds, SSH, artifact loads or science execution performed.\n\nFinal-head handoff remains pending: [CI run 37759106032](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37759106032) has both full jobs running; scope and security checks passed. M4 targeted qualification remains pending per the brief. No merge.",
+    "resultContextTransferId": "context-transfer:type:subagent_result:source-thread:thread%3Adelegated-task%3Acommand%253Amcp%253Acb89182f-41c8-40cb-998f-3f002cda0873%253Adelegate-task%253Apr197-hu100-baseline-ci-clock-review-round16:target-thread:495ca3f8-32db-4e73-98ad-29d01fb9e282:7a2c5228-c184-4a29-ac1b-b53c61e01d05",
+    "waitTimedOut": false
+  },
+  "cloud_metadata": {
+    "id": "1JgPvyX4DBy3QuebjA6Ekw2NACXUNEbYf",
+    "title": "native-hu100-playing-baseline-ci-clock-20261008.json",
+    "mime_type": null,
+    "size": "39804",
+    "url": "https://drive.google.com/file/d/1JgPvyX4DBy3QuebjA6Ekw2NACXUNEbYf/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1JgPvyX4DBy3QuebjA6Ekw2NACXUNEbYf/view?usp=drivesdk",
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "remote_bytes_downloaded": false,
+  "final_head_ci": "must pass before handback; subsequent PR checks authoritative",
+  "archive_local_receipt": {
+    "status": "local-verified",
+    "archive_name": "native-hu100-playing-baseline-ci-clock-20261008.json",
+    "bytes": 39804,
+    "sha256": "d58561fe00cebcbf99af7947f970e64f4aaf419bad1513958a085077005c8e3f",
+    "members_verified": 13,
+    "embedded_member_manifest": "member_manifest_and_content",
+    "manifest_sha256": "c06058675b6b1b0f1ef0a6db20d28be59d3ec605e8e5a68810d802754e35edd3",
+    "folder_id": "1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI",
+    "native_path": "/Users/dberweger/Local/Research-Cloud/PR-197-native-recovery-HU100/native-hu100-playing-baseline-ci-clock-20261008.json",
+    "at": 1791453088.5446332,
+    "deadline": 1791453210.542615,
+    "originals_retained": true,
+    "remote_bytes_downloaded": false
+  },
+  "native_upload_receipt": {
+    "observed_at": 1791453119.5818298,
+    "file_id": "1JgPvyX4DBy3QuebjA6Ekw2NACXUNEbYf",
+    "provider": "native Google Drive fileprovider evaluate",
+    "fields": {
+      "documentSize": 39804,
+      "isUploaded": 1,
+      "isUploading": 0,
+      "hasUnresolvedConflicts": 0
+    },
+    "raw_evidence_sha256": "5f4d09cbee5dcf33a05300fc8b76b595507bd8df43c90c3373cf21471bcb50f5",
+    "remote_bytes_downloaded": false
+  }
+}

@@ -94,6 +94,23 @@ Required CI on the later final documentation head must pass before handback;
 [current PR checks](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197/checks)
 record that subsequent status. No merge.
 
+[CI clock correction supplement](https://drive.google.com/file/d/1JgPvyX4DBy3QuebjA6Ekw2NACXUNEbYf/view)
+`native-hu100-playing-baseline-ci-clock-20261008.json`: **39,804 bytes /13 embedded
+UTF-8 members**, SHA256 `d58561fe00cebcbf99af7947f970e64f4aaf419bad1513958a085077005c8e3f`;
+canonical `member_manifest_and_content` SHA256
+`c06058675b6b1b0f1ef0a6db20d28be59d3ec605e8e5a68810d802754e35edd3`.
+Every member locally read back; native uploaded1/uploading0/conflicts0 and
+independent cloud ID/name/size/parent accepted, no remote-byte download. Raw
+failed CI log/patch, guarded 48-test M4 qualification and independent review16
+are retained. Test-only source `fa84b84c6a32caaf557cd3823b885f015bb7d524` freezes
+one historical fixture's clocks; production code/guards/deadlines/data remain
+unchanged from executed009b5d9. [Correction and archive acceptance](docs/reports/native-hu100-playing-baseline-artifacts/ci-clock-correction.json).
+Restore like the closeout JSON above: download to a fresh ignored directory,
+`shasum -a 256 LOCAL_DOWNLOADED_CI_CLOCK_JSON` must match the whole hash, then
+verify each UTF-8 member's bytes/SHA256 before reconstructing it. Existing primary
+and closeout archives are untouched. Snapshot CI status predates later final-head
+checks; current GitHub checks are authoritative. No new science or merge.
+
 ## PR197 follow-up — recovery verified / HU100 measured capacity stop, October 8, 2026
 
 [PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),
