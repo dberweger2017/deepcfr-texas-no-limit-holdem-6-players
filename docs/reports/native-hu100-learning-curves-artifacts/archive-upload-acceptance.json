@@ -1,0 +1,27 @@
+{
+  "status": "accepted",
+  "cloud_metadata": {
+    "id": "1aZ5HtPGEY0-qCtQkoJbbY122S6xxFISg",
+    "title": "hu100-learning-curves-20261008.zip",
+    "mime_type": "application/zip",
+    "size": "1224575891",
+    "url": "https://drive.google.com/file/d/1aZ5HtPGEY0-qCtQkoJbbY122S6xxFISg/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1aZ5HtPGEY0-qCtQkoJbbY122S6xxFISg/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "12azuxRTXRyEnpO-7tSb6TTOA4teHccMf"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "native_receipt": "archive-native-upload.json",
+  "local_byte_and_member_receipt": "archive-local-receipt.json",
+  "remote_bytes_downloaded": false,
+  "acceptance": "Independent connector ID/name/size/parent agrees with native uploaded/no pending/no conflicts and local verified archive receipt"
+}

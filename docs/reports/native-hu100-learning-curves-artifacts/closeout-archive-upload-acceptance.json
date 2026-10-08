@@ -1,0 +1,32 @@
+{
+  "status": "accepted",
+  "cloud_metadata": {
+    "id": "1ZiaxnPine9S53FI9tOpipmxYP8sL6GIq",
+    "title": "hu100-learning-curves-closeout-20261008.zip",
+    "mime_type": "application/zip",
+    "size": "587007",
+    "url": "https://drive.google.com/file/d/1ZiaxnPine9S53FI9tOpipmxYP8sL6GIq/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1ZiaxnPine9S53FI9tOpipmxYP8sL6GIq/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "12azuxRTXRyEnpO-7tSb6TTOA4teHccMf"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "native_uploaded": 1,
+  "native_uploading": 0,
+  "native_unresolved_conflicts": 0,
+  "native_size": 587007,
+  "local_byte_and_member_receipt": "closeout-archive-local-receipt.json",
+  "scope": "Metadata-only closeout after the completed scientific cap; no science restart",
+  "remote_bytes_downloaded": false,
+  "final_ci_authority": "PR200 GitHub checks for final head",
+  "acceptance": "Independent connector ID/name/size/parent agrees with native upload status and locally verified archive"
+}

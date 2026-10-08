@@ -40,10 +40,22 @@ def audit(root, output):
         path = root / name
         if path.stat().st_size != spec['bytes'] or file_hash(path) != spec['sha256']:
             raise ValueError('Changed output: ' + name)
+    reference = Path(inputs['reference_run']) if inputs.get('reference_run') else None
+    if reference and file_hash(reference / 'inputs.json') != inputs['reference_inputs_sha256']:
+        raise ValueError('Reused reference identity changed')
     hands = actions = 0
     comparisons = {}
     for opponent in inputs['config']['opponents']:
         panel = root / opponent
+        if reference:
+            # Exact retained baseline rows are part of pairing, not another evaluation.
+            for filename in ('hands.jsonl', 'decisions.jsonl.gz'):
+                def baseline_rows(path):
+                    opener = gzip.open if path.suffix == '.gz' else open
+                    with opener(path, 'rt') as f:
+                        return [json.loads(line) for line in f if json.loads(line)['arm'] == 'baseline']
+                if baseline_rows(panel / filename) != baseline_rows(reference / opponent / filename):
+                    raise ValueError('Reused uniform evidence differs')
         m = json.loads((panel / 'manifest.json').read_text())
         plan = Plan.from_dict(m['plan'])
         if (plan.root_seed != inputs['root'] or plan.blocks != inputs['blocks_per_opponent']

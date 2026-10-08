@@ -1,0 +1,24 @@
+{
+  "status": "verified",
+  "intersections": {
+    "new-pilot vs new-final": 0,
+    "new-pilot vs pr197-pilot": 0,
+    "new-pilot vs pr197-final": 0,
+    "new-final vs pr197-pilot": 0,
+    "new-final vs pr197-final": 0,
+    "pr197-pilot vs pr197-final": 0
+  },
+  "deal_counts": {
+    "new-pilot": 80,
+    "new-final": 10240,
+    "pr197-pilot": 80,
+    "pr197-final": 10240
+  },
+  "digest_by_schedule": {
+    "new-pilot": "b986955af51285947b52ef91f1efac0ae356b7baadd3c63fedf086d0bcd2aa09",
+    "new-final": "8f62325406da943d9199c3b191989b75cbc5d68d8814e5461c707f297b730e57",
+    "pr197-pilot": "e3905eac05b8a0aee1a5d6541c0f90310103bde022088808df00c8969ab166f1",
+    "pr197-final": "a3dabcaf57d71eb55d910c2d57cd4b890b919d91e52e19d8541cd162ed670eb8"
+  },
+  "model_loads": 0
+}

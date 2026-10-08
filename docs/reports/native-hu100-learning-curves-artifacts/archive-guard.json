@@ -1,0 +1,32 @@
+{
+  "status": "complete",
+  "started": 1791456869.6761851,
+  "finished": 1791456891.176298,
+  "deadline": 1791457646.4834518,
+  "limits": {
+    "disk_gib": 15.5,
+    "rss_gib": 10.0,
+    "save_reserve_seconds": 0,
+    "soft_rss_gib": null,
+    "swap_gib": 0.5,
+    "system_memory_guard": true
+  },
+  "attempts": [
+    {
+      "command": [
+        "/Users/dberweger/Local/hu100-learning-curves-20261008/.venv/bin/python",
+        "results/qualification/archive-command.py"
+      ],
+      "exit_code": 0,
+      "finished": 1791456891.17529,
+      "guard_failure": null,
+      "name": "archive-evidence",
+      "peak_aggregate_job_rss_bytes": 312164352,
+      "peak_process_rss_bytes": 279920640,
+      "pid": 32252,
+      "started": 1791456869.820263,
+      "status": "complete"
+    }
+  ],
+  "failure": null
+}

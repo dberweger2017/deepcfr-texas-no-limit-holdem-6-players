@@ -1,0 +1,73 @@
+{
+  "archive_id": "1aZ5HtPGEY0-qCtQkoJbbY122S6xxFISg",
+  "archive_sha256": "ac79cc76209e95c4dc1c4a6d6903b645fdae4aeec4fd0d7b7f2cf5603ced1139",
+  "archive_bytes": 1224575891,
+  "manifest_member": "ARCHIVE-MANIFEST.json.gz",
+  "manifest_sha256": "177c4eb37a5cfe10f9d940d4a81599e6ec3e6ca560e0cae7755c42adb83cfdd9",
+  "manifest_member_sha256": "83a3b9672b02b4bd250d5e73f5d0b37f818e1bc16e06b408f5d1524abd79d0f3",
+  "original_index": "docs/reports/native-recovery-hu100-artifacts/followup-model-index.json",
+  "retrieval_command": "python3 -m zipfile -e LOCAL_DOWNLOADED_PR200_ZIP results/retrieved/pr200/NEW_ROOT",
+  "whole_archive_verification": "shasum -a 256 LOCAL_DOWNLOADED_PR200_ZIP; require archive_sha256 before extraction",
+  "models": [
+    {
+      "actual_completed_nodes": 100691,
+      "bytes": 1226918,
+      "sha256": "95053dbf9d070ca414214c8514fcbeedd0ca6fafdeccea9c958357aafcf5a293",
+      "archive_member": "research/inputs/average-100000.jsonl.gz",
+      "iteration": 64,
+      "entries": 53743,
+      "source_checkpoint_sha256": "e226eb907f645f2ef9fe3b6600e75904dfd65e8520e52fbd0b97f1e379005bbb",
+      "original_archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+      "original_archive_member": "research/followup-01/pilot-01/average-100000.jsonl.gz",
+      "retrieval_command": "python -m scripts.retrieve_native_hu100_curves --config configs/arena/hu100-learning-curves-v1.json --out results/hu100-learning-curves/run-01/retrieval.json"
+    },
+    {
+      "actual_completed_nodes": 1001382,
+      "bytes": 10772687,
+      "sha256": "0efa0feb35fbe104260a9b1c213b8eca909c7eadf8f4dd59e0a47dad41a452a4",
+      "archive_member": "research/inputs/average-1000000.jsonl.gz",
+      "iteration": 690,
+      "entries": 460885,
+      "source_checkpoint_sha256": "a15733d380b3a281071f3c2c6497862d654b09d380a9dbde531a699eed255c52",
+      "original_archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+      "original_archive_member": "research/followup-01/pilot-01/average-1000000.jsonl.gz",
+      "retrieval_command": "python -m scripts.retrieve_native_hu100_curves --config configs/arena/hu100-learning-curves-v1.json --out results/hu100-learning-curves/run-01/retrieval.json"
+    },
+    {
+      "actual_completed_nodes": 5001210,
+      "bytes": 42473712,
+      "sha256": "05bb9527dc95bf59543ce37a254a897b67949241df2065bb515e88931f50cf80",
+      "archive_member": "research/inputs/average-5000000.jsonl.gz",
+      "iteration": 3406,
+      "entries": 1777063,
+      "source_checkpoint_sha256": "f71188890d3a23d7c3fd76d097bd20293bdcf24ea1d92450fea381fae9030752",
+      "original_archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+      "original_archive_member": "research/followup-01/pilot-01/average-5000000.jsonl.gz",
+      "retrieval_command": "python -m scripts.retrieve_native_hu100_curves --config configs/arena/hu100-learning-curves-v1.json --out results/hu100-learning-curves/run-01/retrieval.json"
+    },
+    {
+      "actual_completed_nodes": 10001922,
+      "bytes": 73371085,
+      "sha256": "3aeb688f342bc164c5851d0d10d4686ddc4ec64e1c1a26330f47c84fd993346c",
+      "archive_member": "research/inputs/average-10000000.jsonl.gz",
+      "iteration": 6983,
+      "entries": 3023624,
+      "source_checkpoint_sha256": "62217d2888b57948434c2ec88d78bdeba95a1882beb7b3615c028e034166963f",
+      "original_archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+      "original_archive_member": "research/followup-01/pilot-01/average-10000000.jsonl.gz",
+      "retrieval_command": "python -m scripts.retrieve_native_hu100_curves --config configs/arena/hu100-learning-curves-v1.json --out results/hu100-learning-curves/run-01/retrieval.json"
+    },
+    {
+      "actual_completed_nodes": 11042440,
+      "bytes": 79195090,
+      "sha256": "ffd53decdd4af5bffc0ae34e98144d43e27eef92a49033a7d4008615576a93be",
+      "archive_member": "research/inputs/average-11042440.jsonl.gz",
+      "iteration": 7722,
+      "entries": 3255387,
+      "source_checkpoint_sha256": "234628a0390502f6b17f4bad3486c47c2a5aa7a297fc611e00287533ea1f4567",
+      "original_archive_id": "1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2",
+      "original_archive_member": "research/followup-01/final-capacity-audit/average-11042440.jsonl.gz",
+      "retrieval_command": "python -m scripts.retrieve_native_hu100_curves --config configs/arena/hu100-learning-curves-v1.json --out results/hu100-learning-curves/run-01/retrieval.json"
+    }
+  ]
+}

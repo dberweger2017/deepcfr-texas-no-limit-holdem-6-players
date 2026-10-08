@@ -42,6 +42,91 @@ Restore exact removed members from [#149's canonical archive](https://drive.goog
 
 # Research results index
 
+## PR200 HU100 checkpoint learning curves — completed evidence, October 8, 2026
+
+[PR200](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/200),
+[protocol](docs/native-hu100-learning-curves.md), [report and exportable plots](docs/reports/native-hu100-learning-curves.md).
+All five averages retained at **100,691; 1,001,382; 5,001,210; 10,001,922; 11,042,440 actual nodes**.
+The last is the verified capacity stop, not its requested-1B filename. No training,
+model changes, checkpoint selection or release claim. **122,880 distinct final
+hands /477,296 actions**, plus 960 excluded pilot hands, all replay/reproduce.
+Uniform plays once/opponent; exact rows are reused. Twenty final-minus-earlier
+comparisons use Bonferroni FWER0.05: only final−100k against check_call improves,
+**+75.90 [+16.79, +135.01] BB/100**; 19 inconclusive. Every checkpoint loses to
+the three aggressive opponents; better coverage does not consistently improve
+profit. The initial reviewed handoff left the PR unmerged; the owner subsequently
+authorized merging. No further research or cleanup follows this task.
+
+M4 isolated root `~/Local/hu100-learning-curves-20261008/`, ignored
+`results/hu100-learning-curves/run-01/`. Scientific source
+`51597e88706465c33dc51577890989aa303fefca`; continuation controller reviewed at
+`7a23843776a98331bb604ee2f1cdbb0473dca3d5`, exact SHA256
+`d7ab9e6cba5743356d54ef86ac069f1c9892368be64be1b6fb39ae7f6ae09641`.
+Final root2026100820312, pilot2026100820311, 2,048blocks/opponent/policy.
+An original terminal fresh-headroom refusal after four complete/reproduced
+checkpoints remains immutable. A disclosed operational protocol amendment filled
+only the never-started fifth panel, under the **same original absolute 30-minute
+cap**, frozen count/schedule and unchanged guards; no passed science repeated.
+All science closed at986.16s from the original start; primary archival verification/
+copy also completed within that cap. No new scheduler or further run is scheduled.
+[Combined receipts and retained failure](docs/reports/native-hu100-learning-curves-artifacts/scientific-closeout.json).
+
+[PR200 Research-Cloud folder](https://drive.google.com/drive/folders/12azuxRTXRyEnpO-7tSb6TTOA4teHccMf),
+[primary ZIP](https://drive.google.com/file/d/1aZ5HtPGEY0-qCtQkoJbbY122S6xxFISg/view),
+`hu100-learning-curves-20261008.zip`: **1,224,575,891 bytes /910 verified members**,
+SHA256 `ac79cc76209e95c4dc1c4a6d6903b645fdae4aeec4fd0d7b7f2cf5603ced1139`.
+Embedded `ARCHIVE-MANIFEST.json.gz` decompressed SHA256
+`177c4eb37a5cfe10f9d940d4a81599e6ec3e6ca560e0cae7755c42adb83cfdd9`,
+compressed member SHA256
+`83a3b9672b02b4bd250d5e73f5d0b37f818e1bc16e06b408f5d1524abd79d0f3`.
+Every member size/SHA256 and native-copy whole hash passes. Native uploaded1/
+uploading0/conflicts0 and independent connector ID/name/size/parent accepted.
+Remote archive bytes **not downloaded**. [Local receipt](docs/reports/native-hu100-learning-curves-artifacts/archive-local-receipt.json)
+· [upload acceptance](docs/reports/native-hu100-learning-curves-artifacts/archive-upload-acceptance.json).
+
+All **five exact input average members, sizes/hashes/actual nodes, original
+checkpoint provenance and retrieval commands**:
+[model restoration index](docs/reports/native-hu100-learning-curves-artifacts/model-retrieval-index.json).
+They are `research/inputs/average-{100000,1000000,5000000,10000000,11042440}.jsonl.gz`;
+all snapshots also remain under `research/hu100-learning-curves/run-01/`.
+The source training checkpoints restore through the unchanged [PR197 model index](docs/reports/native-recovery-hu100-artifacts/followup-model-index.json).
+Input retrieval checked #197's current merged state and its accepted local synced
+ZIP whole/manifest/selected-member hashes; headers independently verify actual
+completed nodes. No historical originals or archives were changed.
+
+Restore to a fresh ignored nonsynced directory: download the indexed ZIP, run
+`shasum -a 256 LOCAL_DOWNLOADED_PR200_ZIP` and require the whole hash above, then
+`python3 -m zipfile -e LOCAL_DOWNLOADED_PR200_ZIP results/retrieved/pr200/NEW_ROOT`.
+Decompress `ARCHIVE-MANIFEST.json.gz`, verify both manifest hashes, then verify
+needed member sizes/SHA256 before use. Exact source is
+`research/exact-source/source-51597e8.tar`; extract it separately or check out that
+pinned Git revision. Raw panel paths are
+`research/hu100-learning-curves/run-01/{pilot,final,pilot-reproduction,final-reproduction}/{actual_nodes}/{opponent}/`.
+Use the frozen original evaluator/auditor/reporting source, not an automatic
+campaign relaunch. The immutable initial stop lives in `run-01/state.json`,
+`run-01/guard/` and `run-01/closeout.json`; continuation has its own claims,
+`continuation-guard/`, `continuation-complete.json` and `continuation-closeout.json`.
+The exact standalone controller and review/qualification live under
+`research/qualification/`. Full schedule, private streams, traces, pilot/final
+stats and all source/qualification failures are retained. Originals remain and
+no cleanup or synced-file eviction occurred. Later report/plots and independent
+review/CI closeout are separate metadata; the primary science ZIP stays immutable.
+
+Accepted [later metadata closeout ZIP](https://drive.google.com/file/d/1ZiaxnPine9S53FI9tOpipmxYP8sL6GIq/view),
+`hu100-learning-curves-closeout-20261008.zip`: **587,007 bytes /31 verified members**,
+SHA256 `ec5304e8e6d75318f673bb4717efac56b4331233eaec3e495642d9a02776a23f`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`feb80cc8acc725231a6e3602165f4004c2c2c0413242b418dac49f50cbc73133`.
+[Local/native receipt](docs/reports/native-hu100-learning-curves-artifacts/closeout-archive-local-receipt.json)
+· [connector/native acceptance](docs/reports/native-hu100-learning-curves-artifacts/closeout-archive-upload-acceptance.json)
+· [independent evidence review](docs/reports/native-hu100-learning-curves-artifacts/evidence-review.json).
+Report, plots/CSVs, review receipts, primary-upload acceptance, restoration index
+and dated pre-final CI snapshot are included. This metadata-only seal/copy happened
+after completed science, with AC/disk/pressure admission, and restarted no science.
+The final PR head's live GitHub checks are authoritative. Restore this ZIP separately
+to a fresh ignored directory; verify its whole SHA256 and embedded manifest/member
+sizes/hashes as above. Neither archive nor any local original was removed.
+
 ## PR197 separately authorized HU100 playing baseline — complete, October 8, 2026
 
 [PR197](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/197),

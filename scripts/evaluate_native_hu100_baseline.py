@@ -86,8 +86,16 @@ def diagnostics(rows):
     return result
 
 
-def execute(config, out, blocks, root, source, *, reproduce=None):
+def execute(config, out, blocks, root, source, *, reproduce=None, reference_run=None):
     settings = json.loads(config.read_text())
+    reference_inputs = None
+    if reference_run:
+        reference_inputs = json.loads((reference_run / 'inputs.json').read_text())
+        if (reference_inputs['root'] != root or reference_inputs['blocks_per_opponent'] != blocks
+                or reference_inputs['source'] != source
+                or reference_inputs['config']['opponents'] != settings['opponents']
+                or not (reference_run / 'complete.json').exists()):
+            raise ValueError('Reused reference must have identical schedule/source')
     if (settings['opponents'] != list(OPPONENTS) or settings['reference'] != REFERENCE
             or settings['stacks'] != [10000, 10000] or settings['small_blind'] != 50
             or settings['big_blind'] != 100 or settings['rake'] != 0
@@ -113,7 +121,10 @@ def execute(config, out, blocks, root, source, *, reproduce=None):
     load_seconds = perf_counter() - load_started
     registry.snapshot(out)
     write_json(out / 'inputs.json', {'config': settings, 'config_sha256': file_hash(config),
-                                   'blocks_per_opponent': blocks, 'root': root, 'source': source})
+                                   'blocks_per_opponent': blocks, 'root': root, 'source': source,
+                                   'reference_run': str(reference_run) if reference_run else None,
+                                   'reference_inputs_sha256': file_hash(reference_run / 'inputs.json')
+                                   if reference_run else None})
     totals = {'hands': 0, 'decisions': 0}
     costs = []
     all_seeds = set()
@@ -160,7 +171,26 @@ def execute(config, out, blocks, root, source, *, reproduce=None):
                                                'source': source, 'at': time()})
 
             ok = run_schedule(plan, schedule, emit, factory=factory,
-                              seed_factory=lambda b, r, a, i: action_seed(root, b, r, a, i))
+                              seed_factory=lambda b, r, a, i: action_seed(root, b, r, a, i),
+                              arms=('candidate',) if reference_run else ('candidate', 'baseline'))
+            if reference_run:
+                # Reuse exact uniform actions and settlements, never sample them again.
+                original = reference_run / opponent
+                with (original / 'hands.jsonl').open() as f:
+                    for line in f:
+                        row = json.loads(line)
+                        if row['arm'] == 'baseline':
+                            hands.write(line); rows.append(row)
+                with (original / 'timings.jsonl').open() as f:
+                    for line in f:
+                        row = json.loads(line)
+                        if row['arm'] == 'baseline':
+                            latency.write(line); timings.append(row)
+                with gzip.open(original / 'decisions.jsonl.gz', 'rt') as f:
+                    for line in f:
+                        row = json.loads(line)
+                        if row['arm'] == 'baseline':
+                            traces.write(line); decisions.append(row)
         report = summarize(plan, rows)
         report['performance'] = performance(timings, perf_counter() - wall)
         report['diagnostics'] = diagnostics(decisions)
@@ -181,6 +211,9 @@ def execute(config, out, blocks, root, source, *, reproduce=None):
         costs.append({'opponent': opponent, 'seconds': perf_counter() - wall,
                       'hands': len(rows), 'decisions': len(decisions)})
     receipt = {'status': 'complete', **totals, 'blocks_per_opponent': blocks, 'root': root,
+               'hands_actually_played': totals['hands'] // 2 if reference_run else totals['hands'],
+               'reference_coverage_model': reference_inputs['config']['model']['sha256']
+               if reference_inputs else settings['model']['sha256'],
                'model_load_seconds': load_seconds, 'wall_seconds': perf_counter() - started,
                'panel_costs': costs, 'source': source, 'reproduced_all_hands_and_decisions': bool(reproduce)}
     write_json(out / 'complete.json', receipt)
@@ -195,8 +228,10 @@ def main():
     p.add_argument('--config', type=Path, required=True); p.add_argument('--out', type=Path, required=True)
     p.add_argument('--blocks', type=int, required=True); p.add_argument('--root', type=int, required=True)
     p.add_argument('--source', required=True); p.add_argument('--reproduce', type=Path)
+    p.add_argument('--reference-run', type=Path)
     a = p.parse_args()
-    print(json.dumps(execute(a.config, a.out, a.blocks, a.root, a.source, reproduce=a.reproduce)))
+    print(json.dumps(execute(a.config, a.out, a.blocks, a.root, a.source,
+                            reproduce=a.reproduce, reference_run=a.reference_run)))
 
 
 if __name__ == '__main__':

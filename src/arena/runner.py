@@ -124,8 +124,11 @@ def run_schedule(
     *,
     factory=make_policy,
     seed_factory=None,
+    arms=("candidate", "baseline"),
 ) -> bool:
     """Emit completed or failed attempts; stop on the first failure. No fallback actions."""
+    if not arms or len(set(arms)) != len(arms) or set(arms) - {"candidate", "baseline"}:
+        raise ValueError("Provide distinct candidate/baseline arms")
     scenarios = {scenario.name: scenario for scenario in plan.scenarios}
     for block in blocks:
         scenario = scenarios[block.scenario]
@@ -138,6 +141,8 @@ def run_schedule(
                 ("candidate", plan.candidate),
                 ("baseline", plan.baseline),
             ):
+                if arm not in arms:
+                    continue
                 session = None
                 policies = None
                 for hand_index in range(scenario.hands_per_rotation):
