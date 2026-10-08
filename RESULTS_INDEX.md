@@ -4,7 +4,7 @@
 [concise report](docs/reports/native-hu100-diagnosis.md), [protocol](docs/native-hu100-diagnosis.md),
 [compact evidence/CSV](docs/reports/native-hu100-diagnosis-artifacts/scientific-summary.json).
 All five #200 average checkpoints and all **102,400 candidate hands /396,161
-actions /177,171 target decisions** diagnose coverage without new play/training
+actions /177,171 target decisions** diagnose coverage without new arena/training
 or policy changes. All actions/settlements replay; native parity has zero
 mismatched hands. All cells and disjoint hand-payoff partitions independently
 recount. Thirty-six focused tests, artifact checks and independent source/evidence
@@ -65,9 +65,19 @@ and original transport correction preserve timing/admission/verification.
 Use the report's analysis/parity/verify commands under a separately authorized
 budget; restoration does not automatically restart the one-use campaign.
 
-Primary archive is immutable. Final report corrections, closed seal/staging
-guards, native/cloud acceptance and review/PR metadata are separate closeout
-evidence, retained locally pending the companion seal below. Local working root:
+Primary archive is immutable. Accepted [closeout ZIP](https://drive.google.com/file/d/17aJ_7HLb83WwXGHI_jEI8rVHuSvdX0js/view),
+`hu100-diagnosis-closeout-20261008.zip`, retains **246,238 bytes /45 verified members**
+of corrected report/source/index snapshots, closed seal/staging guards, resource
+receipts, acceptance and ten-test verification through `adb8ff9`. SHA256
+`7b8f589c87db6945445cb8e8229c1807f115de8ca46a763f3455ba1be149626e`;
+`ARCHIVE-MANIFEST.json` SHA256
+`5456e210e9a1bde4b6f8cbfdf4864a2b3e8cb08e7123e088c16cbefae4191616`.
+Whole/member readback, connector upload and independent ID/name/size/parent
+acceptance pass before the original deadline. Restore with the same fresh-root
+manifest-driven procedure above. [Local receipt](docs/reports/native-hu100-diagnosis-artifacts/closeout-archive-receipt.json)
+and [upload acceptance](docs/reports/native-hu100-diagnosis-artifacts/closeout-upload-acceptance.json).
+Final metadata review cleared exact `adb8ff9`; subsequent receipt/index/CI records
+remain in Git. No archive was rewritten. Local working root:
 `~/Local/hu100-coverage-loss-diagnosis-20261008/results/hu100-diagnosis/run-01`.
 
 ## PR190 global equity-bucket validation (October 8)
