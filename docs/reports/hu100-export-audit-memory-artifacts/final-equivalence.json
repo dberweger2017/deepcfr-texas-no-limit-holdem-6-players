@@ -1,0 +1,44 @@
+[
+  {
+    "model": "hu100-100691",
+    "entries": 53743,
+    "native_compressed_byte_identity": true,
+    "python_compressed_byte_identity": true,
+    "full_audit_receipt_identity": true
+  },
+  {
+    "model": "hu100-11042440",
+    "entries": 3255387,
+    "native_compressed_byte_identity": true,
+    "python_compressed_byte_identity": true,
+    "full_audit_receipt_identity": true
+  },
+  {
+    "model": "hu20-reference-1b",
+    "entries": 4319080,
+    "native_compressed_byte_identity": true,
+    "python_compressed_byte_identity": true,
+    "full_audit_receipt_identity": true
+  },
+  {
+    "model": "hu100-1001382",
+    "entries": 460885,
+    "native_compressed_byte_identity": true,
+    "python_compressed_byte_identity": true,
+    "full_audit_receipt_identity": true
+  },
+  {
+    "model": "hu100-5001210",
+    "entries": 1777063,
+    "native_compressed_byte_identity": true,
+    "python_compressed_byte_identity": true,
+    "full_audit_receipt_identity": true
+  },
+  {
+    "model": "hu100-10001922",
+    "entries": 3023624,
+    "native_compressed_byte_identity": true,
+    "python_compressed_byte_identity": true,
+    "full_audit_receipt_identity": true
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "status": "accepted",
+  "checked_at": "2026-10-08T12:18:40.861Z",
+  "native": {
+    "isUploaded": 1,
+    "isUploading": 0,
+    "hasUnresolvedConflicts": 0,
+    "documentSize": 4901349021,
+    "itemIdentifier": 81492
+  },
+  "cloud": {
+    "id": "1-XHLJ-dM_DFMFTtXZYJZW7OmBeW2VLem",
+    "title": "hu100-export-audit-memory-M4-20261008.zip",
+    "mime_type": null,
+    "size": "4901349021",
+    "url": "https://drive.google.com/file/d/1-XHLJ-dM_DFMFTtXZYJZW7OmBeW2VLem/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1-XHLJ-dM_DFMFTtXZYJZW7OmBeW2VLem/view?usp=drivesdk",
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "10d6DPp8i6uQrW5QaEaJEW364Dd7Vt7nv"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "sha256": "b5ae66eed7ed5e07c4fb8aa25cf3f72fa6de36a203798e568859783da380c554",
+  "verification": "Local ZIP, compressed/decompressed manifest and all 309 members hash-verified before native copy; copied file hash verified. Native completion plus connector ID/name/size/parent acceptance; no remote-byte redownload.",
+  "asynchronous_upload_acceptance_after_compute": true,
+  "originals_retained": true
+}

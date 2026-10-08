@@ -1,0 +1,17 @@
+{
+  "bytes": 4901349021,
+  "copied_at": 1791461512.118732,
+  "copied_before_deadline": true,
+  "deadline": 1791461710.376726,
+  "folder_id": "10d6DPp8i6uQrW5QaEaJEW364Dd7Vt7nv",
+  "manifest_member_sha256": "f965f1e770d8738d68c5c253a6af3501b85ee872185080da0f19e79dd2ef08d3",
+  "manifest_sha256": "2c2193ce313c2c5a9e953b236051e5836f9685b7a8714bd267f1a33b743b0357",
+  "members_verified": 309,
+  "native_path": "/Users/dberweger/Local/Research-Cloud/PR-202-HU100-export-audit-memory/hu100-export-audit-memory-M4-20261008.zip",
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "sha256": "b5ae66eed7ed5e07c4fb8aa25cf3f72fa6de36a203798e568859783da380c554",
+  "source": "506743412fdbf7ec2cb3f4a1069b68d0effcb538",
+  "status": "locally-verified",
+  "verified_at": 1791461506.108098
+}
