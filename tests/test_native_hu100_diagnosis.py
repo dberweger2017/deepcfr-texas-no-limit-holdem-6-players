@@ -2,11 +2,12 @@
 
 from dataclasses import asdict
 import fcntl
+import gzip
 import json
 
 import pytest
 
-from scripts.diagnose_native_hu100 import Cell, joined, signature, support_witness
+from scripts.diagnose_native_hu100 import Cell, joined, signature, support_witness, verify
 from src.blueprint.abstraction import HU100_SCHEMA, choices, information_key
 from src.game.hand import Hand, Table
 from src.game.types import Action, ActionKind
@@ -111,3 +112,39 @@ def test_root_lock_prevents_overlapping_science_and_archive(tmp_path):
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         with pytest.raises(BlockingIOError):
             guard(tmp_path, 'archive', [])
+
+
+def test_independent_recount_rejects_changed_cell_mean(tmp_path):
+    # Mixed missing/covered rows exercise the former diluted-denominator failure.
+    base = {'nodes': 1, 'opponent': 'fixture', 'block': 0, 'rotation': 0, 'net_bb': 1,
+            'street': 'preflop', 'position': 'BB', 'pot_band': '4-16',
+            'fold_probability': .2, 'passive_probability': .3, 'raise_probability': .5}
+    selected = [{**base, 'lookup': 'positive-mass-known-key', 'support': 'stored-training-witness',
+                 'mass': 100, 'visits': 2, 'mass_band': '100-10k', 'visit_band': '2-9'},
+                {**base, 'lookup': 'missing-key', 'support': 'supported-observed-menu-path',
+                 'mass': None, 'visits': None, 'mass_band': 'missing', 'visit_band': 'missing'}]
+    with gzip.open(tmp_path / 'features.jsonl.gz', 'wt') as out:
+        out.write(''.join(json.dumps(r) + '\n' for r in selected))
+    p = {'nodes': 1, 'opponent': 'fixture', 'target_decisions': 2, 'hands': 1,
+         'bb_per_100': 100, 'missing_support': {'supported-observed-menu-path': 1},
+         'hand_exposures': {'ever-missing': {'hands': 1, 'net_bb': 1, 'mean_net_bb': 1,
+                                            'contribution_bb_per_100': 100}}}
+    (tmp_path / 'summary.json').write_text(json.dumps({'target_decisions': 2, 'hands': 1, 'panels': [p]}))
+    (tmp_path / 'hands.jsonl').write_text(json.dumps({**base, 'exposure': 'ever-missing'}) + '\n')
+    (tmp_path / 'native-fixtures.jsonl').write_text(json.dumps({'final_stacks': [10100, 9900]}) + '\n')
+    groups = {}
+    dims = (('street', 'position', 'pot_band', 'lookup'), ('street', 'visit_band'),
+            ('street', 'mass_band'), ('lookup',), ('street',))
+    for r in selected:
+        for names in dims:
+            key = names, tuple(r[n] for n in names)
+            groups.setdefault(key, Cell()).add(r)
+    cells = [{'nodes': 1, 'opponent': 'fixture', 'dimensions': list(names),
+              **dict(zip(names, values)), **cell.result()} for (names, values), cell in groups.items()]
+    (tmp_path / 'cells.json').write_text(json.dumps(cells))
+    verify(tmp_path)
+    mixed = next(c for c in cells if c['dimensions'] == ['street'])
+    mixed['mean_mass'] = 50  # The former error passed total-denominator checks.
+    (tmp_path / 'cells.json').write_text(json.dumps(cells))
+    with pytest.raises(ValueError, match='Stratum mean differs: mean_mass'):
+        verify(tmp_path)

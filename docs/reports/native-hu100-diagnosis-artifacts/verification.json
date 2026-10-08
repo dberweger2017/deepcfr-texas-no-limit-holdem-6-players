@@ -1,0 +1,7 @@
+{
+  "all_hand_partitions_add_up": true,
+  "feature_rows": 177171,
+  "panels": 25,
+  "scope": "independent feature/stratum counts and payoff partition arithmetic; replay performed separately",
+  "status": "verified"
+}

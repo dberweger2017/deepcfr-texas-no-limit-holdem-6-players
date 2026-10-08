@@ -81,7 +81,8 @@ def retrieve(out):
                     or header['checkpoint_header']['native_state']['completed_nodes'] != m['actual_completed_nodes']):
                 raise ValueError('Checkpoint average identity differs')
     write(out / 'retrieval.json', {'status': 'verified', 'archive': str(ARCHIVE),
-          'index': index, 'selected_members': selected, 'remote_bytes_downloaded': False,
+          'index': index, 'selected_members': selected, 'separate_connector_byte_download': False,
+          'native_read_may_hydrate_cloud_bytes': True,
           'method': 'read-only local accepted synced archive; full ZIP and selected member SHA256',
           'owning_pr_status_at_retrieval': 'MERGED; checked live before retrieval'})
 
