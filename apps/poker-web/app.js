@@ -82,9 +82,10 @@ async function recover() {
       $("model-version").value = catalog.default || "";
       $("model-version").hidden = $("model-version-label").hidden = !availableModels.length;
       const model = availableModels.find(item => item.version === catalog.default) || await request("/api/model");
-      $("setup-model").textContent = `${model.name} · HU20 · SHA-256 ${model.sha256}`;
+      $("setup-model").textContent = `${model.name} · ${model.table?.stack / 100 || 20} BB · SHA-256 ${model.sha256}`;
       $("setup-title").textContent = model.adapter === "uniform-restricted-v1"
         ? "Uniform-random calibration" : `Play ${model.name.split(" · ")[0]}`;
+      tableConfiguration(model);
       updateSetup();
       if (model.benchmarkOnly) {
         for (const input of document.querySelectorAll('input[name="sessionType"]')) {
@@ -273,7 +274,7 @@ function render() {
   $("diagnostics").textContent = "";
   if (!state.hand) {
     $("turn").textContent = state.phase === "aborted" ? "Benchmark ended early" : "Ready to deal";
-    $("result").textContent = state.phase === "aborted" ? "Completed hands are retained in the result." : `Start a 20 BB hand against ${state.model.name.split(" · ")[0]}.`;
+    $("result").textContent = state.phase === "aborted" ? "Completed hands are retained in the result." : `Start a ${state.table?.stack / 100 || 20} BB hand against ${state.model.name.split(" · ")[0]}.`;
     $("new-hand").hidden = state.phase === "aborted"; $("new-hand").disabled = busy || !!saved.pending;
     $("new-hand").textContent = activeBenchmark ? `Deal hand 1 / ${state.benchmark.targetHands}` : "Deal next hand";
     clear($("controls")); clear($("events")); clear($("board")); clear($("bot-seat")); clear($("human-seat"));
@@ -335,8 +336,9 @@ $("create").addEventListener("click", async () => {
 $("model-version").addEventListener("change", () => {
   const model = availableModels.find(item => item.version === $("model-version").value);
   if (model) {
-    $("setup-model").textContent = `${model.name} · HU20 · SHA-256 ${model.sha256}`;
+    $("setup-model").textContent = `${model.name} · ${model.table?.stack / 100 || 20} BB · SHA-256 ${model.sha256}`;
     $("setup-title").textContent = `Play ${model.version}`;
+    tableConfiguration(model);
   }
 });
 let casualVisibility = $("visibility").value;
@@ -421,3 +423,9 @@ window.addEventListener("pagehide", () => spectatorPlayback.pause());
 window.addEventListener("online", recover);
 $("retry").addEventListener("click", recover);
 recover();
+
+function tableConfiguration(model) {
+  const stack = model.table?.stack / 100 || 20;
+  $("table-configuration").textContent = `Heads-up, ${stack} BB stacks, 0.5 / 1 BB blinds. Stacks reset after every hand.${model.research ? " Research policy; no release or general strength claim." : ""} Translation: ${model.inference?.translation ? "enabled" : "disabled"}.`;
+  $("spectator-configuration").textContent = `${stack} BB stacks reset each hand. The button alternates. Both bots use only their own legal observations.`;
+}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HU20 · Local Poker Table</title>
+  <title>Heads-up · Local Poker Table</title>
   <link rel="stylesheet" href="/style.css">
   <script src="/playback.js" defer></script>
   <script src="/spectator.js" defer></script>
@@ -12,7 +12,7 @@
 <body>
   <main class="shell">
     <header class="topbar">
-      <div class="brand"><span class="brand-mark">♠</span><div><strong>HU20</strong><small>LOCAL PLAY TABLE</small></div></div>
+      <div class="brand"><span class="brand-mark">♠</span><div><strong>HU</strong><small>LOCAL PLAY TABLE</small></div></div>
       <div id="connection" class="connection">Connecting…</div>
     </header>
 
@@ -30,7 +30,7 @@
     <section id="setup" class="setup panel" hidden>
       <div class="eyebrow">NEW SESSION</div>
       <h1 id="setup-title">Play v0.4.2</h1>
-      <p>Heads-up, 20 BB stacks, 0.5 / 1 BB blinds. Stacks reset after every hand.</p>
+      <p id="table-configuration">Heads-up, 20 BB stacks, 0.5 / 1 BB blinds. Stacks reset after every hand.</p>
       <label id="model-version-label" for="model-version" hidden>Opponent model</label>
       <select id="model-version" hidden></select>
       <div id="setup-model" class="setup-model">Checking the pinned model…</div>
@@ -43,7 +43,7 @@
         <label for="bot-a-model">Bot A model</label><select id="bot-a-model"></select>
         <label for="bot-b-model">Bot B model</label><select id="bot-b-model"></select>
         <div id="spectator-identities" class="setup-model"></div>
-        <p class="hint">20 BB stacks reset each hand. The button alternates. Sessions start paused; both bots use only their own legal observations.</p>
+        <p id="spectator-configuration" class="hint">20 BB stacks reset each hand. The button alternates. Sessions start paused; both bots use only their own legal observations.</p>
       </div>
       <div id="human-options">
       <div class="field-label">Bet sizing</div>

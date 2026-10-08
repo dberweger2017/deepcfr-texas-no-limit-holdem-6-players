@@ -176,6 +176,24 @@ def handler_for(service, token, port):
 
 
 def single_table(args):
+    if getattr(args, 'hu100_research', None):
+        from src.policies.hu100_research import load_policy, VERSION_ID
+        from src.play_api.versions import VersionedTables
+        from src.play_api.spectator import SpectatorService
+        from src.play_api.service import _model_info
+        policy = load_policy(args.hu100_research, translation=args.translate_off_menu)
+        identity = {'version': VERSION_ID, **_model_info(policy)}
+        service = PlayService(args.data_dir / VERSION_ID / 'private.sqlite', policy,
+                              source_version=args.source_version)
+        try:
+            spectator = SpectatorService(args.data_dir / VERSION_ID / 'spectator.sqlite',
+                                         {VERSION_ID: policy}, {VERSION_ID: identity},
+                                         source_version=args.source_version)
+        except Exception:
+            service.close()
+            raise
+        return VersionedTables({VERSION_ID: service}, default_version=VERSION_ID,
+                               spectator=spectator, identities={VERSION_ID: identity})
     if args.uniform_random:
         from src.play_api.uniform_random import UniformRestrictedPolicy
         policy = UniformRestrictedPolicy()
@@ -201,6 +219,12 @@ def main():
                           help="Pinned CFR+ first-lineage average; restricted benchmarks only")
     opponent.add_argument("--uniform-random", action="store_true",
                           help="Benchmark-only control over the same restricted HU20 menu; loads no model")
+    opponent.add_argument('--hu100-research', type=Path,
+                          help='Explicit hash-pinned PR207 terminal HU100 average; no release/default change')
+    parser.add_argument('--translate-off-menu', action='store_true',
+                        help='Explicit HU100 public-history translation; recorded in every session')
+    parser.add_argument('--stack-bb', type=int, choices=(20, 100),
+                        help='Optional table assertion; must match the selected policy')
     parser.add_argument("--data-dir", type=Path, default=Path("results/play-web"))
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--source-version", default="unknown")
@@ -208,8 +232,12 @@ def main():
     args = parser.parse_args()
     if not 1 <= args.port <= 65535:
         parser.error("Port must be 1–65535")
+    if args.translate_off_menu and not args.hu100_research:
+        parser.error('--translate-off-menu requires --hu100-research')
+    if args.stack_bb is not None and args.stack_bb != (100 if args.hu100_research else 20):
+        parser.error('Model and table stack configuration differ')
     os.umask(0o077)
-    if args.models_dir or not (args.policy or args.o_candidate or args.shield_policy or args.uniform_random):
+    if args.models_dir or not (args.policy or args.o_candidate or args.shield_policy or args.uniform_random or args.hu100_research):
         from src.play_api.versions import load_tables
         service = load_tables(args.models_dir or Path("models"), args.data_dir, args.source_version)
     else:

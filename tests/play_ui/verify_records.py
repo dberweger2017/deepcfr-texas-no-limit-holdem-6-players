@@ -10,6 +10,7 @@ from src.arena.schedule import digest
 from src.blueprint.abstraction import choices
 from src.policies.v040 import EXPECTED_SHA256 as MODEL_SHA256
 from src.play_api.service import _hand
+from src.play_api.configuration import recorded_table
 
 
 def verify(database, expected_hash=MODEL_SHA256):
@@ -20,11 +21,13 @@ def verify(database, expected_hash=MODEL_SHA256):
         counts["sessions"] += 1
         assert state["modelSha256"] == expected_hash
         for record in state["history"]:
+            assert recorded_table(record) == recorded_table(state)
+            stack = recorded_table(record).stack
             hand = _hand(record)
             assert hand.finished
             assert digest(public_events(hand.events)) == record["publicEventsSha256"]
-            assert hand.observe(0).players[0].stack - 2000 == record["humanChips"]
-            assert sum(player.stack for player in hand.observe(0).players) == 4000
+            assert hand.observe(0).players[0].stack - stack == record["humanChips"]
+            assert sum(player.stack for player in hand.observe(0).players) == 2 * stack
             counts["hands"] += 1
             if state["playMode"] == "free":
                 initial = _hand(dict(record, actions=[]))

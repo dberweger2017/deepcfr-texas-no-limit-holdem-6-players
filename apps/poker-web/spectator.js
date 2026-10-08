@@ -33,7 +33,7 @@ function spectatorIdentities() {
   clear($("spectator-identities"));
   for (const [index, id] of ["bot-a-model", "bot-b-model"].entries()) {
     const model = availableModels.find(item => item.version === $(id).value);
-    if (model) $("spectator-identities").append(node("div", "identity", `Bot ${index ? "B" : "A"} · ${model.version}\nModel SHA-256 ${model.sha256}\nManifest SHA-256 ${model.manifestSha256}`));
+    if (model) $("spectator-identities").append(node("div", "identity", `Bot ${index ? "B" : "A"} · ${model.version}\nModel SHA-256 ${model.sha256}\n${model.manifestSha256 ? `Manifest SHA-256 ${model.manifestSha256}` : "Research identity; no release manifest"}`));
   }
 }
 
@@ -52,7 +52,8 @@ function spectatorSeat(target, seatIndex, hand) {
 function identityDetails(models) {
   const fragment = document.createDocumentFragment();
   for (const [index, model] of models.entries()) {
-    const item = node("div", "identity", `Bot ${index ? "B" : "A"} · ${model.name}\nModel SHA-256 ${model.sha256}\nManifest SHA-256 ${model.manifestSha256}\n${model.game} · ${model.schema} · ${model.adapter}\n`);
+    const item = node("div", "identity", `Bot ${index ? "B" : "A"} · ${model.name}\nModel SHA-256 ${model.sha256}\n${model.manifestSha256 ? `Manifest SHA-256 ${model.manifestSha256}` : "Research identity; no release manifest"}\n${model.game} · ${model.schema} · ${model.adapter}\n`);
+    if (!model.manifestUrl) { fragment.append(item); continue; }
     const link = node("a", "", "Published release manifest"); link.href = model.manifestUrl;
     link.target = "_blank"; link.rel = "noopener noreferrer"; item.append(link); fragment.append(item);
   }
@@ -109,7 +110,7 @@ function decisionHistory(records, target) {
 
 function renderSpectator() {
   const hand = state.hand;
-  $("mode").textContent = `BOT-VS-BOT SPECTATOR / ${spectatorPlayback.running ? "PLAYING" : "PAUSED"} / 20 BB`;
+  $("mode").textContent = `BOT-VS-BOT SPECTATOR / ${spectatorPlayback.running ? "PLAYING" : "PAUSED"} / ${state.table?.stack / 100 || 20} BB`;
   $("model").textContent = `Bot A · ${state.models[0].version} versus Bot B · ${state.models[1].version}`;
   $("session-stat").hidden = false; $("session-bb").textContent = `A ${signed(state.sessionChips[0])} · B ${signed(state.sessionChips[1])}`;
   $("progress").hidden = true; $("benchmark-end").hidden = true;
