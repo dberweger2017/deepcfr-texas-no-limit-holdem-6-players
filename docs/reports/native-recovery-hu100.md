@@ -31,7 +31,11 @@ original-baseline, fresh per-audit admission, terminal-stop, successful-closeout
 whole-family coordinator and fresh stage/phase time-budget findings. Round 9
 found no blocking P1/P2 source issues. [Receipt](native-recovery-hu100-artifacts/followup-source-review.json).
 [Full CI](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37746167499)
-passed at the executed source. Final independent evidence review is pending.
+passed at the executed source. Independent evidence review round 10 found no
+blocking P1/P2 findings at `288b3f104dd61d030dfd75b65f632fdf3a1f610a`.
+[Review receipt](native-recovery-hu100-artifacts/followup-evidence-review.json).
+It checked compact retained evidence; it did not rerun science or independently
+inspect models/ZIP bytes or live M4 processes/timers.
 
 ## HU20 equivalence verified
 
@@ -131,8 +135,19 @@ size/parent confirms acceptance. Remote archive bytes were **not** downloaded.
 Retained HU20 inputs refer to the already accepted original archive and exact
 member hashes; no original training was repeated. [Restoration index](../../RESULTS_INDEX.md).
 
-Post-archive guard/upload/review/report receipts will be sealed in a closeout
-supplement. No merge, publication/release, arenas, paid compute, further limit
+[Closeout supplement](https://drive.google.com/file/d/16Cye_hUW6UyEbDpk112C0NC1O20mm_GC/view):
+**330,439 bytes /31 members**, SHA256
+`2921af44703c8c1fe8ea03278b7011f73ded1c99305c221f6753a626c7673ccc`;
+embedded manifest SHA256
+`be42cb352154a81c2bde068118d591fa0de84550a696f5bd68c2c8f8aa3c7f6b`.
+All member sizes/hashes read back locally; native upload and independent cloud
+ID/name/size/parent accepted, with no remote-byte download. It preserves primary
+archive guard/upload evidence, review 10, timers, worker closeout, corrections
+and dated report/index/PR snapshots. Those snapshots precede the supplement
+own acceptance; this final Git index/receipt is authoritative.
+[Receipt](native-recovery-hu100-artifacts/followup-closeout-archive-receipt.json),
+[worker closeout](native-recovery-hu100-artifacts/followup-worker-closeout.json),
+[timers](native-recovery-hu100-artifacts/followup-timers-disabled.json). No merge, publication/release, arenas, paid compute, further limit
 increase, deadline extension or cleanup is authorized by this result.
 
 ---

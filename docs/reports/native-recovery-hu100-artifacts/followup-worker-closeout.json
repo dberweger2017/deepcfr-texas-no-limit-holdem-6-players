@@ -1,0 +1,17 @@
+{
+  "at": 1791448180.561192,
+  "checked_pids": [
+    19325,
+    19337,
+    19751,
+    20290,
+    20300,
+    20478,
+    20872
+  ],
+  "no_retained_science_or_primary_archive_pids_alive": true,
+  "science_terminal": true,
+  "no_new_training": true,
+  "original_state_sha256": "ee17a86de64b85f308ae9ac5c494fce4ece333245f3a97ca288b3427d6840fa5",
+  "originals_retained": true
+}

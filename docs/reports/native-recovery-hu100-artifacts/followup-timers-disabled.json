@@ -1,0 +1,25 @@
+{
+  "checked_utc": "2026-10-08 08:28:37 UTC",
+  "timers": [
+    {
+      "id": "scheduled-task:command:mcp:cb89182f-41c8-40cb-998f-3f002cda0873:schedule-task:native-recovery-hu100-20261008-execution",
+      "enabled": false,
+      "nextRunAt": null
+    },
+    {
+      "id": "scheduled-task:command:mcp:cb89182f-41c8-40cb-998f-3f002cda0873:schedule-task:native-recovery-hu100-20261008-deadline",
+      "enabled": false,
+      "nextRunAt": null
+    },
+    {
+      "id": "scheduled-task:command:mcp:cb89182f-41c8-40cb-998f-3f002cda0873:schedule-task:native-recovery-hu100-20261008-admission",
+      "enabled": false,
+      "nextRunAt": null
+    },
+    {
+      "id": "scheduled-task:command:mcp:cb89182f-41c8-40cb-998f-3f002cda0873:schedule-task:native-recovery-hu100-20261008-initial",
+      "enabled": false,
+      "nextRunAt": null
+    }
+  ]
+}

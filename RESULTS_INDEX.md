@@ -15,7 +15,9 @@ Native entry ceiling followed measured 2× export/audit headroom; no hard resour
 guard fired, no retry. Original failed campaign below remains unchanged.
 M4 ignored root `results/native-recovery-hu100/followup-01`, separate terminal
 `followup-state.json`. Qualification110 Python/7Rust/build/artifact, independent
-source review9 and full CI passed; final evidence review pending.
+source review9 and full CI passed; evidence review10 found no blocking P1/P2
+findings at documentation source `288b3f104dd61d030dfd75b65f632fdf3a1f610a`.
+[Review](docs/reports/native-recovery-hu100-artifacts/followup-evidence-review.json).
 
 [Existing Research-Cloud folder](https://drive.google.com/drive/folders/1D2f8JkP1oZYPmeph9AexXD5ZnSLgBqfI),
 [follow-up ZIP](https://drive.google.com/file/d/1kMXJIUUB6YkYphhHSKsRp3Xacz_Oxno2/view)
@@ -50,7 +52,25 @@ LOCAL_DOWNLOADED_FOLLOWUP_ZIP results/retrieved/pr197/NEW_FOLLOWUP_ROOT`; verify
 required member size/SHA256 against the embedded manifest/model index before use.
 Original HU20/historical #182 restoration below remains unchanged. No model enters
 Git. All science exited; timers disabled; no cleanup/merge/release/arena/paid
-compute. Closeout supplement pending.
+compute.
+
+[Follow-up closeout ZIP](https://drive.google.com/file/d/16Cye_hUW6UyEbDpk112C0NC1O20mm_GC/view)
+`native-recovery-hu100-followup-closeout-20261008.zip`: **330,439 bytes /31 members**,
+SHA256 `2921af44703c8c1fe8ea03278b7011f73ded1c99305c221f6753a626c7673ccc`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`be42cb352154a81c2bde068118d591fa0de84550a696f5bd68c2c8f8aa3c7f6b`.
+Every member read back locally; native uploaded1/uploading0/conflicts0 plus
+independent cloud ID/name/size/parent accepted; no remote-byte download.
+[Receipt](docs/reports/native-recovery-hu100-artifacts/followup-closeout-archive-receipt.json).
+Members include `closeout/followup-evidence-review-round10.json`,
+`closeout/followup-timers-final.json`, `closeout/worker-closeout.json`,
+`primary-archive/followup-provenance-corrections.json` and primary archive
+guard/upload metadata. Report/index/PR snapshots predate this ZIP own acceptance;
+final Git receipt/index supersede them. Retrieve to a fresh ignored directory:
+`shasum -a 256 LOCAL_DOWNLOADED_FOLLOWUP_CLOSEOUT_ZIP`, require the whole hash above,
+then `python3 -m zipfile -e LOCAL_DOWNLOADED_FOLLOWUP_CLOSEOUT_ZIP
+results/retrieved/pr197/NEW_FOLLOWUP_CLOSEOUT_ROOT`; verify needed member
+size/SHA256 against the embedded manifest. No original archive was replaced.
 
 ## PR197 original campaign — native recovery / HU100 resource stop, October 8, 2026
 
