@@ -305,6 +305,15 @@ def models():
     a = read(folder / 'audit.json'); terminal = telemetry(folder / 'telemetry.jsonl')
     if a['status'] != 'verified' or terminal['completed_nodes'] <= PARENT_NODES:
         raise ValueError('Advanced verified terminal required')
+    # Admission pins the exact audited/restored bytes, not self-declared model metadata.
+    for path, expected in a['files'].items():
+        p = Path(path)
+        if p.stat().st_size != expected['bytes'] or file_hash(p) != expected['sha256']:
+            raise ValueError('Stage1 audited member changed')
+    for member in read(s1 / 'retrieval.json')['members']:
+        p = Path(member['local_path'])
+        if p.stat().st_size != member['bytes'] or file_hash(p) != member['sha256']:
+            raise ValueError('Stage1 restored parent changed')
     paths = [s1 / 'parent-average.gz', folder / 'average.gz']
     specs = []
     for path in paths:
