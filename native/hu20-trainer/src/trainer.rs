@@ -7,7 +7,8 @@
 //! same seed and roots per seat. Production HU20 runs use one root per seat; more
 //! roots per seat run in parallel.
 
-use crate::cfr::{AverageRule, Discounts, Key, Lookup, Node, Options, Sampler, Table, Traversal};
+use crate::cfr::{AverageRule, Discounts, Key, Node, Options, Sampler, Table, Traversal};
+use crate::store::{Shard, Store, SHARDS};
 use crate::streams::{engine_deck, python_seed, Mt};
 use crate::game::{Game, Hand};
 use flate2::write::GzEncoder;
@@ -20,36 +21,9 @@ use std::path::Path;
 pub const GAME: &str = "hu20-native-reopening-20bb-52card-no-ante-rake-v1";
 pub const FORMAT: &str = "holdem-hu20-native-reopening-blueprint-v1";
 
-pub const SHARDS: usize = 64;
-
-/// The strategy table split by key so deltas merge and apply in parallel.
-#[derive(Default)]
-pub struct Sharded(pub Vec<Table>);
-
-impl Sharded {
-    fn new() -> Sharded {
-        Sharded((0..SHARDS).map(|_| Table::default()).collect())
-    }
-    pub fn shard(key: &Key) -> usize {
-        key[15] as usize % SHARDS
-    }
-    pub fn len(&self) -> usize {
-        self.0.iter().map(|t| t.len()).sum()
-    }
-    pub fn iter(&self) -> impl Iterator<Item = (&Key, &Node)> {
-        self.0.iter().flat_map(|t| t.iter())
-    }
-}
-
-impl Lookup for Sharded {
-    fn lookup(&self, key: &Key) -> Option<&Node> {
-        self.0[Self::shard(key)].get(key)
-    }
-}
-
 pub struct Trainer {
     pub game: Game,
-    pub table: Sharded,
+    pub table: Store,
     /// Per-task delta maps, emptied and reused every iteration.
     scratch: Vec<Table>,
     pub iteration: u64,
@@ -68,7 +42,7 @@ pub struct Trainer {
 
 impl Trainer {
     pub fn new(seed: u64, roots_per_seat: usize) -> Trainer {
-        Trainer { game: Game::Hu20, table: Sharded::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0, coverage_start: [0; 3], decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4],
+        Trainer { game: Game::Hu20, table: Store::new(), scratch: Vec::new(), iteration: 0, seed, roots_per_seat, nodes: 0, coverage_start: [0; 3], decisions_by_street: [0; 4], traverser_visits_by_street: [0; 4],
                   average: AverageRule::TraverserReach, options: Options::default(), discounts: Discounts::default() }
     }
 
@@ -122,7 +96,7 @@ impl Trainer {
         let group = |(deltas, _, _, _): &(Table, u64, [u64; 4], [u64; 4])| {
                 let mut by_shard: Vec<Vec<(Key, Node)>> = vec![Vec::new(); SHARDS];
                 for (key, delta) in deltas {
-                    by_shard[Sharded::shard(key)].push((*key, *delta));
+                    by_shard[Store::shard(key)].push((*key, *delta));
                 }
                 by_shard
         };
@@ -133,7 +107,7 @@ impl Trainer {
         }
         let discounts = &self.discounts;
         // Per shard: merge tasks in order, then apply. Each key sees Python's addition order.
-        let apply = |(shard, table): (usize, &mut Table)| {
+        let apply = |(shard, table): (usize, &mut Shard)| {
             let mut merged = Table::default();
             for task in &grouped {
                 for (key, delta) in &task[shard] {
@@ -147,35 +121,34 @@ impl Trainer {
                 }
             }
             for (key, delta) in merged {
-                let node = table.entry(key).or_insert_with(|| Node {
-                    stamp: (iteration - 1).min(u32::MAX as u64) as u32,
-                    ..Node::empty(delta.code, delta.len as usize)
+                let fresh = || Node { stamp: (iteration - 1).min(u32::MAX as u64) as u32, ..Node::empty(delta.code, delta.len as usize) };
+                table.update(key, fresh, |node| {
+                    assert!(node.code == delta.code, "an abstract infoset changed its action labels");
+                    // Only traverser visits carry regrets; an opponent-only delta adds to the average alone,
+                    // so discounting and flooring happen on the same updates under either average rule.
+                    let regrets = delta.visits > 0;
+                    if regrets && options.dcfr.is_some() {
+                        discounts.catch_up(node, iteration - 1);
+                    }
+                    for i in 0..delta.len as usize {
+                        // An opponent-only delta's regrets are +0.0; adding them would still turn a -0.0 regret
+                        // into +0.0 in this trainer alone.
+                        if regrets {
+                            node.regrets[i] += delta.regrets[i];
+                        }
+                        node.average[i] += delta.average[i];
+                        assert!(node.regrets[i].is_finite() && node.average[i].is_finite(), "non-finite blueprint update");
+                    }
+                    if regrets && options.dcfr.is_some() {
+                        discounts.catch_up(node, iteration);
+                    }
+                    if let (true, Some(floor)) = (regrets, options.regret_floor) {
+                        for r in &mut node.regrets[..delta.len as usize] {
+                            *r = r.max(floor);
+                        }
+                    }
+                    node.visits += delta.visits;
                 });
-                assert!(node.code == delta.code, "an abstract infoset changed its action labels");
-                // Only traverser visits carry regrets; an opponent-only delta adds to the average alone,
-                // so discounting and flooring happen on the same updates under either average rule.
-                let regrets = delta.visits > 0;
-                if regrets && options.dcfr.is_some() {
-                    discounts.catch_up(node, iteration - 1);
-                }
-                for i in 0..delta.len as usize {
-                    // An opponent-only delta's regrets are +0.0; adding them would still turn a -0.0 regret
-                    // into +0.0 in this trainer alone.
-                    if regrets {
-                        node.regrets[i] += delta.regrets[i];
-                    }
-                    node.average[i] += delta.average[i];
-                    assert!(node.regrets[i].is_finite() && node.average[i].is_finite(), "non-finite blueprint update");
-                }
-                if regrets && options.dcfr.is_some() {
-                    discounts.catch_up(node, iteration);
-                }
-                if let (true, Some(floor)) = (regrets, options.regret_floor) {
-                    for r in &mut node.regrets[..delta.len as usize] {
-                        *r = r.max(floor);
-                    }
-                }
-                node.visits += delta.visits;
             }
         };
         // Two traversals per iteration (the production setting) are cheaper to apply serially.
@@ -242,10 +215,8 @@ impl Trainer {
             let file = std::fs::File::create(&temporary)?;
             let mut out = GzEncoder::new(std::io::BufWriter::new(file), Compression::default());
             writeln!(out, "{}", serde_json::to_string(&header).unwrap())?;
-            let mut rows: Vec<(&Key, &Node)> = self.table.iter().collect();
-            rows.sort_by(|a, b| a.0.cmp(b.0));
-            for (key, node) in rows {
-                let node = &self.caught_up(node);
+            for (key, node) in self.table.sorted() {
+                let node = &self.caught_up(&node);
                 let hex: String = key.iter().map(|b| format!("{b:02x}")).collect();
                 let n = node.len as usize;
                 let row = json!([hex, node.names(), &node.regrets[..n], &node.average[..n], node.visits]);

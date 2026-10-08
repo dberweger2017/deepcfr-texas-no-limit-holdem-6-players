@@ -135,6 +135,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "hashbrown"
+version = "0.15.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9229cfe53dfd69f0609a49f65461bd93001ea1ef889cd5529dd176593f5338a1"
+
+[[package]]
 name = "hu20-buckets"
 version = "0.1.0"
 dependencies = [
@@ -147,6 +153,7 @@ version = "0.1.0"
 dependencies = [
  "blake2",
  "flate2",
+ "hashbrown",
  "hu20-buckets",
  "rand",
  "rayon",

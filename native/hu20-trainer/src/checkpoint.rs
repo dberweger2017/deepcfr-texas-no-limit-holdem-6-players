@@ -1,7 +1,7 @@
 //! Streaming checkpoint validation shared by recovery and inference export.
 use crate::cfr::{AverageRule, Node};
 use crate::game::Game;
-use crate::trainer::{Sharded, Trainer};
+use crate::trainer::Trainer;
 use flate2::read::GzDecoder;
 use serde_json::{json, Value};
 use std::io::{BufRead, BufReader};
@@ -108,7 +108,7 @@ pub fn load(path: &Path, expected: Game, completed_nodes: Option<u64>, max_entri
     for line in lines {
         let row: Value = serde_json::from_str(&line.map_err(|e| e.to_string())?).map_err(|e| e.to_string())?;
         let (key, node) = row_node(&row)?;
-        if trainer.table.0[Sharded::shard(&key)].insert(key, node).is_some() { return Err("duplicate checkpoint key".into()); }
+        if !trainer.table.insert(key, node) { return Err("duplicate checkpoint key".into()); }
         if trainer.table.len() as u64 > max_entries.min(h["config"]["max_entries"].as_u64().unwrap()) {
             return Err("checkpoint exceeds entry cap".into());
         }
@@ -130,7 +130,7 @@ pub fn load(path: &Path, expected: Game, completed_nodes: Option<u64>, max_entri
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::cfr::{Forced, Lookup};
+    use crate::cfr::Forced;
     use crate::game::{Action, Hand, Kind};
 
     fn river(game: Game) -> Hand {
@@ -176,7 +176,7 @@ mod tests {
             assert_eq!(trainer.iteration, resumed.iteration);
             assert_eq!(trainer.table.len(), resumed.table.len());
             for (key, node) in trainer.table.iter() {
-                let other = resumed.table.lookup(key).unwrap();
+                let other = resumed.table.get(&key).unwrap();
                 assert_eq!(node.regrets.map(f64::to_bits), other.regrets.map(f64::to_bits));
                 assert_eq!(node.average.map(f64::to_bits), other.average.map(f64::to_bits));
                 assert_eq!(node.visits, other.visits);

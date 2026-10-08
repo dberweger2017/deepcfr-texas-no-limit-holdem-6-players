@@ -59,10 +59,10 @@ mod tests {
         let mut trainer = Trainer::new(1, 1);
         let mut a = Node::empty(1, 1);
         a.average[0] = 2.0;
-        trainer.table.0[0].insert([0;16], a);
+        trainer.table.insert([0;16], a);
         let mut b = Node::empty(1, 1);
         b.visits = 10;
-        trainer.table.0[1].insert([1;16], b);
+        trainer.table.insert([1;16], b);
         let d = diagnostics(&trainer);
         assert_eq!(d["entries"], 2);
         assert_eq!(d["positive_average_mass_keys"], 1);

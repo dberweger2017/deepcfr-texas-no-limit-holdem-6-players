@@ -6,7 +6,7 @@
 //! holdings, shuffles the river and then samples the opponent, so a native run equals
 //! `SubgameTrainer` with the same seed and roots.
 
-use crate::cfr::{fsum, regret_match, AverageRule, Lookup, Node};
+use crate::cfr::{fsum, regret_match, AverageRule, Node};
 use crate::game::{Action, Hand, Kind};
 use crate::streams::Mt;
 use crate::trainer::Trainer;
@@ -120,25 +120,23 @@ pub fn check_lockstep(reach: &Trainer, sampled: &Trainer) {
     assert_eq!((reach.average, sampled.average), (AverageRule::TraverserReach, AverageRule::OpponentSampled));
     let bits = |v: &[f64]| v.iter().map(|x| x.to_bits()).collect::<Vec<_>>();
     for (key, node) in sampled.table.iter() {
-        let node = &sampled.caught_up(node);
+        let node = &sampled.caught_up(&node);
         let n = node.len as usize;
-        match reach.table.lookup(key).map(|r| reach.caught_up(r)) {
+        match reach.table.get(&key).map(|r| reach.caught_up(&r)) {
             Some(r) => assert!(r.code == node.code && r.visits == node.visits && bits(&r.regrets[..n]) == bits(&node.regrets[..n]),
                                "the averaging rule changed the regrets"),
             None => assert!(node.visits == 0 && node.regrets[..n].iter().all(|&v| v == 0.0), "a traverser key is missing"),
         }
     }
-    assert!(reach.table.iter().all(|(key, _)| sampled.table.lookup(key).is_some()), "a traverser key is missing");
+    assert!(reach.table.iter().all(|(key, _)| sampled.table.get(&key).is_some()), "a traverser key is missing");
 }
 
 /// `SubgameTrainer.export`: groups in the #149 pooled-policy format read by the native lock pass.
 /// Keys come from the opponent-sampled trainer; values from `source`. `average` exports
 /// `source`'s average, otherwise the current policy.
 pub fn export(sampled: &Trainer, source: &Trainer, lineage: &Value, average: bool) -> Value {
-    let mut rows: Vec<_> = sampled.table.iter().collect();
-    rows.sort_by(|a, b| a.0.cmp(b.0));
-    let groups: Vec<Value> = rows.into_iter().map(|(key, keyed)| {
-        let node = source.table.lookup(key).map(|n| source.caught_up(n))
+    let groups: Vec<Value> = sampled.table.sorted().map(|(key, keyed)| {
+        let node = source.table.get(&key).map(|n| source.caught_up(&n))
             .unwrap_or_else(|| Node::empty(keyed.code, keyed.len as usize));
         let n = node.len as usize;
         let (p, mass): (Vec<f64>, f64) = if average {

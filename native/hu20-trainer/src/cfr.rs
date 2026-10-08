@@ -33,13 +33,13 @@ impl Hasher for KeyHasher {
 }
 pub type Table = HashMap<Key, Node, BuildHasherDefault<KeyHasher>>;
 
-/// Read access to a strategy table during traversals.
+/// Read access to a strategy table during traversals: a stored key's menu code and regrets.
 pub trait Lookup: Sync {
-    fn lookup(&self, key: &Key) -> Option<&Node>;
+    fn regrets(&self, key: &Key) -> Option<(u8, &[f64])>;
 }
 impl Lookup for Table {
-    fn lookup(&self, key: &Key) -> Option<&Node> {
-        self.get(key)
+    fn regrets(&self, key: &Key) -> Option<(u8, &[f64])> {
+        self.get(key).map(|node| (node.code, &node.regrets[..node.len as usize]))
     }
 }
 
@@ -326,10 +326,10 @@ impl<'a, S: Sampler, L: Lookup> Traversal<'a, S, L> {
         let choices = options.as_slice();
         let n = choices.len();
         let key = key_bytes(hand, choices);
-        let policy = match self.table.lookup(&key) {
-            Some(node) => {
-                assert!(node.code == options.code, "a v1 key changed its action menu");
-                regret_match(&node.regrets[..n])
+        let policy = match self.table.regrets(&key) {
+            Some((code, regrets)) => {
+                assert!(code == options.code, "a v1 key changed its action menu");
+                regret_match(regrets)
             }
             None => [1.0 / n as f64; MAX_ACTIONS],
         };
