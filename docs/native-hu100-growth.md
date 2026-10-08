@@ -38,3 +38,19 @@ phase lock; it records the new reviewed source separately. No attempted child,
 scientific result, count or guard is retried or changed. This operational amendment
 exercises the owner's authorization to continue never-started stages within their
 original deadline; it adds no training or evaluation time.
+
+## Source-metadata refusal after completed evaluation
+
+All final play, independent replay and deterministic reproduction completed at
+`ed9be57` with the frozen count. The summary refused `dirty: true` manifests:
+`bin/hu20-trainer` was the only untracked path; all evaluator entry points had
+required clean tracked source, and the binary is pinned separately. Preserve the
+failed report/stage and every original manifest. Independently verify all forty
+pilot/final/reproduction source fingerprints against the exact Python/requirements
+Git blobs of the recorded revision, rehash all completed operation outputs/guards
+and frozen counts/schedule, and require this exact pinned untracked binary.
+Only then generate a separate postprocessing report and archive, under the same
+original deadline/guards and a one-use reviewed controller. Do not repeat any hand,
+play/audit/reproduction stage, alter any manifest or reinterpret the initial summary
+failure as successful execution. This is a source-provenance exception for retained
+completed data, not relaxed correctness/resource admission or outcome selection.

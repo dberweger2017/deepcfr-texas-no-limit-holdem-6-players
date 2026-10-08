@@ -52,7 +52,7 @@ def vars_block(block):
     return asdict(block)
 
 
-def summarize(run, settings, output, *, formal_opponents=None):
+def summarize(run, settings, output, *, formal_opponents=None, verified_source_fingerprint=None):
     frozen = json.loads((run / 'frozen-final.json').read_text())
     blocks, root = frozen['blocks_per_opponent'], frozen['final_root']
     schedule_path = run / 'frozen-schedule.json'
@@ -83,7 +83,8 @@ def summarize(run, settings, output, *, formal_opponents=None):
         for opponent in OPPONENTS:
             panel = target / opponent
             manifest = json.loads((panel / 'manifest.json').read_text())
-            if (manifest['revision'] != source or manifest['dirty']
+            if (manifest['revision'] != source or (manifest['dirty'] and
+                    manifest['source_sha256'] != verified_source_fingerprint)
                     or manifest['plan']['models'][0]['sha256'] != spec['sha256']):
                 raise ValueError('Changed/dirty source or model')
             actual_blocks = json.loads((panel / 'schedule.json').read_text())['blocks']

@@ -11,9 +11,11 @@ from src.policies.files import file_hash
 
 PRIMARY = ('tight_aggressive', 'loose_aggressive')
 
-def report(run):
+def report(run, *, output=None, verified_source_fingerprint=None):
+    output = output or run
     settings = json.loads((run / 'settings.json').read_text())
-    result = summarize(run, settings, run / 'paired-summary.json', formal_opponents=PRIMARY)
+    result = summarize(run, settings, output / 'paired-summary.json', formal_opponents=PRIMARY,
+                       verified_source_fingerprint=verified_source_fingerprint)
     visits, exposures = [], []
     for spec in settings['models']:
         target = run / 'final' / str(spec['actual_nodes'])
@@ -59,7 +61,7 @@ def report(run):
                                for k in ('ever-missing', 'any-zero-no-missing', 'all-positive', 'no-target-decision')}})
     result.update(primary_opponents=list(PRIMARY), visits=visits, hand_exposures=exposures,
                   association_scope='policy-dependent descriptive exposure; no causal branch gain')
-    write_json(run / 'result.json', result)
+    write_json(output / 'result.json', result)
     return result
 
 if __name__ == '__main__':

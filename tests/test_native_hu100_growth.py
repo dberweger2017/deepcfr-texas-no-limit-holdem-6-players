@@ -113,3 +113,12 @@ def test_model_specs_use_verified_counts_without_header_entries(tmp_path, monkey
     monkeypatch.setattr(g, 'telemetry', lambda _: {'completed_nodes': g.PARENT_NODES + 1, 'checkpoint_sha256': 'checkpoint'})
     specs = g.models()
     assert [s['entries'] for s in specs] == [5, 7]
+
+
+def test_frozen_source_digest_matches_manifest_on_committed_source():
+    import subprocess
+    from scripts.verify_native_hu100_growth_closeout import git_source_fingerprint
+    from src.arena.artifacts import source_fingerprint
+    source = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
+    # This fixture runs after the source commit, as the evaluator also requires.
+    assert git_source_fingerprint(source) == source_fingerprint()

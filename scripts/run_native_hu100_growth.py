@@ -418,16 +418,19 @@ def freshness(settings, document):
         if seeds & prior:
             raise ValueError('Fresh physical-deal collision')
 
-def seal(root, destination):
+def seal(root, destination, *, extra_paths=None):
     paths = {str(p.relative_to(root)): p for p in root.rglob('*') if p.is_file()
              and p.name not in ('phase.lock', 'state.json')
              and not any(part.startswith('archive') for part in p.relative_to(root).parts)}
     # Freeze pre-archive operation state; the live supervisor updates its own receipts.
     state = read(root / 'state.json')
-    state['status'] = 'science-complete-awaiting-archive'
+    state['original_state_status'] = state['status']
+    if state['status'] != 'failed': state['status'] = 'science-complete-awaiting-archive'
+    else: state['archive_only_closeout'] = True
     state['operations'].pop('archive', None)
     write(root / 'science-closeout.json', state)
     paths['science-closeout.json'] = root / 'science-closeout.json'
+    paths.update(extra_paths or {})
     paths['source.tar'] = ROOT / 'source.tar'; paths['bin/hu20-trainer'] = ROOT / 'bin/hu20-trainer'
     for name in ('qualification', 'source-review', 'environment'):
         paths[name + '.json'] = ROOT / 'results' / (name + '.json')
