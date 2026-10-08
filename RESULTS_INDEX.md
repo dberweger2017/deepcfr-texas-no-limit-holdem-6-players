@@ -54,7 +54,8 @@ Uniform plays once/opponent; exact rows are reused. Twenty final-minus-earlier
 comparisons use Bonferroni FWER0.05: only final−100k against check_call improves,
 **+75.90 [+16.79, +135.01] BB/100**; 19 inconclusive. Every checkpoint loses to
 the three aggressive opponents; better coverage does not consistently improve
-profit. The PR remains open and is handed back without merging.
+profit. The initial reviewed handoff left the PR unmerged; the owner subsequently
+authorized merging. No further research or cleanup follows this task.
 
 M4 isolated root `~/Local/hu100-learning-curves-20261008/`, ignored
 `results/hu100-learning-curves/run-01/`. Scientific source

@@ -291,5 +291,5 @@ the PR's live checks, not the earlier snapshot. [Receipt](native-hu100-learning-
 One training seed, one evaluation root, scripted opponents, wide intervals and
 policy-dependent coverage constrain interpretation. There is no external benchmark,
 LBR, exploitability, multi-seed, release or checkpoint-selection claim. These
-results do not establish a stronger general poker policy. The PR is handed back
-for owner review **without merging**.
+results do not establish a stronger general poker policy. The initial reviewed
+handoff left the PR **unmerged**; the owner subsequently authorized merging.
