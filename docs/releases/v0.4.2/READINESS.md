@@ -22,6 +22,14 @@ The verifier still accepts the exact archived unpublished preparation, with its 
 python3.11 verify_v042_bundle.py . --expect-source TAGGED_COMMIT --require-publication
 ```
 
+## Verified integration
+
+**89 focused tests pass** (`tests/play_ui` and `tests/test_v042_bundle.py`), including default selection, older sessions/restarts, spectator audit, exact policy distributions and rejection of inconsistent publication metadata. JS syntax and the staged repository artifact guard pass. Independent review identified an old two-model spectator fixture inheriting the new default; it was corrected and the independent rerun passes all 89 tests.
+
+The deterministic M4 smoke completed in **80.45 seconds**, with **four human hands /37 actions /16 bot positions** and **four spectator hands /15 decisions**, all independently replayed and settled. Human play covers both seats, restricted/free sizing and one exact 201-chip raise; spectator covers v0.4.2 against each older release. All recorded bot positions were trained entries in this small sample; this does not establish coverage over all play. Catalog/default/model hashes and all three available versions match. [Summary](verification/smoke-summary.json), [source binding](verification/smoke-source-binding.json), [resource receipt](verification/smoke-resource-receipt.json). Peak RSS **2,959,736,832 bytes /2.76 GiB**, below the 3-GiB guard; minimum free disk **100,125,777,920 bytes**, above 15 GiB. No arena or strength estimate was run. Complete private journals/source inventories remain in the own ignored M4 release root.
+
+[Release PR #198](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/198) records final-head review, CI, merge and subsequent publication/download receipts. Stable Latest publication remains conditional on the sequence below.
+
 ## Review and publication sequence
 
 1. Run focused runtime/bundle tests and a small deterministic load/play/replay smoke on M4. Independently audit every smoke action, policy distribution and settlement. Record independent source review and resolve every finding.
