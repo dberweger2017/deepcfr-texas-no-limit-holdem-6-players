@@ -80,3 +80,29 @@ def test_bonferroni_family_and_uniform_budget():
     assert result['predicted_seconds'] + result['closeout_reserve_seconds'] <= 1700
     pilot['profit'] = 1e9; replay['profit'] = 1e9
     assert quote(pilot, replay, repeat, 1700) == result
+
+
+def test_launcher_routes_worker_to_learning_curve_module(tmp_path, monkeypatch):
+    import scripts.run_native_hu100_learning_curves as operator
+    config = tmp_path / 'config.json'; config.write_text('{"execution_cap_seconds":1800}')
+    qualification = tmp_path / 'qualification.json'
+    qualification.write_text('{"status":"verified","source":"fixture"}')
+    review = tmp_path / 'review.json'
+    review.write_text('{"status":"passed","reviewed_source":"fixture"}')
+    monkeypatch.setattr(operator, 'worker_identity', lambda: 'Apple M4')
+    monkeypatch.setattr(operator, 'authorized_config', file_hash)
+    monkeypatch.setattr(operator, 'admission', lambda *a: None)
+    monkeypatch.setattr(operator, 'durable_claim', lambda *a: None)
+    monkeypatch.setattr(operator.subprocess, 'check_output',
+                        lambda args, **kwargs: 'fixture' if args[0] == 'git' else '')
+    seen = []
+    def supervise(jobs, out, deadline, **kwargs):
+        seen.extend(jobs)
+        out.mkdir()
+        (out / 'campaign.json').write_text('{}')
+        return {'status': 'complete'}
+    monkeypatch.setattr(operator, 'supervise', supervise)
+    assert operator.launch(config, tmp_path / 'run', qualification, review)
+    command = seen[0]['command']
+    assert command[command.index('-m') + 1] == 'scripts.run_native_hu100_learning_curves'
+    assert '--worker' in command

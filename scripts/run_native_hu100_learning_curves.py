@@ -218,7 +218,7 @@ def launch(config, out, qualification, review):
              'qualification_sha256': file_hash(qualification), 'review_sha256': file_hash(review),
              'swap_baseline': BASELINE, 'original_campaign_unchanged': True}
     write(out / 'state.json', state)
-    command = [str(Path(sys.executable).absolute()), '-m', 'scripts.run_native_hu100_baseline',
+    command = [str(Path(sys.executable).absolute()), '-m', 'scripts.run_native_hu100_learning_curves',
                '--worker', '--config', str(config), '--out', str(out), '--source', source]
     guard = supervise([{'name': 'hu100-learning-curves', 'command': command}], out / 'guard', deadline,
                       swap_before=BASELINE, require_ac=True, rss_gib=10, disk_gib=15.5, swap_gib=.5,
