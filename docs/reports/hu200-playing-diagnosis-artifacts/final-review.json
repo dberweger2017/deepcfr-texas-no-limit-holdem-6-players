@@ -8,7 +8,8 @@
     "A soft resource latch must block every subsequent science tool.",
     "Deduplicate representative coordinates while retaining all predeclared category tags.",
     "Distinguish 64 positive-mass zero-visit loose river decisions from four zero-mass positive-visit decisions.",
-    "Restoration creates its ignored parent directory before free-disk checks."
+    "Restoration creates its ignored parent directory before free-disk checks.",
+    "Check literal report stack-off raise/call counts against sealed behavior totals: tight 44 raises /15 calls."
   ],
   "verification": {
     "focused_tests": 28,

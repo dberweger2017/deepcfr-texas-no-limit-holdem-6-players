@@ -156,7 +156,7 @@ runout and winner-accounting omissions.
 | pot | 202 →159 | 130/88 →111/67 | −265.70 →−153.12 |
 
 At 100M loose's stack-offs split **153 raises /77 calls**, by preflop 84,
-flop 39, turn 47, river 60. Tight has 42 raises/17 calls; pot 64/47. Check-call
+flop 39, turn 47, river 60. Tight has 44 raises/15 calls; pot 64/47. Check-call
 never raises, and the candidate's conditional-jam menu never voluntarily exhausts
 its stack in that panel. [All tail counts and loss contributions](hu200-playing-diagnosis-artifacts/tail-losses.json).
 Large-pot and stack-off subsets overlap and must not be added. Reduced aggression,
@@ -224,7 +224,10 @@ quote, not an observed runtime. Fixed calibration loads **35.75 /113.45s**
 were kept separate from scalable play/replay and native startup costs. Final
 loads **35.84 /114.95s**, all-panel play/replay **20.72 /20.09s**. Fixed source
 snapshot **0.545s**, local ZIP/readback **1.624s**. #211's fixed-cost lesson is
-therefore addressed without scaling loads by the hand count.
+therefore addressed without scaling loads by the hand count. The conservative
+quote scales the complete measured native-parity supervision cost, including
+its fixed process/monitor overhead; this intentionally overestimates that
+component and does not claim a pure per-hand native replay rate.
 
 Across 669 resource samples: peak family **2.066GiB**, kernel command peak
 **2.027GiB** (different scopes), maximum within-operation gap **0.607s**, minimum
