@@ -1,0 +1,30 @@
+{
+  "status": "accepted",
+  "checked_at": "2026-10-09T13:10:11.476Z",
+  "archive": {
+    "id": "1B3LqWZyeg-nRdXtIyqqK-vHTQ8j1fyKU",
+    "title": "hu100-independent-stages-M1-metadata-20261009.zip",
+    "mime_type": "application/zip",
+    "size": "939179",
+    "url": "https://drive.google.com/file/d/1B3LqWZyeg-nRdXtIyqqK-vHTQ8j1fyKU/view?usp=drivesdk",
+    "display_url": "https://drive.google.com/file/d/1B3LqWZyeg-nRdXtIyqqK-vHTQ8j1fyKU/view?usp=drivesdk",
+    "file_or_folder": "file",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1hsyFliTReRUZE69hmXAotdzLwIjJpYLU"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "folder_id": "1hsyFliTReRUZE69hmXAotdzLwIjJpYLU",
+  "native_status_receipt": "metadata-native-upload-status.json",
+  "local_archive_sha256": "7cc076f20ed95ad2d844a820ecec3698f5b1096b14b2f1a5b5b7c8c0b109f2f9",
+  "manifest_sha256": "4abec5dc49f7ec20c39728fc139ef637a9d6149a8094b82127d2c57b5e542140",
+  "remote_bytes_verified": false,
+  "metadata_only": true
+}

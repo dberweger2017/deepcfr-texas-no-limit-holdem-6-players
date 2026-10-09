@@ -208,8 +208,21 @@ The primary archive is [accepted in Research-Cloud](https://drive.google.com/fil
 [Native uploaded/no-pending/no-conflicts](hu100-independent-stages-artifacts/native-upload-status.json)
 and [independent cloud ID/name/size/parent confirmation](hu100-independent-stages-artifacts/cloud-acceptance.json) agree.
 [Independent scientific/local archive review](hu100-independent-stages-artifacts/science-evidence-review.json) passes.
-The late complete guard stream, archive lifecycle, upload evidence and final
-report/review will be sealed as M1 metadata in the same confirmed PR215 folder.
+The [accepted M1 metadata bundle](https://drive.google.com/file/d/1B3LqWZyeg-nRdXtIyqqK-vHTQ8j1fyKU/view)
+retains the complete closed guard stream, archive lifecycle, native M4 upload
+evidence and dated report/scientific review: 147 fully readback-verified members,
+939,179 bytes, whole SHA256 `7cc076f20ed95ad2d844a820ecec3698f5b1096b14b2f1a5b5b7c8c0b109f2f9`,
+manifest SHA256 `4abec5dc49f7ec20c39728fc139ef637a9d6149a8094b82127d2c57b5e542140`.
+[Local metadata seal](hu100-independent-stages-artifacts/metadata-archive-receipt.json),
+[native upload](hu100-independent-stages-artifacts/metadata-native-upload-status.json),
+[cloud confirmation](hu100-independent-stages-artifacts/metadata-cloud-acceptance.json).
+Later acceptance/review/CI receipts remain in Git; the snapshot’s dated pending
+statements are superseded by these current receipts. Metadata packing used M1
+only (0.861s), with no model/main ZIP copy or additional M4 scientific work.
+The final bounded M4 upload query retained the original baseline/deadline and
+passed guards before/after; its final timestamp is 13:01:18.586 UTC, 2h26m45s
+after original admission and inside the original six-hour deadline. Science/packing
+closed at 12:41:15; no continuous observation is claimed after that close.
 Remote bytes have not been downloaded/verified. All originals remain; no
 cleanup, force-offload or changes to another owner's active root.
 

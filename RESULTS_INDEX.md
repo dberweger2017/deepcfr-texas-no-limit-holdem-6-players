@@ -70,8 +70,35 @@ Source/configs retain original path identities; resolve retrieved assets by thei
 pinned SHA256 when adapting a separately authorized run. Never relaunch the
 one-use controller or overwrite an active input automatically.
 
-Late M1 metadata seal will retain complete final guard stream, archive lifecycle,
-native/cloud acceptance and final report/review in the same folder. Protected:
+**Accepted M1 closeout metadata:**
+[hu100-independent-stages-M1-metadata-20261009.zip](https://drive.google.com/file/d/1B3LqWZyeg-nRdXtIyqqK-vHTQ8j1fyKU/view),
+ID `1B3LqWZyeg-nRdXtIyqqK-vHTQ8j1fyKU`, same PR215 folder/parent:
+**939,179 bytes /147 readback-verified members**, whole SHA256
+`7cc076f20ed95ad2d844a820ecec3698f5b1096b14b2f1a5b5b7c8c0b109f2f9`;
+embedded `ARCHIVE-MANIFEST.json` SHA256
+`4abec5dc49f7ec20c39728fc139ef637a9d6149a8094b82127d2c57b5e542140`.
+[Local seal](docs/reports/hu100-independent-stages-artifacts/metadata-archive-receipt.json),
+[native uploaded/no-pending/no-conflicts](docs/reports/hu100-independent-stages-artifacts/metadata-native-upload-status.json),
+[independent cloud ID/name/size/parent](docs/reports/hu100-independent-stages-artifacts/metadata-cloud-acceptance.json).
+Full closed guard stream is `research/coordinator/m4-closeout/continuous-resources.jsonl`;
+full result is `research/coordinator/result.json`; scientific review and dated
+report/index snapshots are under `research/closeout-snapshot/`. Exact member
+bytes/hashes are in the embedded manifest. For retrieval, download into a fresh
+ignored nonsynced root and use the same helper:
+
+```sh
+python -m scripts.restore_hu100_staged_archive \
+  --archive results/retrieved/pr215/NEW_METADATA_ROOT/metadata.zip \
+  --destination results/retrieved/pr215/NEW_METADATA_ROOT/unpacked \
+  --archive-sha256 7cc076f20ed95ad2d844a820ecec3698f5b1096b14b2f1a5b5b7c8c0b109f2f9 \
+  --manifest-sha256 4abec5dc49f7ec20c39728fc139ef637a9d6149a8094b82127d2c57b5e542140
+```
+
+Metadata source snapshot `4c0607dcc178bde19559928dc02bc16361cce8ce`; M4 science
+remains frozen at `1d862d6f9ea2e5e56b23c84cac94561103b5da11`. M1 seal takes0.861s,
+no additional M4 scientific work. Later storage acceptance/review/CI receipts
+remain in Git; archived pending statements are dated snapshots. Remote bytes
+not downloaded/verified. Protected:
 M4/M1 `~/Local/hu100-independent-seed-stages-20261009`, ignored coordinator,
 all PR207/PR211 original models/failures, PR207 native/environment dependencies,
 sharedGit and other agents' inputs. All originals remain; this open PR and its
