@@ -1,0 +1,7 @@
+{
+  "source": "dd19995d27950ef6a6b73bef5ec84c970310089f",
+  "tests": "36 passed in 19.51s",
+  "artifact_guard": "passed",
+  "whitespace": "passed",
+  "native_code_changes": false
+}
