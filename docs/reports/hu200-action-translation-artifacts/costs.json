@@ -1,0 +1,38 @@
+{
+  "operations": [
+    {
+      "operation": "archive",
+      "failure": null,
+      "finished": 1791561023.805193,
+      "kernel_command_peak_rss_bytes": 102252544,
+      "peak_family_rss_bytes": 189005824,
+      "returncode": 0,
+      "seconds": 1.0777204998303205,
+      "status": "complete"
+    },
+    {
+      "operation": "source-snapshot",
+      "failure": null,
+      "finished": 1791560685.797708,
+      "kernel_command_peak_rss_bytes": 12304384,
+      "peak_family_rss_bytes": 97927168,
+      "returncode": 0,
+      "seconds": 0.5519917500205338,
+      "status": "complete"
+    },
+    {
+      "operation": "timing",
+      "failure": "RuntimeError('Guard: system pressure')",
+      "finished": 1791560807.491461,
+      "kernel_command_peak_rss_bytes": null,
+      "peak_family_rss_bytes": 1629061120,
+      "returncode": -15,
+      "seconds": 117.40251074987464,
+      "status": "failed"
+    }
+  ],
+  "completed_isolated_model_load_seconds": null,
+  "per_hand_costs": null,
+  "sample_admission_performed": false,
+  "explanation": "Timing worker stopped before its costs receipt.117.40s contains completed loading and partial play; cannot separate fixed/scalable costs after termination."
+}

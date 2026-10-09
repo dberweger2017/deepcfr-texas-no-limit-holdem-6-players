@@ -1,6 +1,5 @@
 {
   "package_source": "155356b9dc656ecdb217beba166d5ee5f4d44c34",
-  "runtime_and_packaged_documents_unchanged": true,
   "reviewed_later_changes": "verification closeout tooling, tests and readiness/evidence reports",
   "files": [
     {
@@ -153,5 +152,42 @@
       "sha256": "bfda42df31dc85f761d21929dc21f9fe64cbecddc651884fd202291d9f10cea9",
       "unchanged_since_package_source": true
     }
-  ]
+  ],
+  "listed_package_api_ui_documents_unchanged": true,
+  "shared_translation_integration": {
+    "inherited_main": "fb07520a4d99df1476d35950e96d3db0e970ed84",
+    "owning_pr": 218,
+    "valid_hu100_equivalence_review": {
+      "reviewer": "Independent Codex candidate_review",
+      "status": "clear-no-unresolved-findings",
+      "synthetic_old_new_cases": 1920,
+      "comparison": "frozen source155 versus inherited main",
+      "coverage": "12 seeds, both buttons, opening300/550/1375/10000, exact/witness/empty/witness-zero/exact-zero, enabled/disabled/state-bound/event-bound",
+      "identical": [
+        "menus",
+        "probabilities",
+        "telemetry except lookup_seconds",
+        "translation metadata",
+        "selected actions",
+        "post-action RNG state"
+      ],
+      "retained_models_loaded": 0,
+      "new_retained_m4_gate": false,
+      "reason": "Explicit HU100 schema/version is unchanged; added validation is pure and accepts pinned game identity; witness search/probabilities/RNG logic unchanged."
+    },
+    "retained_m4_source_unchanged": "155356b9dc656ecdb217beba166d5ee5f4d44c34",
+    "new_retained_model_run": false,
+    "files": [
+      {
+        "path": "src/blueprint/action_translation.py",
+        "frozen_sha256": "3fe38686fb74b6ac54fa3d705c2234e24e2c87a6380f82adfba34db7c37cdf06",
+        "integrated_sha256": "408c9c38bf95201d0d733945e6578d02262b42ba0787bf75372654f881814a4a"
+      },
+      {
+        "path": "src/blueprint/average.py",
+        "frozen_sha256": "83b693ec062297f41f28ab36af06deec4dcbd7d612ae5c7c6fab596a6b05f855",
+        "integrated_sha256": "a431e11136348f8874cac6b5c2671a9a8dc1479fe71a8a1783be83e8d3e135cc"
+      }
+    ]
+  }
 }

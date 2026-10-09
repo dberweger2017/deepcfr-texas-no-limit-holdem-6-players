@@ -1,7 +1,8 @@
 # v0.5.0 release readiness
 
 **Candidate ready for review under the revised HU100 usability scope, subject to
-green final-head CI. Independent closeout review is clear. Not approved for publication.**
+green final-head CI. Independent closeout review is clear. The owner authorized
+merging the preparation PR; publication remains unapproved.**
 The exact #207 first-seed average is proposed with #215 translation512/128 enabled.
 v0.4.2 remains the released default; #218 HU200 is independent.
 
@@ -30,9 +31,16 @@ seed2026100601 average, SHA25647d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e430
 with candidate identityv0.5.0-candidate-pr207-translation-v1 and inference
 hu100-public-menu-translation-v1/max_states512/max_events128. No new extraction
 or best-seed selection occurred. [Source binding](verification/source-binding.json)
-proves final gameplay/runtime/package assets and packaged card/notes/install are
+proves the listed package/API/UI assets and packaged card/notes/install are
 unchanged from that source. Later reviewed changes repair verification closeout
 tooling and add tests/readiness receipts; its own frozen source is recorded.
+For the owner-requested merge, main’s #218/#221 adds explicit HU200 support to
+two shared translation modules. Their valid-HU100 behavior is checked through
+independent semantic review and compatibility fixtures; renewed final-head CI is
+required. [Merge integration receipt](verification/merge-integration.json) records
+the renewed222-test suite and review. The frozen M4 run did not execute these later
+module revisions, and no
+new retained-model run or archive modification is claimed.
 The packaged card's source-pinned Readiness link points to the earlier pending
 preparation snapshot. This later final-head report and its receipts are the
 authoritative completed assessment; frozen package bytes are preserved.
@@ -109,7 +117,9 @@ probe's initial missing default output path is disclosed in its corrected receip
 Approve or reject this exact candidate and its translation-enabled proposal for
 publication, considering the preserved strength limitations and procedural deviations.
 Then separately approve exact merged source/tag/assets and any default/Latest change.
-No release/tag/Latest/merge/publication approval is implied by this PR.
+The owner subsequently authorized merging this preparation PR after green
+integration checks. That instruction supersedes the earlier unmerged handoff;
+release/tag/Latest/default/publication approval remains separate.
 
 Evidence ZIP is locally member-verified and placed in the designated Research-Cloud
 PR220 folder, with upload-pending handoff in RESULTS_INDEX. Native upload acceptance

@@ -1,0 +1,10 @@
+{
+  "failure": "RuntimeError('Guard: system pressure')",
+  "originals_retained": true,
+  "ownership_released": true,
+  "science_latched": true,
+  "seconds": 124.16010891715996,
+  "status": "incomplete",
+  "upload_pending": true,
+  "within_cap": true
+}

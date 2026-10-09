@@ -1,0 +1,19 @@
+{
+  "samples": 221,
+  "peak_family_rss_bytes": 1629061120,
+  "max_kernel_command_peak_bytes": 102252544,
+  "kernel_peak_unavailable_for_stopped_timing": true,
+  "pressure_samples": {
+    "1": 220,
+    "2": 1
+  },
+  "minimum_free_percent": 42,
+  "minimum_available_bytes": 3524345856,
+  "minimum_disk_free_bytes": 26589147136,
+  "maximum_swap_growth_bytes": 0,
+  "all_samples_ac": true,
+  "maximum_within_operation_gap_seconds": 0.582737922668457,
+  "science_guard_breach": "system pressure changed1->2",
+  "archive_admission_refused": true,
+  "archive_continuation": "Completed archive-only at normal pressure, same original swap/disk/time limits, terminal science latch"
+}

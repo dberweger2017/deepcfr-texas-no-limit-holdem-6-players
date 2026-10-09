@@ -1,0 +1,16 @@
+{
+  "status": "failed-on-old-head-fixed-test-fixture-awaits-new-head-CI",
+  "head": "734b4f1093c963d15a81d12b3e5de209f95ba613",
+  "run": 37939799464,
+  "url": "https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/actions/runs/37939799464",
+  "failure_test": "tests/test_hu200_translation_campaign.py::test_sigterm_stops_owned_child_and_preserves_failed_receipt",
+  "failure": "FileNotFoundError child pid marker; macOS time-l wrapper prevented child launch on Ubuntu",
+  "failure_excerpt": "=================================== FAILURES ===================================\n_________ test_sigterm_stops_owned_child_and_preserves_failed_receipt __________\ntmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_sigterm_stops_owned_child0')\n    def test_sigterm_stops_owned_child_and_preserves_failed_receipt(tmp_path):\n    threading.Timer(.3,lambda:os.kill(os.getpid(),signal.SIGTERM)).start()\n        g.run('fixture',[sys.executable,'-c',\"import os,time,pathlib;pathlib.Path('\"+str(root/'pid')+\"').write_text(str(os.getpid()));time.sleep(30)\"])\n        assert result.returncode==0,result.stderr\n>       pid=int((tmp_path/'run/pid').read_text())\nself = PosixPath('/tmp/pytest-of-runner/pytest-0/test_sigterm_stops_owned_child0/run/pid')\nE       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-runner/pytest-0/test_sigterm_stops_owned_child0/run/pid'\n/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/pathlib.py:1044: FileNotFoundError\nFAILED tests/test_hu200_translation_campaign.py::test_sigterm_stops_owned_child_and_preserves_failed_receipt - FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-runner/pytest-0/test_sigterm_stops_owned_child0/run/pid'",
+  "failed_log_sha256": "03dc37eef60f9a075c85928c53525b05224f81086f8fe0fa67ec73a2aad26e1f",
+  "raw_failure_log_retained": "/tmp/pr218-ci-failed.log",
+  "retrieval_command": "gh run view 37939799464 --log-failed",
+  "fix": "Test isolates macOS wrapper for portable fixture and waits for actual child launch before SIGTERM; native/portable cases both tested on M1",
+  "local_checks": "22 focused tests passed in 2.08s before readable-integer readiness refinement; independent review repeats focused checks",
+  "scientific_source_changed": false,
+  "sealed_archive_changed": false
+}

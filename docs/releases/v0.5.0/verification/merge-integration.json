@@ -1,0 +1,38 @@
+{
+  "owner_instruction": "Merge",
+  "previous_reviewed_head": "32fd311004a6367143a0630eb52b2a88e2a06e1c",
+  "integrated_main": "fb07520a4d99df1476d35950e96d3db0e970ed84",
+  "conflict_resolution": "Preserve both PR220 readiness and PR218 owner-authorized merge records; existing M1 cleanup records preserved.",
+  "shared_module_changes": [
+    "src/blueprint/action_translation.py",
+    "src/blueprint/average.py"
+  ],
+  "frozen_package_and_m4_source": "155356b9dc656ecdb217beba166d5ee5f4d44c34",
+  "retained_model_rerun": false,
+  "research_archives_or_inputs_modified": false,
+  "publication_approval": false,
+  "local_tests": {
+    "passed": 222,
+    "seconds": 12.59,
+    "command": "python -m pytest -q tests/test_v050_bundle.py tests/play_ui tests/test_v042_bundle.py tests/test_hu100_action_translation.py tests/test_hu200_action_translation.py tests/test_hu200_translation_campaign.py tests/test_policy_boundary.py tests/test_v04_release.py tests/test_engine_integration.py tests/test_sessions.py tests/test_hand_observations.py tests/test_observations.py"
+  },
+  "independent_review": {
+    "reviewer": "Independent Codex candidate_review",
+    "status": "clear-no-unresolved-findings",
+    "synthetic_old_new_cases": 1920,
+    "comparison": "frozen source155 versus inherited main",
+    "coverage": "12 seeds, both buttons, opening300/550/1375/10000, exact/witness/empty/witness-zero/exact-zero, enabled/disabled/state-bound/event-bound",
+    "identical": [
+      "menus",
+      "probabilities",
+      "telemetry except lookup_seconds",
+      "translation metadata",
+      "selected actions",
+      "post-action RNG state"
+    ],
+    "retained_models_loaded": 0,
+    "new_retained_m4_gate": false,
+    "reason": "Explicit HU100 schema/version is unchanged; added validation is pure and accepts pinned game identity; witness search/probabilities/RNG logic unchanged."
+  },
+  "final_head_ci": "required before merge"
+}

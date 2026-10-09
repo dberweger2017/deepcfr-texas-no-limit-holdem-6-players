@@ -1,0 +1,18 @@
+{
+  "admission": {
+    "ac": true,
+    "at": 1791561022.6911721,
+    "available_bytes": 4537073664,
+    "disk_free_bytes": 26589171712,
+    "free_percent": 54,
+    "pressure": 1,
+    "swap_bytes": 1128267776
+  },
+  "deadline_reconstruction": "Retained wall admission anchor; no baseline reset",
+  "elapsed_at_continuation": 338.64580607414246,
+  "original_cap_seconds": 3600,
+  "original_started_at": 1791560684.0347588,
+  "original_swap_baseline": 1128267776,
+  "science_restarted": false,
+  "scope": "Only finish original local closeout; scientific latch remains terminal"
+}
