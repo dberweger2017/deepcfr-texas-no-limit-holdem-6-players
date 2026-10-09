@@ -211,6 +211,7 @@ def freeze(a_seconds):
     slope=max((m['seconds']-sum(m[x]['load_or_validation_seconds'] for x in ('primary','repeat')))/m['blocks'] for m in costs.values())
     operations=[read(p) for p in (OUT/'guards/operations').glob('*/receipt.json')]
     training=sum(o['seconds'] for o in operations if any(word in o['name'] for word in ('train','export','audit','spec','check')))
+    completed=sum(o['seconds'] for o in operations)
     # Pilot compressed raw bytes scale with blocks. Fixed metadata, guard logs,
     # all current originals and an immutable archive copy are reserved separately.
     raw_per_block=max(sum(pin['bytes'] for arm in ('primary','repeat') for pin in m[arm]['files'].values())/m['blocks'] for m in costs.values())
@@ -244,7 +245,7 @@ def freeze(a_seconds):
     def disk(n,rungs):return base_archive+2*raw_per_block*n*rungs+overhead+disk_floor
     peak=max(read(OUT/'guards/operations'/('direct-pilot-'+r)/'receipt.json')['peak_family_rss_bytes'] for r in all_pairs)
     def hardware_fits(n,rungs):return disk(n,rungs)<=available and peak+2048*n<7*1024**3
-    def descriptive_fits(n,rungs):return hardware_fits(n,rungs) and a_seconds+training+quote(n,rungs)+1800<=36000
+    def descriptive_fits(n,rungs):return hardware_fits(n,rungs) and a_seconds+completed+quote(n,rungs)+1800<=36000
     blocks=524288
     rungs=['terminal-vs-1b']+[r for r in ('2b-vs-1b','1b-vs-500m') if r in all_pairs]
     # Preserve the target primary before dropping precision or selecting results.
@@ -263,8 +264,8 @@ def freeze(a_seconds):
     for p in (OUT/'secondary-pilot').rglob('*'):
         if p.is_file() and 'models' not in p.parts and p.name in ('hands.jsonl','decisions.jsonl.gz'):
             sec_raw+=p.stat().st_size*4096/32
-    combined=a_seconds+training+quote(blocks,len(rungs))+sec_seconds+1800
-    full_scope_quote=a_seconds+training+quote(blocks,len(all_pairs))+sec_seconds+1800
+    combined=a_seconds+completed+quote(blocks,len(rungs))+sec_seconds+1800
+    full_scope_quote=a_seconds+completed+quote(blocks,len(all_pairs))+sec_seconds+1800
     skip_secondary=full_scope_quote>36000 or combined>36000 or disk(blocks,len(rungs))+2*sec_raw>available
     put(OUT/'freshness.json',freshness(blocks))
     put(OUT/'frozen-final.json',{'blocks_per_rung':blocks,'rungs':rungs,'dropped_descriptive_rungs':[r for r in all_pairs if r not in rungs],
@@ -272,7 +273,7 @@ def freeze(a_seconds):
         'primary':'terminal-vs-1b','decision':'paired Student-t 95% lower >0',
         'direct_quote_seconds':quote(blocks,len(rungs)),'secondary_quote_seconds':sec_seconds,
         'skip_secondary':skip_secondary,'requested_full_scope_quote_seconds':full_scope_quote,
-        'ten_hour_scope_threshold_exceeded':full_scope_quote>36000,'stage_a_quote_seconds':a_seconds,'training_actual_seconds':training,
+        'ten_hour_scope_threshold_exceeded':full_scope_quote>36000,'stage_a_quote_seconds':a_seconds,'training_actual_seconds':training,'all_completed_operations_seconds':completed,
         'cost_rule':'2x measured fixed cost plus block-scaled pilot cost; hardware/disk-admitted primary;10h scope threshold for descriptive/secondary; no pilot winnings/variance',
         'expected_planning_half_width':1.96*1665/blocks**.5,'science_outcomes_used_to_select_budget':False,
         'storage':{'available_bytes':available,'required_additional_free_bytes':disk(blocks,len(rungs))+(0 if skip_secondary else 2*sec_raw),

@@ -60,6 +60,8 @@ scripted secondary (and admit descriptive rungs only if time/storage fit). The
 threshold uses the full prospective ladder plus secondary quote at the hardware-
 admitted sample; dropping descriptive rungs does not readmit the secondary.
 
+Charge measured fresh-checkpoint resume loading in the training quote and all
+completed preparation/calibration operations in the ten-hour scope decision.
 Post measured train/save/export/audit/direct/secondary time and storage quote
 on this PR before final play. One independent source review before final run;
 one end evidence review. ZIP research in `~/Local/Research-Cloud/PR-<n>-hu100-3b-ladder/`

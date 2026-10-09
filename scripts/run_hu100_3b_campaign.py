@@ -57,6 +57,7 @@ def pilot():
     training=2*3_000_000_000/min(speed,1_742_094)
     write_seconds=save_rate*sum(entries.values())
     tools=tool_rate*sum(entries.values())
+    resume_loads=2*923*sum(entries[str(n)] for n in (500_000_000,1_000_000_000,2_000_000_000))/41_010_014
     # Whole final originals remain local, but exact indexed 500M/1B models
     # need no second ZIP copies. Reserve new2B/3B archives and16GiB floor.
     bytes_per_entry=(1_789_504_352+1_173_264_021+1_033_507_823)/41_010_014
@@ -67,7 +68,7 @@ def pilot():
     put(OUT/'training-quote.json',{'pilot_speed_nodes_per_second':speed,'training_seconds':training,
         'save_seconds_per_entry':save_rate,'tool_seconds_per_entry':tool_rate,'entries':entries,
         'save_seconds':write_seconds,'export_audit_seconds':tools,
-        'total_seconds':training+write_seconds+tools,'required_additional_free_bytes':required,
+        'resume_load_seconds':resume_loads,'total_seconds':training+write_seconds+tools+resume_loads,'required_additional_free_bytes':required,
         'available_bytes':available,'storage_admitted':available>=required,
         'memory_forecast_bytes':{k:110*v+100_000_000 for k,v in entries.items()},
         'source':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
