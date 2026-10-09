@@ -120,10 +120,16 @@ permission for an unlimited automated load.
 
 **Remaining blockers:** no established 100BB opponent interface or artifact is
 confirmed; full-hand terminal/refund/disclosure and service-version qualification
-are unfinished; #207 closeout has not yet permitted retained-model retrieval;
-only one HU100 training seed exists; owner has not approved the opponent, fixed
+are unfinished; only one HU100 training seed exists; owner has not approved the opponent, fixed
 campaign quote or proposed acceptance criteria. This PR leaves concrete choices
 and testable boundaries ready for review, unmerged.
+
+The earlier #207 retrieval blocker is superseded: its repaired archive and
+independent review are complete, with merge awaiting CI. [Runtime PR212](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/212)
+now records connected Drive/native upload acceptance and read-only retrieval of
+the hash-verified terminal average. Whole archive, manifest and selected member
+hashes passed. This supplies the fixed one-seed runtime input; it does not supply
+compatible external access or the roadmap's multi-seed milestone evidence.
 
 ## Local qualification
 
