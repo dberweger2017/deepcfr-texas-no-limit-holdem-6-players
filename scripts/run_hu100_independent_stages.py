@@ -171,8 +171,8 @@ def run_options(model, options, blocks, root, prefix, source, registry=None):
         primary, reproduction = [read(p / 'costs.json') for p in (run, repeat)]
         replay = read(OUT / prefix / (label + '-audit.json'))
         fixed = sum(c['model_load_or_validation_seconds'] + c['snapshot_seconds'] +
-            c['panel_setup_seconds'] + c['output_model_hash_seconds'] for c in (primary, reproduction))
-        variable = sum(c['play_and_report_seconds'] + c['output_raw_hash_seconds']
+            c['output_model_hash_seconds'] for c in (primary, reproduction))
+        variable = sum(c['play_and_report_seconds'] + c['output_raw_hash_seconds'] + c['panel_setup_seconds']
             for c in (primary, reproduction)) + replay['seconds'] - replay['model_hash_seconds']
         costs.append({'label': label, 'blocks': blocks, 'fixed_seconds': fixed + replay['model_hash_seconds'],
             'variable_seconds': variable, 'primary': primary, 'reproduction': reproduction,
@@ -251,7 +251,8 @@ def command(folder, seed, nodes, resume=None):
 
 def tools(campaign, folder, label, nodes, quote):
     campaign.run(label + '-export', [BINARY, 'export', folder / 'checkpoint.gz', '--current',
-        folder / 'current.gz', '--average', folder / 'average.gz', '--zero-mass', 'uniform'], quote=quote/3)
+        folder / 'current.gz', '--average', folder / 'average.gz', '--zero-mass', 'uniform'],
+        reserve=CLOSEOUT + quote*2/3, quote=quote/3)
     campaign.run(label + '-audit', [sys.executable, '-m', 'scripts.audit_native_hu_checkpoint',
         '--checkpoint', folder / 'checkpoint.gz', '--current', folder / 'current.gz', '--average',
         folder / 'average.gz', '--stack-bb', 100, '--target-nodes', nodes, '--out', folder / 'audit.json'], quote=quote*2/3)
@@ -261,6 +262,25 @@ def spec(folder):
     a = read(folder / 'audit.json')
     return audited_average_spec(folder / 'average.gz', a,
         checkpoint_sha256=a['audit']['checkpoint_sha256'], actual_nodes=a['native_state']['completed_nodes'])
+
+
+def unique_bytes(root):
+    seen = set()
+    total = 0
+    for path in root.rglob('*'):
+        if path.is_file():
+            stat = path.stat()
+            identity = stat.st_dev, stat.st_ino
+            if identity not in seen:
+                total += stat.st_size
+                seen.add(identity)
+    return total
+
+
+def archive_quote(byte_count):
+    # Both the existing canonical data and new endpoints need a future archive
+    # copy, even though their existing originals already reduced current free.
+    return 2*120.41695427894592*byte_count/20_517_119_304
 
 
 def seal():
@@ -355,11 +375,14 @@ def campaign():
         for seed in SEEDS[1:]:
             free = shutil.disk_usage(OUT).free
             model_bytes = (665_193_414*1.1 + 3_996_276_196*ENTRY_CAP/41_010_014)
-            required = 2*model_bytes + 3*GIB + int(15.5*GIB)
+            retained = unique_bytes(OUT) + GIB
+            archive_seconds = archive_quote(retained + model_bytes)
+            required = retained + 2*model_bytes + 3*GIB + int(15.5*GIB)
             admission = {'seed': seed, **tq, 'remaining_seconds': c.remaining(), 'disk_free_bytes': free,
-                'required_free_bytes': required, 'closeout_reserve_seconds': CLOSEOUT,
+                'required_free_bytes': required, 'retained_archive_bytes': retained,
+                'projected_archive_seconds': archive_seconds, 'closeout_reserve_seconds': CLOSEOUT,
                 'independent_of_evaluation': True,
-                'pass': c.remaining() >= tq['per_seed_seconds'] + CLOSEOUT and free >= required}
+                'pass': c.remaining() >= tq['per_seed_seconds'] + CLOSEOUT and free >= required and archive_seconds <= CLOSEOUT}
             put(OUT / f'training-admission-{seed}.json', admission)
             if not admission['pass']:
                 raise CapacityStop(f'Training stage {seed} refused own time/disk quote')
@@ -392,12 +415,13 @@ def campaign():
         raw_per_block = max(sum(p.stat().st_size for root in
             (OUT/f'calibration-{n}', OUT/f'calibration-{n}-reproduction') for p in root.rglob('*')
             if p.is_file() and 'models' not in p.parts)/n for n in CALIBRATION_ROOTS)
-        retained = sum(p.stat().st_size for p in OUT.rglob('*') if p.is_file() and 'models' not in p.parts)
+        retained = unique_bytes(OUT) + GIB
         for choice in choices:
             choice.update(remaining_seconds=c.remaining(), disk_free_bytes=shutil.disk_usage(OUT).free)
             # Calibration has three arms; qualification has nine.
             choice['required_free_bytes'] = int(15.5*GIB)+3*GIB+retained+2*raw_per_block*choice['blocks']*3*2
-            choice['time_pass'] = choice['seconds']+CLOSEOUT <= c.remaining()
+            choice['projected_archive_seconds'] = archive_quote(retained + 2*raw_per_block*choice['blocks']*3)
+            choice['time_pass'] = choice['seconds']+CLOSEOUT <= c.remaining() and choice['projected_archive_seconds'] <= CLOSEOUT
             choice['disk_pass'] = choice['disk_free_bytes'] >= choice['required_free_bytes']
         put(OUT / 'evaluation-admission.json', {'choices': choices, 'outcomes_inspected': False,
             'raw_bytes_per_block_three_arms': raw_per_block, 'training_independently_completed': True})

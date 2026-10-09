@@ -64,10 +64,12 @@ size/hash and canonical archive member, with explicit reconstruction commands.
 No copying/hydration of old cloud archives or modifications of old evidence.
 
 Measure initial loading separately from validation, snapshot/model hashing,
-fixed panel setup, block-scaled play/report/replay/reproduction and raw hashing.
+panel setup, block-scaled play/report/replay/reproduction and raw hashing.
 Include final output inventory hashing (previous wall_seconds omitted it).
 Use maximum measured variable seconds/block across both counts and arms, 3x
-headroom; fixed setup/model costs are charged per arm, never per block. Charge
+headroom; fixed model costs are charged per arm, never per block. Panel setup includes
+block-scaled schedule/stream construction, so its measured costs join the
+per-block bound; constant manifest work in that phase is conservatively included. Charge
 one load per each of six checkpoints, entries-scaled for new models, at 3x.
 Strict final reporting reserves 3x #207 measured report time scaled by entries
 or panel count/blocks; terminal visit data is scanned once for the union of
@@ -75,7 +77,10 @@ both options. Fixed and per-hand timings and measured sample slopes are reported
 
 **Training is admitted independently.** Before each new lineage require its
 training/save/export/full-audit time plus 1,800-second closeout reserve and
-its originals/archive/transient disk quote. Use 2x #207 measured nonsave train
+its originals/archive/transient disk quote, including a future archive copy
+of all uniquely retained earlier-stage bytes. Require the byte-scaled 2x #207
+archive estimate to fit the closeout reserve. Export launch also retains the
+remaining audit quote, beyond closeout. Use 2x #207 measured nonsave train
 cost and maximum save/export/audit seconds per entry at the unchanged entry
 ceiling, 10% early-entry headroom. Do not refuse training because evaluation
 cannot fit. At each endpoint preserve tools and closeout time before launching
