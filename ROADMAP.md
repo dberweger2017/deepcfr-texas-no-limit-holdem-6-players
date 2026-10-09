@@ -70,9 +70,11 @@ Status of each ingredient, in dependency order. Details and full results are in 
 
 ## Current position
 
-- **K50 trained bench ([#222](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/222)), partial/unclassified:** four10M trajectories and deterministic prefixes pass; process visibility fails during the scoring pilot, so final scoring never starts. [Report](docs/reports/hu20-equity-bench.md) retains all partials and visits; no scientific retry or abstraction adoption. StageB proceeds independently.
+*Updated October 10, 2026.*
 
-*Updated October 10, 2026.* Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
+- **K50 trained bench ([#222](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/222)), partial/unclassified:** four10M trajectories and deterministic prefixes pass; process visibility fails during the scoring pilot, so final scoring never starts. [Report](docs/reports/hu20-equity-bench.md) retains all partials and visits; no scientific retry or abstraction adoption. Accepted partial ZIP retains failures and visits; StageB proceeds independently.
+
+Earlier entries are in [roadmap history](docs/roadmap-history.md#superseded-active-roadmap-status-october-57-2026).
 
 - **v0.5.0 readiness ([#220](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/220)), owner-authorized merge:** exact #207 seed2026100601 HU100 average, translation512/128 proposed; released v0.4.2 defaults unchanged. Clean M4 package/CLI/browser/restart/independent replay validates25 complete integration hands plus a disclosed paused partial browser decision. Guards pass; locally verified evidence ZIP/sidecars staged in Research-Cloud within42.45min of original60min, upload-acceptance handoff with originals retained. [Readiness](docs/releases/v0.5.0/READINESS.md) preserves #215 FAILED overall qualification/inconclusive adjusted tight gain and unproven pot profitability; no additional science gate for revised usable/internal-evaluation scope. Independent review clear; owner requested merge after renewed current-main integration checks. Publication remains separate. Owner still decides candidate/translation publication and exact source/tag/assets/default/Latest separately; #218 HU200 independent.
 
