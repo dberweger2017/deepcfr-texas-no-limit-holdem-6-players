@@ -54,3 +54,16 @@ Models/tables/raw files remain ignored. Hash and manifest research ZIPs in
 `~/Local/Research-Cloud/PR-<n>-hu20-equity-bench/`, index restoration, preserve
 failures and existing hash-verified inputs without duplicate model copies.
 No release, publication, tag or cleanup of other PR evidence.
+
+## Outcome-blind 3M pilot freeze (October 9)
+
+Fold 0: v1 77,055 keys / 37,426,084 traverser visits; K50 102,245 keys /
+37,236,679 visits (key ratio 1.326909). Freeze 4,000,977 K50 iterations.
+Fold 1: v1 74,317 keys / 37,373,845 visits; K50 97,460 keys /
+38,133,158 visits (key ratio 1.311409). Freeze 3,855,889 K50 iterations.
+Actual distributions and residual matching errors remain report items.
+
+Measured whole-operation training: 184.21/181.81 seconds for v1 and
+207.01/206.78 seconds for K50 at 3M. Four 10M trajectories forecast
+43.32 minutes, before adapters, scoring and archival overhead. The scoring
+quote will use a full 21-policy root before any final 40-root scoring.
