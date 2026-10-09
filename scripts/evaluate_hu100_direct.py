@@ -77,13 +77,13 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None):
     out.mkdir(parents=True,exist_ok=False)
     plan=make_plan(specs,blocks,root,rung)
     started=perf_counter();tick=started
-    if registry is None:registry=PolicyRegistry(plan)
+    if registry is None:registry=PolicyRegistry(plan,sorted_average_rows=True)
     registry.plan=plan
     validate(registry,specs,plan)
     load_seconds=perf_counter()-tick
     schedule=build_schedule(plan)
     put(out/'inputs.json',{'source':source,'models':specs,'plan':asdict(plan),'translation':None,
-        'schedule':schedule_document(plan),'plan_sha256':digest(asdict(plan))})
+        'plan_sha256':digest(asdict(plan))})
     contexts={}
     private_seeds=set()
     def seed_factory(block,rotation,arm,role):

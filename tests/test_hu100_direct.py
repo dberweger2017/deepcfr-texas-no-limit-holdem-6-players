@@ -51,3 +51,21 @@ def test_full_replay_and_exact_reproduction(tmp_path,monkeypatch):
     from pathlib import Path
     Path(models[0]['path']).write_bytes(b'corrupt')
     with pytest.raises(ValueError):direct.execute(models,32,2026100922201,'fixture',tmp_path/'corrupt',source,registry)
+
+
+def test_sorted_buffers_equal_general_loader_and_reject_wrong_order():
+    from src.blueprint.compact_policy import CompactBuilder
+    left,right=CompactBuilder(),CompactBuilder()
+    for i in range(65540):
+        key=f'{i:032x}'
+        for builder in (left,right):builder.add(key,('check','jam'),(.25,.75),i,i%2)
+    normal,flags,counts=left.build()
+    sorted_entries,sorted_flags,sorted_counts=right.build_sorted()
+    for i in (0,1,65535,65536,65539):
+        key=f'{i:032x}'
+        assert normal[key]==sorted_entries[key] and counts[key]==sorted_counts[key]
+        assert (key in flags)==(key in sorted_flags)
+    bad=CompactBuilder()
+    for key in ('00000000000000000000000000000001','00000000000000000000000000000000'):
+        bad.add(key,('check',),(1.,),0,0)
+    with pytest.raises(ValueError,match='strictly sorted'):bad.build_sorted()

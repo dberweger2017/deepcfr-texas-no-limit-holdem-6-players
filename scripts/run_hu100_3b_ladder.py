@@ -6,6 +6,7 @@ import json
 from math import ceil, log2
 from pathlib import Path
 import subprocess
+import shutil
 import sys
 from time import perf_counter
 
@@ -111,7 +112,7 @@ def secondary(pilot=False):
     for label,model in zip(('terminal','1b'),models):
         cfg=base/(label+'-config.json');put(cfg,config(model,blocks))
         revision=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
-        tick=perf_counter();registry=LinkedRegistry(scripted_plan(config(model,blocks),'random',blocks,root))
+        tick=perf_counter();registry=LinkedRegistry(scripted_plan(config(model,blocks),'random',blocks,root),sorted_average_rows=True)
         load_seconds=perf_counter()-tick
         tick=perf_counter()
         execute(cfg,base/label,blocks,root,revision,registry=registry)
@@ -152,40 +153,68 @@ def freshness(blocks):
 
 
 def freeze(a_seconds):
-    measurements=[read(p) for p in (OUT/'direct-pilot').glob('*/costs.json')]
-    if not measurements:raise ValueError('Timing-only direct pilot required')
-    fixed=max(sum(m[x]['load_or_validation_seconds'] for x in ('primary','repeat')) for m in measurements)
-    slope=max((m['seconds']-sum(m[x]['load_or_validation_seconds'] for x in ('primary','repeat')))/m['blocks'] for m in measurements)
+    all_pairs=read(OUT/'pairs.json')
+    costs={p.parent.name:read(p) for p in (OUT/'direct-pilot').glob('*/costs.json')}
+    if set(costs)!=set(all_pairs):raise ValueError('Every prospective rung needs a timing pilot')
+    fixed=max(sum(m[x]['load_or_validation_seconds'] for x in ('primary','repeat')) for m in costs.values())
+    slope=max((m['seconds']-sum(m[x]['load_or_validation_seconds'] for x in ('primary','repeat')))/m['blocks'] for m in costs.values())
     operations=[read(p) for p in (OUT/'guards/operations').glob('*/receipt.json')]
     training=sum(o['seconds'] for o in operations if any(word in o['name'] for word in ('train','export','audit','spec','check')))
-    # Timing pilots supply final admission. Fixed model loads are charged once
-    # per pair; use twice measured full cost for overnight headroom.
-    blocks=524288
-    pairs_count=len(read(OUT/'pairs.json'))
+    # Pilot compressed raw bytes scale with blocks. Fixed metadata, guard logs,
+    # all current originals and an immutable archive copy are reserved separately.
+    raw_per_block=max(sum(pin['bytes'] for arm in ('primary','repeat') for pin in m[arm]['files'].values())/m['blocks'] for m in costs.values())
+    existing=sum(p.stat().st_size for p in OUT.rglob('*') if p.is_file())
+    indexed=read(OUT/'indexed-models.json')
+    duplicate_models=0
+    for target,old in indexed.items():
+        row=next(m for m in read(ROOT/'docs/reports/native-hu100-growth-1b-artifacts/model-index.json')['models'] if m['spec']['sha256']==old['sha256'])
+        for name in ('checkpoint','average','current'):
+            path=OUT/'training'/target/(name+'.gz')
+            pin=next(v for key,v in row['audit']['files'].items() if Path(key).name==name+'.gz')
+            if path.stat().st_size!=pin['bytes'] or file_hash(path)!=pin['sha256']:
+                raise ValueError('Indexed duplicate bytes changed before archive exclusion')
+            duplicate_models+=pin['bytes']
+    base_archive=existing-duplicate_models
+    available=shutil.disk_usage(OUT).free
+    disk_floor=16*1024**3
+    overhead=1024**3  # fixed science metadata/guard logs and their archive copies
     def quote(n,rungs):return 2*rungs*(fixed+slope*n)
-    main_seconds=quote(blocks,pairs_count)
+    def disk(n,rungs):return base_archive+2*raw_per_block*n*rungs+overhead+disk_floor
+    peak=max(read(OUT/'guards/operations'/('direct-pilot-'+r)/'receipt.json')['peak_family_rss_bytes'] for r in all_pairs)
+    def fits(n,rungs):return a_seconds+training+quote(n,rungs)+1800<=36000 and disk(n,rungs)<=available and peak+2048*n<7*1024**3
+    blocks=524288
+    rungs=['terminal-vs-1b']+[r for r in ('2b-vs-1b','1b-vs-500m') if r in all_pairs]
+    # Preserve the target primary before dropping precision or selecting results.
+    while len(rungs)>1 and not fits(blocks,len(rungs)):
+        rungs.pop()
+    while blocks>=32 and not fits(blocks,len(rungs)):
+        blocks//=2
+    if blocks<32:raise ValueError('Primary cannot fit measured time/storage reserve')
     sec=read(OUT/'secondary-pilot/costs.json')
-    sec_seconds=0
+    sec_seconds=sec_raw=0
     for m in sec['measurements']:
         p,r=m['primary'],m['reproduction']
         fixed_sec=m['load_seconds']+sum(v['model_load_or_validation_seconds']+v['snapshot_seconds']+v['output_model_hash_seconds'] for v in (p,r))
         scalable=sum(v['play_and_report_seconds']+v['output_raw_hash_seconds']+v['panel_setup_seconds'] for v in (p,r))+m['replay_seconds']
         sec_seconds+=2*(fixed_sec+scalable*4096/m['blocks'])
-    skip_secondary=a_seconds+training+main_seconds+sec_seconds+1800>36000
-    if a_seconds+training+main_seconds+1800>36000:
-        available=max(0,36000-a_seconds-training-1800)
-        admitted=(available/2/pairs_count-fixed)/slope
-        if admitted<32:raise ValueError('No direct primary admitted by measured time')
-        blocks=min(blocks,2**int(log2(admitted)))
-        main_seconds=quote(blocks,pairs_count)
+    for p in (OUT/'secondary-pilot').rglob('*'):
+        if p.is_file() and 'models' not in p.parts and p.name in ('hands.jsonl','decisions.jsonl.gz'):
+            sec_raw+=p.stat().st_size*4096/32
+    combined=a_seconds+training+quote(blocks,len(rungs))+sec_seconds+1800
+    skip_secondary=combined>36000 or disk(blocks,len(rungs))+2*sec_raw>available
     put(OUT/'freshness.json',freshness(blocks))
-    put(OUT/'frozen-final.json',{'blocks_per_rung':blocks,'rungs':list(read(OUT/'pairs.json')),
+    put(OUT/'frozen-final.json',{'blocks_per_rung':blocks,'rungs':rungs,'dropped_descriptive_rungs':[r for r in all_pairs if r not in rungs],
         'root':FINAL_ROOT,'scripted_root':SCRIPT_FINAL_ROOT,'scripted_blocks':4096,
         'primary':'terminal-vs-1b','decision':'paired Student-t 95% lower >0',
-        'direct_quote_seconds':main_seconds,'secondary_quote_seconds':sec_seconds,
+        'direct_quote_seconds':quote(blocks,len(rungs)),'secondary_quote_seconds':sec_seconds,
         'skip_secondary':skip_secondary,'stage_a_quote_seconds':a_seconds,'training_actual_seconds':training,
-        'cost_rule':'2x measured fixed cost plus block-scaled pilot cost; no pilot winnings/variance',
-        'expected_planning_half_width':1.96*1665/blocks**.5,'science_outcomes_used_to_select_budget':False})
+        'cost_rule':'2x measured fixed cost plus block-scaled pilot cost; primary priority; no pilot winnings/variance',
+        'expected_planning_half_width':1.96*1665/blocks**.5,'science_outcomes_used_to_select_budget':False,
+        'storage':{'available_bytes':available,'required_additional_free_bytes':disk(blocks,len(rungs))+(0 if skip_secondary else 2*sec_raw),
+            'disk_floor_bytes':disk_floor,'existing_original_bytes':existing,'archive_original_reserve_bytes':base_archive,
+            'hash_verified_indexed_model_bytes_excluded_from_zip':duplicate_models,'raw_bytes_per_block_per_rung':raw_per_block,
+            'raw_and_archive_copies':2,'overhead_bytes':overhead,'final_workspace_bytes':2048*blocks,'pilot_peak_family_bytes':peak},
+        'full_pair_pilot_family_peaks':{r:read(OUT/'guards/operations'/('direct-pilot-'+r)/'receipt.json')['peak_family_rss_bytes'] for r in all_pairs}})
 
 
 def main():
