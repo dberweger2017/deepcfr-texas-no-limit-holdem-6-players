@@ -38,13 +38,15 @@ def make_plan(specs,blocks,root,rung):
 
 def validate(registry,specs,plan):
     if registry.plan.models!=plan.models:raise ValueError('Registry identity differs')
+    if any(s.chip_unit!='0.01' or s.stacks!=(10000,10000) or s.small_blind!=50 or s.big_blind!=100 for s in plan.scenarios):
+        raise ValueError('Fixed HU100 scenario required')
     for spec in specs:
         model=registry.models[spec['name']]
         if (file_hash(model.source_path)!=spec['sha256'] or model.source_path.stat().st_size!=spec['bytes']
                 or model.description['entries']!=spec['entries'] or model.description['iteration']!=spec['iteration']
                 or model.description['source_checkpoint_sha256']!=spec['source_checkpoint_sha256']
                 or model.identity['stacks']!=[10000,10000] or model.identity['small_blind']!=50
-                or model.identity['big_blind']!=100 or model.identity['chip_unit']!='0.01'):
+                or model.identity['big_blind']!=100):
             raise ValueError('Pinned direct model/game differs')
         model.configure_translation(None)
 
@@ -109,7 +111,7 @@ def execute(specs,blocks,root,rung,out,source,registry=None,reproduce=None):
                 if row['status']!='completed':
                     hand_stream.write(canonical(row)+'\n');hand_stream.flush()
                     raise ValueError('Failed direct hand: '+str(row['error']))
-                if repeat_h and json.loads(next(repeat_h))!=row:raise ValueError('Reproduced direct hand differs')
+                if repeat_h and canonical(json.loads(next(repeat_h)))!=canonical(row):raise ValueError('Reproduced direct hand differs')
                 hand_stream.write(canonical(row)+'\n');hands+=1
             if not run_schedule(plan,schedule,emit,factory=factory,
                     seed_factory=seed_factory,arms=('candidate',)):
@@ -178,7 +180,7 @@ def audit(out,output,report=False):
                     cell[key][value]=cell[key].get(value,0)+1
                 hand=hand.apply(action);actions+=1
             net=[p.stack-10000 for p in hand.observe(0).players]
-            if (not hand.finished or public_events(hand.events)!=row['events'] or net!=row['net_chips']
+            if (not hand.finished or canonical(public_events(hand.events))!=canonical(row['events']) or net!=row['net_chips']
                     or sum(net)!=0 or net[rotation]!=row['candidate_chips'] or row['participants']!=list(ids)):
                 raise ValueError('Direct events/settlement differs')
             values[coord]=net[rotation];hands+=1

@@ -50,9 +50,12 @@ def main():
     p.add_argument('--name',required=True)
     p.add_argument('--seconds',type=float,help='Measured operation budget, if frozen')
     p.add_argument('--stop-file',type=Path)
+    p.add_argument('--accept-capacity-stop',action='store_true')
     p.add_argument('command',nargs=argparse.REMAINDER)
     a=p.parse_args()
     if a.command[0]=='--':a.command=a.command[1:]
+    if a.accept_capacity_stop and (len(a.command)<2 or a.command[1]!='train'):
+        raise ValueError('Capacity stop is accepted only for native training')
     resources.OUT=a.out
     resources.FAMILY_SOFT=7*resources.GIB
     resources.FAMILY_HARD=9*resources.GIB
@@ -75,7 +78,7 @@ def main():
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         resources.identity()
         try:
-            receipt=resources.operation(a.name,a.command,stop_file=a.stop_file,
+            receipt=resources.operation(a.name,a.command,stop_file=a.stop_file,accepted=(0,3) if a.accept_capacity_stop else (0,),
                 deadline=__import__('time').time()+a.seconds if a.seconds else None)
             remember_descendants(known)
             survivors=[]
