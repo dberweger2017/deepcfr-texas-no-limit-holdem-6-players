@@ -1,0 +1,20 @@
+{
+  "cap_seconds": 21600,
+  "deadline": 1791556877.144445,
+  "disk_floor_bytes": 16642998272,
+  "hard_family_bytes": 8589934592,
+  "host": {
+    "ac": true,
+    "at": 1791535216.951045,
+    "disk_free_bytes": 118694260736,
+    "free_percent": 86,
+    "pressure_level": 1,
+    "swap_bytes": 1358891581.44,
+    "system_used_bytes": 8941633536
+  },
+  "soft_family_bytes": 6442450944,
+  "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+  "stable_samples": 301,
+  "started": 1791535277.144445,
+  "swap_growth_limit_bytes": 3000000000
+}

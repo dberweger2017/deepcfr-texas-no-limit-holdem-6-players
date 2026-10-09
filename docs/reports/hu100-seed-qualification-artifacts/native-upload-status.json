@@ -1,0 +1,24 @@
+{
+  "at": 1791536414.51521,
+  "administrative_metadata_snapshot_only": true,
+  "name": "hu100-seed-qualification-M4-20261009.zip",
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-211-hu100-seed-qualification/hu100-seed-qualification-M4-20261009.zip",
+  "bytes": 6655236484,
+  "is_uploaded": 1,
+  "is_uploading": 0,
+  "is_trashed": 0,
+  "reported_upload_error": false,
+  "conflicts": {
+    "api": "NSFileVersion.unresolvedConflictVersionsOfItemAtURL",
+    "exists": true,
+    "nil": false,
+    "unresolved_count": 0,
+    "at": 1791536414.515203,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-211-hu100-seed-qualification/hu100-seed-qualification-M4-20261009.zip",
+    "bytes": 6655236484,
+    "mtime_ns": 1791536090561487618
+  },
+  "folder_id": "1vpe-6BJBmMfX3S0HlIJaoO6plkYee5L7",
+  "archive_id": "1MkVUkiRMZE_7UK790J7Pu6ObfPw8gMtr",
+  "remote_bytes_downloaded": false
+}

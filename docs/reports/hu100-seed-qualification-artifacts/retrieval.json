@@ -1,0 +1,26 @@
+{
+  "archive": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+  "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+  "cloud_acceptance": "owner handoff; local verified archive used",
+  "index_sha256": "af47dd966ad9f58fdaf6fef0904b535ec72187b1b27bff769ec67de4f0833250",
+  "manifest_sha256": "609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58",
+  "members": [
+    {
+      "bytes": 193277097,
+      "member": "research/gate/average.gz",
+      "original_path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/gate/average.gz",
+      "path": "/Users/dberweger/Local/hu100-seed-qualification-20261009/results/hu100-seed-qualification/inputs/early/average.gz",
+      "sha256": "ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4"
+    },
+    {
+      "bytes": 1173264021,
+      "member": "research/training/1000000000/average.gz",
+      "original_path": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/average.gz",
+      "path": "/Users/dberweger/Local/hu100-seed-qualification-20261009/results/hu100-seed-qualification/inputs/terminal/average.gz",
+      "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9"
+    }
+  ],
+  "originals_unchanged": true,
+  "owning_pr_207_status": "MERGED, live check before retrieval",
+  "read_scope": "retained original averages copied and independently size/SHA256 checked; no archive read, hydration or fresh whole/member rehash"
+}

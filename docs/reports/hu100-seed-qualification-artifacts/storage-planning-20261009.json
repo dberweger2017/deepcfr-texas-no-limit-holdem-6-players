@@ -1,0 +1,60 @@
+{
+  "status": "measured-inventory-planning-quote-not-final-pilot-admission",
+  "at_utc": "2026-10-09T06:09:29.690651+00:00",
+  "source_archive": "/Users/dberweger/Local/Research-Cloud/PR-207-hu100-1b/hu100-1b-campaign-M4-retry-20261009.zip",
+  "source_archive_bytes": 20517119304,
+  "whole_archive_sha256_from_207_receipt": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+  "manifest_sha256_checked": "609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58",
+  "read_scope": "ZIP directory and 324414-byte embedded manifest only; no model/raw contents, whole archive rehash, extraction, copy, modification or cleanup",
+  "old_final_plus_reproduction_bytes": 10128279831,
+  "old_fixed_model_snapshot_bytes": 8614859548,
+  "old_variable_final_plus_reproduction_bytes": 1513420283,
+  "old_blocks": 2048,
+  "old_candidate_panels": 6,
+  "new_candidate_panels": 9,
+  "terminal_entry_scale": 1.405964991867596,
+  "early_model_size_allowance": 1.1,
+  "raw_trace_headroom_factor": 2,
+  "archive_policy": "retain originals and one locally verified archive copy; no compression savings assumed",
+  "measured_current_free_bytes": 31619964928,
+  "quotes": [
+    {
+      "blocks": 4096,
+      "model_saves_bytes": 12700674370,
+      "restored_inputs_bytes": 1366541118,
+      "final_model_snapshots_bytes": 19126574623,
+      "pilot_model_snapshots_bytes": 5079610278,
+      "raw_final_reproduction_forecast_bytes": 9080521698,
+      "fixed_pilot_resources_build_metadata_reserve_bytes": 1073741824,
+      "originals_and_snapshots_forecast_bytes": 48427663911,
+      "archive_copy_forecast_bytes": 48427663911,
+      "temporary_save_recovery_reserve_bytes": 3221225472,
+      "disk_floor_bytes": 16642998272,
+      "calculated_required_free_bytes": 116719551566,
+      "rounded_planning_target_free_bytes": 118111600640,
+      "additional_free_bytes_needed": 86491635712
+    },
+    {
+      "blocks": 8192,
+      "model_saves_bytes": 12700674370,
+      "restored_inputs_bytes": 1366541118,
+      "final_model_snapshots_bytes": 19126574623,
+      "pilot_model_snapshots_bytes": 5079610278,
+      "raw_final_reproduction_forecast_bytes": 18161043396,
+      "fixed_pilot_resources_build_metadata_reserve_bytes": 1073741824,
+      "originals_and_snapshots_forecast_bytes": 57508185609,
+      "archive_copy_forecast_bytes": 57508185609,
+      "temporary_save_recovery_reserve_bytes": 3221225472,
+      "disk_floor_bytes": 16642998272,
+      "calculated_required_free_bytes": 134880594962,
+      "rounded_planning_target_free_bytes": 139586437120,
+      "additional_free_bytes_needed": 107966472192
+    }
+  ],
+  "limits": [
+    "Storage planning extrapolation from #207, not observed new-seed sizes. Terminal model sizes use unchanged57,658,644-entry ceiling relative to measured41,010,014 entries.",
+    "Both save/current/average sets, nine final arms and full reproduction snapshots, retained pilot snapshots, restored fixed lineage inputs, raw traces, pilots/build/resources/metadata and temporary save reserve are included.",
+    "No outcome-based checkpoint/seed/sample selection. Timing pilot determines4096/8192 choice and final measured admission. New campaign has not started.",
+    "All #207 originals and archives remain unchanged. No upload acceptance, cleanup or six-hour feasibility claimed."
+  ]
+}

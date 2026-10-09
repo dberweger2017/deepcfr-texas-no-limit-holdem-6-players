@@ -1,0 +1,52 @@
+{
+  "archive_factor": "2x #207 measured full packing/readback at projected archive byte ratio; 1800s reserve must cover it",
+  "at": 1791536075.8233101,
+  "choices": [
+    {
+      "blocks": 8192,
+      "disk_free_bytes": 111892590592,
+      "disk_pass": false,
+      "export_audit_seconds": 8742.138138669105,
+      "local_closeout_reserve_seconds": 1800,
+      "play_replay_reproduction_seconds": 53804.27956736296,
+      "projected_archive_seconds_at_2x_207_bytes": 675.0421883830451,
+      "remaining_cost_seconds": 71605.60343046408,
+      "remaining_required_free_bytes": 132839993166,
+      "saves_seconds": 928.4164258692424,
+      "seconds_from_start": 72404.27463360052,
+      "strict_report_seconds": 2534.6212577819824,
+      "timing_pass": false,
+      "training_seconds": 3796.1480407807894
+    },
+    {
+      "blocks": 4096,
+      "disk_free_bytes": 111892590592,
+      "disk_pass": true,
+      "export_audit_seconds": 8742.138138669105,
+      "local_closeout_reserve_seconds": 1800,
+      "play_replay_reproduction_seconds": 31173.073395775846,
+      "projected_archive_seconds_at_2x_207_bytes": 568.4532711051829,
+      "remaining_cost_seconds": 47707.08662998598,
+      "remaining_required_free_bytes": 111365156456,
+      "saves_seconds": 928.4164258692424,
+      "seconds_from_start": 48505.75783312242,
+      "strict_report_seconds": 1267.3106288909912,
+      "timing_pass": false,
+      "training_seconds": 3796.1480407807894
+    }
+  ],
+  "deadline": 1791556877.144445,
+  "disk_basis": "reviewed 110/130 GiB complete quote, credit retained new bytes only",
+  "evaluation_factor": "3x fixed loads plus block-scaled play/replay/reproduction",
+  "fixed_load_costs_seconds": {
+    "old-early": 63.321346000011545,
+    "old-terminal": 347.84479941695463,
+    "old-terminal-on": 345.9404429179849
+  },
+  "pilot_outcomes_inspected": false,
+  "pilot_scalable_seconds": 9.822572123084683,
+  "report_factor": "3x #207 strict-report time times max(scanned entries ratio, blocks*arm count ratio)",
+  "save_tools_factor": "2x maximum measured seconds/entry, at frozen entry ceiling",
+  "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+  "training_quote_factor": "max(6x fresh nonsave pilot, 2x #207 train/save per seed)"
+}

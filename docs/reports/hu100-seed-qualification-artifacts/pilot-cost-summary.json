@@ -1,0 +1,280 @@
+{
+  "pilot_root": 2026100910011,
+  "blocks_per_opponent": 16,
+  "outcomes_inspected_for_admission": false,
+  "arms": {
+    "old-early": {
+      "replay": {
+        "status": "verified",
+        "hands_replayed": 320,
+        "actions_replayed": 1276,
+        "all_settlements_replayed": true,
+        "seconds": 0.1967867499915883,
+        "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2"
+      },
+      "play": {
+        "status": "complete",
+        "hands": 320,
+        "decisions": 1276,
+        "wall_seconds": 32.30903591599781,
+        "model_load_seconds": 31.492333250003867,
+        "panel_costs": [
+          {
+            "decisions": 205,
+            "hands": 64,
+            "opponent": "random",
+            "seconds": 0.039996500010602176
+          },
+          {
+            "decisions": 536,
+            "hands": 64,
+            "opponent": "check_call",
+            "seconds": 0.09348962496733293
+          },
+          {
+            "decisions": 133,
+            "hands": 64,
+            "opponent": "tight_aggressive",
+            "seconds": 0.02783437503967434
+          },
+          {
+            "decisions": 241,
+            "hands": 64,
+            "opponent": "loose_aggressive",
+            "seconds": 0.046195542032364756
+          },
+          {
+            "decisions": 161,
+            "hands": 64,
+            "opponent": "pot_pressure",
+            "seconds": 0.033935333020053804
+          }
+        ],
+        "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2"
+      },
+      "reproduction": {
+        "status": "complete",
+        "hands": 320,
+        "decisions": 1276,
+        "wall_seconds": 32.60606379201636,
+        "model_load_seconds": 31.829012750007678,
+        "panel_costs": [
+          {
+            "decisions": 205,
+            "hands": 64,
+            "opponent": "random",
+            "seconds": 0.04170025000348687
+          },
+          {
+            "decisions": 536,
+            "hands": 64,
+            "opponent": "check_call",
+            "seconds": 0.09693804197013378
+          },
+          {
+            "decisions": 133,
+            "hands": 64,
+            "opponent": "tight_aggressive",
+            "seconds": 0.028904790990054607
+          },
+          {
+            "decisions": 241,
+            "hands": 64,
+            "opponent": "loose_aggressive",
+            "seconds": 0.04874816699884832
+          },
+          {
+            "decisions": 161,
+            "hands": 64,
+            "opponent": "pot_pressure",
+            "seconds": 0.03505658300127834
+          }
+        ],
+        "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+        "reproduced_all_hands_and_decisions": true
+      }
+    },
+    "old-terminal": {
+      "replay": {
+        "status": "verified",
+        "hands_replayed": 320,
+        "actions_replayed": 1297,
+        "all_settlements_replayed": true,
+        "seconds": 0.5669239580165595,
+        "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2"
+      },
+      "play": {
+        "status": "complete",
+        "hands": 320,
+        "decisions": 1297,
+        "wall_seconds": 175.03306733397767,
+        "model_load_seconds": 173.26563624996925,
+        "panel_costs": [
+          {
+            "decisions": 200,
+            "hands": 64,
+            "opponent": "random",
+            "seconds": 0.023327832983341068
+          },
+          {
+            "decisions": 536,
+            "hands": 64,
+            "opponent": "check_call",
+            "seconds": 0.05824591696728021
+          },
+          {
+            "decisions": 137,
+            "hands": 64,
+            "opponent": "tight_aggressive",
+            "seconds": 0.017710375017486513
+          },
+          {
+            "decisions": 268,
+            "hands": 64,
+            "opponent": "loose_aggressive",
+            "seconds": 0.035440417006611824
+          },
+          {
+            "decisions": 156,
+            "hands": 64,
+            "opponent": "pot_pressure",
+            "seconds": 0.018907250021584332
+          }
+        ],
+        "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2"
+      },
+      "reproduction": {
+        "status": "complete",
+        "hands": 320,
+        "decisions": 1297,
+        "wall_seconds": 176.28292249998776,
+        "model_load_seconds": 174.57916316698538,
+        "panel_costs": [
+          {
+            "decisions": 200,
+            "hands": 64,
+            "opponent": "random",
+            "seconds": 0.025071125011891127
+          },
+          {
+            "decisions": 536,
+            "hands": 64,
+            "opponent": "check_call",
+            "seconds": 0.06139212503330782
+          },
+          {
+            "decisions": 137,
+            "hands": 64,
+            "opponent": "tight_aggressive",
+            "seconds": 0.01916587498271838
+          },
+          {
+            "decisions": 268,
+            "hands": 64,
+            "opponent": "loose_aggressive",
+            "seconds": 0.03733616694808006
+          },
+          {
+            "decisions": 156,
+            "hands": 64,
+            "opponent": "pot_pressure",
+            "seconds": 0.02016137499595061
+          }
+        ],
+        "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+        "reproduced_all_hands_and_decisions": true
+      }
+    },
+    "old-terminal-on": {
+      "replay": {
+        "status": "verified",
+        "hands_replayed": 320,
+        "actions_replayed": 1310,
+        "all_settlements_replayed": true,
+        "seconds": 0.5634308750159107,
+        "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2"
+      },
+      "play": {
+        "status": "complete",
+        "hands": 320,
+        "decisions": 1310,
+        "wall_seconds": 174.80422179104062,
+        "model_load_seconds": 173.08876020897878,
+        "panel_costs": [
+          {
+            "decisions": 200,
+            "hands": 64,
+            "opponent": "random",
+            "seconds": 0.02434783399803564
+          },
+          {
+            "decisions": 536,
+            "hands": 64,
+            "opponent": "check_call",
+            "seconds": 0.06002766703022644
+          },
+          {
+            "decisions": 137,
+            "hands": 64,
+            "opponent": "tight_aggressive",
+            "seconds": 0.017854042001999915
+          },
+          {
+            "decisions": 268,
+            "hands": 64,
+            "opponent": "loose_aggressive",
+            "seconds": 0.03565662499750033
+          },
+          {
+            "decisions": 169,
+            "hands": 64,
+            "opponent": "pot_pressure",
+            "seconds": 0.024958458030596375
+          }
+        ],
+        "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2"
+      },
+      "reproduction": {
+        "status": "complete",
+        "hands": 320,
+        "decisions": 1310,
+        "wall_seconds": 174.5667075419915,
+        "model_load_seconds": 172.85168270900613,
+        "panel_costs": [
+          {
+            "decisions": 200,
+            "hands": 64,
+            "opponent": "random",
+            "seconds": 0.026507125003263354
+          },
+          {
+            "decisions": 536,
+            "hands": 64,
+            "opponent": "check_call",
+            "seconds": 0.06194108398631215
+          },
+          {
+            "decisions": 137,
+            "hands": 64,
+            "opponent": "tight_aggressive",
+            "seconds": 0.018883832963183522
+          },
+          {
+            "decisions": 268,
+            "hands": 64,
+            "opponent": "loose_aggressive",
+            "seconds": 0.037182416999712586
+          },
+          {
+            "decisions": 169,
+            "hands": 64,
+            "opponent": "pot_pressure",
+            "seconds": 0.02644129196414724
+          }
+        ],
+        "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+        "reproduced_all_hands_and_decisions": true
+      }
+    }
+  }
+}
