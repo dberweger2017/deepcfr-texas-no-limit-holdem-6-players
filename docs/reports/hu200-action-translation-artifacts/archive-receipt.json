@@ -1,0 +1,14 @@
+{
+  "bytes": 1728155,
+  "cloud_acceptance_claimed": false,
+  "manifest_path": "ARCHIVE-MANIFEST.json",
+  "manifest_sha256": "d8991862c8d72466b6168dc4a3f590044c48bc6730356946db58b550f7e5d1d6",
+  "models_and_runtime_reused_without_copy": true,
+  "originals_retained": true,
+  "path": "/Users/dberweger/Local/Research-Cloud/PR-218-HU200-action-translation/HU200-action-translation-M1-20261009.zip",
+  "remote_bytes_downloaded": false,
+  "sha256": "93469e766ff8227fc601aa2e618ed4323134df24718999f2b5391ab994628987",
+  "status": "locally-verified",
+  "upload_status": "pending-owner-or-later-agent-handoff",
+  "verified_members": 27
+}

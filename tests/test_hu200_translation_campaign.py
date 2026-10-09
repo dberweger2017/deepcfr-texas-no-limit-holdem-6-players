@@ -96,20 +96,35 @@ def test_archive_preserves_failure_partial_and_restoration_history(tmp_path):
     with pytest.raises(FileExistsError):seal(root,archive)
 
 
-def test_sigterm_stops_owned_child_and_preserves_failed_receipt(tmp_path):
+@pytest.mark.parametrize('portable_wrapper',[False,True])
+def test_sigterm_stops_owned_child_and_preserves_failed_receipt(tmp_path,portable_wrapper):
     import subprocess
     import sys
     import psutil
     code='''
 from pathlib import Path
 import os,signal,threading,sys
-from time import monotonic
+from time import monotonic,sleep
 from scripts import run_hu200_translation as r
 root=Path(sys.argv[1]);root.mkdir()
 s=dict(pressure=1,free_percent=60,swap_bytes=0,disk_free_bytes=100*r.GIB,ac=True)
 r.host=lambda _:s
 g=r.Guard(root,monotonic(),s,15.5*r.GIB)
-threading.Timer(.3,lambda:os.kill(os.getpid(),signal.SIGTERM)).start()
+# The campaign is M1-only; isolate macOS time flags from the portable cleanup fixture.
+if sys.platform!='darwin' or sys.argv[2]=='portable':
+    original_popen=r.subprocess.Popen
+    def portable_popen(command,**kwargs):
+        assert command[:3]==['/usr/bin/time','-l',sys.executable]
+        return original_popen(command[2:],**kwargs)
+    r.subprocess.Popen=portable_popen
+# Send only after the actual owned Python child is alive; avoid a launch race.
+def interrupt_started_child():
+    deadline=monotonic()+5
+    while monotonic()<deadline:
+        try:pid=int((root/'pid').read_text())
+        except (FileNotFoundError,ValueError):sleep(.01);continue
+        if pid>0:os.kill(os.getpid(),signal.SIGTERM);return
+threading.Thread(target=interrupt_started_child,daemon=True).start()
 try:
     g.run('fixture',[sys.executable,'-c',"import os,time,pathlib;pathlib.Path('"+str(root/'pid')+"').write_text(str(os.getpid()));time.sleep(30)"])
 except RuntimeError as e:
@@ -117,7 +132,7 @@ except RuntimeError as e:
     assert g.failed
 else:raise AssertionError('SIGTERM failed to interrupt')
 '''
-    result=subprocess.run([sys.executable,'-c',code,str(tmp_path/'run')],capture_output=True,text=True,timeout=10)
+    result=subprocess.run([sys.executable,'-c',code,str(tmp_path/'run'),'portable' if portable_wrapper else 'native'],capture_output=True,text=True,timeout=10)
     assert result.returncode==0,result.stderr
     receipt=json.loads((tmp_path/'run/operations/fixture/receipt.json').read_text())
     assert receipt['status']=='failed' and 'Supervisor interrupted' in receipt['failure']

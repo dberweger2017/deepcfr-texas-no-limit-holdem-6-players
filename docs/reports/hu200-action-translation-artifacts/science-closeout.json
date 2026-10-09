@@ -1,0 +1,8 @@
+{
+  "elapsed_seconds": 123.47807487519458,
+  "failure": "RuntimeError('Guard: system pressure')",
+  "model_reused": true,
+  "no_training": true,
+  "source": "734b4f1093c963d15a81d12b3e5de209f95ba613",
+  "status": "incomplete"
+}

@@ -1,0 +1,12 @@
+{
+  "closeout_continuation": "Archive-only completion with original admission baseline and original absolute 60-minute deadline; no science readmission",
+  "destination_created": false,
+  "failure": "RuntimeError('Admission: system pressure')",
+  "preserved_original_receipts": [
+    "failure.json",
+    "science-closeout.json",
+    "closeout.json"
+  ],
+  "scope": "Original closeout archive admission immediately after timing pressure stop; no ZIP member or archive bytes were created",
+  "status": "not-started"
+}

@@ -1,0 +1,41 @@
+{
+  "status": "calibration-stopped-after-loading-and-partial-play",
+  "scientific_source": "734b4f1093c963d15a81d12b3e5de209f95ba613",
+  "final_hands": 0,
+  "final_blocks": 0,
+  "sample_frozen": false,
+  "final_evaluation_started": false,
+  "calibration_records": {
+    "off": 320,
+    "on": 119,
+    "total": 439
+  },
+  "calibration_actions": {
+    "off": 1195,
+    "on": 592
+  },
+  "calibration_candidate_decisions": {
+    "off": 557,
+    "on": 286
+  },
+  "calibration_native_fixture_rows": {
+    "off": 320,
+    "on": 118
+  },
+  "on_gzip_footer_missing": true,
+  "calibration_payoffs_generated": true,
+  "calibration_payoffs_inspected": false,
+  "isolated_loading_seconds": null,
+  "per_hand_cost": null,
+  "paired_gain": null,
+  "absolute_results": null,
+  "final_coverage": null,
+  "native_parity_run": false,
+  "scientific_retry": false,
+  "authoritative_over": [
+    "archive:partial-summary.json",
+    "archive:partial-summary-corrected.json"
+  ],
+  "correction": "Pressure warning occurred during partial calibration after model loading.439 complete calibration records;zero final hands.Original erroneous statements and sealed bytes preserved.",
+  "recommendation": "Retain experimental; no HU200 playing evidence from this stopped attempt"
+}

@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-10-09T15:44Z",
+  "host": "dberweger-m1",
+  "source": "734b4f1093c963d15a81d12b3e5de209f95ba613",
+  "owning_pr": 218,
+  "parent_pr217": "MERGED",
+  "lock_available_before_launch": true,
+  "competing_research_processes": [],
+  "cleanup_thread": {
+    "id": "3acb357c-8690-44ab-92e6-810355f29600",
+    "status": "running",
+    "latest_message": "45 inactive worktrees removed; evidence-bearing worktrees being checked for confirmed Drive backups",
+    "scope": "separate storage work, not a competing research worker"
+  },
+  "protected_dependencies": [
+    "/Users/dberweger/Local/deepcfr-hu200-slumbot/results/hu200-pilot-20261009/HU200-100000000.gz.average.gz",
+    "/Users/dberweger/Local/deepcfr-hu200-slumbot/native/hu20-trainer/target/release/hu20-trainer"
+  ],
+  "other_roots_modified": false,
+  "M4_used": false,
+  "initial_disk_gib": 24.852752685546875,
+  "ac": true,
+  "owner_retained_disk_floor_gib": 15.5
+}

@@ -1,0 +1,11 @@
+{
+  "elapsed_from_original_admission_seconds": 339.77082419395447,
+  "original_failed_closeout_preserved": "closeout.json",
+  "originals_retained": true,
+  "ownership_released": true,
+  "science_latched": true,
+  "scientific_retry": false,
+  "status": "partial-science-locally-archived",
+  "upload_pending": true,
+  "within_original_60_minute_cap": true
+}
