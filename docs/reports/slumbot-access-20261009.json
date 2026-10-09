@@ -1,0 +1,24 @@
+{
+  "date_utc": "2026-10-08",
+  "endpoint": "https://slumbot.com/slumbot/api/new_hand",
+  "http_status": 200,
+  "seconds": 0.675,
+  "response_fields": [
+    "action",
+    "board",
+    "client_pos",
+    "hole_cards",
+    "old_action",
+    "token"
+  ],
+  "client_pos": 0,
+  "action": "b200",
+  "board_count": 0,
+  "own_card_count": 2,
+  "token_present": true,
+  "error": null,
+  "requests": 1,
+  "policy_actions": 0,
+  "scope": "anonymous connectivity only; no policy match, settlement or 100BB claim",
+  "official_sample_sha256": "17ab1f6c1a25db1822cef7f34ed67b6516ac65ea24897adcc92d8f2db8f71505"
+}
