@@ -1,4 +1,111 @@
-# HU100 qualification preparation: disk admission refused
+# HU100 independent-seed qualification: time-capacity stop
+
+**The playing-gain and translation repetition question remains unanswered.**
+The authorized M4 attempt executed its bounded training/recovery and paired
+cost pilots, then refused main qualification at measured time admission.
+Seed2026100901 has **1,000,373actualnodes/642iterations/465,321entries**;
+this is a retained1Mpilot, not the39.4Mearly endpoint or a completed1Bseed.
+Seed2026100902 did not start. No final play, effect estimate, deal interval or
+training-seed variation estimate exists; pilot outcomes were not inspected
+for admission. #207's fixed lineage and all its original evidence remain intact.
+
+## Execution and admission
+
+Frozen scientific source **b51db57c402df116e3acc370b9f3247b1cea1ac2**, independently
+reviewed after three source rounds. Its two native source trees match #207's
+frozen source, and reused native binary SHA256 is
+`7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262`.
+M4 is10cores/16GiB/AC. After301stable samples over60seconds, the fixed clock
+started **08:41:17UTC**, hard deadline **14:41:17UTC** onOctober9. Baseline:
+normalpressure/86%free,118,694,260,736bytes disk free and1,358,891,581.44bytes
+swap. This campaign's limit is3,000,000,000-byte **growth**, never #207's
+separately scoped archive limit. Ownership lock and process inventory passed.
+
+Copied existing early/terminal averages into the new ignored root and checked
+exact merged-index sizes/SHA256/full-audit bindings. The offloaded #207 ZIP was
+not read or hydrated. A separate20Knode fixture produced byte-identical direct
+and split/resume checkpoints. The first fixed new seed's1Mcost pilot retained
+its native RNG/recovery state; current/average streaming exports and full465,321
+entry audit passed. Three16-block/opponent old-policy arms (early/off,
+terminal/off,terminal/on) fully replayed and reproduced. They represent640
+unique pilot hands,960replayed rows including repeated uniform references;
+pilot hands are excluded from final inference. Timing/completeness only was
+inspected. Final root2026100910012 remains unused; no final sample was frozen.
+
+| Predeclared final count | Conservative complete quote | Disk admission | Time admission |
+|---|---:|---|---|
+|4,096blocks/opponent/policy|13.47hours|pass|refused|
+|8,192blocks/opponent/policy|20.11hours|refused|refused|
+
+The quote includes already elapsed pilots, two fresh training lineages at the
+same total-node targets, saves, entry-scaled exports/audits, fixed policy loads,
+block-scaled play/replay/reproduction, separate strict-report allowance and
+1,800seconds local archive reserve. Measured sixpilot loads total757.11seconds;
+the non-load play/replay/reproduction remainder is9.822572seconds. Forecasts
+retain6x fresh nonsave training (or the larger2x #207 reference),2x maximum
+measured save/tool cost perentry,3x evaluation/report costs and entry-ceiling
+scaling. Snapshot/manifest/arena setup in the non-load remainder is
+conservatively block-scaled too; no saving is assumed. **These are upper
+planning quotes, not observed end-to-end runtimes or proof that an optimized
+workflow cannot finish in sixhours.** The declared admission rules refuse this
+workflow with its headroom. No margin, checkpoint, seed or sample was changed
+after the refusal; no main training or final hands were launched.
+
+Guarded primary campaign duration **819.08seconds (13.65minutes)**, including
+local archive packing/full readback. Continuous4096samples: peak familyRSS
+**4.065GiB**, normalpressure/AC throughout, minimum80%free, maximumswapgrowth
+**171.25MiB**, minimumdisk **97.993GiB**. Target cadence200ms; measured maximum
+gap267.30ms. All18owned operations completed and no guard/failure latch exists.
+Later bounded read-only receipt aggregation/upload metadata queries were
+administrative, before the same original deadline; no scientific rerun,
+payload verification repeat or clock/baseline reset. M4 research process readback
+is idle. The initial launcher-only refusal from its own caffeinate helper
+occurred before admission/clock/science and is preserved in the archive.
+
+## Archive and retrieval
+
+[Accepted Research-Cloud archive](https://drive.google.com/file/d/1MkVUkiRMZE_7UK790J7Pu6ObfPw8gMtr/view?usp=drivesdk)
+in [PR211folder](https://drive.google.com/drive/folders/1vpe-6BJBmMfX3S0HlIJaoO6plkYee5L7):
+**6,655,236,484bytes/331verifiedmembers**, SHA256
+`2357e9eb3e74df35ee9f4c3421812ef77bd90e0e59e7de0a2e6c087928835e5e`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`707e95387d56c1134b9f243ae1bbc10c2820965f0e15ffd746258537f2ba9783`.
+Packing/fullmember readback took20.40seconds under the same continuous guards.
+Native uploaded1/uploading0/trashed0/no uploaderror/zero unresolved Foundation
+fileversions and independent Drive ID/name/size/parent all agree. Remote bytes
+were not downloaded or independently rehashed. All originals remain; no cleanup.
+
+Archive includes models/recovery, fullpilot rawhands/decisions/reproductions,
+training/export/audit/resource evidence, source/binary/environment, source review,
+setup refusal and time-capacity stop. The active resource stream has a fixed
+complete-line prefix snapshot; archive-operation/resource/upload/evidence-review
+lifecycle receipts remain compact in Git. Exact assets and restoration commands
+are in [RESULTS_INDEX](../../RESULTS_INDEX.md). The new M4 root is
+`~/Local/hu100-seed-qualification-20261009`; #207's `.venv` and sharedGit remain
+referenced, and all openPR dependencies/originals stay protected.
+
+## Recommendation and validation
+
+**Keep the prospective v0.5 HU100 recipe unqualified.** Repetition at fixed1B
+endpoints was not tested, so neither the old gains nor their training-seed
+variation can be generalized from this attempt. The next engineering step is
+measuring/reducing fixed policy-loading and arena/tool overhead, followed by a
+separately authorized campaign with a new complete quote and declared margins.
+Do not automatically continue this partial, extend the clock, change the recipe,
+launch deeper training, select a release or merge thisPR. Main's owner-approved
+v0.5.0HU100/v0.5.5HU200-Slumbot milestone split remains separate and unchanged.
+
+Source review approved exact scientific head b51db57. M1 focused integration
+checks **43passed**; staged repository artifact guard and whitespace pass.
+Independent capacity/evidence review and exact final-headCI are pending at this
+receipt snapshot. Source, compact receipts, roadmap/index are in PR211; research
+payloads are only in Research-Cloud and ignored working roots.
+
+## Historical preparation snapshots
+
+The following dated preparation record is retained as history; its old disk
+and not-started statements are superseded by the execution above.
+
 
 [PR211](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/211) · draft, unmerged.
 

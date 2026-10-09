@@ -1,0 +1,380 @@
+{
+  "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+  "rows": 4096,
+  "all_pressure_normal": true,
+  "all_ac": true,
+  "minimum_system_free_percent": 80,
+  "maximum_swap_growth_bytes": 179568640.0,
+  "minimum_disk_free_bytes": 105218936832,
+  "peak_family_rss_bytes": 4365238272,
+  "max_sampling_gap_seconds": 0.26729798316955566,
+  "operations": {
+    "pilot-seed-export": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535291.4062011,
+      "kernel_command_peak_rss_bytes": 12615680,
+      "returncode": 0,
+      "seconds": 4.469599008560181,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535286.936602,
+      "status": "complete"
+    },
+    "pilot-old-terminal-audit": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535545.813097,
+      "kernel_command_peak_rss_bytes": 98140160,
+      "returncode": 0,
+      "seconds": 1.1439087390899658,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535544.6691892,
+      "status": "complete"
+    },
+    "archive": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791536096.224499,
+      "kernel_command_peak_rss_bytes": 107413504,
+      "returncode": 0,
+      "seconds": 20.400758981704712,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791536075.82374,
+      "status": "complete"
+    },
+    "pilot-old-terminal-play": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535544.6689699,
+      "kernel_command_peak_rss_bytes": 4267573248,
+      "returncode": 0,
+      "seconds": 176.10698008537292,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535368.5619898,
+      "status": "complete"
+    },
+    "pilot-old-terminal-on-audit": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535900.200434,
+      "kernel_command_peak_rss_bytes": 98041856,
+      "returncode": 0,
+      "seconds": 1.154952049255371,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535899.045482,
+      "status": "complete"
+    },
+    "pilot-old-terminal-on-reproduce": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791536075.8128798,
+      "kernel_command_peak_rss_bytes": 4023713792,
+      "returncode": 0,
+      "seconds": 175.6118631362915,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535900.2010188,
+      "status": "complete"
+    },
+    "pilot-old-early-play": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535334.623231,
+      "kernel_command_peak_rss_bytes": 1060749312,
+      "returncode": 0,
+      "seconds": 33.03270602226257,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535301.5905259,
+      "status": "complete"
+    },
+    "recovery-resumed": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535285.095217,
+      "kernel_command_peak_rss_bytes": 7454720,
+      "returncode": 0,
+      "seconds": 0.15457797050476074,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535284.940639,
+      "status": "complete"
+    },
+    "recovery-direct": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535285.2455401,
+      "kernel_command_peak_rss_bytes": 7192576,
+      "returncode": 0,
+      "seconds": 0.15012025833129883,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535285.09542,
+      "status": "complete"
+    },
+    "pilot-old-terminal-on-play": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535899.045247,
+      "kernel_command_peak_rss_bytes": 4030955520,
+      "returncode": 0,
+      "seconds": 175.87848925590515,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535723.1667578,
+      "status": "complete"
+    },
+    "recovery-split": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535284.940289,
+      "kernel_command_peak_rss_bytes": 6946816,
+      "returncode": 0,
+      "seconds": 0.1594240665435791,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535284.780865,
+      "status": "complete"
+    },
+    "pilot-seed-audit": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535301.589741,
+      "kernel_command_peak_rss_bytes": 54099968,
+      "returncode": 0,
+      "seconds": 10.182955026626587,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535291.406795,
+      "status": "complete"
+    },
+    "pilot-old-terminal-reproduce": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535723.165806,
+      "kernel_command_peak_rss_bytes": 4046946304,
+      "returncode": 0,
+      "seconds": 177.35224795341492,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535545.813558,
+      "status": "complete"
+    },
+    "pilot-old-early-audit": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535335.328307,
+      "kernel_command_peak_rss_bytes": 97353728,
+      "returncode": 0,
+      "seconds": 0.7046258449554443,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535334.623681,
+      "status": "complete"
+    },
+    "pilot-seed-train": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535286.936373,
+      "kernel_command_peak_rss_bytes": 51888128,
+      "returncode": 0,
+      "seconds": 1.6899898052215576,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535285.2463832,
+      "status": "complete"
+    },
+    "freshness": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535284.779101,
+      "kernel_command_peak_rss_bytes": 221069312,
+      "returncode": 0,
+      "seconds": 4.138061761856079,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535280.6410391,
+      "status": "complete"
+    },
+    "retrieve": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535280.640788,
+      "kernel_command_peak_rss_bytes": 271712256,
+      "returncode": 0,
+      "seconds": 3.468498945236206,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535277.1722891,
+      "status": "complete"
+    },
+    "pilot-old-early-reproduce": {
+      "child_alive_after_cleanup": false,
+      "cleanup_error": null,
+      "deadline": 1791556877.144445,
+      "failure": null,
+      "finished": 1791535368.5614002,
+      "kernel_command_peak_rss_bytes": 1023410176,
+      "returncode": 0,
+      "seconds": 33.23287510871887,
+      "source": "b51db57c402df116e3acc370b9f3247b1cea1ac2",
+      "started": 1791535335.328525,
+      "status": "complete"
+    }
+  },
+  "pilot_seed": {
+    "audit_status": "unaudited",
+    "binary_sha256": "7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262",
+    "checkpoint_bytes": 15192117,
+    "checkpoint_sha256": "3f5fbc769bf59363b7558af61b59e413cfff7b8472c02c6d4e3aa4b66f11d0ec",
+    "completed_nodes": 1000373,
+    "diagnostics": {
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        18228,
+        61656,
+        150852,
+        329466
+      ],
+      "entries": 465321,
+      "positive_average_mass_keys": 306848,
+      "traverser_visits": 195366,
+      "traverser_visits_by_street": [
+        6218,
+        21819,
+        52261,
+        115068
+      ],
+      "visits_histogram": {
+        "0": 291214,
+        "1": 161493,
+        "10-99": 154,
+        "100+": 0,
+        "2-9": 12460
+      },
+      "zero_average_mass_keys": 158473
+    },
+    "elapsed_seconds_including_writes": 1.522546,
+    "entries_per_completed_node": 0.46514749998250654,
+    "iteration": 642,
+    "new_entries": 465321,
+    "nodes_per_second_including_writes": 657039.5902652531,
+    "nodes_since_previous_save": 1000373,
+    "overshoot_nodes": 373,
+    "path": "/Users/dberweger/Local/hu100-seed-qualification-20261009/results/hu100-seed-qualification/training/2026100901/pilot/checkpoint.gz",
+    "process_rss_bytes_after_save": 51871744,
+    "recent_nodes_per_second_including_writes": 657039.5902652531,
+    "requested_nodes": 1000000,
+    "status": "saved",
+    "stop_requested": false,
+    "version": 1,
+    "write_finished": 1791535286.774596,
+    "write_seconds": 1.206082333,
+    "write_started": 1791535285.568528
+  },
+  "pilot_audit": {
+    "audit": {
+      "all_nodes_verified": 465321,
+      "average_sha256": "25e92cab51f815f88b416d0388c6c2f7f52aedcfcddc4a6d4d355eafbd72eabc",
+      "checkpoint_sha256": "3f5fbc769bf59363b7558af61b59e413cfff7b8472c02c6d4e3aa4b66f11d0ec",
+      "counts": {
+        "entries": 465321,
+        "positive_mass": 306848,
+        "zero_mass": 158473
+      },
+      "current_sha256": "356a60a120a0fd9fe55b758e8e7b3d739e38ea5517bad450779987f3d48f74ea",
+      "maximum_tv": 1.0,
+      "scope": "all stored totals and current regrets checked; historical increments not reconstructed",
+      "status": "verified",
+      "unweighted_mean_current_average_tv": 0.18890547640382713
+    },
+    "entries": 465321,
+    "files": {
+      "/Users/dberweger/Local/hu100-seed-qualification-20261009/results/hu100-seed-qualification/training/2026100901/pilot/average.gz": {
+        "bytes": 10849383,
+        "sha256": "25e92cab51f815f88b416d0388c6c2f7f52aedcfcddc4a6d4d355eafbd72eabc"
+      },
+      "/Users/dberweger/Local/hu100-seed-qualification-20261009/results/hu100-seed-qualification/training/2026100901/pilot/checkpoint.gz": {
+        "bytes": 15192117,
+        "sha256": "3f5fbc769bf59363b7558af61b59e413cfff7b8472c02c6d4e3aa4b66f11d0ec"
+      },
+      "/Users/dberweger/Local/hu100-seed-qualification-20261009/results/hu100-seed-qualification/training/2026100901/pilot/current.gz": {
+        "bytes": 11309685,
+        "sha256": "356a60a120a0fd9fe55b758e8e7b3d739e38ea5517bad450779987f3d48f74ea"
+      }
+    },
+    "hu20_reference_checked": false,
+    "iteration": 642,
+    "mean_traverser_visits_per_key": 0.41985210209726187,
+    "native_state": {
+      "completed_nodes": 1000373,
+      "coverage_start": [
+        0,
+        0,
+        0
+      ],
+      "decisions_by_street": [
+        18228,
+        61656,
+        150852,
+        329466
+      ],
+      "traverser_visits_by_street": [
+        6218,
+        21819,
+        52261,
+        115068
+      ],
+      "version": 1
+    },
+    "positive_average_mass_keys": 306848,
+    "scope": "resource/coverage and serialization only; no poker-strength or convergence claim",
+    "stack_bb": 100,
+    "status": "verified",
+    "visits_histogram": {
+      "0": 291214,
+      "1": 161493,
+      "10-99": 154,
+      "2-9": 12460
+    },
+    "zero_average_mass_keys": 158473
+  },
+  "resource_sha256": "8cf9a138313fc87131747b455b87ba46e9b1541301e5169d23054e96440cfd29",
+  "cloud_folder_id": "1vpe-6BJBmMfX3S0HlIJaoO6plkYee5L7",
+  "native_conflicts": {
+    "api": "NSFileVersion.unresolvedConflictVersionsOfItemAtURL",
+    "exists": true,
+    "nil": false,
+    "unresolved_count": 0,
+    "at": 1791536279.509592,
+    "path": "/Users/dberweger/Local/Research-Cloud/PR-211-hu100-seed-qualification/hu100-seed-qualification-M4-20261009.zip",
+    "bytes": 6655236484,
+    "mtime_ns": 1791536090561487618
+  }
+}

@@ -1,3 +1,74 @@
+## PR211 HU100 independent-seed qualification — time-capacity stop, October 9
+
+[PR211](https://github.com/dberweger2017/deepcfr-texas-no-limit-holdem-6-players/pull/211),
+`feature/hu100-seed-qualification`: [protocol](docs/hu100-seed-qualification.md),
+[report](docs/reports/hu100-seed-qualification.md),
+[measured quote](docs/reports/hu100-seed-qualification-artifacts/measured-quote.json).
+Fixed scientific source `b51db57c402df116e3acc370b9f3247b1cea1ac2` and native
+binary `7650ad60bbf2437622ea3c39d37c7d56686d00bac11680e44a6e47dab509a262`.
+Guarded M4 attempt08:41:17–08:54:56UTC (819.08s), original hard deadline14:41:17.
+New3,000,000,000-byte swap-growth guard retained one stable baseline; no breach.
+The conservative full4096-block quote is13.47h (diskpasses), above6h;8192is20.11h
+and alsofailsdisk. Valid time-capacity stop before maintraining/finalplay.
+Seed2026100901:1,000,373nodes/465,321entries, fullaudit; **not39.4M or1B**.
+Seed2026100902notstarted. Sixteen-block three-arm pilots replay/reproduce,
+costonlyinspected. No qualification/effect estimate/training-seed variation,
+changedrecipe/release/deepertraining/automaticcontinuation or merge.
+
+**Accepted primary research archive:** [hu100-seed-qualification-M4-20261009.zip](https://drive.google.com/file/d/1MkVUkiRMZE_7UK790J7Pu6ObfPw8gMtr/view?usp=drivesdk),
+ID `1MkVUkiRMZE_7UK790J7Pu6ObfPw8gMtr`, [folder](https://drive.google.com/drive/folders/1vpe-6BJBmMfX3S0HlIJaoO6plkYee5L7)
+ID `1vpe-6BJBmMfX3S0HlIJaoO6plkYee5L7`: **6,655,236,484bytes/331verifiedmembers**,
+wholeSHA256 `2357e9eb3e74df35ee9f4c3421812ef77bd90e0e59e7de0a2e6c087928835e5e`.
+Embedded `ARCHIVE-MANIFEST.json` SHA256
+`707e95387d56c1134b9f243ae1bbc10c2820965f0e15ffd746258537f2ba9783`.
+[Local whole/member verification](docs/reports/hu100-seed-qualification-artifacts/archive-receipt.json),
+[native uploaded/no-pending/no-conflicts](docs/reports/hu100-seed-qualification-artifacts/native-upload-status.json)
+and [independent cloud ID/name/size/parent acceptance](docs/reports/hu100-seed-qualification-artifacts/cloud-acceptance.json)
+agree. Remote bytes were not downloaded/verified. All originals retained;
+no deletion inside or outside synced folders by this task.
+
+|Retained new partial asset/member|Bytes|SHA256|
+|---|---:|---|
+|`research/training/2026100901/pilot/average.gz`|10,849,383|`25e92cab51f815f88b416d0388c6c2f7f52aedcfcddc4a6d4d355eafbd72eabc`|
+|`research/training/2026100901/pilot/checkpoint.gz`|15,192,117|`3f5fbc769bf59363b7558af61b59e413cfff7b8472c02c6d4e3aa4b66f11d0ec`|
+|`research/training/2026100901/pilot/current.gz`|11,309,685|`356a60a120a0fd9fe55b758e8e7b3d739e38ea5517bad450779987f3d48f74ea`|
+
+Copied fixed #207 input averages are members `research/inputs/early/average.gz`
+(193,277,097bytes,`ba62d13536120a9d549f2f3ff84bcb2a96fbd8143ac2fc8477addab368dee0c4`)
+and `research/inputs/terminal/average.gz` (1,173,264,021bytes,
+`47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9`).
+[Retrieval receipt](docs/reports/hu100-seed-qualification-artifacts/retrieval.json)
+binds exact copies of retained original averages to merged #207's model index/full
+audits and unchanged old archive/member pointers. The offloaded #207 ZIP was not
+read/hydrated; no restart, archival retry or evidence mutation there.
+`research/source.tar`, `research/bin/hu20-trainer`, `research/environment.json`,
+`research/pilot/`, `research/pilot-reproduction/`, `research/training/`,
+`research/recovery-fixture/`, `research/operations/` retain source, tools, allraw
+pilot actions/probabilities/replays/reproductions, RNG/recovery, audits and costs.
+The prefix snapshot `research/archive-monitor-snapshot.jsonl` freezes complete
+continuous-resource rows before packing; postpack/archive lifecycle, resources,
+upload acceptance and evidence review stay compact in Git. Setup refusal log and
+capacitystop are in `research/preparation/` and `research/capacity-stop.json`.
+
+Restore manually into a fresh ignored nonsynced root: download the pinned Drive
+ID to `results/retrieved/pr211/NEW_ROOT/campaign.zip`; run
+`shasum -a 256 results/retrieved/pr211/NEW_ROOT/campaign.zip` and require the
+wholehash above; use `python3 -m zipfile -e results/retrieved/pr211/NEW_ROOT/campaign.zip results/retrieved/pr211/NEW_ROOT/unpacked`;
+verify embeddedmanifest hash and every required member's size/SHA256 before use.
+For example hash `unpacked/research/training/2026100901/pilot/checkpoint.gz`
+against the exact partialcheckpoint pin above. Restore frozen source separately;
+never automatically relaunch the one-use campaign or overwrite an active input.
+
+Protected active/local roots: M4 `~/Local/hu100-seed-qualification-20261009`,
+M1 `~/Local/hu100-seed-qualification-20261009` and its ignored coordinator;
+#207 `.venv`/native source/binary and sharedGit. PR211 remains open/unmerged, so
+upload acceptance grants no cleanup of this root or dependencies.
+Recommendation: HU100 seed qualification remains unanswered; improve measured
+pipeline costs before a separately authorized complete campaign. Independent
+end evidence review/final-headCI pending at this snapshot.
+
+### Historical preparation refusals (superseded by execution above)
+
 ## HU100 independent-seed qualification preparation — October 9, 2026
 
 **Live execution supersedes the dated preparation refusals below:** owner
