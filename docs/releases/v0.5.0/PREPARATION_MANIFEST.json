@@ -1,0 +1,63 @@
+{
+  "candidate": "v0.5.0-candidate-pr207-translation-v1",
+  "dependency": {
+    "pokers_git_revision": "5db20e3d5d6862b32a7402035c1340b622d3b005",
+    "python": "3.11"
+  },
+  "evidence": {
+    "external_benchmark_established": false,
+    "pr215_overall_recipe_qualified": false,
+    "translated_pot_profitability_established": false
+  },
+  "inference": {
+    "adapter": "hu100-public-menu-translation-v1",
+    "translation": {
+      "max_events": 128,
+      "max_states": 512,
+      "version": "hu100-public-menu-translation-v1"
+    }
+  },
+  "model": {
+    "actual_nodes": 1000002065,
+    "bytes": 1173264021,
+    "checkpoint_sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+    "entries": 41010014,
+    "extraction": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "file": "O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+    "format": "holdem-hu100-stored-cfr-average-research-v1",
+    "game": "hu100-native-reopening-100bb-52card-no-ante-rake-v1",
+    "iteration": 885307,
+    "players": 2,
+    "raise_cap": null,
+    "resumable": false,
+    "schema": "hu100-native-reopening-ordered-history-card-v1",
+    "seed": 2026100601,
+    "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+    "training_budget_nodes": 1000000000
+  },
+  "owner_publication_approval": false,
+  "package_source_commit": "155356b9dc656ecdb217beba166d5ee5f4d44c34",
+  "proposed_release": "v0.5.0",
+  "provenance": {
+    "archive_bytes": 20517119304,
+    "archive_name": "hu100-1b-campaign-M4-retry-20261009.zip",
+    "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+    "drive_archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+    "drive_folder_id": "1qhlOHmphBGSFfiM82S7T4B_KhdabyRUS",
+    "manifest_member": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58",
+    "member": "research/training/1000000000/average.gz",
+    "pr": 207,
+    "scientific_source_commit": "bd0e7a417064f736091dc2b667954b50becb4b69"
+  },
+  "release_tag": null,
+  "status": "unpublished-owner-review",
+  "table": {
+    "big_blind": 100,
+    "chip_unit": "0.01",
+    "players": 2,
+    "reset_each_hand": true,
+    "small_blind": 50,
+    "stack_chips": 10000
+  }
+}

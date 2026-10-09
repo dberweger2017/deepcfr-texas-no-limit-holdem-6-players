@@ -1,0 +1,13 @@
+{
+  "deadline": 1791565720.846294,
+  "elapsed_seconds": 356.208541583037,
+  "failure": "Verification supervisor interrupted",
+  "finished": 1791562477.055182,
+  "max_swap_growth_bytes": 0.0,
+  "max_total_swap_bytes": 1635778560.0,
+  "min_free_disk_bytes": 67642294272,
+  "peak_family_rss_bytes": 68255744,
+  "samples": 1781,
+  "started": 1791562120.846294,
+  "target_cadence_seconds": 0.2
+}

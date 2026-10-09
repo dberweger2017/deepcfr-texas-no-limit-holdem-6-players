@@ -1,0 +1,13 @@
+{
+  "deadline": 1791565720.846294,
+  "elapsed_seconds": 2300.6719736629166,
+  "failure": null,
+  "finished": 1791564421.5180092,
+  "max_swap_growth_bytes": -209715200.0,
+  "max_total_swap_bytes": 1426063360.0,
+  "min_free_disk_bytes": 65460977664,
+  "peak_family_rss_bytes": 4601659392,
+  "samples": 1177,
+  "started": 1791562120.846294,
+  "target_cadence_seconds": 0.2
+}

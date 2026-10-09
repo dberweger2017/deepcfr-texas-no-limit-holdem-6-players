@@ -4,6 +4,13 @@ v0.4.2 plays a tabular, linearly weighted opponent-sampled CFR average trained f
 
 The three retained 10B lineages beat matched-seed 1B v0.4.1 directly by **+3.50 [+1.63, +5.37] BB/100**. All declared candidate checks pass. Fresh aggregate bounded LBR **−1.092 [−4.965, +2.782] BB/100** target-profit difference narrowly clears the unchanged lower >−5 safeguard, with half-width **3.874**. Its point estimate favors 1B on LBR; this does not establish LBR improvement or each seed's non-regression. [Updated decision table and limits](docs/reports/hu20-v042-lbr-confirmation.md), [v0.4.2 model card](docs/releases/v0.4.2/MODEL_CARD.md), [earlier v0.4.0 → v0.4.1 comparison](docs/reports/v0.4.1-release.md). Nominal paired 95% intervals are conditional on saved lineages; no full-game exploitability certificate, human/professional strength, six-player or HU100 support in this model follows.
 
+An unpublished [v0.5.0 HU100 candidate](docs/releases/v0.5.0/READINESS.md)
+can be selected explicitly with `--v050-candidate`; follow its
+[retrieval/install guide](docs/releases/v0.5.0/INSTALL.md). It uses unchanged #207
+first-seed bytes and translation512/128, with internal/scripted evidence only.
+#215's overall recipe qualification failed and pot profitability is unproven.
+The released default remains v0.4.2.
+
 ## Watch two bots
 
 In the local web app, choose **Bot-vs-bot spectator**, select two pinned models, then use **Play**, **Pause** or **Step**. Each decision shows its exact policy probabilities, selected action, lookup status and acting bot's legal perspective. Sessions retain both release/model/manifest identities and replayable hand history; v0.4.0 and v0.4.1 remain selectable. See the [spectator guide and independent audit command](docs/spectator.md).

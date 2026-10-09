@@ -1,0 +1,46 @@
+{
+  "audit_seconds": 0.016106082999613136,
+  "counts": {
+    "free": 1,
+    "restricted": 1,
+    "spectator": 1
+  },
+  "human_inference": {
+    "exact": 4,
+    "translated": 1
+  },
+  "independent_modules": [
+    "play_audit.audit_state",
+    "spectator_audit.audit_states",
+    "service.verify_replay"
+  ],
+  "inference": {
+    "adapter": "hu100-public-menu-translation-v1",
+    "translation": {
+      "max_events": 128,
+      "max_states": 512,
+      "version": "hu100-public-menu-translation-v1"
+    }
+  },
+  "model_sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+  "reader_load_seconds": 172.7965315420297,
+  "rejections": [
+    "HU20 table",
+    "changed inference identity"
+  ],
+  "spectator": {
+    "counts": {
+      "bot_0_decisions": 4,
+      "bot_1_decisions": 3,
+      "button_0_hands": 1,
+      "decisions": 7,
+      "hands": 1,
+      "trained": 7
+    },
+    "decisions": 7,
+    "hands": 1,
+    "sessions": 1,
+    "status": "verified"
+  },
+  "status": "verified"
+}

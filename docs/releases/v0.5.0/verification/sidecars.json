@@ -1,0 +1,42 @@
+{
+  "archive_immutable": true,
+  "archive_sha256": "a5df66f6cdde85d7659cc62b4152bc198ee4de0ae57ae19470813fea245e7903",
+  "folder_id": "1vmo9C77ItKIF66CHCFvaGuFXV3jQezd3",
+  "native_destination": "/Users/dberweger/Local/Research-Cloud/PR-220-v050-release-readiness/",
+  "originals_retained": true,
+  "remote_bytes_downloaded": false,
+  "sidecar_folder_id": "124UdJjb1y903atEATSiiLrXsn4KfQBXQ",
+  "sidecars": [
+    {
+      "bytes": 481,
+      "original": "/Users/dberweger/Local/deepcfr-v050-readiness/docs/releases/v0.5.0/verification/archive-receipt.json",
+      "path": "post-seal-sidecars/archive-receipt.json",
+      "sha256": "2abaa694137ea5b30637c551a3e45666fa21eb7c091365d482e799a405cc893d"
+    },
+    {
+      "bytes": 135,
+      "original": "/Users/dberweger/Local/deepcfr-v050-readiness/docs/releases/v0.5.0/verification/failure-closeout.json",
+      "path": "post-seal-sidecars/failure-closeout.json",
+      "sha256": "219dc788090a906624751c85cbf2fe073e97195cf422de0cba48a487c2b027e0"
+    },
+    {
+      "bytes": 372,
+      "original": "/Users/dberweger/Local/deepcfr-v050-readiness/docs/releases/v0.5.0/verification/resources-summary-closeout.json",
+      "path": "post-seal-sidecars/resources-summary-closeout.json",
+      "sha256": "bb23802017a84ae114faf9288ad386c6d203df51098845ca9dec93838ff6d5ba"
+    },
+    {
+      "bytes": 238938,
+      "original": "/Users/dberweger/Local/deepcfr-v050-readiness/results/v050-readiness/closeout/resources-closeout.jsonl",
+      "path": "post-seal-sidecars/resources-closeout.jsonl",
+      "sha256": "4e7ba26046720e2db663f913db71163c91148aa91e9969e51783ef8a7ba2c0fa"
+    },
+    {
+      "bytes": 1609,
+      "original": "/Users/dberweger/Local/deepcfr-v050-readiness/results/v050-readiness/closeout/closeout-operation.log",
+      "path": "post-seal-sidecars/closeout-operation.log",
+      "sha256": "595d998eabb82a127fbac7a2800229d99e25630fb7c5b2d43f102a01f2296fff"
+    }
+  ],
+  "status": "locally-staged-upload-acceptance-pending"
+}

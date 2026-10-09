@@ -1,0 +1,39 @@
+{
+  "archive_audit": "existing accepted PR207 receipt; no fresh whole-ZIP verification",
+  "model": {
+    "actual_nodes": 1000002065,
+    "bytes": 1173264021,
+    "checkpoint_sha256": "cca0b54a609f47c60b29e9fe5a920475a91ec641df2ff0e3ea48fdac615147ec",
+    "entries": 41010014,
+    "extraction": "normalize-lifetime-iteration-opponent-sampled-accumulator-v1",
+    "file": "O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz",
+    "format": "holdem-hu100-stored-cfr-average-research-v1",
+    "game": "hu100-native-reopening-100bb-52card-no-ante-rake-v1",
+    "iteration": 885307,
+    "players": 2,
+    "raise_cap": null,
+    "resumable": false,
+    "schema": "hu100-native-reopening-ordered-history-card-v1",
+    "seed": 2026100601,
+    "sha256": "47d493c2ca0a750ffec8ba5490bd8fdec0a582e0cf2fe3e4309868f6ae620fa9",
+    "training_budget_nodes": 1000000000
+  },
+  "provenance": {
+    "archive_bytes": 20517119304,
+    "archive_name": "hu100-1b-campaign-M4-retry-20261009.zip",
+    "archive_sha256": "ba3e82d8fa79be32d445c54eb240069c4a717cb75af9713f3eaf7ac86364fddf",
+    "drive_archive_id": "1iowJoQBQqB3tLRnU6GD0JcniF0qDIvgj",
+    "drive_folder_id": "1qhlOHmphBGSFfiM82S7T4B_KhdabyRUS",
+    "manifest_member": "ARCHIVE-MANIFEST.json",
+    "manifest_sha256": "609d4899a363b384aa58b0daaef2ff85f2bcae7b135c2a4e3604813fc4182d58",
+    "member": "research/training/1000000000/average.gz",
+    "pr": 207,
+    "scientific_source_commit": "bd0e7a417064f736091dc2b667954b50becb4b69"
+  },
+  "remote_cloud_bytes_downloaded_by_this_command": false,
+  "source": "/Users/dberweger/Local/hu100-1b-growth-20261008/results/hu100-1b/training/1000000000/average.gz",
+  "source_bytes": 1173264021,
+  "source_mtime_ns": 1791492800253798517,
+  "status": "verified-indexed-retained-model",
+  "target": "/Users/dberweger/Local/v050-readiness-20261009/models/v050-retrieved/O1B-HU100-opponent-sampled-average-seed-2026100601.jsonl.gz"
+}

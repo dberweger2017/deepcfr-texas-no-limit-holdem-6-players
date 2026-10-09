@@ -1,0 +1,14 @@
+{
+  "additional_disk_upper_bytes": 268435456,
+  "browser_reserve_seconds": 600,
+  "closeout_reserve_seconds": 300,
+  "loads_remaining": 3,
+  "pilot_3hand_seconds": 0.04251908301375806,
+  "pilot_audit_seconds": 0.016106082999613136,
+  "pilot_reader_load_seconds": 172.7965315420297,
+  "pilot_startup_seconds": 171.72261433303356,
+  "quote_seconds": 1938.0689429044724,
+  "remaining_seconds": 2569.4633860588074,
+  "source": "155356b9dc656ecdb217beba166d5ee5f4d44c34",
+  "status": "admitted"
+}

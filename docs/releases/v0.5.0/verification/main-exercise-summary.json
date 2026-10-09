@@ -1,0 +1,23 @@
+{
+  "all_in_raises": 1,
+  "hands": 19,
+  "off_menu_550_raises": 2,
+  "seconds": 0.2547478750348091,
+  "sessions": [
+    {
+      "hands": 4,
+      "id": "-BSeD7uDksAZKmHfcbUlusE0",
+      "mode": "restricted"
+    },
+    {
+      "hands": 7,
+      "id": "Lx1Aca-vUg-cqBx7tbeENrWg",
+      "mode": "free"
+    },
+    {
+      "hands": 8,
+      "id": "jnU1d9BIhCBWjOCRa9nCNWVG",
+      "mode": "spectator"
+    }
+  ]
+}
